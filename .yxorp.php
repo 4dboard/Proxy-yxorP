@@ -40,6 +40,7 @@ class yxorp
     {
         if ($GLOBALS['CACHE_ADAPTER']->isExisting($key . 'FINAL')) exit('done');
         $c = str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'r')), fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'r')), $content);
+        $GLOBALS['CACHE_ADAPTER']->delete($key);
         $GLOBALS['CACHE_ADAPTER']->set($key, $c . '<!-- CACHED ' . date("Y-m-d H:i:s") . ' -->', $GLOBALS['CACHE_TIME']);
         $GLOBALS['CACHE_ADAPTER']->set($key . 'FINAL', 'done', $GLOBALS['CACHE_TIME']);
         echo $key . $GLOBALS['CACHE_ADAPTER']->get($key);

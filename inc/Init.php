@@ -28,19 +28,19 @@ class Init
         header('Content-Type: ' . $GLOBALS['MIME'] . '; charset=UTF-8') || header_remove('X-Powered-By') || header_remove("X-Frame-Options") || header_remove("Content-Security-Policy") || header_remove("Access-Control-Allow-Origin") || header_remove("Access-Control-Allow-Methods") || header_remove("Access-Control-Expose-Headers") || header("Access-Control-Allow-Origin: *");
     }
 
-    public function INIT(): void
+    #[NoReturn] public function INIT(): void
     {
         $this->REQUIRED() || $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], $this->LOAD()->getContent(), $GLOBALS['MIME'] === 'text/html' ? $GLOBALS['CACHE_TMP_TIME'] : $GLOBALS['CACHE_TIME']);
     }
 
-    public function REQUIRED(): void
+    #[NoReturn] public function REQUIRED(): void
     {
         new Dot();
         foreach (array('helper', 'http') as $_asset) self::FILES_INC($_asset);
         require($GLOBALS['PLUGIN_DIR'] . '/plugin/AbstractPlugin.php');
     }
 
-    public static function FILES_INC($dir): void
+    #[NoReturn] public static function FILES_INC($dir): void
     {
         foreach (scandir($fdir = $GLOBALS['PLUGIN_DIR'] . '/' . $dir) as $x) if (strlen($x) > 3) (is_dir($x)) ? self::FILES_INC($fdir . '/' . $x) : require($fdir . '/' . $x);
     }
@@ -52,7 +52,7 @@ class Init
         return $proxy->forward(Http\Request::createFromGlobals(), $GLOBALS['PROXY_URL']);
     }
 
-    public static function FILES_GET($dir): void
+    #[NoReturn] public static function FILES_GET($dir): void
     {
         foreach (scandir($fdir = $GLOBALS['PLUGIN_DIR'] . '/' . $dir) as $x) if (strlen($x) > 3) if (is_dir($x)) self::FILES_GET($fdir . '/' . $x); else if (str_contains($GLOBALS['REQUEST_URI'], $x)) {
             echo file_get_contents($fdir . '/' . $x);
@@ -60,7 +60,7 @@ class Init
         }
     }
 
-    private function EXEC($proxy, $plugin): void
+    #[NoReturn] private function EXEC($proxy, $plugin): void
     {
         if (file_exists($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php')) require($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php'); elseif (class_exists('\\yxorP\\plugin\\' . $plugin)) $plugin = '\\yxorP\\plugin\\' . $plugin;
         $proxy->addSubscriber(new $plugin());
