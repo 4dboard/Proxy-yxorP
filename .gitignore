@@ -1,0 +1,10 @@
+.composer.lock
+vendor
+.idea
+Override/*.com
+!.github/*
+!/override/www.example.com
+!/override/default
+index.php
+.env
+.cache/*

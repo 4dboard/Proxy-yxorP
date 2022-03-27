@@ -1,0 +1,9 @@
+recipe: lamp
+name: .yxorp
+config:
+  php: '8.1'
+  webroot: .
+  xdebug: true
+services:
+  myservice:
+    type: memcached:1.5.11
