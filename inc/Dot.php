@@ -42,7 +42,6 @@ class Dot
         $GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']) || Handler::register($GLOBALS['BUGSNAG']) || $GLOBALS['REQUEST_URI'] = @$_SERVER['REQUEST_URI'];
         $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'];
         $GLOBALS['CACHE_TIME'] = time() + (60 * 60 * 24 * 31);
-        $GLOBALS['CACHE_TMP_TIME'] = time() + (60 * 60);
     }
 
 }

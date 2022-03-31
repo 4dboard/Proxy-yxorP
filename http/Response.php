@@ -94,7 +94,7 @@ class Response
             return;
         }
 
-        header(sprintf('HTTP/1.1 %s %s', $this->status, $this->getStatusText()), true, $this->status);
+        @header(sprintf('HTTP/1.1 %s %s', $this->status, $this->getStatusText()), true, $this->status);
 
         foreach ($this->headers->all() as $name => $value) {
 
@@ -102,7 +102,7 @@ class Response
             $values = is_array($value) ? $value : array($value);
 
             foreach ($values as $item) {
-                header("$name: $item", false);
+                @header("$name: $item", false);
             }
         }
     }
