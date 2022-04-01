@@ -8,10 +8,10 @@ use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/abstract.php");
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/driver.php");
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheCoreException.php");
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheDriverException.php");
+require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/abstract.php");
+require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/driver.php");
+require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheCoreException.php");
+require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheDriverException.php");
 
 
 if (!function_exists("__c")) {
@@ -56,6 +56,9 @@ class cache_instances
 }
 
 
+/**
+ * @method isExisting(string $CACHE_KEY)
+ */
 class cache
 {
 
@@ -284,7 +287,7 @@ allow from 127.0.0.1";
         }
     }
 
-    #[NoReturn] public static function debug($something): void
+    public static function debug($something): void
     {
         echo "Starting Debugging ...<br>\r\n ";
         if (is_array($something)) {
@@ -301,7 +304,7 @@ allow from 127.0.0.1";
 
     public static function required($class): void
     {
-        require_once($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
+        require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
     }
 
     #[ArrayShape(["os" => "string", "php" => "string", "system" => "string", "unique" => "string"])] protected static function getOS(): array

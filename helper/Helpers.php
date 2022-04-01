@@ -137,7 +137,7 @@ function proxify_url($url, $base_url = '')
         $base_url = add_http($base_url);
         $url = rel2abs($url, $base_url);
     }
-    return str_replace($GLOBALS['TARGET_URL'], '', $url);
+    return str_replace(@$GLOBALS['TARGET_URL'], '', $url);
 }
 
 function rel2abs($rel, $base)

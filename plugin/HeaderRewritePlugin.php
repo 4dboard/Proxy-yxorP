@@ -31,7 +31,7 @@ class HeaderRewritePlugin extends AbstractPlugin
         $text = $response->getStatusText();
 
         if ($code >= 400 && $code <= 600) {
-            $GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error accessing resource: {$code} - {$text}"));
+            @$GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error accessing resource: {$code} - {$text}"));
         }
 
         $forward_headers = array('content-type', 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');

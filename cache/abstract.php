@@ -278,7 +278,7 @@ abstract class BaseCache
         if (count($this->option("system")) == 0) {
             $this->option['system']['driver'] = "files";
             $this->option['system']['drivers'] = array();
-            $dir = @opendir($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/");
+            $dir = @opendir(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/");
             if (!$dir) {
                 throw new cacheCoreException("Can't open file dir ext", 100);
             }
@@ -286,7 +286,7 @@ abstract class BaseCache
             while ($file = @readdir($dir)) {
                 if ($file !== "." && $file !== ".." && str_contains($file, ".php")
                 ) {
-                    require_once($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $file);
+                    require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $file);
                     $namex = str_replace(".php", "", $file);
                     $class = "cache_" . $namex;
                     $this->option['skipError'] = true;
@@ -333,7 +333,7 @@ abstract class BaseCache
 
     protected function required_extension($name): void
     {
-        require_once($GLOBALS['PLUGIN_DIR'] . "/cache/_extensions/" . $name);
+        require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/_extensions/" . $name);
     }
 
     /**
@@ -405,8 +405,8 @@ allow from 127.0.0.1";
 
     protected function isExistingDriver($class): bool
     {
-        if (file_exists($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php")) {
-            require_once($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
+        if (file_exists(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php")) {
+            require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
             if (class_exists("cache_" . $class)) {
                 return true;
             }

@@ -16,22 +16,22 @@ class BlockListPlugin extends AbstractPlugin
         $url = $event['request']->getUrl();
         $url_host = parse_url($url, PHP_URL_HOST);
 
-        $fnc_custom = $GLOBALS['BLOCKLIST'];
+        $fnc_custom = @$GLOBALS['BLOCKLIST'];
         if (is_callable($fnc_custom)) {
 
             $ret = $fnc_custom(compact('user_ip', 'user_ip_long', 'url', 'url_host'));
             if (!$ret) {
-                $GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error: Access Denied!"));
+                @$GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error: Access Denied!"));
             }
 
             return;
         }
 
-        $url_block = (array)$GLOBALS['BLOCKLIST'];
+        $url_block = (array)@$GLOBALS['BLOCKLIST'];
         foreach ($url_block as $ub) {
 
             if (str_contains($url, $ub)) {
-                $GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
+                @$GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
                 return;
             }
         }
@@ -39,8 +39,8 @@ class BlockListPlugin extends AbstractPlugin
         $ip_match = false;
         $action_block = true;
 
-        if ($GLOBALS['BLOCKLIST']) {
-            $ip_match = $GLOBALS['BLOCKLIST'];
+        if (@$GLOBALS['BLOCKLIST']) {
+            $ip_match = @$GLOBALS['BLOCKLIST'];
             $action_block = false;
         }
 
@@ -48,7 +48,7 @@ class BlockListPlugin extends AbstractPlugin
             $m = re_match($ip_match, $user_ip);
 
             if (($m && $action_block) || (!$m && !$action_block)) {
-                $GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error: Access denied!"));
+                @$GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error: Access denied!"));
             }
         }
     }

@@ -223,7 +223,7 @@ class Request
 
     public function getUrl(): string
     {
-        return $GLOBALS['PROXY_URL'];
+        return @$GLOBALS['PROXY_URL'];
     }
 
     public function setUrl($url): void
