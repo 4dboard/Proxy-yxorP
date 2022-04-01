@@ -12,7 +12,14 @@ class Init
 {
     public function __construct()
     {
-        $this->REQUIRED() || $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], $this->LOAD()->getContent(), $GLOBALS['CACHE_TIME']);
+
+        $this->REQUIRED() || $this->STORE();
+    }
+
+    #[NoReturn] private function STORE(): void
+    {
+        $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'r')),
+            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'r')), $this->LOAD()->getContent()));
     }
 
     #[NoReturn] public function REQUIRED(): void

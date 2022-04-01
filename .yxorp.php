@@ -55,26 +55,8 @@ class yxorp
         }
     }
 
-    #[NoReturn] private function STORE($key)
-    {
-        $_final = $key . 'FINAL';
-        if ($GLOBALS['CACHE_ADAPTER']->isExisting($_final)) exit('done');
-
-        $_content = str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'r')),
-            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'r')),
-            $GLOBALS['CACHE_ADAPTER']->get($key));
-
-        $GLOBALS['CACHE_ADAPTER']->delete($key);
-
-        $GLOBALS['CACHE_ADAPTER']->set($key, $_content . '<!-- CACHED FINAL: [' . $key . '] ' . date("Y-m-d H:i:s") . ' -->', $GLOBALS['CACHE_TIME']);
-
-        return (str_contains($GLOBALS['CACHE_ADAPTER']->get($key), $key)) ? exit($key) : $this->STORE($key);
-    }
-
     #[NoReturn] private function LOAD(): void
     {
-        if (isset($_GET["URL"])) $this->STORE(base64_encode($_GET["URL"]));
-
         if (!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['CACHE_KEY'])) $this->FETCH();
 
         echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
