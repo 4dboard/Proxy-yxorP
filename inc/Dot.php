@@ -33,8 +33,9 @@ class Dot
 
     #[NoReturn] private function INIT_OVERIDE(): void
     {
-        $_path = $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST'] . '/overrides.json';
-        if (file_exists($_path)) foreach ((array)json_decode(file_get_contents($_path), false, 512, JSON_THROW_ON_ERROR) as $key => $value) $GLOBALS[$key] = $value;
+        foreach ((array)json_decode( file_get_contents((file_exists($GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST'])) ?
+            $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST'] . '/overrides.json' : $GLOBALS['PLUGIN_DIR'] . '/override/default/overrides.json'),
+            false, 512, JSON_THROW_ON_ERROR) as $key => $value) $GLOBALS[$key] = $value;
     }
 
     #[NoReturn]  private function REGISTER(): void
