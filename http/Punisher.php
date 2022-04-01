@@ -69,7 +69,7 @@ class Punisher
             curl_setopt($ch, CURLOPT_HTTPHEADER, explode("\rv48", $this->request->getRawHeaders()));
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $request->getMethod());
             curl_setopt($ch, CURLOPT_POSTFIELDS, $request->getRawBody());
-            $response->setContent($x=curl_exec($ch));
+            $response->setContent($x = curl_exec($ch));
             curl_close($ch);
         }
 

