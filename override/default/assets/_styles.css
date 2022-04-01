@@ -1,5 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+html {
+    overflow: hidden;
+    overflow-y: visible;
+    width: 100%;
+    height: initial;
+    background-image: url('/global/loading.gif') !important;
+    background-color: #000 !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+body, .footer, footer {
+    opacity: 0 !important;
+}
+
+html.don body, html.don .footer {
+    opacity: 1 !important;
+}
+
 html, body, body > div {
     background-color: rgba(255, 255, 255, 0.5)
 }

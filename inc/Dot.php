@@ -17,20 +17,6 @@ class Dot
         $this->INIT_ENV() || $this->INIT_OVERIDE() || $this->REGISTER();
     }
 
-    public static function str_starts_with($haystack, $needle): bool
-    {
-        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) == 0;
-    }
-
-    #[NoReturn] private function INIT_ENV(): void
-    {
-        foreach (@file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
-            if (self::str_starts_with(trim($line), '#')) continue;
-            [$name, $value] = explode('=', $line, 2);
-            $GLOBALS[$name] = $value;
-        }
-    }
-
     #[NoReturn] private function INIT_OVERIDE(): void
     {
         foreach ((array)json_decode( file_get_contents((file_exists($GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST'])) ?
@@ -45,4 +31,17 @@ class Dot
         $GLOBALS['CACHE_TIME'] = time() + (60 * 60 * 24 * 31);
     }
 
+    #[NoReturn] private function INIT_ENV(): void
+    {
+        foreach (@file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
+            if (self::str_starts_with(trim($line), '#')) continue;
+            [$name, $value] = explode('=', $line, 2);
+            $GLOBALS[$name] = $value;
+        }
+    }
+
+    public static function str_starts_with($haystack, $needle): bool
+    {
+        return (string)$needle !== '' && strncmp($haystack, $needle, strlen($needle)) == 0;
+    }
 }

@@ -12,14 +12,18 @@ class Init
 {
     public function __construct()
     {
-
-        $this->REQUIRED() || $this->STORE();
+        $this->REQUIRED() || $this->STORE($this->LOAD()->getContent());
     }
 
-    #[NoReturn] private function STORE(): void
+    #[NoReturn] private function STORE($CONTENT): void
+    {
+        $this->PRINT($CONTENT) || $this->SET($CONTENT);
+    }
+
+    #[NoReturn] private function SET($CONTENT): void
     {
         $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'r')),
-            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'r')), $this->LOAD()->getContent()));
+            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'r')), $CONTENT));
     }
 
     #[NoReturn] public function REQUIRED(): void
@@ -53,6 +57,11 @@ class Init
     {
         if (file_exists($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php')) require($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php'); elseif (class_exists('\\yxorP\\plugin\\' . $plugin)) $plugin = '\\yxorP\\plugin\\' . $plugin;
         $proxy->addSubscriber(new $plugin());
+    }
+
+    #[NoReturn] private function PRINT($CONTENT): void
+    {
+        echo $CONTENT;
     }
 
 }

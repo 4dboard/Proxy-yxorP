@@ -55,13 +55,22 @@ class yxorp
         }
     }
 
+    #[NoReturn] private function GO(): void
+    {
+        if (!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['CACHE_KEY']))  $this->FETCH(); else
+            echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
+    }
+
+
+    #[NoReturn] private function CLEAR(): void
+    {
+        if (isset($_GET["DONCLEAR"])) $GLOBALS['CACHE_ADAPTER']->clean();
+    }
+
     #[NoReturn] private function LOAD(): void
     {
-        if (!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['CACHE_KEY'])) $this->FETCH();
 
-        echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
-
-        if (isset($_GET["DONCLEAR"])) $GLOBALS['CACHE_ADAPTER']->clean();
+        $this->GO() || $this->CLEAR;
     }
 
 
