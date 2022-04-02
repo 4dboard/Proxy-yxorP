@@ -1,4 +1,4 @@
-<?php error_reporting(1);
+<?php error_reporting(0);
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
@@ -95,33 +95,6 @@ class yxorp
         }
     }
 
-    public function FILES_CHECK($dir, $inc): void
-    {
-        foreach (@scandir(@$dir) as $x)
-            if (@strlen(@$x) > 3) if (@is_dir($_loc = @$dir . '/' . @$x)) $this->FILES_CHECK(@$_loc); else if (@$inc) require(@$_loc); else if (@str_contains(@$GLOBALS['REQUEST_URI'], @$x)) {
-                echo @file_get_contents(@$_loc);
-                exit;
-            }
-
-    }
-
-    public function setOutputBuffering($output_buffering): void
-    {
-        $this->output_buffering = @$output_buffering;
-    }
-
-    public function addListener($event, $callback, $priority = 0): void
-    {
-        $this->listeners[$event][$priority][] = @$callback;
-    }
-
-    public function addSubscriber($subscriber): void
-    {
-        if (@method_exists(@$subscriber, 'subscribe')) {
-            $subscriber->subscribe($this);
-        }
-    }
-
     public function forward(Request $request, $url): Response
     {
         $request->setUrl(@$url);
@@ -165,6 +138,23 @@ class yxorp
 
     }
 
+    public function FILES_CHECK($dir, $inc): void
+    {
+        foreach (@scandir(@$dir) as $x)
+            if (@strlen(@$x) > 3) if (@is_dir($_loc = @$dir . '/' . @$x)) $this->FILES_CHECK(@$_loc); else if (@$inc) require(@$_loc); else if (@str_contains(@$GLOBALS['REQUEST_URI'], @$x)) {
+                echo @file_get_contents(@$_loc);
+                exit;
+            }
+
+    }
+
+    public function addSubscriber($subscriber): void
+    {
+        if (@method_exists(@$subscriber, 'subscribe')) {
+            $subscriber->subscribe($this);
+        }
+    }
+
     private function dispatch($event_name, $event): void
     {
         if (isset($this->listeners[@$event_name])) {
@@ -196,4 +186,16 @@ class yxorp
 
         return @$len;
     }
+
+
+    public function setOutputBuffering($output_buffering): void
+    {
+        $this->output_buffering = @$output_buffering;
+    }
+
+    public function addListener($event, $callback, $priority = 0): void
+    {
+        $this->listeners[$event][$priority][] = @$callback;
+    }
+
 }
