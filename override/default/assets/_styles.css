@@ -34,7 +34,15 @@ html img {
 }
 
 
-body {
+body, .footer, footer {
+    opacity: 0;
+}
+
+* {
+    transition: all 1s ease;
+}
+
+html.don body {
     background-image: url("/bg.gif") !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;
@@ -43,13 +51,6 @@ body {
     top: initial !important;
 }
 
-body, .footer, footer {
-    opacity: 0;
-}
-
-* {
-    transition: all 1s ease;
-}
 
 html.don body, html.don .footer {
     opacity: 1;

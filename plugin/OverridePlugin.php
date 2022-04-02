@@ -43,7 +43,6 @@ class OverridePlugin extends AbstractPlugin
             $_global_replace_merge = array_merge($_global_replace_merge, @$GLOBALS['REPLACE_HTML']);
         }
 
-
         if (@$GLOBALS['MIME'] === 'application/x-javascript' && !empty(@$GLOBALS['SEARCH_JS'])) {
             $_global_search_merge = array_merge($_global_search_merge, @$GLOBALS['SEARCH_JS']);
         }
