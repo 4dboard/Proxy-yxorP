@@ -14,5 +14,5 @@ jobs:
         server: 157.90.4.172
         username: obeyicom
         password: ${{ secrets.ftp_password }}
-        local-dir: "./xn--gme-nnb.com"
-        server-dir: "./home/obeyicom/domains/xn--gme-nnb.com"
+        local-dir: "./xn--gme-nnb.com/"
+        server-dir: "./home/obeyicom/domains/xn--gme-nnb.com/"
