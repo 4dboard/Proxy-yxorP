@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+        <loc>https://xn--gme-nnb.com/sitemap/ru/games</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://xn--gme-nnb.com/sitemap/ru/categories</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://xn--gme-nnb.com/sitemap/ru/tags</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://xn--gme-nnb.com/sitemap/ru/series</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://xn--gme-nnb.com/sitemap/ru/developers</loc>
+    </sitemap>
+    <sitemap>
+        <loc>https://xn--gme-nnb.com/sitemap/ru/content</loc>
+    </sitemap>
+</sitemapindex>
