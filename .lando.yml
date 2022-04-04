@@ -1,9 +1,15 @@
 recipe: lamp
 name: .yxorp
 config:
-  php: '8.1'
+  php: '8'
   webroot: .
   xdebug: true
 services:
-  myservice:
+  memcached:
     type: memcached:1.5.11
+  appserver:
+    overrides:
+      environment:
+        # Support debugging CLI with XDEBUG.
+        PHP_IDE_CONFIG: "serverName=appserver"
+        XDEBUG_SESSION_START: lando
