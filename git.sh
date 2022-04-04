@@ -1,4 +1,5 @@
 #!/bin/bash
+cd "./xn--gme-nnb.com/.yxorp" && ./git.sh && cd "../../xn--ply-onb.com/public_html" && ./git.sh && cd "../../" 
 git push origin HEAD:main
 git pull git@github.com:donPabloNow/sites.git main
 git submodule update --init --recursive
