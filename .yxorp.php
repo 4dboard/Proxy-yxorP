@@ -107,27 +107,7 @@ class yxorp
             'response' => @$response
         )));
 
-        if (!$this->request->params->has('request.complete')) {
-            $ch = @curl_init($this->request->getUri());
-            //curl_setopt($ch,CURLOPT_HEADERFUNCTION,  array($this, 'header_callback'));
-            @curl_setopt(@$ch, CURLOPT_WRITEFUNCTION, array($this, 'write_callback'));
-            @curl_setopt(@$ch, CURLOPT_CONNECTTIMEOUT, 10);
-            @curl_setopt(@$ch, CURLOPT_TIMEOUT, 0);
-            @curl_setopt(@$ch, CURLOPT_RETURNTRANSFER, 1);
-            @curl_setopt(@$ch, CURLOPT_HEADER, 0);
-            @curl_setopt(@$ch, CURLOPT_FOLLOWLOCATION, 0);
-            @curl_setopt(@$ch, CURLOPT_AUTOREFERER, 0);
-            @curl_setopt(@$ch, CURLOPT_RETURNTRANSFER, 1);
-            @curl_setopt(@$ch, CURLOPT_VERBOSE, 0);
-            @curl_setopt(@$ch, CURLOPT_SSL_VERIFYHOST, 0);
-            @curl_setopt(@$ch, CURLOPT_SSL_VERIFYPEER, 0);
-            @curl_setopt(@$ch, CURLOPT_HTTPHEADER, explode("\rv48", $this->request->getRawHeaders()));
-            @curl_setopt(@$ch, CURLOPT_CUSTOMREQUEST, $request->getMethod());
-            @curl_setopt(@$ch, CURLOPT_POSTFIELDS, $request->getRawBody());
-            $response->setContent($x = @curl_exec(@$ch));
-            @curl_close($ch);
-        }
-
+        $response->setContent(shell_exec('curl -k -v -X GET  ' . $this->request->getUri()));
 
         $this->dispatch('request.complete', new ProxyEvent(array(
             'request' => $this->request,
