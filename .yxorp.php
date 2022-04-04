@@ -1,4 +1,4 @@
-<?php error_reporting(1);
+<?php error_reporting(0);
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
@@ -28,7 +28,7 @@ class yxorp
 
     private bool $output_buffering = true;
     private string $output_buffer = '';
-
+ 
     private array $listeners = array();
 
     public function __construct($TARGET_URL)
