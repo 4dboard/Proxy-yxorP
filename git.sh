@@ -1,5 +1,5 @@
 #!/bin/bash
-git pull git@github.com:donPabloNow/sites.git origin master --allow-unrelated-histories
+git pull git@github.com:donPabloNow/sites.git main --allow-unrelated-histories
 git push origin HEAD:main
 git pull git@github.com:donPabloNow/sites.git main
 git submodule update --init --recursive
