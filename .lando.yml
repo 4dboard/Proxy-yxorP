@@ -1,24 +1,18 @@
 recipe: lamp
 name: .yxorp
 config:
-<<<<<<< HEAD
-  php: '8'
-=======
   php: '8.0'
->>>>>>> c728ee656ce1149caca7efa6624be9a3d5beab8d
   webroot: .
   xdebug: true
 services:
   memcached:
     type: memcached:1.5.11
-<<<<<<< HEAD
   appserver:
     overrides:
       environment:
         # Support debugging CLI with XDEBUG.
         PHP_IDE_CONFIG: "serverName=appserver"
         XDEBUG_SESSION_START: lando
-=======
   mysql:
     type: mysql
     # https://docs.lando.dev/config/services.html#service-url-scanning
@@ -26,4 +20,3 @@ services:
     overrides:
       entrypoint: 'echo disabled service'
       restart: no
->>>>>>> c728ee656ce1149caca7efa6624be9a3d5beab8d
