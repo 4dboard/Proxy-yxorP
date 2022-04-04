@@ -21,9 +21,7 @@ class YoutubePlugin extends AbstractPlugin
             $response->headers->set('location', proxify_url("https:www.youtube.com/feed/trending", $url));
             return;
         }
-        $output = Html::remove("#header", $output);
-        $output = preg_replace('@masthead-positioner">@', 'masthead-positioner" style="position:static;">', $output, 1);
-        $output = preg_replace_callback('/<img[^>]+data-thumb="(.*?)"[^>]*/is' static static function ($matches) {
+        $output = preg_replace_callback('/<img[^>]+data-thumb="(.*?)"[^>]*/is', static function ($matches) {
         $has_src = str_contains($matches[0], 'src="');
         $thumb_url = proxify_url($matches[1], false);
         if ($has_src) {
@@ -31,7 +29,7 @@ class YoutubePlugin extends AbstractPlugin
             return preg_replace('/src="(.*?)"/i', 'src_replaced="1" src="' . $thumb_url . '"', $matches[0]);
         }
         return preg_replace('/data-thumb="(.*?)"/i', 'src_added="1" src="' . $thumb_url . '"', $matches[0]);
-    }, $output)
+    }, preg_replace('@masthead-positioner">@', 'masthead-positioner" style="position:static;">', Html::remove("#header", $output), 1));
         $youtube = new YouTubeDownloader();
         $links = $youtube->getDownloadLinks($url, "mp4 360, mp4");
         if ($links) {
