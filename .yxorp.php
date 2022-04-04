@@ -107,7 +107,7 @@ class yxorp
             'response' => @$response
         )));
 
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') $response->setContent(shell_exec('curl -k -v -X GET  ' . $this->request->getUri())); else
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') $response->setContent(shell_exec('curl -X GET  ' . $this->request->getUri())); else
             if (!$this->request->params->has('request.complete')) {
                 $ch = @curl_init($this->request->getUri());
                 //curl_setopt($ch,CURLOPT_HEADERFUNCTION,  array($this, 'header_callback'));
