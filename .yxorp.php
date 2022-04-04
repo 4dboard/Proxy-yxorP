@@ -10,6 +10,7 @@ use yxorP\Http\Response;
 require (@$GLOBALS['PLUGIN_DIR'] = __DIR__) . '/cache/Cache.php';
 require @$GLOBALS['PLUGIN_DIR'] . '/guzzle.phar';
 require @$GLOBALS['PLUGIN_DIR'] . '/bugsnag.phar';
+
 header_remove('X-Powered-By');
 header_remove("X-Frame-Options");
 header_remove("Content-Security-Policy");
@@ -22,6 +23,8 @@ class yxorp
 {
 
     private $request;
+    private $client;
+    private $cookieDir;
 
     private bool $output_buffering = true;
     private string $output_buffer = '';
@@ -32,12 +35,21 @@ class yxorp
     {
         @ini_set('default_charset', 'utf-8');
 
-        @$GLOBALS['SITE_HOST'] = @parse_url(@$GLOBALS['SITE_URL'] = 'https://' . @$_SERVER['HTTP_HOST'], PHP_URL_HOST);
+        @$GLOBALS['SITE_URL'] = 'https://' . @$GLOBALS['SITE_HOST'] = @$_SERVER['HTTP_HOST'];
         @$GLOBALS['TARGET_HOST'] = @parse_url(@$GLOBALS['TARGET_URL'] = @$TARGET_URL, PHP_URL_HOST);
         @$GLOBALS['CACHE_KEY'] = @base64_encode(@$GLOBALS['REQUEST_URI'] = @$_SERVER['REQUEST_URI']);
 
-        if (!file_exists(@$GLOBALS['CACHE_DIR'] = @$GLOBALS['PLUGIN_DIR'] . '/.cache/'))
-            mkdir($concurrentDirectory = @$GLOBALS['CACHE_DIR'], 0777, true);
+        if (!file_exists(@$GLOBALS['CACHE_DIR'] = @$GLOBALS['PLUGIN_DIR'] . '/.cache/')) {
+            if (!mkdir($concurrentDirectory = $concurrentDirectory = @$GLOBALS['CACHE_DIR'], 0777, true) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
+        }
+
+        if (!file_exists(@$GLOBALS['COOKIE_DIR'] = @$GLOBALS['PLUGIN_DIR'] . '/.cookie/')) {
+            if (!mkdir($concurrentDirectory = $concurrentDirectory = @$GLOBALS['COOKIE_DIR'], 0777, true) && !is_dir($concurrentDirectory)) {
+                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
+        }
 
         $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd.microsoft.icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd.ms-cab-compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd.adobe.photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'odt' => 'application/vnd.oasis.opendocument.text', 'ods' => 'application/vnd.oasis.opendocument.spreadsheet');
         $_ext = @pathinfo(@strtok(@$GLOBALS['REQUEST_URI'], '?'), PATHINFO_EXTENSION);
@@ -46,9 +58,14 @@ class yxorp
         @header('Content-Type: ' . @$GLOBALS['MIME'] . '; charset=UTF-8');
         @$GLOBALS['CACHE_ADAPTER'] = new yxorP\cache\Cache();
 
-        if (@$_GET["DONCLEAR"] !== null) @$GLOBALS['CACHE_ADAPTER']->clean();
-        if (!(@$GLOBALS['CACHE_ADAPTER'])->isExisting(@$GLOBALS['CACHE_KEY'])) $this->FETCH();
-        else echo @$GLOBALS['CACHE_ADAPTER']->get(@$GLOBALS['CACHE_KEY']);
+        if (@$_GET["DONCLEAR"] !== null) {
+            @$GLOBALS['CACHE_ADAPTER']->clean();
+        }
+        if (!(@$GLOBALS['CACHE_ADAPTER'])->isExisting(@$GLOBALS['CACHE_KEY'])) {
+            $this->FETCH();
+        } else {
+            echo @$GLOBALS['CACHE_ADAPTER']->get(@$GLOBALS['CACHE_KEY']);
+        }
 
     }
 
@@ -65,7 +82,9 @@ class yxorp
         try {
 
             foreach (@file(@$GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
-                if (@trim(@strpos(@trim(@$line), '#') === 0)) continue;
+                if (@trim(@strpos(@trim(@$line), '#') === 0)) {
+                    continue;
+                }
                 [$name, $value] = explode('=', @$line, 2);
                 @$GLOBALS[$name] = @$value;
             }
@@ -73,25 +92,32 @@ class yxorp
             Handler::register(@$GLOBALS['BUGSNAG'] = Client::make(@$GLOBALS['BUG_SNAG_KEY']));
 
             foreach ((array)@json_decode(@file_get_contents(@$GLOBALS['OVERRIDE_DIR'] . '/overrides.json'),
-                false, 512, JSON_THROW_ON_ERROR) as $key => $value) @$GLOBALS[$key] = @$value;
+                false, 512, JSON_THROW_ON_ERROR) as $key => $value) {
+                @$GLOBALS[$key] = @$value;
+            }
 
             foreach (array('/helper', '/http') as $_asset) $this->FILES_CHECK(@$GLOBALS['PLUGIN_DIR'] . $_asset, true);
 
             foreach (@$GLOBALS['PLUGINS'] as $plugin) {
-                if (@file_exists(@$GLOBALS['PLUGIN_DIR'] . '/plugin/' . @$plugin . '.php')) require(@$GLOBALS['PLUGIN_DIR'] . '/plugin/' . @$plugin . '.php');
-                elseif (@class_exists('\\yxorP\\plugin\\' . @$plugin)) @$plugin = '\\yxorP\\plugin\\' . @$plugin;
+                if (@file_exists(@$GLOBALS['PLUGIN_DIR'] . '/plugin/' . @$plugin . '.php')) {
+                    require(@$GLOBALS['PLUGIN_DIR'] . '/plugin/' . @$plugin . '.php');
+                } elseif (@class_exists('\\yxorP\\plugin\\' . @$plugin)) {
+                    @$plugin = '\\yxorP\\plugin\\' . @$plugin;
+                }
                 $this->addSubscriber(new $plugin());
             }
 
             echo $_content = @$this->forward(Http\Request::createFromGlobals(), @$GLOBALS['PROXY_URL'] = @$GLOBALS['TARGET_URL'] . @$GLOBALS['REQUEST_URI'] = @$_SERVER['REQUEST_URI'])->getContent();
-            @$GLOBALS['CACHE_ADAPTER']->set(@$GLOBALS['CACHE_KEY'], @preg_replace_callback('(<p>(.*?)</p>)', function ($m) {
+            @$GLOBALS['CACHE_ADAPTER']->set(@$GLOBALS['CACHE_KEY'], @preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {
                     return '<p>' . @str_replace(fgetcsv(fopen(@$GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'rb')),
                             @fgetcsv(@fopen(@$GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'rb')), @$m[1]);
                 }, @$_content) . '</p>', @$GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31));
 
         } catch (exception $e) {
             @$GLOBALS['BUGSNAG']->notifyException(@$e->__toString());
-            if (@$GLOBALS['MIME'] !== 'text/html') @header("Location: " . @$GLOBALS['PROXY_URL']);
+            if (@$GLOBALS['MIME'] !== 'text/html') {
+                return @header("Location: " . @$GLOBALS['PROXY_URL']);
+            }
         }
     }
 
@@ -107,25 +133,10 @@ class yxorp
             'response' => @$response
         )));
 
+
         if (!$this->request->params->has('request.complete')) {
-            $ch = @curl_init($this->request->getUri());
-            //curl_setopt($ch,CURLOPT_HEADERFUNCTION,  array($this, 'header_callback'));
-            @curl_setopt(@$ch, CURLOPT_WRITEFUNCTION, array($this, 'write_callback'));
-            @curl_setopt(@$ch, CURLOPT_CONNECTTIMEOUT, 10);
-            @curl_setopt(@$ch, CURLOPT_TIMEOUT, 0);
-            @curl_setopt(@$ch, CURLOPT_RETURNTRANSFER, 1);
-            @curl_setopt(@$ch, CURLOPT_HEADER, 0);
-            @curl_setopt(@$ch, CURLOPT_FOLLOWLOCATION, 0);
-            @curl_setopt(@$ch, CURLOPT_AUTOREFERER, 0);
-            @curl_setopt(@$ch, CURLOPT_RETURNTRANSFER, 1);
-            @curl_setopt(@$ch, CURLOPT_VERBOSE, 1);
-            @curl_setopt(@$ch, CURLOPT_SSL_VERIFYHOST, 0);
-            @curl_setopt(@$ch, CURLOPT_SSL_VERIFYPEER, 0);
-            @curl_setopt(@$ch, CURLOPT_HTTPHEADER, explode("\rv48", $this->request->getRawHeaders()));
-            @curl_setopt(@$ch, CURLOPT_CUSTOMREQUEST, $request->getMethod());
-            @curl_setopt(@$ch, CURLOPT_POSTFIELDS, $request->getRawBody());
-            $response->setContent(@curl_exec(@$ch));
-            @curl_close($ch);
+            $this->client = $this->client ?: new \GuzzleHttp\Client();
+            $response->setContent($this->client->request($this->request->getMethod(), $this->request->getUri(), $_REQUEST, $_FILES)->getBody());
         }
 
         $this->dispatch('request.complete', new ProxyEvent(array(
@@ -135,15 +146,24 @@ class yxorp
 
         return @$response;
 
+
     }
 
     public function FILES_CHECK($dir, $inc): void
     {
-        foreach (@scandir(@$dir) as $x)
-            if (@strlen(@$x) > 3) if (@is_dir($_loc = @$dir . '/' . @$x)) $this->FILES_CHECK(@$_loc); else if (@$inc) require(@$_loc); else if (@str_contains(@$GLOBALS['REQUEST_URI'], @$x)) {
-                echo @file_get_contents(@$_loc);
-                exit;
+        foreach (@scandir(@$dir) as $x) {
+            if (@strlen(@$x) > 3) {
+                if (@str_contains(@$x, 'Interface')) continue;
+                if (@is_dir($_loc = @$dir . '/' . @$x)) {
+                    $this->FILES_CHECK(@$_loc, $inc);
+                } else if (@$inc) {
+                    require_once(@$_loc);
+                } else if (@str_contains(@$GLOBALS['REQUEST_URI'], @$x)) {
+                    echo @file_get_contents(@$_loc);
+                    exit;
+                }
             }
+        }
 
     }
 
@@ -169,6 +189,16 @@ class yxorp
         }
     }
 
+    public function setOutputBuffering($output_buffering): void
+    {
+        $this->output_buffering = @$output_buffering;
+    }
+
+    public function addListener($event, $callback, $priority = 0): void
+    {
+        $this->listeners[$event][$priority][] = @$callback;
+    }
+
     private function write_callback($str): int
     {
 
@@ -186,15 +216,5 @@ class yxorp
         return @$len;
     }
 
-
-    public function setOutputBuffering($output_buffering): void
-    {
-        $this->output_buffering = @$output_buffering;
-    }
-
-    public function addListener($event, $callback, $priority = 0): void
-    {
-        $this->listeners[$event][$priority][] = @$callback;
-    }
 
 }
