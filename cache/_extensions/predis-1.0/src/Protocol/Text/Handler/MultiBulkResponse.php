@@ -1,12 +1,10 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text\Handler;
 
 use Predis\CommunicationException;
 use Predis\Connection\CompositeConnectionInterface;
 use Predis\Protocol\ProtocolException;
-
 
 class MultiBulkResponse implements ResponseHandlerInterface
 {

@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis;
 
 use Predis\Command\CommandInterface;

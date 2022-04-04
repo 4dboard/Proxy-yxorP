@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeyPersist extends Command
 {
 
@@ -11,7 +8,6 @@ class KeyPersist extends Command
     {
         return 'PERSIST';
     }
-
 
     public function parseResponse($data): bool
     {

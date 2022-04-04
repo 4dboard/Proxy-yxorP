@@ -1,12 +1,8 @@
 <?php /* yxorP */
 
-
 class cache_redis extends BaseCache implements cache_driver
 {
-
-
     public bool $checked_redis = false;
-
 
     public function __construct($config = array())
     {
@@ -19,7 +15,6 @@ class cache_redis extends BaseCache implements cache_driver
         }
 
     }
-
 
     public function checkdriver(): bool
     {
@@ -35,7 +30,7 @@ class cache_redis extends BaseCache implements cache_driver
     {
         if ($this->connectServer()) {
             $value = $this->encode($value);
-            if (isset($option['skipExisting']) && $option['skipExisting'] == true) {
+            if (isset($option['skipExisting']) && $option['skipExisting'] === true) {
                 return $this->instant->set($keyword, $value,
                     array('xx', 'ex' => $time));
             }
@@ -62,38 +57,36 @@ class cache_redis extends BaseCache implements cache_driver
             $host = $server['host'];
 
             $port = isset($server['port']) ? (int)$server['port'] : "";
-            if ($port != "") {
+            if ($port !== "") {
                 $c['port'] = $port;
             }
 
             $password = $server['password'] ?? "";
-            if ($password != "") {
+            if ($password !== "") {
                 $c['password'] = $password;
             }
 
             $database = $server['database'] ?? "";
-            if ($database != "") {
+            if ($database !== "") {
                 $c['database'] = $database;
             }
 
             $timeout = $server['timeout'] ?? "";
-            if ($timeout != "") {
+            if ($timeout !== "") {
                 $c['timeout'] = $timeout;
             }
 
             $read_write_timeout = $server['read_write_timeout'] ?? "";
-            if ($read_write_timeout != "") {
+            if ($read_write_timeout !== "") {
                 $c['read_write_timeout'] = $read_write_timeout;
             }
-
-
             if (!$this->instant->connect($host, (int)$port, (int)$timeout)) {
                 $this->checked_redis = true;
                 $this->fallback = true;
                 return false;
             }
 
-            if ($database != "") {
+            if ($database !== "") {
                 $this->instant->select((int)$database);
             }
             $this->checked_redis = true;
@@ -106,10 +99,8 @@ class cache_redis extends BaseCache implements cache_driver
     public function driver_get($keyword, $option = array())
     {
         if ($this->connectServer()) {
-
-
             $x = $this->instant->get($keyword);
-            if ($x == false) {
+            if ($x === false) {
                 return null;
             }
 
@@ -120,7 +111,6 @@ class cache_redis extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_delete($keyword, $option = array())
     {
 
@@ -129,7 +119,6 @@ class cache_redis extends BaseCache implements cache_driver
         }
 
     }
-
 
     public function driver_stats($option = array()): array
     {
@@ -145,7 +134,6 @@ class cache_redis extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_clean($option = array())
     {
         if ($this->connectServer()) {
@@ -154,12 +142,11 @@ class cache_redis extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_isExisting($keyword): ?bool
     {
         if ($this->connectServer()) {
             $x = $this->instant->exists($keyword);
-            return $x != null;
+            return $x !== null;
         }
 
         return $this->backup()->isExisting($keyword);

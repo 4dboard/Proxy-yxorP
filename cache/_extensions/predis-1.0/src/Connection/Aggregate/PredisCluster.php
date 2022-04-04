@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection\Aggregate;
 
 use ArrayIterator;
@@ -15,13 +14,11 @@ use Predis\Command\CommandInterface;
 use Predis\Connection\NodeConnectionInterface;
 use Predis\NotSupportedException;
 
-
-class PredisCluster implements ClusterInterface, IteratorAggregate, Countable
+abstract class PredisCluster implements ClusterInterface, IteratorAggregate, Countable
 {
     private array $pool;
     private PredisStrategy|StrategyInterface $strategy;
     private HashRing|DistributorInterface $distributor;
-
 
     public function __construct(StrategyInterface $strategy = null)
     {
@@ -29,7 +26,6 @@ class PredisCluster implements ClusterInterface, IteratorAggregate, Countable
         $this->strategy = $strategy ?: new PredisStrategy();
         $this->distributor = $this->strategy->getDistributor();
     }
-
 
     public function isConnected(): bool
     {
@@ -42,7 +38,6 @@ class PredisCluster implements ClusterInterface, IteratorAggregate, Countable
         return false;
     }
 
-
     public function connect()
     {
         foreach ($this->pool as $connection) {
@@ -50,14 +45,12 @@ class PredisCluster implements ClusterInterface, IteratorAggregate, Countable
         }
     }
 
-
     public function disconnect()
     {
         foreach ($this->pool as $connection) {
             $connection->disconnect();
         }
     }
-
 
     public function add(NodeConnectionInterface $connection)
     {
@@ -156,11 +149,9 @@ class PredisCluster implements ClusterInterface, IteratorAggregate, Countable
     {
         try {
             return $this->getConnection($command)->readResponse($command);
-        } catch (EmptyRingException $e) {
-        } catch (NotSupportedException $e) {
+        } catch (EmptyRingException|NotSupportedException $e) {
         }
     }
-
 
     /**
      * @throws NotSupportedException
@@ -169,11 +160,9 @@ class PredisCluster implements ClusterInterface, IteratorAggregate, Countable
     {
         try {
             return $this->getConnection($command)->executeCommand($command);
-        } catch (EmptyRingException $e) {
-        } catch (NotSupportedException $e) {
+        } catch (EmptyRingException|NotSupportedException $e) {
         }
     }
-
 
     public function executeCommandOnNodes(CommandInterface $command): array
     {

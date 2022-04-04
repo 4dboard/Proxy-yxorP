@@ -13,7 +13,6 @@ class HeaderRewritePlugin extends AbstractPlugin
         $event['request']->headers->remove('referer');
     }
 
-
     public function onHeadersReceived(ProxyEvent $event)
     {
 

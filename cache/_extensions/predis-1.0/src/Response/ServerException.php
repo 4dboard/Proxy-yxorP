@@ -1,10 +1,8 @@
 <?php /* yxorP */
 
-
 namespace Predis\Response;
 
 use Predis\PredisException;
-
 
 class ServerException extends PredisException implements ErrorInterface
 {
@@ -15,7 +13,6 @@ class ServerException extends PredisException implements ErrorInterface
 
         return $errorType;
     }
-
 
     public function toErrorResponse(): Error
     {

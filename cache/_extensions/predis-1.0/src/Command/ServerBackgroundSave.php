@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerBackgroundSave extends Command
 {
 
@@ -11,7 +8,6 @@ class ServerBackgroundSave extends Command
     {
         return 'BGSAVE';
     }
-
 
     public function parseResponse($data): bool
     {

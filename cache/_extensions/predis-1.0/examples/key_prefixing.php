@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // Predis can prefix keys found in commands arguments before sending commands to
@@ -12,7 +10,5 @@ $client = new Predis\Client($single_server, array('prefix' => 'nrk:'));
 
 $client->mset(array('foo' => 'bar', 'lol' => 'wut'));
 var_export($client->mget((array)'foo', 'lol'));
-
-
 var_export($client->keys('*'));
 

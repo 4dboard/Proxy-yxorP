@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class SetRemove extends Command
 {
 
@@ -11,7 +8,6 @@ class SetRemove extends Command
     {
         return 'SREM';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

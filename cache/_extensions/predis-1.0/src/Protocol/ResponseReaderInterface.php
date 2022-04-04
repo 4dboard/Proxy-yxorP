@@ -1,10 +1,8 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol;
 
 use Predis\Connection\CompositeConnectionInterface;
-
 
 interface ResponseReaderInterface
 {

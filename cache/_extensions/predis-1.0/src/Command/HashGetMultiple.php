@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HashGetMultiple extends Command
 {
 
@@ -11,7 +8,6 @@ class HashGetMultiple extends Command
     {
         return 'HMGET';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

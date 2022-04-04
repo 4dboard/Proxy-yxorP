@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text;
 
 use JetBrains\PhpStorm\Pure;
@@ -13,12 +12,10 @@ use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Iterator\MultiBulk as MultiBulkIterator;
 use Predis\Response\Status as StatusResponse;
 
-
 class ProtocolProcessor implements ProtocolProcessorInterface
 {
     protected bool $mbiterable;
     protected RequestSerializer $serializer;
-
 
     #[Pure] public function __construct()
     {
@@ -26,13 +23,11 @@ class ProtocolProcessor implements ProtocolProcessorInterface
         $this->serializer = new RequestSerializer();
     }
 
-
     public function write(CompositeConnectionInterface $connection, CommandInterface $command)
     {
         $request = $this->serializer->serialize($command);
         $connection->writeBuffer($request);
     }
-
 
     /**
      * @throws CommunicationException
@@ -85,7 +80,6 @@ class ProtocolProcessor implements ProtocolProcessorInterface
                 ));
         }
     }
-
 
     public function useIterableMultibulk($value): void
     {

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeyExpireAt extends Command
 {
 
@@ -11,7 +8,6 @@ class KeyExpireAt extends Command
     {
         return 'EXPIREAT';
     }
-
 
     public function parseResponse($data): bool
     {

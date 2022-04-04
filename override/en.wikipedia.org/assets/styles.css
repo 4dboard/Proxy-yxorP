@@ -3,7 +3,6 @@ html {
     transition: all 0.5s ease;
 }
 
-
 html img {
     filter: invert(1) hue-rotate(0deg);
 }

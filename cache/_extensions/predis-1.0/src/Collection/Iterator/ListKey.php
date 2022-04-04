@@ -1,17 +1,15 @@
 <?php /* yxorP */
 
-
 namespace Predis\Collection\Iterator;
 
 use InvalidArgumentException;
 use Iterator;
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\NotSupportedException;
-
 
 class ListKey implements Iterator
 {
-    protected ClientInterface $client;
+    protected AClientInterface $client;
     protected mixed $count;
     protected $key;
 
@@ -21,11 +19,10 @@ class ListKey implements Iterator
     protected $position;
     protected $current;
 
-
     /**
      * @throws NotSupportedException
      */
-    public function __construct(ClientInterface $client, $key, $count = 10)
+    public function __construct(AClientInterface $client, $key, $count = 10)
     {
         $this->requiredCommand($client, 'LRANGE');
 
@@ -40,17 +37,15 @@ class ListKey implements Iterator
         $this->reset();
     }
 
-
     /**
      * @throws NotSupportedException
      */
-    protected function requiredCommand(ClientInterface $client, $commandID): void
+    protected function requiredCommand(AClientInterface $client, $commandID): void
     {
         if (!$client->getProfile()->supportsCommand($commandID)) {
             throw new NotSupportedException("The current profile does not support '$commandID'.");
         }
     }
-
 
     protected function reset(): void
     {

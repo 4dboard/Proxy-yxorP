@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Pipeline;
 
 use Predis\CommunicationException;
@@ -10,7 +9,6 @@ use Predis\Connection\NodeConnectionInterface;
 use Predis\NotSupportedException;
 use SplQueue;
 
-
 class ConnectionErrorProof extends Pipeline
 {
 
@@ -19,25 +17,17 @@ class ConnectionErrorProof extends Pipeline
         return $this->getClient()->getConnection();
     }
 
-
     /**
      * @throws NotSupportedException
      */
     protected function executePipeline(ConnectionInterface $connection, SplQueue $commands): array
     {
-        if ($connection instanceof NodeConnectionInterface) {
-            return $this->executeSingleNode($connection, $commands);
-        }
-
-        if ($connection instanceof ClusterInterface) {
-            return $this->executeCluster($connection, $commands);
-        }
+        return $this->executeSingleNode($connection, $commands);
 
         $class = get_class($connection);
 
         throw new NotSupportedException("The connection class '$class' is not supported.");
     }
-
 
     protected function executeSingleNode(NodeConnectionInterface $connection, SplQueue $commands): array
     {
@@ -56,7 +46,6 @@ class ConnectionErrorProof extends Pipeline
 
         return $responses;
     }
-
 
     protected function executeCluster(ClusterInterface $connection, SplQueue $commands): array
     {

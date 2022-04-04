@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class PubSubUnsubscribe extends Command
 {
 
@@ -11,7 +8,6 @@ class PubSubUnsubscribe extends Command
     {
         return 'UNSUBSCRIBE';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

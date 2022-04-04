@@ -1,11 +1,9 @@
 <?php /* yxorP */
 
-
 namespace Predis\Pipeline;
 
 use Predis\Connection\ConnectionInterface;
 use SplQueue;
-
 
 class FireAndForget extends Pipeline
 {

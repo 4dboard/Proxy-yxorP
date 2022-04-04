@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command\Processor;
 
 use InvalidArgumentException;
@@ -8,12 +7,10 @@ use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\Command\PrefixableCommandInterface;
 
-
 class KeyPrefixProcessor implements ProcessorInterface
 {
     private $prefix;
     private array $commands;
-
 
     public function __construct($prefix)
     {

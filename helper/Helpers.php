@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 if (!function_exists('starts_with')) {
 
     function starts_with($haystack, $needles): bool
@@ -98,7 +96,6 @@ function render_string($str, $vars = array())
 
     return $str;
 }
-
 
 function add_http($url)
 {

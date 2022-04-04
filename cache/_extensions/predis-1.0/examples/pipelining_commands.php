@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // When you have a whole set of consecutive commands to send to a redis server,
@@ -19,5 +17,3 @@ $responses = $client->pipeline(function ($pipe) {
 });
 
 var_export($responses);
-
-

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 interface PrefixableCommandInterface extends CommandInterface
 {
 

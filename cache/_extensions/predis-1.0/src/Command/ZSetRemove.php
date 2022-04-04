@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ZSetRemove extends Command
 {
 
@@ -11,7 +8,6 @@ class ZSetRemove extends Command
     {
         return 'ZREM';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

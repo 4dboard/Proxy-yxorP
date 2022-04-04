@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 abstract class Command implements CommandInterface
 {
     private $slot;
@@ -32,7 +29,6 @@ abstract class Command implements CommandInterface
         $this->arguments = $arguments;
         unset($this->slot);
     }
-
 
     public function getArguments(): array
     {

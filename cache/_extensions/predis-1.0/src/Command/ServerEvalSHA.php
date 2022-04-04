@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerEvalSHA extends ServerEval
 {
 
@@ -11,7 +8,6 @@ class ServerEvalSHA extends ServerEval
     {
         return 'EVALSHA';
     }
-
 
     public function getScriptHash()
     {

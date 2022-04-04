@@ -1,9 +1,8 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 use Predis\Collection\Iterator;
+use Predis\NotSupportedException;
 
 // Starting from Redis 2.8, clients can iterate incrementally over collections
 // without blocking the server like it happens when a command such as KEYS is
@@ -38,37 +37,29 @@ try {
     foreach (new Iterator\Keyspace($client, 'predis:*') as $key) {
         echo " - $key", PHP_EOL;
     }
-} catch (\Predis\NotSupportedException $e) {
+} catch (NotSupportedException $e) {
 }
-
-
 // === Set iterator based on SSCAN ===
 echo 'Scan members of `predis:set`:', PHP_EOL;
 try {
     foreach (new Iterator\SetKey($client, 'predis:set') as $member) {
         echo " - $member", PHP_EOL;
     }
-} catch (\Predis\NotSupportedException $e) {
+} catch (NotSupportedException $e) {
 }
-
-
 // === Sorted set iterator based on ZSCAN ===
 echo 'Scan members and ranks of `predis:zset`:', PHP_EOL;
 try {
     foreach (new Iterator\SortedSetKey($client, 'predis:zset') as $member => $rank) {
         echo " - $member [rank: $rank]", PHP_EOL;
     }
-} catch (\Predis\NotSupportedException $e) {
+} catch (NotSupportedException $e) {
 }
-
-
 // === Hash iterator based on HSCAN ===
 echo 'Scan fields and values of `predis:hash`:', PHP_EOL;
 try {
     foreach (new Iterator\HashKey($client, 'predis:hash') as $field => $value) {
         echo " - $field => $value", PHP_EOL;
     }
-} catch (\Predis\NotSupportedException $e) {
+} catch (NotSupportedException $e) {
 }
-
-

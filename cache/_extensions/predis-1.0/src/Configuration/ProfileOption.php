@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Configuration;
 
 use InvalidArgumentException;
@@ -8,7 +7,6 @@ use Predis\ClientException;
 use Predis\Profile\Factory;
 use Predis\Profile\ProfileInterface;
 use Predis\Profile\RedisProfile;
-
 
 class ProfileOption implements OptionInterface
 {

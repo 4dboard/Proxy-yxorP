@@ -1,10 +1,10 @@
 <?php /* yxorP */
 
-
 namespace Predis\Pipeline;
 
+use JetBrains\PhpStorm\Pure;
 use Predis\ClientException;
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\Connection\ConnectionInterface;
 use Predis\Connection\NodeConnectionInterface;
 use Predis\Response\ErrorInterface as ErrorResponseInterface;
@@ -12,14 +12,13 @@ use Predis\Response\ResponseInterface;
 use Predis\Response\ServerException;
 use SplQueue;
 
-
 class Atomic extends Pipeline
 {
 
     /**
      * @throws ClientException
      */
-    #[\JetBrains\PhpStorm\Pure] public function __construct(ClientInterface $client)
+    #[\JetBrains\PhpStorm\Pure] public function __construct(AClientInterface $client)
     {
         if (!$client->getProfile()->supportsCommands(array('multi', 'exec', 'discard'))) {
             throw new ClientException(
@@ -29,7 +28,6 @@ class Atomic extends Pipeline
 
         parent::__construct($client);
     }
-
 
     /**
      * @throws ClientException
@@ -46,7 +44,6 @@ class Atomic extends Pipeline
 
         return $connection;
     }
-
 
     /**
      * @throws ClientException

@@ -10,13 +10,11 @@ class ParamStore
     private array $data;
     private mixed $case_sensitive;
 
-
     public function __construct($parameters = array(), $case_sensitive = false)
     {
         $this->data = (array)$parameters;
         $this->case_sensitive = $case_sensitive;
     }
-
 
     public function replace(array $data): void
     {
@@ -75,14 +73,9 @@ class ParamStore
         return $this->data;
     }
 
-    /**
-     * @throws JsonException
-     */
     public function __toString()
     {
         return json_encode($this->data, JSON_THROW_ON_ERROR | true);
     }
-
-
 }
 

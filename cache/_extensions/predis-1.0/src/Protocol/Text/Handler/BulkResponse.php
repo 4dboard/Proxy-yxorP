@@ -1,12 +1,10 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text\Handler;
 
 use Predis\CommunicationException;
 use Predis\Connection\CompositeConnectionInterface;
 use Predis\Protocol\ProtocolException;
-
 
 class BulkResponse implements ResponseHandlerInterface
 {
@@ -28,7 +26,7 @@ class BulkResponse implements ResponseHandlerInterface
             return substr($connection->readBuffer($length + 2), 0, -2);
         }
 
-        if ($length == -1) {
+        if ($length === -1) {
             return null;
         }
 

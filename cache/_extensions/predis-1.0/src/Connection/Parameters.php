@@ -1,11 +1,9 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use InvalidArgumentException;
 use JetBrains\PhpStorm\Pure;
-
 
 class Parameters implements ParametersInterface
 {
@@ -67,18 +65,15 @@ class Parameters implements ParametersInterface
         return $this->parameters[$parameter] ?? null;
     }
 
-
     public function __isset($parameter)
     {
         return isset($this->parameters[$parameter]);
     }
 
-
     public function toArray(): array
     {
         return $this->parameters;
     }
-
 
     public function __sleep()
     {

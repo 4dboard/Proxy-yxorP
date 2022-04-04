@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HashExists extends Command
 {
 
@@ -11,7 +8,6 @@ class HashExists extends Command
     {
         return 'HEXISTS';
     }
-
 
     public function parseResponse($data): bool
     {

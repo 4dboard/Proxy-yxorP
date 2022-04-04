@@ -1,8 +1,8 @@
 {
-  "SITE_NAME": "Game.com",
+  "SITE_NAME": "Play.com",
   "SITE_DESCRIPTION": "Where the world comes to play!",
   "SEARCH_CSS": [
-    "pacogames.com",
+    "gg.sbtgames.com.br",
     "#ffb700",
     "#816410",
     "#272727",
@@ -16,18 +16,20 @@
     "#000000"
   ],
   "SEARCH_GLOBAL": [
-    "pacogames.com",
+    "gg.sbtgames.com.br",
     ".css",
-    "pg295x29.png"
+    "pg295x29.png",
+    "Huz"
   ],
   "REPLACE_GLOBAL": [
     "xn--gme-nnb.com",
     ".css?v59",
-    "pg295x29.png?v50"
+    "pg295x29.png?v50",
+    "Play.com"
   ],
   "SEARCH_JS": [
-    "pacogames.com",
-    "@pacogames.com"
+    "gg.sbtgames.com.br",
+    "@gg.sbtgames.com.br"
   ],
   "REPLACE_JS": [
     "xn--gme-nnb.com",
@@ -46,16 +48,16 @@
     ""
   ],
   "SEARCH_HTML": [
-    "pacogames.com",
+    "gg.sbtgames.com.br",
     "PacoGames",
     "<title>",
     "Pacogames"
   ],
   "REPLACE_HTML": [
     "xn--gme-nnb.com",
-    "Game.com",
-    "<title>Game.com ",
-    "Game"
+    "Play.com",
+    "<title>Play.com ",
+    "Play"
   ],
   "AFFILIATE": null,
   "SEARCH_HOST": null,

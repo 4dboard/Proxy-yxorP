@@ -1,15 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis;
-
-
 class Autoloader
 {
     private mixed $directory;
     private string $prefix;
     private int $prefixLength;
-
 
     public function __construct($baseDirectory = __DIR__)
     {
@@ -18,12 +14,10 @@ class Autoloader
         $this->prefixLength = strlen($this->prefix);
     }
 
-
     public static function register($prepend = false): void
     {
         spl_autoload_register(array(new self, 'autoload'), true, $prepend);
     }
-
 
     public function autoload($className): void
     {

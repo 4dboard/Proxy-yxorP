@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerSentinel extends Command
 {
 
@@ -12,7 +9,6 @@ class ServerSentinel extends Command
         return 'SENTINEL';
     }
 
-
     public function parseResponse($data): array
     {
         return match (strtolower($this->getArgument(0))) {
@@ -20,7 +16,6 @@ class ServerSentinel extends Command
             default => $data,
         };
     }
-
 
     protected static function processMastersOrSlaves(array $servers): array
     {

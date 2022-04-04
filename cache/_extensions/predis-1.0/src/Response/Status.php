@@ -1,14 +1,10 @@
 <?php /* yxorP */
 
-
 namespace Predis\Response;
-
-
 class Status implements ResponseInterface
 {
 
     private $payload;
-
 
     public function __construct($payload)
     {

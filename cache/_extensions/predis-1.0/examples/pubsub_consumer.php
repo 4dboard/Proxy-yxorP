@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // Starting from Redis 2.0 clients can subscribe and listen for events published

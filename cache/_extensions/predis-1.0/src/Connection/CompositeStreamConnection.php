@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use InvalidArgumentException;
@@ -9,11 +8,9 @@ use Predis\CommunicationException;
 use Predis\Protocol\ProtocolProcessorInterface;
 use Predis\Protocol\Text\ProtocolProcessor as TextProtocolProcessor;
 
-
 class CompositeStreamConnection extends StreamConnection implements CompositeConnectionInterface
 {
     protected ProtocolProcessorInterface|TextProtocolProcessor $protocol;
-
 
     public function __construct(
         ParametersInterface        $parameters,
@@ -24,18 +21,15 @@ class CompositeStreamConnection extends StreamConnection implements CompositeCon
         $this->protocol = $protocol ?: new TextProtocolProcessor();
     }
 
-
     public function getProtocol(): TextProtocolProcessor|ProtocolProcessorInterface
     {
         return $this->protocol;
     }
 
-
     public function writeBuffer($buffer)
     {
         $this->write($buffer);
     }
-
 
     public function readBuffer($length): string
     {
@@ -62,7 +56,6 @@ class CompositeStreamConnection extends StreamConnection implements CompositeCon
         return $value;
     }
 
-
     public function readLine(): bool|string
     {
         $value = '';
@@ -84,12 +77,10 @@ class CompositeStreamConnection extends StreamConnection implements CompositeCon
         return substr($value, 0, -2);
     }
 
-
     public function writeRequest(CommandInterface $command)
     {
         $this->protocol->write($this, $command);
     }
-
 
     public function read()
     {
@@ -98,7 +89,6 @@ class CompositeStreamConnection extends StreamConnection implements CompositeCon
         } catch (CommunicationException $e) {
         }
     }
-
 
     public function __sleep()
     {

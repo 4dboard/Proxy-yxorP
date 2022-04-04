@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text;
 
 use Predis\Command\CommandInterface;
@@ -9,15 +8,11 @@ use Predis\Protocol\ProtocolProcessorInterface;
 use Predis\Protocol\RequestSerializerInterface;
 use Predis\Protocol\ResponseReaderInterface;
 
-
 class CompositeProtocolProcessor implements ProtocolProcessorInterface
 {
 
     protected $serializer;
-
-
     protected $reader;
-
 
     public function __construct(
         RequestSerializerInterface $serializer = null,

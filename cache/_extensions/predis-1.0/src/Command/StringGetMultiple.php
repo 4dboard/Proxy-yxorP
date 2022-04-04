@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class StringGetMultiple extends Command
 {
 
@@ -11,7 +8,6 @@ class StringGetMultiple extends Command
     {
         return 'MGET';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

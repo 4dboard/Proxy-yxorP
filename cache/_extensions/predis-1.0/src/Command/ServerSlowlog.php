@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerSlowlog extends Command
 {
 
@@ -11,7 +8,6 @@ class ServerSlowlog extends Command
     {
         return 'SLOWLOG';
     }
-
 
     public function parseResponse($data): array
     {

@@ -14,8 +14,6 @@ class CookiePlugin extends AbstractPlugin
         $http_cookie = $request->headers->get("cookie");
 
         $request->headers->remove("cookie");
-
-
         $send_cookies = array();
 
         if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', $http_cookie, $matches, PREG_SET_ORDER)) {
@@ -104,6 +102,4 @@ class CookiePlugin extends AbstractPlugin
         return $data;
     }
 }
-
-
 

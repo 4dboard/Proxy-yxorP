@@ -1,15 +1,9 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/../autoload.php';
 
 function redis_version($info)
 {
-    if (isset($info['Server']['redis_version'])) {
-        return $info['Server']['redis_version'];
-    }
-
-    return $info['redis_version'] ?? 'unknown version';
+    return $info['Server']['redis_version'] ?? $info['redis_version'] ?? 'unknown version';
 }
 
 $single_server = array(

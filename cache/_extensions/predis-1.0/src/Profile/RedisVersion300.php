@@ -1,8 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Profile;
-
 
 use Predis\Command\ConnectionAuth;
 use Predis\Command\ConnectionEcho;
@@ -162,12 +160,9 @@ class RedisVersion300 extends RedisProfile
         return '3.0';
     }
 
-
     public function getSupportedCommands(): array
     {
         return array(
-
-
             'EXISTS' => KeyExists::class,
             'DEL' => KeyDelete::class,
             'TYPE' => KeyType::class,
@@ -182,8 +177,6 @@ class RedisVersion300 extends RedisProfile
             'SORT' => KeySort::class,
             'DUMP' => KeyDump::class,
             'RESTORE' => KeyRestore::class,
-
-
             'SET' => StringSet::class,
             'SETNX' => StringSetPreserve::class,
             'MSET' => StringSetMultiple::class,
@@ -195,8 +188,6 @@ class RedisVersion300 extends RedisProfile
             'INCRBY' => StringIncrementBy::class,
             'DECR' => StringDecrement::class,
             'DECRBY' => StringDecrementBy::class,
-
-
             'RPUSH' => ListPushTail::class,
             'LPUSH' => ListPushHead::class,
             'LLEN' => ListLength::class,
@@ -208,8 +199,6 @@ class RedisVersion300 extends RedisProfile
             'LPOP' => ListPopFirst::class,
             'RPOP' => ListPopLast::class,
             'RPOPLPUSH' => ListPopLastPushHead::class,
-
-
             'SADD' => SetAdd::class,
             'SREM' => SetRemove::class,
             'SPOP' => SetPop::class,
@@ -224,8 +213,6 @@ class RedisVersion300 extends RedisProfile
             'SDIFFSTORE' => SetDifferenceStore::class,
             'SMEMBERS' => SetMembers::class,
             'SRANDMEMBER' => SetRandomMember::class,
-
-
             'ZADD' => ZSetAdd::class,
             'ZINCRBY' => ZSetIncrementBy::class,
             'ZREM' => ZSetRemove::class,
@@ -235,15 +222,11 @@ class RedisVersion300 extends RedisProfile
             'ZCARD' => ZSetCardinality::class,
             'ZSCORE' => ZSetScore::class,
             'ZREMRANGEBYSCORE' => ZSetRemoveRangeByScore::class,
-
-
             'PING' => ConnectionPing::class,
             'AUTH' => ConnectionAuth::class,
             'SELECT' => ConnectionSelect::class,
             'ECHO' => ConnectionEcho::class,
             'QUIT' => ConnectionQuit::class,
-
-
             'INFO' => ServerInfoV26x::class,
             'SLAVEOF' => ServerSlaveOf::class,
             'MONITOR' => ServerMonitor::class,
@@ -255,25 +238,17 @@ class RedisVersion300 extends RedisProfile
             'LASTSAVE' => ServerLastSave::class,
             'SHUTDOWN' => ServerShutdown::class,
             'BGREWRITEAOF' => ServerBackgroundRewriteAOF::class,
-
-
             'SETEX' => StringSetExpire::class,
             'APPEND' => StringAppend::class,
             'SUBSTR' => StringSubstr::class,
-
-
             'BLPOP' => ListPopFirstBlocking::class,
             'BRPOP' => ListPopLastBlocking::class,
-
-
             'ZUNIONSTORE' => ZSetUnionStore::class,
             'ZINTERSTORE' => ZSetIntersectionStore::class,
             'ZCOUNT' => ZSetCount::class,
             'ZRANK' => ZSetRank::class,
             'ZREVRANK' => ZSetReverseRank::class,
             'ZREMRANGEBYRANK' => ZSetRemoveRangeByRank::class,
-
-
             'HSET' => HashSet::class,
             'HSETNX' => HashSetPreserve::class,
             'HMSET' => HashSetMultiple::class,
@@ -286,105 +261,57 @@ class RedisVersion300 extends RedisProfile
             'HKEYS' => HashKeys::class,
             'HVALS' => HashValues::class,
             'HGETALL' => HashGetAll::class,
-
-
             'MULTI' => TransactionMulti::class,
             'EXEC' => TransactionExec::class,
             'DISCARD' => TransactionDiscard::class,
-
-
             'SUBSCRIBE' => PubSubSubscribe::class,
             'UNSUBSCRIBE' => PubSubUnsubscribe::class,
             'PSUBSCRIBE' => PubSubSubscribeByPattern::class,
             'PUNSUBSCRIBE' => PubSubUnsubscribeByPattern::class,
             'PUBLISH' => PubSubPublish::class,
-
-
             'CONFIG' => ServerConfig::class,
-
-
             'PERSIST' => KeyPersist::class,
-
-
             'STRLEN' => StringStrlen::class,
             'SETRANGE' => StringSetRange::class,
             'GETRANGE' => StringGetRange::class,
             'SETBIT' => StringSetBit::class,
             'GETBIT' => StringGetBit::class,
-
-
             'RPUSHX' => ListPushTailX::class,
             'LPUSHX' => ListPushHeadX::class,
             'LINSERT' => ListInsert::class,
             'BRPOPLPUSH' => ListPopLastPushHeadBlocking::class,
-
-
             'ZREVRANGEBYSCORE' => ZSetReverseRangeByScore::class,
-
-
             'WATCH' => TransactionWatch::class,
             'UNWATCH' => TransactionUnwatch::class,
-
-
             'OBJECT' => ServerObject::class,
             'SLOWLOG' => ServerSlowlog::class,
-
-
             'CLIENT' => ServerClient::class,
-
-
             'PTTL' => KeyPreciseTimeToLive::class,
             'PEXPIRE' => KeyPreciseExpire::class,
             'PEXPIREAT' => KeyPreciseExpireAt::class,
-
-
             'PSETEX' => StringPreciseSetExpire::class,
             'INCRBYFLOAT' => StringIncrementByFloat::class,
             'BITOP' => StringBitOp::class,
             'BITCOUNT' => StringBitCount::class,
-
-
             'HINCRBYFLOAT' => HashIncrementByFloat::class,
-
-
             'EVAL' => ServerEval::class,
             'EVALSHA' => ServerEvalSHA::class,
             'SCRIPT' => ServerScript::class,
-
-
             'TIME' => ServerTime::class,
             'SENTINEL' => ServerSentinel::class,
-
-
             'SCAN' => KeyScan::class,
-
-
             'BITPOS' => StringBitPos::class,
-
-
             'SSCAN' => SetScan::class,
-
-
             'ZSCAN' => ZSetScan::class,
             'ZLEXCOUNT' => ZSetLexCount::class,
             'ZRANGEBYLEX' => ZSetRangeByLex::class,
             'ZREMRANGEBYLEX' => ZSetRemoveRangeByLex::class,
-
-
             'HSCAN' => HashScan::class,
-
-
             'PUBSUB' => PubSubPubsub::class,
-
-
             'PFADD' => HyperLogLogAdd::class,
             'PFCOUNT' => HyperLogLogCount::class,
             'PFMERGE' => HyperLogLogMerge::class,
-
-
             'COMMAND' => ServerCommand::class,
-
-
         );
     }
 }

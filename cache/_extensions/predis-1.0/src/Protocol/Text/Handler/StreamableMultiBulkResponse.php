@@ -1,13 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text\Handler;
 
 use Predis\CommunicationException;
 use Predis\Connection\CompositeConnectionInterface;
 use Predis\Protocol\ProtocolException;
 use Predis\Response\Iterator\MultiBulk as MultiBulkIterator;
-
 
 class StreamableMultiBulkResponse implements ResponseHandlerInterface
 {

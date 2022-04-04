@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use Predis\Command\CommandInterface;
@@ -9,11 +8,9 @@ use Predis\NotSupportedException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
 
-
 class PhpiredisSocketConnection extends AbstractConnection
 {
     private $reader;
-
 
     /**
      * @throws NotSupportedException
@@ -105,7 +102,7 @@ class PhpiredisSocketConnection extends AbstractConnection
         if (@socket_connect($socket, $host, (int)$parameters->port) === false) {
             $error = socket_last_error();
 
-            if ($error != SOCKET_EINPROGRESS && $error != SOCKET_EALREADY) {
+            if ($error !== SOCKET_EINPROGRESS && $error !== SOCKET_EALREADY) {
                 $this->emitSocketError();
             }
         }
@@ -146,8 +143,8 @@ class PhpiredisSocketConnection extends AbstractConnection
 
         $host = $parameters->host;
 
-        if (ip2long($host) == false) {
-            if (false == $addresses = gethostbynamel($host)) {
+        if (ip2long($host) === false) {
+            if (false === $addresses = gethostbynamel($host)) {
                 return false;
             }
 
@@ -184,7 +181,7 @@ class PhpiredisSocketConnection extends AbstractConnection
         $reader = $this->reader;
 
         while (PHPIREDIS_READER_STATE_INCOMPLETE === $state = phpiredis_reader_get_state($reader)) {
-            if (@socket_recv($socket, $buffer, 4096, 0) == false || $buffer === '') {
+            if (@socket_recv($socket, $buffer, 4096, 0) === false || $buffer === '') {
                 $this->emitSocketError();
             }
 
@@ -220,7 +217,7 @@ class PhpiredisSocketConnection extends AbstractConnection
                 return;
             }
 
-            if ($written == false) {
+            if ($written === false) {
                 try {
                     $this->onConnectionError('Error while writing bytes to the server.');
                 } catch (CommunicationException $e) {

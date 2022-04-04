@@ -1,16 +1,13 @@
 <?php /* yxorP */
 
-
 namespace Predis;
 
 use Exception;
 use Predis\Connection\NodeConnectionInterface;
 
-
 abstract class CommunicationException extends PredisException
 {
     private NodeConnectionInterface $connection;
-
 
     public function __construct(
         NodeConnectionInterface $connection,

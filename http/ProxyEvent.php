@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace yxorP\Http;
 
 use ArrayAccess;
@@ -10,12 +9,10 @@ class ProxyEvent implements ArrayAccess
 {
     private array $data;
 
-
     public function __construct($data = array())
     {
         $this->data = $data;
     }
-
 
     #[ReturnTypeWillChange] public function offsetSet($offset, $value)
     {
@@ -27,18 +24,15 @@ class ProxyEvent implements ArrayAccess
         }
     }
 
-
     public function offsetExists($offset): bool
     {
         return isset($this->data[$offset]);
     }
 
-
     #[ReturnTypeWillChange] public function offsetUnset($offset)
     {
         unset($this->data[$offset]);
     }
-
 
     #[ReturnTypeWillChange] public function offsetGet($offset)
     {

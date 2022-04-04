@@ -1,25 +1,22 @@
 <?php /* yxorP */
 
-
 namespace Predis\Monitor;
 
 use Iterator;
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\Connection\AggregateConnectionInterface;
 use Predis\NotSupportedException;
 
-
 class Consumer implements Iterator
 {
-    private ClientInterface $client;
+    private AClientInterface $client;
     private $valid;
     private $position;
-
 
     /**
      * @throws NotSupportedException
      */
-    public function __construct(ClientInterface $client)
+    public function __construct(AClientInterface $client)
     {
         $this->assertClient($client);
 
@@ -31,7 +28,7 @@ class Consumer implements Iterator
     /**
      * @throws NotSupportedException
      */
-    private function assertClient(ClientInterface $client): void
+    private function assertClient(AClientInterface $client): void
     {
         if ($client->getConnection() instanceof AggregateConnectionInterface) {
             throw new NotSupportedException(
@@ -63,12 +60,10 @@ class Consumer implements Iterator
         $this->valid = false;
     }
 
-
     public function rewind()
     {
 
     }
-
 
     public function current(): object
     {

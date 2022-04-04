@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Configuration;
-
-
 class ExceptionsOption implements OptionInterface
 {
 
@@ -11,7 +8,6 @@ class ExceptionsOption implements OptionInterface
     {
         return filter_var($value, FILTER_VALIDATE_BOOLEAN);
     }
-
 
     public function getDefault(OptionsInterface $options): bool
     {

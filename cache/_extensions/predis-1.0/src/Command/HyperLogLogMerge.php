@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HyperLogLogMerge extends Command
 {
 
@@ -11,7 +8,6 @@ class HyperLogLogMerge extends Command
     {
         return 'PFMERGE';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

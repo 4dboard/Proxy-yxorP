@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Cluster;
 
 use InvalidArgumentException;
@@ -8,17 +7,14 @@ use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\Command\ScriptCommand;
 
-
 abstract class ClusterStrategy implements StrategyInterface
 {
     protected array $commands;
-
 
     #[Pure] public function __construct()
     {
         $this->commands = $this->getDefaultCommands();
     }
-
 
     protected function getDefaultCommands(): array
     {
@@ -40,8 +36,6 @@ abstract class ClusterStrategy implements StrategyInterface
             'SORT' => $getKeyFromFirstArgument,
             'DUMP' => $getKeyFromFirstArgument,
             'RESTORE' => $getKeyFromFirstArgument,
-
-
             'APPEND' => $getKeyFromFirstArgument,
             'DECR' => $getKeyFromFirstArgument,
             'DECRBY' => $getKeyFromFirstArgument,
@@ -64,8 +58,6 @@ abstract class ClusterStrategy implements StrategyInterface
             'SUBSTR' => $getKeyFromFirstArgument,
             'BITOP' => array($this, 'getKeyFromBitOp'),
             'BITCOUNT' => $getKeyFromFirstArgument,
-
-
             'LINSERT' => $getKeyFromFirstArgument,
             'LINDEX' => $getKeyFromFirstArgument,
             'LLEN' => $getKeyFromFirstArgument,
@@ -83,8 +75,6 @@ abstract class ClusterStrategy implements StrategyInterface
             'LREM' => $getKeyFromFirstArgument,
             'LSET' => $getKeyFromFirstArgument,
             'LTRIM' => $getKeyFromFirstArgument,
-
-
             'SADD' => $getKeyFromFirstArgument,
             'SCARD' => $getKeyFromFirstArgument,
             'SDIFF' => $getKeyFromAllArguments,
@@ -99,8 +89,6 @@ abstract class ClusterStrategy implements StrategyInterface
             'SPOP' => $getKeyFromFirstArgument,
             'SRANDMEMBER' => $getKeyFromFirstArgument,
             'SREM' => $getKeyFromFirstArgument,
-
-
             'ZADD' => $getKeyFromFirstArgument,
             'ZCARD' => $getKeyFromFirstArgument,
             'ZCOUNT' => $getKeyFromFirstArgument,
@@ -121,8 +109,6 @@ abstract class ClusterStrategy implements StrategyInterface
             'ZLEXCOUNT' => $getKeyFromFirstArgument,
             'ZRANGEBYLEX' => $getKeyFromFirstArgument,
             'ZREMRANGEBYLEX' => $getKeyFromFirstArgument,
-
-
             'HDEL' => $getKeyFromFirstArgument,
             'HEXISTS' => $getKeyFromFirstArgument,
             'HGET' => $getKeyFromFirstArgument,
@@ -137,24 +123,18 @@ abstract class ClusterStrategy implements StrategyInterface
             'HSETNX' => $getKeyFromFirstArgument,
             'HVALS' => $getKeyFromFirstArgument,
             'HSCAN' => $getKeyFromFirstArgument,
-
-
             'PFADD' => $getKeyFromFirstArgument,
             'PFCOUNT' => $getKeyFromAllArguments,
             'PFMERGE' => $getKeyFromAllArguments,
-
-
             'EVAL' => array($this, 'getKeyFromScriptingCommands'),
             'EVALSHA' => array($this, 'getKeyFromScriptingCommands'),
         );
     }
 
-
     public function getSupportedCommands(): array
     {
         return array_keys($this->commands);
     }
-
 
     public function setCommandHandler($commandID, $callback = null): void
     {

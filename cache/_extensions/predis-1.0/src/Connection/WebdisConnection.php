@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use InvalidArgumentException;
@@ -10,13 +9,11 @@ use Predis\Protocol\ProtocolException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
 
-
 class WebdisConnection implements NodeConnectionInterface
 {
     private ParametersInterface $parameters;
     private $resource;
     private $reader;
-
 
     /**
      * @throws NotSupportedException

@@ -1,11 +1,9 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text;
 
 use Predis\Command\CommandInterface;
 use Predis\Protocol\RequestSerializerInterface;
-
 
 class RequestSerializer implements RequestSerializerInterface
 {

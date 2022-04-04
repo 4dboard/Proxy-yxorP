@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class StringBitOp extends Command
 {
 
@@ -11,7 +8,6 @@ class StringBitOp extends Command
     {
         return 'BITOP';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

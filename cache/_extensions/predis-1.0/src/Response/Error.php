@@ -1,15 +1,12 @@
 <?php /* yxorP */
 
-
 namespace Predis\Response;
-
 
 use JetBrains\PhpStorm\Pure;
 
 class Error implements ErrorInterface
 {
     private $message;
-
 
     public function __construct($message)
     {

@@ -1,8 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Transaction;
-
 
 use JetBrains\PhpStorm\Pure;
 
@@ -16,30 +14,25 @@ class MultiExecState
 
     private int $flags;
 
-
     public function __construct()
     {
         $this->flags = 0;
     }
-
 
     public function set($flags): void
     {
         $this->flags = $flags;
     }
 
-
     public function get(): int
     {
         return $this->flags;
     }
 
-
     public function flag($flags): void
     {
         $this->flags |= $flags;
     }
-
 
     public function unflag($flags): void
     {
@@ -71,24 +64,20 @@ class MultiExecState
         return $this->check(self::INSIDEBLOCK);
     }
 
-
     #[Pure] public function isCAS(): bool
     {
         return $this->check(self::CAS);
     }
-
 
     #[Pure] public function isWatchAllowed(): bool
     {
         return $this->check(self::INITIALIZED) && !$this->check(self::CAS);
     }
 
-
     #[Pure] public function isWatching(): bool
     {
         return $this->check(self::WATCH);
     }
-
 
     #[Pure] public function isDiscarded(): bool
     {

@@ -11,8 +11,6 @@ class OverridePlugin extends AbstractPlugin
 
     public function onCompleted(ProxyEvent $event)
     {
-
-
         $response = $event['response'];
         $html = $response->getContent();
 

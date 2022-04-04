@@ -1,13 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use InvalidArgumentException;
 use Predis\Command\RawCommand;
 use ReflectionClass;
 use UnexpectedValueException;
-
 
 class Factory implements FactoryInterface
 {
@@ -86,7 +84,6 @@ class Factory implements FactoryInterface
     {
         return Parameters::create($parameters);
     }
-
 
     protected function prepareConnection(NodeConnectionInterface $connection): void
     {

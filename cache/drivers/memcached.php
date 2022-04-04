@@ -2,16 +2,9 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 
-
-/**
- * @property $checked
- */
 class cache_memcached extends BaseCache implements cache_driver
 {
-
-
     public $instant;
-
 
     public function __construct($config = array())
     {
@@ -28,7 +21,6 @@ class cache_memcached extends BaseCache implements cache_driver
 
     }
 
-
     public function checkdriver(): bool
     {
         if (class_exists("Memcached")) {
@@ -41,13 +33,11 @@ class cache_memcached extends BaseCache implements cache_driver
     public function driver_set($keyword, $value = "", $time = 300, $option = array()): bool
     {
         $this->connectServer();
-
-
         if ($time > 2592000) {
             $time = time() + $time;
         }
 
-        if (isset($option['isExisting']) && $option['isExisting'] == true) {
+        if (isset($option['isExisting']) && $option['isExisting'] === true) {
             return $this->instant->add($keyword, $value, $time);
         }
 
@@ -57,7 +47,7 @@ class cache_memcached extends BaseCache implements cache_driver
     public function connectServer()
     {
 
-        if ($this->checkdriver() == false) {
+        if ($this->checkdriver() === false) {
             return false;
         }
 
@@ -95,24 +85,20 @@ class cache_memcached extends BaseCache implements cache_driver
 
     public function driver_get($keyword, $option = array())
     {
-
-
         $this->connectServer();
         $x = $this->instant->get($keyword);
-        if ($x == false) {
+        if ($x === false) {
             return null;
         }
 
         return $x;
     }
 
-
     public function driver_delete($keyword, $option = array())
     {
         $this->connectServer();
         $this->instant->delete($keyword);
     }
-
 
     #[ArrayShape(["info" => "string", "size" => "string", "data" => "array"])] public function driver_stats($option = array()): array
     {
@@ -124,19 +110,17 @@ class cache_memcached extends BaseCache implements cache_driver
         );
     }
 
-
     public function driver_clean($option = array())
     {
         $this->connectServer();
         $this->instant->flush();
     }
 
-
     public function driver_isExisting($keyword): bool
     {
         $this->connectServer();
         $x = $this->get($keyword);
 
-        return !($x == null);
+        return !($x === null);
     }
 }

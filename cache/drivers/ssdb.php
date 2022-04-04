@@ -1,12 +1,8 @@
 <?php /* yxorP */
 
-
 class cache_ssdb extends BaseCache implements cache_driver
 {
-
-
     private bool $checked_ssdb = false;
-
 
     public function __construct($config = array())
     {
@@ -15,7 +11,6 @@ class cache_ssdb extends BaseCache implements cache_driver
             $this->fallback = true;
         }
     }
-
 
     public function checkdriver(): bool
     {
@@ -31,7 +26,7 @@ class cache_ssdb extends BaseCache implements cache_driver
     public function driver_set($keyword, $value = "", $time = 300, $option = array()): bool
     {
         if ($this->connectServer()) {
-            if (isset($option['skipExisting']) && $option['skipExisting'] == true) {
+            if (isset($option['skipExisting']) && $option['skipExisting'] === true) {
                 $x = $this->instant->get($keyword);
                 if ($x === false) {
                     return false;
@@ -85,10 +80,8 @@ class cache_ssdb extends BaseCache implements cache_driver
     public function driver_get($keyword, $option = array())
     {
         if ($this->connectServer()) {
-
-
             $x = $this->instant->get($keyword);
-            if ($x == false) {
+            if ($x === false) {
                 return null;
             }
 
@@ -98,14 +91,12 @@ class cache_ssdb extends BaseCache implements cache_driver
         $this->backup()->get($keyword, $option);
     }
 
-
     public function driver_delete($keyword, $option = array())
     {
         if ($this->connectServer()) {
             $this->instant->del($keyword);
         }
     }
-
 
     public function driver_stats($option = array()): array
     {
@@ -120,19 +111,17 @@ class cache_ssdb extends BaseCache implements cache_driver
         return array();
     }
 
-
     public function driver_clean($option = array()): bool
     {
 
         return false;
     }
 
-
     public function driver_isExisting($keyword): ?bool
     {
         if ($this->connectServer()) {
             $x = $this->instant->exists($keyword);
-            return !($x == null);
+            return !($x === null);
         }
 
         return $this->backup()->isExisting($keyword);

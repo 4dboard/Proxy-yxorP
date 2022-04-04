@@ -1,10 +1,8 @@
 <?php /* yxorP */
 
-
 namespace Predis\PubSub;
 
 use InvalidArgumentException;
-
 
 class DispatcherLoop
 {
@@ -48,7 +46,6 @@ class DispatcherLoop
 
         $this->subscriptionCallback = $callable;
     }
-
 
     public function attachCallback($channel, $callback): void
     {

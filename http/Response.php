@@ -97,8 +97,6 @@ class Response
         @header(sprintf('HTTP/1.1 %s %s', $this->status, $this->getStatusText()), true, $this->status);
 
         foreach ($this->headers->all() as $name => $value) {
-
-
             $values = is_array($value) ? $value : array($value);
 
             foreach ($values as $item) {
@@ -117,5 +115,3 @@ class Response
         return $this->status;
     }
 }
-
-

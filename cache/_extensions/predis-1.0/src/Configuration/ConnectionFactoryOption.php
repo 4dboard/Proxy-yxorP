@@ -1,13 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Configuration;
 
 use InvalidArgumentException;
 use JetBrains\PhpStorm\Pure;
 use Predis\Connection\Factory;
 use Predis\Connection\FactoryInterface;
-
 
 class ConnectionFactoryOption implements OptionInterface
 {
@@ -32,7 +30,6 @@ class ConnectionFactoryOption implements OptionInterface
             'Invalid value provided for the connections option.'
         );
     }
-
 
     #[Pure] public function getDefault(OptionsInterface $options): Factory
     {

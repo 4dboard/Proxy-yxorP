@@ -1,8 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Profile;
-
 
 use Predis\Command\ConnectionAuth;
 use Predis\Command\ConnectionEcho;
@@ -133,12 +131,9 @@ class RedisVersion220 extends RedisProfile
         return '2.2';
     }
 
-
     public function getSupportedCommands(): array
     {
         return array(
-
-
             'EXISTS' => KeyExists::class,
             'DEL' => KeyDelete::class,
             'TYPE' => KeyType::class,
@@ -151,8 +146,6 @@ class RedisVersion220 extends RedisProfile
             'TTL' => KeyTimeToLive::class,
             'MOVE' => KeyMove::class,
             'SORT' => KeySort::class,
-
-
             'SET' => StringSet::class,
             'SETNX' => StringSetPreserve::class,
             'MSET' => StringSetMultiple::class,
@@ -164,8 +157,6 @@ class RedisVersion220 extends RedisProfile
             'INCRBY' => StringIncrementBy::class,
             'DECR' => StringDecrement::class,
             'DECRBY' => StringDecrementBy::class,
-
-
             'RPUSH' => ListPushTail::class,
             'LPUSH' => ListPushHead::class,
             'LLEN' => ListLength::class,
@@ -177,8 +168,6 @@ class RedisVersion220 extends RedisProfile
             'LPOP' => ListPopFirst::class,
             'RPOP' => ListPopLast::class,
             'RPOPLPUSH' => ListPopLastPushHead::class,
-
-
             'SADD' => SetAdd::class,
             'SREM' => SetRemove::class,
             'SPOP' => SetPop::class,
@@ -193,8 +182,6 @@ class RedisVersion220 extends RedisProfile
             'SDIFFSTORE' => SetDifferenceStore::class,
             'SMEMBERS' => SetMembers::class,
             'SRANDMEMBER' => SetRandomMember::class,
-
-
             'ZADD' => ZSetAdd::class,
             'ZINCRBY' => ZSetIncrementBy::class,
             'ZREM' => ZSetRemove::class,
@@ -204,15 +191,11 @@ class RedisVersion220 extends RedisProfile
             'ZCARD' => ZSetCardinality::class,
             'ZSCORE' => ZSetScore::class,
             'ZREMRANGEBYSCORE' => ZSetRemoveRangeByScore::class,
-
-
             'PING' => ConnectionPing::class,
             'AUTH' => ConnectionAuth::class,
             'SELECT' => ConnectionSelect::class,
             'ECHO' => ConnectionEcho::class,
             'QUIT' => ConnectionQuit::class,
-
-
             'INFO' => ServerInfo::class,
             'SLAVEOF' => ServerSlaveOf::class,
             'MONITOR' => ServerMonitor::class,
@@ -224,25 +207,17 @@ class RedisVersion220 extends RedisProfile
             'LASTSAVE' => ServerLastSave::class,
             'SHUTDOWN' => ServerShutdown::class,
             'BGREWRITEAOF' => ServerBackgroundRewriteAOF::class,
-
-
             'SETEX' => StringSetExpire::class,
             'APPEND' => StringAppend::class,
             'SUBSTR' => StringSubstr::class,
-
-
             'BLPOP' => ListPopFirstBlocking::class,
             'BRPOP' => ListPopLastBlocking::class,
-
-
             'ZUNIONSTORE' => ZSetUnionStore::class,
             'ZINTERSTORE' => ZSetIntersectionStore::class,
             'ZCOUNT' => ZSetCount::class,
             'ZRANK' => ZSetRank::class,
             'ZREVRANK' => ZSetReverseRank::class,
             'ZREMRANGEBYRANK' => ZSetRemoveRangeByRank::class,
-
-
             'HSET' => HashSet::class,
             'HSETNX' => HashSetPreserve::class,
             'HMSET' => HashSetMultiple::class,
@@ -255,46 +230,28 @@ class RedisVersion220 extends RedisProfile
             'HKEYS' => HashKeys::class,
             'HVALS' => HashValues::class,
             'HGETALL' => HashGetAll::class,
-
-
             'MULTI' => TransactionMulti::class,
             'EXEC' => TransactionExec::class,
             'DISCARD' => TransactionDiscard::class,
-
-
             'SUBSCRIBE' => PubSubSubscribe::class,
             'UNSUBSCRIBE' => PubSubUnsubscribe::class,
             'PSUBSCRIBE' => PubSubSubscribeByPattern::class,
             'PUNSUBSCRIBE' => PubSubUnsubscribeByPattern::class,
             'PUBLISH' => PubSubPublish::class,
-
-
             'CONFIG' => ServerConfig::class,
-
-
             'PERSIST' => KeyPersist::class,
-
-
             'STRLEN' => StringStrlen::class,
             'SETRANGE' => StringSetRange::class,
             'GETRANGE' => StringGetRange::class,
             'SETBIT' => StringSetBit::class,
             'GETBIT' => StringGetBit::class,
-
-
             'RPUSHX' => ListPushTailX::class,
             'LPUSHX' => ListPushHeadX::class,
             'LINSERT' => ListInsert::class,
             'BRPOPLPUSH' => ListPopLastPushHeadBlocking::class,
-
-
             'ZREVRANGEBYSCORE' => ZSetReverseRangeByScore::class,
-
-
             'WATCH' => TransactionWatch::class,
             'UNWATCH' => TransactionUnwatch::class,
-
-
             'OBJECT' => ServerObject::class,
             'SLOWLOG' => ServerSlowlog::class,
         );

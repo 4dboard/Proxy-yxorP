@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeyRandom extends Command
 {
 
@@ -11,7 +8,6 @@ class KeyRandom extends Command
     {
         return 'RANDOMKEY';
     }
-
 
     public function parseResponse($data)
     {

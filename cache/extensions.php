@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 abstract class cache_extensions
 {
 

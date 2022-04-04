@@ -1,17 +1,14 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
 
 use InvalidArgumentException;
-
 
 class RawCommand implements CommandInterface
 {
     private $slot;
     private string $commandID;
     private array $arguments;
-
 
     public function __construct(array $arguments)
     {
@@ -25,13 +22,11 @@ class RawCommand implements CommandInterface
         $this->arguments = $arguments;
     }
 
-
     public static function create($commandID): RawCommand
     {
         $arguments = func_get_args();
         return new self($arguments);
     }
-
 
     public function getId(): string
     {

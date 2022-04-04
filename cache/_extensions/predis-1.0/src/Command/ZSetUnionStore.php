@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ZSetUnionStore extends Command
 {
 
@@ -11,7 +8,6 @@ class ZSetUnionStore extends Command
     {
         return 'ZUNIONSTORE';
     }
-
 
     protected function filterArguments(array $arguments): array
     {
@@ -31,7 +27,6 @@ class ZSetUnionStore extends Command
 
         return array_merge($arguments, $options);
     }
-
 
     private function prepareOptions($options): array
     {

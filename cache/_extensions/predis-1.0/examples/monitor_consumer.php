@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // This is a basic example on how to use the Predis\Monitor\Consumer class. You
@@ -16,8 +14,6 @@ $timestamp = new DateTime();
 
 foreach (($monitor = $client->monitor()) as $event) {
     $timestamp->setTimestamp((int)$event->timestamp);
-
-
     if ($event->command === 'ECHO' && $event->arguments === '"QUIT_MONITOR"') {
         echo "Exiting the monitor loop...", PHP_EOL;
         $monitor->stop();

@@ -1,4 +1,4 @@
-<?php error_reporting(0);
+<?php error_reporting(1);
 
 use Bugsnag\Client;
 use Bugsnag\Handler;

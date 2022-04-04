@@ -1,29 +1,17 @@
 <?php /* yxorP */
 
-
 use JetBrains\PhpStorm\Pure;
 use yxorP\cache\Cache;
 use function yxorP\cache\cache;
 
-/**
- * @property $option
- */
 abstract class BaseCache
 {
-
-
     public array $tmp = array();
-
-
     public array $config = array();
-
-
     public bool $fallback = false;
-
-
     public $instant;
 
-    public function stats($option = array())
+    #[\JetBrains\PhpStorm\ArrayShape(["info" => "string", "size" => "string", "data" => "string"])] public function stats($option = array())
     {
         return $this->driver_stats($option);
     }
@@ -56,8 +44,6 @@ abstract class BaseCache
     {
 
         if ((int)$time <= 0) {
-
-
             $time = 3600 * 24 * 365 * 5;
         }
 
@@ -88,15 +74,13 @@ abstract class BaseCache
 
     public function get($keyword, $option = array())
     {
-
-
         if (Cache::$disabled === true) {
             return null;
         }
 
         $object = $this->driver_get($keyword, $option);
 
-        if ($object == null) {
+        if ($object === null) {
             return null;
         }
 
@@ -115,14 +99,9 @@ abstract class BaseCache
         return $res;
     }
 
-    public function getInfo($keyword, $option = array())
+    public function getInfo($keyword, $option = array()): void
     {
         $object = $this->driver_get($keyword, $option);
-
-        if ($object == null) {
-            return null;
-        }
-        return $object;
     }
 
     public function deleteMulti($list = array()): void
@@ -156,7 +135,7 @@ abstract class BaseCache
         }
 
         $data = $this->get($keyword);
-        return $data != null;
+        return $data !== null;
 
     }
 
@@ -174,7 +153,7 @@ abstract class BaseCache
     public function increment($keyword, $step = 1, $option = array()): ?bool
     {
         $object = $this->get($keyword, array('all_keys' => true));
-        if ($object == null) {
+        if ($object === null) {
             return false;
         }
 
@@ -198,7 +177,7 @@ abstract class BaseCache
     public function decrement($keyword, $step = 1, $option = array()): ?bool
     {
         $object = $this->get($keyword, array('all_keys' => true));
-        if ($object == null) {
+        if ($object === null) {
             return false;
         }
 
@@ -222,7 +201,7 @@ abstract class BaseCache
     public function touch($keyword, $time = 300, $option = array()): ?bool
     {
         $object = $this->get($keyword, array('all_keys' => true));
-        if ($object == null) {
+        if ($object === null) {
             return false;
         }
 
@@ -243,12 +222,10 @@ abstract class BaseCache
 
     }
 
-
     public function __get($name)
     {
         return $this->get($name);
     }
-
 
     /**
      * @throws cacheCoreException
@@ -263,7 +240,6 @@ abstract class BaseCache
         throw new cacheCoreException("Example ->$name = array('VALUE', 300);", 98);
     }
 
-
     public function __call($name, $args)
     {
         return call_user_func_array(array($this->instant, $name), $args);
@@ -275,7 +251,7 @@ abstract class BaseCache
     public function systemInfo()
     {
         $backup_option = $this->option;
-        if (count($this->option("system")) == 0) {
+        if (count($this->option("system")) === 0) {
             $this->option['system']['driver'] = "files";
             $this->option['system']['drivers'] = array();
             $dir = @opendir(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/");
@@ -300,13 +276,9 @@ abstract class BaseCache
                     }
                 }
             }
-
-
-            if ($this->option['system']['drivers']['sqlite'] == true) {
+            if ($this->option['system']['drivers']['sqlite'] === true) {
                 $this->option['system']['driver'] = "sqlite";
             }
-
-
         }
 
         try {
@@ -369,7 +341,7 @@ abstract class BaseCache
     protected function decode($value)
     {
         $x = @unserialize($value);
-        if ($x == false) {
+        if ($x === false) {
             return $value;
         }
 
@@ -381,7 +353,7 @@ abstract class BaseCache
      */
     protected function htaccessGen($path = ""): void
     {
-        if (($this->option("htaccess") == true) && !file_exists($path . "/.htaccess")) {
+        if (($this->option("htaccess") === true) && !file_exists($path . "/.htaccess")) {
 
             $html = "order deny, allow \r\n
 deny from all \r\n
@@ -393,8 +365,6 @@ allow from 127.0.0.1";
             }
             fwrite($f, $html);
             fclose($f);
-
-
         }
     }
 
@@ -414,7 +384,6 @@ allow from 127.0.0.1";
 
         return false;
     }
-
 
     #[Pure] protected function __setChmodAuto()
     {

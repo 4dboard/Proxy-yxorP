@@ -1,12 +1,10 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text\Handler;
 
 use JetBrains\PhpStorm\Pure;
 use Predis\Connection\CompositeConnectionInterface;
 use Predis\Response\Error;
-
 
 class ErrorResponse implements ResponseHandlerInterface
 {

@@ -1,12 +1,10 @@
 <?php /* yxorP */
 
-
 use yxorP\http\ProxyEvent;
 
 class DailyMotionPlugin extends AbstractPlugin
 {
     protected $url_pattern = 'dailymotion.com';
-
 
     public function onCompleted(ProxyEvent $event)
     {
@@ -28,5 +26,3 @@ class DailyMotionPlugin extends AbstractPlugin
         $response->setContent($content);
     }
 }
-
-

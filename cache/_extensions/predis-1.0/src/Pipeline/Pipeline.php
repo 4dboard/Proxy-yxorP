@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Pipeline;
 
 use Exception;
@@ -8,7 +7,7 @@ use InvalidArgumentException;
 use JetBrains\PhpStorm\Pure;
 use Predis\ClientContextInterface;
 use Predis\ClientException;
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\Command\CommandInterface;
 use Predis\Connection\Aggregate\ReplicationInterface;
 use Predis\Connection\ConnectionInterface;
@@ -17,22 +16,19 @@ use Predis\Response\ResponseInterface;
 use Predis\Response\ServerException;
 use SplQueue;
 
-
 class Pipeline implements ClientContextInterface
 {
-    private ClientInterface $client;
+    private AClientInterface $client;
     private SplQueue $pipeline;
 
     private array $responses = array();
     private bool $running = false;
 
-
-    #[Pure] public function __construct(ClientInterface $client)
+    #[Pure] public function __construct(AClientInterface $client)
     {
         $this->client = $client;
         $this->pipeline = new SplQueue();
     }
-
 
     public function __call(string $method, array $arguments)
     {
@@ -42,12 +38,10 @@ class Pipeline implements ClientContextInterface
         return $this;
     }
 
-
     protected function recordCommand(CommandInterface $command): void
     {
         $this->pipeline->enqueue($command);
     }
-
 
     public function executeCommand(CommandInterface $command)
     {
@@ -171,7 +165,7 @@ class Pipeline implements ClientContextInterface
         return $connection;
     }
 
-    public function getClient(): ClientInterface
+    public function getClient(): AClientInterface
     {
         return $this->client;
     }

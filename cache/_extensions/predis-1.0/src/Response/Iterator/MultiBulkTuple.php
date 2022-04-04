@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Response\Iterator;
 
 use InvalidArgumentException;
@@ -8,11 +7,9 @@ use Iterator;
 use OuterIterator;
 use UnexpectedValueException;
 
-
 class MultiBulkTuple extends MultiBulk implements OuterIterator
 {
     private MultiBulk $iterator;
-
 
     public function __construct(MultiBulk $iterator)
     {
@@ -23,7 +20,6 @@ class MultiBulkTuple extends MultiBulk implements OuterIterator
         $this->position = $iterator->getPosition();
         $this->current = $this->size > 0 ? $this->getValue() : null;
     }
-
 
     protected function checkPreconditions(MultiBulk $iterator): void
     {

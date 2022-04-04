@@ -1,21 +1,18 @@
 <?php /* yxorP */
 
-
 namespace Predis\Collection\Iterator;
 
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\NotSupportedException;
-
 
 class SortedSetKey extends CursorBasedIterator
 {
     protected $key;
 
-
     /**
      * @throws NotSupportedException
      */
-    public function __construct(ClientInterface $client, $key, $match = null, $count = null)
+    public function __construct(AClientInterface $client, $key, $match = null, $count = null)
     {
         $this->requiredCommand($client, 'ZSCAN');
 
@@ -24,12 +21,10 @@ class SortedSetKey extends CursorBasedIterator
         $this->key = $key;
     }
 
-
     protected function executeCommand(): array
     {
         return $this->client->zscan($this->key, $this->cursor, $this->getScanOptions());
     }
-
 
     protected function extractNext()
     {
