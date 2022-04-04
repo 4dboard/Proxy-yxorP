@@ -1,13 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use InvalidArgumentException;
 use Predis\Command\CommandInterface;
 use Predis\CommunicationException;
 use Predis\Protocol\ProtocolException;
-
 
 abstract class AbstractConnection implements NodeConnectionInterface
 {

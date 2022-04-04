@@ -1,11 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection\Aggregate;
 
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
+use JetBrains\PhpStorm\Pure;
 use OutOfBoundsException;
 use Predis\Cluster\RedisStrategy as RedisClusterStrategy;
 use Predis\Cluster\StrategyInterface;
@@ -16,8 +16,7 @@ use Predis\Connection\NodeConnectionInterface;
 use Predis\NotSupportedException;
 use Predis\Response\ErrorInterface as ErrorResponseInterface;
 
-
-class RedisCluster implements ClusterInterface, IteratorAggregate, Countable
+abstract class RedisCluster implements ClusterInterface, IteratorAggregate, Countable
 {
     private bool $useClusterSlots = true;
     private array $defaultParameters = array();
@@ -27,8 +26,7 @@ class RedisCluster implements ClusterInterface, IteratorAggregate, Countable
     private RedisClusterStrategy|StrategyInterface $strategy;
     private FactoryInterface $connections;
 
-
-    public function __construct(
+    #[Pure] public function __construct(
         FactoryInterface  $connections,
         StrategyInterface $strategy = null
     )
@@ -36,7 +34,6 @@ class RedisCluster implements ClusterInterface, IteratorAggregate, Countable
         $this->connections = $connections;
         $this->strategy = $strategy ?: new RedisClusterStrategy();
     }
-
 
     public function isConnected(): bool
     {
@@ -48,7 +45,6 @@ class RedisCluster implements ClusterInterface, IteratorAggregate, Countable
 
         return false;
     }
-
 
     public function connect()
     {
@@ -265,7 +261,6 @@ class RedisCluster implements ClusterInterface, IteratorAggregate, Countable
         };
     }
 
-
     protected function onMovedResponse(CommandInterface $command, $details)
     {
         [$slot, $connectionID] = explode(' ', $details, 2);
@@ -324,30 +319,25 @@ class RedisCluster implements ClusterInterface, IteratorAggregate, Countable
         return count($this->pool);
     }
 
-
     public function getIterator(): ArrayIterator
     {
         return new ArrayIterator(array_values($this->pool));
     }
-
 
     public function getClusterStrategy(): StrategyInterface|RedisClusterStrategy
     {
         return $this->strategy;
     }
 
-
     public function getConnectionFactory(): FactoryInterface
     {
         return $this->connections;
     }
 
-
     public function useClusterSlots($value): void
     {
         $this->useClusterSlots = (bool)$value;
     }
-
 
     public function setDefaultParameters(array $parameters): void
     {

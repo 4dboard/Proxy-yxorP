@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command\Processor;
 
 use ArrayAccess;
@@ -8,11 +7,9 @@ use ArrayIterator;
 use InvalidArgumentException;
 use Predis\Command\CommandInterface;
 
-
 class ProcessorChain implements ArrayAccess, ProcessorInterface
 {
     private array $processors = array();
-
 
     public function __construct($processors = array())
     {
@@ -21,12 +18,10 @@ class ProcessorChain implements ArrayAccess, ProcessorInterface
         }
     }
 
-
     public function add(ProcessorInterface $processor): void
     {
         $this->processors[] = $processor;
     }
-
 
     public function remove(ProcessorInterface $processor): void
     {
@@ -35,7 +30,6 @@ class ProcessorChain implements ArrayAccess, ProcessorInterface
         }
     }
 
-
     public function process(CommandInterface $command)
     {
         for ($i = 0; $i < $count = count($this->processors); $i++) {
@@ -43,36 +37,30 @@ class ProcessorChain implements ArrayAccess, ProcessorInterface
         }
     }
 
-
     public function getProcessors(): array
     {
         return $this->processors;
     }
-
 
     public function getIterator(): ArrayIterator
     {
         return new ArrayIterator($this->processors);
     }
 
-
     public function count(): int
     {
         return count($this->processors);
     }
-
 
     public function offsetExists($index): bool
     {
         return isset($this->processors[$index]);
     }
 
-
     public function offsetGet($index)
     {
         return $this->processors[$index];
     }
-
 
     public function offsetSet($index, $processor)
     {
@@ -85,7 +73,6 @@ class ProcessorChain implements ArrayAccess, ProcessorInterface
 
         $this->processors[$index] = $processor;
     }
-
 
     public function offsetUnset($index)
     {

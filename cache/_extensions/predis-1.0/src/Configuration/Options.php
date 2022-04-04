@@ -1,8 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Configuration;
-
 
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
@@ -21,14 +19,12 @@ class Options implements OptionsInterface
     protected array $options;
     protected array $handlers;
 
-
     #[Pure] public function __construct(array $options = array())
     {
         $this->input = $options;
         $this->options = array();
         $this->handlers = $this->getHandlers();
     }
-
 
     #[ArrayShape(['cluster' => "string", 'connections' => "string", 'exceptions' => "string", 'prefix' => "string", 'profile' => "string", 'replication' => "string"])] protected function getHandlers(): array
     {

@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // Predis allows to set Lua scripts as read-only operations for replication.

@@ -1,9 +1,7 @@
 <?php /* yxorP */
 
-
 use yxorP\http\ProxyEvent;
 use yxorP\Plugin\AbstractPlugin;
-
 
 class LogPlugin extends AbstractPlugin
 {

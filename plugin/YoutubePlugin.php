@@ -1,8 +1,6 @@
 <?php /* yxorP */
 
-
 use yxorP\http\ProxyEvent;
-
 
 class YoutubePlugin extends AbstractPlugin
 {
@@ -46,5 +44,3 @@ class YoutubePlugin extends AbstractPlugin
         $response->setContent($output);
     }
 }
-
-

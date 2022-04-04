@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class TransactionWatch extends Command
 {
 
@@ -11,7 +8,6 @@ class TransactionWatch extends Command
     {
         return 'WATCH';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

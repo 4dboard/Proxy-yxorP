@@ -1,15 +1,12 @@
 <?php /* yxorP */
 
-
 namespace Predis\Response\Iterator;
 
 use Predis\Connection\NodeConnectionInterface;
 
-
 class MultiBulk extends MultiBulkIterator
 {
     private NodeConnectionInterface $connection;
-
 
     public function __construct(NodeConnectionInterface $connection, $size)
     {

@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection\Aggregate;
 
 use InvalidArgumentException;
@@ -11,14 +10,12 @@ use Predis\NotSupportedException;
 use Predis\Replication\ReplicationStrategy;
 use RuntimeException;
 
-
-class MasterSlaveReplication implements ReplicationInterface
+abstract class MasterSlaveReplication implements ReplicationInterface
 {
     protected ReplicationStrategy $strategy;
     protected $master;
     protected array $slaves;
     protected $current;
-
 
     #[Pure] public function __construct(ReplicationStrategy $strategy = null)
     {
@@ -183,7 +180,6 @@ class MasterSlaveReplication implements ReplicationInterface
         }
     }
 
-
     public function executeCommand(CommandInterface $command)
     {
         try {
@@ -191,7 +187,6 @@ class MasterSlaveReplication implements ReplicationInterface
         } catch (NotSupportedException $e) {
         }
     }
-
 
     public function __sleep()
     {

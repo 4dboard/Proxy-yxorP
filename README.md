@@ -1,14 +1,12 @@
 <h1  align="center"> .yxorP Proxy.</h1>
 
-<h3 align="center">🦄 Your Web Proxy as a Service (SAAS)</h3></h3>
-<p  align="center">Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</p>
+<h3 align="center">🦄 Your Guzzling Web Proxy as a Service (SAAS)</h3></h3>
+<p  align="center">Plug & Play <b>(No CURL + No Composer)</b>, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</p>
 
 <img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/logo.gif' /></p>
 
 <h3 align="center">🔋 Batteries are included</h3></h3>
 <p  align="center"> Built-in Content Spinning and Auto Caching Engine, all housed within a stunning web GUI.</p>
-
-
 <h3 align="center">🚀 Cache Drivers Include</h3>
 <p  align="center">Arangodb, Devnull, Dynamodb (AWS),Cassandra, Devrandom,	Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,	Mongodb, Memcache(d),Predis, Sqlite, Redis,	Wincache, Ssdb, Zend Disk Cache, Zend Memory Cache</p>
 
@@ -90,8 +88,6 @@ during updates or down-time.
 There are many applications, these are only a few that come to mind...
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-
 <img src="assets/logosnag.png"/>
 
 Error monitoring and application stability management solution via Bugsnag. Stability is the key to making data-driven

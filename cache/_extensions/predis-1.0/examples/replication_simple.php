@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // Predis supports master / slave replication scenarios where write operations
@@ -36,5 +34,3 @@ echo "Now 'foo' has been set to 'bar' on {$current->alias}!", PHP_EOL;
 $bar = $client->get('foo');
 $current = $client->getConnection()->getCurrent()->getParameters();
 echo "We fetched 'foo' from {$current->alias} and its value is '$bar'.", PHP_EOL;
-
-

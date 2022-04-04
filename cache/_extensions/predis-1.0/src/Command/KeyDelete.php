@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeyDelete extends Command
 {
 
@@ -11,7 +8,6 @@ class KeyDelete extends Command
     {
         return 'DEL';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

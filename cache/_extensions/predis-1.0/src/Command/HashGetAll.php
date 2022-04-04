@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HashGetAll extends Command
 {
 
@@ -11,7 +8,6 @@ class HashGetAll extends Command
     {
         return 'HGETALL';
     }
-
 
     public function parseResponse($data): array
     {

@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // Developers can implement Predis\Distribution\DistributorInterface to create
@@ -11,6 +9,7 @@ use Predis\Cluster\Distributor\DistributorInterface;
 use Predis\Cluster\Hash\HashGeneratorInterface;
 use Predis\Cluster\PredisStrategy;
 use Predis\Connection\Aggregate\PredisCluster;
+use Predis\NotSupportedException;
 
 class NaiveDistributor implements DistributorInterface, HashGeneratorInterface
 {
@@ -92,11 +91,11 @@ for ($i = 0; $i < 100; $i++) {
 
 try {
     $server1 = $client->getClientFor('first')->info();
-} catch (\Predis\NotSupportedException $e) {
+} catch (NotSupportedException $e) {
 }
 try {
     $server2 = $client->getClientFor('second')->info();
-} catch (\Predis\NotSupportedException $e) {
+} catch (NotSupportedException $e) {
 }
 
 if (isset($server1['Keyspace'], $server2['Keyspace'])) {

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class SetIntersectionStore extends Command
 {
 
@@ -11,7 +8,6 @@ class SetIntersectionStore extends Command
     {
         return 'SINTERSTORE';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

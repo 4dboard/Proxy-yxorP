@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 abstract class ScriptCommand extends ServerEvalSHA
 {
 

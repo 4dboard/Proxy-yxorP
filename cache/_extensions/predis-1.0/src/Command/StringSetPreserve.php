@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class StringSetPreserve extends Command
 {
 
@@ -11,7 +8,6 @@ class StringSetPreserve extends Command
     {
         return 'SETNX';
     }
-
 
     public function parseResponse($data): bool
     {

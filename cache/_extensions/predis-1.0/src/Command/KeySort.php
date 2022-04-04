@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeySort extends Command
 {
 
@@ -11,7 +8,6 @@ class KeySort extends Command
     {
         return 'SORT';
     }
-
 
     protected function filterArguments(array $arguments): array
     {
@@ -43,7 +39,7 @@ class KeySort extends Command
 
         if (isset($sortParams['LIMIT']) &&
             is_array($sortParams['LIMIT']) &&
-            count($sortParams['LIMIT']) == 2) {
+            count($sortParams['LIMIT']) === 2) {
 
             $query[] = 'LIMIT';
             $query[] = $sortParams['LIMIT'][0];
@@ -54,7 +50,7 @@ class KeySort extends Command
             $query[] = strtoupper($sortParams['SORT']);
         }
 
-        if (isset($sortParams['ALPHA']) && $sortParams['ALPHA'] == true) {
+        if (isset($sortParams['ALPHA']) && $sortParams['ALPHA'] === true) {
             $query[] = 'ALPHA';
         }
 

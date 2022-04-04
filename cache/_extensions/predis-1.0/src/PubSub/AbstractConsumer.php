@@ -1,11 +1,9 @@
 <?php /* yxorP */
 
-
 namespace Predis\PubSub;
 
 use Iterator;
 use JetBrains\PhpStorm\Pure;
-
 
 abstract class AbstractConsumer implements Iterator
 {
@@ -23,7 +21,6 @@ abstract class AbstractConsumer implements Iterator
 
     private $position;
     private int $statusFlags = self::STATUS_VALID;
-
 
     public function __destruct()
     {

@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 use JetBrains\PhpStorm\ArrayShape;
 
 class cache_cookie extends BaseCache implements cache_driver
@@ -17,7 +16,6 @@ class cache_cookie extends BaseCache implements cache_driver
         }
 
     }
-
 
     public function checkdriver(): bool
     {
@@ -49,17 +47,14 @@ class cache_cookie extends BaseCache implements cache_driver
     public function driver_get($keyword, $option = array())
     {
         $this->connectServer();
-
-
         $keyword = "cache_" . $keyword;
         $x = isset($_COOKIE[$keyword]) ? $this->decode($_COOKIE['keyword']) : false;
-        if ($x == false) {
+        if ($x === false) {
             return null;
         }
 
         return $x;
     }
-
 
     public function driver_delete($keyword, $option = array())
     {
@@ -68,7 +63,6 @@ class cache_cookie extends BaseCache implements cache_driver
         @setcookie($keyword, null, -10);
         $_COOKIE[$keyword] = null;
     }
-
 
     #[ArrayShape(["info" => "string", "size" => "string", "data" => "array"])] public function driver_stats($option = array()): array
     {
@@ -81,7 +75,6 @@ class cache_cookie extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_clean($option = array())
     {
         $this->connectServer();
@@ -93,12 +86,11 @@ class cache_cookie extends BaseCache implements cache_driver
         }
     }
 
-
     public function driver_isExisting($keyword): bool
     {
         $this->connectServer();
         $x = $this->get($keyword);
 
-        return !($x == null);
+        return !($x === null);
     }
 }

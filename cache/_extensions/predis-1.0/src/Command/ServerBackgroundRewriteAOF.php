@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerBackgroundRewriteAOF extends Command
 {
 
@@ -11,7 +8,6 @@ class ServerBackgroundRewriteAOF extends Command
     {
         return 'BGREWRITEAOF';
     }
-
 
     public function parseResponse($data): bool
     {

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeyExists extends Command
 {
 
@@ -11,7 +8,6 @@ class KeyExists extends Command
     {
         return 'EXISTS';
     }
-
 
     public function parseResponse($data): bool
     {

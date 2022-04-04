@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Protocol\Text;
 
 use JetBrains\PhpStorm\ArrayShape;
@@ -15,17 +14,14 @@ use Predis\Protocol\Text\Handler\IntegerResponse;
 use Predis\Protocol\Text\Handler\MultiBulkResponse;
 use Predis\Protocol\Text\Handler\StatusResponse;
 
-
 class ResponseReader implements ResponseReaderInterface
 {
     protected array $handlers;
-
 
     #[Pure] public function __construct()
     {
         $this->handlers = $this->getDefaultHandlers();
     }
-
 
     #[Pure] #[ArrayShape(['+' => StatusResponse::class, '-' => ErrorResponse::class, ':' => IntegerResponse::class, '$' => BulkResponse::class, '*' => MultiBulkResponse::class])] protected function getDefaultHandlers(): array
     {
@@ -38,18 +34,15 @@ class ResponseReader implements ResponseReaderInterface
         );
     }
 
-
     public function setHandler($prefix, Handler\ResponseHandlerInterface $handler): void
     {
         $this->handlers[$prefix] = $handler;
     }
 
-
     public function getHandler($prefix)
     {
         return $this->handlers[$prefix] ?? null;
     }
-
 
     public function read(CompositeConnectionInterface $connection)
     {
@@ -76,7 +69,6 @@ class ResponseReader implements ResponseReaderInterface
         } catch (CommunicationException $e) {
         }
     }
-
 
     /**
      * @throws CommunicationException

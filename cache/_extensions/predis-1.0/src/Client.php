@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis;
 
 use InvalidArgumentException;
@@ -23,8 +22,7 @@ use Predis\Response\ServerException;
 use Predis\Transaction\MultiExec as MultiExecTransaction;
 use UnexpectedValueException;
 
-
-class Client implements ClientInterface
+class Client implements AClientInterface
 {
     public const VERSION = '1.0.2-dev';
 
@@ -32,14 +30,12 @@ class Client implements ClientInterface
     protected Options|OptionsInterface $options;
     private $profile;
 
-
     public function __construct($parameters = null, $options = null)
     {
         $this->options = $this->createOptions($options ?: array());
         $this->connection = $this->createConnection($parameters ?: array());
         $this->profile = $this->options->profile;
     }
-
 
     protected function createOptions($options): OptionsInterface|Options
     {
@@ -53,7 +49,6 @@ class Client implements ClientInterface
 
         throw new InvalidArgumentException("Invalid type for client options.");
     }
-
 
     protected function createConnection($parameters)
     {
@@ -96,7 +91,6 @@ class Client implements ClientInterface
         throw new InvalidArgumentException('Invalid type for connection parameters.');
     }
 
-
     protected function getConnectionInitializerWrapper($callable): callable
     {
         return static function () use ($callable) {
@@ -112,18 +106,15 @@ class Client implements ClientInterface
         };
     }
 
-
     public function getProfile()
     {
         return $this->profile;
     }
 
-
     public function getOptions(): OptionsInterface|Options
     {
         return $this->options;
     }
-
 
     /**
      * @throws NotSupportedException
@@ -195,7 +186,6 @@ class Client implements ClientInterface
         return $response;
     }
 
-
     public function __call(string $method, array $arguments)
     {
         try {
@@ -227,15 +217,13 @@ class Client implements ClientInterface
     /**
      * @throws ServerException
      */
-    protected function onErrorResponse(CommandInterface $command, ErrorResponseInterface $response): \ErrorResponseInterface|\ResponseInterface
+    protected function onErrorResponse(CommandInterface $command, ErrorResponseInterface $response): ResponseInterface
     {
         if ($command instanceof ScriptCommand && $response->getErrorType() === 'NOSCRIPT') {
             $eval = $this->createCommand('EVAL');
             $eval->setRawArguments($command->getEvalArguments());
 
-            $response = $this->executeCommand($eval);
-
-            return $response;
+            return $this->executeCommand($eval);
         }
 
         if ($this->options->exceptions) {
@@ -306,8 +294,6 @@ class Client implements ClientInterface
         } else {
             $class = Pipeline::class;
         }
-
-
         $pipeline = new $class($this);
 
         if (isset($callable)) {
@@ -318,8 +304,9 @@ class Client implements ClientInterface
     }
 
     /**
-     * @throws Transaction\AbortedMultiExecException
-     * @throws ServerException
+     * @param array|null $options
+     * @param null $callable
+     * @return MultiExecTransaction|array|null
      */
     protected function createTransaction(array $options = null, $callable = null): MultiExecTransaction|array|null
     {
@@ -331,10 +318,7 @@ class Client implements ClientInterface
         if (isset($callable)) {
             try {
                 return $transaction->execute($callable);
-            } catch (ClientException $e) {
-            } catch (CommunicationException $e) {
-            } catch (ServerException $e) {
-            } catch (Transaction\AbortedMultiExecException $e) {
+            } catch (ClientException|Transaction\AbortedMultiExecException|ServerException|CommunicationException $e) {
             }
         }
 

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerClient extends Command
 {
 
@@ -11,7 +8,6 @@ class ServerClient extends Command
     {
         return 'CLIENT';
     }
-
 
     public function parseResponse($data): array
     {
@@ -22,7 +18,6 @@ class ServerClient extends Command
             default => $data,
         };
     }
-
 
     protected function parseClientList($data): array
     {

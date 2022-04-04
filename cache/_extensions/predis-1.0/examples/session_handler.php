@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // This example demonstrates how to use Predis to save PHP sessions on Redis.

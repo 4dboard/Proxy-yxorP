@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use Predis\Command\CommandInterface;
@@ -9,11 +8,9 @@ use Predis\NotSupportedException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
 
-
 class PhpiredisStreamConnection extends StreamConnection
 {
     private $reader;
-
 
     /**
      * @throws NotSupportedException
@@ -78,7 +75,7 @@ class PhpiredisStreamConnection extends StreamConnection
         while (PHPIREDIS_READER_STATE_INCOMPLETE === $state = phpiredis_reader_get_state($reader)) {
             $buffer = stream_socket_recvfrom($socket, 4096);
 
-            if ($buffer == false) {
+            if ($buffer === false) {
                 try {
                     $this->onConnectionError('Error while reading bytes from the server.');
                 } catch (CommunicationException $e) {

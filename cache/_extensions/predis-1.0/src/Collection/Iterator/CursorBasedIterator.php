@@ -1,16 +1,14 @@
 <?php /* yxorP */
 
-
 namespace Predis\Collection\Iterator;
 
 use Iterator;
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\NotSupportedException;
-
 
 abstract class CursorBasedIterator implements Iterator
 {
-    protected ClientInterface $client;
+    protected AClientInterface $client;
     protected mixed $match;
     protected mixed $count;
 
@@ -21,8 +19,7 @@ abstract class CursorBasedIterator implements Iterator
     protected $position;
     protected $current;
 
-
-    public function __construct(ClientInterface $client, $match = null, $count = null)
+    public function __construct(AClientInterface $client, $match = null, $count = null)
     {
         $this->client = $client;
         $this->match = $match;
@@ -102,7 +99,7 @@ abstract class CursorBasedIterator implements Iterator
     /**
      * @throws NotSupportedException
      */
-    protected function requiredCommand(ClientInterface $client, $commandID): void
+    protected function requiredCommand(AClientInterface $client, $commandID): void
     {
         if (!$client->getProfile()->supportsCommand($commandID)) {
             throw new NotSupportedException("The current profile does not support '$commandID'.");
@@ -113,7 +110,7 @@ abstract class CursorBasedIterator implements Iterator
     {
         $options = array();
 
-        if ($this->match != '') {
+        if ($this->match !== '') {
             $options['MATCH'] = $this->match;
         }
 

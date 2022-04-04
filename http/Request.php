@@ -13,8 +13,6 @@ class Request
     public ParamStore $get;
 
     public ParamStore $files;
-
-
     private $method;
 
     private string $url;
@@ -44,7 +42,6 @@ class Request
         $this->prepare();
     }
 
-
     public function setBody($body, $content_type = false): void
     {
 
@@ -66,8 +63,6 @@ class Request
 
     public function prepare(): void
     {
-
-
         if ($this->files->all()) {
 
             $boundary = self::generateBoundary();
@@ -85,8 +80,6 @@ class Request
             $this->headers->set('content-type', $this->detectContentType($this->body));
             $this->prepared_body = $this->body;
         }
-
-
         $len = strlen($this->prepared_body);
 
         if ($len > 0) {
@@ -210,7 +203,6 @@ class Request
         return $result;
     }
 
-
     public function getMethod()
     {
         return $this->method;
@@ -249,7 +241,6 @@ class Request
         return $this->protocol_version;
     }
 
-
     public function getRawHeaders(): string
     {
 
@@ -280,5 +271,3 @@ class Request
         return call_user_func_array(array($this, "getUrl"), func_get_args());
     }
 }
-
-

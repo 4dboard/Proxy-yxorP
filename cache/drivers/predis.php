@@ -1,14 +1,10 @@
 <?php /* yxorP */
 
-
 use Predis\Client;
 
 class cache_predis extends BaseCache implements cache_driver
 {
-
-
     public bool $checked_redis = false;
-
 
     public function __construct($config = array())
     {
@@ -17,7 +13,6 @@ class cache_predis extends BaseCache implements cache_driver
             $this->required_extension("predis-1.0/autoload.php");
         }
     }
-
 
     public function checkdriver(): bool
     {
@@ -52,35 +47,33 @@ class cache_predis extends BaseCache implements cache_driver
                 "password" => "",
                 "database" => "",
             );
-
-
         if ($this->checked_redis === false) {
             $c = array(
                 "host" => $server['host'],
             );
 
             $port = $server['port'] ?? "";
-            if ($port != "") {
+            if ($port !== "") {
                 $c['port'] = $port;
             }
 
             $password = $server['password'] ?? "";
-            if ($password != "") {
+            if ($password !== "") {
                 $c['password'] = $password;
             }
 
             $database = $server['database'] ?? "";
-            if ($database != "") {
+            if ($database !== "") {
                 $c['database'] = $database;
             }
 
             $timeout = $server['timeout'] ?? "";
-            if ($timeout != "") {
+            if ($timeout !== "") {
                 $c['timeout'] = $timeout;
             }
 
             $read_write_timeout = $server['read_write_timeout'] ?? "";
-            if ($read_write_timeout != "") {
+            if ($read_write_timeout !== "") {
                 $c['read_write_timeout'] = $read_write_timeout;
             }
 
@@ -102,10 +95,8 @@ class cache_predis extends BaseCache implements cache_driver
     public function driver_get($keyword, $option = array())
     {
         if ($this->connectServer()) {
-
-
             $x = $this->instant->get($keyword);
-            if ($x == false) {
+            if ($x === false) {
                 return null;
             }
 
@@ -116,7 +107,6 @@ class cache_predis extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_delete($keyword, $option = array())
     {
 
@@ -125,7 +115,6 @@ class cache_predis extends BaseCache implements cache_driver
         }
 
     }
-
 
     public function driver_stats($option = array()): array
     {
@@ -141,7 +130,6 @@ class cache_predis extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_clean($option = array())
     {
         if ($this->connectServer()) {
@@ -150,12 +138,11 @@ class cache_predis extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_isExisting($keyword): ?bool
     {
         if ($this->connectServer()) {
             $x = $this->instant->exists($keyword);
-            return !($x == null);
+            return !($x === null);
         }
 
         return $this->backup()->isExisting($keyword);

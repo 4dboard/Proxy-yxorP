@@ -1,15 +1,12 @@
 <?php /* yxorP */
 
-
 namespace Predis\Cluster\Distributor;
-
 
 use JetBrains\PhpStorm\Pure;
 
 class KetamaRing extends HashRing
 {
     public const DEFAULT_REPLICAS = 160;
-
 
     #[Pure] public function __construct($nodeHashCallback = null)
     {

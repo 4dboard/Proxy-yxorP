@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis;
 
 use Predis\Command\CommandInterface;
@@ -157,7 +156,7 @@ use Predis\Profile\ProfileInterface;
  *
  * @author Daniele Alessandri <suppakilla@gmail.com>
  */
-interface ClientInterface
+interface AClientInterface
 {
     /**
      * Returns the server profile used by the client.

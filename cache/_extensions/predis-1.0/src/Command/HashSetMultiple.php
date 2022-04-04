@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HashSetMultiple extends Command
 {
 
@@ -11,7 +8,6 @@ class HashSetMultiple extends Command
     {
         return 'HMSET';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

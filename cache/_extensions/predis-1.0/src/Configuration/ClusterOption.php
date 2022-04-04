@@ -1,13 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Configuration;
 
 use InvalidArgumentException;
 use Predis\Connection\Aggregate\ClusterInterface;
 use Predis\Connection\Aggregate\PredisCluster;
 use Predis\Connection\Aggregate\RedisCluster;
-
 
 class ClusterOption implements OptionInterface
 {

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HashSetPreserve extends Command
 {
 
@@ -11,7 +8,6 @@ class HashSetPreserve extends Command
     {
         return 'HSETNX';
     }
-
 
     public function parseResponse($data): bool
     {

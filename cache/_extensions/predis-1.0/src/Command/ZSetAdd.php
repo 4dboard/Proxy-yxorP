@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ZSetAdd extends Command
 {
 
@@ -11,7 +8,6 @@ class ZSetAdd extends Command
     {
         return 'ZADD';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 namespace Predis\Profile;
 
 use InvalidArgumentException;
@@ -9,18 +8,15 @@ use Predis\Command\CommandInterface;
 use Predis\Command\Processor\ProcessorInterface;
 use ReflectionClass;
 
-
 abstract class RedisProfile implements ProfileInterface
 {
     private $commands;
     private $processor;
 
-
     public function __construct()
     {
         $this->commands = $this->getSupportedCommands();
     }
-
 
     abstract protected function getSupportedCommands();
 
@@ -47,7 +43,6 @@ abstract class RedisProfile implements ProfileInterface
         }
     }
 
-
     /**
      * @throws ClientException
      */
@@ -69,7 +64,6 @@ abstract class RedisProfile implements ProfileInterface
 
         return $command;
     }
-
 
     public function defineCommand($commandID, $class): void
     {

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Profile;
-
-
 class RedisUnstable extends RedisVersion300
 {
 

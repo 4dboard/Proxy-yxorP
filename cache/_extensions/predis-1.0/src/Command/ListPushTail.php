@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ListPushTail extends Command
 {
 
@@ -11,7 +8,6 @@ class ListPushTail extends Command
     {
         return 'RPUSH';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

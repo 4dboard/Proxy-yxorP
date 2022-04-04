@@ -7,7 +7,6 @@ abstract class AbstractPlugin
 
     protected $url_pattern;
 
-
     final public function subscribe($dispatcher): void
     {
 
@@ -37,7 +36,7 @@ abstract class AbstractPlugin
                 return;
             }
 
-            if (stripos($url, $this->url_pattern) == false) {
+            if (stripos($url, $this->url_pattern) === false) {
                 return;
             }
         }
@@ -78,5 +77,3 @@ abstract class AbstractPlugin
     {
     }
 }
-
-

@@ -1,13 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Profile;
 
 use InvalidArgumentException;
 use Predis\ClientException;
 use ReflectionClass;
 use ReflectionException;
-
 
 final class Factory
 {
@@ -22,12 +20,10 @@ final class Factory
         'dev' => RedisUnstable::class,
     );
 
-
     private function __construct()
     {
 
     }
-
 
     /**
      * @throws ClientException

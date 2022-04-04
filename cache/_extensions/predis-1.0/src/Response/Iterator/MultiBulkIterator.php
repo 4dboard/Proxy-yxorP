@@ -1,12 +1,10 @@
 <?php /* yxorP */
 
-
 namespace Predis\Response\Iterator;
 
 use Countable;
 use Iterator;
 use Predis\Response\ResponseInterface;
-
 
 abstract class MultiBulkIterator implements Iterator, Countable, ResponseInterface
 {
@@ -14,24 +12,20 @@ abstract class MultiBulkIterator implements Iterator, Countable, ResponseInterfa
     protected $position;
     protected $size;
 
-
     public function rewind()
     {
         // NOOP
     }
-
 
     public function current()
     {
         return $this->current;
     }
 
-
     public function key()
     {
         return $this->position;
     }
-
 
     public function next()
     {

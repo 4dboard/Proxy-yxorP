@@ -2,16 +2,9 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 
-
-/**
- * @property $checked
- */
 class cache_memcache extends BaseCache implements cache_driver
 {
-
-
     public $instant;
-
 
     public function __construct($config = array())
     {
@@ -26,7 +19,6 @@ class cache_memcache extends BaseCache implements cache_driver
         }
 
     }
-
 
     public function checkdriver(): bool
     {
@@ -46,13 +38,11 @@ class cache_memcache extends BaseCache implements cache_driver
     ): bool
     {
         $this->connectServer();
-
-
         if ($time > 2592000) {
             $time = time() + $time;
         }
 
-        if (isset($option['skipExisting']) && $option['skipExisting'] == true) {
+        if (isset($option['skipExisting']) && $option['skipExisting'] === true) {
             return $this->instant->add($keyword, $value, false, $time);
 
         }
@@ -81,8 +71,6 @@ class cache_memcache extends BaseCache implements cache_driver
                 } catch (Exception $e) {
                     $this->fallback = true;
                 }
-
-
             }
 
         }
@@ -92,11 +80,9 @@ class cache_memcache extends BaseCache implements cache_driver
     {
 
         $this->connectServer();
-
-
         $x = $this->instant->get($keyword);
 
-        if ($x == false) {
+        if ($x === false) {
             return null;
         }
 
@@ -104,13 +90,11 @@ class cache_memcache extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_delete($keyword, $option = array())
     {
         $this->connectServer();
         $this->instant->delete($keyword);
     }
-
 
     #[ArrayShape(["info" => "string", "size" => "string", "data" => "array|bool"])] public function driver_stats($option = array()): array
     {
@@ -123,19 +107,17 @@ class cache_memcache extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_clean($option = array())
     {
         $this->connectServer();
         $this->instant->flush();
     }
 
-
     public function driver_isExisting($keyword): bool
     {
         $this->connectServer();
         $x = $this->get($keyword);
 
-        return !($x == null);
+        return !($x === null);
     }
 }

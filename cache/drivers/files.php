@@ -1,14 +1,9 @@
 <?php /* yxorP */
 
-
 use JetBrains\PhpStorm\ArrayShape;
 
 class cache_files extends BaseCache implements cache_driver
 {
-
-    /**
-     * @throws cacheDriverException
-     */
     public function __construct($config = array())
     {
         $this->setup($config);
@@ -20,7 +15,6 @@ class cache_files extends BaseCache implements cache_driver
 
     }
 
-
     public function checkdriver(): bool
     {
         if (is_writable($this->getPath())) {
@@ -29,10 +23,6 @@ class cache_files extends BaseCache implements cache_driver
         return false;
     }
 
-    /**
-     * @throws cacheDriverException
-     * @throws cacheCoreException
-     */
     public function driver_set($keyword, $value = "", $time = 300, $option = array()): bool
     {
         $file_path = $this->getFilePath($keyword);
@@ -42,7 +32,7 @@ class cache_files extends BaseCache implements cache_driver
 
         $toWrite = true;
 
-        if (isset($option['skipExisting']) && $option['skipExisting'] == true && file_exists($file_path)) {
+        if (isset($option['skipExisting']) && $option['skipExisting'] === true && file_exists($file_path)) {
             $content = $this->readfile($file_path);
             $old = $this->decode($content);
             $toWrite = false;
@@ -53,7 +43,7 @@ class cache_files extends BaseCache implements cache_driver
 
         $written = true;
 
-        if ($toWrite == true && !file_exists($tmp_path) && !file_exists($file_path)) {
+        if ($toWrite === true && !file_exists($tmp_path) && !file_exists($file_path)) {
             try {
                 $f = fopen($file_path, 'wb+');
                 fwrite($f, $data);
@@ -66,9 +56,6 @@ class cache_files extends BaseCache implements cache_driver
         return $written;
     }
 
-    /**
-     * @throws cacheDriverException
-     */
     private function getFilePath($keyword, $skip = false): string
     {
         $path = $this->getPath();
@@ -77,7 +64,7 @@ class cache_files extends BaseCache implements cache_driver
         $folder = substr($filename, 0, 2);
         $path = rtrim($path, "/") . "/" . $folder;
 
-        if (($skip == false) && !file_exists($path) && !mkdir($path, $this->__setChmodAuto()) && !is_dir($path)) {
+        if (($skip === false) && !file_exists($path) && !mkdir($path, $this->__setChmodAuto()) && !is_dir($path)) {
             throw new cacheDriverException("PLEASE CHMOD " . $this->getPath() . " - 0777 OR ANY WRITABLE PERMISSION!", 92);
         }
 
@@ -95,10 +82,6 @@ class cache_files extends BaseCache implements cache_driver
         return isset($object['expired_time']) && time() >= $object['expired_time'];
     }
 
-    /**
-     * @throws cacheDriverException
-     * @throws cacheCoreException
-     */
     public function driver_get($keyword, $option = array())
     {
 
@@ -121,25 +104,18 @@ class cache_files extends BaseCache implements cache_driver
     public function auto_clean_expired(): void
     {
         $autoclean = $this->get("keyword_clean_up_driver_files");
-        if ($autoclean == null) {
+        if ($autoclean === null) {
             $this->set("keyword_clean_up_driver_files", 3600 * 24);
             $res = $this->stats();
         }
     }
 
-    /**
-     * @throws cacheDriverException
-     */
     public function driver_delete($keyword, $option = array()): bool
     {
         $file_path = $this->getFilePath($keyword, true);
         return file_exists($file_path) && @unlink($file_path);
     }
 
-    /**
-     * @throws cacheDriverException
-     * @throws cacheCoreException
-     */
     #[ArrayShape(["info" => "string", "size" => "string", "data" => "array|string", 'info' => "array", 'size' => "int"])] public function driver_stats($option = array()): array
     {
         $res = array(
@@ -201,9 +177,6 @@ class cache_files extends BaseCache implements cache_driver
         return $res;
     }
 
-    /**
-     * @throws cacheDriverException
-     */
     public function driver_clean($option = array())
     {
 
@@ -233,10 +206,6 @@ class cache_files extends BaseCache implements cache_driver
 
     }
 
-
-    /**
-     * @throws cacheDriverException
-     */
     public function driver_isExisting($keyword): ?bool
     {
         $file_path = $this->getFilePath($keyword, true);
@@ -247,7 +216,7 @@ class cache_files extends BaseCache implements cache_driver
 // check expired or not
         $value = $this->get($keyword);
 
-        return !($value == null);
+        return !($value === null);
     }
 
 }

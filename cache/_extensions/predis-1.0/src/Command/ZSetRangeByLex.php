@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ZSetRangeByLex extends ZSetRange
 {
 
@@ -11,7 +8,6 @@ class ZSetRangeByLex extends ZSetRange
     {
         return 'ZRANGEBYLEX';
     }
-
 
     protected function prepareOptions($options): array
     {
@@ -28,7 +24,6 @@ class ZSetRangeByLex extends ZSetRange
 
         return $finalizedOpts;
     }
-
 
     protected function withScores(): bool
     {

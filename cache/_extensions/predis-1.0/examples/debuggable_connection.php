@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // This is an example of how you can easily extend an existing connection class
@@ -69,5 +67,3 @@ $client->get('foo');
 $client->info();
 
 var_export($client->getConnection()->getDebugBuffer());
-
-

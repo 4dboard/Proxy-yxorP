@@ -1,12 +1,10 @@
 <?php /* yxorP */
 
-
 namespace Predis\Configuration;
 
 use JetBrains\PhpStorm\Pure;
 use Predis\Command\Processor\KeyPrefixProcessor;
 use Predis\Command\Processor\ProcessorInterface;
-
 
 class PrefixOption implements OptionInterface
 {
@@ -19,7 +17,6 @@ class PrefixOption implements OptionInterface
 
         return new KeyPrefixProcessor($value);
     }
-
 
     public function getDefault(OptionsInterface $options)
     {

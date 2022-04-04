@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class SetMove extends Command
 {
 
@@ -11,7 +8,6 @@ class SetMove extends Command
     {
         return 'SMOVE';
     }
-
 
     public function parseResponse($data): bool
     {

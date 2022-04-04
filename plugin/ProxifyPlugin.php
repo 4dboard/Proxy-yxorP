@@ -76,8 +76,6 @@ class ProxifyPlugin extends AbstractPlugin
 
     private function proxify_head($str): array|string|null
     {
-
-
         $str = preg_replace_callback('/content=(["\'])\d+\s*;\s*url=(.*?)\1/is', array($this, 'meta_refresh'), $str);
 
         return preg_replace('/[^<(.*?)]integrity=([\'"])(.*?)([\'"])/is', '', $str);

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class SetIsMember extends Command
 {
 
@@ -11,7 +8,6 @@ class SetIsMember extends Command
     {
         return 'SISMEMBER';
     }
-
 
     public function parseResponse($data): bool
     {

@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 use JetBrains\PhpStorm\ArrayShape;
 
 class cache_apc extends BaseCache implements cache_driver
@@ -15,7 +14,6 @@ class cache_apc extends BaseCache implements cache_driver
         }
     }
 
-
     public function checkdriver(): bool
     {
 
@@ -27,7 +25,6 @@ class cache_apc extends BaseCache implements cache_driver
         return false;
     }
 
-
     public function driver_set(
         $keyword,
         $value = "",
@@ -35,18 +32,15 @@ class cache_apc extends BaseCache implements cache_driver
         $option = array()
     ): bool|array
     {
-        if (isset($option['skipExisting']) && $option['skipExisting'] == true) {
+        if (isset($option['skipExisting']) && $option['skipExisting'] === true) {
             return apc_add($keyword, $value, $time);
         }
 
         return apc_store($keyword, $value, $time);
     }
 
-
     public function driver_get($keyword, $option = array())
     {
-
-
         $data = apc_fetch($keyword, $bo);
         if ($bo === false) {
             return null;
@@ -55,12 +49,10 @@ class cache_apc extends BaseCache implements cache_driver
 
     }
 
-
     public function driver_delete($keyword, $option = array()): array|bool
     {
         return apc_delete($keyword);
     }
-
 
     #[ArrayShape(["info" => "string", "size" => "string", "data" => "string", 'data' => "array|bool"])] public function driver_stats($option = array()): array
     {
@@ -79,13 +71,11 @@ class cache_apc extends BaseCache implements cache_driver
         return $res;
     }
 
-
     public function driver_clean($option = array())
     {
         @apc_clear_cache();
         @apc_clear_cache("user");
     }
-
 
     public function driver_isExisting($keyword): bool
     {

@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerInfo extends Command
 {
 
@@ -11,7 +8,6 @@ class ServerInfo extends Command
     {
         return 'INFO';
     }
-
 
     public function parseResponse($data): array
     {
@@ -30,7 +26,6 @@ class ServerInfo extends Command
         return $info;
     }
 
-
     protected function parseRow($row): array
     {
         [$k, $v] = explode(':', $row, 2);
@@ -41,7 +36,6 @@ class ServerInfo extends Command
 
         return array($k, $v);
     }
-
 
     protected function parseDatabaseStats($str): array
     {
@@ -55,15 +49,12 @@ class ServerInfo extends Command
         return $db;
     }
 
-
     protected function parseAllocationStats($str): array
     {
         $stats = array();
 
         foreach (explode(',', $str) as $kv) {
             @list($size, $objects, $extra) = explode('=', $kv);
-
-
             if (isset($extra)) {
                 $size = ">=$objects";
                 $objects = $extra;

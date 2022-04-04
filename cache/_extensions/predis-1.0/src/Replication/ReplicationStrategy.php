@@ -1,19 +1,16 @@
 <?php /* yxorP */
 
-
 namespace Predis\Replication;
 
 use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\NotSupportedException;
 
-
 class ReplicationStrategy
 {
     protected array $disallowed;
     protected array $readonly;
     protected array $readonlySHA1;
-
 
     #[Pure] public function __construct()
     {

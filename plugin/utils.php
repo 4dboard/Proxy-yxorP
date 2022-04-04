@@ -15,8 +15,6 @@ function vid_player($url, $width = '100%', $height = '100%', $extension = false)
             $html5 = true;
         }
     }
-
-
     $video_url = proxify_url($url);
     if ($html5) {
 

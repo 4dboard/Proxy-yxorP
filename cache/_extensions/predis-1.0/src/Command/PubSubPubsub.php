@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class PubSubPubsub extends Command
 {
 
@@ -12,7 +9,6 @@ class PubSubPubsub extends Command
         return 'PUBSUB';
     }
 
-
     public function parseResponse($data): array
     {
         return match (strtolower($this->getArgument(0))) {
@@ -20,7 +16,6 @@ class PubSubPubsub extends Command
             default => $data,
         };
     }
-
 
     protected static function processNumsub(array $channels): array
     {

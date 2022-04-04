@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // This is a basic example on how to use the Predis\DispatcherLoop class.

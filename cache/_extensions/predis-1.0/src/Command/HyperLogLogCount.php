@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HyperLogLogCount extends Command
 {
 
@@ -11,7 +8,6 @@ class HyperLogLogCount extends Command
     {
         return 'PFCOUNT';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

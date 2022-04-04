@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class StringSetMultiplePreserve extends StringSetMultiple
 {
 
@@ -11,7 +8,6 @@ class StringSetMultiplePreserve extends StringSetMultiple
     {
         return 'MSETNX';
     }
-
 
     public function parseResponse($data): bool
     {

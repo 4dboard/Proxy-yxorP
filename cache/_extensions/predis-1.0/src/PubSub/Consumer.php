@@ -1,25 +1,19 @@
 <?php /* yxorP */
 
-
 namespace Predis\PubSub;
 
 use Predis\ClientException;
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\Command\Command;
 use Predis\Connection\AggregateConnectionInterface;
 use Predis\NotSupportedException;
 
-
 class Consumer extends AbstractConsumer
 {
-    private ClientInterface $client;
+    private AClientInterface $client;
     private array $options;
 
-
-    /**
-     * @throws NotSupportedException
-     */
-    public function __construct(ClientInterface $client, array $options = null)
+    public function __construct(AClientInterface $client, array $options = null)
     {
         $this->checkCapabilities($client);
 
@@ -30,10 +24,7 @@ class Consumer extends AbstractConsumer
         $this->genericSubscribeInit('psubscribe');
     }
 
-    /**
-     * @throws NotSupportedException
-     */
-    private function checkCapabilities(ClientInterface $client): void
+    private function checkCapabilities(AClientInterface $client): void
     {
         if ($client->getConnection() instanceof AggregateConnectionInterface) {
             throw new NotSupportedException(
@@ -57,7 +48,7 @@ class Consumer extends AbstractConsumer
         }
     }
 
-    public function getClient(): ClientInterface
+    public function getClient(): AClientInterface
     {
         return $this->client;
     }
@@ -71,16 +62,11 @@ class Consumer extends AbstractConsumer
         );
     }
 
-
     protected function disconnect()
     {
         $this->client->disconnect();
     }
 
-
-    /**
-     * @throws ClientException
-     */
     protected function getValue(): object
     {
         $response = $this->client->getConnection()->read();
@@ -94,8 +80,6 @@ class Consumer extends AbstractConsumer
                     $this->invalidate();
                 }
                 break;
-
-
             case self::MESSAGE:
                 return (object)array(
                     'kind' => $response[0],

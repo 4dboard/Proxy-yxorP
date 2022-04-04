@@ -1,13 +1,11 @@
 <?php /* yxorP */
 
-
 namespace Predis\Connection;
 
 use Predis\Command\CommandInterface;
 use Predis\CommunicationException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
-
 
 class StreamConnection extends AbstractConnection
 {

@@ -1,13 +1,12 @@
 <?php /* yxorP */
 
-
 namespace Predis\Transaction;
 
 use Exception;
 use InvalidArgumentException;
 use Predis\ClientContextInterface;
 use Predis\ClientException;
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use Predis\Command\CommandInterface;
 use Predis\CommunicationException;
 use Predis\Connection\AggregateConnectionInterface;
@@ -18,10 +17,9 @@ use Predis\Response\ServerException;
 use Predis\Response\Status as StatusResponse;
 use SplQueue;
 
-
 class MultiExec implements ClientContextInterface
 {
-    protected ClientInterface $client;
+    protected AClientInterface $client;
     protected $commands;
     protected bool $exceptions = true;
     protected int $attempts = 0;
@@ -32,7 +30,7 @@ class MultiExec implements ClientContextInterface
     /**
      * @throws NotSupportedException
      */
-    public function __construct(ClientInterface $client, array $options = null)
+    public function __construct(AClientInterface $client, array $options = null)
     {
         $this->assertClient($client);
 
@@ -43,11 +41,10 @@ class MultiExec implements ClientContextInterface
         $this->reset();
     }
 
-
     /**
      * @throws NotSupportedException
      */
-    private function assertClient(ClientInterface $client): void
+    private function assertClient(AClientInterface $client): void
     {
         if ($client->getConnection() instanceof AggregateConnectionInterface) {
             throw new NotSupportedException(
@@ -62,8 +59,7 @@ class MultiExec implements ClientContextInterface
         }
     }
 
-
-    protected function configure(ClientInterface $client, array $options): void
+    protected function configure(AClientInterface $client, array $options): void
     {
         if (isset($options['exceptions'])) {
             $this->exceptions = (bool)$options['exceptions'];
@@ -83,7 +79,6 @@ class MultiExec implements ClientContextInterface
             $this->attempts = (int)$options['retry'];
         }
     }
-
 
     protected function reset(): void
     {
@@ -217,9 +212,7 @@ class MultiExec implements ClientContextInterface
     {
         try {
             $this->initialize();
-        } catch (ClientException $e) {
-        } catch (NotSupportedException $e) {
-        } catch (ServerException $e) {
+        } catch (ClientException|ServerException|NotSupportedException $e) {
         }
 
         if ($this->state->isCAS()) {
@@ -228,7 +221,7 @@ class MultiExec implements ClientContextInterface
 
         $response = $this->client->getConnection()->executeCommand($command);
 
-        if ($response instanceof StatusResponse && $response == 'QUEUED') {
+        if ($response instanceof StatusResponse && $response === 'QUEUED') {
             $this->commands->enqueue($command);
         } elseif ($response instanceof ErrorResponseInterface) {
             throw new AbortedMultiExecException($this, $response->getMessage());

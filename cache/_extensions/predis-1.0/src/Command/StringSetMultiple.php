@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class StringSetMultiple extends Command
 {
 
@@ -11,7 +8,6 @@ class StringSetMultiple extends Command
     {
         return 'MSET';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

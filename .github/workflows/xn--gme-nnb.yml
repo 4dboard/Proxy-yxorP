@@ -5,14 +5,14 @@ jobs:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      with:
-        server: 157.90.4.172
-        username: obeyicom
-        password: ${{ secrets.ftp_password }}
-        local-dir: "./xn--gme-nnb.com/"
-        server-dir: "./home/obeyicom/domains/xn--gme-nnb.com/"
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v2
+
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: 157.90.4.172
+          username: obeyicom
+          password: ${{ secrets.ftp_password }}
+          local-dir: "./xn--gme-nnb.com/"
+          server-dir: "./home/obeyicom/domains/xn--gme-nnb.com/"

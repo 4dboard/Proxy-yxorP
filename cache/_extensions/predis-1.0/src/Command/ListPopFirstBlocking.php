@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ListPopFirstBlocking extends Command
 {
 
@@ -11,7 +8,6 @@ class ListPopFirstBlocking extends Command
     {
         return 'BLPOP';
     }
-
 
     protected function filterArguments(array $arguments)
     {

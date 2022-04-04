@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeyScan extends Command
 {
 
@@ -11,7 +8,6 @@ class KeyScan extends Command
     {
         return 'SCAN';
     }
-
 
     protected function filterArguments(array $arguments): array
     {
@@ -22,7 +18,6 @@ class KeyScan extends Command
 
         return $arguments;
     }
-
 
     protected function prepareOptions($options): array
     {

@@ -1,6 +1,5 @@
 <?php /* yxorP */
 
-
 use JetBrains\PhpStorm\ArrayShape;
 
 class cache_sqlite extends BaseCache implements cache_driver
@@ -9,20 +8,13 @@ class cache_sqlite extends BaseCache implements cache_driver
     public const SQLITE_DIR = 'sqlite';
 
     public const INDEXING_FILE = 'indexing';
-
-
     public int $max_size = 10;
-
-
     public $instant = array();
 
     public $indexing;
 
     public string $path = "";
-
-
     public int $currentDB = 1;
-
 
     public function __construct($config = array())
     {
@@ -56,19 +48,17 @@ class cache_sqlite extends BaseCache implements cache_driver
     {
         $skipExisting = $option['skipExisting'] ?? false;
         $toWrite = true;
-
-
         $in_cache = $this->get($keyword, $option);
 
-        if ($skipExisting == true) {
-            if ($in_cache == null) {
+        if ($skipExisting === true) {
+            if ($in_cache === null) {
                 $toWrite = true;
             } else {
                 $toWrite = false;
             }
         }
 
-        if ($toWrite == true) {
+        if ($toWrite === true) {
             try {
                 $stm = $this->db($keyword)
                     ->prepare("INSERT OR REPLACE INTO `caching` (`keyword`,`object`,`exp`) values(:keyword,:object,:exp)");
@@ -101,19 +91,17 @@ class cache_sqlite extends BaseCache implements cache_driver
     {
 
         $instant = $this->indexing($keyword);
-
-
         if (!isset($this->instant[$instant])) {
 
             $createTable = false;
-            if (!file_exists($this->path . "/db" . $instant) || $reset == true) {
+            if (!file_exists($this->path . "/db" . $instant) || $reset === true) {
                 $createTable = true;
             }
             $PDO = new PDO("sqlite:" . $this->path . "/db" . $instant);
             $PDO->setAttribute(PDO::ATTR_ERRMODE,
                 PDO::ERRMODE_EXCEPTION);
 
-            if ($createTable == true) {
+            if ($createTable === true) {
                 $this->initDB($PDO);
             }
 
@@ -127,7 +115,7 @@ class cache_sqlite extends BaseCache implements cache_driver
 
     public function indexing($keyword)
     {
-        if ($this->indexing == null) {
+        if ($this->indexing === null) {
             $createTable = false;
             if (!file_exists($this->path . "/indexing")) {
                 $createTable = true;
@@ -137,7 +125,7 @@ class cache_sqlite extends BaseCache implements cache_driver
             $PDO->setAttribute(PDO::ATTR_ERRMODE,
                 PDO::ERRMODE_EXCEPTION);
 
-            if ($createTable == true) {
+            if ($createTable === true) {
                 $this->initIndexing($PDO);
             }
             $this->indexing = $PDO;
@@ -152,26 +140,20 @@ class cache_sqlite extends BaseCache implements cache_driver
             } else {
                 $db = $row['db'];
             }
-
-
             $size = file_exists($this->path . "/db" . $db) ? filesize($this->path . "/db" . $db) : 1;
             $size = round($size / 1024 / 1024, 1);
-
-
             if ($size > $this->max_size) {
                 ++$db;
             }
             $this->currentDB = $db;
 
         }
-
-
         $stm = $this->indexing->prepare("SELECT * FROM `balancing` WHERE `keyword`=:keyword LIMIT 1");
         $stm->execute(array(
             ":keyword" => $keyword,
         ));
         $row = $stm->fetch(PDO::FETCH_ASSOC);
-        if (isset($row['db']) && $row['db'] != "") {
+        if (isset($row['db']) && $row['db'] !== "") {
             $db = $row['db'];
         } else {
 
@@ -188,8 +170,6 @@ class cache_sqlite extends BaseCache implements cache_driver
 
     public function initIndexing(PDO $db): void
     {
-
-
         $dir = opendir($this->path);
         while ($file = readdir($dir)) {
             if ($file !== "." && $file !== ".." && $file !== "indexing" && $file !== "dbfastcache") {
@@ -215,8 +195,6 @@ class cache_sqlite extends BaseCache implements cache_driver
 
     public function driver_get($keyword, $option = array())
     {
-
-
         try {
             $stm = $this->db($keyword)
                 ->prepare("SELECT * FROM `caching` WHERE `keyword`=:keyword LIMIT 1");
@@ -251,12 +229,10 @@ class cache_sqlite extends BaseCache implements cache_driver
         return null;
     }
 
-
     public function isExpired($row): bool
     {
         return isset($row['exp']) && time() >= $row['exp'];
     }
-
 
     public function deleteRow($row)
     {
@@ -272,7 +248,6 @@ class cache_sqlite extends BaseCache implements cache_driver
         }
     }
 
-
     public function driver_delete($keyword, $option = array())
     {
         try {
@@ -285,10 +260,7 @@ class cache_sqlite extends BaseCache implements cache_driver
         } catch (PDOException $e) {
             return false;
         }
-
-
     }
-
 
     #[ArrayShape(["info" => "string", "size" => "string", "data" => "string", 'info' => "array|int[]", 'size' => "int|mixed"])] public function driver_stats($option = array()): array
     {
@@ -324,8 +296,6 @@ class cache_sqlite extends BaseCache implements cache_driver
                     $size = 0;
                     $optimized = 0;
                 }
-
-
             }
         }
         $res['size'] = $optimized;
@@ -337,15 +307,10 @@ class cache_sqlite extends BaseCache implements cache_driver
         return $res;
     }
 
-
     public function driver_clean($option = array())
     {
-
-
         $this->instant = array();
         $this->indexing = null;
-
-
         $dir = opendir($this->path);
         while ($file = readdir($dir)) {
             if ($file !== "." && $file !== "..") {
@@ -353,7 +318,6 @@ class cache_sqlite extends BaseCache implements cache_driver
             }
         }
     }
-
 
     public function driver_isExisting($keyword): ?bool
     {

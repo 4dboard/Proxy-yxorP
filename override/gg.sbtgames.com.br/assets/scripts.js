@@ -12,8 +12,6 @@ function createEl(e, t) {
 }
 
 function donLoad() {
-
-
     let e = document.querySelectorAll("[data-bi]");
     for (i = 0; i < e.length; i++) e[i].style = 'background-image: url("https://data.xn--gme-nnb.com/images/hp/' + e[i].getAttribute("data-bi");
     let t = document.querySelectorAll(".lazy-image");
@@ -34,20 +32,6 @@ function donLoad() {
 
     }
 
-    document.querySelector(".inp__submit") && (document.querySelector(".inp__submit")
-        .innerHTML = "GO"), document.querySelector("#form-search")
-        .setAttribute("action", "/search"), document.querySelector("#form-search")
-        .setAttribute("method", "get"), document.querySelector(".icon-svg--cube-3d")
-        .innerHTML = '<img class="icon-svg" src="/3d.gif?1"/>', document.querySelector(".icon-svg--circular-target")
-        .innerHTML = '<img class="icon-svg" src="/action.gif?1"/>', document.querySelector(".inp__submit") && (document.querySelector(".icon-svg--gym")
-        .innerHTML = '<img class="icon-svg" src="/sport.gif?1"/>'), document.querySelector(".icon-svg--time-2")
-        .innerHTML = '<img class="icon-svg" src="/driving.gif?1"/>', document.querySelector(".icon-svg--strategy")
-        .innerHTML = '<img class="icon-svg" src="/strat.gif?1"/>', document.querySelector(".icon-svg--people")
-        .innerHTML = '<img class="icon-svg" src="/girl.gif?1"/>', document.querySelector(".icon-svg--multiplayer")
-        .innerHTML = '<img class="icon-svg" src="/multi.gif?1"/>', document.querySelector(".icon-svg--logic-board-games")
-        .innerHTML = '<img class="icon-svg" src="/logic.gif?1"/>', document.querySelector(".icon-svg--swords")
-        .innerHTML = '<img class="icon-svg" src="/mmo.gif?1"/>', document.querySelector("html")
-        .classList.add("don");
 }
 
 setTimeout(donLoad, 3e3), window.addEventListener("load", donLoad), inIframe() ? window.addEventListener("load", () => {

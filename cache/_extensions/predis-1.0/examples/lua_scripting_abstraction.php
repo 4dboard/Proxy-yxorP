@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // This example will not work with versions of Redis < 2.6.
@@ -17,8 +15,6 @@ class IncrementExistingKeysBy extends ScriptCommand
 {
     public function getKeysCount(): int
     {
-
-
         return -1;
     }
 
@@ -29,7 +25,7 @@ local cmd, insert = redis.call, table.insert
 local increment, results = ARGV[1], { }
 
 for idx, key in ipairs(KEYS) do
-  if cmd('exists', key) == 1 then
+  if cmd('exists', key) === 1 then
     insert(results, idx, cmd('incrby', key, increment))
   else
     insert(results, idx, false)
@@ -53,5 +49,3 @@ $client = new Predis\Client($single_server, array(
 $client->mset((array)'foo', 10, 'foobar', 100);
 
 var_export($client->increxby('foo', 'foofoo', 'foobar', 50));
-
-

@@ -1,25 +1,21 @@
 <?php /* yxorP */
 
-
 namespace Predis\Cluster;
 
 use JetBrains\PhpStorm\Pure;
 use Predis\Cluster\Distributor\DistributorInterface;
 use Predis\Cluster\Distributor\HashRing;
 
-
 class PredisStrategy extends ClusterStrategy
 {
     protected HashRing|DistributorInterface $distributor;
 
-
-    #[Pure] #[\JetBrains\PhpStorm\Pure] public function __construct(DistributorInterface $distributor = null)
+    #[Pure] #[Pure] public function __construct(DistributorInterface $distributor = null)
     {
         parent::__construct();
 
         $this->distributor = $distributor ?: new HashRing();
     }
-
 
     public function getSlotByKey($key)
     {

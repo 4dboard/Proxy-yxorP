@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class KeyRenamePreserve extends KeyRename
 {
 
@@ -11,7 +8,6 @@ class KeyRenamePreserve extends KeyRename
     {
         return 'RENAMENX';
     }
-
 
     public function parseResponse($data): bool
     {

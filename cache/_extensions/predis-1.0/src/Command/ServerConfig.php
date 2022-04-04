@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class ServerConfig extends Command
 {
 
@@ -11,7 +8,6 @@ class ServerConfig extends Command
     {
         return 'CONFIG';
     }
-
 
     public function parseResponse($data): array
     {

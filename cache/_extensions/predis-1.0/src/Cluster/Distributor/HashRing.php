@@ -1,10 +1,8 @@
 <?php /* yxorP */
 
-
 namespace Predis\Cluster\Distributor;
 
 use Predis\Cluster\Hash\HashGeneratorInterface;
-
 
 class HashRing implements DistributorInterface, HashGeneratorInterface
 {
@@ -18,13 +16,11 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
     private mixed $nodeHashCallback;
     private array $nodes = array();
 
-
     public function __construct($replicas = self::DEFAULT_REPLICAS, $nodeHashCallback = null)
     {
         $this->replicas = $replicas;
         $this->nodeHashCallback = $nodeHashCallback;
     }
-
 
     public function add($node, $weight = null)
     {
@@ -63,9 +59,6 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
         }
     }
 
-    /**
-     * @throws EmptyRingException
-     */
     public function getBySlot($slot)
     {
         $this->initialize();
@@ -73,9 +66,6 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
         return $this->ring[$slot] ?? null;
     }
 
-    /**
-     * @throws EmptyRingException
-     */
     private function initialize(): void
     {
         if ($this->isInitialized()) {
@@ -156,9 +146,6 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
         }
     }
 
-    /**
-     * @throws EmptyRingException
-     */
     public function getSlot($hash)
     {
         $this->initialize();
@@ -189,7 +176,6 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
         // equal to the key. If no such item exists, return the last item.
         return $upper >= 0 ? $upper : $ringKeysCount - 1;
     }
-
 
     public function getHashGenerator(): static
     {

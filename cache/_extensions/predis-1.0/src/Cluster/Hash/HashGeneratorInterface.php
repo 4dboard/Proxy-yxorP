@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Cluster\Hash;
-
-
 interface HashGeneratorInterface
 {
 

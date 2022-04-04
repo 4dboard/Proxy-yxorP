@@ -1,9 +1,6 @@
 <?php /* yxorP */
 
-
 namespace Predis\Command;
-
-
 class HashDelete extends Command
 {
 
@@ -11,7 +8,6 @@ class HashDelete extends Command
     {
         return 'HDEL';
     }
-
 
     protected function filterArguments(array $arguments): array
     {

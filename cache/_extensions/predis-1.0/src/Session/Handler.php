@@ -1,19 +1,16 @@
 <?php /* yxorP */
 
-
 namespace Predis\Session;
 
-use Predis\ClientInterface;
+use Predis\AClientInterface;
 use SessionHandlerInterface;
-
 
 class Handler implements SessionHandlerInterface
 {
-    protected ClientInterface $client;
+    protected AClientInterface $client;
     protected string|int $ttl;
 
-
-    public function __construct(ClientInterface $client, array $options = array())
+    public function __construct(AClientInterface $client, array $options = array())
     {
         $this->client = $client;
 
@@ -23,7 +20,6 @@ class Handler implements SessionHandlerInterface
             $this->ttl = ini_get('session.gc_maxlifetime');
         }
     }
-
 
     public function register(): void
     {
@@ -41,13 +37,11 @@ class Handler implements SessionHandlerInterface
         }
     }
 
-
     public function open($save_path, $session_id): bool
     {
 
         return true;
     }
-
 
     public function close(): bool
     {
@@ -55,13 +49,11 @@ class Handler implements SessionHandlerInterface
         return true;
     }
 
-
     public function gc($maxlifetime): bool
     {
         // NOOP
         return true;
     }
-
 
     public function read($session_id): string
     {
@@ -79,7 +71,6 @@ class Handler implements SessionHandlerInterface
         return true;
     }
 
-
     public function destroy($session_id): bool
     {
         $this->client->del((array)$session_id);
@@ -87,12 +78,10 @@ class Handler implements SessionHandlerInterface
         return true;
     }
 
-
-    public function getClient(): ClientInterface
+    public function getClient(): AClientInterface
     {
         return $this->client;
     }
-
 
     public function getMaxLifeTime(): int|string
     {

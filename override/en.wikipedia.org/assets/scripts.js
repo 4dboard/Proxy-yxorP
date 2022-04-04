@@ -20,7 +20,6 @@ inIframe() || (window.addEventListener("beforeinstallprompt", e => beforeInstall
     for (i = 0; i < t.length; i++) t[i].classList.remove("lazy-image"), t[i].src = "https://data.pacogames.com/images/webp/" + t[i].getAttribute("data-src");
 }));
 
-
 function beforeInstallprompt(t) {
     if (window.matchMedia("(display-mode: standalone)")
         .matches) return document.querySelector(".welcomeMsg")

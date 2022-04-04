@@ -1,6 +1,4 @@
 <?php /* yxorP */
-
-
 require __DIR__ . '/shared.php';
 
 // This is an implementation of an atomic client-side ZPOP using the support for
