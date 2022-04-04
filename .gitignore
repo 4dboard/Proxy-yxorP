@@ -10,6 +10,3 @@ Override/*.com
 index.php
 .env
 .cache/*
-index.php
-*/.idea
-**/.idea
