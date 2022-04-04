@@ -5,6 +5,11 @@ Override/*.com
 !.github/*
 !/override/www.example.com
 !/override/default
+!/plugin
+!/plugin/*
 index.php
 .env
 .cache/*
+index.php
+*/.idea
+**/.idea
