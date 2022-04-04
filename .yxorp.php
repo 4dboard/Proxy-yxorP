@@ -108,10 +108,8 @@ class yxorp
             }
 
             echo $_content = @$this->forward(Http\Request::createFromGlobals(), @$GLOBALS['PROXY_URL'] = @$GLOBALS['TARGET_URL'] . @$GLOBALS['REQUEST_URI'] = @$_SERVER['REQUEST_URI'])->getContent();
-            @$GLOBALS['CACHE_ADAPTER']->set(@$GLOBALS['CACHE_KEY'], @preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {
-                    return '<p>' . @str_replace(fgetcsv(fopen(@$GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'rb')),
-                            @fgetcsv(@fopen(@$GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'rb')), @$m[1]);
-                }, @$_content) . '</p>', @$GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31));
+
+            @$GLOBALS['CACHE_ADAPTER']->set(@$GLOBALS['CACHE_KEY'], (@$GLOBALS['MIME'] === 'text/html') ? @preg_replace_callback('(<p>(.*?)</p>)', static function ($m) { return @str_replace(fgetcsv(fopen(@$GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'rb')), @fgetcsv(@fopen(@$GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'rb')), @$m[1]);}, @$_content) : $_content, @$GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31));
 
         } catch (exception $e) {
             @$GLOBALS['BUGSNAG']->notifyException(@$e->__toString());
