@@ -12,4 +12,4 @@ git pull git@github.com:donPabloNow/sites.git main|| git add .
 git pull git@github.com:donPabloNow/sites.git main|| git commit -m "update" -a
 git add . || git commit -m "update" -a
 git commit -m "update" -a  || git add .
-cd "./xn--gme-nnb.com/.yxorp" && ./git.sh && cd "../../xn--ply-onb.com/public_html" && ./git.sh && cd "../../" 
+#cd "./xn--gme-nnb.com/.yxorp" && ./git.sh && cd "../../xn--ply-onb.com/public_html" && ./git.sh && cd "../../" 
