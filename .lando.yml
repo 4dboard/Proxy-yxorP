@@ -1,9 +1,16 @@
 recipe: lamp
 name: .yxorp
 config:
-  php: '8.1'
+  php: '8.0'
   webroot: .
   xdebug: true
 services:
-  myservice:
+  memcached:
     type: memcached:1.5.11
+  mysql:
+    type: mysql
+    # https://docs.lando.dev/config/services.html#service-url-scanning
+    scanner: false
+    overrides:
+      entrypoint: 'echo disabled service'
+      restart: no
