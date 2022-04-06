@@ -106,9 +106,6 @@ Instant Development Enviroment stup with your prefered service provider:
 ![image](https://user-images.githubusercontent.com/6468571/157205943-7e735dd6-4d7f-401b-97b7-a25ecc2b9c3b.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (5).gif' /></p>
-
 # Background Information
 
 Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to create a single web proxy that outperforms the two when their combined performance is considered. Please keep in mind that this is a brand-new project that may undergo changes in the future. With the php-proxy library, a component of the PHP programming language that is available for free download, you may quickly and easily configure a web proxy application for your web server. If you are able to contribute to or support this project, it would be much appreciated as it would enable me to devote more development time to it, therefore expediting its progress.
@@ -117,13 +114,9 @@ Two of the most powerful PHP reverse proxies now accessible on the internet have
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (9).gif' /></p>
-
 ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (6).gif' /></p>
 
 ## Web-Proxy vs Proxy Server
 
@@ -134,10 +127,6 @@ Bear in mind that this proxy script may not function properly on websites or pag
 
 ![image](https://user-images.githubusercontent.com/6468571/157206147-738b606d-6a02-411e-ac17-b5a364601b62.png)
 
-![image](https://user-images.githubusercontent.com/6468571/157188833-1004e787-0261-4275-9d7b-bacc277975e0.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (7).gif' /></p>
-
 ## Installation
 
 It is critical to keep in mind that this is a **project** and not a library. It is not recommended to install this
@@ -146,22 +135,12 @@ package via * require*. This type of project should be immediately uploaded to y
 Download a pre-installed version of this application as a ZIP archive from the downloads area. [**
 Releases**](https://github.com/4dboard/yxorP/releases/).
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (8).gif' /></p>
-
 # The Dashboard
 
 🍦 The Dashboard component provides an application-specific JavaScript dashboard that connects with a PHP-written on-disk database adapted to the application's needs. Vanilla Dashboard, a free and open source program, may be downloaded from the internet. Numerous "Easter Eggs" are scattered around the Dashboard. The "Who Is Online," "Live Chat," and "Who Is Online" services, as well as a variety of other features, are all wrapped up in an easy-to-use CSS-based user interface that is available for download for free.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-
-![image](https://user-images.githubusercontent.com/6468571/152180986-20e0beb1-c098-421b-b71a-e8cfc01aa170.png)
-![image](https://user-images.githubusercontent.com/6468571/157206215-28a117ef-a531-4c4f-8887-5f649387e354.png)
-
 ![image](https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (9).gif' /></p>
 
 ## Development Environment
 
@@ -233,8 +212,6 @@ Users are encouraged to create their own unique plugins in this subdirectory, wh
 
 ![image](https://user-images.githubusercontent.com/6468571/157188915-5ad7cad1-af0a-4e0a-8807-c9fe4708e06b.png)
 
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (11).gif' /></p>
-
 # Gitpod
 
 Gitpod, a free and open-source Kubernetes program that is freely accessible on the internet, allows developers to quickly and efficiently set up code-ready development environments on their workstations. With the use of cloud-based technology, every piece of work accomplished leads in the production of new, automated development environments in the cloud, which are then accessible to other developers. It is only via the use of cloud computing that this is made feasible. The option to start immediate, remote, and cloud-based development environments regardless of whether your development environment is defined in code is available if you have a browser or desktop integrated development environment open on your computer.
@@ -247,8 +224,6 @@ https://gitpod.com/#https://github.com/donPabloNow/vanilla-dashboard
 ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157188961-db5178ff-465d-4c1d-ac06-832f9ce2bfbd.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (12).gif' /></p>
 
 ## Usage & How to Guide
 
@@ -290,9 +265,6 @@ Before pull requests may be implemented in the production environment, they must
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (15).gif' /></p>
-
 ## Road Map
 
 - [x] Front-end
@@ -341,12 +313,11 @@ Before pull requests may be implemented in the production environment, they must
 
 ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
 
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (16).gif' /></p>
-
 ## Licensing
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT Software License for .yxorP The PHP Web-Proxy by don Pablo](https://choosealicense.com/licenses/mit/)
 
 The Massachusetts Institute of Technology (MIT) License, sometimes referred to as the "MIT License," is a permissive free software license developed in the late 1980s and still in use at the Massachusetts Institute of Technology today. Repurposing is confined to a limited number of scenarios due to the permissive nature of the program, which assures compliance with licensing agreements. This license is straightforward and concise; it is a permissive license that just requires copyright protection and prominent display of licensing information in the form of terms. They may be released in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works.
+
 
 ![](https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/live.png?v=3)
