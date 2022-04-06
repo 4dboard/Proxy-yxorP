@@ -25,10 +25,10 @@
 <p align="center">$(yxorp)->proxy(🌈) [ 'aka', 'the guzzler']</p>
 <img align="center" src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/logo.gif' /></p>
 
-<h3 align="center">🔋 Batteries are included</h3></h3>
-<p  align="center"> Built-in Content Spinning and Auto Caching Engine, all housed within a stunning web GUI.</p>
-<h3 align="center">🚀 Cache Drivers Include</h3>
-<p  align="center">Arangodb, Devnull, Dynamodb (AWS),Cassandra, Devrandom,	Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,	Mongodb, Memcache(d),Predis, Sqlite, Redis,	Wincache, Ssdb, Zend Disk Cache, Zend Memory Cache</p>
+<h3 >🔋 Batteries are included</h3></h3>
+<p  > Built-in Content Spinning and Auto Caching Engine, all housed within a stunning web GUI.</p>
+<h3  >🚀 Cache Drivers Include</h3>
+<p  >Arangodb, Devnull, Dynamodb (AWS),Cassandra, Devrandom,	Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,	Mongodb, Memcache(d),Predis, Sqlite, Redis,	Wincache, Ssdb, Zend Disk Cache, Zend Memory Cache</p>
 
 ### 🚀 Cache Drivers Include:
 
