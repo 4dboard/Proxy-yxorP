@@ -154,22 +154,24 @@ class yxorp
     {
         $request->setUrl($url);
 
-        $request1 = $request;
         $response = new Response();
 
         $this->dispatch('request.before_send', new ProxyEvent(array(
-            'request' => $request1,
+            'request' => $request,
             'response' => $response
         )));
 
 
-        if (!$request1->params->has('request.complete')) {
+        if (!$request->params->has('request.complete')) {
+
+            if($_body = file_get_contents('php://input')) $request->setBody(json_decode($_body,true), $GLOBALS['MIME']);
+
             $this->client = $this->client ?: new \GuzzleHttp\Client();
-            $response->setContent($this->client->request($request1->getMethod(), $request1->getUri(), $_REQUEST)->getBody());
+            $response->setContent($this->client->request($request->getMethod(), $request->getUri(), json_decode(json_encode($_REQUEST),true))->getBody());
         }
 
         $this->dispatch('request.complete', new ProxyEvent(array(
-            'request' => $request1,
+            'request' => $request,
             'response' => $response
         )));
 
