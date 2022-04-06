@@ -251,10 +251,6 @@ Before pull requests may be implemented in the production environment, they must
 
 ![image](https://user-images.githubusercontent.com/6468571/157189034-96e28a9b-1bf2-4142-80dc-1efd425799e8.png)
 
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (2).gif' /></p>
-
-# Screenshots
-
 <p align="center">
 
 ![image](https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/screenshot.jpg)
