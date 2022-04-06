@@ -40,7 +40,7 @@ complete and functional, but requires some work on code cleanup and unit testing
 
 ### Front-End
 
-🚀 yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation necessary), multi-threaded, website mirroring and
+yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation necessary), multi-threaded, website mirroring and
 content augmentation, fast cache, and multi-web proxy server (reverse proxy). The proxy is "modular" or "plugin-based,"
 with an integrated "cache" management system and a web-based "cache" management system. Web-based reporting and
 analytics interface (GUI) (GUI). The technology allows content to be "augmented" (or "spun") using a custom-built
