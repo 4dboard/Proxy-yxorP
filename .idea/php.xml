@@ -3,4 +3,9 @@
   <component name="PhpProjectSharedConfiguration" php_language_level="8.0">
     <option name="suggestChangeDefaultLanguageLevel" value="false" />
   </component>
+  <component name="PhpStepFilterConfiguration">
+    <skipped_functions>
+      <skipped_function name="yxorp-&gt;FETCH" />
+    </skipped_functions>
+  </component>
 </project>
