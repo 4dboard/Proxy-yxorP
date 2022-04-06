@@ -1,3 +1,5 @@
+// noinspection CommaExpressionJS,UnnecessaryLocalVariableJS,Annotator
+
 (function anonymous() {
     const a0_0x537bf7 = a0_0x4950;
     let __Cpn;
@@ -978,7 +980,7 @@
                 return _0xff298d(_0x3643f9(_0x483e76));
             };
         let define;
-        let Base64;
+
         return _0x15bc7e[_0x197d02(0x1ef)] = {
             'VERSION': _0x197d02(0x16c),
             'atob': _0x3643f9,
@@ -1930,18 +1932,14 @@
                     }
                     _0x581e88['stopImmediatePropagation']();
                 }, !0x0), this['ci'] && this['ai'] && (this['ci']['addEventListener']('click', _0x2f1b43 => {
-                    _0x99086a['T'][this._0x464188(0x231)] = (this._0x15a0bc)['wt'](), _0x2f1b43[this._0x464188(0x3d8)]();
+                    _0x99086a['T'][this._0x464188()] = (this._0x15a0bc)['wt'](), _0x2f1b43[this._0x464188()]();
                 }, !0x0), this['ai'][_0x11b74b(0x183)](_0x11b74b(0x292), _0xa9bd04 => {
                     const _0x18f1e5 = _0x11b74b;
                     0xd === _0xa9bd04[_0x18f1e5(0x279)] && this['ci'][_0x18f1e5(0x3b2)](), _0xa9bd04[_0x18f1e5(0x3d8)]();
                 }, !0x0)), this;
             }
 
-            _0x464188(number) {
-                return 0;
-            }
-
-            _0x464188(number) {
+            _0x464188() {
                 return 0;
             }
 
@@ -2098,7 +2096,7 @@
                         }, 0x5dc)) : _0x2bc17e(_0x2ebf2c(_0x499deb));
                     }, 'afterOpen': () => {
                         let _0x40d524 = _0x99086a['st'](this._0xa8b9c5);
-                        this['Hi'](_0x99086a['URI'](_0x40d524)[this._0x3ae98f(0x1d6)](), () => {
+                        this['Hi'](_0x99086a['URI'](_0x40d524)[this._0x3ae98f()](), () => {
                             const _0x29414e = this._0x3ae98f;
                             console['log']('Navigated\x20to\x20', _0x40d524), _0x4db155[_0x29414e(0x309)][_0x29414e(0x231)] = _0x40d524;
                         });
@@ -2112,7 +2110,7 @@
                 var _0x2ebf2c;
             }
 
-            _0x3ae98f(number) {
+            _0x3ae98f() {
                 return 0;
             }
 

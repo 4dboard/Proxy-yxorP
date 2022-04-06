@@ -5,6 +5,9 @@ namespace yxorP\Http;
 use ArrayAccess;
 use ReturnTypeWillChange;
 
+/**
+ * @property array $data
+ */
 class ProxyEvent implements ArrayAccess
 {
     private array $data;

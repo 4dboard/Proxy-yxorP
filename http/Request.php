@@ -4,6 +4,14 @@ namespace yxorP\Http;
 
 use JetBrains\PhpStorm\Pure;
 
+
+/**
+ * @property $protocol_version
+ * @property string|string[]|null $url
+ * @property string $method
+ * @property string $prepared_body
+ * @property string $body
+ */
 class Request
 {
     public ParamStore $params;
@@ -13,9 +21,7 @@ class Request
     public ParamStore $get;
 
     public ParamStore $files;
-    private $method;
-
-    private string $url;
+    private string $method;
 
     private string $protocol_version = '1.1';
 
@@ -40,6 +46,32 @@ class Request
         $this->setBody($body);
 
         $this->prepare();
+    }
+
+    public function setUrl($url): void
+    {
+        $url = preg_replace('/#.*/', '', $url);
+
+        $query = parse_url($url, PHP_URL_QUERY);
+
+        if ($query) {
+            $url = str_replace('?' . $query, '', $url);
+            $url = preg_replace('/\?.*/', '', $url);
+
+            $result = self::parseQuery($query);
+            $this->get->replace($result);
+        }
+
+        $this->url = $url;
+        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
+    }
+
+    public static function parseQuery($query): array
+    {
+        $result = array();
+        parse_str($query, $result);
+
+        return $result;
     }
 
     public function setBody($body, $content_type = false): void
@@ -195,15 +227,7 @@ class Request
         return $request;
     }
 
-    public static function parseQuery($query): array
-    {
-        $result = array();
-        parse_str($query, $result);
-
-        return $result;
-    }
-
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->method;
     }
@@ -215,25 +239,7 @@ class Request
 
     public function getUrl(): string
     {
-        return @$GLOBALS['PROXY_URL'];
-    }
-
-    public function setUrl($url): void
-    {
-        $url = preg_replace('/#.*/', '', $url);
-
-        $query = parse_url($url, PHP_URL_QUERY);
-
-        if ($query) {
-            $url = str_replace('?' . $query, '', $url);
-            $url = preg_replace('/\?.*/', '', $url);
-
-            $result = self::parseQuery($query);
-            $this->get->replace($result);
-        }
-
-        $this->url = $url;
-        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
+        return $GLOBALS['PROXY_URL'];
     }
 
     public function getProtocolVersion(): string
@@ -261,7 +267,7 @@ class Request
         return implode("\r\n", $result);
     }
 
-    public function getRawBody()
+    public function getRawBody(): string
     {
         return $this->prepared_body;
     }

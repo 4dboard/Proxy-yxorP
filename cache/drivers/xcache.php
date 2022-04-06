@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 
+
 class cache_xcache extends BaseCache implements cache_driver
 {
     public function __construct($config = array())
@@ -24,7 +25,7 @@ class cache_xcache extends BaseCache implements cache_driver
 
     }
 
-    public function driver_set($keyword, $value = "", $time = 300, $option = array()): bool
+    public function driver_set($keyword, $value = "", $time = 300, $option = array()): mixed
     {
 
         if (isset($option['skipExisting']) && $option['skipExisting'] === true) {
@@ -76,7 +77,7 @@ class cache_xcache extends BaseCache implements cache_driver
         return true;
     }
 
-    public function driver_isExisting($keyword)
+    public function driver_isExisting($keyword): mixed
     {
         return xcache_isset($keyword);
     }

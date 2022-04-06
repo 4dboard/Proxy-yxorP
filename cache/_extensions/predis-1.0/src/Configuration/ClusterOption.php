@@ -25,7 +25,7 @@ class ClusterOption implements OptionInterface
         return $value;
     }
 
-    protected function createByDescription(OptionsInterface $options, $id)
+    protected function createByDescription(OptionsInterface $options, $id): mixed
     {
         switch ($id) {
             case 'predis':

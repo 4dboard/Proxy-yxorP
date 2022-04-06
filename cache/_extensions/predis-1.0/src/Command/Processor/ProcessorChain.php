@@ -7,6 +7,9 @@ use ArrayIterator;
 use InvalidArgumentException;
 use Predis\Command\CommandInterface;
 
+/**
+ * @property array $processors
+ */
 class ProcessorChain implements ArrayAccess, ProcessorInterface
 {
     private array $processors = array();

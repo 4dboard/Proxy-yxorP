@@ -5,6 +5,10 @@ namespace yxorP\Http;
 use JetBrains\PhpStorm\Pure;
 use JsonException;
 
+/**
+ * @property false|mixed $case_sensitive
+ * @property array $data
+ */
 class ParamStore
 {
     private array $data;

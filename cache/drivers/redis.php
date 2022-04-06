@@ -96,7 +96,7 @@ class cache_redis extends BaseCache implements cache_driver
         return true;
     }
 
-    public function driver_get($keyword, $option = array())
+    public function driver_get($keyword, $option = array()): mixed
     {
         if ($this->connectServer()) {
             $x = $this->instant->get($keyword);

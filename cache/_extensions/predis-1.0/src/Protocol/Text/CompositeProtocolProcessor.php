@@ -8,7 +8,7 @@ use Predis\Protocol\ProtocolProcessorInterface;
 use Predis\Protocol\RequestSerializerInterface;
 use Predis\Protocol\ResponseReaderInterface;
 
-class CompositeProtocolProcessor implements ProtocolProcessorInterface
+abstract class CompositeProtocolProcessor implements ProtocolProcessorInterface
 {
 
     protected $serializer;

@@ -1,8 +1,15 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 use yxorP\Helpers;
 use yxorP\http\ProxyEvent;
 
+/**
+ * @property bool $stream
+ * @property $max_content_length
+ * @property $output_buffer_types
+ */
 class StreamPlugin extends AbstractPlugin
 {
     private array $output_buffer_types = array('text/html', 'text/plain', 'text/css', 'text/javascript', 'application/x-javascript', 'application/javascript');

@@ -7,6 +7,10 @@ use Iterator;
 use OuterIterator;
 use UnexpectedValueException;
 
+/**
+ * @property array|null $current
+ * @property MultiBulk $iterator
+ */
 class MultiBulkTuple extends MultiBulk implements OuterIterator
 {
     private MultiBulk $iterator;

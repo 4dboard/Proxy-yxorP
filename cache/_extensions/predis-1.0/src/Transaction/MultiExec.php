@@ -2,11 +2,10 @@
 
 namespace Predis\Transaction;
 
-use Exception;
 use InvalidArgumentException;
+use Predis\AClientInterface;
 use Predis\ClientContextInterface;
 use Predis\ClientException;
-use Predis\AClientInterface;
 use Predis\Command\CommandInterface;
 use Predis\CommunicationException;
 use Predis\Connection\AggregateConnectionInterface;
@@ -14,9 +13,16 @@ use Predis\NotSupportedException;
 use Predis\Protocol\ProtocolException;
 use Predis\Response\ErrorInterface as ErrorResponseInterface;
 use Predis\Response\ServerException;
-use Predis\Response\Status as StatusResponse;
 use SplQueue;
 
+/**
+ * @property SplQueue $commands
+ * @property int $attempts
+ * @property mixed $watchKeys
+ * @property bool $modeCAS
+ * @property bool $exceptions
+ * @property AClientInterface $client
+ */
 class MultiExec implements ClientContextInterface
 {
     protected AClientInterface $client;
@@ -205,10 +211,12 @@ class MultiExec implements ClientContextInterface
     }
 
     /**
+     * @param CommandInterface $command
+     * @return MultiExec
      * @throws AbortedMultiExecException
      * @throws CommunicationException
      */
-    public function executeCommand(CommandInterface $command)
+    public function executeCommand(CommandInterface $command): mixed
     {
         try {
             $this->initialize();
@@ -220,14 +228,11 @@ class MultiExec implements ClientContextInterface
         }
 
         $response = $this->client->getConnection()->executeCommand($command);
-
-        if ($response instanceof StatusResponse && $response === 'QUEUED') {
-            $this->commands->enqueue($command);
-        } elseif ($response instanceof ErrorResponseInterface) {
+        if ($response instanceof ErrorResponseInterface) {
             throw new AbortedMultiExecException($this, $response->getMessage());
-        } else {
-            $this->onProtocolError('The server did not return a +QUEUED status response.');
         }
+
+        $this->onProtocolError('The server did not return a +QUEUED status response.');
 
         return $this;
     }
@@ -262,7 +267,7 @@ class MultiExec implements ClientContextInterface
      * @throws AbortedMultiExecException
      * @throws ServerException
      */
-    public function execute(mixed $callable = null): ?array
+    public function execute(mixed $callable = null): array
     {
         $this->checkBeforeExecution($callable);
 
@@ -279,7 +284,7 @@ class MultiExec implements ClientContextInterface
                     $this->discard();
                 }
 
-                return null;
+                return [];
             }
 
             $execResponse = $this->call('EXEC');
@@ -381,7 +386,7 @@ class MultiExec implements ClientContextInterface
             $callable($this);
         } catch (CommunicationException|ServerException $exception) {
             // NOOP
-        } catch (Exception $exception) {
+        } catch (exception) {
             $this->discard();
         }
 

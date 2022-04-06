@@ -2,7 +2,6 @@
 
 namespace Predis;
 
-use Exception;
 use Predis\Connection\NodeConnectionInterface;
 
 abstract class CommunicationException extends PredisException
@@ -23,7 +22,8 @@ abstract class CommunicationException extends PredisException
     /**
      * @throws CommunicationException
      */
-    public static function handle(CommunicationException $exception): void
+    public
+    static function handle(CommunicationException $exception): void
     {
         if ($exception->shouldResetConnection()) {
             $connection = $exception->getConnection();

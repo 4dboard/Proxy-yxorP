@@ -7,6 +7,11 @@ use Predis\AClientInterface;
 use Predis\Connection\AggregateConnectionInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property $position
+ * @property bool $valid
+ * @property AClientInterface $client
+ */
 class Consumer implements Iterator
 {
     private AClientInterface $client;

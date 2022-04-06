@@ -4,9 +4,13 @@ namespace Predis\Command;
 
 use InvalidArgumentException;
 
+/**
+ * @property $slot
+ * @property array $arguments
+ * @property string $commandID
+ */
 class RawCommand implements CommandInterface
 {
-    private $slot;
     private string $commandID;
     private array $arguments;
 

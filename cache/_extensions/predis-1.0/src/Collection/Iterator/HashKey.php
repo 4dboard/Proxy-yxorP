@@ -5,6 +5,11 @@ namespace Predis\Collection\Iterator;
 use Predis\AClientInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property mixed|null $current
+ * @property int|string|null $position
+ * @property $key
+ */
 class HashKey extends CursorBasedIterator
 {
     protected $key;

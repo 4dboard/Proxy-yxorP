@@ -6,10 +6,15 @@ use Countable;
 use Iterator;
 use Predis\Response\ResponseInterface;
 
+/**
+ * @property int $position
+ * @property $size
+ * @property $current
+ */
 abstract class MultiBulkIterator implements Iterator, Countable, ResponseInterface
 {
     protected $current;
-    protected $position;
+    protected int $position;
     protected $size;
 
     public function rewind()
@@ -46,7 +51,7 @@ abstract class MultiBulkIterator implements Iterator, Countable, ResponseInterfa
         return $this->size;
     }
 
-    public function getPosition()
+    public function getPosition(): int
     {
         return $this->position;
     }

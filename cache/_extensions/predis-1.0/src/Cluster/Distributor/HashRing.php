@@ -1,10 +1,19 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 namespace Predis\Cluster\Distributor;
 
 use Predis\Cluster\Hash\HashGeneratorInterface;
 
-class HashRing implements DistributorInterface, HashGeneratorInterface
+/**
+ * @property int $ringKeysCount
+ * @property array $ringKeys
+ * @property array $ring
+ * @property mixed|null $nodeHashCallback
+ * @property int|mixed $replicas
+ */
+abstract class HashRing implements DistributorInterface, HashGeneratorInterface
 {
     public const DEFAULT_REPLICAS = 128;
     public const DEFAULT_WEIGHT = 100;
@@ -45,10 +54,6 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
 
     public function remove($node)
     {
-        // A node is removed by resetting the ring so that it's recreated from
-        // scratch, in order to reassign possible hashes with collisions to the
-        // right node according to the order in which they were added in the
-        // first place.
         foreach ($this->nodes as $i => $iValue) {
             if ($iValue['object'] === $node) {
                 array_splice($this->nodes, $i, 1);
@@ -59,6 +64,9 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
         }
     }
 
+    /**
+     * @throws EmptyRingException
+     */
     public function getBySlot($slot)
     {
         $this->initialize();
@@ -66,6 +74,9 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
         return $this->ring[$slot] ?? null;
     }
 
+    /**
+     * @throws EmptyRingException
+     */
     private function initialize(): void
     {
         if ($this->isInitialized()) {
@@ -118,7 +129,8 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
         }
     }
 
-    protected function getNodeHash($nodeObject)
+    protected
+    function getNodeHash($nodeObject)
     {
         if (!isset($this->nodeHashCallback)) {
             return (string)$nodeObject;
@@ -140,12 +152,12 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
 
     public function getByHash($hash)
     {
-        try {
-            return $this->ring[$this->getSlot($hash)];
-        } catch (EmptyRingException $e) {
-        }
+        return $this->ring[$this->getSlot($hash)];
     }
 
+    /**
+     * @throws EmptyRingException
+     */
     public function getSlot($hash)
     {
         $this->initialize();
@@ -167,10 +179,11 @@ class HashRing implements DistributorInterface, HashGeneratorInterface
             }
         }
 
-        return $ringKeys[$this->wrapAroundStrategy($upper, $lower, $this->ringKeysCount)];
+        return $ringKeys[$this->wrapAroundStrategy($upper, $lower)];
     }
 
-    protected function wrapAroundStrategy($upper, $lower, $ringKeysCount): int
+    protected
+    function wrapAroundStrategy($upper, $ringKeysCount): int
     {
         // Binary search for the last item in ringkeys with a value less or
         // equal to the key. If no such item exists, return the last item.

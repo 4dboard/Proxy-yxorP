@@ -1,6 +1,13 @@
 <?php /* yxorP */
 
 namespace Predis;
+
+
+/**
+ * @property int $prefixLength
+ * @property string $prefix
+ * @property mixed|string $directory
+ */
 class Autoloader
 {
     private mixed $directory;

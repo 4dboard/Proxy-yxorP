@@ -1,8 +1,10 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 use JetBrains\PhpStorm\ArrayShape;
 
-class cache_apc extends BaseCache implements cache_driver
+abstract class cache_apc extends BaseCache implements cache_driver
 {
 
     public function __construct($config = array())
@@ -39,7 +41,7 @@ class cache_apc extends BaseCache implements cache_driver
         return apc_store($keyword, $value, $time);
     }
 
-    public function driver_get($keyword, $option = array())
+    public function driver_get($keyword)
     {
         $data = apc_fetch($keyword, $bo);
         if ($bo === false) {
@@ -49,12 +51,13 @@ class cache_apc extends BaseCache implements cache_driver
 
     }
 
-    public function driver_delete($keyword, $option = array()): array|bool
+    public function driver_delete($keyword): array|bool
     {
         return apc_delete($keyword);
     }
 
-    #[ArrayShape(["info" => "string", "size" => "string", "data" => "string", 'data' => "array|bool"])] public function driver_stats($option = array()): array
+    #[
+        ArrayShape(["info" => "string", "size" => "string", "data" => "string", 'data' => "array|bool"])] public function driver_stats(): array
     {
         $res = array(
             "info" => "",
@@ -71,7 +74,7 @@ class cache_apc extends BaseCache implements cache_driver
         return $res;
     }
 
-    public function driver_clean($option = array())
+    public function driver_clean()
     {
         @apc_clear_cache();
         @apc_clear_cache("user");

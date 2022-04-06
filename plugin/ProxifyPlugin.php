@@ -2,6 +2,9 @@
 
 use yxorP\http\ProxyEvent;
 
+/**
+ * @property $base_url
+ */
 class ProxifyPlugin extends AbstractPlugin
 {
 
@@ -84,7 +87,7 @@ class ProxifyPlugin extends AbstractPlugin
     private function proxify_css($str): array|string|null
     {
 
-        $str = preg_replace_callback('@[^a-z]{1}url\s*\((?:\'|"|)(.*?)(?:\'|"|)\)@im', array($this, 'css_url'), $str);
+        $str = preg_replace_callback('@[^a-z]url\s*\((?:\'|"|)(.*?)(?:\'|"|)\)@im', array($this, 'css_url'), $str);
 
         return preg_replace_callback('/@import ([\'"])(.*?)\1/i', array($this, 'css_import'), $str);
     }

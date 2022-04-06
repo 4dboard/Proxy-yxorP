@@ -4,6 +4,9 @@ namespace Predis\Response;
 
 use JetBrains\PhpStorm\Pure;
 
+/**
+ * @property $message
+ */
 class Error implements ErrorInterface
 {
     private $message;

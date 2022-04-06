@@ -6,7 +6,6 @@ use Predis\CommunicationException;
 use Predis\Connection\Aggregate\ClusterInterface;
 use Predis\Connection\ConnectionInterface;
 use Predis\Connection\NodeConnectionInterface;
-use Predis\NotSupportedException;
 use SplQueue;
 
 class ConnectionErrorProof extends Pipeline
@@ -18,15 +17,13 @@ class ConnectionErrorProof extends Pipeline
     }
 
     /**
-     * @throws NotSupportedException
+     * @param ConnectionInterface $connection
+     * @param SplQueue $commands
+     * @return array
      */
     protected function executePipeline(ConnectionInterface $connection, SplQueue $commands): array
     {
         return $this->executeSingleNode($connection, $commands);
-
-        $class = get_class($connection);
-
-        throw new NotSupportedException("The connection class '$class' is not supported.");
     }
 
     protected function executeSingleNode(NodeConnectionInterface $connection, SplQueue $commands): array

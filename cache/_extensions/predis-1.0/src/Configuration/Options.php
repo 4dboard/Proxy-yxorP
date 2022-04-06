@@ -12,6 +12,9 @@ use JetBrains\PhpStorm\Pure;
  * @property mixed|void|null $replication
  * @property mixed|void|null $aggregate
  * @property mixed|void|null $profile
+ * @property string[] $handlers
+ * @property array $options
+ * @property array $input
  */
 class Options implements OptionsInterface
 {
@@ -84,7 +87,7 @@ class Options implements OptionsInterface
         return null;
     }
 
-    public function getDefault($option)
+    public function getDefault($option): mixed
     {
         if (isset($this->handlers[$option])) {
             $handler = $this->handlers[$option];

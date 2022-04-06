@@ -4,11 +4,15 @@ namespace yxorP\Http;
 
 use JetBrains\PhpStorm\Pure;
 
+/**
+ * @property $statusCodes
+ * @property string $content
+ */
 class Response
 {
     public $status;
     public ParamStore $headers;
-    private $content;
+    private string $content;
     private array $statusCodes = array(
         100 => 'Continue',
         101 => 'Switching Protocols',
@@ -67,7 +71,7 @@ class Response
         $this->status = $code;
     }
 
-    public function getContent()
+    public function getContent(): string
     {
         return $this->content;
     }

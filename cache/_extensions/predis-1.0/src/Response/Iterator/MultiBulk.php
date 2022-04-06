@@ -4,6 +4,12 @@ namespace Predis\Response\Iterator;
 
 use Predis\Connection\NodeConnectionInterface;
 
+/**
+ * @property null $current
+ * @property int $position
+ * @property $size
+ * @property NodeConnectionInterface $connection
+ */
 class MultiBulk extends MultiBulkIterator
 {
     private NodeConnectionInterface $connection;

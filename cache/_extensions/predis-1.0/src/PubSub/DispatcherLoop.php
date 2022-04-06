@@ -4,6 +4,11 @@ namespace Predis\PubSub;
 
 use InvalidArgumentException;
 
+/**
+ * @property mixed|null $subscriptionCallback
+ * @property Consumer $pubsub
+ * @property array $callbacks
+ */
 class DispatcherLoop
 {
     protected array $callbacks;

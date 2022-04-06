@@ -8,9 +8,10 @@ use Predis\NotSupportedException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
 
+
 class PhpiredisSocketConnection extends AbstractConnection
 {
-    private $reader;
+    private mixed $reader;
 
     /**
      * @throws NotSupportedException
@@ -42,7 +43,7 @@ class PhpiredisSocketConnection extends AbstractConnection
         }
     }
 
-    private function createReader()
+    private function createReader(): mixed
     {
         $reader = phpiredis_reader_create();
 
@@ -143,8 +144,8 @@ class PhpiredisSocketConnection extends AbstractConnection
 
         $host = $parameters->host;
 
-        if (ip2long($host) === false) {
-            if (false === $addresses = gethostbynamel($host)) {
+        if (ip2long($host) == false) {
+            if (false == $addresses = gethostbynamel($host)) {
                 return false;
             }
 
@@ -175,13 +176,13 @@ class PhpiredisSocketConnection extends AbstractConnection
         }
     }
 
-    public function read()
+    public function read(): mixed
     {
         $socket = $this->getResource();
         $reader = $this->reader;
 
         while (PHPIREDIS_READER_STATE_INCOMPLETE === $state = phpiredis_reader_get_state($reader)) {
-            if (@socket_recv($socket, $buffer, 4096, 0) === false || $buffer === '') {
+            if (@socket_recv($socket, $buffer, 4096, 0) == false || $buffer === '') {
                 $this->emitSocketError();
             }
 
@@ -217,7 +218,7 @@ class PhpiredisSocketConnection extends AbstractConnection
                 return;
             }
 
-            if ($written === false) {
+            if ($written == false) {
                 try {
                     $this->onConnectionError('Error while writing bytes to the server.');
                 } catch (CommunicationException $e) {
@@ -251,7 +252,7 @@ class PhpiredisSocketConnection extends AbstractConnection
         return parent::assertParameters($parameters);
     }
 
-    protected function getReader()
+    protected function getReader(): mixed
     {
         return $this->reader;
     }

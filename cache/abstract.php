@@ -1,9 +1,13 @@
 <?php /* yxorP */
 
+use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 use yxorP\cache\Cache;
 use function yxorP\cache\cache;
 
+/**
+ * @property $option
+ */
 abstract class BaseCache
 {
     public array $tmp = array();
@@ -11,7 +15,7 @@ abstract class BaseCache
     public bool $fallback = false;
     public $instant;
 
-    #[\JetBrains\PhpStorm\ArrayShape(["info" => "string", "size" => "string", "data" => "string"])] public function stats($option = array())
+    #[ArrayShape(["info" => "string", "size" => "string", "data" => "string"])] public function stats($option = array())
     {
         return $this->driver_stats($option);
     }
@@ -254,7 +258,7 @@ abstract class BaseCache
         if (count($this->option("system")) === 0) {
             $this->option['system']['driver'] = "files";
             $this->option['system']['drivers'] = array();
-            $dir = @opendir(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/");
+            $dir = @opendir($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/");
             if (!$dir) {
                 throw new cacheCoreException("Can't open file dir ext", 100);
             }
@@ -262,7 +266,7 @@ abstract class BaseCache
             while ($file = @readdir($dir)) {
                 if ($file !== "." && $file !== ".." && str_contains($file, ".php")
                 ) {
-                    require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $file);
+                    require_once($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $file);
                     $namex = str_replace(".php", "", $file);
                     $class = "cache_" . $namex;
                     $this->option['skipError'] = true;
@@ -290,12 +294,9 @@ abstract class BaseCache
         return $this->option;
     }
 
-    public function getPath($create_path = false)
+    public function getPath($create_path = false): string|bool
     {
-        try {
-            return Cache::getPath($create_path, $this->config);
-        } catch (cacheCoreException $e) {
-        }
+        return Cache::getPath($create_path, $this->config);
     }
 
     protected function backup()
@@ -305,7 +306,7 @@ abstract class BaseCache
 
     protected function required_extension($name): void
     {
-        require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/_extensions/" . $name);
+        require_once($GLOBALS['PLUGIN_DIR'] . "/cache/_extensions/" . $name);
     }
 
     /**
@@ -375,8 +376,8 @@ allow from 127.0.0.1";
 
     protected function isExistingDriver($class): bool
     {
-        if (file_exists(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php")) {
-            require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
+        if (file_exists($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php")) {
+            require_once($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
             if (class_exists("cache_" . $class)) {
                 return true;
             }

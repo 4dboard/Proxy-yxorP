@@ -1,3 +1,5 @@
+// noinspection CommaExpressionJS
+
 function inIframe() {
     try {
         return window.self !== window.top

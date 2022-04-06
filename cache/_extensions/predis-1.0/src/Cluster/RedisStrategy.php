@@ -7,11 +7,14 @@ use Predis\Cluster\Hash\CRC16;
 use Predis\Cluster\Hash\HashGeneratorInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property CRC16|HashGeneratorInterface $hashGenerator
+ */
 class RedisStrategy extends ClusterStrategy
 {
     protected CRC16|HashGeneratorInterface $hashGenerator;
 
-    #[Pure] #[Pure] public function __construct(HashGeneratorInterface $hashGenerator = null)
+    #[Pure] public function __construct(HashGeneratorInterface $hashGenerator = null)
     {
         parent::__construct();
 
@@ -24,6 +27,9 @@ class RedisStrategy extends ClusterStrategy
         return $this->hashGenerator->hash($key) & 0x3FFF;
     }
 
+    /**
+     * @throws NotSupportedException
+     */
     public function getDistributor()
     {
         throw new NotSupportedException(

@@ -1,5 +1,7 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 namespace Predis\Connection;
 
 use InvalidArgumentException;
@@ -9,11 +11,12 @@ use Predis\Protocol\ProtocolException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
 
+
 class WebdisConnection implements NodeConnectionInterface
 {
     private ParametersInterface $parameters;
     private $resource;
-    private $reader;
+    private mixed $reader;
 
     /**
      * @throws NotSupportedException
@@ -23,7 +26,7 @@ class WebdisConnection implements NodeConnectionInterface
         $this->assertExtensions();
 
         if ($parameters->scheme !== 'http') {
-            throw new InvalidArgumentException("Invalid scheme: '{$parameters->scheme}'.");
+            throw new InvalidArgumentException("Invalid scheme: '$parameters->scheme'.");
         }
 
         $this->parameters = $parameters;
@@ -57,14 +60,14 @@ class WebdisConnection implements NodeConnectionInterface
         $options = array(
             CURLOPT_FAILONERROR => true,
             CURLOPT_CONNECTTIMEOUT_MS => $parameters->timeout * 1000,
-            CURLOPT_URL => "{$parameters->scheme}://{$parameters->host}:{$parameters->port}",
+            CURLOPT_URL => "$parameters->scheme://$parameters->host:$parameters->port",
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_POST => true,
             CURLOPT_WRITEFUNCTION => array($this, 'feedReader'),
         );
 
         if (isset($parameters->user, $parameters->pass)) {
-            $options[CURLOPT_USERPWD] = "{$parameters->user}:{$parameters->pass}";
+            $options[CURLOPT_USERPWD] = "$parameters->user:$parameters->pass";
         }
 
         curl_setopt_array($resource = curl_init(), $options);
@@ -77,7 +80,7 @@ class WebdisConnection implements NodeConnectionInterface
         return $this->parameters;
     }
 
-    private function createReader()
+    private function createReader(): mixed
     {
         $reader = phpiredis_reader_create();
 

@@ -7,6 +7,16 @@ use Iterator;
 use Predis\AClientInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property mixed|null $current
+ * @property array $elements
+ * @property bool $fetchmore
+ * @property false $valid
+ * @property int $position
+ * @property mixed $count
+ * @property $key
+ * @property AClientInterface $client
+ */
 class ListKey implements Iterator
 {
     protected AClientInterface $client;
@@ -99,7 +109,7 @@ class ListKey implements Iterator
 
     public function current()
     {
-        return $this->current;
+        return null;
     }
 
     public function key()

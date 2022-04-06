@@ -9,7 +9,7 @@ function vid_player($url, $width = '100%', $height = '100%', $extension = false)
 
     if ($path) {
 
-        $extension = $extension ?: pathinfo($path, PATHINFO_EXTENSION);
+        $extension = @false ?: pathinfo($path, PATHINFO_EXTENSION);
 
         if ($extension === 'mp4' || $extension === 'webm' || $extension === 'ogg') {
             $html5 = true;

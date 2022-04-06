@@ -7,6 +7,10 @@ use Predis\Command\CommandInterface;
 use Predis\CommunicationException;
 use Predis\Protocol\ProtocolProcessorInterface;
 use Predis\Protocol\Text\ProtocolProcessor as TextProtocolProcessor;
+use Predis\Response\Error;
+use Predis\Response\Iterator\MultiBulk;
+use Predis\Response\Status;
+
 
 class CompositeStreamConnection extends StreamConnection implements CompositeConnectionInterface
 {
@@ -82,12 +86,9 @@ class CompositeStreamConnection extends StreamConnection implements CompositeCon
         $this->protocol->write($this, $command);
     }
 
-    public function read()
+    public function read(): Status|string|int|bool|array|null|MultiBulk|Error
     {
-        try {
-            return $this->protocol->read($this);
-        } catch (CommunicationException $e) {
-        }
+        return $this->protocol->read($this);
     }
 
     public function __sleep()

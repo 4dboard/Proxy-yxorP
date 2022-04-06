@@ -13,7 +13,12 @@ use Predis\Protocol\Text\Handler\ErrorResponse;
 use Predis\Protocol\Text\Handler\IntegerResponse;
 use Predis\Protocol\Text\Handler\MultiBulkResponse;
 use Predis\Protocol\Text\Handler\StatusResponse;
+use Predis\Response\Error;
+use Predis\Response\Status;
 
+/**
+ * @property array $handlers
+ */
 class ResponseReader implements ResponseReaderInterface
 {
     protected array $handlers;
@@ -44,7 +49,7 @@ class ResponseReader implements ResponseReaderInterface
         return $this->handlers[$prefix] ?? null;
     }
 
-    public function read(CompositeConnectionInterface $connection)
+    public function read(CompositeConnectionInterface $connection): Status|string|int|bool|array|null|Error
     {
         $header = $connection->readLine();
 
