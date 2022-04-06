@@ -28,15 +28,11 @@
 <h3 >🔋 Batteries are included</h3></h3>
 <p  > Built-in Content Spinning and Auto Caching Engine, all housed within a stunning web GUI.Cache Drivers Included are: Arangodb, Devnull, Dynamodb (AWS),Cassandra, Devrandom,	Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,	Mongodb, Memcache(d),Predis, Sqlite, Redis,	Wincache, Ssdb, Zend Disk Cache, Zend Memory Cache</p>
 
-### .yxorP Proxy.
-
 The strength of two of the most successful web proxy initiatives is combined in.yxorp. Vanilla Dashboard combines a
 flat-file beautiful web interface with a custom multi-threaded caching layer and a powerful 10,000+ word thesaurus
 article spinner to provide a zero-performance-loss robust self-service proxy engine that supports multiple tenants. The
 project is looking for funding to help tie up some loose ends, particularly with the backed GUI; the front-end is
 complete and functional, but requires some work on code cleanup and unit testing.
-
-### Front-End
 
 yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation necessary), multi-threaded, website mirroring and
 content augmentation, fast cache, and multi-web proxy server (reverse proxy). The proxy is "modular" or "plugin-based,"
