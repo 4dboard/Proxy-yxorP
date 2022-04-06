@@ -1,5 +1,7 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 use JetBrains\PhpStorm\ArrayShape;
 
 class cache_example extends BaseCache implements cache_driver

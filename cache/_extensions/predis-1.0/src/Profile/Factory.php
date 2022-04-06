@@ -7,6 +7,9 @@ use Predis\ClientException;
 use ReflectionClass;
 use ReflectionException;
 
+/**
+ * @property $profiles
+ */
 final class Factory
 {
     private static array $profiles = array(

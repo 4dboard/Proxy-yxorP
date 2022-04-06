@@ -5,9 +5,9 @@ namespace Predis\Pipeline;
 use Exception;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\Pure;
+use Predis\AClientInterface;
 use Predis\ClientContextInterface;
 use Predis\ClientException;
-use Predis\AClientInterface;
 use Predis\Command\CommandInterface;
 use Predis\Connection\Aggregate\ReplicationInterface;
 use Predis\Connection\ConnectionInterface;
@@ -16,6 +16,12 @@ use Predis\Response\ResponseInterface;
 use Predis\Response\ServerException;
 use SplQueue;
 
+/**
+ * @property array $responses
+ * @property $running
+ * @property SplQueue $pipeline
+ * @property AClientInterface $client
+ */
 class Pipeline implements ClientContextInterface
 {
     private AClientInterface $client;
@@ -43,7 +49,7 @@ class Pipeline implements ClientContextInterface
         $this->pipeline->enqueue($command);
     }
 
-    public function executeCommand(CommandInterface $command)
+    public function executeCommand(CommandInterface $command): Pipeline
     {
         $this->recordCommand($command);
 

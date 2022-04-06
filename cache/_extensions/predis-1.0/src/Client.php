@@ -1,5 +1,7 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 namespace Predis;
 
 use InvalidArgumentException;
@@ -22,6 +24,11 @@ use Predis\Response\ServerException;
 use Predis\Transaction\MultiExec as MultiExecTransaction;
 use UnexpectedValueException;
 
+/**
+ * @property mixed|void|null $profile
+ * @property mixed|ConnectionInterface|void|null $connection
+ * @property Options|OptionsInterface $options
+ */
 class Client implements AClientInterface
 {
     public const VERSION = '1.0.2-dev';
@@ -186,14 +193,12 @@ class Client implements AClientInterface
         return $response;
     }
 
+    /* yxorP */
     public function __call(string $method, array $arguments)
     {
-        try {
-            return $this->executeCommand(
-                $this->createCommand($method, $arguments)
-            );
-        } catch (ServerException $e) {
-        }
+        return $this->executeCommand(
+            $this->createCommand($method, $arguments)
+        );
     }
 
     /**
@@ -276,10 +281,7 @@ class Client implements AClientInterface
 
     public function monitor(): MonitorConsumer
     {
-        try {
-            return new MonitorConsumer($this);
-        } catch (NotSupportedException $e) {
-        }
+        return new MonitorConsumer($this);
     }
 
     /**
@@ -307,13 +309,11 @@ class Client implements AClientInterface
      * @param array|null $options
      * @param null $callable
      * @return MultiExecTransaction|array|null
+     * @throws NotSupportedException
      */
     protected function createTransaction(array $options = null, $callable = null): MultiExecTransaction|array|null
     {
-        try {
-            $transaction = new MultiExecTransaction($this, $options);
-        } catch (NotSupportedException $e) {
-        }
+        $transaction = new MultiExecTransaction($this, $options);
 
         if (isset($callable)) {
             try {
@@ -325,12 +325,12 @@ class Client implements AClientInterface
         return $transaction;
     }
 
-    protected function createPubSub(array $options = null, $callable = null)
+    /**
+     * @throws NotSupportedException
+     */
+    protected function createPubSub(array $options = null, $callable = null): \PubSubConsumer
     {
-        try {
-            $pubsub = new PubSubConsumer($this, $options);
-        } catch (NotSupportedException $e) {
-        }
+        $pubsub = new PubSubConsumer($this, $options);
 
         if (!isset($callable)) {
             return $pubsub;

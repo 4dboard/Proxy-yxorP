@@ -1,5 +1,8 @@
 <?php /* yxorP */
 
+/**
+ * @property bool $checked_ssdb
+ */
 class cache_ssdb extends BaseCache implements cache_driver
 {
     private bool $checked_ssdb = false;
@@ -43,6 +46,9 @@ class cache_ssdb extends BaseCache implements cache_driver
         return $this->backup()->set($keyword, $value, $time, $option);
     }
 
+    /**
+     * @throws SSDBException
+     */
     public function connectServer(): bool
     {
 
@@ -58,10 +64,7 @@ class cache_ssdb extends BaseCache implements cache_driver
             $port = isset($server['port']) ? (int)$server['port'] : 8888;
             $password = $server['password'] ?? "";
             $timeout = isset($server['timeout']) ? (int)$server['timeout'] : 2000;
-            try {
-                $this->instant = new SimpleSSDB($host, $port, $timeout);
-            } catch (SSDBException $e) {
-            }
+            $this->instant = new SimpleSSDB($host, $port, $timeout);
             if (!empty($password)) {
                 $this->instant->auth($password);
             }
@@ -77,7 +80,7 @@ class cache_ssdb extends BaseCache implements cache_driver
         return true;
     }
 
-    public function driver_get($keyword, $option = array())
+    public function driver_get($keyword, $option = array()): mixed
     {
         if ($this->connectServer()) {
             $x = $this->instant->get($keyword);

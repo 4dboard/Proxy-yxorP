@@ -2,6 +2,7 @@
 
 use yxorP\http\ProxyEvent;
 
+
 class CookiePlugin extends AbstractPlugin
 {
     public const COOKIE_PREFIX = 'pc';

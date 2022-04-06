@@ -1,6 +1,9 @@
 <?php /* yxorP */
 
 namespace Predis\Cluster\Hash;
+/**
+ * @property $CCITT_16
+ */
 class CRC16 implements HashGeneratorInterface
 {
     private static array $CCITT_16 = array(

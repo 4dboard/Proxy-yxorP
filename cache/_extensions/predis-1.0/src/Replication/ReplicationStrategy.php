@@ -6,6 +6,11 @@ use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property array $readonlySHA1
+ * @property array $readonly
+ * @property bool[] $disallowed
+ */
 class ReplicationStrategy
 {
     protected array $disallowed;

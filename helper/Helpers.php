@@ -26,6 +26,7 @@ function is_html($content_type): bool
     return clean_content_type($content_type) === 'text/html';
 }
 
+
 function in_arrayi($needle, $haystack): bool
 {
     return in_array(strtolower($needle), array_map('strtolower', $haystack), true);
@@ -134,7 +135,7 @@ function proxify_url($url, $base_url = '')
         $base_url = add_http($base_url);
         $url = rel2abs($url, $base_url);
     }
-    return str_replace(@$GLOBALS['TARGET_URL'], '', $url);
+    return str_replace($GLOBALS['TARGET_URL'], '', $url);
 }
 
 function rel2abs($rel, $base)
@@ -154,7 +155,7 @@ function rel2abs($rel, $base)
         return $base . $rel;
     }
     extract(parse_url($base));
-    @$path = preg_replace('#/[^/]*$#', '', $path);
+    $path = preg_replace('#/[^/]*$#', '', $path);
     if ($rel[0] === '/') {
         $path = '';
     }
@@ -163,9 +164,12 @@ function rel2abs($rel, $base)
         '#(/\.?/)#',
         '#/(?!\.\.)[^/]+/\.\./#'
     );
+    /* yxorP */
     for ($n = 1; $n > 0; $abs = preg_replace($re, '/', $abs, -1, $n)) {
     }
 
     return $scheme . '://' . $abs;
 }
+
+
 

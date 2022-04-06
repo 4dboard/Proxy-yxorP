@@ -12,6 +12,10 @@ use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Iterator\MultiBulk as MultiBulkIterator;
 use Predis\Response\Status as StatusResponse;
 
+/**
+ * @property RequestSerializer $serializer
+ * @property false $mbiterable
+ */
 class ProtocolProcessor implements ProtocolProcessorInterface
 {
     protected bool $mbiterable;

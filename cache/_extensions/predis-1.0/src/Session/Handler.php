@@ -5,6 +5,10 @@ namespace Predis\Session;
 use Predis\AClientInterface;
 use SessionHandlerInterface;
 
+/**
+ * @property int|string $ttl
+ * @property AClientInterface $client
+ */
 class Handler implements SessionHandlerInterface
 {
     protected AClientInterface $client;

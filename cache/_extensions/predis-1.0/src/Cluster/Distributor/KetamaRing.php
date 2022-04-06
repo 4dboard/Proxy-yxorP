@@ -1,10 +1,12 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 namespace Predis\Cluster\Distributor;
 
 use JetBrains\PhpStorm\Pure;
 
-class KetamaRing extends HashRing
+abstract class KetamaRing extends HashRing
 {
     public const DEFAULT_REPLICAS = 160;
 
@@ -35,7 +37,8 @@ class KetamaRing extends HashRing
         }
     }
 
-    protected function wrapAroundStrategy($upper, $lower, $ringKeysCount): int
+    protected
+    function wrapAroundStrategy($lower, $ringKeysCount): int
     {
         // Binary search for the first item in ringkeys with a value greater
         // or equal to the key. If no such item exists, return the first item.

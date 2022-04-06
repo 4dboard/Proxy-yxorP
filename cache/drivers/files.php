@@ -4,6 +4,9 @@ use JetBrains\PhpStorm\ArrayShape;
 
 class cache_files extends BaseCache implements cache_driver
 {
+    /**
+     * @throws cacheDriverException
+     */
     public function __construct($config = array())
     {
         $this->setup($config);
@@ -23,6 +26,10 @@ class cache_files extends BaseCache implements cache_driver
         return false;
     }
 
+    /**
+     * @throws cacheDriverException
+     * @throws cacheCoreException
+     */
     public function driver_set($keyword, $value = "", $time = 300, $option = array()): bool
     {
         $file_path = $this->getFilePath($keyword);
@@ -56,6 +63,9 @@ class cache_files extends BaseCache implements cache_driver
         return $written;
     }
 
+    /**
+     * @throws cacheDriverException
+     */
     private function getFilePath($keyword, $skip = false): string
     {
         $path = $this->getPath();
@@ -82,6 +92,10 @@ class cache_files extends BaseCache implements cache_driver
         return isset($object['expired_time']) && time() >= $object['expired_time'];
     }
 
+    /**
+     * @throws cacheDriverException
+     * @throws cacheCoreException
+     */
     public function driver_get($keyword, $option = array())
     {
 
@@ -110,12 +124,19 @@ class cache_files extends BaseCache implements cache_driver
         }
     }
 
+    /**
+     * @throws cacheDriverException
+     */
     public function driver_delete($keyword, $option = array()): bool
     {
         $file_path = $this->getFilePath($keyword, true);
         return file_exists($file_path) && @unlink($file_path);
     }
 
+    /**
+     * @throws cacheDriverException
+     * @throws cacheCoreException
+     */
     #[ArrayShape(["info" => "string", "size" => "string", "data" => "array|string", 'info' => "array", 'size' => "int"])] public function driver_stats($option = array()): array
     {
         $res = array(
@@ -177,6 +198,9 @@ class cache_files extends BaseCache implements cache_driver
         return $res;
     }
 
+    /**
+     * @throws cacheDriverException
+     */
     public function driver_clean($option = array())
     {
 
@@ -206,6 +230,9 @@ class cache_files extends BaseCache implements cache_driver
 
     }
 
+    /**
+     * @throws cacheDriverException
+     */
     public function driver_isExisting($keyword): ?bool
     {
         $file_path = $this->getFilePath($keyword, true);

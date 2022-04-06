@@ -8,10 +8,14 @@ use Predis\Command\CommandInterface;
 use Predis\Command\Processor\ProcessorInterface;
 use ReflectionClass;
 
+/**
+ * @property ProcessorInterface|null $processor
+ * @property $commands
+ */
 abstract class RedisProfile implements ProfileInterface
 {
     private $commands;
-    private $processor;
+    private ?ProcessorInterface $processor;
 
     public function __construct()
     {
@@ -36,7 +40,7 @@ abstract class RedisProfile implements ProfileInterface
         return isset($this->commands[strtoupper($commandID)]);
     }
 
-    public function getCommandClass($commandID): void
+    public function getCommandClass($commandID): mixed
     {
         if (isset($this->commands[$commandID = strtoupper($commandID)])) {
             return $this->commands[$commandID];
@@ -76,7 +80,7 @@ abstract class RedisProfile implements ProfileInterface
         $this->commands[strtoupper($commandID)] = $class;
     }
 
-    public function getProcessor()
+    public function getProcessor(): ?ProcessorInterface
     {
         return $this->processor;
     }

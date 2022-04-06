@@ -1,5 +1,7 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 namespace Predis\Connection\Aggregate;
 
 use ArrayIterator;
@@ -92,13 +94,13 @@ abstract class PredisCluster implements ClusterInterface, IteratorAggregate, Cou
         return false;
     }
 
+    /**
+     * @throws EmptyRingException
+     */
     public function getConnectionByKey($key)
     {
         $hash = $this->strategy->getSlotByKey($key);
-        try {
-            return $this->distributor->getBySlot($hash);
-        } catch (EmptyRingException $e) {
-        }
+        return $this->distributor->getBySlot($hash);
     }
 
     public function getClusterStrategy(): StrategyInterface|PredisStrategy
@@ -126,8 +128,7 @@ abstract class PredisCluster implements ClusterInterface, IteratorAggregate, Cou
     }
 
     /**
-     * @throws NotSupportedException
-     * @throws EmptyRingException
+     * @throws NotSupportedException|EmptyRingException
      */
     public function getConnection(CommandInterface $command)
     {
@@ -145,7 +146,7 @@ abstract class PredisCluster implements ClusterInterface, IteratorAggregate, Cou
     /**
      * @throws NotSupportedException
      */
-    public function readResponse(CommandInterface $command)
+    public function readResponse(CommandInterface $command): mixed
     {
         try {
             return $this->getConnection($command)->readResponse($command);
@@ -156,7 +157,7 @@ abstract class PredisCluster implements ClusterInterface, IteratorAggregate, Cou
     /**
      * @throws NotSupportedException
      */
-    public function executeCommand(CommandInterface $command)
+    public function executeCommand(CommandInterface $command): mixed
     {
         try {
             return $this->getConnection($command)->executeCommand($command);

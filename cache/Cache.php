@@ -1,5 +1,7 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 namespace yxorP\cache;
 
 use cacheCoreException;
@@ -7,10 +9,10 @@ use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 
-require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/abstract.php");
-require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/driver.php");
-require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheCoreException.php");
-require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheDriverException.php");
+require_once($GLOBALS['PLUGIN_DIR'] . "/cache/abstract.php");
+require_once($GLOBALS['PLUGIN_DIR'] . "/cache/driver.php");
+require_once($GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheCoreException.php");
+require_once($GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheDriverException.php");
 if (!function_exists("__c")) {
 
     function __c($storage = "", $option = array())
@@ -47,6 +49,9 @@ class cache_instances
     public static array $instances = array();
 }
 
+/**
+ * @property $tmp
+ */
 class cache
 {
 
@@ -129,6 +134,9 @@ class cache
         return $driver;
     }
 
+    /**
+     * @throws cacheCoreException
+     */
     public static function getPath($skip_create_path = false, $config): bool|string
     {
         if (!isset($config['path']) || $config['path'] === '') {
@@ -221,6 +229,9 @@ class cache
         return $config['default_chmod'];
     }
 
+    /**
+     * @throws cacheCoreException
+     */
     protected static function htaccessGen($path, $create = true): void
     {
 
@@ -272,7 +283,7 @@ allow from 127.0.0.1";
 
     public static function required($class): void
     {
-        require_once(@$GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
+        require_once($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
     }
 
     #[ArrayShape(["os" => "string", "php" => "string", "system" => "string", "unique" => "string"])] protected static function getOS(): array

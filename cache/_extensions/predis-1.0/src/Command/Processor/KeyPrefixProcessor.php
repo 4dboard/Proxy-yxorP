@@ -7,6 +7,10 @@ use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\Command\PrefixableCommandInterface;
 
+/**
+ * @property string[] $commands
+ * @property $prefix
+ */
 class KeyPrefixProcessor implements ProcessorInterface
 {
     private $prefix;
@@ -144,8 +148,7 @@ class KeyPrefixProcessor implements ProcessorInterface
     public static function first(CommandInterface $command, $prefix): void
     {
         if ($arguments = $command->getArguments()) {
-            $arguments[0] = "$prefix{$arguments[0]}";
-            $command->setRawArguments($arguments);
+            $arguments[0] = $prefix . $arguments[0] . $command->setRawArguments($arguments);
         }
     }
 
@@ -166,7 +169,7 @@ class KeyPrefixProcessor implements ProcessorInterface
             $length = count($arguments);
 
             for ($i = 0; $i < $length; $i += 2) {
-                $arguments[$i] = "$prefix{$arguments[$i]}";
+                $arguments[$i] = $prefix . $arguments[$i];
             }
 
             $command->setRawArguments($arguments);
@@ -179,7 +182,7 @@ class KeyPrefixProcessor implements ProcessorInterface
             $length = count($arguments);
 
             for ($i = 1; $i < $length; $i++) {
-                $arguments[$i] = "$prefix{$arguments[$i]}";
+                $arguments[$i] = $prefix . $arguments[$i];
             }
 
             $command->setRawArguments($arguments);
@@ -192,7 +195,7 @@ class KeyPrefixProcessor implements ProcessorInterface
             $length = count($arguments);
 
             for ($i = 0; $i < $length - 1; $i++) {
-                $arguments[$i] = "$prefix{$arguments[$i]}";
+                $arguments[$i] = $prefix . $arguments[$i];
             }
 
             $command->setRawArguments($arguments);
@@ -202,7 +205,7 @@ class KeyPrefixProcessor implements ProcessorInterface
     public static function sort(CommandInterface $command, $prefix): void
     {
         if ($arguments = $command->getArguments()) {
-            $arguments[0] = "$prefix{$arguments[0]}";
+            $arguments[0] = $prefix . $arguments[0];
 
             if (($count = count($arguments)) > 1) {
                 for ($i = 1; $i < $count; $i++) {
@@ -234,7 +237,7 @@ class KeyPrefixProcessor implements ProcessorInterface
     {
         if ($arguments = $command->getArguments()) {
             for ($i = 2; $i < $arguments[1] + 2; $i++) {
-                $arguments[$i] = "$prefix{$arguments[$i]}";
+                $arguments[$i] = $prefix . $arguments[$i];
             }
 
             $command->setRawArguments($arguments);
@@ -244,11 +247,11 @@ class KeyPrefixProcessor implements ProcessorInterface
     public static function zsetStore(CommandInterface $command, $prefix): void
     {
         if ($arguments = $command->getArguments()) {
-            $arguments[0] = "$prefix{$arguments[0]}";
+            $arguments[0] = $prefix . $arguments[0];
             $length = ((int)$arguments[1]) + 2;
 
             for ($i = 2; $i < $length; $i++) {
-                $arguments[$i] = "$prefix{$arguments[$i]}";
+                $arguments[$i] = $prefix . $arguments[$i];
             }
 
             $command->setRawArguments($arguments);

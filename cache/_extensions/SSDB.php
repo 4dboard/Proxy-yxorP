@@ -11,6 +11,9 @@ class SSDBTimeoutException extends SSDBException
 class SimpleSSDB extends SSDB
 {
 
+    /**
+     * @throws SSDBException
+     */
     public function __construct($host, $port, $timeout_ms = 2000)
     {
         parent::__construct($host, $port, $timeout_ms);
@@ -50,13 +53,21 @@ class SSDB_Response
         return $this->code === 'ok';
     }
 
-    public
-    function not_found(): bool
+    public function not_found(): bool
     {
         return $this->code === 'not_found';
     }
 }
 
+/**
+ * @property $async_auth_password
+ * @property bool|string $recv_buf
+ * @property $debug
+ * @property bool $_closed
+ * @property array $batch_cmds
+ * @property bool $batch_mode
+ * @property bool $_easy
+ */
 class SSDB
 {
     public const STEP_SIZE = 0;
@@ -69,12 +80,14 @@ class SSDB
     private $async_auth_password;
 
     private string|bool $recv_buf;
-    private $debug;
     private bool $_closed;
     private array $batch_cmds;
     private bool $batch_mode;
     private bool $_easy;
 
+    /**
+     * @throws SSDBException
+     */
     public function __construct($host, $port, $timeout_ms = 2000)
     {
         $timeout_f = (float)$timeout_ms / 1000;
@@ -119,15 +132,15 @@ class SSDB
         return $this;
     }
 
+    /**
+     * @throws SSDBException
+     */
     public function exec(): array
     {
         $ret = array();
         foreach ($this->batch_cmds as $op) {
             [$cmd, $params] = $op;
-            try {
-                $this->send_req($cmd, $params);
-            } catch (SSDBException $e) {
-            }
+            $this->send_req($cmd, $params);
         }
         foreach ($this->batch_cmds as $op) {
             [$cmd, $params] = $op;
@@ -140,6 +153,9 @@ class SSDB
         return $ret;
     }
 
+    /**
+     * @throws SSDBException
+     */
     private function send_req($cmd, $params): int|bool
     {
         $req = array($cmd);
@@ -153,6 +169,9 @@ class SSDB
         return $this->send($req);
     }
 
+    /**
+     * @throws SSDBException
+     */
     private function send($data): bool|int
     {
         $ps = array();
@@ -199,7 +218,7 @@ class SSDB
             $resp = $this->recv();
         } catch (SSDBTimeoutException|SSDBException $e) {
         }
-        if ($resp === false) {
+        if ($resp == false) {
             return new SSDB_Response('error', 'Unknown error');
         }
 
@@ -315,8 +334,9 @@ class SSDB
             case 'hlist':
             case 'zlist':
             case 'qslice':
-                if ($resp[0] === 'ok')
+                if ($resp[0] === 'ok') {
                     return new SSDB_Response($resp[0], array_slice($resp, 1));
+                }
 
                 $errmsg = $resp[1] ?? '';
                 return new SSDB_Response($resp[0], $errmsg);
@@ -338,32 +358,21 @@ class SSDB
             case 'multi_hexists':
             case 'zpop_back':
             case 'zpop_front':
-            case 'multi_zexists':
-                if ($resp[0] === 'ok') {
-                    if (count($resp) % 2 === 1) {
-                        $data = array();
-                        return new SSDB_Response('ok', $data);
-                    }
-
-                    return new SSDB_Response('server_error', 'Invalid response');
-                }
-
-                $errmsg = $resp[1] ?? '';
-                return new SSDB_Response($resp[0], $errmsg);
-            case 'scan':
-            case 'rscan':
-            case 'zscan':
-            case 'zrscan':
-            case 'zrange':
-            case 'zrrange':
-            case 'hscan':
-            case 'hrscan':
-            case 'hgetall':
-            case 'multi_hsize':
-            case 'multi_zsize':
-            case 'multi_get':
-            case 'multi_hget':
             case 'multi_zget':
+            case 'multi_hget':
+            case 'multi_get':
+            case 'multi_zsize':
+            case 'multi_hsize':
+            case 'hgetall':
+            case 'hrscan':
+            case 'hscan':
+            case 'zrrange':
+            case 'zrange':
+            case 'zrscan':
+            case 'zscan':
+            case 'rscan':
+            case 'scan':
+            case 'multi_zexists':
                 if ($resp[0] === 'ok') {
                     if (count($resp) % 2 === 1) {
                         $data = array();
@@ -381,6 +390,10 @@ class SSDB
         return new SSDB_Response('error', 'Unknown command: $cmd');
     }
 
+    /**
+     * @throws SSDBTimeoutException
+     * @throws SSDBException
+     */
     private function recv(): array
     {
         $this->step = self::STEP_SIZE;
@@ -395,7 +408,7 @@ class SSDB
                 } catch (Exception $e) {
                     $data = '';
                 }
-                if ($data === false || $data === '') {
+                if ($data == false) {
                     if (feof($this->sock)) {
                         $this->close();
                         throw new SSDBException('Connection lost');
@@ -484,6 +497,9 @@ class SSDB
         return $this->__call($cmd, $args);
     }
 
+    /**
+     * @throws SSDBException
+     */
     public function __call($cmd, $params = array())
     {
         $cmd = strtolower($cmd);

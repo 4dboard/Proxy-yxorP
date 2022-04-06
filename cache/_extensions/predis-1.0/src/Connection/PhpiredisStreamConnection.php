@@ -8,9 +8,10 @@ use Predis\NotSupportedException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
 
+
 class PhpiredisStreamConnection extends StreamConnection
 {
-    private $reader;
+    private mixed $reader;
 
     /**
      * @throws NotSupportedException
@@ -36,7 +37,7 @@ class PhpiredisStreamConnection extends StreamConnection
         }
     }
 
-    private function createReader()
+    private function createReader(): mixed
     {
         $reader = phpiredis_reader_create();
 
@@ -67,7 +68,7 @@ class PhpiredisStreamConnection extends StreamConnection
         parent::__destruct();
     }
 
-    public function read()
+    public function read(): mixed
     {
         $socket = $this->getResource();
         $reader = $this->reader;
@@ -75,7 +76,7 @@ class PhpiredisStreamConnection extends StreamConnection
         while (PHPIREDIS_READER_STATE_INCOMPLETE === $state = phpiredis_reader_get_state($reader)) {
             $buffer = stream_socket_recvfrom($socket, 4096);
 
-            if ($buffer === false) {
+            if ($buffer == false) {
                 try {
                     $this->onConnectionError('Error while reading bytes from the server.');
                 } catch (CommunicationException $e) {
@@ -114,7 +115,7 @@ class PhpiredisStreamConnection extends StreamConnection
 
     protected function tcpStreamInitializer(ParametersInterface $parameters): bool
     {
-        $uri = "tcp://{$parameters->host}:{$parameters->port}";
+        $uri = "tcp://" . $parameters->host . ":" . $parameters->port;
         $flags = STREAM_CLIENT_CONNECT;
         $socket = null;
 
@@ -158,7 +159,7 @@ class PhpiredisStreamConnection extends StreamConnection
         return $resource;
     }
 
-    protected function getReader()
+    protected function getReader(): mixed
     {
         return $this->reader;
     }

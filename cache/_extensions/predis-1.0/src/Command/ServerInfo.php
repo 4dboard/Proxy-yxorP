@@ -1,6 +1,8 @@
 <?php /* yxorP */
 
 namespace Predis\Command;
+
+
 class ServerInfo extends Command
 {
 

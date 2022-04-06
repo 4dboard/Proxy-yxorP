@@ -81,10 +81,6 @@ class cache_predis extends BaseCache implements cache_driver
 
             $this->checked_redis = true;
 
-            if (false) {
-                $this->fallback = true;
-                return false;
-            }
 
             return true;
         }
@@ -92,7 +88,7 @@ class cache_predis extends BaseCache implements cache_driver
         return true;
     }
 
-    public function driver_get($keyword, $option = array())
+    public function driver_get($keyword, $option = array()): mixed
     {
         if ($this->connectServer()) {
             $x = $this->instant->get($keyword);

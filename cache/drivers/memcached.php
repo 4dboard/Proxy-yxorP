@@ -2,6 +2,9 @@
 
 use JetBrains\PhpStorm\ArrayShape;
 
+/**
+ * @property $checked
+ */
 class cache_memcached extends BaseCache implements cache_driver
 {
     public $instant;
@@ -44,7 +47,7 @@ class cache_memcached extends BaseCache implements cache_driver
         return $this->instant->set($keyword, $value, $time);
     }
 
-    public function connectServer()
+    public function connectServer(): bool
     {
 
         if ($this->checkdriver() === false) {

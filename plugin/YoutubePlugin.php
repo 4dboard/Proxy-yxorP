@@ -2,6 +2,7 @@
 
 use yxorP\http\ProxyEvent;
 
+
 class YoutubePlugin extends AbstractPlugin
 {
     protected $url_pattern = 'youtube.com';
@@ -22,14 +23,14 @@ class YoutubePlugin extends AbstractPlugin
             return;
         }
         $output = preg_replace_callback('/<img[^>]+data-thumb="(.*?)"[^>]*/is', static function ($matches) {
-        $has_src = str_contains($matches[0], 'src="');
-        $thumb_url = proxify_url($matches[1], false);
-        if ($has_src) {
-            $matches[0] = str_replace('data-thumb', 'remove-this', $matches[0]);
-            return preg_replace('/src="(.*?)"/i', 'src_replaced="1" src="' . $thumb_url . '"', $matches[0]);
-        }
-        return preg_replace('/data-thumb="(.*?)"/i', 'src_added="1" src="' . $thumb_url . '"', $matches[0]);
-    }, preg_replace('@masthead-positioner">@', 'masthead-positioner" style="position:static;">', Html::remove("#header", $output), 1));
+            $has_src = str_contains($matches[0], 'src="');
+            $thumb_url = proxify_url($matches[1], false);
+            if ($has_src) {
+                $matches[0] = str_replace('data-thumb', 'remove-this', $matches[0]);
+                return preg_replace('/src="(.*?)"/i', 'src_replaced="1" src="' . $thumb_url . '"', $matches[0]);
+            }
+            return preg_replace('/data-thumb="(.*?)"/i', 'src_added="1" src="' . $thumb_url . '"', $matches[0]);
+        }, preg_replace('@masthead-positioner">@', 'masthead-positioner" style="position:static;">', Html::remove("#header", $output), 1));
         $youtube = new YouTubeDownloader();
         $links = $youtube->getDownloadLinks($url, "mp4 360, mp4");
         if ($links) {

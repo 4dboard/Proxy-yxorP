@@ -5,6 +5,11 @@ namespace Predis\Collection\Iterator;
 use Predis\AClientInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property mixed|null $current
+ * @property int|mixed $position
+ * @property $key
+ */
 class SortedSetKey extends CursorBasedIterator
 {
     protected $key;

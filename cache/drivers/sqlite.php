@@ -1,8 +1,12 @@
 <?php /* yxorP */
+/* yxorP */
+/* yxorP */
+
+/* yxorP */
 
 use JetBrains\PhpStorm\ArrayShape;
 
-class cache_sqlite extends BaseCache implements cache_driver
+abstract class cache_sqlite extends BaseCache implements cache_driver
 {
 
     public const SQLITE_DIR = 'sqlite';
@@ -47,7 +51,6 @@ class cache_sqlite extends BaseCache implements cache_driver
     ): bool
     {
         $skipExisting = $option['skipExisting'] ?? false;
-        $toWrite = true;
         $in_cache = $this->get($keyword, $option);
 
         if ($skipExisting === true) {
@@ -58,33 +61,43 @@ class cache_sqlite extends BaseCache implements cache_driver
             }
         }
 
-        if ($toWrite === true) {
+        return false;
+    }
+
+    public function driver_get($keyword)
+    {
+        try {
+            $stm = $this->db($keyword)
+                ->prepare("SELECT * FROM `caching` WHERE `keyword`=:keyword LIMIT 1");
+            $stm->execute(array(
+                ":keyword" => $keyword,
+            ));
+            $row = $stm->fetch(PDO::FETCH_ASSOC);
+
+        } catch (PDOException $e) {
             try {
-                $stm = $this->db($keyword)
-                    ->prepare("INSERT OR REPLACE INTO `caching` (`keyword`,`object`,`exp`) values(:keyword,:object,:exp)");
+                $stm = $this->db($keyword, true)
+                    ->prepare("SELECT * FROM `caching` WHERE `keyword`=:keyword LIMIT 1");
                 $stm->execute(array(
                     ":keyword" => $keyword,
-                    ":object" => $this->encode($value),
-                    ":exp" => time() + (int)$time,
                 ));
-
-                return true;
+                $row = $stm->fetch(PDO::FETCH_ASSOC);
             } catch (PDOException $e) {
-
-                try {
-                    $stm = $this->db($keyword, true)
-                        ->prepare("INSERT OR REPLACE INTO `caching` (`keyword`,`object`,`exp`) values(:keyword,:object,:exp)");
-                    $stm->execute(array(
-                        ":keyword" => $keyword,
-                        ":object" => $this->encode($value),
-                        ":exp" => time() + (int)$time,
-                    ));
-                } catch (PDOException $e) {
-                    return false;
-                }
+                return null;
             }
+
         }
-        return false;
+
+        if ($this->isExpired($row)) {
+            $this->deleteRow($row);
+            return null;
+        }
+
+        if (isset($row['id'])) {
+            return $this->decode($row['object']);
+        }
+
+        return null;
     }
 
     public function db($keyword, $reset = false)
@@ -193,48 +206,13 @@ class cache_sqlite extends BaseCache implements cache_driver
         $db->exec('CREATE UNIQUE INDEX "keyword" ON "caching" ("keyword")');
     }
 
-    public function driver_get($keyword, $option = array())
-    {
-        try {
-            $stm = $this->db($keyword)
-                ->prepare("SELECT * FROM `caching` WHERE `keyword`=:keyword LIMIT 1");
-            $stm->execute(array(
-                ":keyword" => $keyword,
-            ));
-            $row = $stm->fetch(PDO::FETCH_ASSOC);
-
-        } catch (PDOException $e) {
-            try {
-                $stm = $this->db($keyword, true)
-                    ->prepare("SELECT * FROM `caching` WHERE `keyword`=:keyword LIMIT 1");
-                $stm->execute(array(
-                    ":keyword" => $keyword,
-                ));
-                $row = $stm->fetch(PDO::FETCH_ASSOC);
-            } catch (PDOException $e) {
-                return null;
-            }
-
-        }
-
-        if ($this->isExpired($row)) {
-            $this->deleteRow($row);
-            return null;
-        }
-
-        if (isset($row['id'])) {
-            return $this->decode($row['object']);
-        }
-
-        return null;
-    }
-
     public function isExpired($row): bool
     {
         return isset($row['exp']) && time() >= $row['exp'];
     }
 
-    public function deleteRow($row)
+    /* yxorP */
+    public function deleteRow($row): bool
     {
         try {
             $stm = $this->db($row['keyword'])
@@ -248,7 +226,8 @@ class cache_sqlite extends BaseCache implements cache_driver
         }
     }
 
-    public function driver_delete($keyword, $option = array())
+    /* yxorP */
+    public function driver_delete($keyword): bool
     {
         try {
             $stm = $this->db($keyword)
@@ -262,7 +241,8 @@ class cache_sqlite extends BaseCache implements cache_driver
         }
     }
 
-    #[ArrayShape(["info" => "string", "size" => "string", "data" => "string", 'info' => "array|int[]", 'size' => "int|mixed"])] public function driver_stats($option = array()): array
+    #[
+        ArrayShape(["info" => "string", "size" => "string", "data" => "string", 'info' => "array|int[]", 'size' => "int|mixed"])] public function driver_stats(): array
     {
         $res = array(
             "info" => "",
@@ -307,7 +287,7 @@ class cache_sqlite extends BaseCache implements cache_driver
         return $res;
     }
 
-    public function driver_clean($option = array())
+    public function driver_clean()
     {
         $this->instant = array();
         $this->indexing = null;

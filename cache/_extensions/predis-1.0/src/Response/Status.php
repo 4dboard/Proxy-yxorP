@@ -1,6 +1,9 @@
 <?php /* yxorP */
 
 namespace Predis\Response;
+/**
+ * @property $payload
+ */
 class Status implements ResponseInterface
 {
 

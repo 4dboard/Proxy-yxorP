@@ -2,6 +2,9 @@
 
 use yxorP\http\ProxyEvent;
 
+/**
+ * @property $url_pattern
+ */
 abstract class AbstractPlugin
 {
 
@@ -36,7 +39,7 @@ abstract class AbstractPlugin
                 return;
             }
 
-            if (stripos($url, $this->url_pattern) === false) {
+            if (stripos($url, $this->url_pattern) == false) {
                 return;
             }
         }

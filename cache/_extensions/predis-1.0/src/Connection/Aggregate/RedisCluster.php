@@ -53,21 +53,21 @@ abstract class RedisCluster implements ClusterInterface, IteratorAggregate, Coun
         }
     }
 
-    protected function getRandomConnection()
+    protected function getRandomConnection(): mixed
     {
         if ($this->pool) {
             return $this->pool[array_rand($this->pool)];
         }
     }
 
-    public function disconnect()
+    public function disconnect(): mixed
     {
         foreach ($this->pool as $connection) {
             $connection->disconnect();
         }
     }
 
-    public function add(NodeConnectionInterface $connection)
+    public function add(NodeConnectionInterface $connection): mixed
     {
         $this->pool[(string)$connection] = $connection;
         unset($this->slotsMap);
@@ -118,7 +118,7 @@ abstract class RedisCluster implements ClusterInterface, IteratorAggregate, Coun
             if ($master[0] === '') {
                 $this->setSlots($start, $end, (string)$connection);
             } else {
-                $this->setSlots($start, $end, "{$master[0]}:{$master[1]}");
+                $this->setSlots($start, $end, $master[0] . ":" . $master[1]);
             }
         }
 
@@ -274,10 +274,7 @@ abstract class RedisCluster implements ClusterInterface, IteratorAggregate, Coun
         }
 
         $this->move($connection, $slot);
-        try {
-            return $this->executeCommand($command);
-        } catch (NotSupportedException $e) {
-        }
+        return $this->executeCommand($command);
     }
 
     protected function move(NodeConnectionInterface $connection, $slot): void

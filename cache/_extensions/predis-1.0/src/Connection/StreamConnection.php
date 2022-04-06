@@ -1,4 +1,6 @@
 <?php /* yxorP */
+/* yxorP */
+/* yxorP */
 
 namespace Predis\Connection;
 
@@ -6,6 +8,7 @@ use Predis\Command\CommandInterface;
 use Predis\CommunicationException;
 use Predis\Response\Error as ErrorResponse;
 use Predis\Response\Status as StatusResponse;
+
 
 class StreamConnection extends AbstractConnection
 {
@@ -36,7 +39,7 @@ class StreamConnection extends AbstractConnection
         }
     }
 
-    public function read()
+    public function read(): mixed
     {
         $socket = $this->getResource();
         $chunk = fgets($socket);
@@ -110,7 +113,7 @@ class StreamConnection extends AbstractConnection
         }
     }
 
-    public function writeRequest(CommandInterface $command)
+    public function writeRequest(CommandInterface $command): mixed
     {
         $commandID = $command->getId();
         $arguments = $command->getArguments();
@@ -118,12 +121,12 @@ class StreamConnection extends AbstractConnection
         $cmdlen = strlen($commandID);
         $reqlen = count($arguments) + 1;
 
-        $buffer = "*{$reqlen}\r\n\${$cmdlen}\r\n{$commandID}\r\n";
+        $buffer = "*$reqlen\r\n\$$cmdlen\r\n$commandID\r\n";
 
         for ($i = 0, $reqlen--; $i < $reqlen; $i++) {
             $argument = $arguments[$i];
             $arglen = strlen($argument);
-            $buffer .= "\${$arglen}\r\n{$argument}\r\n";
+            $buffer .= "\$$arglen\r\n$argument\r\n";
         }
 
         $this->write($buffer);
@@ -159,7 +162,7 @@ class StreamConnection extends AbstractConnection
 
     protected function tcpStreamInitializer(ParametersInterface $parameters): bool
     {
-        $uri = "tcp://{$parameters->host}:{$parameters->port}";
+        $uri = "tcp://$parameters->host:$parameters->port";
         $flags = STREAM_CLIENT_CONNECT;
 
         if (isset($parameters->async_connect) && $parameters->async_connect) {
@@ -198,7 +201,7 @@ class StreamConnection extends AbstractConnection
 
     protected function unixStreamInitializer(ParametersInterface $parameters): bool
     {
-        $uri = "unix://{$parameters->path}";
+        $uri = "unix://$parameters->path";
         $flags = STREAM_CLIENT_CONNECT;
 
         if ($parameters->persistent) {

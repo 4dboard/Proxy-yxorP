@@ -1,11 +1,24 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 namespace Predis\Collection\Iterator;
 
 use Iterator;
 use Predis\AClientInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property mixed|null $current
+ * @property array|mixed $elements
+ * @property int $cursor
+ * @property bool $fetchmore
+ * @property false $valid
+ * @property int $position
+ * @property mixed|null $count
+ * @property mixed|null $match
+ * @property AClientInterface $client
+ */
 abstract class CursorBasedIterator implements Iterator
 {
     protected AClientInterface $client;
@@ -83,7 +96,7 @@ abstract class CursorBasedIterator implements Iterator
 
     public function current()
     {
-        return $this->current;
+        return null;
     }
 
     public function key()

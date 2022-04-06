@@ -5,6 +5,10 @@ namespace Predis\PubSub;
 use Iterator;
 use JetBrains\PhpStorm\Pure;
 
+/**
+ * @property $position
+ * @property int $statusFlags
+ */
 abstract class AbstractConsumer implements Iterator
 {
     public const SUBSCRIBE = 'subscribe';

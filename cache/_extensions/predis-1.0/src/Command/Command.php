@@ -1,9 +1,12 @@
 <?php /* yxorP */
 
 namespace Predis\Command;
+/**
+ * @property $slot
+ * @property array $arguments
+ */
 abstract class Command implements CommandInterface
 {
-    private $slot;
     private array $arguments = array();
 
     public static function normalizeArguments(array $arguments): array

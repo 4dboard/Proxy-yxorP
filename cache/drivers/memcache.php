@@ -1,8 +1,10 @@
 <?php /* yxorP */
 
+/* yxorP */
+
 use JetBrains\PhpStorm\ArrayShape;
 
-class cache_memcache extends BaseCache implements cache_driver
+abstract class cache_memcache extends BaseCache implements cache_driver
 {
     public $instant;
 
@@ -76,13 +78,13 @@ class cache_memcache extends BaseCache implements cache_driver
         }
     }
 
-    public function driver_get($keyword, $option = array()): array|string|null
+    public function driver_get($keyword): array|string|null
     {
 
         $this->connectServer();
         $x = $this->instant->get($keyword);
 
-        if ($x === false) {
+        if ($x == false) {
             return null;
         }
 
@@ -90,13 +92,14 @@ class cache_memcache extends BaseCache implements cache_driver
 
     }
 
-    public function driver_delete($keyword, $option = array())
+    public function driver_delete($keyword)
     {
         $this->connectServer();
         $this->instant->delete($keyword);
     }
 
-    #[ArrayShape(["info" => "string", "size" => "string", "data" => "array|bool"])] public function driver_stats($option = array()): array
+    #[
+        ArrayShape(["info" => "string", "size" => "string", "data" => "array|bool"])] public function driver_stats(): array
     {
         $this->connectServer();
         return array(
@@ -107,7 +110,7 @@ class cache_memcache extends BaseCache implements cache_driver
 
     }
 
-    public function driver_clean($option = array())
+    public function driver_clean()
     {
         $this->connectServer();
         $this->instant->flush();

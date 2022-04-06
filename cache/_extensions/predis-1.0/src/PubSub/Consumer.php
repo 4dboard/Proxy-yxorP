@@ -2,17 +2,24 @@
 
 namespace Predis\PubSub;
 
-use Predis\ClientException;
 use Predis\AClientInterface;
+use Predis\ClientException;
 use Predis\Command\Command;
 use Predis\Connection\AggregateConnectionInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property AClientInterface $client
+ * @property array $options
+ */
 class Consumer extends AbstractConsumer
 {
     private AClientInterface $client;
     private array $options;
 
+    /**
+     * @throws NotSupportedException
+     */
     public function __construct(AClientInterface $client, array $options = null)
     {
         $this->checkCapabilities($client);
@@ -24,6 +31,9 @@ class Consumer extends AbstractConsumer
         $this->genericSubscribeInit('psubscribe');
     }
 
+    /**
+     * @throws NotSupportedException
+     */
     private function checkCapabilities(AClientInterface $client): void
     {
         if ($client->getConnection() instanceof AggregateConnectionInterface) {
@@ -67,6 +77,9 @@ class Consumer extends AbstractConsumer
         $this->client->disconnect();
     }
 
+    /**
+     * @throws ClientException
+     */
     protected function getValue(): object
     {
         $response = $this->client->getConnection()->read();
@@ -103,7 +116,7 @@ class Consumer extends AbstractConsumer
 
             default:
                 throw new ClientException(
-                    "Unknown message type '{$response[0]}' received in the PUB/SUB context."
+                    "Unknown message type '$response[0]' received in the PUB/SUB context."
                 );
         }
     }

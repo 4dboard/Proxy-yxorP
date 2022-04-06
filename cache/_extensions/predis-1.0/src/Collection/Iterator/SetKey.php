@@ -5,6 +5,9 @@ namespace Predis\Collection\Iterator;
 use Predis\AClientInterface;
 use Predis\NotSupportedException;
 
+/**
+ * @property $key
+ */
 class SetKey extends CursorBasedIterator
 {
     protected $key;

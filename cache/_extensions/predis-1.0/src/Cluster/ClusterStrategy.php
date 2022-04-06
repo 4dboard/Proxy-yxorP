@@ -7,6 +7,9 @@ use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\Command\ScriptCommand;
 
+/**
+ * @property array[] $commands
+ */
 abstract class ClusterStrategy implements StrategyInterface
 {
     protected array $commands;
@@ -176,7 +179,7 @@ abstract class ClusterStrategy implements StrategyInterface
         return $command->getArgument(0);
     }
 
-    protected function getKeyFromAllArguments(CommandInterface $command)
+    protected function getKeyFromAllArguments(CommandInterface $command): mixed
     {
         $arguments = $command->getArguments();
 
@@ -206,7 +209,7 @@ abstract class ClusterStrategy implements StrategyInterface
         return true;
     }
 
-    protected function getKeyFromInterleavedArguments(CommandInterface $command)
+    protected function getKeyFromInterleavedArguments(CommandInterface $command): mixed
     {
         $arguments = $command->getArguments();
         $keys = array();
@@ -220,7 +223,7 @@ abstract class ClusterStrategy implements StrategyInterface
         }
     }
 
-    protected function getKeyFromBlockingListCommands(CommandInterface $command)
+    protected function getKeyFromBlockingListCommands(CommandInterface $command): mixed
     {
         $arguments = $command->getArguments();
 
@@ -229,7 +232,7 @@ abstract class ClusterStrategy implements StrategyInterface
         }
     }
 
-    protected function getKeyFromBitOp(CommandInterface $command)
+    protected function getKeyFromBitOp(CommandInterface $command): mixed
     {
         $arguments = $command->getArguments();
 
@@ -238,7 +241,7 @@ abstract class ClusterStrategy implements StrategyInterface
         }
     }
 
-    protected function getKeyFromZsetAggregationCommands(CommandInterface $command)
+    protected function getKeyFromZsetAggregationCommands(CommandInterface $command): mixed
     {
         $arguments = $command->getArguments();
         $keys = array_merge(array($arguments[0]), array_slice($arguments, 2, $arguments[1]));
@@ -248,7 +251,7 @@ abstract class ClusterStrategy implements StrategyInterface
         }
     }
 
-    protected function getKeyFromScriptingCommands(CommandInterface $command)
+    protected function getKeyFromScriptingCommands(CommandInterface $command): mixed
     {
         if ($command instanceof ScriptCommand) {
             $keys = $command->getKeys();

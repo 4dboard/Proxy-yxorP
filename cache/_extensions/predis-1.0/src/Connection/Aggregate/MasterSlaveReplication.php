@@ -1,4 +1,6 @@
 <?php /* yxorP */
+/* yxorP */
+/* yxorP */
 
 namespace Predis\Connection\Aggregate;
 
@@ -141,10 +143,7 @@ abstract class MasterSlaveReplication implements ReplicationInterface
 
     public function writeRequest(CommandInterface $command)
     {
-        try {
-            $this->getConnection($command)->writeRequest($command);
-        } catch (NotSupportedException $e) {
-        }
+        $this->getConnection($command)->writeRequest($command);
     }
 
     /**
@@ -172,20 +171,14 @@ abstract class MasterSlaveReplication implements ReplicationInterface
         return $this->current;
     }
 
-    public function readResponse(CommandInterface $command)
+    public function readResponse(CommandInterface $command): mixed
     {
-        try {
-            return $this->getConnection($command)->readResponse($command);
-        } catch (NotSupportedException $e) {
-        }
+        return $this->getConnection($command)->readResponse($command);
     }
 
-    public function executeCommand(CommandInterface $command)
+    public function executeCommand(CommandInterface $command): mixed
     {
-        try {
-            return $this->getConnection($command)->executeCommand($command);
-        } catch (NotSupportedException $e) {
-        }
+        return $this->getConnection($command)->executeCommand($command);
     }
 
     public function __sleep()

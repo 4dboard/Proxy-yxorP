@@ -16,7 +16,7 @@ class RequestSerializer implements RequestSerializerInterface
         $cmdlen = strlen($commandID);
         $reqlen = count($arguments) + 1;
 
-        $buffer = "*{$reqlen}\r\n\${$cmdlen}\r\n{$commandID}\r\n";
+        $buffer = "*" . $reqlen . "\r\n\$" . $cmdlen . "\r\n" . $commandID . "\r\n";
 
         for ($i = 0, $reqlen--; $i < $reqlen; $i++) {
             $argument = $arguments[$i];
