@@ -23,7 +23,7 @@
 <h1  align="center"> .yxorP Proxy.</h1>
 
 <h3 align="center">🦄 Your Guzzling Web Proxy as a Service (SAAS)</h3></h3>
-<p  align="center">Plug & Play <b>(CURL + Composer *Optional)</b>, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</p>
+<p  align="center">Plug & Play <b>[CURL + Composer *Optional]</b>, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</p>
 
 <img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/logo.gif' /></p>
 
