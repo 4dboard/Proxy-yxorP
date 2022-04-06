@@ -19,13 +19,11 @@
 
 
 
-
-<h1  align="center"> .yxorP Proxy.</h1>
-
-<h3 align="center">🦄 Your Guzzling Web Proxy as a Service (SAAS)</h3></h3>
-<p  align="center">Plug & Play <b>[CURL + Composer *Optional]</b>, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</p>
-
-<img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/logo.gif' /></p>
+<h1  align="center">🦄</h1>
+<h1  align="center">.yxorP Proxy Guzzler SAAS(y) </h1>
+<h3 align="center"> Plug & Play [CURL + Composer *Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</h3>
+<p align="center">$(yxorp)->proxy(🌈) [ 'aka', 'the guzzler']</p>
+<img align="center" src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/logo.gif' /></p>
 
 <h3 align="center">🔋 Batteries are included</h3></h3>
 <p  align="center"> Built-in Content Spinning and Auto Caching Engine, all housed within a stunning web GUI.</p>
