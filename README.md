@@ -41,10 +41,7 @@ yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation required), mul
 
 ### Back-End
 
-🍦 The Dashboard is a JavaScript-based user interface that communicates with a file-based database via PHP. Vanilla
-Dashboard is a completely free and open source application. The Dashboard is a free and open-source project that
-includes services such as Vanilla, "Live Chat," and "Who Is Online," as well as a number of "Easter Eggs" wrapped in a
-CSS-based user interface.
+🍦 The Dashboard interface communicates with a file-based database through PHP via JavaScript. Vanilla Dashboard is a freely downloadable and usable open source software. The Dashboard is a free and open-source project that wraps features like Vanilla, "Live Chat," and "Who Is Online" in a CSS-based user interface. The Dashboard may be downloaded for free from the Dashboard project's website.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
@@ -56,45 +53,40 @@ CSS-based user interface.
 
 ## Use case / Applications
 
-Setup .yxorp to Mirror your websites and server the mirros/clones as static flat file versions of your websites.
+Create static flat file variants of your original webpages by using yxorp to mirror your websites and offer the mirrored/cloned copies as static flat file variations of the original webpages.
 
 #### 🔥 Cache
 
-Caching your websites will reduce loading time and server load, resulting in faster loading websites.
+When you use caching to load your websites, you may reduce loading time and server strain, resulting in websites that load faster.
 
 #### 📛 Firewall
 
-Fire-wall your webistes behind your proxy wall, providing securiry against website attacks such as DDOS attacks and
-more.
+Create a virtual firewall to protect your websites behind your proxy server, giving security against website assaults such as DDOS attacks and other types of attacks.
 
 #### 🔳 iFrame
 
-CORS-bypass for iframing services you need - **not recomended but possible**.
+It is possible to circumvent CORS for the iframing services that you need – **not recommended, but feasible**.
 
 #### 🔱 Load-balancing
 
-Load-balancing can be achived by running cloned versions of your website on multiple servers behind a load-balancer.
+This may be accomplished by deploying cloned copies of your website on various servers that are connected to a load-balancing system.
 
 #### ⌛ Allways-online
 
-Allways-online is possible by running a proxy of your exisiting website and switching to this version of the website
-during updates or down-time.
+High/Continuous availability is achieved by running a proxy version of your existing website and switching to this version of the website during upgrades or down-time.
 
 ##### + many more..
 
-There are many applications, these are only a few that come to mind...
+There are several additional uses that may be explored, and these are only a few of the more common ones.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 <img src="assets/logosnag.png"/>
 
-Error monitoring and application stability management solution via Bugsnag. Stability is the key to making data-driven
-decisions on whether to build software or to fix bugs.
+Bugsnag provides a solution for error monitoring and application stability management that is easy to use and implement. The ability to make data-driven decisions about whether to develop software or address problems is contingent on the ability to maintain stability.
 
 <img src="assets/Bugsnag.gif"/>
 
-Recognized for best-in-class mobile support, our diagnostic data enables teams to reproduce and fix errors when they
-start to impact stability. Error reports are grouped by root-cause, sortable by business impact, and displayed alongside
-rich diagnostics.
+Diagnostic data from our mobile assistance, which has been regarded as the best-in-class in the industry, enables teams to reproduce and fix issues as soon as they begin to have an impact on system stability. Reports on error situations are arranged by root cause and may also be classified by business impact. In addition, they are supplied with extensive diagnostic information.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
@@ -119,11 +111,7 @@ Instant Development Enviroment stup with your prefered service provider:
 
 # Background Information
 
-The project combines two of the most powerful PHP reverse proxies accessible on the internet to create a single web
-proxy that outperforms them both. Bear in mind that this is a fledgling project that will be updated as needed. The
-php-proxy library is used to create an installable and ready-to-use pre-beta web proxy application for your web server.
-Contributing to/supporting this project will be greatly appreciated and will enable me to devote additional development
-time to the project, hence expediting progress.
+Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to create a single web proxy that outperforms the two when their combined performance is considered. Please keep in mind that this is a brand-new project that may undergo changes in the future. With the php-proxy library, a component of the PHP programming language that is available for free download, you may quickly and easily configure a web proxy application for your web server. If you are able to contribute to or support this project, it would be much appreciated as it would enable me to devote more development time to it, therefore expediting its progress.
 
 ![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png)
 
@@ -139,9 +127,7 @@ time to the project, hence expediting progress.
 
 ## Web-Proxy vs Proxy Server
 
-Bear in mind that this proxy script may not work with websites/pages that are overly script-heavy or contain an
-excessive number of "dynamic components." This is a well-documented disadvantage of web proxies. For such sites, you
-should use a genuine proxy server to redirect your browser's HTTP requests through:
+Bear in mind that this proxy script may not function properly on websites or pages that are very script-heavy or include an excessive number of "dynamic components," as indicated above. Web proxies' inability to encrypt data is a well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate proxy server to redirect your browser's HTTP requests via the following domains:
 
 ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
@@ -166,11 +152,7 @@ Releases**](https://github.com/4dboard/yxorP/releases/).
 
 # The Dashboard
 
-🍦 The Dashboard is a JavaScript dashboard that connects to a file-based database through PHP. Vanilla Dashboard is free
-and open source software.
-
-The Dashboard is a free and open-source project, and comes with Vanilla, "Live Chat," and "Who Is Online"
-services baked in, as well as a variety of "Easter Eggs," all wrapped up in a CSS UI.
+🍦 The Dashboard component provides an application-specific JavaScript dashboard that connects with a PHP-written on-disk database adapted to the application's needs. Vanilla Dashboard, a free and open source program, may be downloaded from the internet. Numerous "Easter Eggs" are scattered around the Dashboard. The "Who Is Online," "Live Chat," and "Who Is Online" services, as well as a variety of other features, are all wrapped up in an easy-to-use CSS-based user interface that is available for download for free.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
@@ -183,12 +165,8 @@ services baked in, as well as a variety of "Easter Eggs," all wrapped up in a CS
 
 ## Development Environment
 
-You may either "plug and play" on PHP-compatible machines or build in a LAMP environment using the project's LAMP recipe
-for Lando - A Liberating Dev Tool For All Your Projects, which can be found here. If you want to learn more about the
-project, check out the FAQ. The use of local development and DevOps technologies by professional developers is
-widespread around the globe, while it is most prominent in the United States. Release oneself from the mental
-restrictions imposed by inadequate software for development. You may be able to save time, money, and frustration if you
-concentrate your efforts on the most important tasks.
+A Liberating Dev Tool For All Your Projects LAMP recipe, which may be purchased from the link above, are required in order to complete the Lando - A Liberating Dev Tool For All Your Projects project. You may use the Lando - A Liberating Dev Tool For All Your Projects project for all of your projects since it enables you to either "plug and play" on PHP-compatible PCs or create in a LAMP environment. If you need any further information regarding this project, please visit the section under "Frequently Asked Questions." Worldwide, professional developers use local development and DevOps technologies on a daily basis, with the United States having the highest concentration of such technologies. In spite of the fact that there are insufficient instruments to assist in the development process, it is possible to transcend the conceptual limitations imposed by this situation. Concentrating your attention on the most important activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on the most important tasks may help to alleviate some of the stress.
+
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
 
@@ -240,8 +218,7 @@ For more information please see: https://docs.lando.dev/config/lamp.html
 
 ## Keep it up-to-date
 
-The application itself will be modified infrequently; the majority of changes will be made to the application's
-dependency packages, such as php-proxy.
+When it comes to software updates, it is more often than not that they will be made to the application's dependant packages rather than the program itself; for example, most of the adjustments will be made to the php-proxy package rather than to the application itself.
 
 #### .env
 
@@ -249,8 +226,7 @@ This file will be loaded into the Config class at the global level.
 
 #### /plugins/
 
-While PHP-Proxy includes a number of native plugins, users are encouraged to create their own custom plugins, which can
-then be loaded automatically from this subdirectory. See /plugins/TestPlugin.php for an example.
+Users are encouraged to create their own unique plugins in this subdirectory, which will then be loaded automatically from the main directory. The proxy, which comes with a number of built-in plugins, is not without its limitations, and users are urged to create their own custom plugins in order to broaden the range of options available. Think of a simple example like the file /plugins/TestPlugin.php in the plugins directory as an illustration.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png)
 ![image](https://user-images.githubusercontent.com/6468571/157206367-1c11d91a-87e6-4724-8501-14d9860d78de.png)
@@ -261,11 +237,7 @@ then be loaded automatically from this subdirectory. See /plugins/TestPlugin.php
 
 # Gitpod
 
-Gitpod is an open-source Kubernetes tool for quickly establishing code-ready development environments. It produces
-fresh, automated development environments in the cloud for each work utilising cloud-based technologies. And it does all
-of this in the cloud. It enables you to declare your development environment in code, as well as to launch immediate,
-remote, and cloud-based development environments directly from your browser or desktop integrated development
-environment.
+Gitpod, a free and open-source Kubernetes program that is freely accessible on the internet, allows developers to quickly and efficiently set up code-ready development environments on their workstations. With the use of cloud-based technology, every piece of work accomplished leads in the production of new, automated development environments in the cloud, which are then accessible to other developers. It is only via the use of cloud computing that this is made feasible. The option to start immediate, remote, and cloud-based development environments regardless of whether your development environment is defined in code is available if you have a browser or desktop integrated development environment open on your computer.
 
 https://gitpod.com/#https://github.com/donPabloNow/vanilla-dashboard
 
@@ -292,9 +264,7 @@ Navigate to the root of the project with your browser, register an account and t
 
 ## Contributing to the Project
 
-Pull requests are evaluated and approved by the development team. If you want to talk about the changes you want to
-make, please create a new issue for that purpose. If possible, please ensure that tests are updated on a regular basis
-in order to avoid misconceptions.
+Before pull requests may be implemented in the production environment, they must be evaluated and authorized by the development team. Please open a new issue with the appropriate subject title to discuss the modifications you want to make to the document. Please make every effort to keep tests current in order to minimize the chance of wrong interpretation of results. We appreciate all of your assistance and support.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png)
 
@@ -376,5 +346,7 @@ in order to avoid misconceptions.
 ## Licensing
 
 [MIT](https://choosealicense.com/licenses/mit/)
+
+The Massachusetts Institute of Technology (MIT) License, sometimes referred to as the "MIT License," is a permissive free software license developed in the late 1980s and still in use at the Massachusetts Institute of Technology today. Repurposing is confined to a limited number of scenarios due to the permissive nature of the program, which assures compliance with licensing agreements. This license is straightforward and concise; it is a permissive license that just requires copyright protection and prominent display of licensing information in the form of terms. They may be released in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works.
 
 ![](https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/live.png?v=3)
