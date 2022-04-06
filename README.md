@@ -21,7 +21,7 @@
 
 <h1  align="center">🦄</h1>
 <h1  align="center">.yxorP Proxy Guzzler SAAS(y) </h1>
-<h3 align="center"> Plug & Play [CURL + Composer *Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</h3>
+<h3 align="center"> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</h3>
 <p align="center">$(yxorp)->proxy(🌈) [ 'aka', 'the guzzler']</p>
 <img align="center" src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/logo.gif' /></p>
 
