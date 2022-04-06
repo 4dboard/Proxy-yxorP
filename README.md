@@ -189,7 +189,6 @@ lando init \
 For more information please see: https://docs.lando.dev/config/lamp.html
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-![image](https://user-images.githubusercontent.com/6468571/157206298-d407ded3-45da-4c55-b648-8ac737d282c1.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
 
@@ -223,27 +222,17 @@ https://gitpod.com/#https://github.com/donPabloNow/vanilla-dashboard
 ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png)
 ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
 
-![image](https://user-images.githubusercontent.com/6468571/157188961-db5178ff-465d-4c1d-ac06-832f9ce2bfbd.png)
-
 ## Usage & How to Guide
 
 Navigate to the root of the project with your browser, register an account and then login.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png)
 
-![image](https://user-images.githubusercontent.com/6468571/152181096-2b8db6ac-337c-48be-849b-4bca24e4a39b.png)
-
 ![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
-
-<p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (6).gif' /></p>
 
 ## Contributing to the Project
 
 Before pull requests may be implemented in the production environment, they must be evaluated and authorized by the development team. Please open a new issue with the appropriate subject title to discuss the modifications you want to make to the document. Please make every effort to keep tests current in order to minimize the chance of wrong interpretation of results. We appreciate all of your assistance and support.
-
-![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png)
-
-![image](https://user-images.githubusercontent.com/6468571/157189034-96e28a9b-1bf2-4142-80dc-1efd425799e8.png)
 
 <p align="center"><img src='https://raw.githubusercontent.com/donPabloNow/.yxorp/master/assets/image (14).gif' /></p>
 
