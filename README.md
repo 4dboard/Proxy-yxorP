@@ -27,18 +27,11 @@
 
 <h3 >🔋 Batteries are included</h3></h3>
 <p  > Built-in Content Spinning and Auto Caching Engine, all housed within a stunning web GUI.Cache Drivers Included are: Arangodb, Devnull, Dynamodb (AWS),Cassandra, Devrandom,	Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,	Mongodb, Memcache(d),Predis, Sqlite, Redis,	Wincache, Ssdb, Zend Disk Cache, Zend Memory Cache</p>
+Convenient features such as built-in content spinning and an auto caching engine are hidden behind a slick online interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb, Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Ssdb, and Zend Disk Cache.
 
-The strength of two of the most successful web proxy initiatives is combined in.yxorp. Vanilla Dashboard combines a
-flat-file beautiful web interface with a custom multi-threaded caching layer and a powerful 10,000+ word thesaurus
-article spinner to provide a zero-performance-loss robust self-service proxy engine that supports multiple tenants. The
-project is looking for funding to help tie up some loose ends, particularly with the backed GUI; the front-end is
-complete and functional, but requires some work on code cleanup and unit testing.
+In.yxorp, the combined might of two of the most successful web proxy initiatives is harnessed for maximum effect. This self-service proxy engine has zero performance loss and supports numerous tenants by combining a flat-file beautiful web interface with a custom multi-threaded caching layer and an extremely powerful 10,000+ word thesaurus article spinner. Vanilla Dashboard is a no-cost, no-commitment self-service proxy engine that supports numerous tenants. Specifically, the project is looking for funding to help tie off some loose ends, particularly with the backed GUI; the front-end is complete and functional, but code cleanup and unit testing are required.
 
-yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation necessary), multi-threaded, website mirroring and
-content augmentation, fast cache, and multi-web proxy server (reverse proxy). The proxy is "modular" or "plugin-based,"
-with an integrated "cache" management system and a web-based "cache" management system. Web-based reporting and
-analytics interface (GUI) (GUI). The technology allows content to be "augmented" (or "spun") using a custom-built
-content spinning engine with no performance degradation (10,000+ thesaurus/dictionary entries).
+yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation required), multi-threaded, website mirroring and content augmentation, fast cache, and multi-web proxy server that performs website mirroring and content augmentation, website mirroring and content augmentation, fast cache, and multi-web proxy server (reverse proxy). In addition to having a built-in "cache" management system as well as a web-based "cache" management system, the proxy is "modular" or "plugin-based." Web-based reporting and analytics using a graphical user interface (GUI) (GUI). By leveraging a custom-built content spinning engine, the system allows material to be "augmented" (or "spun") with little performance degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
