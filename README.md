@@ -30,10 +30,6 @@
 <h3  >🚀 Cache Drivers Include</h3>
 <p  >Arangodb, Devnull, Dynamodb (AWS),Cassandra, Devrandom,	Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,	Mongodb, Memcache(d),Predis, Sqlite, Redis,	Wincache, Ssdb, Zend Disk Cache, Zend Memory Cache</p>
 
-### 🚀 Cache Drivers Include:
-
-##### Arangodb, Devnull, Dynamodb (AWS),Cassandra, Devrandom, Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb, Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Ssdb, Zend Disk Cache, Zend Memory Cache
-
 ### .yxorP Proxy.
 
 The strength of two of the most successful web proxy initiatives is combined in.yxorp. Vanilla Dashboard combines a
