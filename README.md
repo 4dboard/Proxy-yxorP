@@ -38,12 +38,6 @@ article spinner to provide a zero-performance-loss robust self-service proxy eng
 project is looking for funding to help tie up some loose ends, particularly with the backed GUI; the front-end is
 complete and functional, but requires some work on code cleanup and unit testing.
 
-The strength of two of the most successful web proxy initiatives is combined in.yxorp. Vanilla Dashboard combines a
-flat-file beautiful web interface with a custom multi-threaded caching layer and a powerful 10,000+ word thesaurus
-article spinner to provide a zero-performance-loss robust self-service proxy engine that supports multiple tenants. The
-project is looking for funding to help tie up some loose ends, particularly with the backed GUI; the front-end is
-complete and functional, but requires some work on code cleanup and unit testing.
-
 ### Front-End
 
 🚀 yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation necessary), multi-threaded, website mirroring and
