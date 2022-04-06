@@ -9,31 +9,25 @@
     "#1f1f1f"
   ],
   "REPLACE_CSS": [
-    "xn--gme-nnb.com",
+    "xn--ply-onb.com",
     "#ffffff",
     "#eeeeee",
     "#000000",
     "#000000"
   ],
   "SEARCH_GLOBAL": [
-    "gg.sbtgames.com.br",
-    ".css",
-    "pg295x29.png",
-    "Huz"
+    "gg.sbtgames.com.br"
   ],
   "REPLACE_GLOBAL": [
-    "xn--gme-nnb.com",
-    ".css?v59",
-    "pg295x29.png?v50",
-    "Play.com"
+    "xn--ply-onb.com"
   ],
   "SEARCH_JS": [
     "gg.sbtgames.com.br",
     "@gg.sbtgames.com.br"
   ],
   "REPLACE_JS": [
-    "xn--gme-nnb.com",
-    "@xn--gme-nnb.com"
+    "xn--ply-onb.com",
+    "@xn--ply-onb.com"
   ],
   "SEARCH_PATTERN": [
     "/(?<=,ONESIGNAL_VENDOR_APP_KEY:)(.*)(?=><)/",
@@ -51,13 +45,15 @@
     "gg.sbtgames.com.br",
     "PacoGames",
     "<title>",
-    "Pacogames"
+    "Pacogames",
+    ".css"
   ],
   "REPLACE_HTML": [
-    "xn--gme-nnb.com",
+    "xn--ply-onb.com",
     "Play.com",
     "<title>Play.com ",
-    "Play"
+    "Play",
+    ".css?v59"
   ],
   "AFFILIATE": null,
   "SEARCH_HOST": null,

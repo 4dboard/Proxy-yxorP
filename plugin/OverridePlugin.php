@@ -14,7 +14,7 @@ class OverridePlugin extends AbstractPlugin
         $response = $event['response'];
         $html = $response->getContent();
 
-        if ($GLOBALS['MIME'] !== 'text/html' && $GLOBALS['MIME'] !== 'application/x-javascript' && $GLOBALS['MIME'] !== 'text/css') {
+        if ($GLOBALS['MIME'] !== 'text/html' && $GLOBALS['MIME'] !== 'application/javascript' && $GLOBALS['MIME'] !== 'text/css') {
             return;
         }
 
@@ -41,10 +41,10 @@ class OverridePlugin extends AbstractPlugin
             $_global_replace_merge = array_merge($_global_replace_merge, $GLOBALS['REPLACE_HTML']);
         }
 
-        if ($GLOBALS['MIME'] === 'application/x-javascript' && !empty($GLOBALS['SEARCH_JS'])) {
+        if ($GLOBALS['MIME'] === 'application/javascript' && !empty($GLOBALS['SEARCH_JS'])) {
             $_global_search_merge = array_merge($_global_search_merge, $GLOBALS['SEARCH_JS']);
         }
-        if ($GLOBALS['MIME'] === 'application/x-javascript' && !empty($GLOBALS['REPLACE_JS'])) {
+        if ($GLOBALS['MIME'] === 'application/javascript' && !empty($GLOBALS['REPLACE_JS'])) {
             $_global_replace_merge = array_merge($_global_replace_merge, $GLOBALS['REPLACE_JS']);
         }
 

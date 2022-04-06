@@ -39,7 +39,7 @@ class ProxifyPlugin extends AbstractPlugin
         $content_type = $this->clean_content_type($response->headers->get('content-type'));
         $str = $response->getContent();
 
-        $no_proxify = array('text/javascript', 'application/javascript', 'application/x-javascript', 'text/plain');
+        $no_proxify = array('text/javascript', 'application/javascript', 'application/javascript', 'text/plain');
         if (in_array($content_type, $no_proxify)) {
             return;
         }
