@@ -30,7 +30,7 @@ class yxorp
 
     public function __construct($TARGET_URL)
     {
-        @ini_set('default_charset', 'utf-8');
+        ini_set('default_charset', 'utf-8');
 
         $GLOBALS['SITE_URL'] = 'https://' . $GLOBALS['SITE_HOST'] = $_SERVER['HTTP_HOST'];
         $GLOBALS['TARGET_HOST'] = parse_url($GLOBALS['TARGET_URL'] = $TARGET_URL, PHP_URL_HOST);
@@ -53,12 +53,10 @@ class yxorp
 
         if ($_GET["DONCLEAR"] !== null) {
             $GLOBALS['CACHE_ADAPTER']->clean();
+            exit;
         }
-        if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY'])) {
-            $this->FETCH();
-        } else {
-            echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
-        }
+        if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY']))  $this->FETCH();
+        echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
 
     }
 
@@ -105,11 +103,8 @@ class yxorp
                 $this->addSubscriber(new $plugin());
             }
 
-            echo $_content = $this->forward(Http\Request::createFromGlobals(), $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'])->getContent();
-
-            $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], ($GLOBALS['MIME'] === 'text/html') ? @preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {
-                return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'rb')), @fgetcsv(@fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'rb')), $m[1]);
-            }, $_content) : $_content, $GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31));
+            $_content = $this->forward(Http\Request::createFromGlobals(), $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'])->getContent();
+            $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'rb')), fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'rb')), $m[1]);}, $_content) : $_content, $GLOBALS['CACHE_TIME'] = time() + (60 * 60 * 24 * 31));
 
         } catch (exception $e) {
             if ($GLOBALS['MIME'] !== 'text/html') {
@@ -142,7 +137,7 @@ class yxorp
 
     public function addSubscriber($subscriber): void
     {
-        if (@method_exists($subscriber, 'subscribe')) {
+        if (method_exists($subscriber, 'subscribe')) {
             $subscriber->subscribe($this);
         }
     }
@@ -187,7 +182,7 @@ class yxorp
 
             foreach ($temp as $priority => $listeners) {
                 foreach ((array)$listeners as $listener) {
-                    if (@is_callable($listener)) {
+                    if (is_callable($listener)) {
                         $listener($event);
                     }
                 }

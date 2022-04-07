@@ -23,10 +23,10 @@ class OverridePlugin extends AbstractPlugin
         $GLOBALS['GLOBAL_SEARCH_MERGE_KEY']=base64_encode($GLOBALS['SITE_HOST'].'_global_search_merge');
         $GLOBALS['GLOBAL_REPLACE_MERGE_KEY']=base64_encode($GLOBALS['SITE_HOST'].'_global_replace_merge');
 
-        if(!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['GLOBAL_SEARCH_MERGE_KEY'])) $this->global_search_merge();
-        if(!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['GLOBAL_REPLACE_MERGE_KEY'])) $this->global_replace_merge();
         if(!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['PATTERN_SEARCH_MERGE_KEY'])) $this->pattern_search_merge();
         if(!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['PATTERN_REPLACE_MERGE_KEY'])) $this->pattern_search_merge();
+        if(!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['GLOBAL_SEARCH_MERGE_KEY'])) $this->global_search_merge();
+        if(!$GLOBALS['CACHE_ADAPTER']->isExisting($GLOBALS['GLOBAL_REPLACE_MERGE_KEY'])) $this->global_replace_merge();
 
         $this->ACTION($response, $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['PATTERN_SEARCH_MERGE_KEY']), $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['PATTERN_REPLACE_MERGE_KEY']), $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['GLOBAL_SEARCH_MERGE_KEY']), $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['GLOBAL_REPLACE_MERGE_KEY']), $html);
 
