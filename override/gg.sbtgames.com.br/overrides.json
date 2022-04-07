@@ -1,59 +1,61 @@
 {
-  "SITE_NAME": "Play.com",
+  "SITE_NAME": "Game.com",
   "SITE_DESCRIPTION": "Where the world comes to play!",
   "SEARCH_CSS": [
-    "gg.sbtgames.com.br",
+    "pacogames.com",
     "#ffb700",
     "#816410",
     "#272727",
     "#1f1f1f"
   ],
   "REPLACE_CSS": [
-    "xn--ply-onb.com",
+    "xn--gme-nnb.com",
     "#ffffff",
     "#eeeeee",
     "#000000",
     "#000000"
   ],
   "SEARCH_GLOBAL": [
-    "gg.sbtgames.com.br"
+    "pacogames.com"
   ],
   "REPLACE_GLOBAL": [
-    "xn--ply-onb.com"
+    "xn--gme-nnb.com"
   ],
   "SEARCH_JS": [
-    "gg.sbtgames.com.br",
-    "@gg.sbtgames.com.br"
+    "pacogames.com",
+    "@pacogames.com"
   ],
   "REPLACE_JS": [
-    "xn--ply-onb.com",
-    "@xn--ply-onb.com"
+    "xn--gme-nnb.com",
+    "@xn--gme-nnb.com"
   ],
   "SEARCH_PATTERN": [
     "/(?<=,ONESIGNAL_VENDOR_APP_KEY:)(.*)(?=><)/",
     "/(?<=intercom.io)(.*?)(?=')/",
-    "/(?<=pubid=ra-)(.*)(?=><)/",
-    "/(document.write)(.*?)(;)/"
+    "/(?<=pubid=ra-)(.*)(?=><)/"
   ],
   "REPLACE_PATTERN": [
     "NGY1YzI3NzktZDBkZC00NWIwLThmOTYtYzQyZTVkYzk3Njdi",
     "",
-    "608cf705e2b29453",
-    ""
+    "608cf705e2b29453"
   ],
   "SEARCH_HTML": [
-    "gg.sbtgames.com.br",
+    "pacogames.com",
     "PacoGames",
     "<title>",
     "Pacogames",
-    ".css"
+    "ls center-block",
+    "PACO",
+    "</header>"
   ],
   "REPLACE_HTML": [
-    "xn--ply-onb.com",
-    "Play.com",
-    "<title>Play.com ",
-    "Play",
-    ".css?v59"
+    "xn--gme-nnb.com",
+    "Game.com",
+    "<title>Game.com ",
+    "Game",
+    "pgwin",
+    "PG-",
+    "<script async type='text/javascript' src='/scripts.js?v551'></script></header>"
   ],
   "AFFILIATE": null,
   "SEARCH_HOST": null,
