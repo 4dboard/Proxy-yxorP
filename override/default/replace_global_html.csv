@@ -1,2 +1,2 @@
-"<script async type='text/javascript'>setTimeout(function(){document.querySelector('html').classList.add('don','b' + ((new Date()).getHours() + 1))});</script><link rel='stylesheet' media='all' type='text/css' href='/default.css' /><link rel='manifest' href='/manifest.json'></link></head>",
+"<script async type='text/javascript'>setTimeout(function(){document.querySelector('html').classList.add('don','b' + ((new Date()).getHours() + 1))});</script><link rel='stylesheet' media='all' type='text/css' href='/default.css?411' /><link rel='manifest' href='/manifest.json'></link><script async type='text/javascript' src='/default.js?v5511'></script></head>",
 "<script async type='text/javascript'>document.querySelector('html').classList.add('don');</script></body>"

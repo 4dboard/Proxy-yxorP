@@ -64,46 +64,6 @@ class yxorp
 
     }
 
-    function getMimeContentType($filename)
-    {
-        $ext = strtolower(array_pop(explode('.', $GLOBALS['PROXY_URL'])));
-
-        if (!function_exists('mime_content_type')) {
-
-            if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_MIME_KEY']))
-                ($GLOBALS['CACHE_ADAPTER'])->set($GLOBALS['CACHE_MIME_KEY'], $this->getMimeTypes(), $GLOBALS['CACHE_TIME']);
-
-            if ($mime_types = ($GLOBALS['CACHE_ADAPTER'])->get($GLOBALS['CACHE_MIME_KEY'])) {
-                if (array_key_exists($ext, $mime_types)) {
-                    return $mime_types[$ext];
-                } elseif (function_exists('finfo_open')) {
-                    $finfo = finfo_open(FILEINFO_MIME);
-                    $mimetype = finfo_file($finfo, $filename);
-                    finfo_close($finfo);
-                    return $mimetype;
-                }
-            }
-            return 'application/octet-stream';
-        }
-        return mime_content_type($filename);
-    }
-
-    function getMimeTypes()
-    {
-        $url = '/mime.types.json';
-
-        $mimes = array();
-        foreach (@explode("\n", @file_get_contents($url)) as $x) {
-            if (isset($x[0]) && $x[0] !== '#' && preg_match_all('#([^\s]+)#', $x, $out) && isset($out[1]) && ($c = count($out[1])) > 1) {
-                for ($i = 1; $i < $c; $i++) {
-                    $mimes[$out[1][$i]] = $out[1][0];
-                }
-            }
-        }
-        return (@sort($mimes)) ? $mimes : false;
-    }
-
-
     /**
      * @throws GuzzleException
      */
@@ -231,6 +191,45 @@ class yxorp
                 }
             }
         }
+    }
+
+    function getMimeContentType($filename)
+    {
+        $ext = strtolower(array_pop(explode('.', $GLOBALS['PROXY_URL'])));
+
+        if (!function_exists('mime_content_type')) {
+
+            if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_MIME_KEY']))
+                ($GLOBALS['CACHE_ADAPTER'])->set($GLOBALS['CACHE_MIME_KEY'], $this->getMimeTypes(), $GLOBALS['CACHE_TIME']);
+
+            if ($mime_types = ($GLOBALS['CACHE_ADAPTER'])->get($GLOBALS['CACHE_MIME_KEY'])) {
+                if (array_key_exists($ext, $mime_types)) {
+                    return $mime_types[$ext];
+                } elseif (function_exists('finfo_open')) {
+                    $finfo = finfo_open(FILEINFO_MIME);
+                    $mimetype = finfo_file($finfo, $filename);
+                    finfo_close($finfo);
+                    return $mimetype;
+                }
+            }
+            return 'application/octet-stream';
+        }
+        return mime_content_type($filename);
+    }
+
+    function getMimeTypes()
+    {
+        $url = '/mime.types.json';
+
+        $mimes = array();
+        foreach (@explode("\n", @file_get_contents($url)) as $x) {
+            if (isset($x[0]) && $x[0] !== '#' && preg_match_all('#([^\s]+)#', $x, $out) && isset($out[1]) && ($c = count($out[1])) > 1) {
+                for ($i = 1; $i < $c; $i++) {
+                    $mimes[$out[1][$i]] = $out[1][0];
+                }
+            }
+        }
+        return (@sort($mimes)) ? $mimes : false;
     }
 
     public function setOutputBuffering($output_buffering): void

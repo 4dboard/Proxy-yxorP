@@ -1,1 +1,1217 @@
-{"category_collection":{"statusMessage":"Success","status":200,"body":{"id":"f2830fb4-485b-4e84-b524-d9a723098684","name":"Multiplayer","code":"sbt-multiplayer","icon":{"id":null},"image":{"collection-bg":"d43d5c39-1bca-491e-8ad0-13bc1346119d"},"games":[{"id":"df6ff68b-a38a-4d54-95a6-57e4b2307c9d","name":"Gang Fall Party","code":"gd-gang-fall-party","description":"Get ready for epic fights in Gang Fall Party. You can face up to sixteen opponents in battles in this multiplayer online game.","publishedAt":"2021-10-22T14:29:00.126Z","favorited":false,"played":false,"playable":false,"cover":{"id":"9e601923-1485-423a-ab6f-b69ee20d3a50"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"9e601923-1485-423a-ab6f-b69ee20d3a50"},"desktop":{"id":"fed2799f-8e02-4852-af3c-c531612e9867"},"runnable":{"id":"56de2c3e-1edf-483a-a65c-27ae4845b094"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"93dd8060-8a21-47c9-a4aa-bc6dddc989e8","name":"AquaPark.io","code":"gd-aquapark-io","description":"AquaPark.io is a crazy water slide racing game with fun mechanics. Overtake other players by jumping off the track and landing further down or simply kill them by pushing them off.","publishedAt":"2020-08-17T12:50:55.028Z","favorited":false,"played":false,"playable":false,"cover":{"id":"6cf3f65e-1b53-4826-a4af-ccb62d40caae"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"4a5255b6-33cb-4933-8982-379481a56781"},"desktop":{"id":"e3e13c87-a7ab-455c-8b63-a94335a85a2a"},"runnable":{"id":"78800e15-72d5-4d29-a0c3-b03a7ec2adbd"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"e3ea4bbf-b2a9-48f7-bd65-399693b05f79","name":"Skydom","code":"gd-skydom","description":"Welcome to the magical high kingdoms! Skydom is a bright and exciting puzzle with truly unique game modes!\n\nWent through thousands of different match 3 levels and want something refreshing? Have a look inside...only in Skydom you can face off with different players to determine the best at match 3!\n\nShow off your skill against real opponents or connect with friends in live Match 3 action on hundreds of levels with unique settings, gorgeous effects and unexpected turns.","publishedAt":"2020-08-24T08:27:19.766Z","favorited":false,"played":false,"playable":false,"cover":{"id":"a32aacf5-9c5c-4664-add0-5a5c981bd86c"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"57b99cc9-c651-4e0f-a19f-dc1a378a504e"},"desktop":{"id":"a6341277-dad7-44d2-8584-fa60ad9b1bc4"},"runnable":{"id":"3203b4f4-c426-4bce-a831-cd431f373381"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"f9745046-6910-45c7-a9ad-225f6c4a40ce"},"shortDesc":null},{"id":"0c966c8d-de61-4ce7-9111-74795e825d1f","name":"Cellcraft.io","code":"gd-cellcraft-io","description":"A game where you eat other players and survive without being eaten. Earn XP, level up, collect coins and craft powerups. Use powerups to combat your enemies with 2x speed, portals teleporting, and minions/bots.","publishedAt":"2021-09-21T14:24:14.148Z","favorited":false,"played":false,"playable":false,"cover":{"id":"fd53e8db-c236-43f2-a45e-a559e679342f"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"fd53e8db-c236-43f2-a45e-a559e679342f"},"desktop":{"id":"f4cdf221-26b0-4661-8b03-7bba72e4146b"},"runnable":{"id":"73585113-73d1-446e-81e9-281eaffd07f8"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"bc554349-aa5d-4bc7-a064-21dbdf624de4","name":"Eternal Fury","code":"gd-eternal-fury","description":"A strategic turn-based RPG in Html 5 that combines SLG action and classic interactions. Players can summon random acquisitions of different quality mercenaries and customize the base attributes of the mercenary growth system. The game with different genres perfectly combined, will definitely blow your mind!","publishedAt":"2021-07-06T13:55:12.470Z","favorited":false,"played":false,"playable":false,"cover":{"id":"9fbf097c-0bbf-4e96-8160-f732dec1ccb0"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"9fbf097c-0bbf-4e96-8160-f732dec1ccb0"},"desktop":{"id":"2e896060-cd2e-4aab-a25f-413c0ebe1052"},"runnable":{"id":"ecc586ae-3cf7-4561-b0a9-fa7cd9302140"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"32eeefeb-5444-48e2-ab5e-37bc32093dd9","name":"EvoWorld.io","code":"gd-evoworld-io","description":"EvoWorld.io is a new unique evolution free-for-all survival .io game! Here you will spawn as a little fly! Explore the map and evolve it! Eat food that you can find on the map to get experience! You have to fight with other players that you can meet on this big map! This game is really unique compared to other .io games! Here you will have many hours of good fun! Compete with your enemies! If you will die you can spectate them! Here you will find many biomes and ground levels like space or caves","publishedAt":"2021-09-21T12:02:31.472Z","favorited":false,"played":false,"playable":false,"cover":{"id":"08ea7b9a-6ee3-441d-b1c3-a0864bfaee10"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"08ea7b9a-6ee3-441d-b1c3-a0864bfaee10"},"desktop":{"id":"ec02e8be-4e45-4a0a-affa-4c53bc31f27a"},"runnable":{"id":"807579c1-3633-47ab-8127-68cd892a4c80"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"f5ecaff0-6ef5-4339-8233-64db7e6c9a97","name":"Family Relics","code":"gd-family-relics","description":"Welcome to the Parsley estate, situated in the beautiful and secluded Willow Hills! Passed down by your estranged uncle, it's all yours now. Clean and build up your farm, grow crops, and take care of the animals. However, don't be fooled by the rural farm life, because life in Willow Hills is anything but ordinary: mysterious events occur, and there are whispers about treasured relics of the Parsley family. Step into this curious adventure today!","publishedAt":"2021-04-01T17:09:36.074Z","favorited":false,"played":false,"playable":false,"cover":{"id":"c7c3d27b-dae2-4ac9-bfe5-4f1b45970d4e"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"c7c3d27b-dae2-4ac9-bfe5-4f1b45970d4e"},"desktop":{"id":"cb8d2ca8-a6f1-4a22-b3c4-3c9078b022ec"},"runnable":{"id":"225c8062-8234-403f-bdbb-a597efb5839d"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"99b32e13-3c77-417f-8759-ff34deacc5d2","name":"Hole.io","code":"gd-hole-io","description":"Control your black hole, eating up everything on your way. The bigger you get, the larger structures you are able to suck in. Keep an eye on the opponents’ size, too. They can eat you.","publishedAt":"2020-08-17T12:50:55.234Z","favorited":false,"played":false,"playable":false,"cover":{"id":"db5a25f6-dfe2-46eb-8047-7fc602faca46"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"db5a25f6-dfe2-46eb-8047-7fc602faca46"},"desktop":{"id":"38c8fcca-43dc-4840-ab77-a4967f6c6183"},"runnable":{"id":"3774c0fa-5c06-4353-b217-140283eee95c"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"278fa5be-d1f2-4cf3-969c-de480d4e3740","name":"KnifeBlades.io","code":"gd-knifeblades-io","description":"Pick up knives and wrap them around yourself to fight with other guys in the arena.Use both offensive and defensive modes to defeat your enemies smartly!","publishedAt":"2020-08-17T12:51:30.066Z","favorited":false,"played":false,"playable":false,"cover":{"id":"6300c9c4-3512-4373-a5ce-7707808e1ec0"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"63fbd03f-d061-4789-87d5-cdd9d6690c92"},"desktop":{"id":"b7eca126-d8fe-4b17-a437-e00325339fc4"},"runnable":{"id":"9089bfb9-bc49-4c18-8b3c-6219d225b465"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"27a86f9c-866b-4f5e-9912-5943218833f0"},"shortDesc":null},{"id":"69302e29-d35e-47f8-8799-545c877a85f9","name":"Sunny Farm io","code":"gd-sunny-farm-io","description":"Sunny Farm is a crazy blend of action and farming where you drive a combine, harvest crops and destroy other players in heated online battles. Can you survive long enough to gather more wheat than anyone else on the server?","publishedAt":"2021-09-22T08:02:11.541Z","favorited":false,"played":false,"playable":false,"cover":{"id":"01bbf059-7ea7-4f90-a0db-fc8cdc0a6016"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"01bbf059-7ea7-4f90-a0db-fc8cdc0a6016"},"desktop":{"id":"1380f073-bc65-4c4a-9eb3-feeedb6bbce9"},"runnable":{"id":"c11d23f6-870b-4cf2-baf9-66d5c17be393"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"8f8dfd46-acfd-4a45-b509-b020e952d96e","name":"SuperHero.io","code":"gd-superhero-io","description":"Collect your favorite heroes, Defeat all enemies","publishedAt":"2020-08-17T12:51:19.602Z","favorited":false,"played":false,"playable":false,"cover":{"id":"1956f756-ce0e-4909-a86b-92e7e0625679"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"1956f756-ce0e-4909-a86b-92e7e0625679"},"desktop":{"id":"cb67e4fd-defe-4b44-9dc2-6b4d6657ef4c"},"runnable":{"id":"f42814b6-9350-4a23-b00e-89a97f97eb5d"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null},{"id":"ffc29b66-bcd2-4a74-804b-4966bdb5594b","name":"Worms Zone a Slithery Snake","code":"gd-worms-zone-a-slithery-snake","description":"Worms Zone is a game with a dynamic storyline. Start growing your worm right now. Having tried to get a real anaconda, a small worm never gets stuck in one place – he’s ready to bite everyone. However, there is a danger to be eaten by a more successful player.\n\nThe Worms are real gourmets. They love trying various gelatinous goodies and everything they meet on their route.","publishedAt":"2020-08-17T12:51:12.734Z","favorited":false,"played":false,"playable":false,"cover":{"id":"cccf81c0-ffc7-47bd-abc7-5323156f25e7"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"b935e198-0787-4192-b475-0fb86793d3f5"},"desktop":{"id":"5bf3e241-f2fa-413d-b510-518d3afefbe6"},"runnable":{"id":"8ad229e9-322b-457f-8f87-aad080defbf2"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"3ab36090-fd22-4ed0-9fb0-b033440a83a4"},"shortDesc":null}]},"type":null,"headers":{}},"popular_games":{"statusMessage":"Success","status":200,"body":[{"id":"a940d5d2-bece-4c27-8953-aad52043b70d","name":"Sand Sort Puzzle","code":"gd-sand-sort-puzzle","description":"You must tap on the glasses to pour the same-colored sand into separate glasses and sort them in Sand Sort Puzzle. A flower will grow on a glass if you fill it with one hue. Have fun!","publishedAt":"2022-01-11T15:07:50.550Z","favorited":false,"played":false,"playable":false,"cover":{"id":"aa6fa500-e6e9-40ae-ac64-27779131cc98"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"aa6fa500-e6e9-40ae-ac64-27779131cc98"},"desktop":{"id":"14f512dd-8486-4364-a44a-5ec5b00f8348"},"runnable":{"id":"b7fbc78d-ec97-4cf5-a72c-d4a3c4c812e2"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"14f512dd-8486-4364-a44a-5ec5b00f8348"},"shortDesc":null,"total":null},{"id":"6529eb0c-a814-41c1-81f3-3d7bf44be1cc","name":"Microsoft Sudoku","code":"gd-microsoft-sudoku","description":"It's time to work with some numbers! How fast can you complete these puzzles in Microsoft Sudoku?","publishedAt":"2021-07-07T15:14:47.623Z","favorited":false,"played":false,"playable":false,"cover":{"id":"be905717-a013-4225-8957-f0ab0d507811"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"be905717-a013-4225-8957-f0ab0d507811"},"desktop":{"id":"aa400e35-a49c-4059-b3f2-5c4b59049625"},"runnable":{"id":"d2117dcc-7e75-46bb-9cb0-4e9f62f5c6fa"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"aa400e35-a49c-4059-b3f2-5c4b59049625"},"shortDesc":null,"total":null},{"id":"ba5fc679-8514-4575-9ab6-c490bc1ef440","name":"Amazing Sudoku","code":"gd-amazing-sudoku","description":"Discover Amazing Sudoku! Can you put all the numbers in the right places?","publishedAt":"2021-11-08T08:49:35.682Z","favorited":false,"played":false,"playable":false,"cover":{"id":"58b35fdd-4a52-48e7-bff4-8fa5adf27277"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"58b35fdd-4a52-48e7-bff4-8fa5adf27277"},"desktop":{"id":"4827e11f-56ca-4a88-b35d-6bcfd12c27bc"},"runnable":{"id":"aedf0f20-df4e-4751-9c9b-912c170cee15"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"4827e11f-56ca-4a88-b35d-6bcfd12c27bc"},"shortDesc":null,"total":null},{"id":"223f5884-457f-4757-bb1c-46cc808553b5","name":"Shapes Sudoku","code":"gd-shapes-sudoku","description":"Now is the time to play a classic game! This time it's all about the shapes! Look for the shapes that aren't there! Let's see if you're up for the challenge or not! Have fun!","publishedAt":"2021-11-15T14:37:39.806Z","favorited":false,"played":false,"playable":false,"cover":{"id":"1fb4caa2-f705-444a-baf9-2616cd8f9470"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"1fb4caa2-f705-444a-baf9-2616cd8f9470"},"desktop":{"id":"399edaea-e68e-430b-b863-6535b12235ed"},"runnable":{"id":"e2d0775a-506e-40ba-9483-aee70ccc7b38"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null,"total":null},{"id":"4060fe2f-0304-474c-be0e-459c4b49d517","name":"Sudoku Classic","code":"gd-sudoku-classic","description":"It's time to play some of your old favorites again! Are you feeling bored at home? Do you ever feel as if you're doing the same things over and over? So, that's all there is to it! Play Sudoku Classic right now!","publishedAt":"2021-11-15T14:41:48.895Z","favorited":false,"played":false,"playable":false,"cover":{"id":"38a4e44f-d605-4211-8ad8-567a4af35b51"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"38a4e44f-d605-4211-8ad8-567a4af35b51"},"desktop":{"id":"9a0322d4-e58a-40b3-b925-91c24977be6e"},"runnable":{"id":"838086d6-ed7c-4896-9d34-bf9958d32b37"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null,"total":null},{"id":"f2f1c11a-d3f1-49b2-86e2-40b11da5495f","name":"Love Pins","code":"gd-love-pins","description":"This should be a happy day because this couple of lovers will have a date. But there is a problem now, so many roadblocks on their road. Use the tools to kill bad guys and help them to meet their lover. Use your brain to solve these problems. Can you help them to meet each other? Have a try in the Love Pins!","publishedAt":"2020-08-17T12:51:08.801Z","favorited":false,"played":false,"playable":false,"cover":{"id":"d0a6c294-a2c3-4fe6-9a30-a3044dc00979"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"7b3fe597-b603-4104-9bde-a277a1e04143"},"desktop":{"id":"ad516b34-c25f-4525-bbba-c11842b40504"},"runnable":{"id":"e65e8ba1-6e78-4716-8b69-263532d64eac"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"68801b09-6f6e-409d-9d70-f3c6be752b0d"},"shortDesc":null,"total":null},{"id":"7d15be0a-be82-442b-bfe9-2a2610dabed0","name":"Sudoku Village","code":"gd-sudoku-village","description":"Do you want to relax with a relaxing puzzle? Play the Sudoku Village game to improve your logical reasoning skills. Relaxing music will help you unwind, while high-quality images will motivate you to concentrate more! Have fun!","publishedAt":"2021-11-15T14:37:27.017Z","favorited":false,"played":false,"playable":false,"cover":{"id":"904e6fdd-23f0-4e4b-9fca-40f21a1055b0"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"904e6fdd-23f0-4e4b-9fca-40f21a1055b0"},"desktop":{"id":"34c90392-9df2-4906-9d1b-2e0cafb24343"},"runnable":{"id":"10a47794-4151-4320-a15b-8783acd7fc4e"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null,"total":null},{"id":"2b7e344d-2b9c-48fc-bfa9-4e7dee9cfbec","name":"Mahjong Shanghai Dynasty","code":"gd-mahjong-shanghai-dynasty","description":"Enjoy a classic mahjong game with a Shanghai Dynasty theme. Connect pairs and clear the board.","publishedAt":"2020-08-17T12:51:03.753Z","favorited":false,"played":false,"playable":false,"cover":{"id":"6fff2eb6-396a-4fa4-9ec2-4a0aa8f25a01"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"8e0c3028-60e7-481c-a569-ef5292ea7ee9"},"desktop":{"id":"573b1e8b-8006-472a-927e-2e26d8e82702"},"runnable":{"id":"f6f58a07-1e92-448d-89a9-e767880a275a"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"b0cfd1be-08d1-445a-98fa-a2c078ca8efe"},"shortDesc":null,"total":null},{"id":"fe5a4734-41bf-4425-a5fa-47ad12cb2060","name":"KrisMas Mahjong","code":"gd-krismas-mahjong","description":"Krismas Mahjong is a Christmas Version of Kris Mahjong. A very popular Mahjong game. \r\nConnect the mahjong pieces in KrisMas Mahjong. Clear the board by removing all pairs of identical tiles","publishedAt":"2021-09-22T07:51:31.258Z","favorited":false,"played":false,"playable":false,"cover":{"id":"7b234d67-7f54-489b-a5c6-7c1ad0f8e5ad"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"7b234d67-7f54-489b-a5c6-7c1ad0f8e5ad"},"desktop":{"id":"7b234d67-7f54-489b-a5c6-7c1ad0f8e5ad"},"runnable":{"id":"c4af0662-831b-47de-b06c-4b98919f7229"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":null,"total":null},{"id":"8c864eb8-4f08-4116-8f86-11778d5a3280","name":"Mahjong Link","code":"gd-mahjong-link","description":"In Mahjong Link you must match two identical Mahjong blocks. A block has to be free on at least one side. It's a very relaxing and simple game to play. Each mahjong tile in this link game is numbered to identify the tiles more easily.","publishedAt":"2020-08-17T12:51:25.238Z","favorited":false,"played":false,"playable":false,"cover":{"id":"394362a0-2897-437b-80a0-c225004cb6f1"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"c1bfe1ee-5dcb-42f3-9475-3ca390c0b50e"},"desktop":{"id":"436b7a5a-926d-42f7-9953-ed123509e5ef"},"runnable":{"id":"610069ee-8aef-4d28-acd3-f410105c616c"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover16x9":"471212f2-07a0-426a-b56d-594e31a4c128"},"shortDesc":null,"total":null},{"id":"86a5e582-f9a7-48fc-9bb4-748cdec6a0b5","name":"Microsoft Mahjong","code":"gd-microsoft-mahjong","description":"Microsoft Mahjong is the classic tile-matching game now updated with Daily Challenges, a new look and feel, and over 40 puzzles! Enjoy gorgeous graphics and relaxing sounds with multiple visual themes to choose from.","publishedAt":"2020-08-21T14:00:02.268Z","favorited":false,"played":false,"playable":false,"cover":{"id":"aa306d5c-dbe2-4eed-a695-c551209d3e8e"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"aa306d5c-dbe2-4eed-a695-c551209d3e8e"},"desktop":{"id":"c34a4d44-2e30-495b-bfde-706389cd7bcd"},"runnable":{"id":"967bf214-f508-42ed-b7ce-d5b052dec98b"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{},"shortDesc":{"en":"Microsoft Mahjong is the classic tile-matching game now updated with Daily Challenges, a new look and feel, and over 40 puzzles!","no":"Microsoft Mahjong er en nyere versjon av det klassiske brettspillet som inkluderer daglige utfordringer, et helt nytt utseende, og over 40 puslespill!","tr":"Mahjong oyunlarını sever misin? Bir de Microsoft Mahjong'u denemelisin! Taşları eşle ve tüm alanı temizle!"},"total":null},{"id":"1a506822-941a-4b4d-8d05-6d76a369f15b","name":"Impostor","code":"gd-impostor","description":"A spaceship is travelling in endless space, and its crew is trying to survive. There is an impostor among them and they need to stay on guard. They need to be aware of empty rooms, and be ready for an attack when left alone with someone else, what if that someone is the impostor.","publishedAt":"2021-07-07T15:36:18.776Z","favorited":false,"played":false,"playable":false,"cover":{"id":"14fccf24-a558-41d6-988d-7d592b0828d9"},"slider":{"id":null},"brandSlider":{"id":null},"mobile":{"id":"14fccf24-a558-41d6-988d-7d592b0828d9"},"desktop":{"id":"629d81d2-2a98-4c07-97ca-5eff002e98dd"},"runnable":{"id":"034f3ec2-7a17-4e03-adc3-73210b7d5d81"},"promoCover":{"id":null},"promoPoster":{"id":null},"promoVideo":{"id":null},"bgImage":{"id":null},"subject":{"id":null},"interactive":{"id":null},"image":{"cover7x3":"25bed3ad-d885-4fcc-9b6a-59ce5eaf6409"},"shortDesc":null,"total":null}],"type":null,"headers":{}}}
+{
+  "category_collection": {
+    "statusMessage": "Success",
+    "status": 200,
+    "body": {
+      "id": "f2830fb4-485b-4e84-b524-d9a723098684",
+      "name": "Multiplayer",
+      "code": "sbt-multiplayer",
+      "icon": {
+        "id": null
+      },
+      "image": {
+        "collection-bg": "d43d5c39-1bca-491e-8ad0-13bc1346119d"
+      },
+      "games": [
+        {
+          "id": "df6ff68b-a38a-4d54-95a6-57e4b2307c9d",
+          "name": "Gang Fall Party",
+          "code": "gd-gang-fall-party",
+          "description": "Get ready for epic fights in Gang Fall Party. You can face up to sixteen opponents in battles in this multiplayer online game.",
+          "publishedAt": "2021-10-22T14:29:00.126Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "9e601923-1485-423a-ab6f-b69ee20d3a50"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "9e601923-1485-423a-ab6f-b69ee20d3a50"
+          },
+          "desktop": {
+            "id": "fed2799f-8e02-4852-af3c-c531612e9867"
+          },
+          "runnable": {
+            "id": "56de2c3e-1edf-483a-a65c-27ae4845b094"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "93dd8060-8a21-47c9-a4aa-bc6dddc989e8",
+          "name": "AquaPark.io",
+          "code": "gd-aquapark-io",
+          "description": "AquaPark.io is a crazy water slide racing game with fun mechanics. Overtake other players by jumping off the track and landing further down or simply kill them by pushing them off.",
+          "publishedAt": "2020-08-17T12:50:55.028Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "6cf3f65e-1b53-4826-a4af-ccb62d40caae"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "4a5255b6-33cb-4933-8982-379481a56781"
+          },
+          "desktop": {
+            "id": "e3e13c87-a7ab-455c-8b63-a94335a85a2a"
+          },
+          "runnable": {
+            "id": "78800e15-72d5-4d29-a0c3-b03a7ec2adbd"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "e3ea4bbf-b2a9-48f7-bd65-399693b05f79",
+          "name": "Skydom",
+          "code": "gd-skydom",
+          "description": "Welcome to the magical high kingdoms! Skydom is a bright and exciting puzzle with truly unique game modes!\n\nWent through thousands of different match 3 levels and want something refreshing? Have a look inside...only in Skydom you can face off with different players to determine the best at match 3!\n\nShow off your skill against real opponents or connect with friends in live Match 3 action on hundreds of levels with unique settings, gorgeous effects and unexpected turns.",
+          "publishedAt": "2020-08-24T08:27:19.766Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "a32aacf5-9c5c-4664-add0-5a5c981bd86c"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "57b99cc9-c651-4e0f-a19f-dc1a378a504e"
+          },
+          "desktop": {
+            "id": "a6341277-dad7-44d2-8584-fa60ad9b1bc4"
+          },
+          "runnable": {
+            "id": "3203b4f4-c426-4bce-a831-cd431f373381"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {
+            "cover16x9": "f9745046-6910-45c7-a9ad-225f6c4a40ce"
+          },
+          "shortDesc": null
+        },
+        {
+          "id": "0c966c8d-de61-4ce7-9111-74795e825d1f",
+          "name": "Cellcraft.io",
+          "code": "gd-cellcraft-io",
+          "description": "A game where you eat other players and survive without being eaten. Earn XP, level up, collect coins and craft powerups. Use powerups to combat your enemies with 2x speed, portals teleporting, and minions/bots.",
+          "publishedAt": "2021-09-21T14:24:14.148Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "fd53e8db-c236-43f2-a45e-a559e679342f"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "fd53e8db-c236-43f2-a45e-a559e679342f"
+          },
+          "desktop": {
+            "id": "f4cdf221-26b0-4661-8b03-7bba72e4146b"
+          },
+          "runnable": {
+            "id": "73585113-73d1-446e-81e9-281eaffd07f8"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "bc554349-aa5d-4bc7-a064-21dbdf624de4",
+          "name": "Eternal Fury",
+          "code": "gd-eternal-fury",
+          "description": "A strategic turn-based RPG in Html 5 that combines SLG action and classic interactions. Players can summon random acquisitions of different quality mercenaries and customize the base attributes of the mercenary growth system. The game with different genres perfectly combined, will definitely blow your mind!",
+          "publishedAt": "2021-07-06T13:55:12.470Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "9fbf097c-0bbf-4e96-8160-f732dec1ccb0"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "9fbf097c-0bbf-4e96-8160-f732dec1ccb0"
+          },
+          "desktop": {
+            "id": "2e896060-cd2e-4aab-a25f-413c0ebe1052"
+          },
+          "runnable": {
+            "id": "ecc586ae-3cf7-4561-b0a9-fa7cd9302140"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "32eeefeb-5444-48e2-ab5e-37bc32093dd9",
+          "name": "EvoWorld.io",
+          "code": "gd-evoworld-io",
+          "description": "EvoWorld.io is a new unique evolution free-for-all survival .io game! Here you will spawn as a little fly! Explore the map and evolve it! Eat food that you can find on the map to get experience! You have to fight with other players that you can meet on this big map! This game is really unique compared to other .io games! Here you will have many hours of good fun! Compete with your enemies! If you will die you can spectate them! Here you will find many biomes and ground levels like space or caves",
+          "publishedAt": "2021-09-21T12:02:31.472Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "08ea7b9a-6ee3-441d-b1c3-a0864bfaee10"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "08ea7b9a-6ee3-441d-b1c3-a0864bfaee10"
+          },
+          "desktop": {
+            "id": "ec02e8be-4e45-4a0a-affa-4c53bc31f27a"
+          },
+          "runnable": {
+            "id": "807579c1-3633-47ab-8127-68cd892a4c80"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "f5ecaff0-6ef5-4339-8233-64db7e6c9a97",
+          "name": "Family Relics",
+          "code": "gd-family-relics",
+          "description": "Welcome to the Parsley estate, situated in the beautiful and secluded Willow Hills! Passed down by your estranged uncle, it's all yours now. Clean and build up your farm, grow crops, and take care of the animals. However, don't be fooled by the rural farm life, because life in Willow Hills is anything but ordinary: mysterious events occur, and there are whispers about treasured relics of the Parsley family. Step into this curious adventure today!",
+          "publishedAt": "2021-04-01T17:09:36.074Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "c7c3d27b-dae2-4ac9-bfe5-4f1b45970d4e"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "c7c3d27b-dae2-4ac9-bfe5-4f1b45970d4e"
+          },
+          "desktop": {
+            "id": "cb8d2ca8-a6f1-4a22-b3c4-3c9078b022ec"
+          },
+          "runnable": {
+            "id": "225c8062-8234-403f-bdbb-a597efb5839d"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "99b32e13-3c77-417f-8759-ff34deacc5d2",
+          "name": "Hole.io",
+          "code": "gd-hole-io",
+          "description": "Control your black hole, eating up everything on your way. The bigger you get, the larger structures you are able to suck in. Keep an eye on the opponents’ size, too. They can eat you.",
+          "publishedAt": "2020-08-17T12:50:55.234Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "db5a25f6-dfe2-46eb-8047-7fc602faca46"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "db5a25f6-dfe2-46eb-8047-7fc602faca46"
+          },
+          "desktop": {
+            "id": "38c8fcca-43dc-4840-ab77-a4967f6c6183"
+          },
+          "runnable": {
+            "id": "3774c0fa-5c06-4353-b217-140283eee95c"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "278fa5be-d1f2-4cf3-969c-de480d4e3740",
+          "name": "KnifeBlades.io",
+          "code": "gd-knifeblades-io",
+          "description": "Pick up knives and wrap them around yourself to fight with other guys in the arena.Use both offensive and defensive modes to defeat your enemies smartly!",
+          "publishedAt": "2020-08-17T12:51:30.066Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "6300c9c4-3512-4373-a5ce-7707808e1ec0"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "63fbd03f-d061-4789-87d5-cdd9d6690c92"
+          },
+          "desktop": {
+            "id": "b7eca126-d8fe-4b17-a437-e00325339fc4"
+          },
+          "runnable": {
+            "id": "9089bfb9-bc49-4c18-8b3c-6219d225b465"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {
+            "cover16x9": "27a86f9c-866b-4f5e-9912-5943218833f0"
+          },
+          "shortDesc": null
+        },
+        {
+          "id": "69302e29-d35e-47f8-8799-545c877a85f9",
+          "name": "Sunny Farm io",
+          "code": "gd-sunny-farm-io",
+          "description": "Sunny Farm is a crazy blend of action and farming where you drive a combine, harvest crops and destroy other players in heated online battles. Can you survive long enough to gather more wheat than anyone else on the server?",
+          "publishedAt": "2021-09-22T08:02:11.541Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "01bbf059-7ea7-4f90-a0db-fc8cdc0a6016"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "01bbf059-7ea7-4f90-a0db-fc8cdc0a6016"
+          },
+          "desktop": {
+            "id": "1380f073-bc65-4c4a-9eb3-feeedb6bbce9"
+          },
+          "runnable": {
+            "id": "c11d23f6-870b-4cf2-baf9-66d5c17be393"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "8f8dfd46-acfd-4a45-b509-b020e952d96e",
+          "name": "SuperHero.io",
+          "code": "gd-superhero-io",
+          "description": "Collect your favorite heroes, Defeat all enemies",
+          "publishedAt": "2020-08-17T12:51:19.602Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "1956f756-ce0e-4909-a86b-92e7e0625679"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "1956f756-ce0e-4909-a86b-92e7e0625679"
+          },
+          "desktop": {
+            "id": "cb67e4fd-defe-4b44-9dc2-6b4d6657ef4c"
+          },
+          "runnable": {
+            "id": "f42814b6-9350-4a23-b00e-89a97f97eb5d"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {},
+          "shortDesc": null
+        },
+        {
+          "id": "ffc29b66-bcd2-4a74-804b-4966bdb5594b",
+          "name": "Worms Zone a Slithery Snake",
+          "code": "gd-worms-zone-a-slithery-snake",
+          "description": "Worms Zone is a game with a dynamic storyline. Start growing your worm right now. Having tried to get a real anaconda, a small worm never gets stuck in one place – he’s ready to bite everyone. However, there is a danger to be eaten by a more successful player.\n\nThe Worms are real gourmets. They love trying various gelatinous goodies and everything they meet on their route.",
+          "publishedAt": "2020-08-17T12:51:12.734Z",
+          "favorited": false,
+          "played": false,
+          "playable": false,
+          "cover": {
+            "id": "cccf81c0-ffc7-47bd-abc7-5323156f25e7"
+          },
+          "slider": {
+            "id": null
+          },
+          "brandSlider": {
+            "id": null
+          },
+          "mobile": {
+            "id": "b935e198-0787-4192-b475-0fb86793d3f5"
+          },
+          "desktop": {
+            "id": "5bf3e241-f2fa-413d-b510-518d3afefbe6"
+          },
+          "runnable": {
+            "id": "8ad229e9-322b-457f-8f87-aad080defbf2"
+          },
+          "promoCover": {
+            "id": null
+          },
+          "promoPoster": {
+            "id": null
+          },
+          "promoVideo": {
+            "id": null
+          },
+          "bgImage": {
+            "id": null
+          },
+          "subject": {
+            "id": null
+          },
+          "interactive": {
+            "id": null
+          },
+          "image": {
+            "cover16x9": "3ab36090-fd22-4ed0-9fb0-b033440a83a4"
+          },
+          "shortDesc": null
+        }
+      ]
+    },
+    "type": null,
+    "headers": {}
+  },
+  "popular_games": {
+    "statusMessage": "Success",
+    "status": 200,
+    "body": [
+      {
+        "id": "a940d5d2-bece-4c27-8953-aad52043b70d",
+        "name": "Sand Sort Puzzle",
+        "code": "gd-sand-sort-puzzle",
+        "description": "You must tap on the glasses to pour the same-colored sand into separate glasses and sort them in Sand Sort Puzzle. A flower will grow on a glass if you fill it with one hue. Have fun!",
+        "publishedAt": "2022-01-11T15:07:50.550Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "aa6fa500-e6e9-40ae-ac64-27779131cc98"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "aa6fa500-e6e9-40ae-ac64-27779131cc98"
+        },
+        "desktop": {
+          "id": "14f512dd-8486-4364-a44a-5ec5b00f8348"
+        },
+        "runnable": {
+          "id": "b7fbc78d-ec97-4cf5-a72c-d4a3c4c812e2"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {
+          "cover16x9": "14f512dd-8486-4364-a44a-5ec5b00f8348"
+        },
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "6529eb0c-a814-41c1-81f3-3d7bf44be1cc",
+        "name": "Microsoft Sudoku",
+        "code": "gd-microsoft-sudoku",
+        "description": "It's time to work with some numbers! How fast can you complete these puzzles in Microsoft Sudoku?",
+        "publishedAt": "2021-07-07T15:14:47.623Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "be905717-a013-4225-8957-f0ab0d507811"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "be905717-a013-4225-8957-f0ab0d507811"
+        },
+        "desktop": {
+          "id": "aa400e35-a49c-4059-b3f2-5c4b59049625"
+        },
+        "runnable": {
+          "id": "d2117dcc-7e75-46bb-9cb0-4e9f62f5c6fa"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {
+          "cover16x9": "aa400e35-a49c-4059-b3f2-5c4b59049625"
+        },
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "ba5fc679-8514-4575-9ab6-c490bc1ef440",
+        "name": "Amazing Sudoku",
+        "code": "gd-amazing-sudoku",
+        "description": "Discover Amazing Sudoku! Can you put all the numbers in the right places?",
+        "publishedAt": "2021-11-08T08:49:35.682Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "58b35fdd-4a52-48e7-bff4-8fa5adf27277"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "58b35fdd-4a52-48e7-bff4-8fa5adf27277"
+        },
+        "desktop": {
+          "id": "4827e11f-56ca-4a88-b35d-6bcfd12c27bc"
+        },
+        "runnable": {
+          "id": "aedf0f20-df4e-4751-9c9b-912c170cee15"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {
+          "cover16x9": "4827e11f-56ca-4a88-b35d-6bcfd12c27bc"
+        },
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "223f5884-457f-4757-bb1c-46cc808553b5",
+        "name": "Shapes Sudoku",
+        "code": "gd-shapes-sudoku",
+        "description": "Now is the time to play a classic game! This time it's all about the shapes! Look for the shapes that aren't there! Let's see if you're up for the challenge or not! Have fun!",
+        "publishedAt": "2021-11-15T14:37:39.806Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "1fb4caa2-f705-444a-baf9-2616cd8f9470"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "1fb4caa2-f705-444a-baf9-2616cd8f9470"
+        },
+        "desktop": {
+          "id": "399edaea-e68e-430b-b863-6535b12235ed"
+        },
+        "runnable": {
+          "id": "e2d0775a-506e-40ba-9483-aee70ccc7b38"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {},
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "4060fe2f-0304-474c-be0e-459c4b49d517",
+        "name": "Sudoku Classic",
+        "code": "gd-sudoku-classic",
+        "description": "It's time to play some of your old favorites again! Are you feeling bored at home? Do you ever feel as if you're doing the same things over and over? So, that's all there is to it! Play Sudoku Classic right now!",
+        "publishedAt": "2021-11-15T14:41:48.895Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "38a4e44f-d605-4211-8ad8-567a4af35b51"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "38a4e44f-d605-4211-8ad8-567a4af35b51"
+        },
+        "desktop": {
+          "id": "9a0322d4-e58a-40b3-b925-91c24977be6e"
+        },
+        "runnable": {
+          "id": "838086d6-ed7c-4896-9d34-bf9958d32b37"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {},
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "f2f1c11a-d3f1-49b2-86e2-40b11da5495f",
+        "name": "Love Pins",
+        "code": "gd-love-pins",
+        "description": "This should be a happy day because this couple of lovers will have a date. But there is a problem now, so many roadblocks on their road. Use the tools to kill bad guys and help them to meet their lover. Use your brain to solve these problems. Can you help them to meet each other? Have a try in the Love Pins!",
+        "publishedAt": "2020-08-17T12:51:08.801Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "d0a6c294-a2c3-4fe6-9a30-a3044dc00979"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "7b3fe597-b603-4104-9bde-a277a1e04143"
+        },
+        "desktop": {
+          "id": "ad516b34-c25f-4525-bbba-c11842b40504"
+        },
+        "runnable": {
+          "id": "e65e8ba1-6e78-4716-8b69-263532d64eac"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {
+          "cover16x9": "68801b09-6f6e-409d-9d70-f3c6be752b0d"
+        },
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "7d15be0a-be82-442b-bfe9-2a2610dabed0",
+        "name": "Sudoku Village",
+        "code": "gd-sudoku-village",
+        "description": "Do you want to relax with a relaxing puzzle? Play the Sudoku Village game to improve your logical reasoning skills. Relaxing music will help you unwind, while high-quality images will motivate you to concentrate more! Have fun!",
+        "publishedAt": "2021-11-15T14:37:27.017Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "904e6fdd-23f0-4e4b-9fca-40f21a1055b0"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "904e6fdd-23f0-4e4b-9fca-40f21a1055b0"
+        },
+        "desktop": {
+          "id": "34c90392-9df2-4906-9d1b-2e0cafb24343"
+        },
+        "runnable": {
+          "id": "10a47794-4151-4320-a15b-8783acd7fc4e"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {},
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "2b7e344d-2b9c-48fc-bfa9-4e7dee9cfbec",
+        "name": "Mahjong Shanghai Dynasty",
+        "code": "gd-mahjong-shanghai-dynasty",
+        "description": "Enjoy a classic mahjong game with a Shanghai Dynasty theme. Connect pairs and clear the board.",
+        "publishedAt": "2020-08-17T12:51:03.753Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "6fff2eb6-396a-4fa4-9ec2-4a0aa8f25a01"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "8e0c3028-60e7-481c-a569-ef5292ea7ee9"
+        },
+        "desktop": {
+          "id": "573b1e8b-8006-472a-927e-2e26d8e82702"
+        },
+        "runnable": {
+          "id": "f6f58a07-1e92-448d-89a9-e767880a275a"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {
+          "cover16x9": "b0cfd1be-08d1-445a-98fa-a2c078ca8efe"
+        },
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "fe5a4734-41bf-4425-a5fa-47ad12cb2060",
+        "name": "KrisMas Mahjong",
+        "code": "gd-krismas-mahjong",
+        "description": "Krismas Mahjong is a Christmas Version of Kris Mahjong. A very popular Mahjong game. \r\nConnect the mahjong pieces in KrisMas Mahjong. Clear the board by removing all pairs of identical tiles",
+        "publishedAt": "2021-09-22T07:51:31.258Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "7b234d67-7f54-489b-a5c6-7c1ad0f8e5ad"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "7b234d67-7f54-489b-a5c6-7c1ad0f8e5ad"
+        },
+        "desktop": {
+          "id": "7b234d67-7f54-489b-a5c6-7c1ad0f8e5ad"
+        },
+        "runnable": {
+          "id": "c4af0662-831b-47de-b06c-4b98919f7229"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {},
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "8c864eb8-4f08-4116-8f86-11778d5a3280",
+        "name": "Mahjong Link",
+        "code": "gd-mahjong-link",
+        "description": "In Mahjong Link you must match two identical Mahjong blocks. A block has to be free on at least one side. It's a very relaxing and simple game to play. Each mahjong tile in this link game is numbered to identify the tiles more easily.",
+        "publishedAt": "2020-08-17T12:51:25.238Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "394362a0-2897-437b-80a0-c225004cb6f1"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "c1bfe1ee-5dcb-42f3-9475-3ca390c0b50e"
+        },
+        "desktop": {
+          "id": "436b7a5a-926d-42f7-9953-ed123509e5ef"
+        },
+        "runnable": {
+          "id": "610069ee-8aef-4d28-acd3-f410105c616c"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {
+          "cover16x9": "471212f2-07a0-426a-b56d-594e31a4c128"
+        },
+        "shortDesc": null,
+        "total": null
+      },
+      {
+        "id": "86a5e582-f9a7-48fc-9bb4-748cdec6a0b5",
+        "name": "Microsoft Mahjong",
+        "code": "gd-microsoft-mahjong",
+        "description": "Microsoft Mahjong is the classic tile-matching game now updated with Daily Challenges, a new look and feel, and over 40 puzzles! Enjoy gorgeous graphics and relaxing sounds with multiple visual themes to choose from.",
+        "publishedAt": "2020-08-21T14:00:02.268Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "aa306d5c-dbe2-4eed-a695-c551209d3e8e"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "aa306d5c-dbe2-4eed-a695-c551209d3e8e"
+        },
+        "desktop": {
+          "id": "c34a4d44-2e30-495b-bfde-706389cd7bcd"
+        },
+        "runnable": {
+          "id": "967bf214-f508-42ed-b7ce-d5b052dec98b"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {},
+        "shortDesc": {
+          "en": "Microsoft Mahjong is the classic tile-matching game now updated with Daily Challenges, a new look and feel, and over 40 puzzles!",
+          "no": "Microsoft Mahjong er en nyere versjon av det klassiske brettspillet som inkluderer daglige utfordringer, et helt nytt utseende, og over 40 puslespill!",
+          "tr": "Mahjong oyunlarını sever misin? Bir de Microsoft Mahjong'u denemelisin! Taşları eşle ve tüm alanı temizle!"
+        },
+        "total": null
+      },
+      {
+        "id": "1a506822-941a-4b4d-8d05-6d76a369f15b",
+        "name": "Impostor",
+        "code": "gd-impostor",
+        "description": "A spaceship is travelling in endless space, and its crew is trying to survive. There is an impostor among them and they need to stay on guard. They need to be aware of empty rooms, and be ready for an attack when left alone with someone else, what if that someone is the impostor.",
+        "publishedAt": "2021-07-07T15:36:18.776Z",
+        "favorited": false,
+        "played": false,
+        "playable": false,
+        "cover": {
+          "id": "14fccf24-a558-41d6-988d-7d592b0828d9"
+        },
+        "slider": {
+          "id": null
+        },
+        "brandSlider": {
+          "id": null
+        },
+        "mobile": {
+          "id": "14fccf24-a558-41d6-988d-7d592b0828d9"
+        },
+        "desktop": {
+          "id": "629d81d2-2a98-4c07-97ca-5eff002e98dd"
+        },
+        "runnable": {
+          "id": "034f3ec2-7a17-4e03-adc3-73210b7d5d81"
+        },
+        "promoCover": {
+          "id": null
+        },
+        "promoPoster": {
+          "id": null
+        },
+        "promoVideo": {
+          "id": null
+        },
+        "bgImage": {
+          "id": null
+        },
+        "subject": {
+          "id": null
+        },
+        "interactive": {
+          "id": null
+        },
+        "image": {
+          "cover7x3": "25bed3ad-d885-4fcc-9b6a-59ce5eaf6409"
+        },
+        "shortDesc": null,
+        "total": null
+      }
+    ],
+    "type": null,
+    "headers": {}
+  }
+}
