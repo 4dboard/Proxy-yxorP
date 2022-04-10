@@ -76,6 +76,16 @@ abstract class BaseCache
         return $res;
     }
 
+
+    public function getSet($keyword, $value, $time)
+    {
+        if (!$this->isExisting($keyword))
+            $this->set($keyword, $value, $time);
+
+        return $this->get($keyword);
+
+    }
+
     public function get($keyword, $option = array())
     {
         if (Cache::$disabled === true) {

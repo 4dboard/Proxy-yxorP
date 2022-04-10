@@ -48,6 +48,10 @@ class yxorp
 
         $GLOBALS['CACHE_ADAPTER'] = new yxorP\cache\Cache();
 
+        if ($_GET["DONCLEAR"] !== null) {
+            $GLOBALS['CACHE_ADAPTER']->clean();
+        }
+
         //header('Content-Type: ' . $GLOBALS['MIME']  = $this->getMimeContentType($GLOBALS['PROXY_URL']) . '; charset=UTF-8');
 
         $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'mp4' => 'video/mp4', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd.microsoft.icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd.ms-cab-compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd.adobe.photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'odt' => 'application/vnd.oasis.opendocument.text', 'ods' => 'application/vnd.oasis.opendocument.spreadsheet');
@@ -55,10 +59,6 @@ class yxorp
         $GLOBALS['MIME'] = (array_key_exists($_ext, $_types)) ? $_types[$_ext] : 'text/html';
         header('Content-Type: ' . $GLOBALS['MIME'] . '; charset=UTF-8');
 
-        if ($_GET["DONCLEAR"] !== null) {
-            $GLOBALS['CACHE_ADAPTER']->clean();
-            exit;
-        }
         if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY'])) $this->FETCH();
         echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
 
@@ -109,7 +109,7 @@ class yxorp
 
             $_content = $this->forward(Http\Request::createFromGlobals())->getContent();
             $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {
-                return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'rb')), fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'rb')), $m[1]);
+                return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv', 'rb')), fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv', 'rb')), $m[1]);
             }, $_content) : $_content, $GLOBALS['CACHE_TIME'] = time() + (60 * 60 * 24 * 31));
 
         } catch (exception $e) {
