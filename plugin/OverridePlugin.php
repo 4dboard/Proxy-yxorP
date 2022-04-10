@@ -77,7 +77,7 @@ class OverridePlugin extends AbstractPlugin
     function global_search_merge()
     {
         $_global_search_merge = $this->merge(
-            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_html.csv', 'rb')),
+            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_global.csv', 'rb')),
             fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/search_global.csv', 'rb')));
 
         if ($GLOBALS['MIME'] === 'text/html') {
@@ -108,7 +108,7 @@ class OverridePlugin extends AbstractPlugin
     function global_replace_merge()
     {
         $_global_replace_merge = $this->merge(
-            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_html.csv', 'rb')),
+            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_global.csv', 'rb')),
             fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_global.csv', 'rb')));
 
         if ($GLOBALS['MIME'] === 'text/html') {
