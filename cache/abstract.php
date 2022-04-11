@@ -330,7 +330,7 @@ abstract class BaseCache
 
         $string = "";
 
-        $file_handle = @fopen($file, 'rb');
+        $file_handle = @fopen($file, 'r');
         if (!$file_handle) {
             throw new cacheCoreException("Can't Read File", 96);
 

@@ -109,7 +109,7 @@ class yxorp
 
             $_content = $this->forward(Http\Request::createFromGlobals())->getContent();
             $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {
-                return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv', 'rb')), fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv', 'rb')), $m[1]);
+                return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv', 'r')), fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv', 'r')), $m[1]);
             }, $_content) : $_content, $GLOBALS['CACHE_TIME'] = time() + (60 * 60 * 24 * 31));
 
         } catch (exception $e) {

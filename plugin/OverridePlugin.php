@@ -50,8 +50,8 @@ class OverridePlugin extends AbstractPlugin
     {
 
         $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['PATTERN_SEARCH_MERGE_KEY'],
-            $this->merge(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_pattern.csv', 'rb')),
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/search_pattern.csv', 'rb'))), $GLOBALS['CACHE_TIME']);
+            $this->merge($this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_pattern.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/search_pattern.csv'), $GLOBALS['CACHE_TIME']));
 
     }
 
@@ -60,45 +60,48 @@ class OverridePlugin extends AbstractPlugin
     {
 
         $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['PATTERN_REPLACE_MERGE_KEY'],
-            $this->merge(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_pattern.csv', 'rb')),
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_pattern.csv', 'rb'))), $GLOBALS['CACHE_TIME']);
+            $this->merge($this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_pattern.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_pattern.csv'), $GLOBALS['CACHE_TIME']));
 
     }
+    
+    function csv_to_array($filename='', $delimiter=',')
+    {
+        $csvArray = array_map( 'str_getcsv', file( $filename ,FILE_SKIP_EMPTY_LINES) );
+        return call_user_func_array('array_merge', $csvArray);
+    }
 
-
-    function merge($array1, $array2)
+    function merge($array1, $array2, $array3 = array())
     {
         if (!$array1 || !is_array($array1)) return (array)$array2;
         if (!$array2 || !is_array($array2)) return (array)$array1;
+        if (!$array3 || !is_array($array3)) return array_filter(array_merge((array)$array1, (array)$array2), fn($value) => !is_null($value) && $value !== '');
 
-        return array_filter(array_merge((array)$array1, (array)$array2), fn($value) => !is_null($value) && $value !== '');
+        return array_filter(array_merge((array)$array1, (array)$array2, (array)$array3), fn($value) => !is_null($value) && $value !== '');
     }
 
     function global_search_merge()
     {
         $_global_search_merge = $this->merge(
-            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_global.csv', 'rb')),
-            fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/search_global.csv', 'rb')));
+            $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_global.csv'),
+            $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/search_global.csv'));
 
         if ($GLOBALS['MIME'] === 'text/html') {
             $_global_search_merge = $this->merge($_global_search_merge,
-                fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_html.csv', 'rb')));
-            $_global_search_merge = $this->merge($_global_search_merge,
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/search_html.csv', 'rb')));
+                $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_html.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/search_html.csv'));
         }
 
         if ($GLOBALS['MIME'] === 'application/javascript') {
             $_global_search_merge = $this->merge($_global_search_merge,
-                fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_js.csv', 'rb')));
-            $_global_search_merge = $this->merge($_global_search_merge,
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/search_js.csv', 'rb')));
+                $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_js.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/search_js.csv'));
         }
 
         if ($GLOBALS['MIME'] === 'text/css') {
             $_global_search_merge = $this->merge($_global_search_merge,
-                fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_css.csv', 'rb')));
-            $_global_search_merge = $this->merge($_global_search_merge,
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/search_css.csv', 'rb')));
+                $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_css.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/search_css.csv'));
         }
 
         $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['GLOBAL_SEARCH_MERGE_KEY'], $_global_search_merge, $GLOBALS['CACHE_TIME']);
@@ -108,28 +111,25 @@ class OverridePlugin extends AbstractPlugin
     function global_replace_merge()
     {
         $_global_replace_merge = $this->merge(
-            fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_global.csv', 'rb')),
-            fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_global.csv', 'rb')));
+            $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_global.csv'),
+            $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_global.csv'));
 
         if ($GLOBALS['MIME'] === 'text/html') {
             $_global_replace_merge = $this->merge($_global_replace_merge,
-                fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_html.csv', 'rb')));
-            $_global_replace_merge = $this->merge($_global_replace_merge,
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_html.csv', 'rb')));
+                $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_html.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_html.csv'));
         }
 
         if ($GLOBALS['MIME'] === 'application/javascript') {
             $_global_replace_merge = $this->merge($_global_replace_merge,
-                fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_js.csv', 'rb')));
-            $_global_replace_merge = $this->merge($_global_replace_merge,
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_js.csv', 'rb')));
+                $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_js.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_js.csv'));
         }
 
         if ($GLOBALS['MIME'] === 'text/css') {
             $_global_replace_merge = $this->merge($_global_replace_merge,
-                fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_css.csv', 'rb')));
-            $_global_replace_merge = $this->merge($_global_replace_merge,
-                fgetcsv(fopen($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_css.csv', 'rb')));
+                $this->csv_to_array($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_css.csv'),
+                $this->csv_to_array($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_css.csv'));
         }
 
         $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['GLOBAL_REPLACE_MERGE_KEY'], $_global_replace_merge, $GLOBALS['CACHE_TIME']);
