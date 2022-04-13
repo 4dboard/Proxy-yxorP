@@ -1,0 +1,10 @@
+{
+  "SITE_NAME": "",
+  "SITE_DESCRIPTION": "",
+  "PLUGINS": [
+    "HeaderRewritePlugin",
+    "StreamPlugin",
+    "ProxifyPlugin",
+    "OverridePlugin"
+  ]
+}
