@@ -1,5 +1,5 @@
 <?php /* yxorP */
-error_reporting(1);
+error_reporting(0);
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
@@ -102,6 +102,8 @@ class yxorp
                     $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ?
                         ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) :
                         $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
+
+            echo $GLOBALS['AFFILIATE'];
 
             foreach (array('/helper', '/http') as $_asset) {
                 $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . $_asset, true);
