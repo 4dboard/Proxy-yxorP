@@ -1,6 +1,5 @@
 html {
     filter: invert(0.9) hue-rotate(0deg);
-    transition: all 0.5s ease;
 }
 
 html img {
