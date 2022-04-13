@@ -1,5 +1,5 @@
 <?php /* yxorP */
-error_reporting(0);
+error_reporting(1);
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
@@ -30,13 +30,11 @@ class yxorp
 
     public function __construct($TARGET_URL)
     {
-        ini_set('default_charset', 'utf-8');
+        @ini_set('default_charset', 'utf-8');
 
         $GLOBALS['SITE_URL'] = 'https://' . $GLOBALS['SITE_HOST'] = $_SERVER['HTTP_HOST'];
         $GLOBALS['TARGET_HOST'] = parse_url($GLOBALS['TARGET_URL'] = $TARGET_URL, PHP_URL_HOST);
         $GLOBALS['CACHE_KEY'] = base64_encode($GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI']);
-        $GLOBALS['CACHE_MIME_KEY'] = base64_encode($GLOBALS['SITE_HOST'] . '_mime_key');
-        $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'];
 
         if (!file_exists($GLOBALS['CACHE_DIR'] = $GLOBALS['PLUGIN_DIR'] . '/.cache/') && !mkdir($concurrentDirectory = $concurrentDirectory = $GLOBALS['CACHE_DIR'], 0777, true) && !is_dir($concurrentDirectory)) {
             throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
@@ -46,21 +44,21 @@ class yxorp
             throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
         }
 
+        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd.microsoft.icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd.ms-cab-compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd.adobe.photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'odt' => 'application/vnd.oasis.opendocument.text', 'ods' => 'application/vnd.oasis.opendocument.spreadsheet');
+        $_ext = pathinfo(strtok($GLOBALS['REQUEST_URI'], '?'), PATHINFO_EXTENSION);
+
+        $GLOBALS['MIME'] = (array_key_exists($_ext, $_types)) ? $_types[$_ext] : 'text/html';
+        header('Content-Type: ' . $GLOBALS['MIME'] . '; charset=UTF-8');
         $GLOBALS['CACHE_ADAPTER'] = new yxorP\cache\Cache();
 
         if ($_GET["DONCLEAR"] !== null) {
             $GLOBALS['CACHE_ADAPTER']->clean();
         }
-
-        //header('Content-Type: ' . $GLOBALS['MIME']  = $this->getMimeContentType($GLOBALS['PROXY_URL']) . '; charset=UTF-8');
-
-        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'mp4' => 'video/mp4', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd.microsoft.icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd.ms-cab-compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd.adobe.photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'odt' => 'application/vnd.oasis.opendocument.text', 'ods' => 'application/vnd.oasis.opendocument.spreadsheet');
-        $_ext = pathinfo(strtok($GLOBALS['REQUEST_URI'], '?'), PATHINFO_EXTENSION);
-        $GLOBALS['MIME'] = (array_key_exists($_ext, $_types)) ? $_types[$_ext] : 'text/html';
-        header('Content-Type: ' . $GLOBALS['MIME'] . '; charset=UTF-8');
-
-        if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY'])) $this->FETCH();
-        echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
+        if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY'])) {
+            $this->FETCH();
+        } else {
+            echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
+        }
 
     }
 
@@ -69,9 +67,6 @@ class yxorp
      */
     private function FETCH(): void
     {
-
-        try {
-
         require($GLOBALS['PLUGIN_DIR'] . '/plugin/AbstractPlugin.php');
 
         $GLOBALS['OVERRIDE_DIR'] = file_exists($GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST']) ?
@@ -80,6 +75,7 @@ class yxorp
         $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/assets', false);
         $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
 
+        try {
 
             foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
                 if (trim(strpos(trim($line), '#') === 0)) {
@@ -96,15 +92,6 @@ class yxorp
                 $GLOBALS[$key] = $value;
             }
 
-
-            if($GLOBALS['AFFILIATE'])
-                if(!str_contains($GLOBALS['PROXY_URL'], $GLOBALS['AFFILIATE'] ))
-                    $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ?
-                        ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) :
-                        $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
-
-            echo $GLOBALS['AFFILIATE'];
-
             foreach (array('/helper', '/http') as $_asset) {
                 $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . $_asset, true);
             }
@@ -118,10 +105,11 @@ class yxorp
                 $this->addSubscriber(new $plugin());
             }
 
-            $_content = $this->forward(Http\Request::createFromGlobals())->getContent();
-            $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {
-                return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv', 'r')), fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv', 'r')), $m[1]);
-            }, $_content) : $_content, $GLOBALS['CACHE_TIME'] = time() + (60 * 60 * 24 * 31));
+            echo $_content = $this->forward(Http\Request::createFromGlobals(), $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'])->getContent();
+
+            $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], ($GLOBALS['MIME'] === 'text/html') ? @preg_replace_callback('(<p>(.*?)</p>)', static function ($m) {
+                return str_replace(fgetcsv(fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/search_rewrite.csv', 'rb')), @fgetcsv(@fopen($GLOBALS['PLUGIN_DIR'] . '/override/default/replace_rewrite.csv', 'rb')), $m[1]);
+            }, $_content) : $_content, $GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31));
 
         } catch (exception $e) {
             if ($GLOBALS['MIME'] !== 'text/html') {
@@ -136,6 +124,9 @@ class yxorp
     {
         foreach (scandir($dir) as $x) {
             if (strlen($x) > 3) {
+                if (str_contains($x, 'Interface')) {
+                    continue;
+                }
                 if (is_dir($_loc = $dir . '/' . $x)) {
                     $this->FILES_CHECK($_loc, $inc);
                 } else if ($inc) {
@@ -151,7 +142,7 @@ class yxorp
 
     public function addSubscriber($subscriber): void
     {
-        if (method_exists($subscriber, 'subscribe')) {
+        if (@method_exists($subscriber, 'subscribe')) {
             $subscriber->subscribe($this);
         }
     }
@@ -159,9 +150,9 @@ class yxorp
     /**
      * @throws GuzzleException
      */
-    public function forward(Request $request): Response
+    public function forward(Request $request, $url): Response
     {
-        $request->setUrl($GLOBALS['PROXY_URL']);
+        $request->setUrl($url);
 
         $response = new Response();
 
@@ -173,10 +164,10 @@ class yxorp
 
         if (!$request->params->has('request.complete')) {
 
-            if ($_body = file_get_contents('php://input')) $request->setBody(json_decode($_body, true), $GLOBALS['MIME']);
+            if($_body = file_get_contents('php://input')) $request->setBody(json_decode($_body,true), $GLOBALS['MIME']);
 
             $this->client = $this->client ?: new \GuzzleHttp\Client();
-            $response->setContent($this->client->request($request->getMethod(), $request->getUri(), json_decode(json_encode($_REQUEST), true))->getBody());
+            $response->setContent($this->client->request($request->getMethod(), $request->getUri(), json_decode(json_encode($_REQUEST),true))->getBody());
         }
 
         $this->dispatch('request.complete', new ProxyEvent(array(
@@ -196,51 +187,12 @@ class yxorp
 
             foreach ($temp as $priority => $listeners) {
                 foreach ((array)$listeners as $listener) {
-                    if (is_callable($listener)) {
+                    if (@is_callable($listener)) {
                         $listener($event);
                     }
                 }
             }
         }
-    }
-
-    function getMimeContentType($filename)
-    {
-        $ext = strtolower(array_pop(explode('.', $GLOBALS['PROXY_URL'])));
-
-        if (!function_exists('mime_content_type')) {
-
-            if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_MIME_KEY']))
-                ($GLOBALS['CACHE_ADAPTER'])->set($GLOBALS['CACHE_MIME_KEY'], $this->getMimeTypes(), $GLOBALS['CACHE_TIME']);
-
-            if ($mime_types = ($GLOBALS['CACHE_ADAPTER'])->get($GLOBALS['CACHE_MIME_KEY'])) {
-                if (array_key_exists($ext, $mime_types)) {
-                    return $mime_types[$ext];
-                } elseif (function_exists('finfo_open')) {
-                    $finfo = finfo_open(FILEINFO_MIME);
-                    $mimetype = finfo_file($finfo, $filename);
-                    finfo_close($finfo);
-                    return $mimetype;
-                }
-            }
-            return 'application/octet-stream';
-        }
-        return mime_content_type($filename);
-    }
-
-    function getMimeTypes()
-    {
-        $url = '/mime.types.json';
-
-        $mimes = array();
-        foreach (@explode("\n", @file_get_contents($url)) as $x) {
-            if (isset($x[0]) && $x[0] !== '#' && preg_match_all('#([^\s]+)#', $x, $out) && isset($out[1]) && ($c = count($out[1])) > 1) {
-                for ($i = 1; $i < $c; $i++) {
-                    $mimes[$out[1][$i]] = $out[1][0];
-                }
-            }
-        }
-        return (@sort($mimes)) ? $mimes : false;
     }
 
     public function setOutputBuffering($output_buffering): void
