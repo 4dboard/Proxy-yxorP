@@ -97,6 +97,10 @@ class yxorp
             }
 
 
+<<<<<<< HEAD
+=======
+            echo $GLOBALS['AFFILIATE'];
+>>>>>>> 67ee214d96a6f737de5f69551e4c64a69f727c65
             if($GLOBALS['AFFILIATE'])
                 if(!str_contains($GLOBALS['PROXY_URL'], $GLOBALS['AFFILIATE'] ))
                     $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ?

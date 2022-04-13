@@ -2,10 +2,14 @@
   "SITE_NAME": "",
   "SITE_DESCRIPTION": "",
 <<<<<<< HEAD
+<<<<<<< HEAD
   "AFFILIATE": "n=76562786",
 =======
   "AFFILIATE": "n=76562786#utm_source=aff&utm_medium=aff&utm_campaign=aff76562786",
 >>>>>>> 0f212b856e5b02c7610c3244d47f512f3a22c186
+=======
+  "AFFILIATE": "n=76562786",
+>>>>>>> 67ee214d96a6f737de5f69551e4c64a69f727c65
   "PLUGINS": [
     "HeaderRewritePlugin",
     "StreamPlugin",
