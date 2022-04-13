@@ -80,13 +80,6 @@ class yxorp
         $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/assets', false);
         $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
 
-        if($GLOBALS['AFFILIATE'])
-            if(!str_contains($GLOBALS['PROXY_URL'], $GLOBALS['AFFILIATE'] ))
-                 $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ?
-                     ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) :
-                     $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
-
-
 
             foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
                 if (trim(strpos(trim($line), '#') === 0)) {
@@ -102,6 +95,15 @@ class yxorp
                 false, 512, JSON_THROW_ON_ERROR) as $key => $value) {
                 $GLOBALS[$key] = $value;
             }
+
+
+            echo $GLOBALS['AFFILIATE'];
+            if($GLOBALS['AFFILIATE'])
+                if(!str_contains($GLOBALS['PROXY_URL'], $GLOBALS['AFFILIATE'] ))
+                    $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ?
+                        ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) :
+                        $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
+
 
             foreach (array('/helper', '/http') as $_asset) {
                 $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . $_asset, true);

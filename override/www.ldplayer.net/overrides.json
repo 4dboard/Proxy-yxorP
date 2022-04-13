@@ -1,7 +1,7 @@
 {
   "SITE_NAME": "",
   "SITE_DESCRIPTION": "",
-  "AFFILIATE": "n=76562786#utm_source=aff&utm_medium=aff&utm_campaign=aff76562786",
+  "AFFILIATE": "n=76562786",
   "PLUGINS": [
     "HeaderRewritePlugin",
     "StreamPlugin",
