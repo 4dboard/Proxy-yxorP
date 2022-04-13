@@ -81,7 +81,10 @@ class yxorp
         $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
 
         if($GLOBALS['AFFILIATE'])
-            $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ? ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) : $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
+            if(!str_contains($GLOBALS['PROXY_URL'], $GLOBALS['AFFILIATE'] ))
+                 $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ?
+                     ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) :
+                     $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
 
 
 
