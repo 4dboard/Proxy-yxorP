@@ -1,6 +1,7 @@
 {
   "SITE_NAME": "",
   "SITE_DESCRIPTION": "",
+  "AFFILIATE": null,
   "PLUGINS": [
     "HeaderRewritePlugin",
     "StreamPlugin",
