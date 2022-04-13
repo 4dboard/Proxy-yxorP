@@ -103,7 +103,6 @@ class yxorp
                         ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) :
                         $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
 
-
             foreach (array('/helper', '/http') as $_asset) {
                 $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . $_asset, true);
             }
