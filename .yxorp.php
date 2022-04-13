@@ -69,6 +69,9 @@ class yxorp
      */
     private function FETCH(): void
     {
+
+        try {
+
         require($GLOBALS['PLUGIN_DIR'] . '/plugin/AbstractPlugin.php');
 
         $GLOBALS['OVERRIDE_DIR'] = file_exists($GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST']) ?
@@ -77,7 +80,6 @@ class yxorp
         $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/assets', false);
         $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
 
-        try {
 
             foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
                 if (trim(strpos(trim($line), '#') === 0)) {
@@ -86,6 +88,9 @@ class yxorp
                 [$name, $value] = explode('=', $line, 2);
                 $GLOBALS[$name] = $value;
             }
+
+            if($GLOBALS['AFFILIATE'])
+                (str_contains($GLOBALS['PROXY_URL'], '?' )) ? ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) : $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
 
             Handler::register($GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']));
 
