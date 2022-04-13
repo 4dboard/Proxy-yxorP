@@ -80,6 +80,13 @@ class yxorp
         $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/assets', false);
         $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
 
+        if($GLOBALS['AFFILIATE'])
+            if(!str_contains($GLOBALS['PROXY_URL'], $GLOBALS['AFFILIATE'] ))
+                 $GLOBALS['PROXY_URL'] = (str_contains($GLOBALS['PROXY_URL'], '?' )) ?
+                     ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) :
+                     $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
+
+
 
             foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
                 if (trim(strpos(trim($line), '#') === 0)) {
@@ -88,9 +95,6 @@ class yxorp
                 [$name, $value] = explode('=', $line, 2);
                 $GLOBALS[$name] = $value;
             }
-
-            if($GLOBALS['AFFILIATE'])
-                (str_contains($GLOBALS['PROXY_URL'], '?' )) ? ($GLOBALS['PROXY_URL'] .  '?' . $GLOBALS['AFFILIATE']) : $GLOBALS['PROXY_URL'] .  '&' . $GLOBALS['AFFILIATE'];
 
             Handler::register($GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']));
 
