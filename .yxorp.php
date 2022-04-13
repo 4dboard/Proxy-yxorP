@@ -1,5 +1,5 @@
 <?php /* yxorP */
-error_reporting(1);
+error_reporting(0);
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
