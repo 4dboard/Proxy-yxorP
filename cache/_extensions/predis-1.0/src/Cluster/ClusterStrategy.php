@@ -265,7 +265,7 @@ abstract class ClusterStrategy implements StrategyInterface
 
     protected function extractKeyTag($key)
     {
-        if ((false !== $start = strpos($key, '{')) && false !== ($end = strpos($key, '}', $start)) && $end !== ++$start) {
+        if ((false !== $start = strpos($key, '{') !== false) && false !== ($end = strpos($key, '}', $start) !== false) && $end !== ++$start) {
             $key = substr($key, $start, $end - $start);
         }
 

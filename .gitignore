@@ -12,6 +12,7 @@
 !git.sh
 !guzzle.phar
 !README.md
+!demo.php
 
 !.github/*
 !asset/*

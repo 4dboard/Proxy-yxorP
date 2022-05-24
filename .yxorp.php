@@ -1,5 +1,5 @@
 <?php /* yxorP */
-
+error_reporting(0);
 use Bugsnag\Client;
 use Bugsnag\Handler;
 use GuzzleHttp\Exception\GuzzleException;
@@ -29,7 +29,7 @@ class yxorp
         $GLOBALS['SITE_URL'] = 'https://' . $GLOBALS['SITE_HOST'] = $_SERVER['HTTP_HOST'];
         $GLOBALS['TARGET_HOST'] = parse_url(($GLOBALS['TARGET_URL'] = $TARGET_URL), PHP_URL_HOST);
 
-        if(str_contains($GLOBALS['SITE_HOST'],"localhost")) error_reporting(0);
+        if (str_contains($GLOBALS['SITE_URL'], "localhost")) error_reporting(1);
 
         /*
             foreach ((array)json_decode(file_get_contents($GLOBALS['PLUGIN_DIR'] . '/override/default/overrides.json')) as $key => $value)
@@ -42,6 +42,8 @@ class yxorp
 
         $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd.microsoft.icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd.ms-cab-compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd.adobe.photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'odt' => 'application/vnd.oasis.opendocument.text', 'ods' => 'application/vnd.oasis.opendocument.spreadsheet');
         $_ext = pathinfo(strtok($GLOBALS['REQUEST_URI'], '?'), PATHINFO_EXTENSION);
+
+        $GLOBALS['MIME'] = null;
 
         if (!$GLOBALS['MIME'] && array_key_exists($_ext, $_types)) {
             $GLOBALS['MIME'] = $_types[$_ext];
@@ -128,19 +130,11 @@ class yxorp
 
     public function FILES_CHECK($dir, $inc): void
     {
-        foreach (scandir($dir) as $x) {
-            if (strlen($x) > 3) {
-                if (str_contains($x, 'Interface')) {
-                    continue;
-                }
-                if (is_dir($_loc = $dir . '/' . $x)) {
-                    $this->FILES_CHECK($_loc, $inc);
-                } else if ($inc) {
-                    require_once($_loc);
-                } else if (str_contains($GLOBALS['REQUEST_URI'], $x)) {
-                    echo file_get_contents($_loc);
-                    exit;
-                }
+        if (file($dir) || is_dir($dir)) foreach (scandir($dir) as $x) if (strlen($x) > 3) {
+            if (str_contains($x, 'Interface')) continue;
+            if (is_dir($_loc = $dir . '/' . $x)) $this->FILES_CHECK($_loc, $inc); else if ($inc) require_once($_loc); else if (str_contains($GLOBALS['REQUEST_URI'], $x)) {
+                echo file_get_contents($_loc);
+                exit;
             }
         }
 
