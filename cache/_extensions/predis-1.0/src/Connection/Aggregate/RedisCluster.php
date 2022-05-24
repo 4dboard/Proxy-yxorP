@@ -5,7 +5,6 @@ namespace Predis\Connection\Aggregate;
 use ArrayIterator;
 use Countable;
 use IteratorAggregate;
-use JetBrains\PhpStorm\Pure;
 use OutOfBoundsException;
 use Predis\Cluster\RedisStrategy as RedisClusterStrategy;
 use Predis\Cluster\StrategyInterface;

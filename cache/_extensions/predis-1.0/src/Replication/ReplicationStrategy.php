@@ -2,7 +2,6 @@
 
 namespace Predis\Replication;
 
-use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\NotSupportedException;
 

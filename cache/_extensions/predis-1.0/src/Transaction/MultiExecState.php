@@ -2,7 +2,6 @@
 
 namespace Predis\Transaction;
 
-use JetBrains\PhpStorm\Pure;
 
 class MultiExecState
 {

@@ -5,7 +5,6 @@
 namespace Predis\Connection\Aggregate;
 
 use InvalidArgumentException;
-use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\Connection\NodeConnectionInterface;
 use Predis\NotSupportedException;

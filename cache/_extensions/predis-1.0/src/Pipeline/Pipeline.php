@@ -4,7 +4,6 @@ namespace Predis\Pipeline;
 
 use Exception;
 use InvalidArgumentException;
-use JetBrains\PhpStorm\Pure;
 use Predis\AClientInterface;
 use Predis\ClientContextInterface;
 use Predis\ClientException;

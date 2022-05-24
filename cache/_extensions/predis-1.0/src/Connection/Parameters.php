@@ -3,7 +3,6 @@
 namespace Predis\Connection;
 
 use InvalidArgumentException;
-use JetBrains\PhpStorm\Pure;
 
 class Parameters implements ParametersInterface
 {

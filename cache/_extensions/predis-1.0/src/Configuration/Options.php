@@ -3,7 +3,6 @@
 namespace Predis\Configuration;
 
 use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Pure;
 
 /**
  * @property mixed|void|null $exceptions

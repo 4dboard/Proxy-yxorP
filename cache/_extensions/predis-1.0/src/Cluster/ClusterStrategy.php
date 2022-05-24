@@ -3,7 +3,6 @@
 namespace Predis\Cluster;
 
 use InvalidArgumentException;
-use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\Command\ScriptCommand;
 

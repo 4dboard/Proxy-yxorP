@@ -3,7 +3,6 @@
 namespace Predis\Configuration;
 
 use InvalidArgumentException;
-use JetBrains\PhpStorm\Pure;
 use Predis\Connection\Aggregate\MasterSlaveReplication;
 use Predis\Connection\Aggregate\ReplicationInterface;
 
@@ -32,8 +31,8 @@ class ReplicationOption implements OptionInterface
         );
     }
 
-    #[Pure] public function getDefault(OptionsInterface $options): MasterSlaveReplication
+    public function getDefault(OptionsInterface $options): MasterSlaveReplication
     {
-        return new MasterSlaveReplication();
+        return MasterSlaveReplication();
     }
 }

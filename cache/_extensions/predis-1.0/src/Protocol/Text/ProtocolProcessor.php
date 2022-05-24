@@ -2,7 +2,6 @@
 
 namespace Predis\Protocol\Text;
 
-use JetBrains\PhpStorm\Pure;
 use Predis\Command\CommandInterface;
 use Predis\CommunicationException;
 use Predis\Connection\CompositeConnectionInterface;

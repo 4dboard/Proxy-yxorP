@@ -106,6 +106,7 @@ class cache
         $this->instance = cache($storage, $config);
     }
 
+
     public static function getAutoClass($config): string
     {
         try {
@@ -295,6 +296,7 @@ allow from 127.0.0.1";
             "unique" => md5(php_uname() . PHP_OS . PHP_SAPI),
         );
     }
+
 
     public function __call($name, $args)
     {

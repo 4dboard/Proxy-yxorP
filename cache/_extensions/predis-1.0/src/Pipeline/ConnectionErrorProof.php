@@ -11,11 +11,6 @@ use SplQueue;
 class ConnectionErrorProof extends Pipeline
 {
 
-    protected function getConnection()
-    {
-        return $this->getClient()->getConnection();
-    }
-
     /**
      * @param ConnectionInterface $connection
      * @param SplQueue $commands
@@ -84,5 +79,10 @@ class ConnectionErrorProof extends Pipeline
         }
 
         return $responses;
+    }
+
+    protected function getConnection()
+    {
+        return $this->getClient()->getConnection();
     }
 }

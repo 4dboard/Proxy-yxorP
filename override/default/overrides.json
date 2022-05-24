@@ -1,10 +1,5 @@
 {
-  "SITE_NAME": "",
-  "SITE_DESCRIPTION": "",
-  "PLUGINS": [
-    "HeaderRewritePlugin",
-    "StreamPlugin",
-    "ProxifyPlugin",
-    "OverridePlugin"
-  ]
+  "xn--gme-nnb.com": "www.pacogames.com",
+  "xn--ply-onb.com": "www.crazygames.com",
+  "localhost": "www.crazygames.com"
 }

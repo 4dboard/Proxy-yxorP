@@ -2,7 +2,6 @@
 
 namespace Predis\Configuration;
 
-use JetBrains\PhpStorm\Pure;
 use Predis\Command\Processor\KeyPrefixProcessor;
 use Predis\Command\Processor\ProcessorInterface;
 

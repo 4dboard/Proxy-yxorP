@@ -154,17 +154,6 @@ abstract class PredisCluster implements ClusterInterface, IteratorAggregate, Cou
         }
     }
 
-    /**
-     * @throws NotSupportedException
-     */
-    public function executeCommand(CommandInterface $command): mixed
-    {
-        try {
-            return $this->getConnection($command)->executeCommand($command);
-        } catch (EmptyRingException|NotSupportedException $e) {
-        }
-    }
-
     public function executeCommandOnNodes(CommandInterface $command): array
     {
         $responses = array();
@@ -174,5 +163,16 @@ abstract class PredisCluster implements ClusterInterface, IteratorAggregate, Cou
         }
 
         return $responses;
+    }
+
+    /**
+     * @throws NotSupportedException
+     */
+    public function executeCommand(CommandInterface $command): mixed
+    {
+        try {
+            return $this->getConnection($command)->executeCommand($command);
+        } catch (EmptyRingException|NotSupportedException $e) {
+        }
     }
 }

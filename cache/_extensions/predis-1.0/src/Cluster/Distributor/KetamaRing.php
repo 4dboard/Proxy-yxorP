@@ -4,7 +4,6 @@
 
 namespace Predis\Cluster\Distributor;
 
-use JetBrains\PhpStorm\Pure;
 
 abstract class KetamaRing extends HashRing
 {

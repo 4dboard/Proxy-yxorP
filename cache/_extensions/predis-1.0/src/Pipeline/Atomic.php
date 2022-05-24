@@ -2,7 +2,6 @@
 
 namespace Predis\Pipeline;
 
-use JetBrains\PhpStorm\Pure;
 use Predis\AClientInterface;
 use Predis\ClientException;
 use Predis\Connection\ConnectionInterface;

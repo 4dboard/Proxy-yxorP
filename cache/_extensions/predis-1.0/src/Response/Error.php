@@ -2,7 +2,6 @@
 
 namespace Predis\Response;
 
-use JetBrains\PhpStorm\Pure;
 
 /**
  * @property $message

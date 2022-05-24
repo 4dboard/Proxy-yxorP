@@ -3,7 +3,6 @@
 namespace Predis\Protocol\Text;
 
 use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Pure;
 use Predis\CommunicationException;
 use Predis\Connection\CompositeConnectionInterface;
 use Predis\Protocol\ProtocolException;

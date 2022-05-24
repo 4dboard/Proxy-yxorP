@@ -3,7 +3,6 @@
 namespace Predis\Configuration;
 
 use InvalidArgumentException;
-use JetBrains\PhpStorm\Pure;
 use Predis\Connection\Factory;
 use Predis\Connection\FactoryInterface;
 

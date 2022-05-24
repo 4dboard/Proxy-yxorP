@@ -2,7 +2,6 @@
 
 namespace Predis\Cluster;
 
-use JetBrains\PhpStorm\Pure;
 use Predis\Cluster\Distributor\DistributorInterface;
 use Predis\Cluster\Distributor\HashRing;
 

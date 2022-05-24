@@ -1,7 +1,6 @@
 <?php /* yxorP */
 
 use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Pure;
 use yxorP\cache\Cache;
 use function yxorP\cache\cache;
 
@@ -76,16 +75,6 @@ abstract class BaseCache
         return $res;
     }
 
-
-    public function getSet($keyword, $value, $time)
-    {
-        if (!$this->isExisting($keyword))
-            $this->set($keyword, $value, $time);
-
-        return $this->get($keyword);
-
-    }
-
     public function get($keyword, $option = array())
     {
         if (Cache::$disabled === true) {
@@ -100,6 +89,26 @@ abstract class BaseCache
 
         $value = $object['value'] ?? null;
         return isset($option['all_keys']) && $option['all_keys'] ? $object : $value;
+    }
+
+    public function getSet($keyword, $value, $time)
+    {
+        if (!$this->isExisting($keyword))
+            $this->set($keyword, $value, $time);
+
+        return $this->get($keyword);
+
+    }
+
+    public function isExisting($keyword): ?bool
+    {
+        if (method_exists($this, "driver_isExisting")) {
+            return $this->driver_isExisting($keyword);
+        }
+
+        $data = $this->get($keyword);
+        return $data !== null;
+
     }
 
     public function getInfoMulti($list = array()): array
@@ -140,17 +149,6 @@ abstract class BaseCache
             $res[$name] = $this->isExisting($name);
         }
         return $res;
-    }
-
-    public function isExisting($keyword): ?bool
-    {
-        if (method_exists($this, "driver_isExisting")) {
-            return $this->driver_isExisting($keyword);
-        }
-
-        $data = $this->get($keyword);
-        return $data !== null;
-
     }
 
     public function incrementMulti($list = array()): array

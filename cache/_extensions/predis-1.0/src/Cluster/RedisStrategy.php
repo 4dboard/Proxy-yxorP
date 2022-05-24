@@ -2,7 +2,6 @@
 
 namespace Predis\Cluster;
 
-use JetBrains\PhpStorm\Pure;
 use Predis\Cluster\Hash\CRC16;
 use Predis\Cluster\Hash\HashGeneratorInterface;
 use Predis\NotSupportedException;

@@ -3,7 +3,6 @@
 namespace Predis\PubSub;
 
 use Iterator;
-use JetBrains\PhpStorm\Pure;
 
 /**
  * @property $position

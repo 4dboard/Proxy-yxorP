@@ -194,12 +194,6 @@ class Client implements AClientInterface
     }
 
     /* yxorP */
-    public function __call(string $method, array $arguments)
-    {
-        return $this->executeCommand(
-            $this->createCommand($method, $arguments)
-        );
-    }
 
     /**
      * @throws ServerException
@@ -241,6 +235,13 @@ class Client implements AClientInterface
     public function createCommand(string $method, array $arguments = array()): CommandInterface
     {
         return $this->profile->createCommand($method, $arguments);
+    }
+
+    public function __call(string $method, array $arguments)
+    {
+        return $this->executeCommand(
+            $this->createCommand($method, $arguments)
+        );
     }
 
     public function pipeline()

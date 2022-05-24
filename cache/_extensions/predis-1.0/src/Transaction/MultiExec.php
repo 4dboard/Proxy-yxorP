@@ -126,6 +126,33 @@ class MultiExec implements ClientContextInterface
     }
 
     /**
+     * @param CommandInterface $command
+     * @return MultiExec
+     * @throws AbortedMultiExecException
+     * @throws CommunicationException
+     */
+    public function executeCommand(CommandInterface $command): mixed
+    {
+        try {
+            $this->initialize();
+        } catch (ClientException|ServerException|NotSupportedException $e) {
+        }
+
+        if ($this->state->isCAS()) {
+            return $this->client->executeCommand($command);
+        }
+
+        $response = $this->client->getConnection()->executeCommand($command);
+        if ($response instanceof ErrorResponseInterface) {
+            throw new AbortedMultiExecException($this, $response->getMessage());
+        }
+
+        $this->onProtocolError('The server did not return a +QUEUED status response.');
+
+        return $this;
+    }
+
+    /**
      * @throws NotSupportedException
      * @throws ServerException
      * @throws ClientException
@@ -181,6 +208,19 @@ class MultiExec implements ClientContextInterface
     }
 
     /**
+     * @throws CommunicationException
+     */
+    private function onProtocolError($message): void
+    {
+        // Since a MULTI/EXEC block cannot be initialized when using aggregate
+        // connections we can safely assume that Predis\Client::getConnection()
+        // will return a Predis\Connection\NodeConnectionInterface instance.
+        CommunicationException::handle(new ProtocolException(
+            $this->client->getConnection(), $message
+        ));
+    }
+
+    /**
      * @throws AbortedMultiExecException
      * @throws NotSupportedException
      * @throws CommunicationException
@@ -208,46 +248,6 @@ class MultiExec implements ClientContextInterface
         return $this->executeCommand(
             $this->client->createCommand($method, $arguments)
         );
-    }
-
-    /**
-     * @param CommandInterface $command
-     * @return MultiExec
-     * @throws AbortedMultiExecException
-     * @throws CommunicationException
-     */
-    public function executeCommand(CommandInterface $command): mixed
-    {
-        try {
-            $this->initialize();
-        } catch (ClientException|ServerException|NotSupportedException $e) {
-        }
-
-        if ($this->state->isCAS()) {
-            return $this->client->executeCommand($command);
-        }
-
-        $response = $this->client->getConnection()->executeCommand($command);
-        if ($response instanceof ErrorResponseInterface) {
-            throw new AbortedMultiExecException($this, $response->getMessage());
-        }
-
-        $this->onProtocolError('The server did not return a +QUEUED status response.');
-
-        return $this;
-    }
-
-    /**
-     * @throws CommunicationException
-     */
-    private function onProtocolError($message): void
-    {
-        // Since a MULTI/EXEC block cannot be initialized when using aggregate
-        // connections we can safely assume that Predis\Client::getConnection()
-        // will return a Predis\Connection\NodeConnectionInterface instance.
-        CommunicationException::handle(new ProtocolException(
-            $this->client->getConnection(), $message
-        ));
     }
 
     /**
