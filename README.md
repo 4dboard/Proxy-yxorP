@@ -1,29 +1,8 @@
-<!--suppress ALL -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <h1  align="center">🦄</h1>
 <h1  align="center">.yxorP Proxy Guzzler SAAS(y) </h1>
 <h3 align="center"> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</h3>
 <p align="center">$(yxorp)->proxy(🌈) [ 'aka', 'the guzzler']</p>
-<img align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/logo.gif' /></p>
+<img align="center" src='assets/logo.gif' /></p>
 
 <h3 >🔋 Batteries are included</h3></h3>
 
@@ -47,8 +26,8 @@ or "plugin-based." Web-based reporting and analytics using a graphical user inte
 custom-built content spinning engine, the system allows material to be "augmented" (or "spun") with little performance
 degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/diagrams.png' /></p>
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/diagram.png' /></p>
+<p align="center"><img src='assets/diagrams.png' /></p>
+<p align="center"><img src='assets/diagram.png' /></p>
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
@@ -122,7 +101,7 @@ note that on non-Linux native hosts, the server might take a few minutes to star
 
 ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/image (3).gif' /></p>
+<p align="center"><img src='assets/image (3).gif' /></p>
 
 ## Use case / Applications
 
@@ -177,7 +156,7 @@ diagnostic information.
 
 ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
 
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/image (4).gif' /></p>
+<p align="center"><img src='assets/image (4).gif' /></p>
 
 ## Instant Setup
 
@@ -297,7 +276,7 @@ For more information please see: https://docs.lando.dev/config/lamp.html
 
 ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
 
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/image (10).gif' /></p>
+<p align="center"><img src='assets/image (10).gif' /></p>
 
 ## Keep it up-to-date
 
@@ -353,7 +332,7 @@ development team. Please open a new issue with the appropriate subject title to 
 make to the document. Please make every effort to keep tests current in order to minimize the chance of wrong
 interpretation of results. We appreciate all of your assistance and support.
 
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/image (14).gif' /></p>
+<p align="center"><img src='assets/image (14).gif' /></p>
 
 ![image](https://user-images.githubusercontent.com/6468571/157206499-bc79940c-95bd-45b3-a772-cdb64198aa6e.png)
 
@@ -361,7 +340,7 @@ interpretation of results. We appreciate all of your assistance and support.
 
 <p align="center">
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/screenshot.jpg)
+![image](assets/screenshot.jpg)
 
 </p>
 
@@ -429,4 +408,4 @@ compliance with licensing agreements. This license is straightforward and concis
 requires copyright protection and prominent display of licensing information in the form of terms. They may be released
 in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works.
 
-![](https://raw.githubusercontent.com/4dboard/proxy-yxorp/master/assets/live.png?v=3)
+![](assets/live.png?v=3)
