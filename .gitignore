@@ -1,16 +1,15 @@
-/*
+*
 
-!/.env.example
-!/.gitignore
-!/.lando.yml
-!/bugsnag.phar
-!/docker-compose.yml
-!/Dockerfile
-!/favicon.ico
-!/git.sh
-!/guzzle.phar
-!/README.md
-!/.yxorp.php
+!README.md
+!.env.example
+!.gitignore
+!Dockerfile
+!docker-compose.yml
+!.lando.yml
+!git.sh
+!bugsnag.phar
+!guzzle.phar
+!.yxorp.php
 
 !/.github/*
 !/override/www.example.com/*
