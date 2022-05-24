@@ -45,8 +45,8 @@ and allows you to build secure apps faster.
 
 Using Appwrite, you can easily integrate your app with user authentication & multiple sign-in methods, a database for
 storing and querying users and team data, storage and file management, image manipulation, Cloud Functions,
-and [more services](https://appwrite.io/docs).
-A complete backend solution for your [Flutter / Vue / Angular / React / iOS / Android / *ANY OTHER*] app
+and [more services](https://appwrite.io/docs). A complete backend solution for
+your [Flutter / Vue / Angular / React / iOS / Android / *ANY OTHER*] app
 
 ![](https://github.com/appwrite/appwrite/raw/master/public/images/github.png)
 

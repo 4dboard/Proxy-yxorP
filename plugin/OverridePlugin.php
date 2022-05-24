@@ -1,5 +1,5 @@
 <?php /* yxorP */
-use yxorP;
+
 use yxorP\http\ProxyEvent;
 
 class OverridePlugin extends AbstractPlugin
