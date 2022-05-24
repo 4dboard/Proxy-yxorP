@@ -5,7 +5,7 @@
 !/.htaccess
 !/.lando.yml
 !/.yxorp.php
-!/app.json.php
+!/app.json
 !/bugsnag.phar
 !/docker-compose.yml
 !/Dockerfile
