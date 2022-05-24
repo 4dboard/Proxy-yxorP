@@ -1,5 +1,6 @@
 <?php /* yxorP */
 error_reporting(0);
+
 use Bugsnag\Client;
 use Bugsnag\Handler;
 use GuzzleHttp\Exception\GuzzleException;
@@ -20,7 +21,7 @@ class yxorp
 
     private $client;
 
-    private array $listeners = array();
+    private $listeners = [];
 
     public function __construct($TARGET_URL)
     {
@@ -81,8 +82,8 @@ class yxorp
             $GLOBALS['OVERRIDE_DIR'] = is_dir($GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST']) ?
                 $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST'] : $GLOBALS['PLUGIN_DIR'] . '/override/default';
 
-            $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/asset', false);
-            $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/asset', false);
+            $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/assets', false);
+            $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
 
             require($GLOBALS['PLUGIN_DIR'] . '/plugin/AbstractPlugin.php');
 
@@ -113,8 +114,8 @@ class yxorp
                 $this->addSubscriber(new $plugin());
             }
 
-            $this->STORE($this->forward(Http\Request::createFromGlobals(), $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'])->getContent());
-
+            $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'],$this->forward(Http\Request::createFromGlobals(),
+                $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'])->getContent(),$GLOBALS['CACHE_TIME']);
 
         } catch (exception $e) {
             if ($GLOBALS['MIME'] !== 'text/html') {
@@ -131,8 +132,14 @@ class yxorp
     public function FILES_CHECK($dir, $inc): void
     {
         if (file($dir) || is_dir($dir)) foreach (scandir($dir) as $x) if (strlen($x) > 3) {
+
             if (str_contains($x, 'Interface')) continue;
-            if (is_dir($_loc = $dir . '/' . $x)) $this->FILES_CHECK($_loc, $inc); else if ($inc) require_once($_loc); else if (str_contains($GLOBALS['REQUEST_URI'], $x)) {
+
+            if (is_dir($_loc = $dir . '/' . $x)) {
+                $this->FILES_CHECK($_loc, $inc);
+            } else if ($inc) {
+                require_once($_loc);
+            } else if (str_contains($GLOBALS['REQUEST_URI'], $x)) {
                 echo file_get_contents($_loc);
                 exit;
             }
@@ -147,26 +154,12 @@ class yxorp
         }
     }
 
-    public function STORE($content): void
-    {
-        $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback(self::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/target_rewrite.csv'), static function ($m) {
-            return str_replace(self::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv'),
-                self::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv'), $m[1]);
-        }, $this->MINI($content)) : $content, $GLOBALS['CACHE_TIME']);
-    }
-
     public static function CSV($filename = '')
     {
         $csvArray = array_map('str_getcsv', file($filename));
         return array_merge(...$csvArray);
     }
 
-    protected function MINI($body)
-    {
-        $replace = array('/\>[^\S ]+/s' => '>', '/[^\S ]+\</s' => '<', '/([\t ])+/s' => ' ', '/^([\t ])+/m' => '', '/([\t ])+$/m' => '', '~//[a-zA-Z0-9 ]+$~m' => '', '/[\r\n]+([\t ]?[\r\n]+)+/s' => "\n", '/\>[\r\n\t ]+\</s' => '><', '/}[\r\n\t ]+/s' => '}',
-            '/}[\r\n\t ]+,[\r\n\t ]+/s' => '},', '/\)[\r\n\t ]?{[\r\n\t ]+/s' => '){', '/,[\r\n\t ]?{[\r\n\t ]+/s' => ',{', '/\),[\r\n\t ]+/s' => '),', '~([\r\n\t ])?([a-zA-Z0-9]+)="([a-zA-Z0-9_/\\-]+)"([\r\n\t ])?~s' => '$1$2=$3$4');
-        return str_ireplace(array('</option>', '</li>', '</dt>', '</dd>', '</tr>', '</th>', '</td>'), '', preg_replace(array_keys($replace), array_values($replace), $body));
-    }
 
     public function forward(Request $request, $url): Response
     {

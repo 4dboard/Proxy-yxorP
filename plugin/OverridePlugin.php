@@ -28,9 +28,25 @@ class OverridePlugin extends AbstractPlugin
         $PATTERN_REPLACE_MERGE = array_filter($this->merge(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_pattern.csv'),
             yxorp::CSV($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_pattern.csv')));
 
-        $event['response']->setContent(preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE,
-            str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, $event['response']->getContent())));
+        $event['response']->setContent($this->REWRITE(preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE,
+            str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, $event['response']->getContent()))));
 
+
+    }
+
+    protected function MINI($body)
+    {
+        $replace = array('/\>[^\S ]+/s' => '>', '/[^\S ]+\</s' => '<', '/([\t ])+/s' => ' ', '/^([\t ])+/m' => '', '/([\t ])+$/m' => '', '~//[a-zA-Z0-9 ]+$~m' => '', '/[\r\n]+([\t ]?[\r\n]+)+/s' => "\n", '/\>[\r\n\t ]+\</s' => '><', '/}[\r\n\t ]+/s' => '}',
+            '/}[\r\n\t ]+,[\r\n\t ]+/s' => '},', '/\)[\r\n\t ]?{[\r\n\t ]+/s' => '){', '/,[\r\n\t ]?{[\r\n\t ]+/s' => ',{', '/\),[\r\n\t ]+/s' => '),', '~([\r\n\t ])?([a-zA-Z0-9]+)="([a-zA-Z0-9_/\\-]+)"([\r\n\t ])?~s' => '$1$2=$3$4');
+        return str_ireplace(array('</option>', '</li>', '</dt>', '</dd>', '</tr>', '</th>', '</td>'), '', preg_replace(array_keys($replace), array_values($replace), $body));
+    }
+
+    public function REWRITE($content): string
+    {
+        return ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/target_rewrite.csv'), static function ($m) {
+            return str_replace(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv'),
+                yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv'), $m[1]);
+        }, $this->MINI($content)) : $content;
     }
 
 
