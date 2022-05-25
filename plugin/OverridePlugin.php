@@ -30,31 +30,26 @@ class OverridePlugin extends AbstractPlugin
 
         $event['response']->setContent($this->REWRITE(preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE,
             str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, $event['response']->getContent()))));
-
-
     }
 
     protected function MINI($body)
     {
-        $replace = array('/\>[^\S ]+/s' => '>', '/[^\S ]+\</s' => '<', '/([\t ])+/s' => ' ', '/^([\t ])+/m' => '', '/([\t ])+$/m' => '', '~//[a-zA-Z0-9 ]+$~m' => '', '/[\r\n]+([\t ]?[\r\n]+)+/s' => "\n", '/\>[\r\n\t ]+\</s' => '><', '/}[\r\n\t ]+/s' => '}',
-            '/}[\r\n\t ]+,[\r\n\t ]+/s' => '},', '/\)[\r\n\t ]?{[\r\n\t ]+/s' => '){', '/,[\r\n\t ]?{[\r\n\t ]+/s' => ',{', '/\),[\r\n\t ]+/s' => '),', '~([\r\n\t ])?([a-zA-Z0-9]+)="([a-zA-Z0-9_/\\-]+)"([\r\n\t ])?~s' => '$1$2=$3$4');
+        $replace = array('/\>[^\S ]+/s' => '>', '/[^\S ]+\</s' => '<', '/([\t ])+/s' => ' ', '/^([\t ])+/m' => '', '/([\t ])+$/m' => '', '~//[a-zA-Z0-9 ]+$~m' => '', '/[\r\n]+([\t ]?[\r\n]+)+/s' => "\n", '/\>[\r\n\t ]+\</s' => '><', '/}[\r\n\t ]+/s' => '}', '/}[\r\n\t ]+,[\r\n\t ]+/s' => '},', '/\)[\r\n\t ]?{[\r\n\t ]+/s' => '){', '/,[\r\n\t ]?{[\r\n\t ]+/s' => ',{', '/\),[\r\n\t ]+/s' => '),', '~([\r\n\t ])?([a-zA-Z0-9]+)="([a-zA-Z0-9_/\\-]+)"([\r\n\t ])?~s' => '$1$2=$3$4');
         return str_ireplace(array('</option>', '</li>', '</dt>', '</dd>', '</tr>', '</th>', '</td>'), '', preg_replace(array_keys($replace), array_values($replace), $body));
     }
 
     public function REWRITE($content): string
     {
-        return ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/target_rewrite.csv'), static function ($m) {
-            return str_replace(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv'),
-                yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv'), $m[1]);
+        return ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback("(<x>(.*?)</x>)", static function ($m) {
+            return str_replace(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv'), yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv'), $m[1]);
         }, $this->MINI($content)) : $content;
     }
 
 
-    function merge($array1, $array2, $array3 = array())
+    function merge($array1, $array2 = null, $array3 = null)
     {
-        if (!$array1 || !is_array($array1)) return (array)$array2;
-        if (!$array2 || !is_array($array2)) return (array)$array1;
-        if (!$array3 || !is_array($array3)) return array_filter(array_merge((array)$array1, (array)$array2), fn($value) => !is_null($value) && $value !== '');
-        return array_filter(array_merge((array)$array1, (array)$array2, (array)$array3), fn($value) => !is_null($value) && $value !== '');
+        return (($array1 && is_array($array1) && $array2 && is_array($array2) && $array3 && is_array($array3))) ? array_filter(array_merge(array_merge((array)$array1, (array)$array2), (array)$array3), fn($value) => !is_null($value) && $value !== '') :
+            (($array1 && is_array($array1) && $array2 && is_array($array2)) ? array_filter(array_merge((array)$array1, (array)$array2), fn($value) => !is_null($value) && $value !== '') : array_filter((array)$array1, fn($value) => !is_null($value) && $value !== ''));
     }
 }
+

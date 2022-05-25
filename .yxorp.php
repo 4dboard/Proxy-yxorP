@@ -27,10 +27,16 @@ class yxorp
     {
         ini_set('default_charset', 'utf-8');
 
+        $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
         $GLOBALS['SITE_URL'] = 'https://' . $GLOBALS['SITE_HOST'] = $_SERVER['HTTP_HOST'];
         $GLOBALS['TARGET_HOST'] = parse_url(($GLOBALS['TARGET_URL'] = $TARGET_URL), PHP_URL_HOST);
 
-        if (str_contains($GLOBALS['SITE_URL'], "localhost")) error_reporting(1);
+        if(str_contains($GLOBALS['SITE_URL'] . $GLOBALS['REQUEST_URI'], ($GLOBALS['SITE_URL'] . '/dashboard'))) {
+            include($GLOBALS['PLUGIN_DIR'] . '/dashboard/index.php');
+            exit;
+        }
+
+        if ($GLOBALS['SITE_URL'] == "localhost") error_reporting(1);
 
         /*
             foreach ((array)json_decode(file_get_contents($GLOBALS['PLUGIN_DIR'] . '/override/default/overrides.json')) as $key => $value)
@@ -38,7 +44,7 @@ class yxorp
             if(!$GLOBALS['TARGET_HOST']) $GLOBALS['TARGET_HOST'] = "www.example.com";
         */
 
-        $GLOBALS['CACHE_KEY'] = base64_encode(($GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI']));
+        $GLOBALS['CACHE_KEY'] = base64_encode(($GLOBALS['REQUEST_URI']));
         $GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31 * 365);
 
         $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd.microsoft.icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd.ms-cab-compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd.adobe.photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'odt' => 'application/vnd.oasis.opendocument.text', 'ods' => 'application/vnd.oasis.opendocument.spreadsheet');

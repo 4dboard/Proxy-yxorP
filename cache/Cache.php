@@ -109,14 +109,10 @@ class cache
 
     public static function getAutoClass($config): string
     {
-        try {
-            $path = self::getPath(false, $config);
-        } catch (cacheCoreException $e) {
+        if(extension_loaded('Zend OPcache')){
+            $driver = "apc";
         }
-        if (is_writable($path)) {
-            $driver = "files";
-        } else if (extension_loaded('apc') && ini_get('apc.enabled') && !str_contains(PHP_SAPI, "CGI")
-        ) {
+        if (extension_loaded('apc') && ini_get('apc.enabled') && !str_contains(PHP_SAPI, "CGI")) {
             $driver = "apc";
         } else if (class_exists("memcached")) {
             $driver = "memcached";
