@@ -21,6 +21,8 @@ Vanilla Dashboard is a no-cost, no-commitment self-service proxy engine that sup
 the project is looking for funding to help tie off some loose ends, particularly with the backed GUI; the front-end is
 complete and functional, but code cleanup and unit testing are required.
 
+![image](https://user-images.githubusercontent.com/6468571/170381457-610902b7-02ff-4b48-8bc8-4f046af0e2c0.png)
+
 yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation required), multi-threaded, website mirroring and
 content augmentation, fast cache, and multi-web proxy server that performs website mirroring and content augmentation,
 website mirroring and content augmentation, fast cache, and multi-web proxy server (reverse proxy). In addition to
