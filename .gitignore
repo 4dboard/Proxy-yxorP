@@ -14,6 +14,17 @@
 !README.md
 !demo.php
 
+
+!/.github/
+!/asset/
+!/cache/
+!/dashboard/
+!/helper/
+!/http/
+!/override/default/
+!/override/www.example.com/
+!/plugin/
+
 !.github/*
 !asset/*
 !cache/*
