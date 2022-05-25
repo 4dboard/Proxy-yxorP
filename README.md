@@ -1,7 +1,7 @@
 <p align="center">
 <img align="center" src='https://user-images.githubusercontent.com/6468571/170376893-a396428f-1f36-4746-b806-7d058f878d57.png' />
 </p>
-<h1  align="center"><b>.yxorP</b> - <i>The Fast SAAS(y), Multitenancy, Augmentation Proxy Guzzler</i></h1>
+<h1  align="center"><b>.yxorP</b> - <i>The Fast SAAS(y), Multitenancy, Augmented Proxy Guzzler</i></h1>
 <p align="center">
 <img align="center" src='asset/banner.png' />
 </p>
