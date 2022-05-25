@@ -1,10 +1,13 @@
-<h1  align="center">🦄</h1>
-<h1  align="center">.yxorP Proxy Guzzler SAAS(y) </h1>
-<h3 align="center"> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</h3>
-<p align="center">$(yxorp)->proxy(🌈) [ 'aka', 'the guzzler']</p>
-<img align="center" src='asset/logo.gif' /></p>
+<p align="center">
+<img align="center" src='https://user-images.githubusercontent.com/6468571/170376893-a396428f-1f36-4746-b806-7d058f878d57.png' />
+</p>
+<h1  align="center"><b>.yxorP</b> - <i>The Fast SAAS(y), Multitenancy, Augmentation Guzzler</i></h1>
+<p align="center">
+<img align="center" src='asset/banner.png' />
+</p>
 
 <h3 >🔋 Batteries are included</h3></h3>
+<h4> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</h4>
 
 Convenient features such as built-in content spinning and an auto caching engine are hidden behind a slick online
 interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files,
@@ -42,6 +45,8 @@ degradation (10,000+ thesaurus/dictionary entries) while maintaining high qualit
 Appwrite is an end-to-end backend server for Web, Mobile, Native, or Backend apps packaged as a set of Docker<nobr>
 microservices. Appwrite abstracts the complexity and repetitiveness required to build a modern backend API from scratch
 and allows you to build secure apps faster.
+    
+<img align="center" src='asset/logo.gif' />
 
 Using Appwrite, you can easily integrate your app with user authentication & multiple sign-in methods, a database for
 storing and querying users and team data, storage and file management, image manipulation, Cloud Functions,
