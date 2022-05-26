@@ -31,12 +31,13 @@ class ProxifyPlugin extends AbstractPlugin
 
     public function onCompleted(ProxyEvent $event)
     {
+        return;
 
         $this->base_url = $event['request']->getUri();
-        $url_host = parse_url($this->base_url, PHP_URL_HOST);
 
         $response = $event['response'];
         $content_type = $this->clean_content_type($response->headers->get('content-type'));
+
         $str = $response->getContent();
 
         $no_proxify = array('text/javascript', 'application/javascript', 'application/javascript', 'text/plain');

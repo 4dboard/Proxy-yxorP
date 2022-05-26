@@ -31,11 +31,6 @@ class yxorp
         $GLOBALS['SITE_URL'] = 'https://' . $GLOBALS['SITE_HOST'] = $_SERVER['HTTP_HOST'];
         $GLOBALS['TARGET_HOST'] = parse_url(($GLOBALS['TARGET_URL'] = $TARGET_URL), PHP_URL_HOST);
 
-        if(str_contains($GLOBALS['SITE_URL'] . $GLOBALS['REQUEST_URI'], ($GLOBALS['SITE_URL'] . '/dashboard'))) {
-            include($GLOBALS['PLUGIN_DIR'] . '/dashboard/index.php');
-            exit;
-        }
-
         if ($GLOBALS['SITE_URL'] == "localhost") error_reporting(1);
 
         /*
@@ -83,40 +78,35 @@ class yxorp
     private function FETCH(): void
     {
 
+        $GLOBALS['OVERRIDE_DIR'] = is_dir($GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST']) ?
+            $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST'] : $GLOBALS['PLUGIN_DIR'] . '/override/default';
+
+        $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/assets', false);
+        $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
+
+        require($GLOBALS['PLUGIN_DIR'] . '/plugin/AbstractPlugin.php');
+
+        foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
+            if (trim(strpos(trim($line), '#') === 0)) continue;
+            [$name, $value] = explode('=', $line, 2);
+            $GLOBALS[$name] = $value;
+        }
+
+        Handler::register($GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']));
+
         try {
 
-            $GLOBALS['OVERRIDE_DIR'] = is_dir($GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST']) ?
-                $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['TARGET_HOST'] : $GLOBALS['PLUGIN_DIR'] . '/override/default';
-
-            $this->FILES_CHECK($GLOBALS['OVERRIDE_DIR'] . '/assets', false);
-            $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
-
-            require($GLOBALS['PLUGIN_DIR'] . '/plugin/AbstractPlugin.php');
-
-            foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
-                if (trim(strpos(trim($line), '#') === 0)) {
-                    continue;
-                }
-                [$name, $value] = explode('=', $line, 2);
-                $GLOBALS[$name] = $value;
+            if(str_contains($GLOBALS['SITE_URL'] . $GLOBALS['REQUEST_URI'], ($GLOBALS['SITE_URL'] . '/dashboard'))) {
+                include($GLOBALS['PLUGIN_DIR'] . '/dashboard/index.php');
+                exit;
             }
 
-            Handler::register($GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']));
-
-            foreach ((array)json_decode(file_get_contents($GLOBALS['OVERRIDE_DIR'] . '/overrides.json'), false, 512, JSON_THROW_ON_ERROR) as $key => $value) {
-                $GLOBALS[$key] = $value;
-            }
-
-            foreach (array('/helper', '/http') as $_asset) {
-                $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . $_asset, true);
-            }
+            foreach ((array)json_decode(file_get_contents($GLOBALS['OVERRIDE_DIR'] . '/overrides.json'), false, 512, JSON_THROW_ON_ERROR) as $key => $value) $GLOBALS[$key] = $value;
+            foreach (array('/helper', '/http') as $_asset) $this->FILES_CHECK($GLOBALS['PLUGIN_DIR'] . $_asset, true);
 
             foreach ($GLOBALS['PLUGINS'] as $plugin) {
-                if (file_exists($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php')) {
-                    require($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php');
-                } elseif (class_exists('\\yxorP\\plugin\\' . $plugin)) {
-                    $plugin = '\\yxorP\\plugin\\' . $plugin;
-                }
+                if (file_exists($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php')) require($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php');
+                elseif (class_exists('\\yxorP\\plugin\\' . $plugin)) $plugin = '\\yxorP\\plugin\\' . $plugin;
                 $this->addSubscriber(new $plugin());
             }
 
@@ -124,12 +114,8 @@ class yxorp
                 $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'])->getContent(),$GLOBALS['CACHE_TIME']);
 
         } catch (exception $e) {
-            if ($GLOBALS['MIME'] !== 'text/html') {
-                header("Location: " . $GLOBALS['PROXY_URL']);
-            } else {
-                if ($GLOBALS['DEBUG']) {
-                    echo $e->__toString();
-                }
+            if ($GLOBALS['MIME'] !== 'text/html') header("Location: " . $GLOBALS['PROXY_URL']); else {
+                if ($GLOBALS['DEBUG']) echo $e->__toString();
                 $GLOBALS['BUGSNAG']->notifyException($e);
             }
         }
@@ -141,11 +127,7 @@ class yxorp
 
             if (str_contains($x, 'Interface')) continue;
 
-            if (is_dir($_loc = $dir . '/' . $x)) {
-                $this->FILES_CHECK($_loc, $inc);
-            } else if ($inc) {
-                require_once($_loc);
-            } else if (str_contains($GLOBALS['REQUEST_URI'], $x)) {
+            if (is_dir($_loc = $dir . '/' . $x)) $this->FILES_CHECK($_loc, $inc); else if ($inc) require_once($_loc); else if (str_contains($GLOBALS['REQUEST_URI'], $x)) {
                 echo file_get_contents($_loc);
                 exit;
             }
@@ -155,9 +137,7 @@ class yxorp
 
     public function addSubscriber($subscriber): void
     {
-        if (method_exists($subscriber, 'subscribe')) {
-            $subscriber->subscribe($this);
-        }
+        if (method_exists($subscriber, 'subscribe')) $subscriber->subscribe($this);
     }
 
     public static function CSV($filename = '')
@@ -173,31 +153,14 @@ class yxorp
 
         $response = new Response();
 
-        $this->dispatch('request.before_send', new ProxyEvent(array(
-            'request' => $request,
-            'response' => $response
-        )));
+        $this->dispatch('request.before_send', new ProxyEvent(array('request' => $request, 'response' => $response)));
 
+        if ($_body = file_get_contents('php://input')) $request->setBody(json_decode($_body, true), $GLOBALS['MIME']);
 
-        if (!$request->params->has('request.complete')) {
+        $this->client = $this->client ?: new \GuzzleHttp\Client(['verify' => false]);
+        $response->setContent($this->client->request($request->getMethod(), $request->getUri(), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
 
-            if ($_body = file_get_contents('php://input')) {
-                $request->setBody(json_decode($_body, true), $GLOBALS['MIME']);
-            }
-
-            $this->client = $this->client ?: new \GuzzleHttp\Client([
-                'verify' => false
-            ]);
-            try {
-                $response->setContent($this->client->request($request->getMethod(), $request->getUri(), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
-            } catch (GuzzleException $e) {
-            }
-        }
-
-        $this->dispatch('request.complete', new ProxyEvent(array(
-            'request' => $request,
-            'response' => $response
-        )));
+        $this->dispatch('request.complete', new ProxyEvent(array('request' => $request, 'response' => $response)));
 
         return $response;
 
