@@ -7,8 +7,6 @@
 !.yxorp.php
 !app.json
 !bugsnag.phar
-!build.php
-!build.sh
 !docker-compose.yml
 !Dockerfile
 !git.sh

