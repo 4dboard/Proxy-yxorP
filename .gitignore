@@ -15,17 +15,16 @@
 !demo.php
 
 
-!/.github/
-!/asset/
-!/cache/
-!/dashboard/
-!/helper/
-!/http/
-!/override/
-!/override/default/
-!/override/www.example.com/
-!/plugin/
-
+!.github/
+!asset/
+!cache/
+!dashboard/
+!helper/
+!http/
+!override/
+!override/default/
+!override/www.example.com/
+!plugin/
 !.github/*
 !asset/*
 !cache/*
