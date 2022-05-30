@@ -8,12 +8,19 @@ use yxorp\Http;
 use yxorP\Http\ProxyEvent;
 use yxorP\Http\Request;
 use yxorP\Http\Response;
+use yxorP\Cache\extra;
 
 $GLOBALS['PLUGIN_DIR'] = __DIR__;
 
 require $GLOBALS['PLUGIN_DIR'] . '/cache/Cache.php';
 require $GLOBALS['PLUGIN_DIR'] . '/guzzle.phar';
 require $GLOBALS['PLUGIN_DIR'] . '/bugsnag.phar';
+
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST,GET,OPTIONS");
+header('Access-Control-Allow-Credentials: true');
+header('Access-Control-Allow-Headers: Origin,Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With,Access-Control-Allow-Credentials');
 
 
 class yxorp
@@ -49,9 +56,11 @@ class yxorp
 
         if (!$GLOBALS['MIME'] && array_key_exists($_ext, $_types)) {
             $GLOBALS['MIME'] = $_types[$_ext];
-        } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], '/sitemap/')) {
+        } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], 'sitemap')) {
             $GLOBALS['MIME'] = 'application/xml';
-        } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], 'fit=crop')) {
+        } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], 'crop')) {
+            $GLOBALS['MIME'] = 'image/png';
+        } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], 'format')) {
             $GLOBALS['MIME'] = 'image/png';
         } else {
             $GLOBALS['MIME'] = 'text/html';
@@ -61,15 +70,9 @@ class yxorp
 
         $GLOBALS['CACHE_ADAPTER'] = new yxorP\cache\Cache();
 
-        if (isset($_GET["CLECHE"])) {
-            $GLOBALS['CACHE_ADAPTER']->clean();
-        }
+        if (isset($_GET["CLECHE"]))  $GLOBALS['CACHE_ADAPTER']->clean();
 
-        $GLOBALS['CACHE_ADAPTER']->clean();
-
-        if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY'])) {
-            $this->FETCH();
-        }
+        if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY'])) $this->FETCH();
 
         echo $GLOBALS['CACHE_ADAPTER']->get($GLOBALS['CACHE_KEY']);
 

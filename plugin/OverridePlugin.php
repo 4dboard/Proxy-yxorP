@@ -42,7 +42,7 @@ class OverridePlugin extends AbstractPlugin
     {
         return ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback("(<x>(.*?)</x>)", static function ($m) {
             return str_replace(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_rewrite.csv'), yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_rewrite.csv'), $m[1]);
-        }, $this->MINI($content)) : $content;
+        }, (($GLOBALS['MIME'] === 'text/html') ? $this->MINI($content) : $content)) : $content;
     }
 
 
