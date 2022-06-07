@@ -107,7 +107,7 @@ class cache
 
     public static function getAutoClass($config): string
     {
-        if(extension_loaded('Zend OPcache')){
+        if (extension_loaded('Zend OPcache')) {
             $driver = "apc";
         }
         if (extension_loaded('apc') && ini_get('apc.enabled') && !str_contains(PHP_SAPI, "CGI")) {

@@ -3,12 +3,10 @@ error_reporting(0);
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
-use GuzzleHttp\Exception\GuzzleException;
 use yxorp\Http;
 use yxorP\Http\ProxyEvent;
 use yxorP\Http\Request;
 use yxorP\Http\Response;
-use yxorP\Cache\extra;
 
 $GLOBALS['PLUGIN_DIR'] = __DIR__;
 
@@ -30,23 +28,28 @@ class yxorp
 
     private $listeners = [];
 
-    public function __construct($TARGET_URL)
+    public function __construct()
     {
-        ini_set('default_charset', 'utf-8');
+        $GLOBALS['SITE_URL'] = 'https://' . ($GLOBALS['SITE_HOST'] = $_SERVER['HTTP_HOST']);
 
-        $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'];
-        $GLOBALS['SITE_URL'] = 'https://' . $GLOBALS['SITE_HOST'] = $_SERVER['HTTP_HOST'];
-        $GLOBALS['TARGET_HOST'] = parse_url(($GLOBALS['TARGET_URL'] = $TARGET_URL), PHP_URL_HOST);
+        list($subdomain, $domain) = explode('.', $GLOBALS['SITE_HOST'], 2);
 
-        if ($GLOBALS['SITE_URL'] == "localhost") error_reporting(1);
+        if (str_contains($GLOBALS['SITE_URL'], "localhost")) {
+            $subdomain = "www";
+            $domain = "localhost";
+            error_reporting(1);
+        }
 
-        /*
-            foreach ((array)json_decode(file_get_contents($GLOBALS['PLUGIN_DIR'] . '/override/default/overrides.json')) as $key => $value)
-                if (str_contains($GLOBALS['SITE_HOST'], $key)) $GLOBALS['TARGET_HOST'] = $GLOBALS['TARGET_URL'] = ($this->SUB($GLOBALS['SITE_HOST']) && $this->SUB($value)) ? str_replace($this->SUB($value), $this->SUB($GLOBALS['SITE_HOST']), $value) : $value;
-            if(!$GLOBALS['TARGET_HOST']) $GLOBALS['TARGET_HOST'] = "www.example.com";
-        */
 
-        $GLOBALS['CACHE_KEY'] = base64_encode(($GLOBALS['REQUEST_URI']));
+        foreach ((array)json_decode(file_get_contents($GLOBALS['PLUGIN_DIR'] . '/override/default/overrides.json')) as $key => $value)
+            if (str_contains($domain, $key)) $GLOBALS['TARGET_URL'] = "https://$subdomain.$value";
+
+        $GLOBALS['TARGET_HOST'] = parse_url(($GLOBALS['TARGET_URL']) ?: "www.example.com", PHP_URL_HOST);
+
+        $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . ($GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI']);
+
+
+        $GLOBALS['CACHE_KEY'] = base64_encode($GLOBALS['SITE_URL'] . $GLOBALS['REQUEST_URI']);
         $GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31 * 365);
 
         $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd.microsoft.icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg+xml', 'svgz' => 'image/svg+xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd.ms-cab-compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd.adobe.photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd.ms-excel', 'ppt' => 'application/vnd.ms-powerpoint', 'odt' => 'application/vnd.oasis.opendocument.text', 'ods' => 'application/vnd.oasis.opendocument.spreadsheet');
@@ -54,14 +57,20 @@ class yxorp
 
         $GLOBALS['MIME'] = null;
 
-        if (!$GLOBALS['MIME'] && array_key_exists($_ext, $_types)) {
-            $GLOBALS['MIME'] = $_types[$_ext];
+        if (str_contains($GLOBALS['REQUEST_URI'], 'bundle.js')) {
+            $GLOBALS['MIME'] = 'application/wasm';
         } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], 'sitemap')) {
             $GLOBALS['MIME'] = 'application/xml';
         } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], 'crop')) {
             $GLOBALS['MIME'] = 'image/png';
         } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], 'format')) {
             $GLOBALS['MIME'] = 'image/png';
+        } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], '.mp4')) {
+            $GLOBALS['MIME'] = 'video/mp4';
+        } else if (!$GLOBALS['MIME'] && str_contains($GLOBALS['REQUEST_URI'], '.js.br')) {
+            $GLOBALS['MIME'] = 'br';
+        } else if (!$GLOBALS['MIME'] && array_key_exists($_ext, $_types)) {
+            $GLOBALS['MIME'] = $_types[$_ext];
         } else {
             $GLOBALS['MIME'] = 'text/html';
         }
@@ -70,7 +79,7 @@ class yxorp
 
         $GLOBALS['CACHE_ADAPTER'] = new yxorP\cache\Cache();
 
-        if (isset($_GET["CLECHE"]))  $GLOBALS['CACHE_ADAPTER']->clean();
+        if (isset($_GET["CLECHE"])) $GLOBALS['CACHE_ADAPTER']->clean();
 
         if (!($GLOBALS['CACHE_ADAPTER'])->isExisting($GLOBALS['CACHE_KEY'])) $this->FETCH();
 
@@ -99,8 +108,8 @@ class yxorp
 
         try {
 
-            if(str_contains($GLOBALS['SITE_URL'] . $GLOBALS['REQUEST_URI'], ($GLOBALS['SITE_URL'] . '/dashboard'))) {
-                include($GLOBALS['PLUGIN_DIR'] . '/dashboard/index.php');
+            if (str_contains($GLOBALS['SITE_URL'] . $GLOBALS['REQUEST_URI'], ($GLOBALS['SITE_URL'] . '/dashboard'))) {
+                require($GLOBALS['PLUGIN_DIR'] . '/dashboard/index.php');
                 exit;
             }
 
@@ -113,8 +122,7 @@ class yxorp
                 $this->addSubscriber(new $plugin());
             }
 
-            $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'],$this->forward(Http\Request::createFromGlobals(),
-                $GLOBALS['PROXY_URL'] = $GLOBALS['TARGET_URL'] . $GLOBALS['REQUEST_URI'] = $_SERVER['REQUEST_URI'])->getContent(),$GLOBALS['CACHE_TIME']);
+            $GLOBALS['CACHE_ADAPTER']->set($GLOBALS['CACHE_KEY'], $this->forward(Http\Request::createFromGlobals(), $GLOBALS['PROXY_URL'])->getContent(), $GLOBALS['CACHE_TIME']);
 
         } catch (exception $e) {
             if ($GLOBALS['MIME'] !== 'text/html') header("Location: " . $GLOBALS['PROXY_URL']); else {
@@ -142,13 +150,6 @@ class yxorp
     {
         if (method_exists($subscriber, 'subscribe')) $subscriber->subscribe($this);
     }
-
-    public static function CSV($filename = '')
-    {
-        $csvArray = array_map('str_getcsv', file($filename));
-        return array_merge(...$csvArray);
-    }
-
 
     public function forward(Request $request, $url): Response
     {
@@ -182,6 +183,12 @@ class yxorp
                 }
             }
         }
+    }
+
+    public static function CSV($filename = '')
+    {
+        $csvArray = array_map('str_getcsv', file($filename));
+        return array_merge(...$csvArray);
     }
 
     public function SUB($url)

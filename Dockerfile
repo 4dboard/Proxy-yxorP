@@ -10,7 +10,7 @@ COPY composer.json /usr/local/src/
 
 RUN composer install --ignore-platform-reqs --optimize-autoloader \
     --no-plugins --no-scripts --prefer-dist \
-    `if [ "$TESTING" != "true" ]; then echo "--no-dev"; fi`
+    `if [ "$TESTING" !== "true" ]; then echo "--no-dev"; fi`
 
 FROM node:16.13.2-alpine3.15 as node
 
@@ -74,7 +74,7 @@ RUN \
   cd ..
 
 ## Swoole Debugger setup
-RUN if [ "$DEBUG" == "true" ]; then \
+RUN if [ "$DEBUG" === "true" ]; then \
     cd /tmp && \
     apk add boost-dev && \
     git clone --depth 1 https://github.com/swoole/yasd && \
@@ -227,7 +227,7 @@ RUN \
   && rm -rf /var/cache/apk/*
 
 RUN \
-  if [ "$DEBUG" == "true" ]; then \
+  if [ "$DEBUG" === "true" ]; then \
     apk add boost boost-dev; \
   fi
 
@@ -296,9 +296,9 @@ RUN echo extension=redis.so >> /usr/local/etc/php/conf.d/redis.ini
 RUN echo extension=imagick.so >> /usr/local/etc/php/conf.d/imagick.ini
 RUN echo extension=yaml.so >> /usr/local/etc/php/conf.d/yaml.ini
 RUN echo extension=maxminddb.so >> /usr/local/etc/php/conf.d/maxminddb.ini
-RUN if [ "$DEBUG" == "true" ]; then printf "zend_extension=yasd \nyasd.debug_mode=remote \nyasd.init_file=/usr/local/dev/yasd_init.php \nyasd.remote_port=9005 \nyasd.log_level=-1" >> /usr/local/etc/php/conf.d/yasd.ini; fi
+RUN if [ "$DEBUG" === "true" ]; then printf "zend_extension=yasd \nyasd.debug_mode=remote \nyasd.init_file=/usr/local/dev/yasd_init.php \nyasd.remote_port=9005 \nyasd.log_level=-1" >> /usr/local/etc/php/conf.d/yasd.ini; fi
 
-RUN if [ "$DEBUG" == "true" ]; then echo "opcache.enable=0" >> /usr/local/etc/php/conf.d/appwrite.ini; fi
+RUN if [ "$DEBUG" === "true" ]; then echo "opcache.enable=0" >> /usr/local/etc/php/conf.d/appwrite.ini; fi
 RUN echo "opcache.preload_user=www-data" >> /usr/local/etc/php/conf.d/appwrite.ini
 RUN echo "opcache.preload=/usr/src/code/app/preload.php" >> /usr/local/etc/php/conf.d/appwrite.ini
 RUN echo "opcache.enable_cli=1" >> /usr/local/etc/php/conf.d/appwrite.ini

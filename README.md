@@ -7,7 +7,8 @@
 </p>
 
 <h3 >🔋 Batteries are included</h3></h3>
-<h4> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.</h4>
+<h4> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
+Spinner.</h4>
 
 Convenient features such as built-in content spinning and an auto caching engine are hidden behind a slick online
 interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files,
@@ -47,7 +48,7 @@ degradation (10,000+ thesaurus/dictionary entries) while maintaining high qualit
 Appwrite is an end-to-end backend server for Web, Mobile, Native, or Backend apps packaged as a set of Docker<nobr>
 microservices. Appwrite abstracts the complexity and repetitiveness required to build a modern backend API from scratch
 and allows you to build secure apps faster.
-    
+
 <img align="center" src='asset/logo.gif' />
 
 Using Appwrite, you can easily integrate your app with user authentication & multiple sign-in methods, a database for
