@@ -1,7 +1,4 @@
-<?php /* yxorP */
-
-use yxorP\http\ProxyEvent;
-
+<?php use yxorP\http\ProxyEvent;
 
 class YoutubePlugin extends AbstractPlugin
 {

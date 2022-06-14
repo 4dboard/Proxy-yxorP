@@ -1,7 +1,4 @@
-<?php /* yxorP */
-
-namespace yxorP\Http;
-
+<?php namespace yxorP\Http;
 class HtmlMinify
 {
     const DOCTYPE_HTML4 = 'HTML4.01';

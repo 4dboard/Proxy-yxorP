@@ -1,13 +1,7 @@
-<?php /* yxorP */
-
-namespace yxorP\Http;
+<?php namespace yxorP\Http;
 
 use JetBrains\PhpStorm\Pure;
 
-/**
- * @property false|mixed $case_sensitive
- * @property array $data
- */
 class ParamStore
 {
     private array $data;
@@ -21,9 +15,7 @@ class ParamStore
 
     public function replace(array $data): void
     {
-
         $this->clear();
-
         foreach ($data as $key => $value) {
             $this->set($key, $value);
         }
@@ -36,9 +28,7 @@ class ParamStore
 
     public function set($key, $value, $replace = true): void
     {
-
         $key = $this->normalizeKey($key);
-
         if ($replace || !$this->has($key)) {
             $this->data[$key] = $value;
         } else if (is_array($this->data[$key])) {
@@ -65,9 +55,7 @@ class ParamStore
 
     #[Pure] public function get($key, $default = null)
     {
-
         $key = $this->normalizeKey($key);
-
         return $this->has($key) ? $this->data[$key] : $default;
     }
 
@@ -81,4 +69,3 @@ class ParamStore
         return json_encode($this->data, JSON_THROW_ON_ERROR | true);
     }
 }
-

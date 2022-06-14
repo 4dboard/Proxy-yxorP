@@ -1,13 +1,8 @@
-<?php /* yxorP */
-
-namespace yxorP\Http;
+<?php namespace yxorP\Http;
 
 use ArrayAccess;
 use ReturnTypeWillChange;
 
-/**
- * @property array $data
- */
 class ProxyEvent implements ArrayAccess
 {
     private array $data;
@@ -19,7 +14,6 @@ class ProxyEvent implements ArrayAccess
 
     #[ReturnTypeWillChange] public function offsetSet($offset, $value)
     {
-
         if (is_null($offset)) {
             $this->data[] = $value;
         } else {
@@ -41,5 +35,4 @@ class ProxyEvent implements ArrayAccess
     {
         return $this->data[$offset] ?? null;
     }
-
 }

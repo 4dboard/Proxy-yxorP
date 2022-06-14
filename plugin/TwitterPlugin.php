@@ -1,6 +1,4 @@
-<?php /* yxorP */
-
-use yxorP\http\ProxyEvent;
+<?php use yxorP\http\ProxyEvent;
 
 class TwitterPlugin extends AbstractPlugin
 {
@@ -8,13 +6,9 @@ class TwitterPlugin extends AbstractPlugin
 
     public function onCompleted(ProxyEvent $event)
     {
-
         $response = $event['response'];
         $content = $response->getContent();
-
         $content = Html::remove_scripts($content);
-
         $response->setContent($content);
     }
 }
-

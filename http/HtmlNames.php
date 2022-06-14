@@ -1,7 +1,4 @@
-<?php /* yxorP */
-
-namespace yxorP\Http;
-
+<?php namespace yxorP\Http;
 class HtmlNames
 {
     const aTag = 'a';

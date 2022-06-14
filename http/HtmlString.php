@@ -1,7 +1,4 @@
-<?php /* yxorP */
-
-namespace yxorP\Http;
-
+<?php namespace yxorP\Http;
 class HtmlString
 {
     const ENCODING = 'UTF-8';

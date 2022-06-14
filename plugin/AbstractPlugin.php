@@ -1,31 +1,21 @@
-<?php /* yxorP */
-
-use yxorP\helper\GeneralHelpers;
+<?php use yxorP\helper\GeneralHelpers;
 use yxorP\http\ProxyEvent;
 
-/**
- * @property $url_pattern
- */
 abstract class AbstractPlugin
 {
-
     protected $url_pattern;
 
     final public function subscribe($dispatcher): void
     {
-
         $dispatcher->addListener('request.before_send', function ($event) {
             $this->route('request.before_send', $event);
         });
-
         $dispatcher->addListener('request.sent', function ($event) {
             $this->route('request.sent', $event);
         });
-
         $dispatcher->addListener('curl.callback.write', function ($event) {
             $this->route('curl.callback.write', $event);
         });
-
         $dispatcher->addListener('request.complete', function ($event) {
             $this->route('request.complete', $event);
         });
@@ -34,31 +24,24 @@ abstract class AbstractPlugin
     private function route($event_name, ProxyEvent $event): void
     {
         $url = $event['request']->getUri();
-
         if ($this->url_pattern) {
             if (GeneralHelpers::starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1) {
                 return;
             }
-
             if (stripos($url, $this->url_pattern) === false) {
                 return;
             }
         }
-
         switch ($event_name) {
-
             case 'request.before_send':
                 $this->onBeforeRequest($event);
                 break;
-
             case 'request.sent':
                 $this->onHeadersReceived($event);
                 break;
-
             case 'curl.callback.write':
                 $this->onCurlWrite($event);
                 break;
-
             case 'request.complete':
                 $this->onCompleted($event);
                 break;

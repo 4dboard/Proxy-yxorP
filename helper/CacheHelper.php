@@ -1,6 +1,4 @@
-<?php /* yxorP */
-
-namespace yxorP\Helpers;
+<?php namespace yxorP\Helpers;
 
 use yxorP\Cache\Cache;
 
@@ -14,13 +12,9 @@ class CacheHelper
                 throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
             }
         }
-
-        $GLOBALS['CACHE_KEY'] = base64_encode($GLOBALS['SITE_CONTEXT']->SITE_URL . $GLOBALS['SITE_CONTEXT']->REQUEST_URI);
+        $GLOBALS['CACHE_KEY'] = base64_encode($GLOBALS['SITE_CONTEXT']->PROXY_URL);
         $GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31 * 365);
-
         if (isset($_GET["CLECHE"])) Cache::cache($GLOBALS['CACHE_KEY'])->clearAll();
-
         new MimeHelper();
-
     }
 }

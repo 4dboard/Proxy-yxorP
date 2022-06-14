@@ -1,7 +1,4 @@
-<?php /* yxorP */
-
-namespace yxorP\Http;
-
+<?php namespace yxorP\Http;
 class HtmlToken
 {
     const Uninitialized = 'Uninitialized';
@@ -243,7 +240,7 @@ class HtmlToken
         $_default = array('name' => '', 'value' => '', 'quoted' => false,);
         unset($this->_currentAttribute);
         $this->_currentAttribute = $_default;
-        $this->_attributes[] = &$this->_currentAttribute;
+        $this->_attributes[] =& $this->_currentAttribute;
     }
 
     public function beginAttributeName($offset)
