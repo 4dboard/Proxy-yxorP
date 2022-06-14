@@ -16,14 +16,26 @@
 
 
 !.github/
+!bin/
+!bin/*
 !asset/
 !cache/
 !dashboard/
 !helper/
 !http/
 !override/
-!override/default/
+!config/
+!config/
+!migrations/
+!migrations/*
+!config/*
+!config/_example.php/
 !override/www.example.com/
+!override/default/
+!dashboard/
+!plugin/*
+!src/
+!src/*
 !plugin/
 !.github/*
 !asset/*

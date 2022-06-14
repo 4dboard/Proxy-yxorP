@@ -1,5 +1,6 @@
 <?php /* yxorP */
 
+use yxorP\Helpers\GeneralHelpers;
 use yxorP\http\ProxyEvent;
 
 /**
@@ -97,7 +98,7 @@ class ProxifyPlugin extends AbstractPlugin
     {
 
         $url = trim($matches[1]);
-        if (starts_with($url, 'data:')) {
+        if (GeneralHelpers::starts_with($url, 'data:')) {
             return $matches[0];
         }
 
@@ -115,7 +116,7 @@ class ProxifyPlugin extends AbstractPlugin
         $url = trim($matches[2]);
 
         $schemes = array('data:', 'magnet:', 'about:', 'javascript:', 'mailto:', 'tel:', 'ios-app:', 'android-app:');
-        if (starts_with($url, $schemes)) {
+        if (GeneralHelpers::starts_with($url, $schemes)) {
             return $matches[0];
         }
 

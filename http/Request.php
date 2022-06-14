@@ -194,7 +194,7 @@ class Request
         $method = $_SERVER['REQUEST_METHOD'];
         $scheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) ? 'https' : 'http';
 
-        $url = $scheme . ':' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+        $url = $scheme . ':' . $GLOBALS['SITE_CONTEXT']->SITE_HOST . $GLOBALS['SITE_CONTEXT']->REQUEST_URI;
 
         $request = new Request($method, $url);
 
@@ -237,7 +237,7 @@ class Request
 
     public function getUrl(): string
     {
-        return $GLOBALS['PROXY_URL'];
+        return $GLOBALS['SITE_CONTEXT']->PROXY_URL;
     }
 
     public function getProtocolVersion(): string

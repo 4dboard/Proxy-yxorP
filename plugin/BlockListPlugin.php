@@ -1,5 +1,6 @@
 <?php /* yxorP */
 
+use yxorP\helpers\GeneralHelpers;
 use yxorP\http\ProxyEvent;
 use yxorP\Plugin\AbstractPlugin;
 
@@ -45,7 +46,7 @@ class BlockListPlugin extends AbstractPlugin
         }
 
         if ($ip_match) {
-            $m = re_match($ip_match, $user_ip);
+            $m = GeneralHelpers::re_match($ip_match, $user_ip);
 
             if (($m && $action_block) || (!$m && !$action_block)) {
                 $GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error: Access denied!"));

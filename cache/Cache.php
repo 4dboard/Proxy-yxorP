@@ -1,299 +1,160 @@
-<?php /* yxorP */
-
-namespace yxorP\cache;
-
-use cacheCoreException;
-use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\NoReturn;
-use RuntimeException;
-
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/abstract.php");
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/driver.php");
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheCoreException.php");
-require_once($GLOBALS['PLUGIN_DIR'] . "/cache/exceptions/cacheDriverException.php");
-if (!function_exists("__c")) {
-
-    function __c($storage = "", $option = array())
-    {
-        return cache($storage, $option);
-    }
-}
-
-if (!function_exists("cache")) {
-    function cache($storage = "auto", $config = array())
-    {
-        $storage = strtolower($storage);
-        if (empty($config)) {
-            $config = cache::$config;
-        }
-
-        if ($storage === "" || $storage === "auto") {
-            $storage = cache::getAutoClass($config);
-        }
-        $instance = md5(json_encode($config, JSON_THROW_ON_ERROR) . $storage);
-        if (!isset(cache_instances::$instances[$instance])) {
-            $class = "cache_" . $storage;
-            cache::required($storage);
-            cache_instances::$instances[$instance] = new $class($config);
-        }
-
-        return cache_instances::$instances[$instance];
-    }
-}
-
-class cache_instances
+<?php namespace yxorP\cache;
+trait State
 {
+    public static function __set_state($data)
+    {
+        $self = new self();
+        $self->setState($data);
+        return $self;
+    }
 
-    public static array $instances = array();
+    public function setState($data)
+    {
+        foreach ($data as $k => $v) {
+            $this->{$k} = $v;
+        }
+    }
 }
 
-/**
- * @property $tmp
- */
-class cache
+class Cache
 {
+    const EXT = '.tmp';
+    const OPTIONS = '.attr';
+    static $is_pretty = true;
+    private static $instance;
+    private $attr_instance;
+    private $path;
+    private $key;
+    private $options;
 
-    public static bool $disabled = false;
-    public static array $config = array(
-        "storage" => "",
-        "default_chmod" => 0777,
-
-        "fallback" => "files",
-
-        "securityKey" => "auto",
-        "htaccess" => true,
-        "path" => "",
-
-        "memcache" => array(
-            array("127.0.0.1", 11211, 1),
-
-        ),
-
-        "redis" => array(
-            "host" => "127.0.0.1",
-            "port" => "",
-            "password" => "",
-            "database" => "",
-            "timeout" => "",
-        ),
-
-        "ssdb" => array(
-            "host" => "127.0.0.1",
-            "port" => 8888,
-            "password" => "",
-            "timeout" => "",
-        ),
-
-        "extensions" => array(),
-    );
-    protected static array $tmp = array();
-    public mixed $instance;
-
-    public function __construct($storage = "", $config = array())
+    private function __construct($key, $is_super = true)
     {
-        if (empty($config)) {
-            $config = self::$config;
+        $this->path = $GLOBALS['SITE_CONTEXT']->CACHE_DIR;
+        $this->key = $key;
+        $this->options = ['expiry' => -1, 'lock' => false,];
+        if ($is_super) {
+            $this->attr_instance = new self($this->key . Cache::OPTIONS, false);
+            if ($this->attr_instance->isExists()) {
+                $this->options = $this->attr_instance->get();
+            }
         }
-        $config['storage'] = $storage;
-
-        $storage = strtolower($storage);
-        if ($storage === "" || $storage === "auto") {
-            $storage = self::getAutoClass($config);
-        }
-
-        $this->instance = cache($storage, $config);
     }
 
-
-    public static function getAutoClass($config): string
+    private function isExists()
     {
-        if (extension_loaded('Zend OPcache')) {
-            $driver = "apc";
-        }
-        if (extension_loaded('apc') && ini_get('apc.enabled') && !str_contains(PHP_SAPI, "CGI")) {
-            $driver = "apc";
-        } else if (class_exists("memcached")) {
-            $driver = "memcached";
-        } elseif (extension_loaded('wincache') && function_exists("wincache_ucache_set")) {
-            $driver = "wincache";
-        } elseif (extension_loaded('xcache') && function_exists("xcache_get")) {
-            $driver = "xcache";
-        } else if (function_exists("memcache_connect")) {
-            $driver = "memcache";
-        } else if (class_exists("Redis")) {
-            $driver = "redis";
-        } else {
-            $driver = "files";
-        }
-
-        return $driver;
-    }
-
-    /**
-     * @throws cacheCoreException
-     */
-    public static function getPath($skip_create_path = false, $config): bool|string
-    {
-        if (!isset($config['path']) || $config['path'] === '') {
-            if (self::isPHPModule()) {
-                $tmp_dir = ini_get('upload_tmp_dir') ?: sys_get_temp_dir();
-                $path = $tmp_dir;
-            } else {
-                $path = isset($_SERVER['DOCUMENT_ROOT']) ? rtrim($_SERVER['DOCUMENT_ROOT'], "/") . "/../" : rtrim(__DIR__, "/") . "/";
-            }
-
-            if (self::$config['path'] !== "") {
-                $path = $config['path'];
-            }
-
-        } else {
-            $path = $config['path'];
-        }
-
-        $securityKey = array_key_exists('securityKey',
-            $config) ? $config['securityKey'] : "";
-        if ($securityKey === "" || $securityKey === "auto") {
-            $securityKey = self::$config['securityKey'];
-            if ($securityKey === "auto" || $securityKey === "") {
-                $securityKey = isset($_SERVER['HTTP_HOST']) ? preg_replace('/^www./',
-                    '', strtolower($_SERVER['HTTP_HOST'])) : "default";
-            }
-        }
-        if ($securityKey !== "") {
-            $securityKey .= "/";
-        }
-
-        $securityKey = self::cleanFileName($securityKey);
-
-        $full_path = $path . "/" . $securityKey;
-        $full_pathx = md5($full_path);
-        if ($skip_create_path === false && !isset(self::$tmp[$full_pathx])) {
-
-            if (!@file_exists($full_path) || !@is_writable($full_path)) {
-                if (!@file_exists($full_path) && !mkdir($full_path, self::__setChmodAuto($config)) && !is_dir($full_path)) {
-                    throw new RuntimeException(sprintf('Directory "%s" was not created', $full_path));
-                }
-                if (!@is_writable($full_path)) {
-                    @chmod($full_path, self::__setChmodAuto($config));
-                }
-                if (!@file_exists($full_path) || !@is_writable($full_path)) {
-                    throw new cacheCoreException("PLEASE CREATE OR CHMOD " . $full_path . " - 0777 OR ANY WRITABLE PERMISSION!", 92);
-                }
-            }
-            self::$tmp[$full_pathx] = true;
-            try {
-                self::htaccessGen($full_path, array_key_exists('htaccess',
-                    $config) ? $config['htaccess'] : false);
-            } catch (cacheCoreException $e) {
-            }
-        }
-
-        return realpath($full_path);
-
-    }
-
-    public static function isPHPModule(): bool
-    {
-        if (PHP_SAPI === "apache2handler") {
+        if (file_exists($this->path . "$this->key")) {
             return true;
-        }
-
-        if (str_contains(PHP_SAPI, "handler")) {
-            return true;
-        }
-        return false;
-    }
-
-    public static function cleanFileName($filename): array|string|null
-    {
-        $regex = array(
-            '/[?\[\]\/\\\=<>:;,\'\"&#*()|~`!{}]/',
-            '/\.$/',
-            '/^\./',
-        );
-        $replace = array('-', '', '');
-        return preg_replace($regex, $replace, $filename);
-    }
-
-    public static function __setChmodAuto($config)
-    {
-        if (!isset($config['default_chmod']) || $config['default_chmod'] === "" || is_null($config['default_chmod'])) {
-            return 0777;
-        }
-
-        return $config['default_chmod'];
-    }
-
-    /**
-     * @throws cacheCoreException
-     */
-    protected static function htaccessGen($path, $create = true): void
-    {
-
-        if ($create === true) {
-            if (!is_writable($path) && !chmod($path, 0777)) {
-                throw new cacheCoreException("PLEASE CHMOD " . $path . " - 0777 OR ANY WRITABLE PERMISSION!", 92);
-            }
-
-            if (!file_exists($path . "/.htaccess")) {
-
-                $html = "order deny, allow \r\n
-deny from all \r\n
-allow from 127.0.0.1";
-
-                $f = @fopen($path . "/.htaccess", 'wb+');
-                if (!$f) {
-                    throw new cacheCoreException("PLEASE CHMOD " . $path . " - 0777 OR ANY WRITABLE PERMISSION!", 92);
-                }
-                fwrite($f, $html);
-                fclose($f);
-            }
-        }
-
-    }
-
-    public static function setup($name, $value = ""): void
-    {
-        if (is_array($name)) {
-            self::$config = $name;
         } else {
-            self::$config[$name] = $value;
+            return false;
         }
     }
 
-    #[NoReturn] public static function debug($something): void
+    public function get()
     {
-        echo "Starting Debugging ...<br>\r\n ";
-        if (is_array($something)) {
-            echo "<pre>";
-            print_r($something);
-            echo "</pre>";
-            var_dump($something);
-        } else {
-            echo $something;
+        if (!$this->isValid()) {
+            return;
         }
-        echo "\r\n<br> Ended";
-        exit;
+        @include $this->path . "$this->key";
+        return $val ?? false;
     }
 
-    public static function required($class): void
+    public function isValid()
     {
-        require_once($GLOBALS['PLUGIN_DIR'] . "/cache/drivers/" . $class . ".php");
+        if ($this->options['expiry'] != -1 && $this->options['expiry'] < time()) {
+            return false;
+        }
+        if (!$this->isExists()) {
+            return false;
+        }
+        return true;
     }
 
-    #[ArrayShape(["os" => "string", "php" => "string", "system" => "string", "unique" => "string"])] protected static function getOS(): array
+    public static function cache($key)
     {
-        return array(
-            "os" => PHP_OS,
-            "php" => PHP_SAPI,
-            "system" => php_uname(),
-            "unique" => md5(php_uname() . PHP_OS . PHP_SAPI),
-        );
+        if (!isset(self::$instance[$key])) {
+            self::$instance[$key] = new self($key);
+        }
+        return self::$instance[$key];
     }
 
-
-    public function __call($name, $args)
+    public static function setPath($path)
     {
-        return call_user_func_array(array($this->instance, $name), $args);
+        $GLOBALS['SITE_CONTEXT']->CACHE_DIR = $path;
+    }
+
+    public static function getPath()
+    {
+        return $GLOBALS['SITE_CONTEXT']->CACHE_DIR;
+    }
+
+    public static function setPretty($val)
+    {
+        self::$is_pretty = (boolean)$val;
+    }
+
+    public static function clearAll()
+    {
+        $files = glob($GLOBALS['SITE_CONTEXT']->CACHE_DIR . '*');
+        foreach ($files as $file) {
+            if (is_file($file)) {
+                unlink($file);
+            }
+        }
+    }
+
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    public function lock()
+    {
+        $this->options['lock'] = true;
+        $this->attrSave();
+        return $this;
+    }
+
+    private function attrSave()
+    {
+        $this->attr_instance->set($this->options);
+    }
+
+    public function set($val)
+    {
+        $key = $this->key;
+        if ($this->options['lock']) {
+            return $this;
+        }
+        $val = var_export($val, true);
+        if (!self::$is_pretty) {
+            $val = str_replace(["\\n", ",  '", " => "], ["", ",'", "=>"], $val);
+        }
+        $val = str_replace('stdClass::__set_state', '(object)', $val);
+        $tmp = $this->path . "$key." . uniqid('', true) . Cache::EXT;
+        $file = fopen($tmp, 'x');
+        fwrite($file, '<?php $val=' . $val . ';');
+        fclose($file);
+        rename($tmp, $this->path . $key);
+        return $this;
+    }
+
+    public function unlock()
+    {
+        $this->options['lock'] = false;
+        $this->attrSave();
+        return $this;
+    }
+
+    public function options($options)
+    {
+        $this->options = array_merge($this->options, $options);
+        $this->attrSave();
+        return $this;
+    }
+
+    public function destroy()
+    {
+        @unlink($this->path . "$this->key");
+        @unlink($this->path . "$this->key" . Cache::OPTIONS);
     }
 }

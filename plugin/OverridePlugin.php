@@ -1,7 +1,7 @@
 <?php /* yxorP */
 
-use yxorP\http\ProxyEvent;
 use yxorP\http\HtmlMinify;
+use yxorP\http\ProxyEvent;
 
 class OverridePlugin extends AbstractPlugin
 {
@@ -16,21 +16,20 @@ class OverridePlugin extends AbstractPlugin
         if ($GLOBALS['MIME'] !== 'text/html' && $GLOBALS['MIME'] !== 'application/javascript' && $GLOBALS['MIME'] !== 'text/css' && $GLOBALS['MIME'] !== 'application/xml' && !str_contains($GLOBALS['MIME'], 'text')) return;
 
         $GLOBAL_SEARCH_MERGE = $this->merge($this->merge($this->merge(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_global.csv'),
-            yxorp::CSV($GLOBALS['OVERRIDE_DIR'] . '/includes/search_global.csv')), array(preg_replace("#^[^:/.]*[:/]+#i", "",
-            preg_replace("{/$}", "", urldecode($GLOBALS['TARGET_HOST']))))), yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_global.csv'));
+            yxorp::CSV($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/includes/search_global.csv')), array(preg_replace("#^[^:/.]*[:/]+#i", "",
+            preg_replace("{/$}", "", urldecode($GLOBALS['SITE_CONTEXT']->SITE_URL))))));
 
         $GLOBAL_REPLACE_MERGE = $this->merge($this->merge($this->merge(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_global.csv'),
-            yxorp::CSV($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_global.csv')), array(preg_replace("#^[^:/.]*[:/]+#i", "",
-            preg_replace("{/$}", "", urldecode($GLOBALS['SITE_HOST']))))), yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_global.csv'));
+            yxorp::CSV($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/includes/replace_global.csv')), array(preg_replace("#^[^:/.]*[:/]+#i", "",
+            preg_replace("{/$}", "", urldecode($GLOBALS['SITE_HOST']))))));
 
         $PATTERN_SEARCH_MERGE = array_filter($this->merge(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/search_pattern.csv'),
-            yxorp::CSV($GLOBALS['OVERRIDE_DIR'] . '/includes/search_pattern.csv')));
+            yxorp::CSV($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/includes/search_pattern.csv')));
 
         $PATTERN_REPLACE_MERGE = array_filter($this->merge(yxorp::CSV($GLOBALS['PLUGIN_DIR'] . '/override/default/includes/replace_pattern.csv'),
-            yxorp::CSV($GLOBALS['OVERRIDE_DIR'] . '/includes/replace_pattern.csv')));
+            yxorp::CSV($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/includes/replace_pattern.csv')));
 
-        $event['response']->setContent($this->REWRITE(preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE,
-            str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, $event['response']->getContent()))));
+        $event['response']->setContent($this->REWRITE(str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE, $event['response']->getContent()))));
     }
 
     function merge($array1, $array2 = null, $array3 = null)

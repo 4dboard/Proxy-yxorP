@@ -2,7 +2,6 @@
 
 /* yxorP */
 
-use yxorP\Helpers;
 use yxorP\http\ProxyEvent;
 
 /**

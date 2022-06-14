@@ -1,5 +1,6 @@
 <?php /* yxorP */
 
+use yxorP\helper\GeneralHelpers;
 use yxorP\http\ProxyEvent;
 
 /**
@@ -35,7 +36,7 @@ abstract class AbstractPlugin
         $url = $event['request']->getUri();
 
         if ($this->url_pattern) {
-            if (starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1) {
+            if (GeneralHelpers::starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1) {
                 return;
             }
 

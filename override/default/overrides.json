@@ -1,5 +1,18 @@
 {
-  "xn--gme-nnb.com": "crazygames.com",
-  "xn--ply-onb.com": "pacogames.com",
-  "localhost": "crazygames.com"
+  "localhost": {
+    "TARGET": "pacogames.com",
+    "DIR": "pacogames.com"
+  },
+  "xn--gme-nnb.com": {
+    "TARGET": "crazygames.com",
+    "DIR": "crazygames.com"
+  },
+  "xn--ply-onb.com": {
+    "TARGET": "pacogames.com",
+    "DIR": "pacogames.com"
+  },
+  "theabyss.xn--ply-onb.com": {
+    "TARGET": "theabyss.com",
+    "OVERRIDE_DIR": "crazygames.com"
+  }
 }
