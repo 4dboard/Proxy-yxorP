@@ -1,16 +1,16 @@
 {
-  "name": "cockpit-next",
+  "name": "yxorp-next",
   "version": "0.12.2",
   "license": "MIT",
   "scripts": {
     "build": "npm run build-style && npm run build-components",
     "build-style": "lessc assets/app/css/style.less > assets/app/css/style.css -x",
-    "build-components": "riot modules/Cockpit/assets/components modules/Cockpit/assets/components.js",
+    "build-components": "riot modules/Yxorp/assets/components modules/Yxorp/assets/components.js",
     "watch": "npm run watch-style & npm run watch-components",
     "watch-style": "watch-run -i -p 'assets/app/css/**/*.less' npm run build-style",
-    "watch-components": "watch-run -i -p 'modules/Cockpit/assets/components/*.tag' npm run build-components",
-    "docker-init": "docker build -t cockpit/dev .",
-    "docker": "docker run -p 8080:80 -v $PWD:/var/www/html cockpit/dev & open http://localhost:8080/install"
+    "watch-components": "watch-run -i -p 'modules/Yxorp/assets/components/*.tag' npm run build-components",
+    "docker-init": "docker build -t yxorp/dev .",
+    "docker": "docker run -p 8080:80 -v $PWD:/var/www/html yxorp/dev & open http://localhost:8080/install"
   },
   "devDependencies": {
     "less": "^2.6.0",
@@ -22,7 +22,7 @@
   },
   "collective": {
     "type": "opencollective",
-    "url": "https://opencollective.com/cockpit",
+    "url": "https://opencollective.com/yxorp",
     "logo": "https://opencollective.com/opencollective/logo.txt"
   }
 }

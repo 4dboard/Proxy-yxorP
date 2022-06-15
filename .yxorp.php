@@ -17,8 +17,7 @@ require $GLOBALS['PLUGIN_DIR'] . '/bugsnag.phar';
 
 class yxorp
 {
-    private $client;
-    private $listeners = [];
+    private $client, $listeners = [];
 
     public function __construct()
     {

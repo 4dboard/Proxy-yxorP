@@ -1,14 +1,14 @@
 {
-  "name": "agentejo/cockpit",
+  "name": "agentejo/yxorp",
   "type": "project",
-  "description": "Cockpit Headless CMS",
+  "description": "Yxorp Headless CMS",
   "keywords": [
     "cms",
     "headles",
     "api",
-    "cockpit"
+    "yxorp"
   ],
-  "homepage": "https://getcockpit.com/",
+  "homepage": "https://getyxorp.com/",
   "license": "MIT",
   "authors": [
     {
