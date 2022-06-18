@@ -1,6 +1,10 @@
-<?php use yxorP\http\ProxyEvent;
+<?php
+namespace yxorP\Helper;
 
-class StreamPlugin extends AbstractPlugin
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
+
+class StreamPlugin extends EventWrapper
 {
     private array $output_buffer_types = array('text/html', 'text/plain', 'text/css', 'text/javascript', 'application/x-javascript', 'application/javascript');
     private bool $stream = false;
@@ -10,6 +14,7 @@ class StreamPlugin extends AbstractPlugin
     {
         $content_type = $event['response']->headers->get('content-type');
         $content_length = $event['response']->headers->get('content-length');
+
         if (!in_array($content_type, $this->output_buffer_types, true) || $content_length > $this->max_content_length) {
             $this->stream = true;
             $event['response']->sendHeaders();
@@ -35,5 +40,3 @@ class StreamPlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

@@ -1,6 +1,9 @@
-<?php use yxorP\http\ProxyEvent;
+<?php
+namespace yxorP\Helper;
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
 
-class HeaderRewritePlugin extends AbstractPlugin
+class HeaderRewritePlugin extends EventWrapper
 {
     public function onBeforeRequest(ProxyEvent $event)
     {
@@ -35,5 +38,3 @@ class HeaderRewritePlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

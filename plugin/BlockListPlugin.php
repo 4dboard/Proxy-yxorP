@@ -1,8 +1,10 @@
-<?php use yxorP\helpers\GeneralHelper;
-use yxorP\http\ProxyEvent;
-use yxorP\Plugin\AbstractPlugin;
+<?php
+namespace yxorP\Helper;
 
-class BlockListPlugin extends AbstractPlugin
+use yxorP\http\ProxyEvent;
+use yxorP\Http\EventWrapper;
+
+class BlockListPlugin extends EventWrapper
 {
     public function onBeforeRequest(ProxyEvent $event): void
     {
@@ -40,5 +42,3 @@ class BlockListPlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

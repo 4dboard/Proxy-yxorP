@@ -1,11 +1,14 @@
 <?php namespace yxorP\Http;
+
+use JetBrains\PhpStorm\Pure;
+
 class HtmlMinify
 {
-    const DOCTYPE_HTML4 = 'HTML4.01';
-    const DOCTYPE_XHTML1 = 'XHTML1.0';
-    const DOCTYPE_HTML5 = 'html5';
-    const OPTIMIZATION_SIMPLE = 0;
-    const OPTIMIZATION_ADVANCED = 1;
+    public const DOCTYPE_HTML4 = 'HTML4.01';
+    public const DOCTYPE_XHTML1 = 'XHTML1.0';
+    public const DOCTYPE_HTML5 = 'html5';
+    public const OPTIMIZATION_SIMPLE = 0;
+    public const OPTIMIZATION_ADVANCED = 1;
     protected $html = null;
     protected $options = array();
     protected $tokens;
@@ -45,8 +48,7 @@ class HtmlMinify
     public function process()
     {
         $this->beforeFilter();
-        $html = $this->_buildHtml($this->tokens);
-        return $html;
+        return $this->_buildHtml($this->tokens);
     }
 
     protected function beforeFilter()
@@ -155,7 +157,6 @@ class HtmlMinify
                         $isEditable = false;
                         $uneditableTag = $tagName;
                         continue 2;
-                        break;
                     default:
                         break;
                 }
@@ -182,7 +183,7 @@ class HtmlMinify
                     $typeBefore = $tokenBefore->getType();
                     $isTagBefore = $typeBefore === HtmlToken::StartTag || $typeBefore === HtmlToken::EndTag;
                     $isAfterTag = $afterType === HtmlToken::StartTag || $afterType === HtmlToken::EndTag;
-                    $isAfterInline = $isAfterTag ? $this->isInlineTag($afterToken->getTagName()) : false;
+                    $isAfterInline = $isAfterTag && $this->isInlineTag($afterToken->getTagName());
                     if (($i === 0 || $isTagBefore) && $isAfterTag && (!$isBeforeInline || !$isAfterInline)) {
                         $characters = trim($characters);
                     } else if (($i === 0 || !$isBeforeInline) && !$isAfterInline) {
@@ -298,24 +299,18 @@ class HtmlMinify
         return $html;
     }
 
-    protected function _buildAttributes(HtmlToken $token)
+    #[Pure] protected function _buildAttributes(HtmlToken $token)
     {
         $attr = array();
         $format = '%s=%s%s%s';
         foreach ($token->getAttributes() as $attribute) {
             $name = $attribute['name'];
             $value = $attribute['value'];
-            switch ($attribute['quoted']) {
-                case HtmlToken::DoubleQuoted:
-                    $quoted = '"';
-                    break;
-                case HtmlToken::SingleQuoted:
-                    $quoted = '\'';
-                    break;
-                default:
-                    $quoted = '';
-                    break;
-            }
+            $quoted = match ($attribute['quoted']) {
+                HtmlToken::DoubleQuoted => '"',
+                HtmlToken::SingleQuoted => '\'',
+                default => '',
+            };
             if ($quoted === '' && $value === '') {
                 $attr[] = $name;
             } else {
@@ -331,5 +326,3 @@ class HtmlMinify
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

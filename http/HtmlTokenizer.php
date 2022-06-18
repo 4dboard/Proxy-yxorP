@@ -1,78 +1,82 @@
 <?php namespace yxorP\Http;
+
+use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
+
 class HtmlTokenizer
 {
-    const DataState = "DataState";
-    const CharacterReferenceInDataState = "CharacterReferenceInDataState";
-    const RCDATAState = "RCDATAState";
-    const CharacterReferenceInRCDATAState = "CharacterReferenceInRCDATAState";
-    const RAWTEXTState = "RAWTEXTState";
-    const ScriptDataState = "ScriptDataState";
-    const PLAINTEXTState = "PLAINTEXTState";
-    const TagOpenState = "TagOpenState";
-    const EndTagOpenState = "EndTagOpenState";
-    const TagNameState = "TagNameState";
-    const RCDATALessThanSignState = "RCDATALessThanSignState";
-    const RCDATAEndTagOpenState = "RCDATAEndTagOpenState";
-    const RCDATAEndTagNameState = "RCDATAEndTagNameState";
-    const RAWTEXTLessThanSignState = "RAWTEXTLessThanSignState";
-    const RAWTEXTEndTagOpenState = "RAWTEXTEndTagOpenState";
-    const RAWTEXTEndTagNameState = "RAWTEXTEndTagNameState";
-    const ScriptDataLessThanSignState = "ScriptDataLessThanSignState";
-    const ScriptDataEndTagOpenState = "ScriptDataEndTagOpenState";
-    const ScriptDataEndTagNameState = "ScriptDataEndTagNameState";
-    const ScriptDataEscapeStartState = "ScriptDataEscapeStartState";
-    const ScriptDataEscapeStartDashState = "ScriptDataEscapeStartDashState";
-    const ScriptDataEscapedState = "ScriptDataEscapedState";
-    const ScriptDataEscapedDashState = "ScriptDataEscapedDashState";
-    const ScriptDataEscapedDashDashState = "ScriptDataEscapedDashDashState";
-    const ScriptDataEscapedLessThanSignState = "ScriptDataEscapedLessThanSignState";
-    const ScriptDataEscapedEndTagOpenState = "ScriptDataEscapedEndTagOpenState";
-    const ScriptDataEscapedEndTagNameState = "ScriptDataEscapedEndTagNameState";
-    const ScriptDataDoubleEscapeStartState = "ScriptDataDoubleEscapeStartState";
-    const ScriptDataDoubleEscapedState = "ScriptDataDoubleEscapedState";
-    const ScriptDataDoubleEscapedDashState = "ScriptDataDoubleEscapedDashState";
-    const ScriptDataDoubleEscapedDashDashState = "ScriptDataDoubleEscapedDashDashState";
-    const ScriptDataDoubleEscapedLessThanSignState = "ScriptDataDoubleEscapedLessThanSignState";
-    const ScriptDataDoubleEscapeEndState = "ScriptDataDoubleEscapeEndState";
-    const BeforeAttributeNameState = "BeforeAttributeNameState";
-    const AttributeNameState = "AttributeNameState";
-    const AfterAttributeNameState = "AfterAttributeNameState";
-    const BeforeAttributeValueState = "BeforeAttributeValueState";
-    const AttributeValueDoubleQuotedState = "AttributeValueDoubleQuotedState";
-    const AttributeValueSingleQuotedState = "AttributeValueSingleQuotedState";
-    const AttributeValueUnquotedState = "AttributeValueUnquotedState";
-    const CharacterReferenceInAttributeValueState = "CharacterReferenceInAttributeValueState";
-    const AfterAttributeValueQuotedState = "AfterAttributeValueQuotedState";
-    const SelfClosingStartTagState = "SelfClosingStartTagState";
-    const BogusCommentState = "BogusCommentState";
-    const ContinueBogusCommentState = "ContinueBogusCommentState";
-    const MarkupDeclarationOpenState = "MarkupDeclarationOpenState";
-    const CommentStartState = "CommentStartState";
-    const CommentStartDashState = "CommentStartDashState";
-    const CommentState = "CommentState";
-    const CommentEndDashState = "CommentEndDashState";
-    const CommentEndState = "CommentEndState";
-    const CommentEndBangState = "CommentEndBangState";
-    const DOCTYPEState = "DOCTYPEState";
-    const BeforeDOCTYPENameState = "BeforeDOCTYPENameState";
-    const DOCTYPENameState = "DOCTYPENameState";
-    const AfterDOCTYPENameState = "AfterDOCTYPENameState";
-    const AfterDOCTYPEPublicKeywordState = "AfterDOCTYPEPublicKeywordState";
-    const BeforeDOCTYPEPublicIdentifierState = "BeforeDOCTYPEPublicIdentifierState";
-    const DOCTYPEPublicIdentifierDoubleQuotedState = "DOCTYPEPublicIdentifierDoubleQuotedState";
-    const DOCTYPEPublicIdentifierSingleQuotedState = "DOCTYPEPublicIdentifierSingleQuotedState";
-    const AfterDOCTYPEPublicIdentifierState = "AfterDOCTYPEPublicIdentifierState";
-    const BetweenDOCTYPEPublicAndSystemIdentifiersState = "BetweenDOCTYPEPublicAndSystemIdentifiersState";
-    const AfterDOCTYPESystemKeywordState = "AfterDOCTYPESystemKeywordState";
-    const BeforeDOCTYPESystemIdentifierState = "BeforeDOCTYPESystemIdentifierState";
-    const DOCTYPESystemIdentifierDoubleQuotedState = "DOCTYPESystemIdentifierDoubleQuotedState";
-    const DOCTYPESystemIdentifierSingleQuotedState = "DOCTYPESystemIdentifierSingleQuotedState";
-    const AfterDOCTYPESystemIdentifierState = "AfterDOCTYPESystemIdentifierState";
-    const BogusDOCTYPEState = "BogusDOCTYPEState";
-    const CDATASectionState = "CDATASectionState";
-    const CDATASectionRightSquareBracketState = "CDATASectionRightSquareBracketState";
-    const CDATASectionDoubleRightSquareBracketState = "CDATASectionDoubleRightSquareBracketState";
-    const kEndOfFileMarker = false;
+    public const DataState = "DataState";
+    public const CharacterReferenceInDataState = "CharacterReferenceInDataState";
+    public const RCDATAState = "RCDATAState";
+    public const CharacterReferenceInRCDATAState = "CharacterReferenceInRCDATAState";
+    public const RAWTEXTState = "RAWTEXTState";
+    public const ScriptDataState = "ScriptDataState";
+    public const PLAINTEXTState = "PLAINTEXTState";
+    public const TagOpenState = "TagOpenState";
+    public const EndTagOpenState = "EndTagOpenState";
+    public const TagNameState = "TagNameState";
+    public const RCDATALessThanSignState = "RCDATALessThanSignState";
+    public const RCDATAEndTagOpenState = "RCDATAEndTagOpenState";
+    public const RCDATAEndTagNameState = "RCDATAEndTagNameState";
+    public const RAWTEXTLessThanSignState = "RAWTEXTLessThanSignState";
+    public const RAWTEXTEndTagOpenState = "RAWTEXTEndTagOpenState";
+    public const RAWTEXTEndTagNameState = "RAWTEXTEndTagNameState";
+    public const ScriptDataLessThanSignState = "ScriptDataLessThanSignState";
+    public const ScriptDataEndTagOpenState = "ScriptDataEndTagOpenState";
+    public const ScriptDataEndTagNameState = "ScriptDataEndTagNameState";
+    public const ScriptDataEscapeStartState = "ScriptDataEscapeStartState";
+    public const ScriptDataEscapeStartDashState = "ScriptDataEscapeStartDashState";
+    public const ScriptDataEscapedState = "ScriptDataEscapedState";
+    public const ScriptDataEscapedDashState = "ScriptDataEscapedDashState";
+    public const ScriptDataEscapedDashDashState = "ScriptDataEscapedDashDashState";
+    public const ScriptDataEscapedLessThanSignState = "ScriptDataEscapedLessThanSignState";
+    public const ScriptDataEscapedEndTagOpenState = "ScriptDataEscapedEndTagOpenState";
+    public const ScriptDataEscapedEndTagNameState = "ScriptDataEscapedEndTagNameState";
+    public const ScriptDataDoubleEscapeStartState = "ScriptDataDoubleEscapeStartState";
+    public const ScriptDataDoubleEscapedState = "ScriptDataDoubleEscapedState";
+    public const ScriptDataDoubleEscapedDashState = "ScriptDataDoubleEscapedDashState";
+    public const ScriptDataDoubleEscapedDashDashState = "ScriptDataDoubleEscapedDashDashState";
+    public const ScriptDataDoubleEscapedLessThanSignState = "ScriptDataDoubleEscapedLessThanSignState";
+    public const ScriptDataDoubleEscapeEndState = "ScriptDataDoubleEscapeEndState";
+    public const BeforeAttributeNameState = "BeforeAttributeNameState";
+    public const AttributeNameState = "AttributeNameState";
+    public const AfterAttributeNameState = "AfterAttributeNameState";
+    public const BeforeAttributeValueState = "BeforeAttributeValueState";
+    public const AttributeValueDoubleQuotedState = "AttributeValueDoubleQuotedState";
+    public const AttributeValueSingleQuotedState = "AttributeValueSingleQuotedState";
+    public const AttributeValueUnquotedState = "AttributeValueUnquotedState";
+    public const CharacterReferenceInAttributeValueState = "CharacterReferenceInAttributeValueState";
+    public const AfterAttributeValueQuotedState = "AfterAttributeValueQuotedState";
+    public const SelfClosingStartTagState = "SelfClosingStartTagState";
+    public const BogusCommentState = "BogusCommentState";
+    public const ContinueBogusCommentState = "ContinueBogusCommentState";
+    public const MarkupDeclarationOpenState = "MarkupDeclarationOpenState";
+    public const CommentStartState = "CommentStartState";
+    public const CommentStartDashState = "CommentStartDashState";
+    public const CommentState = "CommentState";
+    public const CommentEndDashState = "CommentEndDashState";
+    public const CommentEndState = "CommentEndState";
+    public const CommentEndBangState = "CommentEndBangState";
+    public const DOCTYPEState = "DOCTYPEState";
+    public const BeforeDOCTYPENameState = "BeforeDOCTYPENameState";
+    public const DOCTYPENameState = "DOCTYPENameState";
+    public const AfterDOCTYPENameState = "AfterDOCTYPENameState";
+    public const AfterDOCTYPEPublicKeywordState = "AfterDOCTYPEPublicKeywordState";
+    public const BeforeDOCTYPEPublicIdentifierState = "BeforeDOCTYPEPublicIdentifierState";
+    public const DOCTYPEPublicIdentifierDoubleQuotedState = "DOCTYPEPublicIdentifierDoubleQuotedState";
+    public const DOCTYPEPublicIdentifierSingleQuotedState = "DOCTYPEPublicIdentifierSingleQuotedState";
+    public const AfterDOCTYPEPublicIdentifierState = "AfterDOCTYPEPublicIdentifierState";
+    public const BetweenDOCTYPEPublicAndSystemIdentifiersState = "BetweenDOCTYPEPublicAndSystemIdentifiersState";
+    public const AfterDOCTYPESystemKeywordState = "AfterDOCTYPESystemKeywordState";
+    public const BeforeDOCTYPESystemIdentifierState = "BeforeDOCTYPESystemIdentifierState";
+    public const DOCTYPESystemIdentifierDoubleQuotedState = "DOCTYPESystemIdentifierDoubleQuotedState";
+    public const DOCTYPESystemIdentifierSingleQuotedState = "DOCTYPESystemIdentifierSingleQuotedState";
+    public const AfterDOCTYPESystemIdentifierState = "AfterDOCTYPESystemIdentifierState";
+    public const BogusDOCTYPEState = "BogusDOCTYPEState";
+    public const CDATASectionState = "CDATASectionState";
+    public const CDATASectionRightSquareBracketState = "CDATASectionRightSquareBracketState";
+    public const CDATASectionDoubleRightSquareBracketState = "CDATASectionDoubleRightSquareBracketState";
+    public const kEndOfFileMarker = false;
     protected $_SegmentedString;
     protected $_Token;
     protected $_pluginsEnabled = true;
@@ -89,7 +93,7 @@ class HtmlTokenizer
     protected $_appropriateEndTagName = "";
     protected $_debug = false;
 
-    public function __construct(HtmlString $SegmentedString, $option = [])
+    #[Pure] public function __construct(HtmlString $SegmentedString, $option = [])
     {
         $this->_SegmentedString = $SegmentedString;
         $this->_Token = new HtmlToken();
@@ -120,7 +124,7 @@ class HtmlTokenizer
             $this->_state = static::DataState;
             $endPos = $this->_SegmentedString->tell();
             if ($result === false && $endPos - $startPos === 0) {
-                throw new \InvalidArgumentException("Given invalid string or invalid statement.");
+                throw new InvalidArgumentException("Given invalid string or invalid statement.");
             }
             $startState = $this->_startState;
             $type = $this->_Token->getType();
@@ -755,7 +759,7 @@ class HtmlTokenizer
                         $this->_Token->endAttributeName($source->numberOfCharactersConsumed());
                         $this->_HTML_RECONSUME_IN(static::DataState);
                     } else {
-                        if ($char === '"' || $char === '\'' || $char === "<" || $char === "=") {
+                        if ($char === '"' || $char === '\'' || $char === "<") {
                             $this->_parseError();
                         }
                         $this->_Token->appendToAttributeName($char);
@@ -935,7 +939,7 @@ class HtmlTokenizer
                             $this->_SegmentedString->read(strlen("--"));
                             $this->_Token->beginComment();
                             $this->_HTML_SWITCH_TO(static::CommentStartState);
-                            continue;
+                            break;
                         } elseif ($result === HtmlString::NotEnoughCharacters) {
                             $this->addState();
                             return $this->_haveBufferedCharacterToken();
@@ -946,7 +950,7 @@ class HtmlTokenizer
                             $this->addState();
                             $this->_SegmentedString->read(strlen($doctypeString));
                             $this->_HTML_SWITCH_TO(static::DOCTYPEState);
-                            continue;
+                            break;
                         } elseif ($result === HtmlString::NotEnoughCharacters) {
                             $this->addState();
                             return $this->_haveBufferedCharacterToken();
@@ -957,7 +961,7 @@ class HtmlTokenizer
                             $this->addState();
                             $this->_SegmentedString->read(strlen($cdataString));
                             $this->_HTML_SWITCH_TO(static::CDATASectionState);
-                            continue;
+                            break;
                         } elseif ($result === HtmlString::NotEnoughCharacters) {
                             $this->addState();
                             return $this->_haveBufferedCharacterToken();
@@ -1127,7 +1131,7 @@ class HtmlTokenizer
                                 $this->addState();
                                 $this->_HTML_SWITCH_TO(static::AfterDOCTYPEPublicKeywordState);
                                 $this->_SegmentedString->read(strlen($publicString));
-                                continue;
+                                break;
                             }
                         } elseif ($char === "S" || $char === "s") {
                             $result = $source->lookAheadIgnoringCase($systemString);
@@ -1135,7 +1139,7 @@ class HtmlTokenizer
                                 $this->addState();
                                 $this->_HTML_SWITCH_TO(static::AfterDOCTYPESystemKeywordState);
                                 $this->_SegmentedString->read(strlen($systemString));
-                                continue;
+                                break;
                             }
                         }
                         $this->_parseError();
@@ -1295,7 +1299,7 @@ class HtmlTokenizer
                 case static::BeforeDOCTYPESystemIdentifierState:
                     if ($this->_isTokenizerWhitespace($char)) {
                         $this->_HTML_ADVANCE_TO(static::BeforeDOCTYPESystemIdentifierState);
-                        continue;
+                        break;
                     }
                     if ($char === '"') {
                         $this->_Token->setSystemIdentifierToEmptyString();
@@ -1430,7 +1434,7 @@ class HtmlTokenizer
         return true;
     }
 
-    protected function _haveBufferedCharacterToken()
+    #[Pure] protected function _haveBufferedCharacterToken()
     {
         return $this->_Token->getType() === HtmlToken::Character;
     }
@@ -1517,7 +1521,7 @@ class HtmlTokenizer
         return true;
     }
 
-    protected function _temporaryBufferIs($expectedString)
+    #[Pure] protected function _temporaryBufferIs($expectedString)
     {
         return $this->_vectorEqualsString($this->_temporaryBuffer, $expectedString);
     }
@@ -1589,5 +1593,3 @@ class HtmlTokenizer
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

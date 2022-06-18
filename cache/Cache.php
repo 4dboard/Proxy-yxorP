@@ -18,9 +18,9 @@ trait State
 
 class Cache
 {
-    const EXT = '.tmp';
-    const OPTIONS = '.attr';
-    static $is_pretty = true;
+    public const EXT = '.tmp';
+    public const OPTIONS = '.attr';
+    public static $is_pretty = true;
     private static $instance;
     private $attr_instance;
     private $path;
@@ -159,5 +159,3 @@ class Cache
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

@@ -18,72 +18,71 @@ if (!defined('YXORP_CLI')) {
 }
 
 // Autoload vendor libs
-include(__DIR__ . '/lib/vendor/autoload.php');
+include(__DIR__.'/lib/vendor/autoload.php');
 
 // include core classes for better performance
 if (!class_exists('Lime\\App')) {
-    include(__DIR__ . '/lib/Lime/App.php');
-    include(__DIR__ . '/lib/LimeExtra/App.php');
-    include(__DIR__ . '/lib/LimeExtra/Controller.php');
+    include(__DIR__.'/lib/Lime/App.php');
+    include(__DIR__.'/lib/LimeExtra/App.php');
+    include(__DIR__.'/lib/LimeExtra/Controller.php');
 }
 
 /*
  * Autoload from lib folder (PSR-0)
  */
 
-spl_autoload_register(function ($class) {
-    $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
-    if (file_exists($class_path)) include_once($class_path);
+spl_autoload_register(function($class){
+    $class_path = __DIR__.'/lib/'.str_replace('\\', '/', $class).'.php';
+    if(file_exists($class_path)) include_once($class_path);
 });
 
 // load .env file if exists
 DotEnv::load(__DIR__);
 
 // check for custom defines
-if (file_exists(__DIR__ . '/defines.php')) {
-    include(__DIR__ . '/defines.php');
+if (file_exists(__DIR__.'/defines.php')) {
+    include(__DIR__.'/defines.php');
 }
 
 /*
  * Collect needed paths
  */
 
-$YXORP_DIR = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
-$YXORP_DOCS_ROOT = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : dirname(__DIR__));
+$YXORP_DIR         = str_replace(DIRECTORY_SEPARATOR, '/', __DIR__);
+$YXORP_DOCS_ROOT   = str_replace(DIRECTORY_SEPARATOR, '/', isset($_SERVER['DOCUMENT_ROOT']) ? realpath($_SERVER['DOCUMENT_ROOT']) : dirname(__DIR__));
 
 # make sure that $_SERVER['DOCUMENT_ROOT'] is set correctly
-if (strpos($YXORP_DIR, $YXORP_DOCS_ROOT) !== 0 && isset($_SERVER['SCRIPT_NAME'])) {
+if (strpos($YXORP_DIR, $YXORP_DOCS_ROOT)!==0 && isset($_SERVER['SCRIPT_NAME'])) {
     $YXORP_DOCS_ROOT = str_replace(dirname(str_replace(DIRECTORY_SEPARATOR, '/', $_SERVER['SCRIPT_NAME'])), '', $YXORP_DIR);
 }
 
-$YXORP_BASE = trim(str_replace($YXORP_DOCS_ROOT, '', $YXORP_DIR), "/");
-$YXORP_BASE_URL = strlen($YXORP_BASE) ? "/{$YXORP_BASE}" : $YXORP_BASE;
-$YXORP_BASE_ROUTE = $YXORP_BASE_URL;
+$YXORP_BASE        = trim(str_replace($YXORP_DOCS_ROOT, '', $YXORP_DIR), "/");
+$YXORP_BASE_URL    = strlen($YXORP_BASE) ? "/{$YXORP_BASE}": $YXORP_BASE;
+$YXORP_BASE_ROUTE  = $YXORP_BASE_URL;
 
 /*
  * SYSTEM DEFINES
  */
-if (!defined('YXORP_DIR')) define('YXORP_DIR', $YXORP_DIR);
-if (!defined('YXORP_ADMIN')) define('YXORP_ADMIN', 0);
-if (!defined('YXORP_DOCS_ROOT')) define('YXORP_DOCS_ROOT', $YXORP_DOCS_ROOT);
-if (!defined('YXORP_ENV_ROOT')) define('YXORP_ENV_ROOT', YXORP_DIR);
-if (!defined('YXORP_BASE_URL')) define('YXORP_BASE_URL', $YXORP_BASE_URL);
-if (!defined('YXORP_API_REQUEST')) define('YXORP_API_REQUEST', YXORP_ADMIN && strpos($_SERVER['REQUEST_URI'], YXORP_BASE_URL . '/api/') !== false ? 1 : 0);
-if (!defined('YXORP_SITE_DIR')) define('YXORP_SITE_DIR', YXORP_ENV_ROOT == YXORP_DIR ? ($YXORP_DIR == YXORP_DOCS_ROOT ? YXORP_DIR : dirname(YXORP_DIR)) : YXORP_ENV_ROOT);
-if (!defined('YXORP_CONFIG_DIR')) define('YXORP_CONFIG_DIR', YXORP_ENV_ROOT . '/config');
-if (!defined('YXORP_BASE_ROUTE')) define('YXORP_BASE_ROUTE', $YXORP_BASE_ROUTE);
-if (!defined('YXORP_STORAGE_FOLDER')) define('YXORP_STORAGE_FOLDER', YXORP_ENV_ROOT . '/storage');
-if (!defined('YXORP_ADMIN_CP')) define('YXORP_ADMIN_CP', YXORP_ADMIN && !YXORP_API_REQUEST ? 1 : 0);
-if (!defined('YXORP_PUBLIC_STORAGE_FOLDER')) define('YXORP_PUBLIC_STORAGE_FOLDER', YXORP_ENV_ROOT . '/storage');
+if (!defined('YXORP_DIR'))                    define('YXORP_DIR'            , $YXORP_DIR);
+if (!defined('YXORP_ADMIN'))                  define('YXORP_ADMIN'          , 0);
+if (!defined('YXORP_DOCS_ROOT'))              define('YXORP_DOCS_ROOT'      , $YXORP_DOCS_ROOT);
+if (!defined('YXORP_ENV_ROOT'))               define('YXORP_ENV_ROOT'       , YXORP_DIR);
+if (!defined('YXORP_BASE_URL'))               define('YXORP_BASE_URL'       , $YXORP_BASE_URL);
+if (!defined('YXORP_API_REQUEST'))            define('YXORP_API_REQUEST'    , YXORP_ADMIN && strpos($_SERVER['REQUEST_URI'], YXORP_BASE_URL.'/api/')!==false ? 1:0);
+if (!defined('YXORP_SITE_DIR'))               define('YXORP_SITE_DIR'       , YXORP_ENV_ROOT == YXORP_DIR ?  ($YXORP_DIR == YXORP_DOCS_ROOT ? YXORP_DIR : dirname(YXORP_DIR)) :  YXORP_ENV_ROOT);
+if (!defined('YXORP_CONFIG_DIR'))             define('YXORP_CONFIG_DIR'     , YXORP_ENV_ROOT.'/config');
+if (!defined('YXORP_BASE_ROUTE'))             define('YXORP_BASE_ROUTE'     , $YXORP_BASE_ROUTE);
+if (!defined('YXORP_STORAGE_FOLDER'))         define('YXORP_STORAGE_FOLDER' , YXORP_ENV_ROOT.'/storage');
+if (!defined('YXORP_ADMIN_CP'))               define('YXORP_ADMIN_CP'       , YXORP_ADMIN && !YXORP_API_REQUEST ? 1 : 0);
+if (!defined('YXORP_PUBLIC_STORAGE_FOLDER'))  define('YXORP_PUBLIC_STORAGE_FOLDER' , YXORP_ENV_ROOT.'/storage');
 
 if (!defined('YXORP_CONFIG_PATH')) {
-    $_configpath = YXORP_CONFIG_DIR . '/config.' . (file_exists(YXORP_CONFIG_DIR . '/config.php') ? 'php' : 'yaml');
+    $_configpath = YXORP_CONFIG_DIR.'/config.'.(file_exists(YXORP_CONFIG_DIR.'/config.php') ? 'php':'yaml');
     define('YXORP_CONFIG_PATH', $_configpath);
 }
 
 
-function yxorp($module = null)
-{
+function yxorp($module = null) {
 
     static $app;
 
@@ -99,32 +98,32 @@ function yxorp($module = null)
         // load config
         $config = array_replace_recursive([
 
-            'debug' => preg_match('/(localhost|::1|\.local)$/', @$_SERVER['SERVER_NAME']),
-            'app.name' => 'Yxorp',
-            'base_url' => YXORP_BASE_URL,
-            'base_route' => YXORP_BASE_ROUTE,
-            'docs_root' => YXORP_DOCS_ROOT,
+            'debug'        => preg_match('/(localhost|::1|\.local)$/', @$_SERVER['SERVER_NAME']),
+            'app.name'     => 'Yxorp',
+            'base_url'     => YXORP_BASE_URL,
+            'base_route'   => YXORP_BASE_ROUTE,
+            'docs_root'    => YXORP_DOCS_ROOT,
             'session.name' => md5(YXORP_ENV_ROOT),
             'session.init' => (YXORP_ADMIN && !YXORP_API_REQUEST) ? true : false,
-            'sec-key' => 'c3b40c4c-db44-s5h7-a814-b4931a15e5e1',
-            'i18n' => 'en',
-            'database' => ['server' => 'mongolite://' . (YXORP_STORAGE_FOLDER . '/data'), 'options' => ['db' => 'yxorpdb'], 'driverOptions' => []],
-            'memory' => ['server' => 'redislite://' . (YXORP_STORAGE_FOLDER . '/data/yxorp.memory.sqlite'), 'options' => []],
+            'sec-key'      => 'c3b40c4c-db44-s5h7-a814-b4931a15e5e1',
+            'i18n'         => 'en',
+            'database'     => ['server' => 'mongolite://'.(YXORP_STORAGE_FOLDER.'/data'), 'options' => ['db' => 'yxorpdb'], 'driverOptions' => [] ],
+            'memory'       => ['server' => 'redislite://'.(YXORP_STORAGE_FOLDER.'/data/yxorp.memory.sqlite'), 'options' => [] ],
 
-            'paths' => [
-                '#root' => YXORP_DIR,
-                '#storage' => YXORP_STORAGE_FOLDER,
+            'paths'         => [
+                '#root'     => YXORP_DIR,
+                '#storage'  => YXORP_STORAGE_FOLDER,
                 '#pstorage' => YXORP_PUBLIC_STORAGE_FOLDER,
-                '#data' => YXORP_STORAGE_FOLDER . '/data',
-                '#cache' => YXORP_STORAGE_FOLDER . '/cache',
-                '#tmp' => YXORP_STORAGE_FOLDER . '/tmp',
-                '#thumbs' => YXORP_PUBLIC_STORAGE_FOLDER . '/thumbs',
-                '#uploads' => YXORP_PUBLIC_STORAGE_FOLDER . '/uploads',
-                '#modules' => YXORP_DIR . '/modules',
-                '#addons' => YXORP_ENV_ROOT . '/addons',
-                '#config' => YXORP_CONFIG_DIR,
-                'assets' => YXORP_DIR . '/assets',
-                'site' => YXORP_SITE_DIR
+                '#data'     => YXORP_STORAGE_FOLDER.'/data',
+                '#cache'    => YXORP_STORAGE_FOLDER.'/cache',
+                '#tmp'      => YXORP_STORAGE_FOLDER.'/tmp',
+                '#thumbs'   => YXORP_PUBLIC_STORAGE_FOLDER.'/thumbs',
+                '#uploads'  => YXORP_PUBLIC_STORAGE_FOLDER.'/uploads',
+                '#modules'  => YXORP_DIR.'/modules',
+                '#addons'   => YXORP_ENV_ROOT.'/addons',
+                '#config'   => YXORP_CONFIG_DIR,
+                'assets'    => YXORP_DIR.'/assets',
+                'site'      => YXORP_SITE_DIR
             ],
 
             'filestorage' => [],
@@ -146,13 +145,13 @@ function yxorp($module = null)
         }
 
         // nosql storage
-        $app->service('storage', function () use ($config) {
+        $app->service('storage', function() use($config) {
             $client = new MongoHybrid\Client($config['database']['server'], $config['database']['options'], $config['database']['driverOptions']);
             return $client;
         });
 
         // file storage
-        $app->service('filestorage', function () use ($config, $app) {
+        $app->service('filestorage', function() use($config, $app) {
 
             $storages = array_replace_recursive([
 
@@ -208,21 +207,21 @@ function yxorp($module = null)
         });
 
         // key-value storage
-        $app->service('memory', function () use ($config) {
+        $app->service('memory', function() use($config) {
             $client = new SimpleStorage\Client($config['memory']['server'], $config['memory']['options']);
             return $client;
         });
 
         // mailer service
-        $app->service('mailer', function () use ($app, $config) {
-
-            $options = isset($config['mailer']) ? $config['mailer'] : [];
+        $app->service('mailer', function() use($app, $config){
+            
+            $options = isset($config['mailer']) ? $config['mailer']:[];
 
             if (is_string($options)) {
                 parse_str($options, $options);
             }
 
-            $mailer = new \Mailer($options['transport'] ?? 'mail', $options);
+            $mailer    = new \Mailer($options['transport'] ?? 'mail', $options);
             return $mailer;
         });
 
@@ -238,7 +237,7 @@ function yxorp($module = null)
         // handle exceptions
         if (YXORP_ADMIN) {
 
-            set_exception_handler(function ($exception) use ($app) {
+            set_exception_handler(function($exception) use($app) {
 
                 $error = [
                     'message' => $exception->getMessage(),
@@ -264,12 +263,12 @@ function yxorp($module = null)
         }
 
         $modulesPaths = array_merge([
-            YXORP_DIR . '/modules',  # core
-            YXORP_DIR . '/addons' # addons
+            YXORP_DIR.'/modules',  # core
+            YXORP_DIR.'/addons' # addons
         ], $config['loadmodules'] ?? []);
 
         if (YXORP_ENV_ROOT !== YXORP_DIR) {
-            $modulesPaths[] = YXORP_ENV_ROOT . '/addons';
+            $modulesPaths[] = YXORP_ENV_ROOT.'/addons';
         }
 
         // load modules

@@ -1,7 +1,9 @@
-<?php use yxorP\http\ProxyEvent;
-use yxorP\Plugin\AbstractPlugin;
+<?php
+namespace yxorP\Helper;
+use yxorP\http\ProxyEvent;
+use yxorP\Http\EventWrapper;
 
-class LogPlugin extends AbstractPlugin
+class LogPlugin extends EventWrapper
 {
     public function onHeadersReceived(ProxyEvent $event): void
     {
@@ -18,5 +20,3 @@ class LogPlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

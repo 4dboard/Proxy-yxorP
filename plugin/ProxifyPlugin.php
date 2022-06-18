@@ -1,7 +1,9 @@
-<?php use yxorP\Helpers\GeneralHelper;
+<?php
+namespace yxorP\Helper;
+use yxorP\Http\EventWrapper;
 use yxorP\http\ProxyEvent;
 
-class ProxifyPlugin extends AbstractPlugin
+class ProxifyPlugin extends EventWrapper
 {
     private string $base_url = '';
 
@@ -111,5 +113,3 @@ class ProxifyPlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

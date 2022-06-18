@@ -1,6 +1,11 @@
-<?php use yxorP\http\ProxyEvent;
+<?php
 
-class YoutubePlugin extends AbstractPlugin
+namespace yxorP\Helper;
+
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
+
+class YoutubePlugin extends EventWrapper
 {
     protected $url_pattern = 'youtube.com';
 
@@ -41,5 +46,3 @@ class YoutubePlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

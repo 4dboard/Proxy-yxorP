@@ -1,18 +1,22 @@
 <?php namespace yxorP\Http;
+
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
+
 class HtmlToken
 {
-    const Uninitialized = 'Uninitialized';
-    const DOCTYPE = 'DOCTYPE';
-    const StartTag = 'StartTag';
-    const EndTag = 'EndTag';
-    const Comment = 'Comment';
-    const Character = 'Character';
-    const EndOfFile = 'EndOfFile';
-    const QuirksMode = 'QuirksMode';
-    const LimitedQuirksMode = 'LimitedQuirksMode';
-    const NoQuirksMode = 'NoQuirksMode';
-    const DoubleQuoted = '"';
-    const SingleQuoted = '\'';
+    public const Uninitialized = 'Uninitialized';
+    public const DOCTYPE = 'DOCTYPE';
+    public const StartTag = 'StartTag';
+    public const EndTag = 'EndTag';
+    public const Comment = 'Comment';
+    public const Character = 'Character';
+    public const EndOfFile = 'EndOfFile';
+    public const QuirksMode = 'QuirksMode';
+    public const LimitedQuirksMode = 'LimitedQuirksMode';
+    public const NoQuirksMode = 'NoQuirksMode';
+    public const DoubleQuoted = '"';
+    public const SingleQuoted = '\'';
     protected $_type;
     protected $_data = '';
     protected $_selfClosing = false;
@@ -33,7 +37,7 @@ class HtmlToken
         return $this->_data;
     }
 
-    public function toArray()
+    #[ArrayShape(['type' => "string", 'data' => "string", 'selfClosing' => "bool", 'attributes' => "array", 'parseError' => "bool", 'html' => "string", 'state' => "array", 'doctypeData' => "array"])] public function toArray()
     {
         $data = array('type' => $this->_type, 'data' => $this->_data, 'selfClosing' => $this->_selfClosing, 'attributes' => $this->_attributes, 'parseError' => $this->_parseError, 'html' => $this->_html, 'state' => $this->_state,);
         if ($this->getType() === static::DOCTYPE) {
@@ -107,7 +111,7 @@ class HtmlToken
         $this->_state = $states;
     }
 
-    public function getTagName()
+    #[Pure] public function getTagName()
     {
         $type = $this->getType();
         if ($type !== static::StartTag && $type !== static::EndTag) {
@@ -315,5 +319,3 @@ class HtmlToken
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

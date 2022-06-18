@@ -1,6 +1,13 @@
-<?php namespace yxorP\Helpers;
-class HeaderHelper
+<?php namespace yxorP\Helper;
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
+
+class HeaderHelper extends EventWrapper
 {
+    public function onBeforeRequest(ProxyEvent $event)
+    {
+    }
+
     public function __construct()
     {
         header("Access-Control-Allow-Origin: *");
@@ -11,5 +18,3 @@ class HeaderHelper
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

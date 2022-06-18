@@ -1,18 +1,25 @@
-<?php namespace yxorP\Helpers;
+<?php namespace yxorP\Helper;
 
 use stdClass;
 use yxorP\Domain\Domain;
 use yxorP\Domain\Rules;
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
 
-class ContextHelper
+class ContextHelper extends EventWrapper
 {
+    public function onBeforeRequest(ProxyEvent $event)
+    {
+    }
+
     public function __construct()
     {
         $publicSuffixList = Rules::fromPath($GLOBALS['PLUGIN_DIR'] . '/override/default/assets/public-suffix-list.dat');
         $domain = Domain::fromIDNA2008("$_SERVER[HTTP_HOST]");
         $result = $publicSuffixList->resolve($domain);
         $GLOBALS['SITE_CONTEXT'] = new stdClass();
-        foreach ((array)json_decode(file_get_contents($GLOBALS['PLUGIN_DIR'] . '/override/default/overrides.json')) as $key => $value) if (str_contains($result->domain()->toString(), $key)) $GLOBALS['SITE_CONTEXT'] = $value;
+        foreach ((array)APIHelper::fetch('Sites') as $key => $value) if (str_contains($result->domain()->toString(), $key)) $GLOBALS['SITE_CONTEXT'] = $value;
+
         $GLOBALS['SITE_CONTEXT']->SITE_URL = "https://" . $result->domain()->toString();
         $_targetSub = $result->subDomain()->toString() ? $result->subDomain()->toString() . "." : null;
         $GLOBALS['SITE_CONTEXT']->TARGET_URL = "https://" . ($publicSuffixList->resolve($_targetSub . $GLOBALS['SITE_CONTEXT']->TARGET))->domain()->toString();
@@ -22,6 +29,3 @@ class ContextHelper
         new CacheHelper();
     }
 }
-
-;
-return 1; ?><?php return 1; ?>

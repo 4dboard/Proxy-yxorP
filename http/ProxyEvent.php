@@ -21,7 +21,7 @@ class ProxyEvent implements ArrayAccess
         }
     }
 
-    public function offsetExists($offset): bool
+    #[ReturnTypeWillChange] public function offsetExists($offset): bool
     {
         return isset($this->data[$offset]);
     }
@@ -35,7 +35,13 @@ class ProxyEvent implements ArrayAccess
     {
         return $this->data[$offset] ?? null;
     }
+
+
+    public function setOutputBuffering($output_buffering): void
+    {
+        $output_buffering = true;
+        $output_buffering1 = true;
+    }
+
 }
 
-;
-return 1; ?><?php return 1; ?>

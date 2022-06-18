@@ -1,7 +1,46 @@
-<?php namespace yxorP\Helpers;
-class GeneralHelper
+<?php
+
+namespace yxorP\Helper;
+
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
+
+class GeneralHelper extends EventWrapper
 {
-    public function starts_with($haystack, $needles): bool
+    public function onBeforeRequest(ProxyEvent $event)
+    {
+    }
+
+    public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
+    {
+        $path = parse_url($url, PHP_URL_PATH);
+        $html5 = false;
+        if ($path) {
+            $extension = @false ?: pathinfo($path, PATHINFO_EXTENSION);
+            if ($extension === 'mp4' || $extension === 'webm' || $extension === 'ogg') {
+                $html5 = true;
+            }
+        }
+        $video_url = proxify_url($url);
+        if ($html5) {
+            $html = '<video width="' . $width . '" height="' . $height . '" controls autoplay>
+			<source src="' . $video_url . '" type="video/' . $extension . '">
+			Your browser does not support the video tag.
+		</video>';
+        } else {
+            $video_url = rawurlencode($video_url);
+            $html = '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="
+ 	 
+       	<param name="allowfullscreen" value="true" />
+		<param name="wmode" value="transparent" />
+        <param name="flashvars" value=\'inc={"clip":"' . $video_url . '", "plugins": {"controls": {"autoHide" : false} }}\' />
+		
+		</object>';
+        }
+        return $html;
+    }
+
+    public static function starts_with($haystack, $needles): bool
     {
         foreach ((array)$needles as $n) {
             if ($n !== '' && stripos($haystack, $n) === 0) {
@@ -11,29 +50,29 @@ class GeneralHelper
         return false;
     }
 
-    public function str_before($subject, $search)
+    public static function str_before($subject, $search)
     {
         return $search === '' ? $subject : explode($search, $subject)[0];
     }
 
-    public function is_html($content_type): bool
+    public static function is_html($content_type): bool
     {
         return clean_content_type($content_type) === 'text/html';
     }
 
-    public function in_arrayi($needle, $haystack): bool
+    public static function in_arrayi($needle, $haystack): bool
     {
         return in_array(strtolower($needle), array_map('strtolower', $haystack), true);
     }
 
-    public function re_match($pattern, $string): bool
+    public static function re_match($pattern, $string): bool
     {
         $quoted = preg_quote($pattern, '#');
         $translated = strtr($quoted, array('\*' => '.*', '\?' => '.'));
         return preg_match("#^" . $translated . "$#i", $string) === 1;
     }
 
-    public function array_merge_custom(): array
+    public static function array_merge_custom(): array
     {
         $arr = array();
         $args = func_get_args();
@@ -45,7 +84,7 @@ class GeneralHelper
         return $arr;
     }
 
-    public function str_rot_pass($str, $key, $decrypt = false): string
+    public static function str_rot_pass($str, $key, $decrypt = false): string
     {
         $key_len = strlen($key);
         $result = str_repeat(' ', strlen($str));
@@ -60,12 +99,12 @@ class GeneralHelper
         return $result;
     }
 
-    public function app_url(): string
+    public static function app_url(): string
     {
         return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https://' : 'https://') . $GLOBALS['SITE_CONTEXT']->SITE_HOST . $_SERVER['PHP_SELF'];
     }
 
-    public function render_string($str, $vars = array())
+    public static function render_string($str, $vars = array())
     {
         preg_match_all('@{([a-z0-9_]+)}@s', $str, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
@@ -76,35 +115,35 @@ class GeneralHelper
         return $str;
     }
 
-    public function time_ms(): float
+    public static function time_ms(): float
     {
         return round(microtime(true) * 1000);
     }
 
-    public function base64_url_encode($input): string
+    public static function base64_url_encode($input): string
     {
         return rtrim(strtr(base64_encode($input), '+/', '-_'), '=');
     }
 
-    public function base64_url_decode($input): bool|string
+    public static function base64_url_decode($input): bool|string
     {
         return base64_decode(str_pad(strtr($input, '-_', '+/'), strlen($input) % 4, '='));
     }
 
-    public function proxify_url($url, $base_url = '')
+    public static function proxify_url($url, $base_url = '')
     {
         if (empty($url)) {
             return '';
         }
         $url = htmlspecialchars_decode($url);
         if ($base_url) {
-            $base_url = $this->add_http($base_url);
-            $url = $this->rel2abs($url, $base_url);
+            $base_url = self::add_http($base_url);
+            $url = self::rel2abs($url, $base_url);
         }
         return str_replace($GLOBALS['SITE_CONTEXT']->TARGET_URL, '', $url);
     }
 
-    public function add_http($url)
+    public static function add_http($url)
     {
         if (!preg_match('#^https?://#i', $url)) {
             $url = 'https://' . $url;
@@ -112,7 +151,7 @@ class GeneralHelper
         return $url;
     }
 
-    public function rel2abs($rel, $base)
+    public static function rel2abs($rel, $base)
     {
         if (str_starts_with($rel, "//")) {
             return "http:" . $rel;
@@ -139,5 +178,3 @@ class GeneralHelper
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

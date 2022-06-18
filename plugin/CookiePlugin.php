@@ -1,6 +1,9 @@
-<?php use yxorP\http\ProxyEvent;
+<?php
+namespace yxorP\Helper;
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
 
-class CookiePlugin extends AbstractPlugin
+class CookiePlugin extends EventWrapper
 {
     public const COOKIE_PREFIX = 'pc';
 
@@ -66,5 +69,3 @@ class CookiePlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

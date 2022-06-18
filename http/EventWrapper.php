@@ -1,9 +1,16 @@
-<?php use yxorP\helper\GeneralHelpers;
-use yxorP\http\ProxyEvent;
+<?php
 
-abstract class AbstractPlugin
+namespace yxorP\Http;
+
+abstract class EventWrapper
 {
     protected $url_pattern;
+
+
+    final protected function event()
+    {
+        return $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => Request::createFromGlobals(), 'response' => new Response()));
+    }
 
     final public function subscribe($dispatcher): void
     {
@@ -65,5 +72,3 @@ abstract class AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

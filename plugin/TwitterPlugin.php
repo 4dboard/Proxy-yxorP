@@ -1,6 +1,9 @@
-<?php use yxorP\http\ProxyEvent;
+<?php
+namespace yxorP\Helper;
+use yxorP\Http\EventWrapper;
+use yxorP\http\ProxyEvent;
 
-class TwitterPlugin extends AbstractPlugin
+class TwitterPlugin extends EventWrapper
 {
     protected $url_pattern = 'twitter.com';
 
@@ -13,5 +16,3 @@ class TwitterPlugin extends AbstractPlugin
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

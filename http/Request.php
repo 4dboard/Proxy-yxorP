@@ -212,5 +212,3 @@ class Request
     }
 }
 
-;
-return 1; ?><?php return 1; ?>

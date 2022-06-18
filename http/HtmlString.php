@@ -1,13 +1,16 @@
 <?php namespace yxorP\Http;
+
+use InvalidArgumentException;
+
 class HtmlString
 {
-    const ENCODING = 'UTF-8';
-    const DidNotMatch = 'DidNotMatch';
-    const DidMatch = 'DidMatch';
-    const NotEnoughCharacters = 'NotEnoughCharacters';
-    const begin = 0;
-    const current = 1;
-    const end = 2;
+    public const ENCODING = 'UTF-8';
+    public const DidNotMatch = 'DidNotMatch';
+    public const DidMatch = 'DidMatch';
+    public const NotEnoughCharacters = 'NotEnoughCharacters';
+    public const begin = 0;
+    public const current = 1;
+    public const end = 2;
     protected $str;
     protected $i = 0;
     protected $len = 0;
@@ -29,7 +32,7 @@ class HtmlString
 
     public function advance()
     {
-        $this->i += 1;
+        ++$this->i;
     }
 
     public function substr($startPos, $length)
@@ -104,7 +107,6 @@ class HtmlString
                 }
                 $this->i = $offset;
                 return true;
-                break;
             case static::current:
                 $lookAhead = $this->i + $offset;
                 if ($lookAhead < 0 || $lookAhead > $this->len) {
@@ -112,14 +114,13 @@ class HtmlString
                 }
                 $this->i = $lookAhead;
                 return true;
-                break;
         }
-        throw new \InvalidArgumentException;
+        throw new InvalidArgumentException;
     }
 
     public function lookAhead($str)
     {
-        return $this->_lookAhead($str, true);
+        return $this->_lookAhead($str);
     }
 
     public function numberOfCharactersConsumed()
@@ -128,5 +129,3 @@ class HtmlString
     }
 }
 
-;
-return 1; ?><?php return 1; ?>
