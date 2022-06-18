@@ -18,9 +18,8 @@ class ContextHelper extends EventWrapper
         $domain = Domain::fromIDNA2008("$_SERVER[HTTP_HOST]");
         $result = $publicSuffixList->resolve($domain);
         $GLOBALS['SITE_CONTEXT'] = new stdClass();
+        $GLOBALS['SITE_CONTEXT']->SITE_URL = (str_contains($_SERVER['SERVER_NAME'], "localhost") ? "http://" : "https://") . $result->domain()->toString();
         foreach ((array)APIHelper::fetch('Sites') as $key => $value) if (str_contains($result->domain()->toString(), $key)) $GLOBALS['SITE_CONTEXT'] = $value;
-
-        $GLOBALS['SITE_CONTEXT']->SITE_URL = "https://" . $result->domain()->toString();
         $_targetSub = $result->subDomain()->toString() ? $result->subDomain()->toString() . "." : null;
         $GLOBALS['SITE_CONTEXT']->TARGET_URL = "https://" . ($publicSuffixList->resolve($_targetSub . $GLOBALS['SITE_CONTEXT']->TARGET))->domain()->toString();
         $GLOBALS['SITE_CONTEXT']->PROXY_URL = $GLOBALS['SITE_CONTEXT']->TARGET_URL . $_SERVER['REQUEST_URI'];

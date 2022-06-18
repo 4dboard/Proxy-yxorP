@@ -39,8 +39,8 @@ class FetchHelper extends EventWrapper
         if ($_body = file_get_contents('php://input')) {
             $GLOBALS['REQUEST']->setBody(json_decode($_body, true), $GLOBALS['MIME']);
         }
-        $GLOBALS['RESPONSE']->setContent($GLOBALS['GUZZLE']->request($GLOBALS['REQUEST']->getMethod(), $GLOBALS['REQUEST']->getUri(), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
-        $this->dispatch('request.complete', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $response)));
+        $GLOBALS['RESPONSE']->setContent($GLOBALS['GUZZLE']->request($GLOBALS['REQUEST']->getMethod(), $GLOBALS['REQUEST']->getUri(), json_decode(json_encode($GLOBALS['REQUEST']), true, 512, JSON_THROW_ON_ERROR))->getBody());
+        $this->dispatch('request.complete', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
         return $response->getContent();
     }
 

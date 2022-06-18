@@ -11,11 +11,14 @@ class APIHelper extends EventWrapper
 
     public static function fetch($Collection)
     {
-        $res = $GLOBALS['GUZZLE']->get('/dashboard/api/collections/entries/' . $Collection . '?token=' . $GLOBALS['DASHBOARD']);
-        echo $res->getStatusCode();
-        echo $res->getHeader('content-type');
-        echo $res->getBody();
-        return $res->json()->entries;
+        define('YXORP_ADMIN', 1);
+        define('YXORP_API_REQUEST', 1);
+        define('YXORP_TOKEN', 'account-f41e0d8459b119dda91373dbf810b3');
+        define('YXORP_ADMIN_ROUTE',  '/api/collections/entries/Sites');
+        require($GLOBALS['PLUGIN_DIR'] . "/dashboard/bootstrap.php");
+        $yxorp->set('route', YXORP_ADMIN_ROUTE)->run();
+        exit;
+
     }
 
 }

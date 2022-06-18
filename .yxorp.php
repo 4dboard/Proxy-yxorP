@@ -22,11 +22,6 @@ class yxorp
     public function __construct()
     {
 
-        if (str_contains($GLOBALS['SITE_CONTEXT']->SITE_URL . $GLOBALS['SITE_CONTEXT']->REQUEST_URI, ($GLOBALS['SITE_CONTEXT']->SITE_URL . '/dashboard'))) {
-            require($GLOBALS['PLUGIN_DIR'] . '/dashboard/index.php');
-            exit;
-        }
-
         foreach ((array)json_decode(file_get_contents($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/overrides.json'), false) as $key => $value) {
             $GLOBALS[$key] = $value;
         }
