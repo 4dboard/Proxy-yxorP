@@ -2,6 +2,7 @@
 
 !.env.example
 !.gitignore
+!.gitmodules
 !.htaccess
 !.lando.yml
 !yxorP.php
@@ -14,7 +15,6 @@
 !README.md
 !demo.php
 !index.php
-!cockpit
 
 !.github/
 !bin/
@@ -28,7 +28,6 @@
 !config/_example.php/
 !override/www.example.com/
 !override/default/
-!cockpit/
 
 !bin/*
 !migrations/*
@@ -40,7 +39,6 @@
 !.github/*
 !asset/*
 !cache/*
-!cockpit/*
 !helper/*
 !http/*
 !override/default/*
