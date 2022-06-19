@@ -24,7 +24,7 @@ complete and functional, but code cleanup and unit testing are required.
 
 ![image](https://user-images.githubusercontent.com/6468571/170381457-610902b7-02ff-4b48-8bc8-4f046af0e2c0.png)
 
-yxorp (proxy.) is a one-of-a-kind, plug-and-play (no installation required), multi-threaded, website mirroring and
+yxorP (proxy.) is a one-of-a-kind, plug-and-play (no installation required), multi-threaded, website mirroring and
 content augmentation, fast cache, and multi-web proxy server that performs website mirroring and content augmentation,
 website mirroring and content augmentation, fast cache, and multi-web proxy server (reverse proxy). In addition to
 having a built-in "cache" management system as well as a web-based "cache" management system, the proxy is "modular"
@@ -113,7 +113,7 @@ note that on non-Linux native hosts, the server might take a few minutes to star
 
 ## Use case / Applications
 
-Create static flat file variants of your original webpages by using yxorp to mirror your websites and offer the
+Create static flat file variants of your original webpages by using yxorP to mirror your websites and offer the
 mirrored/cloned copies as static flat file variations of the original webpages.
 
 #### 🔥 Cache

@@ -2,7 +2,7 @@
 
 use Bugsnag\Client;
 use Bugsnag\Handler;
-use yxorp\Cache\Cache;
+use yxorP\Cache\Cache;
 use yxorP\Http\EventWrapper;
 use yxorP\http\ProxyEvent;
 use yxorP\Http\Request;
@@ -35,7 +35,7 @@ class FetchHelper extends EventWrapper
     public function forward($url): string
     {
         $GLOBALS['REQUEST']->setUrl($url);
-        yxorp::dispatch('request.before_send', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
+        yxorP::dispatch('request.before_send', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
         if ($_body = file_get_contents('php://input')) {
             $GLOBALS['REQUEST']->setBody(json_decode($_body, true), $GLOBALS['MIME']);
         }

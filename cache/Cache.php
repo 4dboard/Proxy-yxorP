@@ -60,7 +60,7 @@ class Cache
 
     public function isValid()
     {
-        if ($this->options['expiry'] != -1 && $this->options['expiry'] < time()) {
+        if ($this->options['expiry'] !== -1 && $this->options['expiry'] < time()) {
             return false;
         }
         if (!$this->isExists()) {
