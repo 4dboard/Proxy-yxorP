@@ -41,22 +41,31 @@ degradation (10,000+ thesaurus/dictionary entries) while maintaining high qualit
 
 ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
-### Appwrite Back-End
+### Cockpit Back-End
 
-<img width="260" height="39" src="https://appwrite.io/images/appwrite.svg" alt="Appwrite Logo">
+Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to use the content. Cockpit is a perfect match if you want to support multiple devices or need a content management UI for static site builders. Build unique applications and let Cockpit feed them with content.
 
-Appwrite is an end-to-end backend server for Web, Mobile, Native, or Backend apps packaged as a set of Docker<nobr>
-microservices. Appwrite abstracts the complexity and repetitiveness required to build a modern backend API from scratch
-and allows you to build secure apps faster.
+![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
 
-<img align="center" src='asset/logo.gif' />
+Introduction
+Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify the process of publication by separating content management from content consumption on the client side. Cockpit is focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its goal is to provide structured content across different channels via a simple API.
 
-Using Appwrite, you can easily integrate your app with user authentication & multiple sign-in methods, a database for
-storing and querying users and team data, storage and file management, image manipulation, Cloud Functions,
-and [more services](https://appwrite.io/docs). A complete backend solution for
-your [Flutter / Vue / Angular / React / iOS / Android / *ANY OTHER*] app
+![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
-![](https://github.com/appwrite/appwrite/raw/master/public/images/github.png)
+####  Key features:
+Manage flexible content models. There are no pre-defined content models. Define the content model yourself.
+Uncluttered UI. Cockpit offers you a modern and simple user interface.
+One system, consume it the way you want. Receive your content via a simple API.
+
+#### The Advantages Of Going Headless
+
+- No presentation limitations – build the best design ever.
+- Content for multiple channels – create content once, consume anywhere.
+- Highly scalable content – for all your devices and microsites.
+- Minimum training required – get started, immediately.
+- Easy integrations – connect with everything.
+
+![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png)
 
 ## Installation
 
