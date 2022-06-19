@@ -7,9 +7,7 @@ use yxorP\Http\Request;
 use yxorP\Http\Response;
 
 $GLOBALS['PLUGIN_DIR'] = __DIR__;
-
-error_reporting((int)str_contains($_SERVER['SERVER_NAME'],
-    "localhost"));
+error_reporting((int)$_SERVER['SERVER_NAME']== "localhost");
 
 require $GLOBALS['PLUGIN_DIR'] . '/cache/Cache.php';
 require $GLOBALS['PLUGIN_DIR'] . '/guzzle.phar';
@@ -19,6 +17,16 @@ class yxorP
 {
     public static function Proxy()
     {
+
+        foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
+
+            if (trim(str_starts_with(trim($line), '#'))) continue;
+
+            [$name, $value] = explode('=', $line, 2);
+            $GLOBALS[$name] = $value;
+        }
+
+        require $GLOBALS['PLUGIN_DIR'] . '/install.php';
 
         foreach ((array)json_decode(file_get_contents($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/overrides.json'), false) as $key => $value) {
             $GLOBALS[$key] = $value;
@@ -38,14 +46,6 @@ class yxorP
                 $plugin = '\\yxorP\\plugin\\' . $plugin;
             }
             $this->addSubscriber(new $plugin());
-        }
-
-        foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
-
-            if (trim(str_starts_with(trim($line), '#'))) continue;
-
-            [$name, $value] = explode('=', $line, 2);
-            $GLOBALS[$name] = $value;
         }
 
         $GLOBALS['RESPONSE'] = $GLOBALS['RESPONSE'] ?: new Response();
