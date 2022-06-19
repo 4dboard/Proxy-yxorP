@@ -1,0 +1,3 @@
+[submodule "cockpit"]
+	path = cockpit
+	url = https://github.com/4dboard/cockpit
