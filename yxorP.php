@@ -23,7 +23,7 @@ class yxorP
             if (trim(str_starts_with(trim($line), '#'))) continue;
 
             [$name, $value] = explode('=', $line, 2);
-            $GLOBALS[$name] = $value;
+            $GLOBALS[$name] = str_replace("\r\n",null,$value);
         }
 
         require $GLOBALS['PLUGIN_DIR'] . '/install.php';
