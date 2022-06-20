@@ -1,13 +1,14 @@
 <p align="center">
 <img align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png' />
 </p>
+
 <h1  align="center">🦄 .yxorP [v2.1] SAAS(y), Multi-tenancy Proxy Guzzler</h1>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
 
 <br />
 <br />
 
-![image](https://user-images.githubusercontent.com/6468571/174626715-a5087404-8d9e-45d5-a3e6-a8aaa206fd4f.png)
+<img src='https://user-images.githubusercontent.com/6468571/174626715-a5087404-8d9e-45d5-a3e6-a8aaa206fd4f.png' />
 
 yxorP is a plug-and-play, flat-file application that does not need Composer, PHP CURL, or databases; these are all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of multiple websites using a PHAR (PHP archive) binary version of Guzzle, and managed via a user-friendly Cockpit backend (GUI).
 
@@ -15,12 +16,12 @@ The incoming request hostname is used to fetch site-specific requirements from t
 
 The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the industry's primary error tracking systems.
 
-<video src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/movie.mp4" data-canonical-src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/movie.mp4" controls="controls"></video>
+<video src="https://4dboard.github.io/proxy-yxorp/movie.mp4" controls="controls"></video>
 
 <br />
 <br />
 
-![image](https://user-images.githubusercontent.com/6468571/174626087-35059fa8-477c-4de9-b89d-017bf2a9be2f.png)
+<img src='https://user-images.githubusercontent.com/6468571/174626087-35059fa8-477c-4de9-b89d-017bf2a9be2f.png' />
 
 > ⚠️**Requires**: Minimum requirement is PHP version 8.0 +
 
@@ -35,7 +36,7 @@ The credentials defined in the '.env' file are used to setup the sqlite database
 <br />
 <br />
 
-![image](https://user-images.githubusercontent.com/6468571/174626182-88a8ec03-4784-4865-8015-ba1c86ff57f5.png)
+<img src='https://user-images.githubusercontent.com/6468571/174626182-88a8ec03-4784-4865-8015-ba1c86ff57f5.png' />
 
 <h3 >🔋 Batteries Included: Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
 Spinner.</h4>
@@ -45,16 +46,12 @@ interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS
 CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb, Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Ssdb, and
 Zend Disk Cache.
 
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png' /></p>
-
 The combined might of two of the most successful web proxy initiatives is harnessed for maximum effect. This
 self-service proxy engine has zero performance loss and supports numerous tenants by combining a flat-file beautiful web
 interface with a custom multi-threaded caching layer and an extremely powerful 10,000+ word thesaurus article spinner.
 Vanilla Dashboard is a no-cost, no-commitment self-service proxy engine that supports numerous tenants. Specifically,
 the project is looking for funding to help tie off some loose ends, particularly with the backed GUI; the front-end is
 complete and functional, but code cleanup and unit testing are required.
-
-![image](https://user-images.githubusercontent.com/6468571/170381457-610902b7-02ff-4b48-8bc8-4f046af0e2c0.png)
 
 yxorP (proxy.) is a one-of-a-kind, plug-and-play (no installation required), multi-threaded, website mirroring and
 content augmentation, fast cache, and multi-web proxy server that performs website mirroring and content augmentation,
@@ -64,24 +61,24 @@ or "plugin-based." Web-based reporting and analytics using a graphical user inte
 custom-built content spinning engine, the system allows material to be "augmented" (or "spun") with little performance
 degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
-<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagram.png' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png' /></p>
 
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+<img src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157205365-af23c9a1-98a7-40fd-8b74-0b9b0918a259.png)
+<img src='https://user-images.githubusercontent.com/6468571/157205365-af23c9a1-98a7-40fd-8b74-0b9b0918a259.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
+<img src='https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png' />
 
 ### Cockpit Back-End
 
 Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to use the content. Cockpit is a perfect match if you want to support multiple devices or need a content management UI for static site builders. Build unique applications and let Cockpit feed them with content.
 
-![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
+<img src='https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png' />
 
 Introduction
 Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify the process of publication by separating content management from content consumption on the client side. Cockpit is focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its goal is to provide structured content across different channels via a simple API.
 
-![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
+<img src='https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png' />
 
 ####  Key features:
 Manage flexible content models. There are no pre-defined content models. Define the content model yourself.
@@ -96,13 +93,13 @@ One system, consume it the way you want. Receive your content via a simple API.
 - Minimum training required – get started, immediately.
 - Easy integrations – connect with everything.
 
-![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png)
+<img src='https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+<img src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157205537-31de601d-4b8b-4c6b-af36-4c1e7e3f184f.png)
+<img src='https://user-images.githubusercontent.com/6468571/157205537-31de601d-4b8b-4c6b-af36-4c1e7e3f184f.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
+<img src='https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png' />
 
 <p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (3).gif' /></p>
 
@@ -139,7 +136,7 @@ version of the website during upgrades or down-time.
 
 There are several additional uses that may be explored, and these are only a few of the more common ones.
 
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+<img src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 <img src="asset/logosnag.png"/>
 
 Bugsnag provides a solution for error monitoring and application stability management that is easy to use and implement.
@@ -153,11 +150,11 @@ to reproduce and fix issues as soon as they begin to have an impact on system st
 arranged by root cause and may also be classified by business impact. In addition, they are supplied with extensive
 diagnostic information.
 
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+<img src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157205793-efeaaa6c-eae6-4070-8838-50637876156b.png)
+<img src='https://user-images.githubusercontent.com/6468571/157205793-efeaaa6c-eae6-4070-8838-50637876156b.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
+<img src='https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png' />
 
 <p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (4).gif' /></p>
 
@@ -167,10 +164,10 @@ Instant Development Enviroment stup with your prefered service provider:
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-![image](https://user-images.githubusercontent.com/6468571/157205943-7e735dd6-4d7f-401b-97b7-a25ecc2b9c3b.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
+<img src='https://user-images.githubusercontent.com/6468571/157205943-7e735dd6-4d7f-401b-97b7-a25ecc2b9c3b.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
+<img src='https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png' />
 
 # Background Information
 
@@ -181,13 +178,13 @@ language that is available for free download, you may quickly and easily configu
 server. If you are able to contribute to or support this project, it would be much appreciated as it would enable me to
 devote more development time to it, therefore expediting its progress.
 
-![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png)
+<img src='https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png)
+<img src='https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
+<img src='https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png' />
 
 ## Web-Proxy vs Proxy Server
 
@@ -196,10 +193,10 @@ an excessive number of "dynamic components," as indicated above. Web proxies' in
 well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate proxy server to
 redirect your browser's HTTP requests via the following domains:
 
-![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
+<img src='https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png' />
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157206147-738b606d-6a02-411e-ac17-b5a364601b62.png)
+<img src='https://user-images.githubusercontent.com/6468571/157206147-738b606d-6a02-411e-ac17-b5a364601b62.png' />
 
 ## Installation
 
@@ -217,8 +214,8 @@ downloaded from the internet. Numerous "Easter Eggs" are scattered around the Da
 Chat," and "Who Is Online" services, as well as a variety of other features, are all wrapped up in an easy-to-use
 CSS-based user interface that is available for download for free.
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-![image](https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
+<img src='https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png' />
 
 ## Development Environment
 
@@ -233,8 +230,8 @@ transcend the conceptual limitations imposed by this situation. Concentrating yo
 activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on the most
 important tasks may help to alleviate some of the stress.
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
+<img src='https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png' />
 
 Clone this repo
 
@@ -275,9 +272,9 @@ lando init \
 
 For more information please see: https://docs.lando.dev/config/lamp.html
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
+<img src='https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png' />
 
 <p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (10).gif' /></p>
 
@@ -298,10 +295,10 @@ from the main directory. The proxy, which comes with a number of built-in plugin
 users are urged to create their own custom plugins in order to broaden the range of options available. Think of a simple
 example like the file /plugins/TestPlugin.php in the plugins directory as an illustration.
 
-![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png)
-![image](https://user-images.githubusercontent.com/6468571/157206367-1c11d91a-87e6-4724-8501-14d9860d78de.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png' />
+<img src='https://user-images.githubusercontent.com/6468571/157206367-1c11d91a-87e6-4724-8501-14d9860d78de.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157188915-5ad7cad1-af0a-4e0a-8807-c9fe4708e06b.png)
+<img src='https://user-images.githubusercontent.com/6468571/157188915-5ad7cad1-af0a-4e0a-8807-c9fe4708e06b.png' />
 
 # Gitpod
 
@@ -313,18 +310,18 @@ feasible. The option to start immediate, remote, and cloud-based development env
 development environment is defined in code is available if you have a browser or desktop integrated development
 environment open on your computer.
 
-![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png)
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png)
-![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
+<img src='https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png' />
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
+<img src='https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png' />
+<img src='https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png' />
 
 ## Usage & How to Guide
 
 Navigate to the root of the project with your browser, register an account and then login.
 
-![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
+<img src='https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png' />
 
 ## Contributing to the Project
 
@@ -335,13 +332,13 @@ interpretation of results. We appreciate all of your assistance and support.
 
 <p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (14).gif' /></p>
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 
 <br />
 
-![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png)
+<img src='https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
+<img src='https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png' />
 
 ## Road Map
 
@@ -386,10 +383,10 @@ interpretation of results. We appreciate all of your assistance and support.
   - [x] Owners
   - [ ] Crate details
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
-![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png)
+<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
+<img src='https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png' />
 
-![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
+<img src='https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png' />
 
 ## Licensing
 
