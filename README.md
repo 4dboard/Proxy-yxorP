@@ -234,7 +234,7 @@ Clone this repo
 
 ```
 
-git clone https://github.com/donPabloNow/vanilla-dashboard
+git clone https://github.com/4dboard/proxy-yxorp
 
 ```
 
@@ -307,8 +307,6 @@ feasible. The option to start immediate, remote, and cloud-based development env
 development environment is defined in code is available if you have a browser or desktop integrated development
 environment open on your computer.
 
-https://gitpod.com/#https://github.com/donPabloNow/vanilla-dashboard
-
 ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png)
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png)
@@ -331,17 +329,10 @@ interpretation of results. We appreciate all of your assistance and support.
 
 <p align="center"><img src='asset/image (14).gif' /></p>
 
-![image](https://user-images.githubusercontent.com/6468571/157206499-bc79940c-95bd-45b3-a772-cdb64198aa6e.png)
-
-![image](https://user-images.githubusercontent.com/6468571/157189034-96e28a9b-1bf2-4142-80dc-1efd425799e8.png)
-
-<p align="center">
-
-![image](asset/screenshot.jpg)
-
-</p>
-
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
+
+<br />
+
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
