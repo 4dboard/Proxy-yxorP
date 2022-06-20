@@ -9,8 +9,9 @@ yxorP is a plug-and-play, flat-file application that does not need Composer, PHP
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then retrieved and modified accordingly. Additionally, the website content can be optionally spun using the article spinning engine that is already embedded into the application. After the website has been modified the result is then stored for a predefined time inside a custom-built, flat-file cache system architectured to be 500x faster than memory-based cache systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes, which resulted a significantly faster cache.
 
 <h3 >⚡ Installation</h3 >
+> ⚠️**Requires**: Minimum requirement is PHP version 8.0 +
 
-<h4>Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in the '.env.example' are correct and the file has been renamed '.env'.</h4>
+<b>NB:</b><i> Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in the '.env.example' are correct and the file has been renamed '.env'.</i>
 
 Cockpit is the graphical user interface (GUI) for the administration interface, which may be immediately accessed by entering "/cockpit" and supplying the admin username and password set in the '.env' file.
 
