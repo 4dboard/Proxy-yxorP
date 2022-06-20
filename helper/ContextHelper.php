@@ -21,10 +21,10 @@ class ContextHelper extends EventWrapper
         $GLOBALS['SITE_CONTEXT']->SITE_URL = (str_contains($_SERVER['SERVER_NAME'], "localhost") ? "http://" : "https://") . $result->domain()->toString();
         foreach ((array)APIHelper::fetch('Sites') as $key => $value) if (str_contains($result->domain()->toString(), $key)) $GLOBALS['SITE_CONTEXT'] = $value;
         $_targetSub = $result->subDomain()->toString() ? $result->subDomain()->toString() . "." : null;
-        $GLOBALS['SITE_CONTEXT']->TARGET_URL = "https://" . ($publicSuffixList->resolve($_targetSub . $GLOBALS['SITE_CONTEXT']->TARGET))->domain()->toString();
+        $GLOBALS['SITE_CONTEXT']->TARGET_URL = "https://" . ($publicSuffixList->resolve($_targetSub . $GLOBALS['APP']->storage->findOne('collections/sites', ['host'=>$result->domain()->toString()])['target']))->domain()->toString();
         $GLOBALS['SITE_CONTEXT']->PROXY_URL = $GLOBALS['SITE_CONTEXT']->TARGET_URL . $_SERVER['REQUEST_URI'];
         $GLOBALS['SITE_CONTEXT']->CACHE_DIR = $GLOBALS['PLUGIN_DIR'] . "/.cache/";
-        $GLOBALS['SITE_CONTEXT']->DIR_FULL = $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['SITE_CONTEXT']->DIR;
+        $GLOBALS['SITE_CONTEXT']->DIR_FULL = $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['APP']->storage->findOne('collections/sites', ['host'=>$result->domain()->toString()])['dir'];
         new CacheHelper();
     }
 }

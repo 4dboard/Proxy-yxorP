@@ -26,15 +26,15 @@ class yxorP
             $GLOBALS[$name] = str_replace("\r\n",null,$value);
         }
 
-        require $GLOBALS['PLUGIN_DIR'] . '/install.php';
-
-        foreach ((array)json_decode(file_get_contents($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/overrides.json'), false) as $key => $value) {
-            $GLOBALS[$key] = $value;
-        }
+        require $GLOBALS['PLUGIN_DIR'] . '/setup/install.php';
 
         foreach (array('http', 'helper', 'domain') as $_asset) {
             self::FILES_CHECK($GLOBALS['PLUGIN_DIR'] . DIRECTORY_SEPARATOR . $_asset, true);
         }
+
+
+        $GLOBALS['RESPONSE'] = $GLOBALS['RESPONSE'] ?: new Response();
+        $GLOBALS['REQUEST'] = $GLOBALS['REQUEST'] ?: Request::createFromGlobals();
 
         self::FILES_CHECK($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/assets', false);
         self::FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
@@ -48,8 +48,6 @@ class yxorP
             $this->addSubscriber(new $plugin());
         }
 
-        $GLOBALS['RESPONSE'] = $GLOBALS['RESPONSE'] ?: new Response();
-        $GLOBALS['REQUEST'] = $GLOBALS['REQUEST'] ?: Request::createFromGlobals();
         $GLOBALS['EVENT'] = $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE']));
         $GLOBALS['GUZZLE'] = $GLOBALS['GUZZLE'] ?: new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]);
 

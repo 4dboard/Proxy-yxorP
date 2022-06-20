@@ -5,8 +5,6 @@ use Bugsnag\Handler;
 use yxorP\Cache\Cache;
 use yxorP\Http\EventWrapper;
 use yxorP\http\ProxyEvent;
-use yxorP\Http\Request;
-use yxorP\Http\Response;
 
 class FetchHelper extends EventWrapper
 {
@@ -18,7 +16,7 @@ class FetchHelper extends EventWrapper
     {
         Handler::register($GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']));
         try {
-            Cache::cache($GLOBALS['CACHE_KEY'])->set($this->forward(Request::createFromGlobals(), $GLOBALS['SITE_CONTEXT']->PROXY_URL));
+            Cache::cache($GLOBALS['CACHE_KEY'])->set($this->forward($GLOBALS['SITE_CONTEXT']->PROXY_URL));
         } catch (exception $e) {
             if ($GLOBALS['MIME'] !== 'text/html') {
                 header("Location: " . $GLOBALS['SITE_CONTEXT']->PROXY_URL);
@@ -35,13 +33,13 @@ class FetchHelper extends EventWrapper
     public function forward($url): string
     {
         $GLOBALS['REQUEST']->setUrl($url);
-        yxorP::dispatch('request.before_send', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
+        $this->dispatch('request.before_send', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
         if ($_body = file_get_contents('php://input')) {
             $GLOBALS['REQUEST']->setBody(json_decode($_body, true), $GLOBALS['MIME']);
         }
         $GLOBALS['RESPONSE']->setContent($GLOBALS['GUZZLE']->request($GLOBALS['REQUEST']->getMethod(), $GLOBALS['REQUEST']->getUri(), json_decode(json_encode($GLOBALS['REQUEST']), true, 512, JSON_THROW_ON_ERROR))->getBody());
         $this->dispatch('request.complete', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
-        return $response->getContent();
+        return $GLOBALS['RESPONSE']->getContent();
     }
 
 
