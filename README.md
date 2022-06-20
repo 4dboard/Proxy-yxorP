@@ -4,11 +4,20 @@
 <h1  align="center">🦄 .yxorP SAAS(y), Multi-tenancy Web Proxy Guzzler</h1>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
 
+<br />
+<br />
+
+![image](https://user-images.githubusercontent.com/6468571/174626715-a5087404-8d9e-45d5-a3e6-a8aaa206fd4f.png)
+
 yxorP is a plug-and-play, flat-file application that does not need Composer, PHP CURL, or databases; these are all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of multiple websites using a PHAR (PHP archive) binary version of Guzzle, and managed via a user-friendly Cockpit backend (GUI).
 
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then retrieved and modified accordingly. Additionally, the website content can be optionally spun using the article spinning engine that is already embedded into the application. After the website has been modified the result is then stored for a predefined time inside a custom-built, flat-file cache system architectured to be 500x faster than memory-based cache systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes, which resulted a significantly faster cache.
 
-<h3 >⚡ Installation</h3 >
+<br />
+<br />
+
+![image](https://user-images.githubusercontent.com/6468571/174626087-35059fa8-477c-4de9-b89d-017bf2a9be2f.png)
+
 > ⚠️**Requires**: Minimum requirement is PHP version 8.0 +
 
 <b>NB:</b><i> Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in the '.env.example' are correct and the file has been renamed '.env'.</i>
@@ -17,11 +26,14 @@ Cockpit is the graphical user interface (GUI) for the administration interface, 
 
 The credentials defined in the '.env' file are used to setup the sqlite database for the 'cockpit' application. Once the application is accessed/run for the first time, the only way to 'update/change' the credentials is directly in the sqlite database or via the 'cockpit' application itself (The '.env' admin username and password are only used on the first run). The application can also always be reset via a clean installation.
 
-
 <p align="center"><img src='asset/diagrams.png' /></p>
 
-<h3 >🔋 Batteries are included</h3></h3>
-<h4> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
+<br />
+<br />
+
+![image](https://user-images.githubusercontent.com/6468571/174626182-88a8ec03-4784-4865-8015-ba1c86ff57f5.png)
+
+<h3 >🔋 Batteries Included: Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
 Spinner.</h4>
 
 Convenient features such as built-in content spinning and an auto caching engine are hidden behind a slick online
