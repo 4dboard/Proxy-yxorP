@@ -1,10 +1,15 @@
 <p align="center">
 <img align="center" src='asset/logo.png' />
 </p>
-<h1  align="center"><b>.yxorP</b> <i>A SAAS(y), Multitenancy & Augmenting Guzzler</i></h1>
-<p align="center">
-<img align="center" src='asset/banner.png' />
-</p>
+<h1  align="center"><b>.yxorP</b> <i>A SAAS(y), Multi-tenancy Web Proxy Guzzler</i></h1>
+
+<h3 >⚡ Installation</h3 >
+
+<h4>Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in the '.env.example' are correct and the file has been renamed '.env'.</h4>
+
+Cockpit is the graphical user interface (GUI) for the administration interface, which may be immediately accessed by entering "/cockpit" and supplying the admin username and password set in the '.env' file.
+
+The credentials defined in the '.env' file are used to setup the sqlite database for the 'cockpit' application. Once the application is accessed/run for the first time, the only way to 'update/change' the credentials is directly in the sqlite database or via the 'cockpit' application itself (The '.env' admin username and password are only used on the first run). The application can also always be reset via a clean installation.
 
 <h3 >🔋 Batteries are included</h3></h3>
 <h4> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
@@ -66,51 +71,6 @@ One system, consume it the way you want. Receive your content via a simple API.
 - Easy integrations – connect with everything.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png)
-
-## Installation
-
-Appwrite backend server is designed to run in a container environment. Running your server is as easy as running one
-command from your terminal. You can either run Appwrite on your localhost using docker-compose or on any other container
-orchestration tool like Kubernetes, Docker Swarm, or Rancher.
-
-The easiest way to start running your Appwrite server is by running our docker-compose file. Before running the
-installation command, make sure you have [Docker](https://www.docker.com/products/docker-desktop) installed on your
-machine:
-
-### Unix
-
-```bash
-docker run -it --rm \
-    --volume /var/run/docker.sock:/var/run/docker.sock \
-    --volume "$(pwd)"/appwrite:/usr/src/code/appwrite:rw \
-    --entrypoint="install" \
-    appwrite/appwrite:0.13.4
-```
-
-### Windows
-
-#### CMD
-
-```cmd
-docker run -it --rm ^
-    --volume //var/run/docker.sock:/var/run/docker.sock ^
-    --volume "%cd%"/appwrite:/usr/src/code/appwrite:rw ^
-    --entrypoint="install" ^
-    appwrite/appwrite:0.13.4
-```
-
-#### PowerShell
-
-```powershell
-docker run -it --rm ,
-    --volume /var/run/docker.sock:/var/run/docker.sock ,
-    --volume ${pwd}/appwrite:/usr/src/code/appwrite:rw ,
-    --entrypoint="install" ,
-    appwrite/appwrite:0.13.4
-```
-
-Once the Docker installation completes, go to http://localhost to access the Appwrite console from your browser. Please
-note that on non-Linux native hosts, the server might take a few minutes to start after installation completes.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
