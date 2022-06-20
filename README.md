@@ -15,7 +15,7 @@ The incoming request hostname is used to fetch site-specific requirements from t
 
 The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the industry's primary error tracking systems.
 
-![](./asset/movie.mp4)
+<video src="https://github.com/4dboard/proxy-yxorp/blob/main/asset/movie.mp4?raw=true" data-canonical-src="https://github.com/4dboard/proxy-yxorp/blob/main/asset/movie.mp4?raw=true" controls="controls"></video>
 
 <br />
 <br />
