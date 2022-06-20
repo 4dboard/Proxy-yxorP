@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<img src='https://user-images.githubusercontent.com/6468571/174626715-a5087404-8d9e-45d5-a3e6-a8aaa206fd4f.png' />
+<img align="center" src='https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png' />
 
 yxorP is a plug-and-play, flat-file application that does not need Composer, PHP CURL, or databases; these are all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of multiple websites using a PHAR (PHP archive) binary version of Guzzle, and managed via a user-friendly Cockpit backend (GUI).
 
@@ -21,7 +21,8 @@ The Bugsnag error reporting and warning system now supports yxorP in its most co
 <br />
 <br />
 
-<img src='https://user-images.githubusercontent.com/6468571/174626087-35059fa8-477c-4de9-b89d-017bf2a9be2f.png' />
+<img src='https://user-images.githubusercontent.com/6468571/174686718-8501af5f-3fd3-4df9-8854-3319f7837e51.png'/>
+
 
 > ⚠️**Requires**: Minimum requirement is PHP version 8.0 +
 
@@ -36,7 +37,7 @@ The credentials defined in the '.env' file are used to setup the sqlite database
 <br />
 <br />
 
-<img src='https://user-images.githubusercontent.com/6468571/174626182-88a8ec03-4784-4865-8015-ba1c86ff57f5.png' />
+<img src='https://user-images.githubusercontent.com/6468571/174686903-294074b2-2129-4084-a42d-33d6387a8851.png' />
 
 <h3 >🔋 Batteries Included: Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
 Spinner.</h3>
