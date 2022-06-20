@@ -1,7 +1,7 @@
 <p align="center">
 <img align="center" src='asset/logo.png' />
 </p>
-<h1  align="center">🦄 .yxorP [v2.1] SAAS(y), Multi-tenancy Web Proxy Guzzler</h1>
+<h1  align="center">🦄 .yxorP [v2.1] SAAS(y), Multi-tenancy Proxy Guzzler</h1>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
 
 <br />
