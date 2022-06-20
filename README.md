@@ -162,10 +162,7 @@ diagnostic information.
 
 Instant Development Enviroment stup with your prefered service provider:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
-
-<img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
-<img src='https://user-images.githubusercontent.com/6468571/157205943-7e735dd6-4d7f-401b-97b7-a25ecc2b9c3b.png' />
+<a href="https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP"><img src="https://vercel.com/button" /></a> <a href="https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP"><img src="https://www.herokucdn.com/deploy/button.svg" /></a> <a href="https://render.com/deploy?repo=https://github.com/4dboard/yxorP"><img src="https://render.com/images/deploy-to-render-button.svg" /></a> <a href="https://gitpod.io/#https://github.com/4dboard/yxorP"><img src="https://gitpod.io/button/open-in-gitpod.svg" /></a> <img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' /> <img src='https://user-images.githubusercontent.com/6468571/157205943-7e735dd6-4d7f-401b-97b7-a25ecc2b9c3b.png' />
 
 <img src='https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png' />
 
