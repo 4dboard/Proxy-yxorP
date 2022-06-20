@@ -1,7 +1,9 @@
 <p align="center">
 <img align="center" src='asset/logo.png' />
 </p>
-<h1  align="center"><b>.yxorP</b> <i>A SAAS(y), Multi-tenancy Web Proxy Guzzler</i></h1>
+<h1  align="center">🦄 .yxorP Plug & Play SAAS(y), Multi-tenancy Web Proxy Guzzler</h1>
+<h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
+
 
 <h3 >⚡ Installation</h3 >
 
@@ -10,6 +12,9 @@
 Cockpit is the graphical user interface (GUI) for the administration interface, which may be immediately accessed by entering "/cockpit" and supplying the admin username and password set in the '.env' file.
 
 The credentials defined in the '.env' file are used to setup the sqlite database for the 'cockpit' application. Once the application is accessed/run for the first time, the only way to 'update/change' the credentials is directly in the sqlite database or via the 'cockpit' application itself (The '.env' admin username and password are only used on the first run). The application can also always be reset via a clean installation.
+
+
+<p align="center"><img src='asset/diagrams.png' /></p>
 
 <h3 >🔋 Batteries are included</h3></h3>
 <h4> Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
@@ -37,7 +42,6 @@ or "plugin-based." Web-based reporting and analytics using a graphical user inte
 custom-built content spinning engine, the system allows material to be "augmented" (or "spun") with little performance
 degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
-<p align="center"><img src='asset/diagrams.png' /></p>
 <p align="center"><img src='asset/diagram.png' /></p>
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
