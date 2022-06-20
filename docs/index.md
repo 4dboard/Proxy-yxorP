@@ -16,7 +16,7 @@ The incoming request hostname is used to fetch site-specific requirements from t
 
 The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the industry's primary error tracking systems.
 
-<video width="100%" height="auto" style="width:100%;height:auto" src="https://4dboard.github.io/proxy-yxorp/movie.mp4" controls="controls"></video>
+<video width="100%" height="auto" style="width:100%;height:auto" src="https://cdn-cf-east.streamable.com/video/mp4-mobile/88mpdq.mp4?Expires=1656012180&Signature=S~TReoIN1uQLNs-7EpuDUq~PpL6vP0VNdrvwwDH4Xuc4Q9JTitsMaMqZNE8fdxDcZt9dK~1Q7uF4oYcH~KDyzW~9fFWmTqS6JWRKLJoI65yKD5NbNGH4bAFIqnS3aChpHBoOxDZJYwTh9WF~3l9B--YDnjAuH-UlWM1E7MSE5WuQL0cH9ZkQcqaNzM3AW4s~y90KsBhzSpn8PwY9HU~kuP2T9xKK9WEEtfquUyDxbjhOaETHk0tWRlg6tDdEZDisQJEar~4LPtzfXT2efgRmwie8vcYE7U9hER5~hDdR19UtHhQBwZF~nmN2S3emRx5NAzG3ANBAsgZ~CeoIdRmndQ__&Key-Pair-Id=APKAIEYUVEN4EVB2OKEQ" controls="controls"></video>
 
 <br />
 <br />
