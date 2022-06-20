@@ -1,9 +1,12 @@
 <p align="center">
 <img align="center" src='asset/logo.png' />
 </p>
-<h1  align="center">🦄 .yxorP Plug & Play SAAS(y), Multi-tenancy Web Proxy Guzzler</h1>
+<h1  align="center">🦄 .yxorP SAAS(y), Multi-tenancy Web Proxy Guzzler</h1>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
 
+yxorP is a plug-and-play, flat-file application that does not need Composer, PHP CURL, or databases; these are all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of multiple websites using a PHAR (PHP archive) binary version of Guzzle, and managed via a user-friendly Cockpit backend (GUI).
+
+The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then retrieved and modified accordingly. Additionally, the website content can be optionally spun using the article spinning engine that is already embedded into the application. After the website has been modified the result is then stored for a predefined time inside a custom-built, flat-file cache system architectured to be 500x faster than memory-based cache systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes, which resulted a significantly faster cache.
 
 <h3 >⚡ Installation</h3 >
 
