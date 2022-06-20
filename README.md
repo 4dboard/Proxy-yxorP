@@ -16,8 +16,7 @@ The incoming request hostname is used to fetch site-specific requirements from t
 
 The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the industry's primary error tracking systems.
 
-
-https://user-images.githubusercontent.com/6468571/174666657-b83c0d0e-7ee4-4fa4-a941-d83ac15834bc.mp4
+<video controls="true" width="100%" height="auto" autoplay="" name="media"><source src="https://4dboard.github.io/proxy-yxorp/movie.mp4" type="video/mp4"></video>
 
 <br />
 <br />
@@ -40,7 +39,7 @@ The credentials defined in the '.env' file are used to setup the sqlite database
 <img src='https://user-images.githubusercontent.com/6468571/174626182-88a8ec03-4784-4865-8015-ba1c86ff57f5.png' />
 
 <h3 >🔋 Batteries Included: Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
-Spinner.</h4>
+Spinner.</h3>
 
 Convenient features such as built-in content spinning and an auto caching engine are hidden behind a slick online
 interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files,
@@ -138,13 +137,13 @@ version of the website during upgrades or down-time.
 There are several additional uses that may be explored, and these are only a few of the more common ones.
 
 <img src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
-<img src="asset/logosnag.png"/>
+<img src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png"/>
 
 Bugsnag provides a solution for error monitoring and application stability management that is easy to use and implement.
 The ability to make data-driven decisions about whether to develop software or address problems is contingent on the
 ability to maintain stability.
 
-<img src="asset/Bugsnag.gif"/>
+<img src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Bugsnag.gif"/>
 
 Diagnostic data from our mobile assistance, which has been regarded as the best-in-class in the industry, enables teams
 to reproduce and fix issues as soon as they begin to have an impact on system stability. Reports on error situations are
