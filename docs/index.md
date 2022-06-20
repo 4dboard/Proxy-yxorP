@@ -1,5 +1,5 @@
 <p align="center">
-<img align="center" src='asset/logo.png' />
+<img align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png' />
 </p>
 <h1  align="center">🦄 .yxorP [v2.1] SAAS(y), Multi-tenancy Proxy Guzzler</h1>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
@@ -15,7 +15,7 @@ The incoming request hostname is used to fetch site-specific requirements from t
 
 The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the industry's primary error tracking systems.
 
-<video src="https://4dboard.github.io/proxy-yxorp/movie.mp4" data-canonical-src="https://4dboard.github.io/proxy-yxorp/movie.mp4" controls="controls"></video>
+<video src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/movie.mp4" data-canonical-src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/movie.mp4" controls="controls"></video>
 
 <br />
 <br />
@@ -30,7 +30,7 @@ Cockpit is the graphical user interface (GUI) for the administration interface, 
 
 The credentials defined in the '.env' file are used to setup the sqlite database for the 'cockpit' application. Once the application is accessed/run for the first time, the only way to 'update/change' the credentials is directly in the sqlite database or via the 'cockpit' application itself (The '.env' admin username and password are only used on the first run). The application can also always be reset via a clean installation.
 
-<p align="center"><img src='asset/diagrams.png' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png' /></p>
 
 <br />
 <br />
@@ -45,7 +45,7 @@ interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS
 CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb, Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Ssdb, and
 Zend Disk Cache.
 
-<p align="center"><img src='asset/Idna.png' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png' /></p>
 
 The combined might of two of the most successful web proxy initiatives is harnessed for maximum effect. This
 self-service proxy engine has zero performance loss and supports numerous tenants by combining a flat-file beautiful web
@@ -64,7 +64,7 @@ or "plugin-based." Web-based reporting and analytics using a graphical user inte
 custom-built content spinning engine, the system allows material to be "augmented" (or "spun") with little performance
 degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
-<p align="center"><img src='asset/diagram.png' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagram.png' /></p>
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
@@ -104,7 +104,7 @@ One system, consume it the way you want. Receive your content via a simple API.
 
 ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
-<p align="center"><img src='asset/image (3).gif' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (3).gif' /></p>
 
 ## Use case / Applications
 
@@ -159,7 +159,7 @@ diagnostic information.
 
 ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
 
-<p align="center"><img src='asset/image (4).gif' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (4).gif' /></p>
 
 ## Instant Setup
 
@@ -279,7 +279,7 @@ For more information please see: https://docs.lando.dev/config/lamp.html
 
 ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
 
-<p align="center"><img src='asset/image (10).gif' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (10).gif' /></p>
 
 ## Keep it up-to-date
 
@@ -333,7 +333,7 @@ development team. Please open a new issue with the appropriate subject title to 
 make to the document. Please make every effort to keep tests current in order to minimize the chance of wrong
 interpretation of results. We appreciate all of your assistance and support.
 
-<p align="center"><img src='asset/image (14).gif' /></p>
+<p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (14).gif' /></p>
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
@@ -346,45 +346,45 @@ interpretation of results. We appreciate all of your assistance and support.
 ## Road Map
 
 - [x] Front-end
-    - [x] Combine Proxy Engines
-    - [x] Allow Multi-tent rendering
-    - [x] Build Caching Layer
-    - [x] Develop Multi-threading support (PHP Vanilla/Independent)
+  - [x] Combine Proxy Engines
+  - [x] Allow Multi-tent rendering
+  - [x] Build Caching Layer
+  - [x] Develop Multi-threading support (PHP Vanilla/Independent)
 
-    + More (To be listed soon)
+  + More (To be listed soon)
 
 - [x] Foundation
-    - [x] API Service
-    - [x] TxT DB
-    - [x] Login
-    - [x] Registration
-    - [x] Dashboard
-    - [x] Who is Online
-    - [x] Documentation
+  - [x] API Service
+  - [x] TxT DB
+  - [x] Login
+  - [x] Registration
+  - [x] Dashboard
+  - [x] Who is Online
+  - [x] Documentation
 - [ ] Tables
-    - [x] Users
-    - [x] Notes
-    - [x] Tasks
-    - [ ] Chat
+  - [x] Users
+  - [x] Notes
+  - [x] Tasks
+  - [ ] Chat
 - [ ] Notes
-    - [x] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [x] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Tasks
-    - [x] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [x] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Chat
-    - [ ] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [ ] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Testing
-    - [x] Versions
-    - [x] Owners
-    - [ ] Crate details
+  - [x] Versions
+  - [x] Owners
+  - [ ] Crate details
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png)
@@ -402,4 +402,4 @@ compliance with licensing agreements. This license is straightforward and concis
 requires copyright protection and prominent display of licensing information in the form of terms. They may be released
 in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works.
 
-![](asset/live.png?v=3) 
+![](asset/live.png?v=3)
