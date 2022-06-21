@@ -159,3 +159,4 @@ class Cache
     }
 }
 
+require $GLOBALS['PLUGIN_DIR'] . '/cache/Check.php';

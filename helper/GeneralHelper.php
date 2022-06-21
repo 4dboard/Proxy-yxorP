@@ -2,15 +2,9 @@
 
 namespace yxorP\Helper;
 
-use yxorP\Http\EventWrapper;
-use yxorP\http\ProxyEvent;
 
-class GeneralHelper extends EventWrapper
+class GeneralHelper
 {
-    public function onBeforeRequest(ProxyEvent $event)
-    {
-    }
-
     public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
     {
         $path = parse_url($url, PHP_URL_PATH);

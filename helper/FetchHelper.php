@@ -3,20 +3,15 @@
 use Bugsnag\Client;
 use Bugsnag\Handler;
 use yxorP\Cache\Cache;
-use yxorP\Http\EventWrapper;
 use yxorP\http\ProxyEvent;
 
-class FetchHelper extends EventWrapper
+class FetchHelper
 {
-    public function onBeforeRequest(ProxyEvent $event)
-    {
-    }
-
-    public function __construct()
+    public static function helper()
     {
         Handler::register($GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']));
         try {
-            Cache::cache($GLOBALS['CACHE_KEY'])->set($this->forward($GLOBALS['SITE_CONTEXT']->PROXY_URL));
+            Cache::cache($GLOBALS['CACHE_KEY'])->set(self::forward($GLOBALS['SITE_CONTEXT']->PROXY_URL));
         } catch (exception $e) {
             if ($GLOBALS['MIME'] !== 'text/html') {
                 header("Location: " . $GLOBALS['SITE_CONTEXT']->PROXY_URL);
@@ -30,20 +25,20 @@ class FetchHelper extends EventWrapper
     }
 
 
-    public function forward($url): string
+    public static function forward($url): string
     {
         $GLOBALS['REQUEST']->setUrl($url);
-        $this->dispatch('request.before_send', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
+        self::dispatch('request.before_send', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
         if ($_body = file_get_contents('php://input')) {
             $GLOBALS['REQUEST']->setBody(json_decode($_body, true), $GLOBALS['MIME']);
         }
         $GLOBALS['RESPONSE']->setContent($GLOBALS['GUZZLE']->request($GLOBALS['REQUEST']->getMethod(), $GLOBALS['REQUEST']->getUri(), json_decode(json_encode($GLOBALS['REQUEST']), true, 512, JSON_THROW_ON_ERROR))->getBody());
-        $this->dispatch('request.complete', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
+        self::dispatch('request.complete', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
         return $GLOBALS['RESPONSE']->getContent();
     }
 
 
-    public function dispatch($event_name, $event): void
+    public static function dispatch($event_name, $event): void
     {
         if (isset(\yxorP::$listeners[$event_name])) {
             $temp = (array)\yxorP::$listeners[$event_name];

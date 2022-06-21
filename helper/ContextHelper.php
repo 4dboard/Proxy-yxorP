@@ -3,16 +3,10 @@
 use stdClass;
 use yxorP\Domain\Domain;
 use yxorP\Domain\Rules;
-use yxorP\Http\EventWrapper;
-use yxorP\http\ProxyEvent;
 
-class ContextHelper extends EventWrapper
+class ContextHelper
 {
-    public function onBeforeRequest(ProxyEvent $event)
-    {
-    }
-
-    public function __construct()
+    public static function helper()
     {
         $publicSuffixList = Rules::fromPath($GLOBALS['PLUGIN_DIR'] . '/override/default/assets/public-suffix-list.dat');
         $domain = Domain::fromIDNA2008("$_SERVER[HTTP_HOST]");
@@ -23,11 +17,9 @@ class ContextHelper extends EventWrapper
         $GLOBALS['GLOBAL_REPLACE'] = $GLOBALS['APP']->storage->findOne('collections/global', ['type'=>'replace'])['value'];
         $GLOBALS['GLOBAL_PATTERN'] = $GLOBALS['APP']->storage->findOne('collections/global', ['type'=>'pattern'])['value'];
         $GLOBALS['SITE_CONTEXT']->SITE_URL = (str_contains($_SERVER['SERVER_NAME'], "localhost") ? "http://" : "https://") . $GLOBALS['SITE_CONTEXT']->SITE_DOMAIN;
-        foreach ((array)APIHelper::fetch('Sites') as $key => $value) if (str_contains($GLOBALS['SITE_CONTEXT']->SITE_DOMAIN, $key)) $GLOBALS['SITE_CONTEXT'] = $value;
-        $_targetSub = $result->subDomain()->toString() ? $result->subDomain()->toString() . "." : null;
-        $GLOBALS['SITE_CONTEXT']->TARGET_URL = "https://" . ($publicSuffixList->resolve($_targetSub . $GLOBALS['SITE_CONTEXT']->SITE['target']))->domain()->toString();
+        $GLOBALS['SITE_CONTEXT']->TARGET_URL = "https://" . ($publicSuffixList->resolve( ($result->subDomain()->toString() ? $result->subDomain()->toString() . "." : null) . $GLOBALS['SITE_CONTEXT']->SITE['target']))->domain()->toString();
         $GLOBALS['SITE_CONTEXT']->PROXY_URL = $GLOBALS['SITE_CONTEXT']->TARGET_URL . $_SERVER['REQUEST_URI'];
         $GLOBALS['SITE_CONTEXT']->DIR_FULL = $GLOBALS['PLUGIN_DIR'] . '/override/' . $GLOBALS['SITE_CONTEXT']->SITE['dir'];
-        new MimeHelper();
+        MimeHelper::helper();
     }
 }

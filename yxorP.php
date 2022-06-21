@@ -1,8 +1,6 @@
 <?php
 use yxorP\cache\Cache;
 use yxorP\Helper\HeaderHelper;
-use yxorP\Helper\IncludeHelper;
-use yxorP\Helper\MimeHelper;
 use yxorP\Http\ProxyEvent;
 use yxorP\Http\Request;
 use yxorP\Http\Response;
@@ -11,36 +9,13 @@ $GLOBALS['PLUGIN_DIR'] = __DIR__;
 error_reporting((int)$_SERVER['SERVER_NAME']== "localhost");
 
 require $GLOBALS['PLUGIN_DIR'] . '/cache/Cache.php';
-require $GLOBALS['PLUGIN_DIR'] . '/guzzle.phar';
-require $GLOBALS['PLUGIN_DIR'] . '/bugsnag.phar';
 
 class yxorP
 {
     public static $listeners = [];
 
-    private static function cache(){
-        $GLOBALS['CACHE_DIR'] = $GLOBALS['PLUGIN_DIR'] . '/.cache/' ;
-
-        if (!file_exists($GLOBALS['CACHE_DIR']) && !mkdir($concurrentDirectory = $GLOBALS['CACHE_DIR'], 0777, true) && !is_dir($concurrentDirectory)) {
-            throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
-        }
-        $GLOBALS['CACHE_KEY'] = base64_encode($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
-        $GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31 * 365);
-        if (isset($_GET["CLECHE"])) {
-            Cache::cache($GLOBALS['CACHE_KEY'])->clearAll();
-        }
-
-        if (Cache::cache($GLOBALS['CACHE_KEY'])->isValid()) {
-            echo Cache::cache($GLOBALS['CACHE_KEY'])->get();
-            exit;
-        }
-
-    }
-
     public  function __construct()
     {
-        self::cache();
-
         foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
 
             if (trim(str_starts_with(trim($line), '#'))) continue;
@@ -77,7 +52,7 @@ class yxorP
         $GLOBALS['EVENT'] = $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE']));
         $GLOBALS['GUZZLE'] = $GLOBALS['GUZZLE'] ?: new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]);
 
-        new HeaderHelper();
+        HeaderHelper::helper();
 
         echo Cache::cache($GLOBALS['CACHE_KEY'])->get();
     }
