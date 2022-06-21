@@ -1,9 +1,7 @@
 <?php
 use yxorP\cache\Cache;
 use yxorP\Helper\HeaderHelper;
-use yxorP\Http\ProxyEvent;
-use yxorP\Http\Request;
-use yxorP\Http\Response;
+use yxorP\Helper\IncludeHelper;
 
 $GLOBALS['PLUGIN_DIR'] = __DIR__;
 error_reporting((int)$_SERVER['SERVER_NAME']== "localhost");
@@ -16,26 +14,16 @@ class yxorP
 
     public  function __construct()
     {
-        foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
-
-            if (trim(str_starts_with(trim($line), '#'))) continue;
-
-            [$name, $value] = explode('=', $line, 2);
-            $GLOBALS[$name] = str_replace("\r\n",null,$value);
-        }
-
-        require $GLOBALS['PLUGIN_DIR'] . '/setup/install.php';
-
         foreach (array('http', 'helper', 'domain') as $_asset) {
             self::FILES_CHECK($GLOBALS['PLUGIN_DIR'] . DIRECTORY_SEPARATOR . $_asset, true);
         }
+        new IncludeHelper();
+        $this->loadPlugins();
+        echo Cache::cache($GLOBALS['CACHE_KEY'])->get();
+    }
 
-        $GLOBALS['RESPONSE'] = $GLOBALS['RESPONSE'] ?: new Response();
-        $GLOBALS['REQUEST'] = $GLOBALS['REQUEST'] ?: Request::createFromGlobals();
-
-        self::FILES_CHECK($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/assets', false);
-        self::FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/default/assets', false);
-
+    public function loadPlugins()
+    {
         $_plugins = $GLOBALS['SITE_CONTEXT']->SITE['plugins'] ?: [];
 
         array_push($_plugins,'OverridePlugin');
@@ -49,12 +37,12 @@ class yxorP
             $this->addSubscriber(new $plugin());
         }
 
-        $GLOBALS['EVENT'] = $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE']));
-        $GLOBALS['GUZZLE'] = $GLOBALS['GUZZLE'] ?: new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]);
-
         HeaderHelper::helper();
+    }
 
-        echo Cache::cache($GLOBALS['CACHE_KEY'])->get();
+    public static function addListener($event, $callback, $priority = 0): void
+    {
+        self::$listeners[$event][$priority][] = $callback;
     }
 
     public function addSubscriber($subscriber): void
@@ -63,12 +51,6 @@ class yxorP
             $subscriber->subscribe($this);
         }
     }
-
-    public function addListener($event, $callback, $priority = 0): void
-    {
-        self::$listeners[$event][$priority][] = $callback;
-    }
-
     public static function FILES_CHECK($dir, $inc): void
     {
         if (file($dir) || is_dir($dir)) {
@@ -96,7 +78,7 @@ class yxorP
         return array_merge(...$csvArray);
     }
 
-    public function SUB($url)
+    public static function SUB($url)
     {
         $urlHostSegments = explode('.', parse_url($url)['host']);
         return (count($urlHostSegments) > 2) ? $urlHostSegments[0] : null;

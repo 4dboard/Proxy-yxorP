@@ -25,7 +25,7 @@ class MimeHelper
             $GLOBALS['MIME'] = 'text/html';
         }
         header('Content-Type: ' . $GLOBALS['MIME'] . '; charset=UTF-8');
-        FetchHelper::helper();
+        new FetchHelper();
     }
 }
 

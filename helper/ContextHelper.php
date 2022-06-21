@@ -8,7 +8,7 @@ class ContextHelper
 {
     public static function helper()
     {
-        $publicSuffixList = Rules::fromPath($GLOBALS['PLUGIN_DIR'] . '/override/default/assets/public-suffix-list.dat');
+        $publicSuffixList = Rules::fromPath($GLOBALS['PLUGIN_DIR'] . '/override/global/includes/public-suffix-list.dat');
         $domain = Domain::fromIDNA2008("$_SERVER[HTTP_HOST]");
         $result = $publicSuffixList->resolve($domain);
         $GLOBALS['SITE_CONTEXT'] = new stdClass();

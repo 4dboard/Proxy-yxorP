@@ -14,16 +14,16 @@ abstract class EventWrapper
 
     final public function subscribe($dispatcher): void
     {
-        $dispatcher->addListener('request.before_send', function ($event) {
+        $dispatcher::addListener('request.before_send', function ($event) {
             $this->route('request.before_send', $event);
         });
-        $dispatcher->addListener('request.sent', function ($event) {
+        $dispatcher::addListener('request.sent', function ($event) {
             $this->route('request.sent', $event);
         });
-        $dispatcher->addListener('curl.callback.write', function ($event) {
+        $dispatcher::addListener('curl.callback.write', function ($event) {
             $this->route('curl.callback.write', $event);
         });
-        $dispatcher->addListener('request.complete', function ($event) {
+        $dispatcher::addListener('request.complete', function ($event) {
             $this->route('request.complete', $event);
         });
     }
