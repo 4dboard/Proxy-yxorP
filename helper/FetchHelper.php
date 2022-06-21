@@ -45,8 +45,8 @@ class FetchHelper extends EventWrapper
 
     public function dispatch($event_name, $event): void
     {
-        if (isset($this->listeners[$event_name])) {
-            $temp = (array)$this->listeners[$event_name];
+        if (isset(\yxorP::$listeners[$event_name])) {
+            $temp = (array)\yxorP::$listeners[$event_name];
             foreach ($temp as $priority => $listeners) {
                 foreach ((array)$listeners as $listener) {
                     if (is_callable($listener)) {
@@ -57,17 +57,7 @@ class FetchHelper extends EventWrapper
         }
     }
 
-    public function addListener($event, $callback, $priority = 0): void
-    {
-        $this->listeners[$event][$priority][] = $callback;
-    }
 
 
-    public function addSubscriber($subscriber): void
-    {
-        if (method_exists($subscriber, 'subscribe')) {
-            $subscriber->subscribe($this);
-        }
-    }
 }
 

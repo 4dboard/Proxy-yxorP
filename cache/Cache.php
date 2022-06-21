@@ -29,7 +29,7 @@ class Cache
 
     private function __construct($key, $is_super = true)
     {
-        $this->path = $GLOBALS['SITE_CONTEXT']->CACHE_DIR;
+        $this->path = $GLOBALS['CACHE_DIR'];
         $this->key = $key;
         $this->options = ['expiry' => -1, 'lock' => false,];
         if ($is_super) {
@@ -79,12 +79,12 @@ class Cache
 
     public static function setPath($path)
     {
-        $GLOBALS['SITE_CONTEXT']->CACHE_DIR = $path;
+        $GLOBALS['CACHE_DIR'] = $path;
     }
 
     public static function getPath()
     {
-        return $GLOBALS['SITE_CONTEXT']->CACHE_DIR;
+        return $GLOBALS['CACHE_DIR'];
     }
 
     public static function setPretty($val)
@@ -94,7 +94,7 @@ class Cache
 
     public static function clearAll()
     {
-        $files = glob($GLOBALS['SITE_CONTEXT']->CACHE_DIR . '*');
+        $files = glob($GLOBALS['CACHE_DIR'] . '*');
         foreach ($files as $file) {
             if (is_file($file)) {
                 unlink($file);

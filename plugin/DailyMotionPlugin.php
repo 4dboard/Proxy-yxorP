@@ -1,5 +1,5 @@
 <?php
-namespace yxorP\Helper;
+
 use yxorP\Http\EventWrapper;
 use yxorP\http\ProxyEvent;
 use yxorP\Helper\GeneralHelper;
