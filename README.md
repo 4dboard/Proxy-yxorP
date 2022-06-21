@@ -1,3 +1,6 @@
+> ⛔️ **ARCHIVE PENDING**: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
+
+
 <p align="center">
 <img align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png' />
 </p>

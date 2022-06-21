@@ -21,7 +21,7 @@ class IncludeHelper
         $GLOBALS['RESPONSE'] = $GLOBALS['RESPONSE'] ?: new Response();
         $GLOBALS['REQUEST'] = $GLOBALS['REQUEST'] ?: Request::createFromGlobals();
 
-        \yxorP::FILES_CHECK($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/assets', false);
+        \yxorP::FILES_CHECK($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/', false);
         \yxorP::FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/global/assets', false);
 
         $GLOBALS['EVENT'] = $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE']));

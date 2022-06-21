@@ -1,0 +1,205 @@
+html {
+    overflow: hidden !important;
+    overflow-y: visible !important;
+    width: 100% !important;
+    height: initial !important;
+    background-image: url('/default-loading.gif') !important;
+    background-color: #000 !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    filter: opacity(.99) saturate(1.5) hue-rotate(-25deg) !important;
+}
+
+
+.canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #e8f4f6 !important;
+}
+
+
+@keyframes clouds-loop-1 {
+    to {
+        background-position: -1000px 0;
+    }
+}
+
+.clouds-1 {
+    background-image: url("https://s.cdpn.io/15514/clouds_2.png");
+    animation: clouds-loop-1 20s infinite linear;
+}
+
+@keyframes clouds-loop-2 {
+    to {
+        background-position: -1000px 0;
+    }
+}
+
+.clouds-2 {
+    background-image: url("https://s.cdpn.io/15514/clouds_1.png");
+    animation: clouds-loop-2 15s infinite linear;
+}
+
+@keyframes clouds-loop-3 {
+    to {
+        background-position: -1579px 0;
+    }
+}
+
+.clouds-3 {
+    background-image: url("https://s.cdpn.io/15514/clouds_3.png");
+    animation: clouds-loop-3 17s infinite linear;
+}
+
+#clxuds {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+    pointer-events: none !important;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 0;
+    width: 100%;
+    opacity: 0.95;
+    mix-blend-mode: plus-lighter;
+}
+
+#clxuds ~ #clxuds {
+    display: none !important
+}
+
+.clouds-1, .clouds-2, .clouds-3 {
+    background-repeat: repeat-x;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 500px;
+}
+
+z, x {
+    display: block;
+}
+
+body {
+    opacity: 0 !important;
+}
+
+html.don body {
+    opacity: 1 !important;
+    z-index: 1 !important;
+}
+
+cloudflare-app {
+    position: absolute !important;
+}
+
+#octo {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: fixed !important;
+    z-index: 0 !important;
+}
+
+
+i.fas,
+i.fab {
+    display: block !important;
+}
+
+* {
+    transition: 0.2s all !important;
+}
+
+header {
+    display: none !important
+}
+
+#headxr {
+    padding: 15px !important;
+    z-index: 99 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    opacity: 0.98 !important;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    box-shadow: 2px 2px 15px 5px rgb(0 0 0) !important;
+    width: 100% !important;
+    color: #ccc !important;
+    background: linear-gradient(0deg, #0043ff63, #000000) !important;
+}
+
+h ~ h {
+    display: none !important
+}
+
+#headxr a {
+    padding: 0.5rem 1.5rem !important;
+    cursor: pointer !important;
+    color: #ccc !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    text-align: center !important;
+    font-weight: bold !important;
+}
+
+#headxr a.current,
+#headxr a:hover {
+    color: #fff !important;
+    text-shadow: 0 0 6px #ffffffe3 !important;
+}
+
+#headxr i {
+    font-weight: normal !important;
+    font-size: 15px !important;
+    font-style: italic !important;
+}
+
+#headxr m {
+    position: absolute !important;
+    font-size: 9px !important;
+    color: #fff !important;
+    text-shadow: -1px 0 12px #fff;
+    position: absolute !important;
+    font-style: italic !important;
+    bottom: 5px !important;
+    left: 38px !important;
+}
+
+#nav {
+    display: inline !important;
+}
+
+@media screen and (min-width: 860px) {
+    i.fas,
+    i.fab {
+        display: inline-block !important;
+    }
+
+    #headxr i,
+    #headxr a {
+        display: inline !important;
+        padding: 0 1.5rem !important;
+    }
+}
+
+
+@media (max-width: 801px) {
+
+    #headxr i,
+    #headxr a {
+        font-size: 10px !important;
+        padding: 0 10px !important;
+    }
+
+    m {
+        display: none !important;
+    }
+}

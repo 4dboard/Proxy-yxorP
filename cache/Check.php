@@ -18,5 +18,10 @@ if (Cache::cache($GLOBALS['CACHE_KEY'])->isValid()) {
     exit;
 }
 
+if (str_contains($_SERVER['REQUEST_URI'], '/cockpit')) {
+    require $GLOBALS['PLUGIN_DIR'] . 'cockpit/index.php';
+    exit;
+}
+
 require $GLOBALS['PLUGIN_DIR'] . '/guzzle.phar';
 require $GLOBALS['PLUGIN_DIR'] . '/bugsnag.phar';

@@ -587,9 +587,6 @@ ModPagespeedEnableFilters collapse_whitespace,remove_comments
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /
-    RewriteCond %{HTTP_HOST} !^www\. [NC]
-    RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
-    RewriteRule ^/cockpit($|/) - [L]
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule . index.php [L]
