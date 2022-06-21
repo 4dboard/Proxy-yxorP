@@ -65,4 +65,3 @@ class Response
         return $this->status;
     }
 }
-

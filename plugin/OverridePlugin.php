@@ -1,8 +1,8 @@
 <?php
 
 use yxorP\Http\EventWrapper;
-use yxorP\http\ProxyEvent;
-use yxorP\http\HtmlMinify;
+use yxorP\Http\Minifier;
+use yxorP\Http\ProxyEvent;
 
 class OverridePlugin extends EventWrapper
 {
@@ -12,10 +12,10 @@ class OverridePlugin extends EventWrapper
             return;
         }
 
-        $GLOBAL_SEARCH_MERGE = $this->merge($this->merge($this->merge(\array_keys($GLOBALS['GLOBAL_REPLACE']?:[]), \array_keys($GLOBALS['SITE_CONTEXT']->SITE['replace']?:[]), array(preg_replace("#^[^:/.]*[:/]+#i", "", preg_replace("{/$}", "", urldecode($GLOBALS['SITE_CONTEXT']->TARGET_URL)))))));
-        $GLOBAL_REPLACE_MERGE = $this->merge($this->merge($this->merge(\array_values($GLOBALS['GLOBAL_REPLACE']?:[]), \array_values($GLOBALS['SITE_CONTEXT']->SITE['replace'])?:[], array(preg_replace("#^[^:/.]*[:/]+#i", "", preg_replace("{/$}", "", urldecode($GLOBALS['SITE_CONTEXT']->SITE_URL)))))));
-        $PATTERN_SEARCH_MERGE = array_filter($this->merge(\array_keys($GLOBALS['GLOBAL_PATTERN']?:[]), \array_keys($GLOBALS['SITE_CONTEXT']->SITE['pattern']?:[])));
-        $PATTERN_REPLACE_MERGE = array_filter($this->merge(\array_values($GLOBALS['GLOBAL_PATTERN']?:[]), \array_values($GLOBALS['SITE_CONTEXT']->SITE['pattern']?:[])));
+        $GLOBAL_SEARCH_MERGE = $this->merge($this->merge($this->merge(\array_keys($GLOBALS['GLOBAL_REPLACE'] ?: []), \array_keys($GLOBALS['SITE_CONTEXT']->SITE['replace'] ?: []), array(preg_replace("#^[^:/.]*[:/]+#i", "", preg_replace("{/$}", "", urldecode($GLOBALS['SITE_CONTEXT']->TARGET_URL)))))));
+        $GLOBAL_REPLACE_MERGE = $this->merge($this->merge($this->merge(\array_values($GLOBALS['GLOBAL_REPLACE'] ?: []), \array_values($GLOBALS['SITE_CONTEXT']->SITE['replace']) ?: [], array(preg_replace("#^[^:/.]*[:/]+#i", "", preg_replace("{/$}", "", urldecode($GLOBALS['SITE_CONTEXT']->SITE_URL)))))));
+        $PATTERN_SEARCH_MERGE = array_filter($this->merge(\array_keys($GLOBALS['GLOBAL_PATTERN'] ?: []), \array_keys($GLOBALS['SITE_CONTEXT']->SITE['pattern'] ?: [])));
+        $PATTERN_REPLACE_MERGE = array_filter($this->merge(\array_values($GLOBALS['GLOBAL_PATTERN'] ?: []), \array_values($GLOBALS['SITE_CONTEXT']->SITE['pattern'] ?: [])));
         $event['response']->setContent($this->REWRITE(str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE, $event['response']->getContent()))));
     }
 
@@ -26,9 +26,9 @@ class OverridePlugin extends EventWrapper
 
     public function REWRITE($content): string
     {
-        return ($GLOBALS['MIME'] === 'text/html') ? preg_replace_callback("(<x>(.*?)</x>)", static function ($m) {
-            return str_replace(yxorP::CSV($GLOBALS['PLUGIN_DIR'] . '/override/global/includes/search_rewrite.csv'),yxorP::CSV($GLOBALS['PLUGIN_DIR'] . '/override/global/includes/replace_rewrite.csv'), $m[1]);
-        }, ((new HtmlMinify($content))->process())) : $content;
+        return ($GLOBALS['MIME'] !== 'text/html') ? $content : (Minifier::createDefault())->process(preg_replace_callback("(<x>(.*?)</x>)", static function ($m) {
+            return str_replace(yxorP::CSV($GLOBALS['PLUGIN_DIR'] . '/override/global/includes/search_rewrite.csv'), yxorP::CSV($GLOBALS['PLUGIN_DIR'] . '/override/global/includes/replace_rewrite.csv'), $m[1]);
+        }, $content));
     }
 }
 

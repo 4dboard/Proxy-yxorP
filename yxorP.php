@@ -14,7 +14,10 @@ class yxorP
 
     public  function __construct()
     {
-        foreach (array('http', 'helper', 'domain') as $_asset) {
+
+        require $GLOBALS['PLUGIN_DIR'] . '/http/Contract/ProcessorInterface.php';
+
+        foreach (array('http', 'dom', 'helper', 'domain') as $_asset) {
             self::FILES_CHECK($GLOBALS['PLUGIN_DIR'] . DIRECTORY_SEPARATOR . $_asset, true);
         }
         new IncludeHelper();

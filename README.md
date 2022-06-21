@@ -1,4 +1,4 @@
-> ⛔️ **ARCHIVE PENDING**: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
+~~> ⛔️ **ARCHIVE PENDING**: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.~~
 
 
 <p align="center">

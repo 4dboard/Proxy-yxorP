@@ -10,11 +10,22 @@
 
 <img align="center" src='https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png' />
 
-yxorP is a plug-and-play, flat-file application that does not need Composer, PHP CURL, or databases; these are all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of multiple websites using a PHAR (PHP archive) binary version of Guzzle, and managed via a user-friendly Cockpit backend (GUI).
+yxorP is a plug-and-play, flat-file application that does not need Composer, PHP CURL, or databases; these are all
+optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of
+multiple websites using a PHAR (PHP archive) binary version of Guzzle, and managed via a user-friendly Cockpit backend (
+GUI).
 
-The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then retrieved and modified accordingly. Additionally, the website content can be optionally spun using the article spinning engine that is already embedded into the application. After the website has been modified the result is then stored for a predefined time inside a custom-built, flat-file cache system architectured to be 500x faster than memory-based cache systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes, which resulted a significantly faster cache.
+The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then
+retrieved and modified accordingly. Additionally, the website content can be optionally spun using the article spinning
+engine that is already embedded into the application. After the website has been modified the result is then stored for
+a predefined time inside a custom-built, flat-file cache system architectured to be 500x faster than memory-based cache
+systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes,
+which resulted a significantly faster cache.
 
-The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the industry's primary error tracking systems.
+The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
+was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in
+as little as two minutes due to the program's compatibility with the great majority of the industry's primary error
+tracking systems.
 
 <video controls="true" width="100%" height="auto" autoplay="" name="media"><source src="https://4dboard.github.io/proxy-yxorp/movie.mp4?8" type="video/mp4"></video>
 
@@ -26,11 +37,16 @@ The Bugsnag error reporting and warning system now supports yxorP in its most co
 
 > ⚠️**Requires**: Minimum requirement is PHP version 8.0 +
 
-<b>NB:</b><i> Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in the '.env.example' are correct and the file has been renamed '.env'.</i>
+<b>NB:</b><i> Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details
+in the '.env.example' are correct and the file has been renamed '.env'.</i>
 
-Cockpit is the graphical user interface (GUI) for the administration interface, which may be immediately accessed by entering "/cockpit" and supplying the admin username and password set in the '.env' file.
+Cockpit is the graphical user interface (GUI) for the administration interface, which may be immediately accessed by
+entering "/cockpit" and supplying the admin username and password set in the '.env' file.
 
-The credentials defined in the '.env' file are used to setup the sqlite database for the 'cockpit' application. Once the application is accessed/run for the first time, the only way to 'update/change' the credentials is directly in the sqlite database or via the 'cockpit' application itself (The '.env' admin username and password are only used on the first run). The application can also always be reset via a clean installation.
+The credentials defined in the '.env' file are used to setup the sqlite database for the 'cockpit' application. Once the
+application is accessed/run for the first time, the only way to 'update/change' the credentials is directly in the
+sqlite database or via the 'cockpit' application itself (The '.env' admin username and password are only used on the
+first run). The application can also always be reset via a clean installation.
 
 <p align="center"><img src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png' /></p>
 
@@ -39,8 +55,8 @@ The credentials defined in the '.env' file are used to setup the sqlite database
 
 <img src='https://user-images.githubusercontent.com/6468571/174686903-294074b2-2129-4084-a42d-33d6387a8851.png' />
 
-<h3 >🔋 Batteries Included: Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article
-Spinner.</h3>
+<h3 >🔋 Batteries Included: Plug & Play [CURL + Composer Optional], Proxy as a Service, Multi-tenant, Multi-Threaded,
+with Cache & Article Spinner.</h3>
 
 Convenient features such as built-in content spinning and an auto caching engine are hidden behind a slick online
 interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files,
@@ -72,19 +88,24 @@ degradation (10,000+ thesaurus/dictionary entries) while maintaining high qualit
 
 ### Cockpit Back-End
 
-Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to use the content. Cockpit is a perfect match if you want to support multiple devices or need a content management UI for static site builders. Build unique applications and let Cockpit feed them with content.
+Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to use the content.
+Cockpit is a perfect match if you want to support multiple devices or need a content management UI for static site
+builders. Build unique applications and let Cockpit feed them with content.
 
 <img src='https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png' />
 
-Introduction
-Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify the process of publication by separating content management from content consumption on the client side. Cockpit is focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its goal is to provide structured content across different channels via a simple API.
+Introduction Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify
+the process of publication by separating content management from content consumption on the client side. Cockpit is
+focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its
+goal is to provide structured content across different channels via a simple API.
 
 <img src='https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png' />
 
-####  Key features:
-Manage flexible content models. There are no pre-defined content models. Define the content model yourself.
-Uncluttered UI. Cockpit offers you a modern and simple user interface.
-One system, consume it the way you want. Receive your content via a simple API.
+#### Key features:
+
+Manage flexible content models. There are no pre-defined content models. Define the content model yourself. Uncluttered
+UI. Cockpit offers you a modern and simple user interface. One system, consume it the way you want. Receive your content
+via a simple API.
 
 #### The Advantages Of Going Headless
 
@@ -341,45 +362,45 @@ interpretation of results. We appreciate all of your assistance and support.
 ## Road Map
 
 - [x] Front-end
-  - [x] Combine Proxy Engines
-  - [x] Allow Multi-tent rendering
-  - [x] Build Caching Layer
-  - [x] Develop Multi-threading support (PHP Vanilla/Independent)
+    - [x] Combine Proxy Engines
+    - [x] Allow Multi-tent rendering
+    - [x] Build Caching Layer
+    - [x] Develop Multi-threading support (PHP Vanilla/Independent)
 
-  + More (To be listed soon)
+    + More (To be listed soon)
 
 - [x] Foundation
-  - [x] API Service
-  - [x] TxT DB
-  - [x] Login
-  - [x] Registration
-  - [x] Dashboard
-  - [x] Who is Online
-  - [x] Documentation
+    - [x] API Service
+    - [x] TxT DB
+    - [x] Login
+    - [x] Registration
+    - [x] Dashboard
+    - [x] Who is Online
+    - [x] Documentation
 - [ ] Tables
-  - [x] Users
-  - [x] Notes
-  - [x] Tasks
-  - [ ] Chat
+    - [x] Users
+    - [x] Notes
+    - [x] Tasks
+    - [ ] Chat
 - [ ] Notes
-  - [x] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [x] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Tasks
-  - [x] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [x] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Chat
-  - [ ] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [ ] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Testing
-  - [x] Versions
-  - [x] Owners
-  - [ ] Crate details
+    - [x] Versions
+    - [x] Owners
+    - [ ] Crate details
 
 <img src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 <img src='https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png' />

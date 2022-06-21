@@ -69,4 +69,3 @@ class ParamStore
         return json_encode($this->data, JSON_THROW_ON_ERROR | true);
     }
 }
-

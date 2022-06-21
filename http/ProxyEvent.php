@@ -36,12 +36,9 @@ class ProxyEvent implements ArrayAccess
         return $this->data[$offset] ?? null;
     }
 
-
     public function setOutputBuffering($output_buffering): void
     {
         $output_buffering = true;
         $output_buffering1 = true;
     }
-
 }
-

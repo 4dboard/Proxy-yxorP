@@ -211,4 +211,3 @@ class Request
         return call_user_func_array(array($this, "getUrl"), func_get_args());
     }
 }
-

@@ -3,11 +3,11 @@
 use Bugsnag\Client;
 use Bugsnag\Handler;
 use yxorP\Cache\Cache;
-use yxorP\http\ProxyEvent;
+use yxorP\Http\ProxyEvent;
 
 class FetchHelper
 {
-    public  function __construct()
+    public function __construct()
     {
         Handler::register($GLOBALS['BUGSNAG'] = Client::make($GLOBALS['BUG_SNAG_KEY']));
         try {
@@ -25,7 +25,7 @@ class FetchHelper
     }
 
 
-    public  function forward($url): string
+    public function forward($url): string
     {
         $GLOBALS['REQUEST']->setUrl($url);
         $this->dispatch('request.before_send', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
@@ -38,7 +38,7 @@ class FetchHelper
     }
 
 
-    public  function dispatch($event_name, $event): void
+    public function dispatch($event_name, $event): void
     {
         if (isset(\yxorP::$listeners[$event_name])) {
             $temp = (array)\yxorP::$listeners[$event_name];
@@ -51,7 +51,6 @@ class FetchHelper
             }
         }
     }
-
 
 
 }

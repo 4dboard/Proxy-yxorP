@@ -1,8 +1,8 @@
 <?php namespace yxorP\Helper;
 
-use yxorP\http\Response;
-use yxorP\http\Request;
-use yxorP\http\ProxyEvent;
+use yxorP\Http\ProxyEvent;
+use yxorP\Http\Request;
+use yxorP\Http\Response;
 
 class IncludeHelper
 {
@@ -12,7 +12,7 @@ class IncludeHelper
         foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
             if (trim(str_starts_with(trim($line), '#'))) continue;
             [$name, $value] = explode('=', $line, 2);
-            $GLOBALS[$name] = str_replace("\r\n",null,$value);
+            $GLOBALS[$name] = str_replace("\r\n", null, $value);
         }
 
         require $GLOBALS['PLUGIN_DIR'] . '/setup/install.php';
@@ -28,7 +28,6 @@ class IncludeHelper
         $GLOBALS['GUZZLE'] = $GLOBALS['GUZZLE'] ?: new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]);
 
     }
-
 
 
 }

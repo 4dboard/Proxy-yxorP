@@ -20,7 +20,7 @@ class Cache
 {
     public const EXT = '.tmp';
     public const OPTIONS = '.attr';
-    public static $is_pretty = true;
+    public static $is_pretty = false;
     private static $instance;
     private $attr_instance;
     private $path;

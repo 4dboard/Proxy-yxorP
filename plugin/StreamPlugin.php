@@ -2,7 +2,7 @@
 
 
 use yxorP\Http\EventWrapper;
-use yxorP\http\ProxyEvent;
+use yxorP\Http\ProxyEvent;
 
 class StreamPlugin extends EventWrapper
 {

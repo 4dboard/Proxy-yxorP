@@ -1,16 +1,7 @@
-<?php
-
-namespace yxorP\Http;
-
+<?php namespace yxorP\Http;
 abstract class EventWrapper
 {
     protected $url_pattern;
-
-
-    final protected function event()
-    {
-        return $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => Request::createFromGlobals(), 'response' => new Response()));
-    }
 
     final public function subscribe($dispatcher): void
     {
@@ -70,5 +61,9 @@ abstract class EventWrapper
     public function onCompleted(ProxyEvent $event)
     {
     }
-}
 
+    final protected function event()
+    {
+        return $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => Request::createFromGlobals(), 'response' => new Response()));
+    }
+}

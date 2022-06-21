@@ -1,8 +1,8 @@
 <?php
 
 
-use yxorP\http\ProxyEvent;
 use yxorP\Http\EventWrapper;
+use yxorP\Http\ProxyEvent;
 
 class BlockListPlugin extends EventWrapper
 {

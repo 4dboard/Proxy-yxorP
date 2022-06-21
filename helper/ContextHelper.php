@@ -12,11 +12,11 @@ class ContextHelper
         $domain = Domain::fromIDNA2008($_SERVER['HTTP_HOST']);
         $_siteDomain = $publicSuffixList->resolve($domain);
         $GLOBALS['SITE_CONTEXT'] = new stdClass();
-        $GLOBALS['SITE_CONTEXT']->SITE_DOMAIN = $_siteDomain->registrableDomain()->toString() ?: $_siteDomain->domain()->toString() ;
+        $GLOBALS['SITE_CONTEXT']->SITE_DOMAIN = $_siteDomain->registrableDomain()->toString() ?: $_siteDomain->domain()->toString();
         $GLOBALS['SITE_CONTEXT']->SITE_SUBDOMAIN = $_siteDomain->subDomain()->toString();
-        $GLOBALS['SITE_CONTEXT']->SITE = $GLOBALS['APP']->storage->findOne('collections/sites', ['host'=>$GLOBALS['SITE_CONTEXT']->SITE_DOMAIN]);
-        $GLOBALS['GLOBAL_REPLACE'] = $GLOBALS['APP']->storage->findOne('collections/global', ['type'=>'replace'])['value'];
-        $GLOBALS['GLOBAL_PATTERN'] = $GLOBALS['APP']->storage->findOne('collections/global', ['type'=>'pattern'])['value'];
+        $GLOBALS['SITE_CONTEXT']->SITE = $GLOBALS['APP']->storage->findOne('collections/sites', ['host' => $GLOBALS['SITE_CONTEXT']->SITE_DOMAIN]);
+        $GLOBALS['GLOBAL_REPLACE'] = $GLOBALS['APP']->storage->findOne('collections/global', ['type' => 'replace'])['value'];
+        $GLOBALS['GLOBAL_PATTERN'] = $GLOBALS['APP']->storage->findOne('collections/global', ['type' => 'pattern'])['value'];
         $GLOBALS['SITE_CONTEXT']->SITE_URL = (str_contains($_SERVER['SERVER_NAME'], "localhost") ? "http://" : "https://") . $GLOBALS['SITE_CONTEXT']->SITE_DOMAIN;
         $_targetDomain = $publicSuffixList->resolve($GLOBALS['SITE_CONTEXT']->SITE['target']);
         $GLOBALS['SITE_CONTEXT']->TARGET_DOMAIN = $_targetDomain->registrableDomain()->toString();
