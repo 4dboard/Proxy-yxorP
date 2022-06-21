@@ -28,7 +28,7 @@
 !config/
 !migrations/
 !config/_example.php/
-!override/www.example.com/
+!override/example/
 !override/default/
 
 !bin/*
@@ -45,5 +45,5 @@
 !helper/*
 !http/*
 !override/default/*
-!override/www.example.com/*
+!override/example/*
 !plugin/*
