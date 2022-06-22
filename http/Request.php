@@ -143,11 +143,11 @@ class Request
 
     public static function createFromGlobals(): Request
     {
-        $method = $_SERVER['REQUEST_METHOD'];
-        $scheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']) ? 'https' : 'http';
+        $method = $GLOBALS['SERVER']['REQUEST_METHOD'];
+        $scheme = (isset($GLOBALS['SERVER']['HTTPS']) && $GLOBALS['SERVER']['HTTPS']) ? 'https' : 'http';
         $url = $scheme . ':' . $GLOBALS['SITE_CONTEXT']->SITE_HOST . $GLOBALS['SITE_CONTEXT']->REQUEST_URI;
         $request = new Request($method, $url);
-        foreach ($_SERVER as $name => $value) {
+        foreach ($GLOBALS['SERVER'] as $name => $value) {
             if (str_starts_with($name, 'HTTP_')) {
                 $name = substr($name, 5);
                 $name = str_replace('_', ' ', $name);
@@ -156,7 +156,7 @@ class Request
                 $request->headers->set($name, $value);
             }
         }
-        $request->params->set('user-ip', $_SERVER['REMOTE_ADDR']);
+        $request->params->set('user-ip', $GLOBALS['SERVER']['REMOTE_ADDR']);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);

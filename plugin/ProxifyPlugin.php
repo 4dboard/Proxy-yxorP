@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
 class ProxifyPlugin extends EventWrapper
@@ -112,4 +110,3 @@ class ProxifyPlugin extends EventWrapper
         return str_replace($url, proxify_url($url, $this->base_url), $matches[0]);
     }
 }
-

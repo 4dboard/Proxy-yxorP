@@ -1,5 +1,4 @@
 <?php namespace yxorP\Helper;
-
 class MimeHelper
 {
     public static function helper()
@@ -28,4 +27,3 @@ class MimeHelper
         new FetchHelper();
     }
 }
-

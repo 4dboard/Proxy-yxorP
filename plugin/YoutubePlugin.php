@@ -1,7 +1,4 @@
-<?php
-
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
 class YoutubePlugin extends EventWrapper
@@ -44,4 +41,3 @@ class YoutubePlugin extends EventWrapper
         $response->setContent($output);
     }
 }
-

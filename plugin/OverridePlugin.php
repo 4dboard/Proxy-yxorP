@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\Minifier;
 use yxorP\Http\ProxyEvent;
 
@@ -11,7 +9,6 @@ class OverridePlugin extends EventWrapper
         if ($GLOBALS['MIME'] !== 'text/html' && $GLOBALS['MIME'] !== 'application/javascript' && $GLOBALS['MIME'] !== 'text/css' && $GLOBALS['MIME'] !== 'application/xml' && !str_contains($GLOBALS['MIME'], 'text')) {
             return;
         }
-
         $GLOBAL_SEARCH_MERGE = $this->merge($this->merge($this->merge(\array_keys($GLOBALS['GLOBAL_REPLACE'] ?: []), \array_keys($GLOBALS['SITE_CONTEXT']->SITE['replace'] ?: []), array(preg_replace("#^[^:/.]*[:/]+#i", "", preg_replace("{/$}", "", urldecode($GLOBALS['SITE_CONTEXT']->TARGET_URL)))))));
         $GLOBAL_REPLACE_MERGE = $this->merge($this->merge($this->merge(\array_values($GLOBALS['GLOBAL_REPLACE'] ?: []), \array_values($GLOBALS['SITE_CONTEXT']->SITE['replace']) ?: [], array(preg_replace("#^[^:/.]*[:/]+#i", "", preg_replace("{/$}", "", urldecode($GLOBALS['SITE_CONTEXT']->SITE_URL)))))));
         $PATTERN_SEARCH_MERGE = array_filter($this->merge(\array_keys($GLOBALS['GLOBAL_PATTERN'] ?: []), \array_keys($GLOBALS['SITE_CONTEXT']->SITE['pattern'] ?: [])));
@@ -31,4 +28,3 @@ class OverridePlugin extends EventWrapper
         }, $content));
     }
 }
-

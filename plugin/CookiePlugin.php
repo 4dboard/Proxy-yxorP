@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
 class CookiePlugin extends EventWrapper
@@ -68,4 +66,3 @@ class CookiePlugin extends EventWrapper
         return $data;
     }
 }
-

@@ -1,20 +1,19 @@
 <?php
+
 use yxorP\cache\Cache;
 use yxorP\Helper\HeaderHelper;
 use yxorP\Helper\IncludeHelper;
-
-$GLOBALS['PLUGIN_DIR'] = __DIR__;
-error_reporting((int)$_SERVER['SERVER_NAME']== "localhost");
-
-require $GLOBALS['PLUGIN_DIR'] . '/cache/Cache.php';
 
 class yxorP
 {
     public static $listeners = [];
 
-    public  function __construct()
+    public function __construct($REQUEST)
     {
-
+        $GLOBALS['SERVER'] = $REQUEST;
+        $GLOBALS['PLUGIN_DIR'] = __DIR__;
+        require $GLOBALS['PLUGIN_DIR'] . '/cache/Cache.php';
+        error_reporting((int)$GLOBALS['SERVER']['SERVER_NAME'] == "localhost");
         require $GLOBALS['PLUGIN_DIR'] . '/http/Contract/ProcessorInterface.php';
 
         foreach (array('http', 'dom', 'helper', 'domain') as $_asset) {
@@ -25,35 +24,6 @@ class yxorP
         echo Cache::cache($GLOBALS['CACHE_KEY'])->get();
     }
 
-    public function loadPlugins()
-    {
-        $_plugins = $GLOBALS['SITE_CONTEXT']->SITE['plugins'] ?: [];
-
-        array_push($_plugins,'OverridePlugin');
-
-        foreach ($_plugins as $plugin) {
-            if (file_exists($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php')) {
-                require($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php');
-            } elseif (class_exists('\\yxorP\\plugin\\' . $plugin)) {
-                $plugin = '\\yxorP\\plugin\\' . $plugin;
-            }
-            $this->addSubscriber(new $plugin());
-        }
-
-        HeaderHelper::helper();
-    }
-
-    public static function addListener($event, $callback, $priority = 0): void
-    {
-        self::$listeners[$event][$priority][] = $callback;
-    }
-
-    public function addSubscriber($subscriber): void
-    {
-        if (method_exists($subscriber, 'subscribe')) {
-            $subscriber->subscribe($this);
-        }
-    }
     public static function FILES_CHECK($dir, $inc): void
     {
         if (file($dir) || is_dir($dir)) {
@@ -73,6 +43,36 @@ class yxorP
                 }
             }
         }
+    }
+
+    public function loadPlugins()
+    {
+        $_plugins = $GLOBALS['SITE_CONTEXT']->SITE['plugins'] ?: [];
+
+        array_push($_plugins, 'OverridePlugin');
+
+        foreach ($_plugins as $plugin) {
+            if (file_exists($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php')) {
+                require($GLOBALS['PLUGIN_DIR'] . '/plugin/' . $plugin . '.php');
+            } elseif (class_exists('\\yxorP\\plugin\\' . $plugin)) {
+                $plugin = '\\yxorP\\plugin\\' . $plugin;
+            }
+            $this->addSubscriber(new $plugin());
+        }
+
+        HeaderHelper::helper();
+    }
+
+    public function addSubscriber($subscriber): void
+    {
+        if (method_exists($subscriber, 'subscribe')) {
+            $subscriber->subscribe($this);
+        }
+    }
+
+    public static function addListener($event, $callback, $priority = 0): void
+    {
+        self::$listeners[$event][$priority][] = $callback;
     }
 
     public static function CSV($filename = '')

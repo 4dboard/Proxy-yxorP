@@ -1,5 +1,4 @@
 <?php namespace yxorP\Helper;
-
 class HeaderHelper
 {
     public static function helper()
@@ -11,4 +10,3 @@ class HeaderHelper
         ContextHelper::helper();
     }
 }
-

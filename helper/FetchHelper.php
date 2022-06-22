@@ -24,7 +24,6 @@ class FetchHelper
         }
     }
 
-
     public function forward($url): string
     {
         $GLOBALS['REQUEST']->setUrl($url);
@@ -36,7 +35,6 @@ class FetchHelper
         $this->dispatch('request.complete', new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE'])));
         return $GLOBALS['RESPONSE']->getContent();
     }
-
 
     public function dispatch($event_name, $event): void
     {
@@ -51,7 +49,4 @@ class FetchHelper
             }
         }
     }
-
-
 }
-

@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
 class LogPlugin extends EventWrapper
@@ -14,9 +12,8 @@ class LogPlugin extends EventWrapper
         $log_file = $storage_dir . '/' . date("Y-m-d") . '.log';
         $request = $event['request'];
         $response = $event['response'];
-        $data = array('ip' => $_SERVER['REMOTE_ADDR'], 'time' => time(), 'url' => $request->getUri(), 'status' => $response->getStatusCode(), 'type' => $response->headers->get('content-type', 'unknown'), 'size' => $response->headers->get('content-length', 'unknown'));
+        $data = array('ip' => $GLOBALS['SERVER']['REMOTE_ADDR'], 'time' => time(), 'url' => $request->getUri(), 'status' => $response->getStatusCode(), 'type' => $response->headers->get('content-type', 'unknown'), 'size' => $response->headers->get('content-length', 'unknown'));
         $message = implode("\t", $data) . "\r\n";
         @file_put_contents($log_file, $message, FILE_APPEND);
     }
 }
-

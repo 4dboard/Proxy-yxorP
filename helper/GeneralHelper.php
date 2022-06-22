@@ -1,8 +1,4 @@
-<?php
-
-namespace yxorP\Helper;
-
-
+<?php namespace yxorP\Helper;
 class GeneralHelper
 {
     public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
@@ -95,7 +91,7 @@ class GeneralHelper
 
     public static function app_url(): string
     {
-        return (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' ? 'https://' : 'https://') . $GLOBALS['SITE_CONTEXT']->SITE_HOST . $_SERVER['PHP_SELF'];
+        return (!empty($GLOBALS['SERVER']['HTTPS']) && $GLOBALS['SERVER']['HTTPS'] !== 'off' ? 'https://' : 'https://') . $GLOBALS['SITE_CONTEXT']->SITE_HOST . $GLOBALS['SERVER']['PHP_SELF'];
     }
 
     public static function render_string($str, $vars = array())
@@ -171,4 +167,3 @@ class GeneralHelper
         return $scheme . '://' . $abs;
     }
 }
-

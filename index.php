@@ -1,3 +1,3 @@
 <?php
 require('yxorP.php');
-new yxorP();
+new yxorP($_SERVER);

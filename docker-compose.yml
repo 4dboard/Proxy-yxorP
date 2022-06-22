@@ -12,10 +12,10 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/nginx-site.conf:/etc/nginx/conf.d/default.conf
         # mount in dev certs if you want to dev over ssl
-        #- ./dev-cert.crt:/etc/nginx/ssl/cert.crt
+      #- ./dev-cert.crt:/etc/nginx/ssl/cert.crt
       #- ./dev-key.pem:/etc/nginx/ssl/key.pem
     entrypoint: /usr/local/bin/docker-php-entrypoint-dev
-    command: ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+    command: [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/conf.d/supervisord.conf" ]
     ports:
       - "8080:80"
       - "8443:443"

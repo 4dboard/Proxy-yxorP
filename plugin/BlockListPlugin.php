@@ -1,14 +1,11 @@
-<?php
-
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
 class BlockListPlugin extends EventWrapper
 {
     public function onBeforeRequest(ProxyEvent $event): void
     {
-        $user_ip = $_SERVER['REMOTE_ADDR'];
+        $user_ip = $GLOBALS['SERVER']['REMOTE_ADDR'];
         $user_ip_long = sprintf('%u', ip2long($user_ip));
         $url = $event['request']->getUrl();
         $url_host = parse_url($url, PHP_URL_HOST);
@@ -41,4 +38,3 @@ class BlockListPlugin extends EventWrapper
         }
     }
 }
-

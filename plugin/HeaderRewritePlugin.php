@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
 class HeaderRewritePlugin extends EventWrapper
@@ -37,4 +35,3 @@ class HeaderRewritePlugin extends EventWrapper
         }
     }
 }
-

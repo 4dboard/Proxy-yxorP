@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Helper\GeneralHelper;
+<?php use yxorP\Helper\GeneralHelper;
 use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
@@ -21,4 +19,3 @@ class DailyMotionPlugin extends EventWrapper
         $response->setContent($content);
     }
 }
-

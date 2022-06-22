@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
 class TwitterPlugin extends EventWrapper
@@ -15,4 +13,3 @@ class TwitterPlugin extends EventWrapper
         $response->setContent($content);
     }
 }
-
