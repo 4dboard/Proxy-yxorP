@@ -6,31 +6,33 @@ use yxorP\Http\Processor\InlineCssMinifier;
 use yxorP\Http\Processor\InlineJavascriptMinifier;
 use yxorP\Http\Processor\WhitespacesRemover;
 
-class Minifier implements ProcessorInterface
-{
-    private $processors;
-
-    public function __construct(ProcessorInterface ...$processors)
+if (!\class_exists('Minifier')) {
+    class Minifier implements ProcessorInterface
     {
-        $this->processors = $processors;
-    }
+        private $processors;
 
-    public static function createDefault(): self
-    {
-        return new self(new WhitespacesRemover, new InlineCssMinifier, new InlineJavascriptMinifier, new HtmlCommentsRemover);
-    }
-
-    public function process(string $buffer): string
-    {
-        foreach ($this->processors as $processor) {
-            $buffer = $processor->process($buffer);
+        public function __construct(ProcessorInterface ...$processors)
+        {
+            $this->processors = $processors;
         }
-        return $buffer;
-    }
 
-    public function addProcessor(ProcessorInterface $processor): self
-    {
-        $this->processors[] = $processor;
-        return $this;
+        public static function createDefault(): self
+        {
+            return new self(new WhitespacesRemover, new InlineCssMinifier, new InlineJavascriptMinifier, new HtmlCommentsRemover);
+        }
+
+        public function process(string $buffer): string
+        {
+            foreach ($this->processors as $processor) {
+                $buffer = $processor->process($buffer);
+            }
+            return $buffer;
+        }
+
+        public function addProcessor(ProcessorInterface $processor): self
+        {
+            $this->processors[] = $processor;
+            return $this;
+        }
     }
 }

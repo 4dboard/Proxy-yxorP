@@ -3,42 +3,44 @@
 use ArrayAccess;
 use ReturnTypeWillChange;
 
-class ProxyEvent implements ArrayAccess
-{
-    private array $data;
-
-    public function __construct($data = array())
+if (!\class_exists('ProxyEvent')) {
+    class ProxyEvent implements ArrayAccess
     {
-        $this->data = $data;
-    }
+        private array $data;
 
-    #[ReturnTypeWillChange] public function offsetSet($offset, $value)
-    {
-        if (is_null($offset)) {
-            $this->data[] = $value;
-        } else {
-            $this->data[$offset] = $value;
+        public function __construct($data = array())
+        {
+            $this->data = $data;
         }
-    }
 
-    #[ReturnTypeWillChange] public function offsetExists($offset): bool
-    {
-        return isset($this->data[$offset]);
-    }
+        #[ReturnTypeWillChange] public function offsetSet($offset, $value)
+        {
+            if (is_null($offset)) {
+                $this->data[] = $value;
+            } else {
+                $this->data[$offset] = $value;
+            }
+        }
 
-    #[ReturnTypeWillChange] public function offsetUnset($offset)
-    {
-        unset($this->data[$offset]);
-    }
+        #[ReturnTypeWillChange] public function offsetExists($offset): bool
+        {
+            return isset($this->data[$offset]);
+        }
 
-    #[ReturnTypeWillChange] public function offsetGet($offset)
-    {
-        return $this->data[$offset] ?? null;
-    }
+        #[ReturnTypeWillChange] public function offsetUnset($offset)
+        {
+            unset($this->data[$offset]);
+        }
 
-    public function setOutputBuffering($output_buffering): void
-    {
-        $output_buffering = true;
-        $output_buffering1 = true;
+        #[ReturnTypeWillChange] public function offsetGet($offset)
+        {
+            return $this->data[$offset] ?? null;
+        }
+
+        public function setOutputBuffering($output_buffering): void
+        {
+            $output_buffering = true;
+            $output_buffering1 = true;
+        }
     }
 }

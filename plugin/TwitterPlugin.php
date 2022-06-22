@@ -1,15 +1,17 @@
 <?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
-class TwitterPlugin extends EventWrapper
-{
-    protected $url_pattern = 'twitter.com';
-
-    public function onCompleted(ProxyEvent $event)
+if (!\class_exists('TwitterPlugin')) {
+    class TwitterPlugin extends EventWrapper
     {
-        $response = $event['response'];
-        $content = $response->getContent();
-        $content = Html::remove_scripts($content);
-        $response->setContent($content);
+        protected $url_pattern = 'twitter.com';
+
+        public function onCompleted(ProxyEvent $event)
+        {
+            $response = $event['response'];
+            $content = $response->getContent();
+            $content = Html::remove_scripts($content);
+            $response->setContent($content);
+        }
     }
 }
