@@ -1,3 +1,3 @@
 <?php
 require('yxorP.php');
-echo (yxorP::Proxy($_SERVER))['RESULT'];
+echo yxorP::Proxy($_SERVER);
