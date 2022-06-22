@@ -9,7 +9,7 @@
 <img align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png' />
 </p>
 
-<h1  align="center">🦄 .yxorP [v2.1] SAAS(y), Multi-tenancy Proxy Guzzler</h1>
+<h1  align="center">🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler</h1>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
 
 <br />
@@ -17,11 +17,33 @@
 
 <img align="center" src='https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png' />
 
-yxorP is a plug-and-play, flat-file application that does not need Composer, PHP CURL, or databases; these are all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of multiple websites using a PHAR (PHP archive) binary version of Guzzle, and managed via a user-friendly Cockpit backend (GUI).
+yxorP is a plug-and-play, flat-file application that <b>does not need Composer, PHP CURL, or databases</b>; these are all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content of <b>multiple websites</b> using a PHAR (PHP archive) binary version of <b>Guzzle</b>, and managed via a user-friendly <b>Cockpit backend (GUI)</b>.
 
-The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then retrieved and modified accordingly. Additionally, the website content can be optionally spun using the article spinning engine that is already embedded into the application. After the website has been modified the result is then stored for a predefined time inside a custom-built, flat-file cache system architectured to be 500x faster than memory-based cache systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes, which resulted a significantly faster cache.
+The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then retrieved and modified accordingly. Additionally, the website content can be optionally spun using the <b>article spinning engine</b> that is already embedded into the application. After the website has been modified the result is then stored for a predefined time inside a custom-built, <b>flat-file cache</b> system architectured to be <b>500x faster than memory-based cache</b> systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes, which resulted a significantly faster cache.
 
-The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the default logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the industry's primary error tracking systems.
+![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
+
+yxorP was designed to operate with either a stateless server (Apache) or a <b>stateful server</b> (Swoole) which are <b>high-performance</b> networking frameworks with an <b>event-driven, asynchronous, and non-blocking I/O</b> model - Compatible with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services (<b>Parrelelle</b>) that are both rapid and scalable.
+
+## Stateless Server:
+
+```
+<VirtualHost 192.168.1.1 127.0.0.1>
+    DocumentRoot "/.yxorP/index.php"
+    ServerName www.demo.com
+    ServerAlias server
+</VirtualHost>
+```
+
+## Statefull Server:
+
+```
+php ./server.php
+```
+
+The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure Bugsnag's compatibility with the modification. Changes to the <b>default logging</b> system may be done in as little as two minutes due to the program's compatibility with the great majority of the <b>industry's primary error tracking systems</b>.
+
+## Docker:
 
 ```
 docker run -p 80:80 --rm -u www-data -v `pwd`:/var/www -e ENV=dev donpablonow/yxorp
