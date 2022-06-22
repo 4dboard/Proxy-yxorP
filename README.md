@@ -16,6 +16,8 @@ yxorP is a plug-and-play, flat-file application that <b>does not need Composer, 
 
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then retrieved and modified accordingly. Additionally, the website content can be optionally spun using the <b>article spinning engine</b> that is already embedded into the application. After the website has been modified the result is then stored for a predefined time inside a custom-built, <b>flat-file cache</b> system architectured to be <b>500x faster than memory-based cache</b> systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes, which resulted a significantly faster cache.
 
+![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
+
 yxorP was designed to operate with either a stateless server (Apache) or a <b>stateful server</b> (Swoole) which are <b>high-performance</b> networking frameworks with an <b>event-driven, asynchronous, and non-blocking I/O</b> model - Compatible with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services (<b>Parrelelle</b>) that are both rapid and scalable.
 
 ## Stateless Server:
