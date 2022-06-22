@@ -1,21 +1,21 @@
 <?php use yxorP\Http\EventWrapper;
 use yxorP\Http\ProxyEvent;
 
-if (!\class_exists('LogPlugin')) {
-    class LogPlugin extends EventWrapper
+
+class LogPlugin extends EventWrapper
+{
+    public function onHeadersReceived(ProxyEvent $event): void
     {
-        public function onHeadersReceived(ProxyEvent $event): void
-        {
-            $storage_dir = realpath('./storage');
-            if (!is_writable($storage_dir)) {
-                return;
-            }
-            $log_file = $storage_dir . '/' . date("Y-m-d") . '.log';
-            $request = $event['request'];
-            $response = $event['response'];
-            $data = array('ip' => $GLOBALS['SERVER']['REMOTE_ADDR'], 'time' => time(), 'url' => $request->getUri(), 'status' => $response->getStatusCode(), 'type' => $response->headers->get('content-type', 'unknown'), 'size' => $response->headers->get('content-length', 'unknown'));
-            $message = implode("\t", $data) . "\r\n";
-            @file_put_contents($log_file, $message, FILE_APPEND);
+        $storage_dir = realpath('./storage');
+        if (!is_writable($storage_dir)) {
+            return;
         }
+        $log_file = $storage_dir . '/' . date("Y-m-d") . '.log';
+        $request = $event['request'];
+        $response = $event['response'];
+        $data = array('ip' => $GLOBALS['SERVER']['REMOTE_ADDR'], 'time' => time(), 'url' => $request->getUri(), 'status' => $response->getStatusCode(), 'type' => $response->headers->get('content-type', 'unknown'), 'size' => $response->headers->get('content-length', 'unknown'));
+        $message = implode("\t", $data) . "\r\n";
+        @file_put_contents($log_file, $message, FILE_APPEND);
     }
+}
 }

@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>C:/Users/pablo/Documents/.yxorP</OriginalElement>
+  <nodes>
+    <node x="1471.197237024166" y="-481.1229258366366">\yxorP\Domain\UnableToLoadTopLevelDomainList</node>
+    <node x="-1375.959222739779" y="868.7389083713144">\yxorP\Domain\TopLevelDomainsTopLevel</node>
+    <node x="-807.6560191822564" y="1467.8608566263367">\Countable</node>
+    <node x="-1613.2882664488607" y="642.7125793237365">\IteratorAggregate</node>
+    <node x="586.9324059320513" y="-387.09238109705103">C:/Users/pablo/Documents/.yxorP/setup</node>
+    <node x="-1859.7850926950264" y="2771.928284771719">\yxorP\Domain\InterfaceResolvedDomainName</node>
+    <node x="-757.5370556227238" y="11.404729868388387">C:/Users/pablo/Documents/.yxorP/.idea</node>
+    <node x="-2290.527335580842" y="889.4969004875493">\yxorP\Domain\InterfaceDomainName</node>
+    <node x="1553.5913597236147" y="-161.4979239105613">\yxorP\Domain\UnableToLoadPublicSuffixList</node>
+    <node x="283.64509175060283" y="636.2319074086876">C:/Users/pablo/Documents/.yxorP/cache</node>
+    <node x="2308.989645845918" y="221.49307064942923">\InvalidArgumentException</node>
+    <node x="-3135.0686903900296" y="1026.5472645910475">\yxorP\Domain\Domain</node>
+    <node x="-1156.5094606071473" y="2082.2015386978305">\yxorP\Domain\InterfaceHost</node>
+    <node x="-749.9964835607567" y="-739.8262118149662">\yxorP\Domain\Idna</node>
+    <node x="1536.5495491925412" y="58.00552302589438">\yxorP\Domain\UnableToResolveDomain</node>
+    <node x="-1331.6063848196773" y="3045.849824000485">\yxorP\Domain\InterfaceEffectiveTopLevelDomain</node>
+    <node x="26.718902576625112" y="707.6055765255364">C:/Users/pablo/Documents/.yxorP/plugin</node>
+    <node x="-2088.9877073900925" y="2646.6131685633">\JsonSerializable</node>
+    <node x="-79.90486423673977" y="709.6831987258828">C:/Users/pablo/Documents/.yxorP/example</node>
+    <node x="-333.1959038771521" y="-680.1902528925789">C:/Users/pablo/Documents/.yxorP/domain/Interface</node>
+    <node x="-3254.437489472774" y="937.3180307807451">\iterable</node>
+    <node x="-2380.059227454172" y="674.5026043711364">\Traversable</node>
+    <node x="-1985.1219569183509" y="3958.6052651680016">\yxorP\Domain\InterfaceDomainNameProvider</node>
+    <node x="416.21847777079745" y="-582.7678261821145">C:/Users/pablo/Documents/.yxorP/build</node>
+    <node x="476.9899056672234" y="-521.7587679152141">C:/Users/pablo/Documents/.yxorP/cockpit</node>
+    <node x="1807.7078240163721" y="1511.4427964676368">\RuntimeException</node>
+    <node x="545.1323392210628" y="-455.26344000255665">C:/Users/pablo/Documents/.yxorP/http</node>
+    <node x="-669.2653357135358" y="384.7552059598777">\yxorP\Domain\InterfaceTopLevelDomainList</node>
+    <node x="1481.9044723296572" y="383.1287292515028">\yxorP\Domain\SyntaxError</node>
+    <node x="-229.27329811181986" y="-752.9540780786591">\yxorP\Domain\Stream</node>
+    <node x="73.25802238066476" y="-851.8670773666339">\yxorP\Domain\IdnaInfo</node>
+    <node x="625.330211344763" y="-308.23646509866086">C:/Users/pablo/Documents/.yxorP/.cache</node>
+    <node x="368.0711528337277" y="513.8579558798427">\yxorP</node>
+    <node x="-1547.9126324394351" y="3860.521998480802">\yxorP\Domain\Suffix</node>
+    <node x="206.78595470827517" y="669.5231428613602">C:/Users/pablo/Documents/.yxorP/asset</node>
+    <node x="117.72307214239896" y="693.578614846214">C:/Users/pablo/Documents/.yxorP/helper</node>
+    <node x="2016.0383351535133" y="972.5151575881027">\Exception</node>
+    <node x="1162.3084970009993" y="1005.0017253951717">\yxorP\Domain\UnableToLoadResource</node>
+    <node x="-1770.0656216566551" y="269.4057878851331">\yxorP\Domain\InterfaceDomainNameResolver</node>
+    <node x="-183.40684658539627" y="697.0686108673577">C:/Users/pablo/Documents/.yxorP/override</node>
+    <node x="1406.490396446241" y="693.4486140041535">\Throwable</node>
+    <node x="3266.5990983850825" y="311.51104605178955">\LogicException</node>
+    <node x="599.6376113359864" y="136.32721302434592">\yxorP\Domain\InterfaceCannotProcessHost</node>
+    <node x="-2397.4938530919762" y="3448.890881491212">\yxorP\Domain\ResolvedResolvedDomain</node>
+    <node x="-2483.229332846202" y="380.124797385939">\yxorP\Domain\InterfacePublicSuffixList</node>
+    <node x="-3453.6312433133094" y="366.3115757702692">\yxorP\Domain\Rules</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\yxorP\Domain\UnableToLoadPublicSuffixList" target="\yxorP\Domain\InterfaceCannotProcessHost" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\UnableToLoadTopLevelDomainList" target="\InvalidArgumentException" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="1372.0" y="-263.0" />
+      <point x="1372.0" y="-263.0" />
+      <point x="1316.0" y="-226.0" />
+      <point x="1316.0" y="-226.0" />
+      <point x="1204.0" y="-146.0" />
+      <point x="1204.0" y="-146.0" />
+      <point x="1153.0" y="-106.0" />
+      <point x="1153.0" y="-106.0" />
+      <point x="1110.0" y="-67.0" />
+      <point x="1110.0" y="-67.0" />
+      <point x="1077.0" y="-29.0" />
+      <point x="1077.0" y="-29.0" />
+      <point x="1056.0" y="4.0" />
+      <point x="1056.0" y="4.0" />
+      <point x="1050.0" y="33.0" />
+      <point x="1050.0" y="33.0" />
+      <point x="1061.0" y="58.0" />
+      <point x="1061.0" y="58.0" />
+      <point x="1088.0" y="78.0" />
+      <point x="1088.0" y="78.0" />
+      <point x="1129.0" y="94.0" />
+      <point x="1129.0" y="94.0" />
+      <point x="1182.0" y="107.0" />
+      <point x="1182.0" y="107.0" />
+      <point x="1245.0" y="116.0" />
+      <point x="1245.0" y="116.0" />
+      <point x="1316.0" y="124.0" />
+      <point x="1316.0" y="124.0" />
+      <point x="1393.0" y="130.0" />
+      <point x="1393.0" y="130.0" />
+      <point x="1723.0" y="150.0" />
+      <point x="1723.0" y="150.0" />
+      <point x="1881.0" y="164.0" />
+      <point x="1881.0" y="164.0" />
+      <point x="2090.0" y="187.0" />
+      <point x="2090.0" y="187.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\Traversable" target="\iterable" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\UnableToLoadPublicSuffixList" target="\InvalidArgumentException" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="1463.0" y="-70.0" />
+      <point x="1463.0" y="-70.0" />
+      <point x="1229.0" y="3.0" />
+      <point x="1229.0" y="3.0" />
+      <point x="1175.0" y="23.0" />
+      <point x="1175.0" y="23.0" />
+      <point x="1092.0" y="61.0" />
+      <point x="1092.0" y="61.0" />
+      <point x="1068.0" y="78.0" />
+      <point x="1068.0" y="78.0" />
+      <point x="1060.0" y="93.0" />
+      <point x="1060.0" y="93.0" />
+      <point x="1069.0" y="105.0" />
+      <point x="1069.0" y="105.0" />
+      <point x="1095.0" y="116.0" />
+      <point x="1095.0" y="116.0" />
+      <point x="1134.0" y="124.0" />
+      <point x="1134.0" y="124.0" />
+      <point x="1186.0" y="131.0" />
+      <point x="1186.0" y="131.0" />
+      <point x="1319.0" y="141.0" />
+      <point x="1319.0" y="141.0" />
+      <point x="1560.0" y="152.0" />
+      <point x="1560.0" y="152.0" />
+      <point x="1805.0" y="167.0" />
+      <point x="1805.0" y="167.0" />
+      <point x="2091.0" y="193.0" />
+      <point x="2091.0" y="193.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\UnableToLoadTopLevelDomainList" target="\yxorP\Domain\InterfaceCannotProcessHost" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\Domain" target="\yxorP\Domain\InterfaceDomainName" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceEffectiveTopLevelDomain" target="\yxorP\Domain\InterfaceHost" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\RuntimeException" target="\Exception" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="1681.0" y="1368.0" />
+      <point x="1681.0" y="1368.0" />
+      <point x="1638.0" y="1331.0" />
+      <point x="1638.0" y="1331.0" />
+      <point x="1541.0" y="1242.0" />
+      <point x="1541.0" y="1242.0" />
+      <point x="1435.0" y="1136.0" />
+      <point x="1435.0" y="1136.0" />
+      <point x="1380.0" y="1077.0" />
+      <point x="1380.0" y="1077.0" />
+      <point x="1325.0" y="1013.0" />
+      <point x="1325.0" y="1013.0" />
+      <point x="1269.0" y="946.0" />
+      <point x="1269.0" y="946.0" />
+      <point x="1215.0" y="876.0" />
+      <point x="1215.0" y="876.0" />
+      <point x="1116.0" y="738.0" />
+      <point x="1116.0" y="738.0" />
+      <point x="1073.0" y="673.0" />
+      <point x="1073.0" y="673.0" />
+      <point x="1037.0" y="613.0" />
+      <point x="1037.0" y="613.0" />
+      <point x="1008.0" y="560.0" />
+      <point x="1008.0" y="560.0" />
+      <point x="989.0" y="517.0" />
+      <point x="989.0" y="517.0" />
+      <point x="980.0" y="484.0" />
+      <point x="980.0" y="484.0" />
+      <point x="982.0" y="465.0" />
+      <point x="982.0" y="465.0" />
+      <point x="997.0" y="459.0" />
+      <point x="997.0" y="459.0" />
+      <point x="1023.0" y="466.0" />
+      <point x="1023.0" y="466.0" />
+      <point x="1060.0" y="485.0" />
+      <point x="1060.0" y="485.0" />
+      <point x="1105.0" y="513.0" />
+      <point x="1105.0" y="513.0" />
+      <point x="1216.0" y="590.0" />
+      <point x="1216.0" y="590.0" />
+      <point x="1345.0" y="684.0" />
+      <point x="1345.0" y="684.0" />
+      <point x="1482.0" y="781.0" />
+      <point x="1482.0" y="781.0" />
+      <point x="1550.0" y="826.0" />
+      <point x="1550.0" y="826.0" />
+      <point x="1681.0" y="907.0" />
+      <point x="1681.0" y="907.0" />
+      <point x="1857.0" y="1006.0" />
+      <point x="1857.0" y="1006.0" />
+      <point x="2030.0" y="1096.0" />
+      <point x="2030.0" y="1096.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\IteratorAggregate" target="\Traversable" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="-1214.0" y="604.0" />
+      <point x="-1214.0" y="604.0" />
+      <point x="-1093.0" y="572.0" />
+      <point x="-1093.0" y="572.0" />
+      <point x="-1039.0" y="555.0" />
+      <point x="-1039.0" y="555.0" />
+      <point x="-993.0" y="537.0" />
+      <point x="-993.0" y="537.0" />
+      <point x="-958.0" y="519.0" />
+      <point x="-958.0" y="519.0" />
+      <point x="-936.0" y="500.0" />
+      <point x="-936.0" y="500.0" />
+      <point x="-932.0" y="482.0" />
+      <point x="-932.0" y="482.0" />
+      <point x="-946.0" y="464.0" />
+      <point x="-946.0" y="464.0" />
+      <point x="-978.0" y="447.0" />
+      <point x="-978.0" y="447.0" />
+      <point x="-1025.0" y="431.0" />
+      <point x="-1025.0" y="431.0" />
+      <point x="-1084.0" y="417.0" />
+      <point x="-1084.0" y="417.0" />
+      <point x="-1154.0" y="405.0" />
+      <point x="-1154.0" y="405.0" />
+      <point x="-1232.0" y="396.0" />
+      <point x="-1232.0" y="396.0" />
+      <point x="-1316.0" y="391.0" />
+      <point x="-1316.0" y="391.0" />
+      <point x="-1404.0" y="390.0" />
+      <point x="-1404.0" y="390.0" />
+      <point x="-1492.0" y="392.0" />
+      <point x="-1492.0" y="392.0" />
+      <point x="-1579.0" y="400.0" />
+      <point x="-1579.0" y="400.0" />
+      <point x="-1663.0" y="413.0" />
+      <point x="-1663.0" y="413.0" />
+      <point x="-1743.0" y="430.0" />
+      <point x="-1743.0" y="430.0" />
+      <point x="-1819.0" y="451.0" />
+      <point x="-1819.0" y="451.0" />
+      <point x="-1891.0" y="475.0" />
+      <point x="-1891.0" y="475.0" />
+      <point x="-1957.0" y="500.0" />
+      <point x="-1957.0" y="500.0" />
+      <point x="-2019.0" y="526.0" />
+      <point x="-2019.0" y="526.0" />
+      <point x="-2125.0" y="578.0" />
+      <point x="-2125.0" y="578.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\Suffix" target="\yxorP\Domain\InterfaceEffectiveTopLevelDomain" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceDomainName" target="\IteratorAggregate" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\Exception" target="\Throwable" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\Rules" target="\yxorP\Domain\InterfacePublicSuffixList" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceTopLevelDomainList" target="\Countable" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\InvalidArgumentException" target="\LogicException" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\SyntaxError" target="\yxorP\Domain\InterfaceCannotProcessHost" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\UnableToLoadResource" target="\yxorP\Domain\InterfaceCannotProcessHost" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceTopLevelDomainList" target="\yxorP\Domain\InterfaceDomainNameResolver" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceEffectiveTopLevelDomain" target="\yxorP\Domain\InterfaceDomainNameProvider" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\SyntaxError" target="\InvalidArgumentException" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="1453.0" y="448.0" />
+      <point x="1453.0" y="448.0" />
+      <point x="1301.0" y="385.0" />
+      <point x="1301.0" y="385.0" />
+      <point x="1192.0" y="336.0" />
+      <point x="1192.0" y="336.0" />
+      <point x="1143.0" y="311.0" />
+      <point x="1143.0" y="311.0" />
+      <point x="1102.0" y="287.0" />
+      <point x="1102.0" y="287.0" />
+      <point x="1070.0" y="264.0" />
+      <point x="1070.0" y="264.0" />
+      <point x="1050.0" y="243.0" />
+      <point x="1050.0" y="243.0" />
+      <point x="1045.0" y="225.0" />
+      <point x="1045.0" y="225.0" />
+      <point x="1058.0" y="210.0" />
+      <point x="1058.0" y="210.0" />
+      <point x="1085.0" y="199.0" />
+      <point x="1085.0" y="199.0" />
+      <point x="1127.0" y="190.0" />
+      <point x="1127.0" y="190.0" />
+      <point x="1180.0" y="184.0" />
+      <point x="1180.0" y="184.0" />
+      <point x="1243.0" y="180.0" />
+      <point x="1243.0" y="180.0" />
+      <point x="1315.0" y="177.0" />
+      <point x="1315.0" y="177.0" />
+      <point x="1392.0" y="177.0" />
+      <point x="1392.0" y="177.0" />
+      <point x="1556.0" y="180.0" />
+      <point x="1556.0" y="180.0" />
+      <point x="1803.0" y="190.0" />
+      <point x="1803.0" y="190.0" />
+      <point x="1954.0" y="198.0" />
+      <point x="1954.0" y="198.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfacePublicSuffixList" target="\yxorP\Domain\InterfaceDomainNameResolver" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\UnableToResolveDomain" target="\InvalidArgumentException" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceResolvedDomainName" target="\yxorP\Domain\InterfaceDomainNameProvider" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="-1606.0" y="2722.0" />
+      <point x="-1606.0" y="2722.0" />
+      <point x="-1526.0" y="2639.0" />
+      <point x="-1526.0" y="2639.0" />
+      <point x="-1438.0" y="2555.0" />
+      <point x="-1438.0" y="2555.0" />
+      <point x="-1393.0" y="2519.0" />
+      <point x="-1393.0" y="2519.0" />
+      <point x="-1351.0" y="2490.0" />
+      <point x="-1351.0" y="2490.0" />
+      <point x="-1312.0" y="2470.0" />
+      <point x="-1312.0" y="2470.0" />
+      <point x="-1277.0" y="2461.0" />
+      <point x="-1277.0" y="2461.0" />
+      <point x="-1247.0" y="2466.0" />
+      <point x="-1247.0" y="2466.0" />
+      <point x="-1225.0" y="2485.0" />
+      <point x="-1225.0" y="2485.0" />
+      <point x="-1209.0" y="2519.0" />
+      <point x="-1209.0" y="2519.0" />
+      <point x="-1200.0" y="2565.0" />
+      <point x="-1200.0" y="2565.0" />
+      <point x="-1198.0" y="2622.0" />
+      <point x="-1198.0" y="2622.0" />
+      <point x="-1202.0" y="2689.0" />
+      <point x="-1202.0" y="2689.0" />
+      <point x="-1212.0" y="2763.0" />
+      <point x="-1212.0" y="2763.0" />
+      <point x="-1229.0" y="2843.0" />
+      <point x="-1229.0" y="2843.0" />
+      <point x="-1251.0" y="2928.0" />
+      <point x="-1251.0" y="2928.0" />
+      <point x="-1279.0" y="3015.0" />
+      <point x="-1279.0" y="3015.0" />
+      <point x="-1313.0" y="3104.0" />
+      <point x="-1313.0" y="3104.0" />
+      <point x="-1351.0" y="3192.0" />
+      <point x="-1351.0" y="3192.0" />
+      <point x="-1395.0" y="3280.0" />
+      <point x="-1395.0" y="3280.0" />
+      <point x="-1441.0" y="3365.0" />
+      <point x="-1441.0" y="3365.0" />
+      <point x="-1489.0" y="3447.0" />
+      <point x="-1489.0" y="3447.0" />
+      <point x="-1538.0" y="3526.0" />
+      <point x="-1538.0" y="3526.0" />
+      <point x="-1587.0" y="3600.0" />
+      <point x="-1587.0" y="3600.0" />
+      <point x="-1678.0" y="3732.0" />
+      <point x="-1678.0" y="3732.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceDomainName" target="\yxorP\Domain\InterfaceHost" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="-2022.0" y="934.0" />
+      <point x="-2022.0" y="934.0" />
+      <point x="-1868.0" y="857.0" />
+      <point x="-1868.0" y="857.0" />
+      <point x="-1741.0" y="800.0" />
+      <point x="-1741.0" y="800.0" />
+      <point x="-1672.0" y="771.0" />
+      <point x="-1672.0" y="771.0" />
+      <point x="-1522.0" y="716.0" />
+      <point x="-1522.0" y="716.0" />
+      <point x="-1442.0" y="690.0" />
+      <point x="-1442.0" y="690.0" />
+      <point x="-1361.0" y="666.0" />
+      <point x="-1361.0" y="666.0" />
+      <point x="-1279.0" y="646.0" />
+      <point x="-1279.0" y="646.0" />
+      <point x="-1199.0" y="631.0" />
+      <point x="-1199.0" y="631.0" />
+      <point x="-1122.0" y="621.0" />
+      <point x="-1122.0" y="621.0" />
+      <point x="-1048.0" y="617.0" />
+      <point x="-1048.0" y="617.0" />
+      <point x="-980.0" y="621.0" />
+      <point x="-980.0" y="621.0" />
+      <point x="-919.0" y="634.0" />
+      <point x="-919.0" y="634.0" />
+      <point x="-867.0" y="656.0" />
+      <point x="-867.0" y="656.0" />
+      <point x="-824.0" y="689.0" />
+      <point x="-824.0" y="689.0" />
+      <point x="-792.0" y="734.0" />
+      <point x="-792.0" y="734.0" />
+      <point x="-770.0" y="788.0" />
+      <point x="-770.0" y="788.0" />
+      <point x="-757.0" y="852.0" />
+      <point x="-757.0" y="852.0" />
+      <point x="-752.0" y="922.0" />
+      <point x="-752.0" y="922.0" />
+      <point x="-755.0" y="999.0" />
+      <point x="-755.0" y="999.0" />
+      <point x="-763.0" y="1080.0" />
+      <point x="-763.0" y="1080.0" />
+      <point x="-777.0" y="1164.0" />
+      <point x="-777.0" y="1164.0" />
+      <point x="-794.0" y="1250.0" />
+      <point x="-794.0" y="1250.0" />
+      <point x="-814.0" y="1335.0" />
+      <point x="-814.0" y="1335.0" />
+      <point x="-836.0" y="1420.0" />
+      <point x="-836.0" y="1420.0" />
+      <point x="-882.0" y="1580.0" />
+      <point x="-882.0" y="1580.0" />
+      <point x="-929.0" y="1726.0" />
+      <point x="-929.0" y="1726.0" />
+      <point x="-973.0" y="1854.0" />
+      <point x="-973.0" y="1854.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\UnableToResolveDomain" target="\yxorP\Domain\InterfaceCannotProcessHost" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\ResolvedResolvedDomain" target="\yxorP\Domain\InterfaceResolvedDomainName" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\TopLevelDomainsTopLevel" target="\yxorP\Domain\InterfaceTopLevelDomainList" relationship="REALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceResolvedDomainName" target="\yxorP\Domain\InterfaceHost" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\UnableToLoadResource" target="\RuntimeException" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceCannotProcessHost" target="\Throwable" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceHost" target="\Countable" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\LogicException" target="\Exception" relationship="GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="2174.0" y="218.0" />
+      <point x="2174.0" y="218.0" />
+      <point x="2023.0" y="205.0" />
+      <point x="2023.0" y="205.0" />
+      <point x="1712.0" y="184.0" />
+      <point x="1712.0" y="184.0" />
+      <point x="1549.0" y="178.0" />
+      <point x="1549.0" y="178.0" />
+      <point x="1469.0" y="177.0" />
+      <point x="1469.0" y="177.0" />
+      <point x="1393.0" y="178.0" />
+      <point x="1393.0" y="178.0" />
+      <point x="1322.0" y="182.0" />
+      <point x="1322.0" y="182.0" />
+      <point x="1259.0" y="189.0" />
+      <point x="1259.0" y="189.0" />
+      <point x="1204.0" y="200.0" />
+      <point x="1204.0" y="200.0" />
+      <point x="1160.0" y="216.0" />
+      <point x="1160.0" y="216.0" />
+      <point x="1129.0" y="237.0" />
+      <point x="1129.0" y="237.0" />
+      <point x="1112.0" y="264.0" />
+      <point x="1112.0" y="264.0" />
+      <point x="1111.0" y="296.0" />
+      <point x="1111.0" y="296.0" />
+      <point x="1125.0" y="334.0" />
+      <point x="1125.0" y="334.0" />
+      <point x="1152.0" y="377.0" />
+      <point x="1152.0" y="377.0" />
+      <point x="1189.0" y="423.0" />
+      <point x="1189.0" y="423.0" />
+      <point x="1236.0" y="472.0" />
+      <point x="1236.0" y="472.0" />
+      <point x="1289.0" y="523.0" />
+      <point x="1289.0" y="523.0" />
+      <point x="1349.0" y="576.0" />
+      <point x="1349.0" y="576.0" />
+      <point x="1477.0" y="680.0" />
+      <point x="1477.0" y="680.0" />
+      <point x="1669.0" y="825.0" />
+      <point x="1669.0" y="825.0" />
+      <point x="1785.0" y="909.0" />
+      <point x="1785.0" y="909.0" />
+      <point x="1888.0" y="981.0" />
+      <point x="1888.0" y="981.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceHost" target="\JsonSerializable" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+    <edge source="\yxorP\Domain\InterfaceTopLevelDomainList" target="\IteratorAggregate" relationship="INTERFACE_GENERALIZATION">
+      <point x="0.0" y="-0.0" />
+      <point x="0.0" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Edge Bundled Radial" zoom="0.10323429860849943" showDependencies="false" x="-26.0" y="1797.0" />
+  <SelectedNodes>
+    <node>\yxorP\Domain\TopLevelDomainsTopLevel</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constants</Category>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

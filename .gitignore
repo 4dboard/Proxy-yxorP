@@ -6,10 +6,14 @@
 !.htaccess
 !.lando.yml
 !yxorP.php
+!yxorP.uml
 !app.json
 !bugsnag.phar
 !docker-compose.yml
+!start.sh
 !Dockerfile
+!build.sh
+!build.php
 !git.sh
 !guzzle.phar
 !README.md
