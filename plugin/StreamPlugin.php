@@ -1,5 +1,6 @@
-<?php use yxorP\Http\EventWrapper;
-use yxorP\Http\ProxyEvent;
+<?php
+
+use yxorP\Http\EventWrapper;
 
 
 class StreamPlugin extends EventWrapper
@@ -8,20 +9,20 @@ class StreamPlugin extends EventWrapper
     private bool $stream = false;
     private int $max_content_length = 5000000;
 
-    public function onHeadersReceived(ProxyEvent $event)
+    public function onHeadersReceived(): void
     {
-        $content_type = $event['response']->headers->get('content-type');
-        $content_length = $event['response']->headers->get('content-length');
+        $content_type = yxorP::get('RESPONSE')->headers->get('content-type');
+        $content_length = yxorP::get('RESPONSE')->headers->get('content-length');
         if (!in_array($content_type, $this->output_buffer_types, true) || $content_length > $this->max_content_length) {
             $this->stream = true;
-            $event['response']->sendHeaders();
-            if (!$event['request']->params->has('force_buffering')) {
+            yxorP::get('RESPONSE')->sendHeaders();
+            if (!yxorP::get('REQUEST')->params->has('force_buffering')) {
                 $event['proxy']->setOutputBuffering(false);
             }
         }
     }
 
-    public function onCurlWrite(ProxyEvent $event)
+    public function onCurlWrite(): void
     {
         if ($this->stream) {
             echo $event['data'];
@@ -29,11 +30,11 @@ class StreamPlugin extends EventWrapper
         }
     }
 
-    public function onCompleted(ProxyEvent $event)
+    public function onCompleted(): void
     {
         if ($this->stream) {
             exit;
         }
     }
 }
-}
+

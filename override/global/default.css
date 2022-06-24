@@ -53,25 +53,6 @@ html {
     animation: clouds-loop-3 17s infinite linear;
 }
 
-#clxuds {
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
-    pointer-events: none !important;
-    position: fixed;
-    overflow: hidden;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    z-index: 0;
-    width: 100%;
-    opacity: 0.95;
-    mix-blend-mode: plus-lighter;
-}
-
-#clxuds ~ #clxuds {
-    display: none !important
-}
-
 .clouds-1, .clouds-2, .clouds-3 {
     background-repeat: repeat-x;
     position: absolute;
@@ -120,22 +101,6 @@ header {
     display: none !important
 }
 
-#headxr {
-    padding: 15px !important;
-    z-index: 99 !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    opacity: 0.98 !important;
-    font-size: 22px !important;
-    font-weight: bold !important;
-    text-transform: uppercase !important;
-    box-shadow: 2px 2px 15px 5px rgb(0 0 0) !important;
-    width: 100% !important;
-    color: #ccc !important;
-    background: linear-gradient(0deg, #0043ff63, #000000) !important;
-}
-
 h ~ h {
     display: none !important
 }
@@ -167,7 +132,6 @@ h ~ h {
     font-size: 9px !important;
     color: #fff !important;
     text-shadow: -1px 0 12px #fff;
-    position: absolute !important;
     font-style: italic !important;
     bottom: 5px !important;
     left: 38px !important;

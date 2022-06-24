@@ -1,14 +1,15 @@
-<?php use yxorP\Http\EventWrapper;
-use yxorP\Http\ProxyEvent;
+<?php
+
+use yxorP\Http\EventWrapper;
 
 
 class CookiePlugin extends EventWrapper
 {
     public const COOKIE_PREFIX = 'pc';
 
-    public function onBeforeRequest(ProxyEvent $event)
+    public function onBeforeRequest(): void
     {
-        $request = $event['request'];
+        $request = yxorP::get('REQUEST');
         $http_cookie = $request->headers->get("cookie");
         $request->headers->remove("cookie");
         $send_cookies = array();
@@ -28,17 +29,17 @@ class CookiePlugin extends EventWrapper
         }
     }
 
-    public function onHeadersReceived(ProxyEvent $event)
+    public function onHeadersReceived(): void
     {
-        $request = $event['request'];
-        $response = $event['response'];
+        $request = yxorP::get('REQUEST');
+        $response = yxorP::get('RESPONSE');
         $set_cookie = $response->headers->get('set-cookie');
         if ($set_cookie) {
             $response->headers->remove('set-cookie');
             foreach ((array)$set_cookie as $line) {
                 $cookie = $this->parse_cookie($line, $request->getUri());
                 $cookie_name = sprintf("%s_%s__%s", self::COOKIE_PREFIX, str_replace('.', '_', $cookie['domain']), $cookie['name']);
-                $event['response']->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
+                yxorP::get('RESPONSE')->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
             }
         }
     }
@@ -66,5 +67,4 @@ class CookiePlugin extends EventWrapper
         }
         return $data;
     }
-}
 }

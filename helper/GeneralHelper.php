@@ -1,4 +1,7 @@
-<?php namespace yxorP\Helper;
+<?php
+
+namespace yxorP\Helper;
+
 
 class GeneralHelper
 {
@@ -21,11 +24,11 @@ class GeneralHelper
         } else {
             $video_url = rawurlencode($video_url);
             $html = '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="
- 	 
+
        	<param name="allowfullscreen" value="true" />
 		<param name="wmode" value="transparent" />
         <param name="flashvars" value=\'inc={"clip":"' . $video_url . '", "plugins": {"controls": {"autoHide" : false} }}\' />
-		
+
 		</object>';
         }
         return $html;
@@ -41,20 +44,24 @@ class GeneralHelper
         return false;
     }
 
+
     public static function str_before($subject, $search)
     {
         return $search === '' ? $subject : explode($search, $subject)[0];
     }
+
 
     public static function is_html($content_type): bool
     {
         return clean_content_type($content_type) === 'text/html';
     }
 
+
     public static function in_arrayi($needle, $haystack): bool
     {
         return in_array(strtolower($needle), array_map('strtolower', $haystack), true);
     }
+
 
     public static function re_match($pattern, $string): bool
     {
@@ -62,6 +69,7 @@ class GeneralHelper
         $translated = strtr($quoted, array('\*' => '.*', '\?' => '.'));
         return preg_match("#^" . $translated . "$#i", $string) === 1;
     }
+
 
     public static function array_merge_custom(): array
     {
@@ -74,6 +82,7 @@ class GeneralHelper
         }
         return $arr;
     }
+
 
     public static function str_rot_pass($str, $key, $decrypt = false): string
     {
@@ -90,10 +99,12 @@ class GeneralHelper
         return $result;
     }
 
+
     public static function app_url(): string
     {
-        return (!empty($GLOBALS['SERVER']['HTTPS']) && $GLOBALS['SERVER']['HTTPS'] !== 'off' ? 'https://' : 'https://') . $GLOBALS['SITE_CONTEXT']->SITE_HOST . $GLOBALS['SERVER']['PHP_SELF'];
+        return 'https:' . yxorP::get('SITE_CONTEXT')->SITE_HOST . yxorP::get('SERVER')['PHP_SELF'];
     }
+
 
     public static function render_string($str, $vars = array())
     {
@@ -106,20 +117,24 @@ class GeneralHelper
         return $str;
     }
 
+
     public static function time_ms(): float
     {
         return round(microtime(true) * 1000);
     }
+
 
     public static function base64_url_encode($input): string
     {
         return rtrim(strtr(base64_encode($input), '+/', '-_'), '=');
     }
 
+
     public static function base64_url_decode($input): bool|string
     {
         return base64_decode(str_pad(strtr($input, '-_', '+/'), strlen($input) % 4, '='));
     }
+
 
     public static function proxify_url($url, $base_url = '')
     {
@@ -131,20 +146,21 @@ class GeneralHelper
             $base_url = self::add_http($base_url);
             $url = self::rel2abs($url, $base_url);
         }
-        return str_replace($GLOBALS['SITE_CONTEXT']->TARGET_URL, '', $url);
+        return str_replace(yxorP::get('SITE_CONTEXT')->TARGET_URL, '', $url);
     }
+
 
     public static function add_http($url)
     {
-        if (!preg_match('#^https?://#i', $url)) {
-            $url = 'https://' . $url;
+        if (!preg_match('#^https?:#i', $url)) {
+            $url = 'https:' . $url;
         }
         return $url;
     }
 
     public static function rel2abs($rel, $base)
     {
-        if (str_starts_with($rel, "//")) {
+        if (str_starts_with($rel, "")) {
             return "http:" . $rel;
         }
         if ($rel === "") {
@@ -156,7 +172,8 @@ class GeneralHelper
         if ($rel[0] === '#' || $rel[0] === '?') {
             return $base . $rel;
         }
-        extract(parse_url($base));
+        $_parse_url = parse_url($base);
+        extract($_parse_url);
         $path = preg_replace('#/[^/]*$#', '', $path);
         if ($rel[0] === '/') {
             $path = '';
@@ -165,6 +182,7 @@ class GeneralHelper
         $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
         for ($n = 1; $n > 0; $abs = preg_replace($re, '/', $abs, -1, $n)) {
         }
-        return $scheme . '://' . $abs;
+        return $scheme . ':' . $abs;
     }
 }
+

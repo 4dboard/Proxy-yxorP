@@ -1,5 +1,8 @@
-<?php namespace yxorP\Http;
+<?php
 
+namespace yxorP\Http;
+
+use yxorP;
 
 abstract class EventWrapper
 {
@@ -7,44 +10,23 @@ abstract class EventWrapper
 
     final public function subscribe($dispatcher): void
     {
-        $dispatcher::addListener('request.before_send', function ($event) {
-            $this->route('request.before_send', $event);
+        $dispatcher->addListener('request.before_send', function () {
+            $this->route('request.before_send');
         });
-        $dispatcher::addListener('request.sent', function ($event) {
-            $this->route('request.sent', $event);
+        $dispatcher->addListener('request.sent', function () {
+            $this->route('request.sent');
         });
-        $dispatcher::addListener('curl.callback.write', function ($event) {
-            $this->route('curl.callback.write', $event);
+        $dispatcher->addListener('curl.callback.write', function () {
+            $this->route('curl.callback.write');
         });
-        $dispatcher::addListener('request.complete', function ($event) {
-            $this->route('request.complete', $event);
+        $dispatcher->addListener('request.complete', function () {
+            $this->route('request.complete');
         });
     }
 
-    public function onBeforeRequest(ProxyEvent $event)
+    private function route($event_name): void
     {
-    }
-
-    public function onHeadersReceived(ProxyEvent $event)
-    {
-    }
-
-    public function onCurlWrite(ProxyEvent $event)
-    {
-    }
-
-    public function onCompleted(ProxyEvent $event)
-    {
-    }
-
-    final protected function event()
-    {
-        return $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => Request::createFromGlobals(), 'response' => new Response()));
-    }
-
-    private function route($event_name, ProxyEvent $event): void
-    {
-        $url = $event['request']->getUri();
+        $url = yxorP::get('REQUEST')->getUri();
         if ($this->url_pattern) {
             if (GeneralHelpers::starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1) {
                 return;
@@ -55,17 +37,34 @@ abstract class EventWrapper
         }
         switch ($event_name) {
             case 'request.before_send':
-                $this->onBeforeRequest($event);
+                $this->onBeforeRequest();
                 break;
             case 'request.sent':
-                $this->onHeadersReceived($event);
+                $this->onHeadersReceived();
                 break;
             case 'curl.callback.write':
-                $this->onCurlWrite($event);
+                $this->onCurlWrite();
                 break;
             case 'request.complete':
-                $this->onCompleted($event);
+                $this->onCompleted();
                 break;
         }
     }
+
+    public function onBeforeRequest()
+    {
+    }
+
+    public function onHeadersReceived()
+    {
+    }
+
+    public function onCurlWrite()
+    {
+    }
+
+    public function onCompleted()
+    {
+    }
 }
+

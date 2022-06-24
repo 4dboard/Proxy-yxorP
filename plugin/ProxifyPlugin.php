@@ -1,14 +1,15 @@
-<?php use yxorP\Http\EventWrapper;
-use yxorP\Http\ProxyEvent;
+<?php
+
+use yxorP\Http\EventWrapper;
 
 
 class ProxifyPlugin extends EventWrapper
 {
     private string $base_url = '';
 
-    public function onBeforeRequest(ProxyEvent $event)
+    public function onBeforeRequest(): void
     {
-        $request = $event['request'];
+        $request = yxorP::get('REQUEST');
         if ($request->post->has('convertGET')) {
             $request->post->remove('convertGET');
             $request->get->replace($request->post->all());
@@ -18,11 +19,11 @@ class ProxifyPlugin extends EventWrapper
         }
     }
 
-    public function onCompleted(ProxyEvent $event)
+    public function onCompleted(): void
     {
         return;
-        $this->base_url = $event['request']->getUri();
-        $response = $event['response'];
+        $this->base_url = yxorP::get('REQUEST')->getUri();
+        $response = yxorP::get('RESPONSE');
         $content_type = $this->clean_content_type($response->headers->get('content-type'));
         $str = $response->getContent();
         $no_proxify = array('text/javascript', 'application/javascript', 'application/javascript', 'text/plain');
@@ -110,5 +111,4 @@ class ProxifyPlugin extends EventWrapper
         $url = $matches[2];
         return str_replace($url, proxify_url($url, $this->base_url), $matches[0]);
     }
-}
 }

@@ -1,8 +1,10 @@
-<?php namespace yxorP\Helper;
+<?php
+
+namespace yxorP\Helper;
 
 class HeaderHelper
 {
-    public static function helper()
+    public static function helper(): void
     {
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: POST,GET,OPTIONS");

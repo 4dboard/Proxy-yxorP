@@ -1,21 +1,22 @@
-<?php use yxorP\Http\EventWrapper;
-use yxorP\Http\ProxyEvent;
+<?php
+
+use yxorP\Http\EventWrapper;
 
 
 class YoutubePlugin extends EventWrapper
 {
-    protected $url_pattern = 'youtube.com';
+    protected string $url_pattern = 'youtube.com';
 
-    public function onBeforeRequest(ProxyEvent $event)
+    public function onBeforeRequest(): void
     {
-        $event['request']->headers->set('Cookie', 'PREF=f6=8');
-        $event['request']->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
+        yxorP::get('REQUEST')->headers->set('Cookie', 'PREF=f6=8');
+        yxorP::get('REQUEST')->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
     }
 
-    public function onCompleted(ProxyEvent $event)
+    public function onCompleted(): void
     {
-        $response = $event['response'];
-        $url = $event['request']->getUrl();
+        $response = yxorP::get('RESPONSE');
+        $url = yxorP::get('REQUEST')->getUrl();
         $output = $response->getContent();
         if (!preg_match('/(watch|results|feed|channel|ombed|css)/i', $url)) {
             $response->headers->set('location', proxify_url("https:www.youtube.com/feed/trending", $url));
@@ -41,5 +42,4 @@ class YoutubePlugin extends EventWrapper
         $output = Html::remove_scripts($output);
         $response->setContent($output);
     }
-}
 }

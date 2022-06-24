@@ -1,19 +1,20 @@
-<?php use yxorP\Http\EventWrapper;
-use yxorP\Http\ProxyEvent;
+<?php
+
+use yxorP\Http\EventWrapper;
 
 
 class HeaderRewritePlugin extends EventWrapper
 {
-    public function onBeforeRequest(ProxyEvent $event)
+    public function onBeforeRequest(): void
     {
-        $event['request']->headers->set('accept-encoding', 'identity');
-        $event['request']->headers->remove('referer');
+        yxorP::get('REQUEST')->headers->set('accept-encoding', 'identity');
+        yxorP::get('REQUEST')->headers->remove('referer');
     }
 
-    public function onHeadersReceived(ProxyEvent $event)
+    public function onHeadersReceived(): void
     {
-        $response = $event['response'];
-        $request_url = $event['request']->getUri();
+        $response = yxorP::get('RESPONSE');
+        $request_url = yxorP::get('REQUEST')->getUri();
         if ($response->headers->has('location')) {
             $location = $response->headers->get('location');
             $response->headers->set('location', proxify_url($location, $request_url));
@@ -21,7 +22,9 @@ class HeaderRewritePlugin extends EventWrapper
         $code = $response->getStatusCode();
         $text = $response->getStatusText();
         if ($code >= 400 && $code <= 600) {
-            $GLOBALS['BUGSNAG']->notifyException(new RuntimeException("Error accessing resource: $code - $text"));
+
+            yxorP::get('BUGSNAG')->notifyException(new RuntimeException("Error accessing resource: $code - $text"));
+
         }
         $forward_headers = array('content-type', 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
         foreach ($response->headers->all() as $name => $value) {
@@ -35,5 +38,4 @@ class HeaderRewritePlugin extends EventWrapper
             $response->headers->set('Content-Disposition', 'filename="' . $filename . '"');
         }
     }
-}
 }

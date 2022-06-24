@@ -21,6 +21,9 @@
 !index.php
 !server.php
 !docs
+!minify
+!example
+!inc
 
 !.github/
 !bin/
@@ -35,6 +38,12 @@
 !config/_example.php/
 !override/example/
 !override/global/
+!minify/
+!example/
+!inc/data/
+!inc/collections/
+!inc/collections/rules/
+!inc/
 
 !bin/*
 !migrations/*
@@ -51,4 +60,9 @@
 !http/*
 !override/global/*
 !override/example/*
-!plugin/*
+!minify/*
+!example/*
+!inc/*
+!inc/data/*
+!inc/collections/*
+!inc/collections/rules/*

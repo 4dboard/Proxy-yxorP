@@ -1,29 +1,41 @@
-<?php namespace yxorP\Helper;
+<?php
 
-use yxorP\Http\ProxyEvent;
+namespace yxorP\Helper;
+
+use GuzzleHttp\Client;
+use yxorP;
+use yxorp\Cache\Cache;
 use yxorP\Http\Request;
 use yxorP\Http\Response;
-use yxorp\Cache\Cache;
 
 
 class IncludeHelper
 {
     public function __construct()
     {
-        foreach (file($GLOBALS['PLUGIN_DIR'] . '/.env') as $line) {
-            if (trim(str_starts_with(trim($line), '#'))) continue;
+
+        foreach (file(yxorP::get('PLUGIN_DIR') . '/.env') as $line) {
+            if (trim((string)str_starts_with(trim($line), '#'))) continue;
             [$name, $value] = explode('=', $line, 2);
-            $GLOBALS[$name] = str_replace("\r\n", null, $value);
+            yxorP::set($name, str_replace("\r\n", null, $value));
         }
-        require $GLOBALS['PLUGIN_DIR'] . '/setup/install.php';
-        $GLOBALS['RESPONSE'] = $GLOBALS['RESPONSE'] ?: new Response();
-        $GLOBALS['REQUEST'] = $GLOBALS['REQUEST'] ?: Request::createFromGlobals();
-        \yxorP::FILES_CHECK($GLOBALS['SITE_CONTEXT']->DIR_FULL . '/', false);
-        if (Cache::cache($GLOBALS['CACHE_KEY'])->isValid()) return;
-        \yxorP::FILES_CHECK($GLOBALS['PLUGIN_DIR'] . '/override/global/assets', false);
-        if (Cache::cache($GLOBALS['CACHE_KEY'])->isValid()) return;
-        $GLOBALS['EVENT'] = $GLOBALS['EVENT'] ?: $GLOBALS['EVENT'] = new ProxyEvent(array('request' => $GLOBALS['REQUEST'], 'response' => $GLOBALS['RESPONSE']));
-        $GLOBALS['GUZZLE'] = $GLOBALS['GUZZLE'] ?: new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]);
-        new \yxorP();
+
+        require yxorP::get('PLUGIN_DIR') . '/inc/Setup.php';
+
+        yxorP::set('RESPONSE', yxorP::get('RESPONSE') ?: new Response());
+
+        yxorP::set('REQUEST', yxorP::get('REQUEST') ?: Request::createFromGlobals());
+
+        yxorP::FILES_CHECK(yxorP::get('SITE_CONTEXT')->DIR_FULL . '/', false);
+
+        if (Cache::cache(yxorP::get('CACHE_KEY'))->isValid()) return Cache::cache(yxorP::get('CACHE_KEY'))->get();
+
+        yxorP::FILES_CHECK(yxorP::get('PLUGIN_DIR') . '/override/global/assets', false);
+
+        if (Cache::cache(yxorP::get('CACHE_KEY'))->isValid()) return Cache::cache(yxorP::get('CACHE_KEY'))->get();
+
+        yxorP::set('GUZZLE', yxorP::get('GUZZLE') ?: new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+
+        new yxorP();
     }
 }

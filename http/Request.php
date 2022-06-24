@@ -1,4 +1,8 @@
-<?php namespace yxorP\Http;
+<?php
+
+namespace yxorP\Http;
+
+use yxorP;
 
 class Request
 {
@@ -25,11 +29,66 @@ class Request
         $this->prepare();
     }
 
+    public function setUrl($url): void
+    {
+        $url = preg_replace('/#.*/', '', $url);
+        $query = parse_url($url, PHP_URL_QUERY);
+        if ($query) {
+            $url = str_replace('?' . $query, '', $url);
+            $url = preg_replace('/\?.*/', '', $url);
+            $result = self::parseQuery($query);
+            $this->get->replace($result);
+        }
+        $this->url = $url;
+        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
+    }
+
     public static function parseQuery($query): array
     {
         $result = array();
         parse_str($query, $result);
         return $result;
+    }
+
+    public function setBody($body, $content_type = false): void
+    {
+        $this->post->clear();
+        $this->files->clear();
+        if (is_array($body)) {
+            $body = http_build_query($body);
+        }
+        $this->body = (string)$body;
+        if ($content_type) {
+            $this->headers->set('content-type', $content_type);
+        }
+        $this->prepare();
+    }
+
+    public function prepare(): void
+    {
+        if ($this->files->all()) {
+            $boundary = self::generateBoundary();
+            $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
+            $this->headers->set('content-type', 'multipart/form-data; boundary=' . $boundary);
+        } else if ($this->post->all()) {
+            $this->prepared_body = http_build_query($this->post->all());
+            $this->headers->set('content-type', 'application/x-www-form-urlencoded');
+        } else {
+            $this->headers->set('content-type', $this->detectContentType($this->body));
+            $this->prepared_body = $this->body;
+        }
+        $len = strlen($this->prepared_body);
+        if ($len > 0) {
+            $this->headers->set('content-length', $len);
+        } else {
+            $this->headers->remove('content-length');
+            $this->headers->remove('content-type');
+        }
+    }
+
+    private static function generateBoundary(): string
+    {
+        return '-----' . md5(microtime() . mt_rand());
     }
 
     public static function buildPostBody($fields, $files, $boundary = null): string
@@ -74,13 +133,26 @@ class Request
         return $body;
     }
 
+    private function detectContentType($data): string
+    {
+        $content_type = 'application/octet-stream';
+        if (preg_match('/^{\s*"[^"]+"\s*:/', $data)) {
+            $content_type = 'application/json';
+        } else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data)) {
+            $content_type = 'application/xml';
+        } else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data)) {
+            $content_type = 'application/x-www-form-urlencoded';
+        }
+        return $content_type;
+    }
+
     public static function createFromGlobals(): Request
     {
-        $method = $GLOBALS['SERVER']['REQUEST_METHOD'];
-        $scheme = (isset($GLOBALS['SERVER']['HTTPS']) && $GLOBALS['SERVER']['HTTPS']) ? 'https' : 'http';
-        $url = $scheme . ':' . $GLOBALS['SITE_CONTEXT']->SITE_HOST . $GLOBALS['SITE_CONTEXT']->REQUEST_URI;
+        $method = yxorP::get('SERVER')['REQUEST_METHOD'];
+        $scheme = (isset(yxorP::get('SERVER')['HTTPS']) && yxorP::get('SERVER')['HTTPS']) ? 'https' : 'http';
+        $url = $scheme . ':' . yxorP::get('SITE_CONTEXT')->SITE_HOST . yxorP::get('SITE_CONTEXT')->REQUEST_URI;
         $request = new Request($method, $url);
-        foreach ($GLOBALS['SERVER'] as $name => $value) {
+        foreach (yxorP::get('SERVER') as $name => $value) {
             if (str_starts_with($name, 'HTTP_')) {
                 $name = substr($name, 5);
                 $name = str_replace('_', ' ', $name);
@@ -89,7 +161,7 @@ class Request
                 $request->headers->set($name, $value);
             }
         }
-        $request->params->set('user-ip', $GLOBALS['SERVER']['REMOTE_ADDR']);
+        $request->params->set('user-ip', yxorP::get('SERVER')['REMOTE_ADDR']);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);
@@ -98,61 +170,6 @@ class Request
         }
         $request->prepare();
         return $request;
-    }
-
-    private static function generateBoundary(): string
-    {
-        return '-----' . md5(microtime() . mt_rand());
-    }
-
-    public function setUrl($url): void
-    {
-        $url = preg_replace('/#.*/', '', $url);
-        $query = parse_url($url, PHP_URL_QUERY);
-        if ($query) {
-            $url = str_replace('?' . $query, '', $url);
-            $url = preg_replace('/\?.*/', '', $url);
-            $result = self::parseQuery($query);
-            $this->get->replace($result);
-        }
-        $this->url = $url;
-        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
-    }
-
-    public function setBody($body, $content_type = false): void
-    {
-        $this->post->clear();
-        $this->files->clear();
-        if (is_array($body)) {
-            $body = http_build_query($body);
-        }
-        $this->body = (string)$body;
-        if ($content_type) {
-            $this->headers->set('content-type', $content_type);
-        }
-        $this->prepare();
-    }
-
-    public function prepare(): void
-    {
-        if ($this->files->all()) {
-            $boundary = self::generateBoundary();
-            $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
-            $this->headers->set('content-type', 'multipart/form-data; boundary=' . $boundary);
-        } else if ($this->post->all()) {
-            $this->prepared_body = http_build_query($this->post->all());
-            $this->headers->set('content-type', 'application/x-www-form-urlencoded');
-        } else {
-            $this->headers->set('content-type', $this->detectContentType($this->body));
-            $this->prepared_body = $this->body;
-        }
-        $len = strlen($this->prepared_body);
-        if ($len > 0) {
-            $this->headers->set('content-length', $len);
-        } else {
-            $this->headers->remove('content-length');
-            $this->headers->remove('content-type');
-        }
     }
 
     public function getMethod(): string
@@ -167,7 +184,7 @@ class Request
 
     public function getUrl(): string
     {
-        return $GLOBALS['SITE_CONTEXT']->PROXY_URL;
+        return yxorP::get('SITE_CONTEXT')->PROXY_URL;
     }
 
     public function getProtocolVersion(): string
@@ -198,18 +215,4 @@ class Request
     {
         return call_user_func_array(array($this, "getUrl"), func_get_args());
     }
-
-    private function detectContentType($data): string
-    {
-        $content_type = 'application/octet-stream';
-        if (preg_match('/^{\s*"[^"]+"\s*:/', $data)) {
-            $content_type = 'application/json';
-        } else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data)) {
-            $content_type = 'application/xml';
-        } else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data)) {
-            $content_type = 'application/x-www-form-urlencoded';
-        }
-        return $content_type;
-    }
-}
 }

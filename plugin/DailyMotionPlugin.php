@@ -1,15 +1,15 @@
-<?php use yxorP\Helper\GeneralHelper;
+<?php
+
 use yxorP\Http\EventWrapper;
-use yxorP\Http\ProxyEvent;
 
 
 class DailyMotionPlugin extends EventWrapper
 {
-    protected $url_pattern = 'dailymotion.com';
+    protected string $url_pattern = 'dailymotion.com';
 
-    public function onCompleted(ProxyEvent $event)
+    public function onCompleted(): void
     {
-        $response = $event['response'];
+        $response = yxorP::get('RESPONSE');
         $content = $response->getContent();
         if (preg_match('/"url":"([^"]+mp4[^"]*)"/m', $content, $matches)) {
             $video = stripslashes($matches[1]);
@@ -19,5 +19,4 @@ class DailyMotionPlugin extends EventWrapper
         $content = Html::remove_scripts($content);
         $response->setContent($content);
     }
-}
 }

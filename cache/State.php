@@ -1,7 +1,7 @@
 <?php
 
-namespace yxorP\cache;
 
+namespace yxorP\cache;
 
 trait State
 {
@@ -12,11 +12,10 @@ trait State
         return $self;
     }
 
-    public function setState($data)
+    public function setState($data): void
     {
         foreach ($data as $k => $v) {
             $this->{$k} = $v;
         }
     }
-}
 }

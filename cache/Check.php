@@ -1,19 +1,22 @@
-<?php namespace yxorP\cache;
+<?php
 
+namespace yxorP\cache;
+
+use RuntimeException;
+use yxorP;
 
 class Check
 {
-    public static function fetch()
+    public static function fetch(): void
     {
-        $GLOBALS['CACHE_DIR'] = $GLOBALS['PLUGIN_DIR'] . '/.cache/';
-        if (!file_exists($GLOBALS['CACHE_DIR']) && !mkdir($concurrentDirectory = $GLOBALS['CACHE_DIR'], 0777, true) && !is_dir($concurrentDirectory)) {
-            throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
-        }
-        $GLOBALS['CACHE_KEY'] = base64_encode($GLOBALS['SERVER']['HTTP_HOST'] . $GLOBALS['SERVER']['REQUEST_URI']);
-        $GLOBALS['CACHE_TIME'] = @time() + (60 * 60 * 24 * 31 * 365);
-        if (isset($_GET["CLECHE"])) {
-            Cache::cache($GLOBALS['CACHE_KEY'])->clearAll();
-        }
+        yxorP::set('CACHE_DIR', yxorP::get('PLUGIN_DIR') . '/.cache/');
+
+        if (!file_exists(yxorP::get('CACHE_DIR')) && !mkdir($concurrentDirectory = yxorP::get('CACHE_DIR')) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+
+        yxorP::set('CACHE_KEY', base64_encode(yxorP::get('SERVER')['HTTP_HOST'] . yxorP::get('SERVER')['REQUEST_URI']));
+
+        yxorP::set('CACHE_TIME', @time() + (60 * 60 * 24 * 31 * 365));
+
+        if (isset($_GET["CLECHE"])) Cache::cache(yxorP::get('CACHE_KEY'))->clearAll();
     }
-}
 }

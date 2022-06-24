@@ -1,7 +1,8 @@
-<?php namespace yxorP\Http;
+<?php
+
+namespace yxorP\Http;
 
 use JetBrains\PhpStorm\Pure;
-
 
 class Response
 {
@@ -66,4 +67,4 @@ class Response
         return $this->status;
     }
 }
-}
+

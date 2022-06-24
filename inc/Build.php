@@ -34,7 +34,7 @@ include($u);
 fclose($t);
 __halt_compiler();
 S;
-    $content = '<?php ' . str_replace([' ', "\n"], '', $start) . $content;
+    $content = '<?php' . str_replace([' ', "\n"], '', $start) . $content;
 }
 $after = strlen($content);
 file_put_contents($filename, $content);
