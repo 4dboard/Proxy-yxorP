@@ -40,9 +40,10 @@
 !override/global/
 !minify/
 !example/
-!inc/data/
-!inc/collections/
-!inc/collections/rules/
+!inc/storage/data/
+!inc/storage/
+!inc/storage/collections/
+!inc/storage/collections/rules/
 !inc/
 
 !bin/*
@@ -63,6 +64,7 @@
 !minify/*
 !example/*
 !inc/*
-!inc/data/*
-!inc/collections/*
-!inc/collections/rules/*
+!inc/storage/*
+!inc/storage/data/*
+!inc/storage/collections/*
+!inc/storage/collections/rules/*
