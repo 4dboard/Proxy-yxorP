@@ -2,6 +2,8 @@
 
 use yxorP;
 
+require $GLOBALS['PLUGIN_DIR'] . '/cache/State.php';
+
 class Cache
 {
     public const EXT = '.tmp';

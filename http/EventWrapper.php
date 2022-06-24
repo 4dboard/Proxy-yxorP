@@ -1,7 +1,4 @@
 <?php namespace yxorP\Http;
-
-use yxorP;
-
 abstract class EventWrapper
 {
     protected $url_pattern;

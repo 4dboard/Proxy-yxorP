@@ -4,7 +4,6 @@ namespace yxorP\Minify;
 
 class Minify implements MinfyInterface
 {
-    /** @var array */
     private $processors;
 
     public function __construct(MinfyInterface ...$processors)

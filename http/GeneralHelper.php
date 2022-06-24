@@ -1,4 +1,4 @@
-<?php namespace yxorP\Helper;
+<?php namespace yxorP\Http;
 class GeneralHelper
 {
     public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string

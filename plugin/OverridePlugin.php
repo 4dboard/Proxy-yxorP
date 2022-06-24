@@ -21,7 +21,7 @@ class OverridePlugin extends EventWrapper
     public function REWRITE($content): string
     {
         return (Minify::createDefault())->process(yxorP::get('MIME') !== 'text/html' ? $content : preg_replace_callback("(<x>(.*?)</x>)", static function ($m) {
-            return str_replace(yxorP::CSV(yxorP::get('PLUGIN_DIR') . '/override/global/includes/search_rewrite.csv'), yxorP::CSV(yxorP::get('PLUGIN_DIR') . '/override/global/includes/replace_rewrite.csv'), $m[1]);
+            return str_replace(yxorP->CSV(yxorP::get('PLUGIN_DIR') . '/override/global/includes/search_rewrite.csv'), yxorP->CSV(yxorP::get('PLUGIN_DIR') . '/override/global/includes/replace_rewrite.csv'), $m[1]);
         }, $content));
     }
 }
