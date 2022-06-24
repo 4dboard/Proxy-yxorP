@@ -1,10 +1,7 @@
-<?php
-
-namespace yxorP\Helper;
+<?php namespace yxorP\Helper;
 
 use yxorP;
 use yxorP\Cache\Cache;
-
 
 require yxorP::get('PLUGIN_DIR') . '/guzzle.phar';
 require yxorP::get('PLUGIN_DIR') . '/bugsnag.phar';
@@ -29,13 +26,9 @@ class FetchHelper
     public function forward()
     {
         if ($_body = file_get_contents('php://input')) yxorP::get('REQUEST')->setBody(json_decode($_body, true), yxorP::get('MIME'));
-
         $this->dispatch('request.before_send');
-
         yxorP::get('RESPONSE')->setContent(yxorP::get('GUZZLE')->request(yxorP::get('REQUEST')->getMethod(), yxorP::get('REQUEST')->getUri(), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
-
         $this->dispatch('request.complete');
-
         Cache::cache(yxorP::get('CACHE_KEY'))->set(yxorP::get('RESPONSE')->getContent());
     }
 

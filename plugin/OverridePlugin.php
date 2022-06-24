@@ -1,23 +1,15 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 use yxorP\Minify\Minify;
 
 class OverridePlugin extends EventWrapper
 {
     public function onCompleted()
     {
-
         if (yxorP::get('MIME') !== 'text/html' && yxorP::get('MIME') !== 'application/javascript' && yxorP::get('MIME') !== 'text/css' && yxorP::get('MIME') !== 'application/xml' && !str_contains(yxorP::get('MIME'), 'text')) return;
-
         $GLOBAL_SEARCH_MERGE = $this->merge($this->merge($this->merge(array_keys(yxorP::get('SITE_CONTEXT')->GLOBAL_REPLACE ?: []), array_keys(yxorP::get('SITE_CONTEXT')->SITE['replace'] ?: []), array(preg_replace("#^[^:/.]*[:/]+#", "", preg_replace("{/$}", "", urldecode(yxorP::get('SITE_CONTEXT')->TARGET_DOMAIN)))))));
-
         $GLOBAL_REPLACE_MERGE = $this->merge($this->merge($this->merge(array_values(yxorP::get('SITE_CONTEXT')->GLOBAL_REPLACE ?: []), array_values(yxorP::get('SITE_CONTEXT')->SITE['replace'] ?: []), array(preg_replace("#^[^:/.]*[:/]+#", "", preg_replace("{/$}", "", urldecode(yxorP::get('SITE_CONTEXT')->SITE_DOMAIN)))))));
-
         $PATTERN_SEARCH_MERGE = array_filter($this->merge(array_keys(yxorP::get('SITE_CONTEXT')->GLOBAL_PATTERN ?: []), array_keys(yxorP::get('SITE_CONTEXT')->SITE['pattern'] ?: [])));
-
         $PATTERN_REPLACE_MERGE = array_filter($this->merge(array_values(yxorP::get('SITE_CONTEXT')->GLOBAL_PATTERN ?: []), array_values(yxorP::get('SITE_CONTEXT')->SITE['pattern'] ?: [])));
-
         yxorP::get('RESPONSE')->setContent($this->REWRITE(str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE, yxorP::get('RESPONSE')->getContent()))));
     }
 

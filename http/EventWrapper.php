@@ -1,6 +1,4 @@
-<?php
-
-namespace yxorP\Http;
+<?php namespace yxorP\Http;
 
 use yxorP;
 
@@ -67,4 +65,3 @@ abstract class EventWrapper
     {
     }
 }
-

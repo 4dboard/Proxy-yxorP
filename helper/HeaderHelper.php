@@ -1,7 +1,4 @@
-<?php
-
-namespace yxorP\Helper;
-
+<?php namespace yxorP\Helper;
 class HeaderHelper
 {
     public static function helper(): void

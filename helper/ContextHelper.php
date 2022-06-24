@@ -1,6 +1,4 @@
-<?php
-
-namespace yxorP\Helper;
+<?php namespace yxorP\Helper;
 
 use stdClass;
 use yxorP;
@@ -24,7 +22,6 @@ class ContextHelper extends EventWrapper
         yxorP::get('SITE_CONTEXT')->TARGET_URL = "https://" . (yxorP::get('SITE_CONTEXT')->SITE_SUB_DOMAIN ? yxorP::get('SITE_CONTEXT')->SITE_SUB_DOMAIN . "." : null) . yxorP::get('SITE_CONTEXT')->TARGET_DOMAIN;
         yxorP::get('SITE_CONTEXT')->PROXY_URL = yxorP::get('SITE_CONTEXT')->TARGET_URL . yxorP::get('REQUEST_URI');
         yxorP::get('SITE_CONTEXT')->DIR_FULL = yxorP::get('PLUGIN_DIR') . '/override/' . yxorP::get('SITE_CONTEXT')->SITE['dir'];
-
         MimeHelper::helper();
     }
 
@@ -46,13 +43,10 @@ class ContextHelper extends EventWrapper
         if (str_contains($domain, '.')) {
             $subdomains = $domain;
             $domain = self::extract_domain($subdomains);
-
             $subdomains = rtrim(strstr($subdomains, $domain, true), '.');
-
             return $subdomains;
         } else {
             return null;
         }
     }
-
 }

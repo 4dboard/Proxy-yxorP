@@ -1,8 +1,4 @@
-<?php
-
-
-namespace yxorP\cache;
-
+<?php namespace yxorP\cache;
 trait State
 {
     public static function __set_state($data)

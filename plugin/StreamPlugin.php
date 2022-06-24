@@ -1,7 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
-
+<?php use yxorP\Http\EventWrapper;
 
 class StreamPlugin extends EventWrapper
 {
@@ -37,4 +34,3 @@ class StreamPlugin extends EventWrapper
         }
     }
 }
-

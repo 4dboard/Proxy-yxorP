@@ -1,7 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
-
+<?php use yxorP\Http\EventWrapper;
 
 class HeaderRewritePlugin extends EventWrapper
 {
@@ -22,9 +19,7 @@ class HeaderRewritePlugin extends EventWrapper
         $code = $response->getStatusCode();
         $text = $response->getStatusText();
         if ($code >= 400 && $code <= 600) {
-
             yxorP::get('BUGSNAG')->notifyException(new RuntimeException("Error accessing resource: $code - $text"));
-
         }
         $forward_headers = array('content-type', 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
         foreach ($response->headers->all() as $name => $value) {

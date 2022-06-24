@@ -1,8 +1,4 @@
-<?php
-
-namespace yxorP\Helper;
-
-
+<?php namespace yxorP\Helper;
 class GeneralHelper
 {
     public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
@@ -44,24 +40,20 @@ class GeneralHelper
         return false;
     }
 
-
     public static function str_before($subject, $search)
     {
         return $search === '' ? $subject : explode($search, $subject)[0];
     }
-
 
     public static function is_html($content_type): bool
     {
         return clean_content_type($content_type) === 'text/html';
     }
 
-
     public static function in_arrayi($needle, $haystack): bool
     {
         return in_array(strtolower($needle), array_map('strtolower', $haystack), true);
     }
-
 
     public static function re_match($pattern, $string): bool
     {
@@ -69,7 +61,6 @@ class GeneralHelper
         $translated = strtr($quoted, array('\*' => '.*', '\?' => '.'));
         return preg_match("#^" . $translated . "$#i", $string) === 1;
     }
-
 
     public static function array_merge_custom(): array
     {
@@ -82,7 +73,6 @@ class GeneralHelper
         }
         return $arr;
     }
-
 
     public static function str_rot_pass($str, $key, $decrypt = false): string
     {
@@ -99,12 +89,10 @@ class GeneralHelper
         return $result;
     }
 
-
     public static function app_url(): string
     {
         return 'https:' . yxorP::get('SITE_CONTEXT')->SITE_HOST . yxorP::get('SERVER')['PHP_SELF'];
     }
-
 
     public static function render_string($str, $vars = array())
     {
@@ -117,24 +105,20 @@ class GeneralHelper
         return $str;
     }
 
-
     public static function time_ms(): float
     {
         return round(microtime(true) * 1000);
     }
-
 
     public static function base64_url_encode($input): string
     {
         return rtrim(strtr(base64_encode($input), '+/', '-_'), '=');
     }
 
-
     public static function base64_url_decode($input): bool|string
     {
         return base64_decode(str_pad(strtr($input, '-_', '+/'), strlen($input) % 4, '='));
     }
-
 
     public static function proxify_url($url, $base_url = '')
     {
@@ -148,7 +132,6 @@ class GeneralHelper
         }
         return str_replace(yxorP::get('SITE_CONTEXT')->TARGET_URL, '', $url);
     }
-
 
     public static function add_http($url)
     {
@@ -185,4 +168,3 @@ class GeneralHelper
         return $scheme . ':' . $abs;
     }
 }
-

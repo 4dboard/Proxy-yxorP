@@ -1,9 +1,6 @@
-<?php
-
-namespace yxorP\Http;
+<?php namespace yxorP\Http;
 
 use JetBrains\PhpStorm\Pure;
-
 
 class ParamStore
 {

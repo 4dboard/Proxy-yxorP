@@ -1,9 +1,6 @@
-<?php
-
-namespace yxorP\cache;
+<?php namespace yxorP\cache;
 
 use yxorP;
-
 
 class Cache
 {
@@ -18,9 +15,7 @@ class Cache
 
     private function __construct($key, $is_super = true)
     {
-
         $this->path = yxorP::get('CACHE_DIR');
-
         $this->key = $key;
         $this->options = ['expiry' => -1, 'lock' => false];
         if ($is_super) {
@@ -65,10 +60,7 @@ class Cache
 
     public static function clearAll(): void
     {
-
         $files = glob(yxorP::get('CACHE_DIR') . '*');
-
-
         foreach ($files as $file) {
             if (is_file($file)) {
                 unlink($file);
@@ -82,13 +74,10 @@ class Cache
         if ($this->options['lock']) {
             return $this;
         }
-
         $val = var_export($val, true);
-
         if (!self::$is_pretty) {
             $val = str_replace(["\\n", ",  '", " => "], ["", ",'", "=>"], $val);
         }
-
         $val = str_replace('stdClass::__set_state', '(object)', $val);
         $tmp = $this->path . "$key." . uniqid('', true) . self::EXT;
         $file = fopen($tmp, 'xb');

@@ -1,7 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
-
+<?php use yxorP\Http\EventWrapper;
 
 class ProxifyPlugin extends EventWrapper
 {

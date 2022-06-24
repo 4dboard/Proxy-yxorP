@@ -1,6 +1,4 @@
-<?php
-
-use yxorP\Http\EventWrapper;
+<?php use yxorP\Http\EventWrapper;
 
 class TwitterPlugin extends EventWrapper
 {
