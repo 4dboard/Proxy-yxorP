@@ -4,13 +4,10 @@
 
 Parses a serializer type.
 
-
-
 * Full name: `\JMS\Serializer\TypeParser`
 * Parent class: [`\JMS\Parser\AbstractParser`](../Parser/AbstractParser.md)
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -23,45 +20,21 @@ Parses a serializer type.
 |`T_COMMA`|public| |5|
 |`T_NONE`|public| |6|
 
-
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### parseInternal
 
-
-
 ```php
 protected parseInternal(): array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -71,33 +44,19 @@ of the format ["name" => string, "params" => array]
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\JMS\Parser\AbstractLexer $lexer): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lexer` | **\JMS\Parser\AbstractLexer** |  |
-
-
-
 
 ***
 
@@ -109,13 +68,6 @@ Parses the given input.
 public parse(string $str, string $context = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -123,28 +75,15 @@ public parse(string $str, string $context = null): mixed
 | `$str` | **string** |  |
 | `$context` | **string** | parsing context (allows to produce better error messages) |
 
-
-
-
 ***
 
 ### parseInternal
-
-
 
 ```php
 protected parseInternal(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -156,19 +95,11 @@ Matches a token, and returns its value.
 protected match(int $type): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
-
 
 **Return Value:**
 
@@ -186,21 +117,11 @@ Matches any of the passed tokens, and returns the matched token's value.
 protected matchAny(int[] $types): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$types` | **int[]** |  |
-
-
-
 
 ***
 
@@ -212,13 +133,6 @@ Raises a syntax error exception.
 protected syntaxError(string $expectedDesc, array $actualToken = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -226,11 +140,4 @@ protected syntaxError(string $expectedDesc, array $actualToken = null): mixed
 | `$expectedDesc` | **string** | A human understandable explanation what was expected |
 | `$actualToken` | **array** | The token that was found. If not given, next token will be assumed. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

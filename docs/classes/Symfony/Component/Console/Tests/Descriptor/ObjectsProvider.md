@@ -2,118 +2,56 @@
 
 # ObjectsProvider
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Tests\Descriptor\ObjectsProvider`
-
-
-
 
 ## Methods
 
-
 ### getInputArguments
-
-
 
 ```php
 public static getInputArguments(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### getInputOptions
 
-
-
 ```php
 public static getInputOptions(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### getInputDefinitions
 
-
-
 ```php
 public static getInputDefinitions(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### getCommands
 
-
-
 ```php
 public static getCommands(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### getApplications
 
-
-
 ```php
 public static getApplications(): mixed
 ```
 
-
-
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

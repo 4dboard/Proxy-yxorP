@@ -2,22 +2,17 @@
 
 # ezcDocumentDocbookToEzXmlConverter
 
-Converter for docbook to XEzXml with a PHP callback based mechanism, for fast
-and easy PHP based extensible transformations.
+Converter for docbook to XEzXml with a PHP callback based mechanism, for fast and easy PHP based extensible
+transformations.
 
-This converter does not support the full docbook standard, but only a subset
-commonly used in the document component. If you need to transform documents
-using the full docbook you might prefer to use the
-ezcDocumentDocbookToEzXmlXsltConverter with the default stylesheet from
-Welsh.
+This converter does not support the full docbook standard, but only a subset commonly used in the document component. If
+you need to transform documents using the full docbook you might prefer to use the
+ezcDocumentDocbookToEzXmlXsltConverter with the default stylesheet from Welsh.
 
 * Full name: `\ezcDocumentDocbookToEzXmlConverter`
 * Parent class: [`\ezcDocumentElementVisitorConverter`](./ezcDocumentElementVisitorConverter.md)
 
-
-
 ## Properties
-
 
 ### head
 
@@ -26,11 +21,6 @@ Reference to the HTML header section
 ```php
 protected \DOMElement $head
 ```
-
-
-
-
-
 
 ***
 
@@ -57,15 +47,9 @@ Autoincrementing number for footnotes.
 protected int $footnoteNumber
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -77,19 +61,11 @@ public __construct(\ezcDocumentDocbookToEzXmlConverterOptions $options = null): 
 
 Construct converter from XSLT file, which is used for the actual
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentDocbookToEzXmlConverterOptions** |  |
-
-
-
 
 ***
 
@@ -101,9 +77,8 @@ Initialize destination document
 protected initializeDocument(): mixed
 ```
 
-Initialize the structure which the destination document could be build
-with. This may be an initial DOMDocument with some default elements, or
-a string, or something else.
+Initialize the structure which the destination document could be build with. This may be an initial DOMDocument with
+some default elements, or a string, or something else.
 
 
 
@@ -123,22 +98,13 @@ Create document from structure
 protected createDocument(mixed $content): \ezcDocumentDocument
 ```
 
-Build a ezcDocumentDocument object from the structure created during the
-visiting process.
-
-
-
-
-
+Build a ezcDocumentDocument object from the structure created during the visiting process.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
-
-
-
 
 ***
 
@@ -150,13 +116,7 @@ Visit text node.
 protected visitText(\DOMText $node, mixed $root): mixed
 ```
 
-Visit a text node in the source document and transform it to the
-destination result
-
-
-
-
-
+Visit a text node in the source document and transform it to the destination result
 
 **Parameters:**
 
@@ -164,9 +124,6 @@ destination result
 |-----------|------|-------------|
 | `$node` | **\DOMText** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -178,24 +135,14 @@ Append footnotes
 protected appendFootnotes(\DOMElement $root): void
 ```
 
-Append the footnotes to the end of the document. The footnotes are
-embedded directly in the text in docbook, aggregated during the
-processing of the document, and displayed at the bottom of the HTML
-document.
-
-
-
-
-
+Append the footnotes to the end of the document. The footnotes are embedded directly in the text in docbook, aggregated
+during the processing of the document, and displayed at the bottom of the HTML document.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -207,14 +154,8 @@ Append footnote
 public appendFootnote(\DOMElement $node): int
 ```
 
-Append a footnote to the document, which then will be visited at the end
-of the document processing. Returns a numeric identifier for the
-footnote.
-
-
-
-
-
+Append a footnote to the document, which then will be visited at the end of the document processing. Returns a numeric
+identifier for the footnote.
 
 **Parameters:**
 
@@ -222,14 +163,9 @@ footnote.
 |-----------|------|-------------|
 | `$node` | **\DOMElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### convert
 
@@ -241,19 +177,13 @@ public convert(\ezcDocument $doc): \ezcDocument
 
 Convert documents of the given type to the requested type.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$doc` | **\ezcDocument** |  |
-
-
-
 
 ***
 
@@ -265,17 +195,10 @@ Initialize destination document
 protected initializeDocument(): mixed
 ```
 
-Initialize the structure which the destination document could be build
-with. This may be an initial DOMDocument with some default elements, or
-a string, or something else.
-
+Initialize the structure which the destination document could be build with. This may be an initial DOMDocument with
+some default elements, or a string, or something else.
 
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -287,22 +210,15 @@ Create document from structure
 protected createDocument(mixed $content): \ezcDocumentDocument
 ```
 
-Build a ezcDocumentDocument object from the structure created during the
-visiting process.
-
+Build a ezcDocumentDocument object from the structure created during the visiting process.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
-
-
-
 
 ***
 
@@ -314,14 +230,8 @@ Recursively visit children of a document node.
 public visitChildren(\DOMNode $node, mixed $root): mixed
 ```
 
-Recurse through the whole document tree and call the defined callbacks
-for node transformations, defined in the class property
-$visitorElementHandler.
-
-
-
-
-
+Recurse through the whole document tree and call the defined callbacks for node transformations, defined in the class
+property $visitorElementHandler.
 
 **Parameters:**
 
@@ -329,9 +239,6 @@ $visitorElementHandler.
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -343,13 +250,7 @@ Visit a single document node
 public visitNode(\DOMNode $node, mixed $root): mixed
 ```
 
-Visit a single document node and look up the correct visitor and us it
-to handle the node.
-
-
-
-
-
+Visit a single document node and look up the correct visitor and us it to handle the node.
 
 **Parameters:**
 
@@ -357,9 +258,6 @@ to handle the node.
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -371,22 +269,12 @@ Visit DOMElement nodes.
 protected visitElement(\DOMNode $node, mixed $root): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -398,13 +286,9 @@ Visit text node.
 protected visitText(\DOMText $text, mixed $root): mixed
 ```
 
-Visit a text node in the source document and transform it to the
-destination result
-
+Visit a text node in the source document and transform it to the destination result
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -412,9 +296,6 @@ destination result
 |-----------|------|-------------|
 | `$text` | **\DOMText** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -426,13 +307,7 @@ Set custom element handler
 public setElementHandler(string $namespace, string $element, \ezcDocumentElementVisitorHandler $handler): void
 ```
 
-Set handler for yet unhandled element or overwrite the handler of an
-existing element.
-
-
-
-
-
+Set handler for yet unhandled element or overwrite the handler of an existing element.
 
 **Parameters:**
 
@@ -441,9 +316,6 @@ existing element.
 | `$namespace` | **string** |  |
 | `$element` | **string** |  |
 | `$handler` | **\ezcDocumentElementVisitorHandler** |  |
-
-
-
 
 ***
 
@@ -455,21 +327,11 @@ Construct new document
 public __construct(\ezcDocumentConverterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentConverterOptions** |  |
-
-
-
 
 ***
 
@@ -481,13 +343,7 @@ Trigger parser error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a parser error and handle it dependiing on the current error
-reporting settings.
-
-
-
-
-
+Emit a parser error and handle it dependiing on the current error reporting settings.
 
 **Parameters:**
 
@@ -499,9 +355,6 @@ reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -512,19 +365,6 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,34 +2,17 @@
 
 # DateTimeHandler
 
-
-
-
-
 * Full name: `\PhpCollection\ObjectBasicsHandler\DateTimeHandler`
 * This class implements:
-[`\PhpCollection\ObjectBasicsHandler`](../ObjectBasicsHandler.md)
-
-
-
+  [`\PhpCollection\ObjectBasicsHandler`](../ObjectBasicsHandler.md)
 
 ## Methods
 
-
 ### hash
-
-
 
 ```php
 public hash(mixed $object): string|int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -37,25 +20,13 @@ public hash(mixed $object): string|int
 |-----------|------|-------------|
 | `$object` | **mixed** | This object is guaranteed to be of the type the handler was registered for. |
 
-
-
-
 ***
 
 ### equals
 
-
-
 ```php
 public equals(mixed $thisObject, mixed $otherObject): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -64,11 +35,4 @@ public equals(mixed $thisObject, mixed $otherObject): bool
 | `$thisObject` | **mixed** |  |
 | `$otherObject` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

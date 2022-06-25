@@ -2,65 +2,34 @@
 
 # SimpleBaseManagerRegistry
 
-
-
-
-
 * Full name: `\JMS\Serializer\Tests\Serializer\Doctrine\SimpleBaseManagerRegistry`
 * Parent class: [`AbstractManagerRegistry`](../../../../../Doctrine/Common/Persistence/AbstractManagerRegistry.md)
 
-
-
 ## Properties
 
-
 ### services
-
-
 
 ```php
 private $services
 ```
 
-
-
-
-
-
 ***
 
 ### serviceCreator
-
-
 
 ```php
 private $serviceCreator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $serviceCreator, mixed $name = &#039;anonymous&#039;, array $connections = array(&#039;default&#039; =&gt; &#039;default_connection&#039;), array $managers = array(&#039;default&#039; =&gt; &#039;default_manager&#039;), mixed $defaultConnection = null, mixed $defaultManager = null, mixed $proxyInterface = &#039;Doctrine\Common\Persistence\Proxy&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -74,51 +43,27 @@ public __construct(mixed $serviceCreator, mixed $name = &#039;anonymous&#039;, a
 | `$defaultManager` | **mixed** |  |
 | `$proxyInterface` | **mixed** |  |
 
-
-
-
 ***
 
 ### getService
-
-
 
 ```php
 public getService(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### resetService
 
-
-
 ```php
 public resetService(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -126,25 +71,13 @@ public resetService(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### getAliasNamespace
 
-
-
 ```php
 public getAliasNamespace(mixed $alias): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -152,11 +85,4 @@ public getAliasNamespace(mixed $alias): mixed
 |-----------|------|-------------|
 | `$alias` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,66 +4,39 @@
 
 The context in which a DocBlock occurs.
 
-
-
 * Full name: `\phpDocumentor\Reflection\DocBlock\Context`
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
+* http://phpdoc.org -
 
 ## Properties
 
-
 ### namespace
-
-
 
 ```php
 protected string $namespace
 ```
 
-
-
-
-
-
 ***
 
 ### namespace_aliases
-
-
 
 ```php
 protected array $namespace_aliases
 ```
 
-
-
-
-
-
 ***
 
 ### lsen
-
-
 
 ```php
 protected string $lsen
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -73,13 +46,6 @@ Cteates a new context.
 public __construct(string $namespace = &#039;&#039;, array $namespace_aliases = array(), string $lsen = &#039;&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -88,26 +54,13 @@ public __construct(string $namespace = &#039;&#039;, array $namespace_aliases = 
 | `$namespace_aliases` | **array** | List of namespace aliases =&gt; Fully<br />Qualified Namespace. |
 | `$lsen` | **string** | Name of the structural element, within<br />the namespace. |
 
-
-
-
 ***
 
 ### getNamespace
 
-
-
 ```php
 public getNamespace(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -119,19 +72,9 @@ The namespace where this DocBlock resides in.
 
 ### getNamespaceAliases
 
-
-
 ```php
 public getNamespaceAliases(): array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -149,14 +92,6 @@ Returns the Local Structural Element Name.
 public getLSEN(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Name of the structural element, within the namespace.
@@ -173,23 +108,14 @@ Sets a new namespace.
 public setNamespace(string $namespace): $this
 ```
 
-Sets a new namespace for the context. Leading and trailing slashes are
-trimmed, and the keywords "global" and "default" are treated as aliases
-to no namespace.
-
-
-
-
-
+Sets a new namespace for the context. Leading and trailing slashes are trimmed, and the keywords "global" and "default"
+are treated as aliases to no namespace.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** | The new namespace to set. |
-
-
-
 
 ***
 
@@ -201,21 +127,11 @@ Sets the namespace aliases, replacing all previous ones.
 public setNamespaceAliases(array $namespace_aliases): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace_aliases` | **array** | List of namespace aliases =&gt; Fully<br />Qualified Namespace. |
-
-
-
 
 ***
 
@@ -227,22 +143,14 @@ Adds a namespace alias to the context.
 public setNamespaceAlias(string $alias, string $fqnn): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$alias` | **string** | The alias name (the part after &quot;as&quot;, or the last<br />part of the Fully Qualified Namespace Name) to add. |
-| `$fqnn` | **string** | The Fully Qualified Namespace Name for this alias.<br />Any form of leading/trailing slashes are accepted, but what will be<br />stored is a name, prefixed with a slash, and no trailing slash. |
-
-
-
+| `$alias` | **
+string** | The alias name (the part after &quot;as&quot;, or the last<br />part of the Fully Qualified Namespace Name) to add. |
+| `$fqnn` | **
+string** | The Fully Qualified Namespace Name for this alias.<br />Any form of leading/trailing slashes are accepted, but what will be<br />stored is a name, prefixed with a slash, and no trailing slash. |
 
 ***
 
@@ -254,14 +162,9 @@ Sets a new Local Structural Element Name.
 public setLSEN(string $lsen): $this
 ```
 
-Sets a new Local Structural Element Name. A local name also contains
-punctuation determining the kind of structural element (e.g. trailing "("
+Sets a new Local Structural Element Name. A local name also contains punctuation determining the kind of structural
+element (e.g. trailing "("
 and ")" for functions and methods).
-
-
-
-
-
 
 **Parameters:**
 
@@ -269,11 +172,4 @@ and ")" for functions and methods).
 |-----------|------|-------------|
 | `$lsen` | **string** | The new local name of a structural element. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

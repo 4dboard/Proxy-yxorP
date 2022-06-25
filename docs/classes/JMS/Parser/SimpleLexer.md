@@ -4,78 +4,42 @@
 
 The simple lexer is a fully usable lexer that does not require sub-classing.
 
-
-
 * Full name: `\JMS\Parser\SimpleLexer`
 * Parent class: [`\JMS\Parser\AbstractLexer`](./AbstractLexer.md)
 
-
-
 ## Properties
 
-
 ### regex
-
-
 
 ```php
 private $regex
 ```
 
-
-
-
-
-
 ***
 
 ### callable
-
-
 
 ```php
 private $callable
 ```
 
-
-
-
-
-
 ***
 
 ### tokenNames
-
-
 
 ```php
 private $tokenNames
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $regex, array $tokenNames, mixed $typeCallable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -84,9 +48,6 @@ public __construct(mixed $regex, array $tokenNames, mixed $typeCallable): mixed
 | `$regex` | **mixed** |  |
 | `$tokenNames` | **array** |  |
 | `$typeCallable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -98,41 +59,19 @@ Returns the name of the given token.
 public getName(mixed $type): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **mixed** |  |
 
-
-
-
 ***
 
 ### getRegex
 
-
-
 ```php
 protected getRegex(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -144,20 +83,13 @@ Determines the type of the given value.
 protected determineTypeAndValue(mixed $value): array
 ```
 
-This method may also modify the passed value for example to cast them to
-a different PHP type where necessary.
-
-
-
-
-
+This method may also modify the passed value for example to cast them to a different PHP type where necessary.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -167,9 +99,7 @@ a tupel of type and normalized value
 
 ***
 
-
 ## Inherited methods
-
 
 ### getName
 
@@ -179,38 +109,19 @@ Returns the name of the given token.
 public getName(int $type): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
 
-
-
-
 ***
 
 ### setInput
 
-
-
 ```php
 public setInput(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -218,28 +129,13 @@ public setInput(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -250,14 +146,6 @@ Moves the pointer one token forward.
 ```php
 public moveNext(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -275,38 +163,19 @@ Skips the token stream until a token of the given type.
 public skipUntil(int $type): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
-
-
-
 
 ***
 
 ### isNext
 
-
-
 ```php
 public isNext(int $type): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -314,25 +183,13 @@ public isNext(int $type): bool
 |-----------|------|-------------|
 | `$type` | **int** |  |
 
-
-
-
 ***
 
 ### isNextAny
 
-
-
 ```php
 public isNextAny(int[] $types): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -340,48 +197,23 @@ public isNextAny(int[] $types): bool
 |-----------|------|-------------|
 | `$types` | **int[]** |  |
 
-
-
-
 ***
 
 ### peek
-
-
 
 ```php
 public peek(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getRegex
-
-
 
 ```php
 protected getRegex(): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -393,13 +225,9 @@ Determines the type of the given value.
 protected determineTypeAndValue(string $value): array
 ```
 
-This method may also modify the passed value for example to cast them to
-a different PHP type where necessary.
-
+This method may also modify the passed value for example to cast them to a different PHP type where necessary.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -407,15 +235,6 @@ a different PHP type where necessary.
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
 **Return Value:**
 
-a tupel of type and normalized value
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+a tupel of type and normalized value yxorP::get('REQUEST')

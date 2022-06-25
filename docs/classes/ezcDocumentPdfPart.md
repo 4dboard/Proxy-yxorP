@@ -4,27 +4,22 @@
 
 Abstract base class for additional PDF parts
 
-Parts can be new elements in a PDF page, which can hook into the rendering
-of the PDF page, like footers or headers.
+Parts can be new elements in a PDF page, which can hook into the rendering of the PDF page, like footers or headers.
 
-This abstract part abse class offers a list of hooks which will be called,
-if an instance of this class is registered in the renderer, these hooks are:
+This abstract part abse class offers a list of hooks which will be called, if an instance of this class is registered in
+the renderer, these hooks are:
 
 - hookPageCreation
 - hookPageRendering
 - hookDocumentCreation
 - hookDocumentRendering
 
-All these hooks do nothing by default, and should be overwritten to
-accomplish the desired functionality.
+All these hooks do nothing by default, and should be overwritten to accomplish the desired functionality.
 
 * Full name: `\ezcDocumentPdfPart`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### renderer
 
@@ -33,11 +28,6 @@ Reference to main renderer
 ```php
 protected \ezcDocumentPdfMainRenderer $renderer
 ```
-
-
-
-
-
 
 ***
 
@@ -49,11 +39,6 @@ Reference to driver
 protected \ezcDocumentPdfDriver $driver
 ```
 
-
-
-
-
-
 ***
 
 ### styles
@@ -64,15 +49,9 @@ Reference to style inferencer
 protected \ezcDocumentPcssStyleInferencer $styles
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### registerContext
 
@@ -82,13 +61,7 @@ Registration function called by the renderer.
 public registerContext(\ezcDocumentPdfMainRenderer $renderer, \ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles): void
 ```
 
-Function called by the renderer, to set its properties, which pass the
-relevant state objects to the part.
-
-
-
-
-
+Function called by the renderer, to set its properties, which pass the relevant state objects to the part.
 
 **Parameters:**
 
@@ -97,9 +70,6 @@ relevant state objects to the part.
 | `$renderer` | **\ezcDocumentPdfMainRenderer** |  |
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -111,22 +81,14 @@ Hook on page creation
 public hookPageCreation(\ezcDocumentPdfPage $page): void
 ```
 
-Hook called on page creation, so that certain areas might be reserved or
-it already may render stuff on the frshly created page.
-
-
-
-
-
+Hook called on page creation, so that certain areas might be reserved or it already may render stuff on the frshly
+created page.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
-
-
-
 
 ***
 
@@ -138,22 +100,13 @@ Hook on page rendering
 public hookPageRendering(\ezcDocumentPdfPage $page): void
 ```
 
-Hook called on page rendering, which means, that a page is complete, by
-all knowledge of the main renderer.
-
-
-
-
-
+Hook called on page rendering, which means, that a page is complete, by all knowledge of the main renderer.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
-
-
-
 
 ***
 
@@ -167,19 +120,11 @@ public hookDocumentCreation(\ezcDocumentLocateableDomElement $element): void
 
 Hook called when a new document is created.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -193,16 +138,4 @@ public hookDocumentRendering(): void
 
 Hook called once a document is completely rendered.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

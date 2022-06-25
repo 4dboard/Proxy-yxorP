@@ -2,19 +2,12 @@
 
 # AbstractStringWrapper
 
-
-
-
-
 * Full name: `\Zend\Stdlib\StringWrapper\AbstractStringWrapper`
 * This class implements:
-[`\Zend\Stdlib\StringWrapper\StringWrapperInterface`](./StringWrapperInterface.md)
+  [`\Zend\Stdlib\StringWrapper\StringWrapperInterface`](./StringWrapperInterface.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### encoding
 
@@ -23,11 +16,6 @@ The character encoding working on
 ```php
 protected string|null $encoding
 ```
-
-
-
-
-
 
 ***
 
@@ -39,31 +27,20 @@ An optionally character encoding to convert to
 protected string|null $convertEncoding
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### isSupported
 
-Check if the given character encoding is supported by this wrapper
-and the character encoding to convert to is also supported.
+Check if the given character encoding is supported by this wrapper and the character encoding to convert to is also
+supported.
 
 ```php
 public static isSupported(string $encoding, string|null $convertEncoding = null): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -71,9 +48,6 @@ public static isSupported(string $encoding, string|null $convertEncoding = null)
 |-----------|------|-------------|
 | `$encoding` | **string** |  |
 | `$convertEncoding` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -85,22 +59,12 @@ Set character encoding working with and convert to
 public setEncoding(string $encoding, string|null $convertEncoding = null): \Zend\Stdlib\StringWrapper\StringWrapperInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$encoding` | **string** | The character encoding to work with |
 | `$convertEncoding` | **string&#124;null** | The character encoding to convert to |
-
-
-
 
 ***
 
@@ -112,16 +76,6 @@ Get the defined character encoding to work with
 public getEncoding(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getConvertEncoding
@@ -131,16 +85,6 @@ Get the defined character encoding to convert to
 ```php
 public getConvertEncoding(): string|null
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -152,22 +96,12 @@ Convert a string from defined character encoding to the defined convert encoding
 public convert(string $str, bool $reverse = false): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
 | `$reverse` | **bool** |  |
-
-
-
 
 ***
 
@@ -180,13 +114,6 @@ public wordWrap(string $string, int $width = 75, string $break = &quot;
 &quot;, bool $cut = false): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -195,9 +122,6 @@ public wordWrap(string $string, int $width = 75, string $break = &quot;
 | `$width` | **int** |  |
 | `$break` | **string** |  |
 | `$cut` | **bool** |  |
-
-
-
 
 ***
 
@@ -209,13 +133,6 @@ Pad a string to a certain length with another string
 public strPad(string $input, int $padLength, string $padString = &#039; &#039;, int $padType = STR_PAD_RIGHT): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -225,11 +142,4 @@ public strPad(string $input, int $padLength, string $padString = &#039; &#039;, 
 | `$padString` | **string** |  |
 | `$padType` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

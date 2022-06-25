@@ -4,145 +4,89 @@
 
 Operation for the createIndexes command.
 
-
-
 * Full name: `\MongoDB\Operation\CreateIndexes`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::createIndex() - 
-* \MongoDB\Collection::createIndexes() - 
-* http://docs.mongodb.org/manual/reference/command/createIndexes/ - 
-
-
+* \MongoDB\Collection::createIndex() -
+* \MongoDB\Collection::createIndexes() -
+* http://docs.mongodb.org/manual/reference/command/createIndexes/ -
 
 ## Properties
 
-
 ### wireVersionForCollation
-
-
 
 ```php
 private static int $wireVersionForCollation
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### wireVersionForWriteConcern
 
-
-
 ```php
 private static int $wireVersionForWriteConcern
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### wireVersionForCommitQuorum
 
-
-
 ```php
 private static int $wireVersionForCommitQuorum
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### databaseName
 
-
-
 ```php
 private string $databaseName
 ```
-
-
-
-
-
 
 ***
 
 ### collectionName
 
-
-
 ```php
 private string $collectionName
 ```
-
-
-
-
-
 
 ***
 
 ### indexes
 
-
-
 ```php
 private array $indexes
 ```
-
-
-
-
-
 
 ***
 
 ### isCollationUsed
 
-
-
 ```php
 private bool $isCollationUsed
 ```
-
-
-
-
-
 
 ***
 
 ### options
 
-
-
 ```php
 private array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -154,12 +98,10 @@ public __construct(string $databaseName, string $collectionName, array[] $indexe
 
 Supported options:
 
-* commitQuorum (integer|string): Specifies how many data-bearing members
-  of a replica set, including the primary, must complete the index
-  builds successfully before the primary marks the indexes as ready.
+* commitQuorum (integer|string): Specifies how many data-bearing members of a replica set, including the primary, must
+  complete the index builds successfully before the primary marks the indexes as ready.
 
-* maxTimeMS (integer): The maximum amount of time to allow the query to
-  run.
+* maxTimeMS (integer): The maximum amount of time to allow the query to run.
 
 * session (MongoDB\Driver\Session): Client session.
 
@@ -167,13 +109,7 @@ Supported options:
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
-  This is not supported for server versions < 3.4 and will result in an
-  exception at execution time if used.
-
-
-
-
-
+  This is not supported for server versions < 3.4 and will result in an exception at execution time if used.
 
 **Parameters:**
 
@@ -183,9 +119,6 @@ Supported options:
 | `$collectionName` | **string** | Collection name |
 | `$indexes` | **array[]** | List of index specifications |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -197,28 +130,19 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): string[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
 **Return Value:**
 
 The names of the created indexes
 
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 
@@ -230,36 +154,19 @@ Create options for executing the command.
 private createOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php - 
+* http://php.net/manual/en/mongodb-driver-server.executewritecommand.php -
 
 ***
 
 ### executeCommand
 
-Create one or more indexes for the collection using the createIndexes
-command.
+Create one or more indexes for the collection using the createIndexes command.
 
 ```php
 private executeCommand(\MongoDB\Driver\Server $server): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -267,11 +174,4 @@ private executeCommand(\MongoDB\Driver\Server $server): mixed
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

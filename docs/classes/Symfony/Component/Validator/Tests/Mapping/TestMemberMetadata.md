@@ -4,43 +4,26 @@
 
 Stores all metadata needed for validating a class property.
 
-The method of accessing the property's value must be specified by subclasses
-by implementing the {@link} method.
+The method of accessing the property's value must be specified by subclasses by implementing the {@link} method.
 
 This class supports serialization and cloning.
 
 * Full name: `\Symfony\Component\Validator\Tests\Mapping\TestMemberMetadata`
 * Parent class: [`\Symfony\Component\Validator\Mapping\MemberMetadata`](../../Mapping/MemberMetadata.md)
 
-
-
-
 ## Methods
 
-
 ### getPropertyValue
-
-
 
 ```php
 public getPropertyValue(mixed $object): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
-
-
-
 
 ***
 
@@ -54,17 +37,11 @@ protected newReflectionMember(mixed $object): \ReflectionMethod|\ReflectionPrope
 
 Must be implemented by subclasses.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -74,34 +51,19 @@ The reflection instance
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### accept
 
-Exists for compatibility with the deprecated
-{@link Symfony\Component\Validator\MetadataInterface}.
+Exists for compatibility with the deprecated {@link Symfony\Component\Validator\MetadataInterface}.
 
 ```php
 public accept(\Symfony\Component\Validator\ValidationVisitorInterface $visitor, mixed $value, mixed $group, mixed $propertyPath): mixed
@@ -111,12 +73,7 @@ Should not be used.
 
 Implemented for backward compatibility with Symfony < 2.5.
 
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -126,9 +83,6 @@ Implemented for backward compatibility with Symfony < 2.5.
 | `$value` | **mixed** |  |
 | `$group` | **mixed** |  |
 | `$propertyPath` | **mixed** |  |
-
-
-
 
 ***
 
@@ -140,30 +94,18 @@ Adds a constraint.
 public addConstraint(\Symfony\Component\Validator\Constraint $constraint): $this
 ```
 
-If the constraint {@link} is added, the cascading strategy will be
-changed to {@link}. Depending on the
-properties $traverse and $deep of that constraint, the traversal strategy
-will be set to one of the following:
+If the constraint {@link} is added, the cascading strategy will be changed to {@link}. Depending on the properties
+$traverse and $deep of that constraint, the traversal strategy will be set to one of the following:
 
- - {@link} if $traverse is enabled and $deep
-   is enabled
- - {@link} | {@link}
-   if $traverse is enabled, but $deep is disabled
- - {@link} if $traverse is disabled
-
-
-
-
-
+- {@link} if $traverse is enabled and $deep is enabled
+- {@link} | {@link} if $traverse is enabled, but $deep is disabled
+- {@link} if $traverse is disabled
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$constraint` | **\Symfony\Component\Validator\Constraint** |  |
-
-
-
 
 ***
 
@@ -175,16 +117,6 @@ Returns the names of the properties that should be serialized.
 public __sleep(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getName
@@ -194,16 +126,6 @@ Returns the name of the member.
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -215,16 +137,6 @@ public getName(): string
 public getClassName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPropertyName
@@ -234,16 +146,6 @@ public getClassName(): mixed
 ```php
 public getPropertyName(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -255,21 +157,11 @@ Returns whether this member is public.
 public isPublic(object|string $objectOrClassName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectOrClassName` | **object&#124;string** | The object or the class name |
-
-
-
 
 ***
 
@@ -281,21 +173,11 @@ Returns whether this member is protected.
 public isProtected(object|string $objectOrClassName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectOrClassName` | **object&#124;string** | The object or the class name |
-
-
-
 
 ***
 
@@ -307,21 +189,11 @@ Returns whether this member is private.
 public isPrivate(object|string $objectOrClassName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectOrClassName` | **object&#124;string** | The object or the class name |
-
-
-
 
 ***
 
@@ -333,63 +205,32 @@ Returns whether objects stored in this member should be validated.
 public isCascaded(): bool
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
 ### isCollectionCascaded
 
-Returns whether arrays or traversable objects stored in this member
-should be traversed and validated in each entry.
+Returns whether arrays or traversable objects stored in this member should be traversed and validated in each entry.
 
 ```php
 public isCollectionCascaded(): bool
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
 ### isCollectionCascadedDeeply
 
-Returns whether arrays or traversable objects stored in this member
-should be traversed recursively for inner arrays/traversable objects.
+Returns whether arrays or traversable objects stored in this member should be traversed recursively for inner
+arrays/traversable objects.
 
 ```php
 public isCollectionCascadedDeeply(): bool
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -401,19 +242,11 @@ Returns the reflection instance for accessing the member's value.
 public getReflectionMember(object|string $objectOrClassName): \ReflectionMethod|\ReflectionProperty
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectOrClassName` | **object&#124;string** | The object or the class name |
-
 
 **Return Value:**
 
@@ -433,17 +266,13 @@ protected newReflectionMember(object|string $objectOrClassName): \ReflectionMeth
 
 Must be implemented by subclasses.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectOrClassName` | **object&#124;string** | The object or the class name |
-
 
 **Return Value:**
 
@@ -461,16 +290,6 @@ Clones this object.
 public __clone(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addConstraints
@@ -481,21 +300,11 @@ Adds an list of constraints.
 public addConstraints(\Symfony\Component\Validator\Constraint[] $constraints): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$constraints` | **\Symfony\Component\Validator\Constraint[]** | The constraints to add |
-
-
-
 
 ***
 
@@ -506,14 +315,6 @@ Returns all constraints of this element.
 ```php
 public getConstraints(): \Symfony\Component\Validator\Constraint[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -531,16 +332,6 @@ Returns whether this element has any constraints.
 public hasConstraints(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### findConstraints
@@ -553,19 +344,11 @@ public findConstraints(mixed $group): mixed
 
 Aware of the global group (* group).
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$group` | **mixed** |  |
-
-
-
 
 ***
 
@@ -576,14 +359,6 @@ Returns the strategy for cascading objects.
 ```php
 public getCascadingStrategy(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -601,22 +376,6 @@ Returns the strategy for traversing traversable objects.
 public getTraversalStrategy(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The traversal strategy
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The traversal strategy yxorP::get('REQUEST')

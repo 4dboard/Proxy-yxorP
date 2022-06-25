@@ -4,15 +4,10 @@
 
 Struct for Wiki document plugin abstract syntax tree nodes
 
-
-
 * Full name: `\ezcDocumentWikiPluginNode`
 * Parent class: [`\ezcDocumentWikiBlockLevelNode`](./ezcDocumentWikiBlockLevelNode.md)
 
-
-
 ## Properties
-
 
 ### type
 
@@ -21,11 +16,6 @@ Plugin type / name.
 ```php
 public string $type
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ Plugin parameters
 public array $parameters
 ```
 
-
-
-
-
-
 ***
 
 ### text
@@ -52,16 +37,10 @@ Plugin content
 public string $text
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
 
 Construct Wiki node
@@ -70,28 +49,16 @@ Construct Wiki node
 public __construct(\ezcDocumentWikiToken $token): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
 
 Construct Wiki node
@@ -100,24 +67,10 @@ Construct Wiki node
 public __construct(\ezcDocumentWikiToken $token): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

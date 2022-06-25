@@ -2,18 +2,11 @@
 
 # KeyListIterator
 
-
-
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\KeyListIterator`
 * This class implements:
-[`\Zend\Cache\Storage\IteratorInterface`](../IteratorInterface.md), [`\Countable`](../../../../Countable.md)
-
-
+  [`\Zend\Cache\Storage\IteratorInterface`](../IteratorInterface.md), [`\Countable`](../../../../Countable.md)
 
 ## Properties
-
 
 ### storage
 
@@ -22,11 +15,6 @@ The storage instance
 ```php
 protected \Zend\Cache\Storage\StorageInterface $storage
 ```
-
-
-
-
-
 
 ***
 
@@ -38,11 +26,6 @@ The iterator mode
 protected int $mode
 ```
 
-
-
-
-
-
 ***
 
 ### keys
@@ -52,11 +35,6 @@ Keys to iterate over
 ```php
 protected string[] $keys
 ```
-
-
-
-
-
 
 ***
 
@@ -68,11 +46,6 @@ Number of keys
 protected int $count
 ```
 
-
-
-
-
-
 ***
 
 ### position
@@ -83,15 +56,9 @@ Current iterator position
 protected int $position
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -101,22 +68,12 @@ Constructor
 public __construct(\Zend\Cache\Storage\StorageInterface $storage, array $keys): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$storage` | **\Zend\Cache\Storage\StorageInterface** |  |
 | `$keys` | **array** |  |
-
-
-
 
 ***
 
@@ -128,16 +85,6 @@ Get storage instance
 public getStorage(): \Zend\Cache\Storage\StorageInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMode
@@ -147,14 +94,6 @@ Get iterator mode
 ```php
 public getMode(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -172,19 +111,11 @@ Set iterator mode
 public setMode(int $mode): \Zend\Cache\Storage\Adapter\KeyListIterator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mode` | **int** |  |
-
 
 **Return Value:**
 
@@ -202,16 +133,6 @@ Get current key, value or metadata.
 public current(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### key
@@ -221,16 +142,6 @@ Get current key
 ```php
 public key(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -242,16 +153,6 @@ Checks if current position is valid
 public valid(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### next
@@ -261,16 +162,6 @@ Move forward to next element
 ```php
 public next(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -282,16 +173,6 @@ Rewind the Iterator to the first element.
 public rewind(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
@@ -302,18 +183,4 @@ Count number of items
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

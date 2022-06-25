@@ -4,16 +4,13 @@
 
 Filter mechanism based on ODT style information.
 
-This filter consists of filte rules, which inference semantics for ODT
-elements based on their attached style information.
+This filter consists of filte rules, which inference semantics for ODT elements based on their attached style
+information.
 
 * Full name: `\ezcDocumentOdtStyleFilter`
 * Parent class: [`\ezcDocumentOdtBaseFilter`](./ezcDocumentOdtBaseFilter.md)
 
-
-
 ## Properties
-
 
 ### rules
 
@@ -22,11 +19,6 @@ Style filter rules.
 ```php
 protected array|(\ezcDocumentOdtStyleFilterRule) $rules
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +30,9 @@ Style inferencer.
 protected \ezcDocumentOdtStyleInferencer $styleInferencer
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -55,16 +41,6 @@ Creates a new style filter.
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -76,22 +52,14 @@ Filter ODT document.
 public filter(\DOMDocument $dom): \DOMDocument
 ```
 
-Filter for the document, which may modify / restructure a document and
-assign semantic information bits to the elements in the tree.
-
-
-
-
-
+Filter for the document, which may modify / restructure a document and assign semantic information bits to the elements
+in the tree.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dom` | **\DOMDocument** |  |
-
-
-
 
 ***
 
@@ -103,13 +71,7 @@ Filter node
 protected filterNode(\DOMElement $element): void
 ```
 
-Depending on the element name, it parents and maybe element attributes
-semantic information is assigned to nodes.
-
-
-
-
-
+Depending on the element name, it parents and maybe element attributes semantic information is assigned to nodes.
 
 **Parameters:**
 
@@ -117,14 +79,9 @@ semantic information is assigned to nodes.
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### filter
 
@@ -134,13 +91,10 @@ Filter ODT document
 public filter(\DOMDocument $document): \DOMDocument
 ```
 
-Filter for the document, which may modify / restructure a document and
-assign semantic information bits to the elements in the tree.
-
+Filter for the document, which may modify / restructure a document and assign semantic information bits to the elements
+in the tree.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -148,11 +102,4 @@ assign semantic information bits to the elements in the tree.
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

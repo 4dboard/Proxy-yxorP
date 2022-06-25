@@ -4,68 +4,40 @@
 
 Provides Static Reflection for functions.
 
-
-
 * Full name: `\phpDocumentor\Reflection\FunctionReflector`
 * Parent class: [`\phpDocumentor\Reflection\BaseReflector`](./BaseReflector.md)
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
+* http://phpdoc.org -
 
 ## Properties
 
-
 ### node
-
-
 
 ```php
 protected \PhpParser\Node\Stmt\Function_ $node
 ```
 
-
-
-
-
-
 ***
 
 ### arguments
-
-
 
 ```php
 protected \phpDocumentor\Reflection\FunctionReflector\ArgumentReflector[] $arguments
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
 
-Initializes the reflector using the function statement object of
-PHP-Parser.
+Initializes the reflector using the function statement object of PHP-Parser.
 
 ```php
 public __construct(\PhpParser\Node\Stmt $node, \phpDocumentor\Reflection\DocBlock\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -73,9 +45,6 @@ public __construct(\PhpParser\Node\Stmt $node, \phpDocumentor\Reflection\DocBloc
 |-----------|------|-------------|
 | `$node` | **\PhpParser\Node\Stmt** | Function object coming from PHP-Parser. |
 | `$context` | **\phpDocumentor\Reflection\DocBlock\Context** | The context in which the node occurs. |
-
-
-
 
 ***
 
@@ -86,14 +55,6 @@ Checks whether the function returns a value by reference.
 ```php
 public isByRef(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -111,37 +72,17 @@ Returns a list of Argument objects.
 public getArguments(): \phpDocumentor\Reflection\FunctionReflector\ArgumentReflector[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
 
-Initializes this reflector with the correct node as produced by
-PHP-Parser.
+Initializes this reflector with the correct node as produced by PHP-Parser.
 
 ```php
 public __construct(\PhpParser\NodeAbstract $node, \phpDocumentor\Reflection\DocBlock\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -150,32 +91,20 @@ public __construct(\PhpParser\NodeAbstract $node, \phpDocumentor\Reflection\DocB
 | `$node` | **\PhpParser\NodeAbstract** |  |
 | `$context` | **\phpDocumentor\Reflection\DocBlock\Context** |  |
 
-
-
 **See Also:**
 
-* http://github.com/nikic/PHP-Parser - 
+* http://github.com/nikic/PHP-Parser -
 
 ***
 
 ### getNode
 
-Returns the current PHP-Parser node that holds more detailed information
-about the reflected object. e.g. position in the file and further attributes.
+Returns the current PHP-Parser node that holds more detailed information about the reflected object. e.g. position in
+the file and further attributes.
 
 ```php
 public getNode(): \PhpParser\Node\Stmt|\PhpParser\NodeAbstract
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -187,21 +116,11 @@ Sets the name for the namespace.
 public setNamespace(string $namespace): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -213,16 +132,6 @@ Returns the parsed DocBlock.
 public getDocBlock(): \phpDocumentor\Reflection\DocBlock|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### extractDocBlock
@@ -233,21 +142,11 @@ Extracts a parsed DocBlock from an object.
 protected extractDocBlock(object $node): \phpDocumentor\Reflection\DocBlock|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **object** | Any object with a &quot;getDocComment()&quot; method. |
-
-
-
 
 ***
 
@@ -259,16 +158,6 @@ Returns the name for this Reflector instance.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getShortName
@@ -278,16 +167,6 @@ Returns the last component of a namespaced name as a short form.
 ```php
 public getShortName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -299,11 +178,9 @@ Gets the LSEN.
 public getLSEN(): string
 ```
 
-Returns this element's Local Structural Element Name (LSEN). This name
-consistents of the element's short name, along with punctuation that
-hints at the kind of structural element. If the structural element is
-part of a type (i.e. an interface/trait/class' property/method/constant),
-it also contains the name of the owning type.
+Returns this element's Local Structural Element Name (LSEN). This name consistents of the element's short name, along
+with punctuation that hints at the kind of structural element. If the structural element is part of a type (i.e. an
+interface/trait/class' property/method/constant), it also contains the name of the owning type.
 
 
 
@@ -323,8 +200,7 @@ Returns the namespace name for this object.
 public getNamespace(): string
 ```
 
-If this object does not have a namespace then the word 'global' is
-returned to indicate a global namespace.
+If this object does not have a namespace then the word 'global' is returned to indicate a global namespace.
 
 
 
@@ -338,22 +214,12 @@ returned to indicate a global namespace.
 
 ### getNamespaceAliases
 
-Returns a listing of namespace aliases where the key represents the alias
-and the value the Fully Qualified Namespace Name.
+Returns a listing of namespace aliases where the key represents the alias and the value the Fully Qualified Namespace
+Name.
 
 ```php
 public getNamespaceAliases(): string[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -365,22 +231,13 @@ Sets a listing of namespace aliases.
 public setNamespaceAliases(string[] $aliases): void
 ```
 
-The keys represents the alias name and the value the
-Fully Qualified Namespace Name (FQNN).
-
-
-
-
-
+The keys represents the alias name and the value the Fully Qualified Namespace Name (FQNN).
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$aliases` | **string[]** |  |
-
-
-
 
 ***
 
@@ -392,22 +249,12 @@ Sets the Fully Qualified Namespace Name (FQNN) for an alias.
 public setNamespaceAlias(string $alias, string $fqnn): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$alias` | **string** |  |
 | `$fqnn` | **string** |  |
-
-
-
 
 ***
 
@@ -419,16 +266,6 @@ Returns the line number where this object starts.
 public getLinenumber(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDefaultPackageName
@@ -439,22 +276,13 @@ Sets the default package name for this object.
 public setDefaultPackageName(string $default_package_name): void
 ```
 
-If the DocBlock contains a different package name then that overrides
-this package name.
-
-
-
-
-
+If the DocBlock contains a different package name then that overrides this package name.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$default_package_name` | **string** | The name of the package as defined<br />in the PHPDoc Standard. |
-
-
-
 
 ***
 
@@ -466,8 +294,8 @@ Returns the package name that is default for this element.
 public getDefaultPackageName(): string
 ```
 
-This value may change after the DocBlock is interpreted. If that contains
-a package tag then that tag overrides the Default package name.
+This value may change after the DocBlock is interpreted. If that contains a package tag then that tag overrides the
+Default package name.
 
 
 
@@ -487,21 +315,11 @@ Returns a simple human readable output for a value.
 protected getRepresentationOfValue(\PhpParser\Node\Expr $value = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **\PhpParser\Node\Expr** | The value node as provided by<br />PHP-Parser. |
-
-
-
 
 ***
 
@@ -513,22 +331,12 @@ Dispatches a logging request.
 public log(string $message, int $priority = 6): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message to log. |
 | `$priority` | **int** | The logging priority, the lower,<br />the more important. Ranges from 1 to 7 |
-
-
-
 
 ***
 
@@ -540,24 +348,10 @@ Dispatches a logging request to log a debug message.
 public debug(string $message): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message to log. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -13,18 +13,14 @@ if match_glob("foo.*", "foo.bar") echo "matched\n";
         if (/$regex/) echo "matched: $car\n";
     }
 
-Glob implements glob(3) style matching that can be used to match
-against text, rather than fetching names from a filesystem.
+Glob implements glob(3) style matching that can be used to match against text, rather than fetching names from a
+filesystem.
 
 Based on the Perl Text::Glob module.
 
 * Full name: `\Symfony\Component\Finder\Glob`
 
-
-
-
 ## Methods
-
 
 ### toRegex
 
@@ -34,12 +30,7 @@ Returns a regexp which is the equivalent of the glob pattern.
 public static toRegex(string $glob, bool $strictLeadingDot = true, bool $strictWildcardSlash = true, string $delimiter = &#039;#&#039;): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -50,15 +41,6 @@ public static toRegex(string $glob, bool $strictLeadingDot = true, bool $strictW
 | `$strictWildcardSlash` | **bool** |  |
 | `$delimiter` | **string** | Optional delimiter |
 
-
 **Return Value:**
 
-regex The regexp
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+regex The regexp yxorP::get('REQUEST')

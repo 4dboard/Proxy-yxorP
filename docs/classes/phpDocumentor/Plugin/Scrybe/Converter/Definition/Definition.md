@@ -4,62 +4,33 @@
 
 Defines the basic properties for a single conversion process.
 
-
-
 * Full name: `\phpDocumentor\Plugin\Scrybe\Converter\Definition\Definition`
-
-
 
 ## Properties
 
-
 ### input_format
-
-
 
 ```php
 protected \phpDocumentor\Plugin\Scrybe\Converter\Format\Format $input_format
 ```
 
-
-
-
-
-
 ***
 
 ### output_format
-
-
 
 ```php
 protected \phpDocumentor\Plugin\Scrybe\Converter\Format\Format $output_format
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\phpDocumentor\Plugin\Scrybe\Converter\Format\Format $input_format, \phpDocumentor\Plugin\Scrybe\Converter\Format\Format $output_format): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -67,9 +38,6 @@ public __construct(\phpDocumentor\Plugin\Scrybe\Converter\Format\Format $input_f
 |-----------|------|-------------|
 | `$input_format` | **\phpDocumentor\Plugin\Scrybe\Converter\Format\Format** |  |
 | `$output_format` | **\phpDocumentor\Plugin\Scrybe\Converter\Format\Format** |  |
-
-
-
 
 ***
 
@@ -81,16 +49,6 @@ Returns the format used as input.
 public getInputFormat(): \phpDocumentor\Plugin\Scrybe\Converter\Format\Format
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOutputFormat
@@ -101,18 +59,4 @@ Returns the format used as output.
 public getOutputFormat(): \phpDocumentor\Plugin\Scrybe\Converter\Format\Format
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

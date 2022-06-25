@@ -4,33 +4,20 @@
 
 Abstract aggregate listener
 
-
-
 * Full name: `\Zend\Cache\Storage\Plugin\Serializer`
 * Parent class: [`\Zend\Cache\Storage\Plugin\AbstractPlugin`](./AbstractPlugin.md)
 
-
-
 ## Properties
 
-
 ### capabilities
-
-
 
 ```php
 protected array $capabilities
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### attach
 
@@ -40,22 +27,12 @@ protected array $capabilities
 public attach(\Zend\EventManager\EventManagerInterface $events, mixed $priority = 1): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$events` | **\Zend\EventManager\EventManagerInterface** |  |
 | `$priority` | **mixed** |  |
-
-
-
 
 ***
 
@@ -67,21 +44,11 @@ On read item post
 public onReadItemPost(\Zend\Cache\Storage\PostEvent $event): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\PostEvent** |  |
-
-
-
 
 ***
 
@@ -93,21 +60,11 @@ On read items post
 public onReadItemsPost(\Zend\Cache\Storage\PostEvent $event): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\PostEvent** |  |
-
-
-
 
 ***
 
@@ -119,21 +76,11 @@ On write item pre
 public onWriteItemPre(\Zend\Cache\Storage\Event $event): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\Event** |  |
-
-
-
 
 ***
 
@@ -145,21 +92,11 @@ On write items pre
 public onWriteItemsPre(\Zend\Cache\Storage\Event $event): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\Event** |  |
-
-
-
 
 ***
 
@@ -171,21 +108,11 @@ On increment item pre
 public onIncrementItemPre(\Zend\Cache\Storage\Event $event): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\Event** |  |
-
-
-
 
 ***
 
@@ -197,21 +124,11 @@ On increment items pre
 public onIncrementItemsPre(\Zend\Cache\Storage\Event $event): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\Event** |  |
-
-
-
 
 ***
 
@@ -223,21 +140,11 @@ On decrement item pre
 public onDecrementItemPre(\Zend\Cache\Storage\Event $event): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\Event** |  |
-
-
-
 
 ***
 
@@ -249,21 +156,11 @@ On decrement items pre
 public onDecrementItemsPre(\Zend\Cache\Storage\Event $event): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\Event** |  |
-
-
-
 
 ***
 
@@ -275,27 +172,15 @@ On get capabilities
 public onGetCapabilitiesPost(\Zend\Cache\Storage\PostEvent $event): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **\Zend\Cache\Storage\PostEvent** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setOptions
 
@@ -305,21 +190,11 @@ Set pattern options
 public setOptions(\Zend\Cache\Storage\Plugin\PluginOptions $options): \Zend\Cache\Storage\Plugin\AbstractPlugin
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Storage\Plugin\PluginOptions** |  |
-
-
-
 
 ***
 
@@ -331,16 +206,6 @@ Get all pattern options
 public getOptions(): \Zend\Cache\Storage\Plugin\PluginOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### detach
@@ -351,24 +216,10 @@ Detach all previously attached listeners
 public detach(\Zend\EventManager\EventManagerInterface $events): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$events` | **\Zend\EventManager\EventManagerInterface** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

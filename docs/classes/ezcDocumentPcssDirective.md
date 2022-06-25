@@ -4,16 +4,11 @@
 
 Pdf CSS layout directive.
 
-
-
 * Full name: `\ezcDocumentPcssDirective`
 * Parent class: [`\ezcBaseStruct`](./ezcBaseStruct.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### address
 
@@ -22,11 +17,6 @@ Directive address
 ```php
 public mixed $address
 ```
-
-
-
-
-
 
 ***
 
@@ -38,11 +28,6 @@ Array of formatting rules
 public array $formats
 ```
 
-
-
-
-
-
 ***
 
 ### file
@@ -52,11 +37,6 @@ File, directive has been extracted from
 ```php
 public string $file
 ```
-
-
-
-
-
 
 ***
 
@@ -68,11 +48,6 @@ Line of directive
 public int $line
 ```
 
-
-
-
-
-
 ***
 
 ### position
@@ -82,11 +57,6 @@ Position of directive
 ```php
 public int $position
 ```
-
-
-
-
-
 
 ***
 
@@ -98,15 +68,9 @@ Regular expression compiled from directive address
 protected string $regularExpression
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -115,13 +79,6 @@ Construct directive from address and formats
 ```php
 public __construct(string $address, array $formats, string $file = null, int $line = null, int $position = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -133,11 +90,4 @@ public __construct(string $address, array $formats, string $file = null, int $li
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,8 +4,8 @@
 
 Filters a Descriptor when the @internal inline tag, or normal tag, is used.
 
-When a Descriptor's description contains the inline tag @internal then the description of that tag should be
-included only when the visibility allows INTERNAL information. Otherwise it needs to be removed.
+When a Descriptor's description contains the inline tag @internal then the description of that tag should be included
+only when the visibility allows INTERNAL information. Otherwise it needs to be removed.
 
 Similarly, whenever the normal @internal tag is used should this filter return null if the visibility does not allow
 INTERNAL information. This will remove this descriptor from the project.
@@ -15,30 +15,19 @@ INTERNAL information. This will remove this descriptor from the project.
 
 **See Also:**
 
-* http://www.phpdoc.org/docs/latest/for-users/phpdoc/tags/internal.html - 
-
-
+* http://www.phpdoc.org/docs/latest/for-users/phpdoc/tags/internal.html -
 
 ## Properties
 
-
 ### builder
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -48,21 +37,11 @@ Initializes this filter with an instance of the builder to retrieve the latest P
 public __construct(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
-
-
-
 
 ***
 
@@ -74,73 +53,40 @@ If the ProjectDescriptor's settings allow internal tags then return the Descript
 public filter(\phpDocumentor\Descriptor\DescriptorAbstract $value): \phpDocumentor\Descriptor\DescriptorAbstract|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -151,16 +97,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -174,36 +110,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -211,11 +132,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

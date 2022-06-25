@@ -4,15 +4,9 @@
 
 This class is the entry point for config normalization/merging/finalization.
 
-
-
 * Full name: `\Symfony\Component\Config\Definition\Processor`
 
-
-
-
 ## Methods
-
 
 ### process
 
@@ -22,20 +16,12 @@ Processes an array of configurations.
 public process(\Symfony\Component\Config\Definition\NodeInterface $configTree, array $configs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$configTree` | **\Symfony\Component\Config\Definition\NodeInterface** | The node tree describing the configuration |
 | `$configs` | **array** | An array of configuration items to process |
-
 
 **Return Value:**
 
@@ -53,20 +39,12 @@ Processes an array of configurations.
 public processConfiguration(\Symfony\Component\Config\Definition\ConfigurationInterface $configuration, array $configs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$configuration` | **\Symfony\Component\Config\Definition\ConfigurationInterface** | The configuration class |
 | `$configs` | **array** | An array of configuration items to process |
-
 
 **Return Value:**
 
@@ -84,8 +62,8 @@ Normalizes a configuration entry.
 public static normalizeConfig(array $config, string $key, string $plural = null): array
 ```
 
-This method returns a normalize configuration array for a given key
-to remove the differences due to the original format (YAML and XML mainly).
+This method returns a normalize configuration array for a given key to remove the differences due to the original
+format (YAML and XML mainly).
 
 Here is an example.
 
@@ -100,9 +78,6 @@ extensions: ['twig.extension.foo', 'twig.extension.bar']
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -111,11 +86,4 @@ extensions: ['twig.extension.foo', 'twig.extension.bar']
 | `$key` | **string** | The key to normalize |
 | `$plural` | **string** | The plural form of the key if it is irregular |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

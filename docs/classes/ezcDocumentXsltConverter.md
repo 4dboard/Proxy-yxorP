@@ -4,16 +4,11 @@
 
 Base class for conversions between XML documents using XSLT.
 
-
-
 * Full name: `\ezcDocumentXsltConverter`
 * Parent class: [`\ezcDocumentConverter`](./ezcDocumentConverter.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### xsltProcessor
 
@@ -23,15 +18,9 @@ XSLT processor created from the defined XSLT file.
 protected \XSLTProcessor $xsltProcessor
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,22 +30,13 @@ Construct converter
 public __construct(\ezcDocumentXsltConverterOptions $options = null): void
 ```
 
-Construct converter from XSLT file, which is used for the actual
-conversion.
-
-
-
-
-
+Construct converter from XSLT file, which is used for the actual conversion.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentXsltConverterOptions** |  |
-
-
-
 
 ***
 
@@ -70,19 +50,11 @@ public convert(\ezcDocumentXmlBase $doc): \ezcDocumentXmlBase
 
 Convert documents of the given type to the requested type.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$doc` | **\ezcDocumentXmlBase** |  |
-
-
-
 
 ***
 
@@ -94,13 +66,9 @@ Build document
 protected buildDocument(\DOMDocument $document): \ezcDocumentXmlBase
 ```
 
-Build document of appropriate type from the DOMDocument, created by the
-XSLT transformation.
-
+Build document of appropriate type from the DOMDocument, created by the XSLT transformation.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -108,14 +76,9 @@ XSLT transformation.
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -125,21 +88,11 @@ Construct new document
 public __construct(\ezcDocumentConverterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentConverterOptions** |  |
-
-
-
 
 ***
 
@@ -153,19 +106,13 @@ public convert(\ezcDocument $doc): \ezcDocument
 
 Convert documents of the given type to the requested type.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$doc` | **\ezcDocument** |  |
-
-
-
 
 ***
 
@@ -177,13 +124,7 @@ Trigger parser error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a parser error and handle it dependiing on the current error
-reporting settings.
-
-
-
-
-
+Emit a parser error and handle it dependiing on the current error reporting settings.
 
 **Parameters:**
 
@@ -195,9 +136,6 @@ reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -208,19 +146,6 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

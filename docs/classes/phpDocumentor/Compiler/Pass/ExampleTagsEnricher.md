@@ -4,12 +4,9 @@
 
 This index builder collects all examples from tags and inserts them into the example index.
 
-
-
 * Full name: `\phpDocumentor\Compiler\Pass\ExampleTagsEnricher`
 * This class implements:
-[`\phpDocumentor\Compiler\CompilerPassInterface`](../CompilerPassInterface.md)
-
+  [`\phpDocumentor\Compiler\CompilerPassInterface`](../CompilerPassInterface.md)
 
 ## Constants
 
@@ -19,24 +16,15 @@ This index builder collects all examples from tags and inserts them into the exa
 
 ## Properties
 
-
 ### exampleAssembler
-
-
 
 ```php
 private \phpDocumentor\Descriptor\Builder\Reflector\Tags\ExampleAssembler $exampleAssembler
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -46,21 +34,11 @@ Initializes this compiler pass with its dependencies.
 public __construct(\phpDocumentor\Descriptor\Example\Finder $finder): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$finder` | **\phpDocumentor\Descriptor\Example\Finder** | Finds examples in several directories. |
-
-
-
 
 ***
 
@@ -72,16 +50,6 @@ Returns a textual description of what this pass does for output purposes.
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### execute
@@ -92,21 +60,12 @@ Executes a compiler pass.
 public execute(\phpDocumentor\Descriptor\ProjectDescriptor $project): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Representation of the Object Graph that can be manipulated. |
-
-
-
+| `$project` | **
+\phpDocumentor\Descriptor\ProjectDescriptor** | Representation of the Object Graph that can be manipulated. |
 
 ***
 
@@ -118,24 +77,10 @@ Replaces the example tags in the description with the contents of the found exam
 protected replaceInlineExamples(\phpDocumentor\Descriptor\DescriptorAbstract $element): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

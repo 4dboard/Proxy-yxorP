@@ -4,16 +4,10 @@
 
 ezcBaseExtensionNotFoundException is thrown when a requested PHP extension was not found.
 
-
-
 * Full name: `\ezcBaseExtensionNotFoundException`
 * Parent class: [`\ezcBaseException`](./ezcBaseException.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -23,13 +17,6 @@ Constructs a new ezcBaseExtensionNotFoundException.
 public __construct(string $name, string $version = null, string $message = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -38,14 +25,9 @@ public __construct(string $name, string $version = null, string $message = null)
 | `$version` | **string** | The version of the extension |
 | `$message` | **string** | Additional text |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -55,24 +37,10 @@ Constructs a new ezcBaseException with $message
 public __construct(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

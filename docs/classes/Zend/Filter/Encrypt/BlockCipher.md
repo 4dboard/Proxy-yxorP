@@ -4,36 +4,25 @@
 
 Encryption adapter for Zend\Crypt\BlockCipher
 
-
-
 * Full name: `\Zend\Filter\Encrypt\BlockCipher`
 * This class implements:
-[`\Zend\Filter\Encrypt\EncryptionAlgorithmInterface`](./EncryptionAlgorithmInterface.md)
-
-
+  [`\Zend\Filter\Encrypt\EncryptionAlgorithmInterface`](./EncryptionAlgorithmInterface.md)
 
 ## Properties
 
-
 ### encryption
 
-Definitions for encryption
-array(
-    'key'           => encryption key string
-    'key_iteration' => the number of iterations for the PBKDF2 key generation
-    'algorithm      => cipher algorithm to use
-    'hash'          => algorithm to use for the authentication
-    'vector'        => initialization vector
+Definitions for encryption array(
+'key' => encryption key string
+'key_iteration' => the number of iterations for the PBKDF2 key generation
+'algorithm => cipher algorithm to use
+'hash' => algorithm to use for the authentication
+'vector' => initialization vector
 )
 
 ```php
 protected $encryption
 ```
-
-
-
-
-
 
 ***
 
@@ -45,11 +34,6 @@ BlockCipher
 protected \Zend\Filter\Encrypt\BlockCipher $blockCipher
 ```
 
-
-
-
-
-
 ***
 
 ### compression
@@ -60,15 +44,9 @@ Internal compression
 protected array $compression
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -78,21 +56,11 @@ Class constructor
 public __construct(string|array|\Traversable $options): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **string&#124;array&#124;\Traversable** | Encryption Options |
-
-
-
 
 ***
 
@@ -104,16 +72,6 @@ Returns the set encryption options
 public getEncryption(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEncryption
@@ -124,21 +82,11 @@ Sets new encryption options
 public setEncryption(string|array $options): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **string&#124;array** | Encryption options |
-
-
-
 
 ***
 
@@ -150,16 +98,6 @@ Returns the initialization vector
 public getVector(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setVector
@@ -170,21 +108,11 @@ Set the inizialization vector
 public setVector(string $vector): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$vector` | **string** |  |
-
-
-
 
 ***
 
@@ -196,21 +124,11 @@ Set the encryption key
 public setKey(string $key): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -222,16 +140,6 @@ Get the encryption key
 public getKey(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCompression
@@ -241,16 +149,6 @@ Returns the compression
 ```php
 public getCompression(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -262,21 +160,11 @@ Sets an internal compression for values to encrypt
 public setCompression(string|array $compression): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compression` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -290,17 +178,11 @@ public encrypt(string $value): string
 
 Encrypts $value with the defined settings
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** | The content to encrypt |
-
 
 **Return Value:**
 
@@ -320,17 +202,11 @@ public decrypt(string $value): string
 
 Decrypts $value with the defined settings
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** | Content to decrypt |
-
 
 **Return Value:**
 
@@ -348,18 +224,4 @@ Returns the adapter name
 public toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

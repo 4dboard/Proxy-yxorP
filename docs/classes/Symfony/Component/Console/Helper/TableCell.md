@@ -2,64 +2,33 @@
 
 # TableCell
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Helper\TableCell`
-
-
 
 ## Properties
 
-
 ### value
-
-
 
 ```php
 private $value
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $value = &#039;&#039;, array $options = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -67,9 +36,6 @@ public __construct(string $value = &#039;&#039;, array $options = array()): mixe
 |-----------|------|-------------|
 | `$value` | **string** |  |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -81,16 +47,6 @@ Returns the cell value.
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getColspan
@@ -100,16 +56,6 @@ Gets number of colspan.
 ```php
 public getColspan(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -121,18 +67,4 @@ Gets number of rowspan.
 public getRowspan(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

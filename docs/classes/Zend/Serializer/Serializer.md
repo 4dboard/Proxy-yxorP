@@ -2,17 +2,10 @@
 
 # Serializer
 
-
-
-
-
 * Full name: `\Zend\Serializer\Serializer`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### adapters
 
@@ -22,10 +15,7 @@ Plugin manager for loading adapters
 protected static null|\Zend\Serializer\AdapterPluginManager $adapters
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -37,15 +27,11 @@ The default adapter.
 protected static string|\Zend\Serializer\Adapter\AdapterInterface $defaultAdapter
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### factory
 
@@ -55,12 +41,7 @@ Create a serializer adapter instance.
 public static factory(string|\Zend\Serializer\Adapter\AdapterInterface $adapterName, mixed $adapterOptions = null): \Zend\Serializer\Adapter\AdapterInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -68,9 +49,6 @@ public static factory(string|\Zend\Serializer\Adapter\AdapterInterface $adapterN
 |-----------|------|-------------|
 | `$adapterName` | **string&#124;\Zend\Serializer\Adapter\AdapterInterface** | Name of the adapter class |
 | `$adapterOptions` | **mixed** |  |
-
-
-
 
 ***
 
@@ -82,21 +60,13 @@ Change the adapter plugin manager
 public static setAdapterPluginManager(\Zend\Serializer\AdapterPluginManager $adapters): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapters` | **\Zend\Serializer\AdapterPluginManager** |  |
-
-
-
 
 ***
 
@@ -108,15 +78,7 @@ Get the adapter plugin manager
 public static getAdapterPluginManager(): \Zend\Serializer\AdapterPluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -128,15 +90,7 @@ Resets the internal adapter plugin manager
 public static resetAdapterPluginManager(): \Zend\Serializer\AdapterPluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -148,12 +102,7 @@ Change the default adapter.
 public static setDefaultAdapter(string|\Zend\Serializer\Adapter\AdapterInterface $adapter, array|\Traversable|null $adapterOptions = null): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -161,9 +110,6 @@ public static setDefaultAdapter(string|\Zend\Serializer\Adapter\AdapterInterface
 |-----------|------|-------------|
 | `$adapter` | **string&#124;\Zend\Serializer\Adapter\AdapterInterface** |  |
 | `$adapterOptions` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -175,15 +121,7 @@ Get the default adapter.
 public static getDefaultAdapter(): \Zend\Serializer\Adapter\AdapterInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -199,19 +137,14 @@ Optionally different adapter could be provided as second argument
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 | `$adapter` | **string&#124;\Zend\Serializer\Adapter\AdapterInterface** |  |
-| `$adapterOptions` | **array&#124;\Traversable&#124;null** | Adapter constructor options<br />only used to create adapter instance |
-
-
-
+| `$adapterOptions` | **
+array&#124;\Traversable&#124;null** | Adapter constructor options<br />only used to create adapter instance |
 
 ***
 
@@ -227,22 +160,13 @@ Optionally different adapter could be provided as second argument
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serialized` | **string** |  |
 | `$adapter` | **string&#124;\Zend\Serializer\Adapter\AdapterInterface** |  |
-| `$adapterOptions` | **array&#124;\Traversable&#124;null** | Adapter constructor options<br />only used to create adapter instance |
+| `$adapterOptions` | **
+array&#124;\Traversable&#124;null** | Adapter constructor options<br />only used to create adapter instance |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

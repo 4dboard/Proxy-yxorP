@@ -9,30 +9,19 @@ This class supports serialization and cloning.
 * Full name: `\Symfony\Component\Validator\Mapping\ClassMetadata`
 * Parent class: [`\Symfony\Component\Validator\Mapping\ElementMetadata`](./ElementMetadata.md)
 * This class implements:
-[`\Symfony\Component\Validator\Mapping\ClassMetadataInterface`](./ClassMetadataInterface.md)
-
-
+  [`\Symfony\Component\Validator\Mapping\ClassMetadataInterface`](./ClassMetadataInterface.md)
 
 ## Properties
 
-
 ### reflClass
-
-
 
 ```php
 private \ReflectionClass $reflClass
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -42,21 +31,11 @@ Constructs a metadata for the given class.
 public __construct(string $class): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** |  |
-
-
-
 
 ***
 
@@ -68,14 +47,7 @@ public __construct(string $class): mixed
 public accept(\Symfony\Component\Validator\ValidationVisitorInterface $visitor, mixed $value, mixed $group, mixed $propertyPath, mixed $propagatedGroup = null): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -87,9 +59,6 @@ public accept(\Symfony\Component\Validator\ValidationVisitorInterface $visitor, 
 | `$propertyPath` | **mixed** |  |
 | `$propagatedGroup` | **mixed** |  |
 
-
-
-
 ***
 
 ### __sleep
@@ -100,16 +69,6 @@ public accept(\Symfony\Component\Validator\ValidationVisitorInterface $visitor, 
 public __sleep(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getClassName
@@ -119,16 +78,6 @@ public __sleep(): mixed
 ```php
 public getClassName(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -141,20 +90,13 @@ public getDefaultGroup(): string
 ```
 
 For each class, the group "Default" is an alias for the group
-"<ClassName>", where <ClassName> is the non-namespaced name of the
-class. All constraints implicitly or explicitly assigned to group
-"Default" belong to both of these groups, unless the class defines
-a group sequence.
+"<ClassName>", where <ClassName> is the non-namespaced name of the class. All constraints implicitly or explicitly
+assigned to group
+"Default" belong to both of these groups, unless the class defines a group sequence.
 
 If a class defines a group sequence, validating the class in "Default"
 will validate the group sequence. The constraints assigned to "Default"
 can still be validated by validating the class in "<ClassName>".
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -172,21 +114,11 @@ The name of the default group
 public addConstraint(\Symfony\Component\Validator\Constraint $constraint): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$constraint` | **\Symfony\Component\Validator\Constraint** |  |
-
-
-
 
 ***
 
@@ -198,13 +130,6 @@ Adds a constraint to the given property.
 public addPropertyConstraint(string $property, \Symfony\Component\Validator\Constraint $constraint): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -212,25 +137,13 @@ public addPropertyConstraint(string $property, \Symfony\Component\Validator\Cons
 | `$property` | **string** | The name of the property |
 | `$constraint` | **\Symfony\Component\Validator\Constraint** | The constraint |
 
-
-
-
 ***
 
 ### addPropertyConstraints
 
-
-
 ```php
 public addPropertyConstraints(string $property, \Symfony\Component\Validator\Constraint[] $constraints): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -238,9 +151,6 @@ public addPropertyConstraints(string $property, \Symfony\Component\Validator\Con
 |-----------|------|-------------|
 | `$property` | **string** |  |
 | `$constraints` | **\Symfony\Component\Validator\Constraint[]** |  |
-
-
-
 
 ***
 
@@ -252,13 +162,8 @@ Adds a constraint to the getter of the given property.
 public addGetterConstraint(string $property, \Symfony\Component\Validator\Constraint $constraint): $this
 ```
 
-The name of the getter is assumed to be the name of the property with an
-uppercased first letter and either the prefix "get" or "is".
-
-
-
-
-
+The name of the getter is assumed to be the name of the property with an uppercased first letter and either the prefix "
+get" or "is".
 
 **Parameters:**
 
@@ -266,9 +171,6 @@ uppercased first letter and either the prefix "get" or "is".
 |-----------|------|-------------|
 | `$property` | **string** | The name of the property |
 | `$constraint` | **\Symfony\Component\Validator\Constraint** | The constraint |
-
-
-
 
 ***
 
@@ -280,13 +182,6 @@ Adds a constraint to the getter of the given property.
 public addGetterMethodConstraint(string $property, string $method, \Symfony\Component\Validator\Constraint $constraint): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -295,25 +190,13 @@ public addGetterMethodConstraint(string $property, string $method, \Symfony\Comp
 | `$method` | **string** | The name of the getter method |
 | `$constraint` | **\Symfony\Component\Validator\Constraint** | The constraint |
 
-
-
-
 ***
 
 ### addGetterConstraints
 
-
-
 ```php
 public addGetterConstraints(string $property, \Symfony\Component\Validator\Constraint[] $constraints): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -322,25 +205,13 @@ public addGetterConstraints(string $property, \Symfony\Component\Validator\Const
 | `$property` | **string** |  |
 | `$constraints` | **\Symfony\Component\Validator\Constraint[]** |  |
 
-
-
-
 ***
 
 ### addGetterMethodConstraints
 
-
-
 ```php
 public addGetterMethodConstraints(string $property, string $method, \Symfony\Component\Validator\Constraint[] $constraints): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -349,9 +220,6 @@ public addGetterMethodConstraints(string $property, string $method, \Symfony\Com
 | `$property` | **string** |  |
 | `$method` | **string** |  |
 | `$constraints` | **\Symfony\Component\Validator\Constraint[]** |  |
-
-
-
 
 ***
 
@@ -363,21 +231,11 @@ Merges the constraints of the given metadata into this object.
 public mergeConstraints(\Symfony\Component\Validator\Mapping\ClassMetadata $source): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **\Symfony\Component\Validator\Mapping\ClassMetadata** |  |
-
-
-
 
 ***
 
@@ -389,23 +247,13 @@ Adds a member metadata.
 protected addMemberMetadata(\Symfony\Component\Validator\Mapping\MemberMetadata $metadata): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadata` | **\Symfony\Component\Validator\Mapping\MemberMetadata** |  |
-
-
-
 
 ***
 
@@ -417,23 +265,13 @@ Returns true if metadatas of members is present for the given property.
 public hasMemberMetadatas(string $property): bool
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **string** | The name of the property |
-
-
-
 
 ***
 
@@ -445,21 +283,13 @@ Returns all metadatas of members describing the given property.
 public getMemberMetadatas(string $property): \Symfony\Component\Validator\Mapping\MemberMetadata[]
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **string** | The name of the property |
-
 
 **Return Value:**
 
@@ -477,21 +307,11 @@ An array of MemberMetadata
 public hasPropertyMetadata(mixed $property): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
-
-
-
 
 ***
 
@@ -503,21 +323,11 @@ public hasPropertyMetadata(mixed $property): mixed
 public getPropertyMetadata(mixed $property): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
-
-
-
 
 ***
 
@@ -528,14 +338,6 @@ Returns the names of all constrained properties.
 ```php
 public getConstrainedProperties(): string[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -553,21 +355,12 @@ Sets the default group sequence for this class.
 public setGroupSequence(string[]|\Symfony\Component\Validator\Constraints\GroupSequence $groupSequence): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$groupSequence` | **string[]&#124;\Symfony\Component\Validator\Constraints\GroupSequence** | An array of group names |
-
-
-
+| `$groupSequence` | **string[]
+&#124;\Symfony\Component\Validator\Constraints\GroupSequence** | An array of group names |
 
 ***
 
@@ -579,14 +372,6 @@ Returns whether the "Default" group is overridden by a group sequence.
 public hasGroupSequence(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Returns true if the "Default" group is overridden
@@ -597,20 +382,11 @@ Returns true if the "Default" group is overridden
 
 ### getGroupSequence
 
-Returns the group sequence that overrides the "Default" group for this
-class.
+Returns the group sequence that overrides the "Default" group for this class.
 
 ```php
 public getGroupSequence(): \Symfony\Component\Validator\Constraints\GroupSequence|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -628,16 +404,6 @@ Returns a ReflectionClass instance for this class.
 public getReflectionClass(): \ReflectionClass
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setGroupSequenceProvider
@@ -648,45 +414,25 @@ Sets whether a group sequence provider should be used.
 public setGroupSequenceProvider(bool $active): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$active` | **bool** |  |
 
-
-
-
 ***
 
 ### isGroupSequenceProvider
 
-Returns whether the "Default" group is overridden by a dynamic group
-sequence obtained by the validated objects.
+Returns whether the "Default" group is overridden by a dynamic group sequence obtained by the validated objects.
 
 ```php
 public isGroupSequenceProvider(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-Returns true if the "Default" group is overridden by
-a dynamic group sequence
+Returns true if the "Default" group is overridden by a dynamic group sequence
 
 
 
@@ -714,18 +460,9 @@ public getCascadingStrategy(): mixed
 
 ### addPropertyMetadata
 
-
-
 ```php
 private addPropertyMetadata(\Symfony\Component\Validator\Mapping\PropertyMetadataInterface $metadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -733,32 +470,15 @@ private addPropertyMetadata(\Symfony\Component\Validator\Mapping\PropertyMetadat
 |-----------|------|-------------|
 | `$metadata` | **\Symfony\Component\Validator\Mapping\PropertyMetadataInterface** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -770,16 +490,6 @@ Returns the names of the properties that should be serialized.
 public __sleep(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __clone
@@ -789,16 +499,6 @@ Clones this object.
 ```php
 public __clone(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -810,30 +510,18 @@ Adds a constraint.
 public addConstraint(\Symfony\Component\Validator\Constraint $constraint): $this
 ```
 
-If the constraint {@link} is added, the cascading strategy will be
-changed to {@link}. Depending on the
-properties $traverse and $deep of that constraint, the traversal strategy
-will be set to one of the following:
+If the constraint {@link} is added, the cascading strategy will be changed to {@link}. Depending on the properties
+$traverse and $deep of that constraint, the traversal strategy will be set to one of the following:
 
- - {@link} if $traverse is enabled and $deep
-   is enabled
- - {@link} | {@link}
-   if $traverse is enabled, but $deep is disabled
- - {@link} if $traverse is disabled
-
-
-
-
-
+- {@link} if $traverse is enabled and $deep is enabled
+- {@link} | {@link} if $traverse is enabled, but $deep is disabled
+- {@link} if $traverse is disabled
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$constraint` | **\Symfony\Component\Validator\Constraint** |  |
-
-
-
 
 ***
 
@@ -845,21 +533,11 @@ Adds an list of constraints.
 public addConstraints(\Symfony\Component\Validator\Constraint[] $constraints): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$constraints` | **\Symfony\Component\Validator\Constraint[]** | The constraints to add |
-
-
-
 
 ***
 
@@ -870,14 +548,6 @@ Returns all constraints of this element.
 ```php
 public getConstraints(): \Symfony\Component\Validator\Constraint[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -895,16 +565,6 @@ Returns whether this element has any constraints.
 public hasConstraints(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### findConstraints
@@ -917,19 +577,11 @@ public findConstraints(mixed $group): mixed
 
 Aware of the global group (* group).
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$group` | **mixed** |  |
-
-
-
 
 ***
 
@@ -940,14 +592,6 @@ Returns the strategy for cascading objects.
 ```php
 public getCascadingStrategy(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -965,14 +609,6 @@ Returns the strategy for traversing traversable objects.
 public getTraversalStrategy(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The traversal strategy
@@ -983,8 +619,7 @@ The traversal strategy
 
 ### accept
 
-Exists for compatibility with the deprecated
-{@link Symfony\Component\Validator\MetadataInterface}.
+Exists for compatibility with the deprecated {@link Symfony\Component\Validator\MetadataInterface}.
 
 ```php
 public accept(\Symfony\Component\Validator\ValidationVisitorInterface $visitor, mixed $value, mixed $group, mixed $propertyPath): mixed
@@ -994,12 +629,7 @@ Should not be used.
 
 Implemented for backward compatibility with Symfony < 2.5.
 
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -1010,11 +640,4 @@ Implemented for backward compatibility with Symfony < 2.5.
 | `$group` | **mixed** |  |
 | `$propertyPath` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

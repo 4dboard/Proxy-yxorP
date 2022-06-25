@@ -2,51 +2,33 @@
 
 # UnderscoreNamingStrategy
 
-
-
-
-
 * Full name: `\Zend\Hydrator\NamingStrategy\UnderscoreNamingStrategy`
 * This class implements:
-[`\Zend\Hydrator\NamingStrategy\NamingStrategyInterface`](./NamingStrategyInterface.md)
-
-
+  [`\Zend\Hydrator\NamingStrategy\NamingStrategyInterface`](./NamingStrategyInterface.md)
 
 ## Properties
 
-
 ### camelCaseToUnderscoreFilter
-
-
 
 ```php
 protected static \Zend\Filter\FilterChain|null $camelCaseToUnderscoreFilter
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### underscoreToStudlyCaseFilter
 
-
-
 ```php
 protected static \Zend\Filter\FilterChain|null $underscoreToStudlyCaseFilter
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### hydrate
 
@@ -56,21 +38,11 @@ Remove underscores and capitalize letters
 public hydrate(string $name): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -82,64 +54,26 @@ Remove capitalized letters and prepend underscores.
 public extract(string $name): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
 ***
 
 ### getUnderscoreToStudlyCaseFilter
-
-
 
 ```php
 protected getUnderscoreToStudlyCaseFilter(): \Zend\Filter\FilterChain
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCamelCaseToUnderscoreFilter
-
-
 
 ```php
 protected getCamelCaseToUnderscoreFilter(): \Zend\Filter\FilterChain
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

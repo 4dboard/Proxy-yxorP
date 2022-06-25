@@ -2,19 +2,12 @@
 
 # UpperCaseWords
 
-
-
-
-
 * Full name: `\Zend\Filter\UpperCaseWords`
 * Parent class: [`\Zend\Filter\AbstractUnicode`](./AbstractUnicode.md)
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
-
-
 ## Properties
-
 
 ### options
 
@@ -24,15 +17,9 @@
 protected $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -42,21 +29,11 @@ Constructor
 public __construct(string|array|\Traversable $encodingOrOptions = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$encodingOrOptions` | **string&#124;array&#124;\Traversable** | OPTIONAL |
-
-
-
 
 ***
 
@@ -72,25 +49,15 @@ Returns the string $value, converting words to have an uppercase first character
 
 If the value provided is not a string, the value will remain unfiltered
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string&#124;mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setEncoding
 
@@ -100,21 +67,11 @@ Set the input encoding for the given string
 public setEncoding(string|null $encoding = null): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$encoding` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -126,63 +83,32 @@ Returns the set encoding
 public getEncoding(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasPcreUnicodeSupport
 
-
-
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -193,16 +119,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -216,36 +132,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -253,11 +154,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

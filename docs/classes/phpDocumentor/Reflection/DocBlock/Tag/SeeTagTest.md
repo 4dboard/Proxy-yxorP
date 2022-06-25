@@ -4,36 +4,22 @@
 
 Test class for \phpDocumentor\Reflection\DocBlock\Tag\SeeTag
 
-
-
 * Full name: `\phpDocumentor\Reflection\DocBlock\Tag\SeeTagTest`
 * Parent class: [`PHPUnit_Framework_TestCase`](../../../../PHPUnit_Framework_TestCase.md)
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
-
+* http://phpdoc.org -
 
 ## Methods
 
-
 ### testConstructorParesInputsIntoCorrectFields
 
-Test that the phpDocumentor_Reflection_DocBlock_Tag_See can create a link
-for the @see doc block.
+Test that the phpDocumentor_Reflection_DocBlock_Tag_See can create a link for the @see doc block.
 
 ```php
 public testConstructorParesInputsIntoCorrectFields(string $type, string $content, string $exContent, mixed $exDescription, string $exReference): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -45,9 +31,6 @@ public testConstructorParesInputsIntoCorrectFields(string $type, string $content
 | `$exDescription` | **mixed** |  |
 | `$exReference` | **string** |  |
 
-
-
-
 ***
 
 ### provideDataForConstuctor
@@ -58,18 +41,4 @@ Data provider for testConstructorParesInputsIntoCorrectFields
 public provideDataForConstuctor(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,129 +2,65 @@
 
 # PropertyMetadataPublicMethod
 
-
-
-
-
 * Full name: `\JMS\Serializer\Tests\Metadata\PropertyMetadataPublicMethod`
-
-
 
 ## Properties
 
-
 ### a
-
-
 
 ```php
 private $a
 ```
 
-
-
-
-
-
 ***
 
 ### b
-
-
 
 ```php
 private $b
 ```
 
-
-
-
-
-
 ***
 
 ### c
-
-
 
 ```php
 private $c
 ```
 
-
-
-
-
-
 ***
 
 ### d
-
-
 
 ```php
 private $d
 ```
 
-
-
-
-
-
 ***
 
 ### e
-
-
 
 ```php
 private $e
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### getA
-
-
 
 ```php
 public getA(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setA
 
-
-
 ```php
 public setA(mixed $a): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -132,45 +68,21 @@ public setA(mixed $a): mixed
 |-----------|------|-------------|
 | `$a` | **mixed** |  |
 
-
-
-
 ***
 
 ### isB
-
-
 
 ```php
 public isB(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setB
 
-
-
 ```php
 public setB(mixed $b): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -178,45 +90,21 @@ public setB(mixed $b): mixed
 |-----------|------|-------------|
 | `$b` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasC
-
-
 
 ```php
 public hasC(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setC
 
-
-
 ```php
 public setC(mixed $c): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -224,45 +112,21 @@ public setC(mixed $c): mixed
 |-----------|------|-------------|
 | `$c` | **mixed** |  |
 
-
-
-
 ***
 
 ### fetchD
-
-
 
 ```php
 public fetchD(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### saveD
 
-
-
 ```php
 public saveD(mixed $d): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -270,11 +134,4 @@ public saveD(mixed $d): mixed
 |-----------|------|-------------|
 | `$d` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,32 +4,17 @@
 
 Exception class thrown when a file couldn't be found.
 
-
-
 * Full name: `\Symfony\Component\Filesystem\Exception\FileNotFoundException`
 * Parent class: [`\Symfony\Component\Filesystem\Exception\IOException`](./IOException.md)
 
-
-
-
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $message = null, mixed $code, \Exception $previous = null, mixed $path = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -39,30 +24,16 @@ public __construct(mixed $message = null, mixed $code, \Exception $previous = nu
 | `$previous` | **\Exception** |  |
 | `$path` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $message, mixed $code, \Exception $previous = null, mixed $path = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -71,9 +42,6 @@ public __construct(mixed $message, mixed $code, \Exception $previous = null, mix
 | `$code` | **mixed** |  |
 | `$previous` | **\Exception** |  |
 | `$path` | **mixed** |  |
-
-
-
 
 ***
 
@@ -85,22 +53,6 @@ Returns the associated path for the exception.
 public getPath(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The path
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The path yxorP::get('REQUEST')

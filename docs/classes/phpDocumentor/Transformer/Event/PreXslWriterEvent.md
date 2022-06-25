@@ -4,49 +4,30 @@
 
 Event launched during the Xsl Transformation of an individual output file.
 
-If the XSL Writer loops through a resultset then this event will be thrown
-for each result.
+If the XSL Writer loops through a resultset then this event will be thrown for each result.
 
 * Full name: `\phpDocumentor\Transformer\Event\PreXslWriterEvent`
 * Parent class: [`\phpDocumentor\Event\EventAbstract`](../../Event/EventAbstract.md)
 
-
-
 ## Properties
 
-
 ### element
-
-
 
 ```php
 protected \DOMElement $element
 ```
 
-
-
-
-
-
 ***
 
 ### progress
-
-
 
 ```php
 protected int[] $progress
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setElement
 
@@ -56,21 +37,11 @@ Sets the currently parsed element in this event.
 public setElement(\DOMElement $element): \phpDocumentor\Transformer\Event\PreXslWriterEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -82,16 +53,6 @@ Returns the event that is currently being parsed.
 public getElement(): \DOMElement
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setProgress
@@ -102,21 +63,12 @@ Sets a progress indication for this XSL Writer session.
 public setProgress(int[] $progress): \phpDocumentor\Transformer\Event\PreXslWriterEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$progress` | **int[]** | Array containing 2 integer values, the current<br />step in the process and the total number of steps involved. |
-
-
-
+| `$progress` | **
+int[]** | Array containing 2 integer values, the current<br />step in the process and the total number of steps involved. |
 
 ***
 
@@ -128,24 +80,13 @@ Returns the current step and tot number of steps as progress.
 public getProgress(): int[]
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
 * \phpDocumentor\Transformer\Event\setProgress() - for a complete description of this array.
 
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -155,21 +96,11 @@ Initializes this event with the given subject.
 public __construct(object $subject): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subject` | **object** |  |
-
-
-
 
 ***
 
@@ -180,16 +111,6 @@ Returns the object that is the subject of this event.
 ```php
 public getSubject(): object
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -205,17 +126,11 @@ Used as convenience method for fluent interfaces.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subject` | **object** |  |
-
-
-
 
 ***
 
@@ -227,22 +142,13 @@ Returns whether further event listeners should be triggered.
 public isPropagationStopped(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether propagation was already stopped for this event
 
-
 **See Also:**
 
-* \Symfony\Component\EventDispatcher\Event::stopPropagation() - 
+* \Symfony\Component\EventDispatcher\Event::stopPropagation() -
 
 ***
 
@@ -254,9 +160,8 @@ Stops the propagation of the event to further event listeners.
 public stopPropagation(): mixed
 ```
 
-If multiple event listeners are connected to the same event, no
-further event listener will be triggered once any trigger calls
-stopPropagation().
+If multiple event listeners are connected to the same event, no further event listener will be triggered once any
+trigger calls stopPropagation().
 
 
 
@@ -276,23 +181,13 @@ Stores the EventDispatcher that dispatches this Event.
 public setDispatcher(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
-
-
-
 
 ***
 
@@ -304,17 +199,7 @@ Returns the EventDispatcher that dispatches this Event.
 public getDispatcher(): \Symfony\Component\EventDispatcher\EventDispatcherInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -326,17 +211,7 @@ Gets the event's name.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -348,14 +223,7 @@ Sets the event's name property.
 public setName(string $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -363,11 +231,4 @@ public setName(string $name): mixed
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

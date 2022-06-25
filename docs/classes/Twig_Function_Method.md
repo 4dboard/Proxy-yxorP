@@ -10,58 +10,31 @@ Use \Twig\TwigFunction instead.
 * Parent class: [`\Twig_Function`](./Twig_Function.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
-
-
 ## Properties
 
-
 ### extension
-
-
 
 ```php
 protected $extension
 ```
 
-
-
-
-
-
 ***
 
 ### method
-
-
 
 ```php
 protected $method
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Twig\Extension\ExtensionInterface $extension, mixed $method, array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -71,49 +44,23 @@ public __construct(\Twig\Extension\ExtensionInterface $extension, mixed $method,
 | `$method` | **mixed** |  |
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### compile
-
-
 
 ```php
 public compile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -121,25 +68,13 @@ public __construct(array $options = []): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### setArguments
 
-
-
 ```php
 public setArguments(mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -147,85 +82,37 @@ public setArguments(mixed $arguments): mixed
 |-----------|------|-------------|
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### getArguments
-
-
 
 ```php
 public getArguments(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### needsEnvironment
-
-
 
 ```php
 public needsEnvironment(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### needsContext
-
-
 
 ```php
 public needsContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSafe
 
-
-
 ```php
 public getSafe(\Twig\Node\Node $functionArgs): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -233,31 +120,12 @@ public getSafe(\Twig\Node\Node $functionArgs): mixed
 |-----------|------|-------------|
 | `$functionArgs` | **\Twig\Node\Node** |  |
 
-
-
-
 ***
 
 ### getCallable
-
-
 
 ```php
 public getCallable(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

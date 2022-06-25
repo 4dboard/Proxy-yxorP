@@ -2,12 +2,7 @@
 
 # Factory
 
-
-
-
-
 * Full name: `\phpDocumentor\Transformer\Template\Factory`
-
 
 ## Constants
 
@@ -17,39 +12,23 @@
 
 ## Properties
 
-
 ### serializer
-
-
 
 ```php
 private \JMS\Serializer\Serializer $serializer
 ```
 
-
-
-
-
-
 ***
 
 ### pathResolver
-
-
 
 ```php
 private \phpDocumentor\Transformer\Template\PathResolver $pathResolver
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -59,22 +38,12 @@ Constructs a new template factory with its dependencies.
 public __construct(\phpDocumentor\Transformer\Template\PathResolver $pathResolver, \JMS\Serializer\Serializer $serializer): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pathResolver` | **\phpDocumentor\Transformer\Template\PathResolver** |  |
 | `$serializer` | **\JMS\Serializer\Serializer** | Serializer used to convert the XML files to models. |
-
-
-
 
 ***
 
@@ -87,21 +56,11 @@ path.
 public get(string $nameOrPath): \phpDocumentor\Transformer\Template
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nameOrPath` | **string** |  |
-
-
-
 
 ***
 
@@ -113,16 +72,6 @@ Returns a list of all template names.
 public getAllNames(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTemplatePath
@@ -132,16 +81,6 @@ Returns the path where all templates are stored.
 ```php
 public getTemplatePath(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -153,21 +92,11 @@ Loads the template definition file from the given path and returns it's contents
 protected fetchTemplateXmlFromPath(string $path): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -179,24 +108,10 @@ Creates and returns a template object based on the provided template definition.
 protected createTemplateFromXml(string $xml): \phpDocumentor\Transformer\Template
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$xml` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

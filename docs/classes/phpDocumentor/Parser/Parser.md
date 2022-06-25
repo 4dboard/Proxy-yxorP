@@ -2,11 +2,9 @@
 
 # Parser
 
-Class responsible for parsing the given file or files to the intermediate
-structure file.
+Class responsible for parsing the given file or files to the intermediate structure file.
 
-This class can be used to parse one or more files to the intermediate file
-format for further processing.
+This class can be used to parse one or more files to the intermediate file format for further processing.
 
 Example of use:
 
@@ -18,150 +16,83 @@ Example of use:
 
 * Full name: `\phpDocumentor\Parser\Parser`
 * This class implements:
-[`\Psr\Log\LoggerAwareInterface`](../../Psr/Log/LoggerAwareInterface.md)
-
-
+  [`\Psr\Log\LoggerAwareInterface`](../../Psr/Log/LoggerAwareInterface.md)
 
 ## Properties
 
-
 ### defaultPackageName
-
-
 
 ```php
 protected string $defaultPackageName
 ```
 
-
-
-
-
-
 ***
 
 ### force
-
-
 
 ```php
 protected bool $force
 ```
 
-
-
-
-
-
 ***
 
 ### validate
-
-
 
 ```php
 protected bool $validate
 ```
 
-
-
-
-
-
 ***
 
 ### markers
-
-
 
 ```php
 protected string[] $markers
 ```
 
-
-
-
-
-
 ***
 
 ### ignoredTags
-
-
 
 ```php
 protected string[] $ignoredTags
 ```
 
-
-
-
-
-
 ***
 
 ### path
-
-
 
 ```php
 protected string $path
 ```
 
-
-
-
-
-
 ***
 
 ### logger
-
-
 
 ```php
 protected \Psr\Log\LoggerInterface $logger
 ```
 
-
-
-
-
-
 ***
 
 ### encoding
-
-
 
 ```php
 protected string $encoding
 ```
 
-
-
-
-
-
 ***
 
 ### stopwatch
-
-
 
 ```php
 protected \Symfony\Component\Stopwatch\Stopwatch $stopwatch
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -171,8 +102,8 @@ Initializes the parser.
 public __construct(): mixed
 ```
 
-This constructor checks the user's PHP ini settings to detect which encoding is used by default. This encoding
-is used as a default value for phpDocumentor to convert the source files that it receives.
+This constructor checks the user's PHP ini settings to detect which encoding is used by default. This encoding is used
+as a default value for phpDocumentor to convert the source files that it receives.
 
 If no encoding is specified than 'utf-8' is assumed by default.
 
@@ -194,21 +125,11 @@ Registers the component that profiles the execution of the parser.
 public setStopwatch(\Symfony\Component\Stopwatch\Stopwatch $stopwatch): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stopwatch` | **\Symfony\Component\Stopwatch\Stopwatch** |  |
-
-
-
 
 ***
 
@@ -220,21 +141,11 @@ Sets whether to force a full parse run of all files.
 public setForced(bool $forced): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$forced` | **bool** | Forces a full parse. |
-
-
-
 
 ***
 
@@ -246,16 +157,6 @@ Returns whether a full rebuild is required.
 public isForced(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setValidate
@@ -266,22 +167,13 @@ Sets whether to run PHPLint on every file.
 public setValidate(bool $validate): void
 ```
 
-PHPLint has a huge performance impact on the execution of phpDocumentor and
-is thus disabled by default.
-
-
-
-
-
+PHPLint has a huge performance impact on the execution of phpDocumentor and is thus disabled by default.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$validate` | **bool** | when true this file will be checked. |
-
-
-
 
 ***
 
@@ -293,16 +185,6 @@ Returns whether we want to run PHPLint on every file.
 public doValidation(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setMarkers
@@ -313,21 +195,11 @@ Sets a list of markers to gather (i.e. TODO, FIXME).
 public setMarkers(string[] $markers): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$markers` | **string[]** | A list or markers to gather. |
-
-
-
 
 ***
 
@@ -339,16 +211,6 @@ Returns the list of markers.
 public getMarkers(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setIgnoredTags
@@ -359,21 +221,11 @@ Sets a list of tags to ignore.
 public setIgnoredTags(string[] $ignoredTags): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignoredTags` | **string[]** | A list of tags to ignore. |
-
-
-
 
 ***
 
@@ -385,16 +237,6 @@ Returns the list of ignored tags.
 public getIgnoredTags(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPath
@@ -405,21 +247,11 @@ Sets the base path of the files that will be parsed.
 public setPath(string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | Must be an absolute path. |
-
-
-
 
 ***
 
@@ -431,16 +263,6 @@ Returns the absolute base path for all files.
 public getPath(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDefaultPackageName
@@ -451,21 +273,11 @@ Sets the name of the default package.
 public setDefaultPackageName(string $defaultPackageName): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$defaultPackageName` | **string** | Name used to categorize elements<br />without an @package tag. |
-
-
-
 
 ***
 
@@ -477,16 +289,6 @@ Returns the name of the default package.
 public getDefaultPackageName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEncoding
@@ -497,26 +299,18 @@ Sets the encoding of the files.
 public setEncoding(string $encoding): void
 ```
 
-With this option it is possible to tell the parser to use a specific encoding to interpret the provided files.
-By default this is set to UTF-8, in which case no action is taken. Any other encoding will result in the output
-being converted to UTF-8 using `iconv`.
+With this option it is possible to tell the parser to use a specific encoding to interpret the provided files. By
+default this is set to UTF-8, in which case no action is taken. Any other encoding will result in the output being
+converted to UTF-8 using `iconv`.
 
-Please note that it is recommended to provide files in UTF-8 format; this will ensure a faster performance since
-no transformation is required.
-
-
-
-
-
+Please note that it is recommended to provide files in UTF-8 format; this will ensure a faster performance since no
+transformation is required.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$encoding` | **string** |  |
-
-
-
 
 ***
 
@@ -528,16 +322,6 @@ Returns the currently active encoding.
 public getEncoding(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLogger
@@ -548,21 +332,11 @@ Sets a logger instance on the object
 public setLogger(\Psr\Log\LoggerInterface $logger): null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$logger` | **\Psr\Log\LoggerInterface** |  |
-
-
-
 
 ***
 
@@ -574,22 +348,12 @@ Iterates through the given files feeds them to the builder.
 public parse(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder, \phpDocumentor\Fileset\Collection $files): bool|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 | `$files` | **\phpDocumentor\Fileset\Collection** | A files container to parse. |
-
-
-
 
 ***
 
@@ -601,21 +365,11 @@ Extract all filenames from the given collection and output the amount of files.
 protected getFilenames(\phpDocumentor\Fileset\Collection $files): string[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$files` | **\phpDocumentor\Fileset\Collection** |  |
-
-
-
 
 ***
 
@@ -627,22 +381,12 @@ Parses a file and creates a Descriptor for it in the project.
 protected parseFileIntoDescriptor(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder, string $filename): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 | `$filename` | **string** |  |
-
-
-
 
 ***
 
@@ -654,21 +398,11 @@ Checks if the settings of the project have changed and forces a complete rebuild
 protected forceRebuildIfSettingsHaveModified(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
-
-
-
 
 ***
 
@@ -680,21 +414,11 @@ Collects the time and duration of processing a file, logs it and returns the new
 protected logAfterParsingAFile(int $memory): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$memory` | **int** |  |
-
-
-
 
 ***
 
@@ -706,16 +430,6 @@ Writes the complete parsing cycle to log.
 protected logAfterParsingAllFiles(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### log
@@ -726,13 +440,6 @@ Dispatches a logging request.
 protected log(string $message, string $priority = LogLevel::INFO, string[] $parameters = array()): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -741,31 +448,12 @@ protected log(string $message, string $priority = LogLevel::INFO, string[] $para
 | `$priority` | **string** | The logging priority as declared in the LogLevel PSR-3 class. |
 | `$parameters` | **string[]** |  |
 
-
-
-
 ***
 
 ### startTimingTheParsePhase
-
-
 
 ```php
 protected startTimingTheParsePhase(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

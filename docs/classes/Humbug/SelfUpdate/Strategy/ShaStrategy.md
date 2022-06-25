@@ -2,51 +2,29 @@
 
 # ShaStrategy
 
-
-
-
-
 * Full name: `\Humbug\SelfUpdate\Strategy\ShaStrategy`
 * This class implements:
-[`\Humbug\SelfUpdate\Strategy\StrategyInterface`](./StrategyInterface.md)
-
-
+  [`\Humbug\SelfUpdate\Strategy\StrategyInterface`](./StrategyInterface.md)
 
 ## Properties
 
-
 ### versionUrl
-
-
 
 ```php
 protected string $versionUrl
 ```
 
-
-
-
-
-
 ***
 
 ### pharUrl
-
-
 
 ```php
 protected string $pharUrl
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### download
 
@@ -56,21 +34,11 @@ Download the remote Phar file.
 public download(\Humbug\SelfUpdate\Updater $updater): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$updater` | **\Humbug\SelfUpdate\Updater** |  |
-
-
-
 
 ***
 
@@ -82,21 +50,11 @@ Retrieve the current version available remotely.
 public getCurrentRemoteVersion(\Humbug\SelfUpdate\Updater $updater): string|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$updater` | **\Humbug\SelfUpdate\Updater** |  |
-
-
-
 
 ***
 
@@ -108,21 +66,11 @@ Retrieve the current version of the local phar file.
 public getCurrentLocalVersion(\Humbug\SelfUpdate\Updater $updater): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$updater` | **\Humbug\SelfUpdate\Updater** |  |
-
-
-
 
 ***
 
@@ -134,21 +82,11 @@ Set URL to phar file
 public setPharUrl(string $url): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **string** |  |
-
-
-
 
 ***
 
@@ -160,16 +98,6 @@ Get URL for phar file
 public getPharUrl(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setVersionUrl
@@ -180,21 +108,11 @@ Set URL to version file
 public setVersionUrl(string $url): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **string** |  |
-
-
-
 
 ***
 
@@ -206,32 +124,13 @@ Get URL for version file
 public getVersionUrl(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validateAllowedUrl
 
-
-
 ```php
 protected validateAllowedUrl(mixed $url): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -239,11 +138,4 @@ protected validateAllowedUrl(mixed $url): mixed
 |-----------|------|-------------|
 | `$url` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

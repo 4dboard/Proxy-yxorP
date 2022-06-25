@@ -4,14 +4,13 @@
 
 Tokenizer for Mediawiki wiki documents.
 
-Mediawiki is probably the most popular wiki, and the driving force behing
-Wikipedia. The markup has a lot extension, but the basics are defined at:
+Mediawiki is probably the most popular wiki, and the driving force behing Wikipedia. The markup has a lot extension, but
+the basics are defined at:
 
 http://www.mediawiki.org/wiki/Markup_spec
 
 * Full name: `\ezcDocumentWikiMediawikiTokenizer`
 * Parent class: [`\ezcDocumentWikiTokenizer`](./ezcDocumentWikiTokenizer.md)
-
 
 ## Constants
 
@@ -22,9 +21,7 @@ http://www.mediawiki.org/wiki/Markup_spec
 |`TEXT_END_CHARS`|public| |&#039;/*^,\&#039;_&lt;\\\\\\[\\]{}()|=\\r\\n\\t\\x20&#039;|
 |`SPECIAL_CHARS`|public| |&#039;/*^,\&#039;_&lt;&gt;\\\\\\[\\]{}()|=&#039;|
 
-
 ## Methods
-
 
 ### __construct
 
@@ -34,8 +31,7 @@ Construct tokenizer
 public __construct(): void
 ```
 
-Create token array with regular repression matching the respective
-token.
+Create token array with regular repression matching the respective token.
 
 
 
@@ -55,24 +51,14 @@ Tokenize the given string
 public tokenizeString(string $string): array
 ```
 
-The method tries to tokenize the passed strings and returns an array of
-ezcDocumentWikiToken struct on succes, or throws a
-ezcDocumentTokenizerException, if something could not be matched by any
-token.
-
-
-
-
-
+The method tries to tokenize the passed strings and returns an array of ezcDocumentWikiToken struct on succes, or throws
+a ezcDocumentTokenizerException, if something could not be matched by any token.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -84,15 +70,8 @@ Filter tokens
 protected filterTokens(array $tokens): array
 ```
 
-Method to filter tokens, after the input string ahs been tokenized. The
-filter should extract additional information from tokens, which are not
-generally available yet, like the depth of a title depending on the
-title markup.
-
-
-
-
-
+Method to filter tokens, after the input string ahs been tokenized. The filter should extract additional information
+from tokens, which are not generally available yet, like the depth of a title depending on the title markup.
 
 **Parameters:**
 
@@ -100,14 +79,9 @@ title markup.
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -117,16 +91,9 @@ Construct tokenizer
 public __construct(): void
 ```
 
-Create token array with regular repression matching the respective
-token.
-
+Create token array with regular repression matching the respective token.
 
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -138,24 +105,14 @@ Tokenize the given file
 public tokenizeFile(string $file): array
 ```
 
-The method tries to tokenize the passed files and returns an array of
-ezcDocumentWikiToken struct on succes, or throws a
-ezcDocumentTokenizerException, if something could not be matched by any
-token.
-
-
-
-
-
+The method tries to tokenize the passed files and returns an array of ezcDocumentWikiToken struct on succes, or throws a
+ezcDocumentTokenizerException, if something could not be matched by any token.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -170,19 +127,11 @@ protected convertTabs(\ezcDocumentWikiToken $token): void
 Convert all tabs to spaces, as defined in:
 http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#whitespace
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
-
-
-
 
 ***
 
@@ -194,24 +143,16 @@ Filter tokens
 protected filterTokens(array $tokens): array
 ```
 
-Method to filter tokens, after the input string ahs been tokenized. The
-filter should extract additional information from tokens, which are not
-generally available yet, like the depth of a title depending on the
-title markup.
-
+Method to filter tokens, after the input string ahs been tokenized. The filter should extract additional information
+from tokens, which are not generally available yet, like the depth of a title depending on the title markup.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -223,15 +164,8 @@ Tokenize the given string
 public tokenizeString(string $string): array
 ```
 
-The method tries to tokenize the passed strings and returns an array of
-ezcDocumentWikiToken struct on succes, or throws a
-ezcDocumentTokenizerException, if something could not be matched by any
-token.
-
-
-
-
-
+The method tries to tokenize the passed strings and returns an array of ezcDocumentWikiToken struct on succes, or throws
+a ezcDocumentTokenizerException, if something could not be matched by any token.
 
 **Parameters:**
 
@@ -239,11 +173,4 @@ token.
 |-----------|------|-------------|
 | `$string` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

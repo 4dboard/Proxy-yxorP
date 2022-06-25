@@ -2,18 +2,10 @@
 
 # ObjectExtension
 
-
-
-
-
 * Full name: `\PhpDocumentorMarkdown\Extension\ObjectExtension`
 * Parent class: [`\Twig\Extension\AbstractExtension`](../../Twig/Extension/AbstractExtension.md)
 
-
-
-
 ## Methods
-
 
 ### getFunctions
 
@@ -22,16 +14,6 @@ Returns a list of functions to add to the existing list.
 ```php
 public getFunctions(): \Twig\TwigFunction[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -43,13 +25,6 @@ Add an object property.
 public addProperty(mixed $object, string $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -58,14 +33,9 @@ public addProperty(mixed $object, string $key, mixed $value): mixed
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### initRuntime
 
@@ -75,23 +45,13 @@ Initializes the runtime environment.
 public initRuntime(\Twig\Environment $environment): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$environment` | **\Twig\Environment** |  |
-
-
-
 
 ***
 
@@ -103,16 +63,6 @@ Returns the token parser instances to add to the existing list.
 public getTokenParsers(): \Twig\TokenParser\TokenParserInterface[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getNodeVisitors
@@ -122,16 +72,6 @@ Returns the node visitor instances to add to the existing list.
 ```php
 public getNodeVisitors(): \Twig\NodeVisitor\NodeVisitorInterface[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -143,16 +83,6 @@ Returns a list of filters to add to the existing list.
 public getFilters(): \Twig\TwigFilter[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTests
@@ -162,16 +92,6 @@ Returns a list of tests to add to the existing list.
 ```php
 public getTests(): \Twig\TwigTest[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -183,16 +103,6 @@ Returns a list of functions to add to the existing list.
 public getFunctions(): \Twig\TwigFunction[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOperators
@@ -202,14 +112,6 @@ Returns a list of operators to add to the existing list.
 ```php
 public getOperators(): array[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -227,15 +129,7 @@ Returns a list of global variables to add to the existing list.
 public getGlobals(): array
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -253,24 +147,8 @@ Returns the name of the extension.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
-The extension name
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The extension name yxorP::get('REQUEST')

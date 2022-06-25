@@ -2,19 +2,18 @@
 
 # Dba
 
-
-
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\Dba`
 * Parent class: [`\Zend\Cache\Storage\Adapter\AbstractAdapter`](./AbstractAdapter.md)
 * This class implements:
-[`\Zend\Cache\Storage\AvailableSpaceCapableInterface`](../AvailableSpaceCapableInterface.md), [`\Zend\Cache\Storage\ClearByNamespaceInterface`](../ClearByNamespaceInterface.md), [`\Zend\Cache\Storage\ClearByPrefixInterface`](../ClearByPrefixInterface.md), [`\Zend\Cache\Storage\FlushableInterface`](../FlushableInterface.md), [`\Zend\Cache\Storage\IterableInterface`](../IterableInterface.md), [`\Zend\Cache\Storage\OptimizableInterface`](../OptimizableInterface.md), [`\Zend\Cache\Storage\TotalSpaceCapableInterface`](../TotalSpaceCapableInterface.md)
-
-
+  [`\Zend\Cache\Storage\AvailableSpaceCapableInterface`](../AvailableSpaceCapableInterface.md)
+  , [`\Zend\Cache\Storage\ClearByNamespaceInterface`](../ClearByNamespaceInterface.md)
+  , [`\Zend\Cache\Storage\ClearByPrefixInterface`](../ClearByPrefixInterface.md)
+  , [`\Zend\Cache\Storage\FlushableInterface`](../FlushableInterface.md)
+  , [`\Zend\Cache\Storage\IterableInterface`](../IterableInterface.md)
+  , [`\Zend\Cache\Storage\OptimizableInterface`](../OptimizableInterface.md)
+  , [`\Zend\Cache\Storage\TotalSpaceCapableInterface`](../TotalSpaceCapableInterface.md)
 
 ## Properties
-
 
 ### handle
 
@@ -23,11 +22,6 @@ The DBA resource handle
 ```php
 protected null|resource $handle
 ```
-
-
-
-
-
 
 ***
 
@@ -39,15 +33,9 @@ Buffered total space in bytes
 protected null|int|float $totalSpace
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -57,21 +45,11 @@ Constructor
 public __construct(null|array|\Traversable|\Zend\Cache\Storage\Adapter\DbaOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable&#124;\Zend\Cache\Storage\Adapter\DbaOptions** |  |
-
-
-
 
 ***
 
@@ -85,16 +63,9 @@ public __destruct(): void
 
 Closes an open dba resource
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\AbstractAdapter::__destruct() - 
+* \Zend\Cache\Storage\Adapter\AbstractAdapter::__destruct() -
 
 ***
 
@@ -106,24 +77,15 @@ Set options.
 public setOptions(array|\Traversable|\Zend\Cache\Storage\Adapter\DbaOptions $options): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Cache\Storage\Adapter\DbaOptions** |  |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\getOptions() - 
+* \Zend\Cache\Storage\Adapter\getOptions() -
 
 ***
 
@@ -135,18 +97,9 @@ Get options.
 public getOptions(): \Zend\Cache\Storage\Adapter\DbaOptions
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\setOptions() - 
+* \Zend\Cache\Storage\Adapter\setOptions() -
 
 ***
 
@@ -158,16 +111,6 @@ Get total space in bytes
 public getTotalSpace(): int|float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getAvailableSpace
@@ -177,16 +120,6 @@ Get available space in bytes
 ```php
 public getAvailableSpace(): float
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -198,16 +131,6 @@ Flush the whole storage
 public flush(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### clearByNamespace
@@ -218,21 +141,11 @@ Remove items by given namespace
 public clearByNamespace(string $namespace): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -244,21 +157,11 @@ Remove items matching given prefix
 public clearByPrefix(string $prefix): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
-
-
-
 
 ***
 
@@ -270,16 +173,6 @@ Get the storage iterator
 public getIterator(): \Zend\Cache\Storage\Adapter\DbaIterator
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### optimize
@@ -289,16 +182,6 @@ Optimize the storage
 ```php
 public optimize(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -310,13 +193,6 @@ Internal method to get an item.
 protected internalGetItem(string& $normalizedKey, bool& $success = null, mixed& $casToken = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -324,7 +200,6 @@ protected internalGetItem(string& $normalizedKey, bool& $success = null, mixed& 
 | `$normalizedKey` | **string** |  |
 | `$success` | **bool** |  |
 | `$casToken` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -342,21 +217,11 @@ Internal method to test if an item exists.
 protected internalHasItem(string& $normalizedKey): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
-
-
-
 
 ***
 
@@ -368,22 +233,12 @@ Internal method to store an item.
 protected internalSetItem(string& $normalizedKey, mixed& $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -395,22 +250,12 @@ Add an item.
 protected internalAddItem(string& $normalizedKey, mixed& $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -422,21 +267,11 @@ Internal method to remove an item.
 protected internalRemoveItem(string& $normalizedKey): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
-
-
-
 
 ***
 
@@ -448,16 +283,6 @@ Internal method to get capabilities of this adapter
 protected internalGetCapabilities(): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### _open
@@ -467,16 +292,6 @@ Open the database if not already done.
 ```php
 protected _open(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -488,21 +303,9 @@ Close database file if opened
 protected _close(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -512,21 +315,11 @@ Constructor
 public __construct(null|array|\Traversable|\Zend\Cache\Storage\Adapter\AdapterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable&#124;\Zend\Cache\Storage\Adapter\AdapterOptions** |  |
-
-
-
 
 ***
 
@@ -538,8 +331,7 @@ Destructor
 public __destruct(): void
 ```
 
-detach all registered plugins to free
-event handles of event manager
+detach all registered plugins to free event handles of event manager
 
 
 
@@ -559,24 +351,15 @@ Set options.
 public setOptions(array|\Traversable|\Zend\Cache\Storage\Adapter\AdapterOptions $options): \Zend\Cache\Storage\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Cache\Storage\Adapter\AdapterOptions** |  |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\getOptions() - 
+* \Zend\Cache\Storage\Adapter\getOptions() -
 
 ***
 
@@ -588,18 +371,9 @@ Get options.
 public getOptions(): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\setOptions() - 
+* \Zend\Cache\Storage\Adapter\setOptions() -
 
 ***
 
@@ -613,22 +387,15 @@ public setCaching(bool $flag): \Zend\Cache\Storage\Adapter\AbstractAdapter
 
 Alias of setWritable and setReadable.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\setWritable() - * \Zend\Cache\Storage\Adapter\setReadable() - 
+* \Zend\Cache\Storage\Adapter\setWritable() - * \Zend\Cache\Storage\Adapter\setReadable() -
 
 ***
 
@@ -642,16 +409,9 @@ public getCaching(): bool
 
 Alias of getWritable and getReadable.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\getWritable() - * \Zend\Cache\Storage\Adapter\getReadable() - 
+* \Zend\Cache\Storage\Adapter\getWritable() - * \Zend\Cache\Storage\Adapter\getReadable() -
 
 ***
 
@@ -663,16 +423,6 @@ Get the event manager
 public getEventManager(): \Zend\EventManager\EventManagerInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### triggerPre
@@ -683,20 +433,12 @@ Trigger a pre event and return the event response collection
 protected triggerPre(string $eventName, \ArrayObject $args): \Zend\EventManager\ResponseCollection
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **string** |  |
 | `$args` | **\ArrayObject** |  |
-
 
 **Return Value:**
 
@@ -714,13 +456,6 @@ Triggers the PostEvent and return the result value.
 protected triggerPost(string $eventName, \ArrayObject $args, mixed& $result): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -728,9 +463,6 @@ protected triggerPost(string $eventName, \ArrayObject $args, mixed& $result): mi
 | `$eventName` | **string** |  |
 | `$args` | **\ArrayObject** |  |
 | `$result` | **mixed** |  |
-
-
-
 
 ***
 
@@ -742,13 +474,7 @@ Trigger an exception event
 protected triggerException(string $eventName, \ArrayObject $args, mixed& $result, \Exception $exception): mixed
 ```
 
-If the ExceptionEvent has the flag "throwException" enabled throw the
-exception after trigger else return the result.
-
-
-
-
-
+If the ExceptionEvent has the flag "throwException" enabled throw the exception after trigger else return the result.
 
 **Parameters:**
 
@@ -758,9 +484,6 @@ exception after trigger else return the result.
 | `$args` | **\ArrayObject** |  |
 | `$result` | **mixed** |  |
 | `$exception` | **\Exception** |  |
-
-
-
 
 ***
 
@@ -772,21 +495,11 @@ Check if a plugin is registered
 public hasPlugin(\Zend\Cache\Storage\Plugin\PluginInterface $plugin): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugin` | **\Zend\Cache\Storage\Plugin\PluginInterface** |  |
-
-
-
 
 ***
 
@@ -798,20 +511,12 @@ Register a plugin
 public addPlugin(\Zend\Cache\Storage\Plugin\PluginInterface $plugin, int $priority = 1): \Zend\Cache\Storage\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugin` | **\Zend\Cache\Storage\Plugin\PluginInterface** |  |
 | `$priority` | **int** |  |
-
 
 **Return Value:**
 
@@ -829,19 +534,11 @@ Unregister an already registered plugin
 public removePlugin(\Zend\Cache\Storage\Plugin\PluginInterface $plugin): \Zend\Cache\Storage\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugin` | **\Zend\Cache\Storage\Plugin\PluginInterface** |  |
-
 
 **Return Value:**
 
@@ -859,16 +556,6 @@ Return registry of plugins
 public getPluginRegistry(): \SplObjectStorage
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getItem
@@ -879,13 +566,6 @@ Get an item.
 public getItem(string $key, bool& $success = null, mixed& $casToken = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -893,7 +573,6 @@ public getItem(string $key, bool& $success = null, mixed& $casToken = null): mix
 | `$key` | **string** |  |
 | `$success` | **bool** |  |
 | `$casToken` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -911,12 +590,7 @@ Internal method to get an item.
 protected internalGetItem(string& $normalizedKey, bool& $success = null, mixed& $casToken = null): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -925,7 +599,6 @@ protected internalGetItem(string& $normalizedKey, bool& $success = null, mixed& 
 | `$normalizedKey` | **string** |  |
 | `$success` | **bool** |  |
 | `$casToken` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -943,19 +616,11 @@ Get multiple items.
 public getItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -973,19 +638,11 @@ Internal method to get multiple items.
 protected internalGetItems(array& $normalizedKeys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1003,21 +660,11 @@ Test if an item exists.
 public hasItem(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -1029,21 +676,11 @@ Internal method to test if an item exists.
 protected internalHasItem(string& $normalizedKey): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
-
-
-
 
 ***
 
@@ -1055,19 +692,11 @@ Test multiple items.
 public hasItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1085,19 +714,11 @@ Internal method to test multiple items.
 protected internalHasItems(array& $normalizedKeys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1115,19 +736,11 @@ Get metadata of an item.
 public getMetadata(string $key): array|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
 
 **Return Value:**
 
@@ -1145,19 +758,11 @@ Internal method to get metadata of an item.
 protected internalGetMetadata(string& $normalizedKey): array|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
-
 
 **Return Value:**
 
@@ -1175,19 +780,11 @@ Get multiple metadata
 public getMetadatas(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1205,19 +802,11 @@ Internal method to get multiple metadata
 protected internalGetMetadatas(array& $normalizedKeys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1235,22 +824,12 @@ Store an item.
 public setItem(string $key, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1262,12 +841,7 @@ Internal method to store an item.
 protected internalSetItem(string& $normalizedKey, mixed& $value): bool
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -1275,9 +849,6 @@ protected internalSetItem(string& $normalizedKey, mixed& $value): bool
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1289,19 +860,11 @@ Store multiple items.
 public setItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1319,19 +882,11 @@ Internal method to store multiple items.
 protected internalSetItems(array& $normalizedKeyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1349,22 +904,12 @@ Add an item.
 public addItem(string $key, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1376,22 +921,12 @@ Internal method to add an item.
 protected internalAddItem(string& $normalizedKey, mixed& $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1403,19 +938,11 @@ Add multiple items.
 public addItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1433,19 +960,11 @@ Internal method to add multiple items.
 protected internalAddItems(array& $normalizedKeyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1463,22 +982,12 @@ Replace an existing item.
 public replaceItem(string $key, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1490,22 +999,12 @@ Internal method to replace an existing item.
 protected internalReplaceItem(string& $normalizedKey, mixed& $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1517,19 +1016,11 @@ Replace multiple existing items.
 public replaceItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1547,19 +1038,11 @@ Internal method to replace multiple existing items.
 protected internalReplaceItems(array& $normalizedKeyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1577,13 +1060,7 @@ Set an item only if token matches
 public checkAndSetItem(mixed $token, string $key, mixed $value): bool
 ```
 
-It uses the token received from getItem() to check if the item has
-changed before overwriting it.
-
-
-
-
-
+It uses the token received from getItem() to check if the item has changed before overwriting it.
 
 **Parameters:**
 
@@ -1593,11 +1070,9 @@ changed before overwriting it.
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\getItem() - * \Zend\Cache\Storage\Adapter\setItem() - 
+* \Zend\Cache\Storage\Adapter\getItem() - * \Zend\Cache\Storage\Adapter\setItem() -
 
 ***
 
@@ -1609,13 +1084,6 @@ Internal method to set an item only if token matches
 protected internalCheckAndSetItem(mixed& $token, string& $normalizedKey, mixed& $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1624,11 +1092,9 @@ protected internalCheckAndSetItem(mixed& $token, string& $normalizedKey, mixed& 
 | `$normalizedKey` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\getItem() - * \Zend\Cache\Storage\Adapter\setItem() - 
+* \Zend\Cache\Storage\Adapter\getItem() - * \Zend\Cache\Storage\Adapter\setItem() -
 
 ***
 
@@ -1640,21 +1106,11 @@ Reset lifetime of an item
 public touchItem(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -1666,21 +1122,11 @@ Internal method to reset lifetime of an item
 protected internalTouchItem(string& $normalizedKey): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
-
-
-
 
 ***
 
@@ -1692,19 +1138,11 @@ Reset lifetime of multiple items.
 public touchItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1722,19 +1160,11 @@ Internal method to reset lifetime of multiple items.
 protected internalTouchItems(array& $normalizedKeys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1752,21 +1182,11 @@ Remove an item.
 public removeItem(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -1778,21 +1198,13 @@ Internal method to remove an item.
 protected internalRemoveItem(string& $normalizedKey): bool
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
-
-
-
 
 ***
 
@@ -1804,19 +1216,11 @@ Remove multiple items.
 public removeItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1834,19 +1238,11 @@ Internal method to remove multiple items.
 protected internalRemoveItems(array& $normalizedKeys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeys` | **array** |  |
-
 
 **Return Value:**
 
@@ -1864,20 +1260,12 @@ Increment an item.
 public incrementItem(string $key, int $value): int|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **int** |  |
-
 
 **Return Value:**
 
@@ -1895,20 +1283,12 @@ Internal method to increment an item.
 protected internalIncrementItem(string& $normalizedKey, int& $value): int|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
 | `$value` | **int** |  |
-
 
 **Return Value:**
 
@@ -1926,19 +1306,11 @@ Increment multiple items.
 public incrementItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1956,19 +1328,11 @@ Internal method to increment multiple items.
 protected internalIncrementItems(array& $normalizedKeyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -1986,20 +1350,12 @@ Decrement an item.
 public decrementItem(string $key, int $value): int|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **int** |  |
-
 
 **Return Value:**
 
@@ -2017,20 +1373,12 @@ Internal method to decrement an item.
 protected internalDecrementItem(string& $normalizedKey, int& $value): int|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKey` | **string** |  |
 | `$value` | **int** |  |
-
 
 **Return Value:**
 
@@ -2048,19 +1396,11 @@ Decrement multiple items.
 public decrementItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -2078,19 +1418,11 @@ Internal method to decrement multiple items.
 protected internalDecrementItems(array& $normalizedKeyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizedKeyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -2108,16 +1440,6 @@ Get capabilities of this adapter
 public getCapabilities(): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### internalGetCapabilities
@@ -2127,16 +1449,6 @@ Internal method to get capabilities of this adapter
 ```php
 protected internalGetCapabilities(): \Zend\Cache\Storage\Capabilities
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -2148,21 +1460,11 @@ Validates and normalizes a key
 protected normalizeKey(string& $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -2174,21 +1476,11 @@ Validates and normalizes multiple keys
 protected normalizeKeys(array& $keys): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
-
-
 
 ***
 
@@ -2200,24 +1492,10 @@ Validates and normalizes an array of key-value pairs
 protected normalizeKeyValuePairs(array& $keyValuePairs): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

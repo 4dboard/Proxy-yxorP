@@ -4,15 +4,10 @@
 
 Pdf CSS layout directive.
 
-
-
 * Full name: `\ezcDocumentPcssLayoutDirective`
 * Parent class: [`\ezcDocumentPcssDirective`](./ezcDocumentPcssDirective.md)
 
-
-
 ## Properties
-
 
 ### regularExpression
 
@@ -22,15 +17,9 @@ Regular expression compiled from directive address.
 protected string $regularExpression
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### compileRegularExpression
 
@@ -40,8 +29,8 @@ Compile regular expression.
 protected compileRegularExpression(): mixed
 ```
 
-Compiles the address of this style directive into a PCRE regular
-expression, which then can be matched against location IDs.
+Compiles the address of this style directive into a PCRE regular expression, which then can be matched against location
+IDs.
 
 
 
@@ -61,8 +50,7 @@ Return a PCRE regular expression for directive address.
 public getRegularExpression(): string
 ```
 
-Return a PCRE regular expression representing the address of
-the directive, intended to match location IDs representing
+Return a PCRE regular expression representing the address of the directive, intended to match location IDs representing
 the docbook element nodes.
 
 
@@ -83,12 +71,7 @@ Recreate directive from var_export.
 public static __set_state(array $properties): \ezcDocumentPcssDirective
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -96,14 +79,9 @@ public static __set_state(array $properties): \ezcDocumentPcssDirective
 |-----------|------|-------------|
 | `$properties` | **array** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -112,13 +90,6 @@ Construct directive from address and formats
 ```php
 public __construct(string $address, array $formats, string $file = null, int $line = null, int $position = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -130,11 +101,4 @@ public __construct(string $address, array $formats, string $file = null, int $li
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

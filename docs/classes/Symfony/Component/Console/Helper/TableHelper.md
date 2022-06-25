@@ -4,12 +4,9 @@
 
 Provides helpers to display table output.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\TableHelper`
 * Parent class: [`\Symfony\Component\Console\Helper\Helper`](./Helper.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
-
 
 ## Constants
 
@@ -21,48 +18,27 @@ Provides helpers to display table output.
 
 ## Properties
 
-
 ### table
-
-
 
 ```php
 private $table
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $triggerDeprecationError = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$triggerDeprecationError` | **mixed** |  |
-
-
-
 
 ***
 
@@ -74,38 +50,19 @@ Sets table layout type.
 public setLayout(int $layout): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$layout` | **int** | self::LAYOUT_* |
 
-
-
-
 ***
 
 ### setHeaders
 
-
-
 ```php
 public setHeaders(array $headers): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -113,51 +70,27 @@ public setHeaders(array $headers): mixed
 |-----------|------|-------------|
 | `$headers` | **array** |  |
 
-
-
-
 ***
 
 ### setRows
-
-
 
 ```php
 public setRows(array $rows): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rows` | **array** |  |
-
-
-
 
 ***
 
 ### addRows
 
-
-
 ```php
 public addRows(array $rows): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -165,25 +98,13 @@ public addRows(array $rows): mixed
 |-----------|------|-------------|
 | `$rows` | **array** |  |
 
-
-
-
 ***
 
 ### addRow
 
-
-
 ```php
 public addRow(array $row): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -191,25 +112,13 @@ public addRow(array $row): mixed
 |-----------|------|-------------|
 | `$row` | **array** |  |
 
-
-
-
 ***
 
 ### setRow
 
-
-
 ```php
 public setRow(mixed $column, array $row): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -217,9 +126,6 @@ public setRow(mixed $column, array $row): mixed
 |-----------|------|-------------|
 | `$column` | **mixed** |  |
 | `$row` | **array** |  |
-
-
-
 
 ***
 
@@ -231,21 +137,11 @@ Sets padding character, used for cell padding.
 public setPaddingChar(string $paddingChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$paddingChar` | **string** |  |
-
-
-
 
 ***
 
@@ -257,21 +153,11 @@ Sets horizontal border character.
 public setHorizontalBorderChar(string $horizontalBorderChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$horizontalBorderChar` | **string** |  |
-
-
-
 
 ***
 
@@ -283,21 +169,11 @@ Sets vertical border character.
 public setVerticalBorderChar(string $verticalBorderChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$verticalBorderChar` | **string** |  |
-
-
-
 
 ***
 
@@ -309,21 +185,11 @@ Sets crossing character.
 public setCrossingChar(string $crossingChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$crossingChar` | **string** |  |
-
-
-
 
 ***
 
@@ -335,21 +201,11 @@ Sets header cell format.
 public setCellHeaderFormat(string $cellHeaderFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellHeaderFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -361,21 +217,11 @@ Sets row cell format.
 public setCellRowFormat(string $cellRowFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellRowFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -387,21 +233,11 @@ Sets row cell content format.
 public setCellRowContentFormat(string $cellRowContentFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellRowContentFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -413,21 +249,11 @@ Sets table border format.
 public setBorderFormat(string $borderFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$borderFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -439,21 +265,11 @@ Sets cell padding type.
 public setPadType(int $padType): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$padType` | **int** | STR_PAD_* |
-
-
-
 
 ***
 
@@ -466,27 +282,16 @@ public render(\Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
 
 Example:
++---------------+-----------------------+------------------+ | ISBN | Title | Author |
++---------------+-----------------------+------------------+ | 99921-58-10-7 | Divine Comedy | Dante Alighieri | |
+9971-5-0210-0 | A Tale of Two Cities | Charles Dickens | | 960-425-059-0 | The Lord of the Rings | J. R. R. Tolkien |
 +---------------+-----------------------+------------------+
-| ISBN          | Title                 | Author           |
-+---------------+-----------------------+------------------+
-| 99921-58-10-7 | Divine Comedy         | Dante Alighieri  |
-| 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |
-| 960-425-059-0 | The Lord of the Rings | J. R. R. Tolkien |
-+---------------+-----------------------+------------------+
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
-
-
 
 ***
 
@@ -498,21 +303,9 @@ Example:
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setHelperSet
 
@@ -522,21 +315,11 @@ Sets the helper set associated with this helper.
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
-
-
-
 
 ***
 
@@ -547,14 +330,6 @@ Gets the helper set associated with this helper.
 ```php
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -572,19 +347,13 @@ Returns the length of a string, using mb_strwidth if it is available.
 public static strlen(string $string): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | The string to check its length |
-
 
 **Return Value:**
 
@@ -596,18 +365,11 @@ The length of the string
 
 ### formatTime
 
-
-
 ```php
 public static formatTime(mixed $secs): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -615,25 +377,15 @@ public static formatTime(mixed $secs): mixed
 |-----------|------|-------------|
 | `$secs` | **mixed** |  |
 
-
-
-
 ***
 
 ### formatMemory
-
-
 
 ```php
 public static formatMemory(mixed $memory): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -641,25 +393,15 @@ public static formatMemory(mixed $memory): mixed
 |-----------|------|-------------|
 | `$memory` | **mixed** |  |
 
-
-
-
 ***
 
 ### strlenWithoutDecoration
-
-
 
 ```php
 public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -667,26 +409,16 @@ public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\Outpu
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
-
-
-
 
 ***
 
 ### removeDecoration
 
-
-
 ```php
 public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -695,11 +427,4 @@ public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormat
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,185 +4,102 @@
 
 Base class for descriptors containing the most used options.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\DescriptorAbstract`
 * This class implements:
-[`\phpDocumentor\Descriptor\Filter\Filterable`](./Filter/Filterable.md)
+  [`\phpDocumentor\Descriptor\Filter\Filterable`](./Filter/Filterable.md)
 * This class is an **Abstract class**
-
-
 
 ## Properties
 
-
 ### fqsen
-
-
 
 ```php
 protected string $fqsen
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 protected string $name
 ```
 
-
-
-
-
-
 ***
 
 ### namespace
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\NamespaceDescriptor $namespace
 ```
 
-
-
-
-
-
 ***
 
 ### package
-
-
 
 ```php
 protected string $package
 ```
 
-
-
-
-
-
 ***
 
 ### summary
-
-
 
 ```php
 protected string $summary
 ```
 
-
-
-
-
-
 ***
 
 ### description
-
-
 
 ```php
 protected string $description
 ```
 
-
-
-
-
-
 ***
 
 ### fileDescriptor
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\FileDescriptor|null $fileDescriptor
 ```
 
-
-
-
-
-
 ***
 
 ### line
-
-
 
 ```php
 protected int $line
 ```
 
-
-
-
-
-
 ***
 
 ### tags
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Collection $tags
 ```
 
-
-
-
-
-
 ***
 
 ### errors
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Collection $errors
 ```
 
-
-
-
-
-
 ***
 
 ### inheritedElement
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\DescriptorAbstract|null $inheritedElement
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -191,16 +108,6 @@ Initializes this descriptor.
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -212,21 +119,11 @@ Sets the Fully Qualified Structural Element Name (FQSEN) for this element.
 public setFullyQualifiedStructuralElementName(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -238,16 +135,6 @@ Returns the Fully Qualified Structural Element Name (FQSEN) for this element.
 public getFullyQualifiedStructuralElementName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setName
@@ -258,21 +145,11 @@ Sets the local name for this element.
 public setName(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -284,16 +161,6 @@ Returns the local name for this element.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespace
@@ -304,21 +171,11 @@ Sets the namespace (name) for this element.
 public setNamespace(\phpDocumentor\Descriptor\NamespaceDescriptor|string $namespace): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **\phpDocumentor\Descriptor\NamespaceDescriptor&#124;string** |  |
-
-
-
 
 ***
 
@@ -330,16 +187,6 @@ Returns the namespace for this element or null if none is attached.
 public getNamespace(): \phpDocumentor\Descriptor\NamespaceDescriptor|string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSummary
@@ -350,21 +197,11 @@ Sets the summary describing this element in short.
 public setSummary(string $summary): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$summary` | **string** |  |
-
-
-
 
 ***
 
@@ -396,21 +233,11 @@ Sets a description for this element.
 public setDescription(string $description): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$description` | **string** |  |
-
-
-
 
 ***
 
@@ -442,22 +269,12 @@ Sets the file and linenumber where this element is at.
 public setLocation(\phpDocumentor\Descriptor\FileDescriptor $file, int $line): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
 | `$line` | **int** |  |
-
-
-
 
 ***
 
@@ -468,16 +285,6 @@ Returns the path to the file containing this element relative to the project's r
 ```php
 public getPath(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -509,21 +316,11 @@ Sets the file to which this element is associated.
 public setFile(\phpDocumentor\Descriptor\FileDescriptor $file): false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
-
-
-
 
 ***
 
@@ -535,16 +332,6 @@ Returns the line number where the definition for this element can be found.
 public getLine(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLine
@@ -555,21 +342,11 @@ Sets the line number for this element's location in the source file.
 public setLine(int $lineNumber): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lineNumber` | **int** |  |
-
-
-
 
 ***
 
@@ -581,21 +358,11 @@ Sets the tags associated with this element.
 public setTags(\phpDocumentor\Descriptor\Collection $tags): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tags` | **\phpDocumentor\Descriptor\Collection** |  |
-
-
-
 
 ***
 
@@ -607,16 +374,6 @@ Returns the tags associated with this element.
 public getTags(): \phpDocumentor\Descriptor\Collection
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPackage
@@ -627,21 +384,11 @@ Sets the name of the package to which this element belongs.
 public setPackage(\phpDocumentor\Descriptor\PackageDescriptor $package): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$package` | **\phpDocumentor\Descriptor\PackageDescriptor** |  |
-
-
-
 
 ***
 
@@ -653,35 +400,13 @@ Returns the package name for this element.
 public getPackage(): \phpDocumentor\Descriptor\PackageDescriptor
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getAuthor
 
-
-
 ```php
 public getAuthor(): \phpDocumentor\Descriptor\Collection
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -693,16 +418,6 @@ Returns the versions for this element.
 public getVersion(): \phpDocumentor\Descriptor\Collection
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCopyright
@@ -712,16 +427,6 @@ Returns the copyrights for this element.
 ```php
 public getCopyright(): \phpDocumentor\Descriptor\Collection
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -733,16 +438,6 @@ Checks whether this element is deprecated.
 public isDeprecated(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setErrors
@@ -753,21 +448,11 @@ Sets a list of all errors associated with this element.
 public setErrors(\phpDocumentor\Descriptor\Collection $errors): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errors` | **\phpDocumentor\Descriptor\Collection** |  |
-
-
-
 
 ***
 
@@ -779,16 +464,6 @@ Returns all errors that occur in this element.
 public getErrors(): \phpDocumentor\Descriptor\Collection
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
@@ -799,13 +474,8 @@ Dynamically constructs a set of getters to retrieve tag (collections) with.
 public __call(string $name, array $arguments): \phpDocumentor\Descriptor\Collection|null
 ```
 
-Important: __call() is not a fast method of access; it is preferred to directly use the getTags() collection.
-This interface is provided to allow for uniform and easy access to certain tags.
-
-
-
-
-
+Important: __call() is not a fast method of access; it is preferred to directly use the getTags() collection. This
+interface is provided to allow for uniform and easy access to certain tags.
 
 **Parameters:**
 
@@ -813,9 +483,6 @@ This interface is provided to allow for uniform and easy access to certain tags.
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$arguments` | **array** |  |
-
-
-
 
 ***
 
@@ -827,38 +494,12 @@ Represents this object by its unique identifier, the Fully Qualified Structural 
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getInheritedElement
-
-
 
 ```php
 public getInheritedElement(): \phpDocumentor\Descriptor\DescriptorAbstract|null
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

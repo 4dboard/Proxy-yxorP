@@ -4,38 +4,26 @@
 
 Compression adapter for zip
 
-
-
 * Full name: `\Zend\Filter\Compress\Zip`
 * Parent class: [`\Zend\Filter\Compress\AbstractCompressionAlgorithm`](./AbstractCompressionAlgorithm.md)
 
-
-
 ## Properties
-
 
 ### options
 
-Compression Options
-array(
-    'archive'  => Archive to use
-    'password' => Password to use
-    'target'   => Target to write the files to
+Compression Options array(
+'archive' => Archive to use
+'password' => Password to use
+'target' => Target to write the files to
 )
 
 ```php
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -45,21 +33,11 @@ Class constructor
 public __construct(null|array|\Traversable $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable** | (Optional) Options to set |
-
-
-
 
 ***
 
@@ -71,16 +49,6 @@ Returns the set archive
 public getArchive(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setArchive
@@ -91,21 +59,11 @@ Sets the archive to use for de-/compression
 public setArchive(string $archive): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$archive` | **string** | Archive to use |
-
-
-
 
 ***
 
@@ -117,16 +75,6 @@ Returns the set targetpath
 public getTarget(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTarget
@@ -137,21 +85,11 @@ Sets the target to use
 public setTarget(string $target): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** |  |
-
-
-
 
 ***
 
@@ -163,19 +101,11 @@ Compresses the given content
 public compress(string $content): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
-
 
 **Return Value:**
 
@@ -193,21 +123,11 @@ Decompresses the given content
 public decompress(string $content): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -219,21 +139,11 @@ Returns the proper string based on the given error constant
 public errorString(string $error): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$error` | **string** |  |
-
-
-
 
 ***
 
@@ -245,21 +155,9 @@ Returns the adapter name
 public toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -269,21 +167,11 @@ Class constructor
 public __construct(null|array|\Traversable $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable** | (Optional) Options to set |
-
-
-
 
 ***
 
@@ -295,21 +183,11 @@ Returns one or all set options
 public getOptions(string $option = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** | (Optional) Option to return |
-
-
-
 
 ***
 
@@ -321,24 +199,10 @@ Sets all or one option
 public setOptions(array $options): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

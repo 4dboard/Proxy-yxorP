@@ -4,17 +4,11 @@
 
 Silex Console Service Provider adapter
 
-
-
 * Full name: `\Cilex\Provider\Console\Adapter\Silex\ConsoleServiceProvider`
 * This class implements:
-[`\Silex\ServiceProviderInterface`](../../../../../Silex/ServiceProviderInterface.md)
-
-
-
+  [`\Silex\ServiceProviderInterface`](../../../../../Silex/ServiceProviderInterface.md)
 
 ## Methods
-
 
 ### boot
 
@@ -24,21 +18,11 @@ Silex Console Service Provider adapter
 public boot(\Silex\Application $app): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Silex\Application** |  |
-
-
-
 
 ***
 
@@ -50,24 +34,10 @@ public boot(\Silex\Application $app): mixed
 public register(\Silex\Application $app): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Silex\Application** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

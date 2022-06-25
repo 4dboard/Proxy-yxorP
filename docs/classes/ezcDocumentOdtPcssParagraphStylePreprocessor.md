@@ -4,17 +4,12 @@
 
 Paragraph style pre-processor.
 
-Pre-processes paragraph styles. If there is a <beginpage/> element right
-before the processed paragraph the custom "break-before" PCSS property is
-set to "page", which will result in a corresponding ODT style attribute.
+Pre-processes paragraph styles. If there is a <beginpage/> element right before the processed paragraph the custom "
+break-before" PCSS property is set to "page", which will result in a corresponding ODT style attribute.
 
 * Full name: `\ezcDocumentOdtPcssParagraphStylePreprocessor`
 
-
-
-
 ## Methods
-
 
 ### process
 
@@ -24,13 +19,8 @@ Pre-process styles and return them.
 public process(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $docBookElement, \DOMElement $odtElement, array $styles): array
 ```
 
-Performs some detection of list styles in the $docBookElement and its
-document and sets according PCSS properties in $styles.
-
-
-
-
-
+Performs some detection of list styles in the $docBookElement and its document and sets according PCSS properties in
+$styles.
 
 **Parameters:**
 
@@ -40,9 +30,6 @@ document and sets according PCSS properties in $styles.
 | `$docBookElement` | **\DOMElement** |  |
 | `$odtElement` | **\DOMElement** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -54,24 +41,10 @@ Returns if the given $docBookElement is to be rendered on a new page.
 protected isOnNewPage(\DOMElement $docBookElement): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBookElement` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

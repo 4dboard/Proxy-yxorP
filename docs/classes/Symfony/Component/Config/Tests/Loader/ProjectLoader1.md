@@ -4,58 +4,31 @@
 
 Loader is the abstract class used by all built-in loaders.
 
-
-
 * Full name: `\Symfony\Component\Config\Tests\Loader\ProjectLoader1`
 * Parent class: [`\Symfony\Component\Config\Loader\Loader`](../../Loader/Loader.md)
 
-
-
-
 ## Methods
 
-
 ### load
-
-
 
 ```php
 public load(mixed $resource, mixed $type = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** |  |
 | `$type` | **mixed** |  |
-
-
-
 
 ***
 
 ### supports
 
-
-
 ```php
 public supports(mixed $resource, mixed $type = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -64,34 +37,17 @@ public supports(mixed $resource, mixed $type = null): mixed
 | `$resource` | **mixed** |  |
 | `$type` | **mixed** |  |
 
-
-
-
 ***
 
 ### getType
-
-
 
 ```php
 public getType(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getResolver
 
@@ -100,14 +56,6 @@ Gets the loader resolver.
 ```php
 public getResolver(): \Symfony\Component\Config\Loader\LoaderResolverInterface
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -125,21 +73,11 @@ Sets the loader resolver.
 public setResolver(\Symfony\Component\Config\Loader\LoaderResolverInterface $resolver): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resolver` | **\Symfony\Component\Config\Loader\LoaderResolverInterface** |  |
-
-
-
 
 ***
 
@@ -151,22 +89,12 @@ Imports a resource.
 public import(mixed $resource, string|null $type = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** | A resource |
 | `$type` | **string&#124;null** | The resource type or null if unknown |
-
-
-
 
 ***
 
@@ -178,13 +106,6 @@ Finds a loader able to load an imported resource.
 public resolve(mixed $resource, string|null $type = null): $this|\Symfony\Component\Config\Loader\LoaderInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -192,11 +113,4 @@ public resolve(mixed $resource, string|null $type = null): $this|\Symfony\Compon
 | `$resource` | **mixed** | A resource |
 | `$type` | **string&#124;null** | The resource type or null if unknown |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

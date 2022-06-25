@@ -4,109 +4,62 @@
 
 MessageCatalogue.
 
-
-
 * Full name: `\Symfony\Component\Translation\MessageCatalogue`
 * This class implements:
-[`\Symfony\Component\Translation\MessageCatalogueInterface`](./MessageCatalogueInterface.md), [`\Symfony\Component\Translation\MetadataAwareInterface`](./MetadataAwareInterface.md)
-
-
+  [`\Symfony\Component\Translation\MessageCatalogueInterface`](./MessageCatalogueInterface.md)
+  , [`\Symfony\Component\Translation\MetadataAwareInterface`](./MetadataAwareInterface.md)
 
 ## Properties
 
-
 ### messages
-
-
 
 ```php
 private $messages
 ```
 
-
-
-
-
-
 ***
 
 ### metadata
-
-
 
 ```php
 private $metadata
 ```
 
-
-
-
-
-
 ***
 
 ### resources
-
-
 
 ```php
 private $resources
 ```
 
-
-
-
-
-
 ***
 
 ### locale
-
-
 
 ```php
 private $locale
 ```
 
-
-
-
-
-
 ***
 
 ### fallbackCatalogue
-
-
 
 ```php
 private $fallbackCatalogue
 ```
 
-
-
-
-
-
 ***
 
 ### parent
-
-
 
 ```php
 private $parent
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -116,22 +69,12 @@ Constructor.
 public __construct(string $locale, array $messages = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** | The locale |
 | `$messages` | **array** | An array of messages classified by domain |
-
-
-
 
 ***
 
@@ -142,14 +85,6 @@ Gets the catalogue locale.
 ```php
 public getLocale(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -167,14 +102,6 @@ Gets the domains.
 public getDomains(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An array of domains
@@ -191,19 +118,11 @@ Gets the messages within a given domain.
 public all(mixed $domain = null): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** | The domain name |
-
 
 **Return Value:**
 
@@ -221,13 +140,6 @@ Sets a message translation.
 public set(mixed $id, mixed $translation, mixed $domain = &#039;messages&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -235,9 +147,6 @@ public set(mixed $id, mixed $translation, mixed $domain = &#039;messages&#039;):
 | `$id` | **mixed** | The message id |
 | `$translation` | **mixed** | The messages translation |
 | `$domain` | **mixed** | The domain name |
-
-
-
 
 ***
 
@@ -249,20 +158,12 @@ Checks if a message has a translation.
 public has(mixed $id, mixed $domain = &#039;messages&#039;): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **mixed** | The message id |
 | `$domain` | **mixed** | The domain name |
-
 
 **Return Value:**
 
@@ -280,20 +181,12 @@ Checks if a message has a translation (it does not take into account the fallbac
 public defines(mixed $id, mixed $domain = &#039;messages&#039;): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **mixed** | The message id |
 | `$domain` | **mixed** | The domain name |
-
 
 **Return Value:**
 
@@ -311,20 +204,12 @@ Gets a message translation.
 public get(mixed $id, mixed $domain = &#039;messages&#039;): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **mixed** | The message id |
 | `$domain` | **mixed** | The domain name |
-
 
 **Return Value:**
 
@@ -342,22 +227,12 @@ Sets translations for a given domain.
 public replace(mixed $messages, mixed $domain = &#039;messages&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$messages` | **mixed** | An array of translations |
 | `$domain` | **mixed** | The domain name |
-
-
-
 
 ***
 
@@ -369,22 +244,12 @@ Adds translations for a given domain.
 public add(mixed $messages, mixed $domain = &#039;messages&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$messages` | **mixed** | An array of translations |
 | `$domain` | **mixed** | The domain name |
-
-
-
 
 ***
 
@@ -396,48 +261,27 @@ Merges translations from the given Catalogue into the current one.
 public addCatalogue(\Symfony\Component\Translation\MessageCatalogueInterface $catalogue): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$catalogue` | **\Symfony\Component\Translation\MessageCatalogueInterface** | A MessageCatalogueInterface instance |
-
-
-
 
 ***
 
 ### addFallbackCatalogue
 
-Merges translations from the given Catalogue into the current one
-only when the translation does not exist.
+Merges translations from the given Catalogue into the current one only when the translation does not exist.
 
 ```php
 public addFallbackCatalogue(\Symfony\Component\Translation\MessageCatalogueInterface $catalogue): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$catalogue` | **\Symfony\Component\Translation\MessageCatalogueInterface** | A MessageCatalogueInterface instance |
-
-
-
 
 ***
 
@@ -448,14 +292,6 @@ Gets the fallback catalogue.
 ```php
 public getFallbackCatalogue(): \Symfony\Component\Translation\MessageCatalogueInterface|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -473,14 +309,6 @@ Returns an array of resources loaded to build this collection.
 public getResources(): \Symfony\Component\Config\Resource\ResourceInterface[]
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An array of resources
@@ -497,21 +325,11 @@ Adds a resource for this collection.
 public addResource(\Symfony\Component\Config\Resource\ResourceInterface $resource): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **\Symfony\Component\Config\Resource\ResourceInterface** | A resource instance |
-
-
-
 
 ***
 
@@ -523,20 +341,12 @@ Gets metadata for the given domain and key.
 public getMetadata(mixed $key = &#039;&#039;, mixed $domain = &#039;messages&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | The key |
 | `$domain` | **mixed** | The domain name |
-
 
 **Return Value:**
 
@@ -554,13 +364,6 @@ Adds metadata to a message domain.
 public setMetadata(mixed $key, mixed $value, mixed $domain = &#039;messages&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -568,9 +371,6 @@ public setMetadata(mixed $key, mixed $value, mixed $domain = &#039;messages&#039
 | `$key` | **mixed** | The key |
 | `$value` | **mixed** | The value |
 | `$domain` | **mixed** | The domain name |
-
-
-
 
 ***
 
@@ -582,22 +382,12 @@ Deletes metadata for the given key and domain.
 public deleteMetadata(mixed $key = &#039;&#039;, mixed $domain = &#039;messages&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | The key |
 | `$domain` | **mixed** | The domain name |
-
-
-
 
 ***
 
@@ -609,24 +399,10 @@ Adds current values with the new values.
 private addMetadata(array $values): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** | Values to add |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

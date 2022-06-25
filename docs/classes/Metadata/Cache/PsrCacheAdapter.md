@@ -2,81 +2,43 @@
 
 # PsrCacheAdapter
 
-
-
-
-
 * Full name: `\Metadata\Cache\PsrCacheAdapter`
 * This class implements:
-[`\Metadata\Cache\CacheInterface`](./CacheInterface.md)
-
-
+  [`\Metadata\Cache\CacheInterface`](./CacheInterface.md)
 
 ## Properties
 
-
 ### prefix
-
-
 
 ```php
 private $prefix
 ```
 
-
-
-
-
-
 ***
 
 ### pool
-
-
 
 ```php
 private $pool
 ```
 
-
-
-
-
-
 ***
 
 ### lastItem
-
-
 
 ```php
 private $lastItem
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $prefix, \Psr\Cache\CacheItemPoolInterface $pool): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -84,9 +46,6 @@ public __construct(mixed $prefix, \Psr\Cache\CacheItemPoolInterface $pool): mixe
 |-----------|------|-------------|
 | `$prefix` | **mixed** |  |
 | `$pool` | **\Psr\Cache\CacheItemPoolInterface** |  |
-
-
-
 
 ***
 
@@ -98,21 +57,11 @@ Loads a class metadata instance from the cache
 public loadClassMetadataFromCache(\ReflectionClass $class): \Metadata\ClassMetadata
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
-
-
-
 
 ***
 
@@ -124,21 +73,11 @@ Puts a class metadata instance into the cache
 public putClassMetadataInCache(\Metadata\ClassMetadata $metadata): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadata` | **\Metadata\ClassMetadata** |  |
-
-
-
 
 ***
 
@@ -150,24 +89,10 @@ Evicts the class metadata for the given class from the cache.
 public evictClassMetadataFromCache(\ReflectionClass $class): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

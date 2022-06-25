@@ -6,13 +6,11 @@ This file is part of the Cockpit project.
 
 (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
+For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
 
 * Full name: `\PriorityQueue`
 * This class implements:
-[`\Countable`](./Countable.md), [`\IteratorAggregate`](./IteratorAggregate.md)
-
+  [`\Countable`](./Countable.md), [`\IteratorAggregate`](./IteratorAggregate.md)
 
 ## Constants
 
@@ -24,129 +22,61 @@ file that was distributed with this source code.
 
 ## Properties
 
-
 ### queue
-
-
 
 ```php
 protected $queue
 ```
 
-
-
-
-
-
 ***
 
 ### items
-
-
 
 ```php
 protected $items
 ```
 
-
-
-
-
-
 ***
 
 ### extractMode
-
-
 
 ```php
 protected $extractMode
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
-
-
 
 ```php
 public count(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isEmpty
-
-
 
 ```php
 public isEmpty(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setExtractFlags
 
-
-
 ```php
 public setExtractFlags(mixed $flags): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -154,25 +84,13 @@ public setExtractFlags(mixed $flags): mixed
 |-----------|------|-------------|
 | `$flags` | **mixed** |  |
 
-
-
-
 ***
 
 ### insert
 
-
-
 ```php
 public insert(mixed $item, mixed $priority): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -181,25 +99,13 @@ public insert(mixed $item, mixed $priority): mixed
 | `$item` | **mixed** |  |
 | `$priority` | **mixed** |  |
 
-
-
-
 ***
 
 ### contains
 
-
-
 ```php
 public contains(mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -207,25 +113,13 @@ public contains(mixed $data): mixed
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasPriority
 
-
-
 ```php
 public hasPriority(mixed $priority): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -233,25 +127,13 @@ public hasPriority(mixed $priority): mixed
 |-----------|------|-------------|
 | `$priority` | **mixed** |  |
 
-
-
-
 ***
 
 ### remove
 
-
-
 ```php
 public remove(mixed $item): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -259,25 +141,13 @@ public remove(mixed $item): mixed
 |-----------|------|-------------|
 | `$item` | **mixed** |  |
 
-
-
-
 ***
 
 ### toArray
 
-
-
 ```php
 public toArray(mixed $flag = self::EXTR_DATA): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -285,91 +155,36 @@ public toArray(mixed $flag = self::EXTR_DATA): mixed
 |-----------|------|-------------|
 | `$flag` | **mixed** |  |
 
-
-
-
 ***
 
 ### top
-
-
 
 ```php
 public top(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### extract
-
-
 
 ```php
 public extract(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __clone
-
-
 
 ```php
 public __clone(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

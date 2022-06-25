@@ -4,19 +4,14 @@
 
 General block renderer.
 
-Implements the methods to render the border for block level elements, like
-list items. Also applies margin and padding to the rendered item. For custom
-rendering implementations inside of the rendered block you may overwrite the
-process() method.
+Implements the methods to render the border for block level elements, like list items. Also applies margin and padding
+to the rendered item. For custom rendering implementations inside of the rendered block you may overwrite the process()
+method.
 
 * Full name: `\ezcDocumentPdfBlockRenderer`
 * Parent class: [`\ezcDocumentPdfRenderer`](./ezcDocumentPdfRenderer.md)
 
-
-
-
 ## Methods
-
 
 ### renderNode
 
@@ -26,13 +21,7 @@ Render a block level element.
 public renderNode(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $block, \ezcDocumentPdfMainRenderer $mainRenderer): bool
 ```
 
-Renders a block level element by applzing margin and padding and
-recursing to all nested elements.
-
-
-
-
-
+Renders a block level element by applzing margin and padding and recursing to all nested elements.
 
 **Parameters:**
 
@@ -43,9 +32,6 @@ recursing to all nested elements.
 | `$tokenizer` | **\ezcDocumentPdfTokenizer** |  |
 | `$block` | **\ezcDocumentLocateableDomElement** |  |
 | `$mainRenderer` | **\ezcDocumentPdfMainRenderer** |  |
-
-
-
 
 ***
 
@@ -57,13 +43,6 @@ Process to render block contents.
 protected process(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $block, \ezcDocumentPdfMainRenderer $mainRenderer): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -74,14 +53,9 @@ protected process(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenat
 | `$block` | **\ezcDocumentLocateableDomElement** |  |
 | `$mainRenderer` | **\ezcDocumentPdfMainRenderer** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -91,22 +65,12 @@ Construct renderer from driver to use
 public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -118,13 +82,7 @@ Render box background
 protected renderBoxBackground(\ezcDocumentPdfBoundingBox $space, array $styles): void
 ```
 
-Render box background for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box background for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -132,9 +90,6 @@ styles.
 |-----------|------|-------------|
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -146,13 +101,7 @@ Render box border
 protected renderBoxBorder(\ezcDocumentPdfBoundingBox $space, array $styles, bool $renderTop = true, bool $renderBottom = true): void
 ```
 
-Render box border for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box border for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -162,9 +111,6 @@ styles.
 | `$styles` | **array** |  |
 | `$renderTop` | **bool** |  |
 | `$renderBottom` | **bool** |  |
-
-
-
 
 ***
 
@@ -178,11 +124,6 @@ protected setBoxCovered(\ezcDocumentPdfPage $page, \ezcDocumentPdfBoundingBox $s
 
 Mark rendered space as convered on the page.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -190,9 +131,6 @@ Mark rendered space as convered on the page.
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -204,13 +142,7 @@ Evaluate available bounding box
 protected evaluateAvailableBoundingBox(\ezcDocumentPdfPage $page, array $styles, float $width): mixed
 ```
 
-Returns false, if not enough space is available on current
-page, and a bounding box otherwise.
-
-
-
-
-
+Returns false, if not enough space is available on current page, and a bounding box otherwise.
 
 **Parameters:**
 
@@ -220,11 +152,4 @@ page, and a bounding box otherwise.
 | `$styles` | **array** |  |
 | `$width` | **float** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,36 +2,21 @@
 
 # Filter
 
-
-
-
-
 * Full name: `\Zend\Config\Processor\Filter`
 * This class implements:
-[`\Zend\Config\Processor\ProcessorInterface`](./ProcessorInterface.md)
-
-
+  [`\Zend\Config\Processor\ProcessorInterface`](./ProcessorInterface.md)
 
 ## Properties
 
-
 ### filter
-
-
 
 ```php
 protected \Zend\Filter\FilterInterface $filter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,38 +26,19 @@ Filter all config values using the supplied Zend\Filter
 public __construct(\Zend\Filter\FilterInterface $filter): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filter` | **\Zend\Filter\FilterInterface** |  |
-
-
-
 
 ***
 
 ### setFilter
 
-
-
 ```php
 public setFilter(\Zend\Filter\FilterInterface $filter): \Zend\Config\Processor\Filter
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -80,28 +46,13 @@ public setFilter(\Zend\Filter\FilterInterface $filter): \Zend\Config\Processor\F
 |-----------|------|-------------|
 | `$filter` | **\Zend\Filter\FilterInterface** |  |
 
-
-
-
 ***
 
 ### getFilter
 
-
-
 ```php
 public getFilter(): \Zend\Filter\FilterInterface
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -113,21 +64,11 @@ Process
 public process(\Zend\Config\Config $config): \Zend\Config\Config
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **\Zend\Config\Config** |  |
-
-
-
 
 ***
 
@@ -139,24 +80,10 @@ Process a single value
 public processValue(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

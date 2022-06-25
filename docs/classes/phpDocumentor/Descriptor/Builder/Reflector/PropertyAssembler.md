@@ -4,16 +4,10 @@
 
 Assembles a PropertyDescriptor from a PropertyReflector.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\Builder\Reflector\PropertyAssembler`
 * Parent class: [`\phpDocumentor\Descriptor\Builder\Reflector\AssemblerAbstract`](./AssemblerAbstract.md)
 
-
-
-
 ## Methods
-
 
 ### create
 
@@ -23,27 +17,15 @@ Creates a Descriptor from the provided data.
 public create(\phpDocumentor\Reflection\ClassReflector\PropertyReflector $data): \phpDocumentor\Descriptor\PropertyDescriptor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **\phpDocumentor\Reflection\ClassReflector\PropertyReflector** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### assembleDocBlock
 
@@ -53,22 +35,12 @@ Assemble DocBlock.
 protected assembleDocBlock(\phpDocumentor\Reflection\DocBlock|null $docBlock, \phpDocumentor\Descriptor\DescriptorAbstract $target): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock&#124;null** |  |
 | `$target` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -80,21 +52,11 @@ Extracts the package from the DocBlock.
 protected extractPackageFromDocBlock(\phpDocumentor\Reflection\DocBlock $docBlock): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock** |  |
-
-
-
 
 ***
 
@@ -106,16 +68,6 @@ Returns the builder for this Assembler or null if none is set.
 public getBuilder(): null|\phpDocumentor\Descriptor\ProjectDescriptorBuilder
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBuilder
@@ -126,13 +78,7 @@ Registers the Builder with this Assembler.
 public setBuilder(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): void
 ```
 
-The Builder may be used to recursively assemble Descriptors using
-the {@link} method.
-
-
-
-
-
+The Builder may be used to recursively assemble Descriptors using the {@link} method.
 
 **Parameters:**
 
@@ -140,11 +86,4 @@ the {@link} method.
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

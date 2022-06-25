@@ -2,73 +2,32 @@
 
 # ArgvInputTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Tests\Input\ArgvInputTest`
 * Parent class: [`TestCase`](../../../../../PHPUnit/Framework/TestCase.md)
 
-
-
-
 ## Methods
 
-
 ### testConstructor
-
-
 
 ```php
 public testConstructor(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseArguments
-
-
 
 ```php
 public testParseArguments(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseOptions
 
-
-
 ```php
 public testParseOptions(mixed $input, mixed $options, mixed $expectedOptions, mixed $message): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -79,45 +38,21 @@ public testParseOptions(mixed $input, mixed $options, mixed $expectedOptions, mi
 | `$expectedOptions` | **mixed** |  |
 | `$message` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideOptions
-
-
 
 ```php
 public provideOptions(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testInvalidInput
 
-
-
 ```php
 public testInvalidInput(mixed $argv, mixed $definition, mixed $expectedExceptionMessage): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -127,225 +62,93 @@ public testInvalidInput(mixed $argv, mixed $definition, mixed $expectedException
 | `$definition` | **mixed** |  |
 | `$expectedExceptionMessage` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideInvalidInput
-
-
 
 ```php
 public provideInvalidInput(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseArrayArgument
-
-
 
 ```php
 public testParseArrayArgument(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseArrayOption
-
-
 
 ```php
 public testParseArrayOption(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseNegativeNumberAfterDoubleDash
-
-
 
 ```php
 public testParseNegativeNumberAfterDoubleDash(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseEmptyStringArgument
-
-
 
 ```php
 public testParseEmptyStringArgument(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testGetFirstArgument
-
-
 
 ```php
 public testGetFirstArgument(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testHasParameterOption
-
-
 
 ```php
 public testHasParameterOption(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testHasParameterOptionEdgeCasesAndLimitations
-
-
 
 ```php
 public testHasParameterOptionEdgeCasesAndLimitations(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testNoWarningOnInvalidParameterOption
-
-
 
 ```php
 public testNoWarningOnInvalidParameterOption(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testToString
-
-
 
 ```php
 public testToString(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testGetParameterOptionEqualSign
 
-
-
 ```php
 public testGetParameterOptionEqualSign(mixed $argv, mixed $key, mixed $expected): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -355,91 +158,36 @@ public testGetParameterOptionEqualSign(mixed $argv, mixed $key, mixed $expected)
 | `$key` | **mixed** |  |
 | `$expected` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideGetParameterOptionValues
-
-
 
 ```php
 public provideGetParameterOptionValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseSingleDashAsArgument
-
-
 
 ```php
 public testParseSingleDashAsArgument(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseOptionWithValueOptionalGivenEmptyAndRequiredArgument
-
-
 
 ```php
 public testParseOptionWithValueOptionalGivenEmptyAndRequiredArgument(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParseOptionWithValueOptionalGivenEmptyAndOptionalArgument
-
-
 
 ```php
 public testParseOptionWithValueOptionalGivenEmptyAndOptionalArgument(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

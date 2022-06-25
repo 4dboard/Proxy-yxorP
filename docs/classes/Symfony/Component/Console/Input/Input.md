@@ -12,100 +12,56 @@ Three concrete classes are provided by default:
 
 * Full name: `\Symfony\Component\Console\Input\Input`
 * This class implements:
-[`\Symfony\Component\Console\Input\InputInterface`](./InputInterface.md)
+  [`\Symfony\Component\Console\Input\InputInterface`](./InputInterface.md)
 * This class is an **Abstract class**
-
-
 
 ## Properties
 
-
 ### definition
-
-
 
 ```php
 protected $definition
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 protected $options
 ```
 
-
-
-
-
-
 ***
 
 ### arguments
-
-
 
 ```php
 protected $arguments
 ```
 
-
-
-
-
-
 ***
 
 ### interactive
-
-
 
 ```php
 protected $interactive
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Input\InputDefinition $definition = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
-
-
-
 
 ***
 
@@ -117,21 +73,11 @@ Binds the current Input instance with the given arguments and options.
 public bind(\Symfony\Component\Console\Input\InputDefinition $definition): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
-
-
-
 
 ***
 
@@ -143,15 +89,7 @@ Processes command line arguments.
 protected parse(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -163,16 +101,6 @@ Validates the input.
 public validate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isInteractive
@@ -182,16 +110,6 @@ Is this input means interactive?
 ```php
 public isInteractive(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -203,21 +121,11 @@ Sets the input interactivity.
 public setInteractive(mixed $interactive): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$interactive` | **mixed** | If the input should be interactive |
-
-
-
 
 ***
 
@@ -229,16 +137,6 @@ Returns all the given arguments merged with the default values.
 public getArguments(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getArgument
@@ -249,19 +147,11 @@ Returns the argument value for a given argument name.
 public getArgument(mixed $name): string|string[]|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The argument name |
-
 
 **Return Value:**
 
@@ -279,22 +169,12 @@ Sets an argument value by name.
 public setArgument(mixed $name, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The argument name |
 | `$value` | **mixed** | The argument value |
-
-
-
 
 ***
 
@@ -306,19 +186,11 @@ Returns true if an InputArgument object exists by name or position.
 public hasArgument(mixed $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The InputArgument name or position |
-
 
 **Return Value:**
 
@@ -336,16 +208,6 @@ Returns all the given options merged with the default values.
 public getOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOption
@@ -356,19 +218,11 @@ Returns the option value for a given option name.
 public getOption(mixed $name): string|string[]|bool|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The option name |
-
 
 **Return Value:**
 
@@ -386,22 +240,12 @@ Sets an option value by name.
 public setOption(mixed $name, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The option name |
 | `$value` | **mixed** | The option value |
-
-
-
 
 ***
 
@@ -413,19 +257,11 @@ Returns true if an InputOption object exists by name.
 public hasOption(mixed $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The InputOption name |
-
 
 **Return Value:**
 
@@ -443,24 +279,10 @@ Escapes a token through escapeshellarg if it contains unsafe chars.
 public escapeToken(string $token): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

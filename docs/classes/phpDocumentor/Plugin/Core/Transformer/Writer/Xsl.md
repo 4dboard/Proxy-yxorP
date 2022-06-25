@@ -4,65 +4,38 @@
 
 XSL transformation writer; generates static HTML out of the structure and XSL templates.
 
-
-
 * Full name: `\phpDocumentor\Plugin\Core\Transformer\Writer\Xsl`
 * Parent class: [`\phpDocumentor\Transformer\Writer\WriterAbstract`](../../../../Transformer/Writer/WriterAbstract.md)
 * This class implements:
-[`\phpDocumentor\Transformer\Writer\Routable`](../../../../Transformer/Writer/Routable.md)
-
-
+  [`\phpDocumentor\Transformer\Writer\Routable`](../../../../Transformer/Writer/Routable.md)
 
 ## Properties
 
-
 ### logger
-
-
 
 ```php
 protected \Monolog\Logger $logger
 ```
 
-
-
-
-
-
 ***
 
 ### xsl_variables
-
-
 
 ```php
 protected string[] $xsl_variables
 ```
 
-
-
-
-
-
 ***
 
 ### routers
-
-
 
 ```php
 private \phpDocumentor\Transformer\Router\Queue $routers
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -72,21 +45,11 @@ Initialize this writer with the logger so that it can output logs.
 public __construct(\Monolog\Logger $logger): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$logger` | **\Monolog\Logger** |  |
-
-
-
 
 ***
 
@@ -118,39 +81,22 @@ Sets the routers that can be used to determine the path of links.
 public setRouters(\phpDocumentor\Transformer\Router\Queue $routers): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$routers` | **\phpDocumentor\Transformer\Router\Queue** |  |
 
-
-
-
 ***
 
 ### transform
 
-This method combines the structure.xml and the given target template
-and creates a static html page at the artifact location.
+This method combines the structure.xml and the given target template and creates a static html page at the artifact
+location.
 
 ```php
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -158,9 +104,6 @@ public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocum
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
-
-
-
 
 ***
 
@@ -172,21 +115,11 @@ Takes the filename and converts it into a correct URI for XSLTProcessor.
 protected getXsltUriFromFilename(string $filename): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** |  |
-
-
-
 
 ***
 
@@ -198,13 +131,6 @@ Sets the parameters of the XSLT processor.
 public setProcessorParameters(\phpDocumentor\Transformer\Transformation $transformation, \XSLTProcessor $proc): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -212,25 +138,13 @@ public setProcessorParameters(\phpDocumentor\Transformer\Transformation $transfo
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation. |
 | `$proc` | **\XSLTProcessor** | XSLTProcessor. |
 
-
-
-
 ***
 
 ### getXslProcessor
 
-
-
 ```php
 protected getXslProcessor(\phpDocumentor\Transformer\Transformation $transformation): \XSLTCache|\XSLTProcessor
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -238,25 +152,13 @@ protected getXslProcessor(\phpDocumentor\Transformer\Transformation $transformat
 |-----------|------|-------------|
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
 
-
-
-
 ***
 
 ### loadAst
 
-
-
 ```php
 private loadAst( $structureFilename): \DOMDocument
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -264,25 +166,13 @@ private loadAst( $structureFilename): \DOMDocument
 |-----------|------|-------------|
 | `$structureFilename` | **** |  |
 
-
-
-
 ***
 
 ### registerDefaultVariables
 
-
-
 ```php
 private registerDefaultVariables(\phpDocumentor\Transformer\Transformation $transformation,  $proc,  $structure): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -292,25 +182,13 @@ private registerDefaultVariables(\phpDocumentor\Transformer\Transformation $tran
 | `$proc` | **** |  |
 | `$structure` | **** |  |
 
-
-
-
 ***
 
 ### writeToFile
 
-
-
 ```php
 private writeToFile( $filename,  $proc,  $structure): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -320,52 +198,30 @@ private writeToFile( $filename,  $proc,  $structure): mixed
 | `$proc` | **** |  |
 | `$structure` | **** |  |
 
-
-
-
 ***
 
 ### getAstPath
-
-
 
 ```php
 private getAstPath(\phpDocumentor\Transformer\Transformation $transformation): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
-
-
-
 
 ***
 
 ### getArtifactPath
 
-Returns the path to the location where the artifact should be written, or null to automatically detect the
-location using the router.
+Returns the path to the location where the artifact should be written, or null to automatically detect the location
+using the router.
 
 ```php
 private getArtifactPath(\phpDocumentor\Transformer\Transformation $transformation): string|null
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -373,25 +229,13 @@ private getArtifactPath(\phpDocumentor\Transformer\Transformation $transformatio
 |-----------|------|-------------|
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
 
-
-
-
 ***
 
 ### generateUrlForXmlElement
 
-
-
 ```php
 private generateUrlForXmlElement(\phpDocumentor\Descriptor\ProjectDescriptor $project,  $element): false|string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -400,14 +244,9 @@ private generateUrlForXmlElement(\phpDocumentor\Descriptor\ProjectDescriptor $pr
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 | `$element` | **** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### checkRequirements
 
@@ -417,8 +256,8 @@ This method verifies whether PHP has all requirements needed to run this writer.
 public checkRequirements(): void
 ```
 
-If one of the requirements is missing for this Writer then an exception of type RequirementMissing
-should be thrown; this indicates to the calling process that this writer will not function.
+If one of the requirements is missing for this Writer then an exception of type RequirementMissing should be thrown;
+this indicates to the calling process that this writer will not function.
 
 
 
@@ -438,21 +277,11 @@ Checks if there is a space in the path.
 protected checkForSpacesInPath(string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -464,12 +293,7 @@ Abstract definition of the transformation method.
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -478,11 +302,4 @@ public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocum
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,16 +4,10 @@
 
 The Formatter class provides helpers to format messages.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\FormatterHelper`
 * Parent class: [`\Symfony\Component\Console\Helper\Helper`](./Helper.md)
 
-
-
-
 ## Methods
-
 
 ### formatSection
 
@@ -23,13 +17,6 @@ Formats a message within a section.
 public formatSection(string $section, string $message, string $style = &#039;info&#039;): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -37,7 +24,6 @@ public formatSection(string $section, string $message, string $style = &#039;inf
 | `$section` | **string** | The section name |
 | `$message` | **string** | The message |
 | `$style` | **string** | The style to apply to the section |
-
 
 **Return Value:**
 
@@ -55,13 +41,6 @@ Formats a message as a block of text.
 public formatBlock(string|array $messages, string $style, bool $large = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -69,7 +48,6 @@ public formatBlock(string|array $messages, string $style, bool $large = false): 
 | `$messages` | **string&#124;array** | The message to write in the block |
 | `$style` | **string** | The style to apply to the whole block |
 | `$large` | **bool** | Whether to return a large block |
-
 
 **Return Value:**
 
@@ -87,21 +65,9 @@ The formatter message
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setHelperSet
 
@@ -111,21 +77,11 @@ Sets the helper set associated with this helper.
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
-
-
-
 
 ***
 
@@ -136,14 +92,6 @@ Gets the helper set associated with this helper.
 ```php
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -161,19 +109,13 @@ Returns the length of a string, using mb_strwidth if it is available.
 public static strlen(string $string): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | The string to check its length |
-
 
 **Return Value:**
 
@@ -185,18 +127,11 @@ The length of the string
 
 ### formatTime
 
-
-
 ```php
 public static formatTime(mixed $secs): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -204,25 +139,15 @@ public static formatTime(mixed $secs): mixed
 |-----------|------|-------------|
 | `$secs` | **mixed** |  |
 
-
-
-
 ***
 
 ### formatMemory
-
-
 
 ```php
 public static formatMemory(mixed $memory): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -230,25 +155,15 @@ public static formatMemory(mixed $memory): mixed
 |-----------|------|-------------|
 | `$memory` | **mixed** |  |
 
-
-
-
 ***
 
 ### strlenWithoutDecoration
-
-
 
 ```php
 public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -256,26 +171,16 @@ public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\Outpu
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
-
-
-
 
 ***
 
 ### removeDecoration
 
-
-
 ```php
 public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -284,11 +189,4 @@ public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormat
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

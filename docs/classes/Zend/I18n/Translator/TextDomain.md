@@ -4,15 +4,10 @@
 
 Text domain.
 
-
-
 * Full name: `\Zend\I18n\Translator\TextDomain`
 * Parent class: [`ArrayObject`](../../../ArrayObject.md)
 
-
-
 ## Properties
-
 
 ### pluralRule
 
@@ -21,11 +16,6 @@ Plural rule.
 ```php
 protected \Zend\I18n\Translator\Plural\Rule $pluralRule
 ```
-
-
-
-
-
 
 ***
 
@@ -37,15 +27,11 @@ Default plural rule shared between instances.
 protected static \Zend\I18n\Translator\Plural\Rule $defaultPluralRule
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### setPluralRule
 
@@ -55,21 +41,11 @@ Set the plural rule
 public setPluralRule(\Zend\I18n\Translator\Plural\Rule $rule): \Zend\I18n\Translator\TextDomain
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rule` | **\Zend\I18n\Translator\Plural\Rule** |  |
-
-
-
 
 ***
 
@@ -81,21 +57,11 @@ Get the plural rule.
 public getPluralRule(bool $fallbackToDefaultRule = true): \Zend\I18n\Translator\Plural\Rule|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fallbackToDefaultRule` | **bool** |  |
-
-
-
 
 ***
 
@@ -107,16 +73,6 @@ Checks whether the text domain has a plural rule.
 public hasPluralRule(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDefaultPluralRule
@@ -127,15 +83,7 @@ Returns a shared default plural rule.
 public static getDefaultPluralRule(): \Zend\I18n\Translator\Plural\Rule
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -147,14 +95,8 @@ Merge another text domain with the current one.
 public merge(\Zend\I18n\Translator\TextDomain $textDomain): \Zend\I18n\Translator\TextDomain
 ```
 
-The plural rule of both text domains must be compatible for a successful
-merge. We are only validating the number of plural forms though, as the
-same rule could be made up with different expression.
-
-
-
-
-
+The plural rule of both text domains must be compatible for a successful merge. We are only validating the number of
+plural forms though, as the same rule could be made up with different expression.
 
 **Parameters:**
 
@@ -162,11 +104,4 @@ same rule could be made up with different expression.
 |-----------|------|-------------|
 | `$textDomain` | **\Zend\I18n\Translator\TextDomain** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

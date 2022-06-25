@@ -2,13 +2,8 @@
 
 # ToNull
 
-
-
-
-
 * Full name: `\Zend\Filter\ToNull`
 * Parent class: [`\Zend\Filter\AbstractFilter`](./AbstractFilter.md)
-
 
 ## Constants
 
@@ -24,19 +19,11 @@
 
 ## Properties
 
-
 ### constants
-
-
 
 ```php
 protected array $constants
 ```
-
-
-
-
-
 
 ***
 
@@ -48,15 +35,9 @@ Filter options
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -66,21 +47,11 @@ Constructor
 public __construct(string|array|\Traversable $typeOrOptions = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$typeOrOptions` | **string&#124;array&#124;\Traversable** | OPTIONAL |
-
-
-
 
 ***
 
@@ -92,21 +63,11 @@ Set boolean types
 public setType(int|array $type = null): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int&#124;array** |  |
-
-
-
 
 ***
 
@@ -118,16 +79,6 @@ Returns defined boolean types
 public getType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### filter
@@ -138,13 +89,7 @@ Defined by Zend\Filter\FilterInterface
 public filter(string $value): string
 ```
 
-Returns null representation of $value, if value is empty and matches
-types that should be considered null.
-
-
-
-
-
+Returns null representation of $value, if value is empty and matches types that should be considered null.
 
 **Parameters:**
 
@@ -152,60 +97,34 @@ types that should be considered null.
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -216,16 +135,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -239,36 +148,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -276,11 +170,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

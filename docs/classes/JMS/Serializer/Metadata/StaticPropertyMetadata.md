@@ -4,49 +4,28 @@
 
 Base class for property metadata.
 
-This class is intended to be extended to add your application specific
-properties, and flags.
+This class is intended to be extended to add your application specific properties, and flags.
 
 * Full name: `\JMS\Serializer\Metadata\StaticPropertyMetadata`
 * Parent class: [`\JMS\Serializer\Metadata\PropertyMetadata`](./PropertyMetadata.md)
 
-
-
 ## Properties
 
-
 ### value
-
-
 
 ```php
 private $value
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $className, mixed $fieldName, mixed $fieldValue, array $groups = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -57,25 +36,13 @@ public __construct(mixed $className, mixed $fieldName, mixed $fieldValue, array 
 | `$fieldValue` | **mixed** |  |
 | `$groups` | **array** |  |
 
-
-
-
 ***
 
 ### getValue
 
-
-
 ```php
 public getValue(mixed $obj): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -83,25 +50,13 @@ public getValue(mixed $obj): mixed
 |-----------|------|-------------|
 | `$obj` | **mixed** |  |
 
-
-
-
 ***
 
 ### setValue
 
-
-
 ```php
 public setValue(mixed $obj, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -110,25 +65,13 @@ public setValue(mixed $obj, mixed $value): mixed
 | `$obj` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### setAccessor
 
-
-
 ```php
 public setAccessor(mixed $type, mixed $getter = null, mixed $setter = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -138,45 +81,21 @@ public setAccessor(mixed $type, mixed $getter = null, mixed $setter = null): mix
 | `$getter` | **mixed** |  |
 | `$setter` | **mixed** |  |
 
-
-
-
 ***
 
 ### serialize
-
-
 
 ```php
 public serialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
 
-
-
 ```php
 public unserialize(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -184,29 +103,15 @@ public unserialize(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### setAccessor
-
-
 
 ```php
 public setAccessor(mixed $type, mixed $getter = null, mixed $setter = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -216,25 +121,13 @@ public setAccessor(mixed $type, mixed $getter = null, mixed $setter = null): mix
 | `$getter` | **mixed** |  |
 | `$setter` | **mixed** |  |
 
-
-
-
 ***
 
 ### getValue
 
-
-
 ```php
 public getValue(object $obj): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -242,25 +135,13 @@ public getValue(object $obj): mixed
 |-----------|------|-------------|
 | `$obj` | **object** |  |
 
-
-
-
 ***
 
 ### setValue
 
-
-
 ```php
 public setValue(object $obj, string $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -269,25 +150,13 @@ public setValue(object $obj, string $value): mixed
 | `$obj` | **object** |  |
 | `$value` | **string** |  |
 
-
-
-
 ***
 
 ### setType
 
-
-
 ```php
 public setType(mixed $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -295,45 +164,21 @@ public setType(mixed $type): mixed
 |-----------|------|-------------|
 | `$type` | **mixed** |  |
 
-
-
-
 ***
 
 ### serialize
-
-
 
 ```php
 public serialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
 
-
-
 ```php
 public unserialize(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -341,25 +186,13 @@ public unserialize(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(mixed $class, mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -368,11 +201,4 @@ public __construct(mixed $class, mixed $name): mixed
 | `$class` | **mixed** |  |
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -8,8 +8,7 @@ Imports blocks defined in another template into the current template.
 
 {% use "blocks.html" %}
 
-{% block title %}{% endblock %}
-{% block content %}{% endblock %}
+{% block title %}{% endblock %} {% block content %}{% endblock %}
 
 * Full name: `\Twig\TokenParser\UseTokenParser`
 * Parent class: [`\Twig\TokenParser\AbstractTokenParser`](./AbstractTokenParser.md)
@@ -18,26 +17,13 @@ Imports blocks defined in another template into the current template.
 
 * https://twig.symfony.com/doc/templates.html#horizontal-reuse - for details.
 
-
-
-
 ## Methods
 
-
 ### parse
-
-
 
 ```php
 public parse(\Twig\Token $token): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -45,34 +31,17 @@ public parse(\Twig\Token $token): mixed
 |-----------|------|-------------|
 | `$token` | **\Twig\Token** |  |
 
-
-
-
 ***
 
 ### getTag
-
-
 
 ```php
 public getTag(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setParser
 
@@ -82,24 +51,10 @@ Sets the parser associated with this token parser.
 public setParser(\Twig\Parser $parser): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parser` | **\Twig\Parser** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

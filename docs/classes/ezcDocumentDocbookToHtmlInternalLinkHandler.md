@@ -4,17 +4,12 @@
 
 Visit internal links.
 
-Internal links are transformed into local links in HTML, where the name
-of the target is prefixed with a number sign.
+Internal links are transformed into local links in HTML, where the name of the target is prefixed with a number sign.
 
 * Full name: `\ezcDocumentDocbookToHtmlInternalLinkHandler`
 * Parent class: [`\ezcDocumentDocbookToHtmlBaseHandler`](./ezcDocumentDocbookToHtmlBaseHandler.md)
 
-
-
-
 ## Methods
-
 
 ### handle
 
@@ -24,13 +19,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -40,14 +29,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getHead
 
@@ -59,19 +43,11 @@ protected getHead(\DOMElement $element): \DOMElement
 
 Get the root node of the HTML document head
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -83,13 +59,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -99,11 +71,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

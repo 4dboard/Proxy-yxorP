@@ -2,19 +2,12 @@
 
 # ezcBaseMetaData
 
-Base class implements ways of fetching information about the installed
-eZ Components. It knows whether to use the PEAR registry or the bundled XML
-file, depending on how eZ Components is installed.
-
-
+Base class implements ways of fetching information about the installed eZ Components. It knows whether to use the PEAR
+registry or the bundled XML file, depending on how eZ Components is installed.
 
 * Full name: `\ezcBaseMetaData`
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -24,23 +17,14 @@ Creates a ezcBaseMetaData object
 public __construct(string $installMethod = NULL): mixed
 ```
 
-The sole parameter $installMethod should only be used if you are really
-sure that you need to use it. It is mostly there to make testing at
-least slightly possible. Again, do not set it unless instructed.
-
-
-
-
-
+The sole parameter $installMethod should only be used if you are really sure that you need to use it. It is mostly there
+to make testing at least slightly possible. Again, do not set it unless instructed.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$installMethod` | **string** |  |
-
-
-
 
 ***
 
@@ -66,22 +50,11 @@ A version string such as "2008.2.2" is returned.
 
 ### getRequiredPhpVersion
 
-Returns a PHP version string that describes the required PHP version for
-this installed eZ Components bundle.
+Returns a PHP version string that describes the required PHP version for this installed eZ Components bundle.
 
 ```php
 public getRequiredPhpVersion(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -93,51 +66,30 @@ Returns whether $componentName is installed
 public isComponentInstalled(mixed $componentName): bool
 ```
 
-If installed with PEAR, it checks the PEAR registry whether the
-component is there. In case the tarball installation method is used, it
-will return true for every component that exists (because all of them
-are then available).
-
-
-
-
-
+If installed with PEAR, it checks the PEAR registry whether the component is there. In case the tarball installation
+method is used, it will return true for every component that exists (because all of them are then available).
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$componentName` | **mixed** |  |
-
-
-
 
 ***
 
 ### getComponentVersion
 
-Returns the version string of the available $componentName or false when
-the component is not installed.
+Returns the version string of the available $componentName or false when the component is not installed.
 
 ```php
 public getComponentVersion(mixed $componentName): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$componentName` | **mixed** |  |
-
-
-
 
 ***
 
@@ -151,13 +103,7 @@ public getComponentDependencies(mixed $componentName = null): mixed
 
 If $componentName is left empty, all installed components are returned.
 
-The returned array has as keys the component names, and as values the
-version of the components.
-
-
-
-
-
+The returned array has as keys the component names, and as values the version of the components.
 
 **Parameters:**
 
@@ -165,11 +111,4 @@ version of the components.
 |-----------|------|-------------|
 | `$componentName` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

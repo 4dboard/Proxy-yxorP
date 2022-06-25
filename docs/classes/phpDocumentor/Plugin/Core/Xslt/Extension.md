@@ -4,47 +4,31 @@
 
 XSLT filters that can be used inside a template.
 
-
-
 * Full name: `\phpDocumentor\Plugin\Core\Xslt\Extension`
-
-
 
 ## Properties
 
-
 ### descriptorBuilder
-
-
 
 ```php
 public static \phpDocumentor\Descriptor\ProjectDescriptorBuilder $descriptorBuilder
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### routers
 
-
-
 ```php
 public static \phpDocumentor\Transformer\Router\Queue $routers
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### markdown
 
@@ -67,17 +51,11 @@ Example usage inside template would be:
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **string** |  |
-
-
-
 
 ***
 
@@ -97,17 +75,11 @@ Example usage inside template would be (where @link is an attribute called link)
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
-
-
-
 
 ***
 
@@ -125,17 +97,11 @@ public static typeOfElement(string $link): string
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$link` | **string** |  |
-
-
-
 
 ***
 
@@ -147,12 +113,7 @@ Returns a Descriptor Object if the given FQSEN exists in the project.
 private static getDocumentedElement(string $fqsen): bool|\phpDocumentor\Descriptor\DescriptorAbstract
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -160,11 +121,4 @@ private static getDocumentedElement(string $fqsen): bool|\phpDocumentor\Descript
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

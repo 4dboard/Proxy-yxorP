@@ -4,15 +4,10 @@
 
 View helper for formatting dates.
 
-
-
 * Full name: `\Zend\I18n\View\Helper\DateFormat`
 * Parent class: [`AbstractHelper`](../../../View/Helper/AbstractHelper.md)
 
-
-
 ## Properties
-
 
 ### locale
 
@@ -21,11 +16,6 @@ Locale to use instead of the default
 ```php
 protected string $locale
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ Timezone to use
 protected string $timezone
 ```
 
-
-
-
-
-
 ***
 
 ### formatters
@@ -52,33 +37,15 @@ Formatter instances
 protected array $formatters
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -90,13 +57,6 @@ Format a date
 public __invoke(\DateTime|int|array $date, int $dateType = IntlDateFormatter::NONE, int $timeType = IntlDateFormatter::NONE, string $locale = null, string|null $pattern = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -106,9 +66,6 @@ public __invoke(\DateTime|int|array $date, int $dateType = IntlDateFormatter::NO
 | `$timeType` | **int** |  |
 | `$locale` | **string** |  |
 | `$pattern` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -120,21 +77,11 @@ Set locale to use instead of the default
 public setLocale(string $locale): \Zend\I18n\View\Helper\DateFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -146,16 +93,6 @@ Get the locale to use
 public getLocale(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTimezone
@@ -166,21 +103,11 @@ Set timezone to use instead of the default
 public setTimezone(string $timezone): \Zend\I18n\View\Helper\DateFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$timezone` | **string** |  |
-
-
-
 
 ***
 
@@ -192,18 +119,4 @@ Get the timezone to use
 public getTimezone(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

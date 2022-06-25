@@ -4,18 +4,13 @@
 
 Visit definition list entries
 
-Definition list entries are encapsulated in docbook, while the HTML
-variant only consists of a list of terms and their description. This
-method transforms the elements accordingly.
+Definition list entries are encapsulated in docbook, while the HTML variant only consists of a list of terms and their
+description. This method transforms the elements accordingly.
 
 * Full name: `\ezcDocumentDocbookToHtmlDefinitionListEntryHandler`
 * Parent class: [`\ezcDocumentDocbookToHtmlBaseHandler`](./ezcDocumentDocbookToHtmlBaseHandler.md)
 
-
-
-
 ## Methods
-
 
 ### handle
 
@@ -25,13 +20,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -41,14 +30,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getHead
 
@@ -60,19 +44,11 @@ protected getHead(\DOMElement $element): \DOMElement
 
 Get the root node of the HTML document head
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -84,13 +60,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -100,11 +72,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

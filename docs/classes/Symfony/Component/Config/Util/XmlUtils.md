@@ -8,11 +8,7 @@ This class contains static methods only and is not meant to be instantiated.
 
 * Full name: `\Symfony\Component\Config\Util\XmlUtils`
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -21,16 +17,6 @@ This class should not be instantiated.
 ```php
 private __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -42,22 +28,15 @@ Loads an XML file.
 public static loadFile(string $file, string|callable|null $schemaOrCallable = null): \DOMDocument
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** | An XML file path |
-| `$schemaOrCallable` | **string&#124;callable&#124;null** | An XSD schema file path, a callable, or null to disable validation |
-
-
-
+| `$schemaOrCallable` | **
+string&#124;callable&#124;null** | An XSD schema file path, a callable, or null to disable validation |
 
 ***
 
@@ -71,8 +50,7 @@ public static convertDomElementToArray(\DOMElement $element, bool $checkPrefix =
 
 The following rules applies during the conversion:
 
-* Each tag is converted to a key value or an array
-  if there is more than one "value"
+* Each tag is converted to a key value or an array if there is more than one "value"
 
 * The content of a tag is set under a "value" key (<foo>bar</foo>)
   if the tag also has some nested tags
@@ -83,16 +61,12 @@ The following rules applies during the conversion:
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** | A \DOMElement instance |
 | `$checkPrefix` | **bool** | Check prefix in an element or an attribute name |
-
 
 **Return Value:**
 
@@ -110,12 +84,7 @@ Converts an xml value to a PHP type.
 public static phpize(mixed $value): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -123,25 +92,15 @@ public static phpize(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### getXmlErrors
-
-
 
 ```php
 protected static getXmlErrors(mixed $internalErrors): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -149,11 +108,4 @@ protected static getXmlErrors(mixed $internalErrors): mixed
 |-----------|------|-------------|
 | `$internalErrors` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

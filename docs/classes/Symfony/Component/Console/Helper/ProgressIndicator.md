@@ -2,199 +2,109 @@
 
 # ProgressIndicator
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Helper\ProgressIndicator`
-
-
 
 ## Properties
 
-
 ### output
-
-
 
 ```php
 private $output
 ```
 
-
-
-
-
-
 ***
 
 ### startTime
-
-
 
 ```php
 private $startTime
 ```
 
-
-
-
-
-
 ***
 
 ### format
-
-
 
 ```php
 private $format
 ```
 
-
-
-
-
-
 ***
 
 ### message
-
-
 
 ```php
 private $message
 ```
 
-
-
-
-
-
 ***
 
 ### indicatorValues
-
-
 
 ```php
 private $indicatorValues
 ```
 
-
-
-
-
-
 ***
 
 ### indicatorCurrent
-
-
 
 ```php
 private $indicatorCurrent
 ```
 
-
-
-
-
-
 ***
 
 ### indicatorChangeInterval
-
-
 
 ```php
 private $indicatorChangeInterval
 ```
 
-
-
-
-
-
 ***
 
 ### indicatorUpdateTime
-
-
 
 ```php
 private $indicatorUpdateTime
 ```
 
-
-
-
-
-
 ***
 
 ### started
-
-
 
 ```php
 private $started
 ```
 
-
-
-
-
-
 ***
 
 ### formatters
-
-
 
 ```php
 private static $formatters
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### formats
 
-
-
 ```php
 private static $formats
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Output\OutputInterface $output, string|null $format = null, int $indicatorChangeInterval = 100, array|null $indicatorValues = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -204,9 +114,6 @@ public __construct(\Symfony\Component\Console\Output\OutputInterface $output, st
 | `$format` | **string&#124;null** | Indicator format |
 | `$indicatorChangeInterval` | **int** | Change interval in milliseconds |
 | `$indicatorValues` | **array&#124;null** | Animated indicator characters |
-
-
-
 
 ***
 
@@ -218,21 +125,11 @@ Sets the current indicator message.
 public setMessage(string|null $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -244,21 +141,11 @@ Starts the indicator output.
 public start( $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **** |  |
-
-
-
 
 ***
 
@@ -270,16 +157,6 @@ Advances the indicator.
 public advance(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### finish
@@ -290,21 +167,11 @@ Finish the indicator with message.
 public finish( $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **** |  |
-
-
-
 
 ***
 
@@ -316,19 +183,13 @@ Gets the format for a given name.
 public static getFormatDefinition(string $name): string|null
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The format name |
-
 
 **Return Value:**
 
@@ -350,18 +211,12 @@ This method also allow you to override an existing placeholder.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The placeholder name (including the delimiter char like %) |
 | `$callable` | **callable** | A PHP callable |
-
-
-
 
 ***
 
@@ -373,19 +228,13 @@ Gets the placeholder formatter for a given name.
 public static getPlaceholderFormatterDefinition(string $name): callable|null
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The placeholder name (including the delimiter char like %) |
-
 
 **Return Value:**
 
@@ -397,41 +246,17 @@ A PHP callable
 
 ### display
 
-
-
 ```php
 private display(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### determineBestFormat
 
-
-
 ```php
 private determineBestFormat(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -443,84 +268,38 @@ Overwrites a previous message to the output.
 private overwrite(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message |
 
-
-
-
 ***
 
 ### getCurrentTimeInMilliseconds
-
-
 
 ```php
 private getCurrentTimeInMilliseconds(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### initPlaceholderFormatters
-
-
 
 ```php
 private static initPlaceholderFormatters(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### initFormats
 
-
-
 ```php
 private static initFormats(): mixed
 ```
 
-
-
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

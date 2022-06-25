@@ -2,18 +2,10 @@
 
 # Xml
 
-
-
-
-
 * Full name: `\Zend\Config\Writer\Xml`
 * Parent class: [`\Zend\Config\Writer\AbstractWriter`](./AbstractWriter.md)
 
-
-
-
 ## Methods
-
 
 ### processConfig
 
@@ -23,21 +15,11 @@ processConfig(): defined by AbstractWriter.
 public processConfig(array $config): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -49,13 +31,6 @@ Add a branch to an XML object recursively.
 protected addBranch(string $branchName, array $config, \XMLWriter $writer): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -64,14 +39,9 @@ protected addBranch(string $branchName, array $config, \XMLWriter $writer): void
 | `$config` | **array** |  |
 | `$writer` | **\XMLWriter** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### toFile
 
@@ -81,13 +51,6 @@ toFile(): defined by Writer interface.
 public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -96,11 +59,9 @@ public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 | `$config` | **mixed** |  |
 | `$exclusiveLock` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Writer\WriterInterface::toFile() - 
+* \Zend\Config\Writer\WriterInterface::toFile() -
 
 ***
 
@@ -112,41 +73,25 @@ toString(): defined by Writer interface.
 public toString(mixed $config): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Writer\WriterInterface::toString() - 
+* \Zend\Config\Writer\WriterInterface::toString() -
 
 ***
 
 ### processConfig
 
-
-
 ```php
 protected processConfig(array $config): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -154,11 +99,4 @@ protected processConfig(array $config): string
 |-----------|------|-------------|
 | `$config` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

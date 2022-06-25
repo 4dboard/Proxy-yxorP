@@ -2,17 +2,10 @@
 
 # BigInteger
 
-
-
-
-
 * Full name: `\Zend\Math\BigInteger\BigInteger`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### adapters
 
@@ -22,10 +15,7 @@ Plugin manager for loading adapters
 protected static null|\Zend\Math\BigInteger\AdapterPluginManager $adapters
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -37,15 +27,11 @@ The default adapter.
 protected static \Zend\Math\BigInteger\Adapter\AdapterInterface $defaultAdapter
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### factory
 
@@ -55,21 +41,13 @@ Create a BigInteger adapter instance
 public static factory(string|\Zend\Math\BigInteger\Adapter\AdapterInterface|null $adapterName = null): \Zend\Math\BigInteger\Adapter\AdapterInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapterName` | **string&#124;\Zend\Math\BigInteger\Adapter\AdapterInterface&#124;null** |  |
-
-
-
 
 ***
 
@@ -81,21 +59,13 @@ Set adapter plugin manager
 public static setAdapterPluginManager(\Zend\Math\BigInteger\AdapterPluginManager $adapters): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapters` | **\Zend\Math\BigInteger\AdapterPluginManager** |  |
-
-
-
 
 ***
 
@@ -107,15 +77,7 @@ Get the adapter plugin manager
 public static getAdapterPluginManager(): \Zend\Math\BigInteger\AdapterPluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -127,21 +89,13 @@ Set default BigInteger adapter
 public static setDefaultAdapter(string|\Zend\Math\BigInteger\Adapter\AdapterInterface $adapter): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapter` | **string&#124;\Zend\Math\BigInteger\Adapter\AdapterInterface** |  |
-
-
-
 
 ***
 
@@ -153,15 +107,7 @@ Get default BigInteger adapter
 public static getDefaultAdapter(): null|\Zend\Math\BigInteger\Adapter\AdapterInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -173,15 +119,7 @@ Determine and return available adapter
 public static getAvailableAdapter(): \Zend\Math\BigInteger\Adapter\AdapterInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -193,12 +131,7 @@ Call adapter methods statically
 public static __callStatic(string $method, mixed $args): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -207,11 +140,4 @@ public static __callStatic(string $method, mixed $args): mixed
 | `$method` | **string** |  |
 | `$args` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

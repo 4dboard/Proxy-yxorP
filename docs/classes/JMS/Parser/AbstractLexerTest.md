@@ -2,13 +2,8 @@
 
 # AbstractLexerTest
 
-
-
-
-
 * Full name: `\JMS\Parser\AbstractLexerTest`
 * Parent class: [`PHPUnit_Framework_TestCase`](../../PHPUnit_Framework_TestCase.md)
-
 
 ## Constants
 
@@ -21,179 +16,77 @@
 
 ## Properties
 
-
 ### lexer
-
-
 
 ```php
 private $lexer
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### testTokenization
-
-
 
 ```php
 public testTokenization(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testMoveNext
-
-
 
 ```php
 public testMoveNext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testSkipUntilWithNonExistent
-
-
 
 ```php
 public testSkipUntilWithNonExistent(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testSkipUntil
-
-
 
 ```php
 public testSkipUntil(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testIsNext
-
-
 
 ```php
 public testIsNext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testIsNextAny
-
-
 
 ```php
 public testIsNextAny(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testPeek
-
-
 
 ```php
 public testPeek(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertValue
 
-
-
 ```php
 private assertValue(mixed $expected, mixed $actualToken): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -202,31 +95,12 @@ private assertValue(mixed $expected, mixed $actualToken): mixed
 | `$expected` | **mixed** |  |
 | `$actualToken` | **mixed** |  |
 
-
-
-
 ***
 
 ### setUp
-
-
 
 ```php
 protected setUp(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

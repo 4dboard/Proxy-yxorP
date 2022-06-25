@@ -4,20 +4,16 @@
 
 Abstract renderer base class
 
-Implements some basic rendering methods, which are required by all
-renderers. Should be extended to render elements in Docbook documents, which
-are not yet handled.
+Implements some basic rendering methods, which are required by all renderers. Should be extended to render elements in
+Docbook documents, which are not yet handled.
 
-To use a new ccustom renderer one needs to register it in the main renderer,
-which by default is implemented in the class ezcDocumentPdfMainRenderer.
+To use a new ccustom renderer one needs to register it in the main renderer, which by default is implemented in the
+class ezcDocumentPdfMainRenderer.
 
 * Full name: `\ezcDocumentPdfRenderer`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### driver
 
@@ -26,11 +22,6 @@ Used driver implementation
 ```php
 protected \ezcDocumentPdfDriver $driver
 ```
-
-
-
-
-
 
 ***
 
@@ -42,15 +33,9 @@ Used PDF style inferencer for evaluating current styling
 protected \ezcDocumentPcssStyleInferencer $styles
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -60,22 +45,12 @@ Construct renderer from driver to use
 public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -87,13 +62,7 @@ Render box background
 protected renderBoxBackground(\ezcDocumentPdfBoundingBox $space, array $styles): void
 ```
 
-Render box background for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box background for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -101,9 +70,6 @@ styles.
 |-----------|------|-------------|
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -115,13 +81,7 @@ Render box border
 protected renderBoxBorder(\ezcDocumentPdfBoundingBox $space, array $styles, bool $renderTop = true, bool $renderBottom = true): void
 ```
 
-Render box border for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box border for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -131,9 +91,6 @@ styles.
 | `$styles` | **array** |  |
 | `$renderTop` | **bool** |  |
 | `$renderBottom` | **bool** |  |
-
-
-
 
 ***
 
@@ -147,11 +104,6 @@ protected setBoxCovered(\ezcDocumentPdfPage $page, \ezcDocumentPdfBoundingBox $s
 
 Mark rendered space as convered on the page.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -159,9 +111,6 @@ Mark rendered space as convered on the page.
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -173,13 +122,7 @@ Evaluate available bounding box
 protected evaluateAvailableBoundingBox(\ezcDocumentPdfPage $page, array $styles, float $width): mixed
 ```
 
-Returns false, if not enough space is available on current
-page, and a bounding box otherwise.
-
-
-
-
-
+Returns false, if not enough space is available on current page, and a bounding box otherwise.
 
 **Parameters:**
 
@@ -189,11 +132,4 @@ page, and a bounding box otherwise.
 | `$styles` | **array** |  |
 | `$width` | **float** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

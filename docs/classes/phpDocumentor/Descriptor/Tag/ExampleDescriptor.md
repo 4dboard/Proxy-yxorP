@@ -4,78 +4,44 @@
 
 Descriptor representing the example tag with a descriptor.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\Tag\ExampleDescriptor`
 * Parent class: [`\phpDocumentor\Descriptor\TagDescriptor`](../TagDescriptor.md)
 
-
-
 ## Properties
 
-
 ### filePath
-
-
 
 ```php
 protected string $filePath
 ```
 
-
-
-
-
-
 ***
 
 ### lineCount
-
-
 
 ```php
 protected int $lineCount
 ```
 
-
-
-
-
-
 ***
 
 ### startingLine
-
-
 
 ```php
 protected int $startingLine
 ```
 
-
-
-
-
-
 ***
 
 ### example
-
-
 
 ```php
 protected string $example
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setFilePath
 
@@ -85,21 +51,11 @@ Sets the location where the example points to.
 public setFilePath(string $filePath): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filePath` | **string** |  |
-
-
-
 
 ***
 
@@ -111,16 +67,6 @@ Returns the location where this example points to.
 public getFilePath(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setStartingLine
@@ -131,21 +77,11 @@ Returns the location where this example points to.
 public setStartingLine(mixed $startingLine): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$startingLine` | **mixed** |  |
-
-
-
 
 ***
 
@@ -157,16 +93,6 @@ Returns the location where this example points to.
 public getStartingLine(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLineCount
@@ -177,21 +103,11 @@ Returns the location where this example points to.
 public setLineCount(mixed $lineCount): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lineCount` | **mixed** |  |
-
-
-
 
 ***
 
@@ -203,16 +119,6 @@ Returns the location where this example points to.
 public getLineCount(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setExample
@@ -223,21 +129,11 @@ Returns the content of the example.
 public setExample(mixed $example): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$example` | **mixed** |  |
-
-
-
 
 ***
 
@@ -249,21 +145,9 @@ Returns the content of the example.
 public getExample(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -273,21 +157,11 @@ Initializes the tag by setting the name and errors,
 public __construct(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -299,21 +173,11 @@ Sets the name for this tag.
 protected setName(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -325,16 +189,6 @@ Returns the name for this tag.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDescription
@@ -345,21 +199,11 @@ Sets a description for this tab instance.
 public setDescription(string $description): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$description` | **string** |  |
-
-
-
 
 ***
 
@@ -371,16 +215,6 @@ Returns the description for this tag,
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setErrors
@@ -391,21 +225,11 @@ Sets a list of errors found on the usage of this tag.
 public setErrors(\phpDocumentor\Descriptor\Collection $errors): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errors` | **\phpDocumentor\Descriptor\Collection** |  |
-
-
-
 
 ***
 
@@ -417,18 +241,4 @@ Returns all errors associated with this tag.
 public getErrors(): \phpDocumentor\Descriptor\Collection
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

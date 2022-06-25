@@ -4,17 +4,13 @@
 
 Argv input for the Console component of Symfony adapted to phpDocumentor.
 
-This InputStream for the Symfony Console component prepends the namespace and command
-name `project:run` to the Argv array if no command has been provided.
+This InputStream for the Symfony Console component prepends the namespace and command name `project:run` to the Argv
+array if no command has been provided.
 
 * Full name: `\phpDocumentor\Console\Input\ArgvInput`
 * Parent class: [`\Symfony\Component\Console\Input\ArgvInput`](../../../Symfony/Component/Console/Input/ArgvInput.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -24,19 +20,13 @@ Constructor.
 public __construct(string[] $argv = null, \Symfony\Component\Console\Input\InputDefinition $definition = null): mixed
 ```
 
-The constructor has been overridden to check whether the first element in
-the argument list is an argument (as it represents the command name).
+The constructor has been overridden to check whether the first element in the argument list is an argument (as it
+represents the command name).
 
 If it is not then we insert the command name: *project:run*.
 
-This way we can ensure that if no command name is given that the project
-defaults to the execution of phpDocumentor. This is behavior that is
-expected from previous releases of phpDocumentor.
-
-
-
-
-
+This way we can ensure that if no command name is given that the project defaults to the execution of phpDocumentor.
+This is behavior that is expected from previous releases of phpDocumentor.
 
 **Parameters:**
 
@@ -45,29 +35,15 @@ expected from previous releases of phpDocumentor.
 | `$argv` | **string[]** | An array of parameters from the CLI (in the argv format) |
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** | A InputDefinition instance |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Input\InputDefinition $definition = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -75,34 +51,19 @@ public __construct(\Symfony\Component\Console\Input\InputDefinition $definition 
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
 
-
-
-
 ***
 
 ### setTokens
 
-
-
 ```php
 protected setTokens(array $tokens): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -114,15 +75,7 @@ Processes command line arguments.
 protected parse(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -134,21 +87,11 @@ Parses a short option.
 private parseShortOption(string $token): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** | The current token |
-
-
-
 
 ***
 
@@ -160,21 +103,11 @@ Parses a short option set.
 private parseShortOptionSet(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The current token |
-
-
-
 
 ***
 
@@ -186,21 +119,11 @@ Parses a long option.
 private parseLongOption(string $token): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** | The current token |
-
-
-
 
 ***
 
@@ -212,21 +135,11 @@ Parses an argument.
 private parseArgument(string $token): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** | The current token |
-
-
-
 
 ***
 
@@ -238,22 +151,12 @@ Adds a short option value.
 private addShortOption(string $shortcut, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$shortcut` | **string** | The short option key |
 | `$value` | **mixed** | The value for the option |
-
-
-
 
 ***
 
@@ -265,22 +168,12 @@ Adds a long option value.
 private addLongOption(string $name, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The long option key |
 | `$value` | **mixed** | The value for the option |
-
-
-
 
 ***
 
@@ -292,16 +185,6 @@ private addLongOption(string $name, mixed $value): mixed
 public getFirstArgument(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasParameterOption
@@ -312,21 +195,11 @@ public getFirstArgument(): mixed
 public hasParameterOption(mixed $values): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **mixed** |  |
-
-
-
 
 ***
 
@@ -338,22 +211,12 @@ public hasParameterOption(mixed $values): mixed
 public getParameterOption(mixed $values, mixed $default = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -365,16 +228,6 @@ Returns a stringified representation of the args passed to the command.
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### bind
@@ -385,21 +238,11 @@ Binds the current Input instance with the given arguments and options.
 public bind(\Symfony\Component\Console\Input\InputDefinition $definition): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
-
-
-
 
 ***
 
@@ -411,16 +254,6 @@ Validates the input.
 public validate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isInteractive
@@ -430,16 +263,6 @@ Is this input means interactive?
 ```php
 public isInteractive(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -451,21 +274,11 @@ Sets the input interactivity.
 public setInteractive(mixed $interactive): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$interactive` | **mixed** | If the input should be interactive |
-
-
-
 
 ***
 
@@ -477,16 +290,6 @@ Returns all the given arguments merged with the default values.
 public getArguments(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getArgument
@@ -497,19 +300,11 @@ Returns the argument value for a given argument name.
 public getArgument(mixed $name): string|string[]|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The argument name |
-
 
 **Return Value:**
 
@@ -527,22 +322,12 @@ Sets an argument value by name.
 public setArgument(mixed $name, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The argument name |
 | `$value` | **mixed** | The argument value |
-
-
-
 
 ***
 
@@ -554,19 +339,11 @@ Returns true if an InputArgument object exists by name or position.
 public hasArgument(mixed $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The InputArgument name or position |
-
 
 **Return Value:**
 
@@ -584,16 +361,6 @@ Returns all the given options merged with the default values.
 public getOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOption
@@ -604,19 +371,11 @@ Returns the option value for a given option name.
 public getOption(mixed $name): string|string[]|bool|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The option name |
-
 
 **Return Value:**
 
@@ -634,22 +393,12 @@ Sets an option value by name.
 public setOption(mixed $name, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The option name |
 | `$value` | **mixed** | The option value |
-
-
-
 
 ***
 
@@ -661,19 +410,11 @@ Returns true if an InputOption object exists by name.
 public hasOption(mixed $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The InputOption name |
-
 
 **Return Value:**
 
@@ -691,24 +432,10 @@ Escapes a token through escapeshellarg if it contains unsafe chars.
 public escapeToken(string $token): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

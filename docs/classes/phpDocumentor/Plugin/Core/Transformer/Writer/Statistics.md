@@ -5,6 +5,7 @@
 Statistics transformation writer; generates statistic report as XML.
 
 Generated XML structure:
+
 ```
  <?xml version="1.0"?>
  <phpdoc-stats version="2.4.0">
@@ -21,11 +22,7 @@ Generated XML structure:
 * Full name: `\phpDocumentor\Plugin\Core\Transformer\Writer\Statistics`
 * Parent class: [`\phpDocumentor\Plugin\Core\Transformer\Writer\Checkstyle`](./Checkstyle.md)
 
-
-
-
 ## Methods
-
 
 ### transform
 
@@ -35,22 +32,12 @@ This method generates the checkstyle.xml report
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
-
-
-
 
 ***
 
@@ -62,21 +49,11 @@ Append phpdoc-stats element to the document.
 protected appendPhpdocStatsElement(\DOMDocument $document): \DOMDocument
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
-
-
-
 
 ***
 
@@ -88,13 +65,6 @@ Appends a stat fragment.
 protected appendStatElement(\DOMDocument $document, \phpDocumentor\Descriptor\ProjectDescriptor $project, string $date): \DOMDocument
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -102,9 +72,6 @@ protected appendStatElement(\DOMDocument $document, \phpDocumentor\Descriptor\Pr
 | `$document` | **\DOMDocument** |  |
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 | `$date` | **string** |  |
-
-
-
 
 ***
 
@@ -116,21 +83,11 @@ Get number of files.
 protected getFilesCounter(\phpDocumentor\Descriptor\ProjectDescriptor $project): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
-
-
-
 
 ***
 
@@ -142,21 +99,11 @@ Get number of deprecated elements.
 protected getDeprecatedCounter(\phpDocumentor\Descriptor\ProjectDescriptor $project): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
-
-
-
 
 ***
 
@@ -168,21 +115,11 @@ Get number of errors.
 protected getErrorCounter(\phpDocumentor\Descriptor\ProjectDescriptor $project): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
-
-
-
 
 ***
 
@@ -194,27 +131,15 @@ Get number of markers.
 protected getMarkerCounter(\phpDocumentor\Descriptor\ProjectDescriptor $project): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getTranslator
 
@@ -223,16 +148,6 @@ Returns an instance of the object responsible for translating content.
 ```php
 public getTranslator(): \phpDocumentor\Translator\Translator
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -244,21 +159,11 @@ Sets a new object capable of translating strings on this writer.
 public setTranslator(\phpDocumentor\Translator\Translator $translator): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$translator` | **\phpDocumentor\Translator\Translator** |  |
-
-
-
 
 ***
 
@@ -270,12 +175,7 @@ Abstract definition of the transformation method.
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -283,9 +183,6 @@ public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocum
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
-
-
-
 
 ***
 
@@ -297,21 +194,11 @@ Retrieves the destination location for this artifact.
 protected getDestinationPath(\phpDocumentor\Transformer\Transformation $transformation): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
-
-
-
 
 ***
 
@@ -323,22 +210,12 @@ Save the checkstyle report to the artifact
 protected saveCheckstyleReport(string $artifact, \DOMDocument $document): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$artifact` | **string** | Target name for the report |
 | `$document` | **\DOMDocument** | The actual xml document being saved |
-
-
-
 
 ***
 
@@ -350,8 +227,8 @@ This method verifies whether PHP has all requirements needed to run this writer.
 public checkRequirements(): void
 ```
 
-If one of the requirements is missing for this Writer then an exception of type RequirementMissing
-should be thrown; this indicates to the calling process that this writer will not function.
+If one of the requirements is missing for this Writer then an exception of type RequirementMissing should be thrown;
+this indicates to the calling process that this writer will not function.
 
 
 
@@ -371,24 +248,10 @@ Checks if there is a space in the path.
 protected checkForSpacesInPath(string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

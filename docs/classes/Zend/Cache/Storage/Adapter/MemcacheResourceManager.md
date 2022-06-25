@@ -4,14 +4,9 @@
 
 This is a resource manager for memcache
 
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\MemcacheResourceManager`
 
-
-
 ## Properties
-
 
 ### resources
 
@@ -20,11 +15,6 @@ Registered resources
 ```php
 protected array $resources
 ```
-
-
-
-
-
 
 ***
 
@@ -36,11 +26,6 @@ Default server values per resource
 protected array $serverDefaults
 ```
 
-
-
-
-
-
 ***
 
 ### failureCallbacks
@@ -51,15 +36,9 @@ Failure callback per resource
 protected callable[] $failureCallbacks
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### hasResource
 
@@ -69,21 +48,11 @@ Check if a resource exists
 public hasResource(string $id): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -95,21 +64,11 @@ Gets a memcache resource
 public getResource(string $id): \Memcache
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -121,13 +80,6 @@ Set a resource
 public setResource(string $id, array|\Traversable|\Memcache $resource, callable $failureCallback = null, array|\Traversable $serverDefaults = []): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -136,9 +88,6 @@ public setResource(string $id, array|\Traversable|\Memcache $resource, callable 
 | `$resource` | **array&#124;\Traversable&#124;\Memcache** |  |
 | `$failureCallback` | **callable** |  |
 | `$serverDefaults` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -150,21 +99,11 @@ Remove a resource
 public removeResource(string $id): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -176,22 +115,12 @@ Normalize compress threshold options
 protected normalizeAutoCompressThreshold(int|string|array|\ArrayAccess& $threshold, float|string& $minSavings): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$threshold` | **int&#124;string&#124;array&#124;\ArrayAccess** |  |
 | `$minSavings` | **float&#124;string** |  |
-
-
-
 
 ***
 
@@ -203,13 +132,6 @@ Set compress threshold on a Memcache resource
 protected setResourceAutoCompressThreshold(\Memcache $resource, int $threshold, float $minSavings): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -217,9 +139,6 @@ protected setResourceAutoCompressThreshold(\Memcache $resource, int $threshold, 
 | `$resource` | **\Memcache** |  |
 | `$threshold` | **int** |  |
 | `$minSavings` | **float** |  |
-
-
-
 
 ***
 
@@ -231,21 +150,11 @@ Get compress threshold
 public getAutoCompressThreshold(string $id): int|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -257,13 +166,6 @@ Set compress threshold
 public setAutoCompressThreshold(string $id, int|string|array|\ArrayAccess|null $threshold, float|string|bool $minSavings = false): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -271,9 +173,6 @@ public setAutoCompressThreshold(string $id, int|string|array|\ArrayAccess|null $
 | `$id` | **string** |  |
 | `$threshold` | **int&#124;string&#124;array&#124;\ArrayAccess&#124;null** |  |
 | `$minSavings` | **float&#124;string&#124;bool** |  |
-
-
-
 
 ***
 
@@ -285,21 +184,11 @@ Get compress min savings
 public getAutoCompressMinSavings(string $id): float|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -311,13 +200,6 @@ Set compress min savings
 public setAutoCompressMinSavings(string $id, float|string|null $minSavings): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -325,29 +207,18 @@ public setAutoCompressMinSavings(string $id, float|string|null $minSavings): \Ze
 | `$id` | **string** |  |
 | `$minSavings` | **float&#124;string&#124;null** |  |
 
-
-
-
 ***
 
 ### setServerDefaults
 
-Set default server values
-array(
-  'persistent' => <persistent>, 'weight' => <weight>,
-  'timeout' => <timeout>, 'retry_interval' => <retryInterval>,
+Set default server values array(
+'persistent' => <persistent>, 'weight' => <weight>,
+'timeout' => <timeout>, 'retry_interval' => <retryInterval>,
 )
 
 ```php
 public setServerDefaults(string $id, array $serverDefaults): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -355,9 +226,6 @@ public setServerDefaults(string $id, array $serverDefaults): \Zend\Cache\Storage
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$serverDefaults` | **array** |  |
-
-
-
 
 ***
 
@@ -369,47 +237,25 @@ Get default server values
 public getServerDefaults(string $id): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 
-
-
-
 ***
 
 ### normalizeServerDefaults
 
-
-
 ```php
 protected normalizeServerDefaults(array& $serverDefaults): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serverDefaults` | **array** |  |
-
-
-
 
 ***
 
@@ -421,22 +267,12 @@ Set callback for server connection failures
 public setFailureCallback(string $id, callable|null $failureCallback): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$failureCallback` | **callable&#124;null** |  |
-
-
-
 
 ***
 
@@ -448,21 +284,11 @@ Get callback for server connection failures
 public getFailureCallback(string $id): callable
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -474,19 +300,11 @@ Get servers
 public getServers(string $id): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
 
 **Return Value:**
 
@@ -504,22 +322,12 @@ Add servers
 public addServers(string $id, string|array $servers): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$servers` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -531,13 +339,6 @@ Add one server
 public addServer(string $id, string|array $server): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -545,25 +346,13 @@ public addServer(string $id, string|array $server): \Zend\Cache\Storage\Adapter\
 | `$id` | **string** |  |
 | `$server` | **string&#124;array** |  |
 
-
-
-
 ***
 
 ### addServerToResource
 
-
-
 ```php
 protected addServerToResource(\Memcache $resource, array $server, array $serverDefaults, callable|null $failureCallback): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -573,9 +362,6 @@ protected addServerToResource(\Memcache $resource, array $server, array $serverD
 | `$server` | **array** |  |
 | `$serverDefaults` | **array** |  |
 | `$failureCallback` | **callable&#124;null** |  |
-
-
-
 
 ***
 
@@ -588,21 +374,11 @@ array(array('host' => <host>, 'port' => <port>, 'weight' => <weight>)[, ...])
 protected normalizeServers(string|array& $servers): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$servers` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -610,30 +386,20 @@ protected normalizeServers(string|array& $servers): mixed
 
 Normalize one server into the following format:
 array(
-  'host' => <host>, 'port' => <port>, 'weight' => <weight>,
-  'status' => <status>, 'persistent' => <persistent>,
-  'timeout' => <timeout>, 'retry_interval' => <retryInterval>,
+'host' => <host>, 'port' => <port>, 'weight' => <weight>,
+'status' => <status>, 'persistent' => <persistent>,
+'timeout' => <timeout>, 'retry_interval' => <retryInterval>,
 )
 
 ```php
 protected normalizeServer(string|array& $server): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -646,13 +412,6 @@ Compare 2 normalized server arrays
 protected compareServers(array $serverA, array $serverB): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -660,11 +419,4 @@ protected compareServers(array $serverA, array $serverB): int
 | `$serverA` | **array** |  |
 | `$serverB` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

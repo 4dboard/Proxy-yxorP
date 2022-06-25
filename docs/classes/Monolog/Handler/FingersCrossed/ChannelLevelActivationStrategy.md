@@ -2,9 +2,9 @@
 
 # ChannelLevelActivationStrategy
 
-Channel and Error level based monolog activation strategy. Allows to trigger activation
-based on level per channel. e.g. trigger activation on level 'ERROR' by default, except
-for records of the 'sql' channel; those should trigger activation on level 'WARN'.
+Channel and Error level based monolog activation strategy. Allows to trigger activation based on level per channel. e.g.
+trigger activation on level 'ERROR' by default, except for records of the 'sql' channel; those should trigger activation
+on level 'WARN'.
 
 Example:
 
@@ -21,70 +21,41 @@ Example:
 
 * Full name: `\Monolog\Handler\FingersCrossed\ChannelLevelActivationStrategy`
 * This class implements:
-[`\Monolog\Handler\FingersCrossed\ActivationStrategyInterface`](./ActivationStrategyInterface.md)
-
-
+  [`\Monolog\Handler\FingersCrossed\ActivationStrategyInterface`](./ActivationStrategyInterface.md)
 
 ## Properties
 
-
 ### defaultActionLevel
-
-
 
 ```php
 private $defaultActionLevel
 ```
 
-
-
-
-
-
 ***
 
 ### channelToActionLevel
-
-
 
 ```php
 private $channelToActionLevel
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int $defaultActionLevel, array $channelToActionLevel = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$defaultActionLevel` | **int** | The default action level to be used if the record&#039;s category doesn&#039;t match any |
+| `$defaultActionLevel` | **
+int** | The default action level to be used if the record&#039;s category doesn&#039;t match any |
 | `$channelToActionLevel` | **array** | An array that maps channel names to action levels. |
-
-
-
 
 ***
 
@@ -96,24 +67,10 @@ Returns whether the given record activates the handler.
 public isHandlerActivated(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

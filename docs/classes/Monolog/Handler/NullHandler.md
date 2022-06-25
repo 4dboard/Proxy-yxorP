@@ -4,41 +4,25 @@
 
 Blackhole
 
-Any record it can handle will be thrown away. This can be used
-to put on top of an existing stack to override it temporarily.
+Any record it can handle will be thrown away. This can be used to put on top of an existing stack to override it
+temporarily.
 
 * Full name: `\Monolog\Handler\NullHandler`
 * Parent class: [`\Monolog\Handler\AbstractHandler`](./AbstractHandler.md)
 
-
-
-
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int $level = Logger::DEBUG): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int** | The minimum logging level at which this handler will be triggered |
-
-
-
 
 ***
 
@@ -50,42 +34,21 @@ public __construct(int $level = Logger::DEBUG): mixed
 public handle(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -93,9 +56,6 @@ public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixe
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -107,21 +67,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -133,21 +83,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -179,21 +119,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -205,16 +135,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -225,21 +145,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -251,16 +161,6 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLevel
@@ -271,21 +171,11 @@ Sets minimum logging level at which this handler will be triggered.
 public setLevel(int|string $level): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | Level or level name |
-
-
-
 
 ***
 
@@ -297,16 +187,6 @@ Gets minimum logging level at which this handler will be triggered.
 public getLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBubble
@@ -317,21 +197,12 @@ Sets the bubbling behavior.
 public setBubble(bool $bubble): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$bubble` | **bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
-
-
-
+| `$bubble` | **
+bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
 
 ***
 
@@ -343,18 +214,9 @@ Gets the bubbling behavior.
 public getBubble(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true means that this handler allows bubbling.
-false means that bubbling is not permitted.
+true means that this handler allows bubbling. false means that bubbling is not permitted.
 
 
 
@@ -362,41 +224,17 @@ false means that bubbling is not permitted.
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -408,18 +246,4 @@ Gets the default formatter.
 protected getDefaultFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

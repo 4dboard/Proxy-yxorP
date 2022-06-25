@@ -4,18 +4,10 @@
 
 Implements a no-cache strategy.
 
-
-
 * Full name: `\Twig_Cache_Null`
 * Parent class: [`\Twig\Cache\NullCache`](./Twig/Cache/NullCache.md)
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### generateKey
 
@@ -25,22 +17,12 @@ Generates a cache key for the given template class name.
 public generateKey(mixed $name, mixed $className): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The template name |
 | `$className` | **mixed** | The template class name |
-
-
-
 
 ***
 
@@ -52,22 +34,12 @@ Writes the compiled template to cache.
 public write(mixed $key, mixed $content): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | The cache key |
 | `$content` | **mixed** | The template representation as a PHP class |
-
-
-
 
 ***
 
@@ -79,21 +51,11 @@ Loads a template from the cache.
 public load(mixed $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | The cache key |
-
-
-
 
 ***
 
@@ -105,24 +67,10 @@ Returns the modification timestamp of a key.
 public getTimestamp(mixed $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** | The cache key |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

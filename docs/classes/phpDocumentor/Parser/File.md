@@ -4,32 +4,19 @@
 
 Parses a single file into a FileDescriptor and adds it to the given ProjectBuilder.
 
-
-
 * Full name: `\phpDocumentor\Parser\File`
-
-
 
 ## Properties
 
-
 ### parser
-
-
 
 ```php
 protected \phpDocumentor\Parser\Parser $parser
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -39,21 +26,11 @@ Registers the Parser object to get settings from.
 public __construct(\phpDocumentor\Parser\Parser $parser): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parser` | **\phpDocumentor\Parser\Parser** |  |
-
-
-
 
 ***
 
@@ -65,22 +42,12 @@ Parses the file identified by the given filename and passes the resulting FileDe
 public parse(string $filename, \phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** |  |
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
-
-
-
 
 ***
 
@@ -92,13 +59,6 @@ Creates a new FileReflector for the given filename or null if the file contains 
 protected createFileReflector(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder, string $filename): \phpDocumentor\Reflection\FileReflector|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -106,11 +66,9 @@ protected createFileReflector(\phpDocumentor\Descriptor\ProjectDescriptorBuilder
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 | `$filename` | **string** |  |
 
-
 **Return Value:**
 
-Returns a new FileReflector or null if no modifications were detected for the given
-filename.
+Returns a new FileReflector or null if no modifications were detected for the given filename.
 
 
 
@@ -124,21 +82,11 @@ Writes the errors found in the Descriptor to the log.
 protected logErrorsForDescriptor(\phpDocumentor\Descriptor\FileDescriptor $fileDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fileDescriptor` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
-
-
-
 
 ***
 
@@ -150,21 +98,11 @@ Returns the filename, relative to the root of the project directory.
 public getRelativeFilename(string $filename): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** | The filename to make relative. |
-
-
-
 
 ***
 
@@ -176,13 +114,6 @@ Dispatches a logging request.
 protected log(string $message, string $priority = LogLevel::INFO, string[] $parameters = array()): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -191,11 +122,4 @@ protected log(string $message, string $priority = LogLevel::INFO, string[] $para
 | `$priority` | **string** | The logging priority as declared in the LogLevel PSR-3 class. |
 | `$parameters` | **string[]** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,80 +2,44 @@
 
 # Property
 
-
-
-
-
 * Full name: `\PhpParser\Builder\Property`
 * Parent class: [`\PhpParser\BuilderAbstract`](../BuilderAbstract.md)
 
-
-
 ## Properties
 
-
 ### name
-
-
 
 ```php
 protected $name
 ```
 
-
-
-
-
-
 ***
 
 ### type
-
-
 
 ```php
 protected $type
 ```
 
-
-
-
-
-
 ***
 
 ### default
-
-
 
 ```php
 protected $default
 ```
 
-
-
-
-
-
 ***
 
 ### attributes
-
-
 
 ```php
 protected $attributes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -85,21 +49,11 @@ Creates a property builder.
 public __construct(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of the property |
-
-
-
 
 ***
 
@@ -110,14 +64,6 @@ Makes the property public.
 ```php
 public makePublic(): $this
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -135,14 +81,6 @@ Makes the property protected.
 public makeProtected(): $this
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The builder instance (for fluid interface)
@@ -158,14 +96,6 @@ Makes the property private.
 ```php
 public makePrivate(): $this
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -183,14 +113,6 @@ Makes the property static.
 public makeStatic(): $this
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The builder instance (for fluid interface)
@@ -207,19 +129,11 @@ Sets default value for the property.
 public setDefault(mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | Default value to use |
-
 
 **Return Value:**
 
@@ -237,19 +151,11 @@ Sets doc comment for the property.
 public setDocComment(\PhpParser\Comment\Doc|string $docComment): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docComment` | **\PhpParser\Comment\Doc&#124;string** | Doc comment to set |
-
 
 **Return Value:**
 
@@ -267,14 +173,6 @@ Returns the built class node.
 public getNode(): \PhpParser\Node\Stmt\Property
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The built property node
@@ -283,9 +181,7 @@ The built property node
 
 ***
 
-
 ## Inherited methods
-
 
 ### normalizeNode
 
@@ -295,19 +191,11 @@ Normalizes a node: Converts builder objects to nodes.
 protected normalizeNode(\PhpParser\Node|\PhpParser\Builder $node): \PhpParser\Node
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\PhpParser\Node&#124;\PhpParser\Builder** | The node to normalize |
-
 
 **Return Value:**
 
@@ -325,19 +213,11 @@ Normalizes a name: Converts plain string names to PhpParser\Node\Name.
 protected normalizeName(\PhpParser\Node\Name|string $name): \PhpParser\Node\Name
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **\PhpParser\Node\Name&#124;string** | The name to normalize |
-
 
 **Return Value:**
 
@@ -349,26 +229,17 @@ The normalized name
 
 ### normalizeValue
 
-Normalizes a value: Converts nulls, booleans, integers,
-floats, strings and arrays into their respective nodes
+Normalizes a value: Converts nulls, booleans, integers, floats, strings and arrays into their respective nodes
 
 ```php
 protected normalizeValue(mixed $value): \PhpParser\Node\Expr
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to normalize |
-
 
 **Return Value:**
 
@@ -386,19 +257,11 @@ Normalizes a doc comment: Converts plain strings to PhpParser\Comment\Doc.
 protected normalizeDocComment(\PhpParser\Comment\Doc|string $docComment): \PhpParser\Comment\Doc
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docComment` | **\PhpParser\Comment\Doc&#124;string** | The doc comment to normalize |
-
 
 **Return Value:**
 
@@ -416,24 +279,10 @@ Sets a modifier in the $this->type property.
 protected setModifier(int $modifier): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$modifier` | **int** | Modifier to set |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

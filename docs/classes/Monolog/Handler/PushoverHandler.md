@@ -4,152 +4,84 @@
 
 Sends notifications through the pushover api to mobile phones
 
-
-
 * Full name: `\Monolog\Handler\PushoverHandler`
 * Parent class: [`\Monolog\Handler\SocketHandler`](./SocketHandler.md)
 
 **See Also:**
 
-* https://www.pushover.net/api - 
-
-
+* https://www.pushover.net/api -
 
 ## Properties
 
-
 ### token
-
-
 
 ```php
 private $token
 ```
 
-
-
-
-
-
 ***
 
 ### users
-
-
 
 ```php
 private $users
 ```
 
-
-
-
-
-
 ***
 
 ### title
-
-
 
 ```php
 private $title
 ```
 
-
-
-
-
-
 ***
 
 ### user
-
-
 
 ```php
 private $user
 ```
 
-
-
-
-
-
 ***
 
 ### retry
-
-
 
 ```php
 private $retry
 ```
 
-
-
-
-
-
 ***
 
 ### expire
-
-
 
 ```php
 private $expire
 ```
 
-
-
-
-
-
 ***
 
 ### highPriorityLevel
-
-
 
 ```php
 private $highPriorityLevel
 ```
 
-
-
-
-
-
 ***
 
 ### emergencyLevel
-
-
 
 ```php
 private $emergencyLevel
 ```
 
-
-
-
-
-
 ***
 
 ### useFormattedMessage
 
-
-
 ```php
 private $useFormattedMessage
 ```
-
-
-
-
-
 
 ***
 
@@ -161,13 +93,9 @@ All parameters that can be sent to Pushover
 private array $parameterNames
 ```
 
-
-
-
-
 **See Also:**
 
-* https://pushover.net/api - 
+* https://pushover.net/api -
 
 ***
 
@@ -179,33 +107,19 @@ Sounds the api supports by default
 private array $sounds
 ```
 
-
-
-
-
 **See Also:**
 
-* https://pushover.net/api#sounds - 
+* https://pushover.net/api#sounds -
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $token, string|array $users, string $title = null, int $level = Logger::CRITICAL, bool $bubble = true, bool $useSSL = true, int $highPriorityLevel = Logger::CRITICAL, int $emergencyLevel = Logger::EMERGENCY, int $retry = 30, int $expire = 25200): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -216,57 +130,38 @@ public __construct(string $token, string|array $users, string $title = null, int
 | `$title` | **string** | Title sent to the Pushover API |
 | `$level` | **int** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-| `$useSSL` | **bool** | Whether to connect via SSL. Required when pushing messages to users that are not<br />the pushover.net app owner. OpenSSL is required for this option. |
-| `$highPriorityLevel` | **int** | The minimum logging level at which this handler will start<br />sending &quot;high priority&quot; requests to the Pushover API |
-| `$emergencyLevel` | **int** | The minimum logging level at which this handler will start<br />sending &quot;emergency&quot; requests to the Pushover API |
-| `$retry` | **int** | The retry parameter specifies how often (in seconds) the Pushover servers will send the same notification to the user. |
-| `$expire` | **int** | The expire parameter specifies how many seconds your notification will continue to be retried for (every retry seconds). |
-
-
-
+| `$useSSL` | **
+bool** | Whether to connect via SSL. Required when pushing messages to users that are not<br />the pushover.net app owner. OpenSSL is required for this option. |
+| `$highPriorityLevel` | **
+int** | The minimum logging level at which this handler will start<br />sending &quot;high priority&quot; requests to the Pushover API |
+| `$emergencyLevel` | **
+int** | The minimum logging level at which this handler will start<br />sending &quot;emergency&quot; requests to the Pushover API |
+| `$retry` | **
+int** | The retry parameter specifies how often (in seconds) the Pushover servers will send the same notification to the user. |
+| `$expire` | **
+int** | The expire parameter specifies how many seconds your notification will continue to be retried for (every retry seconds). |
 
 ***
 
 ### generateDataStream
 
-
-
 ```php
 protected generateDataStream(mixed $record): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **mixed** |  |
-
-
-
 
 ***
 
 ### buildContent
 
-
-
 ```php
 private buildContent(mixed $record): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -274,34 +169,19 @@ private buildContent(mixed $record): mixed
 |-----------|------|-------------|
 | `$record` | **mixed** |  |
 
-
-
-
 ***
 
 ### buildHeader
 
-
-
 ```php
 private buildHeader(mixed $content): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
-
-
-
 
 ***
 
@@ -313,73 +193,39 @@ Connect (if necessary) and write to the socket
 protected write(array $record): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### setHighPriorityLevel
-
-
 
 ```php
 public setHighPriorityLevel(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### setEmergencyLevel
 
-
-
 ```php
 public setEmergencyLevel(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -391,42 +237,21 @@ Use the formatted message?
 public useFormattedMessage(bool $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **bool** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -434,9 +259,6 @@ public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixe
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -448,21 +270,13 @@ Writes the record down to the log of the implementing handler
 protected write(array $record): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -494,16 +308,6 @@ Close socket, if open
 public closeSocket(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPersistent
@@ -514,38 +318,21 @@ Set socket connection to nbe persistent. It only has effect before the connectio
 public setPersistent(bool $persistent): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistent` | **bool** |  |
 
-
-
-
 ***
 
 ### setConnectionTimeout
 
-Set connection timeout.  Only has effect before we connect.
+Set connection timeout. Only has effect before we connect.
 
 ```php
 public setConnectionTimeout(float $seconds): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -553,11 +340,9 @@ public setConnectionTimeout(float $seconds): mixed
 |-----------|------|-------------|
 | `$seconds` | **float** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/en/function.fsockopen.php - 
+* http://php.net/manual/en/function.fsockopen.php -
 
 ***
 
@@ -569,24 +354,15 @@ Set write timeout. Only has effect before we connect.
 public setTimeout(float $seconds): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$seconds` | **float** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/en/function.stream-set-timeout.php - 
+* http://php.net/manual/en/function.stream-set-timeout.php -
 
 ***
 
@@ -598,21 +374,11 @@ Set writing timeout. Only has effect during connection in the writing cycle.
 public setWritingTimeout(float $seconds): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$seconds` | **float** | 0 for no timeout |
-
-
-
 
 ***
 
@@ -624,21 +390,11 @@ Set chunk size. Only has effect during connection in the writing cycle.
 public setChunkSize(float $bytes): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bytes` | **float** |  |
-
-
-
 
 ***
 
@@ -650,16 +406,6 @@ Get current connection string
 public getConnectionString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isPersistent
@@ -669,16 +415,6 @@ Get persistent setting
 ```php
 public isPersistent(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -690,16 +426,6 @@ Get current connection timeout setting
 public getConnectionTimeout(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTimeout
@@ -709,16 +435,6 @@ Get current in-transfer timeout
 ```php
 public getTimeout(): float
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -730,16 +446,6 @@ Get current local writing timeout
 public getWritingTimeout(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getChunkSize
@@ -749,16 +455,6 @@ Get current chunk size
 ```php
 public getChunkSize(): float
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -770,7 +466,7 @@ Check to see if the socket is currently available.
 public isConnected(): bool
 ```
 
-UDP might appear to be connected but might fail when writing.  See http://php.net/fsockopen for details.
+UDP might appear to be connected but might fail when writing. See http://php.net/fsockopen for details.
 
 
 
@@ -790,16 +486,6 @@ Wrapper to allow mocking
 protected pfsockopen(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### fsockopen
@@ -809,16 +495,6 @@ Wrapper to allow mocking
 ```php
 protected fsockopen(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -830,18 +506,9 @@ Wrapper to allow mocking
 protected streamSetTimeout(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/function.stream-set-timeout.php - 
+* http://php.net/manual/en/function.stream-set-timeout.php -
 
 ***
 
@@ -853,18 +520,9 @@ Wrapper to allow mocking
 protected streamSetChunkSize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/function.stream-set-chunk-size.php - 
+* http://php.net/manual/en/function.stream-set-chunk-size.php -
 
 ***
 
@@ -876,21 +534,11 @@ Wrapper to allow mocking
 protected fwrite(mixed $data): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
@@ -902,32 +550,13 @@ Wrapper to allow mocking
 protected streamGetMetadata(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validateTimeout
 
-
-
 ```php
 private validateTimeout(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -935,45 +564,21 @@ private validateTimeout(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### connectIfNotConnected
-
-
 
 ```php
 private connectIfNotConnected(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### generateDataStream
 
-
-
 ```php
 protected generateDataStream(mixed $record): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -981,125 +586,53 @@ protected generateDataStream(mixed $record): mixed
 |-----------|------|-------------|
 | `$record` | **mixed** |  |
 
-
-
-
 ***
 
 ### getResource
-
-
 
 ```php
 protected getResource(): resource|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### connect
-
-
 
 ```php
 private connect(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createSocketResource
-
-
 
 ```php
 private createSocketResource(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSocketTimeout
-
-
 
 ```php
 private setSocketTimeout(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setStreamChunkSize
-
-
 
 ```php
 private setStreamChunkSize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### writeToSocket
 
-
-
 ```php
 private writeToSocket(mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1107,34 +640,19 @@ private writeToSocket(mixed $data): mixed
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### writingIsTimedOut
 
-
-
 ```php
 private writingIsTimedOut(mixed $sent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sent` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1146,21 +664,11 @@ private writingIsTimedOut(mixed $sent): mixed
 public handle(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -1172,21 +680,11 @@ Processes a record.
 protected processRecord(array $record): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -1198,21 +696,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -1224,21 +712,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -1250,21 +728,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1276,16 +744,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -1296,21 +754,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -1322,16 +770,6 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLevel
@@ -1342,21 +780,11 @@ Sets minimum logging level at which this handler will be triggered.
 public setLevel(int|string $level): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | Level or level name |
-
-
-
 
 ***
 
@@ -1368,16 +796,6 @@ Gets minimum logging level at which this handler will be triggered.
 public getLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBubble
@@ -1388,21 +806,12 @@ Sets the bubbling behavior.
 public setBubble(bool $bubble): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$bubble` | **bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
-
-
-
+| `$bubble` | **
+bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
 
 ***
 
@@ -1414,18 +823,9 @@ Gets the bubbling behavior.
 public getBubble(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true means that this handler allows bubbling.
-false means that bubbling is not permitted.
+true means that this handler allows bubbling. false means that bubbling is not permitted.
 
 
 
@@ -1433,41 +833,17 @@ false means that bubbling is not permitted.
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1479,18 +855,4 @@ Gets the default formatter.
 protected getDefaultFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

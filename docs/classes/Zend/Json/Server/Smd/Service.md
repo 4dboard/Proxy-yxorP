@@ -4,87 +4,47 @@
 
 Create Service Mapping Description for a method
 
-
-
 * Full name: `\Zend\Json\Server\Smd\Service`
-
-
 
 ## Properties
 
-
 ### envelope
-
-
 
 ```php
 protected $envelope
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 protected $name
 ```
 
-
-
-
-
-
 ***
 
 ### return
-
-
 
 ```php
 protected $return
 ```
 
-
-
-
-
-
 ***
 
 ### target
-
-
 
 ```php
 protected $target
 ```
 
-
-
-
-
-
 ***
 
 ### transport
 
-
-
 ```php
 protected $transport
 ```
-
-
-
-
-
 
 ***
 
@@ -96,11 +56,6 @@ Allowed envelope types
 protected array $envelopeTypes
 ```
 
-
-
-
-
-
 ***
 
 ### nameRegex
@@ -111,13 +66,9 @@ Regex for names
 protected string $nameRegex
 ```
 
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/language.oop5.basic.php - * http://www.jsonrpc.org/specification#request_object - 
+* http://php.net/manual/en/language.oop5.basic.php - * http://www.jsonrpc.org/specification#request_object -
 
 ***
 
@@ -129,11 +80,6 @@ Parameter option types
 protected array $paramOptionTypes
 ```
 
-
-
-
-
-
 ***
 
 ### params
@@ -143,11 +89,6 @@ Service params
 ```php
 protected array $params
 ```
-
-
-
-
-
 
 ***
 
@@ -159,11 +100,6 @@ Mapping of parameter types to JSON-RPC types
 protected array $paramMap
 ```
 
-
-
-
-
-
 ***
 
 ### transportTypes
@@ -174,15 +110,9 @@ Allowed transport types
 protected array $transportTypes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -192,21 +122,11 @@ Constructor
 public __construct(string|array $spec): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$spec` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -218,21 +138,11 @@ Set object state
 public setOptions(array $options): \Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -244,21 +154,11 @@ Set service name
 public setName(string $name): \Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -269,16 +169,6 @@ Retrieve name
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -292,19 +182,11 @@ public setTransport(string $transport): \Zend\Json\Server\Smd\Service
 
 Currently limited to POST
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transport` | **string** |  |
-
-
-
 
 ***
 
@@ -316,16 +198,6 @@ Get transport
 public getTransport(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTarget
@@ -336,21 +208,11 @@ Set service target
 public setTarget(string $target): \Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** |  |
-
-
-
 
 ***
 
@@ -362,16 +224,6 @@ Get service target
 public getTarget(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEnvelope
@@ -382,21 +234,11 @@ Set envelope type
 public setEnvelope(string $envelopeType): \Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$envelopeType` | **string** |  |
-
-
-
 
 ***
 
@@ -408,16 +250,6 @@ Get envelope type
 public getEnvelope(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addParam
@@ -428,13 +260,6 @@ Add a parameter to the service
 public addParam(string|array $type, array $options = [], int|null $order = null): \Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -442,9 +267,6 @@ public addParam(string|array $type, array $options = [], int|null $order = null)
 | `$type` | **string&#124;array** |  |
 | `$options` | **array** |  |
 | `$order` | **int&#124;null** |  |
-
-
-
 
 ***
 
@@ -458,19 +280,11 @@ public addParams(array $params): \Zend\Json\Server\Smd\Service
 
 Each param should be an array, and should include the key 'type'.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **array** |  |
-
-
-
 
 ***
 
@@ -482,21 +296,11 @@ Overwrite all parameters
 public setParams(array $params): \Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **array** |  |
-
-
-
 
 ***
 
@@ -528,21 +332,11 @@ Set return type
 public setReturn(string|array $type): \Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -554,16 +348,6 @@ Get return type
 public getReturn(): string|array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toArray
@@ -573,16 +357,6 @@ Cast service description to array
 ```php
 public toArray(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -594,16 +368,6 @@ Return JSON encoding of service
 public toJson(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -613,16 +377,6 @@ Cast to string
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -634,13 +388,6 @@ Validate parameter type
 protected _validateParamType(string $type, bool $isReturn = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -648,11 +395,4 @@ protected _validateParamType(string $type, bool $isReturn = false): string
 | `$type` | **string** |  |
 | `$isReturn` | **bool** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

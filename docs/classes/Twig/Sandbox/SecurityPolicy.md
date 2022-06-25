@@ -4,109 +4,59 @@
 
 Represents a security policy which need to be enforced when sandbox mode is enabled.
 
-
-
 * Full name: `\Twig\Sandbox\SecurityPolicy`
 * This class implements:
-[`\Twig\Sandbox\SecurityPolicyInterface`](./SecurityPolicyInterface.md)
-
-
+  [`\Twig\Sandbox\SecurityPolicyInterface`](./SecurityPolicyInterface.md)
 
 ## Properties
 
-
 ### allowedTags
-
-
 
 ```php
 protected $allowedTags
 ```
 
-
-
-
-
-
 ***
 
 ### allowedFilters
-
-
 
 ```php
 protected $allowedFilters
 ```
 
-
-
-
-
-
 ***
 
 ### allowedMethods
-
-
 
 ```php
 protected $allowedMethods
 ```
 
-
-
-
-
-
 ***
 
 ### allowedProperties
-
-
 
 ```php
 protected $allowedProperties
 ```
 
-
-
-
-
-
 ***
 
 ### allowedFunctions
-
-
 
 ```php
 protected $allowedFunctions
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $allowedTags = [], array $allowedFilters = [], array $allowedMethods = [], array $allowedProperties = [], array $allowedFunctions = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -118,25 +68,13 @@ public __construct(array $allowedTags = [], array $allowedFilters = [], array $a
 | `$allowedProperties` | **array** |  |
 | `$allowedFunctions` | **array** |  |
 
-
-
-
 ***
 
 ### setAllowedTags
 
-
-
 ```php
 public setAllowedTags(array $tags): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -144,25 +82,13 @@ public setAllowedTags(array $tags): mixed
 |-----------|------|-------------|
 | `$tags` | **array** |  |
 
-
-
-
 ***
 
 ### setAllowedFilters
 
-
-
 ```php
 public setAllowedFilters(array $filters): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -170,25 +96,13 @@ public setAllowedFilters(array $filters): mixed
 |-----------|------|-------------|
 | `$filters` | **array** |  |
 
-
-
-
 ***
 
 ### setAllowedMethods
 
-
-
 ```php
 public setAllowedMethods(array $methods): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -196,25 +110,13 @@ public setAllowedMethods(array $methods): mixed
 |-----------|------|-------------|
 | `$methods` | **array** |  |
 
-
-
-
 ***
 
 ### setAllowedProperties
 
-
-
 ```php
 public setAllowedProperties(array $properties): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -222,25 +124,13 @@ public setAllowedProperties(array $properties): mixed
 |-----------|------|-------------|
 | `$properties` | **array** |  |
 
-
-
-
 ***
 
 ### setAllowedFunctions
 
-
-
 ```php
 public setAllowedFunctions(array $functions): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -248,25 +138,13 @@ public setAllowedFunctions(array $functions): mixed
 |-----------|------|-------------|
 | `$functions` | **array** |  |
 
-
-
-
 ***
 
 ### checkSecurity
 
-
-
 ```php
 public checkSecurity(mixed $tags, mixed $filters, mixed $functions): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -276,25 +154,13 @@ public checkSecurity(mixed $tags, mixed $filters, mixed $functions): mixed
 | `$filters` | **mixed** |  |
 | `$functions` | **mixed** |  |
 
-
-
-
 ***
 
 ### checkMethodAllowed
 
-
-
 ```php
 public checkMethodAllowed(mixed $obj, mixed $method): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -303,25 +169,13 @@ public checkMethodAllowed(mixed $obj, mixed $method): mixed
 | `$obj` | **mixed** |  |
 | `$method` | **mixed** |  |
 
-
-
-
 ***
 
 ### checkPropertyAllowed
 
-
-
 ```php
 public checkPropertyAllowed(mixed $obj, mixed $property): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -330,11 +184,4 @@ public checkPropertyAllowed(mixed $obj, mixed $property): mixed
 | `$obj` | **mixed** |  |
 | `$property` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

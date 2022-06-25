@@ -2,18 +2,11 @@
 
 # AbstractDateDropdown
 
-
-
-
-
 * Full name: `\Zend\Filter\AbstractDateDropdown`
 * Parent class: [`\Zend\Filter\AbstractFilter`](./AbstractFilter.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### nullOnEmpty
 
@@ -22,11 +15,6 @@ If true, the filter will return null if any date field is empty
 ```php
 protected bool $nullOnEmpty
 ```
-
-
-
-
-
 
 ***
 
@@ -38,11 +26,6 @@ If true, the filter will return null if all date fields are empty
 protected bool $nullOnAllEmpty
 ```
 
-
-
-
-
-
 ***
 
 ### format
@@ -53,45 +36,23 @@ Sprintf format string to use for formatting the date, fields will be used in alp
 protected string $format
 ```
 
-
-
-
-
-
 ***
 
 ### expectedInputs
-
-
 
 ```php
 protected int $expectedInputs
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $options = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -99,25 +60,13 @@ public __construct(mixed $options = null): mixed
 |-----------|------|-------------|
 | `$options` | **mixed** | If array or Traversable, passes value to<br />setOptions(). |
 
-
-
-
 ***
 
 ### setNullOnAllEmpty
 
-
-
 ```php
 public setNullOnAllEmpty(bool $nullOnAllEmpty): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -125,45 +74,21 @@ public setNullOnAllEmpty(bool $nullOnAllEmpty): self
 |-----------|------|-------------|
 | `$nullOnAllEmpty` | **bool** |  |
 
-
-
-
 ***
 
 ### isNullOnAllEmpty
-
-
 
 ```php
 public isNullOnAllEmpty(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNullOnEmpty
 
-
-
 ```php
 public setNullOnEmpty(bool $nullOnEmpty): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -171,55 +96,29 @@ public setNullOnEmpty(bool $nullOnEmpty): self
 |-----------|------|-------------|
 | `$nullOnEmpty` | **bool** |  |
 
-
-
-
 ***
 
 ### isNullOnEmpty
-
-
 
 ```php
 public isNullOnEmpty(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### filter
 
-Attempts to filter an array of date/time information to a formatted
-string.
+Attempts to filter an array of date/time information to a formatted string.
 
 ```php
 public filter(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -231,21 +130,11 @@ Ensures there are enough inputs in the array to properly format the date.
 protected filterable( $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **** |  |
-
-
-
 
 ***
 
@@ -257,12 +146,7 @@ Reduce to a single value
 public static reduce(string $soFar, string $value): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -271,60 +155,34 @@ public static reduce(string $soFar, string $value): bool
 | `$soFar` | **string** |  |
 | `$value` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -335,16 +193,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -358,36 +206,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -395,11 +228,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

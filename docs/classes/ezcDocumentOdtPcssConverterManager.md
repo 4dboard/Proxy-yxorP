@@ -4,18 +4,13 @@
 
 Manager for ezcDocumentOdtPcssConverter instances.
 
-An instance of this class is used to handle style converters. It uses the
-{@link} interface to access style converters by the name of
-the CSS style attribute they handle.
+An instance of this class is used to handle style converters. It uses the {@link} interface to access style converters
+by the name of the CSS style attribute they handle.
 
 * Full name: `\ezcDocumentOdtPcssConverterManager`
 * Parent class: [`ArrayObject`](./ArrayObject.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -24,16 +19,6 @@ Creates a new style converter manager.
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -45,16 +30,6 @@ Initialize default converters.
 protected init(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### offsetSet
@@ -65,13 +40,7 @@ Sets a new style converter.
 public offsetSet(string $key, \ezcDocumentOdtPcssConverter $value): mixed
 ```
 
-The key must be the CSS style property this converter handles, the
-$value must be the style converter itself.
-
-
-
-
-
+The key must be the CSS style property this converter handles, the $value must be the style converter itself.
 
 **Parameters:**
 
@@ -79,9 +48,6 @@ $value must be the style converter itself.
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **\ezcDocumentOdtPcssConverter** |  |
-
-
-
 
 ***
 
@@ -93,13 +59,7 @@ Appending elements is not allowed.
 public append(mixed $value): mixed
 ```
 
-Appending a style is not allowed. Please use the array access with the
-style name to set a new style converter.
-
-
-
-
-
+Appending a style is not allowed. Please use the array access with the style name to set a new style converter.
 
 **Parameters:**
 
@@ -107,11 +67,4 @@ style name to set a new style converter.
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

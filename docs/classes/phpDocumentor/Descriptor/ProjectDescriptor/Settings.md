@@ -4,10 +4,7 @@
 
 Contains the Settings for the current Project.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\ProjectDescriptor\Settings`
-
 
 ## Constants
 
@@ -21,54 +18,31 @@ Contains the Settings for the current Project.
 
 ## Properties
 
-
 ### isModified
-
-
 
 ```php
 protected bool $isModified
 ```
 
-
-
-
-
-
 ***
 
 ### visibility
-
-
 
 ```php
 protected int $visibility
 ```
 
-
-
-
-
-
 ***
 
 ### includeSource
-
-
 
 ```php
 protected bool $includeSource
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setVisibility
 
@@ -78,21 +52,11 @@ Stores the visibilities that are allowed to be executed as a bitflag.
 public setVisibility(int $visibilityFlag): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$visibilityFlag` | **int** | A bitflag combining the VISIBILITY_* constants. |
-
-
-
 
 ***
 
@@ -104,18 +68,10 @@ Returns the bit flag representing which visibilities are allowed.
 public getVisibility(): int
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \phpDocumentor\Descriptor\ProjectDescriptor\self::isVisibilityAllowed() - for a convenience method to easily check against a specific visibility.
+* \phpDocumentor\Descriptor\ProjectDescriptor\self::isVisibilityAllowed() - for a convenience method to easily check
+  against a specific visibility.
 
 ***
 
@@ -127,16 +83,6 @@ Returns whether one of the values of this object was modified.
 public isModified(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### clearModifiedFlag
@@ -146,16 +92,6 @@ Resets the flag indicating whether the settings have changed.
 ```php
 public clearModifiedFlag(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -167,13 +103,6 @@ Sets a property's value and if it differs from the previous then mark these sett
 protected setValueAndCheckIfModified(mixed $propertyName, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -181,71 +110,28 @@ protected setValueAndCheckIfModified(mixed $propertyName, mixed $value): mixed
 | `$propertyName` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### includeSource
-
-
 
 ```php
 public includeSource(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### excludeSource
-
-
 
 ```php
 public excludeSource(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### shouldIncludeSource
-
-
 
 ```php
 public shouldIncludeSource(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

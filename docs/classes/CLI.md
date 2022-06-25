@@ -6,51 +6,29 @@ This file is part of the Cockpit project.
 
 (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
+For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
 
 * Full name: `\CLI`
 
-
-
-
 ## Methods
 
-
 ### beep
-
-
 
 ```php
 public static beep(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### opts
 
-
-
 ```php
 public static opts(mixed $name = null, mixed $default = null): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -59,25 +37,15 @@ public static opts(mixed $name = null, mixed $default = null): mixed
 | `$name` | **mixed** |  |
 | `$default` | **mixed** |  |
 
-
-
-
 ***
 
 ### write
-
-
 
 ```php
 public static write(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -86,26 +54,16 @@ public static write(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): m
 | `$out` | **mixed** |  |
 | `$fgcolor` | **mixed** |  |
 | `$bgcolor` | **mixed** |  |
-
-
-
 
 ***
 
 ### writeln
 
-
-
 ```php
 public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -115,25 +73,15 @@ public static writeln(mixed $out, mixed $fgcolor = null, mixed $bgcolor = null):
 | `$fgcolor` | **mixed** |  |
 | `$bgcolor` | **mixed** |  |
 
-
-
-
 ***
 
 ### progress
-
-
 
 ```php
 public static progress(mixed $percent, mixed $dec): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -142,11 +90,4 @@ public static progress(mixed $percent, mixed $dec): mixed
 | `$percent` | **mixed** |  |
 | `$dec` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

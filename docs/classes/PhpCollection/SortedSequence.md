@@ -4,48 +4,26 @@
 
 A sequence with a fixed sort-order.
 
-
-
 * Full name: `\PhpCollection\SortedSequence`
 * Parent class: [`\PhpCollection\AbstractSequence`](./AbstractSequence.md)
 
-
-
 ## Properties
 
-
 ### sortFunc
-
-
 
 ```php
 private $sortFunc
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $sortFunc, array $elements = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,9 +31,6 @@ public __construct(mixed $sortFunc, array $elements = array()): mixed
 |-----------|------|-------------|
 | `$sortFunc` | **mixed** |  |
 | `$elements` | **array** |  |
-
-
-
 
 ***
 
@@ -67,21 +42,11 @@ Adds an element to the sequence.
 public add(mixed $newElement): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newElement` | **mixed** |  |
-
-
-
 
 ***
 
@@ -93,77 +58,41 @@ Adds all elements to the sequence.
 public addAll(array $addedElements): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$addedElements` | **array** |  |
 
-
-
-
 ***
 
 ### createNew
-
-
 
 ```php
 protected createNew(array $elements): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$elements` | **array** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $elements = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$elements` | **array** |  |
-
-
-
 
 ***
 
@@ -175,21 +104,11 @@ Adds the elements of another sequence to this sequence.
 public addSequence(\PhpCollection\SequenceInterface $seq): \PhpCollection\SequenceInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$seq` | **\PhpCollection\SequenceInterface** |  |
-
-
-
 
 ***
 
@@ -201,19 +120,11 @@ Returns the index of the passed element.
 public indexOf(mixed $searchedElement): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$searchedElement` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -231,19 +142,11 @@ Returns the last index of the passed element.
 public lastIndexOf(mixed $searchedElement): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$searchedElement` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -261,16 +164,6 @@ Returns a new Sequence with all elements in reverse order.
 public reverse(): \PhpCollection\SequenceInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isDefinedAt
@@ -281,21 +174,11 @@ Returns whether the given index is defined in the sequence.
 public isDefinedAt(mixed $index): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$index` | **mixed** | (0-based) |
-
-
-
 
 ***
 
@@ -307,48 +190,27 @@ Returns a filtered sequence.
 public filter(callable $callable): \PhpCollection\AbstractSequence
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** | receives the element and must return true (= keep) or false (= remove). |
 
-
-
-
 ***
 
 ### map
 
-Creates a new collection by applying the passed callable to all elements
-of the current collection.
+Creates a new collection by applying the passed callable to all elements of the current collection.
 
 ```php
 public map(mixed $callable): \PhpCollection\CollectionInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -360,38 +222,19 @@ Returns a filtered sequence.
 public filterNot(callable $callable): \PhpCollection\AbstractSequence
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** | receives the element and must return true (= remove) or false (= keep). |
 
-
-
-
 ***
 
 ### filterInternal
 
-
-
 ```php
 private filterInternal(mixed $callable, mixed $booleanKeep): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -400,52 +243,28 @@ private filterInternal(mixed $callable, mixed $booleanKeep): mixed
 | `$callable` | **mixed** |  |
 | `$booleanKeep` | **mixed** |  |
 
-
-
-
 ***
 
 ### foldLeft
-
-
 
 ```php
 public foldLeft(mixed $initialValue, mixed $callable): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$initialValue` | **mixed** |  |
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
 ### foldRight
 
-
-
 ```php
 public foldRight(mixed $initialValue, mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -453,9 +272,6 @@ public foldRight(mixed $initialValue, mixed $callable): mixed
 |-----------|------|-------------|
 | `$initialValue` | **mixed** |  |
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -467,19 +283,11 @@ Finds the first index where the given callable returns true.
 public indexWhere(callable $callable): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** |  |
-
 
 **Return Value:**
 
@@ -497,19 +305,11 @@ Returns the last index where the given callable returns true.
 public lastIndexWhere(mixed $callable): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** | receives the element as first argument, and returns true, or false |
-
 
 **Return Value:**
 
@@ -527,16 +327,6 @@ Returns the last element in the collection if available.
 public last(): \PhpOption\Option
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### first
@@ -546,16 +336,6 @@ Returns the first element in the collection if available.
 ```php
 public first(): \PhpOption\Option
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -567,16 +347,6 @@ Returns all indices of this collection.
 public indices(): int[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### get
@@ -587,21 +357,11 @@ Returns an element based on its index (0-based).
 public get(int $index): \PhpCollection\T
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$index` | **int** |  |
-
-
-
 
 ***
 
@@ -613,21 +373,11 @@ Removes the element at the given index, and returns it.
 public remove(int $index): \PhpCollection\T
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$index` | **int** |  |
-
-
-
 
 ***
 
@@ -639,13 +389,6 @@ Updates the element at the given index (0-based).
 public update(int $index, \PhpCollection\T $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -653,28 +396,13 @@ public update(int $index, \PhpCollection\T $value): void
 | `$index` | **int** |  |
 | `$value` | **\PhpCollection\T** |  |
 
-
-
-
 ***
 
 ### isEmpty
 
-
-
 ```php
 public isEmpty(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -686,16 +414,6 @@ Returns all elements in this sequence.
 public all(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### add
@@ -706,21 +424,11 @@ Adds an element to the sequence.
 public add(mixed $newElement): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newElement` | **mixed** |  |
-
-
-
 
 ***
 
@@ -732,49 +440,30 @@ Adds all elements to the sequence.
 public addAll(array $addedElements): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$addedElements` | **array** |  |
 
-
-
-
 ***
 
 ### take
 
-Creates a new collection by taking the given number of elements from the beginning
-of the current collection.
+Creates a new collection by taking the given number of elements from the beginning of the current collection.
 
 ```php
 public take(mixed $number): \PhpCollection\CollectionInterface
 ```
 
-If the passed number is greater than the available number of elements, then all elements
-will be returned as a new collection.
-
-
-
-
-
+If the passed number is greater than the available number of elements, then all elements will be returned as a new
+collection.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
-
-
-
 
 ***
 
@@ -786,21 +475,11 @@ Extracts element from the head while the passed callable returns true.
 public takeWhile(callable $callable): \PhpCollection\Sequence
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** | receives elements of this sequence as first argument, and returns true/false. |
-
-
-
 
 ***
 
@@ -814,19 +493,11 @@ public drop(mixed $number): \PhpCollection\SequenceInterface
 
 If the passed number is greater than the available number of elements, all will be removed.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
-
-
-
 
 ***
 
@@ -840,19 +511,11 @@ public dropRight(mixed $number): \PhpCollection\SequenceInterface
 
 If the passed number is greater than the available number of elements, all will be removed.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
-
-
-
 
 ***
 
@@ -864,38 +527,19 @@ Returns a new sequence by omitting elements from the beginning for as long as th
 public dropWhile(mixed $callable): \PhpCollection\SequenceInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** | Receives the element to drop as first argument, and returns true (drop), or false (stop). |
 
-
-
-
 ***
 
 ### exists
 
-
-
 ```php
 public exists(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -903,65 +547,29 @@ public exists(mixed $callable): mixed
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
 
-
-
-
 ***
 
 ### count
-
-
 
 ```php
 public count(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createNew
 
-
-
 ```php
 protected createNew(array $elements): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -969,25 +577,13 @@ protected createNew(array $elements): mixed
 |-----------|------|-------------|
 | `$elements` | **array** |  |
 
-
-
-
 ***
 
 ### contains
 
-
-
 ```php
 public contains(mixed $searchedElem): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -995,25 +591,13 @@ public contains(mixed $searchedElem): mixed
 |-----------|------|-------------|
 | `$searchedElem` | **mixed** |  |
 
-
-
-
 ***
 
 ### find
 
-
-
 ```php
 public find(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1021,11 +605,4 @@ public find(mixed $callable): mixed
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

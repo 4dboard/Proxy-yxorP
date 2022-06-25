@@ -15,11 +15,7 @@ The goal to cover all languages is to far fetched so this test case is smaller.
 * Full name: `\Symfony\Component\Translation\Tests\PluralizationRulesTest`
 * Parent class: [`PHPUnit_Framework_TestCase`](../../../../PHPUnit_Framework_TestCase.md)
 
-
-
-
 ## Methods
-
 
 ### testFailedLangcodes
 
@@ -31,37 +27,20 @@ public testFailedLangcodes(mixed $nplural, mixed $langCodes): mixed
 
 TODO: The languages mentioned in the data provide need to get fixed somehow within PluralizationRules.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nplural` | **mixed** |  |
 | `$langCodes` | **mixed** |  |
-
-
-
 
 ***
 
 ### testLangcodes
 
-
-
 ```php
 public testLangcodes(mixed $nplural, mixed $langCodes): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,9 +48,6 @@ public testLangcodes(mixed $nplural, mixed $langCodes): mixed
 |-----------|------|-------------|
 | `$nplural` | **mixed** |  |
 | `$langCodes` | **mixed** |  |
-
-
-
 
 ***
 
@@ -103,14 +79,8 @@ This array should be at least empty within the near future.
 public failingLangcodes(): array
 ```
 
-This both depends on a complete list trying to add above as understanding
-the plural rules of the current failing languages.
-
-
-
-
-
-
+This both depends on a complete list trying to add above as understanding the plural rules of the current failing
+languages.
 
 **Return Value:**
 
@@ -128,13 +98,6 @@ We validate only on the plural coverage. Thus the real rules is not tested.
 protected validateMatrix(string $nplural, array $matrix, bool $expectSuccess = true): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -143,25 +106,13 @@ protected validateMatrix(string $nplural, array $matrix, bool $expectSuccess = t
 | `$matrix` | **array** | containing langcodes and their plural index values |
 | `$expectSuccess` | **bool** |  |
 
-
-
-
 ***
 
 ### generateTestData
 
-
-
 ```php
 protected generateTestData(mixed $langCodes): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -169,11 +120,4 @@ protected generateTestData(mixed $langCodes): mixed
 |-----------|------|-------------|
 | `$langCodes` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

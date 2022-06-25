@@ -2,13 +2,8 @@
 
 # PostCode
 
-
-
-
-
 * Full name: `\Zend\I18n\Validator\PostCode`
 * Parent class: [`AbstractValidator`](../../Validator/AbstractValidator.md)
-
 
 ## Constants
 
@@ -21,19 +16,11 @@
 
 ## Properties
 
-
 ### messageTemplates
-
-
 
 ```php
 protected array $messageTemplates
 ```
-
-
-
-
-
 
 ***
 
@@ -45,11 +32,6 @@ Optional Locale to use
 protected string|null $locale
 ```
 
-
-
-
-
-
 ***
 
 ### format
@@ -59,11 +41,6 @@ Optional Manual postal code format
 ```php
 protected string|null $format
 ```
-
-
-
-
-
 
 ***
 
@@ -75,11 +52,6 @@ Optional Service callback for additional validation
 protected mixed|null $service
 ```
 
-
-
-
-
-
 ***
 
 ### postCodeRegex
@@ -90,15 +62,11 @@ Postal Code regexes by territory
 protected static array $postCodeRegex
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -110,19 +78,11 @@ public __construct(array|\Traversable $options = array()): mixed
 
 Accepts a string locale and/or "format".
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -133,14 +93,6 @@ Returns the set locale
 ```php
 public getLocale(): string|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -158,19 +110,11 @@ Sets the locale to use
 public setLocale(string|null $locale): \Zend\I18n\Validator\PostCode
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string&#124;null** |  |
-
 
 **Return Value:**
 
@@ -188,16 +132,6 @@ Returns the set postal code format
 public getFormat(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormat
@@ -208,19 +142,11 @@ Sets a self defined postal format as regex
 public setFormat(string $format): \Zend\I18n\Validator\PostCode
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** |  |
-
 
 **Return Value:**
 
@@ -238,16 +164,6 @@ Returns the actual set service
 public getService(): mixed|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setService
@@ -258,19 +174,11 @@ Sets a new callback for service validation
 public setService(mixed $service): \Zend\I18n\Validator\PostCode
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$service` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -288,24 +196,10 @@ Returns true if and only if $value is a valid postalcode
 public isValid(string $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

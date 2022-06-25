@@ -4,33 +4,22 @@
 
 CallbackHandler
 
-A handler for an event, event, filterchain, etc. Abstracts PHP callbacks,
-primarily to allow for lazy-loading and ensuring availability of default
-arguments (currying).
+A handler for an event, event, filterchain, etc. Abstracts PHP callbacks, primarily to allow for lazy-loading and
+ensuring availability of default arguments (currying).
 
-This was primarily used in zend-eventmanager for managing listeners; as that
-component removes its usage of this class for v3, it is deprecated.
+This was primarily used in zend-eventmanager for managing listeners; as that component removes its usage of this class
+for v3, it is deprecated.
 
 * Full name: `\Zend\Stdlib\CallbackHandler`
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
-
-
 ## Properties
 
-
 ### callback
-
-
 
 ```php
 protected string|array|callable $callback
 ```
-
-
-
-
-
 
 ***
 
@@ -42,15 +31,9 @@ Callback metadata, if any
 protected array $metadata
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -60,22 +43,12 @@ Constructor
 public __construct(string|array|object|callable $callback, array $metadata = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **string&#124;array&#124;object&#124;callable** | PHP callback |
 | `$metadata` | **array** | Callback metadata |
-
-
-
 
 ***
 
@@ -87,21 +60,11 @@ Registers the callback provided in the constructor
 protected registerCallback(callable $callback): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** |  |
-
-
-
 
 ***
 
@@ -113,16 +76,6 @@ Retrieve registered callback
 public getCallback(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### call
@@ -133,21 +86,11 @@ Invoke handler
 public call(array $args = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **array** | Arguments to pass to callback |
-
-
-
 
 ***
 
@@ -159,16 +102,6 @@ Invoke as functor
 public __invoke(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMetadata
@@ -178,16 +111,6 @@ Get all callback metadata
 ```php
 public getMetadata(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -199,21 +122,11 @@ Retrieve a single metadatum
 public getMetadatum(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -225,24 +138,10 @@ Validate a static method call
 protected validateStringCallbackFor54(string $callback): true|array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

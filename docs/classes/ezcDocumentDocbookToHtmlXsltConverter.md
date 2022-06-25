@@ -5,17 +5,12 @@
 Converter for Docbook documents to XHtml using an available XSLT.
 
 By default the converter will try to download and use the XSLT provided at
-http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl. You may
-want to download and use the files locally.
+http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl. You may want to download and use the files locally.
 
 * Full name: `\ezcDocumentDocbookToHtmlXsltConverter`
 * Parent class: [`\ezcDocumentXsltConverter`](./ezcDocumentXsltConverter.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -25,21 +20,11 @@ Construct new document converter.
 public __construct(\ezcDocumentDocbookToHtmlXsltConverterOptions $options = null): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentDocbookToHtmlXsltConverterOptions** |  |
-
-
-
 
 ***
 
@@ -51,13 +36,7 @@ Build document
 protected buildDocument(\DOMDocument $document): \ezcDocumentXmlBase
 ```
 
-Build document of appropriate type from the DOMDocument, created by the
-XSLT transformation.
-
-
-
-
-
+Build document of appropriate type from the DOMDocument, created by the XSLT transformation.
 
 **Parameters:**
 
@@ -65,14 +44,9 @@ XSLT transformation.
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -82,21 +56,11 @@ Construct new document
 public __construct(\ezcDocumentConverterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentConverterOptions** |  |
-
-
-
 
 ***
 
@@ -110,19 +74,13 @@ public convert(\ezcDocument $doc): \ezcDocument
 
 Convert documents of the given type to the requested type.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$doc` | **\ezcDocument** |  |
-
-
-
 
 ***
 
@@ -134,22 +92,15 @@ Build document
 protected buildDocument(\DOMDocument $document): \ezcDocumentXmlBase
 ```
 
-Build document of appropriate type from the DOMDocument, created by the
-XSLT transformation.
-
+Build document of appropriate type from the DOMDocument, created by the XSLT transformation.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
-
-
-
 
 ***
 
@@ -161,13 +112,7 @@ Trigger parser error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a parser error and handle it dependiing on the current error
-reporting settings.
-
-
-
-
-
+Emit a parser error and handle it dependiing on the current error reporting settings.
 
 **Parameters:**
 
@@ -179,9 +124,6 @@ reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -192,19 +134,6 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,8 +2,7 @@
 
 # Extension
 
-Basic extension adding phpDocumentor specific functionality for Twig
-templates.
+Basic extension adding phpDocumentor specific functionality for Twig templates.
 
 Global variables:
 
@@ -11,8 +10,7 @@ Global variables:
 
 Functions:
 
-- *path(string) *, converts the given relative path to be based of the projects
-  root instead of the current directory
+- *path(string) *, converts the given relative path to be based of the projects root instead of the current directory
 
 Filters:
 
@@ -25,60 +23,36 @@ Filters:
 * Full name: `\phpDocumentor\Plugin\Twig\Extension`
 * Parent class: [`\Twig_Extension`](../../../Twig_Extension.md)
 * This class implements:
-[`\phpDocumentor\Plugin\Twig\ExtensionInterface`](./ExtensionInterface.md), [`\Twig_Extension_GlobalsInterface`](../../../Twig_Extension_GlobalsInterface.md)
-
-
+  [`\phpDocumentor\Plugin\Twig\ExtensionInterface`](./ExtensionInterface.md)
+  , [`\Twig_Extension_GlobalsInterface`](../../../Twig_Extension_GlobalsInterface.md)
 
 ## Properties
 
-
 ### data
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\ProjectDescriptor $data
 ```
 
-
-
-
-
-
 ***
 
 ### translator
-
-
 
 ```php
 protected \phpDocumentor\Translator\Translator $translator
 ```
 
-
-
-
-
-
 ***
 
 ### routeRenderer
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Router\Renderer $routeRenderer
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -88,22 +62,13 @@ Registers the structure and transformation with this extension.
 public __construct(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Represents the complete Abstract Syntax Tree. |
-| `$transformation` | **\phpDocumentor\Transformer\Transformation** | Represents the transformation meta data used in the current generation<br />cycle. |
-
-
-
+| `$transformation` | **
+\phpDocumentor\Transformer\Transformation** | Represents the transformation meta data used in the current generation<br />cycle. |
 
 ***
 
@@ -115,21 +80,11 @@ Sets the router used to render the URL where a Descriptor can be found.
 public setRouters(\phpDocumentor\Transformer\Router\Queue $routers): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$routers` | **\phpDocumentor\Transformer\Router\Queue** |  |
-
-
-
 
 ***
 
@@ -141,21 +96,11 @@ Sets the translation component.
 public setTranslator(\phpDocumentor\Translator\Translator $translator): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$translator` | **\phpDocumentor\Translator\Translator** |  |
-
-
-
 
 ***
 
@@ -167,22 +112,14 @@ Sets the destination directory relative to the Project's Root.
 public setDestination(string $destination): void
 ```
 
-The destination is the target directory containing the resulting
-file. This destination is relative to the Project's root and can
-be used for the calculation of nesting depths, etc.
-
-
-
-
-
+The destination is the target directory containing the resulting file. This destination is relative to the Project's
+root and can be used for the calculation of nesting depths, etc.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$destination` | **string** |  |
-
-
 
 **See Also:**
 
@@ -198,16 +135,6 @@ Returns the target directory relative to the Project's Root.
 public getDestination(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getGlobals
@@ -217,16 +144,6 @@ Returns an array of global variables to inject into a Twig template.
 ```php
 public getGlobals(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -238,12 +155,10 @@ Returns a listing of all functions that this extension adds.
 public getFunctions(): \Twig_FunctionInterface[]
 ```
 
-This method is automatically used by Twig upon registering this
-extension (which is done automatically by phpDocumentor) to determine
-an additional list of functions.
+This method is automatically used by Twig upon registering this extension (which is done automatically by phpDocumentor)
+to determine an additional list of functions.
 
-See the Class' DocBlock for a listing of functionality added by this
-Extension.
+See the Class' DocBlock for a listing of functionality added by this Extension.
 
 
 
@@ -263,31 +178,19 @@ Returns a list of all filters that are exposed by this extension.
 public getFilters(): \Twig_SimpleFilter[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### convertToRootPath
 
-Converts the given path to be relative to the root of the documentation
-target directory.
+Converts the given path to be relative to the root of the documentation target directory.
 
 ```php
 public convertToRootPath(string $relative_path): string
 ```
 
-It is not possible to use absolute paths in documentation templates since
-they may be used locally, or in a subfolder. As such we need to calculate
-the number of levels to go up from the current document's directory and
-then append the given path.
+It is not possible to use absolute paths in documentation templates since they may be used locally, or in a subfolder.
+As such we need to calculate the number of levels to go up from the current document's directory and then append the
+given path.
 
 For example:
 
@@ -296,14 +199,8 @@ For example:
     and it will convert it into ../../my/index.html (<root>/classes/my is
     two nesting levels until the root).
 
-This method does not try to normalize or optimize the paths in order to
-save on development time and performance, and because it adds no real
-value.
-
-
-
-
-
+This method does not try to normalize or optimize the paths in order to save on development time and performance, and
+because it adds no real value.
 
 **Parameters:**
 
@@ -311,14 +208,9 @@ value.
 |-----------|------|-------------|
 | `$relative_path` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### initRuntime
 
@@ -328,23 +220,13 @@ Initializes the runtime environment.
 public initRuntime(\Twig\Environment $environment): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$environment` | **\Twig\Environment** |  |
-
-
-
 
 ***
 
@@ -356,16 +238,6 @@ Returns the token parser instances to add to the existing list.
 public getTokenParsers(): \Twig\TokenParser\TokenParserInterface[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getNodeVisitors
@@ -375,16 +247,6 @@ Returns the node visitor instances to add to the existing list.
 ```php
 public getNodeVisitors(): \Twig\NodeVisitor\NodeVisitorInterface[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -396,16 +258,6 @@ Returns a list of filters to add to the existing list.
 public getFilters(): \Twig\TwigFilter[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTests
@@ -415,16 +267,6 @@ Returns a list of tests to add to the existing list.
 ```php
 public getTests(): \Twig\TwigTest[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -436,16 +278,6 @@ Returns a list of functions to add to the existing list.
 public getFunctions(): \Twig\TwigFunction[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOperators
@@ -455,14 +287,6 @@ Returns a list of operators to add to the existing list.
 ```php
 public getOperators(): array[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -480,15 +304,7 @@ Returns a list of global variables to add to the existing list.
 public getGlobals(): array
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -506,24 +322,8 @@ Returns the name of the extension.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
-The extension name
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The extension name yxorP::get('REQUEST')

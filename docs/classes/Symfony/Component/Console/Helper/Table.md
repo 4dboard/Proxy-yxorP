@@ -4,14 +4,9 @@
 
 Provides helpers to display a table.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\Table`
 
-
-
 ## Properties
-
 
 ### headers
 
@@ -20,11 +15,6 @@ Table headers.
 ```php
 private $headers
 ```
-
-
-
-
-
 
 ***
 
@@ -36,11 +26,6 @@ Table rows.
 private $rows
 ```
 
-
-
-
-
-
 ***
 
 ### columnWidths
@@ -50,11 +35,6 @@ Column widths cache.
 ```php
 private $columnWidths
 ```
-
-
-
-
-
 
 ***
 
@@ -66,99 +46,55 @@ Number of columns cache.
 private int $numberOfColumns
 ```
 
-
-
-
-
-
 ***
 
 ### output
-
-
 
 ```php
 private \Symfony\Component\Console\Output\OutputInterface $output
 ```
 
-
-
-
-
-
 ***
 
 ### style
-
-
 
 ```php
 private \Symfony\Component\Console\Helper\TableStyle $style
 ```
 
-
-
-
-
-
 ***
 
 ### columnStyles
-
-
 
 ```php
 private array $columnStyles
 ```
 
-
-
-
-
-
 ***
 
 ### styles
-
-
 
 ```php
 private static $styles
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
-
-
 
 ***
 
@@ -170,12 +106,7 @@ Sets a style definition.
 public static setStyleDefinition(string $name, \Symfony\Component\Console\Helper\TableStyle $style): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -183,9 +114,6 @@ public static setStyleDefinition(string $name, \Symfony\Component\Console\Helper
 |-----------|------|-------------|
 | `$name` | **string** | The style name |
 | `$style` | **\Symfony\Component\Console\Helper\TableStyle** | A TableStyle instance |
-
-
-
 
 ***
 
@@ -197,21 +125,13 @@ Gets a style definition by name.
 public static getStyleDefinition(string $name): \Symfony\Component\Console\Helper\TableStyle
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The style name |
-
-
-
 
 ***
 
@@ -223,21 +143,11 @@ Sets table style.
 public setStyle(\Symfony\Component\Console\Helper\TableStyle|string $name): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **\Symfony\Component\Console\Helper\TableStyle&#124;string** | The style name or a TableStyle instance |
-
-
-
 
 ***
 
@@ -249,16 +159,6 @@ Gets the current table style.
 public getStyle(): \Symfony\Component\Console\Helper\TableStyle
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setColumnStyle
@@ -269,22 +169,12 @@ Sets table column style.
 public setColumnStyle(int $columnIndex, \Symfony\Component\Console\Helper\TableStyle|string $name): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$columnIndex` | **int** | Column index |
 | `$name` | **\Symfony\Component\Console\Helper\TableStyle&#124;string** | The style name or a TableStyle instance |
-
-
-
 
 ***
 
@@ -298,36 +188,19 @@ public getColumnStyle(int $columnIndex): \Symfony\Component\Console\Helper\Table
 
 If style was not set, it returns the global table style.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$columnIndex` | **int** | Column index |
 
-
-
-
 ***
 
 ### setHeaders
 
-
-
 ```php
 public setHeaders(array $headers): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -335,51 +208,27 @@ public setHeaders(array $headers): mixed
 |-----------|------|-------------|
 | `$headers` | **array** |  |
 
-
-
-
 ***
 
 ### setRows
-
-
 
 ```php
 public setRows(array $rows): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rows` | **array** |  |
-
-
-
 
 ***
 
 ### addRows
 
-
-
 ```php
 public addRows(array $rows): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -387,25 +236,13 @@ public addRows(array $rows): mixed
 |-----------|------|-------------|
 | `$rows` | **array** |  |
 
-
-
-
 ***
 
 ### addRow
 
-
-
 ```php
 public addRow(mixed $row): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -413,25 +250,13 @@ public addRow(mixed $row): mixed
 |-----------|------|-------------|
 | `$row` | **mixed** |  |
 
-
-
-
 ***
 
 ### setRow
 
-
-
 ```php
 public setRow(mixed $column, array $row): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -439,9 +264,6 @@ public setRow(mixed $column, array $row): mixed
 |-----------|------|-------------|
 | `$column` | **mixed** |  |
 | `$row` | **array** |  |
-
-
-
 
 ***
 
@@ -455,12 +277,9 @@ public render(): mixed
 
 Example:
 
-+---------------+-----------------------+------------------+
-| ISBN          | Title                 | Author           |
-+---------------+-----------------------+------------------+
-| 99921-58-10-7 | Divine Comedy         | Dante Alighieri  |
-| 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |
-| 960-425-059-0 | The Lord of the Rings | J. R. R. Tolkien |
++---------------+-----------------------+------------------+ | ISBN | Title | Author |
++---------------+-----------------------+------------------+ | 99921-58-10-7 | Divine Comedy | Dante Alighieri | |
+9971-5-0210-0 | A Tale of Two Cities | Charles Dickens | | 960-425-059-0 | The Lord of the Rings | J. R. R. Tolkien |
 +---------------+-----------------------+------------------+
 
 
@@ -503,16 +322,6 @@ Renders vertical column separator.
 private renderColumnSeparator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### renderRow
@@ -525,12 +334,7 @@ private renderRow(array $row, string $cellFormat): mixed
 
 Example:
 
-| 9971-5-0210-0 | A Tale of Two Cities  | Charles Dickens  |
-
-
-
-
-
+| 9971-5-0210-0 | A Tale of Two Cities | Charles Dickens |
 
 **Parameters:**
 
@@ -538,9 +342,6 @@ Example:
 |-----------|------|-------------|
 | `$row` | **array** |  |
 | `$cellFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -552,13 +353,6 @@ Renders table cell with padding.
 private renderCell(array $row, int $column, string $cellFormat): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -566,9 +360,6 @@ private renderCell(array $row, int $column, string $cellFormat): mixed
 | `$row` | **array** |  |
 | `$column` | **int** |  |
 | `$cellFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -580,41 +371,19 @@ Calculate number of columns for this table.
 private calculateNumberOfColumns(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### buildTableRows
 
-
-
 ```php
 private buildTableRows(mixed $rows): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rows` | **mixed** |  |
-
-
-
 
 ***
 
@@ -626,22 +395,12 @@ fill rows that contains rowspan > 1.
 private fillNextRows(array $rows, int $line): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rows` | **array** |  |
 | `$line` | **int** |  |
-
-
-
 
 ***
 
@@ -653,38 +412,19 @@ fill cells for a row that contains colspan > 1.
 private fillCells(mixed $row): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$row` | **mixed** |  |
 
-
-
-
 ***
 
 ### copyRow
 
-
-
 ```php
 private copyRow(array $rows, int $line): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -692,9 +432,6 @@ private copyRow(array $rows, int $line): array
 |-----------|------|-------------|
 | `$rows` | **array** |  |
 | `$line` | **int** |  |
-
-
-
 
 ***
 
@@ -706,21 +443,11 @@ Gets number of columns by row.
 private getNumberOfColumns(array $row): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$row` | **array** |  |
-
-
-
 
 ***
 
@@ -732,21 +459,11 @@ Gets list of columns for the given row.
 private getRowColumns(array $row): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$row` | **array** |  |
-
-
-
 
 ***
 
@@ -758,21 +475,11 @@ Calculates columns widths.
 private calculateColumnsWidth(array $rows): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rows` | **array** |  |
-
-
-
 
 ***
 
@@ -784,16 +491,6 @@ Gets column width.
 private getColumnSeparatorWidth(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCellWidth
@@ -804,22 +501,12 @@ Gets cell width.
 private getCellWidth(array $row, int $column): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$row` | **array** |  |
 | `$column` | **int** |  |
-
-
-
 
 ***
 
@@ -831,52 +518,23 @@ Called after rendering to cleanup cache data.
 private cleanup(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### initStyles
-
-
 
 ```php
 private static initStyles(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### resolveStyle
 
-
-
 ```php
 private resolveStyle(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -884,11 +542,4 @@ private resolveStyle(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

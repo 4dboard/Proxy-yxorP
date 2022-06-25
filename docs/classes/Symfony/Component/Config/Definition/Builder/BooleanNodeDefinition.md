@@ -4,16 +4,10 @@
 
 This class provides a fluent interface for defining a node.
 
-
-
 * Full name: `\Symfony\Component\Config\Definition\Builder\BooleanNodeDefinition`
 * Parent class: [`\Symfony\Component\Config\Definition\Builder\ScalarNodeDefinition`](./ScalarNodeDefinition.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -23,22 +17,12 @@ This class provides a fluent interface for defining a node.
 public __construct(mixed $name, \Symfony\Component\Config\Definition\Builder\NodeParentInterface $parent = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 | `$parent` | **\Symfony\Component\Config\Definition\Builder\NodeParentInterface** |  |
-
-
-
 
 ***
 
@@ -50,17 +34,7 @@ public __construct(mixed $name, \Symfony\Component\Config\Definition\Builder\Nod
 public cannotBeEmpty(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -72,14 +46,6 @@ Instantiate a Node.
 protected instantiateNode(): \Symfony\Component\Config\Definition\BooleanNode
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The node
@@ -88,9 +54,7 @@ The node
 
 ***
 
-
 ## Inherited methods
-
 
 ### instantiateNode
 
@@ -99,14 +63,6 @@ Instantiate a Node.
 ```php
 protected instantiateNode(): \Symfony\Component\Config\Definition\VariableNode
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -124,13 +80,7 @@ Instantiate and configure the node according to this definition.
 protected createNode(): \Symfony\Component\Config\Definition\NodeInterface
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
 
 **Return Value:**
 
@@ -142,18 +92,9 @@ The node instance
 
 ### __construct
 
-
-
 ```php
 public __construct(string|null $name, \Symfony\Component\Config\Definition\Builder\NodeParentInterface|null $parent = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -161,9 +102,6 @@ public __construct(string|null $name, \Symfony\Component\Config\Definition\Build
 |-----------|------|-------------|
 | `$name` | **string&#124;null** | The name of the node |
 | `$parent` | **\Symfony\Component\Config\Definition\Builder\NodeParentInterface&#124;null** | The parent |
-
-
-
 
 ***
 
@@ -175,21 +113,11 @@ Sets the parent node.
 public setParent(\Symfony\Component\Config\Definition\Builder\NodeParentInterface $parent): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parent` | **\Symfony\Component\Config\Definition\Builder\NodeParentInterface** |  |
-
-
-
 
 ***
 
@@ -201,21 +129,11 @@ Sets info message.
 public info(string $info): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$info` | **string** | The info text |
-
-
-
 
 ***
 
@@ -227,21 +145,11 @@ Sets example configuration.
 public example(string|array $example): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$example` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -253,22 +161,12 @@ Sets an attribute on the node.
 public attribute(string $key, mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -279,14 +177,6 @@ Returns the parent node.
 ```php
 public end(): \Symfony\Component\Config\Definition\Builder\NodeParentInterface|\Symfony\Component\Config\Definition\Builder\NodeBuilder|\Symfony\Component\Config\Definition\Builder\NodeDefinition|\Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition|\Symfony\Component\Config\Definition\Builder\VariableNodeDefinition|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -304,21 +194,11 @@ Creates the node.
 public getNode(bool $forceRootNode = false): \Symfony\Component\Config\Definition\NodeInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$forceRootNode` | **bool** | Whether to force this node as the root node |
-
-
-
 
 ***
 
@@ -330,21 +210,11 @@ Sets the default value.
 public defaultValue(mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The default value |
-
-
-
 
 ***
 
@@ -356,16 +226,6 @@ Sets the node as required.
 public isRequired(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### treatNullLike
@@ -376,21 +236,11 @@ Sets the equivalent value used when the node contains null.
 public treatNullLike(mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -402,21 +252,11 @@ Sets the equivalent value used when the node contains true.
 public treatTrueLike(mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -428,21 +268,11 @@ Sets the equivalent value used when the node contains false.
 public treatFalseLike(mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -454,16 +284,6 @@ Sets null as the default value.
 public defaultNull(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### defaultTrue
@@ -473,16 +293,6 @@ Sets true as the default value.
 ```php
 public defaultTrue(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -494,16 +304,6 @@ Sets false as the default value.
 public defaultFalse(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### beforeNormalization
@@ -513,16 +313,6 @@ Sets an expression to run before the normalization.
 ```php
 public beforeNormalization(): \Symfony\Component\Config\Definition\Builder\ExprBuilder
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -534,16 +324,6 @@ Denies the node value being empty.
 public cannotBeEmpty(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validate
@@ -554,9 +334,8 @@ Sets an expression to run for the validation.
 public validate(): \Symfony\Component\Config\Definition\Builder\ExprBuilder
 ```
 
-The expression receives the value of the node and must return it. It can
-modify it.
-An exception should be thrown when the node is not valid.
+The expression receives the value of the node and must return it. It can modify it. An exception should be thrown when
+the node is not valid.
 
 
 
@@ -576,21 +355,11 @@ Sets whether the node can be overwritten.
 public cannotBeOverwritten(bool $deny = true): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$deny` | **bool** | Whether the overwriting is forbidden or not |
-
-
-
 
 ***
 
@@ -602,16 +371,6 @@ Gets the builder for validation rules.
 protected validation(): \Symfony\Component\Config\Definition\Builder\ValidationBuilder
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### merge
@@ -621,16 +380,6 @@ Gets the builder for merging rules.
 ```php
 protected merge(): \Symfony\Component\Config\Definition\Builder\MergeBuilder
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -642,18 +391,4 @@ Gets the builder for normalization rules.
 protected normalization(): \Symfony\Component\Config\Definition\Builder\NormalizationBuilder
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,152 +4,83 @@
 
 Defines the styles for a Table.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\TableStyle`
-
-
 
 ## Properties
 
-
 ### paddingChar
-
-
 
 ```php
 private $paddingChar
 ```
 
-
-
-
-
-
 ***
 
 ### horizontalBorderChar
-
-
 
 ```php
 private $horizontalBorderChar
 ```
 
-
-
-
-
-
 ***
 
 ### verticalBorderChar
-
-
 
 ```php
 private $verticalBorderChar
 ```
 
-
-
-
-
-
 ***
 
 ### crossingChar
-
-
 
 ```php
 private $crossingChar
 ```
 
-
-
-
-
-
 ***
 
 ### cellHeaderFormat
-
-
 
 ```php
 private $cellHeaderFormat
 ```
 
-
-
-
-
-
 ***
 
 ### cellRowFormat
-
-
 
 ```php
 private $cellRowFormat
 ```
 
-
-
-
-
-
 ***
 
 ### cellRowContentFormat
-
-
 
 ```php
 private $cellRowContentFormat
 ```
 
-
-
-
-
-
 ***
 
 ### borderFormat
-
-
 
 ```php
 private $borderFormat
 ```
 
-
-
-
-
-
 ***
 
 ### padType
-
-
 
 ```php
 private $padType
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setPaddingChar
 
@@ -159,21 +90,11 @@ Sets padding character, used for cell padding.
 public setPaddingChar(string $paddingChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$paddingChar` | **string** |  |
-
-
-
 
 ***
 
@@ -185,16 +106,6 @@ Gets padding character, used for cell padding.
 public getPaddingChar(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setHorizontalBorderChar
@@ -205,21 +116,11 @@ Sets horizontal border character.
 public setHorizontalBorderChar(string $horizontalBorderChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$horizontalBorderChar` | **string** |  |
-
-
-
 
 ***
 
@@ -231,16 +132,6 @@ Gets horizontal border character.
 public getHorizontalBorderChar(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setVerticalBorderChar
@@ -251,21 +142,11 @@ Sets vertical border character.
 public setVerticalBorderChar(string $verticalBorderChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$verticalBorderChar` | **string** |  |
-
-
-
 
 ***
 
@@ -277,16 +158,6 @@ Gets vertical border character.
 public getVerticalBorderChar(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCrossingChar
@@ -297,21 +168,11 @@ Sets crossing character.
 public setCrossingChar(string $crossingChar): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$crossingChar` | **string** |  |
-
-
-
 
 ***
 
@@ -323,16 +184,6 @@ Gets crossing character.
 public getCrossingChar(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCellHeaderFormat
@@ -343,21 +194,11 @@ Sets header cell format.
 public setCellHeaderFormat(string $cellHeaderFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellHeaderFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -369,16 +210,6 @@ Gets header cell format.
 public getCellHeaderFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCellRowFormat
@@ -389,21 +220,11 @@ Sets row cell format.
 public setCellRowFormat(string $cellRowFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellRowFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -415,16 +236,6 @@ Gets row cell format.
 public getCellRowFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCellRowContentFormat
@@ -435,21 +246,11 @@ Sets row cell content format.
 public setCellRowContentFormat(string $cellRowContentFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cellRowContentFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -461,16 +262,6 @@ Gets row cell content format.
 public getCellRowContentFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBorderFormat
@@ -481,21 +272,11 @@ Sets table border format.
 public setBorderFormat(string $borderFormat): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$borderFormat` | **string** |  |
-
-
-
 
 ***
 
@@ -507,16 +288,6 @@ Gets table border format.
 public getBorderFormat(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPadType
@@ -527,21 +298,11 @@ Sets cell padding type.
 public setPadType(int $padType): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$padType` | **int** | STR_PAD_* |
-
-
-
 
 ***
 
@@ -553,18 +314,4 @@ Gets cell padding type.
 public getPadType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

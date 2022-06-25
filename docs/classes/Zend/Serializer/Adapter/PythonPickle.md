@@ -2,20 +2,17 @@
 
 # PythonPickle
 
-
-
-
-
 * Full name: `\Zend\Serializer\Adapter\PythonPickle`
 * Parent class: [`\Zend\Serializer\Adapter\AbstractAdapter`](./AbstractAdapter.md)
 
 **See Also:**
 
-*  - Phython3.1/Lib/pickle.py
-*  - Phython3.1/Modules/_pickle.c
-* http://www.python.org - 
-* http://pickle-js.googlecode.com - 
-
+*
+    - Phython3.1/Lib/pickle.py
+*
+    - Phython3.1/Modules/_pickle.c
+* http://www.python.org -
+* http://pickle-js.googlecode.com -
 
 ## Constants
 
@@ -79,7 +76,6 @@
 
 ## Properties
 
-
 ### isLittleEndian
 
 Whether or not the system is little-endian
@@ -88,165 +84,93 @@ Whether or not the system is little-endian
 protected static bool $isLittleEndian
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### quoteString
 
-
-
 ```php
 protected static array $quoteString
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### protocol
 
-
-
 ```php
 protected $protocol
 ```
-
-
-
-
-
 
 ***
 
 ### memo
 
-
-
 ```php
 protected $memo
 ```
-
-
-
-
-
 
 ***
 
 ### pickle
 
-
-
 ```php
 protected $pickle
 ```
-
-
-
-
-
 
 ***
 
 ### pickleLen
 
-
-
 ```php
 protected $pickleLen
 ```
-
-
-
-
-
 
 ***
 
 ### pos
 
-
-
 ```php
 protected $pos
 ```
-
-
-
-
-
 
 ***
 
 ### stack
 
-
-
 ```php
 protected $stack
 ```
-
-
-
-
-
 
 ***
 
 ### marker
 
-
-
 ```php
 protected $marker
 ```
-
-
-
-
-
 
 ***
 
 ### bigIntegerAdapter
 
-
-
 ```php
 protected \Zend\Math\BigInteger\Adapter\AdapterInterface $bigIntegerAdapter
 ```
-
-
-
-
-
 
 ***
 
 ### options
 
-
-
 ```php
 protected \Zend\Serializer\Adapter\PythonPickleOptions $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -256,21 +180,11 @@ Constructor.
 public __construct(array|\Traversable|\Zend\Serializer\Adapter\PythonPickleOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Serializer\Adapter\PythonPickleOptions** | Optional |
-
-
-
 
 ***
 
@@ -282,21 +196,11 @@ Set options
 public setOptions(array|\Traversable|\Zend\Serializer\Adapter\PythonPickleOptions $options): \Zend\Serializer\Adapter\PythonPickle
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Serializer\Adapter\PythonPickleOptions** |  |
-
-
-
 
 ***
 
@@ -308,16 +212,6 @@ Get options
 public getOptions(): \Zend\Serializer\Adapter\PythonPickleOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### serialize
@@ -328,21 +222,11 @@ Serialize PHP to PythonPickle format
 public serialize(mixed $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -354,21 +238,11 @@ Write a value
 protected write(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -380,21 +254,11 @@ Write pickle protocol
 protected writeProto(int $protocol): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$protocol` | **int** |  |
-
-
-
 
 ***
 
@@ -406,21 +270,11 @@ Write a get
 protected writeGet(int $id): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **int** | Id of memo |
-
-
-
 
 ***
 
@@ -432,21 +286,11 @@ Write a put
 protected writePut(int $id): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **int** | Id of memo |
-
-
-
 
 ***
 
@@ -458,16 +302,6 @@ Write a null as None
 protected writeNull(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### writeBool
@@ -478,21 +312,11 @@ Write boolean value
 protected writeBool(bool $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **bool** |  |
-
-
-
 
 ***
 
@@ -504,21 +328,11 @@ Write an integer value
 protected writeInt(int $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **int** |  |
-
-
-
 
 ***
 
@@ -530,21 +344,11 @@ Write a float value
 protected writeFloat(float $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **float** |  |
-
-
-
 
 ***
 
@@ -556,21 +360,11 @@ Write a string value
 protected writeString(string $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -582,21 +376,11 @@ Write an associative array value as dictionary
 protected writeArrayDict(array|\Traversable $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -608,21 +392,11 @@ Write a simple array value as list
 protected writeArrayList(array $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **array** |  |
-
-
-
 
 ***
 
@@ -634,21 +408,11 @@ Write an object as a dictionary
 protected writeObject(object $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **object** |  |
-
-
-
 
 ***
 
@@ -660,16 +424,6 @@ Write stop
 protected writeStop(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### memorize
@@ -680,45 +434,27 @@ Add a value to the memo and write the id
 protected memorize(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
 ### searchMemo
 
-Search a value in the memo and return  the id
+Search a value in the memo and return the id
 
 ```php
 protected searchMemo(mixed $value): int|bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -736,19 +472,11 @@ Quote/Escape a string
 protected quoteString(string $str): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
-
 
 **Return Value:**
 
@@ -766,21 +494,11 @@ Unserialize from Python Pickle format to PHP
 public unserialize(string $pickle): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pickle` | **string** |  |
-
-
-
 
 ***
 
@@ -792,16 +510,6 @@ Clear temp variables needed for processing
 protected clearProcessVars(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### load
@@ -812,21 +520,11 @@ Load a pickle opcode
 protected load(string $op): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$op` | **string** |  |
-
-
-
 
 ***
 
@@ -838,16 +536,6 @@ Load a PUT opcode
 protected loadPut(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadBinPut
@@ -857,16 +545,6 @@ Load a binary PUT
 ```php
 protected loadBinPut(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -878,16 +556,6 @@ Load a long binary PUT
 protected loadLongBinPut(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadGet
@@ -897,16 +565,6 @@ Load a GET operation
 ```php
 protected loadGet(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -918,16 +576,6 @@ Load a binary GET operation
 protected loadBinGet(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadLongBinGet
@@ -937,16 +585,6 @@ Load a long binary GET operation
 ```php
 protected loadLongBinGet(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -958,16 +596,6 @@ Load a NONE operator
 protected loadNone(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadNewTrue
@@ -977,16 +605,6 @@ Load a boolean TRUE operator
 ```php
 protected loadNewTrue(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -998,16 +616,6 @@ Load a boolean FALSE operator
 protected loadNewFalse(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadInt
@@ -1017,16 +625,6 @@ Load an integer operator
 ```php
 protected loadInt(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1038,16 +636,6 @@ Load a binary integer operator
 protected loadBinInt(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadBinInt1
@@ -1057,16 +645,6 @@ Load the first byte of a binary integer
 ```php
 protected loadBinInt1(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1078,16 +656,6 @@ Load the second byte of a binary integer
 protected loadBinInt2(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadLong
@@ -1097,16 +665,6 @@ Load a long (float) operator
 ```php
 protected loadLong(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1118,16 +676,6 @@ Load a one byte long integer
 protected loadLong1(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadLong4
@@ -1137,16 +685,6 @@ Load a 4 byte long integer
 ```php
 protected loadLong4(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1158,16 +696,6 @@ Load a float value
 protected loadFloat(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadBinFloat
@@ -1177,16 +705,6 @@ Load a binary float value
 ```php
 protected loadBinFloat(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1198,16 +716,6 @@ Load a string
 protected loadString(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadBinString
@@ -1217,16 +725,6 @@ Load a binary string
 ```php
 protected loadBinString(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1238,16 +736,6 @@ Load a short binary string
 protected loadShortBinString(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadBinBytes
@@ -1257,16 +745,6 @@ Load arbitrary binary bytes
 ```php
 protected loadBinBytes(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1278,16 +756,6 @@ Load a single binary byte
 protected loadShortBinBytes(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadUnicode
@@ -1297,16 +765,6 @@ Load a unicode string
 ```php
 protected loadUnicode(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1318,21 +776,11 @@ Convert a unicode sequence to UTF-8
 protected _convertMatchingUnicodeSequence2Utf8(array $match): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$match` | **array** |  |
-
-
-
 
 ***
 
@@ -1344,21 +792,11 @@ Convert a hex string to a UTF-8 string
 protected hex2Utf8(string $hex): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$hex` | **string** |  |
-
-
-
 
 ***
 
@@ -1370,16 +808,6 @@ Load binary unicode sequence
 protected loadBinUnicode(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadMark
@@ -1389,16 +817,6 @@ Load a marker sequence
 ```php
 protected loadMark(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1410,16 +828,6 @@ Load an array (list)
 protected loadList(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadAppend
@@ -1429,16 +837,6 @@ Load an append (to list) sequence
 ```php
 protected loadAppend(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1450,16 +848,6 @@ Load an empty list sequence
 protected loadEmptyList(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadAppends
@@ -1469,16 +857,6 @@ Load multiple append (to list) sequences at once
 ```php
 protected loadAppends(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1490,16 +868,6 @@ Load an associative array (Python dictionary)
 protected loadDict(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadSetItem
@@ -1509,16 +877,6 @@ Load an item from a set
 ```php
 protected loadSetItem(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1530,16 +888,6 @@ Load an empty dictionary
 protected _loadEmptyDict(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadSetItems
@@ -1549,16 +897,6 @@ Load set items
 ```php
 protected loadSetItems(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1570,16 +908,6 @@ Load a tuple
 protected loadTuple(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadTuple1
@@ -1589,16 +917,6 @@ Load single item tuple
 ```php
 protected loadTuple1(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1610,16 +928,6 @@ Load two item tuple
 protected loadTuple2(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadTuple3
@@ -1629,16 +937,6 @@ Load three item tuple
 ```php
 protected loadTuple3(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1650,16 +948,6 @@ Load a proto value
 protected loadProto(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### read
@@ -1670,21 +958,11 @@ Read a segment of the pickle
 protected read(mixed $len): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$len` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1696,16 +974,6 @@ Read a line of the pickle at once
 protected readline(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unquoteString
@@ -1716,19 +984,11 @@ Unquote/Unescape a quoted string
 protected unquoteString(string $str): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** | quoted string |
-
 
 **Return Value:**
 
@@ -1746,16 +1006,6 @@ Return last marker position in stack
 protected lastMarker(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### decodeBinLong
@@ -1766,27 +1016,15 @@ Decode a binary long sequence
 protected decodeBinLong(string $data): int|float|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -1796,21 +1034,11 @@ Constructor
 public __construct(array|\Traversable|\Zend\Serializer\Adapter\AdapterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Serializer\Adapter\AdapterOptions** |  |
-
-
-
 
 ***
 
@@ -1822,21 +1050,11 @@ Set adapter options
 public setOptions(array|\Traversable|\Zend\Serializer\Adapter\AdapterOptions $options): \Zend\Serializer\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Serializer\Adapter\AdapterOptions** |  |
-
-
-
 
 ***
 
@@ -1848,18 +1066,4 @@ Get adapter options
 public getOptions(): \Zend\Serializer\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

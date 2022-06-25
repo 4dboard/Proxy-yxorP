@@ -2,19 +2,13 @@
 
 # ezcDocumentEzXmlLinkConverter
 
-Class for conversions of links, given as natural URLs into the eZXml storage
-format, which may result in urlIds, nodeIds, or similar.
-
-
+Class for conversions of links, given as natural URLs into the eZXml storage format, which may result in urlIds,
+nodeIds, or similar.
 
 * Full name: `\ezcDocumentEzXmlLinkConverter`
 * This class is an **Abstract class**
 
-
-
-
 ## Methods
-
 
 ### getUrlProperties
 
@@ -26,10 +20,7 @@ public getUrlProperties(string $url): array
 
 Return an array of the attributes, which should be set for the link.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -37,11 +28,4 @@ Return an array of the attributes, which should be set for the link.
 |-----------|------|-------------|
 | `$url` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

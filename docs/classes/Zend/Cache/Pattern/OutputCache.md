@@ -2,17 +2,10 @@
 
 # OutputCache
 
-
-
-
-
 * Full name: `\Zend\Cache\Pattern\OutputCache`
 * Parent class: [`\Zend\Cache\Pattern\AbstractPattern`](./AbstractPattern.md)
 
-
-
 ## Properties
-
 
 ### keyStack
 
@@ -22,15 +15,9 @@ The key stack
 protected array $keyStack
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setOptions
 
@@ -40,48 +27,28 @@ Set options
 public setOptions(\Zend\Cache\Pattern\PatternOptions $options): \Zend\Cache\Pattern\OutputCache
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Pattern\PatternOptions** |  |
 
-
-
-
 ***
 
 ### start
 
-if there is a cached item with the given key display it's data and return true
-else start buffering output until end() is called or the script ends.
+if there is a cached item with the given key display it's data and return true else start buffering output until end()
+is called or the script ends.
 
 ```php
 public start(string $key): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Key |
-
-
-
 
 ***
 
@@ -94,14 +61,6 @@ and displays the buffer.
 public end(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 TRUE on success, FALSE on failure writing to cache
@@ -110,9 +69,7 @@ TRUE on success, FALSE on failure writing to cache
 
 ***
 
-
 ## Inherited methods
-
 
 ### setOptions
 
@@ -122,21 +79,11 @@ Set pattern options
 public setOptions(\Zend\Cache\Pattern\PatternOptions $options): \Zend\Cache\Pattern\AbstractPattern
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Pattern\PatternOptions** |  |
-
-
-
 
 ***
 
@@ -148,18 +95,4 @@ Get all pattern options
 public getOptions(): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

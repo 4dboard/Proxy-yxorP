@@ -4,19 +4,14 @@
 
 Style filter rule to distinguish list types.
 
-ODT does not distinguish between numbered and itemized lists on an XML
-element level, but through styling information. This rule implements
-detection of numbered lists.
+ODT does not distinguish between numbered and itemized lists on an XML element level, but through styling information.
+This rule implements detection of numbered lists.
 
 * Full name: `\ezcDocumentOdtListLevelStyleFilterRule`
 * This class implements:
-[`\ezcDocumentOdtStyleFilterRule`](./ezcDocumentOdtStyleFilterRule.md)
-
-
-
+  [`\ezcDocumentOdtStyleFilterRule`](./ezcDocumentOdtStyleFilterRule.md)
 
 ## Methods
-
 
 ### handles
 
@@ -26,21 +21,11 @@ Returns if the given $odtElement is handled by the rule.
 public handles(\DOMElement $odtElement): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -52,14 +37,8 @@ Detects numbered lists from ODT style information.
 public filter(\DOMElement $odtElement, \ezcDocumentOdtStyleInferencer $styleInferencer): mixed
 ```
 
-This method detects the type of list in $odtElement by its list-level
-style and sets the attributes for $odtElement accordingly to have it
-converted properly to DocBook.
-
-
-
-
-
+This method detects the type of list in $odtElement by its list-level style and sets the attributes for $odtElement
+accordingly to have it converted properly to DocBook.
 
 **Parameters:**
 
@@ -67,9 +46,6 @@ converted properly to DocBook.
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
 | `$styleInferencer` | **\ezcDocumentOdtStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -81,22 +57,12 @@ Sets properties of numbered lists based on $listLevelProps.
 protected setNumberListProperties(\DOMElement $numList, \ezcDocumentOdtListLevelStyleNumber $listLevelProps): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$numList` | **\DOMElement** |  |
 | `$listLevelProps` | **\ezcDocumentOdtListLevelStyleNumber** |  |
-
-
-
 
 ***
 
@@ -108,22 +74,12 @@ Sets properties of itemized lists based on $listLevelProps.
 protected setItemListProperties(\DOMElement $itemList, \ezcDocumentOdtListLevelStyleBullet $listLevelProps): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$itemList` | **\DOMElement** |  |
 | `$listLevelProps` | **\ezcDocumentOdtListLevelStyleBullet** |  |
-
-
-
 
 ***
 
@@ -137,22 +93,10 @@ protected getListLevel(\DOMElement $odtElement): int
 
 Note that leveling starts with 1!
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

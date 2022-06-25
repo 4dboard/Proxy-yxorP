@@ -8,7 +8,6 @@ simplified/compact version of svg-sanitizer - https://github.com/darylldoyle/svg
 
 * Full name: `\SVGSanitizer`
 
-
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -17,129 +16,71 @@ simplified/compact version of svg-sanitizer - https://github.com/darylldoyle/svg
 
 ## Properties
 
-
 ### xmlDocument
-
-
 
 ```php
 protected \DOMDocument $xmlDocument
 ```
 
-
-
-
-
-
 ***
 
 ### allowedTags
-
-
 
 ```php
 protected array $allowedTags
 ```
 
-
-
-
-
-
 ***
 
 ### allowedAttrs
-
-
 
 ```php
 protected array $allowedAttrs
 ```
 
-
-
-
-
-
 ***
 
 ### xmlLoaderValue
-
-
 
 ```php
 protected $xmlLoaderValue
 ```
 
-
-
-
-
-
 ***
 
 ### minifyXML
-
-
 
 ```php
 protected bool $minifyXML
 ```
 
-
-
-
-
-
 ***
 
 ### removeRemoteReferences
-
-
 
 ```php
 protected bool $removeRemoteReferences
 ```
 
-
-
-
-
-
 ***
 
 ### removeXMLTag
-
-
 
 ```php
 protected bool $removeXMLTag
 ```
 
-
-
-
-
-
 ***
 
 ### xmlOptions
-
-
 
 ```php
 protected int $xmlOptions
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### clean
 
@@ -149,12 +90,7 @@ SVGSanitizer::clean('<svg ...>')
 public static clean(mixed $svgText): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -162,28 +98,13 @@ public static clean(mixed $svgText): mixed
 |-----------|------|-------------|
 | `$svgText` | **mixed** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -195,33 +116,15 @@ Set up the DOMDocument
 protected resetInternal(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setXMLOptions
 
-Set XML options to use when saving XML
-See: DOMDocument::saveXML
+Set XML options to use when saving XML See: DOMDocument::saveXML
 
 ```php
 public setXMLOptions(int $xmlOptions): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -229,29 +132,15 @@ public setXMLOptions(int $xmlOptions): mixed
 |-----------|------|-------------|
 | `$xmlOptions` | **int** |  |
 
-
-
-
 ***
 
 ### getXMLOptions
 
-Get XML options to use when saving XML
-See: DOMDocument::saveXML
+Get XML options to use when saving XML See: DOMDocument::saveXML
 
 ```php
 public getXMLOptions(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -263,16 +152,6 @@ Get the array of allowed tags
 public getAllowedTags(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAllowedTags
@@ -283,21 +162,11 @@ Set custom allowed tags
 public setAllowedTags(array $allowedTags): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allowedTags` | **array** |  |
-
-
-
 
 ***
 
@@ -309,16 +178,6 @@ Get the array of allowed attributes
 public getAllowedAttrs(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAllowedAttrs
@@ -329,21 +188,11 @@ Set custom allowed attributes
 public setAllowedAttrs(array $allowedAttrs): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allowedAttrs` | **array** |  |
-
-
-
 
 ***
 
@@ -355,21 +204,11 @@ Should we remove references to remote files?
 public removeRemoteReferences(bool $removeRemoteRefs = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$removeRemoteRefs` | **bool** |  |
-
-
-
 
 ***
 
@@ -381,21 +220,11 @@ Sanitize the passed string
 public sanitize(string $dirty): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirty` | **string** |  |
-
-
-
 
 ***
 
@@ -407,16 +236,6 @@ Set up libXML before we start
 protected setUpBefore(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### resetAfter
@@ -427,36 +246,15 @@ Reset the class after use
 protected resetAfter(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### removeDoctype
 
-Remove the XML Doctype
-It may be caught later on output but that seems to be buggy, so we need to make sure it's gone
+Remove the XML Doctype It may be caught later on output but that seems to be buggy, so we need to make sure it's gone
 
 ```php
 protected removeDoctype(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -468,21 +266,11 @@ Start the cleaning with tags, then we move onto attributes and hrefs later
 protected startClean(\DOMNodeList $elements): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$elements` | **\DOMNodeList** |  |
-
-
-
 
 ***
 
@@ -494,21 +282,11 @@ Only allow attributes that are on the whitelist
 protected cleanAttributesOnWhitelist(\DOMElement $element): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -520,21 +298,11 @@ Clean the xlink:hrefs of script and data embeds
 protected cleanXlinkHrefs(\DOMElement $element): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -546,21 +314,11 @@ Clean the hrefs of script and data embeds
 protected cleanHrefs(\DOMElement $element): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -572,21 +330,11 @@ Removes non-printable ASCII characters from string & trims it
 protected removeNonPrintableCharacters(string $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -598,21 +346,11 @@ Does this attribute value have a remote reference?
 protected hasRemoteReference( $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **** |  |
-
-
-
 
 ***
 
@@ -624,21 +362,11 @@ Should we minify the output?
 public minify(bool $shouldMinify = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$shouldMinify` | **bool** |  |
-
-
-
 
 ***
 
@@ -650,21 +378,11 @@ Should we remove the XML tag in the header?
 public removeXMLTag(bool $removeXMLTag = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$removeXMLTag` | **bool** |  |
-
-
-
 
 ***
 
@@ -676,21 +394,11 @@ Check to see if an attribute is an aria attribute or not
 protected isAriaAttribute( $attributeName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$attributeName` | **** |  |
-
-
-
 
 ***
 
@@ -702,21 +410,11 @@ Check to see if an attribute is an data attribute or not
 protected isDataAttribute( $attributeName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$attributeName` | **** |  |
-
-
-
 
 ***
 
@@ -728,24 +426,10 @@ Make sure our use tag is only referencing internal resources
 protected isUseTagDirty(\DOMElement $element): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

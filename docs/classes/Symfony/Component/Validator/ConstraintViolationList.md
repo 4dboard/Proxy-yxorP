@@ -4,34 +4,22 @@
 
 Default implementation of {@ConstraintViolationListInterface}.
 
-
-
 * Full name: `\Symfony\Component\Validator\ConstraintViolationList`
 * This class implements:
-[`\IteratorAggregate`](../../../IteratorAggregate.md), [`\Symfony\Component\Validator\ConstraintViolationListInterface`](./ConstraintViolationListInterface.md)
-
-
+  [`\IteratorAggregate`](../../../IteratorAggregate.md)
+  , [`\Symfony\Component\Validator\ConstraintViolationListInterface`](./ConstraintViolationListInterface.md)
 
 ## Properties
 
-
 ### violations
-
-
 
 ```php
 private \Symfony\Component\Validator\ConstraintViolationInterface[] $violations
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,21 +29,12 @@ Creates a new constraint violation list.
 public __construct(\Symfony\Component\Validator\ConstraintViolationInterface[] $violations = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$violations` | **\Symfony\Component\Validator\ConstraintViolationInterface[]** | The constraint violations to add to the list |
-
-
-
+| `$violations` | **
+\Symfony\Component\Validator\ConstraintViolationInterface[]** | The constraint violations to add to the list |
 
 ***
 
@@ -66,14 +45,6 @@ Converts the violation into a string for debugging purposes.
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -91,21 +62,11 @@ Adds a constraint violation to this list.
 public add(\Symfony\Component\Validator\ConstraintViolationInterface $violation): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$violation` | **\Symfony\Component\Validator\ConstraintViolationInterface** |  |
-
-
-
 
 ***
 
@@ -117,21 +78,11 @@ Merges an existing violation list into this list.
 public addAll(\Symfony\Component\Validator\ConstraintViolationListInterface $otherList): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$otherList` | **\Symfony\Component\Validator\ConstraintViolationListInterface** |  |
-
-
-
 
 ***
 
@@ -143,19 +94,11 @@ Returns the violation at a given offset.
 public get(mixed $offset): \Symfony\Component\Validator\ConstraintViolationInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | The offset of the violation |
-
 
 **Return Value:**
 
@@ -173,19 +116,11 @@ Returns whether the given offset exists.
 public has(mixed $offset): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | The violation offset |
-
 
 **Return Value:**
 
@@ -203,22 +138,12 @@ Sets a violation at a given offset.
 public set(mixed $offset, \Symfony\Component\Validator\ConstraintViolationInterface $violation): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | The violation offset |
 | `$violation` | **\Symfony\Component\Validator\ConstraintViolationInterface** | The violation |
-
-
-
 
 ***
 
@@ -230,21 +155,11 @@ Removes a violation at a given offset.
 public remove(mixed $offset): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | The offset to remove |
-
-
-
 
 ***
 
@@ -256,16 +171,6 @@ public remove(mixed $offset): mixed
 public getIterator(): \ArrayIterator|\Symfony\Component\Validator\ConstraintViolationInterface[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
@@ -275,16 +180,6 @@ public getIterator(): \ArrayIterator|\Symfony\Component\Validator\ConstraintViol
 ```php
 public count(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -296,21 +191,11 @@ public count(): mixed
 public offsetExists(mixed $offset): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
-
-
-
 
 ***
 
@@ -322,21 +207,11 @@ public offsetExists(mixed $offset): mixed
 public offsetGet(mixed $offset): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
-
-
-
 
 ***
 
@@ -348,22 +223,12 @@ public offsetGet(mixed $offset): mixed
 public offsetSet(mixed $offset, mixed $violation): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 | `$violation` | **mixed** |  |
-
-
-
 
 ***
 
@@ -375,24 +240,10 @@ public offsetSet(mixed $offset, mixed $violation): mixed
 public offsetUnset(mixed $offset): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

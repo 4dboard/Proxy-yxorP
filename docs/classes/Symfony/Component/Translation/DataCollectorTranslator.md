@@ -2,14 +2,10 @@
 
 # DataCollectorTranslator
 
-
-
-
-
 * Full name: `\Symfony\Component\Translation\DataCollectorTranslator`
 * This class implements:
-[`\Symfony\Component\Translation\TranslatorInterface`](./TranslatorInterface.md), [`\Symfony\Component\Translation\TranslatorBagInterface`](./TranslatorBagInterface.md)
-
+  [`\Symfony\Component\Translation\TranslatorInterface`](./TranslatorInterface.md)
+  , [`\Symfony\Component\Translation\TranslatorBagInterface`](./TranslatorBagInterface.md)
 
 ## Constants
 
@@ -21,63 +17,36 @@
 
 ## Properties
 
-
 ### translator
-
-
 
 ```php
 private \Symfony\Component\Translation\TranslatorInterface|\Symfony\Component\Translation\TranslatorBagInterface $translator
 ```
 
-
-
-
-
-
 ***
 
 ### messages
-
-
 
 ```php
 private array $messages
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Translation\TranslatorInterface $translator): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$translator` | **\Symfony\Component\Translation\TranslatorInterface** | The translator must implement TranslatorBagInterface |
-
-
-
+| `$translator` | **
+\Symfony\Component\Translation\TranslatorInterface** | The translator must implement TranslatorBagInterface |
 
 ***
 
@@ -89,13 +58,6 @@ Translates the given message.
 public trans(mixed $id, array $parameters = array(), mixed $domain = null, mixed $locale = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -104,7 +66,6 @@ public trans(mixed $id, array $parameters = array(), mixed $domain = null, mixed
 | `$parameters` | **array** | An array of parameters for the message |
 | `$domain` | **mixed** | The domain for the message or null to use the default |
 | `$locale` | **mixed** | The locale or null to use the default |
-
 
 **Return Value:**
 
@@ -122,13 +83,6 @@ Translates the given choice message by choosing a translation according to a num
 public transChoice(mixed $id, mixed $number, array $parameters = array(), mixed $domain = null, mixed $locale = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -138,7 +92,6 @@ public transChoice(mixed $id, mixed $number, array $parameters = array(), mixed 
 | `$parameters` | **array** | An array of parameters for the message |
 | `$domain` | **mixed** | The domain for the message or null to use the default |
 | `$locale` | **mixed** | The locale or null to use the default |
-
 
 **Return Value:**
 
@@ -156,21 +109,11 @@ Sets the current locale.
 public setLocale(mixed $locale): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** | The locale |
-
-
-
 
 ***
 
@@ -181,14 +124,6 @@ Returns the current locale.
 ```php
 public getLocale(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -206,21 +141,11 @@ Gets the catalogue by locale.
 public getCatalogue(mixed $locale = null): \Symfony\Component\Translation\MessageCatalogueInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** | The locale or null to use the default |
-
-
-
 
 ***
 
@@ -232,13 +157,6 @@ Passes through all unknown calls onto the translator object.
 public __call(mixed $method, mixed $args): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -246,45 +164,21 @@ public __call(mixed $method, mixed $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **mixed** |  |
 
-
-
-
 ***
 
 ### getCollectedMessages
-
-
 
 ```php
 public getCollectedMessages(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### collectMessage
 
-
-
 ```php
 private collectMessage(string|null $locale, string|null $domain, string $id, string $translation, array|null $parameters = array(), int|null $number = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -297,11 +191,4 @@ private collectMessage(string|null $locale, string|null $domain, string $id, str
 | `$parameters` | **array&#124;null** |  |
 | `$number` | **int&#124;null** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

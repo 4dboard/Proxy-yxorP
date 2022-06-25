@@ -4,12 +4,9 @@
 
 Translator.
 
-
-
 * Full name: `\Zend\I18n\Translator\Translator`
 * This class implements:
-[`\Zend\I18n\Translator\TranslatorInterface`](./TranslatorInterface.md)
-
+  [`\Zend\I18n\Translator\TranslatorInterface`](./TranslatorInterface.md)
 
 ## Constants
 
@@ -20,7 +17,6 @@ Translator.
 
 ## Properties
 
-
 ### messages
 
 Messages loaded by the translator.
@@ -28,11 +24,6 @@ Messages loaded by the translator.
 ```php
 protected array $messages
 ```
-
-
-
-
-
 
 ***
 
@@ -44,11 +35,6 @@ Files used for loading messages.
 protected array $files
 ```
 
-
-
-
-
-
 ***
 
 ### patterns
@@ -58,11 +44,6 @@ Patterns used for loading messages.
 ```php
 protected array $patterns
 ```
-
-
-
-
-
 
 ***
 
@@ -74,11 +55,6 @@ Remote locations for loading messages.
 protected array $remote
 ```
 
-
-
-
-
-
 ***
 
 ### locale
@@ -88,11 +64,6 @@ Default locale.
 ```php
 protected string $locale
 ```
-
-
-
-
-
 
 ***
 
@@ -104,11 +75,6 @@ Locale to use as fallback if there is no translation.
 protected string $fallbackLocale
 ```
 
-
-
-
-
-
 ***
 
 ### cache
@@ -118,11 +84,6 @@ Translation cache.
 ```php
 protected \Zend\Cache\Storage\StorageInterface $cache
 ```
-
-
-
-
-
 
 ***
 
@@ -134,11 +95,6 @@ Plugin manager for translation loaders.
 protected \Zend\I18n\Translator\LoaderPluginManager $pluginManager
 ```
 
-
-
-
-
-
 ***
 
 ### events
@@ -148,11 +104,6 @@ Event manager for triggering translator events.
 ```php
 protected \Zend\EventManager\EventManagerInterface $events
 ```
-
-
-
-
-
 
 ***
 
@@ -164,15 +115,9 @@ Whether events are enabled
 protected bool $eventsEnabled
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### factory
 
@@ -182,21 +127,13 @@ Instantiate a translator
 public static factory(array|\Traversable $options): \Zend\I18n\Translator\Translator
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -208,21 +145,11 @@ Set the default locale.
 public setLocale(string $locale): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -234,16 +161,6 @@ Get the default locale.
 public getLocale(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFallbackLocale
@@ -254,21 +171,11 @@ Set the fallback locale.
 public setFallbackLocale(string $locale): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -280,16 +187,6 @@ Get the fallback locale.
 public getFallbackLocale(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCache
@@ -300,21 +197,11 @@ Sets a cache
 public setCache(\Zend\Cache\Storage\StorageInterface $cache = null): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cache` | **\Zend\Cache\Storage\StorageInterface** |  |
-
-
-
 
 ***
 
@@ -325,14 +212,6 @@ Returns the set cache
 ```php
 public getCache(): \Zend\Cache\Storage\StorageInterface
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -350,21 +229,11 @@ Set the plugin manager for translation loaders
 public setPluginManager(\Zend\I18n\Translator\LoaderPluginManager $pluginManager): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pluginManager` | **\Zend\I18n\Translator\LoaderPluginManager** |  |
-
-
-
 
 ***
 
@@ -396,13 +265,6 @@ Translate a message.
 public translate(string $message, string $textDomain = &#039;default&#039;, string $locale = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -410,9 +272,6 @@ public translate(string $message, string $textDomain = &#039;default&#039;, stri
 | `$message` | **string** |  |
 | `$textDomain` | **string** |  |
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -424,13 +283,6 @@ Translate a plural message.
 public translatePlural(string $singular, string $plural, int $number, string $textDomain = &#039;default&#039;, string|null $locale = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -440,9 +292,6 @@ public translatePlural(string $singular, string $plural, int $number, string $te
 | `$number` | **int** |  |
 | `$textDomain` | **string** |  |
 | `$locale` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -454,13 +303,6 @@ Get a translated message.
 protected getTranslatedMessage(string $message, string $locale, string $textDomain = &#039;default&#039;): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -468,9 +310,6 @@ protected getTranslatedMessage(string $message, string $locale, string $textDoma
 | `$message` | **string** |  |
 | `$locale` | **string** |  |
 | `$textDomain` | **string** |  |
-
-
-
 
 ***
 
@@ -482,13 +321,6 @@ Add a translation file.
 public addTranslationFile(string $type, string $filename, string $textDomain = &#039;default&#039;, string $locale = null): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -497,9 +329,6 @@ public addTranslationFile(string $type, string $filename, string $textDomain = &
 | `$filename` | **string** |  |
 | `$textDomain` | **string** |  |
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -511,13 +340,6 @@ Add multiple translations with a file pattern.
 public addTranslationFilePattern(string $type, string $baseDir, string $pattern, string $textDomain = &#039;default&#039;): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -526,9 +348,6 @@ public addTranslationFilePattern(string $type, string $baseDir, string $pattern,
 | `$baseDir` | **string** |  |
 | `$pattern` | **string** |  |
 | `$textDomain` | **string** |  |
-
-
-
 
 ***
 
@@ -540,22 +359,12 @@ Add remote translations.
 public addRemoteTranslations(string $type, string $textDomain = &#039;default&#039;): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** |  |
 | `$textDomain` | **string** |  |
-
-
-
 
 ***
 
@@ -567,22 +376,12 @@ Load messages for a given language and domain.
 protected loadMessages(string $textDomain, string $locale): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$textDomain` | **string** |  |
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -594,22 +393,12 @@ Load messages from remote sources.
 protected loadMessagesFromRemote(string $textDomain, string $locale): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$textDomain` | **string** |  |
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -621,22 +410,12 @@ Load messages from patterns.
 protected loadMessagesFromPatterns(string $textDomain, string $locale): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$textDomain` | **string** |  |
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -648,22 +427,12 @@ Load messages from files.
 protected loadMessagesFromFiles(string $textDomain, string $locale): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$textDomain` | **string** |  |
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -675,22 +444,12 @@ Return all the messages.
 public getAllMessages(string $textDomain = &#039;default&#039;, null $locale = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$textDomain` | **string** |  |
 | `$locale` | **null** |  |
-
-
-
 
 ***
 
@@ -702,16 +461,6 @@ Get the event manager.
 public getEventManager(): \Zend\EventManager\EventManagerInterface|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEventManager
@@ -722,21 +471,11 @@ Set the event manager instance used by this translator.
 public setEventManager(\Zend\EventManager\EventManagerInterface $events): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$events` | **\Zend\EventManager\EventManagerInterface** |  |
-
-
-
 
 ***
 
@@ -748,16 +487,6 @@ Check whether the event manager is enabled.
 public isEventManagerEnabled(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### enableEventManager
@@ -767,16 +496,6 @@ Enable the event manager.
 ```php
 public enableEventManager(): \Zend\I18n\Translator\Translator
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -788,18 +507,4 @@ Disable the event manager.
 public disableEventManager(): \Zend\I18n\Translator\Translator
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

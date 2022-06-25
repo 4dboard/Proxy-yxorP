@@ -4,10 +4,7 @@
 
 Base class implements the methods needed to use the eZ components.
 
-
-
 * Full name: `\ezcBase`
-
 
 ## Constants
 
@@ -20,7 +17,6 @@ Base class implements the methods needed to use the eZ components.
 
 ## Properties
 
-
 ### libraryMode
 
 Indirectly it determines the path where the autoloads are stored.
@@ -29,26 +25,19 @@ Indirectly it determines the path where the autoloads are stored.
 private static string $libraryMode
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### currentWorkingDirectory
 
-Contains the current working directory, which is used when the
-$libraryMode is set to "custom".
+Contains the current working directory, which is used when the $libraryMode is set to "custom".
 
 ```php
 private static string $currentWorkingDirectory
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -60,78 +49,59 @@ The full path to the autoload directory.
 protected static string $packageDir
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### runMode
 
-Contains which development mode is used. It's "development" by default,
-because of backwards compatibility reasons.
+Contains which development mode is used. It's "development" by default, because of backwards compatibility reasons.
 
 ```php
 private static $runMode
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### repositoryDirs
 
-Stores info with additional paths where autoload files and classes for
-autoloading could be found. Each item of $repositoryDirs looks like
-array( autoloadFileDir, baseDir ). The array key is the prefix belonging
-to classes within that repository - if provided when calling
-addClassRepository(), or an autoincrement integer otherwise.
+Stores info with additional paths where autoload files and classes for autoloading could be found. Each item of
+$repositoryDirs looks like array( autoloadFileDir, baseDir ). The array key is the prefix belonging to classes within
+that repository - if provided when calling addClassRepository(), or an autoincrement integer otherwise.
 
 ```php
 protected static $repositoryDirs
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### autoloadArray
 
-This variable stores all the elements from the autoload arrays. When a
-new autoload file is loaded, their files are added to this array.
+This variable stores all the elements from the autoload arrays. When a new autoload file is loaded, their files are
+added to this array.
 
 ```php
 protected static $autoloadArray
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### externalAutoloadArray
 
-This variable stores all the elements from the autoload arrays for
-external repositories. When a new autoload file is loaded, their files
-are added to this array.
+This variable stores all the elements from the autoload arrays for external repositories. When a new autoload file is
+loaded, their files are added to this array.
 
 ```php
 protected static $externalAutoloadArray
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -143,15 +113,11 @@ Options for the ezcBase class.
 private static \ezcBaseOptions $options
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### setOptions
 
@@ -161,12 +127,7 @@ Associates an option object with this static class.
 public static setOptions(\ezcBaseAutoloadOptions $options): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -174,36 +135,25 @@ public static setOptions(\ezcBaseAutoloadOptions $options): mixed
 |-----------|------|-------------|
 | `$options` | **\ezcBaseAutoloadOptions** |  |
 
-
-
-
 ***
 
 ### autoload
 
-Tries to autoload the given className. If the className could be found
-this method returns true, otherwise false.
+Tries to autoload the given className. If the className could be found this method returns true, otherwise false.
 
 ```php
 public static autoload(string $className): bool
 ```
 
-This class caches the requested class names (including the ones who
-failed to load).
+This class caches the requested class names (including the ones who failed to load).
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$className` | **string** | The name of the class that should be loaded. |
-
-
-
 
 ***
 
@@ -215,21 +165,13 @@ Sets the current working directory to $directory.
 public static setWorkingDirectory(string $directory): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$directory` | **string** |  |
-
-
-
 
 ***
 
@@ -241,17 +183,10 @@ Figures out the base path of the Zeta Components installation.
 protected static setPackageDir(): mixed
 ```
 
-It stores the path that it finds in a static member variable. The path
-depends on the installation method of the Zeta Components. The SVN version
-has a different path than the PEAR installed version.
+It stores the path that it finds in a static member variable. The path depends on the installation method of the Zeta
+Components. The SVN version has a different path than the PEAR installed version.
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -263,12 +198,7 @@ Tries to load the autoload array and, if loaded correctly, includes the class.
 protected static requireFile(string $fileName, string $className, string $prefix): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -278,11 +208,9 @@ protected static requireFile(string $fileName, string $className, string $prefix
 | `$className` | **string** | Name of the class that should be autoloaded. |
 | `$prefix` | **string** | The prefix of the class repository. |
 
-
 **Return Value:**
 
-True is returned when the file is correctly loaded.
-Otherwise false is returned.
+True is returned when the file is correctly loaded. Otherwise false is returned.
 
 
 
@@ -297,21 +225,13 @@ Loads, require(), the given file name. If we are in development mode,
 protected static loadFile(string $file): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** | The name of the file that should be loaded. |
-
-
-
 
 ***
 
@@ -323,21 +243,13 @@ Loads, require(), the given file name from an external package.
 protected static loadExternalFile(string $file): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** | The name of the file that should be loaded. |
-
-
-
 
 ***
 
@@ -349,14 +261,10 @@ Checks for dependencies on PHP versions or extensions
 public static checkDependency(string $component, int $type, mixed $value): mixed
 ```
 
-The function as called by the $component component checks for the $type
-dependency. The dependency $type is compared against the $value. The
-function aborts the script if the dependency is not matched.
+The function as called by the $component component checks for the $type dependency. The dependency $type is compared
+against the $value. The function aborts the script if the dependency is not matched.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -365,9 +273,6 @@ function aborts the script if the dependency is not matched.
 | `$component` | **string** |  |
 | `$type` | **int** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -379,17 +284,11 @@ Return the list of directories that contain class repositories.
 public static getRepositoryDirectories(): mixed
 ```
 
-The path to the eZ components directory is always included in the result
-array. Each element in the returned array has the format of:
+The path to the eZ components directory is always included in the result array. Each element in the returned array has
+the format of:
 packageDirectory => ezcBaseRepositoryDirectory
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -401,19 +300,14 @@ Adds an additional class repository.
 public static addClassRepository(string $basePath, string $autoloadDirPath = null, string $prefix = null): mixed
 ```
 
-Used for adding class repositoryies outside the eZ components to be
-loaded by the autoload system.
+Used for adding class repositoryies outside the eZ components to be loaded by the autoload system.
 
-This function takes two arguments: $basePath is the base path for the
-whole class repository and $autoloadDirPath the path where autoload
-files for this repository are found. The paths in the autoload files are
-relative to the package directory as specified by the $basePath
-argument. I.e. class definition file will be searched at location
-$basePath + path to the class definition file as stored in the autoload
-file.
+This function takes two arguments: $basePath is the base path for the whole class repository and $autoloadDirPath the
+path where autoload files for this repository are found. The paths in the autoload files are relative to the package
+directory as specified by the $basePath argument. I.e. class definition file will be searched at location $basePath +
+path to the class definition file as stored in the autoload file.
 
-addClassRepository() should be called somewhere in code before external classes
-are used.
+addClassRepository() should be called somewhere in code before external classes are used.
 
 Example:
 Take the following facts:
@@ -426,9 +320,8 @@ Take the following facts:
 </ul>
 
 In this case you would need to create the following files in
-"./repos/autoloads". Please note that the part before _autoload.php in
-the filename is the first part of the <b>classname</b>, not considering
-the all lower-case letter prefix.
+"./repos/autoloads". Please note that the part before _autoload.php in the filename is the first part of the <b>
+classname</b>, not considering the all lower-case letter prefix.
 
 "my_autoload.php":
 <code>
@@ -452,16 +345,11 @@ the all lower-case letter prefix.
 
 The directory structure for the external repository is then:
 <code>
-./repos/autoloads/my_autoload.php
-./repos/autoloads/you_autoload.php
-./repos/Me/myclass1.php
-./repos/Me/myclass2.php
-./repos/You/yourclass1.php
-./repos/You/yourclass2.php
+./repos/autoloads/my_autoload.php ./repos/autoloads/you_autoload.php ./repos/Me/myclass1.php ./repos/Me/myclass2.php
+./repos/You/yourclass1.php ./repos/You/yourclass2.php
 </code>
 
-To use this repository with the autoload mechanism you have to use the
-following code:
+To use this repository with the autoload mechanism you have to use the following code:
 <code>
 <?php
 ezcBase::addClassRepository( './repos', './repos/autoloads' );
@@ -471,9 +359,6 @@ $myVar = new erMyClass2();
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -481,9 +366,6 @@ $myVar = new erMyClass2();
 | `$basePath` | **string** |  |
 | `$autoloadDirPath` | **string** |  |
 | `$prefix` | **string** |  |
-
-
-
 
 ***
 
@@ -495,16 +377,9 @@ Returns the base path of the Zeta Components installation
 public static getInstallationPath(): string
 ```
 
-This method returns the base path, including a trailing directory
-separator.
+This method returns the base path, including a trailing directory separator.
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -516,21 +391,13 @@ Sets the development mode to the one specified.
 public static setRunMode(int $runMode): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$runMode` | **int** |  |
-
-
-
 
 ***
 
@@ -542,15 +409,7 @@ Returns the current development mode.
 public static getRunMode(): int
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -562,15 +421,7 @@ Returns true when we are in development mode.
 public static inDevMode(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -587,14 +438,4 @@ Possible return values are 'custom', 'devel', 'tarball' and 'pear'. Only
 
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

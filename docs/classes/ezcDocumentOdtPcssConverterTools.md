@@ -8,11 +8,7 @@ Contains static helper functions which are used in multiple style converters.
 
 * Full name: `\ezcDocumentOdtPcssConverterTools`
 
-
-
-
 ## Methods
-
 
 ### serializeColor
 
@@ -22,12 +18,7 @@ Serializes a color value.
 public static serializeColor(array $colorValue): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -35,11 +26,4 @@ public static serializeColor(array $colorValue): string
 |-----------|------|-------------|
 | `$colorValue` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

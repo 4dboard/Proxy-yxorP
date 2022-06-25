@@ -4,8 +4,8 @@
 
 Parser for simplified CSS rules for PDF layout specifications
 
-The EBNF for the parsed grammar is the following. The EBNF does not specify
-the allowed comments, which are common C-style comments:
+The EBNF for the parsed grammar is the following. The EBNF does not specify the allowed comments, which are common
+C-style comments:
 
 <code>
  File        ::= Directive+
@@ -16,22 +16,19 @@ the allowed comments, which are common C-style comments:
  QuotedValue ::= '"' [^"]+ '"'
  RawValue    ::= [^;]+
 
- Definition  ::= '@' [A-Za-z_-]+
+Definition  ::= '@' [A-Za-z_-]+
 
- Address     ::= Element ( Rule )*
- Rule        ::= '>'? Element
- Element     ::= ElementName ( '.' ClassName | '#' ElementId )
+Address     ::= Element ( Rule )*
+Rule        ::= '>'? Element Element     ::= ElementName ( '.' ClassName | '#' ElementId )
 
- ClassName   ::= [A-Za-z_-]+
- ElementName ::= XMLName¹ | '*'
- ElementId   ::= XMLName¹
+ClassName   ::= [A-Za-z_-]+ ElementName ::= XMLName¹ | '*'
+ElementId   ::= XMLName¹
 
- ¹ XMLName references to http://www.w3.org/TR/REC-xml/#NT-Name
+¹ XMLName references to http://www.w3.org/TR/REC-xml/#NT-Name
 </code>
 
 * Full name: `\ezcDocumentPcssParser`
 * Parent class: [`\ezcDocumentParser`](./ezcDocumentParser.md)
-
 
 ## Constants
 
@@ -54,7 +51,6 @@ the allowed comments, which are common C-style comments:
 
 ## Properties
 
-
 ### file
 
 Currently parsed file, stored for additional error context
@@ -62,11 +58,6 @@ Currently parsed file, stored for additional error context
 ```php
 protected string $file
 ```
-
-
-
-
-
 
 ***
 
@@ -78,11 +69,6 @@ Expressions for tokenizing the strings.
 protected array $expressions
 ```
 
-
-
-
-
-
 ***
 
 ### ignoreTokens
@@ -92,11 +78,6 @@ Tokens irrelevant to the parser, which will bee thrown away immediately
 ```php
 protected array $ignoreTokens
 ```
-
-
-
-
-
 
 ***
 
@@ -108,15 +89,9 @@ Names for the known tokens, for nicer error messages
 protected array $tokenNames
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -146,22 +121,13 @@ Parse the given file
 public parseFile(string $file): void
 ```
 
-Try to parse the given PCSS file and return the AST containing the file
-contents.
-
-
-
-
-
+Try to parse the given PCSS file and return the AST containing the file contents.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -173,22 +139,13 @@ Parse the given file
 public parseString(string $string): void
 ```
 
-Try to parse the given PCSS string and return the AST containing the
-string contents.
-
-
-
-
-
+Try to parse the given PCSS string and return the AST containing the string contents.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -202,19 +159,11 @@ protected tokenize(string $string): array
 
 Returns an array of arrays representing the tokens.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -226,14 +175,8 @@ Read expected from token array
 private read(array $types, array& $tokens): array
 ```
 
-Try to read the given token from the token array. If another token is
-found, a parse error is issued. If the token is found, the token is
-removed fromt he token array and returned.
-
-
-
-
-
+Try to read the given token from the token array. If another token is found, a parse error is issued. If the token is
+found, the token is removed fromt he token array and returned.
 
 **Parameters:**
 
@@ -241,9 +184,6 @@ removed fromt he token array and returned.
 |-----------|------|-------------|
 | `$types` | **array** |  |
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -255,13 +195,8 @@ Parse given token array
 protected parse(array $tokens): array
 ```
 
-Parse the given token array, and create an array of directive objects
-from it, if the token array specifies a valid PCSS file.
-
-
-
-
-
+Parse the given token array, and create an array of directive objects from it, if the token array specifies a valid PCSS
+file.
 
 **Parameters:**
 
@@ -269,14 +204,9 @@ from it, if the token array specifies a valid PCSS file.
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -286,21 +216,11 @@ Construct new document
 public __construct(\ezcDocumentParserOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentParserOptions** |  |
-
-
-
 
 ***
 
@@ -312,13 +232,7 @@ Trigger parser error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a parser error and handle it dependiing on the current error
-reporting settings.
-
-
-
-
-
+Emit a parser error and handle it dependiing on the current error reporting settings.
 
 **Parameters:**
 
@@ -330,9 +244,6 @@ reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -343,19 +254,6 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

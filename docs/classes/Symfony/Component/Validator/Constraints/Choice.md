@@ -4,11 +4,8 @@
 
 Contains the properties of a constraint definition.
 
-
-
 * Full name: `\Symfony\Component\Validator\Constraints\Choice`
 * Parent class: [`\Symfony\Component\Validator\Constraint`](../Constraint.md)
-
 
 ## Constants
 
@@ -20,7 +17,6 @@ Contains the properties of a constraint definition.
 
 ## Properties
 
-
 ### errorNames
 
 Maps error codes to the names of their constants.
@@ -29,165 +25,91 @@ Maps error codes to the names of their constants.
 protected static $errorNames
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### choices
 
-
-
 ```php
 public $choices
 ```
-
-
-
-
-
 
 ***
 
 ### callback
 
-
-
 ```php
 public $callback
 ```
-
-
-
-
-
 
 ***
 
 ### multiple
 
-
-
 ```php
 public $multiple
 ```
-
-
-
-
-
 
 ***
 
 ### strict
 
-
-
 ```php
 public $strict
 ```
-
-
-
-
-
 
 ***
 
 ### min
 
-
-
 ```php
 public $min
 ```
-
-
-
-
-
 
 ***
 
 ### max
 
-
-
 ```php
 public $max
 ```
-
-
-
-
-
 
 ***
 
 ### message
 
-
-
 ```php
 public $message
 ```
-
-
-
-
-
 
 ***
 
 ### multipleMessage
 
-
-
 ```php
 public $multipleMessage
 ```
-
-
-
-
-
 
 ***
 
 ### minMessage
 
-
-
 ```php
 public $minMessage
 ```
-
-
-
-
-
 
 ***
 
 ### maxMessage
 
-
-
 ```php
 public $maxMessage
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getDefaultOption
 
@@ -197,21 +119,9 @@ Returns the name of the default option.
 public getDefaultOption(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getErrorName
 
@@ -221,19 +131,13 @@ Returns the name of the given error code.
 public static getErrorName(string $errorCode): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errorCode` | **string** | The error code |
-
 
 **Return Value:**
 
@@ -251,31 +155,21 @@ Initializes the constraint with options.
 public __construct(mixed $options = null): mixed
 ```
 
-You should pass an associative array. The keys should be the names of
-existing properties in this class. The values should be the value for these
-properties.
+You should pass an associative array. The keys should be the names of existing properties in this class. The values
+should be the value for these properties.
 
-Alternatively you can override the method getDefaultOption() to return the
-name of an existing property. If no associative array is passed, this
-property is set instead.
+Alternatively you can override the method getDefaultOption() to return the name of an existing property. If no
+associative array is passed, this property is set instead.
 
-You can force that certain options are set by overriding
-getRequiredOptions() to return the names of these options. If any
-option is not set here, an exception is thrown.
-
-
-
-
-
+You can force that certain options are set by overriding getRequiredOptions() to return the names of these options. If
+any option is not set here, an exception is thrown.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$options` | **mixed** | The options (as associative array)<br />or the value for the default<br />option (any other type) |
-
-
-
+| `$options` | **
+mixed** | The options (as associative array)<br />or the value for the default<br />option (any other type) |
 
 ***
 
@@ -287,14 +181,8 @@ Sets the value of a lazily initialized option.
 public __set(string $option, mixed $value): mixed
 ```
 
-Corresponding properties are added to the object on first access. Hence
-this method will be called at most once per constraint instance and
-option name.
-
-
-
-
-
+Corresponding properties are added to the object on first access. Hence this method will be called at most once per
+constraint instance and option name.
 
 **Parameters:**
 
@@ -303,34 +191,19 @@ option name.
 | `$option` | **string** | The option name |
 | `$value` | **mixed** | The value to set |
 
-
-
-
 ***
 
 ### __isset
 
-
-
 ```php
 public __isset(string $option): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** | The option name |
-
-
-
 
 ***
 
@@ -342,21 +215,11 @@ Adds the given group if this constraint is in the Default group.
 public addImplicitGroupName(string $group): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$group` | **string** |  |
-
-
-
 
 ***
 
@@ -370,16 +233,9 @@ public getDefaultOption(): string
 
 Override this method to define a default option.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Validator\__construct() - 
+* \Symfony\Component\Validator\__construct() -
 
 ***
 
@@ -393,16 +249,9 @@ public getRequiredOptions(): array
 
 Override this method if you want to define required options.
 
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Validator\__construct() - 
+* \Symfony\Component\Validator\__construct() -
 
 ***
 
@@ -414,9 +263,8 @@ Returns the name of the class that validates this constraint.
 public validatedBy(): string
 ```
 
-By default, this is the fully qualified name of the constraint class
-suffixed with "Validator". You can override this method to change that
-behaviour.
+By default, this is the fully qualified name of the constraint class suffixed with "Validator". You can override this
+method to change that behaviour.
 
 
 
@@ -430,30 +278,14 @@ behaviour.
 
 ### getTargets
 
-Returns whether the constraint can be put onto classes, properties or
-both.
+Returns whether the constraint can be put onto classes, properties or both.
 
 ```php
 public getTargets(): string|array
 ```
 
-This method should return one or more of the constants
-Constraint::CLASS_CONSTRAINT and Constraint::PROPERTY_CONSTRAINT.
-
-
-
-
-
-
+This method should return one or more of the constants Constraint::CLASS_CONSTRAINT and Constraint::PROPERTY_CONSTRAINT.
 
 **Return Value:**
 
-One or more constant values
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+One or more constant values yxorP::get('REQUEST')

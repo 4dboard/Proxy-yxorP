@@ -2,18 +2,10 @@
 
 # PhpCode
 
-
-
-
-
 * Full name: `\Zend\Serializer\Adapter\PhpCode`
 * Parent class: [`\Zend\Serializer\Adapter\AbstractAdapter`](./AbstractAdapter.md)
 
-
-
-
 ## Methods
-
 
 ### serialize
 
@@ -23,21 +15,11 @@ Serialize PHP using var_export
 public serialize(mixed $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -51,25 +33,15 @@ public unserialize(string $code): mixed
 
 Warning: this uses eval(), and should likely be avoided.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -79,21 +51,11 @@ Constructor
 public __construct(array|\Traversable|\Zend\Serializer\Adapter\AdapterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Serializer\Adapter\AdapterOptions** |  |
-
-
-
 
 ***
 
@@ -105,21 +67,11 @@ Set adapter options
 public setOptions(array|\Traversable|\Zend\Serializer\Adapter\AdapterOptions $options): \Zend\Serializer\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Serializer\Adapter\AdapterOptions** |  |
-
-
-
 
 ***
 
@@ -131,18 +83,4 @@ Get adapter options
 public getOptions(): \Zend\Serializer\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

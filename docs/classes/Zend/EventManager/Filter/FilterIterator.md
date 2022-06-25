@@ -2,19 +2,14 @@
 
 # FilterIterator
 
-Specialized priority queue implementation for use with an intercepting
-filter chain.
+Specialized priority queue implementation for use with an intercepting filter chain.
 
 Allows removal
 
 * Full name: `\Zend\EventManager\Filter\FilterIterator`
 * Parent class: [`\Zend\Stdlib\SplPriorityQueue`](../../Stdlib/SplPriorityQueue.md)
 
-
-
-
 ## Methods
-
 
 ### contains
 
@@ -24,21 +19,11 @@ Does the queue contain a given value?
 public contains(mixed $datum): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$datum` | **mixed** |  |
-
-
-
 
 ***
 
@@ -50,22 +35,14 @@ Remove a value from the queue
 public remove(mixed $datum): bool
 ```
 
-This is an expensive operation. It must first iterate through all values,
-and then re-populate itself. Use only if absolutely necessary.
-
-
-
-
-
+This is an expensive operation. It must first iterate through all values, and then re-populate itself. Use only if
+absolutely necessary.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$datum` | **mixed** |  |
-
-
-
 
 ***
 
@@ -79,11 +56,6 @@ public next(mixed $context = null, array $params = [], \Zend\EventManager\Filter
 
 Iterates and calls the next filter in the chain.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -92,14 +64,9 @@ Iterates and calls the next filter in the chain.
 | `$params` | **array** |  |
 | `$chain` | **\Zend\EventManager\Filter\FilterIterator** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### insert
 
@@ -109,13 +76,7 @@ Insert a value with a given priority
 public insert(mixed $datum, mixed $priority): void
 ```
 
-Utilizes {@var} to ensure that values of equal priority are
-emitted in the same order in which they are inserted.
-
-
-
-
-
+Utilizes {@var} to ensure that values of equal priority are emitted in the same order in which they are inserted.
 
 **Parameters:**
 
@@ -123,9 +84,6 @@ emitted in the same order in which they are inserted.
 |-----------|------|-------------|
 | `$datum` | **mixed** |  |
 | `$priority` | **mixed** |  |
-
-
-
 
 ***
 
@@ -157,16 +115,6 @@ Serialize
 public serialize(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
@@ -177,24 +125,10 @@ Deserialize
 public unserialize(string $data): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

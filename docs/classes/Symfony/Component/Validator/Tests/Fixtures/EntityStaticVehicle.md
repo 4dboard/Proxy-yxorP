@@ -2,49 +2,27 @@
 
 # EntityStaticVehicle
 
-
-
-
-
 * Full name: `\Symfony\Component\Validator\Tests\Fixtures\EntityStaticVehicle`
-
-
 
 ## Properties
 
-
 ### wheels
-
-
 
 ```php
 public $wheels
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### loadValidatorMetadata
-
-
 
 ```php
 public static loadValidatorMetadata(\Symfony\Component\Validator\Mapping\ClassMetadata $metadata): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -52,11 +30,4 @@ public static loadValidatorMetadata(\Symfony\Component\Validator\Mapping\ClassMe
 |-----------|------|-------------|
 | `$metadata` | **\Symfony\Component\Validator\Mapping\ClassMetadata** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

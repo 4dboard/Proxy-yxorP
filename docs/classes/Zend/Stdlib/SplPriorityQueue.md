@@ -10,30 +10,19 @@ Also, provides predictable heap order for datums added with the same priority
 * Full name: `\Zend\Stdlib\SplPriorityQueue`
 * Parent class: [`SplPriorityQueue`](../../SplPriorityQueue.md)
 * This class implements:
-[`\Serializable`](../../Serializable.md)
-
-
+  [`\Serializable`](../../Serializable.md)
 
 ## Properties
 
-
 ### serial
-
-
 
 ```php
 protected int $serial
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### insert
 
@@ -43,13 +32,7 @@ Insert a value with a given priority
 public insert(mixed $datum, mixed $priority): void
 ```
 
-Utilizes {@var} to ensure that values of equal priority are
-emitted in the same order in which they are inserted.
-
-
-
-
-
+Utilizes {@var} to ensure that values of equal priority are emitted in the same order in which they are inserted.
 
 **Parameters:**
 
@@ -57,9 +40,6 @@ emitted in the same order in which they are inserted.
 |-----------|------|-------------|
 | `$datum` | **mixed** |  |
 | `$priority` | **mixed** |  |
-
-
-
 
 ***
 
@@ -91,16 +71,6 @@ Serialize
 public serialize(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
@@ -111,24 +81,10 @@ Deserialize
 public unserialize(string $data): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

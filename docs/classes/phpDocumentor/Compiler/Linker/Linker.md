@@ -14,13 +14,11 @@ An example scenario should be:
     specifying that the contents of the ``Methods`` field should be interpreted by the linker. Because that field
     contains an array or Descriptor Collection will each element be analysed by the linker.
 
-As can be seen in the above example is it possible to analyse a tree structure and substitute FQSENs where
-encountered.
+As can be seen in the above example is it possible to analyse a tree structure and substitute FQSENs where encountered.
 
 * Full name: `\phpDocumentor\Compiler\Linker\Linker`
 * This class implements:
-[`\phpDocumentor\Compiler\CompilerPassInterface`](../CompilerPassInterface.md)
-
+  [`\phpDocumentor\Compiler\CompilerPassInterface`](../CompilerPassInterface.md)
 
 ## Constants
 
@@ -31,54 +29,31 @@ encountered.
 
 ## Properties
 
-
 ### elementList
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\DescriptorAbstract[] $elementList
 ```
 
-
-
-
-
-
 ***
 
 ### substitutions
-
-
 
 ```php
 protected string[][] $substitutions
 ```
 
-
-
-
-
-
 ***
 
 ### processedObjects
-
-
 
 ```php
 protected string[] $processedObjects
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getDescription
 
@@ -87,16 +62,6 @@ Returns a textual description of what this pass does for output purposes.
 ```php
 public getDescription(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -108,21 +73,11 @@ Initializes the linker with a series of Descriptors to link to.
 public __construct(array|string[][] $substitutions): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$substitutions` | **array&#124;string[][]** |  |
-
-
-
 
 ***
 
@@ -134,21 +89,12 @@ Executes the linker.
 public execute(\phpDocumentor\Descriptor\ProjectDescriptor $project): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Representation of the Object Graph that can be manipulated. |
-
-
-
+| `$project` | **
+\phpDocumentor\Descriptor\ProjectDescriptor** | Representation of the Object Graph that can be manipulated. |
 
 ***
 
@@ -160,16 +106,6 @@ Returns the list of substitutions for the linker.
 public getSubstitutions(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setObjectAliasesList
@@ -180,21 +116,11 @@ Sets the list of object aliases to resolve the FQSENs with.
 public setObjectAliasesList(\phpDocumentor\Descriptor\DescriptorAbstract[] $elementList): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$elementList` | **\phpDocumentor\Descriptor\DescriptorAbstract[]** |  |
-
-
-
 
 ***
 
@@ -208,37 +134,26 @@ public substitute(string|object|\Traversable|array $item, \phpDocumentor\Descrip
 
 This method may do either of the following depending on the item's type
 
-String
-    If the given item is a string then this method will attempt to find an appropriate Class, Interface or
-    TraitDescriptor object and return that. See {@see} for more information on the normalization
-    of these strings.
+String If the given item is a string then this method will attempt to find an appropriate Class, Interface or
+TraitDescriptor object and return that. See {@see} for more information on the normalization of these strings.
 
-Array or Traversable
-    Iterate through each item, pass each key's contents to a new call to substitute and replace the key's
-    contents if the contents is not an object (objects automatically update and saves performance).
+Array or Traversable Iterate through each item, pass each key's contents to a new call to substitute and replace the
+key's contents if the contents is not an object (objects automatically update and saves performance).
 
-Object
-    Determines all eligible substitutions using the substitutions property, construct a getter and retrieve
-    the field's contents. Pass these contents to a new call of substitute and use a setter to replace the field's
-    contents if anything other than null is returned.
+Object Determines all eligible substitutions using the substitutions property, construct a getter and retrieve the
+field's contents. Pass these contents to a new call of substitute and use a setter to replace the field's contents if
+anything other than null is returned.
 
-This method will return null if no substitution was possible and all of the above should not update the parent
-item when null is passed.
-
-
-
-
-
+This method will return null if no substitution was possible and all of the above should not update the parent item when
+null is passed.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$item` | **string&#124;object&#124;\Traversable&#124;array** |  |
-| `$container` | **\phpDocumentor\Descriptor\DescriptorAbstract&#124;null** | A descriptor that acts as container for all elements<br />underneath or null if there is no current container. |
-
-
-
+| `$container` | **
+\phpDocumentor\Descriptor\DescriptorAbstract&#124;null** | A descriptor that acts as container for all elements<br />underneath or null if there is no current container. |
 
 ***
 
@@ -251,27 +166,21 @@ public findAlias(string $fqsen, \phpDocumentor\Descriptor\DescriptorAbstract|nul
 ```
 
 This method will try to fetch an element after normalizing the provided FQSEN. The FQSEN may contain references
-(bindings) that can only be resolved during linking (such as `self`) or it may contain a context marker
-{@see}.
+(bindings) that can only be resolved during linking (such as `self`) or it may contain a context marker {@see}.
 
-If there is a context marker then this method will see if a child of the given container exists that matches the
-element following the marker. If such a child does not exist in the current container then the namespace is
-queried if a child exists there that matches.
+If there is a context marker then this method will see if a child of the given container exists that matches the element
+following the marker. If such a child does not exist in the current container then the namespace is queried if a child
+exists there that matches.
 
 For example:
 
     Given the Fqsen `@context::myFunction()` and the lastContainer `\My\Class` will this method first check
     to see if `\My\Class::myFunction()` exists; if it doesn't it will then check if `\My\myFunction()` exists.
 
-If neither element exists then this method assumes it is an undocumented class/trait/interface and change the
-given FQSEN by returning the namespaced element name (thus in the example above that would be
-`\My\myFunction()`). The calling method {@see} will then replace the value of the field containing
-the context marker with this normalized string.
-
-
-
-
-
+If neither element exists then this method assumes it is an undocumented class/trait/interface and change the given
+FQSEN by returning the namespaced element name (thus in the example above that would be
+`\My\myFunction()`). The calling method {@see} will then replace the value of the field containing the context marker
+with this normalized string.
 
 **Parameters:**
 
@@ -279,9 +188,6 @@ the context marker with this normalized string.
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
 | `$container` | **\phpDocumentor\Descriptor\DescriptorAbstract&#124;null** |  |
-
-
-
 
 ***
 
@@ -293,22 +199,12 @@ Returns the value of a field in the given object.
 public findFieldValue(object $object, string $fieldName): string|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **object** |  |
 | `$fieldName` | **string** |  |
-
-
-
 
 ***
 
@@ -320,39 +216,21 @@ Returns true if the given Descriptor is a container type.
 protected isDescriptorContainer(\phpDocumentor\Descriptor\DescriptorAbstract|mixed $item): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$item` | **\phpDocumentor\Descriptor\DescriptorAbstract&#124;mixed** |  |
 
-
-
-
 ***
 
 ### replacePseudoTypes
 
-Replaces pseudo-types, such as `self`, into a normalized version based on the last container that was
-encountered.
+Replaces pseudo-types, such as `self`, into a normalized version based on the last container that was encountered.
 
 ```php
 protected replacePseudoTypes(string $fqsen, \phpDocumentor\Descriptor\DescriptorAbstract|null $container): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -360,9 +238,6 @@ protected replacePseudoTypes(string $fqsen, \phpDocumentor\Descriptor\Descriptor
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
 | `$container` | **\phpDocumentor\Descriptor\DescriptorAbstract&#124;null** |  |
-
-
-
 
 ***
 
@@ -374,21 +249,11 @@ Returns true if the context marker is found in the given FQSEN.
 protected isContextMarkerInFqsen(string $fqsen): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
-
-
-
 
 ***
 
@@ -400,22 +265,12 @@ Normalizes the given FQSEN as if the context marker represents a class/interface
 protected getTypeWithClassAsContext(string $fqsen, \phpDocumentor\Descriptor\DescriptorAbstract $container): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
 | `$container` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -427,22 +282,12 @@ Normalizes the given FQSEN as if the context marker represents a class/interface
 protected getTypeWithNamespaceAsContext(string $fqsen, \phpDocumentor\Descriptor\DescriptorAbstract $container): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
 | `$container` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -454,39 +299,22 @@ Normalizes the given FQSEN as if the context marker represents the global namesp
 protected getTypeWithGlobalNamespaceAsContext(string $fqsen): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
-
-
-
 
 ***
 
 ### fetchElementByFqsen
 
-Attempts to find an element with the given Fqsen in the list of elements for this project and returns null if
-it cannot find it.
+Attempts to find an element with the given Fqsen in the list of elements for this project and returns null if it cannot
+find it.
 
 ```php
 protected fetchElementByFqsen(string $fqsen): \phpDocumentor\Descriptor\DescriptorAbstract|null
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -494,11 +322,4 @@ protected fetchElementByFqsen(string $fqsen): \phpDocumentor\Descriptor\Descript
 |-----------|------|-------------|
 | `$fqsen` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

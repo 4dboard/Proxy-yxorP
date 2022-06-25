@@ -4,124 +4,69 @@
 
 Model representing a template.
 
-
-
 * Full name: `\phpDocumentor\Transformer\Template`
 * This class implements:
-[`\ArrayAccess`](../../ArrayAccess.md), [`\Countable`](../../Countable.md), [`\Iterator`](../../Iterator.md)
-
-
+  [`\ArrayAccess`](../../ArrayAccess.md), [`\Countable`](../../Countable.md), [`\Iterator`](../../Iterator.md)
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 protected string $name
 ```
 
-
-
-
-
-
 ***
 
 ### author
-
-
 
 ```php
 protected string $author
 ```
 
-
-
-
-
-
 ***
 
 ### version
-
-
 
 ```php
 protected string $version
 ```
 
-
-
-
-
-
 ***
 
 ### copyright
-
-
 
 ```php
 protected string $copyright
 ```
 
-
-
-
-
-
 ***
 
 ### description
-
-
 
 ```php
 protected string $description
 ```
 
-
-
-
-
-
 ***
 
 ### transformations
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Transformation[] $transformations
 ```
 
-
-
-
-
-
 ***
 
 ### parameters
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Template\Parameter[] $parameters
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -131,21 +76,11 @@ Initializes this object with a name and optionally with contents.
 public __construct(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name for this template. |
-
-
-
 
 ***
 
@@ -157,42 +92,21 @@ Name for this template.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAuthor
 
-The name of the author of this template (optionally including mail
-address).
+The name of the author of this template (optionally including mail address).
 
 ```php
 public setAuthor(string $author): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$author` | **string** | Name of the author optionally including mail address<br />between angle brackets. |
-
-
-
 
 ***
 
@@ -204,16 +118,6 @@ Returns the name and/or mail address of the author.
 public getAuthor(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCopyright
@@ -224,21 +128,11 @@ Sets the copyright string for this template.
 public setCopyright(string $copyright): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$copyright` | **string** | Free-form copyright notice. |
-
-
-
 
 ***
 
@@ -250,16 +144,6 @@ Returns the copyright string for this template.
 public getCopyright(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setVersion
@@ -270,21 +154,11 @@ Sets the version number for this template.
 public setVersion(string $version): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$version` | **string** | Semantic version number in this format: 1.0.0 |
-
-
-
 
 ***
 
@@ -296,16 +170,6 @@ Returns the version number for this template.
 public getVersion(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDescription
@@ -316,21 +180,12 @@ Sets the description for this template.
 public setDescription(string $description): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$description` | **string** | An unconstrained text field where the user can provide additional information<br />regarding details of the template. |
-
-
-
+| `$description` | **
+string** | An unconstrained text field where the user can provide additional information<br />regarding details of the template. |
 
 ***
 
@@ -342,16 +197,6 @@ Returns the description for this template.
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### offsetSet
@@ -362,22 +207,12 @@ Sets a transformation at the given offset.
 public offsetSet(int|string $offset, \phpDocumentor\Transformer\Transformation $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **int&#124;string** | The offset to place the value at. |
 | `$value` | **\phpDocumentor\Transformer\Transformation** | The transformation to add to this template. |
-
-
-
 
 ***
 
@@ -389,21 +224,11 @@ Gets the transformation at the given offset.
 public offsetGet(int|string $offset): \phpDocumentor\Transformer\Transformation
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **int&#124;string** | The offset to retrieve from. |
-
-
-
 
 ***
 
@@ -415,24 +240,15 @@ Offset to unset.
 public offsetUnset(int|string $offset): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **int&#124;string** | Index of item to unset. |
 
-
-
 **See Also:**
 
-* http://php.net/manual/en/arrayaccess.offsetunset.php - 
+* http://php.net/manual/en/arrayaccess.offsetunset.php -
 
 ***
 
@@ -444,28 +260,19 @@ Whether a offset exists.
 public offsetExists(mixed $offset): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** | An offset to check for. |
 
-
 **Return Value:**
 
 Returns true on success or false on failure.
 
-
 **See Also:**
 
-* http://php.net/manual/en/arrayaccess.offsetexists.php - 
+* http://php.net/manual/en/arrayaccess.offsetexists.php -
 
 ***
 
@@ -477,22 +284,13 @@ Count the number of transformations.
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The count as an integer.
 
-
 **See Also:**
 
-* http://php.net/manual/en/countable.count.php - 
+* http://php.net/manual/en/countable.count.php -
 
 ***
 
@@ -504,18 +302,9 @@ Rewind the Iterator to the first element
 public rewind(): void
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/iterator.rewind.php - 
+* http://php.net/manual/en/iterator.rewind.php -
 
 ***
 
@@ -527,22 +316,13 @@ Checks if current position is valid.
 public valid(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Returns true on success or false on failure.
 
-
 **See Also:**
 
-* http://php.net/manual/en/iterator.valid.php - 
+* http://php.net/manual/en/iterator.valid.php -
 
 ***
 
@@ -554,22 +334,13 @@ Return the key of the current element.
 public key(): int|string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 scalar on success, integer 0 on failure.
 
-
 **See Also:**
 
-* http://php.net/manual/en/iterator.key.php - 
+* http://php.net/manual/en/iterator.key.php -
 
 ***
 
@@ -581,22 +352,13 @@ Move forward to next element.
 public next(): void
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Any returned value is ignored.
 
-
 **See Also:**
 
-* http://php.net/manual/en/iterator.next.php - 
+* http://php.net/manual/en/iterator.next.php -
 
 ***
 
@@ -608,18 +370,9 @@ Return the current element.
 public current(): \phpDocumentor\Transformer\Transformation
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/iterator.current.php - 
+* http://php.net/manual/en/iterator.current.php -
 
 ***
 
@@ -631,16 +384,6 @@ Returns the parameters associated with this template.
 public getParameters(): \phpDocumentor\Transformer\Template\Parameter[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setParameter
@@ -651,22 +394,12 @@ Sets a new parameter in the collection.
 public setParameter(string|int $key, \phpDocumentor\Transformer\Template\Parameter $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string&#124;int** |  |
 | `$value` | **\phpDocumentor\Transformer\Template\Parameter** |  |
-
-
-
 
 ***
 
@@ -678,18 +411,4 @@ Pushes the parameters of this template into the transformations.
 public propagateParameters(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

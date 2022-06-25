@@ -2,18 +2,10 @@
 
 # ClassCache
 
-
-
-
-
 * Full name: `\Zend\Cache\Pattern\ClassCache`
 * Parent class: [`\Zend\Cache\Pattern\CallbackCache`](./CallbackCache.md)
 
-
-
-
 ## Methods
-
 
 ### setOptions
 
@@ -23,21 +15,11 @@ Set options
 public setOptions(\Zend\Cache\Pattern\PatternOptions $options): \Zend\Cache\Pattern\ClassCache
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Pattern\PatternOptions** |  |
-
-
-
 
 ***
 
@@ -49,13 +31,6 @@ Call and cache a class method
 public call(string $method, array $args = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -63,26 +38,15 @@ public call(string $method, array $args = []): mixed
 | `$method` | **string** | Method name to call |
 | `$args` | **array** | Method arguments |
 
-
-
-
 ***
 
 ### generateKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 public generateKey(string $method, array $args = []): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -91,26 +55,15 @@ public generateKey(string $method, array $args = []): string
 | `$method` | **string** | The method |
 | `$args` | **array** | Callback arguments |
 
-
-
-
 ***
 
 ### generateCallbackKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 protected generateCallbackKey(callable $callback, array $args): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -118,9 +71,6 @@ protected generateCallbackKey(callable $callback, array $args): string
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
-
-
 
 ***
 
@@ -132,22 +82,12 @@ Calling a method of the entity.
 public __call(string $method, array $args): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** | Method name to call |
 | `$args` | **array** | Method arguments |
-
-
-
 
 ***
 
@@ -159,13 +99,6 @@ Set a static property
 public __set(string $name, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -173,11 +106,9 @@ public __set(string $name, mixed $value): void
 | `$name` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members - 
+* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members -
 
 ***
 
@@ -189,24 +120,15 @@ Get a static property
 public __get(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members - 
+* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members -
 
 ***
 
@@ -218,21 +140,11 @@ Is a static property exists.
 public __isset(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -244,27 +156,15 @@ Unset a static property
 public __unset(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setOptions
 
@@ -274,21 +174,11 @@ Set pattern options
 public setOptions(\Zend\Cache\Pattern\PatternOptions $options): \Zend\Cache\Pattern\AbstractPattern
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Pattern\PatternOptions** |  |
-
-
-
 
 ***
 
@@ -300,20 +190,12 @@ Call the specified callback or get the result from cache
 public call(callable $callback, array $args = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
 
 **Return Value:**
 
@@ -331,13 +213,6 @@ function call handler
 public __call(string $function, array $args): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -345,54 +220,32 @@ public __call(string $function, array $args): mixed
 | `$function` | **string** | Function name to call |
 | `$args` | **array** | Function arguments |
 
-
-
-
 ***
 
 ### generateKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 public generateKey(callable $callback, array $args = []): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
-
-
 
 ***
 
 ### generateCallbackKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 protected generateCallbackKey(callable $callback, array $args): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -400,9 +253,6 @@ protected generateCallbackKey(callable $callback, array $args): string
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
-
-
 
 ***
 
@@ -414,21 +264,11 @@ Generate a unique key of the argument part.
 protected generateArgumentsKey(array $args): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **array** |  |
-
-
-
 
 ***
 
@@ -440,18 +280,4 @@ Get all pattern options
 public getOptions(): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

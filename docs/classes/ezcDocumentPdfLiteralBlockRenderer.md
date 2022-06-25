@@ -4,17 +4,13 @@
 
 Renders a literal block / code section.
 
-Renders a code section / literal block, which especially means, that
-whitespaces are not omitted or reduced, but preserved in the output.
+Renders a code section / literal block, which especially means, that whitespaces are not omitted or reduced, but
+preserved in the output.
 
 * Full name: `\ezcDocumentPdfLiteralBlockRenderer`
 * Parent class: [`\ezcDocumentPdfWrappingTextBoxRenderer`](./ezcDocumentPdfWrappingTextBoxRenderer.md)
 
-
-
-
 ## Methods
-
 
 ### renderNode
 
@@ -23,13 +19,6 @@ Renders a literal block.
 ```php
 public renderNode(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $text, \ezcDocumentPdfMainRenderer $mainRenderer): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -41,14 +30,9 @@ public renderNode(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenat
 | `$text` | **\ezcDocumentLocateableDomElement** |  |
 | `$mainRenderer` | **\ezcDocumentPdfMainRenderer** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### renderNode
 
@@ -58,13 +42,7 @@ Render a block level element.
 public renderNode(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $block, \ezcDocumentPdfMainRenderer $mainRenderer): bool
 ```
 
-Renders a block level element by applzing margin and padding and
-recursing to all nested elements.
-
-
-
-
-
+Renders a block level element by applzing margin and padding and recursing to all nested elements.
 
 **Parameters:**
 
@@ -76,9 +54,6 @@ recursing to all nested elements.
 | `$block` | **\ezcDocumentLocateableDomElement** |  |
 | `$mainRenderer` | **\ezcDocumentPdfMainRenderer** |  |
 
-
-
-
 ***
 
 ### renderTextBox
@@ -89,17 +64,10 @@ Render text box
 protected renderTextBox(array $lines, \ezcDocumentPdfBoundingBox $space, array $styles): bool
 ```
 
-Render a single text box, specified by the given lines array,
-containing tokens and their styles, the available space and
-the styles array for the currently rendered element.
+Render a single text box, specified by the given lines array, containing tokens and their styles, the available space
+and the styles array for the currently rendered element.
 
-Returns false, if the box size was not sufficant for the
-given text, and the covered vertical area otherwise.
-
-
-
-
-
+Returns false, if the box size was not sufficant for the given text, and the covered vertical area otherwise.
 
 **Parameters:**
 
@@ -108,9 +76,6 @@ given text, and the covered vertical area otherwise.
 | `$lines` | **array** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -124,19 +89,11 @@ protected strrev(string $string): string
 
 Similar to PHPs strrev() function, but also works for UTF-8 strings.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -148,13 +105,6 @@ Render a single line and return the used height
 protected renderLine(float $position, int $number, array $line, \ezcDocumentPdfBoundingBox $space, array $styles): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -164,9 +114,6 @@ protected renderLine(float $position, int $number, array $line, \ezcDocumentPdfB
 | `$line` | **array** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -178,13 +125,7 @@ Handle links
 protected handleLinks(array $token, float $x, float $y, float $width, float $height): void
 ```
 
-Handle embedded link markup for current token and perform the
-appropriate calls to the driver.
-
-
-
-
-
+Handle embedded link markup for current token and perform the appropriate calls to the driver.
 
 **Parameters:**
 
@@ -196,9 +137,6 @@ appropriate calls to the driver.
 | `$width` | **float** |  |
 | `$height` | **float** |  |
 
-
-
-
 ***
 
 ### renderTextDecoration
@@ -209,13 +147,7 @@ Render text decoration
 protected renderTextDecoration(array $styles, float $x, float $y, float $width, float $height): void
 ```
 
-Render text decoration, like by a assigned text-decoration setting, or
-background-colors, and similar.
-
-
-
-
-
+Render text decoration, like by a assigned text-decoration setting, or background-colors, and similar.
 
 **Parameters:**
 
@@ -227,9 +159,6 @@ background-colors, and similar.
 | `$width` | **float** |  |
 | `$height` | **float** |  |
 
-
-
-
 ***
 
 ### tokenize
@@ -240,18 +169,11 @@ Tokenize the input string
 protected tokenize(\ezcDocumentLocateableDomElement $element, \ezcDocumentPdfTokenizer $tokenizer, bool $recursed = false): array
 ```
 
-For proper word wrapping in the paragraph the strng needs to be
-tokenized, while each token has to maintain its stack of assigned
-formats.
+For proper word wrapping in the paragraph the strng needs to be tokenized, while each token has to maintain its stack of
+assigned formats.
 
-This method should return an array of tokens, also maintaining the
-included whitespace characters, each associated with its markup
-elements.
-
-
-
-
-
+This method should return an array of tokens, also maintaining the included whitespace characters, each associated with
+its markup elements.
 
 **Parameters:**
 
@@ -260,9 +182,6 @@ elements.
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
 | `$tokenizer` | **\ezcDocumentPdfTokenizer** |  |
 | `$recursed` | **bool** |  |
-
-
-
 
 ***
 
@@ -274,17 +193,10 @@ Force split a word.
 protected forceSplit(string $word, float $available): array
 ```
 
-Force the splitting of a word, which did not fit in a line alone and
-could not be splitted using the hyphenator. We just search for the
-maximum word part length which fits the available space.
+Force the splitting of a word, which did not fit in a line alone and could not be splitted using the hyphenator. We just
+search for the maximum word part length which fits the available space.
 
-Could be improved to use a binary search on the word length, but this
-shouldn't happen too often anyways.
-
-
-
-
-
+Could be improved to use a binary search on the word length, but this shouldn't happen too often anyways.
 
 **Parameters:**
 
@@ -292,9 +204,6 @@ shouldn't happen too often anyways.
 |-----------|------|-------------|
 | `$word` | **string** |  |
 | `$available` | **float** |  |
-
-
-
 
 ***
 
@@ -306,14 +215,8 @@ Try to match tokens into lines
 protected fitTokensInLines(array $tokens, \ezcDocumentPdfHyphenator $hyphenator, float $available): array
 ```
 
-Try to match tokens into lines of the given width. Returns an array with
-words for each line. The words might already be split up by the
-hyphenator.
-
-
-
-
-
+Try to match tokens into lines of the given width. Returns an array with words for each line. The words might already be
+split up by the hyphenator.
 
 **Parameters:**
 
@@ -322,9 +225,6 @@ hyphenator.
 | `$tokens` | **array** |  |
 | `$hyphenator` | **\ezcDocumentPdfHyphenator** |  |
 | `$available` | **float** |  |
-
-
-
 
 ***
 
@@ -336,13 +236,6 @@ Process to render block contents.
 protected process(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $block, \ezcDocumentPdfMainRenderer $mainRenderer): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -352,9 +245,6 @@ protected process(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenat
 | `$tokenizer` | **\ezcDocumentPdfTokenizer** |  |
 | `$block` | **\ezcDocumentLocateableDomElement** |  |
 | `$mainRenderer` | **\ezcDocumentPdfMainRenderer** |  |
-
-
-
 
 ***
 
@@ -366,22 +256,12 @@ Construct renderer from driver to use
 public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -393,13 +273,7 @@ Render box background
 protected renderBoxBackground(\ezcDocumentPdfBoundingBox $space, array $styles): void
 ```
 
-Render box background for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box background for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -407,9 +281,6 @@ styles.
 |-----------|------|-------------|
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -421,13 +292,7 @@ Render box border
 protected renderBoxBorder(\ezcDocumentPdfBoundingBox $space, array $styles, bool $renderTop = true, bool $renderBottom = true): void
 ```
 
-Render box border for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box border for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -437,9 +302,6 @@ styles.
 | `$styles` | **array** |  |
 | `$renderTop` | **bool** |  |
 | `$renderBottom` | **bool** |  |
-
-
-
 
 ***
 
@@ -453,11 +315,6 @@ protected setBoxCovered(\ezcDocumentPdfPage $page, \ezcDocumentPdfBoundingBox $s
 
 Mark rendered space as convered on the page.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -465,9 +322,6 @@ Mark rendered space as convered on the page.
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -479,13 +333,7 @@ Evaluate available bounding box
 protected evaluateAvailableBoundingBox(\ezcDocumentPdfPage $page, array $styles, float $width): mixed
 ```
 
-Returns false, if not enough space is available on current
-page, and a bounding box otherwise.
-
-
-
-
-
+Returns false, if not enough space is available on current page, and a bounding box otherwise.
 
 **Parameters:**
 
@@ -495,11 +343,4 @@ page, and a bounding box otherwise.
 | `$styles` | **array** |  |
 | `$width` | **float** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,35 +4,22 @@
 
 Checkstyle transformation writer; generates checkstyle report
 
-
-
 * Full name: `\phpDocumentor\Plugin\Core\Transformer\Writer\Checkstyle`
 * Parent class: [`\phpDocumentor\Transformer\Writer\WriterAbstract`](../../../../Transformer/Writer/WriterAbstract.md)
 * This class implements:
-[`\phpDocumentor\Transformer\Writer\Translatable`](../../../../Transformer/Writer/Translatable.md)
-
-
+  [`\phpDocumentor\Transformer\Writer\Translatable`](../../../../Transformer/Writer/Translatable.md)
 
 ## Properties
 
-
 ### translator
-
-
 
 ```php
 protected \phpDocumentor\Translator\Translator $translator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getTranslator
 
@@ -41,16 +28,6 @@ Returns an instance of the object responsible for translating content.
 ```php
 public getTranslator(): \phpDocumentor\Translator\Translator
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -62,21 +39,11 @@ Sets a new object capable of translating strings on this writer.
 public setTranslator(\phpDocumentor\Translator\Translator $translator): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$translator` | **\phpDocumentor\Translator\Translator** |  |
-
-
-
 
 ***
 
@@ -88,22 +55,12 @@ This method generates the checkstyle.xml report
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
-
-
-
 
 ***
 
@@ -115,21 +72,11 @@ Retrieves the destination location for this artifact.
 protected getDestinationPath(\phpDocumentor\Transformer\Transformation $transformation): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
-
-
-
 
 ***
 
@@ -141,13 +88,6 @@ Save the checkstyle report to the artifact
 protected saveCheckstyleReport(string $artifact, \DOMDocument $document): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -155,14 +95,9 @@ protected saveCheckstyleReport(string $artifact, \DOMDocument $document): void
 | `$artifact` | **string** | Target name for the report |
 | `$document` | **\DOMDocument** | The actual xml document being saved |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### checkRequirements
 
@@ -172,8 +107,8 @@ This method verifies whether PHP has all requirements needed to run this writer.
 public checkRequirements(): void
 ```
 
-If one of the requirements is missing for this Writer then an exception of type RequirementMissing
-should be thrown; this indicates to the calling process that this writer will not function.
+If one of the requirements is missing for this Writer then an exception of type RequirementMissing should be thrown;
+this indicates to the calling process that this writer will not function.
 
 
 
@@ -193,21 +128,11 @@ Checks if there is a space in the path.
 protected checkForSpacesInPath(string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -219,12 +144,7 @@ Abstract definition of the transformation method.
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -233,11 +153,4 @@ public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocum
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

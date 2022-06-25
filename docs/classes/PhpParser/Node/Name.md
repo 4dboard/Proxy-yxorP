@@ -2,35 +2,20 @@
 
 # Name
 
-
-
-
-
 * Full name: `\PhpParser\Node\Name`
 * Parent class: [`\PhpParser\NodeAbstract`](../NodeAbstract.md)
 
-
-
 ## Properties
 
-
 ### parts
-
-
 
 ```php
 public string[] $parts
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,22 +25,12 @@ Constructs a name node.
 public __construct(string|array $parts, array $attributes = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parts` | **string&#124;array** | Parts of the name (or name as string) |
 | `$attributes` | **array** | Additional attributes |
-
-
-
 
 ***
 
@@ -66,14 +41,6 @@ Gets the names of the sub nodes.
 ```php
 public getSubNodeNames(): array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -91,14 +58,6 @@ Gets the first part of the name, i.e. everything before the first namespace sepa
 public getFirst(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 First part of the name
@@ -114,14 +73,6 @@ Gets the last part of the name, i.e. everything after the last namespace separat
 ```php
 public getLast(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -139,14 +90,6 @@ Checks whether the name is unqualified. (E.g. Name)
 public isUnqualified(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether the name is unqualified
@@ -162,14 +105,6 @@ Checks whether the name is qualified. (E.g. Name\Name)
 ```php
 public isQualified(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -187,14 +122,6 @@ Checks whether the name is fully qualified. (E.g. \Name)
 public isFullyQualified(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether the name is fully qualified
@@ -210,14 +137,6 @@ Checks whether the name is explicitly relative to the current namespace. (E.g. n
 ```php
 public isRelative(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -235,19 +154,11 @@ Returns a string representation of the name by imploding the namespace parts wit
 public toString(string $separator = &#039;\&#039;): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$separator` | **string** | The separator to use (defaults to the namespace separator \) |
-
 
 **Return Value:**
 
@@ -259,20 +170,11 @@ String representation
 
 ### __toString
 
-Returns a string representation of the name by imploding the namespace parts with the
-namespace separator.
+Returns a string representation of the name by imploding the namespace parts with the namespace separator.
 
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -290,21 +192,11 @@ Sets the whole name.
 public set(string|array|self $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;array&#124;self** | The name to set the whole name to |
-
-
-
 
 ***
 
@@ -316,21 +208,11 @@ Prepends a name to this name.
 public prepend(string|array|self $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;array&#124;self** | Name to prepend |
-
-
-
 
 ***
 
@@ -342,21 +224,11 @@ Appends a name to this name.
 public append(string|array|self $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;array&#124;self** | Name to append |
-
-
-
 
 ***
 
@@ -368,21 +240,11 @@ Sets the first part of the name.
 public setFirst(string|array|self $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;array&#124;self** | The name to set the first part to |
-
-
-
 
 ***
 
@@ -394,46 +256,27 @@ Sets the last part of the name.
 public setLast(string|array|self $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;array&#124;self** | The name to set the last part to |
 
-
-
-
 ***
 
 ### prepareName
 
-Prepares a (string, array or Name node) name for use in name changing methods by converting
-it to an array.
+Prepares a (string, array or Name node) name for use in name changing methods by converting it to an array.
 
 ```php
 protected prepareName(string|array|self $name): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;array&#124;self** | Name to prepare |
-
 
 **Return Value:**
 
@@ -443,9 +286,7 @@ Prepared name
 
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -455,16 +296,9 @@ Creates a Node.
 public __construct(null|array $subNodes = array(), array $attributes = array()): mixed
 ```
 
-If null is passed for the $subNodes parameter the node constructor must assign
-all subnodes by itself and also override the getSubNodeNames() method.
-DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding
-to the array keys will be set and getSubNodeNames() will return the keys of that
-array.
-
-
-
-
-
+If null is passed for the $subNodes parameter the node constructor must assign all subnodes by itself and also override
+the getSubNodeNames() method. DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding to
+the array keys will be set and getSubNodeNames() will return the keys of that array.
 
 **Parameters:**
 
@@ -472,9 +306,6 @@ array.
 |-----------|------|-------------|
 | `$subNodes` | **null&#124;array** | Null or an array of sub nodes (deprecated) |
 | `$attributes` | **array** | Array of attributes |
-
-
-
 
 ***
 
@@ -485,14 +316,6 @@ Gets the type of the node.
 ```php
 public getType(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -510,14 +333,6 @@ Gets the names of the sub nodes.
 public getSubNodeNames(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Names of sub nodes
@@ -533,14 +348,6 @@ Gets line the node started in.
 ```php
 public getLine(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -558,21 +365,11 @@ Sets line the node started in.
 public setLine(int $line): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **int** | Line |
-
-
-
 
 ***
 
@@ -585,12 +382,6 @@ public getDocComment(): null|\PhpParser\Comment\Doc
 ```
 
 The doc comment has to be the last comment associated with the node.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -608,22 +399,12 @@ Sets an attribute on a node.
 public setAttribute(mixed $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -635,21 +416,11 @@ Returns whether an attribute exists.
 public hasAttribute(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -661,22 +432,12 @@ Returns the value of an attribute.
 public getAttribute(mixed $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -688,18 +449,4 @@ Returns all attributes for the given node.
 public getAttributes(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

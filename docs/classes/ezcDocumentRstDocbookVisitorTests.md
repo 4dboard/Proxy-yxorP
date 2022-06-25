@@ -4,88 +4,48 @@
 
 Test suite for class.
 
-
-
 * Full name: `\ezcDocumentRstDocbookVisitorTests`
 * Parent class: [`ezcTestCase`](./ezcTestCase.md)
 
-
-
 ## Properties
 
-
 ### testDocuments
-
-
 
 ```php
 protected static $testDocuments
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### suite
-
-
 
 ```php
 public static suite(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### getTestDocuments
 
-
-
 ```php
 public static getTestDocuments(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### testParseRstFile
 
-
-
 ```php
 public testParseRstFile(mixed $from, mixed $to): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -94,45 +54,23 @@ public testParseRstFile(mixed $from, mixed $to): mixed
 | `$from` | **mixed** |  |
 | `$to` | **mixed** |  |
 
-
-
-
 ***
 
 ### getErroneousTestDocuments
-
-
 
 ```php
 public static getErroneousTestDocuments(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### testParseErroneousRstFile
 
-
-
 ```php
 public testParseErroneousRstFile(mixed $file, mixed $message): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -141,11 +79,4 @@ public testParseErroneousRstFile(mixed $file, mixed $message): mixed
 | `$file` | **mixed** |  |
 | `$message` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

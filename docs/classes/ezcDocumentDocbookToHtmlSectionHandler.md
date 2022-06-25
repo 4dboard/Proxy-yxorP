@@ -4,20 +4,16 @@
 
 Visit docbook sections
 
-Updates the docbook sections, which give us information about the depth
-in the document, and may also be reference targets.
+Updates the docbook sections, which give us information about the depth in the document, and may also be reference
+targets.
 
-Also visits title elements, which are commonly the first element in sections
-and define section titles, which are converted to HTML header elements of
-the respective level of indentation
+Also visits title elements, which are commonly the first element in sections and define section titles, which are
+converted to HTML header elements of the respective level of indentation
 
 * Full name: `\ezcDocumentDocbookToHtmlSectionHandler`
 * Parent class: [`\ezcDocumentDocbookToHtmlBaseHandler`](./ezcDocumentDocbookToHtmlBaseHandler.md)
 
-
-
 ## Properties
-
 
 ### level
 
@@ -27,15 +23,9 @@ Current level of indentation in the docbook document.
 protected int $level
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### handle
 
@@ -45,13 +35,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -61,14 +45,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getHead
 
@@ -80,19 +59,11 @@ protected getHead(\DOMElement $element): \DOMElement
 
 Get the root node of the HTML document head
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -104,13 +75,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -120,11 +87,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

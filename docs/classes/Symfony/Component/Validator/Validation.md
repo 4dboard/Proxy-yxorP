@@ -4,12 +4,9 @@
 
 Entry point for the Validator component.
 
-
-
 * Full name: `\Symfony\Component\Validator\Validation`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -19,9 +16,7 @@ Entry point for the Validator component.
 |`API_VERSION_2_5`|public| |2|
 |`API_VERSION_2_5_BC`|public| |3|
 
-
 ## Methods
-
 
 ### createValidator
 
@@ -31,14 +26,9 @@ Creates a new validator.
 public static createValidator(): \Symfony\Component\Validator\ValidatorInterface
 ```
 
-If you want to configure the validator, use
-{@link} instead.
+If you want to configure the validator, use {@link} instead.
 
 * This method is **static**.
-
-
-
-
 
 **Return Value:**
 
@@ -56,13 +46,7 @@ Creates a configurable builder for validator objects.
 public static createValidatorBuilder(): \Symfony\Component\Validator\ValidatorBuilderInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
-
 
 **Return Value:**
 
@@ -80,18 +64,4 @@ This class cannot be instantiated.
 private __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

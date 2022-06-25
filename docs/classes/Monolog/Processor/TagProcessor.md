@@ -4,101 +4,55 @@
 
 Adds a tags array into record
 
-
-
 * Full name: `\Monolog\Processor\TagProcessor`
 * This class implements:
-[`\Monolog\Processor\ProcessorInterface`](./ProcessorInterface.md)
-
-
+  [`\Monolog\Processor\ProcessorInterface`](./ProcessorInterface.md)
 
 ## Properties
 
-
 ### tags
-
-
 
 ```php
 private $tags
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $tags = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tags` | **array** |  |
-
-
-
 
 ***
 
 ### addTags
 
-
-
 ```php
 public addTags(array $tags = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tags` | **array** |  |
-
-
-
 
 ***
 
 ### setTags
 
-
-
 ```php
 public setTags(array $tags = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -106,25 +60,13 @@ public setTags(array $tags = array()): mixed
 |-----------|------|-------------|
 | `$tags` | **array** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(array $record): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -132,15 +74,6 @@ public __invoke(array $record): array
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
 **Return Value:**
 
-The processed records
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The processed records yxorP::get('REQUEST')

@@ -4,209 +4,98 @@
 
 Class Controller
 
-
-
 * Full name: `\Cockpit\Controller\Utils`
 * Parent class: [`\Cockpit\AuthController`](../AuthController.md)
 
-
-
-
 ## Methods
 
-
 ### thumb_url
-
-
 
 ```php
 public thumb_url(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCacheSize
-
-
 
 ```php
 public getCacheSize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### revisionsCount
-
-
 
 ```php
 public revisionsCount(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### revisionsRemove
-
-
 
 ```php
 public revisionsRemove(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### revisionsRemoveAll
-
-
 
 ```php
 public revisionsRemoveAll(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isResourceLocked
-
-
 
 ```php
 public isResourceLocked(mixed $resourceId): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
-
-
-
 
 ***
 
 ### lockResourceId
 
-
-
 ```php
 public lockResourceId(mixed $resourceId): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
-
-
-
 
 ***
 
 ### unlockResourceId
 
-
-
 ```php
 public unlockResourceId(mixed $resourceId): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
-
-
-
 
 ***
 
 ### unlockResourceIdByCurrentUser
 
-
-
 ```php
 public unlockResourceIdByCurrentUser(mixed $resourceId): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -214,89 +103,39 @@ public unlockResourceIdByCurrentUser(mixed $resourceId): mixed
 |-----------|------|-------------|
 | `$resourceId` | **mixed** |  |
 
-
-
-
 ***
 
 ### startJobRunner
-
-
 
 ```php
 public startJobRunner(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### restartJobRunner
-
-
 
 ```php
 public restartJobRunner(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### stopJobRunner
-
-
 
 ```php
 public stopJobRunner(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -304,65 +143,29 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### index
-
-
 
 ```php
 public index(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### before
-
-
 
 ```php
 protected before(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### render
 
-
-
 ```php
 protected render( $view, array $params = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -371,25 +174,13 @@ protected render( $view, array $params = array()): mixed
 | `$view` | **** |  |
 | `$params` | **array** |  |
 
-
-
-
 ***
 
 ### param
 
-
-
 ```php
 protected param( $key, null $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -398,25 +189,13 @@ protected param( $key, null $default = null): mixed
 | `$key` | **** |  |
 | `$default` | **null** |  |
 
-
-
-
 ***
 
 ### module
 
-
-
 ```php
 protected module( $module): null
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -424,25 +203,13 @@ protected module( $module): null
 |-----------|------|-------------|
 | `$module` | **** |  |
 
-
-
-
 ***
 
 ### helper
 
-
-
 ```php
 protected helper( $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -450,25 +217,13 @@ protected helper( $name): mixed
 |-----------|------|-------------|
 | `$name` | **** |  |
 
-
-
-
 ***
 
 ### stop
 
-
-
 ```php
 protected stop(mixed $data = false, mixed $status = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -477,45 +232,21 @@ protected stop(mixed $data = false, mixed $status = null): mixed
 | `$data` | **mixed** |  |
 | `$status` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -524,25 +255,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -550,25 +269,13 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -576,11 +283,4 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

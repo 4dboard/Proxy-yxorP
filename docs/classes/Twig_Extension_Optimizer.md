@@ -2,44 +2,22 @@
 
 # Twig_Extension_Optimizer
 
-
-
-
-
 * Full name: `\Twig_Extension_Optimizer`
 * Parent class: [`\Twig\Extension\OptimizerExtension`](./Twig/Extension/OptimizerExtension.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $optimizers = -1): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$optimizers` | **mixed** |  |
-
-
-
 
 ***
 
@@ -51,16 +29,6 @@ Returns the node visitor instances to add to the existing list.
 public getNodeVisitors(): \Twig\NodeVisitor\NodeVisitorInterface[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getName
@@ -71,15 +39,7 @@ Returns the name of the extension.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -97,23 +57,13 @@ Initializes the runtime environment.
 public initRuntime(\Twig\Environment $environment): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$environment` | **\Twig\Environment** |  |
-
-
-
 
 ***
 
@@ -125,16 +75,6 @@ Returns the token parser instances to add to the existing list.
 public getTokenParsers(): \Twig\TokenParser\TokenParserInterface[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFilters
@@ -144,16 +84,6 @@ Returns a list of filters to add to the existing list.
 ```php
 public getFilters(): \Twig\TwigFilter[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -165,16 +95,6 @@ Returns a list of tests to add to the existing list.
 public getTests(): \Twig\TwigTest[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFunctions
@@ -185,16 +105,6 @@ Returns a list of functions to add to the existing list.
 public getFunctions(): \Twig\TwigFunction[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOperators
@@ -204,14 +114,6 @@ Returns a list of operators to add to the existing list.
 ```php
 public getOperators(): array[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -229,24 +131,8 @@ Returns a list of global variables to add to the existing list.
 public getGlobals(): array
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
-An array of global variables
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+An array of global variables yxorP::get('REQUEST')

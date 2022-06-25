@@ -4,62 +4,35 @@
 
 RedisLite class.
 
-
-
 * Full name: `\RedisLite`
-
-
 
 ## Properties
 
-
 ### path
-
-
 
 ```php
 protected string $path
 ```
 
-
-
-
-
-
 ***
 
 ### connection
-
-
 
 ```php
 protected object $connection
 ```
 
-
-
-
-
-
 ***
 
 ### table
-
-
 
 ```php
 protected string $table
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -69,13 +42,6 @@ Constructor
 public __construct(string $path = &quot;:memory:&quot;, array $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -83,28 +49,13 @@ public __construct(string $path = &quot;:memory:&quot;, array $options = array()
 | `$path` | **string** |  |
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### createTable
 
-
-
 ```php
 protected createTable(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -116,22 +67,12 @@ Get value for specific key
 public get(string $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -143,22 +84,12 @@ Set value for specific key
 public set(string $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -170,16 +101,6 @@ Clear database
 public flushdb(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### exists
@@ -190,21 +111,11 @@ Check if key exists
 public exists(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -216,21 +127,11 @@ Get all keys matching a pattern
 public keys(string $pattern = null): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pattern` | **string** |  |
-
-
-
 
 ***
 
@@ -242,21 +143,11 @@ Delete Key(s)
 public del(string $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -268,21 +159,11 @@ Get value type
 public type(string $key): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -294,22 +175,12 @@ Increment value by x
 public incr(string $key, int $by = 1): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$by` | **int** |  |
-
-
-
 
 ***
 
@@ -321,22 +192,12 @@ Decrement value by x
 public decr(string $key, int $by = 1): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$by` | **int** |  |
-
-
-
 
 ***
 
@@ -348,21 +209,11 @@ Count $value items
 public llen(string $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -374,22 +225,12 @@ Add item to a value (right)
 public rpush(string $key, mixed $value): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -401,22 +242,12 @@ Add item to a value (left)
 public lpush(string $key, mixed $value): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -428,13 +259,6 @@ Set the value of an element in a list by its index
 public lset(string $key, int $index, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -442,9 +266,6 @@ public lset(string $key, int $index, mixed $value): bool
 | `$key` | **string** |  |
 | `$index` | **int** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -456,22 +277,12 @@ Get an element from a list by its index
 public lindex(string $key, int $index): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$index` | **int** |  |
-
-
-
 
 ***
 
@@ -483,13 +294,6 @@ Set the string value of a hash field
 public hset(string $key, string $field, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -497,9 +301,6 @@ public hset(string $key, string $field, mixed $value): mixed
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -511,13 +312,6 @@ Get the value of a hash field
 public hget(string $key, string $field, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -525,9 +319,6 @@ public hget(string $key, string $field, mixed $default = null): mixed
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -539,21 +330,11 @@ Get all the fields and values in a hash
 public hgetall(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -565,22 +346,12 @@ Determine if a hash field exists
 public hexists(string $key, string $field): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$field` | **string** |  |
-
-
-
 
 ***
 
@@ -592,21 +363,11 @@ Get all the fields in a hash
 public hkeys(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -618,21 +379,11 @@ Get all the values in a hash
 public hvals(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -644,21 +395,11 @@ Get the number of fields in a hash
 public hlen(string $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -670,21 +411,11 @@ Delete one or more hash fields
 public hdel(string $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -696,13 +427,6 @@ Increment the integer value of a hash field by the given number
 public hincrby(string $key, string $field, int $by = 1): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -710,9 +434,6 @@ public hincrby(string $key, string $field, int $by = 1): int
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$by` | **int** |  |
-
-
-
 
 ***
 
@@ -724,21 +445,11 @@ Get the values of all the given hash fields
 public hmget(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -750,24 +461,10 @@ Set multiple hash fields to multiple values
 public hmset(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,34 +4,23 @@
 
 Encryption adapter for openssl
 
-
-
 * Full name: `\Zend\Filter\Encrypt\Openssl`
 * This class implements:
-[`\Zend\Filter\Encrypt\EncryptionAlgorithmInterface`](./EncryptionAlgorithmInterface.md)
-
-
+  [`\Zend\Filter\Encrypt\EncryptionAlgorithmInterface`](./EncryptionAlgorithmInterface.md)
 
 ## Properties
 
-
 ### keys
 
-Definitions for encryption
-array(
-    'public'   => public keys
-    'private'  => private keys
-    'envelope' => resulting envelope keys
+Definitions for encryption array(
+'public' => public keys
+'private' => private keys
+'envelope' => resulting envelope keys
 )
 
 ```php
 protected $keys
 ```
-
-
-
-
-
 
 ***
 
@@ -43,11 +32,6 @@ Internal passphrase
 protected string $passphrase
 ```
 
-
-
-
-
-
 ***
 
 ### compression
@@ -57,11 +41,6 @@ Internal compression
 ```php
 protected array $compression
 ```
-
-
-
-
-
 
 ***
 
@@ -73,46 +52,29 @@ Internal create package
 protected bool $package
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
 
-Class constructor
-Available options
-  'public'      => public key
-  'private'     => private key
-  'envelope'    => envelope key
-  'passphrase'  => passphrase
-  'compression' => compress value with this compression adapter
-  'package'     => pack envelope keys into encrypted string, simplifies decryption
+Class constructor Available options
+'public' => public key
+'private' => private key
+'envelope' => envelope key
+'passphrase' => passphrase
+'compression' => compress value with this compression adapter
+'package' => pack envelope keys into encrypted string, simplifies decryption
 
 ```php
 public __construct(string|array|\Traversable $options = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **string&#124;array&#124;\Traversable** | Options for this adapter |
-
-
-
 
 ***
 
@@ -124,21 +86,11 @@ Sets the encryption keys
 protected _setKeys(string|array $keys): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **string&#124;array** | Key with type association |
-
-
-
 
 ***
 
@@ -150,16 +102,6 @@ Returns all public keys
 public getPublicKey(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPublicKey
@@ -170,21 +112,11 @@ Sets public keys
 public setPublicKey(string|array $key): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string&#124;array** | Public keys |
-
-
-
 
 ***
 
@@ -196,16 +128,6 @@ Returns all private keys
 public getPrivateKey(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPrivateKey
@@ -216,22 +138,12 @@ Sets private keys
 public setPrivateKey(string $key, string $passphrase = null): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Private key |
 | `$passphrase` | **string** |  |
-
-
-
 
 ***
 
@@ -243,16 +155,6 @@ Returns all envelope keys
 public getEnvelopeKey(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEnvelopeKey
@@ -263,21 +165,11 @@ Sets envelope keys
 public setEnvelopeKey(string|array $key): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string&#124;array** | Envelope keys |
-
-
-
 
 ***
 
@@ -289,16 +181,6 @@ Returns the passphrase
 public getPassphrase(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPassphrase
@@ -309,21 +191,11 @@ Sets a new passphrase
 public setPassphrase(string $passphrase): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$passphrase` | **string** |  |
-
-
-
 
 ***
 
@@ -335,16 +207,6 @@ Returns the compression
 public getCompression(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCompression
@@ -355,21 +217,11 @@ Sets an internal compression for values to encrypt
 public setCompression(string|array $compression): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compression` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -381,16 +233,6 @@ Returns if header should be packaged
 public getPackage(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPackage
@@ -401,46 +243,27 @@ Sets if the envelope keys should be included in the encrypted value
 public setPackage(bool $package): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$package` | **bool** |  |
 
-
-
-
 ***
 
 ### encrypt
 
-Encrypts $value with the defined settings
-Note that you also need the "encrypted" keys to be able to decrypt
+Encrypts $value with the defined settings Note that you also need the "encrypted" keys to be able to decrypt
 
 ```php
 public encrypt(string $value): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** | Content to encrypt |
-
 
 **Return Value:**
 
@@ -460,17 +283,11 @@ public decrypt(string $value): string
 
 Decrypts $value with the defined settings
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** | Content to decrypt |
-
 
 **Return Value:**
 
@@ -488,18 +305,4 @@ Returns the adapter name
 public toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

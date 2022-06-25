@@ -2,35 +2,16 @@
 
 # Twig_Profiler_Dumper_Blackfire
 
-
-
-
-
 * Full name: `\Twig_Profiler_Dumper_Blackfire`
 * Parent class: [`\Twig\Profiler\Dumper\BlackfireDumper`](./Twig/Profiler/Dumper/BlackfireDumper.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### dump
-
-
 
 ```php
 public dump(\Twig\Profiler\Profile $profile): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,25 +19,13 @@ public dump(\Twig\Profiler\Profile $profile): mixed
 |-----------|------|-------------|
 | `$profile` | **\Twig\Profiler\Profile** |  |
 
-
-
-
 ***
 
 ### dumpChildren
 
-
-
 ```php
 private dumpChildren(mixed $parent, \Twig\Profiler\Profile $profile, mixed& $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -66,25 +35,13 @@ private dumpChildren(mixed $parent, \Twig\Profiler\Profile $profile, mixed& $dat
 | `$profile` | **\Twig\Profiler\Profile** |  |
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### dumpProfile
 
-
-
 ```php
 private dumpProfile(mixed $edge, \Twig\Profiler\Profile $profile, mixed& $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -94,11 +51,4 @@ private dumpProfile(mixed $edge, \Twig\Profiler\Profile $profile, mixed& $data):
 | `$profile` | **\Twig\Profiler\Profile** |  |
 | `$data` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

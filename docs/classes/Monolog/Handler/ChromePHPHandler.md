@@ -9,7 +9,6 @@ This also works out of the box with Firefox 43+
 * Full name: `\Monolog\Handler\ChromePHPHandler`
 * Parent class: [`\Monolog\Handler\AbstractProcessingHandler`](./AbstractProcessingHandler.md)
 
-
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -20,19 +19,13 @@ This also works out of the box with Firefox 43+
 
 ## Properties
 
-
 ### initialized
-
-
 
 ```php
 protected static $initialized
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -48,56 +41,35 @@ Chrome limits the headers to 4KB, so when we sent 3KB we stop sending
 
 * This property is **static**.
 
-
 ***
 
 ### json
-
-
 
 ```php
 protected static $json
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### sendHeaders
 
-
-
 ```php
 protected static $sendHeaders
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -105,9 +77,6 @@ public __construct(int $level = Logger::DEBUG, bool $bubble = true): mixed
 |-----------|------|-------------|
 | `$level` | **int** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -119,21 +88,11 @@ public __construct(int $level = Logger::DEBUG, bool $bubble = true): mixed
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** |  |
-
-
-
 
 ***
 
@@ -145,16 +104,6 @@ public handleBatch(array $records): mixed
 protected getDefaultFormatter(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### write
@@ -165,24 +114,15 @@ Creates & sends header for a record
 protected write(array $record): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
 **See Also:**
 
-* \Monolog\Handler\sendHeader() - * \Monolog\Handler\send() - 
+* \Monolog\Handler\sendHeader() - * \Monolog\Handler\send() -
 
 ***
 
@@ -194,18 +134,9 @@ Sends the log header
 protected send(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Monolog\Handler\sendHeader() - 
+* \Monolog\Handler\sendHeader() -
 
 ***
 
@@ -217,22 +148,12 @@ Send header string to the client
 protected sendHeader(string $header, string $content): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$header` | **string** |  |
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -244,16 +165,6 @@ Verifies if the headers are accepted by the current user agent
 protected headersAccepted(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __get
@@ -264,21 +175,11 @@ BC getter for the sendHeaders property that has been made static
 public __get(mixed $property): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
-
-
-
 
 ***
 
@@ -290,13 +191,6 @@ BC setter for the sendHeaders property that has been made static
 public __set(mixed $property, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -304,14 +198,9 @@ public __set(mixed $property, mixed $value): mixed
 | `$property` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### handle
 
@@ -321,21 +210,11 @@ public __set(mixed $property, mixed $value): mixed
 public handle(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -347,21 +226,13 @@ Writes the record down to the log of the implementing handler
 protected write(array $record): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -373,38 +244,19 @@ Processes a record.
 protected processRecord(array $record): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -412,9 +264,6 @@ public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixe
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -426,21 +275,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -452,21 +291,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -498,21 +327,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -524,16 +343,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -544,21 +353,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -570,16 +369,6 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLevel
@@ -590,21 +379,11 @@ Sets minimum logging level at which this handler will be triggered.
 public setLevel(int|string $level): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | Level or level name |
-
-
-
 
 ***
 
@@ -616,16 +395,6 @@ Gets minimum logging level at which this handler will be triggered.
 public getLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBubble
@@ -636,21 +405,12 @@ Sets the bubbling behavior.
 public setBubble(bool $bubble): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$bubble` | **bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
-
-
-
+| `$bubble` | **
+bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
 
 ***
 
@@ -662,18 +422,9 @@ Gets the bubbling behavior.
 public getBubble(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true means that this handler allows bubbling.
-false means that bubbling is not permitted.
+true means that this handler allows bubbling. false means that bubbling is not permitted.
 
 
 
@@ -681,41 +432,17 @@ false means that bubbling is not permitted.
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -727,18 +454,4 @@ Gets the default formatter.
 protected getDefaultFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

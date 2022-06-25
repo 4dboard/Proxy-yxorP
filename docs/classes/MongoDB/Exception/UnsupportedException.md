@@ -2,18 +2,10 @@
 
 # UnsupportedException
 
-
-
-
-
 * Full name: `\MongoDB\Exception\UnsupportedException`
 * Parent class: [`\MongoDB\Exception\RuntimeException`](./RuntimeException.md)
 
-
-
-
 ## Methods
-
 
 ### allowDiskUseNotSupported
 
@@ -23,15 +15,7 @@ Thrown when a command's allowDiskUse option is not supported by a server.
 public static allowDiskUseNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -43,15 +27,7 @@ Thrown when array filters are not supported by a server.
 public static arrayFiltersNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -63,36 +39,19 @@ Thrown when collations are not supported by a server.
 public static collationNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### commitQuorumNotSupported
 
-Thrown when the commitQuorum option for createIndexes is not supported
-by a server.
+Thrown when the commitQuorum option for createIndexes is not supported by a server.
 
 ```php
 public static commitQuorumNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -104,15 +63,7 @@ Thrown when explain is not supported by a server.
 public static explainNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -124,15 +75,7 @@ Thrown when a command's hint option is not supported by a server.
 public static hintNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -144,15 +87,7 @@ Thrown when a command's readConcern option is not supported by a server.
 public static readConcernNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -164,15 +99,7 @@ Thrown when a readConcern is used with a read operation in a transaction.
 public static readConcernNotSupportedInTransaction(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -184,15 +111,7 @@ Thrown when a command's writeConcern option is not supported by a server.
 public static writeConcernNotSupported(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -204,18 +123,6 @@ Thrown when a writeConcern is used with a write operation in a transaction.
 public static writeConcernNotSupportedInTransaction(): self
 ```
 
-
-
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

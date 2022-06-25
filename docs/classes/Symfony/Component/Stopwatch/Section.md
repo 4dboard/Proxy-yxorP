@@ -4,101 +4,56 @@
 
 Stopwatch section.
 
-
-
 * Full name: `\Symfony\Component\Stopwatch\Section`
-
-
 
 ## Properties
 
-
 ### events
-
-
 
 ```php
 private \Symfony\Component\Stopwatch\StopwatchEvent[] $events
 ```
 
-
-
-
-
-
 ***
 
 ### origin
-
-
 
 ```php
 private float|null $origin
 ```
 
-
-
-
-
-
 ***
 
 ### id
-
-
 
 ```php
 private string $id
 ```
 
-
-
-
-
-
 ***
 
 ### children
-
-
 
 ```php
 private \Symfony\Component\Stopwatch\Section[] $children
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(float|null $origin = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$origin` | **float&#124;null** | Set the origin of the events in this section, use null to set their origin to their start time |
-
-
-
+| `$origin` | **
+float&#124;null** | Set the origin of the events in this section, use null to set their origin to their start time |
 
 ***
 
@@ -110,19 +65,11 @@ Returns the child section.
 public get(string $id): self|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** | The child section identifier |
-
 
 **Return Value:**
 
@@ -140,39 +87,19 @@ Creates or re-opens a child section.
 public open(string|null $id): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string&#124;null** | Null to create a new section, the identifier to re-open an existing one |
 
-
-
-
 ***
 
 ### getId
 
-
-
 ```php
 public getId(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -190,21 +117,11 @@ Sets the session identifier.
 public setId(string $id): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** | The session identifier |
-
-
-
 
 ***
 
@@ -216,20 +133,12 @@ Starts an event.
 public startEvent(string $name, string $category): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
 | `$category` | **string** | The event category |
-
 
 **Return Value:**
 
@@ -247,21 +156,11 @@ Checks if the event was started.
 public isEventStarted(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
-
-
 
 ***
 
@@ -273,19 +172,11 @@ Stops an event.
 public stopEvent(string $name): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
 
 **Return Value:**
 
@@ -303,19 +194,11 @@ Stops then restarts an event.
 public lap(string $name): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
 
 **Return Value:**
 
@@ -333,19 +216,11 @@ Returns a specific event by name.
 public getEvent(string $name): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
 
 **Return Value:**
 
@@ -363,22 +238,6 @@ Returns the events from this section.
 public getEvents(): \Symfony\Component\Stopwatch\StopwatchEvent[]
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-An array of StopwatchEvent instances
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+An array of StopwatchEvent instances yxorP::get('REQUEST')

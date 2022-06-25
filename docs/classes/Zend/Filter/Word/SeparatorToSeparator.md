@@ -2,50 +2,28 @@
 
 # SeparatorToSeparator
 
-
-
-
-
 * Full name: `\Zend\Filter\Word\SeparatorToSeparator`
 * Parent class: [`\Zend\Filter\AbstractFilter`](../AbstractFilter.md)
 
-
-
 ## Properties
 
-
 ### searchSeparator
-
-
 
 ```php
 protected $searchSeparator
 ```
 
-
-
-
-
-
 ***
 
 ### replacementSeparator
-
-
 
 ```php
 protected $replacementSeparator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -55,22 +33,12 @@ Constructor
 public __construct(string $searchSeparator = &#039; &#039;, string $replacementSeparator = &#039;-&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$searchSeparator` | **string** | Separator to search for |
 | `$replacementSeparator` | **string** | Separator to replace with |
-
-
-
 
 ***
 
@@ -82,21 +50,11 @@ Sets a new seperator to search for
 public setSearchSeparator(string $separator): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$separator` | **string** | Seperator to search for |
-
-
-
 
 ***
 
@@ -108,16 +66,6 @@ Returns the actual set separator to search for
 public getSearchSeparator(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setReplacementSeparator
@@ -128,21 +76,11 @@ Sets a new separator which replaces the searched one
 public setReplacementSeparator(string $separator): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$separator` | **string** | Separator which replaces the searched one |
-
-
-
 
 ***
 
@@ -153,16 +91,6 @@ Returns the actual set separator which replaces the searched one
 ```php
 public getReplacementSeparator(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -176,71 +104,40 @@ public filter(string|array $value): string|array
 
 Returns the string $value, replacing the searched separators with the defined ones
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string&#124;array** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -251,16 +148,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -274,36 +161,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -311,11 +183,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

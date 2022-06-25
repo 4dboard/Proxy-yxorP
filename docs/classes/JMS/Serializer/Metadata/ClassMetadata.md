@@ -4,11 +4,8 @@
 
 Class Metadata used to customize the serialization process.
 
-
-
 * Full name: `\JMS\Serializer\Metadata\ClassMetadata`
 * Parent class: [`\Metadata\MergeableClassMetadata`](../../../Metadata/MergeableClassMetadata.md)
-
 
 ## Constants
 
@@ -20,309 +17,165 @@ Class Metadata used to customize the serialization process.
 
 ## Properties
 
-
 ### preSerializeMethods
-
-
 
 ```php
 public \ReflectionMethod[] $preSerializeMethods
 ```
 
-
-
-
-
-
 ***
 
 ### postSerializeMethods
-
-
 
 ```php
 public \ReflectionMethod[] $postSerializeMethods
 ```
 
-
-
-
-
-
 ***
 
 ### postDeserializeMethods
-
-
 
 ```php
 public \ReflectionMethod[] $postDeserializeMethods
 ```
 
-
-
-
-
-
 ***
 
 ### xmlRootName
-
-
 
 ```php
 public $xmlRootName
 ```
 
-
-
-
-
-
 ***
 
 ### xmlRootNamespace
-
-
 
 ```php
 public $xmlRootNamespace
 ```
 
-
-
-
-
-
 ***
 
 ### xmlNamespaces
-
-
 
 ```php
 public $xmlNamespaces
 ```
 
-
-
-
-
-
 ***
 
 ### accessorOrder
-
-
 
 ```php
 public $accessorOrder
 ```
 
-
-
-
-
-
 ***
 
 ### customOrder
-
-
 
 ```php
 public $customOrder
 ```
 
-
-
-
-
-
 ***
 
 ### usingExpression
-
-
 
 ```php
 public $usingExpression
 ```
 
-
-
-
-
-
 ***
 
 ### handlerCallbacks
-
-
 
 ```php
 public $handlerCallbacks
 ```
 
-
-
-
-
-
 ***
 
 ### discriminatorDisabled
-
-
 
 ```php
 public $discriminatorDisabled
 ```
 
-
-
-
-
-
 ***
 
 ### discriminatorBaseClass
-
-
 
 ```php
 public $discriminatorBaseClass
 ```
 
-
-
-
-
-
 ***
 
 ### discriminatorFieldName
-
-
 
 ```php
 public $discriminatorFieldName
 ```
 
-
-
-
-
-
 ***
 
 ### discriminatorValue
-
-
 
 ```php
 public $discriminatorValue
 ```
 
-
-
-
-
-
 ***
 
 ### discriminatorMap
-
-
 
 ```php
 public $discriminatorMap
 ```
 
-
-
-
-
-
 ***
 
 ### discriminatorGroups
-
-
 
 ```php
 public $discriminatorGroups
 ```
 
-
-
-
-
-
 ***
 
 ### xmlDiscriminatorAttribute
-
-
 
 ```php
 public $xmlDiscriminatorAttribute
 ```
 
-
-
-
-
-
 ***
 
 ### xmlDiscriminatorCData
-
-
 
 ```php
 public $xmlDiscriminatorCData
 ```
 
-
-
-
-
-
 ***
 
 ### xmlDiscriminatorNamespace
-
-
 
 ```php
 public $xmlDiscriminatorNamespace
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### setDiscriminator
-
-
 
 ```php
 public setDiscriminator(mixed $fieldName, array $map, array $groups = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -331,9 +184,6 @@ public setDiscriminator(mixed $fieldName, array $map, array $groups = array()): 
 | `$fieldName` | **mixed** |  |
 | `$map` | **array** |  |
 | `$groups` | **array** |  |
-
-
-
 
 ***
 
@@ -345,13 +195,6 @@ Sets the order of properties in the class.
 public setAccessorOrder(string $order, array $customOrder = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -359,25 +202,13 @@ public setAccessorOrder(string $order, array $customOrder = array()): mixed
 | `$order` | **string** |  |
 | `$customOrder` | **array** |  |
 
-
-
-
 ***
 
 ### addPropertyMetadata
 
-
-
 ```php
 public addPropertyMetadata(\Metadata\PropertyMetadata $metadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -385,77 +216,41 @@ public addPropertyMetadata(\Metadata\PropertyMetadata $metadata): mixed
 |-----------|------|-------------|
 | `$metadata` | **\Metadata\PropertyMetadata** |  |
 
-
-
-
 ***
 
 ### addPreSerializeMethod
-
-
 
 ```php
 public addPreSerializeMethod(\Metadata\MethodMetadata $method): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\Metadata\MethodMetadata** |  |
-
-
-
 
 ***
 
 ### addPostSerializeMethod
 
-
-
 ```php
 public addPostSerializeMethod(\Metadata\MethodMetadata $method): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\Metadata\MethodMetadata** |  |
-
-
-
 
 ***
 
 ### addPostDeserializeMethod
 
-
-
 ```php
 public addPostDeserializeMethod(\Metadata\MethodMetadata $method): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -463,25 +258,13 @@ public addPostDeserializeMethod(\Metadata\MethodMetadata $method): mixed
 |-----------|------|-------------|
 | `$method` | **\Metadata\MethodMetadata** |  |
 
-
-
-
 ***
 
 ### addHandlerCallback
 
-
-
 ```php
 public addHandlerCallback(int $direction, string|int $format, string $methodName): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -491,25 +274,13 @@ public addHandlerCallback(int $direction, string|int $format, string $methodName
 | `$format` | **string&#124;int** |  |
 | `$methodName` | **string** |  |
 
-
-
-
 ***
 
 ### merge
 
-
-
 ```php
 public merge(\Metadata\MergeableInterface $object): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -517,25 +288,13 @@ public merge(\Metadata\MergeableInterface $object): void
 |-----------|------|-------------|
 | `$object` | **\Metadata\MergeableInterface** |  |
 
-
-
-
 ***
 
 ### registerNamespace
 
-
-
 ```php
 public registerNamespace(mixed $uri, mixed $prefix = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -544,45 +303,21 @@ public registerNamespace(mixed $uri, mixed $prefix = null): mixed
 | `$uri` | **mixed** |  |
 | `$prefix` | **mixed** |  |
 
-
-
-
 ***
 
 ### serialize
-
-
 
 ```php
 public serialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
 
-
-
 ```php
 public unserialize(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -590,49 +325,23 @@ public unserialize(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
 
 ### sortProperties
-
-
 
 ```php
 private sortProperties(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### merge
-
-
 
 ```php
 public merge(\Metadata\MergeableInterface $object): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -640,25 +349,13 @@ public merge(\Metadata\MergeableInterface $object): void
 |-----------|------|-------------|
 | `$object` | **\Metadata\MergeableInterface** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -666,25 +363,13 @@ public __construct(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### addMethodMetadata
 
-
-
 ```php
 public addMethodMetadata(\Metadata\MethodMetadata $metadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -692,25 +377,13 @@ public addMethodMetadata(\Metadata\MethodMetadata $metadata): mixed
 |-----------|------|-------------|
 | `$metadata` | **\Metadata\MethodMetadata** |  |
 
-
-
-
 ***
 
 ### addPropertyMetadata
 
-
-
 ```php
 public addPropertyMetadata(\Metadata\PropertyMetadata $metadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -718,25 +391,13 @@ public addPropertyMetadata(\Metadata\PropertyMetadata $metadata): mixed
 |-----------|------|-------------|
 | `$metadata` | **\Metadata\PropertyMetadata** |  |
 
-
-
-
 ***
 
 ### isFresh
 
-
-
 ```php
 public isFresh(mixed $timestamp = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -744,45 +405,21 @@ public isFresh(mixed $timestamp = null): mixed
 |-----------|------|-------------|
 | `$timestamp` | **mixed** |  |
 
-
-
-
 ***
 
 ### serialize
-
-
 
 ```php
 public serialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
 
-
-
 ```php
 public unserialize(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -790,11 +427,4 @@ public unserialize(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

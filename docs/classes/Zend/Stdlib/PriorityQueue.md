@@ -4,19 +4,17 @@
 
 Re-usable, serializable priority queue implementation
 
-SplPriorityQueue acts as a heap; on iteration, each item is removed from the
-queue. If you wish to re-use such a queue, you need to clone it first. This
-makes for some interesting issues if you wish to delete items from the queue,
-or, as already stated, iterate over it multiple times.
+SplPriorityQueue acts as a heap; on iteration, each item is removed from the queue. If you wish to re-use such a queue,
+you need to clone it first. This makes for some interesting issues if you wish to delete items from the queue, or, as
+already stated, iterate over it multiple times.
 
 This class aggregates items for the queue itself, but also composes an
-"inner" iterator in the form of an SplPriorityQueue object for performing
-the actual iteration.
+"inner" iterator in the form of an SplPriorityQueue object for performing the actual iteration.
 
 * Full name: `\Zend\Stdlib\PriorityQueue`
 * This class implements:
-[`\Countable`](../../Countable.md), [`\IteratorAggregate`](../../IteratorAggregate.md), [`\Serializable`](../../Serializable.md)
-
+  [`\Countable`](../../Countable.md), [`\IteratorAggregate`](../../IteratorAggregate.md)
+  , [`\Serializable`](../../Serializable.md)
 
 ## Constants
 
@@ -28,7 +26,6 @@ the actual iteration.
 
 ## Properties
 
-
 ### queueClass
 
 Inner queue class to use for iteration
@@ -37,26 +34,15 @@ Inner queue class to use for iteration
 protected string $queueClass
 ```
 
-
-
-
-
-
 ***
 
 ### items
 
-Actual items aggregated in the priority queue. Each item is an array
-with keys "data" and "priority".
+Actual items aggregated in the priority queue. Each item is an array with keys "data" and "priority".
 
 ```php
 protected array $items
 ```
-
-
-
-
-
 
 ***
 
@@ -68,15 +54,9 @@ Inner queue object
 protected \Zend\Stdlib\SplPriorityQueue $queue
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### insert
 
@@ -88,20 +68,12 @@ public insert(mixed $data, int $priority = 1): \Zend\Stdlib\PriorityQueue
 
 Priority defaults to 1 (low priority) if none provided.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 | `$priority` | **int** |  |
-
-
-
 
 ***
 
@@ -113,27 +85,18 @@ Remove an item from the queue
 public remove(mixed $datum): bool
 ```
 
-This is different than {@link}; its purpose is to dequeue an
-item.
+This is different than {@link}; its purpose is to dequeue an item.
 
-This operation is potentially expensive, as it requires
-re-initialization and re-population of the inner queue.
+This operation is potentially expensive, as it requires re-initialization and re-population of the inner queue.
 
-Note: this removes the first item matching the provided item found. If
-the same item has been added multiple times, it will not remove other
-instances.
-
-
-
-
-
+Note: this removes the first item matching the provided item found. If the same item has been added multiple times, it
+will not remove other instances.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$datum` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -151,16 +114,6 @@ Is the queue empty?
 public isEmpty(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
@@ -170,16 +123,6 @@ How many items are in the queue?
 ```php
 public count(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -191,16 +134,6 @@ Peek at the top node in the queue, based on priority.
 public top(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### extract
@@ -210,16 +143,6 @@ Extract a node from the inner queue and sift up
 ```php
 public extract(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -231,12 +154,9 @@ Retrieve the inner iterator
 public getIterator(): \Zend\Stdlib\SplPriorityQueue
 ```
 
-SplPriorityQueue acts as a heap, which typically implies that as items
-are iterated, they are also removed. This does not work for situations
-where the queue may be iterated multiple times. As such, this class
-aggregates the values, and also injects an SplPriorityQueue. This method
-retrieves the inner queue object, and clones it for purposes of
-iteration.
+SplPriorityQueue acts as a heap, which typically implies that as items are iterated, they are also removed. This does
+not work for situations where the queue may be iterated multiple times. As such, this class aggregates the values, and
+also injects an SplPriorityQueue. This method retrieves the inner queue object, and clones it for purposes of iteration.
 
 
 
@@ -256,16 +176,6 @@ Serialize the data structure
 public serialize(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
@@ -278,19 +188,11 @@ public unserialize(string $data): void
 
 Serialization format is compatible with {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** |  |
-
-
-
 
 ***
 
@@ -302,23 +204,14 @@ Serialize to an array
 public toArray(int $flag = self::EXTR_DATA): array
 ```
 
-By default, returns only the item data, and in the order registered (not
-sorted). You may provide one of the EXTR_* flags as an argument, allowing
-the ability to return priorities or both data and priority.
-
-
-
-
-
+By default, returns only the item data, and in the order registered (not sorted). You may provide one of the EXTR_*
+flags as an argument, allowing the ability to return priorities or both data and priority.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **int** |  |
-
-
-
 
 ***
 
@@ -330,22 +223,14 @@ Specify the internal queue class
 public setInternalQueueClass(string $class): \Zend\Stdlib\PriorityQueue
 ```
 
-Please see {@link} for details on the necessity of an
-internal queue class. The class provided should extend SplPriorityQueue.
-
-
-
-
-
+Please see {@link} for details on the necessity of an internal queue class. The class provided should extend
+SplPriorityQueue.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** |  |
-
-
-
 
 ***
 
@@ -357,21 +242,11 @@ Does the queue contain the given datum?
 public contains(mixed $datum): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$datum` | **mixed** |  |
-
-
-
 
 ***
 
@@ -383,21 +258,11 @@ Does the queue have an item with the given priority?
 public hasPriority(int $priority): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$priority` | **int** |  |
-
-
-
 
 ***
 
@@ -409,16 +274,6 @@ Get the inner priority queue instance
 protected getQueue(): \Zend\Stdlib\SplPriorityQueue
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __clone
@@ -429,18 +284,4 @@ Add support for deep cloning
 public __clone(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

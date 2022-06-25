@@ -9,58 +9,31 @@ It records all records and gives you access to them for verification.
 * Full name: `\Psr\Log\Test\TestLogger`
 * Parent class: [`\Psr\Log\AbstractLogger`](../AbstractLogger.md)
 
-
-
 ## Properties
 
-
 ### records
-
-
 
 ```php
 public array $records
 ```
 
-
-
-
-
-
 ***
 
 ### recordsByLevel
-
-
 
 ```php
 public $recordsByLevel
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### log
-
-
 
 ```php
 public log(mixed $level, mixed $message, array $context = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -70,25 +43,13 @@ public log(mixed $level, mixed $message, array $context = []): mixed
 | `$message` | **mixed** |  |
 | `$context` | **array** |  |
 
-
-
-
 ***
 
 ### hasRecords
 
-
-
 ```php
 public hasRecords(mixed $level): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -96,25 +57,13 @@ public hasRecords(mixed $level): mixed
 |-----------|------|-------------|
 | `$level` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasRecord
 
-
-
 ```php
 public hasRecord(mixed $record, mixed $level): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -123,25 +72,13 @@ public hasRecord(mixed $record, mixed $level): mixed
 | `$record` | **mixed** |  |
 | `$level` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasRecordThatContains
 
-
-
 ```php
 public hasRecordThatContains(mixed $message, mixed $level): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -150,25 +87,13 @@ public hasRecordThatContains(mixed $message, mixed $level): mixed
 | `$message` | **mixed** |  |
 | `$level` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasRecordThatMatches
 
-
-
 ```php
 public hasRecordThatMatches(mixed $regex, mixed $level): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -177,25 +102,13 @@ public hasRecordThatMatches(mixed $regex, mixed $level): mixed
 | `$regex` | **mixed** |  |
 | `$level` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasRecordThatPasses
 
-
-
 ```php
 public hasRecordThatPasses(callable $predicate, mixed $level): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -204,25 +117,13 @@ public hasRecordThatPasses(callable $predicate, mixed $level): mixed
 | `$predicate` | **callable** |  |
 | `$level` | **mixed** |  |
 
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $method, mixed $args): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -231,34 +132,17 @@ public __call(mixed $method, mixed $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **mixed** |  |
 
-
-
-
 ***
 
 ### reset
-
-
 
 ```php
 public reset(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### emergency
 
@@ -268,22 +152,12 @@ System is unusable.
 public emergency(string $message, array $context = array()): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 | `$context` | **array** |  |
-
-
-
 
 ***
 
@@ -295,13 +169,7 @@ Action must be taken immediately.
 public alert(string $message, array $context = array()): void
 ```
 
-Example: Entire website down, database unavailable, etc. This should
-trigger the SMS alerts and wake you up.
-
-
-
-
-
+Example: Entire website down, database unavailable, etc. This should trigger the SMS alerts and wake you up.
 
 **Parameters:**
 
@@ -309,9 +177,6 @@ trigger the SMS alerts and wake you up.
 |-----------|------|-------------|
 | `$message` | **string** |  |
 | `$context` | **array** |  |
-
-
-
 
 ***
 
@@ -325,38 +190,22 @@ public critical(string $message, array $context = array()): void
 
 Example: Application component unavailable, unexpected exception.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 | `$context` | **array** |  |
-
-
-
 
 ***
 
 ### error
 
-Runtime errors that do not require immediate action but should typically
-be logged and monitored.
+Runtime errors that do not require immediate action but should typically be logged and monitored.
 
 ```php
 public error(string $message, array $context = array()): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -364,9 +213,6 @@ public error(string $message, array $context = array()): void
 |-----------|------|-------------|
 | `$message` | **string** |  |
 | `$context` | **array** |  |
-
-
-
 
 ***
 
@@ -378,13 +224,7 @@ Exceptional occurrences that are not errors.
 public warning(string $message, array $context = array()): void
 ```
 
-Example: Use of deprecated APIs, poor use of an API, undesirable things
-that are not necessarily wrong.
-
-
-
-
-
+Example: Use of deprecated APIs, poor use of an API, undesirable things that are not necessarily wrong.
 
 **Parameters:**
 
@@ -392,9 +232,6 @@ that are not necessarily wrong.
 |-----------|------|-------------|
 | `$message` | **string** |  |
 | `$context` | **array** |  |
-
-
-
 
 ***
 
@@ -406,22 +243,12 @@ Normal but significant events.
 public notice(string $message, array $context = array()): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 | `$context` | **array** |  |
-
-
-
 
 ***
 
@@ -435,20 +262,12 @@ public info(string $message, array $context = array()): void
 
 Example: User logs in, SQL logs.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 | `$context` | **array** |  |
-
-
-
 
 ***
 
@@ -460,13 +279,6 @@ Detailed debug information.
 public debug(string $message, array $context = array()): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -474,11 +286,4 @@ public debug(string $message, array $context = array()): void
 | `$message` | **string** |  |
 | `$context` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

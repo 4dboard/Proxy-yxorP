@@ -4,15 +4,10 @@
 
 Class to generate styles for text elements (<text:span/>).
 
-
-
 * Full name: `\ezcDocumentOdtTextStyleGenerator`
 * Parent class: [`\ezcDocumentOdtStyleGenerator`](./ezcDocumentOdtStyleGenerator.md)
 
-
-
 ## Properties
-
 
 ### textPropertyGenerator
 
@@ -22,15 +17,9 @@ Text property generator.
 protected \ezcDocumentOdtStyleTextPropertyGenerator $textPropertyGenerator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,21 +29,11 @@ Creates a new style genertaor.
 public __construct(\ezcDocumentOdtPcssConverterManager $styleConverters): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styleConverters` | **\ezcDocumentOdtPcssConverterManager** |  |
-
-
-
 
 ***
 
@@ -66,21 +45,11 @@ Returns if the given $odtElement is handled by this generator.
 public handles(\DOMElement $odtElement): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -92,13 +61,6 @@ Creates the styles with $styleAttributes for the given $odtElement.
 public createStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $odtElement, array $styleAttributes): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -107,14 +69,9 @@ public createStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $odtE
 | `$odtElement` | **\DOMElement** |  |
 | `$styleAttributes` | **array** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -124,21 +81,11 @@ Creates a new style genertaor.
 public __construct(\ezcDocumentOdtPcssConverterManager $styleConverters): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styleConverters` | **\ezcDocumentOdtPcssConverterManager** |  |
-
-
-
 
 ***
 
@@ -150,21 +97,13 @@ Returns if a style generator handles style generation for $odtElement.
 public handles(\DOMElement $odtElement): bool
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -176,14 +115,10 @@ Creates the necessary styles to apply $styleAttributes to $odtElement.
 public createStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $odtElement, array $styleAttributes): mixed
 ```
 
-This method should create the necessary styles to apply $styleAttributes
-to the given $odtElement. In addition, it must set the correct
-attributes on $odtElement to source this style.
-
+This method should create the necessary styles to apply $styleAttributes to the given $odtElement. In addition, it must
+set the correct attributes on $odtElement to source this style.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -192,9 +127,6 @@ attributes on $odtElement to source this style.
 | `$styleInfo` | **\ezcDocumentOdtStyleInformation** |  |
 | `$odtElement` | **\DOMElement** |  |
 | `$styleAttributes` | **array** |  |
-
-
-
 
 ***
 
@@ -206,14 +138,8 @@ Returns a unique style name with the given $prefix.
 protected getUniqueStyleName(string $prefix = &#039;style&#039;): string
 ```
 
-Note that generated name is only unique within this style generator,
-which is no problem, if only a single style generator takes care for a
-certain style family.
-
-
-
-
-
+Note that generated name is only unique within this style generator, which is no problem, if only a single style
+generator takes care for a certain style family.
 
 **Parameters:**
 
@@ -221,11 +147,4 @@ certain style family.
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,37 +4,25 @@
 
 Compression adapter for Bz2
 
-
-
 * Full name: `\Zend\Filter\Compress\Bz2`
 * Parent class: [`\Zend\Filter\Compress\AbstractCompressionAlgorithm`](./AbstractCompressionAlgorithm.md)
 
-
-
 ## Properties
-
 
 ### options
 
-Compression Options
-array(
-    'blocksize' => Blocksize to use from 0-9
-    'archive'   => Archive to use
+Compression Options array(
+'blocksize' => Blocksize to use from 0-9
+'archive' => Archive to use
 )
 
 ```php
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -44,21 +32,11 @@ Class constructor
 public __construct(null|array|\Traversable $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable** | (Optional) Options to set |
-
-
-
 
 ***
 
@@ -70,16 +48,6 @@ Returns the set blocksize
 public getBlocksize(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBlocksize
@@ -90,21 +58,11 @@ Sets a new blocksize
 public setBlocksize(int $blocksize): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$blocksize` | **int** |  |
-
-
-
 
 ***
 
@@ -116,16 +74,6 @@ Returns the set archive
 public getArchive(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setArchive
@@ -136,21 +84,11 @@ Sets the archive to use for de-/compression
 public setArchive(string $archive): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$archive` | **string** | Archive to use |
-
-
-
 
 ***
 
@@ -162,21 +100,11 @@ Compresses the given content
 public compress(string $content): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -188,21 +116,11 @@ Decompresses the given content
 public decompress(string $content): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -214,21 +132,9 @@ Returns the adapter name
 public toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -238,21 +144,11 @@ Class constructor
 public __construct(null|array|\Traversable $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable** | (Optional) Options to set |
-
-
-
 
 ***
 
@@ -264,21 +160,11 @@ Returns one or all set options
 public getOptions(string $option = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** | (Optional) Option to return |
-
-
-
 
 ***
 
@@ -290,24 +176,10 @@ Sets all or one option
 public setOptions(array $options): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

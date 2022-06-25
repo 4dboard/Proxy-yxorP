@@ -4,154 +4,86 @@
 
 Translator.
 
-
-
 * Full name: `\Symfony\Component\Translation\Translator`
 * This class implements:
-[`\Symfony\Component\Translation\TranslatorInterface`](./TranslatorInterface.md), [`\Symfony\Component\Translation\TranslatorBagInterface`](./TranslatorBagInterface.md)
-
-
+  [`\Symfony\Component\Translation\TranslatorInterface`](./TranslatorInterface.md)
+  , [`\Symfony\Component\Translation\TranslatorBagInterface`](./TranslatorBagInterface.md)
 
 ## Properties
 
-
 ### catalogues
-
-
 
 ```php
 protected \Symfony\Component\Translation\MessageCatalogueInterface[] $catalogues
 ```
 
-
-
-
-
-
 ***
 
 ### locale
-
-
 
 ```php
 private string $locale
 ```
 
-
-
-
-
-
 ***
 
 ### fallbackLocales
-
-
 
 ```php
 private array $fallbackLocales
 ```
 
-
-
-
-
-
 ***
 
 ### loaders
-
-
 
 ```php
 private \Symfony\Component\Translation\Loader\LoaderInterface[] $loaders
 ```
 
-
-
-
-
-
 ***
 
 ### resources
-
-
 
 ```php
 private array $resources
 ```
 
-
-
-
-
-
 ***
 
 ### selector
-
-
 
 ```php
 private \Symfony\Component\Translation\MessageSelector $selector
 ```
 
-
-
-
-
-
 ***
 
 ### cacheDir
-
-
 
 ```php
 private string $cacheDir
 ```
 
-
-
-
-
-
 ***
 
 ### debug
-
-
 
 ```php
 private bool $debug
 ```
 
-
-
-
-
-
 ***
 
 ### configCacheFactory
-
-
 
 ```php
 private \Symfony\Component\Config\ConfigCacheFactoryInterface|null $configCacheFactory
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -161,13 +93,6 @@ Constructor.
 public __construct(string $locale, \Symfony\Component\Translation\MessageSelector|null $selector = null, string|null $cacheDir = null, bool $debug = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -176,9 +101,6 @@ public __construct(string $locale, \Symfony\Component\Translation\MessageSelecto
 | `$selector` | **\Symfony\Component\Translation\MessageSelector&#124;null** | The message selector for pluralization |
 | `$cacheDir` | **string&#124;null** | The directory to use for the cache |
 | `$debug` | **bool** | Use cache in debug mode ? |
-
-
-
 
 ***
 
@@ -190,21 +112,11 @@ Sets the ConfigCache factory to use.
 public setConfigCacheFactory(\Symfony\Component\Config\ConfigCacheFactoryInterface $configCacheFactory): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$configCacheFactory` | **\Symfony\Component\Config\ConfigCacheFactoryInterface** |  |
-
-
-
 
 ***
 
@@ -216,22 +128,12 @@ Adds a Loader.
 public addLoader(string $format, \Symfony\Component\Translation\Loader\LoaderInterface $loader): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** | The name of the loader (@see addResource()) |
 | `$loader` | **\Symfony\Component\Translation\Loader\LoaderInterface** | A LoaderInterface instance |
-
-
-
 
 ***
 
@@ -243,13 +145,6 @@ Adds a Resource.
 public addResource(string $format, mixed $resource, string $locale, string $domain = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -258,9 +153,6 @@ public addResource(string $format, mixed $resource, string $locale, string $doma
 | `$resource` | **mixed** | The resource name |
 | `$locale` | **string** | The locale |
 | `$domain` | **string** | The domain |
-
-
-
 
 ***
 
@@ -272,21 +164,11 @@ Sets the current locale.
 public setLocale(mixed $locale): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** | The locale |
-
-
-
 
 ***
 
@@ -297,14 +179,6 @@ Returns the current locale.
 ```php
 public getLocale(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -322,21 +196,11 @@ Sets the fallback locales.
 public setFallbackLocales(array $locales): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locales` | **array** | The fallback locales |
-
-
-
 
 ***
 
@@ -347,14 +211,6 @@ Gets the fallback locales.
 ```php
 public getFallbackLocales(): array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -372,13 +228,6 @@ Translates the given message.
 public trans(mixed $id, array $parameters = array(), mixed $domain = null, mixed $locale = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -387,7 +236,6 @@ public trans(mixed $id, array $parameters = array(), mixed $domain = null, mixed
 | `$parameters` | **array** | An array of parameters for the message |
 | `$domain` | **mixed** | The domain for the message or null to use the default |
 | `$locale` | **mixed** | The locale or null to use the default |
-
 
 **Return Value:**
 
@@ -405,13 +253,6 @@ Translates the given choice message by choosing a translation according to a num
 public transChoice(mixed $id, mixed $number, array $parameters = array(), mixed $domain = null, mixed $locale = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -421,7 +262,6 @@ public transChoice(mixed $id, mixed $number, array $parameters = array(), mixed 
 | `$parameters` | **array** | An array of parameters for the message |
 | `$domain` | **mixed** | The domain for the message or null to use the default |
 | `$locale` | **mixed** | The locale or null to use the default |
-
 
 **Return Value:**
 
@@ -439,21 +279,11 @@ Gets the catalogue by locale.
 public getCatalogue(mixed $locale = null): \Symfony\Component\Translation\MessageCatalogueInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** | The locale or null to use the default |
-
-
-
 
 ***
 
@@ -465,14 +295,6 @@ Gets the loaders.
 protected getLoaders(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 LoaderInterface[]
@@ -483,70 +305,37 @@ LoaderInterface[]
 
 ### loadCatalogue
 
-
-
 ```php
 protected loadCatalogue(string $locale): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
 ### initializeCatalogue
 
-
-
 ```php
 protected initializeCatalogue(string $locale): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
 ### initializeCacheCatalogue
 
-
-
 ```php
 private initializeCacheCatalogue(string $locale): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -554,25 +343,13 @@ private initializeCacheCatalogue(string $locale): mixed
 |-----------|------|-------------|
 | `$locale` | **string** |  |
 
-
-
-
 ***
 
 ### dumpCatalogue
 
-
-
 ```php
 private dumpCatalogue(mixed $locale, \Symfony\Component\Config\ConfigCacheInterface $cache): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -581,25 +358,13 @@ private dumpCatalogue(mixed $locale, \Symfony\Component\Config\ConfigCacheInterf
 | `$locale` | **mixed** |  |
 | `$cache` | **\Symfony\Component\Config\ConfigCacheInterface** |  |
 
-
-
-
 ***
 
 ### getFallbackContent
 
-
-
 ```php
 private getFallbackContent(\Symfony\Component\Translation\MessageCatalogue $catalogue): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -607,112 +372,61 @@ private getFallbackContent(\Symfony\Component\Translation\MessageCatalogue $cata
 |-----------|------|-------------|
 | `$catalogue` | **\Symfony\Component\Translation\MessageCatalogue** |  |
 
-
-
-
 ***
 
 ### getCatalogueCachePath
-
-
 
 ```php
 private getCatalogueCachePath(mixed $locale): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** |  |
-
-
-
 
 ***
 
 ### doLoadCatalogue
 
-
-
 ```php
 private doLoadCatalogue(mixed $locale): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** |  |
-
-
-
 
 ***
 
 ### loadFallbackCatalogues
 
-
-
 ```php
 private loadFallbackCatalogues(mixed $locale): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** |  |
-
-
-
 
 ***
 
 ### computeFallbackLocales
 
-
-
 ```php
 protected computeFallbackLocales(mixed $locale): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **mixed** |  |
-
-
-
 
 ***
 
@@ -724,49 +438,22 @@ Asserts that the locale is valid, throws an Exception if not.
 protected assertValidLocale(string $locale): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** | Locale to tests |
 
-
-
-
 ***
 
 ### getConfigCacheFactory
 
-Provides the ConfigCache factory implementation, falling back to a
-default implementation if necessary.
+Provides the ConfigCache factory implementation, falling back to a default implementation if necessary.
 
 ```php
 private getConfigCacheFactory(): \Symfony\Component\Config\ConfigCacheFactoryInterface
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-$configCacheFactory
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+$configCacheFactory yxorP::get('REQUEST')

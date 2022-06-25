@@ -4,15 +4,10 @@
 
 Visitor for wiki directives
 
-
-
 * Full name: `\ezcDocumentWikiPlugin`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### node
 
@@ -22,26 +17,15 @@ Current directive wiki AST node.
 protected \ezcDocumentWikiPluginNode $node
 ```
 
-
-
-
-
-
 ***
 
 ### ast
 
-Complete wiki abstract syntax tree, if this is necessary to render the
-directive.
+Complete wiki abstract syntax tree, if this is necessary to render the directive.
 
 ```php
 protected \ezcDocumentWikiDocumentNode $ast
 ```
-
-
-
-
-
 
 ***
 
@@ -53,11 +37,6 @@ Current document base path, especially relevant for file inclusions.
 protected string $path
 ```
 
-
-
-
-
-
 ***
 
 ### visitor
@@ -68,15 +47,9 @@ The calling visitor.
 protected \ezcDocumentWikiVisitor $visitor
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -86,13 +59,6 @@ Construct directive from AST and node
 public __construct(\ezcDocumentWikiDocumentNode $ast, string $path, \ezcDocumentWikiPluginNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -100,9 +66,6 @@ public __construct(\ezcDocumentWikiDocumentNode $ast, string $path, \ezcDocument
 | `$ast` | **\ezcDocumentWikiDocumentNode** |  |
 | `$path` | **string** |  |
 | `$node` | **\ezcDocumentWikiPluginNode** |  |
-
-
-
 
 ***
 
@@ -114,22 +77,13 @@ Set the calling vaisitor
 public setSourceVisitor(\ezcDocumentWikiVisitor $visitor): void
 ```
 
-Pass the visitor which called the rendering function on the directive
-for optional reference.
-
-
-
-
-
+Pass the visitor which called the rendering function on the directive for optional reference.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$visitor` | **\ezcDocumentWikiVisitor** |  |
-
-
-
 
 ***
 
@@ -141,13 +95,9 @@ Transform directive to docbook
 public toDocbook(\DOMDocument $document, \DOMElement $root): void
 ```
 
-Create a docbook XML structure at the directives position in the
-document.
-
+Create a docbook XML structure at the directives position in the document.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -156,11 +106,4 @@ document.
 | `$document` | **\DOMDocument** |  |
 | `$root` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,36 +4,16 @@
 
 Used to make node visitors compatible with Twig 1.x and 2.x.
 
-
-
 * Full name: `\Twig_NodeVisitor_Escaper`
 * Parent class: [`\Twig\NodeVisitor\EscaperNodeVisitor`](./Twig/NodeVisitor/EscaperNodeVisitor.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -45,12 +25,7 @@ Called before child nodes are visited.
 protected doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -58,7 +33,6 @@ protected doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node
 |-----------|------|-------------|
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -76,12 +50,7 @@ Called after child nodes are visited.
 protected doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node|false|null
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -89,7 +58,6 @@ protected doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node
 |-----------|------|-------------|
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -101,18 +69,9 @@ The modified node or null if the node must be removed
 
 ### shouldUnwrapConditional
 
-
-
 ```php
 private shouldUnwrapConditional(\Twig\Node\Expression\ConditionalExpression $expression, \Twig\Environment $env, mixed $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -121,26 +80,14 @@ private shouldUnwrapConditional(\Twig\Node\Expression\ConditionalExpression $exp
 | `$expression` | **\Twig\Node\Expression\ConditionalExpression** |  |
 | `$env` | **\Twig\Environment** |  |
 | `$type` | **mixed** |  |
-
-
-
 
 ***
 
 ### unwrapConditional
 
-
-
 ```php
 private unwrapConditional(\Twig\Node\Expression\ConditionalExpression $expression, \Twig\Environment $env, mixed $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -150,25 +97,13 @@ private unwrapConditional(\Twig\Node\Expression\ConditionalExpression $expressio
 | `$env` | **\Twig\Environment** |  |
 | `$type` | **mixed** |  |
 
-
-
-
 ***
 
 ### escapeInlinePrintNode
 
-
-
 ```php
 private escapeInlinePrintNode(\Twig\Node\Expression\InlinePrint $node, \Twig\Environment $env, mixed $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -178,25 +113,13 @@ private escapeInlinePrintNode(\Twig\Node\Expression\InlinePrint $node, \Twig\Env
 | `$env` | **\Twig\Environment** |  |
 | `$type` | **mixed** |  |
 
-
-
-
 ***
 
 ### escapePrintNode
 
-
-
 ```php
 protected escapePrintNode(\Twig\Node\PrintNode $node, \Twig\Environment $env, mixed $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -206,25 +129,13 @@ protected escapePrintNode(\Twig\Node\PrintNode $node, \Twig\Environment $env, mi
 | `$env` | **\Twig\Environment** |  |
 | `$type` | **mixed** |  |
 
-
-
-
 ***
 
 ### preEscapeFilterNode
 
-
-
 ```php
 protected preEscapeFilterNode(\Twig\Node\Expression\FilterExpression $filter, \Twig\Environment $env): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -233,25 +144,13 @@ protected preEscapeFilterNode(\Twig\Node\Expression\FilterExpression $filter, \T
 | `$filter` | **\Twig\Node\Expression\FilterExpression** |  |
 | `$env` | **\Twig\Environment** |  |
 
-
-
-
 ***
 
 ### isSafeFor
 
-
-
 ```php
 protected isSafeFor(mixed $type, \Twig_NodeInterface $expression, mixed $env): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -261,25 +160,13 @@ protected isSafeFor(mixed $type, \Twig_NodeInterface $expression, mixed $env): m
 | `$expression` | **\Twig_NodeInterface** |  |
 | `$env` | **mixed** |  |
 
-
-
-
 ***
 
 ### needEscaping
 
-
-
 ```php
 protected needEscaping(\Twig\Environment $env): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -287,25 +174,13 @@ protected needEscaping(\Twig\Environment $env): mixed
 |-----------|------|-------------|
 | `$env` | **\Twig\Environment** |  |
 
-
-
-
 ***
 
 ### getEscaperFilter
 
-
-
 ```php
 protected getEscaperFilter(mixed $type, \Twig_NodeInterface $node): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -314,28 +189,13 @@ protected getEscaperFilter(mixed $type, \Twig_NodeInterface $node): mixed
 | `$type` | **mixed** |  |
 | `$node` | **\Twig_NodeInterface** |  |
 
-
-
-
 ***
 
 ### getPriority
 
-
-
 ```php
 public getPriority(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -347,12 +207,7 @@ Called before child nodes are visited.
 final public enterNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig_NodeInterface
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -360,7 +215,6 @@ final public enterNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -378,12 +232,7 @@ Called after child nodes are visited.
 final public leaveNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig_NodeInterface|false|null
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -392,15 +241,6 @@ final public leaveNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig
 | `$node` | **\Twig_NodeInterface** |  |
 | `$env` | **\Twig\Environment** |  |
 
-
 **Return Value:**
 
-The modified node or null if the node must be removed
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The modified node or null if the node must be removed yxorP::get('REQUEST')

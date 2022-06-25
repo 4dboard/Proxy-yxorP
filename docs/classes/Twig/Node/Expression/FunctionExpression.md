@@ -4,31 +4,16 @@
 
 Abstract class for all nodes that represents an expression.
 
-
-
 * Full name: `\Twig\Node\Expression\FunctionExpression`
 * Parent class: [`\Twig\Node\Expression\CallExpression`](./CallExpression.md)
 
-
-
-
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $name, \Twig_NodeInterface $arguments, mixed $lineno): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,81 +23,43 @@ public __construct(mixed $name, \Twig_NodeInterface $arguments, mixed $lineno): 
 | `$arguments` | **\Twig_NodeInterface** |  |
 | `$lineno` | **mixed** |  |
 
-
-
-
 ***
 
 ### compile
-
-
 
 ```php
 public compile(\Twig\Compiler $compiler): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compiler` | **\Twig\Compiler** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### compileCallable
-
-
 
 ```php
 protected compileCallable(\Twig\Compiler $compiler): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compiler` | **\Twig\Compiler** |  |
 
-
-
-
 ***
 
 ### compileArguments
 
-
-
 ```php
 protected compileArguments(\Twig\Compiler $compiler, mixed $isArray = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -121,25 +68,13 @@ protected compileArguments(\Twig\Compiler $compiler, mixed $isArray = false): mi
 | `$compiler` | **\Twig\Compiler** |  |
 | `$isArray` | **mixed** |  |
 
-
-
-
 ***
 
 ### getArguments
 
-
-
 ```php
 protected getArguments(mixed $callable, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -148,25 +83,13 @@ protected getArguments(mixed $callable, mixed $arguments): mixed
 | `$callable` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeName
 
-
-
 ```php
 protected normalizeName(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -174,25 +97,13 @@ protected normalizeName(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### getCallableParameters
 
-
-
 ```php
 private getCallableParameters(mixed $callable, mixed $isVariadic): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -201,25 +112,13 @@ private getCallableParameters(mixed $callable, mixed $isVariadic): mixed
 | `$callable` | **mixed** |  |
 | `$isVariadic` | **mixed** |  |
 
-
-
-
 ***
 
 ### reflectCallable
 
-
-
 ```php
 private reflectCallable(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -227,25 +126,13 @@ private reflectCallable(mixed $callable): mixed
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(array $nodes = [], array $attributes = [], int $lineno, string $tag = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -256,56 +143,29 @@ public __construct(array $nodes = [], array $attributes = [], int $lineno, strin
 | `$lineno` | **int** | The line number |
 | `$tag` | **string** | The tag name associated with the Node |
 
-
-
-
 ***
 
 ### __toString
-
-
 
 ```php
 public __toString(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toXml
-
-
 
 ```php
 public toXml(mixed $asDom = false): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$asDom` | **mixed** |  |
-
-
-
 
 ***
 
@@ -317,126 +177,59 @@ Compiles the node to PHP.
 public compile(\Twig\Compiler $compiler): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compiler` | **\Twig\Compiler** |  |
 
-
-
-
 ***
 
 ### getTemplateLine
-
-
 
 ```php
 public getTemplateLine(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getLine
-
-
 
 ```php
 public getLine(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
 ### getNodeTag
 
-
-
 ```php
 public getNodeTag(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### hasAttribute
 
-
-
 ```php
 public hasAttribute(mixed $name): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### getAttribute
 
-
-
 ```php
 public getAttribute(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -444,25 +237,13 @@ public getAttribute(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### setAttribute
 
-
-
 ```php
 public setAttribute(string $name, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -471,77 +252,41 @@ public setAttribute(string $name, mixed $value): mixed
 | `$name` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### removeAttribute
-
-
 
 ```php
 public removeAttribute(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### hasNode
 
-
-
 ```php
 public hasNode(mixed $name): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### getNode
 
-
-
 ```php
 public getNode(mixed $name): \Twig\Node\Node
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -549,25 +294,13 @@ public getNode(mixed $name): \Twig\Node\Node
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### setNode
 
-
-
 ```php
 public setNode(mixed $name, mixed $node = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -576,91 +309,43 @@ public setNode(mixed $name, mixed $node = null): mixed
 | `$name` | **mixed** |  |
 | `$node` | **mixed** |  |
 
-
-
-
 ***
 
 ### removeNode
-
-
 
 ```php
 public removeNode(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### count
 
-
-
 ```php
 public count(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### getIterator
 
-
-
 ```php
 public getIterator(): \Traversable
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setTemplateName
 
-
-
 ```php
 public setTemplateName(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -668,45 +353,21 @@ public setTemplateName(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### getTemplateName
-
-
 
 ```php
 public getTemplateName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSourceContext
 
-
-
 ```php
 public setSourceContext(\Twig\Source $source): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -714,47 +375,23 @@ public setSourceContext(\Twig\Source $source): mixed
 |-----------|------|-------------|
 | `$source` | **\Twig\Source** |  |
 
-
-
-
 ***
 
 ### getSourceContext
-
-
 
 ```php
 public getSourceContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFilename
-
-
 
 ```php
 public setFilename(mixed $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -762,33 +399,14 @@ public setFilename(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### getFilename
-
-
 
 ```php
 public getFilename(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

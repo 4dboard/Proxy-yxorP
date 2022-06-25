@@ -2,14 +2,9 @@
 
 # Regex
 
-
-
-
-
 * Full name: `\Symfony\Component\Finder\Expression\Regex`
 * This class implements:
-[`\Symfony\Component\Finder\Expression\ValueInterface`](./ValueInterface.md)
-
+  [`\Symfony\Component\Finder\Expression\ValueInterface`](./ValueInterface.md)
 
 ## Constants
 
@@ -23,114 +18,63 @@
 
 ## Properties
 
-
 ### pattern
-
-
 
 ```php
 private string $pattern
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private string $options
 ```
 
-
-
-
-
-
 ***
 
 ### startFlag
-
-
 
 ```php
 private bool $startFlag
 ```
 
-
-
-
-
-
 ***
 
 ### endFlag
-
-
 
 ```php
 private bool $endFlag
 ```
 
-
-
-
-
-
 ***
 
 ### startJoker
-
-
 
 ```php
 private bool $startJoker
 ```
 
-
-
-
-
-
 ***
 
 ### endJoker
-
-
 
 ```php
 private bool $endJoker
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### create
-
-
 
 ```php
 public static create(string $expr): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -138,25 +82,13 @@ public static create(string $expr): self
 |-----------|------|-------------|
 | `$expr` | **string** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(string $pattern, string $options = &#039;&#039;, string $delimiter = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -166,28 +98,13 @@ public __construct(string $pattern, string $options = &#039;&#039;, string $deli
 | `$options` | **string** |  |
 | `$delimiter` | **string** |  |
 
-
-
-
 ***
 
 ### __toString
 
-
-
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -199,16 +116,6 @@ Renders string representation of expression.
 public render(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### renderPattern
@@ -218,16 +125,6 @@ Renders string representation of pattern.
 ```php
 public renderPattern(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -239,16 +136,6 @@ Returns value case sensitivity.
 public isCaseSensitive(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getType
@@ -259,58 +146,27 @@ Returns expression type.
 public getType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### prepend
-
-
 
 ```php
 public prepend(mixed $expr): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$expr` | **mixed** |  |
-
-
-
 
 ***
 
 ### append
 
-
-
 ```php
 public append(mixed $expr): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -318,77 +174,41 @@ public append(mixed $expr): $this
 |-----------|------|-------------|
 | `$expr` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasOption
-
-
 
 ```php
 public hasOption(string $option): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** |  |
-
-
-
 
 ***
 
 ### addOption
 
-
-
 ```php
 public addOption(string $option): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** |  |
-
-
-
 
 ***
 
 ### removeOption
 
-
-
 ```php
 public removeOption(string $option): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -396,25 +216,13 @@ public removeOption(string $option): $this
 |-----------|------|-------------|
 | `$option` | **string** |  |
 
-
-
-
 ***
 
 ### setStartFlag
 
-
-
 ```php
 public setStartFlag(bool $startFlag): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -422,45 +230,21 @@ public setStartFlag(bool $startFlag): $this
 |-----------|------|-------------|
 | `$startFlag` | **bool** |  |
 
-
-
-
 ***
 
 ### hasStartFlag
-
-
 
 ```php
 public hasStartFlag(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEndFlag
 
-
-
 ```php
 public setEndFlag(bool $endFlag): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -468,45 +252,21 @@ public setEndFlag(bool $endFlag): $this
 |-----------|------|-------------|
 | `$endFlag` | **bool** |  |
 
-
-
-
 ***
 
 ### hasEndFlag
-
-
 
 ```php
 public hasEndFlag(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setStartJoker
 
-
-
 ```php
 public setStartJoker(bool $startJoker): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -514,45 +274,21 @@ public setStartJoker(bool $startJoker): $this
 |-----------|------|-------------|
 | `$startJoker` | **bool** |  |
 
-
-
-
 ***
 
 ### hasStartJoker
-
-
 
 ```php
 public hasStartJoker(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEndJoker
 
-
-
 ```php
 public setEndJoker(bool $endJoker): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -560,45 +296,21 @@ public setEndJoker(bool $endJoker): $this
 |-----------|------|-------------|
 | `$endJoker` | **bool** |  |
 
-
-
-
 ***
 
 ### hasEndJoker
-
-
 
 ```php
 public hasEndJoker(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### replaceJokers
 
-
-
 ```php
 public replaceJokers(mixed $replacement): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -606,25 +318,13 @@ public replaceJokers(mixed $replacement): $this
 |-----------|------|-------------|
 | `$replacement` | **mixed** |  |
 
-
-
-
 ***
 
 ### parsePattern
 
-
-
 ```php
 private parsePattern(string $pattern): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -632,11 +332,4 @@ private parsePattern(string $pattern): mixed
 |-----------|------|-------------|
 | `$pattern` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

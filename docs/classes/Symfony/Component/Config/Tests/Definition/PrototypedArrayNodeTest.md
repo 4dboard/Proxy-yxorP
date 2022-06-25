@@ -2,76 +2,32 @@
 
 # PrototypedArrayNodeTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Config\Tests\Definition\PrototypedArrayNodeTest`
 * Parent class: [`TestCase`](../../../../../PHPUnit/Framework/TestCase.md)
 
-
-
-
 ## Methods
 
-
 ### testGetDefaultValueReturnsAnEmptyArrayForPrototypes
-
-
 
 ```php
 public testGetDefaultValueReturnsAnEmptyArrayForPrototypes(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testGetDefaultValueReturnsDefaultValueForPrototypes
-
-
 
 ```php
 public testGetDefaultValueReturnsDefaultValueForPrototypes(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testRemappedKeysAreUnset
 
-
-
 ```php
 public testRemappedKeysAreUnset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -98,94 +54,39 @@ The above should finally be mapped to an array that looks like this
         )
     )
 
-
-
-
-
-
-
-
-
 ***
 
 ### testMappedAttributeKeyNotRemoved
 
-Tests the opposite of the testMappedAttributeKeyIsRemoved because
-the removal can be toggled with an option.
+Tests the opposite of the testMappedAttributeKeyIsRemoved because the removal can be toggled with an option.
 
 ```php
 public testMappedAttributeKeyNotRemoved(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testAddDefaultChildren
-
-
 
 ```php
 public testAddDefaultChildren(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testDefaultChildrenWinsOverDefaultValue
-
-
 
 ```php
 public testDefaultChildrenWinsOverDefaultValue(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPrototypeNodeWithDefaultChildren
 
-
-
 ```php
 protected getPrototypeNodeWithDefaultChildren(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -222,13 +123,13 @@ It's also possible to mix 'value-only' and 'non-value-only' elements in the arra
 The above should finally be mapped to an array as follows
 
 array(
-    'things' => array(
-        'option1' => 'value1',
-        'option2' => array(
-            'value' => 'value2',
-            'foo' => 'foo2'
-        )
-    )
+'things' => array(
+'option1' => 'value1',
+'option2' => array(
+'value' => 'value2',
+'foo' => 'foo2'
+)
+)
 )
 
 The 'value' element can also be ArrayNode:
@@ -245,12 +146,12 @@ The 'value' element can also be ArrayNode:
 The above should be finally be mapped to an array as follows
 
 array(
-    'things' => array(
-        'option1' => array(
-            'foo' => 'foo1',
-            'bar' => 'bar1'
-        )
-    )
+'things' => array(
+'option1' => array(
+'foo' => 'foo1',
+'bar' => 'bar1'
+)
+)
 )
 
 If using VariableNode for value node, it's also possible to mix different types of value nodes:
@@ -268,19 +169,14 @@ If using VariableNode for value node, it's also possible to mix different types 
 The above should be finally mapped to an array as follows
 
 array(
-    'things' => array(
-        'option1' => array(
-            'foo' => 'foo1',
-            'bar' => 'bar1'
-        ),
-        'option2' => 'value2'
-    )
+'things' => array(
+'option1' => array(
+'foo' => 'foo1',
+'bar' => 'bar1'
+),
+'option2' => 'value2'
 )
-
-
-
-
-
+)
 
 **Parameters:**
 
@@ -290,31 +186,12 @@ array(
 | `$children` | **mixed** |  |
 | `$expected` | **mixed** |  |
 
-
-
-
 ***
 
 ### getDataForKeyRemovedLeftValueOnly
-
-
 
 ```php
 public getDataForKeyRemovedLeftValueOnly(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

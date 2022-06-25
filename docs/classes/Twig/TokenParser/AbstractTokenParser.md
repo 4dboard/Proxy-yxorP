@@ -4,35 +4,22 @@
 
 Base class for all token parsers.
 
-
-
 * Full name: `\Twig\TokenParser\AbstractTokenParser`
 * This class implements:
-[`\Twig\TokenParser\TokenParserInterface`](./TokenParserInterface.md)
+  [`\Twig\TokenParser\TokenParserInterface`](./TokenParserInterface.md)
 * This class is an **Abstract class**
-
-
 
 ## Properties
 
-
 ### parser
-
-
 
 ```php
 protected \Twig\Parser $parser
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setParser
 
@@ -42,24 +29,10 @@ Sets the parser associated with this token parser.
 public setParser(\Twig\Parser $parser): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parser` | **\Twig\Parser** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

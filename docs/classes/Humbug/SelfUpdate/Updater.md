@@ -2,12 +2,7 @@
 
 # Updater
 
-
-
-
-
 * Full name: `\Humbug\SelfUpdate\Updater`
-
 
 ## Constants
 
@@ -18,189 +13,103 @@
 
 ## Properties
 
-
 ### strategy
-
-
 
 ```php
 protected \Humbug\SelfUpdate\Strategy\StrategyInterface $strategy
 ```
 
-
-
-
-
-
 ***
 
 ### localPharFile
-
-
 
 ```php
 protected string $localPharFile
 ```
 
-
-
-
-
-
 ***
 
 ### localPharFileBasename
-
-
 
 ```php
 protected string $localPharFileBasename
 ```
 
-
-
-
-
-
 ***
 
 ### localPubKeyFile
-
-
 
 ```php
 protected string $localPubKeyFile
 ```
 
-
-
-
-
-
 ***
 
 ### hasPubKey
-
-
 
 ```php
 protected bool $hasPubKey
 ```
 
-
-
-
-
-
 ***
 
 ### tempDirectory
-
-
 
 ```php
 protected string $tempDirectory
 ```
 
-
-
-
-
-
 ***
 
 ### newVersion
-
-
 
 ```php
 protected string $newVersion
 ```
 
-
-
-
-
-
 ***
 
 ### oldVersion
-
-
 
 ```php
 protected string $oldVersion
 ```
 
-
-
-
-
-
 ***
 
 ### backupExtension
-
-
 
 ```php
 protected string $backupExtension
 ```
 
-
-
-
-
-
 ***
 
 ### backupPath
-
-
 
 ```php
 protected string $backupPath
 ```
 
-
-
-
-
-
 ***
 
 ### restorePath
-
-
 
 ```php
 protected string $restorePath
 ```
 
-
-
-
-
-
 ***
 
 ### newVersionAvailable
-
-
 
 ```php
 protected bool $newVersionAvailable
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -210,13 +119,6 @@ Constructor
 public __construct(string $localPharFile = null, bool $hasPubKey = true, string $strategy = self::STRATEGY_SHA1): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -224,9 +126,6 @@ public __construct(string $localPharFile = null, bool $hasPubKey = true, string 
 | `$localPharFile` | **string** |  |
 | `$hasPubKey` | **bool** |  |
 | `$strategy` | **string** |  |
-
-
-
 
 ***
 
@@ -238,16 +137,6 @@ Check for update
 public hasUpdate(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### update
@@ -257,16 +146,6 @@ Perform an update
 ```php
 public update(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -278,32 +157,13 @@ Perform an rollback to previous version
 public rollback(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setStrategy
 
-
-
 ```php
 public setStrategy(string $strategy): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -311,25 +171,13 @@ public setStrategy(string $strategy): mixed
 |-----------|------|-------------|
 | `$strategy` | **string** |  |
 
-
-
-
 ***
 
 ### setStrategyObject
 
-
-
 ```php
 public setStrategyObject(\Humbug\SelfUpdate\Strategy\StrategyInterface $strategy): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -337,28 +185,13 @@ public setStrategyObject(\Humbug\SelfUpdate\Strategy\StrategyInterface $strategy
 |-----------|------|-------------|
 | `$strategy` | **\Humbug\SelfUpdate\Strategy\StrategyInterface** |  |
 
-
-
-
 ***
 
 ### getStrategy
 
-
-
 ```php
 public getStrategy(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -370,21 +203,11 @@ Set backup extension for old phar versions
 public setBackupExtension(string $extension): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$extension` | **string** |  |
-
-
-
 
 ***
 
@@ -396,155 +219,61 @@ Get backup extension for old phar versions
 public getBackupExtension(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getLocalPharFile
-
-
 
 ```php
 public getLocalPharFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getLocalPharFileBasename
-
-
 
 ```php
 public getLocalPharFileBasename(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getLocalPubKeyFile
-
-
 
 ```php
 public getLocalPubKeyFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTempDirectory
-
-
 
 ```php
 public getTempDirectory(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTempPharFile
-
-
 
 ```php
 public getTempPharFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getNewVersion
-
-
 
 ```php
 public getNewVersion(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getOldVersion
 
-
-
 ```php
 public getOldVersion(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -556,21 +285,11 @@ Set backup path for old phar versions
 public setBackupPath(string $filePath): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filePath` | **string** |  |
-
-
-
 
 ***
 
@@ -582,16 +301,6 @@ Get backup path for old phar versions
 public getBackupPath(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setRestorePath
@@ -602,21 +311,11 @@ Set path for the backup phar to rollback/restore from
 public setRestorePath(string $filePath): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filePath` | **string** |  |
-
-
-
 
 ***
 
@@ -628,59 +327,28 @@ Get path for the backup phar to rollback/restore from
 public getRestorePath(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### throwRuntimeException
-
-
 
 ```php
 public throwRuntimeException(mixed $errno, mixed $errstr): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errno` | **mixed** |  |
 | `$errstr` | **mixed** |  |
-
-
-
 
 ***
 
 ### throwHttpRequestException
 
-
-
 ```php
 public throwHttpRequestException(mixed $errno, mixed $errstr): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -689,205 +357,85 @@ public throwHttpRequestException(mixed $errno, mixed $errstr): mixed
 | `$errno` | **mixed** |  |
 | `$errstr` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasPubKey
-
-
 
 ```php
 protected hasPubKey(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### newVersionAvailable
-
-
 
 ```php
 protected newVersionAvailable(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### backupPhar
-
-
 
 ```php
 protected backupPhar(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### downloadPhar
-
-
 
 ```php
 protected downloadPhar(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### replacePhar
-
-
 
 ```php
 protected replacePhar(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### restorePhar
-
-
 
 ```php
 protected restorePhar(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getBackupPharFile
-
-
 
 ```php
 protected getBackupPharFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getRestorePharFile
-
-
 
 ```php
 protected getRestorePharFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTempPubKeyFile
-
-
 
 ```php
 protected getTempPubKeyFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLocalPharFile
 
-
-
 ```php
 protected setLocalPharFile(mixed $localPharFile): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -895,65 +443,29 @@ protected setLocalPharFile(mixed $localPharFile): mixed
 |-----------|------|-------------|
 | `$localPharFile` | **mixed** |  |
 
-
-
-
 ***
 
 ### setLocalPubKeyFile
-
-
 
 ```php
 protected setLocalPubKeyFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTempDirectory
-
-
 
 ```php
 protected setTempDirectory(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### validatePhar
 
-
-
 ```php
 protected validatePhar(mixed $phar): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -961,31 +473,12 @@ protected validatePhar(mixed $phar): mixed
 |-----------|------|-------------|
 | `$phar` | **mixed** |  |
 
-
-
-
 ***
 
 ### cleanupAfterError
-
-
 
 ```php
 protected cleanupAfterError(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

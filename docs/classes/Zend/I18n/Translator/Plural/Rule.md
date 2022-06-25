@@ -4,14 +4,9 @@
 
 Plural rule evaluator.
 
-
-
 * Full name: `\Zend\I18n\Translator\Plural\Rule`
 
-
-
 ## Properties
-
 
 ### parser
 
@@ -21,10 +16,7 @@ Parser instance.
 protected static \Zend\I18n\Translator\Plural\Parser $parser
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -36,11 +28,6 @@ Abstract syntax tree.
 protected array $ast
 ```
 
-
-
-
-
-
 ***
 
 ### numPlurals
@@ -51,15 +38,9 @@ Number of plurals in this rule.
 protected int $numPlurals
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -69,22 +50,12 @@ Create a new plural rule.
 protected __construct(int $numPlurals, array $ast): \Zend\I18n\Translator\Plural\Rule
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$numPlurals` | **int** |  |
 | `$ast` | **array** |  |
-
-
-
 
 ***
 
@@ -96,21 +67,11 @@ Evaluate a number and return the plural index.
 public evaluate(int $number): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **int** |  |
-
-
-
 
 ***
 
@@ -122,16 +83,6 @@ Get number of possible plural forms.
 public getNumPlurals(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### evaluateAstPart
@@ -142,22 +93,12 @@ Evaluate a part of an ast.
 protected evaluateAstPart(array $ast, int $number): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **array** |  |
 | `$number` | **int** |  |
-
-
-
 
 ***
 
@@ -169,21 +110,13 @@ Create a new rule from a string.
 public static fromString(string $string): \Zend\I18n\Translator\Plural\Rule
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -195,13 +128,10 @@ Create an AST from a tree.
 protected static createAst(\Zend\I18n\Translator\Plural\Symbol $symbol): array
 ```
 
-Theoretically we could just use the given Symbol, but that one is not
-so easy to serialize and also takes up more memory.
+Theoretically we could just use the given Symbol, but that one is not so easy to serialize and also takes up more
+memory.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -209,11 +139,4 @@ so easy to serialize and also takes up more memory.
 |-----------|------|-------------|
 | `$symbol` | **\Zend\I18n\Translator\Plural\Symbol** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

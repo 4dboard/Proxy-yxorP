@@ -2,17 +2,10 @@
 
 # Callback
 
-
-
-
-
 * Full name: `\Zend\Filter\Callback`
 * Parent class: [`\Zend\Filter\AbstractFilter`](./AbstractFilter.md)
 
-
-
 ## Properties
-
 
 ### options
 
@@ -22,30 +15,15 @@ Filter options
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(callable|array|\Traversable $callbackOrOptions, array $callbackParams = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,9 +31,6 @@ public __construct(callable|array|\Traversable $callbackOrOptions, array $callba
 |-----------|------|-------------|
 | `$callbackOrOptions` | **callable&#124;array&#124;\Traversable** |  |
 | `$callbackParams` | **array** |  |
-
-
-
 
 ***
 
@@ -67,21 +42,11 @@ Sets a new callback for this filter
 public setCallback(callable $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** |  |
-
-
-
 
 ***
 
@@ -93,16 +58,6 @@ Returns the set callback
 public getCallback(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCallbackParams
@@ -113,21 +68,11 @@ Sets parameters for the callback
 public setCallbackParams(array $params): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **array** |  |
-
-
-
 
 ***
 
@@ -139,16 +84,6 @@ Get parameters for the callback
 public getCallbackParams(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### filter
@@ -159,19 +94,11 @@ Calls the filter per callback
 public filter(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | Options for the set callable |
-
 
 **Return Value:**
 
@@ -181,55 +108,32 @@ Result from the filter which was called
 
 ***
 
-
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -240,16 +144,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -263,36 +157,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -300,11 +179,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

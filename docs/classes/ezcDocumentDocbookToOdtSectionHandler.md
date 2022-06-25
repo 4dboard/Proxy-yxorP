@@ -4,16 +4,12 @@
 
 Visit docbook sections.
 
-Visit docbook <section/> and transform them into ODT <text:section/>.
-Handles <title/> nodes in addition.
+Visit docbook <section/> and transform them into ODT <text:section/>. Handles <title/> nodes in addition.
 
 * Full name: `\ezcDocumentDocbookToOdtSectionHandler`
 * Parent class: [`\ezcDocumentDocbookToOdtBaseHandler`](./ezcDocumentDocbookToOdtBaseHandler.md)
 
-
-
 ## Properties
-
 
 ### level
 
@@ -22,11 +18,6 @@ Current section nesting level in the docbook document.
 ```php
 protected int $level
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +29,9 @@ Last auto-generated section ID.
 protected int $lastSectionId
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### handle
 
@@ -56,13 +41,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -71,9 +50,6 @@ conversion.
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -85,13 +61,6 @@ Handles the <title/> element.
 protected handleTitle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -99,9 +68,6 @@ protected handleTitle(\ezcDocumentElementVisitorConverter $converter, \DOMElemen
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -113,22 +79,12 @@ createRefMark
 protected createRefMark(mixed $h, mixed $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$h` | **mixed** |  |
 | `$node` | **mixed** |  |
-
-
-
 
 ***
 
@@ -140,13 +96,6 @@ Handles the <section/> element.
 protected handleSection(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -154,9 +103,6 @@ protected handleSection(\ezcDocumentElementVisitorConverter $converter, \DOMElem
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -168,21 +114,9 @@ Generates a section ID.
 protected generateId(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -192,21 +126,11 @@ Creates a new handler which utilizes the given $styler.
 public __construct(\ezcDocumentOdtStyler $styler): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styler` | **\ezcDocumentOdtStyler** |  |
-
-
-
 
 ***
 
@@ -218,13 +142,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -234,11 +154,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

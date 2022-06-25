@@ -4,358 +4,190 @@
 
 Builder for serializer instances.
 
-This object makes serializer construction a breeze for projects that do not use
-any special dependency injection container.
+This object makes serializer construction a breeze for projects that do not use any special dependency injection
+container.
 
 * Full name: `\JMS\Serializer\SerializerBuilder`
 
-
-
 ## Properties
 
-
 ### metadataDirs
-
-
 
 ```php
 private $metadataDirs
 ```
 
-
-
-
-
-
 ***
 
 ### handlerRegistry
-
-
 
 ```php
 private $handlerRegistry
 ```
 
-
-
-
-
-
 ***
 
 ### handlersConfigured
-
-
 
 ```php
 private $handlersConfigured
 ```
 
-
-
-
-
-
 ***
 
 ### eventDispatcher
-
-
 
 ```php
 private $eventDispatcher
 ```
 
-
-
-
-
-
 ***
 
 ### listenersConfigured
-
-
 
 ```php
 private $listenersConfigured
 ```
 
-
-
-
-
-
 ***
 
 ### objectConstructor
-
-
 
 ```php
 private $objectConstructor
 ```
 
-
-
-
-
-
 ***
 
 ### serializationVisitors
-
-
 
 ```php
 private $serializationVisitors
 ```
 
-
-
-
-
-
 ***
 
 ### deserializationVisitors
-
-
 
 ```php
 private $deserializationVisitors
 ```
 
-
-
-
-
-
 ***
 
 ### visitorsAdded
-
-
 
 ```php
 private $visitorsAdded
 ```
 
-
-
-
-
-
 ***
 
 ### propertyNamingStrategy
-
-
 
 ```php
 private $propertyNamingStrategy
 ```
 
-
-
-
-
-
 ***
 
 ### debug
-
-
 
 ```php
 private $debug
 ```
 
-
-
-
-
-
 ***
 
 ### cacheDir
-
-
 
 ```php
 private $cacheDir
 ```
 
-
-
-
-
-
 ***
 
 ### annotationReader
-
-
 
 ```php
 private $annotationReader
 ```
 
-
-
-
-
-
 ***
 
 ### includeInterfaceMetadata
-
-
 
 ```php
 private $includeInterfaceMetadata
 ```
 
-
-
-
-
-
 ***
 
 ### driverFactory
-
-
 
 ```php
 private $driverFactory
 ```
 
-
-
-
-
-
 ***
 
 ### serializationContextFactory
-
-
 
 ```php
 private $serializationContextFactory
 ```
 
-
-
-
-
-
 ***
 
 ### deserializationContextFactory
-
-
 
 ```php
 private $deserializationContextFactory
 ```
 
-
-
-
-
-
 ***
 
 ### expressionEvaluator
-
-
 
 ```php
 private \JMS\Serializer\Expression\ExpressionEvaluatorInterface $expressionEvaluator
 ```
 
-
-
-
-
-
 ***
 
 ### accessorStrategy
-
-
 
 ```php
 private \JMS\Serializer\Accessor\AccessorStrategyInterface $accessorStrategy
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### create
-
-
 
 ```php
 public static create(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setAccessorStrategy
 
-
-
 ```php
 public setAccessorStrategy(\JMS\Serializer\Accessor\AccessorStrategyInterface $accessorStrategy): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -363,45 +195,21 @@ public setAccessorStrategy(\JMS\Serializer\Accessor\AccessorStrategyInterface $a
 |-----------|------|-------------|
 | `$accessorStrategy` | **\JMS\Serializer\Accessor\AccessorStrategyInterface** |  |
 
-
-
-
 ***
 
 ### getAccessorStrategy
-
-
 
 ```php
 protected getAccessorStrategy(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setExpressionEvaluator
 
-
-
 ```php
 public setExpressionEvaluator(\JMS\Serializer\Expression\ExpressionEvaluatorInterface $expressionEvaluator): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -409,25 +217,13 @@ public setExpressionEvaluator(\JMS\Serializer\Expression\ExpressionEvaluatorInte
 |-----------|------|-------------|
 | `$expressionEvaluator` | **\JMS\Serializer\Expression\ExpressionEvaluatorInterface** |  |
 
-
-
-
 ***
 
 ### setAnnotationReader
 
-
-
 ```php
 public setAnnotationReader(\Doctrine\Common\Annotations\Reader $reader): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -435,25 +231,13 @@ public setAnnotationReader(\Doctrine\Common\Annotations\Reader $reader): mixed
 |-----------|------|-------------|
 | `$reader` | **\Doctrine\Common\Annotations\Reader** |  |
 
-
-
-
 ***
 
 ### setDebug
 
-
-
 ```php
 public setDebug(mixed $bool): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -461,25 +245,13 @@ public setDebug(mixed $bool): mixed
 |-----------|------|-------------|
 | `$bool` | **mixed** |  |
 
-
-
-
 ***
 
 ### setCacheDir
 
-
-
 ```php
 public setCacheDir(mixed $dir): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -487,91 +259,43 @@ public setCacheDir(mixed $dir): mixed
 |-----------|------|-------------|
 | `$dir` | **mixed** |  |
 
-
-
-
 ***
 
 ### addDefaultHandlers
-
-
 
 ```php
 public addDefaultHandlers(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### configureHandlers
-
-
 
 ```php
 public configureHandlers(\Closure $closure): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closure` | **\Closure** |  |
-
-
-
 
 ***
 
 ### addDefaultListeners
 
-
-
 ```php
 public addDefaultListeners(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### configureListeners
 
-
-
 ```php
 public configureListeners(\Closure $closure): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -579,25 +303,13 @@ public configureListeners(\Closure $closure): mixed
 |-----------|------|-------------|
 | `$closure` | **\Closure** |  |
 
-
-
-
 ***
 
 ### setObjectConstructor
 
-
-
 ```php
 public setObjectConstructor(\JMS\Serializer\Construction\ObjectConstructorInterface $constructor): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -605,25 +317,13 @@ public setObjectConstructor(\JMS\Serializer\Construction\ObjectConstructorInterf
 |-----------|------|-------------|
 | `$constructor` | **\JMS\Serializer\Construction\ObjectConstructorInterface** |  |
 
-
-
-
 ***
 
 ### setPropertyNamingStrategy
 
-
-
 ```php
 public setPropertyNamingStrategy(\JMS\Serializer\Naming\PropertyNamingStrategyInterface $propertyNamingStrategy): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -631,52 +331,28 @@ public setPropertyNamingStrategy(\JMS\Serializer\Naming\PropertyNamingStrategyIn
 |-----------|------|-------------|
 | `$propertyNamingStrategy` | **\JMS\Serializer\Naming\PropertyNamingStrategyInterface** |  |
 
-
-
-
 ***
 
 ### setSerializationVisitor
-
-
 
 ```php
 public setSerializationVisitor(mixed $format, \JMS\Serializer\VisitorInterface $visitor): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **mixed** |  |
 | `$visitor` | **\JMS\Serializer\VisitorInterface** |  |
-
-
-
 
 ***
 
 ### setDeserializationVisitor
 
-
-
 ```php
 public setDeserializationVisitor(mixed $format, \JMS\Serializer\VisitorInterface $visitor): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -685,74 +361,35 @@ public setDeserializationVisitor(mixed $format, \JMS\Serializer\VisitorInterface
 | `$format` | **mixed** |  |
 | `$visitor` | **\JMS\Serializer\VisitorInterface** |  |
 
-
-
-
 ***
 
 ### addDefaultSerializationVisitors
-
-
 
 ```php
 public addDefaultSerializationVisitors(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addDefaultDeserializationVisitors
-
-
 
 ```php
 public addDefaultDeserializationVisitors(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### includeInterfaceMetadata
 
-
-
 ```php
 public includeInterfaceMetadata(bool $include): \JMS\Serializer\SerializerBuilder
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$include` | **bool** | Whether to include the metadata from the interfaces |
-
-
-
 
 ***
 
@@ -766,19 +403,11 @@ public setMetadataDirs(array&lt;string,string&gt; $namespacePrefixToDirMap): \JM
 
 This method overrides any previously defined directories.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespacePrefixToDirMap` | **array<string,string>** |  |
-
-
-
 
 ***
 
@@ -790,8 +419,8 @@ Adds a directory where the serializer will look for class metadata.
 public addMetadataDir(string $dir, string $namespacePrefix = &#039;&#039;): \JMS\Serializer\SerializerBuilder
 ```
 
-The namespace prefix will make the names of the actual metadata files a bit shorter. For example, let's assume
-that you have a directory where you only store metadata files for the ``MyApplication\Entity`` namespace.
+The namespace prefix will make the names of the actual metadata files a bit shorter. For example, let's assume that you
+have a directory where you only store metadata files for the ``MyApplication\Entity`` namespace.
 
 If you use an empty prefix, your metadata files would need to look like:
 
@@ -805,20 +434,13 @@ If you use ``MyApplication\Entity`` as prefix, your metadata files would need to
 
 Please keep in mind that you currently may only have one directory per namespace prefix.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dir` | **string** | The directory where metadata files are located. |
-| `$namespacePrefix` | **string** | An optional prefix if you only store metadata for specific namespaces in this directory. |
-
-
-
+| `$namespacePrefix` | **
+string** | An optional prefix if you only store metadata for specific namespaces in this directory. |
 
 ***
 
@@ -830,21 +452,11 @@ Adds a map of namespace prefixes to directories.
 public addMetadataDirs(array&lt;string,string&gt; $namespacePrefixToDirMap): \JMS\Serializer\SerializerBuilder
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespacePrefixToDirMap` | **array<string,string>** |  |
-
-
-
 
 ***
 
@@ -856,13 +468,6 @@ Similar to addMetadataDir(), but overrides an existing entry.
 public replaceMetadataDir(string $dir, string $namespacePrefix = &#039;&#039;): \JMS\Serializer\SerializerBuilder
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -870,25 +475,13 @@ public replaceMetadataDir(string $dir, string $namespacePrefix = &#039;&#039;): 
 | `$dir` | **string** |  |
 | `$namespacePrefix` | **string** |  |
 
-
-
-
 ***
 
 ### setMetadataDriverFactory
 
-
-
 ```php
 public setMetadataDriverFactory(\JMS\Serializer\Builder\DriverFactoryInterface $driverFactory): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -896,117 +489,59 @@ public setMetadataDriverFactory(\JMS\Serializer\Builder\DriverFactoryInterface $
 |-----------|------|-------------|
 | `$driverFactory` | **\JMS\Serializer\Builder\DriverFactoryInterface** |  |
 
-
-
-
 ***
 
 ### setSerializationContextFactory
-
-
 
 ```php
 public setSerializationContextFactory(\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface|callable $serializationContextFactory): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$serializationContextFactory` | **\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface&#124;callable** |  |
-
-
-
+| `$serializationContextFactory` | **
+\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface&#124;callable** |  |
 
 ***
 
 ### setDeserializationContextFactory
 
-
-
 ```php
 public setDeserializationContextFactory(\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface|callable $deserializationContextFactory): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$deserializationContextFactory` | **\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface&#124;callable** |  |
-
-
-
+| `$deserializationContextFactory` | **
+\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface&#124;callable** |  |
 
 ***
 
 ### build
 
-
-
 ```php
 public build(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### initializePropertyNamingStrategy
 
-
-
 ```php
 private initializePropertyNamingStrategy(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### createDir
 
-
-
 ```php
 private createDir(mixed $dir): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1014,11 +549,4 @@ private createDir(mixed $dir): mixed
 |-----------|------|-------------|
 | `$dir` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,36 +2,21 @@
 
 # Config
 
-
-
-
-
 * Full name: `\Zend\ServiceManager\Config`
 * This class implements:
-[`\Zend\ServiceManager\ConfigInterface`](./ConfigInterface.md)
-
-
+  [`\Zend\ServiceManager\ConfigInterface`](./ConfigInterface.md)
 
 ## Properties
 
-
 ### config
-
-
 
 ```php
 protected array $config
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,21 +26,11 @@ Constructor
 public __construct(array $config = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -67,16 +42,6 @@ Get allow override
 public getAllowOverride(): null|bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFactories
@@ -86,16 +51,6 @@ Get factories
 ```php
 public getFactories(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -107,16 +62,6 @@ Get abstract factories
 public getAbstractFactories(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getInvokables
@@ -126,16 +71,6 @@ Get invokables
 ```php
 public getInvokables(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -147,16 +82,6 @@ Get services
 public getServices(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getAliases
@@ -166,16 +91,6 @@ Get aliases
 ```php
 public getAliases(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -187,16 +102,6 @@ Get initializers
 public getInitializers(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getShared
@@ -207,36 +112,16 @@ Get shared
 public getShared(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDelegators
 
-Get the delegator services map, with keys being the services acting as delegates,
-and values being the delegator factories names
+Get the delegator services map, with keys being the services acting as delegates, and values being the delegator
+factories names
 
 ```php
 public getDelegators(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -248,24 +133,10 @@ Configure service manager
 public configureServiceManager(\Zend\ServiceManager\ServiceManager $serviceManager): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serviceManager` | **\Zend\ServiceManager\ServiceManager** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

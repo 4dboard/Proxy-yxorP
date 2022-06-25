@@ -2,16 +2,11 @@
 
 # Instantiator
 
-
-
-
-
 * Full name: `\Doctrine\Instantiator\Instantiator`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\Doctrine\Instantiator\InstantiatorInterface`](./InstantiatorInterface.md)
+  [`\Doctrine\Instantiator\InstantiatorInterface`](./InstantiatorInterface.md)
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -22,7 +17,6 @@
 
 ## Properties
 
-
 ### cachedInstantiators
 
 Used to instantiate specific classes, indexed by class name.
@@ -31,10 +25,7 @@ Used to instantiate specific classes, indexed by class name.
 private static callable[] $cachedInstantiators
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -46,39 +37,23 @@ Array of objects that can directly be cloned, indexed by class name.
 private static object[] $cachedCloneables
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### instantiate
-
-
 
 ```php
 public instantiate(string $className): object
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$className` | **string** |  |
-
-
-
 
 ***
 
@@ -90,65 +65,35 @@ Builds the requested object and caches it in static properties for performance
 private buildAndCacheFromFactory(string $className): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$className` | **string** |  |
-
-
-
 
 ***
 
 ### buildFactory
 
-Builds a callable capable of instantiating the given $className without
-invoking its constructor.
+Builds a callable capable of instantiating the given $className without invoking its constructor.
 
 ```php
 private buildFactory(string $className): callable
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$className` | **string** |  |
-
-
-
 
 ***
 
 ### getReflectionClass
 
-
-
 ```php
 private getReflectionClass(string $className): \ReflectionClass
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -156,52 +101,28 @@ private getReflectionClass(string $className): \ReflectionClass
 |-----------|------|-------------|
 | `$className` | **string** |  |
 
-
-
-
 ***
 
 ### checkIfUnSerializationIsSupported
-
-
 
 ```php
 private checkIfUnSerializationIsSupported(\ReflectionClass $reflectionClass, string $serializedString): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reflectionClass` | **\ReflectionClass** |  |
 | `$serializedString` | **string** |  |
-
-
-
 
 ***
 
 ### attemptInstantiationViaUnSerialization
 
-
-
 ```php
 private attemptInstantiationViaUnSerialization(\ReflectionClass $reflectionClass, string $serializedString): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -210,34 +131,19 @@ private attemptInstantiationViaUnSerialization(\ReflectionClass $reflectionClass
 | `$reflectionClass` | **\ReflectionClass** |  |
 | `$serializedString` | **string** |  |
 
-
-
-
 ***
 
 ### isInstantiableViaReflection
 
-
-
 ```php
 private isInstantiableViaReflection(\ReflectionClass $reflectionClass): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reflectionClass` | **\ReflectionClass** |  |
-
-
-
 
 ***
 
@@ -249,21 +155,11 @@ Verifies whether the given class is to be considered internal
 private hasInternalAncestors(\ReflectionClass $reflectionClass): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reflectionClass` | **\ReflectionClass** |  |
-
-
-
 
 ***
 
@@ -277,22 +173,10 @@ private isSafeToClone(\ReflectionClass $reflectionClass): bool
 
 Classes implementing `__clone` cannot be safely cloned, as that may cause side-effects.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$reflectionClass` | **\ReflectionClass** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,19 +2,11 @@
 
 # Directory
 
-
-
-
-
 * Full name: `\League\Flysystem\Directory`
 * Parent class: [`\League\Flysystem\Handler`](./Handler.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
-
-
-
 ## Methods
-
 
 ### delete
 
@@ -23,16 +15,6 @@ Delete the directory.
 ```php
 public delete(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -44,19 +26,11 @@ List the directory contents.
 public getContents(bool $recursive = false): array|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$recursive` | **bool** |  |
-
 
 **Return Value:**
 
@@ -66,9 +40,7 @@ directory contents or false
 
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -78,22 +50,12 @@ Constructor.
 public __construct(\League\Flysystem\FilesystemInterface $filesystem = null, string $path = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -105,16 +67,6 @@ Check whether the entree is a directory.
 public isDir(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isFile
@@ -125,16 +77,6 @@ Check whether the entree is a file.
 public isFile(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getType
@@ -144,14 +86,6 @@ Retrieve the entree type (file|dir).
 ```php
 public getType(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -169,21 +103,11 @@ Set the Filesystem object.
 public setFilesystem(\League\Flysystem\FilesystemInterface $filesystem): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
-
-
-
 
 ***
 
@@ -195,16 +119,6 @@ Retrieve the Filesystem object.
 public getFilesystem(): \League\Flysystem\FilesystemInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPath
@@ -215,21 +129,11 @@ Set the entree path.
 public setPath(string $path): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -240,14 +144,6 @@ Retrieve the entree path.
 ```php
 public getPath(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -265,13 +161,6 @@ Plugins pass-through.
 public __call(string $method, array $arguments): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -279,11 +168,4 @@ public __call(string $method, array $arguments): mixed
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

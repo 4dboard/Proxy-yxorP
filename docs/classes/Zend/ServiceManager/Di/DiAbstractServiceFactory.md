@@ -2,20 +2,12 @@
 
 # DiAbstractServiceFactory
 
-
-
-
-
 * Full name: `\Zend\ServiceManager\Di\DiAbstractServiceFactory`
 * Parent class: [`\Zend\ServiceManager\Di\DiServiceFactory`](./DiServiceFactory.md)
 * This class implements:
-[`\Zend\ServiceManager\AbstractFactoryInterface`](../AbstractFactoryInterface.md)
-
-
-
+  [`\Zend\ServiceManager\AbstractFactoryInterface`](../AbstractFactoryInterface.md)
 
 ## Methods
-
 
 ### __construct
 
@@ -25,22 +17,12 @@ Constructor
 public __construct(\Zend\Di\Di $di, null|string|\Zend\Di\InstanceManager $useServiceLocator = self::USE_SL_NONE): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$di` | **\Zend\Di\Di** |  |
 | `$useServiceLocator` | **null&#124;string&#124;\Zend\Di\InstanceManager** |  |
-
-
-
 
 ***
 
@@ -52,13 +34,6 @@ Create service with name
 public createServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator, mixed $name, mixed $requestedName): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -66,9 +41,6 @@ public createServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $servi
 | `$serviceLocator` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
 | `$name` | **mixed** |  |
 | `$requestedName` | **mixed** |  |
-
-
-
 
 ***
 
@@ -80,13 +52,6 @@ Determine if we can create a service with name
 public canCreateServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator, mixed $name, mixed $requestedName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -95,14 +60,9 @@ public canCreateServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $se
 | `$name` | **mixed** |  |
 | `$requestedName` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -112,13 +72,6 @@ Constructor
 public __construct(\Zend\Di\Di $di, null|\Zend\Di\InstanceManager $name, array $parameters = [], string $useServiceLocator = self::USE_SL_NONE): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -127,9 +80,6 @@ public __construct(\Zend\Di\Di $di, null|\Zend\Di\InstanceManager $name, array $
 | `$name` | **null&#124;\Zend\Di\InstanceManager** |  |
 | `$parameters` | **array** |  |
 | `$useServiceLocator` | **string** |  |
-
-
-
 
 ***
 
@@ -141,21 +91,11 @@ Create service
 public createService(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serviceLocator` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
-
-
-
 
 ***
 
@@ -167,13 +107,6 @@ Override, as we want it to use the functionality defined in the proxy
 public get(string $name, array $params = []): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -181,11 +114,4 @@ public get(string $name, array $params = []): object
 | `$name` | **string** |  |
 | `$params` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

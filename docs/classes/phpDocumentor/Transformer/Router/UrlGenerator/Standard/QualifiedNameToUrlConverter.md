@@ -4,15 +4,9 @@
 
 Service class used to convert Qualified names into URL paths for the Standard Router.
 
-
-
 * Full name: `\phpDocumentor\Transformer\Router\UrlGenerator\Standard\QualifiedNameToUrlConverter`
 
-
-
-
 ## Methods
-
 
 ### fromPackage
 
@@ -22,21 +16,11 @@ Converts the provided FQCN into a file name by replacing all slashes and undersc
 public fromPackage(string $fqcn): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqcn` | **string** |  |
-
-
-
 
 ***
 
@@ -48,21 +32,11 @@ Converts the provided FQCN into a file name by replacing all slashes with dots.
 public fromNamespace(string $fqnn): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqnn` | **string** |  |
-
-
-
 
 ***
 
@@ -74,21 +48,11 @@ Converts the provided FQCN into a file name by replacing all slashes with dots.
 public fromClass(string $fqcn): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fqcn` | **string** |  |
-
-
-
 
 ***
 
@@ -100,21 +64,11 @@ Converts the given path to a valid url.
 public fromFile(string $path): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -126,24 +80,10 @@ Removes the file extension from the provided path.
 private removeFileExtensionFromPath(string $path): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

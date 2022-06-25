@@ -4,110 +4,61 @@
 
 Default implementation of {@link ValidatorInterface}.
 
-
-
 * Full name: `\Symfony\Component\Validator\Validator`
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Symfony\Component\Validator\ValidatorInterface`](./ValidatorInterface.md), [`\Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface`](./Mapping/Factory/MetadataFactoryInterface.md)
-
-
+  [`\Symfony\Component\Validator\ValidatorInterface`](./ValidatorInterface.md)
+  , [`\Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface`](./Mapping/Factory/MetadataFactoryInterface.md)
 
 ## Properties
 
-
 ### metadataFactory
-
-
 
 ```php
 private $metadataFactory
 ```
 
-
-
-
-
-
 ***
 
 ### validatorFactory
-
-
 
 ```php
 private $validatorFactory
 ```
 
-
-
-
-
-
 ***
 
 ### translator
-
-
 
 ```php
 private $translator
 ```
 
-
-
-
-
-
 ***
 
 ### translationDomain
-
-
 
 ```php
 private $translationDomain
 ```
 
-
-
-
-
-
 ***
 
 ### objectInitializers
-
-
 
 ```php
 private $objectInitializers
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Validator\MetadataFactoryInterface $metadataFactory, \Symfony\Component\Validator\ConstraintValidatorFactoryInterface $validatorFactory, \Symfony\Component\Translation\TranslatorInterface $translator, mixed $translationDomain = &#039;validators&#039;, array $objectInitializers = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -119,9 +70,6 @@ public __construct(\Symfony\Component\Validator\MetadataFactoryInterface $metada
 | `$translationDomain` | **mixed** |  |
 | `$objectInitializers` | **array** |  |
 
-
-
-
 ***
 
 ### getMetadataFactory
@@ -131,14 +79,6 @@ Returns the factory for metadata instances.
 ```php
 public getMetadataFactory(): \Symfony\Component\Validator\MetadataFactoryInterface
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -156,21 +96,11 @@ The metadata factory
 public getMetadataFor(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -182,21 +112,11 @@ public getMetadataFor(mixed $value): mixed
 public hasMetadataFor(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -208,13 +128,6 @@ Validates a value.
 public validate(mixed $value, mixed $groups = null, mixed $traverse = false, mixed $deep = false): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -224,11 +137,9 @@ public validate(mixed $value, mixed $groups = null, mixed $traverse = false, mix
 | `$traverse` | **mixed** | Whether to traverse the value if it is traversable |
 | `$deep` | **mixed** | Whether to traverse nested traversable values recursively |
 
-
 **Return Value:**
 
-A list of constraint violations. If the
-list is empty, validation succeeded.
+A list of constraint violations. If the list is empty, validation succeeded.
 
 
 
@@ -242,13 +153,6 @@ Validates a property of a value against its current value.
 public validateProperty(mixed $containingValue, mixed $property, mixed $groups = null): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -257,11 +161,9 @@ public validateProperty(mixed $containingValue, mixed $property, mixed $groups =
 | `$property` | **mixed** | The name of the property to validate |
 | `$groups` | **mixed** | The validation groups to validate |
 
-
 **Return Value:**
 
-A list of constraint violations. If the
-list is empty, validation succeeded.
+A list of constraint violations. If the list is empty, validation succeeded.
 
 
 
@@ -275,13 +177,6 @@ Validate a property of a value against a potential value.
 public validatePropertyValue(mixed $containingValue, mixed $property, mixed $value, mixed $groups = null): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -291,11 +186,9 @@ public validatePropertyValue(mixed $containingValue, mixed $property, mixed $val
 | `$value` | **mixed** | The value to validate against the<br />constraints of the property |
 | `$groups` | **mixed** | The validation groups to validate |
 
-
 **Return Value:**
 
-A list of constraint violations. If the
-list is empty, validation succeeded.
+A list of constraint violations. If the list is empty, validation succeeded.
 
 
 
@@ -309,13 +202,6 @@ Validates a value against a constraint or a list of constraints.
 public validateValue(mixed $value, mixed $constraints, mixed $groups = null): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -324,11 +210,9 @@ public validateValue(mixed $value, mixed $constraints, mixed $groups = null): \S
 | `$constraints` | **mixed** | The constraint(s) to validate against |
 | `$groups` | **mixed** | The validation groups to validate |
 
-
 **Return Value:**
 
-A list of constraint violations. If the
-list is empty, validation succeeded.
+A list of constraint violations. If the list is empty, validation succeeded.
 
 
 
@@ -336,18 +220,9 @@ list is empty, validation succeeded.
 
 ### createVisitor
 
-
-
 ```php
 private createVisitor(mixed $root): \Symfony\Component\Validator\ValidationVisitor
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -355,25 +230,13 @@ private createVisitor(mixed $root): \Symfony\Component\Validator\ValidationVisit
 |-----------|------|-------------|
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
 ### resolveGroups
 
-
-
 ```php
 private resolveGroups(string|string[]|null $groups): string[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -381,11 +244,4 @@ private resolveGroups(string|string[]|null $groups): string[]
 |-----------|------|-------------|
 | `$groups` | **string&#124;string[]&#124;null** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

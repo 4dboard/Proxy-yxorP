@@ -4,16 +4,10 @@
 
 Base file driver implementation.
 
-
-
 * Full name: `\JMS\Serializer\Metadata\Driver\YamlDriver`
 * Parent class: [`\Metadata\Driver\AbstractFileDriver`](../../../../Metadata/Driver/AbstractFileDriver.md)
 
-
-
-
 ## Methods
-
 
 ### loadMetadataFromFile
 
@@ -23,22 +17,12 @@ Parses the content of the file, and converts it to the desired metadata.
 protected loadMetadataFromFile(\ReflectionClass $class, mixed $file): \Metadata\ClassMetadata|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
 | `$file` | **mixed** |  |
-
-
-
 
 ***
 
@@ -50,32 +34,13 @@ Returns the extension of the file.
 protected getExtension(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addClassProperties
 
-
-
 ```php
 private addClassProperties(\JMS\Serializer\Metadata\ClassMetadata $metadata, array $config): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -84,25 +49,13 @@ private addClassProperties(\JMS\Serializer\Metadata\ClassMetadata $metadata, arr
 | `$metadata` | **\JMS\Serializer\Metadata\ClassMetadata** |  |
 | `$config` | **array** |  |
 
-
-
-
 ***
 
 ### getCallbackMetadata
 
-
-
 ```php
 private getCallbackMetadata(\ReflectionClass $class, mixed $config): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -111,29 +64,15 @@ private getCallbackMetadata(\ReflectionClass $class, mixed $config): mixed
 | `$class` | **\ReflectionClass** |  |
 | `$config` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Metadata\Driver\FileLocatorInterface $locator): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -141,34 +80,19 @@ public __construct(\Metadata\Driver\FileLocatorInterface $locator): mixed
 |-----------|------|-------------|
 | `$locator` | **\Metadata\Driver\FileLocatorInterface** |  |
 
-
-
-
 ***
 
 ### loadMetadataForClass
 
-
-
 ```php
 public loadMetadataForClass(\ReflectionClass $class): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
-
-
-
 
 ***
 
@@ -180,16 +104,6 @@ Gets all the metadata class names known to this driver.
 public getAllClassNames(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadMetadataFromFile
@@ -200,12 +114,7 @@ Parses the content of the file, and converts it to the desired metadata.
 protected loadMetadataFromFile(\ReflectionClass $class, string $file): \Metadata\ClassMetadata|null
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -213,9 +122,6 @@ protected loadMetadataFromFile(\ReflectionClass $class, string $file): \Metadata
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -227,18 +133,6 @@ Returns the extension of the file.
 protected getExtension(): string
 ```
 
-
-
-
 * This method is **abstract**.
 
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

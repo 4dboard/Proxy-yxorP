@@ -9,13 +9,7 @@ To be removed in Twig 3.1.
 * Full name: `\Twig_BaseNodeVisitor`
 * Parent class: [`\Twig\NodeVisitor\AbstractNodeVisitor`](./Twig/NodeVisitor/AbstractNodeVisitor.md)
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### enterNode
 
@@ -25,12 +19,7 @@ Called before child nodes are visited.
 final public enterNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig_NodeInterface
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -38,7 +27,6 @@ final public enterNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -56,12 +44,7 @@ Called after child nodes are visited.
 final public leaveNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig_NodeInterface|false|null
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -69,7 +52,6 @@ final public leaveNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -87,12 +69,7 @@ Called before child nodes are visited.
 protected doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -100,7 +77,6 @@ protected doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node
 |-----------|------|-------------|
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -118,12 +94,7 @@ Called after child nodes are visited.
 protected doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node|false|null
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -132,15 +103,6 @@ protected doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
 
-
 **Return Value:**
 
-The modified node or null if the node must be removed
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The modified node or null if the node must be removed yxorP::get('REQUEST')

@@ -2,50 +2,26 @@
 
 # ValidationValueObject
 
-
-
-
-
 * Full name: `\phpDocumentor\Plugin\Core\Descriptor\Validator\ValidationValueObject`
 * Parent class: [`ArrayObject`](../../../../../ArrayObject.md)
 
-
-
 ## Properties
 
-
 ### data
-
-
 
 ```php
 protected $data
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __get
-
-
 
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,25 +29,13 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### __set
 
-
-
 ```php
 public __set(mixed $name, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -80,25 +44,13 @@ public __set(mixed $name, mixed $value): mixed
 | `$name` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### __isset
 
-
-
 ```php
 public __isset(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -106,11 +58,4 @@ public __isset(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,173 +2,72 @@
 
 # SymfonyQuestionHelperTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Tests\Helper\SymfonyQuestionHelperTest`
 * Parent class: [`TestCase`](../../../../../PHPUnit/Framework/TestCase.md)
 
-
-
-
 ## Methods
 
-
 ### testAskChoice
-
-
 
 ```php
 public testAskChoice(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testAskChoiceWithChoiceValueAsDefault
-
-
 
 ```php
 public testAskChoiceWithChoiceValueAsDefault(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testAskReturnsNullIfValidatorAllowsIt
-
-
 
 ```php
 public testAskReturnsNullIfValidatorAllowsIt(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testAskEscapeDefaultValue
-
-
 
 ```php
 public testAskEscapeDefaultValue(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testAskEscapeAndFormatLabel
-
-
 
 ```php
 public testAskEscapeAndFormatLabel(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testLabelTrailingBackslash
-
-
 
 ```php
 public testLabelTrailingBackslash(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testAskThrowsExceptionOnMissingInput
-
-
 
 ```php
 public testAskThrowsExceptionOnMissingInput(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getInputStream
 
-
-
 ```php
 protected getInputStream(mixed $input): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -176,45 +75,21 @@ protected getInputStream(mixed $input): mixed
 |-----------|------|-------------|
 | `$input` | **mixed** |  |
 
-
-
-
 ***
 
 ### createOutputInterface
-
-
 
 ```php
 protected createOutputInterface(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createInputInterfaceMock
 
-
-
 ```php
 protected createInputInterfaceMock(mixed $interactive = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -222,25 +97,13 @@ protected createInputInterfaceMock(mixed $interactive = true): mixed
 |-----------|------|-------------|
 | `$interactive` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertOutputContains
 
-
-
 ```php
 private assertOutputContains(mixed $expected, \Symfony\Component\Console\Output\StreamOutput $output): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -249,11 +112,4 @@ private assertOutputContains(mixed $expected, \Symfony\Component\Console\Output\
 | `$expected` | **mixed** |  |
 | `$output` | **\Symfony\Component\Console\Output\StreamOutput** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,17 +2,10 @@
 
 # Ini
 
-
-
-
-
 * Full name: `\Zend\Config\Writer\Ini`
 * Parent class: [`\Zend\Config\Writer\AbstractWriter`](./AbstractWriter.md)
 
-
-
 ## Properties
-
 
 ### nestSeparator
 
@@ -22,31 +15,19 @@ Separator for nesting levels of configuration data identifiers.
 protected string $nestSeparator
 ```
 
-
-
-
-
-
 ***
 
 ### renderWithoutSections
 
-If true the INI string is rendered in the global namespace without
-sections.
+If true the INI string is rendered in the global namespace without sections.
 
 ```php
 protected bool $renderWithoutSections
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setNestSeparator
 
@@ -56,21 +37,11 @@ Set nest separator.
 public setNestSeparator(string $separator): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$separator` | **string** |  |
-
-
-
 
 ***
 
@@ -82,16 +53,6 @@ Get nest separator.
 public getNestSeparator(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setRenderWithoutSectionsFlags
@@ -102,22 +63,13 @@ Set if rendering should occur without sections or not.
 public setRenderWithoutSectionsFlags(bool $withoutSections): \Zend\Config\Writer\Ini
 ```
 
-If set to true, the INI file is rendered without sections completely
-into the global namespace of the INI file.
-
-
-
-
-
+If set to true, the INI file is rendered without sections completely into the global namespace of the INI file.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$withoutSections` | **bool** |  |
-
-
-
 
 ***
 
@@ -129,16 +81,6 @@ Return whether the writer should render without sections.
 public shouldRenderWithoutSections(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### processConfig
@@ -149,21 +91,11 @@ processConfig(): defined by AbstractWriter.
 public processConfig(array $config): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -175,22 +107,12 @@ Add a branch to an INI string recursively.
 protected addBranch(array $config, array $parents = array()): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
 | `$parents` | **array** |  |
-
-
-
 
 ***
 
@@ -202,39 +124,21 @@ Prepare a value for INI.
 protected prepareValue(mixed $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### sortRootElements
 
-Root elements that are not assigned to any section needs to be on the
-top of config.
+Root elements that are not assigned to any section needs to be on the top of config.
 
 ```php
 protected sortRootElements(array $config): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -242,14 +146,9 @@ protected sortRootElements(array $config): array
 |-----------|------|-------------|
 | `$config` | **array** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### toFile
 
@@ -259,13 +158,6 @@ toFile(): defined by Writer interface.
 public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -274,11 +166,9 @@ public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 | `$config` | **mixed** |  |
 | `$exclusiveLock` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Writer\WriterInterface::toFile() - 
+* \Zend\Config\Writer\WriterInterface::toFile() -
 
 ***
 
@@ -290,41 +180,25 @@ toString(): defined by Writer interface.
 public toString(mixed $config): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Writer\WriterInterface::toString() - 
+* \Zend\Config\Writer\WriterInterface::toString() -
 
 ***
 
 ### processConfig
 
-
-
 ```php
 protected processConfig(array $config): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -332,11 +206,4 @@ protected processConfig(array $config): string
 |-----------|------|-------------|
 | `$config` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

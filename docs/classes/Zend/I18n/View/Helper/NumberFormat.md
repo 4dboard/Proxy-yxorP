@@ -4,15 +4,10 @@
 
 View helper for formatting dates.
 
-
-
 * Full name: `\Zend\I18n\View\Helper\NumberFormat`
 * Parent class: [`AbstractHelper`](../../../View/Helper/AbstractHelper.md)
 
-
-
 ## Properties
-
 
 ### decimals
 
@@ -21,11 +16,6 @@ number of decimals to use.
 ```php
 protected int $decimals
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ NumberFormat style to use
 protected int $formatStyle
 ```
 
-
-
-
-
-
 ***
 
 ### formatType
@@ -51,11 +36,6 @@ NumberFormat type to use
 ```php
 protected int $formatType
 ```
-
-
-
-
-
 
 ***
 
@@ -67,11 +47,6 @@ Formatter instances
 protected array $formatters
 ```
 
-
-
-
-
-
 ***
 
 ### locale
@@ -82,33 +57,15 @@ Locale to use instead of the default
 protected string $locale
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -120,13 +77,6 @@ Format a number
 public __invoke(int|float $number, int $formatStyle = null, int $formatType = null, string $locale = null, int $decimals = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -136,9 +86,6 @@ public __invoke(int|float $number, int $formatStyle = null, int $formatType = nu
 | `$formatType` | **int** |  |
 | `$locale` | **string** |  |
 | `$decimals` | **int** |  |
-
-
-
 
 ***
 
@@ -150,21 +97,11 @@ Set format style to use instead of the default
 public setFormatStyle(int $formatStyle): \Zend\I18n\View\Helper\NumberFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatStyle` | **int** |  |
-
-
-
 
 ***
 
@@ -176,16 +113,6 @@ Get the format style to use
 public getFormatStyle(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatType
@@ -196,21 +123,11 @@ Set format type to use instead of the default
 public setFormatType(int $formatType): \Zend\I18n\View\Helper\NumberFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatType` | **int** |  |
-
-
-
 
 ***
 
@@ -222,16 +139,6 @@ Get the format type to use
 public getFormatType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDecimals
@@ -242,21 +149,11 @@ Set number of decimals to use instead of the default.
 public setDecimals(int $decimals): \Zend\I18n\View\Helper\NumberFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$decimals` | **int** |  |
-
-
-
 
 ***
 
@@ -268,16 +165,6 @@ Get number of decimals.
 public getDecimals(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLocale
@@ -288,21 +175,11 @@ Set locale to use instead of the default.
 public setLocale(string $locale): \Zend\I18n\View\Helper\NumberFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -314,18 +191,4 @@ Get the locale to use
 public getLocale(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

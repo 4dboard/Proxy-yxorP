@@ -4,63 +4,34 @@
 
 SwiftMailerHandler uses Swift_Mailer to send the emails
 
-
-
 * Full name: `\Monolog\Handler\SwiftMailerHandler`
 * Parent class: [`\Monolog\Handler\MailHandler`](./MailHandler.md)
 
-
-
 ## Properties
 
-
 ### mailer
-
-
 
 ```php
 protected $mailer
 ```
 
-
-
-
-
-
 ***
 
 ### messageTemplate
-
-
 
 ```php
 private $messageTemplate
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Swift_Mailer $mailer, callable|\Swift_Message $message, int $level = Logger::ERROR, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -70,9 +41,6 @@ public __construct(\Swift_Mailer $mailer, callable|\Swift_Message $message, int 
 | `$message` | **callable&#124;\Swift_Message** | An example message for real messages, only the body will be replaced |
 | `$level` | **int** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -84,22 +52,12 @@ Send a mail with the given content
 protected send(mixed $content, array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** | formatted email body to be sent |
 | `$records` | **array** | the array of log records that formed this content |
-
-
-
 
 ***
 
@@ -111,21 +69,11 @@ Gets the formatter for the Swift_Message subject.
 protected getSubjectFormatter(string $format): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** | The format of the subject |
-
-
-
 
 ***
 
@@ -137,22 +85,12 @@ Creates instance of Swift_Message to be sent
 protected buildMessage(string $content, array $records): \Swift_Message
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** | formatted email body to be sent |
 | `$records` | **array** | Log records that formed the content |
-
-
-
 
 ***
 
@@ -164,27 +102,15 @@ BC getter, to be removed in 2.0
 public __get(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### handleBatch
 
@@ -194,21 +120,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -220,12 +136,7 @@ Send a mail with the given content
 protected send(string $content, array $records): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -233,9 +144,6 @@ protected send(string $content, array $records): mixed
 |-----------|------|-------------|
 | `$content` | **string** | formatted email body to be sent |
 | `$records` | **array** | the array of log records that formed this content |
-
-
-
 
 ***
 
@@ -247,12 +155,7 @@ Writes the record down to the log of the implementing handler
 protected write(array $record): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -260,34 +163,19 @@ protected write(array $record): void
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### getHighestRecord
 
-
-
 ```php
 protected getHighestRecord(array $records): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** |  |
-
-
-
 
 ***
 
@@ -299,21 +187,11 @@ protected getHighestRecord(array $records): mixed
 public handle(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -325,38 +203,19 @@ Processes a record.
 protected processRecord(array $record): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -364,9 +223,6 @@ public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixe
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -378,21 +234,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -424,21 +270,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -450,16 +286,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -470,21 +296,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -496,16 +312,6 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLevel
@@ -516,21 +322,11 @@ Sets minimum logging level at which this handler will be triggered.
 public setLevel(int|string $level): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | Level or level name |
-
-
-
 
 ***
 
@@ -542,16 +338,6 @@ Gets minimum logging level at which this handler will be triggered.
 public getLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBubble
@@ -562,21 +348,12 @@ Sets the bubbling behavior.
 public setBubble(bool $bubble): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$bubble` | **bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
-
-
-
+| `$bubble` | **
+bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
 
 ***
 
@@ -588,18 +365,9 @@ Gets the bubbling behavior.
 public getBubble(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true means that this handler allows bubbling.
-false means that bubbling is not permitted.
+true means that this handler allows bubbling. false means that bubbling is not permitted.
 
 
 
@@ -607,41 +375,17 @@ false means that bubbling is not permitted.
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -653,18 +397,4 @@ Gets the default formatter.
 protected getDefaultFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

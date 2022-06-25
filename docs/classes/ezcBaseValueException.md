@@ -2,19 +2,12 @@
 
 # ezcBaseValueException
 
-ezcBaseValueException is thrown whenever the type or value of the given
-variable is not as expected.
-
-
+ezcBaseValueException is thrown whenever the type or value of the given variable is not as expected.
 
 * Full name: `\ezcBaseValueException`
 * Parent class: [`\ezcBaseException`](./ezcBaseException.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -23,13 +16,6 @@ Constructs a new ezcBaseValueException on the $name variable.
 ```php
 public __construct(string $settingName, mixed $value, string $expectedValue = null, string $variableType = &#039;setting&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -40,14 +26,9 @@ public __construct(string $settingName, mixed $value, string $expectedValue = nu
 | `$expectedValue` | **string** | A string explaining the allowed type and value range. |
 | `$variableType` | **string** | What type of variable was tried to be set (setting, argument). |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -57,24 +38,10 @@ Constructs a new ezcBaseException with $message
 public __construct(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

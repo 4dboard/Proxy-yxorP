@@ -8,30 +8,19 @@ Proxies methods to Filesystem (@see __call):
 
 * Full name: `\League\Flysystem\MountManager`
 * This class implements:
-[`\League\Flysystem\FilesystemInterface`](./FilesystemInterface.md)
-
-
+  [`\League\Flysystem\FilesystemInterface`](./FilesystemInterface.md)
 
 ## Properties
 
-
 ### filesystems
-
-
 
 ```php
 protected \League\Flysystem\FilesystemInterface[] $filesystems
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,21 +30,11 @@ Constructor.
 public __construct(\League\Flysystem\FilesystemInterface[] $filesystems = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystems` | **\League\Flysystem\FilesystemInterface[]** | [:prefix =&gt; Filesystem,] |
-
-
-
 
 ***
 
@@ -67,21 +46,11 @@ Mount filesystems.
 public mountFilesystems(\League\Flysystem\FilesystemInterface[] $filesystems): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystems` | **\League\Flysystem\FilesystemInterface[]** | [:prefix =&gt; Filesystem,] |
-
-
-
 
 ***
 
@@ -93,22 +62,12 @@ Mount filesystems.
 public mountFilesystem(string $prefix, \League\Flysystem\FilesystemInterface $filesystem): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
-
-
-
 
 ***
 
@@ -120,21 +79,11 @@ Get the filesystem with the corresponding prefix.
 public getFilesystem(string $prefix): \League\Flysystem\FilesystemInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
-
-
-
 
 ***
 
@@ -146,19 +95,11 @@ Retrieve the prefix from an arguments array.
 public filterPrefix(array $arguments): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$arguments` | **array** |  |
-
 
 **Return Value:**
 
@@ -176,22 +117,12 @@ List contents of a directory.
 public listContents(string $directory = &#039;&#039;, bool $recursive = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$directory` | **string** |  |
 | `$recursive` | **bool** |  |
-
-
-
 
 ***
 
@@ -203,22 +134,12 @@ Call forwarder.
 public __call(string $method, array $arguments): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
-
-
-
 
 ***
 
@@ -230,13 +151,6 @@ Copy a file.
 public copy(string $from, string $to, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -244,9 +158,6 @@ public copy(string $from, string $to, array $config = []): bool
 | `$from` | **string** |  |
 | `$to` | **string** |  |
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -258,13 +169,6 @@ List with plugin adapter.
 public listWith(array $keys = [], string $directory = &#039;&#039;, bool $recursive = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -272,9 +176,6 @@ public listWith(array $keys = [], string $directory = &#039;&#039;, bool $recurs
 | `$keys` | **array** |  |
 | `$directory` | **string** |  |
 | `$recursive` | **bool** |  |
-
-
-
 
 ***
 
@@ -286,13 +187,6 @@ Move a file.
 public move(string $from, string $to, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -300,9 +194,6 @@ public move(string $from, string $to, array $config = []): bool
 | `$from` | **string** |  |
 | `$to` | **string** |  |
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -314,13 +205,6 @@ Invoke a plugin on a filesystem mounted on a given prefix.
 public invokePluginOnFilesystem(string $method, array $arguments, string $prefix): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -329,32 +213,19 @@ public invokePluginOnFilesystem(string $method, array $arguments, string $prefix
 | `$arguments` | **array** |  |
 | `$prefix` | **string** |  |
 
-
-
-
 ***
 
 ### getPrefixAndPath
 
-
-
 ```php
 protected getPrefixAndPath(string $path): string[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
 
 **Return Value:**
 
@@ -372,21 +243,11 @@ Check whether a file exists.
 public has(string $path): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -398,19 +259,11 @@ Read a file.
 public read(string $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -428,19 +281,11 @@ Retrieves a read-stream for a path.
 public readStream(string $path): resource|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -458,19 +303,11 @@ Get a file's metadata.
 public getMetadata(string $path): array|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -488,19 +325,11 @@ Get a file's size.
 public getSize(string $path): int|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -518,19 +347,11 @@ Get a file's mime-type.
 public getMimetype(string $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -548,19 +369,11 @@ Get a file's timestamp.
 public getTimestamp(string $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -578,19 +391,11 @@ Get a file's visibility.
 public getVisibility(string $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -608,13 +413,6 @@ Write a new file.
 public write(string $path, string $contents, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -622,7 +420,6 @@ public write(string $path, string $contents, array $config = []): bool
 | `$path` | **string** | The path of the new file. |
 | `$contents` | **string** | The file contents. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -640,13 +437,6 @@ Write a new file using a stream.
 public writeStream(string $path, resource $resource, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -654,7 +444,6 @@ public writeStream(string $path, resource $resource, array $config = []): bool
 | `$path` | **string** | The path of the new file. |
 | `$resource` | **resource** | The file handle. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -672,13 +461,6 @@ Update an existing file.
 public update(string $path, string $contents, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -686,7 +468,6 @@ public update(string $path, string $contents, array $config = []): bool
 | `$path` | **string** | The path of the existing file. |
 | `$contents` | **string** | The file contents. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -704,13 +485,6 @@ Update an existing file using a stream.
 public updateStream(string $path, resource $resource, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -718,7 +492,6 @@ public updateStream(string $path, resource $resource, array $config = []): bool
 | `$path` | **string** | The path of the existing file. |
 | `$resource` | **resource** | The file handle. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -736,20 +509,12 @@ Rename a file.
 public rename(string $path, string $newpath): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | Path to the existing file. |
 | `$newpath` | **string** | The new path of the file. |
-
 
 **Return Value:**
 
@@ -767,19 +532,11 @@ Delete a file.
 public delete(string $path): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
 
 **Return Value:**
 
@@ -797,19 +554,11 @@ Delete a directory.
 public deleteDir(string $dirname): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirname` | **string** |  |
-
 
 **Return Value:**
 
@@ -827,20 +576,12 @@ Create a directory.
 public createDir(string $dirname, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirname` | **string** | The name of the new directory. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -858,20 +599,12 @@ Set the visibility for a file.
 public setVisibility(string $path, string $visibility): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
 | `$visibility` | **string** | One of &#039;public&#039; or &#039;private&#039;. |
-
 
 **Return Value:**
 
@@ -889,13 +622,6 @@ Create a file or update if exists.
 public put(string $path, string $contents, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -903,7 +629,6 @@ public put(string $path, string $contents, array $config = []): bool
 | `$path` | **string** | The path to the file. |
 | `$contents` | **string** | The file contents. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -921,13 +646,6 @@ Create a file or update if exists.
 public putStream(string $path, resource $resource, array $config = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -935,7 +653,6 @@ public putStream(string $path, resource $resource, array $config = []): bool
 | `$path` | **string** | The path to the file. |
 | `$resource` | **resource** | The file handle. |
 | `$config` | **array** | An optional configuration array. |
-
 
 **Return Value:**
 
@@ -953,19 +670,11 @@ Read and delete a file.
 public readAndDelete(string $path): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
-
 
 **Return Value:**
 
@@ -983,14 +692,7 @@ Get a file/directory handler.
 public get(string $path, \League\Flysystem\Handler $handler = null): \League\Flysystem\Handler
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -998,7 +700,6 @@ public get(string $path, \League\Flysystem\Handler $handler = null): \League\Fly
 |-----------|------|-------------|
 | `$path` | **string** | The path to the file. |
 | `$handler` | **\League\Flysystem\Handler** | An optional existing handler to populate. |
-
 
 **Return Value:**
 
@@ -1008,9 +709,7 @@ Either a file or directory handler.
 
 ***
 
-
 ## Inherited methods
-
 
 ### addPlugin
 
@@ -1020,21 +719,11 @@ Register a plugin.
 public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugin` | **\League\Flysystem\PluginInterface** |  |
-
-
-
 
 ***
 
@@ -1046,21 +735,11 @@ Find a specific plugin.
 protected findPlugin(string $method): \League\Flysystem\PluginInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
-
-
-
 
 ***
 
@@ -1072,13 +751,6 @@ Invoke a plugin by method name.
 protected invokePlugin(string $method, array $arguments, \League\Flysystem\FilesystemInterface $filesystem): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1086,9 +758,6 @@ protected invokePlugin(string $method, array $arguments, \League\Flysystem\Files
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
-
-
-
 
 ***
 
@@ -1100,13 +769,6 @@ Plugins pass-through.
 public __call(string $method, array $arguments): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1114,11 +776,4 @@ public __call(string $method, array $arguments): mixed
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

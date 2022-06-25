@@ -4,109 +4,70 @@
 
 Autoloader checking if the class is really defined in the file found.
 
-The ClassLoader will wrap all registered autoloaders
-and will throw an exception if a file is found but does
-not declare the class.
+The ClassLoader will wrap all registered autoloaders and will throw an exception if a file is found but does not declare
+the class.
 
 * Full name: `\Symfony\Component\Debug\DebugClassLoader`
 
-
-
 ## Properties
 
-
 ### classLoader
-
-
 
 ```php
 private $classLoader
 ```
 
-
-
-
-
-
 ***
 
 ### isFinder
-
-
 
 ```php
 private $isFinder
 ```
 
-
-
-
-
-
 ***
 
 ### caseCheck
-
-
 
 ```php
 private static $caseCheck
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### deprecated
 
-
-
 ```php
 private static $deprecated
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### php7Reserved
 
-
-
 ```php
 private static $php7Reserved
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### darwinCache
 
-
-
 ```php
 private static $darwinCache
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -116,21 +77,11 @@ Constructor.
 public __construct(callable $classLoader): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$classLoader` | **callable** | A class loader |
-
-
-
 
 ***
 
@@ -141,14 +92,6 @@ Gets the wrapped class loader.
 ```php
 public getClassLoader(): callable
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -166,15 +109,7 @@ Wraps all autoloaders.
 public static enable(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -186,15 +121,7 @@ Disables the wrapping.
 public static disable(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -206,28 +133,12 @@ Loads the given class or interface.
 public loadClass(string $class): bool|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | The name of the class |
 
-
 **Return Value:**
 
-True, if loaded
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+True, if loaded yxorP::get('REQUEST')

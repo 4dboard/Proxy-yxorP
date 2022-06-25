@@ -4,17 +4,13 @@
 
 Constructs a new descriptor from the Reflector for an `@method` tag.
 
-This object will read the reflected information for the `@method` tag and create a {@see} object
-that can be used in the rest of the application and templates.
+This object will read the reflected information for the `@method` tag and create a {@see} object that can be used in the
+rest of the application and templates.
 
 * Full name: `\phpDocumentor\Descriptor\Builder\Reflector\Tags\MethodAssembler`
 * Parent class: [`\phpDocumentor\Descriptor\Builder\Reflector\AssemblerAbstract`](../AssemblerAbstract.md)
 
-
-
-
 ## Methods
-
 
 ### create
 
@@ -24,39 +20,21 @@ Creates a new Descriptor from the given Reflector.
 public create(\phpDocumentor\Reflection\DocBlock\Tag\MethodTag $data): \phpDocumentor\Descriptor\Tag\MethodDescriptor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **\phpDocumentor\Reflection\DocBlock\Tag\MethodTag** |  |
 
-
-
-
 ***
 
 ### createArgumentDescriptorForMagicMethod
 
-Construct an argument descriptor given the array representing an argument with a Method Tag in the Reflection
-component.
+Construct an argument descriptor given the array representing an argument with a Method Tag in the Reflection component.
 
 ```php
 private createArgumentDescriptorForMagicMethod(string[] $argument): \phpDocumentor\Descriptor\ArgumentDescriptor
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -64,14 +42,9 @@ private createArgumentDescriptorForMagicMethod(string[] $argument): \phpDocument
 |-----------|------|-------------|
 | `$argument` | **string[]** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### assembleDocBlock
 
@@ -81,22 +54,12 @@ Assemble DocBlock.
 protected assembleDocBlock(\phpDocumentor\Reflection\DocBlock|null $docBlock, \phpDocumentor\Descriptor\DescriptorAbstract $target): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock&#124;null** |  |
 | `$target` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -108,21 +71,11 @@ Extracts the package from the DocBlock.
 protected extractPackageFromDocBlock(\phpDocumentor\Reflection\DocBlock $docBlock): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock** |  |
-
-
-
 
 ***
 
@@ -134,16 +87,6 @@ Returns the builder for this Assembler or null if none is set.
 public getBuilder(): null|\phpDocumentor\Descriptor\ProjectDescriptorBuilder
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBuilder
@@ -154,13 +97,7 @@ Registers the Builder with this Assembler.
 public setBuilder(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): void
 ```
 
-The Builder may be used to recursively assemble Descriptors using
-the {@link} method.
-
-
-
-
-
+The Builder may be used to recursively assemble Descriptors using the {@link} method.
 
 **Parameters:**
 
@@ -168,11 +105,4 @@ the {@link} method.
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

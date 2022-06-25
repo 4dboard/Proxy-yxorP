@@ -4,14 +4,9 @@
 
 This class parses structure.xml and generates the api documentation.
 
-
-
 * Full name: `\PHPDocMD\Parser`
 
-
-
 ## Properties
-
 
 ### structureXmlFile
 
@@ -20,11 +15,6 @@ Path to the structure.xml file.
 ```php
 protected string $structureXmlFile
 ```
-
-
-
-
-
 
 ***
 
@@ -36,39 +26,21 @@ The list of classes and interfaces.
 protected array $classDefinitions
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $structureXmlFile): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$structureXmlFile` | **string** |  |
-
-
-
 
 ***
 
@@ -80,16 +52,6 @@ Starts the process.
 public run(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getClassDefinitions
@@ -100,21 +62,11 @@ Gets all classes and interfaces from the file and puts them in an easy to use ar
 protected getClassDefinitions(\PHPDocMD\SimpleXmlElement $xml): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$xml` | **\PHPDocMD\SimpleXmlElement** |  |
-
-
-
 
 ***
 
@@ -126,22 +78,13 @@ Parses all the method information for a single class or interface.
 protected parseMethods(\SimpleXMLElement $class): array
 ```
 
-You must pass an xml element that refers to either the class or interface element from
-structure.xml.
-
-
-
-
-
+You must pass an xml element that refers to either the class or interface element from structure.xml.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\SimpleXMLElement** |  |
-
-
-
 
 ***
 
@@ -153,22 +96,13 @@ Parses all property information for a single class or interface.
 protected parseProperties(\SimpleXMLElement $class): array
 ```
 
-You must pass an xml element that refers to either the class or interface element from
-structure.xml.
-
-
-
-
-
+You must pass an xml element that refers to either the class or interface element from structure.xml.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\SimpleXMLElement** |  |
-
-
-
 
 ***
 
@@ -180,13 +114,7 @@ Parses all constant information for a single class or interface.
 protected parseConstants(\SimpleXMLElement $class): array
 ```
 
-You must pass an xml element that refers to either the class or interface element from
-structure.xml.
-
-
-
-
-
+You must pass an xml element that refers to either the class or interface element from structure.xml.
 
 **Parameters:**
 
@@ -194,53 +122,31 @@ structure.xml.
 |-----------|------|-------------|
 | `$class` | **\SimpleXMLElement** |  |
 
-
-
-
 ***
 
 ### expandMethods
 
-This method goes through all the class definitions, and adds non-overridden method
-information from parent classes.
+This method goes through all the class definitions, and adds non-overridden method information from parent classes.
 
 ```php
 protected expandMethods(string $className): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$className` | **string** |  |
-
-
-
 
 ***
 
 ### expandProperties
 
-This method goes through all the class definitions, and adds non-overridden property
-information from parent classes.
+This method goes through all the class definitions, and adds non-overridden property information from parent classes.
 
 ```php
 protected expandProperties(string $className): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -248,11 +154,4 @@ protected expandProperties(string $className): array
 |-----------|------|-------------|
 | `$className` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

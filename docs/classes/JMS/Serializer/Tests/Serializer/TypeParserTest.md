@@ -2,50 +2,26 @@
 
 # TypeParserTest
 
-
-
-
-
 * Full name: `\JMS\Serializer\Tests\Serializer\TypeParserTest`
 * Parent class: [`PHPUnit_Framework_TestCase`](../../../../PHPUnit_Framework_TestCase.md)
 
-
-
 ## Properties
 
-
 ### parser
-
-
 
 ```php
 private $parser
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### testParse
-
-
 
 ```php
 public testParse(mixed $type, mixed $name, array $params = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -55,151 +31,60 @@ public testParse(mixed $type, mixed $name, array $params = array()): mixed
 | `$name` | **mixed** |  |
 | `$params` | **array** |  |
 
-
-
-
 ***
 
 ### getTypes
-
-
 
 ```php
 public getTypes(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParamTypeMustEndWithBracket
-
-
 
 ```php
 public testParamTypeMustEndWithBracket(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testMustStartWithName
-
-
 
 ```php
 public testMustStartWithName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testEmptyParams
-
-
 
 ```php
 public testEmptyParams(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testNoTrailingComma
-
-
 
 ```php
 public testNoTrailingComma(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testLeadingBackslash
-
-
 
 ```php
 public testLeadingBackslash(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setUp
-
-
 
 ```php
 protected setUp(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

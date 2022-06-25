@@ -2,18 +2,13 @@
 
 # BaseEntry
 
-The Table of Contents entry provides essential information on the current entry, it's place in the structure and
-where it points to.
-
-
+The Table of Contents entry provides essential information on the current entry, it's place in the structure and where
+it points to.
 
 * Full name: `\phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### parent
 
@@ -23,8 +18,8 @@ The parent BaseEntry in the containing module.
 protected \phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry|null $parent
 ```
 
-This property may also contain a null value if this is the top entry in this module. Please note that files are
-also considered entries.
+This property may also contain a null value if this is the top entry in this module. Please note that files are also
+considered entries.
 
 Please note that a null value is usually reserved to the ``index`` file.
 
@@ -56,15 +51,9 @@ The heading name, or caption, for this entry.
 protected string $name
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -74,21 +63,11 @@ Initializes this entry with the given parent, if available.
 public __construct(\phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry|null $parent = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parent` | **\phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry&#124;null** |  |
-
-
-
 
 ***
 
@@ -100,18 +79,10 @@ Returns the parent entry for this entry.
 public getParent(): \phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry|null
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-*  - $parent for more information rgarding parent entries.
+*
+    - $parent for more information rgarding parent entries.
 
 ***
 
@@ -123,21 +94,11 @@ Sets the parent entry for this entry.
 public setParent(\phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry|null $parent): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parent` | **\phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry&#124;null** |  |
-
-
-
 
 ***
 
@@ -149,18 +110,10 @@ Returns a list of entries.
 public getChildren(): \phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry[]
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-*  - $children for more information regarding child entries.
+*
+    - $children for more information regarding child entries.
 
 ***
 
@@ -172,21 +125,11 @@ Adds a child to the collection of children.
 public addChild(\phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry $entry): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$entry` | **\phpDocumentor\Plugin\Scrybe\Converter\Metadata\TableOfContents\BaseEntry** |  |
-
-
-
 
 ***
 
@@ -198,16 +141,6 @@ Returns the name for this entry.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setName
@@ -218,24 +151,10 @@ Sets the caption for this entry,
 public setName(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

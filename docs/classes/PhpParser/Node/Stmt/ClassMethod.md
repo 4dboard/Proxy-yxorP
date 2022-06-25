@@ -2,112 +2,62 @@
 
 # ClassMethod
 
-
-
-
-
 * Full name: `\PhpParser\Node\Stmt\ClassMethod`
 * Parent class: [`\PhpParser\Node\Stmt`](../Stmt.md)
 * This class implements:
-[`\PhpParser\Node\FunctionLike`](../FunctionLike.md)
-
-
+  [`\PhpParser\Node\FunctionLike`](../FunctionLike.md)
 
 ## Properties
 
-
 ### type
-
-
 
 ```php
 public int $type
 ```
 
-
-
-
-
-
 ***
 
 ### byRef
-
-
 
 ```php
 public bool $byRef
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 public string $name
 ```
 
-
-
-
-
-
 ***
 
 ### params
-
-
 
 ```php
 public \PhpParser\Node\Param[] $params
 ```
 
-
-
-
-
-
 ***
 
 ### returnType
-
-
 
 ```php
 public null|string|\PhpParser\Node\Name $returnType
 ```
 
-
-
-
-
-
 ***
 
 ### stmts
-
-
 
 ```php
 public \PhpParser\Node[] $stmts
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -117,43 +67,22 @@ Constructs a class method node.
 public __construct(string $name, array $subNodes = array(), array $attributes = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name |
-| `$subNodes` | **array** | Array of the following optional subnodes:<br />&#039;type&#039;       =&gt; MODIFIER_PUBLIC: Type<br />&#039;byRef&#039;      =&gt; false          : Whether to return by reference<br />&#039;params&#039;     =&gt; array()        : Parameters<br />&#039;returnType&#039; =&gt; null           : Return type<br />&#039;stmts&#039;      =&gt; array()        : Statements |
+| `$subNodes` | **
+array** | Array of the following optional subnodes:<br />&#039;type&#039; =&gt; MODIFIER_PUBLIC: Type<br />&#039;byRef&#039; =&gt; false          : Whether to return by reference<br />&#039;params&#039; =&gt; array()        : Parameters<br />&#039;returnType&#039; =&gt; null           : Return type<br />&#039;stmts&#039; =&gt; array()        : Statements |
 | `$attributes` | **array** | Additional attributes |
-
-
-
 
 ***
 
 ### getSubNodeNames
 
-
-
 ```php
 public getSubNodeNames(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -165,16 +94,6 @@ Whether to return by reference
 public returnsByRef(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getParams
@@ -184,16 +103,6 @@ List of parameters
 ```php
 public getParams(): \PhpParser\Node\Param[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -205,16 +114,6 @@ Get the declared return type or null
 public getReturnType(): null|string|\PhpParser\Node\Name
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getStmts
@@ -225,141 +124,57 @@ The function body
 public getStmts(): \PhpParser\Node\Stmt[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isPublic
-
-
 
 ```php
 public isPublic(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isProtected
-
-
 
 ```php
 public isProtected(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isPrivate
-
-
 
 ```php
 public isPrivate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isAbstract
-
-
 
 ```php
 public isAbstract(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isFinal
-
-
 
 ```php
 public isFinal(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isStatic
-
-
 
 ```php
 public isStatic(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -369,16 +184,9 @@ Creates a Node.
 public __construct(null|array $subNodes = array(), array $attributes = array()): mixed
 ```
 
-If null is passed for the $subNodes parameter the node constructor must assign
-all subnodes by itself and also override the getSubNodeNames() method.
-DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding
-to the array keys will be set and getSubNodeNames() will return the keys of that
-array.
-
-
-
-
-
+If null is passed for the $subNodes parameter the node constructor must assign all subnodes by itself and also override
+the getSubNodeNames() method. DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding to
+the array keys will be set and getSubNodeNames() will return the keys of that array.
 
 **Parameters:**
 
@@ -386,9 +194,6 @@ array.
 |-----------|------|-------------|
 | `$subNodes` | **null&#124;array** | Null or an array of sub nodes (deprecated) |
 | `$attributes` | **array** | Array of attributes |
-
-
-
 
 ***
 
@@ -399,14 +204,6 @@ Gets the type of the node.
 ```php
 public getType(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -424,14 +221,6 @@ Gets the names of the sub nodes.
 public getSubNodeNames(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Names of sub nodes
@@ -447,14 +236,6 @@ Gets line the node started in.
 ```php
 public getLine(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -472,21 +253,11 @@ Sets line the node started in.
 public setLine(int $line): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **int** | Line |
-
-
-
 
 ***
 
@@ -499,12 +270,6 @@ public getDocComment(): null|\PhpParser\Comment\Doc
 ```
 
 The doc comment has to be the last comment associated with the node.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -522,22 +287,12 @@ Sets an attribute on a node.
 public setAttribute(mixed $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -549,21 +304,11 @@ Returns whether an attribute exists.
 public hasAttribute(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -575,22 +320,12 @@ Returns the value of an attribute.
 public getAttribute(mixed $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -602,18 +337,4 @@ Returns all attributes for the given node.
 public getAttributes(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

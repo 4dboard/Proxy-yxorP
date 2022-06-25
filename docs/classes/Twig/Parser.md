@@ -4,259 +4,139 @@
 
 Default parser implementation.
 
-
-
 * Full name: `\Twig\Parser`
 * This class implements:
-[`\Twig_ParserInterface`](../Twig_ParserInterface.md)
-
-
+  [`\Twig_ParserInterface`](../Twig_ParserInterface.md)
 
 ## Properties
 
-
 ### stack
-
-
 
 ```php
 protected $stack
 ```
 
-
-
-
-
-
 ***
 
 ### stream
-
-
 
 ```php
 protected $stream
 ```
 
-
-
-
-
-
 ***
 
 ### parent
-
-
 
 ```php
 protected $parent
 ```
 
-
-
-
-
-
 ***
 
 ### handlers
-
-
 
 ```php
 protected $handlers
 ```
 
-
-
-
-
-
 ***
 
 ### visitors
-
-
 
 ```php
 protected $visitors
 ```
 
-
-
-
-
-
 ***
 
 ### expressionParser
-
-
 
 ```php
 protected $expressionParser
 ```
 
-
-
-
-
-
 ***
 
 ### blocks
-
-
 
 ```php
 protected $blocks
 ```
 
-
-
-
-
-
 ***
 
 ### blockStack
-
-
 
 ```php
 protected $blockStack
 ```
 
-
-
-
-
-
 ***
 
 ### macros
-
-
 
 ```php
 protected $macros
 ```
 
-
-
-
-
-
 ***
 
 ### env
-
-
 
 ```php
 protected $env
 ```
 
-
-
-
-
-
 ***
 
 ### reservedMacroNames
-
-
 
 ```php
 protected $reservedMacroNames
 ```
 
-
-
-
-
-
 ***
 
 ### importedSymbols
-
-
 
 ```php
 protected $importedSymbols
 ```
 
-
-
-
-
-
 ***
 
 ### traits
-
-
 
 ```php
 protected $traits
 ```
 
-
-
-
-
-
 ***
 
 ### embeddedTemplates
-
-
 
 ```php
 protected $embeddedTemplates
 ```
 
-
-
-
-
-
 ***
 
 ### varNameSalt
-
-
 
 ```php
 private $varNameSalt
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Twig\Environment $env): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -264,72 +144,33 @@ public __construct(\Twig\Environment $env): mixed
 |-----------|------|-------------|
 | `$env` | **\Twig\Environment** |  |
 
-
-
-
 ***
 
 ### getEnvironment
-
-
 
 ```php
 public getEnvironment(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
 ### getVarName
 
-
-
 ```php
 public getVarName(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### getFilename
 
-
-
 ```php
 public getFilename(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -341,13 +182,6 @@ Converts a token stream to a node tree.
 public parse(\Twig\TokenStream $stream, mixed $test = null, mixed $dropNeedle = false): \ModuleNode
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -356,25 +190,13 @@ public parse(\Twig\TokenStream $stream, mixed $test = null, mixed $dropNeedle = 
 | `$test` | **mixed** |  |
 | `$dropNeedle` | **mixed** |  |
 
-
-
-
 ***
 
 ### subparse
 
-
-
 ```php
 public subparse(mixed $test, mixed $dropNeedle = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -383,27 +205,15 @@ public subparse(mixed $test, mixed $dropNeedle = false): mixed
 | `$test` | **mixed** |  |
 | `$dropNeedle` | **mixed** |  |
 
-
-
-
 ***
 
 ### addHandler
-
-
 
 ```php
 public addHandler(mixed $name, mixed $class): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -412,27 +222,15 @@ public addHandler(mixed $name, mixed $class): mixed
 | `$name` | **mixed** |  |
 | `$class` | **mixed** |  |
 
-
-
-
 ***
 
 ### addNodeVisitor
-
-
 
 ```php
 public addNodeVisitor(\Twig\NodeVisitor\NodeVisitorInterface $visitor): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -440,137 +238,65 @@ public addNodeVisitor(\Twig\NodeVisitor\NodeVisitorInterface $visitor): mixed
 |-----------|------|-------------|
 | `$visitor` | **\Twig\NodeVisitor\NodeVisitorInterface** |  |
 
-
-
-
 ***
 
 ### getBlockStack
-
-
 
 ```php
 public getBlockStack(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### peekBlockStack
-
-
 
 ```php
 public peekBlockStack(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### popBlockStack
-
-
 
 ```php
 public popBlockStack(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### pushBlockStack
-
-
 
 ```php
 public pushBlockStack(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### hasBlock
 
-
-
 ```php
 public hasBlock(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### getBlock
 
-
-
 ```php
 public getBlock(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -578,25 +304,13 @@ public getBlock(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### setBlock
 
-
-
 ```php
 public setBlock(mixed $name, \Twig\Node\BlockNode $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -605,25 +319,13 @@ public setBlock(mixed $name, \Twig\Node\BlockNode $value): mixed
 | `$name` | **mixed** |  |
 | `$value` | **\Twig\Node\BlockNode** |  |
 
-
-
-
 ***
 
 ### hasMacro
 
-
-
 ```php
 public hasMacro(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -631,25 +333,13 @@ public hasMacro(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### setMacro
 
-
-
 ```php
 public setMacro(mixed $name, \Twig\Node\MacroNode $node): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -658,25 +348,13 @@ public setMacro(mixed $name, \Twig\Node\MacroNode $node): mixed
 | `$name` | **mixed** |  |
 | `$node` | **\Twig\Node\MacroNode** |  |
 
-
-
-
 ***
 
 ### isReservedMacroName
 
-
-
 ```php
 public isReservedMacroName(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -684,25 +362,13 @@ public isReservedMacroName(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### addTrait
 
-
-
 ```php
 public addTrait(mixed $trait): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -710,45 +376,21 @@ public addTrait(mixed $trait): mixed
 |-----------|------|-------------|
 | `$trait` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasTraits
-
-
 
 ```php
 public hasTraits(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### embedTemplate
 
-
-
 ```php
 public embedTemplate(\Twig\Node\ModuleNode $template): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -756,25 +398,13 @@ public embedTemplate(\Twig\Node\ModuleNode $template): mixed
 |-----------|------|-------------|
 | `$template` | **\Twig\Node\ModuleNode** |  |
 
-
-
-
 ***
 
 ### addImportedSymbol
 
-
-
 ```php
 public addImportedSymbol(mixed $type, mixed $alias, mixed $name = null, \Twig\Node\Expression\AbstractExpression $node = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -785,25 +415,13 @@ public addImportedSymbol(mixed $type, mixed $alias, mixed $name = null, \Twig\No
 | `$name` | **mixed** |  |
 | `$node` | **\Twig\Node\Expression\AbstractExpression** |  |
 
-
-
-
 ***
 
 ### getImportedSymbol
 
-
-
 ```php
 public getImportedSymbol(mixed $type, mixed $alias): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -812,125 +430,53 @@ public getImportedSymbol(mixed $type, mixed $alias): mixed
 | `$type` | **mixed** |  |
 | `$alias` | **mixed** |  |
 
-
-
-
 ***
 
 ### isMainScope
-
-
 
 ```php
 public isMainScope(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### pushLocalScope
-
-
 
 ```php
 public pushLocalScope(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### popLocalScope
-
-
 
 ```php
 public popLocalScope(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getExpressionParser
-
-
 
 ```php
 public getExpressionParser(): \Twig\ExpressionParser
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getParent
-
-
 
 ```php
 public getParent(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setParent
 
-
-
 ```php
 public setParent(mixed $parent): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -938,65 +484,29 @@ public setParent(mixed $parent): mixed
 |-----------|------|-------------|
 | `$parent` | **mixed** |  |
 
-
-
-
 ***
 
 ### getStream
-
-
 
 ```php
 public getStream(): \Twig\TokenStream
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCurrentToken
-
-
 
 ```php
 public getCurrentToken(): \Twig\Token
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### filterBodyNodes
 
-
-
 ```php
 protected filterBodyNodes(\Twig_NodeInterface $node): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1004,11 +514,4 @@ protected filterBodyNodes(\Twig_NodeInterface $node): mixed
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,16 +4,10 @@
 
 The ProcessHelper class provides helpers to run external processes.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\ProcessHelper`
 * Parent class: [`\Symfony\Component\Console\Helper\Helper`](./Helper.md)
 
-
-
-
 ## Methods
-
 
 ### run
 
@@ -23,23 +17,17 @@ Runs an external process.
 public run(\Symfony\Component\Console\Output\OutputInterface $output, string|array|\Symfony\Component\Process\Process $cmd, string|null $error = null, callable|null $callback = null, int $verbosity = OutputInterface::VERBOSITY_VERY_VERBOSE): \Symfony\Component\Process\Process
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** | An OutputInterface instance |
-| `$cmd` | **string&#124;array&#124;\Symfony\Component\Process\Process** | An instance of Process or an array of arguments to escape and run or a command to run |
+| `$cmd` | **
+string&#124;array&#124;\Symfony\Component\Process\Process** | An instance of Process or an array of arguments to escape and run or a command to run |
 | `$error` | **string&#124;null** | An error message that must be displayed if something went wrong |
-| `$callback` | **callable&#124;null** | A PHP callback to run whenever there is some<br />output available on STDOUT or STDERR |
+| `$callback` | **
+callable&#124;null** | A PHP callback to run whenever there is some<br />output available on STDOUT or STDERR |
 | `$verbosity` | **int** | The threshold for verbosity |
-
 
 **Return Value:**
 
@@ -57,13 +45,7 @@ Runs the process.
 public mustRun(\Symfony\Component\Console\Output\OutputInterface $output, string|\Symfony\Component\Process\Process $cmd, string|null $error = null, callable|null $callback = null): \Symfony\Component\Process\Process
 ```
 
-This is identical to run() except that an exception is thrown if the process
-exits with a non-zero exit code.
-
-
-
-
-
+This is identical to run() except that an exception is thrown if the process exits with a non-zero exit code.
 
 **Parameters:**
 
@@ -72,17 +54,16 @@ exits with a non-zero exit code.
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** | An OutputInterface instance |
 | `$cmd` | **string&#124;\Symfony\Component\Process\Process** | An instance of Process or a command to run |
 | `$error` | **string&#124;null** | An error message that must be displayed if something went wrong |
-| `$callback` | **callable&#124;null** | A PHP callback to run whenever there is some<br />output available on STDOUT or STDERR |
-
+| `$callback` | **
+callable&#124;null** | A PHP callback to run whenever there is some<br />output available on STDOUT or STDERR |
 
 **Return Value:**
 
 The process that ran
 
-
 **See Also:**
 
-* \Symfony\Component\Console\Helper\run() - 
+* \Symfony\Component\Console\Helper\run() -
 
 ***
 
@@ -94,13 +75,6 @@ Wraps a Process callback to add debugging output.
 public wrapCallback(\Symfony\Component\Console\Output\OutputInterface $output, \Symfony\Component\Process\Process $process, callable|null $callback = null): callable
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -108,9 +82,6 @@ public wrapCallback(\Symfony\Component\Console\Output\OutputInterface $output, \
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** | An OutputInterface interface |
 | `$process` | **\Symfony\Component\Process\Process** | The Process |
 | `$callback` | **callable&#124;null** | A PHP callable |
-
-
-
 
 ***
 
@@ -122,21 +93,9 @@ public wrapCallback(\Symfony\Component\Console\Output\OutputInterface $output, \
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setHelperSet
 
@@ -146,21 +105,11 @@ Sets the helper set associated with this helper.
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
-
-
-
 
 ***
 
@@ -171,14 +120,6 @@ Gets the helper set associated with this helper.
 ```php
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -196,19 +137,13 @@ Returns the length of a string, using mb_strwidth if it is available.
 public static strlen(string $string): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | The string to check its length |
-
 
 **Return Value:**
 
@@ -220,18 +155,11 @@ The length of the string
 
 ### formatTime
 
-
-
 ```php
 public static formatTime(mixed $secs): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -239,25 +167,15 @@ public static formatTime(mixed $secs): mixed
 |-----------|------|-------------|
 | `$secs` | **mixed** |  |
 
-
-
-
 ***
 
 ### formatMemory
-
-
 
 ```php
 public static formatMemory(mixed $memory): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -265,25 +183,15 @@ public static formatMemory(mixed $memory): mixed
 |-----------|------|-------------|
 | `$memory` | **mixed** |  |
 
-
-
-
 ***
 
 ### strlenWithoutDecoration
-
-
 
 ```php
 public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -291,26 +199,16 @@ public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\Outpu
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
-
-
-
 
 ***
 
 ### removeDecoration
 
-
-
 ```php
 public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -319,11 +217,4 @@ public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormat
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

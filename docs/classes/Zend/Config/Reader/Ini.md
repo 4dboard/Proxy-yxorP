@@ -4,16 +4,11 @@
 
 INI config reader.
 
-
-
 * Full name: `\Zend\Config\Reader\Ini`
 * This class implements:
-[`\Zend\Config\Reader\ReaderInterface`](./ReaderInterface.md)
-
-
+  [`\Zend\Config\Reader\ReaderInterface`](./ReaderInterface.md)
 
 ## Properties
-
 
 ### nestSeparator
 
@@ -22,11 +17,6 @@ Separator for nesting levels of configuration data identifiers.
 ```php
 protected string $nestSeparator
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +28,9 @@ Directory of the file to process.
 protected string $directory
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setNestSeparator
 
@@ -56,21 +40,11 @@ Set nest separator.
 public setNestSeparator(string $separator): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$separator` | **string** |  |
-
-
-
 
 ***
 
@@ -82,16 +56,6 @@ Get nest separator.
 public getNestSeparator(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### fromFile
@@ -102,24 +66,15 @@ fromFile(): defined by Reader interface.
 public fromFile(string $filename): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Reader\ReaderInterface::fromFile() - 
+* \Zend\Config\Reader\ReaderInterface::fromFile() -
 
 ***
 
@@ -131,21 +86,11 @@ fromString(): defined by Reader interface.
 public fromString(string $string): array|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -157,21 +102,11 @@ Process data from the parsed ini file.
 protected process(array $data): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** |  |
-
-
-
 
 ***
 
@@ -183,22 +118,12 @@ Process a nested section
 private buildNestedSection(array $sections, mixed $value): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sections` | **array** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -210,21 +135,11 @@ Process a section.
 protected processSection(array $section): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$section` | **array** |  |
-
-
-
 
 ***
 
@@ -236,13 +151,6 @@ Process a key.
 protected processKey(string $key, string $value, array& $config): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -251,11 +159,4 @@ protected processKey(string $key, string $value, array& $config): array
 | `$value` | **string** |  |
 | `$config` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

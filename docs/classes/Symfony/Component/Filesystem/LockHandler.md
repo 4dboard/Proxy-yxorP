@@ -2,68 +2,39 @@
 
 # LockHandler
 
-LockHandler class provides a simple abstraction to lock anything by means of
-a file lock.
+LockHandler class provides a simple abstraction to lock anything by means of a file lock.
 
-A locked file is created based on the lock name when calling lock(). Other
-lock handlers will not be able to lock the same name until it is released
-(explicitly by calling release() or implicitly when the instance holding the
-lock is destroyed).
+A locked file is created based on the lock name when calling lock(). Other lock handlers will not be able to lock the
+same name until it is released
+(explicitly by calling release() or implicitly when the instance holding the lock is destroyed).
 
 * Full name: `\Symfony\Component\Filesystem\LockHandler`
 
-
-
 ## Properties
 
-
 ### file
-
-
 
 ```php
 private $file
 ```
 
-
-
-
-
-
 ***
 
 ### handle
-
-
 
 ```php
 private $handle
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name, string|null $lockPath = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -71,9 +42,6 @@ public __construct(string $name, string|null $lockPath = null): mixed
 |-----------|------|-------------|
 | `$name` | **string** | The lock name |
 | `$lockPath` | **string&#124;null** | The directory to store the lock. Default values will use temporary directory |
-
-
-
 
 ***
 
@@ -85,19 +53,11 @@ Lock the resource.
 public lock(bool $blocking = false): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$blocking` | **bool** | wait until the lock is released |
-
 
 **Return Value:**
 
@@ -115,18 +75,4 @@ Release the resource.
 public release(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

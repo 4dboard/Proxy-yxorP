@@ -2,12 +2,7 @@
 
 # ColorThief
 
-
-
-
-
 * Full name: `\ColorThief\ColorThief`
-
 
 ## Constants
 
@@ -20,9 +15,7 @@
 |`THRESHOLD_ALPHA`|public| |62|
 |`THRESHOLD_WHITE`|public| |250|
 
-
 ## Methods
-
 
 ### getColorIndex
 
@@ -32,12 +25,7 @@ Get combined color index (3 colors as one integer) from RGB values (0-255) or RG
 public static getColorIndex(int $red, int $green, int $blue, int $sigBits = self::SIGBITS): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -47,9 +35,6 @@ public static getColorIndex(int $red, int $green, int $blue, int $sigBits = self
 | `$green` | **int** |  |
 | `$blue` | **int** |  |
 | `$sigBits` | **int** |  |
-
-
-
 
 ***
 
@@ -61,12 +46,7 @@ Get RGB values (0-255) or RGB Histogram Buckets from a combined color index (3 c
 public static getColorsFromIndex(int $index, int $sigBits = 8): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -74,9 +54,6 @@ public static getColorsFromIndex(int $index, int $sigBits = 8): array
 |-----------|------|-------------|
 | `$index` | **int** |  |
 | `$sigBits` | **int** |  |
-
-
-
 
 ***
 
@@ -88,12 +65,7 @@ Natural sorting.
 public static naturalOrder(int $a, int $b): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -101,9 +73,6 @@ public static naturalOrder(int $a, int $b): int
 |-----------|------|-------------|
 | `$a` | **int** |  |
 | `$b` | **int** |  |
-
-
-
 
 ***
 
@@ -115,23 +84,16 @@ Use the median cut algorithm to cluster similar colors.
 public static getColor(mixed $sourceImage, int $quality = 10, array $area = null): array|bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sourceImage` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
-| `$quality` | **int** | 1 is the highest quality. There is a trade-off between quality and speed.<br />The bigger the number, the faster the palette generation but the greater the<br />likelihood that colors will be missed. |
+| `$quality` | **
+int** | 1 is the highest quality. There is a trade-off between quality and speed.<br />The bigger the number, the faster the palette generation but the greater the<br />likelihood that colors will be missed. |
 | `$area` | **array** |  |
-
-
-
 
 ***
 
@@ -143,12 +105,7 @@ Use the median cut algorithm to cluster similar colors.
 public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality = 10, array $area = null): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -159,25 +116,15 @@ public static getPalette(mixed $sourceImage, int $colorCount = 10, int $quality 
 | `$quality` | **int** | 1 is the highest quality |
 | `$area` | **array** |  |
 
-
-
-
 ***
 
 ### loadImage
-
-
 
 ```php
 private static loadImage(mixed $sourceImage, int $quality, array& $histo, array|null $area = null): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -188,25 +135,15 @@ private static loadImage(mixed $sourceImage, int $quality, array& $histo, array|
 | `$histo` | **array** | Histogram |
 | `$area` | **array&#124;null** |  |
 
-
-
-
 ***
 
 ### vboxFromHistogram
-
-
 
 ```php
 private static vboxFromHistogram(array $histo): \ColorThief\VBox
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -214,25 +151,15 @@ private static vboxFromHistogram(array $histo): \ColorThief\VBox
 |-----------|------|-------------|
 | `$histo` | **array** |  |
 
-
-
-
 ***
 
 ### doCut
-
-
 
 ```php
 private static doCut(string $color, \ColorThief\VBox $vBox, array $partialSum, int $total): array|void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -243,25 +170,15 @@ private static doCut(string $color, \ColorThief\VBox $vBox, array $partialSum, i
 | `$partialSum` | **array** |  |
 | `$total` | **int** |  |
 
-
-
-
 ***
 
 ### medianCutApply
-
-
 
 ```php
 private static medianCutApply(array $histo, \ColorThief\VBox $vBox): array|void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -269,9 +186,6 @@ private static medianCutApply(array $histo, \ColorThief\VBox $vBox): array|void
 |-----------|------|-------------|
 | `$histo` | **array** |  |
 | `$vBox` | **\ColorThief\VBox** |  |
-
-
-
 
 ***
 
@@ -283,12 +197,7 @@ Find the partial sum arrays along the selected axis.
 private static sumColors(string $axis, array $histo, \ColorThief\VBox $vBox): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -297,7 +206,6 @@ private static sumColors(string $axis, array $histo, \ColorThief\VBox $vBox): ar
 | `$axis` | **string** | r&amp;#124;g&amp;#124;b |
 | `$histo` | **array** |  |
 | `$vBox` | **\ColorThief\VBox** |  |
-
 
 **Return Value:**
 
@@ -309,18 +217,11 @@ private static sumColors(string $axis, array $histo, \ColorThief\VBox $vBox): ar
 
 ### getVBoxColorRanges
 
-
-
 ```php
 private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -328,9 +229,6 @@ private static getVBoxColorRanges(\ColorThief\VBox $vBox, array $order): array
 |-----------|------|-------------|
 | `$vBox` | **\ColorThief\VBox** |  |
 | `$order` | **array** |  |
-
-
-
 
 ***
 
@@ -342,12 +240,7 @@ Inner function to do the iteration.
 private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, array $histo): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -357,25 +250,15 @@ private static quantizeIter(\ColorThief\PQueue& $priorityQueue, float $target, a
 | `$target` | **float** |  |
 | `$histo` | **array** |  |
 
-
-
-
 ***
 
 ### quantize
-
-
 
 ```php
 private static quantize( $numPixels,  $maxColors, array& $histo): bool|\ColorThief\CMap
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -385,11 +268,4 @@ private static quantize( $numPixels,  $maxColors, array& $histo): bool|\ColorThi
 | `$maxColors` | **** |  |
 | `$histo` | **array** | Histogram |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

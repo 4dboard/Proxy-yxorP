@@ -14,58 +14,33 @@ Currently supported:
 * Full name: `\phpDocumentor\Plugin\Graphs\Writer\Graph`
 * Parent class: [`\phpDocumentor\Transformer\Writer\WriterAbstract`](../../../Transformer/Writer/WriterAbstract.md)
 
-
-
 ## Properties
 
-
 ### nodeFont
-
-
 
 ```php
 protected string $nodeFont
 ```
 
-
-
-
-
-
 ***
 
 ### nodeCache
-
-
 
 ```php
 protected \phpDocumentor\GraphViz\Node[] $nodeCache
 ```
 
-
-
-
-
-
 ***
 
 ### namespaceCache
-
-
 
 ```php
 protected \phpDocumentor\GraphViz\Graph[] $namespaceCache
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### transform
 
@@ -75,22 +50,12 @@ Invokes the query method contained in this class.
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
-
-
-
 
 ***
 
@@ -102,22 +67,12 @@ Creates a class inheritance diagram.
 public processClass(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
-
-
-
 
 ***
 
@@ -129,40 +84,22 @@ Creates a GraphViz Edge between two nodes.
 protected createEdge(\phpDocumentor\Plugin\Graphs\Writer\Graph $graph, string $from_name, string|\phpDocumentor\Descriptor\ClassDescriptor|\phpDocumentor\Descriptor\InterfaceDescriptor|\phpDocumentor\Descriptor\TraitDescriptor $to): \phpDocumentor\GraphViz\Edge
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$graph` | **\phpDocumentor\Plugin\Graphs\Writer\Graph** |  |
 | `$from_name` | **string** |  |
-| `$to` | **string&#124;\phpDocumentor\Descriptor\ClassDescriptor&#124;\phpDocumentor\Descriptor\InterfaceDescriptor&#124;\phpDocumentor\Descriptor\TraitDescriptor** |  |
-
-
-
+| `$to` | **
+string&#124;\phpDocumentor\Descriptor\ClassDescriptor&#124;\phpDocumentor\Descriptor\InterfaceDescriptor&#124;\phpDocumentor\Descriptor\TraitDescriptor** |  |
 
 ***
 
 ### createNamespaceGraph
 
-
-
 ```php
 protected createNamespaceGraph(mixed $fqcn): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -170,25 +107,13 @@ protected createNamespaceGraph(mixed $fqcn): mixed
 |-----------|------|-------------|
 | `$fqcn` | **mixed** |  |
 
-
-
-
 ***
 
 ### createEmptyNode
 
-
-
 ```php
 protected createEmptyNode(string $name, \phpDocumentor\Plugin\Graphs\Writer\Graph $graph): \phpDocumentor\GraphViz\Node
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -196,9 +121,6 @@ protected createEmptyNode(string $name, \phpDocumentor\Plugin\Graphs\Writer\Grap
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$graph` | **\phpDocumentor\Plugin\Graphs\Writer\Graph** |  |
-
-
-
 
 ***
 
@@ -210,13 +132,6 @@ Builds a tree of namespace subgraphs with their classes associated.
 protected buildNamespaceTree(\phpDocumentor\GraphViz\Graph $graph, \phpDocumentor\Descriptor\NamespaceDescriptor $namespace): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -224,34 +139,19 @@ protected buildNamespaceTree(\phpDocumentor\GraphViz\Graph $graph, \phpDocumento
 | `$graph` | **\phpDocumentor\GraphViz\Graph** |  |
 | `$namespace` | **\phpDocumentor\Descriptor\NamespaceDescriptor** |  |
 
-
-
-
 ***
 
 ### getDestinationPath
 
-
-
 ```php
 protected getDestinationPath(\phpDocumentor\Transformer\Transformation $transformation): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
-
-
-
 
 ***
 
@@ -263,32 +163,13 @@ Checks whether GraphViz is installed and throws an Exception otherwise.
 protected checkIfGraphVizIsInstalled(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createGraphForNamespace
 
-
-
 ```php
 protected createGraphForNamespace( $full_namespace_name,  $label): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -297,14 +178,9 @@ protected createGraphForNamespace( $full_namespace_name,  $label): mixed
 | `$full_namespace_name` | **** |  |
 | `$label` | **** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### checkRequirements
 
@@ -314,8 +190,8 @@ This method verifies whether PHP has all requirements needed to run this writer.
 public checkRequirements(): void
 ```
 
-If one of the requirements is missing for this Writer then an exception of type RequirementMissing
-should be thrown; this indicates to the calling process that this writer will not function.
+If one of the requirements is missing for this Writer then an exception of type RequirementMissing should be thrown;
+this indicates to the calling process that this writer will not function.
 
 
 
@@ -335,21 +211,11 @@ Checks if there is a space in the path.
 protected checkForSpacesInPath(string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -361,12 +227,7 @@ Abstract definition of the transformation method.
 public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation $transformation): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -375,11 +236,4 @@ public transform(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocum
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Document containing the structure. |
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** | Transformation to execute. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

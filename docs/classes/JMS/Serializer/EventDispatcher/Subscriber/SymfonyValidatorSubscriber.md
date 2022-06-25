@@ -2,60 +2,33 @@
 
 # SymfonyValidatorSubscriber
 
-
-
-
-
 * Full name: `\JMS\Serializer\EventDispatcher\Subscriber\SymfonyValidatorSubscriber`
 * This class implements:
-[`\JMS\Serializer\EventDispatcher\EventSubscriberInterface`](../EventSubscriberInterface.md)
-
-
+  [`\JMS\Serializer\EventDispatcher\EventSubscriberInterface`](../EventSubscriberInterface.md)
 
 ## Properties
 
-
 ### validator
-
-
 
 ```php
 private $validator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Validator\ValidatorInterface $validator): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$validator` | **\Symfony\Component\Validator\ValidatorInterface** |  |
-
-
-
 
 ***
 
@@ -68,38 +41,21 @@ public static getSubscribedEvents(): array
 ```
 
 Return format:
-    array(
-        array('event' => 'the-event-name', 'method' => 'onEventName', 'class' => 'some-class', 'format' => 'json'),
-        array(...),
-    )
+array(
+array('event' => 'the-event-name', 'method' => 'onEventName', 'class' => 'some-class', 'format' => 'json'), array(...),
+)
 
-The class may be omitted if the class wants to subscribe to events of all classes.
-Same goes for the format key.
+The class may be omitted if the class wants to subscribe to events of all classes. Same goes for the format key.
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### onPostDeserialize
 
-
-
 ```php
 public onPostDeserialize(\JMS\Serializer\EventDispatcher\Event $event): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -107,11 +63,4 @@ public onPostDeserialize(\JMS\Serializer\EventDispatcher\Event $event): mixed
 |-----------|------|-------------|
 | `$event` | **\JMS\Serializer\EventDispatcher\Event** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

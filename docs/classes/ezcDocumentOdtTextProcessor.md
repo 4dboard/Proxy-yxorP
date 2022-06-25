@@ -4,40 +4,27 @@
 
 Processes text nodes with significant whitespaces.
 
-An instance of this class is used to process DOMText nodes with significant
-whitespaces (such as literallayout).
+An instance of this class is used to process DOMText nodes with significant whitespaces (such as literallayout).
 
 * Full name: `\ezcDocumentOdtTextProcessor`
 
-
-
-
 ## Methods
-
 
 ### processText
 
-Checks if whitespaces need additional processing and returns the
-corresponding DOMText for the ODT.
+Checks if whitespaces need additional processing and returns the corresponding DOMText for the ODT.
 
 ```php
 public processText(\DOMText $textNode, \DOMElement $newRoot): array|(\DOMNode)
 ```
 
 This method checks if the given $textNode is descendant of a
-<literallayout /> tag. In this case, whitespaces are processed according
-to the ODT specs:
+<literallayout /> tag. In this case, whitespaces are processed according to the ODT specs:
 
-- More than 2 simple spaces are replaced by a single space and <text:s
-  /> with the text:c attribute set to the number of spaces - 1.
+- More than 2 simple spaces are replaced by a single space and <text:s /> with the text:c attribute set to the number of
+  spaces - 1.
 - One or more tabs / line breaks are replaced by a <text:tab/> /
-  <text:line-break/> tag, with the text:c attribute set to the number of
-  whitespaces replaced.
-
-
-
-
-
+  <text:line-break/> tag, with the text:c attribute set to the number of whitespaces replaced.
 
 **Parameters:**
 
@@ -45,9 +32,6 @@ to the ODT specs:
 |-----------|------|-------------|
 | `$textNode` | **\DOMText** |  |
 | `$newRoot` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -59,14 +43,8 @@ Processes whitespaces in $textNode and returns a fragment for the ODT.
 protected processSpaces(\DOMText $textNode, \DOMElement $newRoot): array|(\DOMNode)
 ```
 
-Processes whitespaces in $textNode according to the rules described at
-{@link}. Returns a new DOMDocumentFragment, containing the
-processed nodes.
-
-
-
-
-
+Processes whitespaces in $textNode according to the rules described at {@link}. Returns a new DOMDocumentFragment,
+containing the processed nodes.
 
 **Parameters:**
 
@@ -74,9 +52,6 @@ processed nodes.
 |-----------|------|-------------|
 | `$textNode` | **\DOMText** |  |
 | `$newRoot` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -88,13 +63,7 @@ Generates whitespace elements.
 protected repeatSpace(string $spaceType, int $length, \DOMElement $root): array|(\DOMNode)
 ```
 
-Retruns an array of DOMElement objects, representing $length number of
-whitespaces of type $spaceType.
-
-
-
-
-
+Retruns an array of DOMElement objects, representing $length number of whitespaces of type $spaceType.
 
 **Parameters:**
 
@@ -103,9 +72,6 @@ whitespaces of type $spaceType.
 | `$spaceType` | **string** |  |
 | `$length` | **int** |  |
 | `$root` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -117,27 +83,18 @@ Returns what type of whitespace was matched.
 protected getMatchType(string $string): string
 ```
 
-Returns a string indicating what type of whitespaces has been matched.
-This string is also the name of the text:* tag used to reflect the
-whitespace in ODT:
+Returns a string indicating what type of whitespaces has been matched. This string is also the name of the text:* tag
+used to reflect the whitespace in ODT:
 
 - 's' for spaces
 - 'tab' for tabs
 - 'line-break' for line breaks
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -151,22 +108,10 @@ protected getParent(\DOMNode $node): \DOMElement
 
 Returns the next ancestor DOMElement for $node.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

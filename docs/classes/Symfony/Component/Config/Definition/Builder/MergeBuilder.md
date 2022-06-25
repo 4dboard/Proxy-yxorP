@@ -4,86 +4,47 @@
 
 This class builds merge conditions.
 
-
-
 * Full name: `\Symfony\Component\Config\Definition\Builder\MergeBuilder`
-
-
 
 ## Properties
 
-
 ### node
-
-
 
 ```php
 protected $node
 ```
 
-
-
-
-
-
 ***
 
 ### allowFalse
-
-
 
 ```php
 public $allowFalse
 ```
 
-
-
-
-
-
 ***
 
 ### allowOverwrite
-
-
 
 ```php
 public $allowOverwrite
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Config\Definition\Builder\NodeDefinition $node): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Symfony\Component\Config\Definition\Builder\NodeDefinition** |  |
-
-
-
 
 ***
 
@@ -95,21 +56,11 @@ Sets whether the node can be unset.
 public allowUnset(bool $allow = true): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allow` | **bool** |  |
-
-
-
 
 ***
 
@@ -121,21 +72,11 @@ Sets whether the node can be overwritten.
 public denyOverwrite(bool $deny = true): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$deny` | **bool** | Whether the overwriting is forbidden or not |
-
-
-
 
 ***
 
@@ -147,18 +88,4 @@ Returns the related node.
 public end(): \Symfony\Component\Config\Definition\Builder\NodeDefinition|\Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition|\Symfony\Component\Config\Definition\Builder\VariableNodeDefinition
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

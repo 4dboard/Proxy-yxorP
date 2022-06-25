@@ -2,19 +2,12 @@
 
 # ezcBaseFileIoException
 
-ezcBaseFileIoException is thrown when a problem occurs while writing
-and reading to/from an open file.
-
-
+ezcBaseFileIoException is thrown when a problem occurs while writing and reading to/from an open file.
 
 * Full name: `\ezcBaseFileIoException`
 * Parent class: [`\ezcBaseFileException`](./ezcBaseFileException.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -24,29 +17,18 @@ Constructs a new ezcBaseFileIoException for the file $path.
 public __construct(string $path, int $mode, string $message = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** | The name of the file. |
-| `$mode` | **int** | The mode of the property that is allowed<br />(ezcBaseFileException::READ, ezcBaseFileException::WRITE,<br />ezcBaseFileException::EXECUTE or<br />ezcBaseFileException::CHANGE). |
+| `$mode` | **
+int** | The mode of the property that is allowed<br />(ezcBaseFileException::READ, ezcBaseFileException::WRITE,<br />ezcBaseFileException::EXECUTE or<br />ezcBaseFileException::CHANGE). |
 | `$message` | **string** | A string with extra information. |
-
-
-
 
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -56,24 +38,10 @@ Constructs a new ezcBaseException with $message
 public __construct(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

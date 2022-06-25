@@ -14,13 +14,9 @@ In addition to the above service the following parameters are registered as well
 
 * Full name: `\phpDocumentor\Translator\ServiceProvider`
 * This class implements:
-[`\Cilex\ServiceProviderInterface`](../../Cilex/ServiceProviderInterface.md)
-
-
-
+  [`\Cilex\ServiceProviderInterface`](../../Cilex/ServiceProviderInterface.md)
 
 ## Methods
-
 
 ### register
 
@@ -30,24 +26,10 @@ Registers the translator using the currently active locale.
 public register(\Cilex\Application $app): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Cilex\Application** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

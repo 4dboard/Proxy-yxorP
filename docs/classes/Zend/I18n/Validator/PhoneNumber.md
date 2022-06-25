@@ -2,13 +2,8 @@
 
 # PhoneNumber
 
-
-
-
-
 * Full name: `\Zend\I18n\Validator\PhoneNumber`
 * Parent class: [`AbstractValidator`](../../Validator/AbstractValidator.md)
-
 
 ## Constants
 
@@ -20,7 +15,6 @@
 
 ## Properties
 
-
 ### messageTemplates
 
 Validation failure message template definitions
@@ -28,11 +22,6 @@ Validation failure message template definitions
 ```php
 protected array $messageTemplates
 ```
-
-
-
-
-
 
 ***
 
@@ -44,13 +33,11 @@ Phone Number Patterns
 protected static array $phone
 ```
 
-
-
 * This property is **static**.
 
 **See Also:**
 
-* http://code.google.com/p/libphonenumber/source/browse/trunk/resources/PhoneNumberMetadata.xml - 
+* http://code.google.com/p/libphonenumber/source/browse/trunk/resources/PhoneNumberMetadata.xml -
 
 ***
 
@@ -62,11 +49,6 @@ ISO 3611 Country Code
 protected string $country
 ```
 
-
-
-
-
-
 ***
 
 ### allowPossible
@@ -76,11 +58,6 @@ Allow Possible Matches
 ```php
 protected bool $allowPossible
 ```
-
-
-
-
-
 
 ***
 
@@ -92,15 +69,9 @@ Allowed Types
 protected array $allowedTypes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -111,23 +82,16 @@ public __construct(array|\Traversable $options = array()): mixed
 ```
 
 Options
+
 - country | string | field or value
 - allowed_types | array | array of allowed types
 - allow_possible | boolean | allow possible matches aka non-strict
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -139,21 +103,11 @@ Allowed Types
 public allowedTypes(array|null $types = null): self|array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$types` | **array&#124;null** |  |
-
-
-
 
 ***
 
@@ -165,21 +119,11 @@ Allow Possible
 public allowPossible(bool|null $possible = null): self|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$possible` | **bool&#124;null** |  |
-
-
-
 
 ***
 
@@ -191,16 +135,6 @@ Get Country
 public getCountry(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCountry
@@ -211,21 +145,11 @@ Set Country
 public setCountry(string $country): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$country` | **string** |  |
-
-
-
 
 ***
 
@@ -237,21 +161,11 @@ Load Pattern
 protected loadPattern(string $code): array[]|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **string** |  |
-
-
-
 
 ***
 
@@ -263,13 +177,6 @@ Returns true if and only if $value matches phone number format
 public isValid(string $value = null, array $context = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -277,11 +184,4 @@ public isValid(string $value = null, array $context = null): bool
 | `$value` | **string** |  |
 | `$context` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

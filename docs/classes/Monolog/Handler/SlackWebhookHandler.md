@@ -4,19 +4,14 @@
 
 Sends notifications through Slack Webhooks
 
-
-
 * Full name: `\Monolog\Handler\SlackWebhookHandler`
 * Parent class: [`\Monolog\Handler\AbstractProcessingHandler`](./AbstractProcessingHandler.md)
 
 **See Also:**
 
-* https://api.slack.com/incoming-webhooks - 
-
-
+* https://api.slack.com/incoming-webhooks -
 
 ## Properties
-
 
 ### webhookUrl
 
@@ -25,11 +20,6 @@ Slack Webhook token
 ```php
 private string $webhookUrl
 ```
-
-
-
-
-
 
 ***
 
@@ -41,30 +31,15 @@ Instance of the SlackRecord util class preparing data for Slack API.
 private \Monolog\Handler\Slack\SlackRecord $slackRecord
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $webhookUrl, string|null $channel = null, string|null $username = null, bool $useAttachment = true, string|null $iconEmoji = null, bool $useShortAttachment = false, bool $includeContextAndExtra = false, int $level = Logger::CRITICAL, bool $bubble = true, array $excludeFields = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -75,54 +50,29 @@ public __construct(string $webhookUrl, string|null $channel = null, string|null 
 | `$username` | **string&#124;null** | Name of a bot |
 | `$useAttachment` | **bool** | Whether the message should be added to Slack as attachment (plain text otherwise) |
 | `$iconEmoji` | **string&#124;null** | The emoji name to use (or null) |
-| `$useShortAttachment` | **bool** | Whether the the context/extra messages added to Slack as attachments are in a short style |
+| `$useShortAttachment` | **
+bool** | Whether the the context/extra messages added to Slack as attachments are in a short style |
 | `$includeContextAndExtra` | **bool** | Whether the attachment should include context and extra data |
 | `$level` | **int** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-| `$excludeFields` | **array** | Dot separated list of fields to exclude from slack message. E.g. [&#039;context.field1&#039;, &#039;extra.field2&#039;] |
-
-
-
+| `$excludeFields` | **
+array** | Dot separated list of fields to exclude from slack message. E.g. [&#039;context.field1&#039;, &#039;extra.field2&#039;] |
 
 ***
 
 ### getSlackRecord
 
-
-
 ```php
 public getSlackRecord(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### getWebhookUrl
 
-
-
 ```php
 public getWebhookUrl(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -134,38 +84,19 @@ Writes the record down to the log of the implementing handler
 protected write(array $record): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### setFormatter
 
-
-
 ```php
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -173,34 +104,17 @@ public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): mixed
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
 
-
-
-
 ***
 
 ### getFormatter
-
-
 
 ```php
 public getFormatter(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### handle
 
@@ -210,21 +124,11 @@ public getFormatter(): mixed
 public handle(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -236,21 +140,13 @@ Writes the record down to the log of the implementing handler
 protected write(array $record): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -262,38 +158,19 @@ Processes a record.
 protected processRecord(array $record): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -301,9 +178,6 @@ public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixe
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -315,21 +189,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -341,21 +205,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -387,21 +241,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -413,16 +257,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -433,21 +267,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -459,16 +283,6 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLevel
@@ -479,21 +293,11 @@ Sets minimum logging level at which this handler will be triggered.
 public setLevel(int|string $level): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | Level or level name |
-
-
-
 
 ***
 
@@ -505,16 +309,6 @@ Gets minimum logging level at which this handler will be triggered.
 public getLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBubble
@@ -525,21 +319,12 @@ Sets the bubbling behavior.
 public setBubble(bool $bubble): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$bubble` | **bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
-
-
-
+| `$bubble` | **
+bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
 
 ***
 
@@ -551,18 +336,9 @@ Gets the bubbling behavior.
 public getBubble(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true means that this handler allows bubbling.
-false means that bubbling is not permitted.
+true means that this handler allows bubbling. false means that bubbling is not permitted.
 
 
 
@@ -570,41 +346,17 @@ false means that bubbling is not permitted.
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -616,18 +368,4 @@ Gets the default formatter.
 protected getDefaultFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

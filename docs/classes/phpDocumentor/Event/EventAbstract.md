@@ -4,34 +4,21 @@
 
 Abstract class representing the base elements of a phpDocumentor event.
 
-
-
 * Full name: `\phpDocumentor\Event\EventAbstract`
 * Parent class: [`\Symfony\Component\EventDispatcher\Event`](../../Symfony/Component/EventDispatcher/Event.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
 
-
 ### subject
-
-
 
 ```php
 protected object $subject
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,21 +28,11 @@ Initializes this event with the given subject.
 public __construct(object $subject): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subject` | **object** |  |
-
-
-
 
 ***
 
@@ -66,16 +43,6 @@ Returns the object that is the subject of this event.
 ```php
 public getSubject(): object
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -91,23 +58,15 @@ Used as convenience method for fluent interfaces.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subject` | **object** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### isPropagationStopped
 
@@ -117,22 +76,13 @@ Returns whether further event listeners should be triggered.
 public isPropagationStopped(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether propagation was already stopped for this event
 
-
 **See Also:**
 
-* \Symfony\Component\EventDispatcher\Event::stopPropagation() - 
+* \Symfony\Component\EventDispatcher\Event::stopPropagation() -
 
 ***
 
@@ -144,9 +94,8 @@ Stops the propagation of the event to further event listeners.
 public stopPropagation(): mixed
 ```
 
-If multiple event listeners are connected to the same event, no
-further event listener will be triggered once any trigger calls
-stopPropagation().
+If multiple event listeners are connected to the same event, no further event listener will be triggered once any
+trigger calls stopPropagation().
 
 
 
@@ -166,23 +115,13 @@ Stores the EventDispatcher that dispatches this Event.
 public setDispatcher(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
-
-
-
 
 ***
 
@@ -194,17 +133,7 @@ Returns the EventDispatcher that dispatches this Event.
 public getDispatcher(): \Symfony\Component\EventDispatcher\EventDispatcherInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -216,17 +145,7 @@ Gets the event's name.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -238,14 +157,7 @@ Sets the event's name property.
 public setName(string $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -253,11 +165,4 @@ public setName(string $name): mixed
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

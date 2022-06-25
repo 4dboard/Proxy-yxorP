@@ -4,18 +4,12 @@
 
 Visitor for RST emphasis text roles.
 
-
-
 * Full name: `\ezcDocumentRstEmphasisTextRole`
 * Parent class: [`\ezcDocumentRstTextRole`](./ezcDocumentRstTextRole.md)
 * This class implements:
-[`\ezcDocumentRstXhtmlTextRole`](./ezcDocumentRstXhtmlTextRole.md)
-
-
-
+  [`\ezcDocumentRstXhtmlTextRole`](./ezcDocumentRstXhtmlTextRole.md)
 
 ## Methods
-
 
 ### toDocbook
 
@@ -25,13 +19,7 @@ Transform text role to docbook.
 public toDocbook(\DOMDocument $document, \DOMElement $root): void
 ```
 
-Create a docbook XML structure at the text roles position in the
-document.
-
-
-
-
-
+Create a docbook XML structure at the text roles position in the document.
 
 **Parameters:**
 
@@ -39,9 +27,6 @@ document.
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
 | `$root` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -55,11 +40,6 @@ public toXhtml(\DOMDocument $document, \DOMElement $root): void
 
 Create a XHTML structure at the text roles position in the document.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -67,14 +47,9 @@ Create a XHTML structure at the text roles position in the document.
 | `$document` | **\DOMDocument** |  |
 | `$root` | **\DOMElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -84,13 +59,6 @@ Construct text role from AST and node
 public __construct(\ezcDocumentRstDocumentNode $ast, string $path, \ezcDocumentRstMarkupInterpretedTextNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -98,9 +66,6 @@ public __construct(\ezcDocumentRstDocumentNode $ast, string $path, \ezcDocumentR
 | `$ast` | **\ezcDocumentRstDocumentNode** |  |
 | `$path` | **string** |  |
 | `$node` | **\ezcDocumentRstMarkupInterpretedTextNode** |  |
-
-
-
 
 ***
 
@@ -112,22 +77,13 @@ Set the calling vaisitor
 public setSourceVisitor(\ezcDocumentRstVisitor $visitor): void
 ```
 
-Pass the visitor which called the rendering function on the text role
-for optional reference.
-
-
-
-
-
+Pass the visitor which called the rendering function on the text role for optional reference.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$visitor` | **\ezcDocumentRstVisitor** |  |
-
-
-
 
 ***
 
@@ -139,21 +95,11 @@ Append text from interpreted text node to given DOMElement
 protected appendText(\DOMElement $root): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -165,13 +111,9 @@ Transform text role to docbook
 public toDocbook(\DOMDocument $document, \DOMElement $root): void
 ```
 
-Create a docbook XML structure at the text roles position in the
-document.
-
+Create a docbook XML structure at the text roles position in the document.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -180,11 +122,4 @@ document.
 | `$document` | **\DOMDocument** |  |
 | `$root` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

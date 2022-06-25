@@ -4,17 +4,12 @@
 
 Visit media objects
 
-Media objects are all kind of other media types, embedded in the
-document, like images.
+Media objects are all kind of other media types, embedded in the document, like images.
 
 * Full name: `\ezcDocumentDocbookToWikiMediaObjectHandler`
 * Parent class: [`\ezcDocumentDocbookToWikiBaseHandler`](./ezcDocumentDocbookToWikiBaseHandler.md)
 
-
-
-
 ## Methods
-
 
 ### getImageParameters
 
@@ -24,14 +19,8 @@ Extract image parameters
 protected getImageParameters(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node): array
 ```
 
-Extract the image parameters from a media object or inline media object
-node in the Docbook document. Returns an array with named keys
-containing the directive parameters.
-
-
-
-
-
+Extract the image parameters from a media object or inline media object node in the Docbook document. Returns an array
+with named keys containing the directive parameters.
 
 **Parameters:**
 
@@ -39,9 +28,6 @@ containing the directive parameters.
 |-----------|------|-------------|
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -53,13 +39,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -69,14 +49,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### renderDirective
 
@@ -88,11 +63,6 @@ protected renderDirective(string $name, string $parameter, array $options, strin
 
 Render a directive with the given paramters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -101,9 +71,6 @@ Render a directive with the given paramters.
 | `$parameter` | **string** |  |
 | `$options` | **array** |  |
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -115,13 +82,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -131,11 +94,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

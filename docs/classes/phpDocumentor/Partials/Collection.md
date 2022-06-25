@@ -4,33 +4,20 @@
 
 Represents an easily accessible collection of partials.
 
-
-
 * Full name: `\phpDocumentor\Partials\Collection`
 * Parent class: [`\phpDocumentor\Descriptor\Collection`](../Descriptor/Collection.md)
 
-
-
 ## Properties
 
-
 ### parser
-
-
 
 ```php
 protected \Parsedown $parser
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,21 +27,11 @@ Constructs a new collection object.
 public __construct(\Parsedown $parser): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parser` | **\Parsedown** |  |
-
-
-
 
 ***
 
@@ -66,13 +43,6 @@ Sets a new object onto the collection or clear it using null.
 public set(string|int $index, string $item): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -80,14 +50,9 @@ public set(string|int $index, string $item): void
 | `$index` | **string&#124;int** | An index value to recognize this item with. |
 | `$item` | **string** | The item to store, generally a Descriptor but may be something else. |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -97,21 +62,11 @@ Constructs a new collection object with optionally a series of items, generally 
 public __construct(\phpDocumentor\Descriptor\DescriptorAbstract[]|array $items = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$items` | **\phpDocumentor\Descriptor\DescriptorAbstract[]&#124;array** |  |
-
-
-
 
 ***
 
@@ -123,21 +78,11 @@ Adds a new item to this collection, generally a Descriptor.
 public add(\phpDocumentor\Descriptor\DescriptorAbstract|mixed $item): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$item` | **\phpDocumentor\Descriptor\DescriptorAbstract&#124;mixed** |  |
-
-
-
 
 ***
 
@@ -149,22 +94,13 @@ Sets a new object onto the collection or clear it using null.
 public set(string|int $index, \phpDocumentor\Descriptor\DescriptorAbstract|mixed|null $item): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$index` | **string&#124;int** | An index value to recognize this item with. |
-| `$item` | **\phpDocumentor\Descriptor\DescriptorAbstract&#124;mixed&#124;null** | The item to store, generally a Descriptor but may be something else. |
-
-
-
+| `$item` | **
+\phpDocumentor\Descriptor\DescriptorAbstract&#124;mixed&#124;null** | The item to store, generally a Descriptor but may be something else. |
 
 ***
 
@@ -176,14 +112,9 @@ Retrieves a specific item from the Collection with its index.
 public get(string|int $index, mixed $valueIfEmpty = null): mixed
 ```
 
-Please note that this method (intentionally) has the side effect that whenever a key does not exist that it will
-be created with the value provided by the $valueIfEmpty argument. This will allow for easy initialization during
-tree building operations.
-
-
-
-
-
+Please note that this method (intentionally) has the side effect that whenever a key does not exist that it will be
+created with the value provided by the $valueIfEmpty argument. This will allow for easy initialization during tree
+building operations.
 
 **Parameters:**
 
@@ -191,7 +122,6 @@ tree building operations.
 |-----------|------|-------------|
 | `$index` | **string&#124;int** |  |
 | `$valueIfEmpty` | **mixed** | If the index does not exist it will be created with this value and returned. |
-
 
 **Return Value:**
 
@@ -209,16 +139,6 @@ Retrieves all items from this collection as PHP Array.
 public getAll(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
@@ -228,16 +148,6 @@ Retrieves an iterator to traverse this object.
 ```php
 public getIterator(): \Traversable|\ArrayIterator
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -249,16 +159,6 @@ Returns a count of the number of elements in this collection.
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### clear
@@ -268,16 +168,6 @@ Empties the collection.
 ```php
 public clear(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -289,21 +179,11 @@ Retrieves an item as if it were a property of the collection.
 public __get(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -315,21 +195,11 @@ Checks whether an item in this collection exists.
 public offsetExists(string|int $offset): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **string&#124;int** | The index to check on. |
-
-
-
 
 ***
 
@@ -341,21 +211,11 @@ Retrieves an item from the collection with the given index.
 public offsetGet(string|int $offset): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **string&#124;int** | The offset to retrieve. |
-
-
-
 
 ***
 
@@ -367,22 +227,12 @@ Sets an item at the given index.
 public offsetSet(string|int $offset, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **string&#124;int** | The offset to assign the value to. |
 | `$value` | **mixed** | The value to set. |
-
-
-
 
 ***
 
@@ -394,21 +244,11 @@ Removes an item with the given index from the collection.
 public offsetUnset(string|int $offset): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **string&#124;int** | The offset to unset. |
-
-
-
 
 ***
 
@@ -420,24 +260,10 @@ Returns a new collection with the items from this collection and the provided co
 public merge(\phpDocumentor\Descriptor\Collection $collection): \phpDocumentor\Descriptor\Collection
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collection` | **\phpDocumentor\Descriptor\Collection** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,111 +4,61 @@
 
 A cache aware annotation reader.
 
-
-
 * Full name: `\Doctrine\Common\Annotations\PsrCachedReader`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\Doctrine\Common\Annotations\Reader`](./Reader.md)
+  [`\Doctrine\Common\Annotations\Reader`](./Reader.md)
 * This class is a **Final class**
-
-
 
 ## Properties
 
-
 ### delegate
-
-
 
 ```php
 private \Doctrine\Common\Annotations\Reader $delegate
 ```
 
-
-
-
-
-
 ***
 
 ### cache
-
-
 
 ```php
 private \Psr\Cache\CacheItemPoolInterface $cache
 ```
 
-
-
-
-
-
 ***
 
 ### debug
-
-
 
 ```php
 private bool $debug
 ```
 
-
-
-
-
-
 ***
 
 ### loadedAnnotations
-
-
 
 ```php
 private array&lt;string,object[]&gt; $loadedAnnotations
 ```
 
-
-
-
-
-
 ***
 
 ### loadedFilemtimes
-
-
 
 ```php
 private int[] $loadedFilemtimes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Doctrine\Common\Annotations\Reader $reader, \Psr\Cache\CacheItemPoolInterface $cache, bool $debug = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -117,9 +67,6 @@ public __construct(\Doctrine\Common\Annotations\Reader $reader, \Psr\Cache\Cache
 | `$reader` | **\Doctrine\Common\Annotations\Reader** |  |
 | `$cache` | **\Psr\Cache\CacheItemPoolInterface** |  |
 | `$debug` | **bool** |  |
-
-
-
 
 ***
 
@@ -131,19 +78,12 @@ Gets the annotations applied to a class.
 public getClassAnnotations(\ReflectionClass $class): object[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
-
+| `$class` | **
+\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
 
 **Return Value:**
 
@@ -161,20 +101,13 @@ Gets a class annotation.
 public getClassAnnotation(\ReflectionClass $class, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
+| `$class` | **
+\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
 | `$annotationName` | **mixed** | The name of the annotation. |
-
 
 **Return Value:**
 
@@ -192,19 +125,12 @@ Gets the annotations applied to a property.
 public getPropertyAnnotations(\ReflectionProperty $property): object[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$property` | **\ReflectionProperty** | The ReflectionProperty of the property<br />from which the annotations should be read. |
-
+| `$property` | **
+\ReflectionProperty** | The ReflectionProperty of the property<br />from which the annotations should be read. |
 
 **Return Value:**
 
@@ -222,20 +148,12 @@ Gets a property annotation.
 public getPropertyAnnotation(\ReflectionProperty $property, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **\ReflectionProperty** | The ReflectionProperty to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
-
 
 **Return Value:**
 
@@ -253,19 +171,12 @@ Gets the annotations applied to a method.
 public getMethodAnnotations(\ReflectionMethod $method): object[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **\ReflectionMethod** | The ReflectionMethod of the method from which<br />the annotations should be read. |
-
+| `$method` | **
+\ReflectionMethod** | The ReflectionMethod of the method from which<br />the annotations should be read. |
 
 **Return Value:**
 
@@ -283,20 +194,12 @@ Gets a method annotation.
 public getMethodAnnotation(\ReflectionMethod $method, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\ReflectionMethod** | The ReflectionMethod to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
-
 
 **Return Value:**
 
@@ -308,38 +211,17 @@ The Annotation or NULL, if the requested annotation does not exist.
 
 ### clearLoadedAnnotations
 
-
-
 ```php
 public clearLoadedAnnotations(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### fetchFromCache
 
-
-
 ```php
 private fetchFromCache(string $cacheKey, \ReflectionClass $class, string $method, \Reflector $reflector): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -349,9 +231,6 @@ private fetchFromCache(string $cacheKey, \ReflectionClass $class, string $method
 | `$class` | **\ReflectionClass** |  |
 | `$method` | **string** |  |
 | `$reflector` | **\Reflector** |  |
-
-
-
 
 ***
 
@@ -363,13 +242,6 @@ Used in debug mode to check if the cache is fresh.
 private refresh(string $cacheKey, \ReflectionClass $class): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -377,11 +249,9 @@ private refresh(string $cacheKey, \ReflectionClass $class): bool
 | `$cacheKey` | **string** |  |
 | `$class` | **\ReflectionClass** |  |
 
-
 **Return Value:**
 
-Returns true if the cache was fresh, or false if the class
-being read was modified since writing to the cache.
+Returns true if the cache was fresh, or false if the class being read was modified since writing to the cache.
 
 
 
@@ -395,38 +265,19 @@ Returns the time the class was last modified, testing traits and parents
 private getLastModification(\ReflectionClass $class): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
 
-
-
-
 ***
 
 ### getTraitLastModificationTime
 
-
-
 ```php
 private getTraitLastModificationTime(\ReflectionClass $reflectionTrait): int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -434,11 +285,4 @@ private getTraitLastModificationTime(\ReflectionClass $reflectionTrait): int
 |-----------|------|-------------|
 | `$reflectionTrait` | **\ReflectionClass** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

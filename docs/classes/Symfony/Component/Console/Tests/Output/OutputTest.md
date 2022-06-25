@@ -2,133 +2,56 @@
 
 # OutputTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Tests\Output\OutputTest`
 * Parent class: [`TestCase`](../../../../../PHPUnit/Framework/TestCase.md)
 
-
-
-
 ## Methods
 
-
 ### testConstructor
-
-
 
 ```php
 public testConstructor(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testSetIsDecorated
-
-
 
 ```php
 public testSetIsDecorated(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testSetGetVerbosity
-
-
 
 ```php
 public testSetGetVerbosity(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testWriteWithVerbosityQuiet
-
-
 
 ```php
 public testWriteWithVerbosityQuiet(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testWriteAnArrayOfMessages
-
-
 
 ```php
 public testWriteAnArrayOfMessages(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testWriteRawMessage
 
-
-
 ```php
 public testWriteRawMessage(mixed $message, mixed $type, mixed $expectedOutput): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -138,105 +61,45 @@ public testWriteRawMessage(mixed $message, mixed $type, mixed $expectedOutput): 
 | `$type` | **mixed** |  |
 | `$expectedOutput` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideWriteArguments
-
-
 
 ```php
 public provideWriteArguments(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testWriteWithDecorationTurnedOff
-
-
 
 ```php
 public testWriteWithDecorationTurnedOff(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testWriteDecoratedMessage
-
-
 
 ```php
 public testWriteDecoratedMessage(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testWriteWithInvalidStyle
-
-
 
 ```php
 public testWriteWithInvalidStyle(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testWriteWithVerbosityOption
 
-
-
 ```php
 public testWriteWithVerbosityOption(mixed $verbosity, mixed $expected, mixed $msg): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -246,31 +109,12 @@ public testWriteWithVerbosityOption(mixed $verbosity, mixed $expected, mixed $ms
 | `$expected` | **mixed** |  |
 | `$msg` | **mixed** |  |
 
-
-
-
 ***
 
 ### verbosityProvider
-
-
 
 ```php
 public verbosityProvider(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -10,10 +10,7 @@ and corresponding child elements.
 * Full name: `\ezcDocumentDocbookToOdtTableHandler`
 * Parent class: [`\ezcDocumentDocbookToOdtBaseHandler`](./ezcDocumentDocbookToOdtBaseHandler.md)
 
-
-
 ## Properties
-
 
 ### methodMap
 
@@ -23,15 +20,9 @@ Maps table element to handling methods in this class.
 protected $methodMap
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### handle
 
@@ -41,13 +32,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -56,9 +41,6 @@ conversion.
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -70,13 +52,6 @@ Handles the table base element.
 protected handleTable(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -84,9 +59,6 @@ protected handleTable(\ezcDocumentElementVisitorConverter $converter, \DOMElemen
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -98,22 +70,12 @@ Creates the ODT cell defintions.
 protected createCellDefinition(\DOMElement $docBookTable, \DOMElement $odtTable): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBookTable` | **\DOMElement** |  |
 | `$odtTable` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -125,13 +87,6 @@ Handles table captions.
 protected handleCaption(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -139,9 +94,6 @@ protected handleCaption(\ezcDocumentElementVisitorConverter $converter, \DOMElem
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -153,13 +105,6 @@ Handles table headers.
 protected handleThead(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -167,9 +112,6 @@ protected handleThead(\ezcDocumentElementVisitorConverter $converter, \DOMElemen
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -183,11 +125,6 @@ protected handleTbody(\ezcDocumentElementVisitorConverter $converter, \DOMElemen
 
 Simply ignores the tag, since ODT does not have table body marked up.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -195,9 +132,6 @@ Simply ignores the tag, since ODT does not have table body marked up.
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -209,13 +143,6 @@ Handles table rows.
 protected handleTr(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -223,9 +150,6 @@ protected handleTr(\ezcDocumentElementVisitorConverter $converter, \DOMElement $
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -237,13 +161,6 @@ Handles table cells.
 protected handleTd(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -252,14 +169,9 @@ protected handleTd(\ezcDocumentElementVisitorConverter $converter, \DOMElement $
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -269,21 +181,11 @@ Creates a new handler which utilizes the given $styler.
 public __construct(\ezcDocumentOdtStyler $styler): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styler` | **\ezcDocumentOdtStyler** |  |
-
-
-
 
 ***
 
@@ -295,13 +197,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -311,11 +209,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

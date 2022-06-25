@@ -2,50 +2,26 @@
 
 # Module
 
-
-
-
-
 * Full name: `\Lime\Module`
 * Parent class: [`\Lime\AppAware`](./AppAware.md)
 
-
-
 ## Properties
 
-
 ### apis
-
-
 
 ```php
 protected $apis
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### extend
-
-
 
 ```php
 public extend(mixed $api): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,25 +29,13 @@ public extend(mixed $api): mixed
 |-----------|------|-------------|
 | `$api` | **mixed** |  |
 
-
-
-
 ***
 
 ### __set
 
-
-
 ```php
 public __set(mixed $name, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -80,77 +44,41 @@ public __set(mixed $name, mixed $value): mixed
 | `$name` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
-
-
 
 ```php
 public __get(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### __isset
 
-
-
 ```php
 public __isset(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
 ### __unset
 
-
-
 ```php
 public __unset(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -158,25 +86,13 @@ public __unset(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -185,29 +101,15 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -215,45 +117,21 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -262,25 +140,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -288,25 +154,13 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -314,11 +168,4 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

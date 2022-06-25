@@ -2,664 +2,285 @@
 
 # ImageValidatorTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Validator\Tests\Constraints\ImageValidatorTest`
-* Parent class: [`\Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest`](./AbstractConstraintValidatorTest.md)
-
-
+* Parent
+  class: [`\Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest`](./AbstractConstraintValidatorTest.md)
 
 ## Properties
 
-
 ### context
-
-
 
 ```php
 protected \Symfony\Component\Validator\Context\ExecutionContextInterface $context
 ```
 
-
-
-
-
-
 ***
 
 ### validator
-
-
 
 ```php
 protected \Symfony\Component\Validator\Constraints\ImageValidator $validator
 ```
 
-
-
-
-
-
 ***
 
 ### path
-
-
 
 ```php
 protected $path
 ```
 
-
-
-
-
-
 ***
 
 ### image
-
-
 
 ```php
 protected $image
 ```
 
-
-
-
-
-
 ***
 
 ### imageLandscape
-
-
 
 ```php
 protected $imageLandscape
 ```
 
-
-
-
-
-
 ***
 
 ### imagePortrait
-
-
 
 ```php
 protected $imagePortrait
 ```
 
-
-
-
-
-
 ***
 
 ### image4By3
-
-
 
 ```php
 protected $image4By3
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### getApiVersion
-
-
 
 ```php
 protected getApiVersion(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createValidator
-
-
 
 ```php
 protected createValidator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setUp
 
-
-
 ```php
 protected setUp(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testNullIsValid
 
-
-
 ```php
 public testNullIsValid(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testEmptyStringIsValid
 
-
-
 ```php
 public testEmptyStringIsValid(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testValidImage
 
-
-
 ```php
 public testValidImage(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testFileNotFound
 
-
-
 ```php
 public testFileNotFound(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testValidSize
 
-
-
 ```php
 public testValidSize(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testWidthTooSmall
 
-
-
 ```php
 public testWidthTooSmall(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testWidthTooBig
 
-
-
 ```php
 public testWidthTooBig(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testHeightTooSmall
 
-
-
 ```php
 public testHeightTooSmall(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testHeightTooBig
 
-
-
 ```php
 public testHeightTooBig(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testInvalidMinWidth
 
-
-
 ```php
 public testInvalidMinWidth(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testInvalidMaxWidth
 
-
-
 ```php
 public testInvalidMaxWidth(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testInvalidMinHeight
 
-
-
 ```php
 public testInvalidMinHeight(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testInvalidMaxHeight
 
-
-
 ```php
 public testInvalidMaxHeight(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testRatioTooSmall
 
-
-
 ```php
 public testRatioTooSmall(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testRatioTooBig
 
-
-
 ```php
 public testRatioTooBig(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testMaxRatioUsesTwoDecimalsOnly
 
-
-
 ```php
 public testMaxRatioUsesTwoDecimalsOnly(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testInvalidMinRatio
 
-
-
 ```php
 public testInvalidMinRatio(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testInvalidMaxRatio
 
-
-
 ```php
 public testInvalidMaxRatio(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testSquareNotAllowed
 
-
-
 ```php
 public testSquareNotAllowed(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testLandscapeNotAllowed
 
-
-
 ```php
 public testLandscapeNotAllowed(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testPortraitNotAllowed
 
-
-
 ```php
 public testPortraitNotAllowed(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### setUp
-
-
 
 ```php
 protected setUp(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### tearDown
-
-
 
 ```php
 protected tearDown(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDefaultTimezone
 
-
-
 ```php
 protected setDefaultTimezone(mixed $defaultTimezone): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -667,67 +288,31 @@ protected setDefaultTimezone(mixed $defaultTimezone): mixed
 |-----------|------|-------------|
 | `$defaultTimezone` | **mixed** |  |
 
-
-
-
 ***
 
 ### restoreDefaultTimezone
-
-
 
 ```php
 protected restoreDefaultTimezone(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createContext
-
-
 
 ```php
 protected createContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createViolation
-
-
 
 ```php
 protected createViolation(mixed $message, array $parameters = array(), string $propertyPath = &#039;property.path&#039;, string $invalidValue = &#039;InvalidValue&#039;, null $plural = null, null $code = null): \Symfony\Component\Validator\ConstraintViolation
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -740,25 +325,13 @@ protected createViolation(mixed $message, array $parameters = array(), string $p
 | `$plural` | **null** |  |
 | `$code` | **null** |  |
 
-
-
-
 ***
 
 ### setGroup
 
-
-
 ```php
 protected setGroup(mixed $group): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -766,25 +339,13 @@ protected setGroup(mixed $group): mixed
 |-----------|------|-------------|
 | `$group` | **mixed** |  |
 
-
-
-
 ***
 
 ### setObject
 
-
-
 ```php
 protected setObject(mixed $object): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -792,25 +353,13 @@ protected setObject(mixed $object): mixed
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
 
-
-
-
 ***
 
 ### setProperty
 
-
-
 ```php
 protected setProperty(mixed $object, mixed $property): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -819,25 +368,13 @@ protected setProperty(mixed $object, mixed $property): mixed
 | `$object` | **mixed** |  |
 | `$property` | **mixed** |  |
 
-
-
-
 ***
 
 ### setValue
 
-
-
 ```php
 protected setValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -845,25 +382,13 @@ protected setValue(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### setRoot
 
-
-
 ```php
 protected setRoot(mixed $root): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -871,25 +396,13 @@ protected setRoot(mixed $root): mixed
 |-----------|------|-------------|
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
 ### setPropertyPath
 
-
-
 ```php
 protected setPropertyPath(mixed $propertyPath): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -897,45 +410,21 @@ protected setPropertyPath(mixed $propertyPath): mixed
 |-----------|------|-------------|
 | `$propertyPath` | **mixed** |  |
 
-
-
-
 ***
 
 ### expectNoValidate
-
-
 
 ```php
 protected expectNoValidate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### expectValidateAt
 
-
-
 ```php
 protected expectValidateAt(mixed $i, mixed $propertyPath, mixed $value, mixed $group): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -946,25 +435,13 @@ protected expectValidateAt(mixed $i, mixed $propertyPath, mixed $value, mixed $g
 | `$value` | **mixed** |  |
 | `$group` | **mixed** |  |
 
-
-
-
 ***
 
 ### expectValidateValueAt
 
-
-
 ```php
 protected expectValidateValueAt(mixed $i, mixed $propertyPath, mixed $value, mixed $constraints, mixed $group = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -976,47 +453,23 @@ protected expectValidateValueAt(mixed $i, mixed $propertyPath, mixed $value, mix
 | `$constraints` | **mixed** |  |
 | `$group` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertNoViolation
-
-
 
 ```php
 protected assertNoViolation(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertViolation
-
-
 
 ```php
 protected assertViolation(mixed $message, array $parameters = array(), string $propertyPath = &#039;property.path&#039;, string $invalidValue = &#039;InvalidValue&#039;, null $plural = null, null $code = null): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -1029,27 +482,15 @@ protected assertViolation(mixed $message, array $parameters = array(), string $p
 | `$plural` | **null** |  |
 | `$code` | **null** |  |
 
-
-
-
 ***
 
 ### assertViolations
-
-
 
 ```php
 protected assertViolations(array $expected): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -1057,25 +498,13 @@ protected assertViolations(array $expected): mixed
 |-----------|------|-------------|
 | `$expected` | **array** |  |
 
-
-
-
 ***
 
 ### buildViolation
 
-
-
 ```php
 protected buildViolation( $message): \Symfony\Component\Validator\Tests\Constraints\ConstraintViolationAssertion
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1083,51 +512,22 @@ protected buildViolation( $message): \Symfony\Component\Validator\Tests\Constrai
 |-----------|------|-------------|
 | `$message` | **** |  |
 
-
-
-
 ***
 
 ### getApiVersion
-
-
 
 ```php
 protected getApiVersion(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createValidator
-
-
 
 ```php
 protected createValidator(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
 
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

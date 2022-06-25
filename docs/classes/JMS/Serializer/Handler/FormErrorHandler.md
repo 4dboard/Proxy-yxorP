@@ -2,36 +2,21 @@
 
 # FormErrorHandler
 
-
-
-
-
 * Full name: `\JMS\Serializer\Handler\FormErrorHandler`
 * This class implements:
-[`\JMS\Serializer\Handler\SubscribingHandlerInterface`](./SubscribingHandlerInterface.md)
-
-
+  [`\JMS\Serializer\Handler\SubscribingHandlerInterface`](./SubscribingHandlerInterface.md)
 
 ## Properties
 
-
 ### translator
-
-
 
 ```php
 private $translator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getSubscribingMethods
 
@@ -42,40 +27,25 @@ public static getSubscribingMethods(): array
 ```
 
 array(
-         array(
-             'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
-             'format' => 'json',
-             'type' => 'DateTime',
-             'method' => 'serializeDateTimeToJson',
-         ),
-     )
+array(
+'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
+'format' => 'json',
+'type' => 'DateTime',
+'method' => 'serializeDateTimeToJson',
+),
+)
 
 The direction and method keys can be omitted.
 
 * This method is **static**.
 
-
-
-
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(\Symfony\Component\Translation\TranslatorInterface $translator): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -83,26 +53,14 @@ public __construct(\Symfony\Component\Translation\TranslatorInterface $translato
 |-----------|------|-------------|
 | `$translator` | **\Symfony\Component\Translation\TranslatorInterface** |  |
 
-
-
-
 ***
 
 ### serializeFormToXml
-
-
 
 ```php
 public serializeFormToXml(\JMS\Serializer\XmlSerializationVisitor $visitor, \Symfony\Component\Form\Form $form, array $type): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -110,26 +68,14 @@ public serializeFormToXml(\JMS\Serializer\XmlSerializationVisitor $visitor, \Sym
 | `$visitor` | **\JMS\Serializer\XmlSerializationVisitor** |  |
 | `$form` | **\Symfony\Component\Form\Form** |  |
 | `$type` | **array** |  |
-
-
-
 
 ***
 
 ### serializeFormToJson
 
-
-
 ```php
 public serializeFormToJson(\JMS\Serializer\JsonSerializationVisitor $visitor, \Symfony\Component\Form\Form $form, array $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -139,25 +85,13 @@ public serializeFormToJson(\JMS\Serializer\JsonSerializationVisitor $visitor, \S
 | `$form` | **\Symfony\Component\Form\Form** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### serializeFormToYml
 
-
-
 ```php
 public serializeFormToYml(\JMS\Serializer\YamlSerializationVisitor $visitor, \Symfony\Component\Form\Form $form, array $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -167,25 +101,13 @@ public serializeFormToYml(\JMS\Serializer\YamlSerializationVisitor $visitor, \Sy
 | `$form` | **\Symfony\Component\Form\Form** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### serializeFormErrorToXml
 
-
-
 ```php
 public serializeFormErrorToXml(\JMS\Serializer\XmlSerializationVisitor $visitor, \Symfony\Component\Form\FormError $formError, array $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -195,25 +117,13 @@ public serializeFormErrorToXml(\JMS\Serializer\XmlSerializationVisitor $visitor,
 | `$formError` | **\Symfony\Component\Form\FormError** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### serializeFormErrorToJson
 
-
-
 ```php
 public serializeFormErrorToJson(\JMS\Serializer\JsonSerializationVisitor $visitor, \Symfony\Component\Form\FormError $formError, array $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -223,25 +133,13 @@ public serializeFormErrorToJson(\JMS\Serializer\JsonSerializationVisitor $visito
 | `$formError` | **\Symfony\Component\Form\FormError** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### serializeFormErrorToYml
 
-
-
 ```php
 public serializeFormErrorToYml(\JMS\Serializer\YamlSerializationVisitor $visitor, \Symfony\Component\Form\FormError $formError, array $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -251,25 +149,13 @@ public serializeFormErrorToYml(\JMS\Serializer\YamlSerializationVisitor $visitor
 | `$formError` | **\Symfony\Component\Form\FormError** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### getErrorMessage
 
-
-
 ```php
 private getErrorMessage(\Symfony\Component\Form\FormError $error): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -277,25 +163,13 @@ private getErrorMessage(\Symfony\Component\Form\FormError $error): mixed
 |-----------|------|-------------|
 | `$error` | **\Symfony\Component\Form\FormError** |  |
 
-
-
-
 ***
 
 ### convertFormToArray
 
-
-
 ```php
 private convertFormToArray(\JMS\Serializer\VisitorInterface $visitor, \Symfony\Component\Form\Form $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -304,11 +178,4 @@ private convertFormToArray(\JMS\Serializer\VisitorInterface $visitor, \Symfony\C
 | `$visitor` | **\JMS\Serializer\VisitorInterface** |  |
 | `$data` | **\Symfony\Component\Form\Form** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

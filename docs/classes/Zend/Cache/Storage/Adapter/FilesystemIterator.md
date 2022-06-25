@@ -2,18 +2,11 @@
 
 # FilesystemIterator
 
-
-
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\FilesystemIterator`
 * This class implements:
-[`\Zend\Cache\Storage\IteratorInterface`](../IteratorInterface.md)
-
-
+  [`\Zend\Cache\Storage\IteratorInterface`](../IteratorInterface.md)
 
 ## Properties
-
 
 ### storage
 
@@ -22,11 +15,6 @@ The Filesystem storage instance
 ```php
 protected \Zend\Cache\Storage\Adapter\Filesystem $storage
 ```
-
-
-
-
-
 
 ***
 
@@ -38,11 +26,6 @@ The iterator mode
 protected int $mode
 ```
 
-
-
-
-
-
 ***
 
 ### globIterator
@@ -52,11 +35,6 @@ The GlobIterator instance
 ```php
 protected \GlobIterator $globIterator
 ```
-
-
-
-
-
 
 ***
 
@@ -68,11 +46,6 @@ The namespace sprefix
 protected string $prefix
 ```
 
-
-
-
-
-
 ***
 
 ### prefixLength
@@ -83,15 +56,9 @@ String length of namespace prefix
 protected int $prefixLength
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -101,13 +68,6 @@ Constructor
 public __construct(\Zend\Cache\Storage\Adapter\Filesystem $storage, string $path, string $prefix): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -115,9 +75,6 @@ public __construct(\Zend\Cache\Storage\Adapter\Filesystem $storage, string $path
 | `$storage` | **\Zend\Cache\Storage\Adapter\Filesystem** |  |
 | `$path` | **string** |  |
 | `$prefix` | **string** |  |
-
-
-
 
 ***
 
@@ -129,16 +86,6 @@ Get storage instance
 public getStorage(): \Zend\Cache\Storage\Adapter\Filesystem
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMode
@@ -148,14 +95,6 @@ Get iterator mode
 ```php
 public getMode(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -173,19 +112,11 @@ Set iterator mode
 public setMode(int $mode): \Zend\Cache\Storage\Adapter\FilesystemIterator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mode` | **int** |  |
-
 
 **Return Value:**
 
@@ -203,16 +134,6 @@ Get current key, value or metadata.
 public current(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### key
@@ -222,16 +143,6 @@ Get current key
 ```php
 public key(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -243,16 +154,6 @@ Move forward to next element
 public next(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### valid
@@ -262,16 +163,6 @@ Checks if current position is valid
 ```php
 public valid(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -283,22 +174,6 @@ Rewind the Iterator to the first element.
 public rewind(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-false if the operation failed.
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+false if the operation failed. yxorP::get('REQUEST')

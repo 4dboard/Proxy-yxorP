@@ -2,67 +2,38 @@
 
 # DiServiceInitializer
 
-
-
-
-
 * Full name: `\Zend\ServiceManager\Di\DiServiceInitializer`
 * Parent class: [`Di`](../../Di/Di.md)
 * This class implements:
-[`\Zend\ServiceManager\InitializerInterface`](../InitializerInterface.md)
-
-
+  [`\Zend\ServiceManager\InitializerInterface`](../InitializerInterface.md)
 
 ## Properties
 
-
 ### di
-
-
 
 ```php
 protected \Zend\Di\Di $di
 ```
 
-
-
-
-
-
 ***
 
 ### diInstanceManagerProxy
-
-
 
 ```php
 protected \Zend\ServiceManager\Di\DiInstanceManagerProxy $diInstanceManagerProxy
 ```
 
-
-
-
-
-
 ***
 
 ### serviceLocator
-
-
 
 ```php
 protected \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -72,13 +43,6 @@ Constructor
 public __construct(\Zend\Di\Di $di, \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator, null|\Zend\ServiceManager\Di\DiInstanceManagerProxy $diImProxy = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -86,9 +50,6 @@ public __construct(\Zend\Di\Di $di, \Zend\ServiceManager\ServiceLocatorInterface
 | `$di` | **\Zend\Di\Di** |  |
 | `$serviceLocator` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
 | `$diImProxy` | **null&#124;\Zend\ServiceManager\Di\DiInstanceManagerProxy** |  |
-
-
-
 
 ***
 
@@ -100,13 +61,6 @@ Initialize
 public initialize( $instance, \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -114,11 +68,4 @@ public initialize( $instance, \Zend\ServiceManager\ServiceLocatorInterface $serv
 | `$instance` | **** |  |
 | `$serviceLocator` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

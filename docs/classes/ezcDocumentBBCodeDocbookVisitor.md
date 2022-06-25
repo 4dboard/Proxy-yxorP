@@ -4,29 +4,18 @@
 
 Docbook visitor for the BBCode AST.
 
-
-
 * Full name: `\ezcDocumentBBCodeDocbookVisitor`
 * Parent class: [`\ezcDocumentBBCodeVisitor`](./ezcDocumentBBCodeVisitor.md)
 
-
-
 ## Properties
-
 
 ### visitMapping
 
-Mapping of AST nodes to the visitor methods, which are sued to transform
-the respective node into Docbook
+Mapping of AST nodes to the visitor methods, which are sued to transform the respective node into Docbook
 
 ```php
 protected array $visitMapping
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +27,9 @@ DOM document
 protected \DOMDocument $document
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### visit
 
@@ -58,19 +41,11 @@ public visit(\ezcDocumentBBCodeDocumentNode $ast): mixed
 
 Visit the BBCode abstract syntax tree.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **\ezcDocumentBBCodeDocumentNode** |  |
-
-
-
 
 ***
 
@@ -82,14 +57,8 @@ Visit single AST node
 public visitNode(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-Visit a single AST node, may be called for each node found anywhere
-as child. The current position in the DOMDocument is passed by a
-reference to the current DOMNode, which is operated on.
-
-
-
-
-
+Visit a single AST node, may be called for each node found anywhere as child. The current position in the DOMDocument is
+passed by a reference to the current DOMNode, which is operated on.
 
 **Parameters:**
 
@@ -97,9 +66,6 @@ reference to the current DOMNode, which is operated on.
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
-
-
-
 
 ***
 
@@ -111,22 +77,12 @@ Visit paragraph markup
 protected visitParagraph(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
-
-
-
 
 ***
 
@@ -138,22 +94,12 @@ Visit simple BBCode tag
 protected visitTag(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
-
-
-
 
 ***
 
@@ -165,22 +111,12 @@ Visit inlien literal markup
 protected visitInlineLiteral(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
-
-
-
 
 ***
 
@@ -192,22 +128,12 @@ Visit literal block markup
 protected visitLiteralBlock(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
-
-
-
 
 ***
 
@@ -219,22 +145,12 @@ Visit list items in a list
 protected visitListItems(\DOMNode $list, \ezcDocumentBBCodeListNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$list` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeListNode** |  |
-
-
-
 
 ***
 
@@ -246,22 +162,12 @@ Visit bullet list
 protected visitBulletList(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
-
-
-
 
 ***
 
@@ -273,13 +179,6 @@ Visit enumerated list
 protected visitEnumeratedList(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -287,14 +186,9 @@ protected visitEnumeratedList(\DOMNode $root, \ezcDocumentBBCodeNode $node): voi
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -304,22 +198,12 @@ Create visitor from BBCode document handler.
 public __construct(\ezcDocumentBBCode $document, string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\ezcDocumentBBCode** |  |
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -331,13 +215,7 @@ Trigger visitor error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a vistitor error, and convert it to an exception depending on the
-error reporting settings.
-
-
-
-
-
+Emit a vistitor error, and convert it to an exception depending on the error reporting settings.
 
 **Parameters:**
 
@@ -349,9 +227,6 @@ error reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -362,8 +237,7 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
 
 
@@ -385,19 +259,11 @@ public visit(\ezcDocumentBBCodeDocumentNode $ast): mixed
 
 Visit the BBCode abstract syntax tree.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **\ezcDocumentBBCodeDocumentNode** |  |
-
-
-
 
 ***
 
@@ -409,13 +275,6 @@ Visit text node
 protected visitText(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -423,11 +282,4 @@ protected visitText(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

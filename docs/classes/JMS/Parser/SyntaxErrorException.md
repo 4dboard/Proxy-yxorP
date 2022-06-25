@@ -2,65 +2,34 @@
 
 # SyntaxErrorException
 
-
-
-
-
 * Full name: `\JMS\Parser\SyntaxErrorException`
 * Parent class: [`RuntimeException`](../../RuntimeException.md)
 
-
-
 ## Properties
 
-
 ### actualToken
-
-
 
 ```php
 private $actualToken
 ```
 
-
-
-
-
-
 ***
 
 ### context
-
-
 
 ```php
 private $context
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### setActualToken
-
-
 
 ```php
 public setActualToken(array $actualToken): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -68,25 +37,13 @@ public setActualToken(array $actualToken): mixed
 |-----------|------|-------------|
 | `$actualToken` | **array** |  |
 
-
-
-
 ***
 
 ### setContext
 
-
-
 ```php
 public setContext(mixed $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -94,51 +51,20 @@ public setContext(mixed $context): mixed
 |-----------|------|-------------|
 | `$context` | **mixed** |  |
 
-
-
-
 ***
 
 ### getActualToken
-
-
 
 ```php
 public getActualToken(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getContext
-
-
 
 ```php
 public getContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

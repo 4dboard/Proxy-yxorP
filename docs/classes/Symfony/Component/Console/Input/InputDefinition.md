@@ -7,133 +7,74 @@ A InputDefinition represents a set of valid command line arguments and options.
 Usage:
 
 $definition = new InputDefinition(array(
-    new InputArgument('name', InputArgument::REQUIRED),
-    new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
+new InputArgument('name', InputArgument::REQUIRED), new InputOption('foo', 'f', InputOption::VALUE_REQUIRED),
 ));
 
 * Full name: `\Symfony\Component\Console\Input\InputDefinition`
 
-
-
 ## Properties
 
-
 ### arguments
-
-
 
 ```php
 private $arguments
 ```
 
-
-
-
-
-
 ***
 
 ### requiredCount
-
-
 
 ```php
 private $requiredCount
 ```
 
-
-
-
-
-
 ***
 
 ### hasAnArrayArgument
-
-
 
 ```php
 private $hasAnArrayArgument
 ```
 
-
-
-
-
-
 ***
 
 ### hasOptional
-
-
 
 ```php
 private $hasOptional
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private $options
 ```
 
-
-
-
-
-
 ***
 
 ### shortcuts
-
-
 
 ```php
 private $shortcuts
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $definition = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **array** | An array of InputArgument and InputOption instance |
-
-
-
 
 ***
 
@@ -145,21 +86,11 @@ Sets the definition of the input.
 public setDefinition(array $definition): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **array** |  |
-
-
-
 
 ***
 
@@ -171,21 +102,11 @@ Sets the InputArgument objects.
 public setArguments(\Symfony\Component\Console\Input\InputArgument[] $arguments = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$arguments` | **\Symfony\Component\Console\Input\InputArgument[]** | An array of InputArgument objects |
-
-
-
 
 ***
 
@@ -197,47 +118,25 @@ Adds an array of InputArgument objects.
 public addArguments(\Symfony\Component\Console\Input\InputArgument[] $arguments = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$arguments` | **\Symfony\Component\Console\Input\InputArgument[]** | An array of InputArgument objects |
 
-
-
-
 ***
 
 ### addArgument
 
-
-
 ```php
 public addArgument(\Symfony\Component\Console\Input\InputArgument $argument): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$argument` | **\Symfony\Component\Console\Input\InputArgument** |  |
-
-
-
 
 ***
 
@@ -249,19 +148,11 @@ Returns an InputArgument by name or by position.
 public getArgument(string|int $name): \Symfony\Component\Console\Input\InputArgument
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;int** | The InputArgument name or position |
-
 
 **Return Value:**
 
@@ -279,19 +170,11 @@ Returns true if an InputArgument object exists by name or position.
 public hasArgument(string|int $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;int** | The InputArgument name or position |
-
 
 **Return Value:**
 
@@ -309,14 +192,6 @@ Gets the array of InputArgument objects.
 public getArguments(): \Symfony\Component\Console\Input\InputArgument[]
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An array of InputArgument objects
@@ -332,14 +207,6 @@ Returns the number of InputArguments.
 ```php
 public getArgumentCount(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -357,14 +224,6 @@ Returns the number of required InputArguments.
 public getArgumentRequiredCount(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The number of required InputArguments
@@ -380,14 +239,6 @@ Gets the default values.
 ```php
 public getArgumentDefaults(): array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -405,21 +256,11 @@ Sets the InputOption objects.
 public setOptions(\Symfony\Component\Console\Input\InputOption[] $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Symfony\Component\Console\Input\InputOption[]** | An array of InputOption objects |
-
-
-
 
 ***
 
@@ -431,47 +272,25 @@ Adds an array of InputOption objects.
 public addOptions(\Symfony\Component\Console\Input\InputOption[] $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Symfony\Component\Console\Input\InputOption[]** | An array of InputOption objects |
 
-
-
-
 ***
 
 ### addOption
 
-
-
 ```php
 public addOption(\Symfony\Component\Console\Input\InputOption $option): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **\Symfony\Component\Console\Input\InputOption** |  |
-
-
-
 
 ***
 
@@ -483,19 +302,11 @@ Returns an InputOption by name.
 public getOption(string $name): \Symfony\Component\Console\Input\InputOption
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The InputOption name |
-
 
 **Return Value:**
 
@@ -513,20 +324,13 @@ Returns true if an InputOption object exists by name.
 public hasOption(string $name): bool
 ```
 
-This method can't be used to check if the user included the option when
-executing the command (use getOption() instead).
-
-
-
-
-
+This method can't be used to check if the user included the option when executing the command (use getOption() instead).
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The InputOption name |
-
 
 **Return Value:**
 
@@ -544,14 +348,6 @@ Gets the array of InputOption objects.
 public getOptions(): \Symfony\Component\Console\Input\InputOption[]
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An array of InputOption objects
@@ -568,19 +364,11 @@ Returns true if an InputOption object exists by shortcut.
 public hasShortcut(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The InputOption shortcut |
-
 
 **Return Value:**
 
@@ -598,19 +386,11 @@ Gets an InputOption by shortcut.
 public getOptionForShortcut(string $shortcut): \Symfony\Component\Console\Input\InputOption
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$shortcut` | **string** | The Shortcut name |
-
 
 **Return Value:**
 
@@ -628,14 +408,6 @@ Gets an array of default values.
 public getOptionDefaults(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An array of all default values
@@ -652,19 +424,11 @@ Returns the InputOption name given a shortcut.
 private shortcutToName(string $shortcut): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$shortcut` | **string** | The shortcut |
-
 
 **Return Value:**
 
@@ -682,19 +446,11 @@ Gets the synopsis.
 public getSynopsis(bool $short = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$short` | **bool** | Whether to return the short version (with options folded) or not |
-
 
 **Return Value:**
 
@@ -712,15 +468,7 @@ Returns a textual representation of the InputDefinition.
 public asText(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -738,14 +486,7 @@ Returns an XML representation of the InputDefinition.
 public asXml(bool $asDom = false): string|\DOMDocument
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -753,15 +494,6 @@ public asXml(bool $asDom = false): string|\DOMDocument
 |-----------|------|-------------|
 | `$asDom` | **bool** | Whether to return a DOM or an XML string |
 
-
 **Return Value:**
 
-An XML string representing the InputDefinition
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+An XML string representing the InputDefinition yxorP::get('REQUEST')

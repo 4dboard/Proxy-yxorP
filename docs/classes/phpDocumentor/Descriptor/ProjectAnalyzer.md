@@ -4,94 +4,55 @@
 
 Analyzes a Project Descriptor and collects key information.
 
-This class can be used by external tools to analyze the Project Descriptor and collect key information from it such
-as the total number of elements per type of Descriptor, the number of top level namespaces or the number of parent
-classes that could not be interpreted by the Compiler passes.
+This class can be used by external tools to analyze the Project Descriptor and collect key information from it such as
+the total number of elements per type of Descriptor, the number of top level namespaces or the number of parent classes
+that could not be interpreted by the Compiler passes.
 
 * Full name: `\phpDocumentor\Descriptor\ProjectAnalyzer`
 
-
-
 ## Properties
 
-
 ### elementCount
-
-
 
 ```php
 protected int $elementCount
 ```
 
-
-
-
-
-
 ***
 
 ### fileCount
-
-
 
 ```php
 protected int $fileCount
 ```
 
-
-
-
-
-
 ***
 
 ### topLevelNamespaceCount
-
-
 
 ```php
 protected int $topLevelNamespaceCount
 ```
 
-
-
-
-
-
 ***
 
 ### unresolvedParentClassesCount
-
-
 
 ```php
 protected int $unresolvedParentClassesCount
 ```
 
-
-
-
-
-
 ***
 
 ### descriptorCountByType
-
-
 
 ```php
 protected int[] $descriptorCountByType
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### analyze
 
@@ -101,21 +62,11 @@ Analyzes the given project descriptor and populates this object's properties.
 public analyze(\phpDocumentor\Descriptor\ProjectDescriptor $projectDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$projectDescriptor` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
-
-
-
 
 ***
 
@@ -127,16 +78,6 @@ Returns a textual report of the findings of this class.
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addElementToCounter
@@ -147,22 +88,12 @@ Increments the counter for element's class in the class counters.
 protected addElementToCounter(array $classCounters, \phpDocumentor\Descriptor\DescriptorAbstract $element): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$classCounters` | **array** |  |
 | `$element` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -174,21 +105,11 @@ Checks whether the given element is a class and if its parent could not be resol
 protected incrementUnresolvedParentCounter(\phpDocumentor\Descriptor\DescriptorAbstract $element): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -200,24 +121,10 @@ Returns all elements from the project descriptor.
 protected findAllElements(\phpDocumentor\Descriptor\ProjectDescriptor $projectDescriptor): \phpDocumentor\Descriptor\DescriptorAbstract[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$projectDescriptor` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

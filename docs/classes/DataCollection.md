@@ -6,91 +6,53 @@ This file is part of the Cockpit project.
 
 (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
+For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
 
 * Full name: `\DataCollection`
 * This class implements:
-[`\Iterator`](./Iterator.md)
-
-
+  [`\Iterator`](./Iterator.md)
 
 ## Properties
 
-
 ### position
-
-
 
 ```php
 protected $position
 ```
 
-
-
-
-
-
 ***
 
 ### items
-
-
 
 ```php
 protected $items
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### create
-
-
 
 ```php
 public static create( $items): \DataCollection
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$items` | **** |  |
-
-
-
 
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct( $items): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -98,131 +60,59 @@ public __construct( $items): mixed
 |-----------|------|-------------|
 | `$items` | **** |  |
 
-
-
-
 ***
 
 ### count
-
-
 
 ```php
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### first
-
-
 
 ```php
 public first(): null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### last
-
-
 
 ```php
 public last(): null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### reverse
-
-
 
 ```php
 public reverse(): \DataCollection
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### limit
-
-
 
 ```php
 public limit( $number): \DataCollection
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **** |  |
-
-
-
 
 ***
 
 ### skip
 
-
-
 ```php
 public skip( $number): \DataCollection
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -230,51 +120,27 @@ public skip( $number): \DataCollection
 |-----------|------|-------------|
 | `$number` | **** |  |
 
-
-
-
 ***
 
 ### not
-
-
 
 ```php
 public not( $criteria): \DataCollection
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$criteria` | **** |  |
-
-
-
 
 ***
 
 ### filter
 
-
-
 ```php
 public filter( $criteria): \DataCollection
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -282,25 +148,13 @@ public filter( $criteria): \DataCollection
 |-----------|------|-------------|
 | `$criteria` | **** |  |
 
-
-
-
 ***
 
 ### sort
 
-
-
 ```php
 public sort( $expr, int $dir = 1): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -309,25 +163,13 @@ public sort( $expr, int $dir = 1): $this
 | `$expr` | **** |  |
 | `$dir` | **int** |  |
 
-
-
-
 ***
 
 ### index
 
-
-
 ```php
 public index( $obj): bool|int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -335,25 +177,13 @@ public index( $obj): bool|int
 |-----------|------|-------------|
 | `$obj` | **** |  |
 
-
-
-
 ***
 
 ### eq
 
-
-
 ```php
 public eq( $index): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -361,25 +191,13 @@ public eq( $index): bool
 |-----------|------|-------------|
 | `$index` | **** |  |
 
-
-
-
 ***
 
 ### setItems
 
-
-
 ```php
 protected setItems( $items): \DataCollection
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -387,25 +205,13 @@ protected setItems( $items): \DataCollection
 |-----------|------|-------------|
 | `$items` | **** |  |
 
-
-
-
 ***
 
 ### pagination
 
-
-
 ```php
 public pagination( $limit = 5,  $current = 1): \Pagination
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -414,28 +220,13 @@ public pagination( $limit = 5,  $current = 1): \Pagination
 | `$limit` | **** |  |
 | `$current` | **** |  |
 
-
-
-
 ***
 
 ### toArray
 
-
-
 ```php
 public toArray(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -447,98 +238,36 @@ Iterator implementation
 public rewind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### current
-
-
 
 ```php
 public current(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### key
-
-
 
 ```php
 public key(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### next
-
-
 
 ```php
 public next(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### valid
-
-
 
 ```php
 public valid(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,13 +2,8 @@
 
 # DateTime
 
-
-
-
-
 * Full name: `\Zend\I18n\Validator\DateTime`
 * Parent class: [`AbstractValidator`](../../Validator/AbstractValidator.md)
-
 
 ## Constants
 
@@ -19,19 +14,11 @@
 
 ## Properties
 
-
 ### messageTemplates
-
-
 
 ```php
 protected array $messageTemplates
 ```
-
-
-
-
-
 
 ***
 
@@ -43,40 +30,21 @@ Optional locale
 protected string|null $locale
 ```
 
-
-
-
-
-
 ***
 
 ### dateType
-
-
 
 ```php
 protected int $dateType
 ```
 
-
-
-
-
-
 ***
 
 ### timeType
 
-
-
 ```php
 protected int $timeType
 ```
-
-
-
-
-
 
 ***
 
@@ -88,76 +56,43 @@ Optional timezone
 protected string $timezone
 ```
 
-
-
-
-
-
 ***
 
 ### pattern
-
-
 
 ```php
 protected string $pattern
 ```
 
-
-
-
-
-
 ***
 
 ### calendar
-
-
 
 ```php
 protected int $calendar
 ```
 
-
-
-
-
-
 ***
 
 ### formatter
-
-
 
 ```php
 protected \IntlDateFormatter $formatter
 ```
 
-
-
-
-
-
 ***
 
 ### invalidateFormatter
 
-Is the formatter invalidated
-Invalidation occurs when immutable properties are changed
+Is the formatter invalidated Invalidation occurs when immutable properties are changed
 
 ```php
 protected bool $invalidateFormatter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -167,21 +102,11 @@ Constructor for the Date validator
 public __construct(array|\Traversable $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -193,19 +118,11 @@ Sets the calendar to be used by the IntlDateFormatter
 public setCalendar(int|null $calendar): \Zend\I18n\Validator\DateTime
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$calendar` | **int&#124;null** |  |
-
 
 **Return Value:**
 
@@ -223,16 +140,6 @@ Returns the calendar to by the IntlDateFormatter
 public getCalendar(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDateType
@@ -243,19 +150,11 @@ Sets the date format to be used by the IntlDateFormatter
 public setDateType(int|null $dateType): \Zend\I18n\Validator\DateTime
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dateType` | **int&#124;null** |  |
-
 
 **Return Value:**
 
@@ -273,16 +172,6 @@ Returns the date format used by the IntlDateFormatter
 public getDateType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPattern
@@ -293,19 +182,11 @@ Sets the pattern to be used by the IntlDateFormatter
 public setPattern(string|null $pattern): \Zend\I18n\Validator\DateTime
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pattern` | **string&#124;null** |  |
-
 
 **Return Value:**
 
@@ -323,16 +204,6 @@ Returns the pattern used by the IntlDateFormatter
 public getPattern(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTimeType
@@ -343,19 +214,11 @@ Sets the time format to be used by the IntlDateFormatter
 public setTimeType(int|null $timeType): \Zend\I18n\Validator\DateTime
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$timeType` | **int&#124;null** |  |
-
 
 **Return Value:**
 
@@ -373,16 +236,6 @@ Returns the time format used by the IntlDateFormatter
 public getTimeType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTimezone
@@ -393,19 +246,11 @@ Sets the timezone to be used by the IntlDateFormatter
 public setTimezone(string|null $timezone): \Zend\I18n\Validator\DateTime
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$timezone` | **string&#124;null** |  |
-
 
 **Return Value:**
 
@@ -423,16 +268,6 @@ Returns the timezone used by the IntlDateFormatter or the system default if none
 public getTimezone(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLocale
@@ -443,19 +278,11 @@ Sets the locale to be used by the IntlDateFormatter
 public setLocale(string|null $locale): \Zend\I18n\Validator\DateTime
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string&#124;null** |  |
-
 
 **Return Value:**
 
@@ -473,16 +300,6 @@ Returns the locale used by the IntlDateFormatter or the system default if none g
 public getLocale(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isValid
@@ -493,21 +310,11 @@ Returns true if and only if $value is a floating-point value
 public isValid(string $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -519,18 +326,4 @@ Returns a non lenient configured IntlDateFormatter
 protected getIntlDateFormatter(): \IntlDateFormatter
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

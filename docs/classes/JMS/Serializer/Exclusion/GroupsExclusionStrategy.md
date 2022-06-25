@@ -2,14 +2,9 @@
 
 # GroupsExclusionStrategy
 
-
-
-
-
 * Full name: `\JMS\Serializer\Exclusion\GroupsExclusionStrategy`
 * This class implements:
-[`\JMS\Serializer\Exclusion\ExclusionStrategyInterface`](./ExclusionStrategyInterface.md)
-
+  [`\JMS\Serializer\Exclusion\ExclusionStrategyInterface`](./ExclusionStrategyInterface.md)
 
 ## Constants
 
@@ -19,48 +14,27 @@
 
 ## Properties
 
-
 ### groups
-
-
 
 ```php
 private $groups
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $groups): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$groups` | **array** |  |
-
-
-
 
 ***
 
@@ -72,22 +46,12 @@ Whether the class should be skipped.
 public shouldSkipClass(\JMS\Serializer\Metadata\ClassMetadata $metadata, \JMS\Serializer\Context $navigatorContext): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadata` | **\JMS\Serializer\Metadata\ClassMetadata** |  |
 | `$navigatorContext` | **\JMS\Serializer\Context** |  |
-
-
-
 
 ***
 
@@ -99,13 +63,6 @@ Whether the property should be skipped.
 public shouldSkipProperty(\JMS\Serializer\Metadata\PropertyMetadata $property, \JMS\Serializer\Context $navigatorContext): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -113,25 +70,13 @@ public shouldSkipProperty(\JMS\Serializer\Metadata\PropertyMetadata $property, \
 | `$property` | **\JMS\Serializer\Metadata\PropertyMetadata** |  |
 | `$navigatorContext` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### shouldSkipUsingGroups
 
-
-
 ```php
 private shouldSkipUsingGroups(\JMS\Serializer\Metadata\PropertyMetadata $property, mixed $groups): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -140,25 +85,13 @@ private shouldSkipUsingGroups(\JMS\Serializer\Metadata\PropertyMetadata $propert
 | `$property` | **\JMS\Serializer\Metadata\PropertyMetadata** |  |
 | `$groups` | **mixed** |  |
 
-
-
-
 ***
 
 ### getGroupsFor
 
-
-
 ```php
 private getGroupsFor(\JMS\Serializer\Context $navigatorContext): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -166,11 +99,4 @@ private getGroupsFor(\JMS\Serializer\Context $navigatorContext): mixed
 |-----------|------|-------------|
 | `$navigatorContext` | **\JMS\Serializer\Context** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

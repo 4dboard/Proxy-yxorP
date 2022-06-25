@@ -2,35 +2,20 @@
 
 # Alnum
 
-
-
-
-
 * Full name: `\Zend\I18n\Filter\Alnum`
 * Parent class: [`\Zend\I18n\Filter\AbstractLocale`](./AbstractLocale.md)
 
-
-
 ## Properties
 
-
 ### options
-
-
 
 ```php
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,22 +25,12 @@ Sets default option values for this instance
 public __construct(array|\Traversable|bool|null $allowWhiteSpaceOrOptions = null, string|null $locale = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allowWhiteSpaceOrOptions` | **array&#124;\Traversable&#124;bool&#124;null** |  |
 | `$locale` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -67,19 +42,11 @@ Sets the allowWhiteSpace option
 public setAllowWhiteSpace(bool $flag = true): \Zend\I18n\Filter\Alnum
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **bool** |  |
-
 
 **Return Value:**
 
@@ -97,16 +64,6 @@ Whether white space is allowed
 public getAllowWhiteSpace(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### filter
@@ -119,43 +76,21 @@ public filter(string|array $value): string|array
 
 Returns $value as string with all non-alphanumeric characters removed
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string&#124;array** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -167,21 +102,11 @@ Sets the locale option
 public setLocale(string|null $locale = null): \Zend\I18n\Filter\AbstractLocale
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -193,63 +118,32 @@ Returns the locale option
 public getLocale(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasPcreUnicodeSupport
 
-
-
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -260,16 +154,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -283,36 +167,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -320,11 +189,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

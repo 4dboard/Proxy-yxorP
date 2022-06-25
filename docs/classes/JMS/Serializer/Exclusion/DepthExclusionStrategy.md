@@ -2,19 +2,11 @@
 
 # DepthExclusionStrategy
 
-
-
-
-
 * Full name: `\JMS\Serializer\Exclusion\DepthExclusionStrategy`
 * This class implements:
-[`\JMS\Serializer\Exclusion\ExclusionStrategyInterface`](./ExclusionStrategyInterface.md)
-
-
-
+  [`\JMS\Serializer\Exclusion\ExclusionStrategyInterface`](./ExclusionStrategyInterface.md)
 
 ## Methods
-
 
 ### shouldSkipClass
 
@@ -24,22 +16,12 @@ Whether the class should be skipped.
 public shouldSkipClass(\JMS\Serializer\Metadata\ClassMetadata $metadata, \JMS\Serializer\Context $context): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadata` | **\JMS\Serializer\Metadata\ClassMetadata** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
-
-
-
 
 ***
 
@@ -51,13 +33,6 @@ Whether the property should be skipped.
 public shouldSkipProperty(\JMS\Serializer\Metadata\PropertyMetadata $property, \JMS\Serializer\Context $context): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -65,25 +40,13 @@ public shouldSkipProperty(\JMS\Serializer\Metadata\PropertyMetadata $property, \
 | `$property` | **\JMS\Serializer\Metadata\PropertyMetadata** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### isTooDeep
 
-
-
 ```php
 private isTooDeep(\JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -91,11 +54,4 @@ private isTooDeep(\JMS\Serializer\Context $context): mixed
 |-----------|------|-------------|
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

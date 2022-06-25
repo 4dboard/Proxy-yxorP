@@ -4,17 +4,13 @@
 
 A pizza.
 
-
-
 * Full name: `\PhpDocumentorMarkdown\Example\Pizza`
 * Parent class: [`\PhpDocumentorMarkdown\Example\AbstractProduct`](./AbstractProduct.md)
 * This class implements:
-[`\PhpDocumentorMarkdown\Example\ProductInterface`](./ProductInterface.md), [`\JsonSerializable`](../../JsonSerializable.md)
-
-
+  [`\PhpDocumentorMarkdown\Example\ProductInterface`](./ProductInterface.md)
+  , [`\JsonSerializable`](../../JsonSerializable.md)
 
 ## Properties
-
 
 ### name
 
@@ -23,11 +19,6 @@ Product name.
 ```php
 private string $name
 ```
-
-
-
-
-
 
 ***
 
@@ -39,11 +30,6 @@ Product price.
 protected float $price
 ```
 
-
-
-
-
-
 ***
 
 ### base
@@ -54,30 +40,15 @@ Pizza base.
 protected ?\PhpDocumentorMarkdown\Example\Pizza\Base $base
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name, float $price, \PhpDocumentorMarkdown\Example\Pizza\Base|null $base = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -86,9 +57,6 @@ public __construct(string $name, float $price, \PhpDocumentorMarkdown\Example\Pi
 | `$name` | **string** | Product name. |
 | `$price` | **float** | Product price. |
 | `$base` | **\PhpDocumentorMarkdown\Example\Pizza\Base&#124;null** | Pizza base. |
-
-
-
 
 ***
 
@@ -99,14 +67,6 @@ Get the name of the product.
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -124,41 +84,17 @@ Get the price of the product.
 public getPrice(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### jsonSerialize
-
-
 
 ```php
 public jsonSerialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### isReviewed
 
@@ -167,16 +103,6 @@ Whether the object has been reviewed.
 ```php
 public isReviewed(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -188,18 +114,4 @@ Get the tax rate for the product.
 public getTaxRate(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

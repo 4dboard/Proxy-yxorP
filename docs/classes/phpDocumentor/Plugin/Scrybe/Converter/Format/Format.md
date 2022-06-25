@@ -4,10 +4,7 @@
 
 Defines a conversion format in Scrybe.
 
-
-
 * Full name: `\phpDocumentor\Plugin\Scrybe\Converter\Format\Format`
-
 
 ## Constants
 
@@ -23,54 +20,31 @@ Defines a conversion format in Scrybe.
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 protected string $name
 ```
 
-
-
-
-
-
 ***
 
 ### mime_type
-
-
 
 ```php
 protected string $mime_type
 ```
 
-
-
-
-
-
 ***
 
 ### extensions
-
-
 
 ```php
 protected string[] $extensions
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -80,13 +54,6 @@ Initializes a new format.
 public __construct(string $name, string $mime_type, string|string[] $extensions): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -94,9 +61,6 @@ public __construct(string $name, string $mime_type, string|string[] $extensions)
 | `$name` | **string** |  |
 | `$mime_type` | **string** |  |
 | `$extensions` | **string&#124;string[]** |  |
-
-
-
 
 ***
 
@@ -110,19 +74,11 @@ public setName(string $name): void
 
 The names of built-in formats are defined as class constants of this class.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -134,16 +90,6 @@ Returns the name for this format.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setMimeType
@@ -154,21 +100,11 @@ Sets the mime type commonly associated with files of this format.
 public setMimeType(string $mime_type): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mime_type` | **string** |  |
-
-
-
 
 ***
 
@@ -180,16 +116,6 @@ Returns the Mime type commonly associated with files of this format.
 public getMimeType(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setExtensions
@@ -200,21 +126,11 @@ Sets the file extensions commonly associated with files of this format.
 public setExtensions(string[] $extensions): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$extensions` | **string[]** |  |
-
-
-
 
 ***
 
@@ -226,16 +142,6 @@ Returns the file extensions commonly associated with files of this format.
 public getExtensions(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### convertFilename
@@ -246,24 +152,10 @@ Converts the given filename to be math this format.
 public convertFilename(string $filename): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

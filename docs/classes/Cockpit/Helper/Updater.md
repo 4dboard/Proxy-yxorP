@@ -4,31 +4,16 @@
 
 Admin Helper class.
 
-
-
 * Full name: `\Cockpit\Helper\Updater`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
-
 ## Methods
 
-
 ### update
-
-
 
 ```php
 public update(mixed $zipUrl, mixed $targetPath, mixed $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,29 +23,15 @@ public update(mixed $zipUrl, mixed $targetPath, mixed $options = []): mixed
 | `$targetPath` | **mixed** |  |
 | `$options` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -68,45 +39,21 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -115,25 +62,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -141,25 +76,13 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -167,11 +90,4 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

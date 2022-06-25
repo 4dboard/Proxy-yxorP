@@ -2,19 +2,11 @@
 
 # NodeVisitorAbstract
 
-
-
-
-
 * Full name: `\PhpParser\NodeVisitorAbstract`
 * This class implements:
-[`\PhpParser\NodeVisitor`](./NodeVisitor.md)
-
-
-
+  [`\PhpParser\NodeVisitor`](./NodeVisitor.md)
 
 ## Methods
-
 
 ### beforeTraverse
 
@@ -25,20 +17,15 @@ public beforeTraverse(array $nodes): null|\PhpParser\Node[]
 ```
 
 Return value semantics:
+
 * null:      $nodes stays as-is
 * otherwise: $nodes is set to the return value
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nodes` | **array** | Array of nodes |
-
 
 **Return Value:**
 
@@ -57,20 +44,15 @@ public enterNode(\PhpParser\Node $node): null|\PhpParser\Node
 ```
 
 Return value semantics:
+
 * null:      $node stays as-is
 * otherwise: $node is set to the return value
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\PhpParser\Node** | Node |
-
 
 **Return Value:**
 
@@ -89,22 +71,17 @@ public leaveNode(\PhpParser\Node $node): null|\PhpParser\Node|false|\PhpParser\N
 ```
 
 Return value semantics:
+
 * null:      $node stays as-is
 * false:     $node is removed from the parent array
 * array:     The return value is merged into the parent array (at the position of the $node)
 * otherwise: $node is set to the return value
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\PhpParser\Node** | Node |
-
 
 **Return Value:**
 
@@ -123,13 +100,9 @@ public afterTraverse(array $nodes): null|\PhpParser\Node[]
 ```
 
 Return value semantics:
+
 * null:      $nodes stays as-is
 * otherwise: $nodes is set to the return value
-
-
-
-
-
 
 **Parameters:**
 
@@ -137,15 +110,6 @@ Return value semantics:
 |-----------|------|-------------|
 | `$nodes` | **array** | Array of nodes |
 
-
 **Return Value:**
 
-Array of nodes
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+Array of nodes yxorP::get('REQUEST')

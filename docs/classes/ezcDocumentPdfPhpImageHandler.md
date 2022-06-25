@@ -4,17 +4,13 @@
 
 PHP image handler
 
-Basic image handler which can detect mime type and dimensions of some images
-using the PHP function getimagesize(). It therefore can analyse all images
-covered by the PHP function, which is available by default.
+Basic image handler which can detect mime type and dimensions of some images using the PHP function getimagesize(). It
+therefore can analyse all images covered by the PHP function, which is available by default.
 
 * Full name: `\ezcDocumentPdfPhpImageHandler`
 * Parent class: [`\ezcDocumentPdfImageHandler`](./ezcDocumentPdfImageHandler.md)
 
-
-
 ## Properties
-
 
 ### cache
 
@@ -24,16 +20,10 @@ Cache for extracted image information
 protected array $cache
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### canHandle
 
 Can this handler handle the passed image?
@@ -42,22 +32,13 @@ Can this handler handle the passed image?
 public canHandle(string $file): bool
 ```
 
-Returns a boolean value indicatin whether the current handler can handle
-the passed image file.
-
-
-
-
-
+Returns a boolean value indicatin whether the current handler can handle the passed image file.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -72,19 +53,11 @@ public getDimensions(string $file): array
 Return an array with the image dimensions. The array will look like:
 array( ezcDocumentPcssMeasure $width, ezcDocumentPcssMeasure $height ).
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -96,13 +69,7 @@ Get image mime type
 public getMimeType(string $file): string
 ```
 
-Return a string with the image mime type, identifying the type of the
-image.
-
-
-
-
-
+Return a string with the image mime type, identifying the type of the image.
 
 **Parameters:**
 
@@ -110,15 +77,10 @@ image.
 |-----------|------|-------------|
 | `$file` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### canHandle
 
 Can this handler handle the passed image?
@@ -127,22 +89,15 @@ Can this handler handle the passed image?
 public canHandle(string $file): bool
 ```
 
-Returns a boolean value indicatin whether the current handler can handle
-the passed image file.
-
+Returns a boolean value indicatin whether the current handler can handle the passed image file.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -157,19 +112,13 @@ public getDimensions(string $file): array
 Return an array with the image dimensions. The array will look like:
 array( ezcDocumentPcssMeasure $width, ezcDocumentPcssMeasure $height ).
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -181,13 +130,9 @@ Get image mime type
 public getMimeType(string $file): string
 ```
 
-Return a string with the image mime type, identifying the type of the
-image.
-
+Return a string with the image mime type, identifying the type of the image.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -195,11 +140,4 @@ image.
 |-----------|------|-------------|
 | `$file` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

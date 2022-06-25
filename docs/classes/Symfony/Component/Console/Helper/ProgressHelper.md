@@ -4,12 +4,9 @@
 
 The Progress class provides helpers to display progress output.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\ProgressHelper`
 * Parent class: [`\Symfony\Component\Console\Helper\Helper`](./Helper.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
-
 
 ## Constants
 
@@ -24,139 +21,75 @@ The Progress class provides helpers to display progress output.
 
 ## Properties
 
-
 ### barWidth
-
-
 
 ```php
 private $barWidth
 ```
 
-
-
-
-
-
 ***
 
 ### barChar
-
-
 
 ```php
 private $barChar
 ```
 
-
-
-
-
-
 ***
 
 ### emptyBarChar
-
-
 
 ```php
 private $emptyBarChar
 ```
 
-
-
-
-
-
 ***
 
 ### progressChar
-
-
 
 ```php
 private $progressChar
 ```
 
-
-
-
-
-
 ***
 
 ### format
-
-
 
 ```php
 private $format
 ```
 
-
-
-
-
-
 ***
 
 ### redrawFreq
-
-
 
 ```php
 private $redrawFreq
 ```
 
-
-
-
-
-
 ***
 
 ### lastMessagesLength
-
-
 
 ```php
 private $lastMessagesLength
 ```
 
-
-
-
-
-
 ***
 
 ### barCharOriginal
-
-
 
 ```php
 private $barCharOriginal
 ```
 
-
-
-
-
-
 ***
 
 ### output
 
-
-
 ```php
 private \Symfony\Component\Console\Output\OutputInterface $output
 ```
-
-
-
-
-
 
 ***
 
@@ -168,11 +101,6 @@ Current step.
 private int $current
 ```
 
-
-
-
-
-
 ***
 
 ### max
@@ -182,11 +110,6 @@ Maximum number of steps.
 ```php
 private int $max
 ```
-
-
-
-
-
 
 ***
 
@@ -198,11 +121,6 @@ Start time of the progress bar.
 private int $startTime
 ```
 
-
-
-
-
-
 ***
 
 ### defaultFormatVars
@@ -212,11 +130,6 @@ List of formatting variables.
 ```php
 private array $defaultFormatVars
 ```
-
-
-
-
-
 
 ***
 
@@ -228,11 +141,6 @@ Available formatting variables.
 private array $formatVars
 ```
 
-
-
-
-
-
 ***
 
 ### widths
@@ -242,11 +150,6 @@ Stored format part widths (used for padding).
 ```php
 private array $widths
 ```
-
-
-
-
-
 
 ***
 
@@ -258,39 +161,21 @@ Various time formats.
 private array $timeFormats
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $triggerDeprecationError = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$triggerDeprecationError` | **mixed** |  |
-
-
-
 
 ***
 
@@ -302,21 +187,11 @@ Sets the progress bar width.
 public setBarWidth(int $size): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **int** | The progress bar size |
-
-
-
 
 ***
 
@@ -328,21 +203,11 @@ Sets the bar character.
 public setBarCharacter(string $char): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$char` | **string** | A character |
-
-
-
 
 ***
 
@@ -354,21 +219,11 @@ Sets the empty bar character.
 public setEmptyBarCharacter(string $char): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$char` | **string** | A character |
-
-
-
 
 ***
 
@@ -380,21 +235,11 @@ Sets the progress bar character.
 public setProgressCharacter(string $char): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$char` | **string** | A character |
-
-
-
 
 ***
 
@@ -406,21 +251,11 @@ Sets the progress bar format.
 public setFormat(string $format): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** | The format |
-
-
-
 
 ***
 
@@ -432,21 +267,11 @@ Sets the redraw frequency.
 public setRedrawFrequency(int $freq): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$freq` | **int** | The frequency in steps |
-
-
-
 
 ***
 
@@ -458,22 +283,12 @@ Starts the progress output.
 public start(\Symfony\Component\Console\Output\OutputInterface $output, int|null $max = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** | An Output instance |
 | `$max` | **int&#124;null** | Maximum steps |
-
-
-
 
 ***
 
@@ -485,22 +300,12 @@ Advances the progress output X steps.
 public advance(int $step = 1, bool $redraw = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$step` | **int** | Number of steps to advance |
 | `$redraw` | **bool** | Whether to redraw or not |
-
-
-
 
 ***
 
@@ -512,22 +317,12 @@ Sets the current progress.
 public setCurrent(int $current, bool $redraw = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$current` | **int** | The current progress |
 | `$redraw` | **bool** | Whether to redraw or not |
-
-
-
 
 ***
 
@@ -539,21 +334,11 @@ Outputs the current progress string.
 public display(bool $finish = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$finish` | **bool** | Forces the end result |
-
-
-
 
 ***
 
@@ -565,9 +350,8 @@ Removes the progress bar from the current line.
 public clear(): mixed
 ```
 
-This is useful if you wish to write some output
-while a progress bar is running.
-Call display() to show the progress bar again.
+This is useful if you wish to write some output while a progress bar is running. Call display() to show the progress bar
+again.
 
 
 
@@ -587,16 +371,6 @@ Finishes the progress output.
 public finish(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### initialize
@@ -606,16 +380,6 @@ Initializes the progress helper.
 ```php
 private initialize(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -627,19 +391,11 @@ Generates the array map of format variables to values.
 private generate(bool $finish = false): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$finish` | **bool** | Forces the end result |
-
 
 **Return Value:**
 
@@ -657,19 +413,11 @@ Converts seconds into human-readable format.
 private humaneTime(int $secs): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$secs` | **int** | Number of seconds |
-
 
 **Return Value:**
 
@@ -687,22 +435,12 @@ Overwrites a previous message to the output.
 private overwrite(\Symfony\Component\Console\Output\OutputInterface $output, string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** | An Output instance |
 | `$message` | **string** | The message |
-
-
-
 
 ***
 
@@ -714,21 +452,9 @@ private overwrite(\Symfony\Component\Console\Output\OutputInterface $output, str
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setHelperSet
 
@@ -738,21 +464,11 @@ Sets the helper set associated with this helper.
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
-
-
-
 
 ***
 
@@ -763,14 +479,6 @@ Gets the helper set associated with this helper.
 ```php
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -788,19 +496,13 @@ Returns the length of a string, using mb_strwidth if it is available.
 public static strlen(string $string): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | The string to check its length |
-
 
 **Return Value:**
 
@@ -812,18 +514,11 @@ The length of the string
 
 ### formatTime
 
-
-
 ```php
 public static formatTime(mixed $secs): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -831,25 +526,15 @@ public static formatTime(mixed $secs): mixed
 |-----------|------|-------------|
 | `$secs` | **mixed** |  |
 
-
-
-
 ***
 
 ### formatMemory
-
-
 
 ```php
 public static formatMemory(mixed $memory): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -857,25 +542,15 @@ public static formatMemory(mixed $memory): mixed
 |-----------|------|-------------|
 | `$memory` | **mixed** |  |
 
-
-
-
 ***
 
 ### strlenWithoutDecoration
-
-
 
 ```php
 public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -883,26 +558,16 @@ public static strlenWithoutDecoration(\Symfony\Component\Console\Formatter\Outpu
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
-
-
-
 
 ***
 
 ### removeDecoration
 
-
-
 ```php
 public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -911,11 +576,4 @@ public static removeDecoration(\Symfony\Component\Console\Formatter\OutputFormat
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
 | `$string` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

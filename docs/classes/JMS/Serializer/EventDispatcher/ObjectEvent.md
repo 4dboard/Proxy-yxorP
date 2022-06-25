@@ -2,50 +2,26 @@
 
 # ObjectEvent
 
-
-
-
-
 * Full name: `\JMS\Serializer\EventDispatcher\ObjectEvent`
 * Parent class: [`\JMS\Serializer\EventDispatcher\Event`](./Event.md)
 
-
-
 ## Properties
 
-
 ### object
-
-
 
 ```php
 private $object
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\JMS\Serializer\Context $context, mixed $object, array $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -55,49 +31,23 @@ public __construct(\JMS\Serializer\Context $context, mixed $object, array $type)
 | `$object` | **mixed** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### getObject
-
-
 
 ```php
 public getObject(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\JMS\Serializer\Context $context, array $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -106,68 +56,29 @@ public __construct(\JMS\Serializer\Context $context, array $type): mixed
 | `$context` | **\JMS\Serializer\Context** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### getVisitor
-
-
 
 ```php
 public getVisitor(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getContext
-
-
 
 ```php
 public getContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getType
 
-
-
 ```php
 public getType(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -179,22 +90,13 @@ Returns whether further event listeners should be triggered.
 public isPropagationStopped(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether propagation was already stopped for this event
 
-
 **See Also:**
 
-* \JMS\Serializer\EventDispatcher\Event::stopPropagation() - 
+* \JMS\Serializer\EventDispatcher\Event::stopPropagation() -
 
 ***
 
@@ -206,20 +108,7 @@ Stops the propagation of the event to further event listeners.
 public stopPropagation(): mixed
 ```
 
-If multiple event listeners are connected to the same event, no
-further event listener will be triggered once any trigger calls
-stopPropagation().
+If multiple event listeners are connected to the same event, no further event listener will be triggered once any
+trigger calls stopPropagation().
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

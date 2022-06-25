@@ -4,15 +4,12 @@
 
 Plural rule parser.
 
-This plural rule parser is implemented after the article "Top Down Operator
-Precedence" described in <http://javascript.crockford.com/tdop/tdop.html>.
+This plural rule parser is implemented after the article "Top Down Operator Precedence" described
+in <http://javascript.crockford.com/tdop/tdop.html>.
 
 * Full name: `\Zend\I18n\Translator\Plural\Parser`
 
-
-
 ## Properties
-
 
 ### string
 
@@ -21,11 +18,6 @@ String to parse.
 ```php
 protected string $string
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +29,6 @@ Current lexer position in the string.
 protected int $currentPos
 ```
 
-
-
-
-
-
 ***
 
 ### currentToken
@@ -51,11 +38,6 @@ Current token.
 ```php
 protected \Zend\I18n\Translator\Plural\Symbol $currentToken
 ```
-
-
-
-
-
 
 ***
 
@@ -67,15 +49,9 @@ Table of symbols.
 protected array $symbolTable
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -84,16 +60,6 @@ Create a new plural parser.
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -105,16 +71,6 @@ Populate the symbol table.
 protected populateSymbolTable(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### registerLeftInfixSymbol
@@ -125,22 +81,12 @@ Register a left infix symbol.
 protected registerLeftInfixSymbol(string $id, int $leftBindingPower): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$leftBindingPower` | **int** |  |
-
-
-
 
 ***
 
@@ -152,22 +98,12 @@ Register a right infix symbol.
 protected registerRightInfixSymbol(string $id, int $leftBindingPower): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$leftBindingPower` | **int** |  |
-
-
-
 
 ***
 
@@ -179,22 +115,12 @@ Register a prefix symbol.
 protected registerPrefixSymbol(string $id, int $leftBindingPower): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$leftBindingPower` | **int** |  |
-
-
-
 
 ***
 
@@ -206,22 +132,12 @@ Register a symbol.
 protected registerSymbol(string $id, int $leftBindingPower): \Zend\I18n\Translator\Plural\Symbol
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$leftBindingPower` | **int** |  |
-
-
-
 
 ***
 
@@ -233,21 +149,11 @@ Get a new symbol.
 protected getSymbol(string $id): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -259,21 +165,11 @@ Parse a string.
 public parse(string $string): \Zend\I18n\Translator\Plural\Symbol
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -285,21 +181,11 @@ Parse an expression.
 public expression(int $rightBindingPower): \Zend\I18n\Translator\Plural\Symbol
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rightBindingPower` | **int** |  |
-
-
-
 
 ***
 
@@ -311,21 +197,11 @@ Advance the current token and optionally check the old token id.
 public advance(string $id = null): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -337,18 +213,4 @@ Get the next token.
 protected getNextToken(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

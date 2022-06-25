@@ -9,17 +9,13 @@ collection. This enables transformations to mention 'twig' as their writer attri
 
 * Full name: `\phpDocumentor\Plugin\Twig\ServiceProvider`
 * This class implements:
-[`\Cilex\ServiceProviderInterface`](../../../Cilex/ServiceProviderInterface.md)
+  [`\Cilex\ServiceProviderInterface`](../../../Cilex/ServiceProviderInterface.md)
 
 **See Also:**
 
 * \phpDocumentor\Plugin\Twig\Writer\Twig - for more information on using this.
 
-
-
-
 ## Methods
-
 
 ### register
 
@@ -29,24 +25,10 @@ Registers services on the given app.
 public register(\Cilex\Application $app): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Cilex\Application** | An Application instance. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

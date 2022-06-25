@@ -3,38 +3,22 @@
 # TargetOperation
 
 Target operation between two catalogues:
-intersection = source ∩ target = {x: x ∈ source ∧ x ∈ target}
-all = intersection ∪ (target ∖ intersection) = target
-new = all ∖ source = {x: x ∈ target ∧ x ∉ source}
-obsolete = source ∖ all = source ∖ target = {x: x ∈ source ∧ x ∉ target}
+intersection = source ∩ target = {x: x ∈ source ∧ x ∈ target} all = intersection ∪ (target ∖ intersection) = target new
+= all ∖ source = {x: x ∈ target ∧ x ∉ source} obsolete = source ∖ all = source ∖ target = {x: x ∈ source ∧ x ∉ target}
 Basically, the result contains messages from the target catalogue.
-
-
 
 * Full name: `\Symfony\Component\Translation\Catalogue\TargetOperation`
 * Parent class: [`\Symfony\Component\Translation\Catalogue\AbstractOperation`](./AbstractOperation.md)
 
-
-
-
 ## Methods
-
 
 ### processDomain
 
-Performs operation on source and target catalogues for the given domain and
-stores the results.
+Performs operation on source and target catalogues for the given domain and stores the results.
 
 ```php
 protected processDomain(mixed $domain): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -42,29 +26,15 @@ protected processDomain(mixed $domain): mixed
 |-----------|------|-------------|
 | `$domain` | **mixed** | The domain which the operation will be performed for |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Translation\MessageCatalogueInterface $source, \Symfony\Component\Translation\MessageCatalogueInterface $target): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -72,9 +42,6 @@ public __construct(\Symfony\Component\Translation\MessageCatalogueInterface $sou
 |-----------|------|-------------|
 | `$source` | **\Symfony\Component\Translation\MessageCatalogueInterface** | The source catalogue |
 | `$target` | **\Symfony\Component\Translation\MessageCatalogueInterface** | The target catalogue |
-
-
-
 
 ***
 
@@ -86,16 +53,6 @@ Returns domains affected by operation.
 public getDomains(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMessages
@@ -106,21 +63,11 @@ Returns all valid messages ('all') after operation.
 public getMessages(mixed $domain): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
-
-
-
 
 ***
 
@@ -132,21 +79,11 @@ Returns new messages ('new') after operation.
 public getNewMessages(mixed $domain): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
-
-
-
 
 ***
 
@@ -158,21 +95,11 @@ Returns obsolete messages ('obsolete') after operation.
 public getObsoleteMessages(mixed $domain): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
-
-
-
 
 ***
 
@@ -184,33 +111,17 @@ Returns resulting catalogue ('result').
 public getResult(): \Symfony\Component\Translation\MessageCatalogueInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### processDomain
 
-Performs operation on source and target catalogues for the given domain and
-stores the results.
+Performs operation on source and target catalogues for the given domain and stores the results.
 
 ```php
 protected processDomain(string $domain): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -218,11 +129,4 @@ protected processDomain(string $domain): mixed
 |-----------|------|-------------|
 | `$domain` | **string** | The domain which the operation will be performed for |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

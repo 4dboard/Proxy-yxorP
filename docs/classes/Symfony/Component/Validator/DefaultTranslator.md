@@ -2,8 +2,7 @@
 
 # DefaultTranslator
 
-Simple translator implementation that simply replaces the parameters in
-the message IDs.
+Simple translator implementation that simply replaces the parameters in the message IDs.
 
 Example usage:
 
@@ -24,21 +23,16 @@ Example usage:
 
     // -> These are three donkeys.
 
-This translator does not support message catalogs, translation domains or
-locales. Instead, it implements a subset of the capabilities of
-{@link} and can be used in places
-where translation is not required by default but should be optional.
+This translator does not support message catalogs, translation domains or locales. Instead, it implements a subset of
+the capabilities of {@link} and can be used in places where translation is not required by default but should be
+optional.
 
 * Full name: `\Symfony\Component\Validator\DefaultTranslator`
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Symfony\Component\Translation\TranslatorInterface`](../Translation/TranslatorInterface.md)
-
-
-
+  [`\Symfony\Component\Translation\TranslatorInterface`](../Translation/TranslatorInterface.md)
 
 ## Methods
-
 
 ### trans
 
@@ -48,8 +42,7 @@ Interpolates the given message.
 public trans(string $id, array $parameters = array(), string $domain = null, string $locale = null): string
 ```
 
-Parameters are replaced in the message in the same manner that
-{@link} uses.
+Parameters are replaced in the message in the same manner that {@link} uses.
 
 Example usage:
 
@@ -62,11 +55,6 @@ Example usage:
 
     // -> This is a donkey.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -75,7 +63,6 @@ Example usage:
 | `$parameters` | **array** | An array of parameters for the message |
 | `$domain` | **string** | Ignored |
 | `$locale` | **string** | Ignored |
-
 
 **Return Value:**
 
@@ -94,15 +81,11 @@ public transChoice(string $id, int $number, array $parameters = array(), string 
 ```
 
 The variants are passed in the message ID using the format
-"<singular>|<plural>". "<singular>" is chosen if the passed $number is
-exactly 1. "<plural>" is chosen otherwise.
+"<singular>|<plural>". "<singular>" is chosen if the passed $number is exactly 1. "<plural>" is chosen otherwise.
 
-This format is consistent with the format supported by
-{@link}, but it does not
-have the same expressiveness. While Translator supports intervals in
-message translations, which are needed for languages other than English,
-this translator does not. You should use Translator or a custom
-implementation of {@link} if you need this or similar
+This format is consistent with the format supported by {@link}, but it does not have the same expressiveness. While
+Translator supports intervals in message translations, which are needed for languages other than English, this
+translator does not. You should use Translator or a custom implementation of {@link} if you need this or similar
 functionality.
 
 Example usage:
@@ -131,11 +114,6 @@ Example usage:
 
     // -> These are 3 donkeys.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -145,7 +123,6 @@ Example usage:
 | `$parameters` | **array** | An array of parameters for the message |
 | `$domain` | **string** | Ignored |
 | `$locale` | **string** | Ignored |
-
 
 **Return Value:**
 
@@ -163,21 +140,11 @@ Not supported.
 public setLocale(string $locale): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** | The locale |
-
-
-
 
 ***
 
@@ -189,22 +156,6 @@ Returns the locale of the translator.
 public getLocale(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-Always returns 'en'
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+Always returns 'en' yxorP::get('REQUEST')

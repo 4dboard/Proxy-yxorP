@@ -4,14 +4,9 @@
 
 This is a resource manager for redis
 
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\RedisResourceManager`
 
-
-
 ## Properties
-
 
 ### resources
 
@@ -21,15 +16,9 @@ Registered resources
 protected array $resources
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### hasResource
 
@@ -39,21 +28,11 @@ Check if a resource exists
 public hasResource(string $id): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -65,21 +44,11 @@ Get redis server version
 public getMajorVersion(string $id): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -91,23 +60,13 @@ Get redis server version
 public getMayorVersion(string $id): int
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -119,21 +78,11 @@ Get redis resource database
 public getDatabase(string $id): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -145,21 +94,11 @@ Get redis resource password
 public getPassword(string $id): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -171,21 +110,11 @@ Gets a redis resource
 public getResource(string $id): \Zend\Cache\Storage\Adapter\RedisResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -197,19 +126,11 @@ Get server
 public getServer(string $id): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
 
 **Return Value:**
 
@@ -228,21 +149,11 @@ array('host' => <host>[, 'port' => <port>[, 'timeout' => <timeout>]])
 protected normalizeServer(string|array& $server): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -254,22 +165,12 @@ Extract password to be used on connection
 protected extractPassword(mixed $resource, mixed $serverUri): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** |  |
 | `$serverUri` | **mixed** |  |
-
-
-
 
 ***
 
@@ -281,21 +182,11 @@ Connects to redis server
 protected connect(array& $resource): null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **array** |  |
-
-
-
 
 ***
 
@@ -307,20 +198,12 @@ Set a resource
 public setResource(string $id, array|\Traversable|\Redis $resource): \Zend\Cache\Storage\Adapter\RedisResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$resource` | **array&#124;\Traversable&#124;\Redis** |  |
-
 
 **Return Value:**
 
@@ -338,19 +221,11 @@ Remove a resource
 public removeResource(string $id): \Zend\Cache\Storage\Adapter\RedisResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
 
 **Return Value:**
 
@@ -368,20 +243,12 @@ Set the persistent id
 public setPersistentId(string $id, string $persistentId): \Zend\Cache\Storage\Adapter\RedisResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$persistentId` | **string** |  |
-
 
 **Return Value:**
 
@@ -399,21 +266,11 @@ Get the persistent id
 public getPersistentId(string $id): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -425,21 +282,11 @@ Normalize the persistent id
 protected normalizePersistentId(string& $persistentId): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistentId` | **string** |  |
-
-
-
 
 ***
 
@@ -451,20 +298,12 @@ Set Redis options
 public setLibOptions(string $id, array $libOptions): \Zend\Cache\Storage\Adapter\RedisResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$libOptions` | **array** |  |
-
 
 **Return Value:**
 
@@ -482,21 +321,11 @@ Get Redis options
 public getLibOptions(string $id): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -508,13 +337,6 @@ Set one Redis option
 public setLibOption(string $id, string|int $key, mixed $value): \Zend\Cache\Storage\Adapter\RedisResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -522,7 +344,6 @@ public setLibOption(string $id, string|int $key, mixed $value): \Zend\Cache\Stor
 | `$id` | **string** |  |
 | `$key` | **string&#124;int** |  |
 | `$value` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -540,22 +361,12 @@ Get one Redis option
 public getLibOption(string $id, string|int $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$key` | **string&#124;int** |  |
-
-
-
 
 ***
 
@@ -567,21 +378,11 @@ Normalize Redis options
 protected normalizeLibOptions(array|\Traversable& $libOptions): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$libOptions` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -593,21 +394,11 @@ Convert option name into it's constant value
 protected normalizeLibOptionKey(string|int& $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string&#124;int** |  |
-
-
-
 
 ***
 
@@ -620,14 +411,10 @@ public setServer(string $id, string|array $server): \Zend\Cache\Storage\Adapter\
 ```
 
 Server can be described as follows:
+
 - URI:   /path/to/sock.sock
 - Assoc: array('host' => <host>[, 'port' => <port>[, 'timeout' => <timeout>]])
 - List:  array(<host>[, <port>, [, <timeout>]])
-
-
-
-
-
 
 **Parameters:**
 
@@ -635,9 +422,6 @@ Server can be described as follows:
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$server` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -649,22 +433,12 @@ Set redis password
 public setPassword(string $id, string $password): \Redis
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$password` | **string** |  |
-
-
-
 
 ***
 
@@ -676,13 +450,6 @@ Set redis database number
 public setDatabase(string $id, int $database): \Zend\Cache\Storage\Adapter\RedisResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -690,11 +457,4 @@ public setDatabase(string $id, int $database): \Zend\Cache\Storage\Adapter\Redis
 | `$id` | **string** |  |
 | `$database` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

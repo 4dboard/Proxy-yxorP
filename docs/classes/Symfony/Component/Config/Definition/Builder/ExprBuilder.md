@@ -4,86 +4,47 @@
 
 This class builds an if expression.
 
-
-
 * Full name: `\Symfony\Component\Config\Definition\Builder\ExprBuilder`
-
-
 
 ## Properties
 
-
 ### node
-
-
 
 ```php
 protected $node
 ```
 
-
-
-
-
-
 ***
 
 ### ifPart
-
-
 
 ```php
 public $ifPart
 ```
 
-
-
-
-
-
 ***
 
 ### thenPart
-
-
 
 ```php
 public $thenPart
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Config\Definition\Builder\NodeDefinition $node): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Symfony\Component\Config\Definition\Builder\NodeDefinition** |  |
-
-
-
 
 ***
 
@@ -95,21 +56,11 @@ Marks the expression as being always used.
 public always(\Closure $then = null): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$then` | **\Closure** |  |
-
-
-
 
 ***
 
@@ -123,19 +74,11 @@ public ifTrue(\Closure $closure = null): $this
 
 The default one tests if the value is true.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closure` | **\Closure** |  |
-
-
-
 
 ***
 
@@ -147,16 +90,6 @@ Tests if the value is a string.
 public ifString(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### ifNull
@@ -166,16 +99,6 @@ Tests if the value is null.
 ```php
 public ifNull(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -187,16 +110,6 @@ Tests if the value is an array.
 public ifArray(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### ifInArray
@@ -207,21 +120,11 @@ Tests if the value is in an array.
 public ifInArray(array $array): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **array** |  |
-
-
-
 
 ***
 
@@ -233,21 +136,11 @@ Tests if the value is not in an array.
 public ifNotInArray(array $array): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **array** |  |
-
-
-
 
 ***
 
@@ -259,21 +152,11 @@ Sets the closure to run if the test pass.
 public then(\Closure $closure): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closure` | **\Closure** |  |
-
-
-
 
 ***
 
@@ -284,16 +167,6 @@ Sets a closure returning an empty array.
 ```php
 public thenEmptyArray(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -307,19 +180,11 @@ public thenInvalid(string $message): $this
 
 if you want to add the value of the node in your message just use a %s placeholder.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
-
-
-
 
 ***
 
@@ -331,16 +196,6 @@ Sets a closure unsetting this key of the array at processing time.
 public thenUnset(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### end
@@ -350,16 +205,6 @@ Returns the related node.
 ```php
 public end(): \Symfony\Component\Config\Definition\Builder\NodeDefinition|\Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition|\Symfony\Component\Config\Definition\Builder\VariableNodeDefinition
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -371,24 +216,13 @@ Builds the expressions.
 public static buildExpressions(\Symfony\Component\Config\Definition\Builder\ExprBuilder[] $expressions): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$expressions` | **\Symfony\Component\Config\Definition\Builder\ExprBuilder[]** | An array of ExprBuilder instances to build |
+| `$expressions` | **
+\Symfony\Component\Config\Definition\Builder\ExprBuilder[]** | An array of ExprBuilder instances to build |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

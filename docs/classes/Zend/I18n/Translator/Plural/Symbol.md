@@ -4,17 +4,12 @@
 
 Parser symbol.
 
-All properties in the symbol are defined as public for easier and faster
-access from the applied closures. An exception are the closure properties
-themselves, as they have to be accessed via the appropriate getter and
-setter methods.
+All properties in the symbol are defined as public for easier and faster access from the applied closures. An exception
+are the closure properties themselves, as they have to be accessed via the appropriate getter and setter methods.
 
 * Full name: `\Zend\I18n\Translator\Plural\Symbol`
 
-
-
 ## Properties
-
 
 ### parser
 
@@ -23,11 +18,6 @@ Parser instance.
 ```php
 public \Zend\I18n\Translator\Plural\Parser $parser
 ```
-
-
-
-
-
 
 ***
 
@@ -39,11 +29,6 @@ Node or token type name.
 public string $id
 ```
 
-
-
-
-
-
 ***
 
 ### leftBindingPower
@@ -53,11 +38,6 @@ Left binding power (precedence).
 ```php
 public int $leftBindingPower
 ```
-
-
-
-
-
 
 ***
 
@@ -69,11 +49,6 @@ Getter for null denotation.
 protected callable $nullDenotationGetter
 ```
 
-
-
-
-
-
 ***
 
 ### leftDenotationGetter
@@ -83,11 +58,6 @@ Getter for left denotation.
 ```php
 protected callable $leftDenotationGetter
 ```
-
-
-
-
-
 
 ***
 
@@ -99,11 +69,6 @@ Value used by literals.
 public mixed $value
 ```
 
-
-
-
-
-
 ***
 
 ### first
@@ -113,11 +78,6 @@ First node value.
 ```php
 public \Zend\I18n\Translator\Plural\Symbol $first
 ```
-
-
-
-
-
 
 ***
 
@@ -129,11 +89,6 @@ Second node value.
 public \Zend\I18n\Translator\Plural\Symbol $second
 ```
 
-
-
-
-
-
 ***
 
 ### third
@@ -144,15 +99,9 @@ Third node value.
 public \Zend\I18n\Translator\Plural\Symbol $third
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -162,13 +111,6 @@ Create a new symbol.
 public __construct(\Zend\I18n\Translator\Plural\Parser $parser, string $id, int $leftBindingPower): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -176,9 +118,6 @@ public __construct(\Zend\I18n\Translator\Plural\Parser $parser, string $id, int 
 | `$parser` | **\Zend\I18n\Translator\Plural\Parser** |  |
 | `$id` | **string** |  |
 | `$leftBindingPower` | **int** |  |
-
-
-
 
 ***
 
@@ -190,21 +129,11 @@ Set the null denotation getter.
 public setNullDenotationGetter(\Closure $getter): \Zend\I18n\Translator\Plural\Symbol
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$getter` | **\Closure** |  |
-
-
-
 
 ***
 
@@ -216,21 +145,11 @@ Set the left denotation getter.
 public setLeftDenotationGetter(\Closure $getter): \Zend\I18n\Translator\Plural\Symbol
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$getter` | **\Closure** |  |
-
-
-
 
 ***
 
@@ -242,16 +161,6 @@ Get null denotation.
 public getNullDenotation(): \Zend\I18n\Translator\Plural\Symbol
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getLeftDenotation
@@ -262,24 +171,10 @@ Get left denotation.
 public getLeftDenotation(\Zend\I18n\Translator\Plural\Symbol $left): \Zend\I18n\Translator\Plural\Symbol
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$left` | **\Zend\I18n\Translator\Plural\Symbol** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

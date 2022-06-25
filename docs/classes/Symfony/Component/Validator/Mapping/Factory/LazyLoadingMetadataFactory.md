@@ -4,57 +4,35 @@
 
 Creates new {@link ClassMetadataInterface} instances.
 
-Whenever {@link} is called for the first time with a given
-class name or object of that class, a new metadata instance is created and
-returned. On subsequent requests for the same class, the same metadata
-instance will be returned.
+Whenever {@link} is called for the first time with a given class name or object of that class, a new metadata instance
+is created and returned. On subsequent requests for the same class, the same metadata instance will be returned.
 
-You can optionally pass a {@link} instance to the constructor.
-Whenever a new metadata instance is created, it is passed to the loader,
-which can configure the metadata based on configuration loaded from the
-filesystem or a database. If you want to use multiple loaders, wrap them in a
-{@link}.
+You can optionally pass a {@link} instance to the constructor. Whenever a new metadata instance is created, it is passed
+to the loader, which can configure the metadata based on configuration loaded from the filesystem or a database. If you
+want to use multiple loaders, wrap them in a {@link}.
 
-You can also optionally pass a {@link} instance to the
-constructor. This cache will be used for persisting the generated metadata
-between multiple PHP requests.
+You can also optionally pass a {@link} instance to the constructor. This cache will be used for persisting the generated
+metadata between multiple PHP requests.
 
 * Full name: `\Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory`
 * This class implements:
-[`\Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface`](./MetadataFactoryInterface.md)
-
-
+  [`\Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface`](./MetadataFactoryInterface.md)
 
 ## Properties
 
-
 ### loader
-
-
 
 ```php
 protected $loader
 ```
 
-
-
-
-
-
 ***
 
 ### cache
 
-
-
 ```php
 protected $cache
 ```
-
-
-
-
-
 
 ***
 
@@ -66,15 +44,9 @@ The loaded metadata, indexed by class name.
 protected \Symfony\Component\Validator\Mapping\ClassMetadata[] $loadedClasses
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -84,22 +56,14 @@ Creates a new metadata factory.
 public __construct(\Symfony\Component\Validator\Mapping\Loader\LoaderInterface|null $loader = null, \Symfony\Component\Validator\Mapping\Cache\CacheInterface|null $cache = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$loader` | **\Symfony\Component\Validator\Mapping\Loader\LoaderInterface&#124;null** | The loader for configuring new metadata |
-| `$cache` | **\Symfony\Component\Validator\Mapping\Cache\CacheInterface&#124;null** | The cache for persisting metadata<br />between multiple PHP requests |
-
-
-
+| `$loader` | **
+\Symfony\Component\Validator\Mapping\Loader\LoaderInterface&#124;null** | The loader for configuring new metadata |
+| `$cache` | **
+\Symfony\Component\Validator\Mapping\Cache\CacheInterface&#124;null** | The cache for persisting metadata<br />between multiple PHP requests |
 
 ***
 
@@ -111,22 +75,14 @@ public __construct(\Symfony\Component\Validator\Mapping\Loader\LoaderInterface|n
 public getMetadataFor(mixed $value): mixed
 ```
 
-If the method was called with the same class name (or an object of that
-class) before, the same metadata instance is returned.
+If the method was called with the same class name (or an object of that class) before, the same metadata instance is
+returned.
 
-If the factory was configured with a cache, this method will first look
-for an existing metadata instance in the cache. If an existing instance
-is found, it will be returned without further ado.
+If the factory was configured with a cache, this method will first look for an existing metadata instance in the cache.
+If an existing instance is found, it will be returned without further ado.
 
-Otherwise, a new metadata instance is created. If the factory was
-configured with a loader, the metadata is passed to the
-{@link} method for further
-configuration. At last, the new object is returned.
-
-
-
-
-
+Otherwise, a new metadata instance is created. If the factory was configured with a loader, the metadata is passed to
+the {@link} method for further configuration. At last, the new object is returned.
 
 **Parameters:**
 
@@ -134,34 +90,19 @@ configuration. At last, the new object is returned.
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### mergeConstraints
 
-
-
 ```php
 private mergeConstraints(\Symfony\Component\Validator\Mapping\ClassMetadata $metadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadata` | **\Symfony\Component\Validator\Mapping\ClassMetadata** |  |
-
-
-
 
 ***
 
@@ -173,24 +114,10 @@ private mergeConstraints(\Symfony\Component\Validator\Mapping\ClassMetadata $met
 public hasMetadataFor(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

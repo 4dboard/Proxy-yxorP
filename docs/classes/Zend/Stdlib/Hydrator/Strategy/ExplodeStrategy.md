@@ -2,23 +2,13 @@
 
 # ExplodeStrategy
 
-
-
-
-
 * Full name: `\Zend\Stdlib\Hydrator\Strategy\ExplodeStrategy`
 * Parent class: [`\Zend\Hydrator\Strategy\ExplodeStrategy`](../../../Hydrator/Strategy/ExplodeStrategy.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Zend\Stdlib\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
-
-
-
-
-
+  [`\Zend\Stdlib\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
 
 ## Inherited methods
-
 
 ### __construct
 
@@ -28,22 +18,12 @@ Constructor
 public __construct(string $delimiter = &#039;,&#039;, int|null $explodeLimit = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$delimiter` | **string** | String that the values will be split upon |
 | `$explodeLimit` | **int&#124;null** | Explode limit |
-
-
-
 
 ***
 
@@ -55,21 +35,11 @@ Sets the delimiter string that the values will be split upon
 private setValueDelimiter(string $delimiter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$delimiter` | **string** |  |
-
-
-
 
 ***
 
@@ -83,19 +53,11 @@ public hydrate(string|null $value): string[]
 
 Split a string by delimiter
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string&#124;null** |  |
-
-
-
 
 ***
 
@@ -109,22 +71,10 @@ public extract(string[] $value): string|null
 
 Join array elements with delimiter
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string[]** | The original value. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

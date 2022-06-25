@@ -2,19 +2,12 @@
 
 # ezcDocumentInvalidDocbookException
 
-Exception thrown if an expectation to an incoming DocBook document is not
-met.
-
-
+Exception thrown if an expectation to an incoming DocBook document is not met.
 
 * Full name: `\ezcDocumentInvalidDocbookException`
 * Parent class: [`\ezcDocumentException`](./ezcDocumentException.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -24,13 +17,6 @@ Creates a new exception.
 public __construct(\DOMNode $affectedNode, string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -38,14 +24,9 @@ public __construct(\DOMNode $affectedNode, string $message): mixed
 | `$affectedNode` | **\DOMNode** |  |
 | `$message` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -55,24 +36,10 @@ Constructs a new ezcBaseException with $message
 public __construct(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

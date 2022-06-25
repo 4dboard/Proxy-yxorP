@@ -2,126 +2,64 @@
 
 # Minify
 
-
-
-
-
 * Full name: `\yxorP\Build\Minify`
 * This class is an **Abstract class**
 
-
-
 ## Properties
 
-
 ### data
-
-
 
 ```php
 protected $data
 ```
 
-
-
-
-
-
 ***
 
 ### patterns
-
-
 
 ```php
 protected $patterns
 ```
 
-
-
-
-
-
 ***
 
 ### extracted
-
-
 
 ```php
 public $extracted
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### add
-
-
 
 ```php
 public add(mixed $data): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
 ### addFile
 
-
-
 ```php
 public addFile(mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -129,25 +67,13 @@ public addFile(mixed $data): mixed
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### minify
 
-
-
 ```php
 public minify(mixed $path = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -155,25 +81,13 @@ public minify(mixed $path = null): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
-
-
-
 ***
 
 ### gzip
 
-
-
 ```php
 public gzip(mixed $path = null, mixed $level = 9): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -182,25 +96,13 @@ public gzip(mixed $path = null, mixed $level = 9): mixed
 | `$path` | **mixed** |  |
 | `$level` | **mixed** |  |
 
-
-
-
 ***
 
 ### cache
 
-
-
 ```php
 public cache(\Psr\Cache\CacheItemInterface $item): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -208,25 +110,15 @@ public cache(\Psr\Cache\CacheItemInterface $item): mixed
 |-----------|------|-------------|
 | `$item` | **\Psr\Cache\CacheItemInterface** |  |
 
-
-
-
 ***
 
 ### execute
-
-
 
 ```php
 public execute(mixed $path = null): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -234,25 +126,13 @@ public execute(mixed $path = null): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
-
-
-
 ***
 
 ### load
 
-
-
 ```php
 protected load(mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -260,25 +140,13 @@ protected load(mixed $data): mixed
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### save
 
-
-
 ```php
 protected save(mixed $content, mixed $path): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -287,25 +155,13 @@ protected save(mixed $content, mixed $path): mixed
 | `$content` | **mixed** |  |
 | `$path` | **mixed** |  |
 
-
-
-
 ***
 
 ### registerPattern
 
-
-
 ```php
 protected registerPattern(mixed $pattern, mixed $replacement = &#039;&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -314,25 +170,13 @@ protected registerPattern(mixed $pattern, mixed $replacement = &#039;&#039;): mi
 | `$pattern` | **mixed** |  |
 | `$replacement` | **mixed** |  |
 
-
-
-
 ***
 
 ### replace
 
-
-
 ```php
 protected replace(mixed $content): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -340,25 +184,13 @@ protected replace(mixed $content): mixed
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
 
-
-
-
 ***
 
 ### executeReplacement
 
-
-
 ```php
 protected executeReplacement(mixed $replacement, mixed $match): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -367,25 +199,13 @@ protected executeReplacement(mixed $replacement, mixed $match): mixed
 | `$replacement` | **mixed** |  |
 | `$match` | **mixed** |  |
 
-
-
-
 ***
 
 ### extractStrings
 
-
-
 ```php
 protected extractStrings(mixed $chars = &#039;&#039;&quot;&#039;, mixed $placeholderPrefix = &#039;&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -394,25 +214,13 @@ protected extractStrings(mixed $chars = &#039;&#039;&quot;&#039;, mixed $placeho
 | `$chars` | **mixed** |  |
 | `$placeholderPrefix` | **mixed** |  |
 
-
-
-
 ***
 
 ### restoreExtractedData
 
-
-
 ```php
 protected restoreExtractedData(mixed $content): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -420,51 +228,27 @@ protected restoreExtractedData(mixed $content): mixed
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
 
-
-
-
 ***
 
 ### canImportFile
-
-
 
 ```php
 protected canImportFile(mixed $path): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
-
-
-
 
 ***
 
 ### openFileForWriting
 
-
-
 ```php
 protected openFileForWriting(mixed $path): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -472,25 +256,13 @@ protected openFileForWriting(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
-
-
-
 ***
 
 ### writeToFile
 
-
-
 ```php
 protected writeToFile(mixed $handler, mixed $content, mixed $path = &#039;&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -500,11 +272,4 @@ protected writeToFile(mixed $handler, mixed $content, mixed $path = &#039;&#039;
 | `$content` | **mixed** |  |
 | `$path` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

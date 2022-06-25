@@ -4,36 +4,19 @@
 
 Bcmath extension adapter
 
-
-
 * Full name: `\Zend\Math\BigInteger\Adapter\Bcmath`
 * This class implements:
-[`\Zend\Math\BigInteger\Adapter\AdapterInterface`](./AdapterInterface.md)
-
-
-
+  [`\Zend\Math\BigInteger\Adapter\AdapterInterface`](./AdapterInterface.md)
 
 ## Methods
 
-
 ### __construct
 
-Constructor
-Sets Bcmath scale factor to zero
+Constructor Sets Bcmath scale factor to zero
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -45,22 +28,12 @@ Create string representing big integer in decimal form from arbitrary integer fo
 public init(string $operand, int|null $base = null): bool|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operand` | **string** |  |
 | `$base` | **int&#124;null** |  |
-
-
-
 
 ***
 
@@ -72,22 +45,12 @@ Add two big integers
 public add(string $leftOperand, string $rightOperand): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$leftOperand` | **string** |  |
 | `$rightOperand` | **string** |  |
-
-
-
 
 ***
 
@@ -99,22 +62,12 @@ Subtract two big integers
 public sub(string $leftOperand, string $rightOperand): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$leftOperand` | **string** |  |
 | `$rightOperand` | **string** |  |
-
-
-
 
 ***
 
@@ -126,22 +79,12 @@ Multiply two big integers
 public mul(string $leftOperand, string $rightOperand): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$leftOperand` | **string** |  |
 | `$rightOperand` | **string** |  |
-
-
-
 
 ***
 
@@ -155,20 +98,12 @@ public div(string $leftOperand, string $rightOperand): string
 
 Raises exception if the divisor is zero.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$leftOperand` | **string** |  |
 | `$rightOperand` | **string** |  |
-
-
-
 
 ***
 
@@ -180,22 +115,12 @@ Raise a big integers to another
 public pow(string $operand, string $exp): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operand` | **string** |  |
 | `$exp` | **string** |  |
-
-
-
 
 ***
 
@@ -207,21 +132,11 @@ Get the square root of a big integer
 public sqrt(string $operand): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operand` | **string** |  |
-
-
-
 
 ***
 
@@ -233,21 +148,11 @@ Get absolute value of a big integer
 public abs(string $operand): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operand` | **string** |  |
-
-
-
 
 ***
 
@@ -259,22 +164,12 @@ Get modulus of a big integer
 public mod(string $leftOperand, string $rightOperand): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$leftOperand` | **string** |  |
 | `$rightOperand` | **string** |  |
-
-
-
 
 ***
 
@@ -286,13 +181,6 @@ Raise a big integer to another, reduced by a specified modulus
 public powmod(string $leftOperand, string $rightOperand, string $modulus): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -301,27 +189,16 @@ public powmod(string $leftOperand, string $rightOperand, string $modulus): strin
 | `$rightOperand` | **string** |  |
 | `$modulus` | **string** |  |
 
-
-
-
 ***
 
 ### comp
 
-Compare two big integers and returns result as an integer where
-Returns < 0 if leftOperand is less than rightOperand;
+Compare two big integers and returns result as an integer where Returns < 0 if leftOperand is less than rightOperand;
 > 0 if leftOperand is greater than rightOperand, and 0 if they are equal.
 
 ```php
 public comp(string $leftOperand, string $rightOperand): int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -329,9 +206,6 @@ public comp(string $leftOperand, string $rightOperand): int
 |-----------|------|-------------|
 | `$leftOperand` | **string** |  |
 | `$rightOperand` | **string** |  |
-
-
-
 
 ***
 
@@ -343,22 +217,12 @@ Convert big integer into it's binary number representation
 public intToBin(string $operand, bool $twoc = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operand` | **string** |  |
 | `$twoc` | **bool** | return in two&#039;s complement form |
-
-
-
 
 ***
 
@@ -370,22 +234,12 @@ Convert big integer into it's binary number representation
 public binToInt(string $bytes, bool $twoc = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bytes` | **string** |  |
 | `$twoc` | **bool** | whether binary number is in twos&#039; complement form |
-
-
-
 
 ***
 
@@ -397,13 +251,6 @@ Base conversion. Bases 2..62 are supported
 public baseConvert(string $operand, int $fromBase, int $toBase = 10): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -412,11 +259,4 @@ public baseConvert(string $operand, int $fromBase, int $toBase = 10): string
 | `$fromBase` | **int** |  |
 | `$toBase` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

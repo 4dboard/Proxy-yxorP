@@ -9,45 +9,27 @@ Encapsulates events thus decoupling the observer from the subject they encapsula
 * Full name: `\Symfony\Component\EventDispatcher\GenericEvent`
 * Parent class: [`\Symfony\Component\EventDispatcher\Event`](./Event.md)
 * This class implements:
-[`\ArrayAccess`](../../../ArrayAccess.md), [`\IteratorAggregate`](../../../IteratorAggregate.md)
-
-
+  [`\ArrayAccess`](../../../ArrayAccess.md), [`\IteratorAggregate`](../../../IteratorAggregate.md)
 
 ## Properties
 
-
 ### subject
-
-
 
 ```php
 protected $subject
 ```
 
-
-
-
-
-
 ***
 
 ### arguments
-
-
 
 ```php
 protected $arguments
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -57,22 +39,12 @@ Encapsulate an event with $subject and $args.
 public __construct(mixed $subject = null, array $arguments = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subject` | **mixed** | The subject of the event, usually an object or a callable |
 | `$arguments` | **array** | Arguments to store in the event |
-
-
-
 
 ***
 
@@ -83,14 +55,6 @@ Getter for subject property.
 ```php
 public getSubject(): mixed
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -108,19 +72,11 @@ Get argument by key.
 public getArgument(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Key |
-
 
 **Return Value:**
 
@@ -138,22 +94,12 @@ Add argument to event.
 public setArgument(string $key, mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Argument name |
 | `$value` | **mixed** | Value |
-
-
-
 
 ***
 
@@ -165,16 +111,6 @@ Getter for all arguments.
 public getArguments(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setArguments
@@ -185,21 +121,11 @@ Set args property.
 public setArguments(array $args = array()): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **array** | Arguments |
-
-
-
 
 ***
 
@@ -211,21 +137,11 @@ Has argument.
 public hasArgument(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Key of arguments array |
-
-
-
 
 ***
 
@@ -237,21 +153,11 @@ ArrayAccess for argument getter.
 public offsetGet(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Array key |
-
-
-
 
 ***
 
@@ -263,22 +169,12 @@ ArrayAccess for argument setter.
 public offsetSet(string $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Array key to set |
 | `$value` | **mixed** | Value |
-
-
-
 
 ***
 
@@ -290,21 +186,11 @@ ArrayAccess for unset argument.
 public offsetUnset(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Array key |
-
-
-
 
 ***
 
@@ -316,21 +202,11 @@ ArrayAccess has argument.
 public offsetExists(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Array key |
-
-
-
 
 ***
 
@@ -342,21 +218,9 @@ IteratorAggregate for iterating over the object like an array.
 public getIterator(): \ArrayIterator
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### isPropagationStopped
 
@@ -366,22 +230,13 @@ Returns whether further event listeners should be triggered.
 public isPropagationStopped(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether propagation was already stopped for this event
 
-
 **See Also:**
 
-* \Symfony\Component\EventDispatcher\Event::stopPropagation() - 
+* \Symfony\Component\EventDispatcher\Event::stopPropagation() -
 
 ***
 
@@ -393,9 +248,8 @@ Stops the propagation of the event to further event listeners.
 public stopPropagation(): mixed
 ```
 
-If multiple event listeners are connected to the same event, no
-further event listener will be triggered once any trigger calls
-stopPropagation().
+If multiple event listeners are connected to the same event, no further event listener will be triggered once any
+trigger calls stopPropagation().
 
 
 
@@ -415,23 +269,13 @@ Stores the EventDispatcher that dispatches this Event.
 public setDispatcher(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
-
-
-
 
 ***
 
@@ -443,17 +287,7 @@ Returns the EventDispatcher that dispatches this Event.
 public getDispatcher(): \Symfony\Component\EventDispatcher\EventDispatcherInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -465,17 +299,7 @@ Gets the event's name.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -487,14 +311,7 @@ Sets the event's name property.
 public setName(string $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -502,11 +319,4 @@ public setName(string $name): mixed
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

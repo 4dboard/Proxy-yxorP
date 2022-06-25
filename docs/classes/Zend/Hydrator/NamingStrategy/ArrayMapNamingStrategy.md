@@ -2,51 +2,29 @@
 
 # ArrayMapNamingStrategy
 
-
-
-
-
 * Full name: `\Zend\Hydrator\NamingStrategy\ArrayMapNamingStrategy`
 * This class implements:
-[`\Zend\Hydrator\NamingStrategy\NamingStrategyInterface`](./NamingStrategyInterface.md)
-
-
+  [`\Zend\Hydrator\NamingStrategy\NamingStrategyInterface`](./NamingStrategyInterface.md)
 
 ## Properties
 
-
 ### extractionMap
-
-
 
 ```php
 private string[] $extractionMap
 ```
 
-
-
-
-
-
 ***
 
 ### hydrationMap
-
-
 
 ```php
 private string[] $hydrationMap
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -56,21 +34,12 @@ Constructor
 public __construct(array $extractionMap): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$extractionMap` | **array** | A map of string keys and values for symmetric translation of hydrated<br />and extracted field names |
-
-
-
+| `$extractionMap` | **
+array** | A map of string keys and values for symmetric translation of hydrated<br />and extracted field names |
 
 ***
 
@@ -82,19 +51,11 @@ Converts the given name so that it can be extracted by the hydrator.
 public hydrate(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The original name |
-
 
 **Return Value:**
 
@@ -112,28 +73,12 @@ Converts the given name so that it can be hydrated by the hydrator.
 public extract(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The original name |
 
-
 **Return Value:**
 
-The extracted name
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The extracted name yxorP::get('REQUEST')

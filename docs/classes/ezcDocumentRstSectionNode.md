@@ -4,15 +4,10 @@
 
 The document section AST node
 
-
-
 * Full name: `\ezcDocumentRstSectionNode`
 * Parent class: [`\ezcDocumentRstNode`](./ezcDocumentRstNode.md)
 
-
-
 ## Properties
-
 
 ### title
 
@@ -21,11 +16,6 @@ Section title
 ```php
 public string $title
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ Depth of section nesting
 public int $depth
 ```
 
-
-
-
-
-
 ***
 
 ### reference
@@ -52,15 +37,9 @@ Title reference name
 public string $reference
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -70,13 +49,6 @@ Construct RST document node
 public __construct(\ezcDocumentRstToken $token, \ezcDocumentRstTitleNode $title = null, int $depth): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -84,9 +56,6 @@ public __construct(\ezcDocumentRstToken $token, \ezcDocumentRstTitleNode $title 
 | `$token` | **\ezcDocumentRstToken** |  |
 | `$title` | **\ezcDocumentRstTitleNode** |  |
 | `$depth` | **int** |  |
-
-
-
 
 ***
 
@@ -98,21 +67,9 @@ Return node content, if available somehow
 protected content(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -122,22 +79,12 @@ Construct RST node
 public __construct(\ezcDocumentRstToken $token, int $type): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentRstToken** |  |
 | `$type` | **int** |  |
-
-
-
 
 ***
 
@@ -153,17 +100,11 @@ Return a user readable name from the numeric node type.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
-
-
-
 
 ***
 
@@ -175,16 +116,6 @@ Return node content, if available somehow
 protected content(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### dump
@@ -195,24 +126,10 @@ Get dump of document
 public dump(int $depth): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$depth` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

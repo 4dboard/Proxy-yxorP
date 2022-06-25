@@ -4,81 +4,47 @@
 
 Serializes a DocBlock instance.
 
-
-
 * Full name: `\phpDocumentor\Reflection\DocBlock\Serializer`
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
+* http://phpdoc.org -
 
 ## Properties
 
-
 ### indentString
-
-
 
 ```php
 protected string $indentString
 ```
 
-
-
-
-
-
 ***
 
 ### indent
-
-
 
 ```php
 protected int $indent
 ```
 
-
-
-
-
-
 ***
 
 ### isFirstLineIndented
-
-
 
 ```php
 protected bool $isFirstLineIndented
 ```
 
-
-
-
-
-
 ***
 
 ### lineLength
-
-
 
 ```php
 protected int|null $lineLength
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -88,13 +54,6 @@ Create a Serializer instance.
 public __construct(int $indent, string $indentString = &#039; &#039;, bool $indentFirstLine = true, int|null $lineLength = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -103,9 +62,6 @@ public __construct(int $indent, string $indentString = &#039; &#039;, bool $inde
 | `$indentString` | **string** | The string to indent the comment with. |
 | `$indentFirstLine` | **bool** | Whether to indent the first line. |
 | `$lineLength` | **int&#124;null** | The max length of a line or NULL to<br />disable line wrapping. |
-
-
-
 
 ***
 
@@ -117,19 +73,11 @@ Sets the string to indent comments with.
 public setIndentationString(mixed $indentString): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$indentString` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -147,14 +95,6 @@ Gets the string to indent comments with.
 public getIndentationString(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The indent string.
@@ -171,19 +111,11 @@ Sets the number of indents.
 public setIndent(int $indent): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$indent` | **int** | The number of times the indent string is repeated. |
-
 
 **Return Value:**
 
@@ -201,14 +133,6 @@ Gets the number of indents.
 public getIndent(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The number of times the indent string is repeated.
@@ -225,20 +149,13 @@ Sets whether or not the first line should be indented.
 public setIsFirstLineIndented(bool $indentFirstLine): $this
 ```
 
-Sets whether or not the first line (the one with the "/**") should be
-indented.
-
-
-
-
-
+Sets whether or not the first line (the one with the "/**") should be indented.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$indentFirstLine` | **bool** | The new value for this setting. |
-
 
 **Return Value:**
 
@@ -256,14 +173,6 @@ Gets whether or not the first line should be indented.
 public isFirstLineIndented(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether or not the first line should be indented.
@@ -280,20 +189,13 @@ Sets the line length.
 public setLineLength(int|null $lineLength): $this
 ```
 
-Sets the length of each line in the serialization. Content will be
-wrapped within this limit.
-
-
-
-
-
+Sets the length of each line in the serialization. Content will be wrapped within this limit.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lineLength` | **int&#124;null** | The length of each line. NULL to disable line<br />wrapping altogether. |
-
 
 **Return Value:**
 
@@ -311,18 +213,9 @@ Gets the line length.
 public getLineLength(): int|null
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The length of each line or NULL if line wrapping is
-disabled.
+The length of each line or NULL if line wrapping is disabled.
 
 
 
@@ -336,28 +229,12 @@ Generate a DocBlock comment.
 public getDocComment(\phpDocumentor\Reflection\DocBlock $docblock): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docblock` | **\phpDocumentor\Reflection\DocBlock** |  |
 
-
 **Return Value:**
 
-The serialized doc block.
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The serialized doc block. yxorP::get('REQUEST')

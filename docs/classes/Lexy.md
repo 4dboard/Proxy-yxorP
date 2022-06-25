@@ -8,68 +8,37 @@ based on: https://github.com/laravel/framework/blob/master/src/Illuminate/View/C
 
 * Full name: `\Lexy`
 
-
-
 ## Properties
 
-
 ### cachePath
-
-
 
 ```php
 protected $cachePath
 ```
 
-
-
-
-
-
 ***
 
 ### srcinfo
-
-
 
 ```php
 protected $srcinfo
 ```
 
-
-
-
-
-
 ***
 
 ### compilers
-
-
 
 ```php
 protected $compilers
 ```
 
-
-
-
-
-
 ***
 
 ### extensions
 
-
-
 ```php
 protected $extensions
 ```
-
-
-
-
-
 
 ***
 
@@ -81,15 +50,9 @@ protected $extensions
 protected array $allowed_calls
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### render
 
@@ -99,12 +62,7 @@ protected array $allowed_calls
 public static render(mixed $content, mixed $params = array(), mixed $sandbox = false, mixed $srcinfo = null): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -114,9 +72,6 @@ public static render(mixed $content, mixed $params = array(), mixed $sandbox = f
 | `$params` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
 | `$srcinfo` | **mixed** |  |
-
-
-
 
 ***
 
@@ -128,12 +83,7 @@ public static render(mixed $content, mixed $params = array(), mixed $sandbox = f
 public static render_file(mixed $file, array $params = array(), bool $sandbox = false): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -142,9 +92,6 @@ public static render_file(mixed $file, array $params = array(), bool $sandbox = 
 | `$file` | **mixed** |  |
 | `$params` | **array** | [description] |
 | `$sandbox` | **bool** | [description] |
-
-
-
 
 ***
 
@@ -156,21 +103,11 @@ public static render_file(mixed $file, array $params = array(), bool $sandbox = 
 public setCachePath(mixed $path): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
-
-
-
 
 ***
 
@@ -182,13 +119,6 @@ public setCachePath(mixed $path): mixed
 public execute(mixed $content, array $params = array(), bool $sandbox = false, mixed $srcinfo = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -197,9 +127,6 @@ public execute(mixed $content, array $params = array(), bool $sandbox = false, m
 | `$params` | **array** | [description] |
 | `$sandbox` | **bool** | [description] |
 | `$srcinfo` | **mixed** |  |
-
-
-
 
 ***
 
@@ -211,13 +138,6 @@ public execute(mixed $content, array $params = array(), bool $sandbox = false, m
 public file(mixed $file, array $params = array(), bool $sandbox = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -226,25 +146,13 @@ public file(mixed $file, array $params = array(), bool $sandbox = false): mixed
 | `$params` | **array** | [description] |
 | `$sandbox` | **bool** | [description] |
 
-
-
-
 ***
 
 ### get_cached_file
 
-
-
 ```php
 protected get_cached_file(mixed $file, mixed $sandbox): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -253,25 +161,13 @@ protected get_cached_file(mixed $file, mixed $sandbox): mixed
 | `$file` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
 
-
-
-
 ***
 
 ### cache_file
 
-
-
 ```php
 protected cache_file(mixed $file, mixed $cachedfile, mixed $filemtime = null, mixed $sandbox = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -281,9 +177,6 @@ protected cache_file(mixed $file, mixed $cachedfile, mixed $filemtime = null, mi
 | `$cachedfile` | **mixed** |  |
 | `$filemtime` | **mixed** |  |
 | `$sandbox` | **mixed** |  |
-
-
-
 
 ***
 
@@ -295,13 +188,6 @@ protected cache_file(mixed $file, mixed $cachedfile, mixed $filemtime = null, mi
 public parse(mixed $text, bool $sandbox = false, mixed $srcinfo = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -309,9 +195,6 @@ public parse(mixed $text, bool $sandbox = false, mixed $srcinfo = null): mixed
 | `$text` | **mixed** |  |
 | `$sandbox` | **bool** | [description] |
 | `$srcinfo` | **mixed** |  |
-
-
-
 
 ***
 
@@ -323,13 +206,6 @@ public parse(mixed $text, bool $sandbox = false, mixed $srcinfo = null): mixed
 protected compile(mixed $text, bool $sandbox = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -337,25 +213,13 @@ protected compile(mixed $text, bool $sandbox = false): mixed
 | `$text` | **mixed** |  |
 | `$sandbox` | **bool** | [description] |
 
-
-
-
 ***
 
 ### allowCall
 
-
-
 ```php
 public allowCall(mixed $call): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -363,34 +227,19 @@ public allowCall(mixed $call): mixed
 |-----------|------|-------------|
 | `$call` | **mixed** |  |
 
-
-
-
 ***
 
 ### extend
 
-
-
 ```php
 public extend(mixed $compiler): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compiler` | **mixed** |  |
-
-
-
 
 ***
 
@@ -402,21 +251,11 @@ public extend(mixed $compiler): mixed
 protected check_security(mixed $code): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
-
-
-
 
 ***
 
@@ -428,21 +267,11 @@ protected check_security(mixed $code): mixed
 protected check_syntax(mixed $code): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
-
-
-
 
 ***
 
@@ -454,21 +283,11 @@ Rewrites Lexi's comments into PHP comments.
 protected compile_comments(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -480,21 +299,11 @@ Rewrites Lexi's escaped statements.
 protected compile_unescape_echos(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -506,21 +315,11 @@ Rewrites Lexi's echo statements into PHP echo statements.
 protected compile_echos(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -532,21 +331,11 @@ Rewrites Lexi's structure openings into PHP structure openings.
 protected compile_default_structures(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -558,21 +347,11 @@ Rewrites Lexi's else statements into PHP else statements.
 protected compile_else(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -584,21 +363,11 @@ Rewrites Lexi's "unless" statements into valid PHP.
 protected compile_unless(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -610,21 +379,11 @@ Rewrites Lexi's php tags.
 protected compile_php_tags(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -636,24 +395,10 @@ Execute user defined compilers.
 protected compile_extensions(string $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

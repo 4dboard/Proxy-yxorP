@@ -4,20 +4,15 @@
 
 Provides a property based interface to an array.
 
-The data are read-only unless $allowModifications is set to true
-on construction.
+The data are read-only unless $allowModifications is set to true on construction.
 
-Implements Countable, Iterator and ArrayAccess
-to facilitate easy access to the data.
+Implements Countable, Iterator and ArrayAccess to facilitate easy access to the data.
 
 * Full name: `\Zend\Config\Config`
 * This class implements:
-[`\Countable`](../../Countable.md), [`\Iterator`](../../Iterator.md), [`\ArrayAccess`](../../ArrayAccess.md)
-
-
+  [`\Countable`](../../Countable.md), [`\Iterator`](../../Iterator.md), [`\ArrayAccess`](../../ArrayAccess.md)
 
 ## Properties
-
 
 ### allowModifications
 
@@ -26,11 +21,6 @@ Whether modifications to configuration data are allowed.
 ```php
 protected bool $allowModifications
 ```
-
-
-
-
-
 
 ***
 
@@ -42,31 +32,19 @@ Data within the configuration.
 protected array $data
 ```
 
-
-
-
-
-
 ***
 
 ### skipNextIteration
 
-Used when unsetting values during iteration to ensure we do not skip
-the next element.
+Used when unsetting values during iteration to ensure we do not skip the next element.
 
 ```php
 protected bool $skipNextIteration
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -76,13 +54,7 @@ Constructor.
 public __construct(array $array, bool $allowModifications = false): mixed
 ```
 
-Data is read-only unless $allowModifications is set to true
-on construction.
-
-
-
-
-
+Data is read-only unless $allowModifications is set to true on construction.
 
 **Parameters:**
 
@@ -90,9 +62,6 @@ on construction.
 |-----------|------|-------------|
 | `$array` | **array** |  |
 | `$allowModifications` | **bool** |  |
-
-
-
 
 ***
 
@@ -104,22 +73,12 @@ Retrieve a value and return $default if there is no element set.
 public get(string $name, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -131,21 +90,11 @@ Magic function so that $obj->value will work.
 public __get(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -157,13 +106,7 @@ Set a value in the config.
 public __set(string $name, mixed $value): void
 ```
 
-Only allow setting of a property if $allowModifications  was set to true
-on construction. Otherwise, throw an exception.
-
-
-
-
-
+Only allow setting of a property if $allowModifications was set to true on construction. Otherwise, throw an exception.
 
 **Parameters:**
 
@@ -172,29 +115,15 @@ on construction. Otherwise, throw an exception.
 | `$name` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### __clone
 
-Deep clone of this instance to ensure that nested Zend\Configs are also
-cloned.
+Deep clone of this instance to ensure that nested Zend\Configs are also cloned.
 
 ```php
 public __clone(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -206,16 +135,6 @@ Return an associative array of the stored data.
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __isset
@@ -226,21 +145,11 @@ isset() overloading
 public __isset(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -252,21 +161,11 @@ unset() overloading
 public __unset(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -278,18 +177,9 @@ count(): defined by Countable interface.
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Countable::count() - 
+* \Countable::count() -
 
 ***
 
@@ -301,18 +191,9 @@ current(): defined by Iterator interface.
 public current(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Iterator::current() - 
+* \Iterator::current() -
 
 ***
 
@@ -324,18 +205,9 @@ key(): defined by Iterator interface.
 public key(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Iterator::key() - 
+* \Iterator::key() -
 
 ***
 
@@ -347,18 +219,9 @@ next(): defined by Iterator interface.
 public next(): void
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Iterator::next() - 
+* \Iterator::next() -
 
 ***
 
@@ -370,18 +233,9 @@ rewind(): defined by Iterator interface.
 public rewind(): void
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Iterator::rewind() - 
+* \Iterator::rewind() -
 
 ***
 
@@ -393,18 +247,9 @@ valid(): defined by Iterator interface.
 public valid(): bool
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Iterator::valid() - 
+* \Iterator::valid() -
 
 ***
 
@@ -416,24 +261,15 @@ offsetExists(): defined by ArrayAccess interface.
 public offsetExists(mixed $offset): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \ArrayAccess::offsetExists() - 
+* \ArrayAccess::offsetExists() -
 
 ***
 
@@ -445,24 +281,15 @@ offsetGet(): defined by ArrayAccess interface.
 public offsetGet(mixed $offset): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \ArrayAccess::offsetGet() - 
+* \ArrayAccess::offsetGet() -
 
 ***
 
@@ -474,13 +301,6 @@ offsetSet(): defined by ArrayAccess interface.
 public offsetSet(mixed $offset, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -488,11 +308,9 @@ public offsetSet(mixed $offset, mixed $value): void
 | `$offset` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \ArrayAccess::offsetSet() - 
+* \ArrayAccess::offsetSet() -
 
 ***
 
@@ -504,24 +322,15 @@ offsetUnset(): defined by ArrayAccess interface.
 public offsetUnset(mixed $offset): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \ArrayAccess::offsetUnset() - 
+* \ArrayAccess::offsetUnset() -
 
 ***
 
@@ -534,23 +343,16 @@ public merge(\Zend\Config\Config $merge): \Zend\Config\Config
 ```
 
 For duplicate keys, the following will be performed:
+
 - Nested Configs will be recursively merged.
 - Items in $merge with INTEGER keys will be appended.
 - Items in $merge with STRING keys will overwrite current values.
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$merge` | **\Zend\Config\Config** |  |
-
-
-
 
 ***
 
@@ -562,8 +364,8 @@ Prevent any more modifications being made to this instance.
 public setReadOnly(): void
 ```
 
-Useful after merge() has been used to merge multiple Config objects
-into one object which should then not be modified again.
+Useful after merge() has been used to merge multiple Config objects into one object which should then not be modified
+again.
 
 
 
@@ -583,18 +385,4 @@ Returns whether this Config object is read only or not.
 public isReadOnly(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

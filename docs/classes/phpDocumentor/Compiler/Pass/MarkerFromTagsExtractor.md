@@ -4,12 +4,9 @@
 
 This index builder collects all markers from tags and inserts them into the marker index.
 
-
-
 * Full name: `\phpDocumentor\Compiler\Pass\MarkerFromTagsExtractor`
 * This class implements:
-[`\phpDocumentor\Compiler\CompilerPassInterface`](../CompilerPassInterface.md)
-
+  [`\phpDocumentor\Compiler\CompilerPassInterface`](../CompilerPassInterface.md)
 
 ## Constants
 
@@ -17,9 +14,7 @@ This index builder collects all markers from tags and inserts them into the mark
 |:---------|:-----------|:-----|:------|
 |`COMPILER_PRIORITY`|public| |9000|
 
-
 ## Methods
-
 
 ### getDescription
 
@@ -28,16 +23,6 @@ Returns a textual description of what this pass does for output purposes.
 ```php
 public getDescription(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -49,21 +34,12 @@ Executes a compiler pass.
 public execute(\phpDocumentor\Descriptor\ProjectDescriptor $project): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | Representation of the Object Graph that can be manipulated. |
-
-
-
+| `$project` | **
+\phpDocumentor\Descriptor\ProjectDescriptor** | Representation of the Object Graph that can be manipulated. |
 
 ***
 
@@ -75,21 +51,11 @@ Retrieves the File Descriptor from the given element.
 protected getFileDescriptor(\phpDocumentor\Descriptor\DescriptorAbstract $element): \phpDocumentor\Descriptor\FileDescriptor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -101,13 +67,6 @@ Adds a marker with the TO DO information to the file on a given line number.
 protected addTodoMarkerToFile(\phpDocumentor\Descriptor\FileDescriptor $fileDescriptor, \phpDocumentor\Descriptor\TagDescriptor $todo, int $lineNumber): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -116,11 +75,4 @@ protected addTodoMarkerToFile(\phpDocumentor\Descriptor\FileDescriptor $fileDesc
 | `$todo` | **\phpDocumentor\Descriptor\TagDescriptor** |  |
 | `$lineNumber` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

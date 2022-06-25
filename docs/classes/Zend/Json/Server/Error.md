@@ -2,12 +2,7 @@
 
 # Error
 
-
-
-
-
 * Full name: `\Zend\Json\Server\Error`
-
 
 ## Constants
 
@@ -22,7 +17,6 @@
 
 ## Properties
 
-
 ### code
 
 Current code
@@ -30,11 +24,6 @@ Current code
 ```php
 protected int $code
 ```
-
-
-
-
-
 
 ***
 
@@ -46,11 +35,6 @@ Error data
 protected mixed $data
 ```
 
-
-
-
-
-
 ***
 
 ### message
@@ -61,15 +45,9 @@ Error message
 protected string $message
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -79,13 +57,6 @@ Constructor
 public __construct(string $message = null, int $code = self::ERROR_OTHER, mixed $data = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -93,9 +64,6 @@ public __construct(string $message = null, int $code = self::ERROR_OTHER, mixed 
 | `$message` | **string** |  |
 | `$code` | **int** |  |
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
@@ -109,19 +77,11 @@ public setCode(int $code): \Zend\Json\Server\Error
 
 If the error code is 0, it will be set to -32000 (ERROR_OTHER).
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$code` | **int** |  |
-
-
-
 
 ***
 
@@ -133,16 +93,6 @@ Get error code
 public getCode(): int|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setMessage
@@ -153,21 +103,11 @@ Set error message
 public setMessage(string $message): \Zend\Json\Server\Error
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
-
-
-
 
 ***
 
@@ -179,16 +119,6 @@ Get error message
 public getMessage(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setData
@@ -199,21 +129,11 @@ Set error data
 public setData(mixed $data): \Zend\Json\Server\Error
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
@@ -225,16 +145,6 @@ Get error data
 public getData(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toArray
@@ -244,16 +154,6 @@ Cast error to array
 ```php
 public toArray(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -265,16 +165,6 @@ Cast error to JSON
 public toJson(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -285,18 +175,4 @@ Cast to string (JSON)
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

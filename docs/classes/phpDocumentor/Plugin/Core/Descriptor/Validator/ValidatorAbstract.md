@@ -4,28 +4,16 @@
 
 Base class for DocBlock Validations.
 
-
-
 * Full name: `\phpDocumentor\Plugin\Core\Descriptor\Validator\ValidatorAbstract`
 * This class is an **Abstract class**
 
-
-
 ## Properties
 
-
 ### translate
-
-
 
 ```php
 protected \phpDocumentor\Translator\Translator $translate
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +25,6 @@ Name of the "entity" being validated.
 protected string $entityName
 ```
 
-
-
-
-
-
 ***
 
 ### lineNumber
@@ -51,11 +34,6 @@ Line number of the docblock
 ```php
 protected int $lineNumber
 ```
-
-
-
-
-
 
 ***
 
@@ -67,11 +45,6 @@ Docblock for the file.
 protected \phpDocumentor\Reflection\DocBlock $docblock
 ```
 
-
-
-
-
-
 ***
 
 ### source
@@ -81,11 +54,6 @@ Source element of the DocBlock.
 ```php
 protected \phpDocumentor\Reflection\BaseReflector $source
 ```
-
-
-
-
-
 
 ***
 
@@ -97,15 +65,9 @@ Array of options that may or may not be used whilst validating
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -115,13 +77,6 @@ Constructor
 public __construct(string $name, \phpDocumentor\Reflection\DocBlock|null $docblock = null, \phpDocumentor\Reflection\BaseReflector|null $source = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -129,9 +84,6 @@ public __construct(string $name, \phpDocumentor\Reflection\DocBlock|null $docblo
 | `$name` | **string** | Name of the &quot;entity&quot; |
 | `$docblock` | **\phpDocumentor\Reflection\DocBlock&#124;null** | Docblock |
 | `$source` | **\phpDocumentor\Reflection\BaseReflector&#124;null** | Source Element. |
-
-
-
 
 ***
 
@@ -143,13 +95,7 @@ Set the options that may be used whilst validating the docblocks.
 public setOptions(array $options): void
 ```
 
-Can contain configuration as long as each validator knows how to
-interrogate it
-
-
-
-
-
+Can contain configuration as long as each validator knows how to interrogate it
 
 **Parameters:**
 
@@ -157,34 +103,21 @@ interrogate it
 |-----------|------|-------------|
 | `$options` | **array** | Options that may be used during validation |
 
-
-
-
 ***
 
 ### isValid
-
-
 
 ```php
 public isValid(\phpDocumentor\Reflection\BaseReflector $element): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\phpDocumentor\Reflection\BaseReflector** |  |
-
-
-
 
 ***
 
@@ -196,16 +129,11 @@ Dispatches an event to the Event Dispatcher.
 public dispatch(string $name, \phpDocumentor\Event\EventAbstract $event): void
 ```
 
-This method tries to dispatch an event; if no Event Dispatcher has been
-set than this method will explicitly not fail and return null.
+This method tries to dispatch an event; if no Event Dispatcher has been set than this method will explicitly not fail
+and return null.
 
-By not failing we make the Event Dispatcher optional and is it easier
-for people to re-use this component in their own application.
-
-
-
-
-
+By not failing we make the Event Dispatcher optional and is it easier for people to re-use this component in their own
+application.
 
 **Parameters:**
 
@@ -213,9 +141,6 @@ for people to re-use this component in their own application.
 |-----------|------|-------------|
 | `$name` | **string** | Name of the event to dispatch. |
 | `$event` | **\phpDocumentor\Event\EventAbstract** | Arguments for this event. |
-
-
-
 
 ***
 
@@ -227,22 +152,12 @@ Dispatches a logging request.
 public log(string $message, string $priority = LogLevel::INFO): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message to log. |
 | `$priority` | **string** | The logging priority. |
-
-
-
 
 ***
 
@@ -254,13 +169,6 @@ Dispatches a parser error to be logged.
 public logParserError(string $type, string $code, string $line, string[] $variables = array()): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -269,9 +177,6 @@ public logParserError(string $type, string $code, string $line, string[] $variab
 | `$code` | **string** | The message to log. |
 | `$line` | **string** | The line number where the error occurred.. |
 | `$variables` | **string[]** | an array with message substitution variables. |
-
-
-
 
 ***
 
@@ -283,21 +188,11 @@ Dispatches a logging request to log a debug message.
 public debug(string $message): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message to log. |
-
-
-
 
 ***
 
@@ -309,13 +204,7 @@ Translates the ID or message in the given language.
 public __(string $message, array $variables = array()): string
 ```
 
-Translation messages may contain any formatting as used by the php
-vsprintf function.
-
-
-
-
-
+Translation messages may contain any formatting as used by the php vsprintf function.
 
 **Parameters:**
 
@@ -323,9 +212,6 @@ vsprintf function.
 |-----------|------|-------------|
 | `$message` | **string** | ID or message to translate. |
 | `$variables` | **array** | Variables to use for substitution. |
-
-
-
 
 ***
 
@@ -337,16 +223,6 @@ Returns the configuration for this object.
 public getConfiguration(): \Zend\Config\Config
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getEventDispatcher
@@ -356,16 +232,6 @@ Returns the event dispatcher.
 ```php
 public getEventDispatcher(): \phpDocumentor\Event\Dispatcher
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -377,18 +243,4 @@ Returns the translation component.
 public getTranslator(): \phpDocumentor\Translator\Translator|null
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

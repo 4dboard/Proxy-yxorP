@@ -2,37 +2,31 @@
 
 # ezcDocumentPdfFooterPdfPart
 
-Basic foot class, which renders a simple page footer including information
-from the document.
+Basic foot class, which renders a simple page footer including information from the document.
 
 Configured using the ezcDocumentPdfFooterOptions options class.
 
-A footer, or any other PDF part, can be registered for rendering in the main
-PDF class using the registerPdfPart() method, like:
+A footer, or any other PDF part, can be registered for rendering in the main PDF class using the registerPdfPart()
+method, like:
 
 <code>
  $pdf = new ezcDocumentPdf();
 
- // Add a customized footer
- $pdf->registerPdfPart( new ezcDocumentPdfFooterPdfPart(
-     new ezcDocumentPdfFooterOptions( array(
-         'showDocumentTitle'  => false,
-         'showDocumentAuthor' => false,
-         'height'             => '10mm',
-     ) )
- ) );
+// Add a customized footer $pdf->registerPdfPart( new ezcDocumentPdfFooterPdfPart(
+new ezcDocumentPdfFooterOptions( array(
+'showDocumentTitle' => false,
+'showDocumentAuthor' => false,
+'height' => '10mm',
+) )
+) );
 
- $pdf->createFromDocbook( $docbook );
- file_put_contents( __FILE__ . '.pdf', $pdf );
+$pdf->createFromDocbook( $docbook ); file_put_contents( __FILE__ . '.pdf', $pdf );
 </code>
 
 * Full name: `\ezcDocumentPdfFooterPdfPart`
 * Parent class: [`\ezcDocumentPdfPart`](./ezcDocumentPdfPart.md)
 
-
-
 ## Properties
-
 
 ### options
 
@@ -41,11 +35,6 @@ Options of footer
 ```php
 protected \ezcDocumentPdfFooterOptions $options
 ```
-
-
-
-
-
 
 ***
 
@@ -57,11 +46,6 @@ Reference to rendered document
 protected \DOMDocument $document
 ```
 
-
-
-
-
-
 ***
 
 ### documentTitle
@@ -71,11 +55,6 @@ Extracted title information
 ```php
 protected mixed $documentTitle
 ```
-
-
-
-
-
 
 ***
 
@@ -87,15 +66,9 @@ Extracted author information
 protected mixed $documentAuthor
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -105,21 +78,11 @@ Create a new footer PDF part
 public __construct(\ezcDocumentPdfFooterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentPdfFooterOptions** |  |
-
-
-
 
 ***
 
@@ -131,22 +94,14 @@ Hook on page creation
 public hookPageCreation(\ezcDocumentPdfPage $page): void
 ```
 
-Hook called on page creation, so that certain areas might be reserved or
-it already may render stuff on the frshly created page.
-
-
-
-
-
+Hook called on page creation, so that certain areas might be reserved or it already may render stuff on the frshly
+created page.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
-
-
-
 
 ***
 
@@ -160,25 +115,15 @@ public hookDocumentCreation(\ezcDocumentLocateableDomElement $element): void
 
 Hook called when a new document is created.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### registerContext
 
@@ -188,13 +133,7 @@ Registration function called by the renderer.
 public registerContext(\ezcDocumentPdfMainRenderer $renderer, \ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles): void
 ```
 
-Function called by the renderer, to set its properties, which pass the
-relevant state objects to the part.
-
-
-
-
-
+Function called by the renderer, to set its properties, which pass the relevant state objects to the part.
 
 **Parameters:**
 
@@ -203,9 +142,6 @@ relevant state objects to the part.
 | `$renderer` | **\ezcDocumentPdfMainRenderer** |  |
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -217,22 +153,14 @@ Hook on page creation
 public hookPageCreation(\ezcDocumentPdfPage $page): void
 ```
 
-Hook called on page creation, so that certain areas might be reserved or
-it already may render stuff on the frshly created page.
-
-
-
-
-
+Hook called on page creation, so that certain areas might be reserved or it already may render stuff on the frshly
+created page.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
-
-
-
 
 ***
 
@@ -244,22 +172,13 @@ Hook on page rendering
 public hookPageRendering(\ezcDocumentPdfPage $page): void
 ```
 
-Hook called on page rendering, which means, that a page is complete, by
-all knowledge of the main renderer.
-
-
-
-
-
+Hook called on page rendering, which means, that a page is complete, by all knowledge of the main renderer.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
-
-
-
 
 ***
 
@@ -273,19 +192,11 @@ public hookDocumentCreation(\ezcDocumentLocateableDomElement $element): void
 
 Hook called when a new document is created.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -299,16 +210,4 @@ public hookDocumentRendering(): void
 
 Hook called once a document is completely rendered.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

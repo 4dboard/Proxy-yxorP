@@ -4,51 +4,31 @@
 
 Class representing a node / element in a graph.
 
-
-
 * Full name: `\phpDocumentor\GraphViz\Node`
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
+* http://phpdoc.org -
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 protected string $name
 ```
 
-
-
-
-
-
 ***
 
 ### attributes
-
-
 
 ```php
 protected \phpDocumentor\GraphViz\Attribute[] $attributes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -58,22 +38,12 @@ Creates a new node with name and optional label.
 public __construct(string $name, string|null $label = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of the new node. |
 | `$label` | **string&#124;null** | Optional label text. |
-
-
-
 
 ***
 
@@ -89,18 +59,12 @@ See the examples for more details.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of the new node. |
 | `$label` | **string&#124;null** | Optional label text. |
-
-
-
 
 ***
 
@@ -114,19 +78,11 @@ public setName(string $name): \phpDocumentor\GraphViz\Node
 
 Not to confuse with the label.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name for this node. |
-
-
-
 
 ***
 
@@ -138,16 +94,6 @@ Returns the name for this node.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
@@ -158,17 +104,10 @@ Magic method to provide a getter/setter to add attributes on the Node.
 public __call(string $name, array $arguments): \phpDocumentor\GraphViz\Attribute[]|\phpDocumentor\GraphViz\Node|null
 ```
 
-Using this method we make sure that we support any attribute without
-too much hassle. If the name for this method does not start with get or
-set we return null.
+Using this method we make sure that we support any attribute without too much hassle. If the name for this method does
+not start with get or set we return null.
 
-Set methods return this graph (fluent interface) whilst get methods
-return the attribute value.
-
-
-
-
-
+Set methods return this graph (fluent interface) whilst get methods return the attribute value.
 
 **Parameters:**
 
@@ -176,9 +115,6 @@ return the attribute value.
 |-----------|------|-------------|
 | `$name` | **string** | Method name; either getX or setX is expected. |
 | `$arguments` | **array** | List of arguments; only 1 is expected for setX. |
-
-
-
 
 ***
 
@@ -190,18 +126,4 @@ Returns the node definition as is requested by GraphViz.
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

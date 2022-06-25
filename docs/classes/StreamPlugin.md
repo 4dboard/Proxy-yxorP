@@ -2,144 +2,70 @@
 
 # StreamPlugin
 
-
-
-
-
 * Full name: `\StreamPlugin`
 * Parent class: [`\yxorP\Http\EventWrapper`](./yxorP/Http/EventWrapper.md)
 
-
-
 ## Properties
 
-
 ### output_buffer_types
-
-
 
 ```php
 private array $output_buffer_types
 ```
 
-
-
-
-
-
 ***
 
 ### stream
-
-
 
 ```php
 private bool $stream
 ```
 
-
-
-
-
-
 ***
 
 ### max_content_length
-
-
 
 ```php
 private int $max_content_length
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### onHeadersReceived
-
-
 
 ```php
 public onHeadersReceived(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onCurlWrite
-
-
 
 ```php
 public onCurlWrite(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onCompleted
-
-
 
 ```php
 public onCompleted(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### subscribe
-
-
 
 ```php
 final public subscribe(mixed $dispatcher): void
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -147,105 +73,45 @@ final public subscribe(mixed $dispatcher): void
 |-----------|------|-------------|
 | `$dispatcher` | **mixed** |  |
 
-
-
-
 ***
 
 ### onBeforeRequest
-
-
 
 ```php
 public onBeforeRequest(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onHeadersReceived
-
-
 
 ```php
 public onHeadersReceived(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onCurlWrite
-
-
 
 ```php
 public onCurlWrite(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### onCompleted
-
-
 
 ```php
 public onCompleted(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### route
 
-
-
 ```php
 private route(mixed $event_name): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -253,11 +119,4 @@ private route(mixed $event_name): void
 |-----------|------|-------------|
 | `$event_name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

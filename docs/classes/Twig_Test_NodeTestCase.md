@@ -2,55 +2,26 @@
 
 # Twig_Test_NodeTestCase
 
-
-
-
-
 * Full name: `\Twig_Test_NodeTestCase`
 * Parent class: [`\Twig\Test\NodeTestCase`](./Twig/Test/NodeTestCase.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### getTests
-
-
 
 ```php
 public getTests(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### testCompile
 
-
-
 ```php
 public testCompile(mixed $node, mixed $source, mixed $environment = null, mixed $isPattern = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -61,25 +32,13 @@ public testCompile(mixed $node, mixed $source, mixed $environment = null, mixed 
 | `$environment` | **mixed** |  |
 | `$isPattern` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertNodeCompilation
 
-
-
 ```php
 public assertNodeCompilation(mixed $source, \Twig\Node\Node $node, \Twig\Environment $environment = null, mixed $isPattern = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -90,25 +49,13 @@ public assertNodeCompilation(mixed $source, \Twig\Node\Node $node, \Twig\Environ
 | `$environment` | **\Twig\Environment** |  |
 | `$isPattern` | **mixed** |  |
 
-
-
-
 ***
 
 ### getCompiler
 
-
-
 ```php
 protected getCompiler(\Twig\Environment $environment = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -116,45 +63,21 @@ protected getCompiler(\Twig\Environment $environment = null): mixed
 |-----------|------|-------------|
 | `$environment` | **\Twig\Environment** |  |
 
-
-
-
 ***
 
 ### getEnvironment
-
-
 
 ```php
 protected getEnvironment(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getVariableGetter
 
-
-
 ```php
 protected getVariableGetter(mixed $name, mixed $line = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -163,31 +86,12 @@ protected getVariableGetter(mixed $name, mixed $line = false): mixed
 | `$name` | **mixed** |  |
 | `$line` | **mixed** |  |
 
-
-
-
 ***
 
 ### getAttributeGetter
-
-
 
 ```php
 protected getAttributeGetter(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

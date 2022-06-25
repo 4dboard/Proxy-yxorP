@@ -2,64 +2,33 @@
 
 # Article
 
-
-
-
-
 * Full name: `\JMS\Serializer\Tests\Fixtures\Article`
-
-
 
 ## Properties
 
-
 ### element
-
-
 
 ```php
 public $element
 ```
 
-
-
-
-
-
 ***
 
 ### value
-
-
 
 ```php
 public $value
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### serializeToXml
-
-
 
 ```php
 public serializeToXml(\JMS\Serializer\XmlSerializationVisitor $visitor, mixed $data, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,25 +38,13 @@ public serializeToXml(\JMS\Serializer\XmlSerializationVisitor $visitor, mixed $d
 | `$data` | **mixed** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### serializeToJson
 
-
-
 ```php
 public serializeToJson(\JMS\Serializer\JsonSerializationVisitor $visitor): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -95,25 +52,13 @@ public serializeToJson(\JMS\Serializer\JsonSerializationVisitor $visitor): mixed
 |-----------|------|-------------|
 | `$visitor` | **\JMS\Serializer\JsonSerializationVisitor** |  |
 
-
-
-
 ***
 
 ### serializeToYml
 
-
-
 ```php
 public serializeToYml(\JMS\Serializer\YamlSerializationVisitor $visitor): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -121,25 +66,13 @@ public serializeToYml(\JMS\Serializer\YamlSerializationVisitor $visitor): mixed
 |-----------|------|-------------|
 | `$visitor` | **\JMS\Serializer\YamlSerializationVisitor** |  |
 
-
-
-
 ***
 
 ### deserializeFromXml
 
-
-
 ```php
 public deserializeFromXml(\JMS\Serializer\XmlDeserializationVisitor $visitor, \SimpleXMLElement $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -148,25 +81,13 @@ public deserializeFromXml(\JMS\Serializer\XmlDeserializationVisitor $visitor, \S
 | `$visitor` | **\JMS\Serializer\XmlDeserializationVisitor** |  |
 | `$data` | **\SimpleXMLElement** |  |
 
-
-
-
 ***
 
 ### deserializeFromJson
 
-
-
 ```php
 public deserializeFromJson(\JMS\Serializer\JsonDeserializationVisitor $visitor, array $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -175,11 +96,4 @@ public deserializeFromJson(\JMS\Serializer\JsonDeserializationVisitor $visitor, 
 | `$visitor` | **\JMS\Serializer\JsonDeserializationVisitor** |  |
 | `$data` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

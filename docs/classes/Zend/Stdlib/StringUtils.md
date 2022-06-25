@@ -2,18 +2,14 @@
 
 # StringUtils
 
-Utility class for handling strings of different character encodings
-using available PHP extensions.
+Utility class for handling strings of different character encodings using available PHP extensions.
 
 Declared abstract, as we have no need for instantiation.
 
 * Full name: `\Zend\Stdlib\StringUtils`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### wrapperRegistry
 
@@ -23,10 +19,7 @@ Ordered list of registered string wrapper instances
 protected static \Zend\Stdlib\StringWrapper\StringWrapperInterface[] $wrapperRegistry
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -38,10 +31,7 @@ A list of known single-byte character encodings (upper-case)
 protected static string[] $singleByteEncodings
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -53,15 +43,11 @@ Is PCRE compiled with Unicode support?
 protected static bool $hasPcreUnicodeSupport
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### getRegisteredWrappers
 
@@ -71,15 +57,7 @@ Get registered wrapper classes
 public static getRegisteredWrappers(): string[]
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -91,21 +69,13 @@ Register a string wrapper class
 public static registerWrapper(string $wrapper): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$wrapper` | **string** |  |
-
-
-
 
 ***
 
@@ -117,21 +87,13 @@ Unregister a string wrapper class
 public static unregisterWrapper(string $wrapper): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$wrapper` | **string** |  |
-
-
-
 
 ***
 
@@ -143,33 +105,20 @@ Reset all registered wrappers so the default wrappers will be used
 public static resetRegisteredWrappers(): void
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### getWrapper
 
-Get the first string wrapper supporting the given character encoding
-and supports to convert into the given convert encoding.
+Get the first string wrapper supporting the given character encoding and supports to convert into the given convert
+encoding.
 
 ```php
 public static getWrapper(string $encoding = &#039;UTF-8&#039;, string|null $convertEncoding = null): \Zend\Stdlib\StringWrapper\StringWrapperInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -177,9 +126,6 @@ public static getWrapper(string $encoding = &#039;UTF-8&#039;, string|null $conv
 |-----------|------|-------------|
 | `$encoding` | **string** | Character encoding to support |
 | `$convertEncoding` | **string&#124;null** | OPTIONAL character encoding to convert in |
-
-
-
 
 ***
 
@@ -191,15 +137,7 @@ Get a list of all known single-byte character encodings
 public static getSingleByteEncodings(): string[]
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -211,21 +149,13 @@ Check if a given encoding is a known single-byte character encoding
 public static isSingleByteEncoding(string $encoding): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$encoding` | **string** |  |
-
-
-
 
 ***
 
@@ -237,21 +167,13 @@ Check if a given string is valid UTF-8 encoded
 public static isValidUtf8(string $str): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
-
-
-
 
 ***
 
@@ -263,18 +185,6 @@ Is PCRE compiled with Unicode support?
 public static hasPcreUnicodeSupport(): bool
 ```
 
-
-
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

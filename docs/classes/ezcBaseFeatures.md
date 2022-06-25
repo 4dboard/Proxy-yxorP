@@ -21,10 +21,7 @@ echo "has pdo_mysql 1.0.2: " . ezcBaseFeatures::hasExtensionSupport( 'pdo_mysql'
 
 * Full name: `\ezcBaseFeatures`
 
-
-
 ## Properties
-
 
 ### imageConvert
 
@@ -37,7 +34,6 @@ private static string $imageConvert
 It is initialized in the {@link} function.
 
 * This property is **static**.
-
 
 ***
 
@@ -53,7 +49,6 @@ It is initialized in the {@link} function.
 
 * This property is **static**.
 
-
 ***
 
 ### os
@@ -68,11 +63,9 @@ It is initialized in the {@link} function.
 
 * This property is **static**.
 
-
 ***
 
 ## Methods
-
 
 ### supportsLink
 
@@ -82,15 +75,7 @@ Determines if hardlinks are supported.
 public static supportsLink(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -102,15 +87,7 @@ Determines if symlinks are supported.
 public static supportsSymLink(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -122,15 +99,7 @@ Determines if posix uids are supported.
 public static supportsUserId(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -142,15 +111,7 @@ Determines if the ImageMagick convert utility is installed.
 public static hasImageConvert(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -162,16 +123,10 @@ Returns the path to the ImageMagick convert utility.
 public static getImageConvertExecutable(): string
 ```
 
-On Linux, Unix,... it will return something like: /usr/bin/convert
-On Windows it will return something like: C:\Windows\System32\convert.exe
+On Linux, Unix,... it will return something like: /usr/bin/convert On Windows it will return something like: C:
+\Windows\System32\convert.exe
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -183,15 +138,7 @@ Determines if the ImageMagick identify utility is installed.
 public static hasImageIdentify(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -203,16 +150,10 @@ Returns the path to the ImageMagick identify utility.
 public static getImageIdentifyExecutable(): string
 ```
 
-On Linux, Unix,... it will return something like: /usr/bin/identify
-On Windows it will return something like: C:\Windows\System32\identify.exe
+On Linux, Unix,... it will return something like: /usr/bin/identify On Windows it will return something like: C:
+\Windows\System32\identify.exe
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -224,8 +165,7 @@ Determines if the specified extension is loaded.
 public static hasExtensionSupport(string $extension, string $version = null): bool
 ```
 
-If $version is specified, the specified extension will be tested also
-against the version of the loaded extension.
+If $version is specified, the specified extension will be tested also against the version of the loaded extension.
 
 Examples:
 <code>
@@ -240,18 +180,12 @@ will return true if pdo_mysql extension is loaded and its version is at least 1.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$extension` | **string** |  |
 | `$version` | **string** |  |
-
-
-
 
 ***
 
@@ -267,22 +201,15 @@ Examples:
 <code>
 ezcBaseFeatures::hasFunction( 'imagepstext' );
 </code>
-will return true if support for Type 1 fonts is available with your GD
-extension.
+will return true if support for Type 1 fonts is available with your GD extension.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$functionName` | **string** |  |
-
-
-
 
 ***
 
@@ -294,13 +221,10 @@ Returns if a given class exists.
 public static classExists(string $className, bool $autoload = true): bool
 ```
 
-Checks for a given class name and returns if this class exists or not.
-Catches the ezcBaseAutoloadException and returns false, if it was thrown.
+Checks for a given class name and returns if this class exists or not. Catches the ezcBaseAutoloadException and returns
+false, if it was thrown.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -308,7 +232,6 @@ Catches the ezcBaseAutoloadException and returns false, if it was thrown.
 |-----------|------|-------------|
 | `$className` | **string** | The class to check for. |
 | `$autoload` | **bool** | True to use __autoload(), otherwise false. |
-
 
 **Return Value:**
 
@@ -326,18 +249,10 @@ Returns the operating system on which PHP is running.
 public static os(): string
 ```
 
-This method returns a sanitized form of the OS name, example
-return values are "Windows", "Mac", "Linux" and "FreeBSD". In
-all other cases it returns the value of the internal PHP constant
-PHP_OS.
+This method returns a sanitized form of the OS name, example return values are "Windows", "Mac", "Linux" and "FreeBSD".
+In all other cases it returns the value of the internal PHP constant PHP_OS.
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -349,14 +264,10 @@ Returns the path of the specified executable, if it can be found in the system's
 public static findExecutableInPath(string $fileName): string
 ```
 
-It scans the PATH enviroment variable based on the OS to find the
-$fileName. For Windows, the path is with \, not /.  If $fileName is not
-found, it returns null.
+It scans the PATH enviroment variable based on the OS to find the $fileName. For Windows, the path is with \, not /. If
+$fileName is not found, it returns null.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -364,11 +275,4 @@ found, it returns null.
 |-----------|------|-------------|
 | `$fileName` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

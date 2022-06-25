@@ -9,7 +9,6 @@ This can be useful to log to databases or remote APIs
 * Full name: `\Monolog\Formatter\JsonFormatter`
 * Parent class: [`\Monolog\Formatter\NormalizerFormatter`](./NormalizerFormatter.md)
 
-
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -19,69 +18,37 @@ This can be useful to log to databases or remote APIs
 
 ## Properties
 
-
 ### batchMode
-
-
 
 ```php
 protected $batchMode
 ```
 
-
-
-
-
-
 ***
 
 ### appendNewline
-
-
 
 ```php
 protected $appendNewline
 ```
 
-
-
-
-
-
 ***
 
 ### includeStacktraces
-
-
 
 ```php
 protected bool $includeStacktraces
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int $batchMode = self::BATCH_MODE_JSON, bool $appendNewline = true, int $maxDepth = 9): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -91,32 +58,16 @@ public __construct(int $batchMode = self::BATCH_MODE_JSON, bool $appendNewline =
 | `$appendNewline` | **bool** |  |
 | `$maxDepth` | **int** |  |
 
-
-
-
 ***
 
 ### getBatchMode
 
-The batch mode option configures the formatting style for
-multiple records. By default, multiple records will be
-formatted as a JSON-encoded array. However, for
-compatibility with some API endpoints, alternative styles
-are available.
+The batch mode option configures the formatting style for multiple records. By default, multiple records will be
+formatted as a JSON-encoded array. However, for compatibility with some API endpoints, alternative styles are available.
 
 ```php
 public getBatchMode(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -128,16 +79,6 @@ True if newlines are appended to every formatted record
 public isAppendingNewlines(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### format
@@ -148,19 +89,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -178,19 +111,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -202,27 +127,15 @@ The formatted set of records
 
 ### includeStacktraces
 
-
-
 ```php
 public includeStacktraces(bool $include = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$include` | **bool** |  |
-
-
-
 
 ***
 
@@ -234,48 +147,27 @@ Return a JSON-encoded array of records.
 protected formatBatchJson(array $records): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** |  |
-
-
-
 
 ***
 
 ### formatBatchNewlines
 
-Use new lines to separate records instead of a
-JSON-encoded array.
+Use new lines to separate records instead of a JSON-encoded array.
 
 ```php
 protected formatBatchNewlines(array $records): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** |  |
-
-
-
 
 ***
 
@@ -287,22 +179,12 @@ Normalizes given $data.
 protected normalize(mixed $data, mixed $depth): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 | `$depth` | **mixed** |  |
-
-
-
 
 ***
 
@@ -315,42 +197,21 @@ Normalizes given exception with or without its own stack trace based on
 protected normalizeException(\Exception|\Throwable $e): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **\Exception&#124;\Throwable** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -358,9 +219,6 @@ public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 |-----------|------|-------------|
 | `$dateFormat` | **string** | The format of the timestamp: one supported by DateTime::format |
 | `$maxDepth` | **int** |  |
-
-
-
 
 ***
 
@@ -372,19 +230,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -402,19 +252,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -426,38 +268,17 @@ The formatted set of records
 
 ### getMaxDepth
 
-
-
 ```php
 public getMaxDepth(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setMaxDepth
 
-
-
 ```php
 public setMaxDepth(int $maxDepth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -465,25 +286,13 @@ public setMaxDepth(int $maxDepth): mixed
 |-----------|------|-------------|
 | `$maxDepth` | **int** |  |
 
-
-
-
 ***
 
 ### normalize
 
-
-
 ```php
 protected normalize(mixed $data, mixed $depth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -492,34 +301,19 @@ protected normalize(mixed $data, mixed $depth): mixed
 | `$data` | **mixed** |  |
 | `$depth` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeException
 
-
-
 ```php
 protected normalizeException(mixed $e): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **mixed** |  |
-
-
-
 
 ***
 
@@ -531,13 +325,6 @@ Return the JSON representation of a value
 protected toJson(mixed $data, bool $ignoreErrors = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -545,11 +332,4 @@ protected toJson(mixed $data, bool $ignoreErrors = false): string
 | `$data` | **mixed** |  |
 | `$ignoreErrors` | **bool** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

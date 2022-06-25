@@ -4,53 +4,36 @@
 
 Visit docbook sectioninfo elements
 
-The sectioninfo elements contain metadata about the document or
-sections, which are transformed into the respective metadata in the HTML
-header.
+The sectioninfo elements contain metadata about the document or sections, which are transformed into the respective
+metadata in the HTML header.
 
 * Full name: `\ezcDocumentDocbookToHtmlHeadHandler`
 * Parent class: [`\ezcDocumentDocbookToHtmlBaseHandler`](./ezcDocumentDocbookToHtmlBaseHandler.md)
 
-
-
 ## Properties
-
 
 ### headerMapping
 
-Element name mapping for meta information in the docbook document to
-HTML meta element names.
+Element name mapping for meta information in the docbook document to HTML meta element names.
 
 ```php
 protected array $headerMapping
 ```
 
-
-
-
-
-
 ***
 
 ### dcHeaderMapping
 
-Element name mapping for meta information in the docbook document to
-HTML meta element names, using the dublin core extensions for meta
-elements.
+Element name mapping for meta information in the docbook document to HTML meta element names, using the dublin core
+extensions for meta elements.
 
 ```php
 protected array $dcHeaderMapping
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### handle
 
@@ -60,13 +43,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -76,14 +53,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getHead
 
@@ -95,19 +67,11 @@ protected getHead(\DOMElement $element): \DOMElement
 
 Get the root node of the HTML document head
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -119,13 +83,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -135,11 +95,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

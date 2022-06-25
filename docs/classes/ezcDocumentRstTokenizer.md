@@ -4,10 +4,7 @@
 
 Tokenizer for RST documents
 
-
-
 * Full name: `\ezcDocumentRstTokenizer`
-
 
 ## Constants
 
@@ -18,7 +15,6 @@ Tokenizer for RST documents
 |`TEXT_END_CHARS`|public| |&#039;`*_\\\\[\\]|()&quot;\&#039;:.\\r\\n\\t &#039;|
 
 ## Properties
-
 
 ### tokens
 
@@ -37,7 +33,6 @@ The tokens are matched in the given order.
 
 ## Methods
 
-
 ### __construct
 
 Construct tokenizer
@@ -46,8 +41,7 @@ Construct tokenizer
 public __construct(): void
 ```
 
-Create token array with regular repression matching the respective
-token.
+Create token array with regular repression matching the respective token.
 
 
 
@@ -67,24 +61,14 @@ Tokenize the given file
 public tokenizeFile(string $file): array
 ```
 
-The method tries to tokenize the passed files and returns an array of
-ezcDocumentRstToken struct on succes, or throws a
-ezcDocumentTokenizerException, if something could not be matched by any
-token.
-
-
-
-
-
+The method tries to tokenize the passed files and returns an array of ezcDocumentRstToken struct on succes, or throws a
+ezcDocumentTokenizerException, if something could not be matched by any token.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -99,19 +83,11 @@ protected convertTabs(\ezcDocumentRstToken $token): void
 Convert all tabs to spaces, as defined in:
 http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#whitespace
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentRstToken** |  |
-
-
-
 
 ***
 
@@ -123,15 +99,8 @@ Tokenize the given string
 public tokenizeString(string $string): array
 ```
 
-The method tries to tokenize the passed strings and returns an array of
-ezcDocumentRstToken struct on succes, or throws a
-ezcDocumentTokenizerException, if something could not be matched by any
-token.
-
-
-
-
-
+The method tries to tokenize the passed strings and returns an array of ezcDocumentRstToken struct on succes, or throws
+a ezcDocumentTokenizerException, if something could not be matched by any token.
 
 **Parameters:**
 
@@ -139,11 +108,4 @@ token.
 |-----------|------|-------------|
 | `$string` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

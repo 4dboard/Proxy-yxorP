@@ -2,33 +2,16 @@
 
 # EmulativeTest
 
-
-
-
-
 * Full name: `\PhpParser\Lexer\EmulativeTest`
 * Parent class: [`\PhpParser\LexerTest`](../LexerTest.md)
 
-
-
-
 ## Methods
 
-
 ### getLexer
-
-
 
 ```php
 protected getLexer(array $options = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -36,25 +19,13 @@ protected getLexer(array $options = array()): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### testReplaceKeywords
 
-
-
 ```php
 public testReplaceKeywords(mixed $keyword, mixed $expectedToken): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -63,25 +34,13 @@ public testReplaceKeywords(mixed $keyword, mixed $expectedToken): mixed
 | `$keyword` | **mixed** |  |
 | `$expectedToken` | **mixed** |  |
 
-
-
-
 ***
 
 ### testNoReplaceKeywordsAfterObjectOperator
 
-
-
 ```php
 public testNoReplaceKeywordsAfterObjectOperator(mixed $keyword): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -89,45 +48,21 @@ public testNoReplaceKeywordsAfterObjectOperator(mixed $keyword): mixed
 |-----------|------|-------------|
 | `$keyword` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideTestReplaceKeywords
-
-
 
 ```php
 public provideTestReplaceKeywords(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testLexNewFeatures
 
-
-
 ```php
 public testLexNewFeatures(mixed $code, array $expectedTokens): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -136,25 +71,13 @@ public testLexNewFeatures(mixed $code, array $expectedTokens): mixed
 | `$code` | **mixed** |  |
 | `$expectedTokens` | **array** |  |
 
-
-
-
 ***
 
 ### testLeaveStuffAloneInStrings
 
-
-
 ```php
 public testLeaveStuffAloneInStrings(mixed $code): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -162,49 +85,23 @@ public testLeaveStuffAloneInStrings(mixed $code): mixed
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideTestLexNewFeatures
-
-
 
 ```php
 public provideTestLexNewFeatures(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getLexer
-
-
 
 ```php
 protected getLexer(array $options = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -212,25 +109,13 @@ protected getLexer(array $options = array()): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### testError
 
-
-
 ```php
 public testError(mixed $code, mixed $message): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -239,45 +124,21 @@ public testError(mixed $code, mixed $message): mixed
 | `$code` | **mixed** |  |
 | `$message` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideTestError
-
-
 
 ```php
 public provideTestError(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testLex
 
-
-
 ```php
 public testLex(mixed $code, mixed $options, mixed $tokens): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -287,45 +148,21 @@ public testLex(mixed $code, mixed $options, mixed $tokens): mixed
 | `$options` | **mixed** |  |
 | `$tokens` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideTestLex
-
-
 
 ```php
 public provideTestLex(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testHandleHaltCompiler
 
-
-
 ```php
 public testHandleHaltCompiler(mixed $code, mixed $remaining): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -334,71 +171,28 @@ public testHandleHaltCompiler(mixed $code, mixed $remaining): mixed
 | `$code` | **mixed** |  |
 | `$remaining` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideTestHaltCompiler
-
-
 
 ```php
 public provideTestHaltCompiler(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testHandleHaltCompilerError
-
-
 
 ```php
 public testHandleHaltCompilerError(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testGetTokens
-
-
 
 ```php
 public testGetTokens(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

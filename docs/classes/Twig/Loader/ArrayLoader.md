@@ -4,63 +4,41 @@
 
 Loads a template from an array.
 
-When using this loader with a cache mechanism, you should know that a new cache
-key is generated each time a template content "changes" (the cache key being the
-source code of the template). If you don't want to see your cache grows out of
-control, you need to take care of clearing the old cache file by yourself.
+When using this loader with a cache mechanism, you should know that a new cache key is generated each time a template
+content "changes" (the cache key being the source code of the template). If you don't want to see your cache grows out
+of control, you need to take care of clearing the old cache file by yourself.
 
 This loader should only be used for unit testing.
 
 * Full name: `\Twig\Loader\ArrayLoader`
 * This class implements:
-[`\Twig\Loader\LoaderInterface`](./LoaderInterface.md), [`\Twig\Loader\ExistsLoaderInterface`](./ExistsLoaderInterface.md), [`\Twig\Loader\SourceContextLoaderInterface`](./SourceContextLoaderInterface.md)
-
-
+  [`\Twig\Loader\LoaderInterface`](./LoaderInterface.md)
+  , [`\Twig\Loader\ExistsLoaderInterface`](./ExistsLoaderInterface.md)
+  , [`\Twig\Loader\SourceContextLoaderInterface`](./SourceContextLoaderInterface.md)
 
 ## Properties
 
-
 ### templates
-
-
 
 ```php
 protected $templates
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $templates = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$templates` | **array** | An array of templates (keys are the names, and values are the source code) |
-
-
-
 
 ***
 
@@ -72,22 +50,12 @@ Adds or overrides a template.
 public setTemplate(string $name, string $template): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The template name |
 | `$template` | **string** | The template source |
-
-
-
 
 ***
 
@@ -99,19 +67,11 @@ Gets the source code of a template, given its name.
 public getSource(mixed $name): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the template to load |
-
 
 **Return Value:**
 
@@ -129,21 +89,11 @@ Returns the source context for a given template logical name.
 public getSourceContext(mixed $name): \Twig\Source
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The template logical name |
-
-
-
 
 ***
 
@@ -155,19 +105,11 @@ Check if we have the source code of a template, given its name.
 public exists(mixed $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the template to check if we can load |
-
 
 **Return Value:**
 
@@ -185,19 +127,11 @@ Gets the cache key to use for the cache for a given template name.
 public getCacheKey(mixed $name): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the template to load |
-
 
 **Return Value:**
 
@@ -215,13 +149,6 @@ Returns true if the template is still fresh.
 public isFresh(mixed $name, mixed $time): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -229,15 +156,6 @@ public isFresh(mixed $name, mixed $time): bool
 | `$name` | **mixed** | The template name |
 | `$time` | **mixed** | Timestamp of the last modification time of the<br />cached template |
 
-
 **Return Value:**
 
-true if the template is fresh, false otherwise
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+true if the template is fresh, false otherwise yxorP::get('REQUEST')

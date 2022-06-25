@@ -4,62 +4,35 @@
 
 Configuration definition for the transformer.
 
-
-
 * Full name: `\phpDocumentor\Transformer\Configuration`
-
-
 
 ## Properties
 
-
 ### source
-
-
 
 ```php
 protected string|null $source
 ```
 
-
-
-
-
-
 ***
 
 ### target
-
-
 
 ```php
 protected string $target
 ```
 
-
-
-
-
-
 ***
 
 ### externalClassDocumentation
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Configuration\ExternalClassDocumentation[] $externalClassDocumentation
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getSource
 
@@ -68,16 +41,6 @@ Returns the location where the output of the parser is located.
 ```php
 public getSource(): string|null
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -92,19 +55,11 @@ public setSource(string $source): void
 This might, for example, be used in the Run command to read the parser's output location from the `target`
 setting in the configuration of the parser and then, by using this method, be set.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string** |  |
-
-
-
 
 ***
 
@@ -116,16 +71,6 @@ Returns the destination location where the output of the transformation process 
 public getTarget(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getExternalClassDocumentation
@@ -135,16 +80,6 @@ Returns the references to external documentation sites for classes not found in 
 ```php
 public getExternalClassDocumentation(): \phpDocumentor\Transformer\Configuration\ExternalClassDocumentation[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -156,24 +91,10 @@ Sets references to external documentation sites for classes not found in the par
 public setExternalClassDocumentation(\phpDocumentor\Transformer\Configuration\ExternalClassDocumentation[] $externalClassDocumentation): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$externalClassDocumentation` | **\phpDocumentor\Transformer\Configuration\ExternalClassDocumentation[]** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

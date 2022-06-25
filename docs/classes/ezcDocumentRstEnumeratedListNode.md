@@ -4,11 +4,8 @@
 
 The enumeration lsit item AST node
 
-
-
 * Full name: `\ezcDocumentRstEnumeratedListNode`
 * Parent class: [`\ezcDocumentRstBlockNode`](./ezcDocumentRstBlockNode.md)
-
 
 ## Constants
 
@@ -22,46 +19,34 @@ The enumeration lsit item AST node
 
 ## Properties
 
-
 ### listType
 
 Enumerated list type, should be one of the following:
- - 1: Numeric
- - 2: Uppercase
- - 3: Lowercase
- - 4: Uppercase roman
- - 5: Lowercase roman
+
+- 1: Numeric
+- 2: Uppercase
+- 3: Lowercase
+- 4: Uppercase roman
+- 5: Lowercase roman
 
 ```php
 public int $listType
 ```
 
-
-
-
-
-
 ***
 
 ### text
 
-Storage for complete textual representation of the enunmeration list
-marker, for the case, that enumeration list items needs to be converted
-back to text.
+Storage for complete textual representation of the enunmeration list marker, for the case, that enumeration list items
+needs to be converted back to text.
 
 ```php
 public string $text
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -71,21 +56,11 @@ Construct RST document node
 public __construct(\ezcDocumentRstToken $token): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentRstToken** |  |
-
-
-
 
 ***
 
@@ -97,21 +72,9 @@ Return node content, if available somehow
 protected content(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -121,22 +84,12 @@ Construct RST node
 public __construct(\ezcDocumentRstToken $token, int $type): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentRstToken** |  |
 | `$type` | **int** |  |
-
-
-
 
 ***
 
@@ -152,17 +105,11 @@ Return a user readable name from the numeric node type.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
-
-
-
 
 ***
 
@@ -174,16 +121,6 @@ Return node content, if available somehow
 protected content(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### dump
@@ -194,24 +131,10 @@ Get dump of document
 public dump(int $depth): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$depth` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

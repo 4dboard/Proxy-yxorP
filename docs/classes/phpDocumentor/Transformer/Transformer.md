@@ -4,12 +4,9 @@
 
 Core class responsible for transforming the cache file to a set of artifacts.
 
-
-
 * Full name: `\phpDocumentor\Transformer\Transformer`
 * This class implements:
-[`\phpDocumentor\Compiler\CompilerPassInterface`](../Compiler/CompilerPassInterface.md)
-
+  [`\phpDocumentor\Compiler\CompilerPassInterface`](../Compiler/CompilerPassInterface.md)
 
 ## Constants
 
@@ -25,69 +22,39 @@ Core class responsible for transforming the cache file to a set of artifacts.
 
 ## Properties
 
-
 ### target
-
-
 
 ```php
 protected string|null $target
 ```
 
-
-
-
-
-
 ***
 
 ### templates
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Template\Collection $templates
 ```
 
-
-
-
-
-
 ***
 
 ### writers
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Writer\Collection|\phpDocumentor\Transformer\Writer\WriterAbstract[] $writers
 ```
 
-
-
-
-
-
 ***
 
 ### transformations
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Transformation[] $transformations
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -97,22 +64,12 @@ Wires the template collection and writer collection to this transformer.
 public __construct(\phpDocumentor\Transformer\Template\Collection $templateCollection, \phpDocumentor\Transformer\Writer\Collection $writerCollection): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$templateCollection` | **\phpDocumentor\Transformer\Template\Collection** |  |
 | `$writerCollection` | **\phpDocumentor\Transformer\Writer\Collection** |  |
-
-
-
 
 ***
 
@@ -124,16 +81,6 @@ Returns a textual description of what this pass does for output purposes.
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTarget
@@ -144,21 +91,11 @@ Sets the target location where to output the artifacts.
 public setTarget(string $target): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** | The target location where to output the artifacts. |
-
-
-
 
 ***
 
@@ -170,16 +107,6 @@ Returns the location where to store the artifacts.
 public getTarget(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTemplates
@@ -189,16 +116,6 @@ Returns the list of templates which are going to be adopted.
 ```php
 public getTemplates(): \phpDocumentor\Transformer\Template\Collection
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -210,21 +127,11 @@ Transforms the given project into a series of artifacts as provided by the templ
 public execute(\phpDocumentor\Descriptor\ProjectDescriptor $project): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
-
-
-
 
 ***
 
@@ -243,19 +150,11 @@ This method strips down the given $name using the following rules:
 * any dots that the name starts or ends with is removed
 * the result is suffixed with .html
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name to convert. |
-
-
-
 
 ***
 
@@ -267,22 +166,12 @@ Dispatches a logging request.
 public log(string $message, string $priority = LogLevel::INFO): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message to log. |
 | `$priority` | **string** | The logging priority |
-
-
-
 
 ***
 
@@ -294,21 +183,11 @@ Dispatches a logging request to log a debug message.
 public debug(string $message): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message to log. |
-
-
-
 
 ***
 
@@ -320,22 +199,12 @@ Initializes all writers that are used during this transformation.
 private initializeWriters(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation[] $transformations): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 | `$transformations` | **\phpDocumentor\Transformer\Transformation[]** |  |
-
-
-
 
 ***
 
@@ -358,20 +227,12 @@ Emitted events:
 - transformer.writer.initialization.pre, before the initialization of a single writer.
 - transformer.writer.initialization.post, after the initialization of a single writer.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writer` | **\phpDocumentor\Transformer\Writer\WriterAbstract** |  |
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
-
-
-
 
 ***
 
@@ -383,22 +244,12 @@ Applies all given transformations to the provided project.
 private transformProject(\phpDocumentor\Descriptor\ProjectDescriptor $project, \phpDocumentor\Transformer\Transformation[] $transformations): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 | `$transformations` | **\phpDocumentor\Transformer\Transformation[]** |  |
-
-
-
 
 ***
 
@@ -418,11 +269,6 @@ In addition this method will emit the following events:
 - transformer.transformation.pre, before the project has been transformed with this transformation.
 - transformer.transformation.post, after the project has been transformed with this transformation
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -430,11 +276,4 @@ In addition this method will emit the following events:
 | `$transformation` | **\phpDocumentor\Transformer\Transformation** |  |
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

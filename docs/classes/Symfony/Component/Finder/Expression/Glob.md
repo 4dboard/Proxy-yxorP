@@ -2,60 +2,33 @@
 
 # Glob
 
-
-
-
-
 * Full name: `\Symfony\Component\Finder\Expression\Glob`
 * This class implements:
-[`\Symfony\Component\Finder\Expression\ValueInterface`](./ValueInterface.md)
-
-
+  [`\Symfony\Component\Finder\Expression\ValueInterface`](./ValueInterface.md)
 
 ## Properties
 
-
 ### pattern
-
-
 
 ```php
 private $pattern
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $pattern): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pattern` | **string** |  |
-
-
-
 
 ***
 
@@ -67,16 +40,6 @@ Renders string representation of expression.
 public render(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### renderPattern
@@ -86,16 +49,6 @@ Renders string representation of pattern.
 ```php
 public renderPattern(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -107,16 +60,6 @@ Returns expression type.
 public getType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isCaseSensitive
@@ -127,67 +70,33 @@ Returns value case sensitivity.
 public isCaseSensitive(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### prepend
-
-
 
 ```php
 public prepend(mixed $expr): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$expr` | **mixed** |  |
-
-
-
 
 ***
 
 ### append
 
-
-
 ```php
 public append(mixed $expr): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$expr` | **mixed** |  |
-
-
-
 
 ***
 
@@ -199,32 +108,13 @@ Tests if glob is expandable ("*.{a,b}" syntax).
 public isExpandable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toRegex
 
-
-
 ```php
 public toRegex(bool $strictLeadingDot = true, bool $strictWildcardSlash = true): \Symfony\Component\Finder\Expression\Regex
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -233,11 +123,4 @@ public toRegex(bool $strictLeadingDot = true, bool $strictWildcardSlash = true):
 | `$strictLeadingDot` | **bool** |  |
 | `$strictWildcardSlash` | **bool** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

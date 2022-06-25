@@ -4,15 +4,10 @@
 
 Allows to manipulate the exit code of a command after its execution.
 
-
-
 * Full name: `\Symfony\Component\Console\Event\ConsoleTerminateEvent`
 * Parent class: [`\Symfony\Component\Console\Event\ConsoleEvent`](./ConsoleEvent.md)
 
-
-
 ## Properties
-
 
 ### exitCode
 
@@ -22,30 +17,15 @@ The exit code of the command.
 private int $exitCode
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Command\Command $command, \Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output, mixed $exitCode): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -55,9 +35,6 @@ public __construct(\Symfony\Component\Console\Command\Command $command, \Symfony
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
 | `$exitCode` | **mixed** |  |
-
-
-
 
 ***
 
@@ -69,21 +46,11 @@ Sets the exit code.
 public setExitCode(int $exitCode): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$exitCode` | **int** | The command exit code |
-
-
-
 
 ***
 
@@ -95,14 +62,6 @@ Gets the exit code.
 public getExitCode(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The command exit code
@@ -111,24 +70,13 @@ The command exit code
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Command\Command $command, \Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -137,9 +85,6 @@ public __construct(\Symfony\Component\Console\Command\Command $command, \Symfony
 | `$command` | **\Symfony\Component\Console\Command\Command** |  |
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
-
-
 
 ***
 
@@ -150,14 +95,6 @@ Gets the command that is executed.
 ```php
 public getCommand(): \Symfony\Component\Console\Command\Command
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -175,14 +112,6 @@ Gets the input instance.
 public getInput(): \Symfony\Component\Console\Input\InputInterface
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An InputInterface instance
@@ -198,14 +127,6 @@ Gets the output instance.
 ```php
 public getOutput(): \Symfony\Component\Console\Output\OutputInterface
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -223,22 +144,13 @@ Returns whether further event listeners should be triggered.
 public isPropagationStopped(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether propagation was already stopped for this event
 
-
 **See Also:**
 
-* \Symfony\Component\EventDispatcher\Event::stopPropagation() - 
+* \Symfony\Component\EventDispatcher\Event::stopPropagation() -
 
 ***
 
@@ -250,9 +162,8 @@ Stops the propagation of the event to further event listeners.
 public stopPropagation(): mixed
 ```
 
-If multiple event listeners are connected to the same event, no
-further event listener will be triggered once any trigger calls
-stopPropagation().
+If multiple event listeners are connected to the same event, no further event listener will be triggered once any
+trigger calls stopPropagation().
 
 
 
@@ -272,23 +183,13 @@ Stores the EventDispatcher that dispatches this Event.
 public setDispatcher(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
-
-
-
 
 ***
 
@@ -300,17 +201,7 @@ Returns the EventDispatcher that dispatches this Event.
 public getDispatcher(): \Symfony\Component\EventDispatcher\EventDispatcherInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -322,17 +213,7 @@ Gets the event's name.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -344,14 +225,7 @@ Sets the event's name property.
 public setName(string $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -359,11 +233,4 @@ public setName(string $name): mixed
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

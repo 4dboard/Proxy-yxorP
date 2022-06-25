@@ -2,79 +2,41 @@
 
 # Mongo
 
-
-
-
-
 * Full name: `\MongoHybrid\Mongo`
-
-
 
 ## Properties
 
-
 ### client
-
-
 
 ```php
 protected $client
 ```
 
-
-
-
-
-
 ***
 
 ### db
-
-
 
 ```php
 protected $db
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 protected $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -84,52 +46,28 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 | `$options` | **mixed** |  |
 | `$driverOptions` | **mixed** |  |
 
-
-
-
 ***
 
 ### getCollection
-
-
 
 ```php
 public getCollection(mixed $name, mixed $db = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 | `$db` | **mixed** |  |
-
-
-
 
 ***
 
 ### dropCollection
 
-
-
 ```php
 public dropCollection(mixed $name, mixed $db = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -138,25 +76,13 @@ public dropCollection(mixed $name, mixed $db = null): mixed
 | `$name` | **mixed** |  |
 | `$db` | **mixed** |  |
 
-
-
-
 ***
 
 ### renameCollection
 
-
-
 ```php
 public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -166,25 +92,13 @@ public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 | `$newname` | **mixed** |  |
 | `$db` | **mixed** |  |
 
-
-
-
 ***
 
 ### findOneById
 
-
-
 ```php
 public findOneById(mixed $collection, mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -193,25 +107,13 @@ public findOneById(mixed $collection, mixed $id): mixed
 | `$collection` | **mixed** |  |
 | `$id` | **mixed** |  |
 
-
-
-
 ***
 
 ### findOne
 
-
-
 ```php
 public findOne(mixed $collection, mixed $filter = [], mixed $projection = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -221,25 +123,13 @@ public findOne(mixed $collection, mixed $filter = [], mixed $projection = []): m
 | `$filter` | **mixed** |  |
 | `$projection` | **mixed** |  |
 
-
-
-
 ***
 
 ### find
 
-
-
 ```php
 public find(mixed $collection, mixed $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -248,25 +138,13 @@ public find(mixed $collection, mixed $options = []): mixed
 | `$collection` | **mixed** |  |
 | `$options` | **mixed** |  |
 
-
-
-
 ***
 
 ### insert
 
-
-
 ```php
 public insert(mixed $collection, mixed& $doc): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -275,25 +153,13 @@ public insert(mixed $collection, mixed& $doc): mixed
 | `$collection` | **mixed** |  |
 | `$doc` | **mixed** |  |
 
-
-
-
 ***
 
 ### save
 
-
-
 ```php
 public save(mixed $collection, mixed& $data, mixed $create = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -303,25 +169,13 @@ public save(mixed $collection, mixed& $data, mixed $create = false): mixed
 | `$data` | **mixed** |  |
 | `$create` | **mixed** |  |
 
-
-
-
 ***
 
 ### update
 
-
-
 ```php
 public update(mixed $collection, mixed $criteria, mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -331,25 +185,13 @@ public update(mixed $collection, mixed $criteria, mixed $data): mixed
 | `$criteria` | **mixed** |  |
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### remove
 
-
-
 ```php
 public remove(mixed $collection, mixed $filter = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -358,25 +200,13 @@ public remove(mixed $collection, mixed $filter = []): mixed
 | `$collection` | **mixed** |  |
 | `$filter` | **mixed** |  |
 
-
-
-
 ***
 
 ### removeField
 
-
-
 ```php
 public removeField(mixed $collection, mixed $field, mixed $filter = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -386,25 +216,13 @@ public removeField(mixed $collection, mixed $field, mixed $filter = []): mixed
 | `$field` | **mixed** |  |
 | `$filter` | **mixed** |  |
 
-
-
-
 ***
 
 ### renameField
 
-
-
 ```php
 public renameField(mixed $collection, mixed $field, mixed $newfield, mixed $filter = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -415,25 +233,13 @@ public renameField(mixed $collection, mixed $field, mixed $newfield, mixed $filt
 | `$newfield` | **mixed** |  |
 | `$filter` | **mixed** |  |
 
-
-
-
 ***
 
 ### count
 
-
-
 ```php
 public count(mixed $collection, mixed $filter = [], mixed $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -443,25 +249,13 @@ public count(mixed $collection, mixed $filter = [], mixed $options = []): mixed
 | `$filter` | **mixed** |  |
 | `$options` | **mixed** |  |
 
-
-
-
 ***
 
 ### _fixMongoIds
 
-
-
 ```php
 protected _fixMongoIds(mixed& $data, mixed $infinite = false, mixed $_level): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -471,11 +265,4 @@ protected _fixMongoIds(mixed& $data, mixed $infinite = false, mixed $_level): mi
 | `$infinite` | **mixed** |  |
 | `$_level` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

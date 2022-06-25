@@ -2,18 +2,20 @@
 
 # BlackHole
 
-
-
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\BlackHole`
 * This class implements:
-[`\Zend\Cache\Storage\StorageInterface`](../StorageInterface.md), [`\Zend\Cache\Storage\AvailableSpaceCapableInterface`](../AvailableSpaceCapableInterface.md), [`\Zend\Cache\Storage\ClearByNamespaceInterface`](../ClearByNamespaceInterface.md), [`\Zend\Cache\Storage\ClearByPrefixInterface`](../ClearByPrefixInterface.md), [`\Zend\Cache\Storage\ClearExpiredInterface`](../ClearExpiredInterface.md), [`\Zend\Cache\Storage\FlushableInterface`](../FlushableInterface.md), [`\Zend\Cache\Storage\IterableInterface`](../IterableInterface.md), [`\Zend\Cache\Storage\OptimizableInterface`](../OptimizableInterface.md), [`\Zend\Cache\Storage\TaggableInterface`](../TaggableInterface.md), [`\Zend\Cache\Storage\TotalSpaceCapableInterface`](../TotalSpaceCapableInterface.md)
-
-
+  [`\Zend\Cache\Storage\StorageInterface`](../StorageInterface.md)
+  , [`\Zend\Cache\Storage\AvailableSpaceCapableInterface`](../AvailableSpaceCapableInterface.md)
+  , [`\Zend\Cache\Storage\ClearByNamespaceInterface`](../ClearByNamespaceInterface.md)
+  , [`\Zend\Cache\Storage\ClearByPrefixInterface`](../ClearByPrefixInterface.md)
+  , [`\Zend\Cache\Storage\ClearExpiredInterface`](../ClearExpiredInterface.md)
+  , [`\Zend\Cache\Storage\FlushableInterface`](../FlushableInterface.md)
+  , [`\Zend\Cache\Storage\IterableInterface`](../IterableInterface.md)
+  , [`\Zend\Cache\Storage\OptimizableInterface`](../OptimizableInterface.md)
+  , [`\Zend\Cache\Storage\TaggableInterface`](../TaggableInterface.md)
+  , [`\Zend\Cache\Storage\TotalSpaceCapableInterface`](../TotalSpaceCapableInterface.md)
 
 ## Properties
-
 
 ### capabilities
 
@@ -22,11 +24,6 @@ Capabilities of this adapter
 ```php
 protected null|\Zend\Cache\Storage\Capabilities $capabilities
 ```
-
-
-
-
-
 
 ***
 
@@ -38,11 +35,6 @@ Marker to change capabilities
 protected null|object $capabilityMarker
 ```
 
-
-
-
-
-
 ***
 
 ### options
@@ -53,15 +45,9 @@ options
 protected null|\Zend\Cache\Storage\Adapter\AdapterOptions $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -71,21 +57,11 @@ Constructor
 public __construct(null|array|\Traversable|\Zend\Cache\Storage\Adapter\AdapterOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable&#124;\Zend\Cache\Storage\Adapter\AdapterOptions** |  |
-
-
-
 
 ***
 
@@ -97,19 +73,11 @@ Set options.
 public setOptions(array|\Traversable|\Zend\Cache\Storage\Adapter\AdapterOptions $options): \Zend\Cache\Storage\StorageInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Cache\Storage\Adapter\AdapterOptions** |  |
-
 
 **Return Value:**
 
@@ -127,16 +95,6 @@ Get options
 public getOptions(): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getItem
@@ -147,13 +105,6 @@ Get an item.
 public getItem(string $key, bool& $success = null, mixed& $casToken = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -161,7 +112,6 @@ public getItem(string $key, bool& $success = null, mixed& $casToken = null): mix
 | `$key` | **string** |  |
 | `$success` | **bool** |  |
 | `$casToken` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -179,19 +129,11 @@ Get multiple items.
 public getItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -209,21 +151,11 @@ Test if an item exists.
 public hasItem(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -235,19 +167,11 @@ Test multiple items.
 public hasItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -265,19 +189,11 @@ Get metadata of an item.
 public getMetadata(string $key): array|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
 
 **Return Value:**
 
@@ -295,19 +211,11 @@ Get multiple metadata
 public getMetadatas(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -325,22 +233,12 @@ Store an item.
 public setItem(string $key, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -352,19 +250,11 @@ Store multiple items.
 public setItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -382,22 +272,12 @@ Add an item.
 public addItem(string $key, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -409,19 +289,11 @@ Add multiple items.
 public addItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -439,22 +311,12 @@ Replace an existing item.
 public replaceItem(string $key, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -466,19 +328,11 @@ Replace multiple existing items.
 public replaceItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -496,13 +350,7 @@ Set an item only if token matches
 public checkAndSetItem(mixed $token, string $key, mixed $value): bool
 ```
 
-It uses the token received from getItem() to check if the item has
-changed before overwriting it.
-
-
-
-
-
+It uses the token received from getItem() to check if the item has changed before overwriting it.
 
 **Parameters:**
 
@@ -511,9 +359,6 @@ changed before overwriting it.
 | `$token` | **mixed** |  |
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -525,21 +370,11 @@ Reset lifetime of an item
 public touchItem(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -551,19 +386,11 @@ Reset lifetime of multiple items.
 public touchItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -581,21 +408,11 @@ Remove an item.
 public removeItem(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -607,19 +424,11 @@ Remove multiple items.
 public removeItems(array $keys): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keys` | **array** |  |
-
 
 **Return Value:**
 
@@ -637,20 +446,12 @@ Increment an item.
 public incrementItem(string $key, int $value): int|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **int** |  |
-
 
 **Return Value:**
 
@@ -668,19 +469,11 @@ Increment multiple items.
 public incrementItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -698,20 +491,12 @@ Decrement an item.
 public decrementItem(string $key, int $value): int|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **int** |  |
-
 
 **Return Value:**
 
@@ -729,19 +514,11 @@ Decrement multiple items.
 public decrementItems(array $keyValuePairs): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyValuePairs` | **array** |  |
-
 
 **Return Value:**
 
@@ -759,16 +536,6 @@ Capabilities of this storage
 public getCapabilities(): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getAvailableSpace
@@ -778,16 +545,6 @@ Get available space in bytes
 ```php
 public getAvailableSpace(): int|float
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -799,21 +556,11 @@ Remove items of given namespace
 public clearByNamespace(string $namespace): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -825,21 +572,11 @@ Remove items matching given prefix
 public clearByPrefix(string $prefix): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
-
-
-
 
 ***
 
@@ -851,16 +588,6 @@ Remove expired items
 public clearExpired(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### flush
@@ -870,16 +597,6 @@ Flush the whole storage
 ```php
 public flush(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -891,16 +608,6 @@ Get the storage iterator
 public getIterator(): \Zend\Cache\Storage\Adapter\KeyListIterator
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### optimize
@@ -910,16 +617,6 @@ Optimize the storage
 ```php
 public optimize(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -933,20 +630,12 @@ public setTags(string $key, string[] $tags): bool
 
 An empty array will remove all tags.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$tags` | **string[]** |  |
-
-
-
 
 ***
 
@@ -958,21 +647,11 @@ Get tags of an item by given key
 public getTags(string $key): string[]|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -984,13 +663,7 @@ Remove items matching given tags.
 public clearByTags(string[] $tags, bool $disjunction = false): bool
 ```
 
-If $disjunction only one of the given tags must match
-else all given tags must match.
-
-
-
-
-
+If $disjunction only one of the given tags must match else all given tags must match.
 
 **Parameters:**
 
@@ -998,9 +671,6 @@ else all given tags must match.
 |-----------|------|-------------|
 | `$tags` | **string[]** |  |
 | `$disjunction` | **bool** |  |
-
-
-
 
 ***
 
@@ -1012,18 +682,4 @@ Get total space in bytes
 public getTotalSpace(): int|float
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

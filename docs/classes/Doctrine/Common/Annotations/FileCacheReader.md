@@ -4,125 +4,68 @@
 
 File cache reader for annotations.
 
-
-
 * Full name: `\Doctrine\Common\Annotations\FileCacheReader`
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Doctrine\Common\Annotations\Reader`](./Reader.md)
-
-
+  [`\Doctrine\Common\Annotations\Reader`](./Reader.md)
 
 ## Properties
 
-
 ### reader
-
-
 
 ```php
 private \Doctrine\Common\Annotations\Reader $reader
 ```
 
-
-
-
-
-
 ***
 
 ### dir
-
-
 
 ```php
 private string $dir
 ```
 
-
-
-
-
-
 ***
 
 ### debug
-
-
 
 ```php
 private bool $debug
 ```
 
-
-
-
-
-
 ***
 
 ### loadedAnnotations
-
-
 
 ```php
 private $loadedAnnotations
 ```
 
-
-
-
-
-
 ***
 
 ### classNameHashes
-
-
 
 ```php
 private array&lt;string,string&gt; $classNameHashes
 ```
 
-
-
-
-
-
 ***
 
 ### umask
-
-
 
 ```php
 private int $umask
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Doctrine\Common\Annotations\Reader $reader, string $cacheDir, bool $debug = false, int $umask = 02): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -132,9 +75,6 @@ public __construct(\Doctrine\Common\Annotations\Reader $reader, string $cacheDir
 | `$cacheDir` | **string** |  |
 | `$debug` | **bool** |  |
 | `$umask` | **int** |  |
-
-
-
 
 ***
 
@@ -146,19 +86,12 @@ Gets the annotations applied to a class.
 public getClassAnnotations(\ReflectionClass $class): object[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
-
+| `$class` | **
+\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
 
 **Return Value:**
 
@@ -176,19 +109,12 @@ Gets the annotations applied to a property.
 public getPropertyAnnotations(\ReflectionProperty $property): object[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$property` | **\ReflectionProperty** | The ReflectionProperty of the property<br />from which the annotations should be read. |
-
+| `$property` | **
+\ReflectionProperty** | The ReflectionProperty of the property<br />from which the annotations should be read. |
 
 **Return Value:**
 
@@ -206,19 +132,12 @@ Gets the annotations applied to a method.
 public getMethodAnnotations(\ReflectionMethod $method): object[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$method` | **\ReflectionMethod** | The ReflectionMethod of the method from which<br />the annotations should be read. |
-
+| `$method` | **
+\ReflectionMethod** | The ReflectionMethod of the method from which<br />the annotations should be read. |
 
 **Return Value:**
 
@@ -236,22 +155,12 @@ Saves the cache file.
 private saveCacheFile(string $path, mixed $data): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
@@ -263,20 +172,13 @@ Gets a class annotation.
 public getClassAnnotation(\ReflectionClass $class, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$class` | **\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
+| `$class` | **
+\ReflectionClass** | The ReflectionClass of the class from which<br />the class annotations should be read. |
 | `$annotationName` | **mixed** | The name of the annotation. |
-
 
 **Return Value:**
 
@@ -294,20 +196,12 @@ Gets a method annotation.
 public getMethodAnnotation(\ReflectionMethod $method, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\ReflectionMethod** | The ReflectionMethod to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
-
 
 **Return Value:**
 
@@ -325,20 +219,12 @@ Gets a property annotation.
 public getPropertyAnnotation(\ReflectionProperty $property, mixed $annotationName): \Doctrine\Common\Annotations\T|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **\ReflectionProperty** | The ReflectionProperty to read the annotations from. |
 | `$annotationName` | **mixed** | The name of the annotation. |
-
 
 **Return Value:**
 
@@ -356,18 +242,4 @@ Clears loaded annotations.
 public clearLoadedAnnotations(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

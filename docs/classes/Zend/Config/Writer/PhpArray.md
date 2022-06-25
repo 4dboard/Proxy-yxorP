@@ -2,40 +2,26 @@
 
 # PhpArray
 
-
-
-
-
 * Full name: `\Zend\Config\Writer\PhpArray`
 * Parent class: [`\Zend\Config\Writer\AbstractWriter`](./AbstractWriter.md)
-
 
 ## Constants
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`INDENT_STRING`|public|string|&#039;    &#039;|
+|`INDENT_STRING`|public|string|&#039; &#039;|
 
 ## Properties
 
-
 ### useBracketArraySyntax
-
-
 
 ```php
 protected bool $useBracketArraySyntax
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### processConfig
 
@@ -45,21 +31,11 @@ processConfig(): defined by AbstractWriter.
 public processConfig(array $config): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
-
-
-
 
 ***
 
@@ -71,21 +47,11 @@ Sets whether or not to use the PHP 5.4+ "[]" array syntax.
 public setUseBracketArraySyntax(bool $value): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **bool** |  |
-
-
-
 
 ***
 
@@ -97,13 +63,6 @@ toFile(): defined by Writer interface.
 public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -112,11 +71,9 @@ public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 | `$config` | **mixed** |  |
 | `$exclusiveLock` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Writer\WriterInterface::toFile() - 
+* \Zend\Config\Writer\WriterInterface::toFile() -
 
 ***
 
@@ -128,13 +85,6 @@ Recursively processes a PHP config array structure into a readable format.
 protected processIndented(array $config, array $arraySyntax, int& $indentLevel = 1): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -143,14 +93,9 @@ protected processIndented(array $config, array $arraySyntax, int& $indentLevel =
 | `$arraySyntax` | **array** |  |
 | `$indentLevel` | **int** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### toFile
 
@@ -160,13 +105,6 @@ toFile(): defined by Writer interface.
 public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -175,11 +113,9 @@ public toFile(string $filename, mixed $config, bool $exclusiveLock = true): void
 | `$config` | **mixed** |  |
 | `$exclusiveLock` | **bool** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Writer\WriterInterface::toFile() - 
+* \Zend\Config\Writer\WriterInterface::toFile() -
 
 ***
 
@@ -191,41 +127,25 @@ toString(): defined by Writer interface.
 public toString(mixed $config): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Writer\WriterInterface::toString() - 
+* \Zend\Config\Writer\WriterInterface::toString() -
 
 ***
 
 ### processConfig
 
-
-
 ```php
 protected processConfig(array $config): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -233,11 +153,4 @@ protected processConfig(array $config): string
 |-----------|------|-------------|
 | `$config` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

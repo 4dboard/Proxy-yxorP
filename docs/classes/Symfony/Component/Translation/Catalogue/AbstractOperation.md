@@ -4,76 +4,45 @@
 
 Base catalogues binary operation class.
 
-A catalogue binary operation performs operation on
-source (the left argument) and target (the right argument) catalogues.
+A catalogue binary operation performs operation on source (the left argument) and target (the right argument)
+catalogues.
 
 * Full name: `\Symfony\Component\Translation\Catalogue\AbstractOperation`
 * This class implements:
-[`\Symfony\Component\Translation\Catalogue\OperationInterface`](./OperationInterface.md)
+  [`\Symfony\Component\Translation\Catalogue\OperationInterface`](./OperationInterface.md)
 * This class is an **Abstract class**
-
-
 
 ## Properties
 
-
 ### source
-
-
 
 ```php
 protected \Symfony\Component\Translation\MessageCatalogueInterface $source
 ```
 
-
-
-
-
-
 ***
 
 ### target
-
-
 
 ```php
 protected \Symfony\Component\Translation\MessageCatalogueInterface $target
 ```
 
-
-
-
-
-
 ***
 
 ### result
-
-
 
 ```php
 protected \Symfony\Component\Translation\MessageCatalogue $result
 ```
 
-
-
-
-
-
 ***
 
 ### domains
 
-
-
 ```php
 private null|array $domains
 ```
-
-
-
-
-
 
 ***
 
@@ -86,6 +55,7 @@ protected array $messages
 ```
 
 The data structure of this array is as follows:
+
 ```php
 array(
     'domain 1' => array(
@@ -102,28 +72,15 @@ array(
 )
 ```
 
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Translation\MessageCatalogueInterface $source, \Symfony\Component\Translation\MessageCatalogueInterface $target): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -131,9 +88,6 @@ public __construct(\Symfony\Component\Translation\MessageCatalogueInterface $sou
 |-----------|------|-------------|
 | `$source` | **\Symfony\Component\Translation\MessageCatalogueInterface** | The source catalogue |
 | `$target` | **\Symfony\Component\Translation\MessageCatalogueInterface** | The target catalogue |
-
-
-
 
 ***
 
@@ -145,16 +99,6 @@ Returns domains affected by operation.
 public getDomains(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMessages
@@ -165,21 +109,11 @@ Returns all valid messages ('all') after operation.
 public getMessages(mixed $domain): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
-
-
-
 
 ***
 
@@ -191,21 +125,11 @@ Returns new messages ('new') after operation.
 public getNewMessages(mixed $domain): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
-
-
-
 
 ***
 
@@ -217,21 +141,11 @@ Returns obsolete messages ('obsolete') after operation.
 public getObsoleteMessages(mixed $domain): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$domain` | **mixed** |  |
-
-
-
 
 ***
 
@@ -243,33 +157,17 @@ Returns resulting catalogue ('result').
 public getResult(): \Symfony\Component\Translation\MessageCatalogueInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### processDomain
 
-Performs operation on source and target catalogues for the given domain and
-stores the results.
+Performs operation on source and target catalogues for the given domain and stores the results.
 
 ```php
 protected processDomain(string $domain): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -277,11 +175,4 @@ protected processDomain(string $domain): mixed
 |-----------|------|-------------|
 | `$domain` | **string** | The domain which the operation will be performed for |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

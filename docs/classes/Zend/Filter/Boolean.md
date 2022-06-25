@@ -2,13 +2,8 @@
 
 # Boolean
 
-
-
-
-
 * Full name: `\Zend\Filter\Boolean`
 * Parent class: [`\Zend\Filter\AbstractFilter`](./AbstractFilter.md)
-
 
 ## Constants
 
@@ -28,19 +23,11 @@
 
 ## Properties
 
-
 ### constants
-
-
 
 ```php
 protected array $constants
 ```
-
-
-
-
-
 
 ***
 
@@ -52,15 +39,9 @@ Filter options
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -70,13 +51,6 @@ Constructor
 public __construct(array|\Traversable|int|null $typeOrOptions = null, bool $casting = true, array $translations = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -84,9 +58,6 @@ public __construct(array|\Traversable|int|null $typeOrOptions = null, bool $cast
 | `$typeOrOptions` | **array&#124;\Traversable&#124;int&#124;null** |  |
 | `$casting` | **bool** |  |
 | `$translations` | **array** |  |
-
-
-
 
 ***
 
@@ -98,21 +69,11 @@ Set boolean types
 public setType(int|array $type = null): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int&#124;array** |  |
-
-
-
 
 ***
 
@@ -124,16 +85,6 @@ Returns defined boolean types
 public getType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCasting
@@ -144,21 +95,12 @@ Set the working mode
 public setCasting(bool $flag = true): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$flag` | **bool** | When true this filter works like cast<br />When false it recognises only true and false<br />and all other values are returned as is |
-
-
-
+| `$flag` | **
+bool** | When true this filter works like cast<br />When false it recognises only true and false<br />and all other values are returned as is |
 
 ***
 
@@ -170,32 +112,13 @@ Returns the casting option
 public getCasting(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTranslations
 
-
-
 ```php
 public setTranslations(array|\Traversable $translations): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -203,28 +126,13 @@ public setTranslations(array|\Traversable $translations): self
 |-----------|------|-------------|
 | `$translations` | **array&#124;\Traversable** |  |
 
-
-
-
 ***
 
 ### getTranslations
 
-
-
 ```php
 public getTranslations(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -238,71 +146,40 @@ public filter(string $value): string
 
 Returns a boolean representation of $value
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -313,16 +190,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -336,36 +203,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -373,11 +225,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

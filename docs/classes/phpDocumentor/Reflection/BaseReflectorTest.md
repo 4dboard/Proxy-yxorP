@@ -4,20 +4,14 @@
 
 Class for testing base reflector.
 
-
-
 * Full name: `\phpDocumentor\Reflection\BaseReflectorTest`
 * Parent class: [`PHPUnit_Framework_TestCase`](../../PHPUnit_Framework_TestCase.md)
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
-
+* http://phpdoc.org -
 
 ## Methods
-
 
 ### testSetNameSpace
 
@@ -26,16 +20,6 @@ Tests the setNameSpace method
 ```php
 public testSetNameSpace(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -47,16 +31,6 @@ Tests the setNameSpace method when an invalid argument is passed
 public testSetNameSpaceInvalidArgument(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testGetDocBlock
@@ -66,16 +40,6 @@ Tests the getDocblock method
 ```php
 public testGetDocBlock(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -87,16 +51,6 @@ Tests the getName method
 public testGetName(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testGetShortName
@@ -107,16 +61,6 @@ Tests the getShortName method
 public testGetShortName(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testGetNamespaceAliases
@@ -126,16 +70,6 @@ Tests the getNameSpaceAlias method
 ```php
 public testGetNamespaceAliases(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -148,17 +82,10 @@ public testsetNamespaceAlias(): void
 ```
 
 Tests the following scenarios:
+
 - no namespace aliases set yet
 - overwrite the current namespace alias
 - add another namespace alias without overwriting the already set alias
-
-
-
-
-
-
-
-
 
 ***
 
@@ -170,16 +97,6 @@ Tests the getLinenumber method
 public testGetLinenumber(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testSetDefaultPackageName
@@ -189,16 +106,6 @@ Tests the setDefaultPackageName method
 ```php
 public testSetDefaultPackageName(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -210,18 +117,4 @@ Tests the setDefaultPackageName method
 public testGetRepresentationOfValue(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

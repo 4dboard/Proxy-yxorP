@@ -8,8 +8,8 @@ Extends version-specific "abstract" implementation.
 
 * Full name: `\Zend\Stdlib\ArrayObject`
 * This class implements:
-[`\IteratorAggregate`](../../IteratorAggregate.md), [`\ArrayAccess`](../../ArrayAccess.md), [`\Serializable`](../../Serializable.md), [`\Countable`](../../Countable.md)
-
+  [`\IteratorAggregate`](../../IteratorAggregate.md), [`\ArrayAccess`](../../ArrayAccess.md)
+  , [`\Serializable`](../../Serializable.md), [`\Countable`](../../Countable.md)
 
 ## Constants
 
@@ -20,69 +20,39 @@ Extends version-specific "abstract" implementation.
 
 ## Properties
 
-
 ### storage
-
-
 
 ```php
 protected array $storage
 ```
 
-
-
-
-
-
 ***
 
 ### flag
-
-
 
 ```php
 protected int $flag
 ```
 
-
-
-
-
-
 ***
 
 ### iteratorClass
-
-
 
 ```php
 protected string $iteratorClass
 ```
 
-
-
-
-
-
 ***
 
 ### protectedProperties
-
-
 
 ```php
 protected array $protectedProperties
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -92,13 +62,6 @@ Constructor
 public __construct(array $input = [], int $flags = self::STD_PROP_LIST, string $iteratorClass = &#039;ArrayIterator&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -106,9 +69,6 @@ public __construct(array $input = [], int $flags = self::STD_PROP_LIST, string $
 | `$input` | **array** |  |
 | `$flags` | **int** |  |
 | `$iteratorClass` | **string** |  |
-
-
-
 
 ***
 
@@ -120,21 +80,11 @@ Returns whether the requested key exists
 public __isset(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -146,22 +96,12 @@ Sets the value at the specified key to value
 public __set(mixed $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -173,21 +113,11 @@ Unsets the value at the specified key
 public __unset(mixed $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -199,21 +129,11 @@ Returns the value at the specified key by reference
 public __get(mixed $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -225,21 +145,11 @@ Appends the value
 public append(mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -251,16 +161,6 @@ Sort the entries by value
 public asort(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
@@ -270,16 +170,6 @@ Get the number of public properties in the ArrayObject
 ```php
 public count(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -291,21 +181,11 @@ Exchange the array for another one.
 public exchangeArray(array|\Zend\Stdlib\ArrayObject $data): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array&#124;\Zend\Stdlib\ArrayObject** |  |
-
-
-
 
 ***
 
@@ -317,16 +197,6 @@ Creates a copy of the ArrayObject.
 public getArrayCopy(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFlags
@@ -336,16 +206,6 @@ Gets the behavior flags.
 ```php
 public getFlags(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -357,16 +217,6 @@ Create a new iterator from an ArrayObject instance
 public getIterator(): \Iterator
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIteratorClass
@@ -376,16 +226,6 @@ Gets the iterator classname for the ArrayObject.
 ```php
 public getIteratorClass(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -397,16 +237,6 @@ Sort the entries by key
 public ksort(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### natcasesort
@@ -416,16 +246,6 @@ Sort an array using a case insensitive "natural order" algorithm
 ```php
 public natcasesort(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -437,16 +257,6 @@ Sort entries using a "natural order" algorithm
 public natsort(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### offsetExists
@@ -457,21 +267,11 @@ Returns whether the requested key exists
 public offsetExists(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -483,21 +283,11 @@ Returns the value at the specified key
 public offsetGet(mixed $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -509,22 +299,12 @@ Sets the value at the specified key to value
 public offsetSet(mixed $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -536,21 +316,11 @@ Unsets the value at the specified key
 public offsetUnset(mixed $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -562,16 +332,6 @@ Serialize an ArrayObject
 public serialize(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFlags
@@ -582,21 +342,11 @@ Sets the behavior flags
 public setFlags(int $flags): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flags` | **int** |  |
-
-
-
 
 ***
 
@@ -608,21 +358,11 @@ Sets the iterator classname for the ArrayObject
 public setIteratorClass(string $class): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** |  |
-
-
-
 
 ***
 
@@ -634,21 +374,11 @@ Sort the entries with a user-defined comparison function and maintain key associ
 public uasort(callable $function): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$function` | **callable** |  |
-
-
-
 
 ***
 
@@ -660,21 +390,11 @@ Sort the entries by keys using a user-defined comparison function
 public uksort(callable $function): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$function` | **callable** |  |
-
-
-
 
 ***
 
@@ -686,24 +406,10 @@ Unserialize an ArrayObject
 public unserialize(string $data): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

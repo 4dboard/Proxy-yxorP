@@ -4,20 +4,15 @@
 
 Renders a table.
 
-Tries to render a table into the available space, and aborts if
-not possible.
+Tries to render a table into the available space, and aborts if not possible.
 
-A more detailed explanation of the main renderer stacking used for tbale
-rendering and the page level transaction ahndling can be found in the class
-level docblock of the ezcDocumentPdfMainRenderer class.
+A more detailed explanation of the main renderer stacking used for tbale rendering and the page level transaction
+ahndling can be found in the class level docblock of the ezcDocumentPdfMainRenderer class.
 
 * Full name: `\ezcDocumentPdfTableRenderer`
 * Parent class: [`\ezcDocumentPdfMainRenderer`](./ezcDocumentPdfMainRenderer.md)
 
-
-
 ## Properties
-
 
 ### mainRenderer
 
@@ -26,11 +21,6 @@ Reference to the main renderer.
 ```php
 protected \ezcDocumentPdfMainRenderer $mainRenderer
 ```
-
-
-
-
-
 
 ***
 
@@ -42,26 +32,15 @@ Width of current cell.
 protected \flaot $cellWidth
 ```
 
-
-
-
-
-
 ***
 
 ### covered
 
-Areas covored while rendering a single cell, so that the cell contents
-do not get in the way of other cells contents.
+Areas covored while rendering a single cell, so that the cell contents do not get in the way of other cells contents.
 
 ```php
 protected array $covered
 ```
-
-
-
-
-
 
 ***
 
@@ -73,26 +52,15 @@ Box of the whole table.
 protected array $tableBox
 ```
 
-
-
-
-
-
 ***
 
 ### cellBoxes
 
-Boxes for all currently drawn cells so their border can be renderer once
-the row baseline is known.
+Boxes for all currently drawn cells so their border can be renderer once the row baseline is known.
 
 ```php
 protected array $cellBoxes
 ```
-
-
-
-
-
 
 ***
 
@@ -104,11 +72,6 @@ The last page the current cell rendered contents on.
 protected \ezcDocumentPdfPage $lastPageForCell
 ```
 
-
-
-
-
-
 ***
 
 ### additionalBorders
@@ -119,8 +82,8 @@ Additional borders to render.
 protected array $additionalBorders
 ```
 
-A list of borders to render, detected on page wrapps. Delayed to not be
-reverted by reverted transactions in sub renderers.
+A list of borders to render, detected on page wrapps. Delayed to not be reverted by reverted transactions in sub
+renderers.
 
 
 
@@ -128,7 +91,6 @@ reverted by reverted transactions in sub renderers.
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -138,13 +100,6 @@ Construct renderer from driver to use.
 public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles, \ezcDocumentPdfOptions $options = null): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -152,9 +107,6 @@ public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInference
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
 | `$options` | **\ezcDocumentPdfOptions** |  |
-
-
-
 
 ***
 
@@ -166,13 +118,7 @@ Render a block level element.
 public renderNode(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $block, \ezcDocumentPdfMainRenderer $mainRenderer): bool
 ```
 
-Renders a block level element by applzing margin and padding and
-recursing to all nested elements.
-
-
-
-
-
+Renders a block level element by applzing margin and padding and recursing to all nested elements.
 
 **Parameters:**
 
@@ -184,9 +130,6 @@ recursing to all nested elements.
 | `$block` | **\ezcDocumentLocateableDomElement** |  |
 | `$mainRenderer` | **\ezcDocumentPdfMainRenderer** |  |
 
-
-
-
 ***
 
 ### calculateTextWidth
@@ -197,13 +140,7 @@ Calculate text width.
 public calculateTextWidth(\ezcDocumentPdfPage $page, \ezcDocumentLocateableDomElement $text): float
 ```
 
-Calculate the available horizontal space for texts depending on the
-page layout settings.
-
-
-
-
-
+Calculate the available horizontal space for texts depending on the page layout settings.
 
 **Parameters:**
 
@@ -211,9 +148,6 @@ page layout settings.
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$text` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -225,18 +159,10 @@ Get next rendering position.
 public getNextRenderingPosition(float $move, float $width): \ezcDocumentPdfPage
 ```
 
-If the current space has been exceeded this method calculates
-a new rendering position, optionally creates a new page for
-this, or switches to the next column. The new rendering;
-position is set on the returned page object.
+If the current space has been exceeded this method calculates a new rendering position, optionally creates a new page
+for this, or switches to the next column. The new rendering; position is set on the returned page object.
 
-As the parameter you need to pass the required width for the object to
-place on the page.
-
-
-
-
-
+As the parameter you need to pass the required width for the object to place on the page.
 
 **Parameters:**
 
@@ -244,9 +170,6 @@ place on the page.
 |-----------|------|-------------|
 | `$move` | **float** |  |
 | `$width` | **float** |  |
-
-
-
 
 ***
 
@@ -257,13 +180,6 @@ Render a single table cell.
 ```php
 protected renderCell(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $cell, array $styles, \ezcDocumentPdfBoundingBox $space, float $start, float $width): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -278,9 +194,6 @@ protected renderCell(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphe
 | `$start` | **float** |  |
 | `$width` | **float** |  |
 
-
-
-
 ***
 
 ### renderTopBorder
@@ -293,20 +206,12 @@ protected renderTopBorder(array $styles, \ezcDocumentPdfBoundingBox $space): mix
 
 Render the top border of the given space
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styles` | **array** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
-
-
-
 
 ***
 
@@ -320,11 +225,6 @@ protected setCellCovered(\ezcDocumentPdfPage $page, \ezcDocumentPdfBoundingBox $
 
 Mark rendered space as convered on the page.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -332,9 +232,6 @@ Mark rendered space as convered on the page.
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -346,13 +243,6 @@ Process to render the table into its boundings.
 protected processTable(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyphenator, \ezcDocumentPdfTokenizer $tokenizer, \ezcDocumentLocateableDomElement $block, \ezcDocumentPdfMainRenderer $mainRenderer): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -363,14 +253,9 @@ protected processTable(\ezcDocumentPdfPage $page, \ezcDocumentPdfHyphenator $hyp
 | `$block` | **\ezcDocumentLocateableDomElement** |  |
 | `$mainRenderer` | **\ezcDocumentPdfMainRenderer** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -380,22 +265,12 @@ Construct renderer from driver to use
 public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -407,13 +282,7 @@ Trigger visitor error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a vistitor error, and convert it to an exception depending on the
-error reporting settings.
-
-
-
-
-
+Emit a vistitor error, and convert it to an exception depending on the error reporting settings.
 
 **Parameters:**
 
@@ -425,9 +294,6 @@ error reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -438,8 +304,7 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
 
 
@@ -459,22 +324,14 @@ Tries to locate a file
 public locateFile(string $file): string
 ```
 
-Tries to locate a file, referenced in a docbook document. If available
-the document path is used a base for relative paths.
-
-
-
-
-
+Tries to locate a file, referenced in a docbook document. If available the document path is used a base for relative
+paths.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -488,19 +345,11 @@ public registerPdfPart(\ezcDocumentPdfPart $part): void
 
 Register additional parts, like footnotes, headers or title pages.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$part` | **\ezcDocumentPdfPart** |  |
-
-
-
 
 ***
 
@@ -514,11 +363,6 @@ public render(\ezcDocumentDocbook $document, \ezcDocumentPdfHyphenator $hyphenat
 
 Returns the rendered PDF as string
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -526,9 +370,6 @@ Returns the rendered PDF as string
 | `$document` | **\ezcDocumentDocbook** |  |
 | `$hyphenator` | **\ezcDocumentPdfHyphenator** |  |
 | `$tokenizer` | **\ezcDocumentPdfTokenizer** |  |
-
-
-
 
 ***
 
@@ -540,8 +381,7 @@ Register fonts in driver
 protected registerFonts(): void
 ```
 
-Register the font classes specified in the styles with the driver, so
-the driver can use the fonts during the rendering.
+Register the font classes specified in the styles with the driver, so the driver can use the fonts during the rendering.
 
 
 
@@ -561,21 +401,12 @@ Check column or page skip prerequisite
 public checkSkipPrerequisites(float $move, float $width): bool
 ```
 
-If no content has been rendered any more in the current column, this
-method should be called to check prerequisite for the skip, which is
-especially important for already rendered items, which impose
-assumptions on following contents.
+If no content has been rendered any more in the current column, this method should be called to check prerequisite for
+the skip, which is especially important for already rendered items, which impose assumptions on following contents.
 
-One example for this are titles, which should always be followed by at
-least some content in the same column.
+One example for this are titles, which should always be followed by at least some content in the same column.
 
-Returns false, if prerequisite are not fulfileld and rendering should be
-aborted.
-
-
-
-
-
+Returns false, if prerequisite are not fulfileld and rendering should be aborted.
 
 **Parameters:**
 
@@ -583,9 +414,6 @@ aborted.
 |-----------|------|-------------|
 | `$move` | **float** |  |
 | `$width` | **float** |  |
-
-
-
 
 ***
 
@@ -597,13 +425,7 @@ Calculate text width
 public calculateTextWidth(\ezcDocumentPdfPage $page, \ezcDocumentLocateableDomElement $text): float
 ```
 
-Calculate the available horizontal space for texts depending on the
-page layout settings.
-
-
-
-
-
+Calculate the available horizontal space for texts depending on the page layout settings.
 
 **Parameters:**
 
@@ -611,9 +433,6 @@ page layout settings.
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$text` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -625,18 +444,10 @@ Get next rendering position
 public getNextRenderingPosition(float $move, float $width): \ezcDocumentPdfPage
 ```
 
-If the current space has been exceeded this method calculates
-a new rendering position, optionally creates a new page for
-this, or switches to the next column. The new rendering
-position is set on the returned page object.
+If the current space has been exceeded this method calculates a new rendering position, optionally creates a new page
+for this, or switches to the next column. The new rendering position is set on the returned page object.
 
-As the parameter you need to pass the required width for the object to
-place on the page.
-
-
-
-
-
+As the parameter you need to pass the required width for the object to place on the page.
 
 **Parameters:**
 
@@ -644,9 +455,6 @@ place on the page.
 |-----------|------|-------------|
 | `$move` | **float** |  |
 | `$width` | **float** |  |
-
-
-
 
 ***
 
@@ -658,22 +466,12 @@ Process a single element with the registered renderers.
 public processNode(\DOMElement $element, int $number): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
 | `$number` | **int** |  |
-
-
-
 
 ***
 
@@ -685,21 +483,11 @@ Recurse into DOMDocument tree and call appropriate element handlers
 public process(\DOMNode $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMNode** |  |
-
-
-
 
 ***
 
@@ -711,21 +499,11 @@ Ignore elements, which should not be rendered
 private ignore(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -737,21 +515,11 @@ Initialize document according to detected root node
 private initializeDocument(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -763,21 +531,11 @@ Append document metadata
 private appendMetaData(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -789,21 +547,11 @@ Handle calls to block element renderer
 private renderBlock(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -815,21 +563,11 @@ Handle calls to block element renderer
 private renderBlockquote(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -841,21 +579,11 @@ Handle calls to table element renderer
 private renderTable(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -867,21 +595,11 @@ Handle calls to List element renderer
 private renderList(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -893,21 +611,11 @@ Handle calls to list item element renderer
 private renderListItem(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -919,21 +627,11 @@ Handle calls to paragraph renderer
 private renderParagraph(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -945,22 +643,12 @@ Handle calls to title renderer
 private renderTitle(\ezcDocumentLocateableDomElement $element, int $position): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
 | `$position` | **int** |  |
-
-
-
 
 ***
 
@@ -972,21 +660,11 @@ Handle calls to media object renderer
 private renderMediaObject(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -998,21 +676,11 @@ Handle calls to paragraph renderer
 private renderLiteralLayout(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -1024,22 +692,13 @@ Handle all anchors inside the current element
 private handleAnchors(\ezcDocumentLocateableDomElement $element): void
 ```
 
-Finds all anchors somewhere in the current element and adds reference
-targets for them.
-
-
-
-
-
+Finds all anchors somewhere in the current element and adds reference targets for them.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -1051,13 +710,7 @@ Render box background
 protected renderBoxBackground(\ezcDocumentPdfBoundingBox $space, array $styles): void
 ```
 
-Render box background for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box background for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -1065,9 +718,6 @@ styles.
 |-----------|------|-------------|
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -1079,13 +729,7 @@ Render box border
 protected renderBoxBorder(\ezcDocumentPdfBoundingBox $space, array $styles, bool $renderTop = true, bool $renderBottom = true): void
 ```
 
-Render box border for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box border for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -1095,9 +739,6 @@ styles.
 | `$styles` | **array** |  |
 | `$renderTop` | **bool** |  |
 | `$renderBottom` | **bool** |  |
-
-
-
 
 ***
 
@@ -1111,11 +752,6 @@ protected setBoxCovered(\ezcDocumentPdfPage $page, \ezcDocumentPdfBoundingBox $s
 
 Mark rendered space as convered on the page.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1123,9 +759,6 @@ Mark rendered space as convered on the page.
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -1137,13 +770,7 @@ Evaluate available bounding box
 protected evaluateAvailableBoundingBox(\ezcDocumentPdfPage $page, array $styles, float $width): mixed
 ```
 
-Returns false, if not enough space is available on current
-page, and a bounding box otherwise.
-
-
-
-
-
+Returns false, if not enough space is available on current page, and a bounding box otherwise.
 
 **Parameters:**
 
@@ -1153,11 +780,4 @@ page, and a bounding box otherwise.
 | `$styles` | **array** |  |
 | `$width` | **float** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

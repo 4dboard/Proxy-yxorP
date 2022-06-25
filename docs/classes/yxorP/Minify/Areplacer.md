@@ -2,33 +2,16 @@
 
 # Areplacer
 
-
-
-
-
 * Full name: `\yxorP\Minify\Areplacer`
 * This class is an **Abstract class**
 
-
-
-
 ## Methods
 
-
 ### process
-
-
 
 ```php
 public process(string $buffer): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -36,25 +19,13 @@ public process(string $buffer): string
 |-----------|------|-------------|
 | `$buffer` | **string** |  |
 
-
-
-
 ***
 
 ### replace
 
-
-
 ```php
 public replace(array $replace, string $buffer): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -63,31 +34,14 @@ public replace(array $replace, string $buffer): string
 | `$replace` | **array** |  |
 | `$buffer` | **string** |  |
 
-
-
-
 ***
 
 ### getReplacePatternData
-
-
 
 ```php
 public getReplacePatternData(): array
 ```
 
-
-
-
 * This method is **abstract**.
 
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

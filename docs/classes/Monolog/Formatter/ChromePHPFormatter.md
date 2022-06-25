@@ -4,16 +4,11 @@
 
 Formats a log message according to the ChromePHP array format
 
-
-
 * Full name: `\Monolog\Formatter\ChromePHPFormatter`
 * This class implements:
-[`\Monolog\Formatter\FormatterInterface`](./FormatterInterface.md)
-
-
+  [`\Monolog\Formatter\FormatterInterface`](./FormatterInterface.md)
 
 ## Properties
-
 
 ### logLevels
 
@@ -23,15 +18,9 @@ Translates Monolog log levels to Wildfire levels.
 private $logLevels
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### format
 
@@ -41,19 +30,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -71,28 +52,12 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
 
-
 **Return Value:**
 
-The formatted set of records
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The formatted set of records yxorP::get('REQUEST')

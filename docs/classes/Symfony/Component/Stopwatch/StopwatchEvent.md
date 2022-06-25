@@ -4,92 +4,49 @@
 
 Represents an Event managed by Stopwatch.
 
-
-
 * Full name: `\Symfony\Component\Stopwatch\StopwatchEvent`
-
-
 
 ## Properties
 
-
 ### periods
-
-
 
 ```php
 private \Symfony\Component\Stopwatch\StopwatchPeriod[] $periods
 ```
 
-
-
-
-
-
 ***
 
 ### origin
-
-
 
 ```php
 private float $origin
 ```
 
-
-
-
-
-
 ***
 
 ### category
-
-
 
 ```php
 private string $category
 ```
 
-
-
-
-
-
 ***
 
 ### started
-
-
 
 ```php
 private float[] $started
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(float $origin, string|null $category = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -97,9 +54,6 @@ public __construct(float $origin, string|null $category = null): mixed
 |-----------|------|-------------|
 | `$origin` | **float** | The origin time in milliseconds |
 | `$category` | **string&#124;null** | The event category or null to use the default |
-
-
-
 
 ***
 
@@ -110,14 +64,6 @@ Gets the category.
 ```php
 public getCategory(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -135,14 +81,6 @@ Gets the origin.
 public getOrigin(): float
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The origin in milliseconds
@@ -159,16 +97,6 @@ Starts a new event period.
 public start(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### stop
@@ -178,16 +106,6 @@ Stops the last started event period.
 ```php
 public stop(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -199,16 +117,6 @@ Checks if the event was started.
 public isStarted(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lap
@@ -218,16 +126,6 @@ Stops the current period and then starts a new one.
 ```php
 public lap(): $this
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -239,16 +137,6 @@ Stops all non already stopped periods.
 public ensureStopped(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPeriods
@@ -258,14 +146,6 @@ Gets all event periods.
 ```php
 public getPeriods(): \Symfony\Component\Stopwatch\StopwatchPeriod[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -283,14 +163,6 @@ Gets the relative time of the start of the first period.
 public getStartTime(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The time (in milliseconds)
@@ -306,14 +178,6 @@ Gets the relative time of the end of the last period.
 ```php
 public getEndTime(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -331,14 +195,6 @@ Gets the duration of the events (including all periods).
 public getDuration(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The duration (in milliseconds)
@@ -354,14 +210,6 @@ Gets the max memory usage of all periods.
 ```php
 public getMemory(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -379,14 +227,6 @@ Return the current time relative to origin.
 protected getNow(): float
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Time in ms
@@ -403,19 +243,11 @@ Formats a time.
 private formatTime(int|float $time): float
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$time` | **int&#124;float** | A raw time |
-
 
 **Return Value:**
 
@@ -427,24 +259,8 @@ The formatted time
 
 ### __toString
 
-
-
 ```php
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

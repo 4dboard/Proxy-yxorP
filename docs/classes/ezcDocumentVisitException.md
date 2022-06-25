@@ -2,19 +2,12 @@
 
 # ezcDocumentVisitException
 
-Exception thrown, when the RST visitor could not visit an AST node
-properly.
-
-
+Exception thrown, when the RST visitor could not visit an AST node properly.
 
 * Full name: `\ezcDocumentVisitException`
 * Parent class: [`\ezcDocumentException`](./ezcDocumentException.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -23,13 +16,6 @@ Construct exception from errnous string and current position
 ```php
 public __construct(int $level, string $message, string $file, int $line, int $position): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -41,14 +27,9 @@ public __construct(int $level, string $message, string $file, int $line, int $po
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -58,24 +39,10 @@ Constructs a new ezcBaseException with $message
 public __construct(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

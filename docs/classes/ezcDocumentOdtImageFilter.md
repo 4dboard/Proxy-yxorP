@@ -2,18 +2,12 @@
 
 # ezcDocumentOdtImageFilter
 
-Filter which extracts images from FODT (flat ODT) documents and stores them
-in the desired directory.
-
-
+Filter which extracts images from FODT (flat ODT) documents and stores them in the desired directory.
 
 * Full name: `\ezcDocumentOdtImageFilter`
 * Parent class: [`\ezcDocumentOdtBaseFilter`](./ezcDocumentOdtBaseFilter.md)
 
-
-
 ## Properties
-
 
 ### options
 
@@ -23,15 +17,9 @@ ODT document options.
 protected \ezcDocumentOdtOptions $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -41,22 +29,13 @@ Creates the filter object.
 public __construct(\ezcDocumentOdtOptions $options): void
 ```
 
-Creates the filter object. Makes use of $imageDirectory, defined in the
-$options.
-
-
-
-
-
+Creates the filter object. Makes use of $imageDirectory, defined in the $options.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentOdtOptions** |  |
-
-
-
 
 ***
 
@@ -68,22 +47,14 @@ Filter ODT document.
 public filter(\DOMDocument $document): \DOMDocument
 ```
 
-Filter for the document, which may modify / restructure a document and
-assign semantic information bits to the elements in the tree.
-
-
-
-
-
+Filter for the document, which may modify / restructure a document and assign semantic information bits to the elements
+in the tree.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
-
-
-
 
 ***
 
@@ -95,15 +66,8 @@ Extracts the binary content from $binary into a file.
 protected extractBinary(\DOMElement $binary): mixed
 ```
 
-Extracts the binary image content from $binary to a file in the image
-directory ({@link}). The file name is created using {@link}
-and set as an XLink HREF on the parent <draw:image/> element, as it
-would typically be in an ODT.
-
-
-
-
-
+Extracts the binary image content from $binary to a file in the image directory ({@link}). The file name is created
+using {@link} and set as an XLink HREF on the parent <draw:image/> element, as it would typically be in an ODT.
 
 **Parameters:**
 
@@ -111,14 +75,9 @@ would typically be in an ODT.
 |-----------|------|-------------|
 | `$binary` | **\DOMElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### filter
 
@@ -128,13 +87,10 @@ Filter ODT document
 public filter(\DOMDocument $document): \DOMDocument
 ```
 
-Filter for the document, which may modify / restructure a document and
-assign semantic information bits to the elements in the tree.
-
+Filter for the document, which may modify / restructure a document and assign semantic information bits to the elements
+in the tree.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -142,11 +98,4 @@ assign semantic information bits to the elements in the tree.
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,18 +2,10 @@
 
 # ObjectCache
 
-
-
-
-
 * Full name: `\Zend\Cache\Pattern\ObjectCache`
 * Parent class: [`\Zend\Cache\Pattern\CallbackCache`](./CallbackCache.md)
 
-
-
-
 ## Methods
-
 
 ### setOptions
 
@@ -23,21 +15,11 @@ Set options
 public setOptions(\Zend\Cache\Pattern\PatternOptions $options): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Pattern\PatternOptions** |  |
-
-
-
 
 ***
 
@@ -49,13 +31,6 @@ Call and cache a class method
 public call(string $method, array $args = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -63,26 +38,15 @@ public call(string $method, array $args = []): mixed
 | `$method` | **string** | Method name to call |
 | `$args` | **array** | Method arguments |
 
-
-
-
 ***
 
 ### generateKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 public generateKey(string $method, array $args = []): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -91,26 +55,15 @@ public generateKey(string $method, array $args = []): string
 | `$method` | **string** | The method |
 | `$args` | **array** | Callback arguments |
 
-
-
-
 ***
 
 ### generateCallbackKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 protected generateCallbackKey(callable $callback, array $args = []): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -118,9 +71,6 @@ protected generateCallbackKey(callable $callback, array $args = []): string
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
-
-
 
 ***
 
@@ -132,22 +82,12 @@ Class method call handler
 public __call(string $method, array $args): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** | Method name to call |
 | `$args` | **array** | Method arguments |
-
-
-
 
 ***
 
@@ -160,14 +100,8 @@ public __set(string $name, mixed $value): void
 ```
 
 NOTE:
-Magic properties will be cached too if the option cacheMagicProperties
-is enabled and the property doesn't exist in real. If so it calls __set
-and removes cached data of previous __get and __isset calls.
-
-
-
-
-
+Magic properties will be cached too if the option cacheMagicProperties is enabled and the property doesn't exist in
+real. If so it calls __set and removes cached data of previous __get and __isset calls.
 
 **Parameters:**
 
@@ -176,11 +110,9 @@ and removes cached data of previous __get and __isset calls.
 | `$name` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members - 
+* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members -
 
 ***
 
@@ -193,13 +125,8 @@ public __get(string $name): mixed
 ```
 
 NOTE:
-Magic properties will be cached too if the option cacheMagicProperties
-is enabled and the property doesn't exist in real. If so it calls __get.
-
-
-
-
-
+Magic properties will be cached too if the option cacheMagicProperties is enabled and the property doesn't exist in
+real. If so it calls __get.
 
 **Parameters:**
 
@@ -207,11 +134,9 @@ is enabled and the property doesn't exist in real. If so it calls __get.
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members - 
+* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members -
 
 ***
 
@@ -224,13 +149,8 @@ public __isset(string $name): bool
 ```
 
 NOTE:
-Magic properties will be cached too if the option cacheMagicProperties
-is enabled and the property doesn't exist in real. If so it calls __get.
-
-
-
-
-
+Magic properties will be cached too if the option cacheMagicProperties is enabled and the property doesn't exist in
+real. If so it calls __get.
 
 **Parameters:**
 
@@ -238,11 +158,9 @@ is enabled and the property doesn't exist in real. If so it calls __get.
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members - 
+* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members -
 
 ***
 
@@ -255,14 +173,8 @@ public __unset(string $name): void
 ```
 
 NOTE:
-Magic properties will be cached too if the option cacheMagicProperties
-is enabled and the property doesn't exist in real. If so it removes
-previous cached __isset and __get calls.
-
-
-
-
-
+Magic properties will be cached too if the option cacheMagicProperties is enabled and the property doesn't exist in
+real. If so it removes previous cached __isset and __get calls.
 
 **Parameters:**
 
@@ -270,11 +182,9 @@ previous cached __isset and __get calls.
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members - 
+* http://php.net/manual/language.oop5.overloading.php#language.oop5.overloading.members -
 
 ***
 
@@ -286,18 +196,9 @@ Handle casting to string
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.magic.php#language.oop5.magic.tostring - 
+* http://php.net/manual/language.oop5.magic.php#language.oop5.magic.tostring -
 
 ***
 
@@ -309,24 +210,13 @@ Handle invoke calls
 public __invoke(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/language.oop5.magic.php#language.oop5.magic.invoke - 
+* http://php.net/manual/language.oop5.magic.php#language.oop5.magic.invoke -
 
 ***
 
-
 ## Inherited methods
-
 
 ### setOptions
 
@@ -336,21 +226,11 @@ Set pattern options
 public setOptions(\Zend\Cache\Pattern\PatternOptions $options): \Zend\Cache\Pattern\AbstractPattern
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Pattern\PatternOptions** |  |
-
-
-
 
 ***
 
@@ -362,20 +242,12 @@ Call the specified callback or get the result from cache
 public call(callable $callback, array $args = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
 
 **Return Value:**
 
@@ -393,13 +265,6 @@ function call handler
 public __call(string $function, array $args): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -407,54 +272,32 @@ public __call(string $function, array $args): mixed
 | `$function` | **string** | Function name to call |
 | `$args` | **array** | Function arguments |
 
-
-
-
 ***
 
 ### generateKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 public generateKey(callable $callback, array $args = []): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
-
-
 
 ***
 
 ### generateCallbackKey
 
-Generate a unique key in base of a key representing the callback part
-and a key representing the arguments part.
+Generate a unique key in base of a key representing the callback part and a key representing the arguments part.
 
 ```php
 protected generateCallbackKey(callable $callback, array $args): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -462,9 +305,6 @@ protected generateCallbackKey(callable $callback, array $args): string
 |-----------|------|-------------|
 | `$callback` | **callable** | A valid callback |
 | `$args` | **array** | Callback arguments |
-
-
-
 
 ***
 
@@ -476,21 +316,11 @@ Generate a unique key of the argument part.
 protected generateArgumentsKey(array $args): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **array** |  |
-
-
-
 
 ***
 
@@ -502,18 +332,4 @@ Get all pattern options
 public getOptions(): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

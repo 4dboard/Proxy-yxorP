@@ -2,13 +2,8 @@
 
 # Class_
 
-
-
-
-
 * Full name: `\PhpParser\Node\Stmt\Class_`
 * Parent class: [`\PhpParser\Node\Stmt\ClassLike`](./ClassLike.md)
-
 
 ## Constants
 
@@ -24,69 +19,41 @@
 
 ## Properties
 
-
 ### type
-
-
 
 ```php
 public int $type
 ```
 
-
-
-
-
-
 ***
 
 ### extends
-
-
 
 ```php
 public null|\PhpParser\Node\Name $extends
 ```
 
-
-
-
-
-
 ***
 
 ### implements
-
-
 
 ```php
 public \PhpParser\Node\Name[] $implements
 ```
 
-
-
-
-
-
 ***
 
 ### specialNames
-
-
 
 ```php
 protected static $specialNames
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -96,109 +63,50 @@ Constructs a class node.
 public __construct(string|null $name, array $subNodes = array(), array $attributes = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;null** | Name |
-| `$subNodes` | **array** | Array of the following optional subnodes:<br />&#039;type&#039;       =&gt; 0      : Type<br />&#039;extends&#039;    =&gt; null   : Name of extended class<br />&#039;implements&#039; =&gt; array(): Names of implemented interfaces<br />&#039;stmts&#039;      =&gt; array(): Statements |
+| `$subNodes` | **
+array** | Array of the following optional subnodes:<br />&#039;type&#039; =&gt; 0      : Type<br />&#039;extends&#039; =&gt; null   : Name of extended class<br />&#039;implements&#039; =&gt; array(): Names of implemented interfaces<br />&#039;stmts&#039; =&gt; array(): Statements |
 | `$attributes` | **array** | Additional attributes |
-
-
-
 
 ***
 
 ### getSubNodeNames
 
-
-
 ```php
 public getSubNodeNames(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### isAbstract
 
-
-
 ```php
 public isAbstract(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### isFinal
 
-
-
 ```php
 public isFinal(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### isAnonymous
 
-
-
 ```php
 public isAnonymous(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getMethods
 
@@ -207,16 +115,6 @@ Gets all methods defined directly in this class/interface/trait
 ```php
 public getMethods(): \PhpParser\Node\Stmt\ClassMethod[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -228,19 +126,11 @@ Gets method with the given name defined directly in this class/interface/trait.
 public getMethod(string $name): \PhpParser\Node\Stmt\ClassMethod|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of the method (compared case-insensitively) |
-
 
 **Return Value:**
 
@@ -258,16 +148,9 @@ Creates a Node.
 public __construct(null|array $subNodes = array(), array $attributes = array()): mixed
 ```
 
-If null is passed for the $subNodes parameter the node constructor must assign
-all subnodes by itself and also override the getSubNodeNames() method.
-DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding
-to the array keys will be set and getSubNodeNames() will return the keys of that
-array.
-
-
-
-
-
+If null is passed for the $subNodes parameter the node constructor must assign all subnodes by itself and also override
+the getSubNodeNames() method. DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding to
+the array keys will be set and getSubNodeNames() will return the keys of that array.
 
 **Parameters:**
 
@@ -275,9 +158,6 @@ array.
 |-----------|------|-------------|
 | `$subNodes` | **null&#124;array** | Null or an array of sub nodes (deprecated) |
 | `$attributes` | **array** | Array of attributes |
-
-
-
 
 ***
 
@@ -288,14 +168,6 @@ Gets the type of the node.
 ```php
 public getType(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -313,14 +185,6 @@ Gets the names of the sub nodes.
 public getSubNodeNames(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Names of sub nodes
@@ -336,14 +200,6 @@ Gets line the node started in.
 ```php
 public getLine(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -361,21 +217,11 @@ Sets line the node started in.
 public setLine(int $line): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **int** | Line |
-
-
-
 
 ***
 
@@ -388,12 +234,6 @@ public getDocComment(): null|\PhpParser\Comment\Doc
 ```
 
 The doc comment has to be the last comment associated with the node.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -411,22 +251,12 @@ Sets an attribute on a node.
 public setAttribute(mixed $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -438,21 +268,11 @@ Returns whether an attribute exists.
 public hasAttribute(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -464,22 +284,12 @@ Returns the value of an attribute.
 public getAttribute(mixed $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -491,18 +301,4 @@ Returns all attributes for the given node.
 public getAttributes(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

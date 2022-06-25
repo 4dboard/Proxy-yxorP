@@ -4,31 +4,16 @@
 
 Generic Deserialization Visitor.
 
-
-
 * Full name: `\JMS\Serializer\JsonDeserializationVisitor`
 * Parent class: [`\JMS\Serializer\GenericDeserializationVisitor`](./GenericDeserializationVisitor.md)
 
-
-
-
 ## Methods
 
-
 ### decode
-
-
 
 ```php
 protected decode(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -36,29 +21,15 @@ protected decode(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### setNavigator
-
-
 
 ```php
 public setNavigator(\JMS\Serializer\GraphNavigator $navigator): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -66,72 +37,38 @@ public setNavigator(\JMS\Serializer\GraphNavigator $navigator): mixed
 |-----------|------|-------------|
 | `$navigator` | **\JMS\Serializer\GraphNavigator** |  |
 
-
-
-
 ***
 
 ### getNavigator
-
-
 
 ```php
 public getNavigator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### prepare
 
-Allows visitors to convert the input data to a different representation
-before the actual serialization/deserialization process starts.
+Allows visitors to convert the input data to a different representation before the actual serialization/deserialization
+process starts.
 
 ```php
 public prepare(mixed $data): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
 ### visitNull
 
-
-
 ```php
 public visitNull(mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -140,26 +77,14 @@ public visitNull(mixed $data, array $type, \JMS\Serializer\Context $context): mi
 | `$data` | **mixed** |  |
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
-
-
-
 
 ***
 
 ### visitString
 
-
-
 ```php
 public visitString(mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -168,26 +93,14 @@ public visitString(mixed $data, array $type, \JMS\Serializer\Context $context): 
 | `$data` | **mixed** |  |
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
-
-
-
 
 ***
 
 ### visitBoolean
 
-
-
 ```php
 public visitBoolean(mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -196,26 +109,14 @@ public visitBoolean(mixed $data, array $type, \JMS\Serializer\Context $context):
 | `$data` | **mixed** |  |
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
-
-
-
 
 ***
 
 ### visitInteger
 
-
-
 ```php
 public visitInteger(mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -224,26 +125,14 @@ public visitInteger(mixed $data, array $type, \JMS\Serializer\Context $context):
 | `$data` | **mixed** |  |
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
-
-
-
 
 ***
 
 ### visitDouble
 
-
-
 ```php
 public visitDouble(mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -252,26 +141,14 @@ public visitDouble(mixed $data, array $type, \JMS\Serializer\Context $context): 
 | `$data` | **mixed** |  |
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
-
-
-
 
 ***
 
 ### visitArray
 
-
-
 ```php
 public visitArray(mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -281,25 +158,13 @@ public visitArray(mixed $data, array $type, \JMS\Serializer\Context $context): m
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### startVisitingObject
 
-
-
 ```php
 public startVisitingObject(\JMS\Serializer\Metadata\ClassMetadata $metadata, mixed $object, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -310,25 +175,13 @@ public startVisitingObject(\JMS\Serializer\Metadata\ClassMetadata $metadata, mix
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### visitProperty
 
-
-
 ```php
 public visitProperty(\JMS\Serializer\Metadata\PropertyMetadata $metadata, mixed $data, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -338,25 +191,13 @@ public visitProperty(\JMS\Serializer\Metadata\PropertyMetadata $metadata, mixed 
 | `$data` | **mixed** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### endVisitingObject
 
-
-
 ```php
 public endVisitingObject(\JMS\Serializer\Metadata\ClassMetadata $metadata, mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -367,45 +208,21 @@ public endVisitingObject(\JMS\Serializer\Metadata\ClassMetadata $metadata, mixed
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### getResult
-
-
 
 ```php
 public getResult(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCurrentObject
 
-
-
 ```php
 public setCurrentObject(mixed $object): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -413,65 +230,31 @@ public setCurrentObject(mixed $object): mixed
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
 
-
-
-
 ***
 
 ### getCurrentObject
-
-
 
 ```php
 public getCurrentObject(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### revertCurrentObject
-
-
 
 ```php
 public revertCurrentObject(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### decode
-
-
 
 ```php
 protected decode(mixed $str): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -479,25 +262,13 @@ protected decode(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(\JMS\Serializer\Naming\PropertyNamingStrategyInterface $namingStrategy, \JMS\Serializer\Accessor\AccessorStrategyInterface $accessorStrategy = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -506,45 +277,21 @@ public __construct(\JMS\Serializer\Naming\PropertyNamingStrategyInterface $namin
 | `$namingStrategy` | **\JMS\Serializer\Naming\PropertyNamingStrategyInterface** |  |
 | `$accessorStrategy` | **\JMS\Serializer\Accessor\AccessorStrategyInterface** |  |
 
-
-
-
 ***
 
 ### getNamingStrategy
-
-
 
 ```php
 public getNamingStrategy(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getElementType
 
-
-
 ```php
 protected getElementType(array $typeArray): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -552,11 +299,4 @@ protected getElementType(array $typeArray): mixed
 |-----------|------|-------------|
 | `$typeArray` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

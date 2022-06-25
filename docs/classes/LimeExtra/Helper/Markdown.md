@@ -4,83 +4,42 @@
 
 Class Markdown
 
-
-
 * Full name: `\LimeExtra\Helper\Markdown`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
 ## Properties
 
-
 ### parser
-
-
 
 ```php
 protected $parser
 ```
 
-
-
-
-
-
 ***
 
 ### parserExtra
-
-
 
 ```php
 protected $parserExtra
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### parse
 
-
-
 ```php
 public parse( $text, bool|true $extra = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -89,29 +48,15 @@ public parse( $text, bool|true $extra = true): mixed
 | `$text` | **** |  |
 | `$extra` | **bool&#124;true** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -119,45 +64,21 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -166,25 +87,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -192,25 +101,13 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -218,11 +115,4 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

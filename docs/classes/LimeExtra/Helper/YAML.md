@@ -4,48 +4,26 @@
 
 Class YAML
 
-
-
 * Full name: `\LimeExtra\Helper\YAML`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
 ## Properties
 
-
 ### cachePath
-
-
 
 ```php
 protected $cachePath
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### setCachePath
-
-
 
 ```php
 public setCachePath( $path): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,25 +31,15 @@ public setCachePath( $path): mixed
 |-----------|------|-------------|
 | `$path` | **** |  |
 
-
-
-
 ***
 
 ### fromString
-
-
 
 ```php
 public static fromString( $string): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -79,77 +47,41 @@ public static fromString( $string): array
 |-----------|------|-------------|
 | `$string` | **** |  |
 
-
-
-
 ***
 
 ### fromFile
-
-
 
 ```php
 public fromFile( $file): array|mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **** |  |
-
-
-
 
 ***
 
 ### toYAML
 
-
-
 ```php
 public toYAML( $array): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **** |  |
-
-
-
 
 ***
 
 ### toFile
 
-
-
 ```php
 public toFile( $file,  $array): int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -158,25 +90,13 @@ public toFile( $file,  $array): int
 | `$file` | **** |  |
 | `$array` | **** |  |
 
-
-
-
 ***
 
 ### get_cached_file
 
-
-
 ```php
 protected get_cached_file( $file): bool|string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -184,25 +104,13 @@ protected get_cached_file( $file): bool|string
 |-----------|------|-------------|
 | `$file` | **** |  |
 
-
-
-
 ***
 
 ### cache_file
 
-
-
 ```php
 protected cache_file( $file,  $cachedfile, null $filemtime = null): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -212,29 +120,15 @@ protected cache_file( $file,  $cachedfile, null $filemtime = null): bool
 | `$cachedfile` | **** |  |
 | `$filemtime` | **null** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -242,45 +136,21 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -289,25 +159,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -315,25 +173,13 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -341,11 +187,4 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -9,61 +9,35 @@ Use \Twig\TwigFunction instead.
 * Full name: `\Twig_Function`
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Twig_FunctionInterface`](./Twig_FunctionInterface.md), [`\Twig_FunctionCallableInterface`](./Twig_FunctionCallableInterface.md)
+  [`\Twig_FunctionInterface`](./Twig_FunctionInterface.md)
+  , [`\Twig_FunctionCallableInterface`](./Twig_FunctionCallableInterface.md)
 * This class is an **Abstract class**
-
-
 
 ## Properties
 
-
 ### options
-
-
 
 ```php
 protected $options
 ```
 
-
-
-
-
-
 ***
 
 ### arguments
-
-
 
 ```php
 protected $arguments
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -71,25 +45,13 @@ public __construct(array $options = []): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### setArguments
 
-
-
 ```php
 public setArguments(mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -97,85 +59,37 @@ public setArguments(mixed $arguments): mixed
 |-----------|------|-------------|
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### getArguments
-
-
 
 ```php
 public getArguments(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### needsEnvironment
-
-
 
 ```php
 public needsEnvironment(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### needsContext
-
-
 
 ```php
 public needsContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSafe
 
-
-
 ```php
 public getSafe(\Twig\Node\Node $functionArgs): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -183,31 +97,12 @@ public getSafe(\Twig\Node\Node $functionArgs): mixed
 |-----------|------|-------------|
 | `$functionArgs` | **\Twig\Node\Node** |  |
 
-
-
-
 ***
 
 ### getCallable
-
-
 
 ```php
 public getCallable(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,85 +4,41 @@
 
 Stopwatch provides a way to profile code.
 
-
-
 * Full name: `\Symfony\Component\Stopwatch\Stopwatch`
-
-
 
 ## Properties
 
-
 ### sections
-
-
 
 ```php
 private \Symfony\Component\Stopwatch\Section[] $sections
 ```
 
-
-
-
-
-
 ***
 
 ### activeSections
-
-
 
 ```php
 private \Symfony\Component\Stopwatch\Section[] $activeSections
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSections
 
-
-
 ```php
 public getSections(): \Symfony\Component\Stopwatch\Section[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -94,21 +50,11 @@ Creates a new section or re-opens an existing section.
 public openSection(string|null $id = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string&#124;null** | The id of the session to re-open, null to create a new one |
-
-
-
 
 ***
 
@@ -122,22 +68,15 @@ public stopSection(string $id): mixed
 
 The id parameter is used to retrieve the events from this section.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** | The identifier of the section |
 
-
-
 **See Also:**
 
-* \Symfony\Component\Stopwatch\getSectionEvents() - 
+* \Symfony\Component\Stopwatch\getSectionEvents() -
 
 ***
 
@@ -149,22 +88,12 @@ Starts an event.
 public start(string $name, string $category = null): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
 | `$category` | **string** | The event category |
-
-
-
 
 ***
 
@@ -176,21 +105,11 @@ Checks if the event was started.
 public isStarted(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
-
-
 
 ***
 
@@ -202,21 +121,11 @@ Stops an event.
 public stop(string $name): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
-
-
 
 ***
 
@@ -228,21 +137,11 @@ Stops then restarts an event.
 public lap(string $name): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
-
-
 
 ***
 
@@ -254,21 +153,11 @@ Returns a specific event by name.
 public getEvent(string $name): \Symfony\Component\Stopwatch\StopwatchEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
-
-
-
 
 ***
 
@@ -280,24 +169,10 @@ Gets all events for a given section.
 public getSectionEvents(string $id): \Symfony\Component\Stopwatch\StopwatchEvent[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** | A section identifier |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

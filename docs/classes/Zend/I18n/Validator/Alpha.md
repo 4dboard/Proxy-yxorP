@@ -2,13 +2,8 @@
 
 # Alpha
 
-
-
-
-
 * Full name: `\Zend\I18n\Validator\Alpha`
 * Parent class: [`\Zend\I18n\Validator\Alnum`](./Alnum.md)
-
 
 ## Constants
 
@@ -20,7 +15,6 @@
 
 ## Properties
 
-
 ### filter
 
 Alphabetic filter used for validation
@@ -29,10 +23,7 @@ Alphabetic filter used for validation
 protected static \Zend\I18n\Filter\Alpha $filter
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -44,11 +35,6 @@ Validation failure message template definitions
 protected array $messageTemplates
 ```
 
-
-
-
-
-
 ***
 
 ### options
@@ -59,15 +45,9 @@ Options for this validator
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### isValid
 
@@ -77,27 +57,15 @@ Returns true if and only if $value contains only alphabetic characters
 public isValid(string $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -107,21 +75,11 @@ Sets default option values for this instance
 public __construct(bool $allowWhiteSpace = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allowWhiteSpace` | **bool** |  |
-
-
-
 
 ***
 
@@ -133,16 +91,6 @@ Returns the allowWhiteSpace option
 public getAllowWhiteSpace(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAllowWhiteSpace
@@ -153,19 +101,11 @@ Sets the allowWhiteSpace option
 public setAllowWhiteSpace(bool $allowWhiteSpace): \Zend\I18n\Filter\Alnum
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allowWhiteSpace` | **bool** |  |
-
 
 **Return Value:**
 
@@ -183,24 +123,10 @@ Returns true if and only if $value contains only alphabetic and digit characters
 public isValid(string $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

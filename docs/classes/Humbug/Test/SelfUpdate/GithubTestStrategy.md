@@ -2,42 +2,20 @@
 
 # GithubTestStrategy
 
-
-
-
-
 * Full name: `\Humbug\Test\SelfUpdate\GithubTestStrategy`
 * Parent class: [`\Humbug\SelfUpdate\Strategy\GithubStrategy`](../../SelfUpdate/Strategy/GithubStrategy.md)
 
-
-
-
 ## Methods
 
-
 ### getApiUrl
-
-
 
 ```php
 protected getApiUrl(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### download
 
@@ -47,21 +25,11 @@ Download the remote Phar file.
 public download(\Humbug\SelfUpdate\Updater $updater): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$updater` | **\Humbug\SelfUpdate\Updater** |  |
-
-
-
 
 ***
 
@@ -73,21 +41,11 @@ Retrieve the current version available remotely.
 public getCurrentRemoteVersion(\Humbug\SelfUpdate\Updater $updater): string|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$updater` | **\Humbug\SelfUpdate\Updater** |  |
-
-
-
 
 ***
 
@@ -99,21 +57,11 @@ Retrieve the current version of the local phar file.
 public getCurrentLocalVersion(\Humbug\SelfUpdate\Updater $updater): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$updater` | **\Humbug\SelfUpdate\Updater** |  |
-
-
-
 
 ***
 
@@ -125,21 +73,11 @@ Set version string of the local phar
 public setCurrentLocalVersion(string $version): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$version` | **string** |  |
-
-
-
 
 ***
 
@@ -151,21 +89,11 @@ Set Package name
 public setPackageName(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -177,16 +105,6 @@ Get Package name
 public getPackageName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPharName
@@ -197,21 +115,11 @@ Set phar file's name
 public setPharName(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -223,16 +131,6 @@ Get phar file's name
 public getPharName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setStability
@@ -243,21 +141,11 @@ Set target stability
 public setStability(string $stability): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stability` | **string** |  |
-
-
-
 
 ***
 
@@ -269,52 +157,21 @@ Get target stability
 public getStability(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getApiUrl
-
-
 
 ```php
 protected getApiUrl(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDownloadUrl
 
-
-
 ```php
 protected getDownloadUrl(array $package): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -322,11 +179,4 @@ protected getDownloadUrl(array $package): mixed
 |-----------|------|-------------|
 | `$package` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

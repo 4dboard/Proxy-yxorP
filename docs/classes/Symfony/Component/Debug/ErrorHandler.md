@@ -5,271 +5,160 @@
 A generic ErrorHandler for the PHP engine.
 
 Provides five bit fields that control how errors are handled:
+
 - thrownErrors: errors thrown as \ErrorException
 - loggedErrors: logged errors, when not @-silenced
 - scopedErrors: errors thrown or logged with their local context
 - tracedErrors: errors logged with their stack trace, only once for repeated errors
 - screamedErrors: never @-silenced errors
 
-Each error level can be logged by a dedicated PSR-3 logger object.
-Screaming only applies to logging.
-Throwing takes precedence over logging.
-Uncaught exceptions are logged as E_ERROR.
-E_DEPRECATED and E_USER_DEPRECATED levels never throw.
-E_RECOVERABLE_ERROR and E_USER_ERROR levels always throw.
-Non catchable errors that can be detected at shutdown time are logged when the scream bit field allows so.
-As errors have a performance cost, repeated errors are all logged, so that the developer
-can see them and weight them as more important to fix than others of the same level.
+Each error level can be logged by a dedicated PSR-3 logger object. Screaming only applies to logging. Throwing takes
+precedence over logging. Uncaught exceptions are logged as E_ERROR. E_DEPRECATED and E_USER_DEPRECATED levels never
+throw. E_RECOVERABLE_ERROR and E_USER_ERROR levels always throw. Non catchable errors that can be detected at shutdown
+time are logged when the scream bit field allows so. As errors have a performance cost, repeated errors are all logged,
+so that the developer can see them and weight them as more important to fix than others of the same level.
 
 * Full name: `\Symfony\Component\Debug\ErrorHandler`
 
-
-
 ## Properties
 
-
 ### levels
-
-
 
 ```php
 private $levels
 ```
 
-
-
-
-
-
 ***
 
 ### loggers
-
-
 
 ```php
 private $loggers
 ```
 
-
-
-
-
-
 ***
 
 ### thrownErrors
-
-
 
 ```php
 private $thrownErrors
 ```
 
-
-
-
-
-
 ***
 
 ### scopedErrors
-
-
 
 ```php
 private $scopedErrors
 ```
 
-
-
-
-
-
 ***
 
 ### tracedErrors
-
-
 
 ```php
 private $tracedErrors
 ```
 
-
-
-
-
-
 ***
 
 ### screamedErrors
-
-
 
 ```php
 private $screamedErrors
 ```
 
-
-
-
-
-
 ***
 
 ### loggedErrors
-
-
 
 ```php
 private $loggedErrors
 ```
 
-
-
-
-
-
 ***
 
 ### loggedTraces
-
-
 
 ```php
 private $loggedTraces
 ```
 
-
-
-
-
-
 ***
 
 ### isRecursive
-
-
 
 ```php
 private $isRecursive
 ```
 
-
-
-
-
-
 ***
 
 ### isRoot
-
-
 
 ```php
 private $isRoot
 ```
 
-
-
-
-
-
 ***
 
 ### exceptionHandler
-
-
 
 ```php
 private $exceptionHandler
 ```
 
-
-
-
-
-
 ***
 
 ### bootstrappingLogger
-
-
 
 ```php
 private $bootstrappingLogger
 ```
 
-
-
-
-
-
 ***
 
 ### reservedMemory
-
-
 
 ```php
 private static $reservedMemory
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### stackedErrors
 
-
-
 ```php
 private static $stackedErrors
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### stackedErrorLevels
 
-
-
 ```php
 private static $stackedErrorLevels
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### toStringException
 
-
-
 ```php
 private static $toStringException
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### register
 
@@ -279,12 +168,7 @@ Registers the error handler.
 public static register(self|null $handler = null, bool $replace = true): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -292,7 +176,6 @@ public static register(self|null $handler = null, bool $replace = true): self
 |-----------|------|-------------|
 | `$handler` | **self&#124;null** | The handler to register |
 | `$replace` | **bool** | Whether to replace or not any existing handler |
-
 
 **Return Value:**
 
@@ -304,27 +187,15 @@ The registered error handler
 
 ### __construct
 
-
-
 ```php
 public __construct(\Symfony\Component\Debug\BufferingLogger $bootstrappingLogger = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bootstrappingLogger` | **\Symfony\Component\Debug\BufferingLogger** |  |
-
-
-
 
 ***
 
@@ -336,13 +207,6 @@ Sets a logger to non assigned errors levels.
 public setDefaultLogger(\Psr\Log\LoggerInterface $logger, array|int $levels = E_ALL, bool $replace = false): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -350,9 +214,6 @@ public setDefaultLogger(\Psr\Log\LoggerInterface $logger, array|int $levels = E_
 | `$logger` | **\Psr\Log\LoggerInterface** | A PSR-3 logger to put as default for the given levels |
 | `$levels` | **array&#124;int** | An array map of E_* to LogLevel::* or an integer bit field of E_* constants |
 | `$replace` | **bool** | Whether to replace or not any existing logger |
-
-
-
 
 ***
 
@@ -364,19 +225,11 @@ Sets a logger for each error level.
 public setLoggers(array $loggers): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$loggers` | **array** | Error levels to [LoggerInterface&amp;#124;null, LogLevel::*] map |
-
 
 **Return Value:**
 
@@ -394,19 +247,11 @@ Sets a user exception handler.
 public setExceptionHandler(callable $handler = null): callable|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **callable** | A handler that will be called on Exception |
-
 
 **Return Value:**
 
@@ -424,20 +269,12 @@ Sets the PHP error levels that throw an exception when a PHP error occurs.
 public throwAt(int $levels, bool $replace = false): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$levels` | **int** | A bit field of E_* constants for thrown errors |
 | `$replace` | **bool** | Replace or amend the previous value |
-
 
 **Return Value:**
 
@@ -455,20 +292,12 @@ Sets the PHP error levels for which local variables are preserved.
 public scopeAt(int $levels, bool $replace = false): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$levels` | **int** | A bit field of E_* constants for scoped errors |
 | `$replace` | **bool** | Replace or amend the previous value |
-
 
 **Return Value:**
 
@@ -486,20 +315,12 @@ Sets the PHP error levels for which the stack trace is preserved.
 public traceAt(int $levels, bool $replace = false): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$levels` | **int** | A bit field of E_* constants for traced errors |
 | `$replace` | **bool** | Replace or amend the previous value |
-
 
 **Return Value:**
 
@@ -517,20 +338,12 @@ Sets the error levels where the @-operator is ignored.
 public screamAt(int $levels, bool $replace = false): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$levels` | **int** | A bit field of E_* constants for screamed errors |
 | `$replace` | **bool** | Replace or amend the previous value |
-
 
 **Return Value:**
 
@@ -548,21 +361,11 @@ Re-registers as a PHP error handler if levels changed.
 private reRegister(mixed $prev): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prev` | **mixed** |  |
-
-
-
 
 ***
 
@@ -577,19 +380,12 @@ public static stackErrors(): mixed
 Ensures also that non-catchable fatal errors are never silenced.
 
 As shown by http://bugs.php.net/42098 and http://bugs.php.net/60724
-PHP has a compile stage where it behaves unusually. To workaround it,
-we plug an error handler that only stacks errors for later.
+PHP has a compile stage where it behaves unusually. To workaround it, we plug an error handler that only stacks errors
+for later.
 
-The most important feature of this is to prevent
-autoloading until unstackErrors() is called.
+The most important feature of this is to prevent autoloading until unstackErrors() is called.
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -601,15 +397,7 @@ Unstacks stacked errors and forwards to the logger.
 public static unstackErrors(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -623,20 +411,6 @@ protected getFatalErrorHandlers(): \Symfony\Component\Debug\FatalErrorHandler\Fa
 
 Override this method if you want to define more fatal error handlers.
 
-
-
-
-
-
-
 **Return Value:**
 
-An array of FatalErrorHandlerInterface
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+An array of FatalErrorHandlerInterface yxorP::get('REQUEST')

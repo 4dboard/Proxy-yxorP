@@ -2,13 +2,8 @@
 
 # IsFloat
 
-
-
-
-
 * Full name: `\Zend\I18n\Validator\IsFloat`
 * Parent class: [`AbstractValidator`](../../Validator/AbstractValidator.md)
-
 
 ## Constants
 
@@ -19,19 +14,11 @@
 
 ## Properties
 
-
 ### messageTemplates
-
-
 
 ```php
 protected array $messageTemplates
 ```
-
-
-
-
-
 
 ***
 
@@ -43,11 +30,6 @@ Optional locale
 protected string|null $locale
 ```
 
-
-
-
-
-
 ***
 
 ### wrapper
@@ -58,15 +40,9 @@ UTF-8 compatable wrapper for string functions
 protected \Zend\Stdlib\StringWrapper\StringWrapperInterface $wrapper
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -76,21 +52,11 @@ Constructor for the integer validator
 public __construct(array|\Traversable $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -102,16 +68,6 @@ Returns the set locale
 public getLocale(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLocale
@@ -122,39 +78,22 @@ Sets the locale to use
 public setLocale(string|null $locale): float
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string&#124;null** |  |
 
-
-
-
 ***
 
 ### isValid
 
-Returns true if and only if $value is a floating-point value. Uses the formal definition of a float as described
-in the PHP manual: {@link http://www.php.net/float}
+Returns true if and only if $value is a floating-point value. Uses the formal definition of a float as described in the
+PHP manual: {@link http://www.php.net/float}
 
 ```php
 public isValid(string $value): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -162,11 +101,4 @@ public isValid(string $value): bool
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

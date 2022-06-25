@@ -4,15 +4,11 @@
 
 Parses ODT styles.
 
-An instance of this class is used parse style information from an DOMElement
-of a ODT document.
+An instance of this class is used parse style information from an DOMElement of a ODT document.
 
 * Full name: `\ezcDocumentOdtStyleParser`
 
-
-
 ## Properties
-
 
 ### listClassMap
 
@@ -22,10 +18,7 @@ Maps list-leve style XML elements to classes.
 protected static $listClassMap
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -37,15 +30,11 @@ Maps XML attributes to object attributes.
 protected static array $listAttributeMap
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### parseStyle
 
@@ -57,11 +46,6 @@ public parseStyle(\DOMElement $odtStyle, string $family, string $name = null): \
 
 Parses the given $odtStyle and returns a style of $family with $name.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -69,9 +53,6 @@ Parses the given $odtStyle and returns a style of $family with $name.
 | `$odtStyle` | **\DOMElement** |  |
 | `$family` | **string** |  |
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -85,20 +66,12 @@ public parseListStyle(\DOMElement $odtListStyle, string $name): \ezcDocumentOdtL
 
 Parses the given $odtListStyle and returns a list style with $name.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtListStyle` | **\DOMElement** |  |
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -110,22 +83,13 @@ Parses a list level style.
 protected parseListLevel(\DOMElement $listLevelElement): \ezcDocumentOdtListLevelStyle
 ```
 
-Parses the given $listLevelElement and returns a corresponding
-list-level style object.
-
-
-
-
-
+Parses the given $listLevelElement and returns a corresponding list-level style object.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$listLevelElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -137,24 +101,10 @@ Parses the given property.
 protected parseProperties(\DOMElement $propElement): \ezcDocumentOdtFormattingProperties
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$propElement` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

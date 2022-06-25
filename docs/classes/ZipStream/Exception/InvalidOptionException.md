@@ -4,16 +4,10 @@
 
 This Exception gets invoked if an invalid parameter gets passed on as option
 
-
-
 * Full name: `\ZipStream\Exception\InvalidOptionException`
 * Parent class: [`\ZipStream\Exception`](../Exception.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -23,13 +17,6 @@ Constructor of the Exception
 public __construct(string $optionName, string[] $expectedValues = array(), string $givenValue): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -38,11 +25,4 @@ public __construct(string $optionName, string[] $expectedValues = array(), strin
 | `$expectedValues` | **string[]** | - All possible Values |
 | `$givenValue` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

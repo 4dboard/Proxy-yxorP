@@ -4,13 +4,12 @@
 
 Monolog log channel
 
-It contains a stack of Handlers and a stack of Processors,
-and uses them to store records that are added to it.
+It contains a stack of Handlers and a stack of Processors, and uses them to store records that are added to it.
 
 * Full name: `\Monolog\Logger`
 * This class implements:
-[`\Psr\Log\LoggerInterface`](../Psr/Log/LoggerInterface.md), [`\Monolog\ResettableInterface`](./ResettableInterface.md)
-
+  [`\Psr\Log\LoggerInterface`](../Psr/Log/LoggerInterface.md)
+  , [`\Monolog\ResettableInterface`](./ResettableInterface.md)
 
 ## Constants
 
@@ -28,7 +27,6 @@ and uses them to store records that are added to it.
 
 ## Properties
 
-
 ### levels
 
 Logging levels from syslog protocol defined in RFC 5424
@@ -37,40 +35,25 @@ Logging levels from syslog protocol defined in RFC 5424
 protected static array $levels
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### timezone
 
-
-
 ```php
 protected static \DateTimeZone $timezone
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### name
 
-
-
 ```php
 protected string $name
 ```
-
-
-
-
-
 
 ***
 
@@ -81,11 +64,6 @@ The handler stack
 ```php
 protected \Monolog\Handler\HandlerInterface[] $handlers
 ```
-
-
-
-
-
 
 ***
 
@@ -106,82 +84,44 @@ To process records of a single handler instead, add the processor on that specif
 
 ### microsecondTimestamps
 
-
-
 ```php
 protected bool $microsecondTimestamps
 ```
-
-
-
-
-
 
 ***
 
 ### exceptionHandler
 
-
-
 ```php
 protected callable $exceptionHandler
 ```
-
-
-
-
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name, \Monolog\Handler\HandlerInterface[] $handlers = array(), callable[] $processors = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The logging channel |
-| `$handlers` | **\Monolog\Handler\HandlerInterface[]** | Optional stack of handlers, the first one in the array is called first, etc. |
+| `$handlers` | **
+\Monolog\Handler\HandlerInterface[]** | Optional stack of handlers, the first one in the array is called first, etc. |
 | `$processors` | **callable[]** | Optional array of processors |
-
-
-
 
 ***
 
 ### getName
 
-
-
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -193,21 +133,11 @@ Return a new cloned instance with the name changed
 public withName(mixed $name): static
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
@@ -219,21 +149,11 @@ Pushes a handler on to the stack.
 public pushHandler(\Monolog\Handler\HandlerInterface $handler): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **\Monolog\Handler\HandlerInterface** |  |
-
-
-
 
 ***
 
@@ -244,16 +164,6 @@ Pops a handler from the stack
 ```php
 public popHandler(): \Monolog\Handler\HandlerInterface
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -267,39 +177,19 @@ public setHandlers(\Monolog\Handler\HandlerInterface[] $handlers): $this
 
 If a map is passed, keys will be ignored.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handlers` | **\Monolog\Handler\HandlerInterface[]** |  |
 
-
-
-
 ***
 
 ### getHandlers
 
-
-
 ```php
 public getHandlers(): \Monolog\Handler\HandlerInterface[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -311,21 +201,11 @@ Adds a processor on to the stack.
 public pushProcessor(callable $callback): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** |  |
-
-
-
 
 ***
 
@@ -337,67 +217,33 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getProcessors
-
-
 
 ```php
 public getProcessors(): callable[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### useMicrosecondTimestamps
 
-Control the use of microsecond resolution timestamps in the 'datetime'
-member of new records.
+Control the use of microsecond resolution timestamps in the 'datetime' member of new records.
 
 ```php
 public useMicrosecondTimestamps(bool $micro): mixed
 ```
 
-Generating microsecond resolution timestamps by calling
-microtime(true), formatting the result via sprintf() and then parsing
-the resulting string via \DateTime::createFromFormat() can incur
-a measurable runtime overhead vs simple usage of DateTime to capture
-a second resolution timestamp in systems which generate a large number
-of log events.
-
-
-
-
-
+Generating microsecond resolution timestamps by calling microtime(true), formatting the result via sprintf() and then
+parsing the resulting string via \DateTime::createFromFormat() can incur a measurable runtime overhead vs simple usage
+of DateTime to capture a second resolution timestamp in systems which generate a large number of log events.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$micro` | **bool** | True to use microtime() to create timestamps |
-
-
-
 
 ***
 
@@ -409,13 +255,6 @@ Adds a log record.
 public addRecord(int $level, string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -423,7 +262,6 @@ public addRecord(int $level, string $message, array $context = array()): bool
 | `$level` | **int** | The logging level |
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -441,12 +279,11 @@ Ends a log cycle and frees all resources used by handlers.
 public close(): mixed
 ```
 
-Closing a Handler means flushing all buffers and freeing any open resources/handles.
-Handlers that have been closed should be able to accept log records again and re-open
-themselves on demand, but this may not always be possible depending on implementation.
+Closing a Handler means flushing all buffers and freeing any open resources/handles. Handlers that have been closed
+should be able to accept log records again and re-open themselves on demand, but this may not always be possible
+depending on implementation.
 
-This is useful at the end of a request and will be called automatically on every handler
-when they get destructed.
+This is useful at the end of a request and will be called automatically on every handler when they get destructed.
 
 
 
@@ -466,12 +303,11 @@ Ends a log cycle and resets all handlers and processors to their initial state.
 public reset(): mixed
 ```
 
-Resetting a Handler or a Processor means flushing/cleaning all buffers, resetting internal
-state, and getting it back to a state in which it can receive log records again.
+Resetting a Handler or a Processor means flushing/cleaning all buffers, resetting internal state, and getting it back to
+a state in which it can receive log records again.
 
-This is useful in case you want to avoid logs leaking between two requests or jobs when you
-have a long running process like a worker or an application server serving multiple requests
-in one process.
+This is useful in case you want to avoid logs leaking between two requests or jobs when you have a long running process
+like a worker or an application server serving multiple requests in one process.
 
 
 
@@ -491,20 +327,12 @@ Adds a log record at the DEBUG level.
 public addDebug(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -522,20 +350,12 @@ Adds a log record at the INFO level.
 public addInfo(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -553,20 +373,12 @@ Adds a log record at the NOTICE level.
 public addNotice(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -584,20 +396,12 @@ Adds a log record at the WARNING level.
 public addWarning(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -615,20 +419,12 @@ Adds a log record at the ERROR level.
 public addError(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -646,20 +442,12 @@ Adds a log record at the CRITICAL level.
 public addCritical(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -677,20 +465,12 @@ Adds a log record at the ALERT level.
 public addAlert(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -708,20 +488,12 @@ Adds a log record at the EMERGENCY level.
 public addEmergency(string $message, array $context = array()): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -739,13 +511,7 @@ Gets all supported logging levels.
 public static getLevels(): array
 ```
 
-
-
 * This method is **static**.
-
-
-
-
 
 **Return Value:**
 
@@ -763,21 +529,13 @@ Gets the name of the logging level.
 public static getLevelName(int $level): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int** |  |
-
-
-
 
 ***
 
@@ -789,21 +547,13 @@ Converts PSR-3 levels to Monolog ones if necessary
 public static toMonologLevel(string|int $level): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **string&#124;int** | Level number (monolog) or name (PSR-3) |
-
-
-
 
 ***
 
@@ -815,21 +565,11 @@ Checks whether the Logger has a handler that listens on the given level
 public isHandling(int $level): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int** |  |
-
-
-
 
 ***
 
@@ -841,59 +581,29 @@ Set a custom exception handler
 public setExceptionHandler(callable $callback): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** |  |
 
-
-
-
 ***
 
 ### getExceptionHandler
-
-
 
 ```php
 public getExceptionHandler(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### handleException
 
-Delegates exception management to the custom exception handler,
-or throws the exception if no custom handler is set.
+Delegates exception management to the custom exception handler, or throws the exception if no custom handler is set.
 
 ```php
 protected handleException(\Exception $e, array $record): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -901,9 +611,6 @@ protected handleException(\Exception $e, array $record): mixed
 |-----------|------|-------------|
 | `$e` | **\Exception** |  |
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -917,11 +624,6 @@ public log(mixed $level, string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -929,7 +631,6 @@ This method allows for compatibility with common interfaces.
 | `$level` | **mixed** | The log level |
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -949,18 +650,12 @@ public debug(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -980,18 +675,12 @@ public info(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1011,18 +700,12 @@ public notice(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1042,18 +725,12 @@ public warn(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1073,18 +750,12 @@ public warning(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1104,18 +775,12 @@ public err(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1135,18 +800,12 @@ public error(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1166,18 +825,12 @@ public crit(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1197,18 +850,12 @@ public critical(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1228,18 +875,12 @@ public alert(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1259,18 +900,12 @@ public emerg(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1290,18 +925,12 @@ public emergency(string $message, array $context = array()): bool
 
 This method allows for compatibility with common interfaces.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The log message |
 | `$context` | **array** | The log context |
-
 
 **Return Value:**
 
@@ -1323,20 +952,10 @@ This is stored globally for all Logger instances
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tz` | **\DateTimeZone** | Timezone object |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,18 +4,16 @@
 
 Shared/contextual EventManager
 
-Allows attaching to EMs composed by other classes without having an instance first.
-The assumption is that the SharedEventManager will be injected into EventManager
-instances, and then queried for additional listeners when triggering an event.
+Allows attaching to EMs composed by other classes without having an instance first. The assumption is that the
+SharedEventManager will be injected into EventManager instances, and then queried for additional listeners when
+triggering an event.
 
 * Full name: `\Zend\EventManager\SharedEventManager`
 * This class implements:
-[`\Zend\EventManager\SharedEventAggregateAwareInterface`](./SharedEventAggregateAwareInterface.md), [`\Zend\EventManager\SharedEventManagerInterface`](./SharedEventManagerInterface.md)
-
-
+  [`\Zend\EventManager\SharedEventAggregateAwareInterface`](./SharedEventAggregateAwareInterface.md)
+  , [`\Zend\EventManager\SharedEventManagerInterface`](./SharedEventManagerInterface.md)
 
 ## Properties
-
 
 ### identifiers
 
@@ -25,15 +23,9 @@ Identifiers with event connections
 protected array $identifiers
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### attach
 
@@ -43,8 +35,8 @@ Attach a listener to an event
 public attach(string|array $id, string $event, callable $callback, int $priority = 1): \Zend\Stdlib\CallbackHandler|array
 ```
 
-Allows attaching a callback to an event offered by one or more
-identifying components. As an example, the following connects to the
+Allows attaching a callback to an event offered by one or more identifying components. As an example, the following
+connects to the
 "getAll" event of both an AbstractResource and EntityResource:
 
 <code>
@@ -78,7 +70,6 @@ $sharedEventManager->attach(
 | `$callback` | **callable** | PHP Callback |
 | `$priority` | **int** | Priority at which listener should execute |
 
-
 **Return Value:**
 
 Either CallbackHandler or array of CallbackHandlers
@@ -96,13 +87,7 @@ public attachAggregate(\Zend\EventManager\SharedListenerAggregateInterface $aggr
 ```
 
 Listener aggregates accept an EventManagerInterface instance, and call attachShared()
-one or more times, typically to attach to multiple events using local
-methods.
-
-
-
-
-
+one or more times, typically to attach to multiple events using local methods.
 
 **Parameters:**
 
@@ -110,7 +95,6 @@ methods.
 |-----------|------|-------------|
 | `$aggregate` | **\Zend\EventManager\SharedListenerAggregateInterface** |  |
 | `$priority` | **int** | If provided, a suggested priority for the aggregate to use |
-
 
 **Return Value:**
 
@@ -128,20 +112,12 @@ Detach a listener from an event offered by a given resource
 public detach(string|int $id, \Zend\Stdlib\CallbackHandler $listener): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string&#124;int** |  |
 | `$listener` | **\Zend\Stdlib\CallbackHandler** |  |
-
 
 **Return Value:**
 
@@ -162,17 +138,11 @@ public detachAggregate(\Zend\EventManager\SharedListenerAggregateInterface $aggr
 Listener aggregates accept a SharedEventManagerInterface instance, and call detachShared()
 of all previously attached listeners.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$aggregate` | **\Zend\EventManager\SharedListenerAggregateInterface** |  |
-
 
 **Return Value:**
 
@@ -190,23 +160,13 @@ Retrieve all registered events for a given resource
 public getEvents(string|int $id): array
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string&#124;int** |  |
-
-
-
 
 ***
 
@@ -218,22 +178,12 @@ Retrieve all listeners for a given identifier and event
 public getListeners(string|int $id, string|int $event): false|\Zend\Stdlib\PriorityQueue
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string&#124;int** |  |
 | `$event` | **string&#124;int** |  |
-
-
-
 
 ***
 
@@ -245,13 +195,6 @@ Clear all listeners for a given identifier, optionally for a specific event
 public clearListeners(string|int $id, null|string $event = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -259,11 +202,4 @@ public clearListeners(string|int $id, null|string $event = null): bool
 | `$id` | **string&#124;int** |  |
 | `$event` | **null&#124;string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

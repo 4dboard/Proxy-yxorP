@@ -4,92 +4,49 @@
 
 Monolog POSIX signal handler
 
-
-
 * Full name: `\Monolog\SignalHandler`
-
-
 
 ## Properties
 
-
 ### logger
-
-
 
 ```php
 private $logger
 ```
 
-
-
-
-
-
 ***
 
 ### previousSignalHandler
-
-
 
 ```php
 private $previousSignalHandler
 ```
 
-
-
-
-
-
 ***
 
 ### signalLevelMap
-
-
 
 ```php
 private $signalLevelMap
 ```
 
-
-
-
-
-
 ***
 
 ### signalRestartSyscalls
-
-
 
 ```php
 private $signalRestartSyscalls
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Psr\Log\LoggerInterface $logger): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -97,25 +54,13 @@ public __construct(\Psr\Log\LoggerInterface $logger): mixed
 |-----------|------|-------------|
 | `$logger` | **\Psr\Log\LoggerInterface** |  |
 
-
-
-
 ***
 
 ### registerSignalHandler
 
-
-
 ```php
 public registerSignalHandler(mixed $signo, mixed $level = LogLevel::CRITICAL, mixed $callPrevious = true, mixed $restartSyscalls = true, mixed $async = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -127,25 +72,13 @@ public registerSignalHandler(mixed $signo, mixed $level = LogLevel::CRITICAL, mi
 | `$restartSyscalls` | **mixed** |  |
 | `$async` | **mixed** |  |
 
-
-
-
 ***
 
 ### handleSignal
 
-
-
 ```php
 public handleSignal(mixed $signo, array $siginfo = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -154,11 +87,4 @@ public handleSignal(mixed $signo, array $siginfo = null): mixed
 | `$signo` | **mixed** |  |
 | `$siginfo` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

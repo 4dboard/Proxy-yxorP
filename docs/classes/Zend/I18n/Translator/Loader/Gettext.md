@@ -4,15 +4,10 @@
 
 Gettext loader.
 
-
-
 * Full name: `\Zend\I18n\Translator\Loader\Gettext`
 * Parent class: [`\Zend\I18n\Translator\Loader\AbstractFileLoader`](./AbstractFileLoader.md)
 
-
-
 ## Properties
-
 
 ### file
 
@@ -21,11 +16,6 @@ Current file pointer.
 ```php
 protected resource $file
 ```
-
-
-
-
-
 
 ***
 
@@ -37,15 +27,9 @@ Whether the current file is little endian.
 protected bool $littleEndian
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### load
 
@@ -55,13 +39,6 @@ load(): defined by FileLoaderInterface.
 public load(string $locale, string $filename): \Zend\I18n\Translator\TextDomain
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -69,11 +46,9 @@ public load(string $locale, string $filename): \Zend\I18n\Translator\TextDomain
 | `$locale` | **string** |  |
 | `$filename` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\I18n\Translator\Loader\FileLoaderInterface::load() - 
+* \Zend\I18n\Translator\Loader\FileLoaderInterface::load() -
 
 ***
 
@@ -85,16 +60,6 @@ Read a single integer from the current file.
 protected readInteger(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### readIntegerList
@@ -105,27 +70,15 @@ Read an integer from the current file.
 protected readIntegerList(int $num): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$num` | **int** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setUseIncludePath
 
@@ -135,21 +88,11 @@ Indicate whether or not to use the include_path to resolve translation files
 public setUseIncludePath(bool $flag = true): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **bool** |  |
-
-
-
 
 ***
 
@@ -160,16 +103,6 @@ Are we using the include_path to resolve translation files?
 ```php
 public useIncludePath(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -182,22 +115,14 @@ protected resolveFile(string $filename): string|false
 ```
 
 Checks if the file exists and is readable, returning a boolean false if not; if the "useIncludePath"
-flag is enabled, it will attempt to resolve the file from the
-include_path if the file does not exist on the current working path.
-
-
-
-
-
+flag is enabled, it will attempt to resolve the file from the include_path if the file does not exist on the current
+working path.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** |  |
-
-
-
 
 ***
 
@@ -209,24 +134,10 @@ Resolve a translation file via the include_path
 protected resolveViaIncludePath(string $filename): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

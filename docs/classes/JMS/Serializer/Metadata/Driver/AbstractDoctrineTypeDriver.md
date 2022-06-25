@@ -2,20 +2,15 @@
 
 # AbstractDoctrineTypeDriver
 
-This class decorates any other driver. If the inner driver does not provide a
-a property type, the decorator will guess based on Doctrine 2 metadata.
-
-
+This class decorates any other driver. If the inner driver does not provide a a property type, the decorator will guess
+based on Doctrine 2 metadata.
 
 * Full name: `\JMS\Serializer\Metadata\Driver\AbstractDoctrineTypeDriver`
 * This class implements:
-[`\Metadata\Driver\DriverInterface`](../../../../Metadata/Driver/DriverInterface.md)
+  [`\Metadata\Driver\DriverInterface`](../../../../Metadata/Driver/DriverInterface.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### fieldMapping
 
@@ -25,60 +20,31 @@ Map of doctrine 2 field types to JMS\Serializer types
 protected array $fieldMapping
 ```
 
-
-
-
-
-
 ***
 
 ### delegate
-
-
 
 ```php
 protected \Metadata\Driver\DriverInterface $delegate
 ```
 
-
-
-
-
-
 ***
 
 ### registry
-
-
 
 ```php
 protected \Doctrine\Common\Persistence\ManagerRegistry $registry
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Metadata\Driver\DriverInterface $delegate, \Doctrine\Common\Persistence\ManagerRegistry $registry): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -87,25 +53,13 @@ public __construct(\Metadata\Driver\DriverInterface $delegate, \Doctrine\Common\
 | `$delegate` | **\Metadata\Driver\DriverInterface** |  |
 | `$registry` | **\Doctrine\Common\Persistence\ManagerRegistry** |  |
 
-
-
-
 ***
 
 ### loadMetadataForClass
 
-
-
 ```php
 public loadMetadataForClass(\ReflectionClass $class): \Metadata\ClassMetadata
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -113,25 +67,13 @@ public loadMetadataForClass(\ReflectionClass $class): \Metadata\ClassMetadata
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
 
-
-
-
 ***
 
 ### isVirtualProperty
 
-
-
 ```php
 private isVirtualProperty(\JMS\Serializer\Metadata\PropertyMetadata $propertyMetadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -139,25 +81,13 @@ private isVirtualProperty(\JMS\Serializer\Metadata\PropertyMetadata $propertyMet
 |-----------|------|-------------|
 | `$propertyMetadata` | **\JMS\Serializer\Metadata\PropertyMetadata** |  |
 
-
-
-
 ***
 
 ### setDiscriminator
 
-
-
 ```php
 protected setDiscriminator(\Doctrine\Common\Persistence\Mapping\ClassMetadata $doctrineMetadata, \JMS\Serializer\Metadata\ClassMetadata $classMetadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -166,52 +96,28 @@ protected setDiscriminator(\Doctrine\Common\Persistence\Mapping\ClassMetadata $d
 | `$doctrineMetadata` | **\Doctrine\Common\Persistence\Mapping\ClassMetadata** |  |
 | `$classMetadata` | **\JMS\Serializer\Metadata\ClassMetadata** |  |
 
-
-
-
 ***
 
 ### hideProperty
-
-
 
 ```php
 protected hideProperty(\Doctrine\Common\Persistence\Mapping\ClassMetadata $doctrineMetadata, \JMS\Serializer\Metadata\PropertyMetadata $propertyMetadata): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$doctrineMetadata` | **\Doctrine\Common\Persistence\Mapping\ClassMetadata** |  |
 | `$propertyMetadata` | **\JMS\Serializer\Metadata\PropertyMetadata** |  |
-
-
-
 
 ***
 
 ### setPropertyType
 
-
-
 ```php
 protected setPropertyType(\Doctrine\Common\Persistence\Mapping\ClassMetadata $doctrineMetadata, \JMS\Serializer\Metadata\PropertyMetadata $propertyMetadata): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -220,25 +126,13 @@ protected setPropertyType(\Doctrine\Common\Persistence\Mapping\ClassMetadata $do
 | `$doctrineMetadata` | **\Doctrine\Common\Persistence\Mapping\ClassMetadata** |  |
 | `$propertyMetadata` | **\JMS\Serializer\Metadata\PropertyMetadata** |  |
 
-
-
-
 ***
 
 ### tryLoadingDoctrineMetadata
 
-
-
 ```php
 protected tryLoadingDoctrineMetadata(string $className): null|\Doctrine\Common\Persistence\Mapping\ClassMetadata
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -246,25 +140,13 @@ protected tryLoadingDoctrineMetadata(string $className): null|\Doctrine\Common\P
 |-----------|------|-------------|
 | `$className` | **string** |  |
 
-
-
-
 ***
 
 ### normalizeFieldType
 
-
-
 ```php
 protected normalizeFieldType(string $type): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -272,11 +154,4 @@ protected normalizeFieldType(string $type): mixed
 |-----------|------|-------------|
 | `$type` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

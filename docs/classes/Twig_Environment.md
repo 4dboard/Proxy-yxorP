@@ -4,18 +4,10 @@
 
 Stores the Twig configuration and renders templates.
 
-
-
 * Full name: `\Twig_Environment`
 * Parent class: [`\Twig\Environment`](./Twig/Environment.md)
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -27,40 +19,28 @@ public __construct(\Twig\Loader\LoaderInterface $loader = null, mixed $options =
 
 Available options:
 
-* debug: When set to true, it automatically set "auto_reload" to true as
-         well (default to false).
+* debug: When set to true, it automatically set "auto_reload" to true as well (default to false).
 
 * charset: The charset used by the templates (default to UTF-8).
 
-* base_template_class: The base template class to use for generated
-                       templates (default to \Twig\Template).
+* base_template_class: The base template class to use for generated templates (default to \Twig\Template).
 
-* cache: An absolute path where to store the compiled templates,
-         a \Twig\Cache\CacheInterface implementation,
-         or false to disable compilation cache (default).
+* cache: An absolute path where to store the compiled templates, a \Twig\Cache\CacheInterface implementation, or false
+  to disable compilation cache (default).
 
-* auto_reload: Whether to reload the template if the original source changed.
-               If you don't provide the auto_reload option, it will be
-               determined automatically based on the debug value.
+* auto_reload: Whether to reload the template if the original source changed. If you don't provide the auto_reload
+  option, it will be determined automatically based on the debug value.
 
 * strict_variables: Whether to ignore invalid variables in templates
-                    (default to false).
+  (default to false).
 
 * autoescape: Whether to enable auto-escaping (default to html):
-                * false: disable auto-escaping
-                * true: equivalent to html
-                * html, js: set the autoescaping to one of the supported strategies
-                * name: set the autoescaping strategy based on the template name extension
-                * PHP callback: a PHP callback that returns an escaping strategy based on the template "name"
+  * false: disable auto-escaping * true: equivalent to html * html, js: set the autoescaping to one of the supported
+  strategies * name: set the autoescaping strategy based on the template name extension * PHP callback: a PHP callback
+  that returns an escaping strategy based on the template "name"
 
 * optimizations: A flag that indicates which optimizations to apply
-                 (default to -1 which means that all optimizations are enabled;
-                 set it to 0 to disable).
-
-
-
-
-
+  (default to -1 which means that all optimizations are enabled; set it to 0 to disable).
 
 **Parameters:**
 
@@ -68,9 +48,6 @@ Available options:
 |-----------|------|-------------|
 | `$loader` | **\Twig\Loader\LoaderInterface** |  |
 | `$options` | **mixed** |  |
-
-
-
 
 ***
 
@@ -81,14 +58,6 @@ Gets the base template class for compiled templates.
 ```php
 public getBaseTemplateClass(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -106,21 +75,11 @@ Sets the base template class for compiled templates.
 public setBaseTemplateClass(string $class): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | The base template class name |
-
-
-
 
 ***
 
@@ -132,16 +91,6 @@ Enables debugging mode.
 public enableDebug(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### disableDebug
@@ -152,16 +101,6 @@ Disables debugging mode.
 public disableDebug(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isDebug
@@ -171,14 +110,6 @@ Checks if debug mode is enabled.
 ```php
 public isDebug(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -196,16 +127,6 @@ Enables the auto_reload option.
 public enableAutoReload(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### disableAutoReload
@@ -216,16 +137,6 @@ Disables the auto_reload option.
 public disableAutoReload(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isAutoReload
@@ -235,14 +146,6 @@ Checks if the auto_reload option is enabled.
 ```php
 public isAutoReload(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -260,16 +163,6 @@ Enables the strict_variables option.
 public enableStrictVariables(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### disableStrictVariables
@@ -280,16 +173,6 @@ Disables the strict_variables option.
 public disableStrictVariables(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isStrictVariables
@@ -299,14 +182,6 @@ Checks if the strict_variables option is enabled.
 ```php
 public isStrictVariables(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -324,25 +199,15 @@ Gets the current cache implementation.
 public getCache(bool $original = true): \Twig\Cache\CacheInterface|string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$original` | **bool** | Whether to return the original cache option or the real cache instance |
 
-
 **Return Value:**
 
-A Twig\Cache\CacheInterface implementation,
-an absolute path to the compiled templates,
-or false to disable cache
+A Twig\Cache\CacheInterface implementation, an absolute path to the compiled templates, or false to disable cache
 
 
 
@@ -356,21 +221,12 @@ Sets the current cache implementation.
 public setCache(\Twig\Cache\CacheInterface|string|false $cache): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$cache` | **\Twig\Cache\CacheInterface&#124;string&#124;false** | A Twig\Cache\CacheInterface implementation,<br />an absolute path to the compiled templates,<br />or false to disable cache |
-
-
-
+| `$cache` | **
+\Twig\Cache\CacheInterface&#124;string&#124;false** | A Twig\Cache\CacheInterface implementation,<br />an absolute path to the compiled templates,<br />or false to disable cache |
 
 ***
 
@@ -382,21 +238,13 @@ Gets the cache filename for a given template.
 public getCacheFilename(string $name): string|false
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The template name |
-
 
 **Return Value:**
 
@@ -423,18 +271,12 @@ The generated template class is based on the following parameters:
 * Twig version;
 * Options with what environment was created.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name for which to calculate the template class name |
 | `$index` | **int&#124;null** | The index if it is an embedded template |
-
 
 **Return Value:**
 
@@ -452,15 +294,7 @@ Gets the template class prefix.
 public getTemplateClassPrefix(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -478,20 +312,12 @@ Renders a template.
 public render(string|\Twig\TemplateWrapper $name, array $context = []): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;\Twig\TemplateWrapper** | The template name |
 | `$context` | **array** | An array of parameters to pass to the template |
-
 
 **Return Value:**
 
@@ -509,22 +335,12 @@ Displays a template.
 public display(string|\Twig\TemplateWrapper $name, array $context = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;\Twig\TemplateWrapper** | The template name |
 | `$context` | **array** | An array of parameters to pass to the template |
-
-
-
 
 ***
 
@@ -536,21 +352,11 @@ Loads a template.
 public load(string|\Twig\TemplateWrapper|\Twig\Template $name): \Twig\TemplateWrapper
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;\Twig\TemplateWrapper&#124;\Twig\Template** | The template name |
-
-
-
 
 ***
 
@@ -564,18 +370,12 @@ public createTemplate(string $template, string $name = null): \Twig\TemplateWrap
 
 This method should not be used as a generic way to load templates.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$template` | **string** | The template source |
 | `$name` | **string** | An optional name of the template to be used in error messages |
-
 
 **Return Value:**
 
@@ -593,14 +393,8 @@ Returns true if the template is still fresh.
 public isTemplateFresh(string $name, int $time): bool
 ```
 
-Besides checking the loader for freshness information,
-this method also checks if the enabled extensions have
-not changed.
-
-
-
-
-
+Besides checking the loader for freshness information, this method also checks if the enabled extensions have not
+changed.
 
 **Parameters:**
 
@@ -608,7 +402,6 @@ not changed.
 |-----------|------|-------------|
 | `$name` | **string** | The template name |
 | `$time` | **int** | The last modification time of the cached template |
-
 
 **Return Value:**
 
@@ -626,22 +419,15 @@ Tries to load a template consecutively from an array.
 public resolveTemplate(string|\Twig\Template|\Twig\TemplateWrapper|array $names): \Twig\TemplateWrapper|\Twig\Template
 ```
 
-Similar to load() but it also accepts instances of \Twig\Template and
-\Twig\TemplateWrapper, and an array of templates where each is tried to be loaded.
-
-
-
-
-
+Similar to load() but it also accepts instances of \Twig\Template and \Twig\TemplateWrapper, and an array of templates
+where each is tried to be loaded.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$names` | **string&#124;\Twig\Template&#124;\Twig\TemplateWrapper&#124;array** | A template or an array of templates to try consecutively |
-
-
-
+| `$names` | **
+string&#124;\Twig\Template&#124;\Twig\TemplateWrapper&#124;array** | A template or an array of templates to try consecutively |
 
 ***
 
@@ -653,17 +439,7 @@ Clears the internal template cache.
 public clearTemplateCache(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -675,17 +451,7 @@ Clears the template cache files on the filesystem.
 public clearCacheFiles(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -697,43 +463,21 @@ Gets the Lexer instance.
 public getLexer(): \Twig_LexerInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
 ### setLexer
 
-
-
 ```php
 public setLexer(\Twig_LexerInterface $lexer): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lexer` | **\Twig_LexerInterface** |  |
-
-
-
 
 ***
 
@@ -745,22 +489,12 @@ Tokenizes a source code.
 public tokenize(string|\Twig\Source $source, string $name = null): \Twig\TokenStream
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string&#124;\Twig\Source** | The template source code |
 | `$name` | **string** | The template name (deprecated) |
-
-
-
 
 ***
 
@@ -772,43 +506,21 @@ Gets the Parser instance.
 public getParser(): \Twig_ParserInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
 ### setParser
 
-
-
 ```php
 public setParser(\Twig_ParserInterface $parser): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parser` | **\Twig_ParserInterface** |  |
-
-
-
 
 ***
 
@@ -820,21 +532,11 @@ Converts a token stream to a node tree.
 public parse(\Twig\TokenStream $stream): \Twig\Node\ModuleNode
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stream` | **\Twig\TokenStream** |  |
-
-
-
 
 ***
 
@@ -846,43 +548,21 @@ Gets the Compiler instance.
 public getCompiler(): \Twig_CompilerInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
 ### setCompiler
 
-
-
 ```php
 public setCompiler(\Twig_CompilerInterface $compiler): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compiler` | **\Twig_CompilerInterface** |  |
-
-
-
 
 ***
 
@@ -894,19 +574,11 @@ Compiles a node and returns the PHP code.
 public compile(\Twig_NodeInterface $node): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
-
 
 **Return Value:**
 
@@ -924,20 +596,12 @@ Compiles a template source code.
 public compileSource(string|\Twig\Source $source, string $name = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string&#124;\Twig\Source** | The template source code |
 | `$name` | **string** | The template name (deprecated) |
-
 
 **Return Value:**
 
@@ -949,27 +613,15 @@ The compiled PHP source code
 
 ### setLoader
 
-
-
 ```php
 public setLoader(\Twig\Loader\LoaderInterface $loader): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$loader` | **\Twig\Loader\LoaderInterface** |  |
-
-
-
 
 ***
 
@@ -981,16 +633,6 @@ Gets the Loader instance.
 public getLoader(): \Twig\Loader\LoaderInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCharset
@@ -1001,21 +643,11 @@ Sets the default template charset.
 public setCharset(string $charset): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$charset` | **string** | The default charset |
-
-
-
 
 ***
 
@@ -1026,14 +658,6 @@ Gets the default template charset.
 ```php
 public getCharset(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -1051,17 +675,7 @@ Initializes the runtime environment.
 public initRuntime(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -1073,19 +687,11 @@ Returns true if the given extension is registered.
 public hasExtension(string $class): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | The extension class name |
-
 
 **Return Value:**
 
@@ -1103,21 +709,11 @@ Adds a runtime loader.
 public addRuntimeLoader(\Twig\RuntimeLoader\RuntimeLoaderInterface $loader): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$loader` | **\Twig\RuntimeLoader\RuntimeLoaderInterface** |  |
-
-
-
 
 ***
 
@@ -1129,21 +725,11 @@ Gets an extension by class name.
 public getExtension(string $class): \Twig\Extension\ExtensionInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | The extension class name |
-
-
-
 
 ***
 
@@ -1155,19 +741,11 @@ Returns the runtime implementation of a Twig element (filter/function/test).
 public getRuntime(string $class): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** | A runtime class name |
-
 
 **Return Value:**
 
@@ -1179,27 +757,15 @@ The runtime implementation
 
 ### addExtension
 
-
-
 ```php
 public addExtension(\Twig\Extension\ExtensionInterface $extension): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$extension` | **\Twig\Extension\ExtensionInterface** |  |
-
-
-
 
 ***
 
@@ -1213,21 +779,13 @@ public removeExtension(string $name): mixed
 
 This method is deprecated and you should not use it.
 
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The extension name |
-
-
-
 
 ***
 
@@ -1239,21 +797,11 @@ Registers an array of extensions.
 public setExtensions(array $extensions): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$extensions` | **array** | An array of extensions |
-
-
-
 
 ***
 
@@ -1265,14 +813,6 @@ Returns all registered extensions.
 public getExtensions(): \Twig\Extension\ExtensionInterface[]
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An array of extensions (keys are for internal usage only and should not be relied on)
@@ -1283,18 +823,9 @@ An array of extensions (keys are for internal usage only and should not be relie
 
 ### addTokenParser
 
-
-
 ```php
 public addTokenParser(\Twig\TokenParser\TokenParserInterface $parser): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1302,34 +833,19 @@ public addTokenParser(\Twig\TokenParser\TokenParserInterface $parser): mixed
 |-----------|------|-------------|
 | `$parser` | **\Twig\TokenParser\TokenParserInterface** |  |
 
-
-
-
 ***
 
 ### addNodeVisitor
 
-
-
 ```php
 public addNodeVisitor(\Twig\NodeVisitor\NodeVisitorInterface $visitor): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$visitor` | **\Twig\NodeVisitor\NodeVisitorInterface** |  |
-
-
-
 
 ***
 
@@ -1341,13 +857,6 @@ Registers a Filter.
 public addFilter(string|\Twig\TwigFilter $name, \Twig_FilterInterface|\Twig\TwigFilter $filter = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1355,34 +864,19 @@ public addFilter(string|\Twig\TwigFilter $name, \Twig_FilterInterface|\Twig\Twig
 | `$name` | **string&#124;\Twig\TwigFilter** | The filter name or a \Twig_SimpleFilter instance |
 | `$filter` | **\Twig_FilterInterface&#124;\Twig\TwigFilter** |  |
 
-
-
-
 ***
 
 ### registerUndefinedFilterCallback
 
-
-
 ```php
 public registerUndefinedFilterCallback(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1394,22 +888,13 @@ Registers a Test.
 public addTest(string|\Twig\TwigTest $name, \Twig_TestInterface|\Twig\TwigTest $test = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;\Twig\TwigTest** | The test name or a \Twig_SimpleTest instance |
-| `$test` | **\Twig_TestInterface&#124;\Twig\TwigTest** | A \Twig_TestInterface instance or a \Twig_SimpleTest instance |
-
-
-
+| `$test` | **
+\Twig_TestInterface&#124;\Twig\TwigTest** | A \Twig_TestInterface instance or a \Twig_SimpleTest instance |
 
 ***
 
@@ -1421,13 +906,6 @@ Registers a Function.
 public addFunction(string|\Twig\TwigFunction $name, \Twig_FunctionInterface|\Twig\TwigFunction $function = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1435,34 +913,19 @@ public addFunction(string|\Twig\TwigFunction $name, \Twig_FunctionInterface|\Twi
 | `$name` | **string&#124;\Twig\TwigFunction** | The function name or a \Twig_SimpleFunction instance |
 | `$function` | **\Twig_FunctionInterface&#124;\Twig\TwigFunction** |  |
 
-
-
-
 ***
 
 ### registerUndefinedFunctionCallback
 
-
-
 ```php
 public registerUndefinedFunctionCallback(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1474,13 +937,7 @@ Registers a Global.
 public addGlobal(string $name, mixed $value): mixed
 ```
 
-New globals can be added before compiling or rendering a template;
-but after, you can only update existing globals.
-
-
-
-
-
+New globals can be added before compiling or rendering a template; but after, you can only update existing globals.
 
 **Parameters:**
 
@@ -1488,9 +945,6 @@ but after, you can only update existing globals.
 |-----------|------|-------------|
 | `$name` | **string** | The global name |
 | `$value` | **mixed** | The global value |
-
-
-
 
 ***
 
@@ -1502,19 +956,11 @@ Merges a context with the defined globals.
 public mergeGlobals(array $context): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **array** | An array representing the context |
-
 
 **Return Value:**
 
@@ -1526,20 +972,11 @@ The context merged with the globals
 
 ### computeAlternatives
 
-
-
 ```php
 public computeAlternatives(mixed $name, mixed $items): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -1548,27 +985,15 @@ public computeAlternatives(mixed $name, mixed $items): mixed
 | `$name` | **mixed** |  |
 | `$items` | **mixed** |  |
 
-
-
-
 ***
 
 ### writeCacheFile
-
-
 
 ```php
 protected writeCacheFile(mixed $file, mixed $content): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -1577,31 +1002,12 @@ protected writeCacheFile(mixed $file, mixed $content): mixed
 | `$file` | **mixed** |  |
 | `$content` | **mixed** |  |
 
-
-
-
 ***
 
 ### updateOptionsHash
-
-
 
 ```php
 private updateOptionsHash(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

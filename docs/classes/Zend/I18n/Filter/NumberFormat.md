@@ -2,18 +2,10 @@
 
 # NumberFormat
 
-
-
-
-
 * Full name: `\Zend\I18n\Filter\NumberFormat`
 * Parent class: [`\Zend\I18n\Filter\NumberParse`](./NumberParse.md)
 
-
-
-
 ## Methods
-
 
 ### filter
 
@@ -23,48 +15,25 @@ Defined by Zend\Filter\FilterInterface
 public filter(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\I18n\Filter\Zend\Filter\FilterInterface::filter() - 
+* \Zend\I18n\Filter\Zend\Filter\FilterInterface::filter() -
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -76,38 +45,19 @@ Sets the locale option
 public setLocale(string|null $locale = null): \Zend\I18n\Filter\AbstractLocale
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string&#124;null** |  |
 
-
-
-
 ***
 
 ### setStyle
 
-
-
 ```php
 public setStyle(int $style): \Zend\I18n\Filter\NumberFormat
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -115,45 +65,21 @@ public setStyle(int $style): \Zend\I18n\Filter\NumberFormat
 |-----------|------|-------------|
 | `$style` | **int** |  |
 
-
-
-
 ***
 
 ### getStyle
-
-
 
 ```php
 public getStyle(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setType
 
-
-
 ```php
 public setType(int $type): \Zend\I18n\Filter\NumberFormat
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -161,45 +87,21 @@ public setType(int $type): \Zend\I18n\Filter\NumberFormat
 |-----------|------|-------------|
 | `$type` | **int** |  |
 
-
-
-
 ***
 
 ### getType
-
-
 
 ```php
 public getType(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
 
-
-
 ```php
 public setFormatter(\NumberFormatter $formatter): \Zend\I18n\Filter\NumberFormat
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -207,28 +109,13 @@ public setFormatter(\NumberFormatter $formatter): \Zend\I18n\Filter\NumberFormat
 |-----------|------|-------------|
 | `$formatter` | **\NumberFormatter** |  |
 
-
-
-
 ***
 
 ### getFormatter
 
-
-
 ```php
 public getFormatter(): \NumberFormatter
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -240,24 +127,15 @@ Defined by Zend\Filter\FilterInterface
 public filter(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\I18n\Filter\Zend\Filter\FilterInterface::filter() - 
+* \Zend\I18n\Filter\Zend\Filter\FilterInterface::filter() -
 
 ***
 
@@ -269,63 +147,32 @@ Returns the locale option
 public getLocale(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasPcreUnicodeSupport
 
-
-
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -336,16 +183,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -359,36 +196,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -396,11 +218,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

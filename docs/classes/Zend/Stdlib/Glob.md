@@ -4,11 +4,8 @@
 
 Wrapper for glob with fallback if GLOB_BRACE is not available.
 
-
-
 * Full name: `\Zend\Stdlib\Glob`
 * This class is an **Abstract class**
-
 
 ## Constants
 
@@ -22,9 +19,7 @@ Wrapper for glob with fallback if GLOB_BRACE is not available.
 |`GLOB_ONLYDIR`|public| |0x20|
 |`GLOB_ERR`|public| |0x40|
 
-
 ## Methods
-
 
 ### glob
 
@@ -34,12 +29,7 @@ Find pathnames matching a pattern.
 public static glob(string $pattern, int $flags, bool $forceFallback = false): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -49,11 +39,9 @@ public static glob(string $pattern, int $flags, bool $forceFallback = false): ar
 | `$flags` | **int** |  |
 | `$forceFallback` | **bool** |  |
 
-
-
 **See Also:**
 
-* http://docs.php.net/glob - 
+* http://docs.php.net/glob -
 
 ***
 
@@ -65,12 +53,7 @@ Use the glob function provided by the system.
 protected static systemGlob(string $pattern, int $flags): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -78,9 +61,6 @@ protected static systemGlob(string $pattern, int $flags): array
 |-----------|------|-------------|
 | `$pattern` | **string** |  |
 | `$flags` | **int** |  |
-
-
-
 
 ***
 
@@ -92,12 +72,7 @@ Expand braces manually, then use the system glob.
 protected static fallbackGlob(string $pattern, int $flags): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -105,9 +80,6 @@ protected static fallbackGlob(string $pattern, int $flags): array
 |-----------|------|-------------|
 | `$pattern` | **string** |  |
 | `$flags` | **int** |  |
-
-
-
 
 ***
 
@@ -119,12 +91,7 @@ Find the end of the sub-pattern in a brace expression.
 protected static nextBraceSub(string $pattern, int $begin, int $flags): int|null
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -134,11 +101,4 @@ protected static nextBraceSub(string $pattern, int $begin, int $flags): int|null
 | `$begin` | **int** |  |
 | `$flags` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,17 +4,12 @@
 
 Abstract visitor base for BBCode documents represented by the parser AST.
 
-
-
 * Full name: `\ezcDocumentBBCodeVisitor`
 * This class implements:
-[`\ezcDocumentErrorReporting`](./ezcDocumentErrorReporting.md)
+  [`\ezcDocumentErrorReporting`](./ezcDocumentErrorReporting.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### bbcode
 
@@ -23,11 +18,6 @@ BBCode document
 ```php
 protected \ezcDocumentBBCode $bbcode
 ```
-
-
-
-
-
 
 ***
 
@@ -39,11 +29,6 @@ Reference to the AST root node.
 protected \ezcDocumentBBCodeDocumentNode $ast
 ```
 
-
-
-
-
-
 ***
 
 ### errors
@@ -54,15 +39,9 @@ Aggregated minor errors during document processing.
 protected array $errors
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -72,22 +51,12 @@ Create visitor from BBCode document handler.
 public __construct(\ezcDocumentBBCode $document, string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\ezcDocumentBBCode** |  |
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -99,13 +68,7 @@ Trigger visitor error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a vistitor error, and convert it to an exception depending on the
-error reporting settings.
-
-
-
-
-
+Emit a vistitor error, and convert it to an exception depending on the error reporting settings.
 
 **Parameters:**
 
@@ -117,9 +80,6 @@ error reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -130,8 +90,7 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
 
 
@@ -153,19 +112,11 @@ public visit(\ezcDocumentBBCodeDocumentNode $ast): mixed
 
 Visit the BBCode abstract syntax tree.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **\ezcDocumentBBCodeDocumentNode** |  |
-
-
-
 
 ***
 
@@ -177,13 +128,6 @@ Visit text node
 protected visitText(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -191,11 +135,4 @@ protected visitText(\DOMNode $root, \ezcDocumentBBCodeNode $node): void
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentBBCodeNode** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

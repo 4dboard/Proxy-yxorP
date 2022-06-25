@@ -2,38 +2,20 @@
 
 # CompositeNamingStrategy
 
-
-
-
-
 * Full name: `\Zend\Stdlib\Hydrator\NamingStrategy\CompositeNamingStrategy`
-* Parent class: [`\Zend\Hydrator\NamingStrategy\CompositeNamingStrategy`](../../../Hydrator/NamingStrategy/CompositeNamingStrategy.md)
+* Parent
+  class: [`\Zend\Hydrator\NamingStrategy\CompositeNamingStrategy`](../../../Hydrator/NamingStrategy/CompositeNamingStrategy.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface`](./NamingStrategyInterface.md)
-
-
-
-
-
+  [`\Zend\Stdlib\Hydrator\NamingStrategy\NamingStrategyInterface`](./NamingStrategyInterface.md)
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Zend\Hydrator\NamingStrategy\NamingStrategyInterface[] $strategies, \Zend\Hydrator\NamingStrategy\NamingStrategyInterface|null $defaultNamingStrategy = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -41,9 +23,6 @@ public __construct(\Zend\Hydrator\NamingStrategy\NamingStrategyInterface[] $stra
 |-----------|------|-------------|
 | `$strategies` | **\Zend\Hydrator\NamingStrategy\NamingStrategyInterface[]** | indexed by the name they translate |
 | `$defaultNamingStrategy` | **\Zend\Hydrator\NamingStrategy\NamingStrategyInterface&#124;null** |  |
-
-
-
 
 ***
 
@@ -55,19 +34,11 @@ Converts the given name so that it can be hydrated by the hydrator.
 public extract(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The original name |
-
 
 **Return Value:**
 
@@ -85,28 +56,12 @@ Converts the given name so that it can be extracted by the hydrator.
 public hydrate(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The original name |
 
-
 **Return Value:**
 
-The hydrated name
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The hydrated name yxorP::get('REQUEST')

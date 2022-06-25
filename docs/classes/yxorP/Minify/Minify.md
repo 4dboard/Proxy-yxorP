@@ -2,51 +2,27 @@
 
 # Minify
 
-
-
-
-
 * Full name: `\yxorP\Minify\Minify`
 * This class implements:
-[`\yxorP\Minify\MinfyInterface`](./MinfyInterface.md)
-
-
+  [`\yxorP\Minify\MinfyInterface`](./MinfyInterface.md)
 
 ## Properties
 
-
 ### processors
-
-
 
 ```php
 private $processors
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\yxorP\Minify\MinfyInterface $processors): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -54,45 +30,23 @@ public __construct(\yxorP\Minify\MinfyInterface $processors): mixed
 |-----------|------|-------------|
 | `$processors` | **\yxorP\Minify\MinfyInterface** |  |
 
-
-
-
 ***
 
 ### createDefault
-
-
 
 ```php
 public static createDefault(): self
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### process
 
-
-
 ```php
 public process(string $buffer): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -100,25 +54,13 @@ public process(string $buffer): string
 |-----------|------|-------------|
 | `$buffer` | **string** |  |
 
-
-
-
 ***
 
 ### addProcessor
 
-
-
 ```php
 public addProcessor(\yxorP\Minify\MinfyInterface $processor): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -126,11 +68,4 @@ public addProcessor(\yxorP\Minify\MinfyInterface $processor): self
 |-----------|------|-------------|
 | `$processor` | **\yxorP\Minify\MinfyInterface** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

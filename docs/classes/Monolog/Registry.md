@@ -4,29 +4,22 @@
 
 Monolog log registry
 
-Allows to get `Logger` instances in the global scope
-via static method calls on this class.
+Allows to get `Logger` instances in the global scope via static method calls on this class.
 
 <code>
 $application = new Monolog\Logger('application');
 $api = new Monolog\Logger('api');
 
-Monolog\Registry::addLogger($application);
-Monolog\Registry::addLogger($api);
+Monolog\Registry::addLogger($application); Monolog\Registry::addLogger($api);
 
 function testLogger()
-{
-    Monolog\Registry::api()->addError('Sent to $api Logger instance');
-    Monolog\Registry::application()->addError('Sent to $application Logger instance');
-}
+{ Monolog\Registry::api()->addError('Sent to $api Logger instance'); Monolog\Registry::application()->addError('Sent to
+$application Logger instance'); }
 </code>
 
 * Full name: `\Monolog\Registry`
 
-
-
 ## Properties
-
 
 ### loggers
 
@@ -36,15 +29,11 @@ List of all loggers in the registry (by named indexes)
 private static \Monolog\Logger[] $loggers
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### addLogger
 
@@ -54,12 +43,7 @@ Adds new logging channel to the registry
 public static addLogger(\Monolog\Logger $logger, string|null $name = null, bool $overwrite = false): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -68,9 +52,6 @@ public static addLogger(\Monolog\Logger $logger, string|null $name = null, bool 
 | `$logger` | **\Monolog\Logger** | Instance of the logging channel |
 | `$name` | **string&#124;null** | Name of the logging channel ($logger-&gt;getName() by default) |
 | `$overwrite` | **bool** | Overwrite instance in the registry if the given name already exists? |
-
-
-
 
 ***
 
@@ -82,21 +63,13 @@ Checks if such logging channel exists by name or instance
 public static hasLogger(string|\Monolog\Logger $logger): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$logger` | **string&#124;\Monolog\Logger** | Name or logger instance |
-
-
-
 
 ***
 
@@ -108,21 +81,13 @@ Removes instance from registry by name or instance
 public static removeLogger(string|\Monolog\Logger $logger): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$logger` | **string&#124;\Monolog\Logger** | Name or logger instance |
-
-
-
 
 ***
 
@@ -134,15 +99,7 @@ Clears the registry
 public static clear(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -154,19 +111,13 @@ Gets Logger instance from the registry
 public static getInstance(string $name): \Monolog\Logger
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of the requested Logger instance |
-
 
 **Return Value:**
 
@@ -184,12 +135,7 @@ Gets Logger instance from the registry via static method call
 public static __callStatic(string $name, array $arguments): \Monolog\Logger
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -198,15 +144,6 @@ public static __callStatic(string $name, array $arguments): \Monolog\Logger
 | `$name` | **string** | Name of the requested Logger instance |
 | `$arguments` | **array** | Arguments passed to static method call |
 
-
 **Return Value:**
 
-Requested instance of Logger
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+Requested instance of Logger yxorP::get('REQUEST')

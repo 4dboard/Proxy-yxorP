@@ -17,11 +17,7 @@ Usage:
 * Full name: `\Symfony\Component\Console\Tests\CustomApplication`
 * Parent class: [`\Symfony\Component\Console\Application`](../Application.md)
 
-
-
-
 ## Methods
-
 
 ### getDefaultInputDefinition
 
@@ -30,14 +26,6 @@ Overwrites the default input definition.
 ```php
 protected getDefaultInputDefinition(): \Symfony\Component\Console\Input\InputDefinition
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -55,14 +43,6 @@ Gets the default helper set with the helpers that should always be available.
 protected getDefaultHelperSet(): \Symfony\Component\Console\Helper\HelperSet
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 A HelperSet instance
@@ -71,24 +51,13 @@ A HelperSet instance
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name = &#039;UNKNOWN&#039;, string $version = &#039;UNKNOWN&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -97,34 +66,19 @@ public __construct(string $name = &#039;UNKNOWN&#039;, string $version = &#039;U
 | `$name` | **string** | The name of the application |
 | `$version` | **string** | The version of the application |
 
-
-
-
 ***
 
 ### setDispatcher
 
-
-
 ```php
 public setDispatcher(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
-
-
-
 
 ***
 
@@ -136,20 +90,12 @@ Runs the current application.
 public run(\Symfony\Component\Console\Input\InputInterface $input = null, \Symfony\Component\Console\Output\OutputInterface $output = null): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
 
 **Return Value:**
 
@@ -167,20 +113,12 @@ Runs the current application.
 public doRun(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
 
 **Return Value:**
 
@@ -192,27 +130,15 @@ public doRun(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Co
 
 ### setHelperSet
 
-
-
 ```php
 public setHelperSet(\Symfony\Component\Console\Helper\HelperSet $helperSet): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$helperSet` | **\Symfony\Component\Console\Helper\HelperSet** |  |
-
-
-
 
 ***
 
@@ -224,14 +150,6 @@ Get the helper set associated with the command.
 public getHelperSet(): \Symfony\Component\Console\Helper\HelperSet
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The HelperSet instance associated with this command
@@ -242,27 +160,15 @@ The HelperSet instance associated with this command
 
 ### setDefinition
 
-
-
 ```php
 public setDefinition(\Symfony\Component\Console\Input\InputDefinition $definition): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
-
-
-
 
 ***
 
@@ -273,14 +179,6 @@ Gets the InputDefinition related to this Application.
 ```php
 public getDefinition(): \Symfony\Component\Console\Input\InputDefinition
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -298,14 +196,6 @@ Gets the help message.
 public getHelp(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 A help message
@@ -322,21 +212,11 @@ Sets whether to catch exceptions or not during commands execution.
 public setCatchExceptions(bool $boolean): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** | Whether to catch exceptions or not during commands execution |
-
-
-
 
 ***
 
@@ -348,21 +228,11 @@ Sets whether to automatically exit after a command execution or not.
 public setAutoExit(bool $boolean): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** | Whether to automatically exit after a command execution or not |
-
-
-
 
 ***
 
@@ -373,14 +243,6 @@ Gets the name of the application.
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -398,21 +260,11 @@ Sets the application name.
 public setName(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The application name |
-
-
-
 
 ***
 
@@ -423,14 +275,6 @@ Gets the application version.
 ```php
 public getVersion(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -448,21 +292,11 @@ Sets the application version.
 public setVersion(string $version): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$version` | **string** | The application version |
-
-
-
 
 ***
 
@@ -473,14 +307,6 @@ Returns the long version of the application.
 ```php
 public getLongVersion(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -498,19 +324,11 @@ Registers a new command.
 public register(string $name): \Symfony\Component\Console\Command\Command
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The command name |
-
 
 **Return Value:**
 
@@ -530,19 +348,11 @@ public addCommands(\Symfony\Component\Console\Command\Command[] $commands): mixe
 
 If a Command is not enabled it will not be added.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$commands` | **\Symfony\Component\Console\Command\Command[]** | An array of commands |
-
-
-
 
 ***
 
@@ -554,20 +364,14 @@ Adds a command object.
 public add(\Symfony\Component\Console\Command\Command $command): \Symfony\Component\Console\Command\Command|null
 ```
 
-If a command with the same name already exists, it will be overridden.
-If the command is not enabled it will not be added.
-
-
-
-
-
+If a command with the same name already exists, it will be overridden. If the command is not enabled it will not be
+added.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$command` | **\Symfony\Component\Console\Command\Command** |  |
-
 
 **Return Value:**
 
@@ -585,19 +389,11 @@ Returns a registered command by name or alias.
 public get(string $name): \Symfony\Component\Console\Command\Command
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The command name or alias |
-
 
 **Return Value:**
 
@@ -615,19 +411,11 @@ Returns true if the command exists, false otherwise.
 public has(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The command name or alias |
-
 
 **Return Value:**
 
@@ -647,12 +435,6 @@ public getNamespaces(): string[]
 
 It does not return the global namespace which always exists.
 
-
-
-
-
-
-
 **Return Value:**
 
 An array of namespaces
@@ -669,19 +451,11 @@ Finds a registered namespace by a name or an abbreviation.
 public findNamespace(string $namespace): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** | A namespace or abbreviation to search for |
-
 
 **Return Value:**
 
@@ -699,20 +473,13 @@ Finds a command by name or alias.
 public find(string $name): \Symfony\Component\Console\Command\Command
 ```
 
-Contrary to get, this command tries to find the best
-match if you give it an abbreviation of a name or alias.
-
-
-
-
-
+Contrary to get, this command tries to find the best match if you give it an abbreviation of a name or alias.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | A command name or a command alias |
-
 
 **Return Value:**
 
@@ -732,17 +499,11 @@ public all(string $namespace = null): \Symfony\Component\Console\Command\Command
 
 The array keys are the full names and the values the command instances.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** | A namespace name |
-
 
 **Return Value:**
 
@@ -760,19 +521,13 @@ Returns an array of possible abbreviations given a set of names.
 public static getAbbreviations(array $names): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$names` | **array** | An array of names |
-
 
 **Return Value:**
 
@@ -790,14 +545,7 @@ Returns a text representation of the Application.
 public asText(string $namespace = null, bool $raw = false): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -805,7 +553,6 @@ public asText(string $namespace = null, bool $raw = false): string
 |-----------|------|-------------|
 | `$namespace` | **string** | An optional namespace name |
 | `$raw` | **bool** | Whether to return raw command list |
-
 
 **Return Value:**
 
@@ -823,14 +570,7 @@ Returns an XML representation of the Application.
 public asXml(string $namespace = null, bool $asDom = false): string|\DOMDocument
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -838,7 +578,6 @@ public asXml(string $namespace = null, bool $asDom = false): string|\DOMDocument
 |-----------|------|-------------|
 | `$namespace` | **string** | An optional namespace name |
 | `$asDom` | **bool** | Whether to return a DOM or an XML string |
-
 
 **Return Value:**
 
@@ -856,22 +595,12 @@ Renders a caught exception.
 public renderException(mixed $e, mixed $output): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **mixed** |  |
 | `$output` | **mixed** |  |
-
-
-
 
 ***
 
@@ -883,16 +612,6 @@ Tries to figure out the terminal width in which this application runs.
 protected getTerminalWidth(): int|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTerminalHeight
@@ -903,16 +622,6 @@ Tries to figure out the terminal height in which this application runs.
 protected getTerminalHeight(): int|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTerminalDimensions
@@ -922,14 +631,6 @@ Tries to figure out the terminal dimensions based on the current environment.
 ```php
 public getTerminalDimensions(): array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -949,20 +650,12 @@ public setTerminalDimensions(int $width, int $height): $this
 
 Can be useful to force terminal dimensions for functional tests.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$width` | **int** | The width |
 | `$height` | **int** | The height |
-
-
-
 
 ***
 
@@ -974,22 +667,12 @@ Configures the input and output instances based on the user arguments and option
 protected configureIO(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
-
-
 
 ***
 
@@ -1001,13 +684,8 @@ Runs the current command.
 protected doRunCommand(\Symfony\Component\Console\Command\Command $command, \Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output): int
 ```
 
-If an event dispatcher has been attached to the application,
-events are also dispatched during the life-cycle of the command.
-
-
-
-
-
+If an event dispatcher has been attached to the application, events are also dispatched during the life-cycle of the
+command.
 
 **Parameters:**
 
@@ -1016,7 +694,6 @@ events are also dispatched during the life-cycle of the command.
 | `$command` | **\Symfony\Component\Console\Command\Command** |  |
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
 
 **Return Value:**
 
@@ -1034,19 +711,11 @@ Gets the name of the command based on input.
 protected getCommandName(\Symfony\Component\Console\Input\InputInterface $input): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **\Symfony\Component\Console\Input\InputInterface** |  |
-
 
 **Return Value:**
 
@@ -1064,14 +733,6 @@ Gets the default input definition.
 protected getDefaultInputDefinition(): \Symfony\Component\Console\Input\InputDefinition
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An InputDefinition instance
@@ -1087,14 +748,6 @@ Gets the default commands that should always be available.
 ```php
 protected getDefaultCommands(): \Symfony\Component\Console\Command\Command[]
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -1112,14 +765,6 @@ Gets the default helper set with the helpers that should always be available.
 protected getDefaultHelperSet(): \Symfony\Component\Console\Helper\HelperSet
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 A HelperSet instance
@@ -1136,16 +781,6 @@ Runs and parses stty -a if it's available, suppressing any error output.
 private getSttyColumns(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getConsoleMode
@@ -1155,14 +790,6 @@ Runs and parses mode CON if it's available, suppressing any error output.
 ```php
 private getConsoleMode(): string|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -1180,19 +807,11 @@ Returns abbreviated suggestions in string format.
 private getAbbreviationSuggestions(array $abbrevs): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$abbrevs` | **array** | Abbreviated suggestions to convert |
-
 
 **Return Value:**
 
@@ -1212,18 +831,12 @@ public extractNamespace(string $name, string $limit = null): string
 
 This method is not part of public API and should not be used directly.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The full name of the command |
 | `$limit` | **string** | The maximum number of parts of the namespace |
-
 
 **Return Value:**
 
@@ -1235,19 +848,11 @@ The namespace of the command
 
 ### findAlternatives
 
-Finds alternative of $name among $collection,
-if nothing is found in $collection, try in $abbrevs.
+Finds alternative of $name among $collection, if nothing is found in $collection, try in $abbrevs.
 
 ```php
 private findAlternatives(string $name, iterable $collection): string[]
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1255,7 +860,6 @@ private findAlternatives(string $name, iterable $collection): string[]
 |-----------|------|-------------|
 | `$name` | **string** | The string |
 | `$collection` | **iterable** | The collection |
-
 
 **Return Value:**
 
@@ -1273,38 +877,19 @@ Sets the default Command name.
 public setDefaultCommand(string $commandName): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$commandName` | **string** | The Command name |
 
-
-
-
 ***
 
 ### splitStringByWidth
 
-
-
 ```php
 private splitStringByWidth(mixed $string, mixed $width): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1312,9 +897,6 @@ private splitStringByWidth(mixed $string, mixed $width): mixed
 |-----------|------|-------------|
 | `$string` | **mixed** |  |
 | `$width` | **mixed** |  |
-
-
-
 
 ***
 
@@ -1326,19 +908,11 @@ Returns all namespaces of the command name.
 private extractAllNamespaces(string $name): string[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The full name of the command |
-
 
 **Return Value:**
 
@@ -1350,38 +924,17 @@ The namespaces of the command
 
 ### init
 
-
-
 ```php
 private init(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### getExitCodeForThrowable
 
-
-
 ```php
 private getExitCodeForThrowable(\Exception|\Throwable $throwable): int
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1389,11 +942,4 @@ private getExitCodeForThrowable(\Exception|\Throwable $throwable): int
 |-----------|------|-------------|
 | `$throwable` | **\Exception&#124;\Throwable** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

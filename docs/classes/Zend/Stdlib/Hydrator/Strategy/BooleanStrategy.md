@@ -4,36 +4,19 @@
 
 This Strategy extracts and hydrates int and string values to Boolean values
 
-
-
 * Full name: `\Zend\Stdlib\Hydrator\Strategy\BooleanStrategy`
 * Parent class: [`\Zend\Hydrator\Strategy\BooleanStrategy`](../../../Hydrator/Strategy/BooleanStrategy.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Zend\Stdlib\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
-
-
-
-
-
+  [`\Zend\Stdlib\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int|string $trueValue, int|string $falseValue): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -41,9 +24,6 @@ public __construct(int|string $trueValue, int|string $falseValue): mixed
 |-----------|------|-------------|
 | `$trueValue` | **int&#124;string** |  |
 | `$falseValue` | **int&#124;string** |  |
-
-
-
 
 ***
 
@@ -55,19 +35,11 @@ Converts the given value so that it can be extracted by the hydrator.
 public extract(bool $value): int|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **bool** | The original value. |
-
 
 **Return Value:**
 
@@ -85,28 +57,12 @@ Converts the given value so that it can be hydrated by the hydrator.
 public hydrate(int|string $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **int&#124;string** | The original value. |
 
-
 **Return Value:**
 
-Returns the value that should be hydrated.
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+Returns the value that should be hydrated. yxorP::get('REQUEST')

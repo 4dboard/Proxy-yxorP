@@ -4,17 +4,11 @@
 
 Test suite for class.
 
-
-
 * Full name: `\ezcDocumentOptionsTestCase`
 * Parent class: [`ezcTestCase`](./ezcTestCase.md)
 * This class is an **Abstract class**
 
-
-
-
 ## Methods
-
 
 ### getOptionsClassName
 
@@ -24,15 +18,7 @@ Return class name of options class to test
 protected getOptionsClassName(): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -57,12 +43,6 @@ Returned array should be in the format:
 </code>
 
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -90,12 +70,6 @@ Returned array should be in the format:
 
 * This method is **static**.
 
-
-
-
-
-
-
 ***
 
 ### provideInvalidData
@@ -122,12 +96,6 @@ Returned array should be in the format:
 
 * This method is **static**.
 
-
-
-
-
-
-
 ***
 
 ### testOptionsDefaultValues
@@ -138,22 +106,12 @@ Test all options provided by the data provider
 public testOptionsDefaultValues(mixed $property, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -165,22 +123,12 @@ Test all options provided by the data provider
 public testOptionsValidValues(mixed $property, mixed $values): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **mixed** |  |
 | `$values` | **mixed** |  |
-
-
-
 
 ***
 
@@ -192,13 +140,6 @@ Test all options provided by the data provider
 public testOptionsInvalidValues(mixed $property, mixed $values): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -206,31 +147,12 @@ public testOptionsInvalidValues(mixed $property, mixed $values): mixed
 | `$property` | **mixed** |  |
 | `$values` | **mixed** |  |
 
-
-
-
 ***
 
 ### testUnknownValue
-
-
 
 ```php
 public testUnknownValue(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

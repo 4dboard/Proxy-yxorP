@@ -2,17 +2,9 @@
 
 # AreAllArgumentsValid
 
-
-
-
-
 * Full name: `\phpDocumentor\Plugin\Core\Descriptor\Validator\Functions\AreAllArgumentsValid`
 
-
-
-
 ## Methods
-
 
 ### validate
 
@@ -22,21 +14,11 @@ Validates whether the given Reflector's arguments match the business rules of ph
 public validate(\phpDocumentor\Reflection\BaseReflector $element): \phpDocumentor\Descriptor\Validator\Error|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\phpDocumentor\Reflection\BaseReflector** |  |
-
-
-
 
 ***
 
@@ -48,21 +30,11 @@ Returns an error if the given Reflector's arguments do not match expectations.
 protected validateArguments(\phpDocumentor\Reflection\FunctionReflector $element): \phpDocumentor\Descriptor\Validator\Error|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\phpDocumentor\Reflection\FunctionReflector** |  |
-
-
-
 
 ***
 
@@ -74,13 +46,6 @@ Validates whether an argument is mentioned in the docblock.
 protected isArgumentInDocBlock(int $index, \phpDocumentor\Reflection\FunctionReflector\ArgumentReflector $argument, \phpDocumentor\Reflection\BaseReflector $element, \phpDocumentor\Reflection\DocBlock\Tag[] $params): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -89,7 +54,6 @@ protected isArgumentInDocBlock(int $index, \phpDocumentor\Reflection\FunctionRef
 | `$argument` | **\phpDocumentor\Reflection\FunctionReflector\ArgumentReflector** | The argument itself. |
 | `$element` | **\phpDocumentor\Reflection\BaseReflector** |  |
 | `$params` | **\phpDocumentor\Reflection\DocBlock\Tag[]** | The list of param tags to validate against. |
-
 
 **Return Value:**
 
@@ -101,20 +65,13 @@ whether an issue occurred.
 
 ### doesArgumentNameMatchParam
 
-Validates whether the name of the argument is the same as that of the
-param tag.
+Validates whether the name of the argument is the same as that of the param tag.
 
 ```php
 protected doesArgumentNameMatchParam(\phpDocumentor\Reflection\DocBlock\Tag\ParamTag $param, \phpDocumentor\Reflection\FunctionReflector\ArgumentReflector $argument, \phpDocumentor\Reflection\BaseReflector $element): \phpDocumentor\Descriptor\Validator\Error|null
 ```
 
-If the param tag does not contain a name then this method will set it
-based on the argument.
-
-
-
-
-
+If the param tag does not contain a name then this method will set it based on the argument.
 
 **Parameters:**
 
@@ -123,7 +80,6 @@ based on the argument.
 | `$param` | **\phpDocumentor\Reflection\DocBlock\Tag\ParamTag** | param to validate with. |
 | `$argument` | **\phpDocumentor\Reflection\FunctionReflector\ArgumentReflector** | Argument to validate against. |
 | `$element` | **\phpDocumentor\Reflection\BaseReflector** |  |
-
 
 **Return Value:**
 
@@ -141,13 +97,8 @@ Checks the typehint of the argument versus the @param tag.
 protected doesArgumentTypehintMatchParam(\phpDocumentor\Reflection\DocBlock\Tag\ParamTag $param, \phpDocumentor\Reflection\FunctionReflector\ArgumentReflector $argument, \phpDocumentor\Reflection\BaseReflector $element): \phpDocumentor\Descriptor\Validator\Error|null
 ```
 
-If the argument has no typehint we do not check anything. When multiple
-type are given then the typehint needs to be one of them.
-
-
-
-
-
+If the argument has no typehint we do not check anything. When multiple type are given then the typehint needs to be one
+of them.
 
 **Parameters:**
 
@@ -157,11 +108,4 @@ type are given then the typehint needs to be one of them.
 | `$argument` | **\phpDocumentor\Reflection\FunctionReflector\ArgumentReflector** |  |
 | `$element` | **\phpDocumentor\Reflection\BaseReflector** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

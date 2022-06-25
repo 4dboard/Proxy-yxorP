@@ -2,18 +2,10 @@
 
 # ServiceLocatorUsageException
 
-
-
-
-
 * Full name: `\Zend\ServiceManager\Exception\ServiceLocatorUsageException`
 * Parent class: [`\Zend\ServiceManager\Exception\ServiceNotFoundException`](./ServiceNotFoundException.md)
 
-
-
-
 ## Methods
-
 
 ### fromInvalidPluginManagerRequestedServiceName
 
@@ -23,12 +15,7 @@ Static constructor
 public static fromInvalidPluginManagerRequestedServiceName(\Zend\ServiceManager\AbstractPluginManager $pluginManager, \Zend\ServiceManager\ServiceLocatorInterface $parentLocator, string $serviceName, \Exception $previousException): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -39,11 +26,4 @@ public static fromInvalidPluginManagerRequestedServiceName(\Zend\ServiceManager\
 | `$serviceName` | **string** |  |
 | `$previousException` | **\Exception** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

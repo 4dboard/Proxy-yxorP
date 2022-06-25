@@ -4,14 +4,9 @@
 
 Basic interface for all image adapters.
 
-
-
 * Full name: `\ColorThief\Image\Adapter\IImageAdapter`
 
-
-
 ## Methods
-
 
 ### loadFile
 
@@ -21,21 +16,11 @@ Loads an image from file.
 public loadFile(string $path): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -47,21 +32,11 @@ Loads an image from a binary string representation.
 public loadBinaryString(string $data): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **string** |  |
-
-
-
 
 ***
 
@@ -73,21 +48,11 @@ Loads an image resource.
 public load(resource|object $resource): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **resource&#124;object** |  |
-
-
-
 
 ***
 
@@ -99,16 +64,6 @@ Destroys the image.
 public destroy(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getHeight
@@ -118,16 +73,6 @@ Returns image height.
 ```php
 public getHeight(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -139,16 +84,6 @@ Returns image width.
 public getWidth(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPixelColor
@@ -159,22 +94,12 @@ Returns the color of the specified pixel.
 public getPixelColor(int $x, int $y): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$x` | **int** |  |
 | `$y` | **int** |  |
-
-
-
 
 ***
 
@@ -186,18 +111,4 @@ Get the raw resource.
 public getResource(): resource
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

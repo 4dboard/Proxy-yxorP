@@ -4,15 +4,10 @@
 
 Class to generate styles for lists (<text:list/>).
 
-
-
 * Full name: `\ezcDocumentOdtListStyleGenerator`
 * Parent class: [`\ezcDocumentOdtStyleGenerator`](./ezcDocumentOdtStyleGenerator.md)
 
-
-
 ## Properties
-
 
 ### textStyleGenerator
 
@@ -21,11 +16,6 @@ Text style generator.
 ```php
 protected \ezcDocumentOdtTextStyleGenerator $textStyleGenerator
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ List property generator.
 protected \ezcDocumentOdtStyleListPropertyGenerator $listPropertyGenerator
 ```
 
-
-
-
-
-
 ***
 
 ### id
@@ -52,15 +37,9 @@ List IDs.
 protected int $id
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -70,21 +49,11 @@ Creates a new style genertaor.
 public __construct(\ezcDocumentOdtPcssConverterManager $styleConverters): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styleConverters` | **\ezcDocumentOdtPcssConverterManager** |  |
-
-
-
 
 ***
 
@@ -96,21 +65,11 @@ Returns if the given $odtElement is handled by this generator.
 public handles(\DOMElement $odtElement): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -122,13 +81,6 @@ Creates the styles with $styleAttributes for the given $odtElement.
 public createStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $odtElement, array $styleAttributes): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -136,9 +88,6 @@ public createStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $odtE
 | `$styleInfo` | **\ezcDocumentOdtStyleInformation** |  |
 | `$odtElement` | **\DOMElement** |  |
 | `$styleAttributes` | **array** |  |
-
-
-
 
 ***
 
@@ -150,15 +99,8 @@ Creates a style for the <text:list /> element.
 protected createListStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $list, array $styleAttributes): void
 ```
 
-Checks if the list is nested in a different list. If this is not the
-case, a new list style is generated. Otherwise, the existing list style
-is retrieved and a list definition for the corresponding nesting depth
-is created.
-
-
-
-
-
+Checks if the list is nested in a different list. If this is not the case, a new list style is generated. Otherwise, the
+existing list style is retrieved and a list definition for the corresponding nesting depth is created.
 
 **Parameters:**
 
@@ -168,28 +110,18 @@ is created.
 | `$list` | **\DOMElement** |  |
 | `$styleAttributes` | **array** |  |
 
-
-
-
 ***
 
 ### createNewListStyle
 
-Creates a new <text:list-style/> and applies it to the given
-$odtElement.
+Creates a new <text:list-style/> and applies it to the given $odtElement.
 
 ```php
 protected createNewListStyle(\DOMElement $odtElement, \ezcDocumentOdtStyleInformation $styleInfo): \DOMElement
 ```
 
-This method creates and returns a new list style DOMElement in
-$styleInfo for $odtElement and assigns its name to the $odtElement. The
-list style can then be filled with list properties of different levels.
-
-
-
-
-
+This method creates and returns a new list style DOMElement in $styleInfo for $odtElement and assigns its name to the
+$odtElement. The list style can then be filled with list properties of different levels.
 
 **Parameters:**
 
@@ -197,9 +129,6 @@ list style can then be filled with list properties of different levels.
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
 | `$styleInfo` | **\ezcDocumentOdtStyleInformation** |  |
-
-
-
 
 ***
 
@@ -211,13 +140,8 @@ Creates the <text:list-level-style-* /> element for $styleAttributes.
 protected createListLevelStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $listStyle, int $level, array $styleAttributes): mixed
 ```
 
-This method creates a list-level-style in $listStyle for the given list
-$level applying $styleAttributes to this list level.
-
-
-
-
-
+This method creates a list-level-style in $listStyle for the given list $level applying $styleAttributes to this list
+level.
 
 **Parameters:**
 
@@ -227,9 +151,6 @@ $level applying $styleAttributes to this list level.
 | `$listStyle` | **\DOMElement** |  |
 | `$level` | **int** |  |
 | `$styleAttributes` | **array** |  |
-
-
-
 
 ***
 
@@ -241,15 +162,9 @@ Calculates the list margin and indent.
 protected calculateListLevelMeasures(\DOMElement $listStyle, int $level, array $styleAttributes): mixed
 ```
 
-Margin and indent are handled in a strange way in ODF. This method
-calculates the margin for a list level, based on the previous level margin
-and the current margin and padding. In addition, the text-indent is set
-to fit the previous list-level. The new $styleAttributes are returned.
-
-
-
-
-
+Margin and indent are handled in a strange way in ODF. This method calculates the margin for a list level, based on the
+previous level margin and the current margin and padding. In addition, the text-indent is set to fit the previous
+list-level. The new $styleAttributes are returned.
 
 **Parameters:**
 
@@ -258,9 +173,6 @@ to fit the previous list-level. The new $styleAttributes are returned.
 | `$listStyle` | **\DOMElement** |  |
 | `$level` | **int** |  |
 | `$styleAttributes` | **array** |  |
-
-
-
 
 ***
 
@@ -272,22 +184,12 @@ Returns the <text:list-style> DOMElement assigned to $odtList.
 protected retrieveListStyle(\DOMElement $odtList, \ezcDocumentOdtStyleInformation $styleInfo): \DOMElement
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtList` | **\DOMElement** |  |
 | `$styleInfo` | **\ezcDocumentOdtStyleInformation** |  |
-
-
-
 
 ***
 
@@ -299,8 +201,8 @@ Returns the parent <text:list/> element or null.
 protected getBaseList(\DOMElement $list, int $depth = 1): array
 ```
 
-This method returns the parent <text:list/> element for the given $list and the nesting depth of $list,
-if it is nested in another list. The returned structure is:
+This method returns the parent <text:list/> element for the given $list and the nesting depth of $list, if it is nested
+in another list. The returned structure is:
 
 <code>
 <?php
@@ -323,14 +225,9 @@ if it is nested in another list. The returned structure is:
 | `$list` | **\DOMElement** |  |
 | `$depth` | **int** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -340,21 +237,11 @@ Creates a new style genertaor.
 public __construct(\ezcDocumentOdtPcssConverterManager $styleConverters): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styleConverters` | **\ezcDocumentOdtPcssConverterManager** |  |
-
-
-
 
 ***
 
@@ -366,21 +253,13 @@ Returns if a style generator handles style generation for $odtElement.
 public handles(\DOMElement $odtElement): bool
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -392,14 +271,10 @@ Creates the necessary styles to apply $styleAttributes to $odtElement.
 public createStyle(\ezcDocumentOdtStyleInformation $styleInfo, \DOMElement $odtElement, array $styleAttributes): mixed
 ```
 
-This method should create the necessary styles to apply $styleAttributes
-to the given $odtElement. In addition, it must set the correct
-attributes on $odtElement to source this style.
-
+This method should create the necessary styles to apply $styleAttributes to the given $odtElement. In addition, it must
+set the correct attributes on $odtElement to source this style.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -408,9 +283,6 @@ attributes on $odtElement to source this style.
 | `$styleInfo` | **\ezcDocumentOdtStyleInformation** |  |
 | `$odtElement` | **\DOMElement** |  |
 | `$styleAttributes` | **array** |  |
-
-
-
 
 ***
 
@@ -422,14 +294,8 @@ Returns a unique style name with the given $prefix.
 protected getUniqueStyleName(string $prefix = &#039;style&#039;): string
 ```
 
-Note that generated name is only unique within this style generator,
-which is no problem, if only a single style generator takes care for a
-certain style family.
-
-
-
-
-
+Note that generated name is only unique within this style generator, which is no problem, if only a single style
+generator takes care for a certain style family.
 
 **Parameters:**
 
@@ -437,11 +303,4 @@ certain style family.
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

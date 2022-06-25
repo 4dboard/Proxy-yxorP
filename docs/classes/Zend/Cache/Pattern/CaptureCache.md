@@ -2,18 +2,10 @@
 
 # CaptureCache
 
-
-
-
-
 * Full name: `\Zend\Cache\Pattern\CaptureCache`
 * Parent class: [`\Zend\Cache\Pattern\AbstractPattern`](./AbstractPattern.md)
 
-
-
-
 ## Methods
-
 
 ### start
 
@@ -23,21 +15,11 @@ Start the cache
 public start(string $pageId = null): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pageId` | **string** | Page identifier |
-
-
-
 
 ***
 
@@ -49,22 +31,12 @@ Write content to page identity
 public set(string $content, null|string $pageId = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
 | `$pageId` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -76,21 +48,11 @@ Get from cache
 public get(null|string $pageId = null): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pageId` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -102,21 +64,11 @@ Checks if a cache with given id exists
 public has(null|string $pageId = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pageId` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -128,21 +80,11 @@ Remove from cache
 public remove(null|string $pageId = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pageId` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -154,21 +96,11 @@ Clear cached pages matching glob pattern
 public clearByGlob(string $pattern = &#039;**&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pattern` | **string** |  |
-
-
-
 
 ***
 
@@ -180,16 +112,6 @@ Determine the page to save from the request
 protected detectPageId(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### pageId2Filename
@@ -200,21 +122,11 @@ Get filename for page id
 protected pageId2Filename(string $pageId): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pageId` | **string** |  |
-
-
-
 
 ***
 
@@ -226,21 +138,11 @@ Get path for page id
 protected pageId2Path(string $pageId): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pageId` | **string** |  |
-
-
-
 
 ***
 
@@ -252,22 +154,12 @@ Write content to a file
 protected putFileContent(string $file, string $data): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** | File complete path |
 | `$data` | **string** | Data to write |
-
-
-
 
 ***
 
@@ -279,21 +171,11 @@ Creates directory if not already done.
 protected createDirectoryStructure(string $pathname): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pathname` | **string** |  |
-
-
-
 
 ***
 
@@ -305,27 +187,15 @@ Returns the generated file name.
 public getFilename(null|string $pageId = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$pageId` | **null&#124;string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setOptions
 
@@ -335,21 +205,11 @@ Set pattern options
 public setOptions(\Zend\Cache\Pattern\PatternOptions $options): \Zend\Cache\Pattern\AbstractPattern
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\Zend\Cache\Pattern\PatternOptions** |  |
-
-
-
 
 ***
 
@@ -361,18 +221,4 @@ Get all pattern options
 public getOptions(): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

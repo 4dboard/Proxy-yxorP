@@ -4,17 +4,13 @@
 
 Filter for ODT <table:table/> and its child elements.
 
-This filter generates XHTML style tables in DocBook. This class is not yet
-in use at all, since the internal DocBook representation of the Document
-component does not cope with XHTML style tables, yet.
+This filter generates XHTML style tables in DocBook. This class is not yet in use at all, since the internal DocBook
+representation of the Document component does not cope with XHTML style tables, yet.
 
 * Full name: `\ezcDocumentOdtElementHtmlTableFilter`
 * Parent class: [`\ezcDocumentOdtElementBaseFilter`](./ezcDocumentOdtElementBaseFilter.md)
 
-
-
 ## Properties
-
 
 ### methodMap
 
@@ -33,7 +29,6 @@ Maps ODT table tags to a method in this class to convert them.
 
 ## Methods
 
-
 ### filterElement
 
 Filter a single element.
@@ -42,21 +37,11 @@ Filter a single element.
 public filterElement(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
-
-
-
 
 ***
 
@@ -68,22 +53,13 @@ Check if filter handles the current element.
 public handles(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
-Returns a boolean value, indicating weather this filter can handle
-the current element.
-
-
-
-
-
+Returns a boolean value, indicating weather this filter can handle the current element.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
-
-
-
 
 ***
 
@@ -95,21 +71,11 @@ Converts the <table:table/> element.
 protected convertTable(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
-
-
-
 
 ***
 
@@ -122,22 +88,13 @@ protected aggregateRows(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
 This method aggregates all rows of a table into a single <tbody/>
-element in the custom {@link} namespace. This
-element will later be converted into a DocBook <tbody/> element.
-
-
-
-
-
+element in the custom {@link} namespace. This element will later be converted into a DocBook <tbody/> element.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
-
-
-
 
 ***
 
@@ -149,21 +106,11 @@ Convert the <table:table-column/> element.
 protected convertColumn(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
-
-
-
 
 ***
 
@@ -175,21 +122,11 @@ Convert the <table:table-header-rows/> element.
 protected convertHeader(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
-
-
-
 
 ***
 
@@ -201,21 +138,11 @@ Convert the <table:table-row/> element.
 protected convertRow(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
-
-
-
 
 ***
 
@@ -227,27 +154,15 @@ Convert the <table:table-cell/> element.
 protected convertCell(\ezcDocumentPropertyContainerDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentPropertyContainerDomElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### filterElement
 
@@ -257,21 +172,13 @@ Filter a single element
 public filterElement(\DOMElement $element): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -283,13 +190,9 @@ Check if filter handles the current element
 public handles(\DOMElement $element): void
 ```
 
-Returns a boolean value, indicating weather this filter can handle
-the current element.
-
+Returns a boolean value, indicating weather this filter can handle the current element.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -297,11 +200,4 @@ the current element.
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

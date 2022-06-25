@@ -8,105 +8,57 @@ This event dispatcher delegates the dispatching to another one.
 
 * Full name: `\Symfony\Component\EventDispatcher\Debug\TraceableEventDispatcher`
 * This class implements:
-[`\Symfony\Component\EventDispatcher\Debug\TraceableEventDispatcherInterface`](./TraceableEventDispatcherInterface.md)
-
-
+  [`\Symfony\Component\EventDispatcher\Debug\TraceableEventDispatcherInterface`](./TraceableEventDispatcherInterface.md)
 
 ## Properties
 
-
 ### logger
-
-
 
 ```php
 protected $logger
 ```
 
-
-
-
-
-
 ***
 
 ### stopwatch
-
-
 
 ```php
 protected $stopwatch
 ```
 
-
-
-
-
-
 ***
 
 ### called
-
-
 
 ```php
 private $called
 ```
 
-
-
-
-
-
 ***
 
 ### dispatcher
-
-
 
 ```php
 private $dispatcher
 ```
 
-
-
-
-
-
 ***
 
 ### wrappedListeners
-
-
 
 ```php
 private $wrappedListeners
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher, \Symfony\Component\Stopwatch\Stopwatch $stopwatch, \Psr\Log\LoggerInterface $logger = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -115,9 +67,6 @@ public __construct(\Symfony\Component\EventDispatcher\EventDispatcherInterface $
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
 | `$stopwatch` | **\Symfony\Component\Stopwatch\Stopwatch** |  |
 | `$logger` | **\Psr\Log\LoggerInterface** |  |
-
-
-
 
 ***
 
@@ -129,13 +78,6 @@ public __construct(\Symfony\Component\EventDispatcher\EventDispatcherInterface $
 public addListener(mixed $eventName, mixed $listener, mixed $priority): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -143,9 +85,6 @@ public addListener(mixed $eventName, mixed $listener, mixed $priority): mixed
 | `$eventName` | **mixed** |  |
 | `$listener` | **mixed** |  |
 | `$priority` | **mixed** |  |
-
-
-
 
 ***
 
@@ -157,21 +96,11 @@ public addListener(mixed $eventName, mixed $listener, mixed $priority): mixed
 public addSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterface $subscriber): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subscriber` | **\Symfony\Component\EventDispatcher\EventSubscriberInterface** |  |
-
-
-
 
 ***
 
@@ -183,22 +112,12 @@ public addSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterface
 public removeListener(mixed $eventName, mixed $listener): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
 | `$listener` | **mixed** |  |
-
-
-
 
 ***
 
@@ -210,21 +129,11 @@ public removeListener(mixed $eventName, mixed $listener): mixed
 public removeSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterface $subscriber): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subscriber` | **\Symfony\Component\EventDispatcher\EventSubscriberInterface** |  |
-
-
-
 
 ***
 
@@ -236,21 +145,11 @@ public removeSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterf
 public getListeners(mixed $eventName = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
-
-
-
 
 ***
 
@@ -262,22 +161,12 @@ public getListeners(mixed $eventName = null): mixed
 public getListenerPriority(mixed $eventName, mixed $listener): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
 | `$listener` | **mixed** |  |
-
-
-
 
 ***
 
@@ -289,21 +178,11 @@ public getListenerPriority(mixed $eventName, mixed $listener): mixed
 public hasListeners(mixed $eventName = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
-
-
-
 
 ***
 
@@ -315,22 +194,12 @@ public hasListeners(mixed $eventName = null): mixed
 public dispatch(mixed $eventName, \Symfony\Component\EventDispatcher\Event $event = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
 | `$event` | **\Symfony\Component\EventDispatcher\Event** |  |
-
-
-
 
 ***
 
@@ -341,14 +210,6 @@ Gets the called listeners.
 ```php
 public getCalledListeners(): array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -366,14 +227,6 @@ Gets the not called listeners.
 public getNotCalledListeners(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 An array of not called listeners
@@ -390,22 +243,12 @@ Proxies all method calls to the original event dispatcher.
 public __call(string $method, array $arguments): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** | The method name |
 | `$arguments` | **array** | The method arguments |
-
-
-
 
 ***
 
@@ -417,22 +260,12 @@ Called before dispatching the event.
 protected preDispatch(string $eventName, \Symfony\Component\EventDispatcher\Event $event): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **string** | The event name |
 | `$event` | **\Symfony\Component\EventDispatcher\Event** | The event |
-
-
-
 
 ***
 
@@ -444,13 +277,6 @@ Called after dispatching the event.
 protected postDispatch(string $eventName, \Symfony\Component\EventDispatcher\Event $event): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -458,60 +284,33 @@ protected postDispatch(string $eventName, \Symfony\Component\EventDispatcher\Eve
 | `$eventName` | **string** | The event name |
 | `$event` | **\Symfony\Component\EventDispatcher\Event** | The event |
 
-
-
-
 ***
 
 ### preProcess
-
-
 
 ```php
 private preProcess(mixed $eventName): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
-
-
-
 
 ***
 
 ### postProcess
 
-
-
 ```php
 private postProcess(mixed $eventName): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
-
-
-
 
 ***
 
@@ -523,20 +322,12 @@ Returns information about the listener.
 private getListenerInfo(object $listener, string $eventName): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$listener` | **object** | The listener |
 | `$eventName` | **string** | The event name |
-
 
 **Return Value:**
 
@@ -548,18 +339,9 @@ Information about the listener
 
 ### sortListenersByPriority
 
-
-
 ```php
 private sortListenersByPriority(mixed $a, mixed $b): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -568,11 +350,4 @@ private sortListenersByPriority(mixed $a, mixed $b): mixed
 | `$a` | **mixed** |  |
 | `$b` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

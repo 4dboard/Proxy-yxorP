@@ -4,65 +4,40 @@
 
 Descriptor representing a collection or compound type of collection object.
 
-This descriptor represents any type that is capable of containing other typed values. Examples of such
-types can be an array, DoctrineCollection or ArrayObject.
+This descriptor represents any type that is capable of containing other typed values. Examples of such types can be an
+array, DoctrineCollection or ArrayObject.
 
 * Full name: `\phpDocumentor\Descriptor\Type\CollectionDescriptor`
 * This class implements:
-[`\phpDocumentor\Descriptor\Interfaces\TypeInterface`](../Interfaces/TypeInterface.md)
-
-
+  [`\phpDocumentor\Descriptor\Interfaces\TypeInterface`](../Interfaces/TypeInterface.md)
 
 ## Properties
 
-
 ### baseType
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Interfaces\TypeInterface|string $baseType
 ```
 
-
-
-
-
-
 ***
 
 ### types
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Interfaces\TypeInterface[] $types
 ```
 
-
-
-
-
-
 ***
 
 ### keyTypes
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Interfaces\TypeInterface[] $keyTypes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -72,21 +47,11 @@ Initializes this type collection with its base-type.
 public __construct(\phpDocumentor\Descriptor\Interfaces\TypeInterface $baseType): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$baseType` | **\phpDocumentor\Descriptor\Interfaces\TypeInterface** |  |
-
-
-
 
 ***
 
@@ -98,16 +63,6 @@ Returns the name for this type.
 public getName(): \phpDocumentor\Descriptor\Interfaces\TypeInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getBaseType
@@ -118,9 +73,9 @@ Returns the base type for this Collection or null if there is no attached type.
 public getBaseType(): \phpDocumentor\Descriptor\Interfaces\TypeInterface|null
 ```
 
-When the presented collection is governed by an object (such as a Collection object) then a reference to that
-object will be returned. If however the base type for this collection is a simple type such as an 'array' then
-we return null to indicate there is no object governing this type.
+When the presented collection is governed by an object (such as a Collection object) then a reference to that object
+will be returned. If however the base type for this collection is a simple type such as an 'array' then we return null
+to indicate there is no object governing this type.
 
 
 
@@ -140,21 +95,11 @@ Registers the base type for this collection type.
 public setBaseType(string|\phpDocumentor\Descriptor\Interfaces\TypeInterface $baseType): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$baseType` | **string&#124;\phpDocumentor\Descriptor\Interfaces\TypeInterface** |  |
-
-
-
 
 ***
 
@@ -166,21 +111,11 @@ Register the type, or set of types, to which a value in this type of collection 
 public setTypes(\phpDocumentor\Descriptor\Interfaces\TypeInterface[] $types): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$types` | **\phpDocumentor\Descriptor\Interfaces\TypeInterface[]** |  |
-
-
-
 
 ***
 
@@ -192,16 +127,6 @@ Returns the type, or set of types, to which a value in this type of collection c
 public getTypes(): \phpDocumentor\Descriptor\Interfaces\TypeInterface[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setKeyTypes
@@ -212,21 +137,11 @@ Registers the type, or set of types, to which a *key* in this type of collection
 public setKeyTypes(\phpDocumentor\Descriptor\Interfaces\TypeInterface[] $types): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$types` | **\phpDocumentor\Descriptor\Interfaces\TypeInterface[]** |  |
-
-
-
 
 ***
 
@@ -238,16 +153,6 @@ Registers the type, or set of types, to which a *key* in this type of collection
 public getKeyTypes(): \phpDocumentor\Descriptor\Interfaces\TypeInterface[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -258,18 +163,4 @@ Returns a human-readable representation for this type.
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

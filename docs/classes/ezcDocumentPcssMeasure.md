@@ -4,10 +4,7 @@
 
 Pdf measure wrapper, including measure conversions
 
-
-
 * Full name: `\ezcDocumentPcssMeasure`
-
 
 ## Constants
 
@@ -17,7 +14,6 @@ Pdf measure wrapper, including measure conversions
 
 ## Properties
 
-
 ### value
 
 Internal value representation in millimeters
@@ -25,11 +21,6 @@ Internal value representation in millimeters
 ```php
 protected float $value
 ```
-
-
-
-
-
 
 ***
 
@@ -41,11 +32,6 @@ Resolution in DPI for transformations between mm and pixels.
 protected int $resolution
 ```
 
-
-
-
-
-
 ***
 
 ### cache
@@ -56,15 +42,11 @@ Cache for conversions, to not reparse the same value again.
 protected static array $cache
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -74,21 +56,11 @@ Construct measure from input value
 public __construct(mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -100,23 +72,16 @@ Static constructor wrapper
 public static create(mixed $value): \ezcDocumentPcssMeasure
 ```
 
-Static constructor wrapper, because direct dereferencing does
-not work with the new operator, and this makes the usage of
-this simple wrpper class easier.
+Static constructor wrapper, because direct dereferencing does not work with the new operator, and this makes the usage
+of this simple wrpper class easier.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -128,21 +93,11 @@ Set resolution in dpi
 public setResolution(int $dpi): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dpi` | **int** |  |
-
-
-
 
 ***
 
@@ -154,13 +109,7 @@ Get unit factor
 protected getUnitFactor(string $unit, int $resolution): void
 ```
 
-Get the factor for the given unit, so values can be transformed from the
-passed unit into milli meters.
-
-
-
-
-
+Get the factor for the given unit, so values can be transformed from the passed unit into milli meters.
 
 **Parameters:**
 
@@ -168,9 +117,6 @@ passed unit into milli meters.
 |-----------|------|-------------|
 | `$unit` | **string** |  |
 | `$resolution` | **int** |  |
-
-
-
 
 ***
 
@@ -182,20 +128,12 @@ Convert values
 public get(string $format = &#039;mm&#039;, int $resolution = null): float
 ```
 
-Convert measure values from the PCSS input file into another unit. The
-input unit is read from the passed value and defaults to milli meters.
-The output unit can be specified as the second parameter and also
-default to milli meters.
+Convert measure values from the PCSS input file into another unit. The input unit is read from the passed value and
+defaults to milli meters. The output unit can be specified as the second parameter and also default to milli meters.
 
 Supported units currently are: mm, px, pt, in
 
-Optionally a resolution (dpi) can specified for the
-conversion of pixel values.
-
-
-
-
-
+Optionally a resolution (dpi) can specified for the conversion of pixel values.
 
 **Parameters:**
 
@@ -204,11 +142,4 @@ conversion of pixel values.
 | `$format` | **string** |  |
 | `$resolution` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

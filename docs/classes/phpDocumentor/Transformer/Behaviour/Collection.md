@@ -4,35 +4,22 @@
 
 Collection object for a set of Behaviours.
 
-
-
 * Full name: `\phpDocumentor\Transformer\Behaviour\Collection`
 * Parent class: [`\phpDocumentor\Transformer\Behaviour\BehaviourAbstract`](./BehaviourAbstract.md)
 * This class implements:
-[`\Countable`](../../../Countable.md)
-
-
+  [`\Countable`](../../../Countable.md)
 
 ## Properties
 
-
 ### behaviours
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Behaviour\BehaviourAbstract[] $behaviours
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -42,21 +29,11 @@ Initializes the list of Behaviours to execute each request.
 public __construct(\phpDocumentor\Transformer\Behaviour\BehaviourAbstract[] $behaviours = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$behaviours` | **\phpDocumentor\Transformer\Behaviour\BehaviourAbstract[]** | List of behaviours to process. |
-
-
-
 
 ***
 
@@ -68,21 +45,11 @@ Adds a behaviour to a collection
 public addBehaviour(\phpDocumentor\Transformer\Behaviour\BehaviourAbstract $behaviour): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$behaviour` | **\phpDocumentor\Transformer\Behaviour\BehaviourAbstract** | Behaviour to add to the collection. |
-
-
-
 
 ***
 
@@ -94,21 +61,11 @@ Removes a behaviour from the collection
 public removeBehaviour(\phpDocumentor\Transformer\Behaviour\BehaviourAbstract $behaviour): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$behaviour` | **\phpDocumentor\Transformer\Behaviour\BehaviourAbstract** | Behaviour to remove from the collection. |
-
-
-
 
 ***
 
@@ -120,21 +77,11 @@ Executes the behaviour on the given object model,
 public process(\phpDocumentor\Descriptor\ProjectDescriptor $project): \phpDocumentor\Descriptor\ProjectDescriptor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** |  |
-
-
-
 
 ***
 
@@ -146,21 +93,9 @@ Count the number of behaviours in this collection.
 public count(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### process
 
@@ -170,21 +105,13 @@ Executes the behaviour on the given dataset,
 public process(\phpDocumentor\Descriptor\ProjectDescriptor $project): \phpDocumentor\Descriptor\ProjectDescriptor
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project` | **\phpDocumentor\Descriptor\ProjectDescriptor** | document containing the source structure. |
-
-
-
 
 ***
 
@@ -196,21 +123,11 @@ Sets the transformer used for this behaviour.
 public setTransformer(\phpDocumentor\Transformer\Transformer $transformer): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transformer` | **\phpDocumentor\Transformer\Transformer** | Transformer responsible for output. |
-
-
-
 
 ***
 
@@ -222,18 +139,4 @@ Returns the transformer that hosts this behaviour.
 public getTransformer(): \phpDocumentor\Transformer\Transformer
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

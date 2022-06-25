@@ -8,11 +8,7 @@ This class contains static methods only and is not meant to be instantiated.
 
 * Full name: `\Symfony\Component\Process\ProcessUtils`
 
-
-
-
 ## Methods
-
 
 ### __construct
 
@@ -21,16 +17,6 @@ This class should not be instantiated.
 ```php
 private __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -42,19 +28,13 @@ Escapes a string to be used as a shell argument.
 public static escapeArgument(string $argument): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$argument` | **string** | The argument that will be escaped |
-
 
 **Return Value:**
 
@@ -72,12 +52,7 @@ Validates and normalizes a Process input.
 public static validateInput(string $caller, mixed $input): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -85,7 +60,6 @@ public static validateInput(string $caller, mixed $input): mixed
 |-----------|------|-------------|
 | `$caller` | **string** | The name of method call that validates the input |
 | `$input` | **mixed** | The input to validate |
-
 
 **Return Value:**
 
@@ -97,18 +71,11 @@ The validated input
 
 ### isSurroundedBy
 
-
-
 ```php
 private static isSurroundedBy(mixed $arg, mixed $char): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -117,11 +84,4 @@ private static isSurroundedBy(mixed $arg, mixed $char): mixed
 | `$arg` | **mixed** |  |
 | `$char` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

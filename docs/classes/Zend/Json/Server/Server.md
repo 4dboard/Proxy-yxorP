@@ -2,13 +2,8 @@
 
 # Server
 
-
-
-
-
 * Full name: `\Zend\Json\Server\Server`
 * Parent class: [`AbstractServer`](../../Server/AbstractServer.md)
-
 
 ## Constants
 
@@ -19,7 +14,6 @@
 
 ## Properties
 
-
 ### returnResponse
 
 Flag: whether or not to auto-emit the response
@@ -27,11 +21,6 @@ Flag: whether or not to auto-emit the response
 ```php
 protected bool $returnResponse
 ```
-
-
-
-
-
 
 ***
 
@@ -43,11 +32,6 @@ Inherited from Zend\Server\AbstractServer
 protected bool $overwriteExistingMethods
 ```
 
-
-
-
-
-
 ***
 
 ### request
@@ -57,11 +41,6 @@ Request object
 ```php
 protected \Zend\Json\Server\Request $request
 ```
-
-
-
-
-
 
 ***
 
@@ -73,11 +52,6 @@ Response object
 protected \Zend\Json\Server\Response $response
 ```
 
-
-
-
-
-
 ***
 
 ### serviceMap
@@ -87,11 +61,6 @@ SMD object
 ```php
 protected \Zend\Json\Server\Smd $serviceMap
 ```
-
-
-
-
-
 
 ***
 
@@ -103,15 +72,9 @@ SMD class accessors
 protected array $smdMethods
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### addFunction
 
@@ -121,22 +84,12 @@ Attach a function or callback to the server
 public addFunction(string|array|callable $function, string $namespace = &#039;&#039;): \Zend\Json\Server\Server
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$function` | **string&#124;array&#124;callable** | Valid PHP callback |
 | `$namespace` | **string** | Ignored |
-
-
-
 
 ***
 
@@ -148,13 +101,6 @@ Register a class with the server
 public setClass(string $class, string $namespace = &#039;&#039;, mixed $argv = null): \Zend\Json\Server\Server
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -162,9 +108,6 @@ public setClass(string $class, string $namespace = &#039;&#039;, mixed $argv = n
 | `$class` | **string** |  |
 | `$namespace` | **string** | Ignored |
 | `$argv` | **mixed** | Ignored |
-
-
-
 
 ***
 
@@ -176,13 +119,6 @@ Indicate fault response
 public fault(string $fault = null, int $code = 404, mixed $data = null): \Zend\Json\Server\Error
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -190,9 +126,6 @@ public fault(string $fault = null, int $code = 404, mixed $data = null): \Zend\J
 | `$fault` | **string** |  |
 | `$code` | **int** |  |
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
@@ -204,21 +137,11 @@ Handle request
 public handle(\Zend\Json\Server\Request $request = false): null|\Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Zend\Json\Server\Request** |  |
-
-
-
 
 ***
 
@@ -230,47 +153,25 @@ Load function definitions
 public loadFunctions(array|\Zend\Server\Definition $definition): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$definition` | **array&#124;\Zend\Server\Definition** |  |
 
-
-
-
 ***
 
 ### setPersistence
 
-
-
 ```php
 public setPersistence(mixed $mode): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mode` | **mixed** |  |
-
-
-
 
 ***
 
@@ -282,21 +183,11 @@ Set request object
 public setRequest(\Zend\Json\Server\Request $request): \Zend\Json\Server\Server
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$request` | **\Zend\Json\Server\Request** |  |
-
-
-
 
 ***
 
@@ -308,16 +199,6 @@ Get JSON-RPC request object
 public getRequest(): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setResponse
@@ -328,21 +209,11 @@ Set response object
 public setResponse(\Zend\Json\Server\Response $response): \Zend\Json\Server\Server
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$response` | **\Zend\Json\Server\Response** |  |
-
-
-
 
 ***
 
@@ -354,16 +225,6 @@ Get response object
 public getResponse(): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setReturnResponse
@@ -374,24 +235,15 @@ Set return response flag
 public setReturnResponse(bool $flag = true): \Zend\Json\Server\Server
 ```
 
-If true, {@link} will return the response instead of
-automatically sending it back to the requesting client.
+If true, {@link} will return the response instead of automatically sending it back to the requesting client.
 
 The response is always available via {@link}.
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **bool** |  |
-
-
-
 
 ***
 
@@ -403,16 +255,6 @@ Retrieve return response flag
 public getReturnResponse(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
@@ -423,22 +265,12 @@ Overload to accessors of SMD object
 public __call(string $method, array $args): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
 | `$args` | **array** |  |
-
-
-
 
 ***
 
@@ -450,16 +282,6 @@ Retrieve SMD object
 public getServiceMap(): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### _addMethodServiceMap
@@ -470,21 +292,11 @@ Add service method to service map
 protected _addMethodServiceMap(\Zend\Server\Method\Definition $method): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\Zend\Server\Method\Definition** |  |
-
-
-
 
 ***
 
@@ -496,21 +308,11 @@ Translate PHP type to JSON type
 protected _fixType(string $type): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** |  |
-
-
-
 
 ***
 
@@ -522,22 +324,12 @@ Get default params from signature
 protected _getDefaultParams(array $args, array $params): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **array** |  |
 | `$params` | **array** |  |
-
-
-
 
 ***
 
@@ -549,21 +341,11 @@ check whether array is associative or not
 private isAssociative(array $array): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **array** |  |
-
-
-
 
 ***
 
@@ -575,21 +357,11 @@ Get method param type
 protected _getParams(\Zend\Server\Method\Definition $method): string|array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\Zend\Server\Method\Definition** |  |
-
-
-
 
 ***
 
@@ -601,16 +373,6 @@ Set response state
 protected _getReadyResponse(): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### _getReturnType
@@ -621,21 +383,11 @@ Get method return type
 protected _getReturnType(\Zend\Server\Method\Definition $method): string|array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **\Zend\Server\Method\Definition** |  |
-
-
-
 
 ***
 
@@ -647,16 +399,6 @@ Retrieve list of allowed SMD methods for proxying
 protected _getSmdMethods(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### _handle
@@ -667,18 +409,4 @@ Internal method for handling request
 protected _handle(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

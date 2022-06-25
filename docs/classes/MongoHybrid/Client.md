@@ -2,64 +2,33 @@
 
 # Client
 
-
-
-
-
 * Full name: `\MongoHybrid\Client`
-
-
 
 ## Properties
 
-
 ### driver
-
-
 
 ```php
 protected $driver
 ```
 
-
-
-
-
-
 ***
 
 ### type
-
-
 
 ```php
 public $type
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,25 +38,13 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 | `$options` | **mixed** |  |
 | `$driverOptions` | **mixed** |  |
 
-
-
-
 ***
 
 ### dropCollection
 
-
-
 ```php
 public dropCollection(mixed $name, mixed $db = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -96,25 +53,13 @@ public dropCollection(mixed $name, mixed $db = null): mixed
 | `$name` | **mixed** |  |
 | `$db` | **mixed** |  |
 
-
-
-
 ***
 
 ### renameCollection
 
-
-
 ```php
 public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -124,25 +69,13 @@ public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 | `$newname` | **mixed** |  |
 | `$db` | **mixed** |  |
 
-
-
-
 ***
 
 ### save
 
-
-
 ```php
 public save(mixed $collection, mixed& $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -151,25 +84,13 @@ public save(mixed $collection, mixed& $data): mixed
 | `$collection` | **mixed** |  |
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### insert
 
-
-
 ```php
 public insert(mixed $collection, mixed& $doc): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -177,9 +98,6 @@ public insert(mixed $collection, mixed& $doc): mixed
 |-----------|------|-------------|
 | `$collection` | **mixed** |  |
 | `$doc` | **mixed** |  |
-
-
-
 
 ***
 
@@ -191,13 +109,6 @@ Get value for specific key
 public getKey(string $collection, string $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -205,9 +116,6 @@ public getKey(string $collection, string $key, mixed $default = null): mixed
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -219,13 +127,6 @@ Set value for specific key
 public setKey(string $collection, string $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -233,9 +134,6 @@ public setKey(string $collection, string $key, mixed $value): mixed
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -247,22 +145,12 @@ Delete Key(s)
 public removeKey(string $collection, string $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -274,22 +162,12 @@ Check if key exists
 public keyExists(string $collection, string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collection` | **string** | @param  string $collection |
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -301,13 +179,6 @@ Increment value by x
 public incrKey(string $collection, string $key, int $by = 1): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -315,9 +186,6 @@ public incrKey(string $collection, string $key, int $by = 1): int
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$by` | **int** |  |
-
-
-
 
 ***
 
@@ -329,13 +197,6 @@ Decrement value by x
 public decrKey(string $collection, string $key, int $by = 1): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -343,9 +204,6 @@ public decrKey(string $collection, string $key, int $by = 1): int
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$by` | **int** |  |
-
-
-
 
 ***
 
@@ -357,13 +215,6 @@ Add item to a value (right)
 public rpush(string $collection, string $key, mixed $value): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -371,9 +222,6 @@ public rpush(string $collection, string $key, mixed $value): int
 | `$collection` | **string** | @param  string $collection |
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -385,13 +233,6 @@ Add item to a value (left)
 public lpush(string $collection, string $key, mixed $value): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -399,9 +240,6 @@ public lpush(string $collection, string $key, mixed $value): int
 | `$collection` | **string** | @param  string $collection |
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -413,13 +251,6 @@ Set the value of an element in a list by its index
 public lset(string $collection, string $key, int $index, mixed $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -428,9 +259,6 @@ public lset(string $collection, string $key, int $index, mixed $value): bool
 | `$key` | **string** |  |
 | `$index` | **int** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -442,13 +270,6 @@ Get an element from a list by its index
 public lindex(string $collection, string $key, int $index): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -456,9 +277,6 @@ public lindex(string $collection, string $key, int $index): mixed
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$index` | **int** |  |
-
-
-
 
 ***
 
@@ -470,13 +288,6 @@ Set the string value of a hash field
 public hset(string $collection, string $key, string $field, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -485,9 +296,6 @@ public hset(string $collection, string $key, string $field, mixed $value): mixed
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -499,13 +307,6 @@ Get the value of a hash field
 public hget(string $collection, string $key, string $field, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -514,9 +315,6 @@ public hget(string $collection, string $key, string $field, mixed $default = nul
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -528,21 +326,11 @@ Get all the fields and values in a hash
 public hgetall(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -554,13 +342,6 @@ Determine if a hash field exists
 public hexists(string $collection, string $key, string $field): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -568,9 +349,6 @@ public hexists(string $collection, string $key, string $field): bool
 | `$collection` | **string** |  |
 | `$key` | **string** |  |
 | `$field` | **string** |  |
-
-
-
 
 ***
 
@@ -582,21 +360,11 @@ Get all the fields in a hash
 public hkeys(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -608,21 +376,11 @@ Get all the values in a hash
 public hvals(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -634,21 +392,11 @@ Get the number of fields in a hash
 public hlen(string $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -660,21 +408,11 @@ Delete one or more hash fields
 public hdel(string $key): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -686,13 +424,6 @@ Increment the integer value of a hash field by the given number
 public hincrby(mixed $collection, string $key, string $field, int $by = 1): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -701,9 +432,6 @@ public hincrby(mixed $collection, string $key, string $field, int $by = 1): int
 | `$key` | **string** |  |
 | `$field` | **string** |  |
 | `$by` | **int** |  |
-
-
-
 
 ***
 
@@ -715,21 +443,11 @@ Get the values of all the given hash fields
 public hmget(string $key): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -741,38 +459,19 @@ Set multiple hash fields to multiple values
 public hmset(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $method, mixed $args): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -781,11 +480,4 @@ public __call(mixed $method, mixed $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

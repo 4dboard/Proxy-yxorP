@@ -10,43 +10,23 @@ Use \Twig\TwigFilter instead.
 * Parent class: [`\Twig_Filter`](./Twig_Filter.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
-
-
 ## Properties
 
-
 ### function
-
-
 
 ```php
 protected $function
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $function, array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -55,49 +35,23 @@ public __construct(mixed $function, array $options = []): mixed
 | `$function` | **mixed** |  |
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### compile
-
-
 
 ```php
 public compile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -105,25 +59,13 @@ public __construct(array $options = []): mixed
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### setArguments
 
-
-
 ```php
 public setArguments(mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -131,85 +73,37 @@ public setArguments(mixed $arguments): mixed
 |-----------|------|-------------|
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### getArguments
-
-
 
 ```php
 public getArguments(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### needsEnvironment
-
-
 
 ```php
 public needsEnvironment(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### needsContext
-
-
 
 ```php
 public needsContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSafe
 
-
-
 ```php
 public getSafe(\Twig\Node\Node $filterArgs): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -217,71 +111,28 @@ public getSafe(\Twig\Node\Node $filterArgs): mixed
 |-----------|------|-------------|
 | `$filterArgs` | **\Twig\Node\Node** |  |
 
-
-
-
 ***
 
 ### getPreservesSafety
-
-
 
 ```php
 public getPreservesSafety(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPreEscape
-
-
 
 ```php
 public getPreEscape(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCallable
-
-
 
 ```php
 public getCallable(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

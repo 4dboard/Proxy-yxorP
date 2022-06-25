@@ -2,16 +2,9 @@
 
 # Response
 
-
-
-
-
 * Full name: `\Zend\Json\Server\Response`
 
-
-
 ## Properties
-
 
 ### error
 
@@ -20,11 +13,6 @@ Response error
 ```php
 protected null|\Zend\Json\Server\Error $error
 ```
-
-
-
-
-
 
 ***
 
@@ -36,11 +24,6 @@ Request ID
 protected mixed $id
 ```
 
-
-
-
-
-
 ***
 
 ### result
@@ -50,11 +33,6 @@ Result
 ```php
 protected mixed $result
 ```
-
-
-
-
-
 
 ***
 
@@ -66,11 +44,6 @@ Service map
 protected \Zend\Json\Server\Smd $serviceMap
 ```
 
-
-
-
-
-
 ***
 
 ### version
@@ -81,30 +54,17 @@ JSON-RPC version
 protected string $version
 ```
 
-
-
-
-
-
 ***
 
 ### args
-
-
 
 ```php
 protected $args
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setOptions
 
@@ -114,21 +74,11 @@ Set response state
 public setOptions(array $options): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -140,21 +90,11 @@ Set response state based on JSON
 public loadJson(string $json): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$json` | **string** |  |
-
-
-
 
 ***
 
@@ -166,21 +106,11 @@ Set result
 public setResult(mixed $value): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -192,16 +122,6 @@ Get result
 public getResult(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setError
@@ -212,21 +132,11 @@ Set result error
 public setError(mixed $error = null): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$error` | **mixed** |  |
-
-
-
 
 ***
 
@@ -238,16 +148,6 @@ Get response error
 public getError(): null|\Zend\Json\Server\Error
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isError
@@ -257,16 +157,6 @@ Is the response an error?
 ```php
 public isError(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -278,21 +168,11 @@ Set request ID
 public setId(mixed $name): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
@@ -304,16 +184,6 @@ Get request ID
 public getId(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setVersion
@@ -324,21 +194,11 @@ Set JSON-RPC version
 public setVersion(string $version): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$version` | **string** |  |
-
-
-
 
 ***
 
@@ -350,16 +210,6 @@ Retrieve JSON-RPC version
 public getVersion(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toJson
@@ -369,16 +219,6 @@ Cast to JSON
 ```php
 public toJson(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -390,16 +230,6 @@ Retrieve args
 public getArgs(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setArgs
@@ -410,21 +240,11 @@ Set args
 public setArgs(mixed $args): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$args` | **mixed** |  |
-
-
-
 
 ***
 
@@ -436,21 +256,11 @@ Set service map object
 public setServiceMap(\Zend\Json\Server\Smd $serviceMap): \Zend\Json\Server\Response
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serviceMap` | **\Zend\Json\Server\Smd** |  |
-
-
-
 
 ***
 
@@ -462,16 +272,6 @@ Retrieve service map
 public getServiceMap(): \Zend\Json\Server\Smd|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -482,18 +282,4 @@ Cast to string (JSON)
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

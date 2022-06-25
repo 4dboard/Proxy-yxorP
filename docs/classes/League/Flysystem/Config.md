@@ -2,49 +2,27 @@
 
 # Config
 
-
-
-
-
 * Full name: `\League\Flysystem\Config`
-
-
 
 ## Properties
 
-
 ### settings
-
-
 
 ```php
 protected array $settings
 ```
 
-
-
-
-
-
 ***
 
 ### fallback
-
-
 
 ```php
 protected \League\Flysystem\Config|null $fallback
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -54,21 +32,11 @@ Constructor.
 public __construct(array $settings = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$settings` | **array** |  |
-
-
-
 
 ***
 
@@ -80,20 +48,12 @@ Get a setting.
 public get(string $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$default` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -111,21 +71,11 @@ Check if an item exists by key.
 public has(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -137,20 +87,12 @@ Try to retrieve a default setting from a config fallback.
 protected getDefault(string $key, mixed $default): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$default` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -168,22 +110,12 @@ Set a setting.
 public set(string $key, mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -195,24 +127,10 @@ Set the fallback.
 public setFallback(\League\Flysystem\Config $fallback): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fallback` | **\League\Flysystem\Config** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

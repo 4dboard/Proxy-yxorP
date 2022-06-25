@@ -2,38 +2,14 @@
 
 # CallableClass
 
-
-
-
-
 * Full name: `\Symfony\Component\EventDispatcher\Tests\CallableClass`
-
-
-
 
 ## Methods
 
-
 ### __invoke
-
-
 
 ```php
 public __invoke(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

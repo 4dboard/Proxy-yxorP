@@ -4,84 +4,50 @@
 
 Operation for obtaining an estimated count of documents in a collection
 
-
-
 * Full name: `\MongoDB\Operation\EstimatedDocumentCount`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md), [`\MongoDB\Operation\Explainable`](./Explainable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::estimatedDocumentCount() - 
-* http://docs.mongodb.org/manual/reference/command/count/ - 
-
-
+* \MongoDB\Collection::estimatedDocumentCount() -
+* http://docs.mongodb.org/manual/reference/command/count/ -
 
 ## Properties
 
-
 ### databaseName
-
-
 
 ```php
 private string $databaseName
 ```
 
-
-
-
-
-
 ***
 
 ### collectionName
-
-
 
 ```php
 private string $collectionName
 ```
 
-
-
-
-
-
 ***
 
 ### options
-
-
 
 ```php
 private array $options
 ```
 
-
-
-
-
-
 ***
 
 ### count
-
-
 
 ```php
 private \MongoDB\Operation\Count $count
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -93,24 +59,17 @@ public __construct(string $databaseName, string $collectionName, array $options 
 
 Supported options:
 
-* maxTimeMS (integer): The maximum amount of time to allow the query to
-  run.
+* maxTimeMS (integer): The maximum amount of time to allow the query to run.
 
 * readConcern (MongoDB\Driver\ReadConcern): Read concern.
 
-  This is not supported for server versions < 3.2 and will result in an
-  exception at execution time if used.
+  This is not supported for server versions < 3.2 and will result in an exception at execution time if used.
 
 * readPreference (MongoDB\Driver\ReadPreference): Read preference.
 
 * session (MongoDB\Driver\Session): Client session.
 
   Sessions are not supported for server versions < 3.6.
-
-
-
-
-
 
 **Parameters:**
 
@@ -119,9 +78,6 @@ Supported options:
 | `$databaseName` | **string** | Database name |
 | `$collectionName` | **string** | Collection name |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -133,41 +89,23 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 
 ### getCommandDocument
 
-
-
 ```php
 public getCommandDocument(\MongoDB\Driver\Server $server): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -175,31 +113,12 @@ public getCommandDocument(\MongoDB\Driver\Server $server): mixed
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
-
 ***
 
 ### createCount
-
-
 
 ```php
 private createCount(): \MongoDB\Operation\Count
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

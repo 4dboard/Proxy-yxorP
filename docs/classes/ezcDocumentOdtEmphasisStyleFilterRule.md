@@ -4,19 +4,15 @@
 
 Style filter rule to detect <emphasis/> elements.
 
-This style filter rule checks <text:span/> elements in ODT for bold
-font-weight. Such elements are considered to be translated to <emphasis/>
+This style filter rule checks <text:span/> elements in ODT for bold font-weight. Such elements are considered to be
+translated to <emphasis/>
 elements in DocBook.
 
 * Full name: `\ezcDocumentOdtEmphasisStyleFilterRule`
 * This class implements:
-[`\ezcDocumentOdtStyleFilterRule`](./ezcDocumentOdtStyleFilterRule.md)
-
-
-
+  [`\ezcDocumentOdtStyleFilterRule`](./ezcDocumentOdtStyleFilterRule.md)
 
 ## Methods
-
 
 ### handles
 
@@ -26,21 +22,11 @@ Returns if the given $odtElement is handled by the rule.
 public handles(\DOMElement $odtElement): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -52,14 +38,8 @@ Detects emphasis elements by their style.
 public filter(\DOMElement $odtElement, \ezcDocumentOdtStyleInferencer $styleInferencer): mixed
 ```
 
-This method checks the style of the given $odtElement for bold
-font-weight ("bold" or value >= 700). If this is detected, the type of
-the element is set to be <emphasis/>.
-
-
-
-
-
+This method checks the style of the given $odtElement for bold font-weight ("bold" or value >= 700). If this is
+detected, the type of the element is set to be <emphasis/>.
 
 **Parameters:**
 
@@ -68,11 +48,4 @@ the element is set to be <emphasis/>.
 | `$odtElement` | **\DOMElement** |  |
 | `$styleInferencer` | **\ezcDocumentOdtStyleInferencer** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

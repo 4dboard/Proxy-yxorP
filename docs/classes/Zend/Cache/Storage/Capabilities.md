@@ -2,16 +2,9 @@
 
 # Capabilities
 
-
-
-
-
 * Full name: `\Zend\Cache\Storage\Capabilities`
 
-
-
 ## Properties
-
 
 ### storage
 
@@ -20,11 +13,6 @@ The storage instance
 ```php
 protected \Zend\Cache\Storage\StorageInterface $storage
 ```
-
-
-
-
-
 
 ***
 
@@ -36,11 +24,6 @@ A marker to set/change capabilities
 protected \stdClass $marker
 ```
 
-
-
-
-
-
 ***
 
 ### baseCapabilities
@@ -50,11 +33,6 @@ Base capabilities
 ```php
 protected null|\Zend\Cache\Storage\Capabilities $baseCapabilities
 ```
-
-
-
-
-
 
 ***
 
@@ -66,8 +44,7 @@ Expire read
 protected null|bool $expiredRead
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -82,8 +59,7 @@ Max. key length
 protected null|int $maxKeyLength
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -98,8 +74,7 @@ Min. TTL (0 means items never expire)
 protected null|int $minTtl
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -114,8 +89,7 @@ Max. TTL (0 means infinite)
 protected null|int $maxTtl
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -130,8 +104,7 @@ Namespace is prefix
 protected null|bool $namespaceIsPrefix
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -146,8 +119,7 @@ Namespace separator
 protected null|string $namespaceSeparator
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -162,8 +134,7 @@ Static ttl
 protected null|bool $staticTtl
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -178,8 +149,7 @@ Supported datatypes
 protected null|array $supportedDatatypes
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -194,8 +164,7 @@ Supported metdata
 protected null|array $supportedMetadata
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -210,8 +179,7 @@ TTL precision
 protected null|int $ttlPrecision
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -226,8 +194,7 @@ Use request time
 protected null|bool $useRequestTime
 ```
 
-If it's NULL the capability isn't set and the getter
-returns the base capability or the default value.
+If it's NULL the capability isn't set and the getter returns the base capability or the default value.
 
 
 
@@ -235,7 +202,6 @@ returns the base capability or the default value.
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -245,13 +211,6 @@ Constructor
 public __construct(\Zend\Cache\Storage\StorageInterface $storage, \stdClass $marker, array $capabilities = [], null|\Zend\Cache\Storage\Capabilities $baseCapabilities = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -260,9 +219,6 @@ public __construct(\Zend\Cache\Storage\StorageInterface $storage, \stdClass $mar
 | `$marker` | **\stdClass** |  |
 | `$capabilities` | **array** |  |
 | `$baseCapabilities` | **null&#124;\Zend\Cache\Storage\Capabilities** |  |
-
-
-
 
 ***
 
@@ -274,16 +230,6 @@ Get the storage adapter
 public getAdapter(): \Zend\Cache\Storage\StorageInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSupportedDatatypes
@@ -293,16 +239,6 @@ Get supported datatypes
 ```php
 public getSupportedDatatypes(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -314,20 +250,12 @@ Set supported datatypes
 public setSupportedDatatypes(\stdClass $marker, array $datatypes): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$datatypes` | **array** |  |
-
 
 **Return Value:**
 
@@ -345,16 +273,6 @@ Get supported metadata
 public getSupportedMetadata(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSupportedMetadata
@@ -365,20 +283,12 @@ Set supported metadata
 public setSupportedMetadata(\stdClass $marker, string[] $metadata): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$metadata` | **string[]** |  |
-
 
 **Return Value:**
 
@@ -396,14 +306,6 @@ Get minimum supported time-to-live
 public getMinTtl(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 0 means items never expire
@@ -420,20 +322,12 @@ Set minimum supported time-to-live
 public setMinTtl(\stdClass $marker, int $minTtl): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$minTtl` | **int** |  |
-
 
 **Return Value:**
 
@@ -451,14 +345,6 @@ Get maximum supported time-to-live
 public getMaxTtl(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 0 means infinite
@@ -475,20 +361,12 @@ Set maximum supported time-to-live
 public setMaxTtl(\stdClass $marker, int $maxTtl): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$maxTtl` | **int** |  |
-
 
 **Return Value:**
 
@@ -507,16 +385,6 @@ or dynamic (on read)
 public getStaticTtl(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setStaticTtl
@@ -527,20 +395,12 @@ Set if the time-to-live handled static (on write) or dynamic (on read)
 public setStaticTtl(\stdClass $marker, bool $flag): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$flag` | **bool** |  |
-
 
 **Return Value:**
 
@@ -558,16 +418,6 @@ Get time-to-live precision
 public getTtlPrecision(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTtlPrecision
@@ -578,20 +428,12 @@ Set time-to-live precision
 public setTtlPrecision(\stdClass $marker, float $ttlPrecision): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$ttlPrecision` | **float** |  |
-
 
 **Return Value:**
 
@@ -609,16 +451,6 @@ Get use request time
 public getUseRequestTime(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setUseRequestTime
@@ -629,20 +461,12 @@ Set use request time
 public setUseRequestTime(\stdClass $marker, bool $flag): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$flag` | **bool** |  |
-
 
 **Return Value:**
 
@@ -660,16 +484,6 @@ Get if expired items are readable
 public getExpiredRead(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setExpiredRead
@@ -680,20 +494,12 @@ Set if expired items are readable
 public setExpiredRead(\stdClass $marker, bool $flag): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$flag` | **bool** |  |
-
 
 **Return Value:**
 
@@ -711,14 +517,6 @@ Get maximum key lenth
 public getMaxKeyLength(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 -1 means unknown, 0 means infinite
@@ -735,20 +533,12 @@ Set maximum key length
 public setMaxKeyLength(\stdClass $marker, int $maxKeyLength): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$maxKeyLength` | **int** |  |
-
 
 **Return Value:**
 
@@ -766,16 +556,6 @@ Get if namespace support is implemented as prefix
 public getNamespaceIsPrefix(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespaceIsPrefix
@@ -786,20 +566,12 @@ Set if namespace support is implemented as prefix
 public setNamespaceIsPrefix(\stdClass $marker, bool $flag): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$flag` | **bool** |  |
-
 
 **Return Value:**
 
@@ -817,16 +589,6 @@ Get namespace separator if namespace is implemented as prefix
 public getNamespaceSeparator(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespaceSeparator
@@ -837,20 +599,12 @@ Set the namespace separator if namespace is implemented as prefix
 public setNamespaceSeparator(\stdClass $marker, string $separator): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$marker` | **\stdClass** |  |
 | `$separator` | **string** |  |
-
 
 **Return Value:**
 
@@ -868,22 +622,12 @@ Get a capability
 protected getCapability(string $property, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$property` | **string** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -895,13 +639,6 @@ Change a capability
 protected setCapability(\stdClass $marker, string $property, mixed $value): \Zend\Cache\Storage\Capabilities
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -910,15 +647,6 @@ protected setCapability(\stdClass $marker, string $property, mixed $value): \Zen
 | `$property` | **string** |  |
 | `$value` | **mixed** |  |
 
-
 **Return Value:**
 
-Fluent interface
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+Fluent interface yxorP::get('REQUEST')

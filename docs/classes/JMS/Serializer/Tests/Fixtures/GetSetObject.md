@@ -2,59 +2,31 @@
 
 # GetSetObject
 
-
-
-
-
 * Full name: `\JMS\Serializer\Tests\Fixtures\GetSetObject`
-
-
 
 ## Properties
 
-
 ### id
-
-
 
 ```php
 private $id
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 private $name
 ```
 
-
-
-
-
-
 ***
 
 ### readOnlyProperty
 
-
-
 ```php
 private $readOnlyProperty
 ```
-
-
-
-
-
 
 ***
 
@@ -66,70 +38,31 @@ This property should be exlcluded
 private $excludedProperty
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### getId
-
-
 
 ```php
 public getId(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getName
-
-
 
 ```php
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setName
 
-
-
 ```php
 public setName(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -137,31 +70,12 @@ public setName(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### getReadOnlyProperty
-
-
 
 ```php
 public getReadOnlyProperty(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

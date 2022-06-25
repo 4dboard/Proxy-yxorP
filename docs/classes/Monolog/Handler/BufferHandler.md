@@ -4,137 +4,80 @@
 
 Buffers all records until closing the handler and then pass them as batch.
 
-This is useful for a MailHandler to send only one mail per request instead of
-sending one per log message.
+This is useful for a MailHandler to send only one mail per request instead of sending one per log message.
 
 * Full name: `\Monolog\Handler\BufferHandler`
 * Parent class: [`\Monolog\Handler\AbstractHandler`](./AbstractHandler.md)
 
-
-
 ## Properties
 
-
 ### handler
-
-
 
 ```php
 protected $handler
 ```
 
-
-
-
-
-
 ***
 
 ### bufferSize
-
-
 
 ```php
 protected $bufferSize
 ```
 
-
-
-
-
-
 ***
 
 ### bufferLimit
-
-
 
 ```php
 protected $bufferLimit
 ```
 
-
-
-
-
-
 ***
 
 ### flushOnOverflow
-
-
 
 ```php
 protected $flushOnOverflow
 ```
 
-
-
-
-
-
 ***
 
 ### buffer
-
-
 
 ```php
 protected $buffer
 ```
 
-
-
-
-
-
 ***
 
 ### initialized
-
-
 
 ```php
 protected $initialized
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Monolog\Handler\HandlerInterface $handler, int $bufferLimit, int $level = Logger::DEBUG, bool $bubble = true, bool $flushOnOverflow = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **\Monolog\Handler\HandlerInterface** | Handler. |
-| `$bufferLimit` | **int** | How many entries should be buffered at most, beyond that the oldest items are removed from the buffer. |
+| `$bufferLimit` | **
+int** | How many entries should be buffered at most, beyond that the oldest items are removed from the buffer. |
 | `$level` | **int** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-| `$flushOnOverflow` | **bool** | If true, the buffer is flushed when the max size has been reached, by default oldest entries are discarded |
-
-
-
+| `$flushOnOverflow` | **
+bool** | If true, the buffer is flushed when the max size has been reached, by default oldest entries are discarded |
 
 ***
 
@@ -146,61 +89,27 @@ public __construct(\Monolog\Handler\HandlerInterface $handler, int $bufferLimit,
 public handle(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### flush
-
-
 
 ```php
 public flush(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -212,16 +121,6 @@ Closes the handler.
 public close(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### clear
@@ -232,35 +131,13 @@ Clears the buffer without flushing any messages down to the wrapped handler.
 public clear(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -272,21 +149,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -298,36 +165,15 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -335,9 +181,6 @@ public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixe
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -349,21 +192,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -375,21 +208,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -421,21 +244,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -447,16 +260,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -467,21 +270,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -493,16 +286,6 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLevel
@@ -513,21 +296,11 @@ Sets minimum logging level at which this handler will be triggered.
 public setLevel(int|string $level): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | Level or level name |
-
-
-
 
 ***
 
@@ -539,16 +312,6 @@ Gets minimum logging level at which this handler will be triggered.
 public getLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBubble
@@ -559,21 +322,12 @@ Sets the bubbling behavior.
 public setBubble(bool $bubble): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$bubble` | **bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
-
-
-
+| `$bubble` | **
+bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
 
 ***
 
@@ -585,18 +339,9 @@ Gets the bubbling behavior.
 public getBubble(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true means that this handler allows bubbling.
-false means that bubbling is not permitted.
+true means that this handler allows bubbling. false means that bubbling is not permitted.
 
 
 
@@ -604,41 +349,17 @@ false means that bubbling is not permitted.
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -650,18 +371,4 @@ Gets the default formatter.
 protected getDefaultFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

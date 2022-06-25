@@ -2,34 +2,20 @@
 
 # AbstractComparisonValidatorTestCase
 
-
-
-
-
 * Full name: `\Symfony\Component\Validator\Tests\Constraints\AbstractComparisonValidatorTestCase`
-* Parent class: [`\Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest`](./AbstractConstraintValidatorTest.md)
+* Parent
+  class: [`\Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest`](./AbstractConstraintValidatorTest.md)
 * This class is an **Abstract class**
-
-
-
 
 ## Methods
 
-
 ### addPhp5Dot5Comparisons
-
-
 
 ```php
 protected static addPhp5Dot5Comparisons(array $comparisons): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -37,45 +23,21 @@ protected static addPhp5Dot5Comparisons(array $comparisons): mixed
 |-----------|------|-------------|
 | `$comparisons` | **array** |  |
 
-
-
-
 ***
 
 ### provideInvalidConstraintOptions
-
-
 
 ```php
 public provideInvalidConstraintOptions(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testThrowsConstraintExceptionIfNoValueOrProperty
 
-
-
 ```php
 public testThrowsConstraintExceptionIfNoValueOrProperty(mixed $options): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -83,25 +45,13 @@ public testThrowsConstraintExceptionIfNoValueOrProperty(mixed $options): mixed
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
 ***
 
 ### testValidComparisonToValue
 
-
-
 ```php
 public testValidComparisonToValue(mixed $dirtyValue, mixed $comparisonValue): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -110,65 +60,31 @@ public testValidComparisonToValue(mixed $dirtyValue, mixed $comparisonValue): mi
 | `$dirtyValue` | **mixed** |  |
 | `$comparisonValue` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideAllValidComparisons
-
-
 
 ```php
 public provideAllValidComparisons(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideValidComparisons
-
-
 
 ```php
 public provideValidComparisons(): array
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### testInvalidComparisonToValue
 
-
-
 ```php
 public testInvalidComparisonToValue(mixed $dirtyValue, mixed $dirtyValueAsString, mixed $comparedValue, mixed $comparedValueString, string $comparedValueType): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -180,65 +96,33 @@ public testInvalidComparisonToValue(mixed $dirtyValue, mixed $dirtyValueAsString
 | `$comparedValueString` | **mixed** |  |
 | `$comparedValueType` | **string** |  |
 
-
-
-
 ***
 
 ### provideAllInvalidComparisons
-
-
 
 ```php
 public provideAllInvalidComparisons(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideInvalidComparisons
-
-
 
 ```php
 public provideInvalidComparisons(): array
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### createConstraint
 
-
-
 ```php
 protected createConstraint(array|null $options = null): \Symfony\Component\Validator\Constraint
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -246,89 +130,39 @@ protected createConstraint(array|null $options = null): \Symfony\Component\Valid
 |-----------|------|-------------|
 | `$options` | **array&#124;null** | Options for the constraint |
 
-
-
-
 ***
 
 ### getErrorCode
-
-
 
 ```php
 protected getErrorCode(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### setUp
-
-
 
 ```php
 protected setUp(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### tearDown
-
-
 
 ```php
 protected tearDown(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDefaultTimezone
 
-
-
 ```php
 protected setDefaultTimezone(mixed $defaultTimezone): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -336,67 +170,31 @@ protected setDefaultTimezone(mixed $defaultTimezone): mixed
 |-----------|------|-------------|
 | `$defaultTimezone` | **mixed** |  |
 
-
-
-
 ***
 
 ### restoreDefaultTimezone
-
-
 
 ```php
 protected restoreDefaultTimezone(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createContext
-
-
 
 ```php
 protected createContext(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createViolation
-
-
 
 ```php
 protected createViolation(mixed $message, array $parameters = array(), string $propertyPath = &#039;property.path&#039;, string $invalidValue = &#039;InvalidValue&#039;, null $plural = null, null $code = null): \Symfony\Component\Validator\ConstraintViolation
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -409,25 +207,13 @@ protected createViolation(mixed $message, array $parameters = array(), string $p
 | `$plural` | **null** |  |
 | `$code` | **null** |  |
 
-
-
-
 ***
 
 ### setGroup
 
-
-
 ```php
 protected setGroup(mixed $group): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -435,25 +221,13 @@ protected setGroup(mixed $group): mixed
 |-----------|------|-------------|
 | `$group` | **mixed** |  |
 
-
-
-
 ***
 
 ### setObject
 
-
-
 ```php
 protected setObject(mixed $object): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -461,25 +235,13 @@ protected setObject(mixed $object): mixed
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
 
-
-
-
 ***
 
 ### setProperty
 
-
-
 ```php
 protected setProperty(mixed $object, mixed $property): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -488,25 +250,13 @@ protected setProperty(mixed $object, mixed $property): mixed
 | `$object` | **mixed** |  |
 | `$property` | **mixed** |  |
 
-
-
-
 ***
 
 ### setValue
 
-
-
 ```php
 protected setValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -514,25 +264,13 @@ protected setValue(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### setRoot
 
-
-
 ```php
 protected setRoot(mixed $root): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -540,25 +278,13 @@ protected setRoot(mixed $root): mixed
 |-----------|------|-------------|
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
 ### setPropertyPath
 
-
-
 ```php
 protected setPropertyPath(mixed $propertyPath): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -566,45 +292,21 @@ protected setPropertyPath(mixed $propertyPath): mixed
 |-----------|------|-------------|
 | `$propertyPath` | **mixed** |  |
 
-
-
-
 ***
 
 ### expectNoValidate
-
-
 
 ```php
 protected expectNoValidate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### expectValidateAt
 
-
-
 ```php
 protected expectValidateAt(mixed $i, mixed $propertyPath, mixed $value, mixed $group): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -615,25 +317,13 @@ protected expectValidateAt(mixed $i, mixed $propertyPath, mixed $value, mixed $g
 | `$value` | **mixed** |  |
 | `$group` | **mixed** |  |
 
-
-
-
 ***
 
 ### expectValidateValueAt
 
-
-
 ```php
 protected expectValidateValueAt(mixed $i, mixed $propertyPath, mixed $value, mixed $constraints, mixed $group = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -645,47 +335,23 @@ protected expectValidateValueAt(mixed $i, mixed $propertyPath, mixed $value, mix
 | `$constraints` | **mixed** |  |
 | `$group` | **mixed** |  |
 
-
-
-
 ***
 
 ### assertNoViolation
-
-
 
 ```php
 protected assertNoViolation(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertViolation
-
-
 
 ```php
 protected assertViolation(mixed $message, array $parameters = array(), string $propertyPath = &#039;property.path&#039;, string $invalidValue = &#039;InvalidValue&#039;, null $plural = null, null $code = null): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -698,27 +364,15 @@ protected assertViolation(mixed $message, array $parameters = array(), string $p
 | `$plural` | **null** |  |
 | `$code` | **null** |  |
 
-
-
-
 ***
 
 ### assertViolations
-
-
 
 ```php
 protected assertViolations(array $expected): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -726,25 +380,13 @@ protected assertViolations(array $expected): mixed
 |-----------|------|-------------|
 | `$expected` | **array** |  |
 
-
-
-
 ***
 
 ### buildViolation
 
-
-
 ```php
 protected buildViolation( $message): \Symfony\Component\Validator\Tests\Constraints\ConstraintViolationAssertion
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -752,51 +394,22 @@ protected buildViolation( $message): \Symfony\Component\Validator\Tests\Constrai
 |-----------|------|-------------|
 | `$message` | **** |  |
 
-
-
-
 ***
 
 ### getApiVersion
-
-
 
 ```php
 protected getApiVersion(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createValidator
-
-
 
 ```php
 protected createValidator(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
 
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

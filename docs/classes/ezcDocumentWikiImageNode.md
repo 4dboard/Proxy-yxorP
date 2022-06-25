@@ -4,15 +4,10 @@
 
 Struct for Wiki document inline image syntax tree nodes
 
-
-
 * Full name: `\ezcDocumentWikiImageNode`
 * Parent class: [`\ezcDocumentWikiInlineNode`](./ezcDocumentWikiInlineNode.md)
 
-
-
 ## Properties
-
 
 ### resource
 
@@ -21,11 +16,6 @@ Image resource description
 ```php
 public array $resource
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ Image title
 public array $title
 ```
 
-
-
-
-
-
 ***
 
 ### alignement
@@ -51,11 +36,6 @@ Image alignement
 ```php
 public string $alignement
 ```
-
-
-
-
-
 
 ***
 
@@ -67,11 +47,6 @@ Image width
 public int $width
 ```
 
-
-
-
-
-
 ***
 
 ### height
@@ -82,17 +57,9 @@ Image height
 public int $height
 ```
 
-
-
-
-
-
 ***
 
-
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -102,24 +69,10 @@ Construct Wiki node
 public __construct(\ezcDocumentWikiToken $token): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

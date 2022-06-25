@@ -4,33 +4,16 @@
 
 Loads templates from other loaders.
 
-
-
 * Full name: `\Twig_Loader_Chain`
 * Parent class: [`\Twig\Loader\ChainLoader`](./Twig/Loader/ChainLoader.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Twig\Loader\LoaderInterface[] $loaders = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,25 +21,13 @@ public __construct(\Twig\Loader\LoaderInterface[] $loaders = []): mixed
 |-----------|------|-------------|
 | `$loaders` | **\Twig\Loader\LoaderInterface[]** |  |
 
-
-
-
 ***
 
 ### addLoader
 
-
-
 ```php
 public addLoader(\Twig\Loader\LoaderInterface $loader): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -64,28 +35,13 @@ public addLoader(\Twig\Loader\LoaderInterface $loader): mixed
 |-----------|------|-------------|
 | `$loader` | **\Twig\Loader\LoaderInterface** |  |
 
-
-
-
 ***
 
 ### getLoaders
 
-
-
 ```php
 public getLoaders(): \Twig\Loader\LoaderInterface[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -97,19 +53,11 @@ Gets the source code of a template, given its name.
 public getSource(mixed $name): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the template to load |
-
 
 **Return Value:**
 
@@ -127,21 +75,11 @@ Returns the source context for a given template logical name.
 public getSourceContext(mixed $name): \Twig\Source
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The template logical name |
-
-
-
 
 ***
 
@@ -153,19 +91,11 @@ Check if we have the source code of a template, given its name.
 public exists(mixed $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the template to check if we can load |
-
 
 **Return Value:**
 
@@ -183,19 +113,11 @@ Gets the cache key to use for the cache for a given template name.
 public getCacheKey(mixed $name): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the template to load |
-
 
 **Return Value:**
 
@@ -213,13 +135,6 @@ Returns true if the template is still fresh.
 public isFresh(mixed $name, mixed $time): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -227,15 +142,6 @@ public isFresh(mixed $name, mixed $time): bool
 | `$name` | **mixed** | The template name |
 | `$time` | **mixed** | Timestamp of the last modification time of the<br />cached template |
 
-
 **Return Value:**
 
-true if the template is fresh, false otherwise
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+true if the template is fresh, false otherwise yxorP::get('REQUEST')

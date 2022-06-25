@@ -4,19 +4,13 @@
 
 Filter for XHtml line blocks
 
-There is no semantic markup for something like line blocks in HTML. Line
-blocks are basically text with manual breaks at the end of each line (like
-in poems). In HTML this is often indicated by a paragraph with several br
-tags inside.
+There is no semantic markup for something like line blocks in HTML. Line blocks are basically text with manual breaks at
+the end of each line (like in poems). In HTML this is often indicated by a paragraph with several br tags inside.
 
 * Full name: `\ezcDocumentXhtmlLineBlockElementFilter`
 * Parent class: [`\ezcDocumentXhtmlElementBaseFilter`](./ezcDocumentXhtmlElementBaseFilter.md)
 
-
-
-
 ## Methods
-
 
 ### filterElement
 
@@ -26,21 +20,11 @@ Filter a single element
 public filterElement(\DOMElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -52,13 +36,7 @@ Check if filter handles the current element
 public handles(\DOMElement $element): void
 ```
 
-Returns a boolean value, indicating weather this filter can handle
-the current element.
-
-
-
-
-
+Returns a boolean value, indicating weather this filter can handle the current element.
 
 **Parameters:**
 
@@ -66,14 +44,9 @@ the current element.
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### filterElement
 
@@ -83,21 +56,13 @@ Filter a single element
 public filterElement(\DOMElement $element): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -109,22 +74,15 @@ Check if filter handles the current element
 public handles(\DOMElement $element): void
 ```
 
-Returns a boolean value, indicating weather this filter can handle
-the current element.
-
+Returns a boolean value, indicating weather this filter can handle the current element.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -136,22 +94,13 @@ Is block level element
 protected isBlockLevelElement(\DOMElement $element): bool
 ```
 
-Returns true, if the element is a block level element in XHtml, and
-false otherwise.
-
-
-
-
-
+Returns true, if the element is a block level element in XHtml, and false otherwise.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -163,22 +112,13 @@ Check if node is an inline element
 protected isInlineElement(\DOMNode $node): bool
 ```
 
-Check if the passed node is an inline element, eg. may occur inside a
-text block, like a paragraph.
-
-
-
-
-
+Check if the passed node is an inline element, eg. may occur inside a text block, like a paragraph.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
-
-
-
 
 ***
 
@@ -190,23 +130,14 @@ Is current element placed inline
 protected isInline(\DOMElement $element): void
 ```
 
-Checks if the current element is placed inline, which means, it is
-either a descendant of some other inline element, or part of a
-paragraph.
-
-
-
-
-
+Checks if the current element is placed inline, which means, it is either a descendant of some other inline element, or
+part of a paragraph.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -218,13 +149,7 @@ Check for element class
 protected hasClass(\DOMElement $element, string $class): bool
 ```
 
-Check if element has the given class in its class attribute. Returns
-true, if it is contained, or false, if not.
-
-
-
-
-
+Check if element has the given class in its class attribute. Returns true, if it is contained, or false, if not.
 
 **Parameters:**
 
@@ -232,9 +157,6 @@ true, if it is contained, or false, if not.
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
 | `$class` | **string** |  |
-
-
-
 
 ***
 
@@ -248,11 +170,6 @@ protected showCurrentNode(\DOMElement $element, bool $newLine = true): mixed
 
 Is only there for debugging purposes
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -260,11 +177,4 @@ Is only there for debugging purposes
 | `$element` | **\DOMElement** |  |
 | `$newLine` | **bool** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

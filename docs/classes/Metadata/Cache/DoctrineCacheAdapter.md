@@ -2,66 +2,35 @@
 
 # DoctrineCacheAdapter
 
-
-
-
-
 * Full name: `\Metadata\Cache\DoctrineCacheAdapter`
 * This class implements:
-[`\Metadata\Cache\CacheInterface`](./CacheInterface.md)
-
-
+  [`\Metadata\Cache\CacheInterface`](./CacheInterface.md)
 
 ## Properties
 
-
 ### prefix
-
-
 
 ```php
 private $prefix
 ```
 
-
-
-
-
-
 ***
 
 ### cache
-
-
 
 ```php
 private \Doctrine\Common\Cache\Cache $cache
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $prefix, \Doctrine\Common\Cache\Cache $cache): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,9 +38,6 @@ public __construct(string $prefix, \Doctrine\Common\Cache\Cache $cache): mixed
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 | `$cache` | **\Doctrine\Common\Cache\Cache** |  |
-
-
-
 
 ***
 
@@ -83,21 +49,11 @@ Loads a class metadata instance from the cache
 public loadClassMetadataFromCache(\ReflectionClass $class): \Metadata\ClassMetadata
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
-
-
-
 
 ***
 
@@ -109,21 +65,11 @@ Puts a class metadata instance into the cache
 public putClassMetadataInCache(\Metadata\ClassMetadata $metadata): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadata` | **\Metadata\ClassMetadata** |  |
-
-
-
 
 ***
 
@@ -135,24 +81,10 @@ Evicts the class metadata for the given class from the cache.
 public evictClassMetadataFromCache(\ReflectionClass $class): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

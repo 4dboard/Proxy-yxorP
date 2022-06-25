@@ -2,18 +2,12 @@
 
 # ErrorHandler
 
-ErrorHandler that can be used to catch internal PHP errors
-and convert to an ErrorException instance.
-
-
+ErrorHandler that can be used to catch internal PHP errors and convert to an ErrorException instance.
 
 * Full name: `\Zend\Stdlib\ErrorHandler`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### stack
 
@@ -23,15 +17,11 @@ Active stack
 protected static array $stack
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### started
 
@@ -41,15 +31,7 @@ Check if this error handler is active
 public static started(): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -61,15 +43,7 @@ Get the current nested level
 public static getNestedLevel(): int
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -81,21 +55,13 @@ Starting the error handler
 public static start(int $errorLevel = E_WARNING): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errorLevel` | **int** |  |
-
-
-
 
 ***
 
@@ -107,21 +73,13 @@ Stopping the error handler
 public static stop(bool $throw = false): null|\ErrorException
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$throw` | **bool** | Throw the ErrorException if any |
-
-
-
 
 ***
 
@@ -133,15 +91,7 @@ Stop all active handler
 public static clean(): void
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -153,12 +103,7 @@ Add an error to the stack
 public static addError(int $errno, string $errstr = &#039;&#039;, string $errfile = &#039;&#039;, int $errline): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -169,11 +114,4 @@ public static addError(int $errno, string $errstr = &#039;&#039;, string $errfil
 | `$errfile` | **string** |  |
 | `$errline` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

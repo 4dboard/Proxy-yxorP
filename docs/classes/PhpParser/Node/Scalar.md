@@ -2,21 +2,11 @@
 
 # Scalar
 
-
-
-
-
 * Full name: `\PhpParser\Node\Scalar`
 * Parent class: [`\PhpParser\Node\Expr`](./Expr.md)
 * This class is an **Abstract class**
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -26,16 +16,9 @@ Creates a Node.
 public __construct(null|array $subNodes = array(), array $attributes = array()): mixed
 ```
 
-If null is passed for the $subNodes parameter the node constructor must assign
-all subnodes by itself and also override the getSubNodeNames() method.
-DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding
-to the array keys will be set and getSubNodeNames() will return the keys of that
-array.
-
-
-
-
-
+If null is passed for the $subNodes parameter the node constructor must assign all subnodes by itself and also override
+the getSubNodeNames() method. DEPRECATED: If an array is passed as $subNodes instead, the properties corresponding to
+the array keys will be set and getSubNodeNames() will return the keys of that array.
 
 **Parameters:**
 
@@ -43,9 +26,6 @@ array.
 |-----------|------|-------------|
 | `$subNodes` | **null&#124;array** | Null or an array of sub nodes (deprecated) |
 | `$attributes` | **array** | Array of attributes |
-
-
-
 
 ***
 
@@ -56,14 +36,6 @@ Gets the type of the node.
 ```php
 public getType(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -81,14 +53,6 @@ Gets the names of the sub nodes.
 public getSubNodeNames(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Names of sub nodes
@@ -104,14 +68,6 @@ Gets line the node started in.
 ```php
 public getLine(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -129,21 +85,11 @@ Sets line the node started in.
 public setLine(int $line): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$line` | **int** | Line |
-
-
-
 
 ***
 
@@ -156,12 +102,6 @@ public getDocComment(): null|\PhpParser\Comment\Doc
 ```
 
 The doc comment has to be the last comment associated with the node.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -179,22 +119,12 @@ Sets an attribute on a node.
 public setAttribute(mixed $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -206,21 +136,11 @@ Returns whether an attribute exists.
 public hasAttribute(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -232,22 +152,12 @@ Returns the value of an attribute.
 public getAttribute(mixed $key, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -259,18 +169,4 @@ Returns all attributes for the given node.
 public getAttributes(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

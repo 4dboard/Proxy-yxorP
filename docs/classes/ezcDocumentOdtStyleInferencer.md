@@ -4,15 +4,12 @@
 
 An instance of this class inferences a style for an ODT element.
 
-An instance of this class parses the styles of an ODT document defined for a
-certain element and returns an object representation of this style.
+An instance of this class parses the styles of an ODT document defined for a certain element and returns an object
+representation of this style.
 
 * Full name: `\ezcDocumentOdtStyleInferencer`
 
-
-
 ## Properties
-
 
 ### odtDocument
 
@@ -21,11 +18,6 @@ ODT DOMDocument.
 ```php
 protected \DOMDocument $odtDocument
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +29,6 @@ Style extractor.
 protected \ezcDocumentOdtStyleExtractor $styleExtractor
 ```
 
-
-
-
-
-
 ***
 
 ### styleParser
@@ -51,11 +38,6 @@ Style parser.
 ```php
 protected \ezcDocumentOdtStyleParser $styleParser
 ```
-
-
-
-
-
 
 ***
 
@@ -67,11 +49,6 @@ Maps ODT DOMElements to style families.
 protected $styleFamilyMap
 ```
 
-
-
-
-
-
 ***
 
 ### styleNameAttributeMap
@@ -82,15 +59,9 @@ Maps ODT namespaces to style name attributes
 protected $styleNameAttributeMap
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -100,21 +71,11 @@ Create a new style inferencer for the given document.
 public __construct(\DOMDocument $odtDocument): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtDocument` | **\DOMDocument** |  |
-
-
-
 
 ***
 
@@ -128,19 +89,11 @@ public getStyle(\DOMElement $odtElement): \ezcDocumentOdtStyle
 
 Inferences the complete styling information for the given $odtElement.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -152,22 +105,14 @@ Returns the list-style for the given $odtElement.
 public getListStyle(\DOMElement $odtElement): \ezcDocumentOdtListStyle|null
 ```
 
-$odtElement must be a <list /> element, otherwise null is returned since
-other elements do not have a list style attached.
-
-
-
-
-
+$odtElement must be a <list /> element, otherwise null is returned since other elements do not have a list style
+attached.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -181,19 +126,11 @@ protected getStyleFamily(\DOMElement $odtElement): string
 
 Detects the style family the style for $odtElement resides in.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -205,24 +142,14 @@ Extracts the style name from the given $odtElement.
 protected getStyleName(\DOMElement $odtElement): string|null
 ```
 
-Tries to determine the correct attribute for the style name from the
-given $odtElement. If a style name is specified, it is returned.
-Otherwise null is returned to indicate that the default style must be
-used.
-
-
-
-
-
+Tries to determine the correct attribute for the style name from the given $odtElement. If a style name is specified, it
+is returned. Otherwise null is returned to indicate that the default style must be used.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -234,13 +161,8 @@ Returns the list style name of the given $odtElement.
 protected getListStyleName(\DOMElement $odtElement): string
 ```
 
-Recursively searches for the style name of the given list element. The
-style name is only present at the top most list (for nested lists).
-
-
-
-
-
+Recursively searches for the style name of the given list element. The style name is only present at the top most list (
+for nested lists).
 
 **Parameters:**
 
@@ -248,11 +170,4 @@ style name is only present at the top most list (for nested lists).
 |-----------|------|-------------|
 | `$odtElement` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

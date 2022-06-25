@@ -2,16 +2,9 @@
 
 # MongoDbResourceManager
 
-
-
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\MongoDbResourceManager`
 
-
-
 ## Properties
-
 
 ### resources
 
@@ -21,15 +14,9 @@ Registered resources
 private array[] $resources
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### hasResource
 
@@ -39,21 +26,11 @@ Check if a resource exists
 public hasResource(string $id): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -65,22 +42,12 @@ Set a resource
 public setResource(string $id, array|\MongoCollection $resource): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$resource` | **array&#124;\MongoCollection** |  |
-
-
-
 
 ***
 
@@ -92,38 +59,19 @@ Instantiate and return the MongoCollection resource
 public getResource(string $id): \MongoCollection
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 
-
-
-
 ***
 
 ### setServer
 
-
-
 ```php
 public setServer(mixed $id, mixed $server): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -132,25 +80,13 @@ public setServer(mixed $id, mixed $server): mixed
 | `$id` | **mixed** |  |
 | `$server` | **mixed** |  |
 
-
-
-
 ***
 
 ### getServer
 
-
-
 ```php
 public getServer(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -158,25 +94,13 @@ public getServer(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
 ***
 
 ### setConnectionOptions
 
-
-
 ```php
 public setConnectionOptions(mixed $id, array $connectionOptions): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -185,25 +109,13 @@ public setConnectionOptions(mixed $id, array $connectionOptions): mixed
 | `$id` | **mixed** |  |
 | `$connectionOptions` | **array** |  |
 
-
-
-
 ***
 
 ### getConnectionOptions
 
-
-
 ```php
 public getConnectionOptions(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -211,25 +123,13 @@ public getConnectionOptions(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
 ***
 
 ### setDriverOptions
 
-
-
 ```php
 public setDriverOptions(mixed $id, array $driverOptions): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -238,25 +138,13 @@ public setDriverOptions(mixed $id, array $driverOptions): mixed
 | `$id` | **mixed** |  |
 | `$driverOptions` | **array** |  |
 
-
-
-
 ***
 
 ### getDriverOptions
 
-
-
 ```php
 public getDriverOptions(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -264,25 +152,13 @@ public getDriverOptions(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
 ***
 
 ### setDatabase
 
-
-
 ```php
 public setDatabase(mixed $id, mixed $database): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -291,25 +167,13 @@ public setDatabase(mixed $id, mixed $database): mixed
 | `$id` | **mixed** |  |
 | `$database` | **mixed** |  |
 
-
-
-
 ***
 
 ### getDatabase
 
-
-
 ```php
 public getDatabase(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -317,25 +181,13 @@ public getDatabase(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
 ***
 
 ### setCollection
 
-
-
 ```php
 public setCollection(mixed $id, mixed $collection): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -344,25 +196,13 @@ public setCollection(mixed $id, mixed $collection): mixed
 | `$id` | **mixed** |  |
 | `$collection` | **mixed** |  |
 
-
-
-
 ***
 
 ### getCollection
 
-
-
 ```php
 public getCollection(mixed $id): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -370,11 +210,4 @@ public getCollection(mixed $id): mixed
 |-----------|------|-------------|
 | `$id` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

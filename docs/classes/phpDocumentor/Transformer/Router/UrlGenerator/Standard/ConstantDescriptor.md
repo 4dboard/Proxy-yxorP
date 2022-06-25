@@ -2,36 +2,21 @@
 
 # ConstantDescriptor
 
-
-
-
-
 * Full name: `\phpDocumentor\Transformer\Router\UrlGenerator\Standard\ConstantDescriptor`
 * This class implements:
-[`\phpDocumentor\Transformer\Router\UrlGenerator\UrlGeneratorInterface`](../UrlGeneratorInterface.md)
-
-
+  [`\phpDocumentor\Transformer\Router\UrlGenerator\UrlGeneratorInterface`](../UrlGeneratorInterface.md)
 
 ## Properties
 
-
 ### converter
-
-
 
 ```php
 private \phpDocumentor\Transformer\Router\UrlGenerator\Standard\QualifiedNameToUrlConverter $converter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,16 +25,6 @@ Initializes this generator.
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -61,21 +36,11 @@ Generates a URL from the given node or returns false if unable.
 public __invoke(string|\phpDocumentor\Descriptor\ConstantDescriptor $node): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **string&#124;\phpDocumentor\Descriptor\ConstantDescriptor** |  |
-
-
-
 
 ***
 
@@ -87,21 +52,11 @@ Returns the first part of the URL path that is specific to global constants.
 private getUrlPathPrefixForGlobalConstants(\phpDocumentor\Descriptor\ConstantDescriptor $node): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\phpDocumentor\Descriptor\ConstantDescriptor** |  |
-
-
-
 
 ***
 
@@ -113,24 +68,10 @@ Returns the first part of the URL path that is specific to class constants.
 private getUrlPathPrefixForClassConstants(\phpDocumentor\Descriptor\ConstantDescriptor $node): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\phpDocumentor\Descriptor\ConstantDescriptor** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

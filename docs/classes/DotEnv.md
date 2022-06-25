@@ -6,31 +6,19 @@ This file is part of the Cockpit project.
 
 (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
 
-For the full copyright and license information, please view the LICENSE
-file that was distributed with this source code.
+For the full copyright and license information, please view the LICENSE file that was distributed with this source code.
 
 * Full name: `\DotEnv`
 
-
-
-
 ## Methods
 
-
 ### load
-
-
 
 ```php
 public static load(mixed $dir = &#039;.&#039;): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -38,25 +26,15 @@ public static load(mixed $dir = &#039;.&#039;): mixed
 |-----------|------|-------------|
 | `$dir` | **mixed** |  |
 
-
-
-
 ***
 
 ### parse
-
-
 
 ```php
 public static parse(mixed $str, mixed $expand = true): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -65,11 +43,4 @@ public static parse(mixed $str, mixed $expand = true): mixed
 | `$str` | **mixed** |  |
 | `$expand` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

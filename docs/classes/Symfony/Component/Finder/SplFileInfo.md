@@ -4,63 +4,34 @@
 
 Extends \SplFileInfo to support relative paths.
 
-
-
 * Full name: `\Symfony\Component\Finder\SplFileInfo`
 * Parent class: [`SplFileInfo`](../../../SplFileInfo.md)
 
-
-
 ## Properties
 
-
 ### relativePath
-
-
 
 ```php
 private $relativePath
 ```
 
-
-
-
-
-
 ***
 
 ### relativePathname
-
-
 
 ```php
 private $relativePathname
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $file, string $relativePath, string $relativePathname): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,9 +40,6 @@ public __construct(string $file, string $relativePath, string $relativePathname)
 | `$file` | **string** | The file name |
 | `$relativePath` | **string** | The relative path |
 | `$relativePathname` | **string** | The relative path name |
-
-
-
 
 ***
 
@@ -84,12 +52,6 @@ public getRelativePath(): string
 ```
 
 This path does not contain the file name.
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -109,12 +71,6 @@ public getRelativePathname(): string
 
 This path contains the file name.
 
-
-
-
-
-
-
 **Return Value:**
 
 the relative path name
@@ -131,22 +87,6 @@ Returns the contents of the file.
 public getContents(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-the contents of the file
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+the contents of the file yxorP::get('REQUEST')

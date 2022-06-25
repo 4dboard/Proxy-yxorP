@@ -4,48 +4,32 @@
 
 Handler sending logs to browser's javascript console with no browser extension required
 
-
-
 * Full name: `\Monolog\Handler\BrowserConsoleHandler`
 * Parent class: [`\Monolog\Handler\AbstractProcessingHandler`](./AbstractProcessingHandler.md)
 
-
-
 ## Properties
 
-
 ### initialized
-
-
 
 ```php
 protected static $initialized
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### records
 
-
-
 ```php
 protected static $records
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### getDefaultFormatter
 
@@ -61,14 +45,6 @@ Example of formatted string:
 
     You can do [[blue text]]{color: blue} or [[green background]]{background-color: green; color: white}
 
-
-
-
-
-
-
-
-
 ***
 
 ### write
@@ -79,21 +55,11 @@ Writes the record down to the log of the implementing handler
 protected write(array $record): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -109,51 +75,21 @@ This method is automatically called on PHP shutdown if output is HTML or Javascr
 
 * This method is **static**.
 
-
-
-
-
-
-
 ***
 
 ### close
-
-
 
 ```php
 public close(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -165,15 +101,7 @@ Forget all logged records
 public static resetStatic(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -185,16 +113,6 @@ Wrapper for register_shutdown_function to allow overriding
 protected registerShutdownFunction(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### writeOutput
@@ -205,21 +123,13 @@ Wrapper for echo to allow overriding
 protected static writeOutput(string $str): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
-
-
-
 
 ***
 
@@ -231,15 +141,10 @@ Checks the format of the response
 protected static getResponseFormat(): string
 ```
 
-If Content-Type is set to application/javascript or text/javascript -> js
-If Content-Type is set to text/html, or is unset -> html
-If Content-Type is anything else -> unknown
+If Content-Type is set to application/javascript or text/javascript -> js If Content-Type is set to text/html, or is
+unset -> html If Content-Type is anything else -> unknown
 
 * This method is **static**.
-
-
-
-
 
 **Return Value:**
 
@@ -251,38 +156,21 @@ One of 'js', 'html' or 'unknown'
 
 ### generateScript
 
-
-
 ```php
 private static generateScript(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### handleStyles
 
-
-
 ```php
 private static handleStyles(mixed $formatted): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -290,25 +178,15 @@ private static handleStyles(mixed $formatted): mixed
 |-----------|------|-------------|
 | `$formatted` | **mixed** |  |
 
-
-
-
 ***
 
 ### handleCustomStyles
-
-
 
 ```php
 private static handleCustomStyles(mixed $style, mixed $string): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -317,25 +195,15 @@ private static handleCustomStyles(mixed $style, mixed $string): mixed
 | `$style` | **mixed** |  |
 | `$string` | **mixed** |  |
 
-
-
-
 ***
 
 ### dump
-
-
 
 ```php
 private static dump(mixed $title, array $dict): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -344,25 +212,15 @@ private static dump(mixed $title, array $dict): mixed
 | `$title` | **mixed** |  |
 | `$dict` | **array** |  |
 
-
-
-
 ***
 
 ### quote
-
-
 
 ```php
 private static quote(mixed $arg): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -370,45 +228,25 @@ private static quote(mixed $arg): mixed
 |-----------|------|-------------|
 | `$arg` | **mixed** |  |
 
-
-
-
 ***
 
 ### call
-
-
 
 ```php
 private static call(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### call_array
 
-
-
 ```php
 private static call_array(mixed $method, array $args): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -417,14 +255,9 @@ private static call_array(mixed $method, array $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **array** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### handle
 
@@ -434,21 +267,11 @@ private static call_array(mixed $method, array $args): mixed
 public handle(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -460,21 +283,13 @@ Writes the record down to the log of the implementing handler
 protected write(array $record): void
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
-
-
-
 
 ***
 
@@ -486,38 +301,19 @@ Processes a record.
 protected processRecord(array $record): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### __construct
 
-
-
 ```php
 public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -525,9 +321,6 @@ public __construct(int|string $level = Logger::DEBUG, bool $bubble = true): mixe
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | The minimum logging level at which this handler will be triggered |
 | `$bubble` | **bool** | Whether the messages that are handled can bubble up the stack or not |
-
-
-
 
 ***
 
@@ -539,21 +332,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -565,21 +348,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -611,21 +384,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -637,16 +400,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -657,21 +410,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -683,16 +426,6 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLevel
@@ -703,21 +436,11 @@ Sets minimum logging level at which this handler will be triggered.
 public setLevel(int|string $level): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int&#124;string** | Level or level name |
-
-
-
 
 ***
 
@@ -729,16 +452,6 @@ Gets minimum logging level at which this handler will be triggered.
 public getLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBubble
@@ -749,21 +462,12 @@ Sets the bubbling behavior.
 public setBubble(bool $bubble): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$bubble` | **bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
-
-
-
+| `$bubble` | **
+bool** | true means that this handler allows bubbling.<br />false means that bubbling is not permitted. |
 
 ***
 
@@ -775,18 +479,9 @@ Gets the bubbling behavior.
 public getBubble(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true means that this handler allows bubbling.
-false means that bubbling is not permitted.
+true means that this handler allows bubbling. false means that bubbling is not permitted.
 
 
 
@@ -794,41 +489,17 @@ false means that bubbling is not permitted.
 
 ### __destruct
 
-
-
 ```php
 public __destruct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -840,18 +511,4 @@ Gets the default formatter.
 protected getDefaultFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

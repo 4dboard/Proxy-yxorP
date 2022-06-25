@@ -8,7 +8,6 @@ Note that list styles are represented by the dedicated {@link} class.
 
 * Full name: `\ezcDocumentOdtStyle`
 
-
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -31,7 +30,6 @@ Note that list styles are represented by the dedicated {@link} class.
 
 ## Properties
 
-
 ### properties
 
 Properties
@@ -40,15 +38,9 @@ Properties
 protected $properties
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -58,15 +50,8 @@ Creates a new style.
 public __construct(\const $family, string $name): mixed
 ```
 
-Creates a style in the given style $family with the given $name. $family
-must be one of the FAMILY_* constants. $name can be an arbitrary string.
-Note that $name and $family properties can not be changed at a later
-time.
-
-
-
-
-
+Creates a style in the given style $family with the given $name. $family must be one of the FAMILY_* constants. $name
+can be an arbitrary string. Note that $name and $family properties can not be changed at a later time.
 
 **Parameters:**
 
@@ -75,11 +60,4 @@ time.
 | `$family` | **\const** |  |
 | `$name` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

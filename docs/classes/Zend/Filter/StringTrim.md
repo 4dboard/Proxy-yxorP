@@ -2,17 +2,10 @@
 
 # StringTrim
 
-
-
-
-
 * Full name: `\Zend\Filter\StringTrim`
 * Parent class: [`\Zend\Filter\AbstractFilter`](./AbstractFilter.md)
 
-
-
 ## Properties
-
 
 ### options
 
@@ -22,15 +15,9 @@ Filter options
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,21 +27,11 @@ Sets filter options
 public __construct(string|array|\Traversable $charlistOrOptions = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$charlistOrOptions` | **string&#124;array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -66,19 +43,11 @@ Sets the charList option
 public setCharList(string $charList): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$charList` | **string** |  |
-
 
 **Return Value:**
 
@@ -96,16 +65,6 @@ Returns the charList option
 public getCharList(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### filter
@@ -118,37 +77,21 @@ public filter(string $value): string
 
 Returns the string $value with characters stripped from the beginning and end
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
 ***
 
 ### unicodeTrim
 
-Unicode aware trim method
-Fixes a PHP problem
+Unicode aware trim method Fixes a PHP problem
 
 ```php
 protected unicodeTrim(string $value, string $charlist = &#039;\\s&#039;): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -157,60 +100,34 @@ protected unicodeTrim(string $value, string $charlist = &#039;\\s&#039;): string
 | `$value` | **string** |  |
 | `$charlist` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -221,16 +138,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -244,36 +151,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -281,11 +173,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

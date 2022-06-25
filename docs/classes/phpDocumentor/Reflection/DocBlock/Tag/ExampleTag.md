@@ -4,52 +4,32 @@
 
 Reflection class for a @example tag in a Docblock.
 
-
-
 * Full name: `\phpDocumentor\Reflection\DocBlock\Tag\ExampleTag`
 * Parent class: [`\phpDocumentor\Reflection\DocBlock\Tag\SourceTag`](./SourceTag.md)
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
+* http://phpdoc.org -
 
 ## Properties
 
-
 ### filePath
-
-
 
 ```php
 protected string $filePath
 ```
 
-
-
-
-
-
 ***
 
 ### isURI
-
-
 
 ```php
 protected bool $isURI
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getContent
 
@@ -58,16 +38,6 @@ Gets the content of this tag.
 ```php
 public getContent(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -79,21 +49,11 @@ Sets the content of this tag.
 public setContent(mixed $content): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** | The new content of this tag. |
-
-
-
 
 ***
 
@@ -105,18 +65,9 @@ Returns the file path.
 public getFilePath(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-Path to a file to use as an example.
-May also be an absolute URI.
+Path to a file to use as an example. May also be an absolute URI.
 
 
 
@@ -130,21 +81,11 @@ Sets the file path.
 public setFilePath(string $filePath): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filePath` | **string** | The new file path to use for the example. |
-
-
-
 
 ***
 
@@ -156,15 +97,9 @@ Sets the file path as an URI.
 public setFileURI(\phpDocumentor\Reflection\DocBlock\Tag\type $uri): mixed
 ```
 
-This function is equivalent to {@link}, except that it
-convers an URI to a file path before that.
+This function is equivalent to {@link}, except that it convers an URI to a file path before that.
 
 There is no getFileURI(), as {@link} is compatible.
-
-
-
-
-
 
 **Parameters:**
 
@@ -172,14 +107,9 @@ There is no getFileURI(), as {@link} is compatible.
 |-----------|------|-------------|
 | `$uri` | **\phpDocumentor\Reflection\DocBlock\Tag\type** | The new file URI to use as an example. |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getContent
 
@@ -188,16 +118,6 @@ Gets the content of this tag.
 ```php
 public getContent(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -209,21 +129,11 @@ Sets the content of this tag.
 public setContent(string $content): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** | The new content of this tag. |
-
-
-
 
 ***
 
@@ -235,18 +145,9 @@ Gets the starting line.
 public getStartingLine(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The starting line, relative to the structural element's
-location.
+The starting line, relative to the structural element's location.
 
 
 
@@ -260,21 +161,11 @@ Sets the starting line.
 public setStartingLine(int $startingLine): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$startingLine` | **int** | The new starting line, relative to the<br />structural element&#039;s location. |
-
-
-
 
 ***
 
@@ -286,18 +177,9 @@ Returns the number of lines.
 public getLineCount(): int|null
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The number of lines, relative to the starting line. NULL
-means "to the end".
+The number of lines, relative to the starting line. NULL means "to the end".
 
 
 
@@ -311,21 +193,12 @@ Sets the number of lines.
 public setLineCount(int|null $lineCount): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$lineCount` | **int&#124;null** | The new number of lines, relative to the<br />starting line. NULL means &quot;to the end&quot;. |
-
-
-
+| `$lineCount` | **
+int&#124;null** | The new number of lines, relative to the<br />starting line. NULL means &quot;to the end&quot;. |
 
 ***
 
@@ -337,12 +210,9 @@ Factory method responsible for instantiating the correct sub type.
 final public static createInstance(string $tag_line, \phpDocumentor\Reflection\DocBlock $docblock = null, \phpDocumentor\Reflection\DocBlock\Location $location = null): static
 ```
 
-
-
 * This method is **static**.
 
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -351,7 +221,6 @@ final public static createInstance(string $tag_line, \phpDocumentor\Reflection\D
 | `$tag_line` | **string** | The text for this tag, including description. |
 | `$docblock` | **\phpDocumentor\Reflection\DocBlock** | The DocBlock which this tag belongs to. |
 | `$location` | **\phpDocumentor\Reflection\DocBlock\Location** | Location of the tag. |
-
 
 **Return Value:**
 
@@ -369,21 +238,20 @@ Registers a handler for tags.
 final public static registerTagHandler(string $tag, string|null $handler): bool
 ```
 
-Registers a handler for tags. The class specified is autoloaded if it's
-not available. It must inherit from this class.
+Registers a handler for tags. The class specified is autoloaded if it's not available. It must inherit from this class.
 
 * This method is **static**.
 
 * This method is **final**.
 
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$tag` | **string** | Name of tag to regiser a handler for. When<br />registering a namespaced tag, the full name, along with a prefixing<br />slash MUST be provided. |
-| `$handler` | **string&#124;null** | FQCN of handler. Specifing NULL removes the<br />handler for the specified tag, if any. |
-
+| `$tag` | **
+string** | Name of tag to regiser a handler for. When<br />registering a namespaced tag, the full name, along with a prefixing<br />slash MUST be provided. |
+| `$handler` | **
+string&#124;null** | FQCN of handler. Specifing NULL removes the<br />handler for the specified tag, if any. |
 
 **Return Value:**
 
@@ -401,13 +269,6 @@ Parses a tag and populates the member variables.
 public __construct(string $name, string $content, \phpDocumentor\Reflection\DocBlock $docblock = null, \phpDocumentor\Reflection\DocBlock\Location $location = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -416,9 +277,6 @@ public __construct(string $name, string $content, \phpDocumentor\Reflection\DocB
 | `$content` | **string** | The contents of the given tag. |
 | `$docblock` | **\phpDocumentor\Reflection\DocBlock** | The DocBlock which this tag belongs to. |
 | `$location` | **\phpDocumentor\Reflection\DocBlock\Location** | Location of the tag. |
-
-
-
 
 ***
 
@@ -429,14 +287,6 @@ Gets the name of this tag.
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -454,21 +304,11 @@ Sets the name of this tag.
 public setName(string $name): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The new name of this tag. |
-
-
-
 
 ***
 
@@ -480,16 +320,6 @@ Gets the description component of this tag.
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDescription
@@ -500,21 +330,11 @@ Sets the description component of this tag.
 public setDescription(string $description): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$description` | **string** | The new description component of this tag. |
-
-
-
 
 ***
 
@@ -526,18 +346,9 @@ Gets the parsed text of this description.
 public getParsedDescription(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-An array of strings and tag objects, in the order they
-occur within the description.
+An array of strings and tag objects, in the order they occur within the description.
 
 
 
@@ -550,14 +361,6 @@ Gets the docblock this tag belongs to.
 ```php
 public getDocBlock(): \phpDocumentor\Reflection\DocBlock
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -575,21 +378,12 @@ Sets the docblock this tag belongs to.
 public setDocBlock(\phpDocumentor\Reflection\DocBlock $docblock = null): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$docblock` | **\phpDocumentor\Reflection\DocBlock** | The new docblock this tag belongs to. Setting<br />NULL removes any association. |
-
-
-
+| `$docblock` | **
+\phpDocumentor\Reflection\DocBlock** | The new docblock this tag belongs to. Setting<br />NULL removes any association. |
 
 ***
 
@@ -600,14 +394,6 @@ Gets the location of the tag.
 ```php
 public getLocation(): \phpDocumentor\Reflection\DocBlock\Location
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -625,21 +411,11 @@ Sets the location of the tag.
 public setLocation(\phpDocumentor\Reflection\DocBlock\Location $location = null): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$location` | **\phpDocumentor\Reflection\DocBlock\Location** | The new location of the tag. |
-
-
-
 
 ***
 
@@ -651,15 +427,7 @@ Builds a string representation of this object.
 public static export(): void
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -671,18 +439,4 @@ Returns the tag as a serialized string
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

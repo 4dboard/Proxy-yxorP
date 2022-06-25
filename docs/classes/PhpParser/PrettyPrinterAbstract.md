@@ -2,83 +2,42 @@
 
 # PrettyPrinterAbstract
 
-
-
-
-
 * Full name: `\PhpParser\PrettyPrinterAbstract`
 * This class is an **Abstract class**
 
-
-
 ## Properties
 
-
 ### precedenceMap
-
-
 
 ```php
 protected $precedenceMap
 ```
 
-
-
-
-
-
 ***
 
 ### noIndentToken
-
-
 
 ```php
 protected $noIndentToken
 ```
 
-
-
-
-
-
 ***
 
 ### canUseSemicolonNamespaces
-
-
 
 ```php
 protected $canUseSemicolonNamespaces
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -90,19 +49,11 @@ Pretty prints an array of statements.
 public prettyPrint(\PhpParser\Node[] $stmts): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stmts` | **\PhpParser\Node[]** | Array of statements |
-
 
 **Return Value:**
 
@@ -120,19 +71,11 @@ Pretty prints an expression.
 public prettyPrintExpr(\PhpParser\Node\Expr $node): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\PhpParser\Node\Expr** | Expression node |
-
 
 **Return Value:**
 
@@ -150,19 +93,11 @@ Pretty prints a file of statements (includes the opening <?php tag if it is requ
 public prettyPrintFile(\PhpParser\Node[] $stmts): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$stmts` | **\PhpParser\Node[]** | Array of statements |
-
 
 **Return Value:**
 
@@ -180,21 +115,11 @@ Preprocesses the top-level nodes to initialize pretty printer state.
 protected preprocessNodes(\PhpParser\Node[] $nodes): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nodes` | **\PhpParser\Node[]** | Array of nodes |
-
-
-
 
 ***
 
@@ -206,20 +131,12 @@ Pretty prints an array of nodes (statements) and indents them optionally.
 protected pStmts(\PhpParser\Node[] $nodes, bool $indent = true): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nodes` | **\PhpParser\Node[]** | Array of nodes |
 | `$indent` | **bool** | Whether to indent the printed nodes |
-
 
 **Return Value:**
 
@@ -237,19 +154,11 @@ Pretty prints a node.
 protected p(\PhpParser\Node $node): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\PhpParser\Node** | Node to be pretty printed |
-
 
 **Return Value:**
 
@@ -261,18 +170,9 @@ Pretty printed node
 
 ### pInfixOp
 
-
-
 ```php
 protected pInfixOp(mixed $type, \PhpParser\Node $leftNode, mixed $operatorString, \PhpParser\Node $rightNode): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -283,26 +183,14 @@ protected pInfixOp(mixed $type, \PhpParser\Node $leftNode, mixed $operatorString
 | `$operatorString` | **mixed** |  |
 | `$rightNode` | **\PhpParser\Node** |  |
 
-
-
-
 ***
 
 ### pPrefixOp
-
-
 
 ```php
 protected pPrefixOp(mixed $type, mixed $operatorString, \PhpParser\Node $node): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -310,26 +198,14 @@ protected pPrefixOp(mixed $type, mixed $operatorString, \PhpParser\Node $node): 
 | `$type` | **mixed** |  |
 | `$operatorString` | **mixed** |  |
 | `$node` | **\PhpParser\Node** |  |
-
-
-
 
 ***
 
 ### pPostfixOp
 
-
-
 ```php
 protected pPostfixOp(mixed $type, \PhpParser\Node $node, mixed $operatorString): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -338,9 +214,6 @@ protected pPostfixOp(mixed $type, \PhpParser\Node $node, mixed $operatorString):
 | `$type` | **mixed** |  |
 | `$node` | **\PhpParser\Node** |  |
 | `$operatorString` | **mixed** |  |
-
-
-
 
 ***
 
@@ -352,13 +225,6 @@ Prints an expression node with the least amount of parentheses necessary to pres
 protected pPrec(\PhpParser\Node $node, int $parentPrecedence, int $parentAssociativity, int $childPosition): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -367,7 +233,6 @@ protected pPrec(\PhpParser\Node $node, int $parentPrecedence, int $parentAssocia
 | `$parentPrecedence` | **int** | Precedence of the parent operator |
 | `$parentAssociativity` | **int** | Associativity of parent operator<br />(-1 is left, 0 is nonassoc, 1 is right) |
 | `$childPosition` | **int** | Position of the node relative to the operator<br />(-1 is left, 1 is right) |
-
 
 **Return Value:**
 
@@ -385,20 +250,12 @@ Pretty prints an array of nodes and implodes the printed values.
 protected pImplode(\PhpParser\Node[] $nodes, string $glue = &#039;&#039;): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nodes` | **\PhpParser\Node[]** | Array of Nodes to be printed |
 | `$glue` | **string** | Character to implode with |
-
 
 **Return Value:**
 
@@ -416,19 +273,11 @@ Pretty prints an array of nodes and implodes the printed values with commas.
 protected pCommaSeparated(\PhpParser\Node[] $nodes): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nodes` | **\PhpParser\Node[]** | Array of Nodes to be printed |
-
 
 **Return Value:**
 
@@ -446,19 +295,11 @@ Signals the pretty printer that a string shall not be indented.
 protected pNoIndent(string $string): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | Not to be indented string |
-
 
 **Return Value:**
 
@@ -470,18 +311,9 @@ String marked with $this->noIndentToken's.
 
 ### pComments
 
-
-
 ```php
 protected pComments(array $comments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -489,11 +321,4 @@ protected pComments(array $comments): mixed
 |-----------|------|-------------|
 | `$comments` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

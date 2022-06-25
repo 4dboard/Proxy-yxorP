@@ -2,18 +2,10 @@
 
 # PhpExecutableFinderTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Process\Tests\PhpExecutableFinderTest`
 * Parent class: [`TestCase`](../../../../PHPUnit/Framework/TestCase.md)
 
-
-
-
 ## Methods
-
 
 ### testFindWithPhpPath
 
@@ -22,16 +14,6 @@ tests find() with the env var PHP_PATH.
 ```php
 public testFindWithPhpPath(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -43,16 +25,6 @@ tests find() with the constant PHP_BINARY.
 public testFind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testFindWithHHVM
@@ -62,16 +34,6 @@ tests find() with the env var / constant PHP_BINARY with HHVM.
 ```php
 public testFindWithHHVM(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -83,16 +45,6 @@ tests find() with the env var PHP_PATH.
 public testFindArguments(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testFindWithSuffix
@@ -103,18 +55,4 @@ tests find() with default executable.
 public testFindWithSuffix(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

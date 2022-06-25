@@ -4,18 +4,10 @@
 
 Exposes a template to userland.
 
-
-
 * Full name: `\Twig_TemplateWrapper`
 * Parent class: [`\Twig\TemplateWrapper`](./Twig/TemplateWrapper.md)
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### render
 
@@ -25,19 +17,11 @@ Renders the template.
 public render(array $context = []): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **array** | An array of parameters to pass to the template |
-
 
 **Return Value:**
 
@@ -55,21 +39,11 @@ Displays the template.
 public display(array $context = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **array** | An array of parameters to pass to the template |
-
-
-
 
 ***
 
@@ -81,22 +55,12 @@ Checks if a block is defined.
 public hasBlock(string $name, array $context = []): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The block name |
 | `$context` | **array** | An array of parameters to pass to the template |
-
-
-
 
 ***
 
@@ -108,19 +72,11 @@ Returns defined block names in the template.
 public getBlockNames(array $context = []): string[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **array** | An array of parameters to pass to the template |
-
 
 **Return Value:**
 
@@ -138,20 +94,12 @@ Renders a template block.
 public renderBlock(string $name, array $context = []): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The block name to render |
 | `$context` | **array** | An array of parameters to pass to the template |
-
 
 **Return Value:**
 
@@ -169,13 +117,6 @@ Displays a template block.
 public displayBlock(string $name, array $context = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -183,51 +124,20 @@ public displayBlock(string $name, array $context = []): mixed
 | `$name` | **string** | The block name to render |
 | `$context` | **array** | An array of parameters to pass to the template |
 
-
-
-
 ***
 
 ### getSourceContext
-
-
 
 ```php
 public getSourceContext(): \Twig\Source
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getTemplateName
-
-
 
 ```php
 public getTemplateName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

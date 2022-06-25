@@ -2,36 +2,22 @@
 
 # LogEvent
 
-Logging event for phpDocumentor where information is output to the log or
-stdout.
-
-
+Logging event for phpDocumentor where information is output to the log or stdout.
 
 * Full name: `\phpDocumentor\Event\LogEvent`
 * Parent class: [`\phpDocumentor\Event\DebugEvent`](./DebugEvent.md)
 
-
-
 ## Properties
 
-
 ### priority
-
-
 
 ```php
 protected int $priority
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setPriority
 
@@ -41,20 +27,11 @@ Set the priority level for this event.
 public setPriority(int $priority): \phpDocumentor\Event\LogEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$priority` | **int** |  |
-
-
 
 **See Also:**
 
@@ -62,9 +39,7 @@ public setPriority(int $priority): \phpDocumentor\Event\LogEvent
 
 ***
 
-
 ## Inherited methods
-
 
 ### setMessage
 
@@ -74,21 +49,11 @@ Provides the message that is to be shown with this event.
 public setMessage(string $message): \phpDocumentor\Event\DebugEvent
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
-
-
-
 
 ***
 
@@ -100,16 +65,6 @@ Returns the message that was provided with this event.
 public getMessage(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getPriority
@@ -119,16 +74,6 @@ Returns the priority level associated with this logging event.
 ```php
 public getPriority(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -140,21 +85,11 @@ Sets additional context (parameters) to use when translating messages.
 public setContext(string[] $context): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **string[]** |  |
-
-
-
 
 ***
 
@@ -166,16 +101,6 @@ Returns the context for this event.
 public getContext(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __construct
@@ -186,21 +111,11 @@ Initializes this event with the given subject.
 public __construct(object $subject): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subject` | **object** |  |
-
-
-
 
 ***
 
@@ -211,16 +126,6 @@ Returns the object that is the subject of this event.
 ```php
 public getSubject(): object
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -236,17 +141,11 @@ Used as convenience method for fluent interfaces.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subject` | **object** |  |
-
-
-
 
 ***
 
@@ -258,22 +157,13 @@ Returns whether further event listeners should be triggered.
 public isPropagationStopped(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether propagation was already stopped for this event
 
-
 **See Also:**
 
-* \Symfony\Component\EventDispatcher\Event::stopPropagation() - 
+* \Symfony\Component\EventDispatcher\Event::stopPropagation() -
 
 ***
 
@@ -285,9 +175,8 @@ Stops the propagation of the event to further event listeners.
 public stopPropagation(): mixed
 ```
 
-If multiple event listeners are connected to the same event, no
-further event listener will be triggered once any trigger calls
-stopPropagation().
+If multiple event listeners are connected to the same event, no further event listener will be triggered once any
+trigger calls stopPropagation().
 
 
 
@@ -307,23 +196,13 @@ Stores the EventDispatcher that dispatches this Event.
 public setDispatcher(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
-
-
-
 
 ***
 
@@ -335,17 +214,7 @@ Returns the EventDispatcher that dispatches this Event.
 public getDispatcher(): \Symfony\Component\EventDispatcher\EventDispatcherInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -357,17 +226,7 @@ Gets the event's name.
 public getName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -379,14 +238,7 @@ Sets the event's name property.
 public setName(string $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -394,11 +246,4 @@ public setName(string $name): mixed
 |-----------|------|-------------|
 | `$name` | **string** | The event name |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

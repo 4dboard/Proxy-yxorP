@@ -4,29 +4,17 @@
 
 Storage cache factory for multiple caches.
 
-
-
 * Full name: `\Zend\Cache\Service\StorageCacheAbstractServiceFactory`
 * This class implements:
-[`\Zend\ServiceManager\AbstractFactoryInterface`](../../ServiceManager/AbstractFactoryInterface.md)
-
-
+  [`\Zend\ServiceManager\AbstractFactoryInterface`](../../ServiceManager/AbstractFactoryInterface.md)
 
 ## Properties
 
-
 ### config
-
-
 
 ```php
 protected array $config
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +26,9 @@ Configuration key for cache objects
 protected string $configKey
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### canCreateServiceWithName
 
@@ -56,13 +38,6 @@ Determine if we can create a service with name
 public canCreateServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $services, string $name, string $requestedName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -70,9 +45,6 @@ public canCreateServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $se
 | `$services` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
 | `$name` | **string** |  |
 | `$requestedName` | **string** |  |
-
-
-
 
 ***
 
@@ -84,13 +56,6 @@ Create service with name
 public createServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $services, string $name, string $requestedName): \Zend\Cache\Storage\StorageInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -98,9 +63,6 @@ public createServiceWithName(\Zend\ServiceManager\ServiceLocatorInterface $servi
 | `$services` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
 | `$name` | **string** |  |
 | `$requestedName` | **string** |  |
-
-
-
 
 ***
 
@@ -112,24 +74,10 @@ Retrieve cache configuration, if any
 protected getConfig(\Zend\ServiceManager\ServiceLocatorInterface $services): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$services` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

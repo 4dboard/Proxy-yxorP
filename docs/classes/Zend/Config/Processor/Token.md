@@ -2,18 +2,11 @@
 
 # Token
 
-
-
-
-
 * Full name: `\Zend\Config\Processor\Token`
 * This class implements:
-[`\Zend\Config\Processor\ProcessorInterface`](./ProcessorInterface.md)
-
-
+  [`\Zend\Config\Processor\ProcessorInterface`](./ProcessorInterface.md)
 
 ## Properties
-
 
 ### prefix
 
@@ -22,11 +15,6 @@ Token prefix.
 ```php
 protected string $prefix
 ```
-
-
-
-
-
 
 ***
 
@@ -38,11 +26,6 @@ Token suffix.
 protected string $suffix
 ```
 
-
-
-
-
-
 ***
 
 ### tokens
@@ -52,11 +35,6 @@ The registry of tokens
 ```php
 protected array $tokens
 ```
-
-
-
-
-
 
 ***
 
@@ -68,59 +46,34 @@ Replacement map
 protected array $map
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
 
-Token Processor walks through a Config structure and replaces all
-occurrences of tokens with supplied values.
+Token Processor walks through a Config structure and replaces all occurrences of tokens with supplied values.
 
 ```php
 public __construct(array|\Zend\Config\Config|\Traversable $tokens = array(), string $prefix = &#039;&#039;, string $suffix = &#039;&#039;): \Zend\Config\Processor\Token
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$tokens` | **array&#124;\Zend\Config\Config&#124;\Traversable** | Associative array of TOKEN =&gt; value<br />to replace it with |
+| `$tokens` | **
+array&#124;\Zend\Config\Config&#124;\Traversable** | Associative array of TOKEN =&gt; value<br />to replace it with |
 | `$prefix` | **string** |  |
 | `$suffix` | **string** |  |
-
-
-
 
 ***
 
 ### setPrefix
 
-
-
 ```php
 public setPrefix(string $prefix): \Zend\Config\Processor\Token
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -128,45 +81,21 @@ public setPrefix(string $prefix): \Zend\Config\Processor\Token
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
 
-
-
-
 ***
 
 ### getPrefix
-
-
 
 ```php
 public getPrefix(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSuffix
 
-
-
 ```php
 public setSuffix(string $suffix): \Zend\Config\Processor\Token
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -174,28 +103,13 @@ public setSuffix(string $suffix): \Zend\Config\Processor\Token
 |-----------|------|-------------|
 | `$suffix` | **string** |  |
 
-
-
-
 ***
 
 ### getSuffix
 
-
-
 ```php
 public getSuffix(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -207,21 +121,12 @@ Set token registry.
 public setTokens(array|\Zend\Config\Config|\Traversable $tokens): \Zend\Config\Processor\Token
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$tokens` | **array&#124;\Zend\Config\Config&#124;\Traversable** | Associative array of TOKEN =&gt; value<br />to replace it with |
-
-
-
+| `$tokens` | **
+array&#124;\Zend\Config\Config&#124;\Traversable** | Associative array of TOKEN =&gt; value<br />to replace it with |
 
 ***
 
@@ -233,16 +138,6 @@ Get current token registry.
 public getTokens(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addToken
@@ -253,22 +148,12 @@ Add new token.
 public addToken(string $token, mixed $value): \Zend\Config\Processor\Token
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -280,22 +165,12 @@ Add new token.
 public setToken(string $token, mixed $value): \Zend\Config\Processor\Token
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -307,16 +182,6 @@ Build replacement map
 protected buildMap(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### process
@@ -327,21 +192,11 @@ Process
 public process(\Zend\Config\Config $config): \Zend\Config\Config
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **\Zend\Config\Config** |  |
-
-
-
 
 ***
 
@@ -353,21 +208,11 @@ Process a single value
 public processValue(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -379,13 +224,6 @@ Applies replacement map to the given value by modifying the value itself
 private doProcess(mixed $value, array $replacements): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -393,11 +231,4 @@ private doProcess(mixed $value, array $replacements): mixed
 | `$value` | **mixed** |  |
 | `$replacements` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

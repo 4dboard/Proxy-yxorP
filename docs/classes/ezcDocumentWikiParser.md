@@ -4,15 +4,10 @@
 
 Parser for wiki documents.
 
-
-
 * Full name: `\ezcDocumentWikiParser`
 * Parent class: [`\ezcDocumentParser`](./ezcDocumentParser.md)
 
-
-
 ## Properties
-
 
 ### shifts
 
@@ -22,27 +17,23 @@ Array containing simplified shift ruleset.
 protected array $shifts
 ```
 
-We cannot express the Wiki syntax as a usual grammar using a BNF. With
-the pumping lemma for context free grammars [1] you can easily prove,
-that the word a^n b c^n d e^n is not a context free grammar, and this is
-what the title definitions are.
+We cannot express the Wiki syntax as a usual grammar using a BNF. With the pumping lemma for context free grammars [1]
+you can easily prove, that the word a^n b c^n d e^n is not a context free grammar, and this is what the title
+definitions are.
 
-This structure contains an array with callbacks implementing the shift
-rules for all tokens. There may be multiple rules for one single token.
+This structure contains an array with callbacks implementing the shift rules for all tokens. There may be multiple rules
+for one single token.
 
-The callbacks itself create syntax elements and push them to the
-document stack. After each push the reduction callbacks will be called
-for the pushed elements.
+The callbacks itself create syntax elements and push them to the document stack. After each push the reduction callbacks
+will be called for the pushed elements.
 
 The array should look like:
 <code>
- array(
-     WHITESPACE => array(
-         reductionMethod,
-         ...
-     ),
-     ...
- )
+array(
+WHITESPACE => array(
+reductionMethod, ...
+), ...
+)
 </code>
 
 [1] http://en.wikipedia.org/wiki/Pumping_lemma_for_context-free_languages
@@ -60,10 +51,8 @@ Array containing simplified reduce ruleset.
 protected array $reductions
 ```
 
-We cannot express the Wiki syntax as a usual grammar using a BNF. This
-structure implements a pseudo grammar by assigning a number of callbacks
-for internal methods implementing reduction rules for a detected syntax
-element.
+We cannot express the Wiki syntax as a usual grammar using a BNF. This structure implements a pseudo grammar by
+assigning a number of callbacks for internal methods implementing reduction rules for a detected syntax element.
 
 <code>
  array(
@@ -85,13 +74,11 @@ Contains a list of detected syntax elements.
 protected array $documentStack
 ```
 
-At the end of a successfull parsing process this should only contain one
-document syntax element. During the process it may contain a list of
-elements, which are up to reduction.
+At the end of a successfull parsing process this should only contain one document syntax element. During the process it
+may contain a list of elements, which are up to reduction.
 
-Each element in the stack has to be an object extending from
-ezcDocumentRstNode, which may again contain any amount such objects.
-This way an abstract syntax tree is constructed.
+Each element in the stack has to be an object extending from ezcDocumentRstNode, which may again contain any amount such
+objects. This way an abstract syntax tree is constructed.
 
 
 
@@ -106,11 +93,6 @@ Flag if we are inside a line level node
 protected bool $insideLineToken
 ```
 
-
-
-
-
-
 ***
 
 ### conversionsArray
@@ -121,9 +103,8 @@ Array with token node conversions.
 protected array $conversionsArray
 ```
 
-Token to node conversions are used for tokens, which do not require any
-additional checking of the tokens context. This is especially useful,
-because the wiki tokenizer already implement a lot of this logic.
+Token to node conversions are used for tokens, which do not require any additional checking of the tokens context. This
+is especially useful, because the wiki tokenizer already implement a lot of this logic.
 
 
 
@@ -131,7 +112,6 @@ because the wiki tokenizer already implement a lot of this logic.
 ***
 
 ## Methods
-
 
 ### parse
 
@@ -141,22 +121,13 @@ Parse token stream.
 public parse(array $tokens): \ezcDocumentWikiDocumentNode
 ```
 
-Parse an array of ezcDocumentWikiToken objects into a wiki abstract
-syntax tree.
-
-
-
-
-
+Parse an array of ezcDocumentWikiToken objects into a wiki abstract syntax tree.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -168,14 +139,8 @@ Shift escape token.
 protected shiftEscapeToken(\ezcDocumentWikiToken $token, array& $tokens): mixed
 ```
 
-Escape tokens will cause that the following token is ignored in his
-common meaning. The following token is converted to plain text, while
-the escape token will be removed.
-
-
-
-
-
+Escape tokens will cause that the following token is ignored in his common meaning. The following token is converted to
+plain text, while the escape token will be removed.
 
 **Parameters:**
 
@@ -183,9 +148,6 @@ the escape token will be removed.
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -197,14 +159,8 @@ Shift title token.
 protected shiftTitleToken(\ezcDocumentWikiToken $token, array& $tokens): mixed
 ```
 
-Some wiki markup languages use a second title token at the end of the
-line instead of just a line break. In the case we are already inside a
-line token, just shift an invisible line break.
-
-
-
-
-
+Some wiki markup languages use a second title token at the end of the line instead of just a line break. In the case we
+are already inside a line token, just shift an invisible line break.
 
 **Parameters:**
 
@@ -212,9 +168,6 @@ line token, just shift an invisible line break.
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -226,14 +179,8 @@ Shift new line token.
 protected shiftNewLineToken(\ezcDocumentWikiToken $token, array& $tokens): mixed
 ```
 
-Paragraphs are always indicated by multiple new line tokens. When
-detected we just shift a paragraph node, which the will be reduced with
-prior inline nodes.
-
-
-
-
-
+Paragraphs are always indicated by multiple new line tokens. When detected we just shift a paragraph node, which the
+will be reduced with prior inline nodes.
 
 **Parameters:**
 
@@ -241,9 +188,6 @@ prior inline nodes.
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -255,17 +199,10 @@ Shift with token conversion.
 protected shiftWithTokenConversion(\ezcDocumentWikiToken $token, array& $tokens): mixed
 ```
 
-Token to node conversions are used for tokens, which do not require any
-additional checking of the tokens context. This is especially useful,
-because the wiki tokenizer already implement a lot of this logic.
+Token to node conversions are used for tokens, which do not require any additional checking of the tokens context. This
+is especially useful, because the wiki tokenizer already implement a lot of this logic.
 
-The actual conversions are specified in the class property
-$conversionsArray.
-
-
-
-
-
+The actual conversions are specified in the class property $conversionsArray.
 
 **Parameters:**
 
@@ -273,9 +210,6 @@ $conversionsArray.
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentWikiToken** |  |
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -287,23 +221,14 @@ Reduce text nodes.
 protected reduceText(\ezcDocumentWikiTextNode $node): mixed
 ```
 
-Reduce texts into single nodes, if the prior node is also a text node.
-This reduces the number of AST nodes required to represent texts
-drastically.
-
-
-
-
-
+Reduce texts into single nodes, if the prior node is also a text node. This reduces the number of AST nodes required to
+represent texts drastically.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiTextNode** |  |
-
-
-
 
 ***
 
@@ -315,23 +240,14 @@ Reduce paragraph.
 protected reduceParagraph(\ezcDocumentWikiParagraphNode $node): mixed
 ```
 
-Paragraphs are reduce with all inline tokens, which have been added to
-the document stack before. If there are no inline nodes, the paragraph
-will be ommitted.
-
-
-
-
-
+Paragraphs are reduce with all inline tokens, which have been added to the document stack before. If there are no inline
+nodes, the paragraph will be ommitted.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiParagraphNode** |  |
-
-
-
 
 ***
 
@@ -343,23 +259,14 @@ Reduce prior sections, if a new section has been found.
 protected reduceSection(\ezcDocumentWikiSectionNode $node): mixed
 ```
 
-If a new section has been found all sections with a higher depth level
-can be closed, and all items fitting into sections may be aggregated by
-the respective sections as well.
-
-
-
-
-
+If a new section has been found all sections with a higher depth level can be closed, and all items fitting into
+sections may be aggregated by the respective sections as well.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiSectionNode** |  |
-
-
-
 
 ***
 
@@ -371,21 +278,11 @@ Reduce all elements to one document node.
 protected reduceTitleToSection(\ezcDocumentWikiTitleNode $node): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiTitleNode** |  |
-
-
-
 
 ***
 
@@ -397,22 +294,13 @@ Reduce matching inline markup.
 protected reduceMatchingInlineMarkup(\ezcDocumentWikiMatchingInlineNode $node): mixed
 ```
 
-Reduction rule for inline markup which is intended to have a matching
-counterpart in the same block level element.
-
-
-
-
-
+Reduction rule for inline markup which is intended to have a matching counterpart in the same block level element.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiMatchingInlineNode** |  |
-
-
-
 
 ***
 
@@ -424,22 +312,13 @@ Reduce line node.
 protected reduceLineNode(\ezcDocumentWikiInvisibleBreakNode $node): mixed
 ```
 
-Line nodes are closed at the end of their respective line. The end is
-marked by an ezcDocumentWikiInvisibleBreakNode.
-
-
-
-
-
+Line nodes are closed at the end of their respective line. The end is marked by an ezcDocumentWikiInvisibleBreakNode.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiInvisibleBreakNode** |  |
-
-
-
 
 ***
 
@@ -453,19 +332,11 @@ protected reduceLinkNodes(\ezcDocumentWikiLinkEndNode $node): mixed
 
 Reduce links with all of their aggregated parameters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiLinkEndNode** |  |
-
-
-
 
 ***
 
@@ -479,19 +350,11 @@ protected reduceImageNodes(\ezcDocumentWikiImageEndNode $node): mixed
 
 Reduce image references with all of their aggregated parameters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiImageEndNode** |  |
-
-
-
 
 ***
 
@@ -505,19 +368,11 @@ protected reduceFootnoteNodes(\ezcDocumentWikiFootnoteEndNode $node): mixed
 
 Reduce inline footnotes
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiFootnoteEndNode** |  |
-
-
-
 
 ***
 
@@ -529,22 +384,13 @@ Reduce multiline blockquote nodes.
 protected reduceBlockquoteNode(\ezcDocumentWikiBlockquoteNode $node): mixed
 ```
 
-Reduce multline block quote nodes, which are not already closed by line
-endings.
-
-
-
-
-
+Reduce multline block quote nodes, which are not already closed by line endings.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiBlockquoteNode** |  |
-
-
-
 
 ***
 
@@ -558,19 +404,11 @@ protected reduceBulletListItem(\ezcDocumentWikiBlockLevelNode $node): mixed
 
 Reduce list items to lists, and create new wrapping list nodes.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiBlockLevelNode** |  |
-
-
-
 
 ***
 
@@ -584,19 +422,11 @@ protected reduceEnumeratedListItem(\ezcDocumentWikiBlockLevelNode $node): mixed
 
 Reduce list items to lists, and create new wrapping list nodes.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiBlockLevelNode** |  |
-
-
-
 
 ***
 
@@ -610,19 +440,11 @@ protected mergeListRecursively(array $lists): \ezcDocumentWikiListNode
 
 Merge lists recusively
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lists` | **array** |  |
-
-
-
 
 ***
 
@@ -634,22 +456,13 @@ Reduce lists.
 protected reduceLists(\ezcDocumentWikiBlockLevelNode $node): mixed
 ```
 
-Stack lists with higher indentation into each other and merge multiple
-lists of same type and indentation.
-
-
-
-
-
+Stack lists with higher indentation into each other and merge multiple lists of same type and indentation.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiBlockLevelNode** |  |
-
-
-
 
 ***
 
@@ -661,13 +474,7 @@ Reduce table rows.
 protected reduceTableRow(\ezcDocumentWikiTableRowNode $node): mixed
 ```
 
-Reduce the nodes aagregated for one table row into table cells, and
-merge the table rows into table nodes.
-
-
-
-
-
+Reduce the nodes aagregated for one table row into table cells, and merge the table rows into table nodes.
 
 **Parameters:**
 
@@ -675,14 +482,9 @@ merge the table rows into table nodes.
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiTableRowNode** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -692,21 +494,11 @@ Construct new document
 public __construct(\ezcDocumentParserOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentParserOptions** |  |
-
-
-
 
 ***
 
@@ -718,13 +510,7 @@ Trigger parser error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a parser error and handle it dependiing on the current error
-reporting settings.
-
-
-
-
-
+Emit a parser error and handle it dependiing on the current error reporting settings.
 
 **Parameters:**
 
@@ -736,9 +522,6 @@ reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -749,19 +532,6 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

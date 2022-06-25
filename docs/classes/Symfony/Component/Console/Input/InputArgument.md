@@ -4,10 +4,7 @@
 
 Represents a command line argument.
 
-
-
 * Full name: `\Symfony\Component\Console\Input\InputArgument`
-
 
 ## Constants
 
@@ -19,84 +16,45 @@ Represents a command line argument.
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 private $name
 ```
 
-
-
-
-
-
 ***
 
 ### mode
-
-
 
 ```php
 private $mode
 ```
 
-
-
-
-
-
 ***
 
 ### default
-
-
 
 ```php
 private $default
 ```
 
-
-
-
-
-
 ***
 
 ### description
-
-
 
 ```php
 private $description
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name, int|null $mode = null, string $description = &#039;&#039;, string|string[]|null $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -107,9 +65,6 @@ public __construct(string $name, int|null $mode = null, string $description = &#
 | `$description` | **string** | A description text |
 | `$default` | **string&#124;string[]&#124;null** | The default value (for self::OPTIONAL mode only) |
 
-
-
-
 ***
 
 ### getName
@@ -119,14 +74,6 @@ Returns the argument name.
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -144,14 +91,6 @@ Returns true if the argument is required.
 public isRequired(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if parameter mode is self::REQUIRED, false otherwise
@@ -167,14 +106,6 @@ Returns true if the argument can take multiple values.
 ```php
 public isArray(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -192,21 +123,11 @@ Sets the default value.
 public setDefault(string|string[]|null $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$default` | **string&#124;string[]&#124;null** | The default value |
-
-
-
 
 ***
 
@@ -217,14 +138,6 @@ Returns the default value.
 ```php
 public getDefault(): string|string[]|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -242,22 +155,6 @@ Returns the description text.
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The description text
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The description text yxorP::get('REQUEST')

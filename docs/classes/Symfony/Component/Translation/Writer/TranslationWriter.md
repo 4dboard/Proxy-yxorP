@@ -4,14 +4,9 @@
 
 TranslationWriter writes translation messages.
 
-
-
 * Full name: `\Symfony\Component\Translation\Writer\TranslationWriter`
 
-
-
 ## Properties
-
 
 ### dumpers
 
@@ -21,15 +16,9 @@ Dumpers used for export.
 private array $dumpers
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### addDumper
 
@@ -39,22 +28,12 @@ Adds a dumper to the writer.
 public addDumper(string $format, \Symfony\Component\Translation\Dumper\DumperInterface $dumper): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** | The format of the dumper |
 | `$dumper` | **\Symfony\Component\Translation\Dumper\DumperInterface** | The dumper |
-
-
-
 
 ***
 
@@ -66,16 +45,6 @@ Disables dumper backup.
 public disableBackup(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getFormats
@@ -85,16 +54,6 @@ Obtains the list of supported formats.
 ```php
 public getFormats(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -106,13 +65,6 @@ Writes translation from the catalogue according to the selected format.
 public writeTranslations(\Symfony\Component\Translation\MessageCatalogue $catalogue, string $format, array $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -121,11 +73,4 @@ public writeTranslations(\Symfony\Component\Translation\MessageCatalogue $catalo
 | `$format` | **string** | The format to use to dump the messages |
 | `$options` | **array** | Options that are passed to the dumper |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

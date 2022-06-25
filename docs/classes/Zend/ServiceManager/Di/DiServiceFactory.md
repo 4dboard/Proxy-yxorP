@@ -2,15 +2,10 @@
 
 # DiServiceFactory
 
-
-
-
-
 * Full name: `\Zend\ServiceManager\Di\DiServiceFactory`
 * Parent class: [`Di`](../../Di/Di.md)
 * This class implements:
-[`\Zend\ServiceManager\FactoryInterface`](../FactoryInterface.md)
-
+  [`\Zend\ServiceManager\FactoryInterface`](../FactoryInterface.md)
 
 ## Constants
 
@@ -22,84 +17,47 @@
 
 ## Properties
 
-
 ### di
-
-
 
 ```php
 protected \Zend\Di\Di $di
 ```
 
-
-
-
-
-
 ***
 
 ### name
-
-
 
 ```php
 protected \Zend\Di\InstanceManager $name
 ```
 
-
-
-
-
-
 ***
 
 ### parameters
-
-
 
 ```php
 protected array $parameters
 ```
 
-
-
-
-
-
 ***
 
 ### useServiceLocator
-
-
 
 ```php
 protected string $useServiceLocator
 ```
 
-
-
-
-
-
 ***
 
 ### serviceLocator
-
-
 
 ```php
 protected \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -109,13 +67,6 @@ Constructor
 public __construct(\Zend\Di\Di $di, null|\Zend\Di\InstanceManager $name, array $parameters = [], string $useServiceLocator = self::USE_SL_NONE): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -124,9 +75,6 @@ public __construct(\Zend\Di\Di $di, null|\Zend\Di\InstanceManager $name, array $
 | `$name` | **null&#124;\Zend\Di\InstanceManager** |  |
 | `$parameters` | **array** |  |
 | `$useServiceLocator` | **string** |  |
-
-
-
 
 ***
 
@@ -138,21 +86,11 @@ Create service
 public createService(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serviceLocator` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
-
-
-
 
 ***
 
@@ -164,13 +102,6 @@ Override, as we want it to use the functionality defined in the proxy
 public get(string $name, array $params = []): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -178,11 +109,4 @@ public get(string $name, array $params = []): object
 | `$name` | **string** |  |
 | `$params` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

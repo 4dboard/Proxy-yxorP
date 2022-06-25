@@ -4,88 +4,51 @@
 
 FileLoader is the abstract class used by all built-in loaders that are file based.
 
-
-
 * Full name: `\Symfony\Component\Config\Loader\FileLoader`
 * Parent class: [`\Symfony\Component\Config\Loader\Loader`](./Loader.md)
 * This class is an **Abstract class**
 
-
-
 ## Properties
 
-
 ### loading
-
-
 
 ```php
 protected static $loading
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### locator
 
-
-
 ```php
 protected $locator
 ```
-
-
-
-
-
 
 ***
 
 ### currentDir
 
-
-
 ```php
 private $currentDir
 ```
-
-
-
-
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Config\FileLocatorInterface $locator): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locator` | **\Symfony\Component\Config\FileLocatorInterface** |  |
-
-
-
 
 ***
 
@@ -97,21 +60,11 @@ Sets the current directory.
 public setCurrentDir(string $dir): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dir` | **string** |  |
-
-
-
 
 ***
 
@@ -123,16 +76,6 @@ Returns the file locator used by this loader.
 public getLocator(): \Symfony\Component\Config\FileLocatorInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### import
@@ -143,13 +86,6 @@ Imports a resource.
 public import(mixed $resource, string|null $type = null, bool $ignoreErrors = false, string|null $sourceResource = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -159,14 +95,9 @@ public import(mixed $resource, string|null $type = null, bool $ignoreErrors = fa
 | `$ignoreErrors` | **bool** | Whether to ignore import errors or not |
 | `$sourceResource` | **string&#124;null** | The original resource importing the new resource |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getResolver
 
@@ -175,14 +106,6 @@ Gets the loader resolver.
 ```php
 public getResolver(): \Symfony\Component\Config\Loader\LoaderResolverInterface
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -200,21 +123,11 @@ Sets the loader resolver.
 public setResolver(\Symfony\Component\Config\Loader\LoaderResolverInterface $resolver): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resolver` | **\Symfony\Component\Config\Loader\LoaderResolverInterface** |  |
-
-
-
 
 ***
 
@@ -226,22 +139,12 @@ Imports a resource.
 public import(mixed $resource, string|null $type = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** | A resource |
 | `$type` | **string&#124;null** | The resource type or null if unknown |
-
-
-
 
 ***
 
@@ -253,13 +156,6 @@ Finds a loader able to load an imported resource.
 public resolve(mixed $resource, string|null $type = null): $this|\Symfony\Component\Config\Loader\LoaderInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -267,11 +163,4 @@ public resolve(mixed $resource, string|null $type = null): $this|\Symfony\Compon
 | `$resource` | **mixed** | A resource |
 | `$type` | **string&#124;null** | The resource type or null if unknown |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,93 +4,52 @@
 
 Filter chain for string inflection
 
-
-
 * Full name: `\Zend\Filter\Inflector`
 * Parent class: [`\Zend\Filter\AbstractFilter`](./AbstractFilter.md)
 
-
-
 ## Properties
 
-
 ### pluginManager
-
-
 
 ```php
 protected \Zend\Filter\FilterPluginManager $pluginManager
 ```
 
-
-
-
-
-
 ***
 
 ### target
-
-
 
 ```php
 protected string $target
 ```
 
-
-
-
-
-
 ***
 
 ### throwTargetExceptionsOn
-
-
 
 ```php
 protected bool $throwTargetExceptionsOn
 ```
 
-
-
-
-
-
 ***
 
 ### targetReplacementIdentifier
-
-
 
 ```php
 protected string $targetReplacementIdentifier
 ```
 
-
-
-
-
-
 ***
 
 ### rules
-
-
 
 ```php
 protected array $rules
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -100,21 +59,11 @@ Constructor
 public __construct(string|array|\Traversable $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **string&#124;array&#124;\Traversable** | Options to set |
-
-
-
 
 ***
 
@@ -126,16 +75,6 @@ Retrieve plugin manager
 public getPluginManager(): \Zend\Filter\FilterPluginManager
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPluginManager
@@ -146,21 +85,11 @@ Set plugin manager
 public setPluginManager(\Zend\Filter\FilterPluginManager $manager): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$manager` | **\Zend\Filter\FilterPluginManager** |  |
-
-
-
 
 ***
 
@@ -172,48 +101,28 @@ Set options
 public setOptions(array|\Traversable $options): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
 
-
-
-
 ***
 
 ### setThrowTargetExceptionsOn
 
-Set Whether or not the inflector should throw an exception when a replacement
-identifier is still found within an inflected target.
+Set Whether or not the inflector should throw an exception when a replacement identifier is still found within an
+inflected target.
 
 ```php
 public setThrowTargetExceptionsOn(bool $throwTargetExceptionsOn): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$throwTargetExceptionsOn` | **bool** |  |
-
-
-
 
 ***
 
@@ -225,16 +134,6 @@ Will exceptions be thrown?
 public isThrowTargetExceptionsOn(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTargetReplacementIdentifier
@@ -245,21 +144,11 @@ Set the Target Replacement Identifier, by default ':'
 public setTargetReplacementIdentifier(string $targetReplacementIdentifier): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$targetReplacementIdentifier` | **string** |  |
-
-
-
 
 ***
 
@@ -271,42 +160,21 @@ Get Target Replacement Identifier
 public getTargetReplacementIdentifier(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTarget
 
-Set a Target
-ex: 'scripts/:controller/:action.:suffix'
+Set a Target ex: 'scripts/:controller/:action.:suffix'
 
 ```php
 public setTarget(string $target): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** |  |
-
-
-
 
 ***
 
@@ -318,16 +186,6 @@ Retrieve target
 public getTarget(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTargetReference
@@ -338,48 +196,27 @@ Set Target Reference
 public setTargetReference(string& $target): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** |  |
 
-
-
-
 ***
 
 ### setRules
 
-Is the same as calling addRules() with the exception that it
-clears the rules before adding them.
+Is the same as calling addRules() with the exception that it clears the rules before adding them.
 
 ```php
 public setRules(array $rules): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rules` | **array** |  |
-
-
-
 
 ***
 
@@ -391,29 +228,20 @@ Multi-call to setting filter rules.
 public addRules(array $rules): self
 ```
 
-If prefixed with a ":" (colon), a filter rule will be added.  If not
-prefixed, a static replacement will be added.
+If prefixed with a ":" (colon), a filter rule will be added. If not prefixed, a static replacement will be added.
 
 ex:
 array(
-    ':controller' => array('CamelCaseToUnderscore', 'StringToLower'),
-    ':action'     => array('CamelCaseToUnderscore', 'StringToLower'),
-    'suffix'      => 'phtml'
-    );
-
-
-
-
-
+':controller' => array('CamelCaseToUnderscore', 'StringToLower'),
+':action' => array('CamelCaseToUnderscore', 'StringToLower'),
+'suffix' => 'phtml'
+);
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rules` | **array** |  |
-
-
-
 
 ***
 
@@ -425,22 +253,13 @@ Get rules
 public getRules(string $spec = null): array|false
 ```
 
-By default, returns all rules. If a $spec is provided, will return those
-rules if found, false otherwise.
-
-
-
-
-
+By default, returns all rules. If a $spec is provided, will return those rules if found, false otherwise.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$spec` | **string** |  |
-
-
-
 
 ***
 
@@ -452,22 +271,12 @@ Returns a rule set by setFilterRule(), a numeric index must be provided
 public getRule(string $spec, int $index): \Zend\Filter\FilterInterface|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$spec` | **string** |  |
 | `$index` | **int** |  |
-
-
-
 
 ***
 
@@ -479,33 +288,15 @@ Clears the rules currently in the inflector
 public clearRules(): self
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFilterRule
 
-Set a filtering rule for a spec.  $ruleSet can be a string, Filter object
-or an array of strings or filter objects.
+Set a filtering rule for a spec. $ruleSet can be a string, Filter object or an array of strings or filter objects.
 
 ```php
 public setFilterRule(string $spec, array|string|\Zend\Filter\FilterInterface $ruleSet): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -513,9 +304,6 @@ public setFilterRule(string $spec, array|string|\Zend\Filter\FilterInterface $ru
 |-----------|------|-------------|
 | `$spec` | **string** |  |
 | `$ruleSet` | **array&#124;string&#124;\Zend\Filter\FilterInterface** |  |
-
-
-
 
 ***
 
@@ -527,13 +315,6 @@ Add a filter rule for a spec
 public addFilterRule(mixed $spec, mixed $ruleSet): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -541,25 +322,15 @@ public addFilterRule(mixed $spec, mixed $ruleSet): self
 | `$spec` | **mixed** |  |
 | `$ruleSet` | **mixed** |  |
 
-
-
-
 ***
 
 ### setStaticRule
 
-Set a static rule for a spec.  This is a single string value
+Set a static rule for a spec. This is a single string value
 
 ```php
 public setStaticRule(string $name, string $value): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -567,9 +338,6 @@ public setStaticRule(string $name, string $value): self
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -581,14 +349,8 @@ Set Static Rule Reference.
 public setStaticRuleReference(string $name, mixed& $reference): self
 ```
 
-This allows a consuming class to pass a property or variable
-in to be referenced when its time to build the output string from the
-target.
-
-
-
-
-
+This allows a consuming class to pass a property or variable in to be referenced when its time to build the output
+string from the target.
 
 **Parameters:**
 
@@ -596,9 +358,6 @@ target.
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$reference` | **mixed** |  |
-
-
-
 
 ***
 
@@ -610,21 +369,11 @@ Inflect
 public filter(string|array $source): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -636,21 +385,11 @@ Normalize spec string
 protected _normalizeSpec(string $spec): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$spec` | **string** |  |
-
-
-
 
 ***
 
@@ -662,73 +401,40 @@ Resolve named filters and convert them to filter objects.
 protected _getRule(string $rule): \Zend\Filter\FilterInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rule` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -739,16 +445,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -762,36 +458,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -799,11 +480,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

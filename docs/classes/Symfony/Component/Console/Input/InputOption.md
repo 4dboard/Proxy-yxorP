@@ -4,10 +4,7 @@
 
 Represents a command line option.
 
-
-
 * Full name: `\Symfony\Component\Console\Input\InputOption`
-
 
 ## Constants
 
@@ -20,112 +17,65 @@ Represents a command line option.
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 private $name
 ```
 
-
-
-
-
-
 ***
 
 ### shortcut
-
-
 
 ```php
 private $shortcut
 ```
 
-
-
-
-
-
 ***
 
 ### mode
-
-
 
 ```php
 private $mode
 ```
 
-
-
-
-
-
 ***
 
 ### default
-
-
 
 ```php
 private $default
 ```
 
-
-
-
-
-
 ***
 
 ### description
-
-
 
 ```php
 private $description
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name, string|array $shortcut = null, int|null $mode = null, string $description = &#039;&#039;, string|string[]|int|bool|null $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The option name |
-| `$shortcut` | **string&#124;array** | The shortcuts, can be null, a string of shortcuts delimited by &amp;#124; or an array of shortcuts |
+| `$shortcut` | **
+string&#124;array** | The shortcuts, can be null, a string of shortcuts delimited by &amp;#124; or an array of shortcuts |
 | `$mode` | **int&#124;null** | The option mode: One of the VALUE_* constants |
 | `$description` | **string** | A description text |
-| `$default` | **string&#124;string[]&#124;int&#124;bool&#124;null** | The default value (must be null for self::VALUE_NONE) |
-
-
-
+| `$default` | **string&#124;string[]
+&#124;int&#124;bool&#124;null** | The default value (must be null for self::VALUE_NONE) |
 
 ***
 
@@ -136,14 +86,6 @@ Returns the option shortcut.
 ```php
 public getShortcut(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -161,14 +103,6 @@ Returns the option name.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The name
@@ -184,14 +118,6 @@ Returns true if the option accepts a value.
 ```php
 public acceptValue(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -209,14 +135,6 @@ Returns true if the option requires a value.
 public isValueRequired(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if value mode is self::VALUE_REQUIRED, false otherwise
@@ -232,14 +150,6 @@ Returns true if the option takes an optional value.
 ```php
 public isValueOptional(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -257,14 +167,6 @@ Returns true if the option can take multiple values.
 public isArray(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if mode is self::VALUE_IS_ARRAY, false otherwise
@@ -281,21 +183,11 @@ Sets the default value.
 public setDefault(string|string[]|int|bool|null $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$default` | **string&#124;string[]&#124;int&#124;bool&#124;null** | The default value |
-
-
-
 
 ***
 
@@ -306,14 +198,6 @@ Returns the default value.
 ```php
 public getDefault(): string|string[]|int|bool|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -331,14 +215,6 @@ Returns the description text.
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The description text
@@ -355,24 +231,10 @@ Checks whether the given option equals this one.
 public equals(self $option): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **self** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

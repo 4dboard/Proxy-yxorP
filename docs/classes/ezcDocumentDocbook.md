@@ -4,16 +4,10 @@
 
 The document handler for the docbook document markup.
 
-
-
 * Full name: `\ezcDocumentDocbook`
 * Parent class: [`\ezcDocumentXmlBase`](./ezcDocumentXmlBase.md)
 
-
-
-
 ## Methods
-
 
 ### getAsDocbook
 
@@ -23,12 +17,10 @@ Return document compiled to the docbook format
 public getAsDocbook(): \ezcDocumentDocbook
 ```
 
-The internal document structure is compiled to the docbook format and
-the resulting docbook document is returned.
+The internal document structure is compiled to the docbook format and the resulting docbook document is returned.
 
-This method is required for all formats to have one central format, so
-that each format can be compiled into each other format using docbook as
-an intermediate format.
+This method is required for all formats to have one central format, so that each format can be compiled into each other
+format using docbook as an intermediate format.
 
 You may of course just call an existing converter for this conversion.
 
@@ -50,28 +42,18 @@ Create document from docbook document
 public createFromDocbook(\ezcDocumentDocbook $document): void
 ```
 
-A document of the docbook format is provided and the internal document
-structure should be created out of this.
+A document of the docbook format is provided and the internal document structure should be created out of this.
 
-This method is required for all formats to have one central format, so
-that each format can be compiled into each other format using docbook as
-an intermediate format.
+This method is required for all formats to have one central format, so that each format can be compiled into each other
+format using docbook as an intermediate format.
 
 You may of course just call an existing converter for this conversion.
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\ezcDocumentDocbook** |  |
-
-
-
 
 ***
 
@@ -103,25 +85,15 @@ Validate the input file
 public validateFile(string $file): mixed
 ```
 
-Validate the input file against the specification of the current
-document format.
+Validate the input file against the specification of the current document format.
 
-Returns true, if the validation succeded, and an array with
-ezcDocumentValidationError objects otherwise.
-
-
-
-
-
+Returns true, if the validation succeded, and an array with ezcDocumentValidationError objects otherwise.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -133,16 +105,9 @@ Validate the input string
 public validateString(string $string): mixed
 ```
 
-Validate the input string against the specification of the current
-document format.
+Validate the input string against the specification of the current document format.
 
-Returns true, if the validation succeded, and an array with
-ezcDocumentValidationError objects otherwise.
-
-
-
-
-
+Returns true, if the validation succeded, and an array with ezcDocumentValidationError objects otherwise.
 
 **Parameters:**
 
@@ -150,14 +115,9 @@ ezcDocumentValidationError objects otherwise.
 |-----------|------|-------------|
 | `$string` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### loadString
 
@@ -167,22 +127,15 @@ Create document from input string
 public loadString(string $string): void
 ```
 
-Create a document of the current type handler class and parse it into a
-usable internal structure.
-
+Create a document of the current type handler class and parse it into a usable internal structure.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -194,22 +147,13 @@ Construct directly from DOMDocument
 public loadDomDocument(\DOMDocument $document): void
 ```
 
-To save execution time this method offers the construction of XML
-documents directly from a DOM document instance.
-
-
-
-
-
+To save execution time this method offers the construction of XML documents directly from a DOM document instance.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
-
-
-
 
 ***
 
@@ -221,25 +165,15 @@ Set DOMDocument
 public setDomDocument(\DOMDocument $document): void
 ```
 
-Directly set the internally stored DOMDocument object, to spare
-additional XML parsing overhead. Setting a broken or invalid docbook
-document is not checked here, ebcause validation would cost too much
-performace on each set. Be careful what you set here, invalid documents
-may lead to unpredictable errors.
-
-
-
-
-
+Directly set the internally stored DOMDocument object, to spare additional XML parsing overhead. Setting a broken or
+invalid docbook document is not checked here, ebcause validation would cost too much performace on each set. Be careful
+what you set here, invalid documents may lead to unpredictable errors.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\DOMDocument** |  |
-
-
-
 
 ***
 
@@ -251,8 +185,7 @@ Get DOMDocument
 public getDomDocument(): \DOMDocument
 ```
 
-Directly return the internally stored DOMDocument object, to spare
-additional XML parsing overhead.
+Directly return the internally stored DOMDocument object, to spare additional XML parsing overhead.
 
 
 
@@ -274,13 +207,7 @@ public save(): string
 
 Serialize the document to a string an return it.
 
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -292,21 +219,11 @@ Construct new document
 public __construct(\ezcDocumentOptions $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **\ezcDocumentOptions** |  |
-
-
-
 
 ***
 
@@ -318,13 +235,7 @@ Trigger visitor error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a vistitor error, and convert it to an exception depending on the
-error reporting settings.
-
-
-
-
-
+Emit a vistitor error, and convert it to an exception depending on the error reporting settings.
 
 **Parameters:**
 
@@ -336,9 +247,6 @@ error reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -349,8 +257,7 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
 
 
@@ -370,23 +277,14 @@ Create document from file
 public loadFile(string $file): void
 ```
 
-Create a document of the current type handler class and parse it into a
-usable internal structure. The default implementation just calls
-loadString(), but you may want to provide an optimized implementation.
-
-
-
-
-
+Create a document of the current type handler class and parse it into a usable internal structure. The default
+implementation just calls loadString(), but you may want to provide an optimized implementation.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -398,16 +296,6 @@ Get document base path
 public getPath(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPath
@@ -418,22 +306,13 @@ Set document base path
 public setPath(string $path): mixed
 ```
 
-The base path will be used as a base for relative file
-inclusions in the document.
-
-
-
-
-
+The base path will be used as a base for relative file inclusions in the document.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -445,22 +324,14 @@ Return document compiled to the docbook format
 public getAsDocbook(): \ezcDocumentDocbook
 ```
 
-The internal document structure is compiled to the docbook format and
-the resulting docbook document is returned.
+The internal document structure is compiled to the docbook format and the resulting docbook document is returned.
 
-This method is required for all formats to have one central format, so
-that each format can be compiled into each other format using docbook as
-an intermediate format.
+This method is required for all formats to have one central format, so that each format can be compiled into each other
+format using docbook as an intermediate format.
 
 You may of course just call an existing converter for this conversion.
 
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -472,19 +343,14 @@ Create document from docbook document
 public createFromDocbook(\ezcDocumentDocbook $document): void
 ```
 
-A document of the docbook format is provided and the internal document
-structure should be created out of this.
+A document of the docbook format is provided and the internal document structure should be created out of this.
 
-This method is required for all formats to have one central format, so
-that each format can be compiled into each other format using docbook as
-an intermediate format.
+This method is required for all formats to have one central format, so that each format can be compiled into each other
+format using docbook as an intermediate format.
 
 You may of course just call an existing converter for this conversion.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -492,11 +358,4 @@ You may of course just call an existing converter for this conversion.
 |-----------|------|-------------|
 | `$document` | **\ezcDocumentDocbook** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

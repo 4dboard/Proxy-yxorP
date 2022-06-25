@@ -4,12 +4,9 @@
 
 Doctrine object constructor for new (or existing) objects during deserialization.
 
-
-
 * Full name: `\JMS\Serializer\Construction\DoctrineObjectConstructor`
 * This class implements:
-[`\JMS\Serializer\Construction\ObjectConstructorInterface`](./ObjectConstructorInterface.md)
-
+  [`\JMS\Serializer\Construction\ObjectConstructorInterface`](./ObjectConstructorInterface.md)
 
 ## Constants
 
@@ -21,54 +18,31 @@ Doctrine object constructor for new (or existing) objects during deserialization
 
 ## Properties
 
-
 ### fallbackStrategy
-
-
 
 ```php
 private string $fallbackStrategy
 ```
 
-
-
-
-
-
 ***
 
 ### managerRegistry
-
-
 
 ```php
 private $managerRegistry
 ```
 
-
-
-
-
-
 ***
 
 ### fallbackConstructor
-
-
 
 ```php
 private $fallbackConstructor
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -78,13 +52,6 @@ Constructor.
 public __construct(\Doctrine\Common\Persistence\ManagerRegistry $managerRegistry, \JMS\Serializer\Construction\ObjectConstructorInterface $fallbackConstructor, string $fallbackStrategy = self::ON_MISSING_NULL): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -92,9 +59,6 @@ public __construct(\Doctrine\Common\Persistence\ManagerRegistry $managerRegistry
 | `$managerRegistry` | **\Doctrine\Common\Persistence\ManagerRegistry** | Manager registry |
 | `$fallbackConstructor` | **\JMS\Serializer\Construction\ObjectConstructorInterface** | Fallback object constructor |
 | `$fallbackStrategy` | **string** |  |
-
-
-
 
 ***
 
@@ -106,13 +70,6 @@ Constructs a new object.
 public construct(\JMS\Serializer\VisitorInterface $visitor, \JMS\Serializer\Metadata\ClassMetadata $metadata, mixed $data, array $type, \JMS\Serializer\DeserializationContext $context): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -123,11 +80,4 @@ public construct(\JMS\Serializer\VisitorInterface $visitor, \JMS\Serializer\Meta
 | `$type` | **array** | [&quot;name&quot; =&gt; string, &quot;params&quot; =&gt; array] |
 | `$context` | **\JMS\Serializer\DeserializationContext** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,15 +4,10 @@
 
 Docbook visitor for the Wiki AST.
 
-
-
 * Full name: `\ezcDocumentWikiDocbookVisitor`
 * Parent class: [`\ezcDocumentWikiVisitor`](./ezcDocumentWikiVisitor.md)
 
-
-
 ## Properties
-
 
 ### complexVisitMapping
 
@@ -21,11 +16,6 @@ Mapping of class names to internal visitors for the respective nodes.
 ```php
 protected array $complexVisitMapping
 ```
-
-
-
-
-
 
 ***
 
@@ -37,26 +27,16 @@ Direct mapping of AST node class names to docbook element names.
 protected array $simpleVisitMapping
 ```
 
-
-
-
-
-
 ***
 
 ### skipNodes
 
-Array with nodes, which can be ignored during the transformation
-process, they only provide additional information during preprocessing.
+Array with nodes, which can be ignored during the transformation process, they only provide additional information
+during preprocessing.
 
 ```php
 protected array $skipNodes
 ```
-
-
-
-
-
 
 ***
 
@@ -68,15 +48,9 @@ DOM document
 protected \DOMDocument $document
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### visit
 
@@ -88,19 +62,11 @@ public visit(\ezcDocumentWikiDocumentNode $ast): mixed
 
 Visit the Wiki abstract syntax tree.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **\ezcDocumentWikiDocumentNode** |  |
-
-
-
 
 ***
 
@@ -112,14 +78,8 @@ Visit single AST node
 protected visitNode(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-Visit a single AST node, may be called for each node found anywhere
-as child. The current position in the DOMDocument is passed by a
-reference to the current DOMNode, which is operated on.
-
-
-
-
-
+Visit a single AST node, may be called for each node found anywhere as child. The current position in the DOMDocument is
+passed by a reference to the current DOMNode, which is operated on.
 
 **Parameters:**
 
@@ -127,9 +87,6 @@ reference to the current DOMNode, which is operated on.
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -141,22 +98,12 @@ Visit emphasis markup
 protected visitEmphasisMarkup(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -168,22 +115,12 @@ Visit section titles
 protected visitTitle(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -195,22 +132,12 @@ Visit external link node
 protected visitExternalLink(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -222,13 +149,7 @@ Visit link node
 protected visitLink(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-Docbook has no support for description of links, so that the description
-elements in the AST are omitted.
-
-
-
-
-
+Docbook has no support for description of links, so that the description elements in the AST are omitted.
 
 **Parameters:**
 
@@ -236,9 +157,6 @@ elements in the AST are omitted.
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -252,20 +170,12 @@ protected visitList(\DOMNode $root, \ezcDocumentWikiNode $node): void
 
 Ensure stacked lists are created inside another list item.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -279,19 +189,11 @@ protected isInlineNode(\DOMNode $node): bool
 
 Check if contents of the current node are a inline node
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
-
-
-
 
 ***
 
@@ -303,22 +205,12 @@ Visit images
 protected visitImages(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -330,22 +222,12 @@ Visit literal block
 protected visitLiteralBlock(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -357,22 +239,12 @@ Visit literal
 protected visitLiteral(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -384,13 +256,7 @@ Visit table row
 protected visitTableRow(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-Visit a table row and decide if it belongs into a tbody or a thead
-section.
-
-
-
-
-
+Visit a table row and decide if it belongs into a tbody or a thead section.
 
 **Parameters:**
 
@@ -398,9 +264,6 @@ section.
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -414,20 +277,12 @@ protected visitTableCell(\DOMNode $root, \ezcDocumentWikiNode $node): void
 
 Visit a table cell and additionally always create an inner paragraph.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -439,22 +294,12 @@ Visit line break
 protected visitLineBreak(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -466,22 +311,12 @@ Visit paragraph
 protected visitParagraph(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -493,22 +328,12 @@ Visit blockquote
 protected visitBlockquote(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -520,22 +345,12 @@ Visit footnote
 protected visitFootnote(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -547,13 +362,6 @@ Visit plugin
 protected visitPlugin(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -561,14 +369,9 @@ protected visitPlugin(\DOMNode $root, \ezcDocumentWikiNode $node): void
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -578,22 +381,12 @@ Create visitor from Wiki document handler.
 public __construct(\ezcDocumentWiki $document, string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\ezcDocumentWiki** |  |
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -605,13 +398,7 @@ Trigger visitor error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a vistitor error, and convert it to an exception depending on the
-error reporting settings.
-
-
-
-
-
+Emit a vistitor error, and convert it to an exception depending on the error reporting settings.
 
 **Parameters:**
 
@@ -623,9 +410,6 @@ error reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -636,8 +420,7 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
 
 
@@ -659,19 +442,11 @@ public visit(\ezcDocumentWikiDocumentNode $ast): mixed
 
 Visit the Wiki abstract syntax tree.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **\ezcDocumentWikiDocumentNode** |  |
-
-
-
 
 ***
 
@@ -683,21 +458,11 @@ Add footnote
 protected addFootnote(\ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -711,28 +476,18 @@ protected preProcessAst(\ezcDocumentWikiNode $node): void
 
 Performs multiple preprocessing steps on the AST:
 
-Collect all possible reference targets in the AST to know the actual
-destianation for references while decorating. The references are stored
-in an internal structure and you may request the actual link by using
-the getReferenceTarget() method.
+Collect all possible reference targets in the AST to know the actual destianation for references while decorating. The
+references are stored in an internal structure and you may request the actual link by using the getReferenceTarget()
+method.
 
-Aggregate list items into lists. In Wiki there are only list items, which
-are aggregated to lists depending on their bullet type. The related list
-items are aggregated into one list.
-
-
-
-
-
+Aggregate list items into lists. In Wiki there are only list items, which are aggregated to lists depending on their
+bullet type. The related list items are aggregated into one list.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -744,13 +499,7 @@ Check for internal footnote reference target
 public hasFootnoteTarget(int $number, \ezcDocumentWikiNode $node): \ezcDocumentWikiFootnoteNode
 ```
 
-Returns the target name, when an internal reference target exists and
-sets it to used, and false otherwise.
-
-
-
-
-
+Returns the target name, when an internal reference target exists and sets it to used, and false otherwise.
 
 **Parameters:**
 
@@ -758,9 +507,6 @@ sets it to used, and false otherwise.
 |-----------|------|-------------|
 | `$number` | **int** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -772,22 +518,14 @@ Transform a node tree into a string
 protected nodeToString(\ezcDocumentWikiNode $node): string
 ```
 
-Transform a node tree, with all its subnodes into a string by only
-getting the textuual contents from ezcDocumentWikiTextLineNode objects.
-
-
-
-
-
+Transform a node tree, with all its subnodes into a string by only getting the textuual contents from
+ezcDocumentWikiTextLineNode objects.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -799,22 +537,13 @@ Node list to string
 protected nodeListToString(array $nodes): string
 ```
 
-Extract the contents of a node list and return a single string for the
-array of nodes.
-
-
-
-
-
+Extract the contents of a node list and return a single string for the array of nodes.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nodes` | **array** |  |
-
-
-
 
 ***
 
@@ -826,22 +555,12 @@ Visit text node
 protected visitText(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
-
-
-
 
 ***
 
@@ -853,13 +572,7 @@ Visit children
 protected visitChildren(\DOMNode $root, \ezcDocumentWikiNode $node): void
 ```
 
-Just recurse into node and visit its children, ignoring the actual
-node.
-
-
-
-
-
+Just recurse into node and visit its children, ignoring the actual node.
 
 **Parameters:**
 
@@ -868,11 +581,4 @@ node.
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentWikiNode** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

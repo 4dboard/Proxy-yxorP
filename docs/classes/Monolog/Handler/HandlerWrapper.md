@@ -8,40 +8,25 @@ Example: A custom filtering that can be applied to any handler.
 
 Inherit from this class and override handle() like this:
 
-  public function handle(array $record)
-  {
-       if ($record meets certain conditions) {
-           return false;
-       }
-       return $this->handler->handle($record);
-  }
+public function handle(array $record)
+{ if ($record meets certain conditions) { return false; } return $this->handler->handle($record); }
 
 * Full name: `\Monolog\Handler\HandlerWrapper`
 * This class implements:
-[`\Monolog\Handler\HandlerInterface`](./HandlerInterface.md), [`\Monolog\ResettableInterface`](../ResettableInterface.md)
-
-
+  [`\Monolog\Handler\HandlerInterface`](./HandlerInterface.md)
+  , [`\Monolog\ResettableInterface`](../ResettableInterface.md)
 
 ## Properties
 
-
 ### handler
-
-
 
 ```php
 protected \Monolog\Handler\HandlerInterface $handler
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -51,21 +36,11 @@ HandlerWrapper constructor.
 public __construct(\Monolog\Handler\HandlerInterface $handler): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$handler` | **\Monolog\Handler\HandlerInterface** |  |
-
-
-
 
 ***
 
@@ -77,21 +52,11 @@ Checks whether the given record will be handled by this handler.
 public isHandling(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | Partial log record containing only a level key |
-
-
-
 
 ***
 
@@ -103,24 +68,16 @@ Handles a record.
 public handle(array $record): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | The record to handle |
 
-
 **Return Value:**
 
-true means that this handler handled the record, and that bubbling is not permitted.
-false means the record was either not processed or that this handler allows bubbling.
+true means that this handler handled the record, and that bubbling is not permitted. false means the record was either
+not processed or that this handler allows bubbling.
 
 
 
@@ -134,21 +91,11 @@ Handles a set of records at once.
 public handleBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | The records to handle (an array of record arrays) |
-
-
-
 
 ***
 
@@ -160,21 +107,11 @@ Adds a processor in the stack.
 public pushProcessor(mixed $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **mixed** |  |
-
-
-
 
 ***
 
@@ -186,16 +123,6 @@ Removes the processor on top of the stack and returns it.
 public popProcessor(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFormatter
@@ -206,21 +133,11 @@ Sets the formatter.
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -232,38 +149,12 @@ Gets the formatter.
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### reset
-
-
 
 ```php
 public reset(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

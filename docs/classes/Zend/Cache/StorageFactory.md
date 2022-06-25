@@ -2,17 +2,10 @@
 
 # StorageFactory
 
-
-
-
-
 * Full name: `\Zend\Cache\StorageFactory`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### adapters
 
@@ -22,10 +15,7 @@ Plugin manager for loading adapters
 protected static null|\Zend\Cache\Storage\AdapterPluginManager $adapters
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -37,40 +27,27 @@ Plugin manager for loading plugins
 protected static null|\Zend\Cache\Storage\PluginManager $plugins
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### factory
 
-The storage factory
-This can instantiate storage adapters and plugins.
+The storage factory This can instantiate storage adapters and plugins.
 
 ```php
 public static factory(array|\Traversable $cfg): \Zend\Cache\Storage\StorageInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cfg` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -82,12 +59,7 @@ Instantiate a storage adapter
 public static adapterFactory(string|\Zend\Cache\Storage\StorageInterface $adapterName, array|\Traversable|\Zend\Cache\Storage\Adapter\AdapterOptions $options = []): \Zend\Cache\Storage\StorageInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -95,9 +67,6 @@ public static adapterFactory(string|\Zend\Cache\Storage\StorageInterface $adapte
 |-----------|------|-------------|
 | `$adapterName` | **string&#124;\Zend\Cache\Storage\StorageInterface** |  |
 | `$options` | **array&#124;\Traversable&#124;\Zend\Cache\Storage\Adapter\AdapterOptions** |  |
-
-
-
 
 ***
 
@@ -109,15 +78,7 @@ Get the adapter plugin manager
 public static getAdapterPluginManager(): \Zend\Cache\Storage\AdapterPluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -129,21 +90,13 @@ Change the adapter plugin manager
 public static setAdapterPluginManager(\Zend\Cache\Storage\AdapterPluginManager $adapters): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapters` | **\Zend\Cache\Storage\AdapterPluginManager** |  |
-
-
-
 
 ***
 
@@ -155,15 +108,7 @@ Resets the internal adapter plugin manager
 public static resetAdapterPluginManager(): void
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -175,12 +120,7 @@ Instantiate a storage plugin
 public static pluginFactory(string|\Zend\Cache\Storage\Plugin\PluginInterface $pluginName, array|\Traversable|\Zend\Cache\Storage\Plugin\PluginOptions $options = []): \Zend\Cache\Storage\Plugin\PluginInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -188,9 +128,6 @@ public static pluginFactory(string|\Zend\Cache\Storage\Plugin\PluginInterface $p
 |-----------|------|-------------|
 | `$pluginName` | **string&#124;\Zend\Cache\Storage\Plugin\PluginInterface** |  |
 | `$options` | **array&#124;\Traversable&#124;\Zend\Cache\Storage\Plugin\PluginOptions** |  |
-
-
-
 
 ***
 
@@ -202,15 +139,7 @@ Get the plugin manager
 public static getPluginManager(): \Zend\Cache\Storage\PluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -222,21 +151,13 @@ Change the plugin manager
 public static setPluginManager(\Zend\Cache\Storage\PluginManager $plugins): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugins` | **\Zend\Cache\Storage\PluginManager** |  |
-
-
-
 
 ***
 
@@ -248,18 +169,6 @@ Resets the internal plugin manager
 public static resetPluginManager(): void
 ```
 
-
-
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

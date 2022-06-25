@@ -2,18 +2,11 @@
 
 # StrategyChain
 
-
-
-
-
 * Full name: `\Zend\Hydrator\Strategy\StrategyChain`
 * This class implements:
-[`\Zend\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
-
-
+  [`\Zend\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
 
 ## Properties
-
 
 ### extractionStrategies
 
@@ -22,11 +15,6 @@ Strategy chain for extraction
 ```php
 private \Zend\Hydrator\Strategy\StrategyInterface[] $extractionStrategies
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +26,9 @@ Strategy chain for hydration
 private \Zend\Hydrator\Strategy\StrategyInterface[] $hydrationStrategies
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -56,21 +38,11 @@ Constructor
 public __construct(array|\Traversable $extractionStrategies): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$extractionStrategies` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -82,19 +54,11 @@ Converts the given value so that it can be extracted by the hydrator.
 public extract(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The original value. |
-
 
 **Return Value:**
 
@@ -112,28 +76,12 @@ Converts the given value so that it can be hydrated by the hydrator.
 public hydrate(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The original value. |
 
-
 **Return Value:**
 
-Returns the value that should be hydrated.
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+Returns the value that should be hydrated. yxorP::get('REQUEST')

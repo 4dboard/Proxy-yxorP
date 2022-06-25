@@ -4,40 +4,22 @@
 
 This class provides a fluent interface for building a node.
 
-
-
 * Full name: `\Symfony\Component\Config\Tests\Fixtures\Builder\NodeBuilder`
 * Parent class: [`\Symfony\Component\Config\Definition\Builder\NodeBuilder`](../../../Definition/Builder/NodeBuilder.md)
 
-
-
-
 ## Methods
 
-
 ### barNode
-
-
 
 ```php
 public barNode(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
@@ -49,19 +31,11 @@ Returns the class name of the node definition.
 protected getNodeClass(mixed $type): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **mixed** | The node type |
-
 
 **Return Value:**
 
@@ -71,27 +45,13 @@ The node definition class name
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -103,21 +63,11 @@ Set the parent node.
 public setParent(\Symfony\Component\Config\Definition\Builder\ParentNodeDefinitionInterface $parent = null): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$parent` | **\Symfony\Component\Config\Definition\Builder\ParentNodeDefinitionInterface** |  |
-
-
-
 
 ***
 
@@ -129,19 +79,11 @@ Creates a child array node.
 public arrayNode(string $name): \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the node |
-
 
 **Return Value:**
 
@@ -159,19 +101,11 @@ Creates a child scalar node.
 public scalarNode(string $name): \Symfony\Component\Config\Definition\Builder\ScalarNodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the node |
-
 
 **Return Value:**
 
@@ -189,19 +123,11 @@ Creates a child Boolean node.
 public booleanNode(string $name): \Symfony\Component\Config\Definition\Builder\BooleanNodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the node |
-
 
 **Return Value:**
 
@@ -219,19 +145,11 @@ Creates a child integer node.
 public integerNode(string $name): \Symfony\Component\Config\Definition\Builder\IntegerNodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the node |
-
 
 **Return Value:**
 
@@ -249,19 +167,11 @@ Creates a child float node.
 public floatNode(string $name): \Symfony\Component\Config\Definition\Builder\FloatNodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the node |
-
 
 **Return Value:**
 
@@ -279,21 +189,11 @@ Creates a child EnumNode.
 public enumNode(string $name): \Symfony\Component\Config\Definition\Builder\EnumNodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -305,19 +205,11 @@ Creates a child variable node.
 public variableNode(string $name): \Symfony\Component\Config\Definition\Builder\VariableNodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the node |
-
 
 **Return Value:**
 
@@ -335,14 +227,6 @@ Returns the parent node.
 public end(): \Symfony\Component\Config\Definition\Builder\NodeDefinition&amp;\Symfony\Component\Config\Definition\Builder\ParentNodeDefinitionInterface
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The parent node
@@ -359,20 +243,12 @@ Creates a child node.
 public node(string|null $name, string $type): \Symfony\Component\Config\Definition\Builder\NodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;null** | The name of the node |
 | `$type` | **string** | The type of the node |
-
 
 **Return Value:**
 
@@ -393,26 +269,18 @@ public append(\Symfony\Component\Config\Definition\Builder\NodeDefinition $node)
 Usage:
 
 $node = new ArrayNodeDefinition('name')
-    ->children()
-        ->scalarNode('foo')->end()
-        ->scalarNode('baz')->end()
-        ->append($this->getBarNodeDefinition())
-    ->end()
+->children()
+->scalarNode('foo')->end()
+->scalarNode('baz')->end()
+->append($this->getBarNodeDefinition())
+->end()
 ;
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Symfony\Component\Config\Definition\Builder\NodeDefinition** |  |
-
-
-
 
 ***
 
@@ -424,22 +292,12 @@ Adds or overrides a node Type.
 public setNodeClass(string $type, string $class): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The name of the type |
 | `$class` | **string** | The fully qualified name the node definition class |
-
-
-
 
 ***
 
@@ -451,28 +309,12 @@ Returns the class name of the node definition.
 protected getNodeClass(string $type): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The node type |
 
-
 **Return Value:**
 
-The node definition class name
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The node definition class name yxorP::get('REQUEST')

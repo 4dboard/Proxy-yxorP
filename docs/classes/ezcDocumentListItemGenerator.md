@@ -4,22 +4,15 @@
 
 List item generator
 
-Generator for list items, like bullet list items, and more important,
-enumerated lists.
+Generator for list items, like bullet list items, and more important, enumerated lists.
 
-Intended to return a list item, which is most likely a single character,
-based on the passed number. The list item generator implementation is
-choosen in the list renderer, depending on the properties of the element to
-render.
+Intended to return a list item, which is most likely a single character, based on the passed number. The list item
+generator implementation is choosen in the list renderer, depending on the properties of the element to render.
 
 * Full name: `\ezcDocumentListItemGenerator`
 * This class is an **Abstract class**
 
-
-
-
 ## Methods
-
 
 ### getListItem
 
@@ -29,13 +22,9 @@ Get list item
 public getListItem(int $number): string
 ```
 
-Get the n-th list item. The index of the list item is specified by the
-number parameter.
-
+Get the n-th list item. The index of the list item is specified by the number parameter.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -43,11 +32,4 @@ number parameter.
 |-----------|------|-------------|
 | `$number` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

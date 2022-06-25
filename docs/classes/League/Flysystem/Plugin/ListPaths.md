@@ -2,18 +2,10 @@
 
 # ListPaths
 
-
-
-
-
 * Full name: `\League\Flysystem\Plugin\ListPaths`
 * Parent class: [`\League\Flysystem\Plugin\AbstractPlugin`](./AbstractPlugin.md)
 
-
-
-
 ## Methods
-
 
 ### getMethod
 
@@ -22,16 +14,6 @@ Get the method name.
 ```php
 public getMethod(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -43,20 +25,12 @@ List all paths.
 public handle(string $directory = &#039;&#039;, bool $recursive = false): string[]
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$directory` | **string** |  |
 | `$recursive` | **bool** |  |
-
 
 **Return Value:**
 
@@ -66,9 +40,7 @@ paths
 
 ***
 
-
 ## Inherited methods
-
 
 ### setFilesystem
 
@@ -78,24 +50,10 @@ Set the Filesystem object.
 public setFilesystem(\League\Flysystem\FilesystemInterface $filesystem): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,16 +4,10 @@
 
 This node represents an integer value in the config tree.
 
-
-
 * Full name: `\Symfony\Component\Config\Definition\IntegerNode`
 * Parent class: [`\Symfony\Component\Config\Definition\NumericNode`](./NumericNode.md)
 
-
-
-
 ## Methods
-
 
 ### validateType
 
@@ -23,42 +17,21 @@ This node represents an integer value in the config tree.
 protected validateType(mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string|null $name, \Symfony\Component\Config\Definition\NodeInterface|null $parent = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -66,9 +39,6 @@ public __construct(string|null $name, \Symfony\Component\Config\Definition\NodeI
 |-----------|------|-------------|
 | `$name` | **string&#124;null** | The name of the node |
 | `$parent` | **\Symfony\Component\Config\Definition\NodeInterface&#124;null** | The parent of this node |
-
-
-
 
 ***
 
@@ -80,19 +50,13 @@ Finalizes a value.
 protected finalizeValue(mixed $value): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to finalize |
-
 
 **Return Value:**
 
@@ -110,23 +74,14 @@ Evaluates if the given value is to be treated as empty.
 protected isValueEmpty(mixed $value): bool
 ```
 
-By default, PHP's empty() function is used to test for emptiness. This
-method may be overridden by subtypes to better match their understanding
-of empty data.
-
-
-
-
-
+By default, PHP's empty() function is used to test for emptiness. This method may be overridden by subtypes to better
+match their understanding of empty data.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -138,12 +93,7 @@ Validates the type of a Node.
 protected validateType(mixed $value): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -151,34 +101,19 @@ protected validateType(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to validate |
 
-
-
-
 ***
 
 ### setDefaultValue
 
-
-
 ```php
 public setDefaultValue(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -190,16 +125,6 @@ public setDefaultValue(mixed $value): mixed
 public hasDefaultValue(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDefaultValue
@@ -209,16 +134,6 @@ public hasDefaultValue(): mixed
 ```php
 public getDefaultValue(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -230,21 +145,11 @@ Sets if this node is allowed to have an empty value.
 public setAllowEmptyValue(bool $boolean): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** | True if this entity will accept empty values |
-
-
-
 
 ***
 
@@ -256,21 +161,11 @@ Sets the name of the node.
 public setName(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the node |
-
-
-
 
 ***
 
@@ -282,19 +177,13 @@ Normalizes the value.
 protected normalizeValue(mixed $value): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to normalize |
-
 
 **Return Value:**
 
@@ -312,12 +201,7 @@ Merges two values together.
 protected mergeValues(mixed $leftSide, mixed $rightSide): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -325,7 +209,6 @@ protected mergeValues(mixed $leftSide, mixed $rightSide): mixed
 |-----------|------|-------------|
 | `$leftSide` | **mixed** |  |
 | `$rightSide` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -337,18 +220,9 @@ The merged value
 
 ### setAttribute
 
-
-
 ```php
 public setAttribute(mixed $key, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -357,25 +231,13 @@ public setAttribute(mixed $key, mixed $value): mixed
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### getAttribute
 
-
-
 ```php
 public getAttribute(mixed $key, mixed $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -384,25 +246,13 @@ public getAttribute(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasAttribute
 
-
-
 ```php
 public hasAttribute(mixed $key): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -410,45 +260,21 @@ public hasAttribute(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
-
 ***
 
 ### getAttributes
-
-
 
 ```php
 public getAttributes(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAttributes
 
-
-
 ```php
 public setAttributes(array $attributes): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -456,34 +282,19 @@ public setAttributes(array $attributes): mixed
 |-----------|------|-------------|
 | `$attributes` | **array** |  |
 
-
-
-
 ***
 
 ### removeAttribute
 
-
-
 ```php
 public removeAttribute(mixed $key): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -495,21 +306,11 @@ Sets an info message.
 public setInfo(string $info): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$info` | **string** |  |
-
-
-
 
 ***
 
@@ -520,14 +321,6 @@ Returns info message.
 ```php
 public getInfo(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -545,21 +338,11 @@ Sets the example configuration for this node.
 public setExample(string|array $example): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$example` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -570,14 +353,6 @@ Retrieves the example configuration for this node.
 ```php
 public getExample(): string|array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -595,22 +370,12 @@ Adds an equivalent value.
 public addEquivalentValue(mixed $originalValue, mixed $equivalentValue): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$originalValue` | **mixed** |  |
 | `$equivalentValue` | **mixed** |  |
-
-
-
 
 ***
 
@@ -622,21 +387,11 @@ Set this node as required.
 public setRequired(bool $boolean): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** | Required node |
-
-
-
 
 ***
 
@@ -648,21 +403,11 @@ Sets if this node can be overridden.
 public setAllowOverwrite(bool $allow): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allow` | **bool** |  |
-
-
-
 
 ***
 
@@ -674,21 +419,11 @@ Sets the closures used for normalization.
 public setNormalizationClosures(\Closure[] $closures): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closures` | **\Closure[]** | An array of Closures used for normalization |
-
-
-
 
 ***
 
@@ -700,21 +435,11 @@ Sets the closures used for final validation.
 public setFinalValidationClosures(\Closure[] $closures): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closures` | **\Closure[]** | An array of Closures used for final validation |
-
-
-
 
 ***
 
@@ -725,14 +450,6 @@ Returns true when the node is required.
 ```php
 public isRequired(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -750,14 +467,6 @@ Returns the name of the node.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The name of the node
@@ -773,14 +482,6 @@ Returns the path of the node.
 ```php
 public getPath(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -798,12 +499,7 @@ Merges two values together.
 final public merge(mixed $leftSide, mixed $rightSide): mixed
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -811,7 +507,6 @@ final public merge(mixed $leftSide, mixed $rightSide): mixed
 |-----------|------|-------------|
 | `$leftSide` | **mixed** |  |
 | `$rightSide` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -829,19 +524,13 @@ Normalizes a value.
 final public normalize(mixed $value): mixed
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to normalize |
-
 
 **Return Value:**
 
@@ -859,19 +548,11 @@ Normalizes the value before any other normalization is applied.
 protected preNormalize( $value): \Symfony\Component\Config\Definition\The
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **** |  |
-
 
 **Return Value:**
 
@@ -889,16 +570,6 @@ Returns parent node for this node.
 public getParent(): \Symfony\Component\Config\Definition\NodeInterface|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### finalize
@@ -909,12 +580,7 @@ Finalizes a value.
 final public finalize(mixed $value): mixed
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -922,15 +588,6 @@ final public finalize(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to finalize |
 
-
 **Return Value:**
 
-The finalized value
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The finalized value yxorP::get('REQUEST')

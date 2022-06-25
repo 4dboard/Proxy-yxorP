@@ -4,16 +4,11 @@
 
 RST document stack
 
-
-
 * Full name: `\ezcDocumentRstStack`
 * This class implements:
-[`\ArrayAccess`](./ArrayAccess.md), [`\Countable`](./Countable.md)
-
-
+  [`\ArrayAccess`](./ArrayAccess.md), [`\Countable`](./Countable.md)
 
 ## Properties
-
 
 ### data
 
@@ -22,11 +17,6 @@ Data container for the document stack implementation
 ```php
 protected array $data
 ```
-
-
-
-
-
 
 ***
 
@@ -38,9 +28,8 @@ Number of elements on the stack
 protected int $count
 ```
 
-We are caching this value for faster access performance, and because we
-are only using a very limited internal methods which actually modify the
-satck.
+We are caching this value for faster access performance, and because we are only using a very limited internal methods
+which actually modify the satck.
 
 
 
@@ -48,7 +37,6 @@ satck.
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -58,21 +46,11 @@ Construct stack from array
 public __construct(array $array = array()): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **array** |  |
-
-
-
 
 ***
 
@@ -84,21 +62,11 @@ Prepend element to the document stack
 public unshift(mixed $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **mixed** |  |
-
-
-
 
 ***
 
@@ -110,21 +78,11 @@ Prepend element to the document stack
 public push(mixed $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **mixed** |  |
-
-
-
 
 ***
 
@@ -136,16 +94,6 @@ Get element from the beginning of the stack
 public shift(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### prepend
@@ -156,23 +104,14 @@ Prepend another array to the stack
 public prepend(array $data): void
 ```
 
-Prepends an array with tokens to the current stack. Equivalent to
-calling $array = array_merge( $data, $array ); with common array
-functions.
-
-
-
-
-
+Prepends an array with tokens to the current stack. Equivalent to calling $array = array_merge( $data, $array ); with
+common array functions.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** |  |
-
-
-
 
 ***
 
@@ -184,21 +123,11 @@ Get stack contents as plain PHP array
 public asArray(mixed $limit = null): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$limit` | **mixed** |  |
-
-
-
 
 ***
 
@@ -210,22 +139,13 @@ Returns if the given offset exists.
 public offsetExists(string $key): bool
 ```
 
-This method is part of the ArrayAccess interface to allow access to the
-data of this object as if it was an array.
-
-
-
-
-
+This method is part of the ArrayAccess interface to allow access to the data of this object as if it was an array.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -237,22 +157,13 @@ Returns the element with the given offset.
 public offsetGet(string $key): mixed
 ```
 
-This method is part of the ArrayAccess interface to allow access to the
-data of this object as if it was an array.
-
-
-
-
-
+This method is part of the ArrayAccess interface to allow access to the data of this object as if it was an array.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -264,16 +175,9 @@ Set the element with the given offset.
 public offsetSet(string $key, mixed $value): void
 ```
 
-This method is part of the ArrayAccess interface to allow access to the
-data of this object as if it was an array.
+This method is part of the ArrayAccess interface to allow access to the data of this object as if it was an array.
 
-Setting of not yet existing offsets in the stack is not allowed and will
-return a ezcBaseValueException.
-
-
-
-
-
+Setting of not yet existing offsets in the stack is not allowed and will return a ezcBaseValueException.
 
 **Parameters:**
 
@@ -281,9 +185,6 @@ return a ezcBaseValueException.
 |-----------|------|-------------|
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -299,19 +200,11 @@ This method is part of the ArrayAccess interface to allow access to the
 
 Is not permitted for this stack implementation.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -323,9 +216,8 @@ Selects the very first dataset and returns it.
 public rewind(): mixed
 ```
 
-This method is part of the Iterator interface to allow access to the
-datasets of this row by iterating over it like an array (e.g. using
-foreach).
+This method is part of the Iterator interface to allow access to the datasets of this row by iterating over it like an
+array (e.g. using foreach).
 
 
 
@@ -345,19 +237,7 @@ Returns the number of datasets in the row.
 public count(): int
 ```
 
-This method is part of the Countable interface to allow the usage of
-PHP's count() function to check how many datasets exist.
+This method is part of the Countable interface to allow the usage of PHP's count() function to check how many datasets
+exist.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -9,10 +9,7 @@ Visit docbook <mediaobject/> and transform them into ODT image frames.
 * Full name: `\ezcDocumentDocbookToOdtMediaObjectHandler`
 * Parent class: [`\ezcDocumentDocbookToOdtBaseHandler`](./ezcDocumentDocbookToOdtBaseHandler.md)
 
-
-
 ## Properties
-
 
 ### counter
 
@@ -22,15 +19,9 @@ Counter to generate drawing names.
 protected int $counter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### handle
 
@@ -40,13 +31,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -55,9 +40,6 @@ conversion.
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -69,14 +51,8 @@ Correct length measure value.
 protected correctLengthMeasure(\ezcDocumentElementVisitorConverter $converter, string $length): string
 ```
 
-ODT does not define a default for length measures. This method checks if
-a valid measure is already given in $length and appends the
-$lengthMeasure given in the converter options otherwise.
-
-
-
-
-
+ODT does not define a default for length measures. This method checks if a valid measure is already given in $length and
+appends the $lengthMeasure given in the converter options otherwise.
 
 **Parameters:**
 
@@ -84,9 +60,6 @@ $lengthMeasure given in the converter options otherwise.
 |-----------|------|-------------|
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$length` | **string** |  |
-
-
-
 
 ***
 
@@ -98,21 +71,11 @@ Extracts the imagedata part of a media object.
 protected extractImageData(\DOMNode $node): \DOMNode
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
-
-
-
 
 ***
 
@@ -124,26 +87,17 @@ Detects and returns the anchortype of the given $node.
 protected detectAnchorTye(\DOMElement $node): string
 ```
 
-Detects the correct ODT anchortype for the given DocBoom mediaobject
-which can be:
+Detects the correct ODT anchortype for the given DocBoom mediaobject which can be:
 
 - 'page' if the image frame is bound to a specific page
 - 'paragraph' if the frame is bound to a specific paragraph
 - 'char' if the frame is bound to a specific character in a paragraph
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -155,21 +109,11 @@ Checks if $node is descendant of a <para/>.
 protected isInsidePara(\DOMNode $node): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
-
-
-
 
 ***
 
@@ -181,27 +125,15 @@ Checks if $node occurs in between plain text.
 protected isInsideText(\DOMNode $node): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\DOMNode** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -211,21 +143,11 @@ Creates a new handler which utilizes the given $styler.
 public __construct(\ezcDocumentOdtStyler $styler): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styler` | **\ezcDocumentOdtStyler** |  |
-
-
-
 
 ***
 
@@ -237,13 +159,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -253,11 +171,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

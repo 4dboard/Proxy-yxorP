@@ -4,63 +4,34 @@
 
 Used to make node visitors compatible with Twig 1.x and 2.x.
 
-
-
 * Full name: `\Twig\NodeVisitor\SafeAnalysisNodeVisitor`
 * Parent class: [`\Twig\NodeVisitor\AbstractNodeVisitor`](./AbstractNodeVisitor.md)
 
-
-
 ## Properties
 
-
 ### data
-
-
 
 ```php
 protected $data
 ```
 
-
-
-
-
-
 ***
 
 ### safeVars
-
-
 
 ```php
 protected $safeVars
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### setSafeVars
-
-
 
 ```php
 public setSafeVars(mixed $safeVars): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -68,25 +39,13 @@ public setSafeVars(mixed $safeVars): mixed
 |-----------|------|-------------|
 | `$safeVars` | **mixed** |  |
 
-
-
-
 ***
 
 ### getSafe
 
-
-
 ```php
 public getSafe(\Twig_NodeInterface $node): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -94,25 +53,13 @@ public getSafe(\Twig_NodeInterface $node): mixed
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 
-
-
-
 ***
 
 ### setSafe
 
-
-
 ```php
 protected setSafe(\Twig_NodeInterface $node, array $safe): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -120,9 +67,6 @@ protected setSafe(\Twig_NodeInterface $node, array $safe): mixed
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 | `$safe` | **array** |  |
-
-
-
 
 ***
 
@@ -134,20 +78,12 @@ Called before child nodes are visited.
 protected doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -165,20 +101,12 @@ Called after child nodes are visited.
 protected doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node|false|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -190,18 +118,9 @@ The modified node or null if the node must be removed
 
 ### intersectSafe
 
-
-
 ```php
 protected intersectSafe(array $a = null, array $b = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -210,34 +129,17 @@ protected intersectSafe(array $a = null, array $b = null): mixed
 | `$a` | **array** |  |
 | `$b` | **array** |  |
 
-
-
-
 ***
 
 ### getPriority
-
-
 
 ```php
 public getPriority(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### enterNode
 
@@ -247,12 +149,7 @@ Called before child nodes are visited.
 final public enterNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig_NodeInterface
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -260,7 +157,6 @@ final public enterNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -278,12 +174,7 @@ Called after child nodes are visited.
 final public leaveNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig_NodeInterface|false|null
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -291,7 +182,6 @@ final public leaveNode(\Twig_NodeInterface $node, \Twig\Environment $env): \Twig
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -309,12 +199,7 @@ Called before child nodes are visited.
 protected doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -322,7 +207,6 @@ protected doEnterNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node
 |-----------|------|-------------|
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
-
 
 **Return Value:**
 
@@ -340,12 +224,7 @@ Called after child nodes are visited.
 protected doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node\Node|false|null
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -354,15 +233,6 @@ protected doLeaveNode(\Twig\Node\Node $node, \Twig\Environment $env): \Twig\Node
 | `$node` | **\Twig\Node\Node** |  |
 | `$env` | **\Twig\Environment** |  |
 
-
 **Return Value:**
 
-The modified node or null if the node must be removed
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The modified node or null if the node must be removed yxorP::get('REQUEST')

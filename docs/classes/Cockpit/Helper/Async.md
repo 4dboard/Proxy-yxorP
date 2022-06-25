@@ -9,50 +9,29 @@ Use only if you know what you're doing!!!
 Usage:
 
 cockpit()->helper('async')->exec('
-   sleep(10);
-   file_put_contents(COCKPIT_DIR."/debug.txt", json_encode(ASYNC_PARAMS));
+sleep(10); file_put_contents(COCKPIT_DIR."/debug.txt", json_encode(ASYNC_PARAMS));
 ', ['test' => 222]);
 
 * Full name: `\Cockpit\Helper\Async`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
-
-
 ## Properties
 
-
 ### phpPath
-
-
 
 ```php
 public $phpPath
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### exec
-
-
 
 ```php
 public exec(mixed $script, mixed $params = null, mixed $maxTime = 60): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -62,25 +41,13 @@ public exec(mixed $script, mixed $params = null, mixed $maxTime = 60): mixed
 | `$params` | **mixed** |  |
 | `$maxTime` | **mixed** |  |
 
-
-
-
 ***
 
 ### finished
 
-
-
 ```php
 public finished(mixed $processId, mixed& $error = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -89,25 +56,13 @@ public finished(mixed $processId, mixed& $error = null): mixed
 | `$processId` | **mixed** |  |
 | `$error` | **mixed** |  |
 
-
-
-
 ***
 
 ### execInBackground
 
-
-
 ```php
 protected execInBackground(mixed $scriptfile): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -115,49 +70,23 @@ protected execInBackground(mixed $scriptfile): mixed
 |-----------|------|-------------|
 | `$scriptfile` | **mixed** |  |
 
-
-
-
 ***
 
 ### isExecAvailable
-
-
 
 ```php
 protected isExecAvailable(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -165,45 +94,21 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -212,25 +117,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -238,25 +131,13 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -264,11 +145,4 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

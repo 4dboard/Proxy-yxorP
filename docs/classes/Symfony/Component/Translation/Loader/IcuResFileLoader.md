@@ -4,17 +4,11 @@
 
 IcuResFileLoader loads translations from a resource bundle.
 
-
-
 * Full name: `\Symfony\Component\Translation\Loader\IcuResFileLoader`
 * This class implements:
-[`\Symfony\Component\Translation\Loader\LoaderInterface`](./LoaderInterface.md)
-
-
-
+  [`\Symfony\Component\Translation\Loader\LoaderInterface`](./LoaderInterface.md)
 
 ## Methods
-
 
 ### load
 
@@ -24,13 +18,6 @@ Loads a locale.
 public load(mixed $resource, mixed $locale, mixed $domain = &#039;messages&#039;): \Symfony\Component\Translation\MessageCatalogue
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -38,7 +25,6 @@ public load(mixed $resource, mixed $locale, mixed $domain = &#039;messages&#039;
 | `$resource` | **mixed** | A resource |
 | `$locale` | **mixed** | A locale |
 | `$domain` | **mixed** | The domain |
-
 
 **Return Value:**
 
@@ -57,16 +43,10 @@ protected flatten(\ResourceBundle $rb, array& $messages = array(), string $path 
 ```
 
 The scheme used is:
-  key { key2 { key3 { "value" } } }
-Becomes:
-  'key.key2.key3' => 'value'
+key { key2 { key3 { "value" } } } Becomes:
+'key.key2.key3' => 'value'
 
 This function takes an array by reference and will modify it
-
-
-
-
-
 
 **Parameters:**
 
@@ -76,15 +56,6 @@ This function takes an array by reference and will modify it
 | `$messages` | **array** | used internally for recursive calls |
 | `$path` | **string** | current path being parsed, used internally for recursive calls |
 
-
 **Return Value:**
 
-the flattened ResourceBundle
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+the flattened ResourceBundle yxorP::get('REQUEST')

@@ -4,64 +4,35 @@
 
 formats the record to be used in the FlowdockHandler
 
-
-
 * Full name: `\Monolog\Formatter\FlowdockFormatter`
 * This class implements:
-[`\Monolog\Formatter\FormatterInterface`](./FormatterInterface.md)
-
-
+  [`\Monolog\Formatter\FormatterInterface`](./FormatterInterface.md)
 
 ## Properties
 
-
 ### source
-
-
 
 ```php
 private string $source
 ```
 
-
-
-
-
-
 ***
 
 ### sourceEmail
-
-
 
 ```php
 private string $sourceEmail
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $source, string $sourceEmail): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,9 +40,6 @@ public __construct(string $source, string $sourceEmail): mixed
 |-----------|------|-------------|
 | `$source` | **string** |  |
 | `$sourceEmail` | **string** |  |
-
-
-
 
 ***
 
@@ -83,19 +51,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -113,19 +73,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -137,18 +89,9 @@ The formatted set of records
 
 ### getShortMessage
 
-
-
 ```php
 public getShortMessage(string $message): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -156,11 +99,4 @@ public getShortMessage(string $message): string
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

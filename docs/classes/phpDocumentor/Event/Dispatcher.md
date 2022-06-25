@@ -4,38 +4,29 @@
 
 Event Dispatching class.
 
-This class provides a bridge to the Symfony2 EventDispatcher.
-At current this is provided by inheritance but future iterations should
-solve this by making it an adapter pattern.
+This class provides a bridge to the Symfony2 EventDispatcher. At current this is provided by inheritance but future
+iterations should solve this by making it an adapter pattern.
 
-The class is implemented as (mockable) Singleton as this was the best
-solution to make the functionality available in every class of the project.
+The class is implemented as (mockable) Singleton as this was the best solution to make the functionality available in
+every class of the project.
 
 * Full name: `\phpDocumentor\Event\Dispatcher`
-* Parent class: [`\Symfony\Component\EventDispatcher\EventDispatcher`](../../Symfony/Component/EventDispatcher/EventDispatcher.md)
-
-
+* Parent
+  class: [`\Symfony\Component\EventDispatcher\EventDispatcher`](../../Symfony/Component/EventDispatcher/EventDispatcher.md)
 
 ## Properties
 
-
 ### instances
-
-
 
 ```php
 protected static \phpDocumentor\Event\Dispatcher[] $instances
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -44,16 +35,6 @@ Override constructor to make this singleton.
 ```php
 protected __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -65,21 +46,13 @@ Returns a named instance of the Event Dispatcher.
 public static getInstance(string $name = &#039;default&#039;): \phpDocumentor\Event\Dispatcher
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -91,12 +64,7 @@ Sets a names instance of the Event Dispatcher.
 public static setInstance(string $name, \phpDocumentor\Event\Dispatcher $instance): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -104,9 +72,6 @@ public static setInstance(string $name, \phpDocumentor\Event\Dispatcher $instanc
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$instance` | **\phpDocumentor\Event\Dispatcher** |  |
-
-
-
 
 ***
 
@@ -118,14 +83,8 @@ Dispatches an event.
 public dispatch(string $eventName, \Symfony\Component\EventDispatcher\Event $event = null): \phpDocumentor\Event\EventAbstract
 ```
 
-Please note that the typehint of this method indicates a Symfony Event
-and this DocBlock a phpDocumentor event. This is because of inheritance
-and that the dispatch signature must remain intact.
-
-
-
-
-
+Please note that the typehint of this method indicates a Symfony Event and this DocBlock a phpDocumentor event. This is
+because of inheritance and that the dispatch signature must remain intact.
 
 **Parameters:**
 
@@ -133,9 +92,6 @@ and that the dispatch signature must remain intact.
 |-----------|------|-------------|
 | `$eventName` | **string** |  |
 | `$event` | **\Symfony\Component\EventDispatcher\Event** |  |
-
-
-
 
 ***
 
@@ -147,13 +103,6 @@ Adds a callable that will listen on the named event.
 public addListener(string $eventName, callable $listener, int $priority): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -162,14 +111,9 @@ public addListener(string $eventName, callable $listener, int $priority): void
 | `$listener` | **callable** |  |
 | `$priority` | **int** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### dispatch
 
@@ -179,22 +123,14 @@ Dispatches an event to all registered listeners.
 public dispatch(mixed $eventName, \Symfony\Component\EventDispatcher\Event $event = null): \Symfony\Component\EventDispatcher\Event
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$eventName` | **mixed** | The name of the event to dispatch. The name of<br />the event is the name of the method that is<br />invoked on listeners. |
-| `$event` | **\Symfony\Component\EventDispatcher\Event** | The event to pass to the event handlers/listeners<br />If not supplied, an empty Event instance is created |
-
-
-
+| `$eventName` | **
+mixed** | The name of the event to dispatch. The name of<br />the event is the name of the method that is<br />invoked on listeners. |
+| `$event` | **
+\Symfony\Component\EventDispatcher\Event** | The event to pass to the event handlers/listeners<br />If not supplied, an empty Event instance is created |
 
 ***
 
@@ -206,19 +142,11 @@ Gets the listeners of a specific event or all listeners sorted by descending pri
 public getListeners(mixed $eventName = null): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** | The name of the event |
-
 
 **Return Value:**
 
@@ -238,18 +166,12 @@ public getListenerPriority(string $eventName, callable $listener): int|null
 
 Returns null if the event or the listener does not exist.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **string** | The name of the event |
 | `$listener` | **callable** | The listener |
-
 
 **Return Value:**
 
@@ -267,19 +189,11 @@ Checks whether an event has any registered listeners.
 public hasListeners(mixed $eventName = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** | The name of the event |
-
 
 **Return Value:**
 
@@ -297,23 +211,14 @@ Adds an event listener that listens on the specified events.
 public addListener(mixed $eventName, mixed $listener, mixed $priority): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** | The event to listen on |
 | `$listener` | **mixed** | The listener |
-| `$priority` | **mixed** | The higher this value, the earlier an event<br />listener will be triggered in the chain (defaults to 0) |
-
-
-
+| `$priority` | **
+mixed** | The higher this value, the earlier an event<br />listener will be triggered in the chain (defaults to 0) |
 
 ***
 
@@ -325,22 +230,12 @@ Removes an event listener from the specified events.
 public removeListener(mixed $eventName, mixed $listener): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** | The event to remove a listener from |
 | `$listener` | **mixed** | The listener to remove |
-
-
-
 
 ***
 
@@ -352,47 +247,25 @@ Adds an event subscriber.
 public addSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterface $subscriber): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subscriber` | **\Symfony\Component\EventDispatcher\EventSubscriberInterface** |  |
-
-
-
 
 ***
 
 ### removeSubscriber
 
-
-
 ```php
 public removeSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterface $subscriber): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subscriber` | **\Symfony\Component\EventDispatcher\EventSubscriberInterface** |  |
-
-
-
 
 ***
 
@@ -404,13 +277,7 @@ Triggers the listeners of an event.
 protected doDispatch(callable[] $listeners, string $eventName, \Symfony\Component\EventDispatcher\Event $event): mixed
 ```
 
-This method can be overridden to add functionality that is executed
-for each listener.
-
-
-
-
-
+This method can be overridden to add functionality that is executed for each listener.
 
 **Parameters:**
 
@@ -419,9 +286,6 @@ for each listener.
 | `$listeners` | **callable[]** | The event listeners |
 | `$eventName` | **string** | The name of the event to dispatch |
 | `$event` | **\Symfony\Component\EventDispatcher\Event** | The event object to pass to the event handlers/listeners |
-
-
-
 
 ***
 
@@ -433,24 +297,10 @@ Sorts the internal list of listeners for the given event by priority.
 private sortListeners(string $eventName): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **string** | The name of the event |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

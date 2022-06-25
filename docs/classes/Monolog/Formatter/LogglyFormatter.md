@@ -4,32 +4,18 @@
 
 Encodes message information into JSON in a format compatible with Loggly.
 
-
-
 * Full name: `\Monolog\Formatter\LogglyFormatter`
 * Parent class: [`\Monolog\Formatter\JsonFormatter`](./JsonFormatter.md)
 
-
-
-
 ## Methods
-
 
 ### __construct
 
-Overrides the default batch mode to new lines for compatibility with the
-Loggly bulk API.
+Overrides the default batch mode to new lines for compatibility with the Loggly bulk API.
 
 ```php
 public __construct(int $batchMode = self::BATCH_MODE_NEWLINES, mixed $appendNewline = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -37,9 +23,6 @@ public __construct(int $batchMode = self::BATCH_MODE_NEWLINES, mixed $appendNewl
 |-----------|------|-------------|
 | `$batchMode` | **int** |  |
 | `$appendNewline` | **mixed** |  |
-
-
-
 
 ***
 
@@ -51,49 +34,29 @@ Appends the 'timestamp' parameter for indexing by Loggly.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
 
-
 **Return Value:**
 
 The formatted record
 
-
 **See Also:**
 
-* https://www.loggly.com/docs/automated-parsing/#json - * \Monolog\Formatter\JsonFormatter::format() - 
+* https://www.loggly.com/docs/automated-parsing/#json - * \Monolog\Formatter\JsonFormatter::format() -
 
 ***
 
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -102,32 +65,16 @@ public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 | `$dateFormat` | **string** | The format of the timestamp: one supported by DateTime::format |
 | `$maxDepth` | **int** |  |
 
-
-
-
 ***
 
 ### getBatchMode
 
-The batch mode option configures the formatting style for
-multiple records. By default, multiple records will be
-formatted as a JSON-encoded array. However, for
-compatibility with some API endpoints, alternative styles
-are available.
+The batch mode option configures the formatting style for multiple records. By default, multiple records will be
+formatted as a JSON-encoded array. However, for compatibility with some API endpoints, alternative styles are available.
 
 ```php
 public getBatchMode(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -139,16 +86,6 @@ True if newlines are appended to every formatted record
 public isAppendingNewlines(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### format
@@ -159,19 +96,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -189,19 +118,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -213,27 +134,15 @@ The formatted set of records
 
 ### includeStacktraces
 
-
-
 ```php
 public includeStacktraces(bool $include = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$include` | **bool** |  |
-
-
-
 
 ***
 
@@ -245,39 +154,21 @@ Return a JSON-encoded array of records.
 protected formatBatchJson(array $records): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** |  |
-
-
-
 
 ***
 
 ### formatBatchNewlines
 
-Use new lines to separate records instead of a
-JSON-encoded array.
+Use new lines to separate records instead of a JSON-encoded array.
 
 ```php
 protected formatBatchNewlines(array $records): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -285,25 +176,13 @@ protected formatBatchNewlines(array $records): string
 |-----------|------|-------------|
 | `$records` | **array** |  |
 
-
-
-
 ***
 
 ### normalize
 
-
-
 ```php
 protected normalize(mixed $data, mixed $depth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -312,25 +191,13 @@ protected normalize(mixed $data, mixed $depth): mixed
 | `$data` | **mixed** |  |
 | `$depth` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeException
 
-
-
 ```php
 protected normalizeException(mixed $e): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -338,54 +205,27 @@ protected normalizeException(mixed $e): mixed
 |-----------|------|-------------|
 | `$e` | **mixed** |  |
 
-
-
-
 ***
 
 ### getMaxDepth
-
-
 
 ```php
 public getMaxDepth(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setMaxDepth
 
-
-
 ```php
 public setMaxDepth(int $maxDepth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$maxDepth` | **int** |  |
-
-
-
 
 ***
 
@@ -397,13 +237,6 @@ Return the JSON representation of a value
 protected toJson(mixed $data, bool $ignoreErrors = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -411,11 +244,4 @@ protected toJson(mixed $data, bool $ignoreErrors = false): string
 | `$data` | **mixed** |  |
 | `$ignoreErrors` | **bool** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,16 +4,10 @@
 
 XliffFileDumper generates xliff files from a message catalogue.
 
-
-
 * Full name: `\Symfony\Component\Translation\Dumper\XliffFileDumper`
 * Parent class: [`\Symfony\Component\Translation\Dumper\FileDumper`](./FileDumper.md)
 
-
-
-
 ## Methods
-
 
 ### formatCatalogue
 
@@ -23,13 +17,6 @@ Transforms a domain of a message catalogue to its string representation.
 public formatCatalogue(\Symfony\Component\Translation\MessageCatalogue $messages, mixed $domain, array $options = array()): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -37,7 +24,6 @@ public formatCatalogue(\Symfony\Component\Translation\MessageCatalogue $messages
 | `$messages` | **\Symfony\Component\Translation\MessageCatalogue** |  |
 | `$domain` | **mixed** |  |
 | `$options` | **array** |  |
-
 
 **Return Value:**
 
@@ -54,14 +40,6 @@ Gets the file extension of the dumper.
 ```php
 protected getExtension(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -73,18 +51,9 @@ file extension
 
 ### dumpXliff1
 
-
-
 ```php
 private dumpXliff1(mixed $defaultLocale, \Symfony\Component\Translation\MessageCatalogue $messages, mixed $domain, array $options = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -94,26 +63,14 @@ private dumpXliff1(mixed $defaultLocale, \Symfony\Component\Translation\MessageC
 | `$messages` | **\Symfony\Component\Translation\MessageCatalogue** |  |
 | `$domain` | **mixed** |  |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
 ### dumpXliff2
 
-
-
 ```php
 private dumpXliff2(mixed $defaultLocale, \Symfony\Component\Translation\MessageCatalogue $messages, mixed $domain, array $options = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -124,25 +81,13 @@ private dumpXliff2(mixed $defaultLocale, \Symfony\Component\Translation\MessageC
 | `$domain` | **mixed** |  |
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### hasMetadataArrayInfo
 
-
-
 ```php
 private hasMetadataArrayInfo(string $key, array|null $metadata = null): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -151,14 +96,9 @@ private hasMetadataArrayInfo(string $key, array|null $metadata = null): bool
 | `$key` | **string** |  |
 | `$metadata` | **array&#124;null** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setRelativePathTemplate
 
@@ -168,21 +108,11 @@ Sets the template for the relative paths to files.
 public setRelativePathTemplate(string $relativePathTemplate): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$relativePathTemplate` | **string** | A template for the relative paths to files |
-
-
-
 
 ***
 
@@ -194,21 +124,11 @@ Sets backup flag.
 public setBackup(mixed $backup): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$backup` | **mixed** |  |
-
-
-
 
 ***
 
@@ -220,22 +140,12 @@ Dumps the message catalogue.
 public dump(\Symfony\Component\Translation\MessageCatalogue $messages, mixed $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$messages` | **\Symfony\Component\Translation\MessageCatalogue** | The message catalogue |
 | `$options` | **mixed** | Options that are used by the dumper |
-
-
-
 
 ***
 
@@ -247,12 +157,7 @@ Transforms a domain of a message catalogue to its string representation.
 public formatCatalogue(\Symfony\Component\Translation\MessageCatalogue $messages, string $domain, array $options = array()): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -261,7 +166,6 @@ public formatCatalogue(\Symfony\Component\Translation\MessageCatalogue $messages
 | `$messages` | **\Symfony\Component\Translation\MessageCatalogue** |  |
 | `$domain` | **string** |  |
 | `$options` | **array** |  |
-
 
 **Return Value:**
 
@@ -279,13 +183,7 @@ Gets the file extension of the dumper.
 protected getExtension(): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
 
 **Return Value:**
 
@@ -303,13 +201,6 @@ Gets the relative file path using the template.
 private getRelativePath(string $domain, string $locale): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -317,15 +208,6 @@ private getRelativePath(string $domain, string $locale): string
 | `$domain` | **string** | The domain |
 | `$locale` | **string** | The locale |
 
-
 **Return Value:**
 
-The relative file path
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The relative file path yxorP::get('REQUEST')

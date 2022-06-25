@@ -4,80 +4,48 @@
 
 Representation of an event
 
-Encapsulates the target context and parameters passed, and provides some
-behavior for interacting with the event manager.
+Encapsulates the target context and parameters passed, and provides some behavior for interacting with the event
+manager.
 
 * Full name: `\Zend\EventManager\Event`
 * This class implements:
-[`\Zend\EventManager\EventInterface`](./EventInterface.md)
-
-
+  [`\Zend\EventManager\EventInterface`](./EventInterface.md)
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 protected string $name
 ```
 
-
-
-
-
-
 ***
 
 ### target
-
-
 
 ```php
 protected string|object $target
 ```
 
-
-
-
-
-
 ***
 
 ### params
-
-
 
 ```php
 protected array|\ArrayAccess|object $params
 ```
 
-
-
-
-
-
 ***
 
 ### stopPropagation
-
-
 
 ```php
 protected bool $stopPropagation
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -89,11 +57,6 @@ public __construct(string $name = null, string|object $target = null, array|\Arr
 
 Accept a target and its parameters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -101,9 +64,6 @@ Accept a target and its parameters.
 | `$name` | **string** | Event name |
 | `$target` | **string&#124;object** |  |
 | `$params` | **array&#124;\ArrayAccess** |  |
-
-
-
 
 ***
 
@@ -114,16 +74,6 @@ Get event name
 ```php
 public getName(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -157,19 +107,11 @@ public setParams(array|\ArrayAccess|object $params): \Zend\EventManager\Event
 
 Overwrites parameters
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **array&#124;\ArrayAccess&#124;object** |  |
-
-
-
 
 ***
 
@@ -180,16 +122,6 @@ Get all parameters
 ```php
 public getParams(): array|object|\ArrayAccess
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -203,20 +135,12 @@ public getParam(string|int $name, mixed $default = null): mixed
 
 If the parameter does not exist, the $default value will be returned.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;int** |  |
 | `$default` | **mixed** |  |
-
-
-
 
 ***
 
@@ -228,21 +152,11 @@ Set the event name
 public setName(string $name): \Zend\EventManager\Event
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -254,21 +168,11 @@ Set the event target/context
 public setTarget(null|string|object $target): \Zend\EventManager\Event
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **null&#124;string&#124;object** |  |
-
-
-
 
 ***
 
@@ -280,22 +184,12 @@ Set an individual parameter to a value
 public setParam(string|int $name, mixed $value): \Zend\EventManager\Event
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;int** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -307,21 +201,11 @@ Stop further event propagation
 public stopPropagation(bool $flag = true): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **bool** |  |
-
-
-
 
 ***
 
@@ -333,18 +217,4 @@ Is propagation stopped?
 public propagationIsStopped(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

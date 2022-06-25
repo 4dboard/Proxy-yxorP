@@ -2,141 +2,75 @@
 
 # MetadataFactory
 
-
-
-
-
 * Full name: `\Metadata\MetadataFactory`
 * This class implements:
-[`\Metadata\AdvancedMetadataFactoryInterface`](./AdvancedMetadataFactoryInterface.md)
-
-
+  [`\Metadata\AdvancedMetadataFactoryInterface`](./AdvancedMetadataFactoryInterface.md)
 
 ## Properties
 
-
 ### driver
-
-
 
 ```php
 private $driver
 ```
 
-
-
-
-
-
 ***
 
 ### cache
-
-
 
 ```php
 private $cache
 ```
 
-
-
-
-
-
 ***
 
 ### loadedMetadata
-
-
 
 ```php
 private $loadedMetadata
 ```
 
-
-
-
-
-
 ***
 
 ### loadedClassMetadata
-
-
 
 ```php
 private $loadedClassMetadata
 ```
 
-
-
-
-
-
 ***
 
 ### hierarchyMetadataClass
-
-
 
 ```php
 private $hierarchyMetadataClass
 ```
 
-
-
-
-
-
 ***
 
 ### includeInterfaces
-
-
 
 ```php
 private $includeInterfaces
 ```
 
-
-
-
-
-
 ***
 
 ### debug
-
-
 
 ```php
 private $debug
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Metadata\Driver\DriverInterface $driver, string $hierarchyMetadataClass = &#039;Metadata\ClassHierarchyMetadata&#039;, bool $debug = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -146,25 +80,13 @@ public __construct(\Metadata\Driver\DriverInterface $driver, string $hierarchyMe
 | `$hierarchyMetadataClass` | **string** |  |
 | `$debug` | **bool** |  |
 
-
-
-
 ***
 
 ### setIncludeInterfaces
 
-
-
 ```php
 public setIncludeInterfaces(bool $include): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -172,25 +94,13 @@ public setIncludeInterfaces(bool $include): mixed
 |-----------|------|-------------|
 | `$include` | **bool** |  |
 
-
-
-
 ***
 
 ### setCache
 
-
-
 ```php
 public setCache(\Metadata\Cache\CacheInterface $cache): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -198,34 +108,19 @@ public setCache(\Metadata\Cache\CacheInterface $cache): mixed
 |-----------|------|-------------|
 | `$cache` | **\Metadata\Cache\CacheInterface** |  |
 
-
-
-
 ***
 
 ### getMetadataForClass
 
-
-
 ```php
 public getMetadataForClass(string $className): \Metadata\ClassHierarchyMetadata|\Metadata\MergeableClassMetadata|null
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$className` | **string** |  |
-
-
-
 
 ***
 
@@ -237,32 +132,13 @@ Gets all the possible classes.
 public getAllClassNames(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addClassMetadata
 
-
-
 ```php
 private addClassMetadata(\Metadata\ClassMetadata|null& $metadata, \Metadata\ClassMetadata $toAdd): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -271,25 +147,13 @@ private addClassMetadata(\Metadata\ClassMetadata|null& $metadata, \Metadata\Clas
 | `$metadata` | **\Metadata\ClassMetadata&#124;null** |  |
 | `$toAdd` | **\Metadata\ClassMetadata** |  |
 
-
-
-
 ***
 
 ### getClassHierarchy
 
-
-
 ```php
 private getClassHierarchy(string $class): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -297,25 +161,13 @@ private getClassHierarchy(string $class): mixed
 |-----------|------|-------------|
 | `$class` | **string** |  |
 
-
-
-
 ***
 
 ### filterNullMetadata
 
-
-
 ```php
 private filterNullMetadata(\Metadata\NullMetadata|null $metadata = null): \Metadata\ClassMetadata|null
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -323,11 +175,4 @@ private filterNullMetadata(\Metadata\NullMetadata|null $metadata = null): \Metad
 |-----------|------|-------------|
 | `$metadata` | **\Metadata\NullMetadata&#124;null** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

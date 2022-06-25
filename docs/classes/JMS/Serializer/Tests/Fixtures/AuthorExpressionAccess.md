@@ -2,79 +2,41 @@
 
 # AuthorExpressionAccess
 
-
-
-
-
 * Full name: `\JMS\Serializer\Tests\Fixtures\AuthorExpressionAccess`
-
-
 
 ## Properties
 
-
 ### id
-
-
 
 ```php
 private $id
 ```
 
-
-
-
-
-
 ***
 
 ### firstName
-
-
 
 ```php
 private $firstName
 ```
 
-
-
-
-
-
 ***
 
 ### lastName
-
-
 
 ```php
 private $lastName
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $id, mixed $firstName, mixed $lastName): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -84,51 +46,20 @@ public __construct(mixed $id, mixed $firstName, mixed $lastName): mixed
 | `$firstName` | **mixed** |  |
 | `$lastName` | **mixed** |  |
 
-
-
-
 ***
 
 ### getFirstName
-
-
 
 ```php
 public getFirstName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getLastName
-
-
 
 ```php
 public getLastName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

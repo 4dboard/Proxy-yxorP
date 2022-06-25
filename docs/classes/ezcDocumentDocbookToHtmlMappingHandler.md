@@ -4,17 +4,13 @@
 
 Simple mapping handler
 
-Special visitor for elements which just need trivial mapping of element
-tag names. It ignores all attributes of the input element and just
-converts the tag name.
+Special visitor for elements which just need trivial mapping of element tag names. It ignores all attributes of the
+input element and just converts the tag name.
 
 * Full name: `\ezcDocumentDocbookToHtmlMappingHandler`
 * Parent class: [`\ezcDocumentDocbookToHtmlBaseHandler`](./ezcDocumentDocbookToHtmlBaseHandler.md)
 
-
-
 ## Properties
-
 
 ### mapping
 
@@ -24,8 +20,7 @@ Mapping of element names.
 protected array $mapping
 ```
 
-Element tag name mapping for elements, which just require trivial
-mapping used by the visitWithMapper() method.
+Element tag name mapping for elements, which just require trivial mapping used by the visitWithMapper() method.
 
 
 
@@ -33,7 +28,6 @@ mapping used by the visitWithMapper() method.
 ***
 
 ## Methods
-
 
 ### handle
 
@@ -43,13 +37,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -59,14 +47,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getHead
 
@@ -78,19 +61,11 @@ protected getHead(\DOMElement $element): \DOMElement
 
 Get the root node of the HTML document head
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -102,13 +77,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -118,11 +89,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

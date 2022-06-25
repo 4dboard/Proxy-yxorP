@@ -4,18 +4,10 @@
 
 Exception thrown when a not allowed tag is used in a template.
 
-
-
 * Full name: `\Twig_Sandbox_SecurityNotAllowedTagError`
 * Parent class: [`\Twig\Sandbox\SecurityNotAllowedTagError`](./Twig/Sandbox/SecurityNotAllowedTagError.md)
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -25,13 +17,7 @@ Constructor.
 public __construct(string $message, int $lineno = -1, \Twig\Source|string|null $source = null, \Exception $previous = null): mixed
 ```
 
-Set the line number to -1 to enable its automatic guessing.
-Set the name to null to enable its automatic guessing.
-
-
-
-
-
+Set the line number to -1 to enable its automatic guessing. Set the name to null to enable its automatic guessing.
 
 **Parameters:**
 
@@ -42,28 +28,13 @@ Set the name to null to enable its automatic guessing.
 | `$source` | **\Twig\Source&#124;string&#124;null** | The source context where the error occurred |
 | `$previous` | **\Exception** | The previous exception |
 
-
-
-
 ***
 
 ### getTagName
 
-
-
 ```php
 public getTagName(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -74,14 +45,6 @@ Gets the raw message.
 ```php
 public getRawMessage(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -99,15 +62,7 @@ Gets the logical name where the error occurred.
 public getTemplateFile(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -125,23 +80,13 @@ Sets the logical name where the error occurred.
 public setTemplateFile(string $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name |
-
-
-
 
 ***
 
@@ -153,15 +98,7 @@ Gets the logical name where the error occurred.
 public getTemplateName(): string
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -179,23 +116,13 @@ Sets the logical name where the error occurred.
 public setTemplateName(string $name): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name |
-
-
-
 
 ***
 
@@ -206,14 +133,6 @@ Gets the template line where the error occurred.
 ```php
 public getTemplateLine(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -231,21 +150,11 @@ Sets the template line where the error occurred.
 public setTemplateLine(int $lineno): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$lineno` | **int** | The template line |
-
-
-
 
 ***
 
@@ -257,16 +166,6 @@ Gets the source context of the Twig template where the error occurred.
 public getSourceContext(): \Twig\Source|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSourceContext
@@ -277,58 +176,27 @@ Sets the source context of the Twig template where the error occurred.
 public setSourceContext(\Twig\Source $source = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **\Twig\Source** |  |
 
-
-
-
 ***
 
 ### guess
-
-
 
 ```php
 public guess(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### appendMessage
 
-
-
 ```php
 public appendMessage(mixed $rawMessage): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -336,11 +204,4 @@ public appendMessage(mixed $rawMessage): mixed
 |-----------|------|-------------|
 | `$rawMessage` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

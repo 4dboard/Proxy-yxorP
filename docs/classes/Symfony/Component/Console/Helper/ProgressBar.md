@@ -4,317 +4,173 @@
 
 The ProgressBar provides helpers to display progress output.
 
-
-
 * Full name: `\Symfony\Component\Console\Helper\ProgressBar`
-
-
 
 ## Properties
 
-
 ### barWidth
-
-
 
 ```php
 private $barWidth
 ```
 
-
-
-
-
-
 ***
 
 ### barChar
-
-
 
 ```php
 private $barChar
 ```
 
-
-
-
-
-
 ***
 
 ### emptyBarChar
-
-
 
 ```php
 private $emptyBarChar
 ```
 
-
-
-
-
-
 ***
 
 ### progressChar
-
-
 
 ```php
 private $progressChar
 ```
 
-
-
-
-
-
 ***
 
 ### format
-
-
 
 ```php
 private $format
 ```
 
-
-
-
-
-
 ***
 
 ### internalFormat
-
-
 
 ```php
 private $internalFormat
 ```
 
-
-
-
-
-
 ***
 
 ### redrawFreq
-
-
 
 ```php
 private $redrawFreq
 ```
 
-
-
-
-
-
 ***
 
 ### output
-
-
 
 ```php
 private $output
 ```
 
-
-
-
-
-
 ***
 
 ### step
-
-
 
 ```php
 private $step
 ```
 
-
-
-
-
-
 ***
 
 ### max
-
-
 
 ```php
 private $max
 ```
 
-
-
-
-
-
 ***
 
 ### startTime
-
-
 
 ```php
 private $startTime
 ```
 
-
-
-
-
-
 ***
 
 ### stepWidth
-
-
 
 ```php
 private $stepWidth
 ```
 
-
-
-
-
-
 ***
 
 ### percent
-
-
 
 ```php
 private $percent
 ```
 
-
-
-
-
-
 ***
 
 ### formatLineCount
-
-
 
 ```php
 private $formatLineCount
 ```
 
-
-
-
-
-
 ***
 
 ### messages
-
-
 
 ```php
 private $messages
 ```
 
-
-
-
-
-
 ***
 
 ### overwrite
-
-
 
 ```php
 private $overwrite
 ```
 
-
-
-
-
-
 ***
 
 ### firstRun
-
-
 
 ```php
 private $firstRun
 ```
 
-
-
-
-
-
 ***
 
 ### formatters
-
-
 
 ```php
 private static $formatters
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### formats
 
-
-
 ```php
 private static $formats
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Output\OutputInterface $output, int $max): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -322,9 +178,6 @@ public __construct(\Symfony\Component\Console\Output\OutputInterface $output, in
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** | An OutputInterface instance |
 | `$max` | **int** | Maximum steps (0 if unknown) |
-
-
-
 
 ***
 
@@ -340,18 +193,12 @@ This method also allow you to override an existing placeholder.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The placeholder name (including the delimiter char like %) |
 | `$callable` | **callable** | A PHP callable |
-
-
-
 
 ***
 
@@ -363,19 +210,13 @@ Gets the placeholder formatter for a given name.
 public static getPlaceholderFormatterDefinition(string $name): callable|null
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The placeholder name (including the delimiter char like %) |
-
 
 **Return Value:**
 
@@ -397,18 +238,12 @@ This method also allow you to override an existing format.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The format name |
 | `$format` | **string** | A format string |
-
-
-
 
 ***
 
@@ -420,19 +255,13 @@ Gets the format for a given name.
 public static getFormatDefinition(string $name): string|null
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The format name |
-
 
 **Return Value:**
 
@@ -450,14 +279,9 @@ Associates a text with a named placeholder.
 public setMessage(string $message, string $name = &#039;message&#039;): mixed
 ```
 
-The text is displayed when the progress bar is rendered but only
-when the corresponding placeholder is part of the custom format line
+The text is displayed when the progress bar is rendered but only when the corresponding placeholder is part of the
+custom format line
 (by wrapping the name with %).
-
-
-
-
-
 
 **Parameters:**
 
@@ -466,34 +290,19 @@ when the corresponding placeholder is part of the custom format line
 | `$message` | **string** | The text to associate with the placeholder |
 | `$name` | **string** | The name of the placeholder |
 
-
-
-
 ***
 
 ### getMessage
 
-
-
 ```php
 public getMessage(mixed $name = &#039;message&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
@@ -504,14 +313,6 @@ Gets the progress bar start time.
 ```php
 public getStartTime(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -529,14 +330,6 @@ Gets the progress bar maximal steps.
 public getMaxSteps(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The progress bar max steps
@@ -553,15 +346,7 @@ Gets the progress bar step.
 public getStep(): int
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -579,14 +364,6 @@ Gets the current step position.
 public getProgress(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The progress bar step
@@ -602,14 +379,6 @@ Gets the current progress bar percent.
 ```php
 public getProgressPercent(): float
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -627,21 +396,11 @@ Sets the progress bar width.
 public setBarWidth(int $size): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$size` | **int** | The progress bar size |
-
-
-
 
 ***
 
@@ -652,14 +411,6 @@ Gets the progress bar width.
 ```php
 public getBarWidth(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -677,21 +428,11 @@ Sets the bar character.
 public setBarCharacter(string $char): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$char` | **string** | A character |
-
-
-
 
 ***
 
@@ -702,14 +443,6 @@ Gets the bar character.
 ```php
 public getBarCharacter(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -727,21 +460,11 @@ Sets the empty bar character.
 public setEmptyBarCharacter(string $char): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$char` | **string** | A character |
-
-
-
 
 ***
 
@@ -752,14 +475,6 @@ Gets the empty bar character.
 ```php
 public getEmptyBarCharacter(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -777,21 +492,11 @@ Sets the progress bar character.
 public setProgressCharacter(string $char): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$char` | **string** | A character |
-
-
-
 
 ***
 
@@ -802,14 +507,6 @@ Gets the progress bar character.
 ```php
 public getProgressCharacter(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -827,21 +524,11 @@ Sets the progress bar format.
 public setFormat(string $format): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** | The format |
-
-
-
 
 ***
 
@@ -853,21 +540,11 @@ Sets the redraw frequency.
 public setRedrawFrequency(int|float $freq): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$freq` | **int&#124;float** | The frequency in steps |
-
-
-
 
 ***
 
@@ -879,21 +556,11 @@ Starts the progress output.
 public start(int|null $max = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$max` | **int&#124;null** | Number of steps to complete the bar (0 if indeterminate), null to leave unchanged |
-
-
-
 
 ***
 
@@ -905,21 +572,11 @@ Advances the progress output X steps.
 public advance(int $step = 1): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$step` | **int** | Number of steps to advance |
-
-
-
 
 ***
 
@@ -931,23 +588,13 @@ Sets the current progress.
 public setCurrent(int $step): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$step` | **int** | The current progress |
-
-
-
 
 ***
 
@@ -959,21 +606,11 @@ Sets whether to overwrite the progressbar, false for new line.
 public setOverwrite(bool $overwrite): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$overwrite` | **bool** |  |
-
-
-
 
 ***
 
@@ -985,21 +622,11 @@ Sets the current progress.
 public setProgress(int $step): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$step` | **int** | The current progress |
-
-
-
 
 ***
 
@@ -1011,16 +638,6 @@ Finishes the progress output.
 public finish(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### display
@@ -1030,16 +647,6 @@ Outputs the current progress string.
 ```php
 public display(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1051,9 +658,8 @@ Removes the progress bar from the current line.
 public clear(): mixed
 ```
 
-This is useful if you wish to write some output
-while a progress bar is running.
-Call display() to show the progress bar again.
+This is useful if you wish to write some output while a progress bar is running. Call display() to show the progress bar
+again.
 
 
 
@@ -1073,21 +679,11 @@ Sets the progress bar format.
 private setRealFormat(string $format): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** | The format |
-
-
-
 
 ***
 
@@ -1099,21 +695,11 @@ Sets the progress bar maximal steps.
 private setMaxSteps(int $max): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$max` | **int** | The progress bar max steps |
-
-
-
 
 ***
 
@@ -1125,84 +711,38 @@ Overwrites a previous message to the output.
 private overwrite(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** | The message |
 
-
-
-
 ***
 
 ### determineBestFormat
-
-
 
 ```php
 private determineBestFormat(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### initPlaceholderFormatters
-
-
 
 ```php
 private static initPlaceholderFormatters(): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
 ### initFormats
 
-
-
 ```php
 private static initFormats(): mixed
 ```
 
-
-
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

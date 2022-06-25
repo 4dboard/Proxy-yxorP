@@ -4,11 +4,8 @@
 
 Serializes a log message according to Wildfire's header requirements
 
-
-
 * Full name: `\Monolog\Formatter\WildfireFormatter`
 * Parent class: [`\Monolog\Formatter\NormalizerFormatter`](./NormalizerFormatter.md)
-
 
 ## Constants
 
@@ -18,7 +15,6 @@ Serializes a log message according to Wildfire's header requirements
 
 ## Properties
 
-
 ### logLevels
 
 Translates Monolog log levels to Wildfire levels.
@@ -27,15 +23,9 @@ Translates Monolog log levels to Wildfire levels.
 private $logLevels
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### format
 
@@ -45,19 +35,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -75,19 +57,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -99,18 +73,9 @@ The formatted set of records
 
 ### normalize
 
-
-
 ```php
 protected normalize(mixed $data, mixed $depth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -119,29 +84,15 @@ protected normalize(mixed $data, mixed $depth): mixed
 | `$data` | **mixed** |  |
 | `$depth` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -149,9 +100,6 @@ public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 |-----------|------|-------------|
 | `$dateFormat` | **string** | The format of the timestamp: one supported by DateTime::format |
 | `$maxDepth` | **int** |  |
-
-
-
 
 ***
 
@@ -163,19 +111,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -193,19 +133,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -217,38 +149,17 @@ The formatted set of records
 
 ### getMaxDepth
 
-
-
 ```php
 public getMaxDepth(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setMaxDepth
 
-
-
 ```php
 public setMaxDepth(int $maxDepth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -256,25 +167,13 @@ public setMaxDepth(int $maxDepth): mixed
 |-----------|------|-------------|
 | `$maxDepth` | **int** |  |
 
-
-
-
 ***
 
 ### normalize
 
-
-
 ```php
 protected normalize(mixed $data, mixed $depth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -283,34 +182,19 @@ protected normalize(mixed $data, mixed $depth): mixed
 | `$data` | **mixed** |  |
 | `$depth` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeException
 
-
-
 ```php
 protected normalizeException(mixed $e): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **mixed** |  |
-
-
-
 
 ***
 
@@ -322,13 +206,6 @@ Return the JSON representation of a value
 protected toJson(mixed $data, bool $ignoreErrors = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -336,11 +213,4 @@ protected toJson(mixed $data, bool $ignoreErrors = false): string
 | `$data` | **mixed** |  |
 | `$ignoreErrors` | **bool** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

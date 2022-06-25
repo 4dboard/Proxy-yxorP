@@ -4,15 +4,12 @@
 
 Slack record utility helping to log to Slack webhooks or API.
 
-
-
 * Full name: `\Monolog\Handler\Slack\SlackRecord`
 
 **See Also:**
 
-* https://api.slack.com/incoming-webhooks - 
-* https://api.slack.com/docs/message-attachments - 
-
+* https://api.slack.com/incoming-webhooks -
+* https://api.slack.com/docs/message-attachments -
 
 ## Constants
 
@@ -25,7 +22,6 @@ Slack record utility helping to log to Slack webhooks or API.
 
 ## Properties
 
-
 ### channel
 
 Slack channel (encoded ID or name)
@@ -33,11 +29,6 @@ Slack channel (encoded ID or name)
 ```php
 private string|null $channel
 ```
-
-
-
-
-
 
 ***
 
@@ -49,11 +40,6 @@ Name of a bot
 private string|null $username
 ```
 
-
-
-
-
-
 ***
 
 ### userIcon
@@ -63,11 +49,6 @@ User icon e.g. 'ghost', 'http://example.com/user.png'
 ```php
 private string $userIcon
 ```
-
-
-
-
-
 
 ***
 
@@ -79,11 +60,6 @@ Whether the message should be added to Slack as attachment (plain text otherwise
 private bool $useAttachment
 ```
 
-
-
-
-
-
 ***
 
 ### useShortAttachment
@@ -93,11 +69,6 @@ Whether the the context/extra messages added to Slack as attachments are in a sh
 ```php
 private bool $useShortAttachment
 ```
-
-
-
-
-
 
 ***
 
@@ -109,11 +80,6 @@ Whether the attachment should include context and extra data
 private bool $includeContextAndExtra
 ```
 
-
-
-
-
-
 ***
 
 ### excludeFields
@@ -124,60 +90,31 @@ Dot separated list of fields to exclude from slack message. E.g. ['context.field
 private array $excludeFields
 ```
 
-
-
-
-
-
 ***
 
 ### formatter
-
-
 
 ```php
 private \Monolog\Formatter\FormatterInterface $formatter
 ```
 
-
-
-
-
-
 ***
 
 ### normalizerFormatter
-
-
 
 ```php
 private \Monolog\Formatter\NormalizerFormatter $normalizerFormatter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $channel = null, mixed $username = null, mixed $useAttachment = true, mixed $userIcon = null, mixed $useShortAttachment = false, mixed $includeContextAndExtra = false, array $excludeFields = array(), \Monolog\Formatter\FormatterInterface $formatter = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -192,25 +129,13 @@ public __construct(mixed $channel = null, mixed $username = null, mixed $useAtta
 | `$excludeFields` | **array** |  |
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
 
-
-
-
 ***
 
 ### getSlackData
 
-
-
 ```php
 public getSlackData(array $record): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -218,35 +143,21 @@ public getSlackData(array $record): mixed
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
 ***
 
 ### getAttachmentColor
 
-Returned a Slack message attachment color associated with
-provided level.
+Returned a Slack message attachment color associated with provided level.
 
 ```php
 public getAttachmentColor(int $level): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **int** |  |
-
-
-
 
 ***
 
@@ -258,21 +169,11 @@ Stringifies an array of key/value pairs to be used in attachment fields
 public stringify(array $fields): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fields` | **array** |  |
-
-
-
 
 ***
 
@@ -284,21 +185,11 @@ Sets the formatter
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -310,22 +201,12 @@ Generates attachment field
 private generateAttachmentField(string $title, string|array $value): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$title` | **string** |  |
 | `$value` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -337,21 +218,11 @@ Generates a collection of attachment fields from array
 private generateAttachmentFields(array $data): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** |  |
-
-
-
 
 ***
 
@@ -363,24 +234,10 @@ Get a copy of record with fields excluded according to $this->excludeFields
 private excludeFields(array $record): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

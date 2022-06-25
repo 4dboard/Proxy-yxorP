@@ -4,42 +4,22 @@
 
 Represents an Array node in the config tree.
 
-
-
 * Full name: `\Symfony\Component\Config\Tests\Fixtures\BarNode`
 * Parent class: [`\Symfony\Component\Config\Definition\ArrayNode`](../../Definition/ArrayNode.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### setNormalizeKeys
-
-
 
 ```php
 public setNormalizeKeys(mixed $normalizeKeys): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalizeKeys` | **mixed** |  |
-
-
-
 
 ***
 
@@ -51,19 +31,11 @@ Normalizes the value before any other normalization is applied.
 protected preNormalize( $value): \Symfony\Component\Config\Definition\The
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **** |  |
-
 
 **Return Value:**
 
@@ -81,14 +53,6 @@ Retrieves the children of this node.
 public getChildren(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The children
@@ -105,21 +69,11 @@ Sets the xml remappings that should be performed.
 public setXmlRemappings(array $remappings): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$remappings` | **array** | An array of the form array(array(string, string)) |
-
-
-
 
 ***
 
@@ -131,14 +85,6 @@ Gets the xml remappings that should be performed.
 public getXmlRemappings(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 an array of the form array(array(string, string))
@@ -149,28 +95,17 @@ an array of the form array(array(string, string))
 
 ### setAddIfNotSet
 
-Sets whether to add default values for this array if it has not been
-defined in any of the configuration files.
+Sets whether to add default values for this array if it has not been defined in any of the configuration files.
 
 ```php
 public setAddIfNotSet(bool $boolean): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** |  |
-
-
-
 
 ***
 
@@ -182,21 +117,11 @@ Sets whether false is allowed as value indicating that the array should be unset
 public setAllowFalse(bool $allow): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allow` | **bool** |  |
-
-
-
 
 ***
 
@@ -208,21 +133,11 @@ Sets whether new keys can be defined in subsequent configurations.
 public setAllowNewKeys(bool $allow): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allow` | **bool** |  |
-
-
-
 
 ***
 
@@ -234,21 +149,11 @@ Sets if deep merging should occur.
 public setPerformDeepMerging(bool $boolean): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** |  |
-
-
-
 
 ***
 
@@ -260,22 +165,12 @@ Whether extra keys should just be ignore without an exception.
 public setIgnoreExtraKeys(bool $boolean, bool $remove = true): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** | To allow extra keys |
 | `$remove` | **bool** | To remove extra keys |
-
-
-
 
 ***
 
@@ -287,21 +182,11 @@ Sets the name of the node.
 public setName(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** | The name of the node |
-
-
-
 
 ***
 
@@ -313,16 +198,6 @@ public setName(mixed $name): mixed
 public hasDefaultValue(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDefaultValue
@@ -332,16 +207,6 @@ public hasDefaultValue(): mixed
 ```php
 public getDefaultValue(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -353,21 +218,11 @@ Adds a child node.
 public addChild(\Symfony\Component\Config\Definition\NodeInterface $node): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Symfony\Component\Config\Definition\NodeInterface** |  |
-
-
-
 
 ***
 
@@ -379,19 +234,13 @@ Finalizes a value.
 protected finalizeValue(mixed $value): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to finalize |
-
 
 **Return Value:**
 
@@ -409,21 +258,13 @@ Validates the type of a Node.
 protected validateType(mixed $value): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to validate |
-
-
-
 
 ***
 
@@ -435,19 +276,13 @@ Normalizes the value.
 protected normalizeValue(mixed $value): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to normalize |
-
 
 **Return Value:**
 
@@ -465,19 +300,11 @@ Remaps multiple singular values to a single plural value.
 protected remapXml(array $value): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **array** | The source values |
-
 
 **Return Value:**
 
@@ -495,12 +322,7 @@ Merges two values together.
 protected mergeValues(mixed $leftSide, mixed $rightSide): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -508,7 +330,6 @@ protected mergeValues(mixed $leftSide, mixed $rightSide): mixed
 |-----------|------|-------------|
 | `$leftSide` | **mixed** |  |
 | `$rightSide` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -520,18 +341,9 @@ The merged value
 
 ### __construct
 
-
-
 ```php
 public __construct(string|null $name, \Symfony\Component\Config\Definition\NodeInterface|null $parent = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -540,25 +352,13 @@ public __construct(string|null $name, \Symfony\Component\Config\Definition\NodeI
 | `$name` | **string&#124;null** | The name of the node |
 | `$parent` | **\Symfony\Component\Config\Definition\NodeInterface&#124;null** | The parent of this node |
 
-
-
-
 ***
 
 ### setAttribute
 
-
-
 ```php
 public setAttribute(mixed $key, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -567,25 +367,13 @@ public setAttribute(mixed $key, mixed $value): mixed
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### getAttribute
 
-
-
 ```php
 public getAttribute(mixed $key, mixed $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -594,25 +382,13 @@ public getAttribute(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
-
-
-
 ***
 
 ### hasAttribute
 
-
-
 ```php
 public hasAttribute(mixed $key): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -620,45 +396,21 @@ public hasAttribute(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
-
 ***
 
 ### getAttributes
-
-
 
 ```php
 public getAttributes(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAttributes
 
-
-
 ```php
 public setAttributes(array $attributes): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -666,34 +418,19 @@ public setAttributes(array $attributes): mixed
 |-----------|------|-------------|
 | `$attributes` | **array** |  |
 
-
-
-
 ***
 
 ### removeAttribute
 
-
-
 ```php
 public removeAttribute(mixed $key): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
-
-
 
 ***
 
@@ -705,21 +442,11 @@ Sets an info message.
 public setInfo(string $info): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$info` | **string** |  |
-
-
-
 
 ***
 
@@ -730,14 +457,6 @@ Returns info message.
 ```php
 public getInfo(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -755,21 +474,11 @@ Sets the example configuration for this node.
 public setExample(string|array $example): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$example` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -780,14 +489,6 @@ Retrieves the example configuration for this node.
 ```php
 public getExample(): string|array
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -805,22 +506,12 @@ Adds an equivalent value.
 public addEquivalentValue(mixed $originalValue, mixed $equivalentValue): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$originalValue` | **mixed** |  |
 | `$equivalentValue` | **mixed** |  |
-
-
-
 
 ***
 
@@ -832,21 +523,11 @@ Set this node as required.
 public setRequired(bool $boolean): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$boolean` | **bool** | Required node |
-
-
-
 
 ***
 
@@ -858,21 +539,11 @@ Sets if this node can be overridden.
 public setAllowOverwrite(bool $allow): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allow` | **bool** |  |
-
-
-
 
 ***
 
@@ -884,21 +555,11 @@ Sets the closures used for normalization.
 public setNormalizationClosures(\Closure[] $closures): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closures` | **\Closure[]** | An array of Closures used for normalization |
-
-
-
 
 ***
 
@@ -910,21 +571,11 @@ Sets the closures used for final validation.
 public setFinalValidationClosures(\Closure[] $closures): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$closures` | **\Closure[]** | An array of Closures used for final validation |
-
-
-
 
 ***
 
@@ -935,14 +586,6 @@ Returns true when the node is required.
 ```php
 public isRequired(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -960,14 +603,6 @@ Returns the name of the node.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The name of the node
@@ -983,14 +618,6 @@ Returns the path of the node.
 ```php
 public getPath(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -1008,12 +635,7 @@ Merges two values together.
 final public merge(mixed $leftSide, mixed $rightSide): mixed
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -1021,7 +643,6 @@ final public merge(mixed $leftSide, mixed $rightSide): mixed
 |-----------|------|-------------|
 | `$leftSide` | **mixed** |  |
 | `$rightSide` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -1039,19 +660,13 @@ Normalizes a value.
 final public normalize(mixed $value): mixed
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to normalize |
-
 
 **Return Value:**
 
@@ -1069,16 +684,6 @@ Returns parent node for this node.
 public getParent(): \Symfony\Component\Config\Definition\NodeInterface|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### finalize
@@ -1089,12 +694,7 @@ Finalizes a value.
 final public finalize(mixed $value): mixed
 ```
 
-
-
-
-
 * This method is **final**.
-
 
 **Parameters:**
 
@@ -1102,15 +702,6 @@ final public finalize(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to finalize |
 
-
 **Return Value:**
 
-The finalized value
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The finalized value yxorP::get('REQUEST')

@@ -2,19 +2,11 @@
 
 # PhpCollectionHandler
 
-
-
-
-
 * Full name: `\JMS\Serializer\Handler\PhpCollectionHandler`
 * This class implements:
-[`\JMS\Serializer\Handler\SubscribingHandlerInterface`](./SubscribingHandlerInterface.md)
-
-
-
+  [`\JMS\Serializer\Handler\SubscribingHandlerInterface`](./SubscribingHandlerInterface.md)
 
 ## Methods
-
 
 ### getSubscribingMethods
 
@@ -25,40 +17,25 @@ public static getSubscribingMethods(): array
 ```
 
 array(
-         array(
-             'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
-             'format' => 'json',
-             'type' => 'DateTime',
-             'method' => 'serializeDateTimeToJson',
-         ),
-     )
+array(
+'direction' => GraphNavigator::DIRECTION_SERIALIZATION,
+'format' => 'json',
+'type' => 'DateTime',
+'method' => 'serializeDateTimeToJson',
+),
+)
 
 The direction and method keys can be omitted.
 
 * This method is **static**.
 
-
-
-
-
-
-
 ***
 
 ### serializeMap
 
-
-
 ```php
 public serializeMap(\JMS\Serializer\VisitorInterface $visitor, \PhpCollection\Map $map, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -69,25 +46,13 @@ public serializeMap(\JMS\Serializer\VisitorInterface $visitor, \PhpCollection\Ma
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### deserializeMap
 
-
-
 ```php
 public deserializeMap(\JMS\Serializer\VisitorInterface $visitor, mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -98,25 +63,13 @@ public deserializeMap(\JMS\Serializer\VisitorInterface $visitor, mixed $data, ar
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### serializeSequence
 
-
-
 ```php
 public serializeSequence(\JMS\Serializer\VisitorInterface $visitor, \PhpCollection\Sequence $sequence, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -127,25 +80,13 @@ public serializeSequence(\JMS\Serializer\VisitorInterface $visitor, \PhpCollecti
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
 ***
 
 ### deserializeSequence
 
-
-
 ```php
 public deserializeSequence(\JMS\Serializer\VisitorInterface $visitor, mixed $data, array $type, \JMS\Serializer\Context $context): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -156,11 +97,4 @@ public deserializeSequence(\JMS\Serializer\VisitorInterface $visitor, mixed $dat
 | `$type` | **array** |  |
 | `$context` | **\JMS\Serializer\Context** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

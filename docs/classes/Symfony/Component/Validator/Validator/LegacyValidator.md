@@ -4,24 +4,16 @@
 
 A validator that supports both the API of Symfony < 2.5 and Symfony 2.5+.
 
-
-
 * Full name: `\Symfony\Component\Validator\Validator\LegacyValidator`
 * Parent class: [`\Symfony\Component\Validator\Validator\RecursiveValidator`](./RecursiveValidator.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
 **See Also:**
 
-* \Symfony\Component\Validator\ValidatorInterface - 
-* \Symfony\Component\Validator\Validator\ValidatorInterface - 
-
-
-
-
-
+* \Symfony\Component\Validator\ValidatorInterface -
+* \Symfony\Component\Validator\Validator\ValidatorInterface -
 
 ## Inherited methods
-
 
 ### __construct
 
@@ -31,24 +23,17 @@ Creates a new validator.
 public __construct(\Symfony\Component\Validator\Context\ExecutionContextFactoryInterface $contextFactory, \Symfony\Component\Validator\MetadataFactoryInterface $metadataFactory, \Symfony\Component\Validator\ConstraintValidatorFactoryInterface $validatorFactory, \Symfony\Component\Validator\ObjectInitializerInterface[] $objectInitializers = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$contextFactory` | **\Symfony\Component\Validator\Context\ExecutionContextFactoryInterface** | The factory for<br />creating new contexts |
-| `$metadataFactory` | **\Symfony\Component\Validator\MetadataFactoryInterface** | The factory for<br />fetching the metadata<br />of validated objects |
-| `$validatorFactory` | **\Symfony\Component\Validator\ConstraintValidatorFactoryInterface** | The factory for creating<br />constraint validators |
+| `$contextFactory` | **
+\Symfony\Component\Validator\Context\ExecutionContextFactoryInterface** | The factory for<br />creating new contexts |
+| `$metadataFactory` | **
+\Symfony\Component\Validator\MetadataFactoryInterface** | The factory for<br />fetching the metadata<br />of validated objects |
+| `$validatorFactory` | **
+\Symfony\Component\Validator\ConstraintValidatorFactoryInterface** | The factory for creating<br />constraint validators |
 | `$objectInitializers` | **\Symfony\Component\Validator\ObjectInitializerInterface[]** | The object initializers |
-
-
-
 
 ***
 
@@ -60,19 +45,11 @@ Starts a new validation context and returns a validator for that context.
 public startContext(mixed $root = null): \Symfony\Component\Validator\Validator\ContextualValidatorInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -90,19 +67,11 @@ Returns a validator in the given execution context.
 public inContext(\Symfony\Component\Validator\Context\ExecutionContextInterface $context): \Symfony\Component\Validator\Validator\ContextualValidatorInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\Symfony\Component\Validator\Context\ExecutionContextInterface** |  |
-
 
 **Return Value:**
 
@@ -120,21 +89,11 @@ The validator for that context
 public getMetadataFor(mixed $object): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
-
-
-
 
 ***
 
@@ -146,21 +105,11 @@ public getMetadataFor(mixed $object): mixed
 public hasMetadataFor(mixed $object): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
-
-
-
 
 ***
 
@@ -172,13 +121,6 @@ Validates a value against a constraint or a list of constraints.
 public validate(mixed $value, mixed $groups = null, mixed $traverse = false, mixed $deep = false): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -188,12 +130,9 @@ public validate(mixed $value, mixed $groups = null, mixed $traverse = false, mix
 | `$traverse` | **mixed** |  |
 | `$deep` | **mixed** |  |
 
-
 **Return Value:**
 
-A list of constraint violations
-If the list is empty, validation
-succeeded
+A list of constraint violations If the list is empty, validation succeeded
 
 
 
@@ -201,19 +140,11 @@ succeeded
 
 ### validateProperty
 
-Validates a property of an object against the constraints specified
-for this property.
+Validates a property of an object against the constraints specified for this property.
 
 ```php
 public validateProperty(mixed $object, mixed $propertyName, mixed $groups = null): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -223,12 +154,9 @@ public validateProperty(mixed $object, mixed $propertyName, mixed $groups = null
 | `$propertyName` | **mixed** | The name of the validated property |
 | `$groups` | **mixed** | The validation groups to validate. If none is given, &quot;Default&quot; is assumed |
 
-
 **Return Value:**
 
-A list of constraint violations
-If the list is empty, validation
-succeeded
+A list of constraint violations If the list is empty, validation succeeded
 
 
 
@@ -236,19 +164,11 @@ succeeded
 
 ### validatePropertyValue
 
-Validates a value against the constraints specified for an object's
-property.
+Validates a value against the constraints specified for an object's property.
 
 ```php
 public validatePropertyValue(mixed $objectOrClass, mixed $propertyName, mixed $value, mixed $groups = null): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -259,12 +179,9 @@ public validatePropertyValue(mixed $objectOrClass, mixed $propertyName, mixed $v
 | `$value` | **mixed** | The value to validate against the property&#039;s constraints |
 | `$groups` | **mixed** | The validation groups to validate. If none is given, &quot;Default&quot; is assumed |
 
-
 **Return Value:**
 
-A list of constraint violations
-If the list is empty, validation
-succeeded
+A list of constraint violations If the list is empty, validation succeeded
 
 
 
@@ -278,13 +195,6 @@ Validates a value against a constraint or a list of constraints.
 public validateValue(mixed $value, mixed $constraints, mixed $groups = null): \Symfony\Component\Validator\ConstraintViolationListInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -293,11 +203,9 @@ public validateValue(mixed $value, mixed $constraints, mixed $groups = null): \S
 | `$constraints` | **mixed** | The constraint(s) to validate against |
 | `$groups` | **mixed** | The validation groups to validate |
 
-
 **Return Value:**
 
-A list of constraint violations. If the
-list is empty, validation succeeded.
+A list of constraint violations. If the list is empty, validation succeeded.
 
 
 
@@ -311,14 +219,6 @@ Returns the factory for metadata instances.
 public getMetadataFactory(): \Symfony\Component\Validator\MetadataFactoryInterface
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The metadata factory
@@ -329,18 +229,11 @@ The metadata factory
 
 ### testConstraints
 
-
-
 ```php
 private static testConstraints(mixed $constraints): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -348,25 +241,15 @@ private static testConstraints(mixed $constraints): mixed
 |-----------|------|-------------|
 | `$constraints` | **mixed** |  |
 
-
-
-
 ***
 
 ### testGroups
-
-
 
 ```php
 private static testGroups(mixed $groups): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -374,11 +257,4 @@ private static testGroups(mixed $groups): mixed
 |-----------|------|-------------|
 | `$groups` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

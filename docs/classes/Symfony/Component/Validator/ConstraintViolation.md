@@ -4,169 +4,93 @@
 
 Default implementation of {@ConstraintViolationInterface}.
 
-
-
 * Full name: `\Symfony\Component\Validator\ConstraintViolation`
 * This class implements:
-[`\Symfony\Component\Validator\ConstraintViolationInterface`](./ConstraintViolationInterface.md)
-
-
+  [`\Symfony\Component\Validator\ConstraintViolationInterface`](./ConstraintViolationInterface.md)
 
 ## Properties
 
-
 ### message
-
-
 
 ```php
 private $message
 ```
 
-
-
-
-
-
 ***
 
 ### messageTemplate
-
-
 
 ```php
 private $messageTemplate
 ```
 
-
-
-
-
-
 ***
 
 ### parameters
-
-
 
 ```php
 private $parameters
 ```
 
-
-
-
-
-
 ***
 
 ### plural
-
-
 
 ```php
 private $plural
 ```
 
-
-
-
-
-
 ***
 
 ### root
-
-
 
 ```php
 private $root
 ```
 
-
-
-
-
-
 ***
 
 ### propertyPath
-
-
 
 ```php
 private $propertyPath
 ```
 
-
-
-
-
-
 ***
 
 ### invalidValue
-
-
 
 ```php
 private $invalidValue
 ```
 
-
-
-
-
-
 ***
 
 ### constraint
-
-
 
 ```php
 private $constraint
 ```
 
-
-
-
-
-
 ***
 
 ### code
-
-
 
 ```php
 private $code
 ```
 
-
-
-
-
-
 ***
 
 ### cause
-
-
 
 ```php
 private $cause
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -175,13 +99,6 @@ Creates a new constraint violation.
 ```php
 public __construct(string $message, string $messageTemplate, array $parameters, mixed $root, string $propertyPath, mixed $invalidValue, int|null $plural = null, mixed $code = null, \Symfony\Component\Validator\Constraint|null $constraint = null, mixed $cause = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -195,11 +112,9 @@ public __construct(string $message, string $messageTemplate, array $parameters, 
 | `$invalidValue` | **mixed** | The invalid value that caused this<br />violation |
 | `$plural` | **int&#124;null** | The number for determining the plural<br />form when translating the message |
 | `$code` | **mixed** | The error code of the violation |
-| `$constraint` | **\Symfony\Component\Validator\Constraint&#124;null** | The constraint whose validation<br />caused the violation |
+| `$constraint` | **
+\Symfony\Component\Validator\Constraint&#124;null** | The constraint whose validation<br />caused the violation |
 | `$cause` | **mixed** | The cause of the violation |
-
-
-
 
 ***
 
@@ -210,14 +125,6 @@ Converts the violation into a string for debugging purposes.
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -235,14 +142,6 @@ Returns the raw violation message.
 public getMessageTemplate(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The raw violation message
@@ -259,20 +158,11 @@ Returns the parameters to be inserted into the raw violation message.
 public getMessageParameters(): array
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
-a possibly empty list of parameters indexed by the names
-that appear in the message template
+a possibly empty list of parameters indexed by the names that appear in the message template
 
 
 
@@ -286,16 +176,6 @@ Alias of {@link getMessageParameters()}.
 public getParameters(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMessagePluralization
@@ -306,15 +186,7 @@ Returns a number for pluralizing the violation message.
 public getMessagePluralization(): int|null
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
 
 **Return Value:**
 
@@ -332,16 +204,6 @@ Alias of {@link getMessagePluralization()}.
 public getPlural(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMessage
@@ -351,14 +213,6 @@ Returns the violation message.
 ```php
 public getMessage(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -376,20 +230,10 @@ Returns the root element of the validation.
 public getRoot(): mixed
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The value that was passed originally to the validator when
-the validation was started. Because the validator traverses
-the object graph, the value at which the violation occurs
-is not necessarily the value that was originally validated.
+The value that was passed originally to the validator when the validation was started. Because the validator traverses
+the object graph, the value at which the violation occurs is not necessarily the value that was originally validated.
 
 
 
@@ -403,24 +247,13 @@ Returns the property path from the root element to the violation.
 public getPropertyPath(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The property path indicates how the validator reached
-the invalid value from the root element. If the root
-element is a <tt>Person</tt> instance with a property
-"address" that contains an <tt>Address</tt> instance
-with an invalid property "street", the generated property
-path is "address.street". Property access is denoted by
-dots, while array access is denoted by square brackets,
-for example "addresses[1].street".
+The property path indicates how the validator reached the invalid value from the root element. If the root element is
+a <tt>Person</tt> instance with a property
+"address" that contains an <tt>Address</tt> instance with an invalid property "street", the generated property path is "
+address.street". Property access is denoted by dots, while array access is denoted by square brackets, for example "
+addresses[1].street".
 
 
 
@@ -434,18 +267,9 @@ Returns the value that caused the violation.
 public getInvalidValue(): mixed
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-the invalid value that caused the validated constraint to
-fail
+the invalid value that caused the validated constraint to fail
 
 
 
@@ -458,14 +282,6 @@ Returns the constraint whose validation caused the violation.
 ```php
 public getConstraint(): \Symfony\Component\Validator\Constraint|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -483,16 +299,6 @@ Returns the cause of the violation.
 public getCause(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCode
@@ -503,22 +309,6 @@ Returns a machine-digestible error code for the violation.
 public getCode(): string|null
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The error code
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The error code yxorP::get('REQUEST')

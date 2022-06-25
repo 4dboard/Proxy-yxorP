@@ -2,53 +2,29 @@
 
 # DriverChain
 
-
-
-
-
 * Full name: `\Metadata\Driver\DriverChain`
 * This class is marked as **final** and can't be subclassed
 * This class implements:
-[`\Metadata\Driver\AdvancedDriverInterface`](./AdvancedDriverInterface.md)
+  [`\Metadata\Driver\AdvancedDriverInterface`](./AdvancedDriverInterface.md)
 * This class is a **Final class**
-
-
 
 ## Properties
 
-
 ### drivers
-
-
 
 ```php
 private $drivers
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $drivers = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -56,25 +32,13 @@ public __construct(array $drivers = array()): mixed
 |-----------|------|-------------|
 | `$drivers` | **array** |  |
 
-
-
-
 ***
 
 ### addDriver
 
-
-
 ```php
 public addDriver(\Metadata\Driver\DriverInterface $driver): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -82,34 +46,19 @@ public addDriver(\Metadata\Driver\DriverInterface $driver): mixed
 |-----------|------|-------------|
 | `$driver` | **\Metadata\Driver\DriverInterface** |  |
 
-
-
-
 ***
 
 ### loadMetadataForClass
 
-
-
 ```php
 public loadMetadataForClass(\ReflectionClass $class): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **\ReflectionClass** |  |
-
-
-
 
 ***
 
@@ -121,18 +70,4 @@ Gets all the metadata class names known to this driver.
 public getAllClassNames(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

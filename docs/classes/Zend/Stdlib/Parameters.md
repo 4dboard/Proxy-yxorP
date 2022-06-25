@@ -2,20 +2,12 @@
 
 # Parameters
 
-
-
-
-
 * Full name: `\Zend\Stdlib\Parameters`
 * Parent class: [`ArrayObject`](../../ArrayObject.md)
 * This class implements:
-[`\Zend\Stdlib\ParametersInterface`](./ParametersInterface.md)
-
-
-
+  [`\Zend\Stdlib\ParametersInterface`](./ParametersInterface.md)
 
 ## Methods
-
 
 ### __construct
 
@@ -25,22 +17,13 @@ Constructor
 public __construct(array $values = null): mixed
 ```
 
-Enforces that we have an array, and enforces parameter access to array
-elements.
-
-
-
-
-
+Enforces that we have an array, and enforces parameter access to array elements.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** |  |
-
-
-
 
 ***
 
@@ -52,21 +35,11 @@ Populate from native PHP array
 public fromArray(array $values): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** |  |
-
-
-
 
 ***
 
@@ -78,21 +51,11 @@ Populate from query string
 public fromString(string $string): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -104,16 +67,6 @@ Serialize to native PHP array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toString
@@ -123,16 +76,6 @@ Serialize to query string
 ```php
 public toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -146,19 +89,11 @@ public offsetGet(string $name): mixed
 
 Returns null if the key does not exist.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -170,22 +105,12 @@ Get
 public get(string $name, mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$default` | **mixed** | optional default value |
-
-
-
 
 ***
 
@@ -197,13 +122,6 @@ Set
 public set(string $name, mixed $value): \Zend\Stdlib\Parameters
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -211,11 +129,4 @@ public set(string $name, mixed $value): \Zend\Stdlib\Parameters
 | `$name` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

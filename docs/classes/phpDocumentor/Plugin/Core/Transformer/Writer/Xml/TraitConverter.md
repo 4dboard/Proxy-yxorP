@@ -8,58 +8,33 @@ In order to convert the DocBlock to its XML representation this class requires t
 
 * Full name: `\phpDocumentor\Plugin\Core\Transformer\Writer\Xml\TraitConverter`
 
-
-
 ## Properties
 
-
 ### docBlockConverter
-
-
 
 ```php
 protected \phpDocumentor\Plugin\Core\Transformer\Writer\Xml\DocBlockConverter $docBlockConverter
 ```
 
-
-
-
-
-
 ***
 
 ### methodConverter
-
-
 
 ```php
 protected \phpDocumentor\Plugin\Core\Transformer\Writer\Xml\MethodConverter $methodConverter
 ```
 
-
-
-
-
-
 ***
 
 ### propertyConverter
-
-
 
 ```php
 protected \phpDocumentor\Plugin\Core\Transformer\Writer\Xml\PropertyConverter $propertyConverter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -69,13 +44,6 @@ Initializes this converter with the DocBlock converter.
 public __construct(\phpDocumentor\Plugin\Core\Transformer\Writer\Xml\DocBlockConverter $docBlockConverter, \phpDocumentor\Plugin\Core\Transformer\Writer\Xml\MethodConverter $methodConverter, \phpDocumentor\Plugin\Core\Transformer\Writer\Xml\PropertyConverter $propertyConverter): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -83,9 +51,6 @@ public __construct(\phpDocumentor\Plugin\Core\Transformer\Writer\Xml\DocBlockCon
 | `$docBlockConverter` | **\phpDocumentor\Plugin\Core\Transformer\Writer\Xml\DocBlockConverter** |  |
 | `$methodConverter` | **\phpDocumentor\Plugin\Core\Transformer\Writer\Xml\MethodConverter** |  |
 | `$propertyConverter` | **\phpDocumentor\Plugin\Core\Transformer\Writer\Xml\PropertyConverter** |  |
-
-
-
 
 ***
 
@@ -97,19 +62,12 @@ Export the given reflected Trait definition to the provided parent element.
 public convert(\DOMElement $parent, \phpDocumentor\Descriptor\TraitDescriptor $trait): \DOMElement
 ```
 
-This method creates a new child element on the given parent XML element
-and takes the properties of the Reflection argument and sets the
-elements and attributes on the child.
+This method creates a new child element on the given parent XML element and takes the properties of the Reflection
+argument and sets the elements and attributes on the child.
 
-If a child DOMElement is provided then the properties and attributes are
-set on this but the child element is not appended onto the parent. This
-is the responsibility of the invoker. Essentially this means that the
-$parent argument is ignored in this case.
-
-
-
-
-
+If a child DOMElement is provided then the properties and attributes are set on this but the child element is not
+appended onto the parent. This is the responsibility of the invoker. Essentially this means that the $parent argument is
+ignored in this case.
 
 **Parameters:**
 
@@ -118,11 +76,4 @@ $parent argument is ignored in this case.
 | `$parent` | **\DOMElement** | Element to augment. |
 | `$trait` | **\phpDocumentor\Descriptor\TraitDescriptor** | Element to export. |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

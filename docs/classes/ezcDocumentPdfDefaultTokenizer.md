@@ -2,19 +2,12 @@
 
 # ezcDocumentPdfDefaultTokenizer
 
-Tokenizer implementation for common texts, using whitespaces as word
-seperators.
-
-
+Tokenizer implementation for common texts, using whitespaces as word seperators.
 
 * Full name: `\ezcDocumentPdfDefaultTokenizer`
 * Parent class: [`\ezcDocumentPdfTokenizer`](./ezcDocumentPdfTokenizer.md)
 
-
-
-
 ## Methods
-
 
 ### tokenize
 
@@ -24,13 +17,11 @@ Split string into words
 public tokenize(string $string): array
 ```
 
-This function takes a string and splits it into words. There are
-different mechanisms which indicate possible splitting points in the
-resulting word stream:
+This function takes a string and splits it into words. There are different mechanisms which indicate possible splitting
+points in the resulting word stream:
 
 - self:SPACE: The renderer might render a space
-- self:WRAP: The renderer might wrap the line at this position, but will
-  not render spaces.
+- self:WRAP: The renderer might wrap the line at this position, but will not render spaces.
 
 A possible splitting of an english sentence might look like:
 
@@ -42,13 +33,7 @@ A possible splitting of an english sentence might look like:
  );
 </code>
 
-Non breaking spaces should not be splitted into multiple words, so there
-will be no break applied.
-
-
-
-
-
+Non breaking spaces should not be splitted into multiple words, so there will be no break applied.
 
 **Parameters:**
 
@@ -56,15 +41,10 @@ will be no break applied.
 |-----------|------|-------------|
 | `$string` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### tokenize
 
 Split string into words
@@ -73,13 +53,12 @@ Split string into words
 public tokenize(string $string): array
 ```
 
-This function takes a string and splits it into words. There are
-different mechanisms which indicate possible splitting points in the
-resulting word stream:
+This function takes a string and splits it into words. There are different mechanisms which indicate possible splitting
+points in the resulting word stream:
 
 - self:SPACE: The renderer might render a space
-- self:WRAP: The renderer might wrap the line at this position, but will
-  not render spaces, might as well just be omitted.
+- self:WRAP: The renderer might wrap the line at this position, but will not render spaces, might as well just be
+  omitted.
 
 A possible splitting of an english sentence might look like:
 
@@ -91,13 +70,9 @@ A possible splitting of an english sentence might look like:
  );
 </code>
 
-Non breaking spaces should not be splitted into multiple words, so there
-will be no break applied.
-
+Non breaking spaces should not be splitted into multiple words, so there will be no break applied.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -105,11 +80,4 @@ will be no break applied.
 |-----------|------|-------------|
 | `$string` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

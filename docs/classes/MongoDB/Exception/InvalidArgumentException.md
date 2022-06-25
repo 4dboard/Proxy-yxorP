@@ -2,20 +2,12 @@
 
 # InvalidArgumentException
 
-
-
-
-
 * Full name: `\MongoDB\Exception\InvalidArgumentException`
 * Parent class: [`InvalidArgumentException`](../Driver/Exception/InvalidArgumentException.md)
 * This class implements:
-[`\MongoDB\Exception\Exception`](./Exception.md)
-
-
-
+  [`\MongoDB\Exception\Exception`](./Exception.md)
 
 ## Methods
-
 
 ### invalidType
 
@@ -25,12 +17,7 @@ Thrown when an argument or option has an invalid type.
 public static invalidType(string $name, mixed $value, string|string[] $expectedType): self
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -40,11 +27,4 @@ public static invalidType(string $name, mixed $value, string|string[] $expectedT
 | `$value` | **mixed** | Actual value (used to derive the type) |
 | `$expectedType` | **string&#124;string[]** | Expected type |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

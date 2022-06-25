@@ -2,53 +2,26 @@
 
 # MacroTestCase
 
-
-
-
-
 * Full name: `\PhpDocumentorMarkdown\Test\Twig\Macro\MacroTestCase`
 * Parent class: [`\PhpDocumentorMarkdown\Test\Twig\TestCase`](../TestCase.md)
 
-
-
 ## Properties
 
-
 ### template
-
-
 
 ```php
 private \Twig\TemplateWrapper $template
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### setUp
-
-
 
 ```php
 protected setUp(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -60,16 +33,6 @@ Load the template.
 protected loadTemplate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### assertMacroOutputEquals
@@ -80,12 +43,7 @@ Assert macro output.
 protected static assertMacroOutputEquals( $expected,  $actual): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -94,9 +52,6 @@ protected static assertMacroOutputEquals( $expected,  $actual): void
 | `$expected` | **** |  |
 | `$actual` | **** |  |
 
-
-
-
 ***
 
 ### getMacroData
@@ -107,13 +62,6 @@ Get the macro data from the template.
 protected getMacroData(string $macro, mixed $input): \PhpDocumentorMarkdown\Test\Twig\Macro\MacroData|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -121,15 +69,10 @@ protected getMacroData(string $macro, mixed $input): \PhpDocumentorMarkdown\Test
 | `$macro` | **string** | Macro name to run. |
 | `$input` | **mixed** | Input to give the macro. |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getMacroData
 
 Get the macro data from the template.
@@ -138,12 +81,7 @@ Get the macro data from the template.
 protected getMacroData(string $macro, mixed $input): \PhpDocumentorMarkdown\Test\Twig\Macro\MacroData|null
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -151,9 +89,6 @@ protected getMacroData(string $macro, mixed $input): \PhpDocumentorMarkdown\Test
 |-----------|------|-------------|
 | `$macro` | **string** | Macro name to run. |
 | `$input` | **mixed** | Input to give the macro. |
-
-
-
 
 ***
 
@@ -165,43 +100,22 @@ Create a relative md link to a class.
 public mdClassLink(object|string $nodeOrNamespace, string|null $relativeTo = null, string|null $name = null): \PhpDocumentorMarkdown\Test\Twig\Macro\MacroData|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$nodeOrNamespace` | **object&#124;string** | The node to get the link for or a PHP class namespace string. |
-| `$relativeTo` | **string&#124;null** | The path to make relative to (usually path of the md file that this is being printed to). |
+| `$relativeTo` | **
+string&#124;null** | The path to make relative to (usually path of the md file that this is being printed to). |
 | `$name` | **string&#124;null** | Link text. |
-
-
-
 
 ***
 
 ### setUp
 
-
-
 ```php
 protected setUp(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -213,16 +127,6 @@ Get the path to test templates.
 public getTestTemplatePath(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getRelativeIncludePath
@@ -233,18 +137,4 @@ Get the relative path to production template include dir.
 public getRelativeIncludePath(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

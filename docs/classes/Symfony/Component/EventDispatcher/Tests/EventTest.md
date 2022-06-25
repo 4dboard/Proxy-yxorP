@@ -4,48 +4,28 @@
 
 Test class for Event.
 
-
-
 * Full name: `\Symfony\Component\EventDispatcher\Tests\EventTest`
 * Parent class: [`TestCase`](../../../../PHPUnit/Framework/TestCase.md)
 
-
-
 ## Properties
 
-
 ### event
-
-
 
 ```php
 protected \Symfony\Component\EventDispatcher\Event $event
 ```
 
-
-
-
-
-
 ***
 
 ### dispatcher
-
-
 
 ```php
 protected \Symfony\Component\EventDispatcher\EventDispatcher $dispatcher
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setUp
 
@@ -89,124 +69,48 @@ This method is called after a test is executed.
 
 ### testIsPropagationStopped
 
-
-
 ```php
 public testIsPropagationStopped(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testStopPropagationAndIsPropagationStopped
 
-
-
 ```php
 public testStopPropagationAndIsPropagationStopped(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testLegacySetDispatcher
 
-
-
 ```php
 public testLegacySetDispatcher(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testLegacyGetDispatcher
 
-
-
 ```php
 public testLegacyGetDispatcher(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testLegacyGetName
 
-
-
 ```php
 public testLegacyGetName(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### testLegacySetName
 
-
-
 ```php
 public testLegacySetName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

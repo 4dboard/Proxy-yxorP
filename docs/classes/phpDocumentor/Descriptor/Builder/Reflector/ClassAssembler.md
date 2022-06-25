@@ -4,16 +4,10 @@
 
 Assembles an ClassDescriptor using an ClassReflector.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\Builder\Reflector\ClassAssembler`
 * Parent class: [`\phpDocumentor\Descriptor\Builder\Reflector\AssemblerAbstract`](./AssemblerAbstract.md)
 
-
-
-
 ## Methods
-
 
 ### create
 
@@ -23,21 +17,11 @@ Creates a Descriptor from the provided data.
 public create(\phpDocumentor\Reflection\ClassReflector $data): \phpDocumentor\Descriptor\ClassDescriptor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **\phpDocumentor\Reflection\ClassReflector** |  |
-
-
-
 
 ***
 
@@ -49,22 +33,12 @@ Registers the child constants with the generated Class Descriptor.
 protected addConstants(\phpDocumentor\Reflection\ConstantReflector[] $constants, \phpDocumentor\Descriptor\ClassDescriptor $classDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$constants` | **\phpDocumentor\Reflection\ConstantReflector[]** |  |
 | `$classDescriptor` | **\phpDocumentor\Descriptor\ClassDescriptor** |  |
-
-
-
 
 ***
 
@@ -76,22 +50,12 @@ Registers the child properties with the generated Class Descriptor.
 protected addProperties(\phpDocumentor\Reflection\ClassReflector\PropertyReflector[] $properties, \phpDocumentor\Descriptor\ClassDescriptor $classDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$properties` | **\phpDocumentor\Reflection\ClassReflector\PropertyReflector[]** |  |
 | `$classDescriptor` | **\phpDocumentor\Descriptor\ClassDescriptor** |  |
-
-
-
 
 ***
 
@@ -103,22 +67,12 @@ Registers the child methods with the generated Class Descriptor.
 protected addMethods(\phpDocumentor\Reflection\ClassReflector\MethodReflector[] $methods, \phpDocumentor\Descriptor\ClassDescriptor $classDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$methods` | **\phpDocumentor\Reflection\ClassReflector\MethodReflector[]** |  |
 | `$classDescriptor` | **\phpDocumentor\Descriptor\ClassDescriptor** |  |
-
-
-
 
 ***
 
@@ -130,13 +84,6 @@ Registers the used traits with the generated Class Descriptor.
 protected addUses(string[] $traits, \phpDocumentor\Descriptor\ClassDescriptor $classDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -144,14 +91,9 @@ protected addUses(string[] $traits, \phpDocumentor\Descriptor\ClassDescriptor $c
 | `$traits` | **string[]** |  |
 | `$classDescriptor` | **\phpDocumentor\Descriptor\ClassDescriptor** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### assembleDocBlock
 
@@ -161,22 +103,12 @@ Assemble DocBlock.
 protected assembleDocBlock(\phpDocumentor\Reflection\DocBlock|null $docBlock, \phpDocumentor\Descriptor\DescriptorAbstract $target): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock&#124;null** |  |
 | `$target` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -188,21 +120,11 @@ Extracts the package from the DocBlock.
 protected extractPackageFromDocBlock(\phpDocumentor\Reflection\DocBlock $docBlock): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock** |  |
-
-
-
 
 ***
 
@@ -214,16 +136,6 @@ Returns the builder for this Assembler or null if none is set.
 public getBuilder(): null|\phpDocumentor\Descriptor\ProjectDescriptorBuilder
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBuilder
@@ -234,13 +146,7 @@ Registers the Builder with this Assembler.
 public setBuilder(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): void
 ```
 
-The Builder may be used to recursively assemble Descriptors using
-the {@link} method.
-
-
-
-
-
+The Builder may be used to recursively assemble Descriptors using the {@link} method.
 
 **Parameters:**
 
@@ -248,11 +154,4 @@ the {@link} method.
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

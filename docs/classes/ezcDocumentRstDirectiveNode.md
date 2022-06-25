@@ -4,15 +4,10 @@
 
 The AST node for RST document directives
 
-
-
 * Full name: `\ezcDocumentRstDirectiveNode`
 * Parent class: [`\ezcDocumentRstBlockNode`](./ezcDocumentRstBlockNode.md)
 
-
-
 ## Properties
-
 
 ### identifier
 
@@ -21,11 +16,6 @@ Directive target identifier
 ```php
 public string $identifier
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ Directive paramters
 public string $parameters
 ```
 
-
-
-
-
-
 ***
 
 ### tokens
@@ -51,11 +36,6 @@ Directive content tokens
 ```php
 public array $tokens
 ```
-
-
-
-
-
 
 ***
 
@@ -67,15 +47,9 @@ Directive options
 public array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -85,13 +59,6 @@ Construct RST document node
 public __construct(\ezcDocumentRstToken $token, string $identifier): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -99,14 +66,9 @@ public __construct(\ezcDocumentRstToken $token, string $identifier): void
 | `$token` | **\ezcDocumentRstToken** |  |
 | `$identifier` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -116,22 +78,12 @@ Construct RST node
 public __construct(\ezcDocumentRstToken $token, int $type): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **\ezcDocumentRstToken** |  |
 | `$type` | **int** |  |
-
-
-
 
 ***
 
@@ -147,17 +99,11 @@ Return a user readable name from the numeric node type.
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
-
-
-
 
 ***
 
@@ -169,16 +115,6 @@ Return node content, if available somehow
 protected content(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### dump
@@ -189,24 +125,10 @@ Get dump of document
 public dump(int $depth): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$depth` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,107 +4,59 @@
 
 Class representing a single Transformation.
 
-
-
 * Full name: `\phpDocumentor\Transformer\Transformation`
-
-
 
 ## Properties
 
-
 ### writer
-
-
 
 ```php
 protected string $writer
 ```
 
-
-
-
-
-
 ***
 
 ### artifact
-
-
 
 ```php
 protected string $artifact
 ```
 
-
-
-
-
-
 ***
 
 ### source
-
-
 
 ```php
 protected string $source
 ```
 
-
-
-
-
-
 ***
 
 ### query
-
-
 
 ```php
 protected string $query
 ```
 
-
-
-
-
-
 ***
 
 ### transformer
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Transformer $transformer
 ```
 
-
-
-
-
-
 ***
 
 ### parameters
-
-
 
 ```php
 protected \phpDocumentor\Transformer\Template\Parameter[] $parameters
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -114,13 +66,6 @@ Constructs a new Transformation object and populates the required parameters.
 public __construct(string $query, string $writer, string $source, string $artifact): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -129,9 +74,6 @@ public __construct(string $query, string $writer, string $source, string $artifa
 | `$writer` | **string** | What type of transformation to apply (XSLT, PDF, Checkstyle etc). |
 | `$source` | **string** | Which template or type of source to use. |
 | `$artifact` | **string** | What is the filename of the result (relative to the generated root) |
-
-
-
 
 ***
 
@@ -143,21 +85,11 @@ Sets the query.
 public setQuery(string $query): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$query` | **string** | Free-form string with writer-specific values. |
-
-
-
 
 ***
 
@@ -169,16 +101,6 @@ Returns the set query.
 public getQuery(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setWriter
@@ -189,21 +111,11 @@ Sets the writer type and instantiates a writer.
 public setWriter(string $writer): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writer` | **string** | Name of writer to instantiate. |
-
-
-
 
 ***
 
@@ -215,16 +127,6 @@ Returns an instantiated writer object.
 public getWriter(): \phpDocumentor\Transformer\Writer\WriterAbstract|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSource
@@ -235,21 +137,11 @@ Sets the source / type which the writer will use to generate artifacts from.
 public setSource(string $source): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string** | Free-form string with writer-specific meaning. |
-
-
-
 
 ***
 
@@ -260,16 +152,6 @@ Returns the name of the source / type used in the transformation process.
 ```php
 public getSource(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -283,20 +165,10 @@ public getSourceAsPath(): string
 
 This method applies the following rules to the value of $source:
 
-1. if the template_path parameter is set and that combined with the
-   source gives an existing file; return that.
-2. if the value exists as a file (either relative to the current working
-   directory or absolute), do a realpath and return it.
-3. Otherwise prepend it with the phpDocumentor data folder, if that does
-   not exist: throw an exception
-
-
-
-
-
-
-
-
+1. if the template_path parameter is set and that combined with the source gives an existing file; return that.
+2. if the value exists as a file (either relative to the current working directory or absolute), do a realpath and
+   return it.
+3. Otherwise prepend it with the phpDocumentor data folder, if that does not exist: throw an exception
 
 ***
 
@@ -308,23 +180,14 @@ Filename of the resulting artifact relative to the root.
 public setArtifact(string $artifact): void
 ```
 
-If the query results in a set of artifacts (multiple nodes / array);
-then this string must contain an identifying variable as returned by the
-writer.
-
-
-
-
-
+If the query results in a set of artifacts (multiple nodes / array); then this string must contain an identifying
+variable as returned by the writer.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$artifact` | **string** | Name of artifact to generate; usually a filepath. |
-
-
-
 
 ***
 
@@ -336,16 +199,6 @@ Returns the name of the artifact.
 public getArtifact(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setParameters
@@ -356,21 +209,12 @@ Sets an array of parameters (key => value).
 public setParameters(\phpDocumentor\Transformer\Template\Parameter[] $parameters): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$parameters` | **\phpDocumentor\Transformer\Template\Parameter[]** | Associative multidimensional array containing<br />parameters for the Writer. |
-
-
-
+| `$parameters` | **
+\phpDocumentor\Transformer\Template\Parameter[]** | Associative multidimensional array containing<br />parameters for the Writer. |
 
 ***
 
@@ -382,16 +226,6 @@ Returns all parameters for this transformation.
 public getParameters(): \phpDocumentor\Transformer\Template\Parameter[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getParameter
@@ -402,21 +236,11 @@ Returns a specific parameter, or $default if none exists.
 public getParameter(string $name): \phpDocumentor\Transformer\Template\Parameter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of the parameter to return. |
-
-
-
 
 ***
 
@@ -428,21 +252,11 @@ Returns a specific parameter, or $default if none exists.
 public getParametersWithKey(string $name): \phpDocumentor\Transformer\Template\Parameter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Name of the parameter to return. |
-
-
-
 
 ***
 
@@ -454,21 +268,11 @@ Sets the transformer on this transformation.
 public setTransformer(\phpDocumentor\Transformer\Transformer $transformer): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transformer` | **\phpDocumentor\Transformer\Transformer** |  |
-
-
-
 
 ***
 
@@ -480,18 +284,4 @@ Returns the transformer for this transformation.
 public getTransformer(): \phpDocumentor\Transformer\Transformer
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

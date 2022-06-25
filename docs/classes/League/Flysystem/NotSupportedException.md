@@ -2,20 +2,12 @@
 
 # NotSupportedException
 
-
-
-
-
 * Full name: `\League\Flysystem\NotSupportedException`
 * Parent class: [`RuntimeException`](../../RuntimeException.md)
 * This class implements:
-[`\League\Flysystem\FilesystemException`](./FilesystemException.md)
-
-
-
+  [`\League\Flysystem\FilesystemException`](./FilesystemException.md)
 
 ## Methods
-
 
 ### forLink
 
@@ -25,21 +17,13 @@ Create a new exception for a link.
 public static forLink(\SplFileInfo $file): static
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **\SplFileInfo** |  |
-
-
-
 
 ***
 
@@ -51,12 +35,7 @@ Create a new exception for a link.
 public static forFtpSystemType(string $systemType): static
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -64,11 +43,4 @@ public static forFtpSystemType(string $systemType): static
 |-----------|------|-------------|
 | `$systemType` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

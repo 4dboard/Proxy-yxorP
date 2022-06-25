@@ -4,50 +4,25 @@
 
 An executable finder specifically designed for the PHP executable.
 
-
-
 * Full name: `\Symfony\Component\Process\PhpExecutableFinder`
-
-
 
 ## Properties
 
-
 ### executableFinder
-
-
 
 ```php
 private $executableFinder
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -59,19 +34,11 @@ Finds The PHP executable.
 public find(bool $includeArgs = true): string|false
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$includeArgs` | **bool** | Whether or not include command arguments |
-
 
 **Return Value:**
 
@@ -89,22 +56,6 @@ Finds the PHP executable arguments.
 public findArguments(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The PHP executable arguments
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The PHP executable arguments yxorP::get('REQUEST')

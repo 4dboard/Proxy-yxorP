@@ -4,15 +4,10 @@
 
 General exception container for the Document component.
 
-
-
 * Full name: `\ezcDocumentErroneousXmlException`
 * Parent class: [`\ezcDocumentException`](./ezcDocumentException.md)
 
-
-
 ## Properties
-
 
 ### errors
 
@@ -22,15 +17,9 @@ Errors occured during parsing process.
 protected array $errors
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,21 +29,11 @@ Construct exception from array with XML errors.
 public __construct(array $errors): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errors` | **array** |  |
-
-
-
 
 ***
 
@@ -66,21 +45,9 @@ Return array with XML errors.
 public getXmlErrors(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -90,24 +57,10 @@ Constructs a new ezcBaseException with $message
 public __construct(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

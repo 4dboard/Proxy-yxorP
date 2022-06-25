@@ -5,12 +5,11 @@
 Class for representing formatting properties of a certain type.
 
 An instance of this class represents formatting properties of a certain type
-(indicated by a PROPERTIES_* constant). The formatting properties set inside
-such an object must obay to the ODF specification.
+(indicated by a PROPERTIES_* constant). The formatting properties set inside such an object must obay to the ODF
+specification.
 
 * Full name: `\ezcDocumentOdtFormattingProperties`
 * Parent class: [`ArrayObject`](./ArrayObject.md)
-
 
 ## Constants
 
@@ -32,7 +31,6 @@ such an object must obay to the ODF specification.
 
 ## Properties
 
-
 ### properties
 
 Properties.
@@ -41,15 +39,9 @@ Properties.
 protected $properties
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -61,19 +53,11 @@ public __construct(\const $type): mixed
 
 $type must be one of the FAMILY_* constants.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **\const** |  |
-
-
-
 
 ***
 
@@ -87,19 +71,11 @@ public append(mixed $value): void
 
 Only {@link} is allowed, using a valid property type.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -111,21 +87,11 @@ Exchanging the array is not allowed.
 public exchangeArray(array $array): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **array** |  |
-
-
-
 
 ***
 
@@ -137,13 +103,8 @@ Sets a formatting property.
 public offsetSet(string $offset, mixed $value): void
 ```
 
-The $offset is the name of the formatting property, the $value the
-value to be assigned (usually string, but might be of different type).
-
-
-
-
-
+The $offset is the name of the formatting property, the $value the value to be assigned (usually string, but might be of
+different type).
 
 **Parameters:**
 
@@ -152,11 +113,4 @@ value to be assigned (usually string, but might be of different type).
 | `$offset` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

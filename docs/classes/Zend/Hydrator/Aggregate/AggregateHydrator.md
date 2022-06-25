@@ -4,12 +4,10 @@
 
 Aggregate hydrator that composes multiple hydrators via events
 
-
-
 * Full name: `\Zend\Hydrator\Aggregate\AggregateHydrator`
 * This class implements:
-[`\Zend\Hydrator\HydratorInterface`](../HydratorInterface.md), [`\Zend\EventManager\EventManagerAwareInterface`](../../EventManager/EventManagerAwareInterface.md)
-
+  [`\Zend\Hydrator\HydratorInterface`](../HydratorInterface.md)
+  , [`\Zend\EventManager\EventManagerAwareInterface`](../../EventManager/EventManagerAwareInterface.md)
 
 ## Constants
 
@@ -19,24 +17,15 @@ Aggregate hydrator that composes multiple hydrators via events
 
 ## Properties
 
-
 ### eventManager
-
-
 
 ```php
 protected \Zend\EventManager\EventManagerInterface|null $eventManager
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### add
 
@@ -46,22 +35,12 @@ Attaches the provided hydrator to the list of hydrators to be used while hydrati
 public add(\Zend\Hydrator\HydratorInterface $hydrator, int $priority = self::DEFAULT_PRIORITY): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$hydrator` | **\Zend\Hydrator\HydratorInterface** |  |
 | `$priority` | **int** |  |
-
-
-
 
 ***
 
@@ -73,21 +52,11 @@ public add(\Zend\Hydrator\HydratorInterface $hydrator, int $priority = self::DEF
 public extract(mixed $object): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
-
-
-
 
 ***
 
@@ -99,22 +68,12 @@ public extract(mixed $object): mixed
 public hydrate(array $data, mixed $object): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** |  |
 | `$object` | **mixed** |  |
-
-
-
 
 ***
 
@@ -126,21 +85,11 @@ Inject an EventManager instance
 public setEventManager(\Zend\EventManager\EventManagerInterface $eventManager): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventManager` | **\Zend\EventManager\EventManagerInterface** |  |
-
-
-
 
 ***
 
@@ -152,18 +101,4 @@ public setEventManager(\Zend\EventManager\EventManagerInterface $eventManager): 
 public getEventManager(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

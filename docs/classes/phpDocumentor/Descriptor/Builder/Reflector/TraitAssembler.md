@@ -4,16 +4,10 @@
 
 Assembles an TraitDescriptor using an TraitReflector.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\Builder\Reflector\TraitAssembler`
 * Parent class: [`\phpDocumentor\Descriptor\Builder\Reflector\AssemblerAbstract`](./AssemblerAbstract.md)
 
-
-
-
 ## Methods
-
 
 ### create
 
@@ -23,21 +17,11 @@ Creates a Descriptor from the provided data.
 public create(\phpDocumentor\Reflection\TraitReflector $data): \phpDocumentor\Descriptor\TraitDescriptor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **\phpDocumentor\Reflection\TraitReflector** |  |
-
-
-
 
 ***
 
@@ -49,22 +33,12 @@ Registers the child properties with the generated Trait Descriptor.
 protected addProperties(\phpDocumentor\Reflection\ClassReflector\PropertyReflector[] $properties, \phpDocumentor\Descriptor\TraitDescriptor $traitDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$properties` | **\phpDocumentor\Reflection\ClassReflector\PropertyReflector[]** |  |
 | `$traitDescriptor` | **\phpDocumentor\Descriptor\TraitDescriptor** |  |
-
-
-
 
 ***
 
@@ -76,13 +50,6 @@ Registers the child methods with the generated Trait Descriptor.
 protected addMethods(\phpDocumentor\Reflection\ClassReflector\MethodReflector[] $methods, \phpDocumentor\Descriptor\TraitDescriptor $traitDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -90,14 +57,9 @@ protected addMethods(\phpDocumentor\Reflection\ClassReflector\MethodReflector[] 
 | `$methods` | **\phpDocumentor\Reflection\ClassReflector\MethodReflector[]** |  |
 | `$traitDescriptor` | **\phpDocumentor\Descriptor\TraitDescriptor** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### assembleDocBlock
 
@@ -107,22 +69,12 @@ Assemble DocBlock.
 protected assembleDocBlock(\phpDocumentor\Reflection\DocBlock|null $docBlock, \phpDocumentor\Descriptor\DescriptorAbstract $target): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock&#124;null** |  |
 | `$target` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -134,21 +86,11 @@ Extracts the package from the DocBlock.
 protected extractPackageFromDocBlock(\phpDocumentor\Reflection\DocBlock $docBlock): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock** |  |
-
-
-
 
 ***
 
@@ -160,16 +102,6 @@ Returns the builder for this Assembler or null if none is set.
 public getBuilder(): null|\phpDocumentor\Descriptor\ProjectDescriptorBuilder
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBuilder
@@ -180,13 +112,7 @@ Registers the Builder with this Assembler.
 public setBuilder(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): void
 ```
 
-The Builder may be used to recursively assemble Descriptors using
-the {@link} method.
-
-
-
-
-
+The Builder may be used to recursively assemble Descriptors using the {@link} method.
 
 **Parameters:**
 
@@ -194,11 +120,4 @@ the {@link} method.
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

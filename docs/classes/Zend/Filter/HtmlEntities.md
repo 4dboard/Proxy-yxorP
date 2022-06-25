@@ -2,17 +2,10 @@
 
 # HtmlEntities
 
-
-
-
-
 * Full name: `\Zend\Filter\HtmlEntities`
 * Parent class: [`\Zend\Filter\AbstractFilter`](./AbstractFilter.md)
 
-
-
 ## Properties
-
 
 ### quoteStyle
 
@@ -21,11 +14,6 @@ Corresponds to the second htmlentities() argument
 ```php
 protected int $quoteStyle
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +25,6 @@ Corresponds to the third htmlentities() argument
 protected string $encoding
 ```
 
-
-
-
-
-
 ***
 
 ### doubleQuote
@@ -52,15 +35,9 @@ Corresponds to the forth htmlentities() argument
 protected bool $doubleQuote
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -70,21 +47,11 @@ Sets filter options
 public __construct(array|\Traversable $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -96,16 +63,6 @@ Returns the quoteStyle option
 public getQuoteStyle(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setQuoteStyle
@@ -116,19 +73,11 @@ Sets the quoteStyle option
 public setQuoteStyle(int $quoteStyle): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$quoteStyle` | **int** |  |
-
 
 **Return Value:**
 
@@ -146,16 +95,6 @@ Get encoding
 public getEncoding(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEncoding
@@ -166,21 +105,11 @@ Set encoding
 public setEncoding(string $value): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** |  |
-
-
-
 
 ***
 
@@ -214,17 +143,11 @@ public setCharSet(string $charSet): self
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$charSet` | **string** |  |
-
 
 **Return Value:**
 
@@ -242,16 +165,6 @@ Returns the doubleQuote option
 public getDoubleQuote(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDoubleQuote
@@ -262,19 +175,11 @@ Sets the doubleQuote option
 public setDoubleQuote(bool $doubleQuote): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$doubleQuote` | **bool** |  |
-
 
 **Return Value:**
 
@@ -292,15 +197,9 @@ Defined by Zend\Filter\FilterInterface
 public filter(string $value): string|mixed
 ```
 
-Returns the string $value, converting characters to their corresponding HTML entity
-equivalents where they exist
+Returns the string $value, converting characters to their corresponding HTML entity equivalents where they exist
 
 If the value provided is non-scalar, the value will remain unfiltered
-
-
-
-
-
 
 **Parameters:**
 
@@ -308,60 +207,34 @@ If the value provided is non-scalar, the value will remain unfiltered
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -372,16 +245,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -395,36 +258,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -432,11 +280,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

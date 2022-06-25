@@ -4,16 +4,12 @@
 
 Visit inline media objects
 
-Inline media objects are all kind of other media types, embedded in
-paragraphs, like images.
+Inline media objects are all kind of other media types, embedded in paragraphs, like images.
 
 * Full name: `\ezcDocumentDocbookToRstInlineMediaObjectHandler`
 * Parent class: [`\ezcDocumentDocbookToRstMediaObjectHandler`](./ezcDocumentDocbookToRstMediaObjectHandler.md)
 
-
-
 ## Properties
-
 
 ### substitution
 
@@ -23,15 +19,9 @@ Substitution counter.
 protected int $substitution
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### handle
 
@@ -41,13 +31,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -57,14 +41,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getDirectiveParameters
 
@@ -74,14 +53,8 @@ Extract directive parameters
 protected getDirectiveParameters(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node): array
 ```
 
-Extract the image directive parameters from a media object or inline
-media object node in the Docbook document. Returns an array with
-named keys containing the directive parameters.
-
-
-
-
-
+Extract the image directive parameters from a media object or inline media object node in the Docbook document. Returns
+an array with named keys containing the directive parameters.
 
 **Parameters:**
 
@@ -89,9 +62,6 @@ named keys containing the directive parameters.
 |-----------|------|-------------|
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -103,13 +73,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -118,9 +84,6 @@ conversion.
 | `$converter` | **\ezcDocumentElementVisitorConverter** |  |
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
-
-
-
 
 ***
 
@@ -134,11 +97,6 @@ protected renderDirective(string $name, string $parameter, array $options, strin
 
 Render a directive with the given paramters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -148,11 +106,4 @@ Render a directive with the given paramters.
 | `$options` | **array** |  |
 | `$content` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

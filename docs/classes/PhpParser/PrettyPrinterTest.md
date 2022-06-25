@@ -2,33 +2,16 @@
 
 # PrettyPrinterTest
 
-
-
-
-
 * Full name: `\PhpParser\PrettyPrinterTest`
 * Parent class: [`\PhpParser\CodeTestAbstract`](./CodeTestAbstract.md)
 
-
-
-
 ## Methods
 
-
 ### doTestPrettyPrintMethod
-
-
 
 ```php
 protected doTestPrettyPrintMethod(mixed $method, mixed $name, mixed $code, mixed $dump): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -39,26 +22,14 @@ protected doTestPrettyPrintMethod(mixed $method, mixed $name, mixed $code, mixed
 | `$code` | **mixed** |  |
 | `$dump` | **mixed** |  |
 
-
-
-
 ***
 
 ### testPrettyPrint
-
-
 
 ```php
 public testPrettyPrint(mixed $name, mixed $code, mixed $dump): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -66,26 +37,14 @@ public testPrettyPrint(mixed $name, mixed $code, mixed $dump): mixed
 | `$name` | **mixed** |  |
 | `$code` | **mixed** |  |
 | `$dump` | **mixed** |  |
-
-
-
 
 ***
 
 ### testPrettyPrintFile
 
-
-
 ```php
 public testPrettyPrintFile(mixed $name, mixed $code, mixed $dump): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -95,89 +54,39 @@ public testPrettyPrintFile(mixed $name, mixed $code, mixed $dump): mixed
 | `$code` | **mixed** |  |
 | `$dump` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideTestPrettyPrint
-
-
 
 ```php
 public provideTestPrettyPrint(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### provideTestPrettyPrintFile
-
-
 
 ```php
 public provideTestPrettyPrintFile(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testPrettyPrintExpr
-
-
 
 ```php
 public testPrettyPrintExpr(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getTests
-
-
 
 ```php
 protected getTests(mixed $directory, mixed $fileExtension): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -186,25 +95,13 @@ protected getTests(mixed $directory, mixed $fileExtension): mixed
 | `$directory` | **mixed** |  |
 | `$fileExtension` | **mixed** |  |
 
-
-
-
 ***
 
 ### evalCallback
 
-
-
 ```php
 protected evalCallback(mixed $matches): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -212,25 +109,13 @@ protected evalCallback(mixed $matches): mixed
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
 
-
-
-
 ***
 
 ### canonicalize
 
-
-
 ```php
 protected canonicalize(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -238,11 +123,4 @@ protected canonicalize(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

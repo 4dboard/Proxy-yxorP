@@ -4,184 +4,101 @@
 
 The default implementation of {@link ValidatorBuilderInterface}.
 
-
-
 * Full name: `\Symfony\Component\Validator\ValidatorBuilder`
 * This class implements:
-[`\Symfony\Component\Validator\ValidatorBuilderInterface`](./ValidatorBuilderInterface.md)
-
-
+  [`\Symfony\Component\Validator\ValidatorBuilderInterface`](./ValidatorBuilderInterface.md)
 
 ## Properties
 
-
 ### initializers
-
-
 
 ```php
 private $initializers
 ```
 
-
-
-
-
-
 ***
 
 ### xmlMappings
-
-
 
 ```php
 private $xmlMappings
 ```
 
-
-
-
-
-
 ***
 
 ### yamlMappings
-
-
 
 ```php
 private $yamlMappings
 ```
 
-
-
-
-
-
 ***
 
 ### methodMappings
-
-
 
 ```php
 private $methodMappings
 ```
 
-
-
-
-
-
 ***
 
 ### annotationReader
-
-
 
 ```php
 private \Doctrine\Common\Annotations\Reader|null $annotationReader
 ```
 
-
-
-
-
-
 ***
 
 ### metadataFactory
-
-
 
 ```php
 private \Symfony\Component\Validator\MetadataFactoryInterface|null $metadataFactory
 ```
 
-
-
-
-
-
 ***
 
 ### validatorFactory
-
-
 
 ```php
 private \Symfony\Component\Validator\ConstraintValidatorFactoryInterface|null $validatorFactory
 ```
 
-
-
-
-
-
 ***
 
 ### metadataCache
-
-
 
 ```php
 private \Symfony\Component\Validator\Mapping\Cache\CacheInterface|null $metadataCache
 ```
 
-
-
-
-
-
 ***
 
 ### translator
-
-
 
 ```php
 private \Symfony\Component\Translation\TranslatorInterface|null $translator
 ```
 
-
-
-
-
-
 ***
 
 ### translationDomain
-
-
 
 ```php
 private string|null $translationDomain
 ```
 
-
-
-
-
-
 ***
 
 ### propertyAccessor
-
-
 
 ```php
 private \Symfony\Component\PropertyAccess\PropertyAccessorInterface|null $propertyAccessor
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### addObjectInitializer
 
@@ -191,21 +108,11 @@ Adds an object initializer to the validator.
 public addObjectInitializer(\Symfony\Component\Validator\ObjectInitializerInterface $initializer): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$initializer` | **\Symfony\Component\Validator\ObjectInitializerInterface** |  |
-
-
-
 
 ***
 
@@ -217,21 +124,11 @@ Adds a list of object initializers to the validator.
 public addObjectInitializers(array $initializers): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$initializers` | **array** |  |
-
-
-
 
 ***
 
@@ -243,21 +140,11 @@ Adds an XML constraint mapping file to the validator.
 public addXmlMapping(mixed $path): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the mapping file |
-
-
-
 
 ***
 
@@ -269,21 +156,11 @@ Adds a list of XML constraint mapping files to the validator.
 public addXmlMappings(array $paths): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$paths` | **array** | The paths to the mapping files |
-
-
-
 
 ***
 
@@ -295,21 +172,11 @@ Adds a YAML constraint mapping file to the validator.
 public addYamlMapping(mixed $path): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** | The path to the mapping file |
-
-
-
 
 ***
 
@@ -321,21 +188,11 @@ Adds a list of YAML constraint mappings file to the validator.
 public addYamlMappings(array $paths): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$paths` | **array** | The paths to the mapping files |
-
-
-
 
 ***
 
@@ -347,21 +204,11 @@ Enables constraint mapping using the given static method.
 public addMethodMapping(mixed $methodName): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$methodName` | **mixed** | The name of the method |
-
-
-
 
 ***
 
@@ -373,21 +220,11 @@ Enables constraint mapping using the given static methods.
 public addMethodMappings(array $methodNames): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$methodNames` | **array** | The names of the methods |
-
-
-
 
 ***
 
@@ -399,21 +236,11 @@ Enables annotation based constraint mapping.
 public enableAnnotationMapping(\Doctrine\Common\Annotations\Reader $annotationReader = null): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$annotationReader` | **\Doctrine\Common\Annotations\Reader** |  |
-
-
-
 
 ***
 
@@ -425,16 +252,6 @@ Disables annotation based constraint mapping.
 public disableAnnotationMapping(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setMetadataFactory
@@ -445,21 +262,11 @@ Sets the class metadata factory used by the validator.
 public setMetadataFactory(\Symfony\Component\Validator\MetadataFactoryInterface $metadataFactory): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metadataFactory` | **\Symfony\Component\Validator\MetadataFactoryInterface** |  |
-
-
-
 
 ***
 
@@ -471,21 +278,11 @@ Sets the cache for caching class metadata.
 public setMetadataCache(\Symfony\Component\Validator\Mapping\Cache\CacheInterface $cache): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cache` | **\Symfony\Component\Validator\Mapping\Cache\CacheInterface** |  |
-
-
-
 
 ***
 
@@ -497,21 +294,11 @@ Sets the constraint validator factory used by the validator.
 public setConstraintValidatorFactory(\Symfony\Component\Validator\ConstraintValidatorFactoryInterface $validatorFactory): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$validatorFactory` | **\Symfony\Component\Validator\ConstraintValidatorFactoryInterface** |  |
-
-
-
 
 ***
 
@@ -523,21 +310,11 @@ Sets the translator used for translating violation messages.
 public setTranslator(\Symfony\Component\Translation\TranslatorInterface $translator): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$translator` | **\Symfony\Component\Translation\TranslatorInterface** |  |
-
-
-
 
 ***
 
@@ -549,21 +326,11 @@ Sets the default translation domain of violation messages.
 public setTranslationDomain(mixed $translationDomain): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$translationDomain` | **mixed** | The translation domain of the violation messages |
-
-
-
 
 ***
 
@@ -575,23 +342,13 @@ Sets the property accessor for resolving property paths.
 public setPropertyAccessor(\Symfony\Component\PropertyAccess\PropertyAccessorInterface $propertyAccessor): $this
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$propertyAccessor` | **\Symfony\Component\PropertyAccess\PropertyAccessorInterface** | The property accessor |
-
-
-
 
 ***
 
@@ -603,23 +360,13 @@ Sets the API version that the returned validator should support.
 public setApiVersion(mixed $apiVersion): $this
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$apiVersion` | **mixed** | The required API version |
-
-
-
 
 ***
 
@@ -631,22 +378,6 @@ Builds and returns a new validator object.
 public getValidator(): \Symfony\Component\Validator\ValidatorInterface
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The built validator
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The built validator yxorP::get('REQUEST')

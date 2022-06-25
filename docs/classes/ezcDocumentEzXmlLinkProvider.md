@@ -2,19 +2,12 @@
 
 # ezcDocumentEzXmlLinkProvider
 
-Class providing access to links referenced in eZXml documents by url IDs,
-node IDs or object IDs.
-
-
+Class providing access to links referenced in eZXml documents by url IDs, node IDs or object IDs.
 
 * Full name: `\ezcDocumentEzXmlLinkProvider`
 * This class is an **Abstract class**
 
-
-
-
 ## Methods
-
 
 ### fetchUrlById
 
@@ -26,10 +19,7 @@ public fetchUrlById(string $id, string $view, string $show_path): string
 
 Fetch and return URL referenced by url_id property.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -38,9 +28,6 @@ Fetch and return URL referenced by url_id property.
 | `$id` | **string** |  |
 | `$view` | **string** |  |
 | `$show_path` | **string** |  |
-
-
-
 
 ***
 
@@ -54,10 +41,7 @@ public fetchUrlByNodeId(string $id, string $view, string $show_path): string
 
 Create and return the URL for a referenced node.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -66,9 +50,6 @@ Create and return the URL for a referenced node.
 | `$id` | **string** |  |
 | `$view` | **string** |  |
 | `$show_path` | **string** |  |
-
-
-
 
 ***
 
@@ -82,10 +63,7 @@ public fetchUrlByObjectId(string $id, string $view, string $show_path): string
 
 Create and return the URL for a referenced object.
 
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -95,11 +73,4 @@ Create and return the URL for a referenced object.
 | `$view` | **string** |  |
 | `$show_path` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

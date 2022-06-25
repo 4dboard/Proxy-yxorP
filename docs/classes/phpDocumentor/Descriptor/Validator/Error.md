@@ -4,92 +4,49 @@
 
 Struct to record a validation error.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\Validator\Error`
-
-
 
 ## Properties
 
-
 ### severity
-
-
 
 ```php
 protected string $severity
 ```
 
-
-
-
-
-
 ***
 
 ### code
-
-
 
 ```php
 protected string $code
 ```
 
-
-
-
-
-
 ***
 
 ### line
-
-
 
 ```php
 protected int $line
 ```
 
-
-
-
-
-
 ***
 
 ### context
-
-
 
 ```php
 protected array $context
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $severity, string $code, int $line, array $context = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -100,26 +57,13 @@ public __construct(string $severity, string $code, int $line, array $context = a
 | `$line` | **int** |  |
 | `$context` | **array** |  |
 
-
-
-
 ***
 
 ### getCode
 
-
-
 ```php
 public getCode(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -131,19 +75,9 @@ $code
 
 ### getLine
 
-
-
 ```php
 public getLine(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -155,19 +89,9 @@ $line
 
 ### getSeverity
 
-
-
 ```php
 public getSeverity(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -179,28 +103,10 @@ $severity
 
 ### getContext
 
-
-
 ```php
 public getContext(): array
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-$context
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+$context yxorP::get('REQUEST')

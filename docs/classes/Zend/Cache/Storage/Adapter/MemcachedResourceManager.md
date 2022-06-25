@@ -4,14 +4,9 @@
 
 This is a resource manager for memcached
 
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\MemcachedResourceManager`
 
-
-
 ## Properties
-
 
 ### resources
 
@@ -21,15 +16,9 @@ Registered resources
 protected array $resources
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getServers
 
@@ -39,19 +28,11 @@ Get servers
 public getServers(string $id): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
 
 **Return Value:**
 
@@ -70,21 +51,11 @@ array('host' => <host>, 'port' => <port>, 'weight' => <weight>)
 protected normalizeServer(string|array& $server): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -96,21 +67,11 @@ Check if a resource exists
 public hasResource(string $id): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -122,21 +83,11 @@ Gets a memcached resource
 public getResource(string $id): \Memcached
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -148,20 +99,12 @@ Set a resource
 public setResource(string $id, array|\Traversable|\Memcached $resource): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$resource` | **array&#124;\Traversable&#124;\Memcached** |  |
-
 
 **Return Value:**
 
@@ -179,19 +122,11 @@ Remove a resource
 public removeResource(string $id): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
 
 **Return Value:**
 
@@ -209,20 +144,12 @@ Set the persistent id
 public setPersistentId(string $id, string $persistentId): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$persistentId` | **string** |  |
-
 
 **Return Value:**
 
@@ -240,21 +167,11 @@ Get the persistent id
 public getPersistentId(string $id): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -266,21 +183,11 @@ Normalize the persistent id
 protected normalizePersistentId(string& $persistentId): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistentId` | **string** |  |
-
-
-
 
 ***
 
@@ -292,20 +199,12 @@ Set Libmemcached options
 public setLibOptions(string $id, array $libOptions): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$libOptions` | **array** |  |
-
 
 **Return Value:**
 
@@ -323,21 +222,11 @@ Get Libmemcached options
 public getLibOptions(string $id): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -349,13 +238,6 @@ Set one Libmemcached option
 public setLibOption(string $id, string|int $key, mixed $value): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -363,7 +245,6 @@ public setLibOption(string $id, string|int $key, mixed $value): \Zend\Cache\Stor
 | `$id` | **string** |  |
 | `$key` | **string&#124;int** |  |
 | `$value` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -381,22 +262,12 @@ Get one Libmemcached option
 public getLibOption(string $id, string|int $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$key` | **string&#124;int** |  |
-
-
-
 
 ***
 
@@ -408,21 +279,11 @@ Normalize libmemcached options
 protected normalizeLibOptions(array|\Traversable& $libOptions): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$libOptions` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -434,21 +295,11 @@ Convert option name into it's constant value
 protected normalizeLibOptionKey(string|int& $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string&#124;int** |  |
-
-
-
 
 ***
 
@@ -460,16 +311,11 @@ Set servers
 public setServers(string $id, string|array $servers): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-$servers can be an array list or a comma separated list of servers.
-One server in the list can be descripted as follows:
+$servers can be an array list or a comma separated list of servers. One server in the list can be descripted as follows:
+
 - URI:   [tcp://]<host>[:<port>][?weight=<weight>]
 - Assoc: array('host' => <host>[, 'port' => <port>][, 'weight' => <weight>])
 - List:  array(<host>[, <port>][, <weight>])
-
-
-
-
-
 
 **Parameters:**
 
@@ -477,9 +323,6 @@ One server in the list can be descripted as follows:
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$servers` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -491,22 +334,12 @@ Add servers
 public addServers(string $id, string|array $servers): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$servers` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -518,22 +351,12 @@ Add one server
 public addServer(string $id, string|array $server): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
 | `$server` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -546,21 +369,11 @@ array(array('host' => <host>, 'port' => <port>, 'weight' => <weight>)[, ...])
 protected normalizeServers(string|array& $servers): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$servers` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -573,13 +386,6 @@ Compare 2 normalized server arrays
 protected compareServers(array $serverA, array $serverB): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -587,11 +393,4 @@ protected compareServers(array $serverA, array $serverB): int
 | `$serverA` | **array** |  |
 | `$serverB` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

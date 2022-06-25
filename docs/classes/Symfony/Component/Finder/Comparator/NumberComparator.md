@@ -2,16 +2,13 @@
 
 # NumberComparator
 
-NumberComparator compiles a simple comparison to an anonymous
-subroutine, which you can call with a value to be tested again.
+NumberComparator compiles a simple comparison to an anonymous subroutine, which you can call with a value to be tested
+again.
 
-Now this would be very pointless, if NumberCompare didn't understand
-magnitudes.
+Now this would be very pointless, if NumberCompare didn't understand magnitudes.
 
-The target value may use magnitudes of kilobytes (k, ki),
-megabytes (m, mi), or gigabytes (g, gi).  Those suffixed
-with an i use the appropriate 2**n version in accordance with the
-IEC standard: http://physics.nist.gov/cuu/Units/binary.html
+The target value may use magnitudes of kilobytes (k, ki), megabytes (m, mi), or gigabytes (g, gi). Those suffixed with
+an i use the appropriate 2**n version in accordance with the IEC standard: http://physics.nist.gov/cuu/Units/binary.html
 
 Based on the Perl Number::Compare module.
 
@@ -20,28 +17,15 @@ Based on the Perl Number::Compare module.
 
 **See Also:**
 
-* http://physics.nist.gov/cuu/Units/binary.html - 
-
-
-
+* http://physics.nist.gov/cuu/Units/binary.html -
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string|int $test): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -49,14 +33,9 @@ public __construct(string|int $test): mixed
 |-----------|------|-------------|
 | `$test` | **string&#124;int** | A comparison string or an integer |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### getTarget
 
@@ -65,14 +44,6 @@ Gets the target value.
 ```php
 public getTarget(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -90,21 +61,11 @@ Sets the target value.
 public setTarget(string $target): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** | The target value |
-
-
-
 
 ***
 
@@ -115,14 +76,6 @@ Gets the comparison operator.
 ```php
 public getOperator(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -140,21 +93,11 @@ Sets the comparison operator.
 public setOperator(string $operator): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operator` | **string** | A valid operator |
-
-
-
 
 ***
 
@@ -166,24 +109,10 @@ Tests against the target.
 public test(mixed $test): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$test` | **mixed** | A test value |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

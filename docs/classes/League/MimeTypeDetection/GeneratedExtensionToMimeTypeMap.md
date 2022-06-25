@@ -2,34 +2,17 @@
 
 # GeneratedExtensionToMimeTypeMap
 
-
-
-
-
 * Full name: `\League\MimeTypeDetection\GeneratedExtensionToMimeTypeMap`
 * This class implements:
-[`\League\MimeTypeDetection\ExtensionToMimeTypeMap`](./ExtensionToMimeTypeMap.md)
-
-
-
+  [`\League\MimeTypeDetection\ExtensionToMimeTypeMap`](./ExtensionToMimeTypeMap.md)
 
 ## Methods
 
-
 ### lookupMimeType
-
-
 
 ```php
 public lookupMimeType(string $extension): ?string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -37,11 +20,4 @@ public lookupMimeType(string $extension): ?string
 |-----------|------|-------------|
 | `$extension` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

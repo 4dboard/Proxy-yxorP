@@ -9,43 +9,25 @@ Each asset is represented by an entry containing the path to that asset relative
 * Full name: `\phpDocumentor\Plugin\Scrybe\Converter\Metadata\Assets`
 * Parent class: [`ArrayObject`](../../../../../ArrayObject.md)
 
-
-
 ## Properties
 
-
 ### project_root
-
-
 
 ```php
 protected string $project_root
 ```
 
-
-
-
-
-
 ***
 
 ### logger
-
-
 
 ```php
 protected \Monolog\Logger $logger
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setProjectRoot
 
@@ -55,21 +37,11 @@ Sets the project root for the given assets.
 public setProjectRoot(string $project_root): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$project_root` | **string** |  |
-
-
-
 
 ***
 
@@ -81,16 +53,6 @@ Returns the project root for the given assets.
 public getProjectRoot(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### set
@@ -101,22 +63,12 @@ Sets an asset to be copied to the given destination path.
 public set(string $source_path, string $destination_path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source_path` | **string** |  |
 | `$destination_path` | **string** |  |
-
-
-
 
 ***
 
@@ -128,21 +80,11 @@ Sets a logger with which to record warnings.
 public setLogger(\Monolog\Logger $logger): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$logger` | **\Monolog\Logger** |  |
-
-
-
 
 ***
 
@@ -154,24 +96,10 @@ Copies all assets in this collection to their given destination location.
 public copyTo(string $destination): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$destination` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

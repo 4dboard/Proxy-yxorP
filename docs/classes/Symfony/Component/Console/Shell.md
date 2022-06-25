@@ -4,119 +4,69 @@
 
 A Shell wraps an Application to add shell capabilities to it.
 
-Support for history and completion only works with a PHP compiled
-with readline support (either --with-readline or --with-libedit)
+Support for history and completion only works with a PHP compiled with readline support (either --with-readline or
+--with-libedit)
 
 * Full name: `\Symfony\Component\Console\Shell`
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
-
-
 ## Properties
 
-
 ### application
-
-
 
 ```php
 private $application
 ```
 
-
-
-
-
-
 ***
 
 ### history
-
-
 
 ```php
 private $history
 ```
 
-
-
-
-
-
 ***
 
 ### output
-
-
 
 ```php
 private $output
 ```
 
-
-
-
-
-
 ***
 
 ### hasReadline
-
-
 
 ```php
 private $hasReadline
 ```
 
-
-
-
-
-
 ***
 
 ### processIsolation
-
-
 
 ```php
 private $processIsolation
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
 
-If there is no readline support for the current PHP executable
-a \RuntimeException exception is thrown.
+If there is no readline support for the current PHP executable a \RuntimeException exception is thrown.
 
 ```php
 public __construct(\Symfony\Component\Console\Application $application): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$application` | **\Symfony\Component\Console\Application** |  |
-
-
-
 
 ***
 
@@ -128,16 +78,6 @@ Runs the shell.
 public run(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getHeader
@@ -147,14 +87,6 @@ Returns the shell header.
 ```php
 protected getHeader(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -172,14 +104,6 @@ Renders a prompt.
 protected getPrompt(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The prompt
@@ -190,41 +114,17 @@ The prompt
 
 ### getOutput
 
-
-
 ```php
 protected getOutput(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### getApplication
 
-
-
 ```php
 protected getApplication(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -236,19 +136,11 @@ Tries to return autocompletion for the current entered text.
 private autocompleter(string $text): bool|array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **string** | The last segment of the entered text |
-
 
 **Return Value:**
 
@@ -266,14 +158,6 @@ Reads a single line from standard input.
 private readline(): string
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The single line from standard input
@@ -284,38 +168,17 @@ The single line from standard input
 
 ### getProcessIsolation
 
-
-
 ```php
 public getProcessIsolation(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setProcessIsolation
 
-
-
 ```php
 public setProcessIsolation(mixed $processIsolation): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -323,11 +186,4 @@ public setProcessIsolation(mixed $processIsolation): mixed
 |-----------|------|-------------|
 | `$processIsolation` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

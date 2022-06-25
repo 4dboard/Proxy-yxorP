@@ -2,199 +2,105 @@
 
 # LiteDBQuery
 
-
-
-
-
 * Full name: `\LiteDBQuery`
-
-
 
 ## Properties
 
-
 ### cmd
-
-
 
 ```php
 protected $cmd
 ```
 
-
-
-
-
-
 ***
 
 ### connection
-
-
 
 ```php
 protected $connection
 ```
 
-
-
-
-
-
 ***
 
 ### fields
-
-
 
 ```php
 protected $fields
 ```
 
-
-
-
-
-
 ***
 
 ### table
-
-
 
 ```php
 protected $table
 ```
 
-
-
-
-
-
 ***
 
 ### joins
-
-
 
 ```php
 protected $joins
 ```
 
-
-
-
-
-
 ***
 
 ### conditions
-
-
 
 ```php
 protected $conditions
 ```
 
-
-
-
-
-
 ***
 
 ### group
-
-
 
 ```php
 protected $group
 ```
 
-
-
-
-
-
 ***
 
 ### having
-
-
 
 ```php
 protected $having
 ```
 
-
-
-
-
-
 ***
 
 ### order
-
-
 
 ```php
 protected $order
 ```
 
-
-
-
-
-
 ***
 
 ### limit
-
-
 
 ```php
 protected $limit
 ```
 
-
-
-
-
-
 ***
 
 ### offset
-
-
 
 ```php
 protected $offset
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $connection, mixed $table = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -203,51 +109,27 @@ public __construct(mixed $connection, mixed $table = null): mixed
 | `$connection` | **mixed** |  |
 | `$table` | **mixed** |  |
 
-
-
-
 ***
 
 ### select
-
-
 
 ```php
 public select(mixed $fields = &#039;*&#039;): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fields` | **mixed** |  |
-
-
-
 
 ***
 
 ### fields
 
-
-
 ```php
 public fields(mixed $fields = &#039;*&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -255,25 +137,13 @@ public fields(mixed $fields = &#039;*&#039;): mixed
 |-----------|------|-------------|
 | `$fields` | **mixed** |  |
 
-
-
-
 ***
 
 ### from
 
-
-
 ```php
 public from(mixed $table): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -281,25 +151,13 @@ public from(mixed $table): mixed
 |-----------|------|-------------|
 | `$table` | **mixed** |  |
 
-
-
-
 ***
 
 ### where
 
-
-
 ```php
 public where(mixed $conditions): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -307,25 +165,13 @@ public where(mixed $conditions): mixed
 |-----------|------|-------------|
 | `$conditions` | **mixed** |  |
 
-
-
-
 ***
 
 ### join
 
-
-
 ```php
 public join(mixed $type, mixed $join): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -334,25 +180,13 @@ public join(mixed $type, mixed $join): mixed
 | `$type` | **mixed** |  |
 | `$join` | **mixed** |  |
 
-
-
-
 ***
 
 ### group
 
-
-
 ```php
 public group(mixed $group): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -360,25 +194,13 @@ public group(mixed $group): mixed
 |-----------|------|-------------|
 | `$group` | **mixed** |  |
 
-
-
-
 ***
 
 ### having
 
-
-
 ```php
 public having(mixed $having): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -386,25 +208,13 @@ public having(mixed $having): mixed
 |-----------|------|-------------|
 | `$having` | **mixed** |  |
 
-
-
-
 ***
 
 ### order
 
-
-
 ```php
 public order(mixed $order): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -412,25 +222,13 @@ public order(mixed $order): mixed
 |-----------|------|-------------|
 | `$order` | **mixed** |  |
 
-
-
-
 ***
 
 ### limit
 
-
-
 ```php
 public limit(mixed $limit): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -438,25 +236,13 @@ public limit(mixed $limit): mixed
 |-----------|------|-------------|
 | `$limit` | **mixed** |  |
 
-
-
-
 ***
 
 ### offset
 
-
-
 ```php
 public offset(mixed $offset): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -464,25 +250,13 @@ public offset(mixed $offset): mixed
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
-
 ***
 
 ### all
 
-
-
 ```php
 public all(mixed $condition = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -490,77 +264,41 @@ public all(mixed $condition = null): mixed
 |-----------|------|-------------|
 | `$condition` | **mixed** |  |
 
-
-
-
 ***
 
 ### one
-
-
 
 ```php
 public one(mixed $conditions = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$conditions` | **mixed** |  |
-
-
-
 
 ***
 
 ### count
 
-
-
 ```php
 public count(mixed $conditions = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$conditions` | **mixed** |  |
-
-
-
 
 ***
 
 ### sum
 
-
-
 ```php
 public sum(mixed $field, mixed $conditions = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -568,26 +306,14 @@ public sum(mixed $field, mixed $conditions = null): mixed
 |-----------|------|-------------|
 | `$field` | **mixed** |  |
 | `$conditions` | **mixed** |  |
-
-
-
 
 ***
 
 ### avg
 
-
-
 ```php
 public avg(mixed $field, mixed $conditions = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -596,51 +322,27 @@ public avg(mixed $field, mixed $conditions = null): mixed
 | `$field` | **mixed** |  |
 | `$conditions` | **mixed** |  |
 
-
-
-
 ***
 
 ### insert
-
-
 
 ```php
 public insert(mixed $data): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
-
-
-
 
 ***
 
 ### update
 
-
-
 ```php
 public update(mixed $data, mixed $conditions = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -649,111 +351,51 @@ public update(mixed $data, mixed $conditions = []): mixed
 | `$data` | **mixed** |  |
 | `$conditions` | **mixed** |  |
 
-
-
-
 ***
 
 ### delete
-
-
 
 ```php
 public delete(mixed $conditions = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$conditions` | **mixed** |  |
-
-
-
 
 ***
 
 ### truncate
 
-
-
 ```php
 public truncate(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### drop
 
-
-
 ```php
 public drop(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### buildSelect
 
-
-
 ```php
 public buildSelect(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### buildConditions
 
-
-
 ```php
 protected buildConditions(mixed $conditions): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -761,11 +403,4 @@ protected buildConditions(mixed $conditions): mixed
 |-----------|------|-------------|
 | `$conditions` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

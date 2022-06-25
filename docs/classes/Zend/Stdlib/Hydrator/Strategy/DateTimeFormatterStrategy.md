@@ -2,23 +2,14 @@
 
 # DateTimeFormatterStrategy
 
-
-
-
-
 * Full name: `\Zend\Stdlib\Hydrator\Strategy\DateTimeFormatterStrategy`
-* Parent class: [`\Zend\Hydrator\Strategy\DateTimeFormatterStrategy`](../../../Hydrator/Strategy/DateTimeFormatterStrategy.md)
+* Parent
+  class: [`\Zend\Hydrator\Strategy\DateTimeFormatterStrategy`](../../../Hydrator/Strategy/DateTimeFormatterStrategy.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Zend\Stdlib\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
-
-
-
-
-
+  [`\Zend\Stdlib\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
 
 ## Inherited methods
-
 
 ### __construct
 
@@ -28,22 +19,12 @@ Constructor
 public __construct(string $format = DateTime::RFC3339, \DateTimeZone|null $timezone = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **string** |  |
 | `$timezone` | **\DateTimeZone&#124;null** |  |
-
-
-
 
 ***
 
@@ -57,19 +38,11 @@ public extract(mixed|\DateTime $value): mixed|string
 
 Converts to date time string
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed&#124;\DateTime** |  |
-
-
-
 
 ***
 
@@ -83,22 +56,10 @@ public hydrate(mixed|string $value): mixed|\DateTime
 
 {@inheritDoc}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed&#124;string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

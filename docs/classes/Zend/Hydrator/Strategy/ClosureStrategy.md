@@ -2,18 +2,11 @@
 
 # ClosureStrategy
 
-
-
-
-
 * Full name: `\Zend\Hydrator\Strategy\ClosureStrategy`
 * This class implements:
-[`\Zend\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
-
-
+  [`\Zend\Hydrator\Strategy\StrategyInterface`](./StrategyInterface.md)
 
 ## Properties
-
 
 ### extractFunc
 
@@ -55,7 +48,6 @@ function ($value) {
 
 ## Methods
 
-
 ### __construct
 
 You can describe how your values will extract and hydrate, like this:
@@ -87,9 +79,6 @@ $hydrator->addStrategy('category', new ClosureStrategy(
 | `$extractFunc` | **callable** | - anonymous function, that extract values<br />from object |
 | `$hydrateFunc` | **callable** | - anonymous function, that hydrate values<br />into object |
 
-
-
-
 ***
 
 ### extract
@@ -100,20 +89,12 @@ Converts the given value so that it can be extracted by the hydrator.
 public extract(mixed $value, array $object = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The original value. |
 | `$object` | **array** | The object is optionally provided as context. |
-
 
 **Return Value:**
 
@@ -131,13 +112,6 @@ Converts the given value so that it can be hydrated by the hydrator.
 public hydrate(mixed $value, array $data = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -145,15 +119,6 @@ public hydrate(mixed $value, array $data = null): mixed
 | `$value` | **mixed** | The original value. |
 | `$data` | **array** | The whole data is optionally provided as context. |
 
-
 **Return Value:**
 
-Returns the value that should be hydrated.
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+Returns the value that should be hydrated. yxorP::get('REQUEST')

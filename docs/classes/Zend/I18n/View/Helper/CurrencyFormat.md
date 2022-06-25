@@ -4,15 +4,10 @@
 
 View helper for formatting currency.
 
-
-
 * Full name: `\Zend\I18n\View\Helper\CurrencyFormat`
 * Parent class: [`AbstractHelper`](../../../View/Helper/AbstractHelper.md)
 
-
-
 ## Properties
-
 
 ### currencyCode
 
@@ -21,11 +16,6 @@ The 3-letter ISO 4217 currency code indicating the currency to use
 ```php
 protected string $currencyCode
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ Formatter instances
 protected array $formatters
 ```
 
-
-
-
-
-
 ***
 
 ### locale
@@ -51,11 +36,6 @@ Locale to use instead of the default
 ```php
 protected string $locale
 ```
-
-
-
-
-
 
 ***
 
@@ -67,11 +47,6 @@ Currency pattern
 protected string $currencyPattern
 ```
 
-
-
-
-
-
 ***
 
 ### showDecimals
@@ -82,33 +57,15 @@ If set to true, the currency will be returned with two decimals
 protected bool $showDecimals
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -120,13 +77,6 @@ Format a number
 public __invoke(float $number, string $currencyCode = null, bool $showDecimals = null, string $locale = null, string $pattern = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -136,9 +86,6 @@ public __invoke(float $number, string $currencyCode = null, bool $showDecimals =
 | `$showDecimals` | **bool** |  |
 | `$locale` | **string** |  |
 | `$pattern` | **string** |  |
-
-
-
 
 ***
 
@@ -150,13 +97,6 @@ Format a number
 protected formatCurrency(float $number, string $currencyCode, bool $showDecimals, string $locale, string $pattern): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -166,9 +106,6 @@ protected formatCurrency(float $number, string $currencyCode, bool $showDecimals
 | `$showDecimals` | **bool** |  |
 | `$locale` | **string** |  |
 | `$pattern` | **string** |  |
-
-
-
 
 ***
 
@@ -180,21 +117,11 @@ The 3-letter ISO 4217 currency code indicating the currency to use
 public setCurrencyCode(string $currencyCode): \Zend\I18n\View\Helper\CurrencyFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$currencyCode` | **string** |  |
-
-
-
 
 ***
 
@@ -206,16 +133,6 @@ Get the 3-letter ISO 4217 currency code indicating the currency to use
 public getCurrencyCode(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCurrencyPattern
@@ -226,21 +143,11 @@ Set the currency pattern
 public setCurrencyPattern(string $currencyPattern): \Zend\I18n\View\Helper\CurrencyFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$currencyPattern` | **string** |  |
-
-
-
 
 ***
 
@@ -252,16 +159,6 @@ Get the currency pattern
 public getCurrencyPattern(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLocale
@@ -272,21 +169,11 @@ Set locale to use instead of the default
 public setLocale(string $locale): \Zend\I18n\View\Helper\CurrencyFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -298,16 +185,6 @@ Get the locale to use
 public getLocale(): string|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setShouldShowDecimals
@@ -318,21 +195,11 @@ Set if the view helper should show two decimals
 public setShouldShowDecimals(bool $showDecimals): \Zend\I18n\View\Helper\CurrencyFormat
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$showDecimals` | **bool** |  |
-
-
-
 
 ***
 
@@ -344,18 +211,4 @@ Get if the view helper should show two decimals
 public shouldShowDecimals(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

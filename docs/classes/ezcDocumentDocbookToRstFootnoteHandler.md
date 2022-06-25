@@ -4,19 +4,14 @@
 
 Visit footnotes
 
-Footnotes in docbook are emebdded at the position, the reference should
-occur. We store the contents, to be rendered at the end of the HTML
-document, and only render a number referencing the actual footnote at
-the position of the footnote in the docbook document.
+Footnotes in docbook are emebdded at the position, the reference should occur. We store the contents, to be rendered at
+the end of the HTML document, and only render a number referencing the actual footnote at the position of the footnote
+in the docbook document.
 
 * Full name: `\ezcDocumentDocbookToRstFootnoteHandler`
 * Parent class: [`\ezcDocumentDocbookToRstBaseHandler`](./ezcDocumentDocbookToRstBaseHandler.md)
 
-
-
-
 ## Methods
-
 
 ### handle
 
@@ -26,13 +21,7 @@ Handle a node
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
-
-
-
-
+Handle / transform a given node, and return the result of the conversion.
 
 **Parameters:**
 
@@ -42,14 +31,9 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### renderDirective
 
@@ -61,11 +45,6 @@ protected renderDirective(string $name, string $parameter, array $options, strin
 
 Render a directive with the given paramters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -74,9 +53,6 @@ Render a directive with the given paramters.
 | `$parameter` | **string** |  |
 | `$options` | **array** |  |
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -88,13 +64,9 @@ Handle a node.
 public handle(\ezcDocumentElementVisitorConverter $converter, \DOMElement $node, mixed $root): mixed
 ```
 
-Handle / transform a given node, and return the result of the
-conversion.
-
+Handle / transform a given node, and return the result of the conversion.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -104,11 +76,4 @@ conversion.
 | `$node` | **\DOMElement** |  |
 | `$root` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

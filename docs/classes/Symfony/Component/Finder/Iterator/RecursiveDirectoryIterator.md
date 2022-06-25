@@ -4,108 +4,58 @@
 
 Extends the \RecursiveDirectoryIterator to support relative paths.
 
-
-
 * Full name: `\Symfony\Component\Finder\Iterator\RecursiveDirectoryIterator`
 * Parent class: [`RecursiveDirectoryIterator`](../../../../RecursiveDirectoryIterator.md)
 
-
-
 ## Properties
 
-
 ### ignoreUnreadableDirs
-
-
 
 ```php
 private bool $ignoreUnreadableDirs
 ```
 
-
-
-
-
-
 ***
 
 ### rewindable
-
-
 
 ```php
 private bool $rewindable
 ```
 
-
-
-
-
-
 ***
 
 ### rootPath
-
-
 
 ```php
 private $rootPath
 ```
 
-
-
-
-
-
 ***
 
 ### subPath
-
-
 
 ```php
 private $subPath
 ```
 
-
-
-
-
-
 ***
 
 ### directorySeparator
-
-
 
 ```php
 private $directorySeparator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $path, int $flags, bool $ignoreUnreadableDirs = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -114,9 +64,6 @@ public __construct(string $path, int $flags, bool $ignoreUnreadableDirs = false)
 | `$path` | **string** |  |
 | `$flags` | **int** |  |
 | `$ignoreUnreadableDirs` | **bool** |  |
-
-
-
 
 ***
 
@@ -128,14 +75,6 @@ Return an instance of SplFileInfo with support for relative paths.
 public current(): \Symfony\Component\Finder\SplFileInfo
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 File information
@@ -146,21 +85,9 @@ File information
 
 ### getChildren
 
-
-
 ```php
 public getChildren(): \RecursiveIterator
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -172,16 +99,6 @@ Do nothing for non rewindable stream.
 public rewind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isRewindable
@@ -192,22 +109,6 @@ Checks if the stream is rewindable.
 public isRewindable(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-true when the stream is rewindable, false otherwise
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+true when the stream is rewindable, false otherwise yxorP::get('REQUEST')

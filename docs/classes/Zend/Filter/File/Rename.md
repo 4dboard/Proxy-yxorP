@@ -2,17 +2,10 @@
 
 # Rename
 
-
-
-
-
 * Full name: `\Zend\Filter\File\Rename`
 * Parent class: [`\Zend\Filter\AbstractFilter`](../AbstractFilter.md)
 
-
-
 ## Properties
-
 
 ### files
 
@@ -22,15 +15,9 @@ Internal array of array(source, target, overwrite)
 protected $files
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -40,26 +27,18 @@ Class constructor
 public __construct(string|array|\Traversable $options): mixed
 ```
 
-Options argument may be either a string, a Zend\Config\Config object, or an array.
-If an array or Zend\Config\Config object, it accepts the following keys:
-'source'    => Source filename or directory which will be renamed
-'target'    => Target filename or directory, the new name of the source file
+Options argument may be either a string, a Zend\Config\Config object, or an array. If an array or Zend\Config\Config
+object, it accepts the following keys:
+'source' => Source filename or directory which will be renamed
+'target' => Target filename or directory, the new name of the source file
 'overwrite' => Shall existing files be overwritten ?
 'randomize' => Shall target files have a random postfix attached?
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **string&#124;array&#124;\Traversable** | Target file or directory to be renamed |
-
-
-
 
 ***
 
@@ -70,16 +49,6 @@ Returns the files to rename and their new name and location
 ```php
 public getFile(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -92,24 +61,16 @@ public setFile(string|array $options): self
 ```
 
 Array accepts the following keys:
-'source'    => Source filename or directory which will be renamed
-'target'    => Target filename or directory, the new name of the sourcefile
+'source' => Source filename or directory which will be renamed
+'target' => Target filename or directory, the new name of the sourcefile
 'overwrite' => Shall existing files be overwritten?
 'randomize' => Shall target files have a random postfix attached?
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **string&#124;array** | Old file or directory to be rewritten |
-
-
-
 
 ***
 
@@ -122,15 +83,10 @@ public addFile(string|array $options): \Zend\Filter\File\Rename
 ```
 
 Array accepts the following keys:
-'source'    => Source filename or directory which will be renamed
-'target'    => Target filename or directory, the new name of the sourcefile
+'source' => Source filename or directory which will be renamed
+'target' => Target filename or directory, the new name of the sourcefile
 'overwrite' => Shall existing files be overwritten?
 'randomize' => Shall target files have a random postfix attached?
-
-
-
-
-
 
 **Parameters:**
 
@@ -138,26 +94,15 @@ Array accepts the following keys:
 |-----------|------|-------------|
 | `$options` | **string&#124;array** | Old file or directory to be rewritten |
 
-
-
-
 ***
 
 ### getNewName
 
-Returns only the new filename without moving it
-But existing files will be erased when the overwrite option is true
+Returns only the new filename without moving it But existing files will be erased when the overwrite option is true
 
 ```php
 public getNewName(string $value, bool $source = false): string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -165,7 +110,6 @@ public getNewName(string $value, bool $source = false): string
 |-----------|------|-------------|
 | `$value` | **string** | Full path of file to change |
 | `$source` | **bool** | Return internal informations |
-
 
 **Return Value:**
 
@@ -183,20 +127,13 @@ Defined by Zend\Filter\Filter
 public filter(string|array $value): string|array
 ```
 
-Renames the file $value to the new name set before
-Returns the file $value, removing all but digit characters
-
-
-
-
-
+Renames the file $value to the new name set before Returns the file $value, removing all but digit characters
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string&#124;array** | Full path of file to change or $_FILES data array |
-
 
 **Return Value:**
 
@@ -208,19 +145,11 @@ The new filename which has been set
 
 ### _convertOptions
 
-Internal method for creating the file array
-Supports single and nested arrays
+Internal method for creating the file array Supports single and nested arrays
 
 ```php
 protected _convertOptions(array $options): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -228,26 +157,15 @@ protected _convertOptions(array $options): array
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
 ***
 
 ### _getFileName
 
-Internal method to resolve the requested source
-and return all other related parameters
+Internal method to resolve the requested source and return all other related parameters
 
 ```php
 protected _getFileName(string $file): array|string
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -255,60 +173,34 @@ protected _getFileName(string $file): array|string
 |-----------|------|-------------|
 | `$file` | **string** | Filename to get the informations for |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### hasPcreUnicodeSupport
-
-
 
 ```php
 public static hasPcreUnicodeSupport(): bool
 ```
-
-
 
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
-
-
-
-
-
 ***
 
 ### setOptions
 
-
-
 ```php
 public setOptions(array|\Traversable $options): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -319,16 +211,6 @@ Retrieve options representing object state
 ```php
 public getOptions(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -342,36 +224,21 @@ public __invoke(mixed $value): mixed
 
 Proxies to {@link}
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### isOptions
-
-
 
 ```php
 protected static isOptions(mixed $options): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -379,11 +246,4 @@ protected static isOptions(mixed $options): bool
 |-----------|------|-------------|
 | `$options` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

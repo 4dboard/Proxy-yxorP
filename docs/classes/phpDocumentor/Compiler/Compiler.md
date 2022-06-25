@@ -4,11 +4,8 @@
 
 Contains a series of compiler steps in a specific order; ready to be executed during transformation.
 
-
-
 * Full name: `\phpDocumentor\Compiler\Compiler`
 * Parent class: [`SplPriorityQueue`](../../SplPriorityQueue.md)
-
 
 ## Constants
 
@@ -16,9 +13,7 @@ Contains a series of compiler steps in a specific order; ready to be executed du
 |:---------|:-----------|:-----|:------|
 |`PRIORITY_DEFAULT`|public|int|10000|
 
-
 ## Methods
-
 
 ### insert
 
@@ -28,13 +23,6 @@ Contains a series of compiler steps in a specific order; ready to be executed du
 public insert(mixed $value, mixed $priority = self::PRIORITY_DEFAULT): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -42,11 +30,4 @@ public insert(mixed $value, mixed $priority = self::PRIORITY_DEFAULT): mixed
 | `$value` | **mixed** |  |
 | `$priority` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

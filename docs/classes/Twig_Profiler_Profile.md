@@ -2,35 +2,16 @@
 
 # Twig_Profiler_Profile
 
-
-
-
-
 * Full name: `\Twig_Profiler_Profile`
 * Parent class: [`\Twig\Profiler\Profile`](./Twig/Profiler/Profile.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $template = &#039;main&#039;, mixed $type = self::ROOT, mixed $name = &#039;main&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -40,194 +21,83 @@ public __construct(mixed $template = &#039;main&#039;, mixed $type = self::ROOT,
 | `$type` | **mixed** |  |
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### getTemplate
-
-
 
 ```php
 public getTemplate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getType
-
-
 
 ```php
 public getType(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getName
-
-
 
 ```php
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isRoot
-
-
 
 ```php
 public isRoot(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isTemplate
-
-
 
 ```php
 public isTemplate(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isBlock
-
-
 
 ```php
 public isBlock(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isMacro
-
-
 
 ```php
 public isMacro(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getProfiles
-
-
 
 ```php
 public getProfiles(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addProfile
 
-
-
 ```php
 public addProfile(self $profile): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$profile` | **self** |  |
-
-
-
 
 ***
 
@@ -239,16 +109,6 @@ Returns the duration in microseconds.
 public getDuration(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getMemoryUsage
@@ -258,16 +118,6 @@ Returns the memory usage in bytes.
 ```php
 public getMemoryUsage(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -279,16 +129,6 @@ Returns the peak memory usage in bytes.
 public getPeakMemoryUsage(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### enter
@@ -298,16 +138,6 @@ Starts the profiling.
 ```php
 public enter(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -319,92 +149,37 @@ Stops the profiling.
 public leave(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### reset
-
-
 
 ```php
 public reset(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): \Traversable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### serialize
-
-
 
 ```php
 public serialize(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### unserialize
 
-
-
 ```php
 public unserialize(mixed $data): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -412,11 +187,4 @@ public unserialize(mixed $data): void
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

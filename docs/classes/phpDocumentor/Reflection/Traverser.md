@@ -2,21 +2,15 @@
 
 # Traverser
 
-The source code traverser that scans the given source code and transforms
-it into tokens.
-
-
+The source code traverser that scans the given source code and transforms it into tokens.
 
 * Full name: `\phpDocumentor\Reflection\Traverser`
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
+* http://phpdoc.org -
 
 ## Properties
-
 
 ### visitors
 
@@ -26,18 +20,13 @@ List of visitors to apply upon traversing.
 public \PhpParser\NodeVisitorAbstract[] $visitors
 ```
 
-
-
-
-
 **See Also:**
 
-* \phpDocumentor\Reflection\traverse() - 
+* \phpDocumentor\Reflection\traverse() -
 
 ***
 
 ## Methods
-
 
 ### traverse
 
@@ -47,21 +36,11 @@ Traverses the given contents and builds an AST.
 public traverse(string $contents): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$contents` | **string** | The source code of the file that is to be scanned |
-
-
-
 
 ***
 
@@ -73,22 +52,13 @@ Adds a visitor object to the traversal process.
 public addVisitor(\PhpParser\NodeVisitor $visitor): void
 ```
 
-With visitors it is possible to extend the traversal process and
-modify the found tokens.
-
-
-
-
-
+With visitors it is possible to extend the traversal process and modify the found tokens.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$visitor` | **\PhpParser\NodeVisitor** |  |
-
-
-
 
 ***
 
@@ -100,16 +70,6 @@ Creates a parser object using our own Lexer.
 protected createParser(): \PhpParser\Parser
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createTraverser
@@ -120,18 +80,4 @@ Creates a new traverser object and adds visitors.
 protected createTraverser(): \PhpParser\NodeTraverser
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

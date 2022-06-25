@@ -2,33 +2,16 @@
 
 # ParserTest
 
-
-
-
-
 * Full name: `\PhpParser\ParserTest`
 * Parent class: [`\PhpParser\CodeTestAbstract`](./CodeTestAbstract.md)
 
-
-
-
 ## Methods
 
-
 ### testParse
-
-
 
 ```php
 public testParse(mixed $name, mixed $code, mixed $expected): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,45 +21,21 @@ public testParse(mixed $name, mixed $code, mixed $expected): mixed
 | `$code` | **mixed** |  |
 | `$expected` | **mixed** |  |
 
-
-
-
 ***
 
 ### provideTestParse
-
-
 
 ```php
 public provideTestParse(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### formatErrorMessage
 
-
-
 ```php
 private formatErrorMessage(\PhpParser\Error $e, mixed $code): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -85,109 +44,47 @@ private formatErrorMessage(\PhpParser\Error $e, mixed $code): mixed
 | `$e` | **\PhpParser\Error** |  |
 | `$code` | **mixed** |  |
 
-
-
-
 ***
 
 ### testParserThrowsSyntaxError
-
-
 
 ```php
 public testParserThrowsSyntaxError(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testParserThrowsSpecialError
-
-
 
 ```php
 public testParserThrowsSpecialError(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testAttributeAssignment
-
-
 
 ```php
 public testAttributeAssignment(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testInvalidToken
-
-
 
 ```php
 public testInvalidToken(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### getTests
-
-
 
 ```php
 protected getTests(mixed $directory, mixed $fileExtension): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -196,25 +93,13 @@ protected getTests(mixed $directory, mixed $fileExtension): mixed
 | `$directory` | **mixed** |  |
 | `$fileExtension` | **mixed** |  |
 
-
-
-
 ***
 
 ### evalCallback
 
-
-
 ```php
 protected evalCallback(mixed $matches): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -222,25 +107,13 @@ protected evalCallback(mixed $matches): mixed
 |-----------|------|-------------|
 | `$matches` | **mixed** |  |
 
-
-
-
 ***
 
 ### canonicalize
 
-
-
 ```php
 protected canonicalize(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -248,11 +121,4 @@ protected canonicalize(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,77 +4,41 @@
 
 Represents an Period for an Event.
 
-
-
 * Full name: `\Symfony\Component\Stopwatch\StopwatchPeriod`
-
-
 
 ## Properties
 
-
 ### start
-
-
 
 ```php
 private $start
 ```
 
-
-
-
-
-
 ***
 
 ### end
-
-
 
 ```php
 private $end
 ```
 
-
-
-
-
-
 ***
 
 ### memory
-
-
 
 ```php
 private $memory
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(int $start, int $end): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -82,9 +46,6 @@ public __construct(int $start, int $end): mixed
 |-----------|------|-------------|
 | `$start` | **int** | The relative time of the start of the period (in milliseconds) |
 | `$end` | **int** | The relative time of the end of the period (in milliseconds) |
-
-
-
 
 ***
 
@@ -95,14 +56,6 @@ Gets the relative time of the start of the period.
 ```php
 public getStartTime(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -120,14 +73,6 @@ Gets the relative time of the end of the period.
 public getEndTime(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The time (in milliseconds)
@@ -143,14 +88,6 @@ Gets the time spent in this period.
 ```php
 public getDuration(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -168,22 +105,7 @@ Gets the memory usage.
 public getMemory(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The memory usage (in bytes)
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

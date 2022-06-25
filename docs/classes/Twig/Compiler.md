@@ -4,169 +4,91 @@
 
 Compiles a node to PHP code.
 
-
-
 * Full name: `\Twig\Compiler`
 * This class implements:
-[`\Twig_CompilerInterface`](../Twig_CompilerInterface.md)
-
-
+  [`\Twig_CompilerInterface`](../Twig_CompilerInterface.md)
 
 ## Properties
 
-
 ### lastLine
-
-
 
 ```php
 protected $lastLine
 ```
 
-
-
-
-
-
 ***
 
 ### source
-
-
 
 ```php
 protected $source
 ```
 
-
-
-
-
-
 ***
 
 ### indentation
-
-
 
 ```php
 protected $indentation
 ```
 
-
-
-
-
-
 ***
 
 ### env
-
-
 
 ```php
 protected $env
 ```
 
-
-
-
-
-
 ***
 
 ### debugInfo
-
-
 
 ```php
 protected $debugInfo
 ```
 
-
-
-
-
-
 ***
 
 ### sourceOffset
-
-
 
 ```php
 protected $sourceOffset
 ```
 
-
-
-
-
-
 ***
 
 ### sourceLine
-
-
 
 ```php
 protected $sourceLine
 ```
 
-
-
-
-
-
 ***
 
 ### filename
-
-
 
 ```php
 protected $filename
 ```
 
-
-
-
-
-
 ***
 
 ### varNameSalt
-
-
 
 ```php
 private $varNameSalt
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Twig\Environment $env): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -174,30 +96,15 @@ public __construct(\Twig\Environment $env): mixed
 |-----------|------|-------------|
 | `$env` | **\Twig\Environment** |  |
 
-
-
-
 ***
 
 ### getFilename
-
-
 
 ```php
 public getFilename(): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -209,16 +116,6 @@ Returns the environment instance related to this compiler.
 public getEnvironment(): \Twig\Environment
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSource
@@ -228,14 +125,6 @@ Gets the current PHP code after compilation.
 ```php
 public getSource(): string
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -253,13 +142,6 @@ Compiles a node.
 public compile(\Twig_NodeInterface $node, int $indentation): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -267,25 +149,13 @@ public compile(\Twig_NodeInterface $node, int $indentation): $this
 | `$node` | **\Twig_NodeInterface** |  |
 | `$indentation` | **int** | The current indentation |
 
-
-
-
 ***
 
 ### subcompile
 
-
-
 ```php
 public subcompile(\Twig_NodeInterface $node, mixed $raw = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -293,9 +163,6 @@ public subcompile(\Twig_NodeInterface $node, mixed $raw = true): mixed
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 | `$raw` | **mixed** |  |
-
-
-
 
 ***
 
@@ -307,21 +174,11 @@ Adds a raw string to the compiled code.
 public raw(string $string): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** | The string |
-
-
-
 
 ***
 
@@ -333,16 +190,6 @@ Writes a string to the compiled code by adding indentation.
 public write(): $this
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addIndentation
@@ -353,17 +200,7 @@ Appends an indentation to the current PHP code after compilation.
 public addIndentation(): $this
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -375,21 +212,11 @@ Adds a quoted string to the compiled code.
 public string(string $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** | The string |
-
-
-
 
 ***
 
@@ -401,21 +228,11 @@ Returns a PHP representation of a given value.
 public repr(mixed $value): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to convert |
-
-
-
 
 ***
 
@@ -427,41 +244,19 @@ Adds debugging information.
 public addDebugInfo(\Twig_NodeInterface $node): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\Twig_NodeInterface** |  |
 
-
-
-
 ***
 
 ### getDebugInfo
 
-
-
 ```php
 public getDebugInfo(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -473,21 +268,11 @@ Indents the generated code.
 public indent(int $step = 1): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$step` | **int** | The number of indentation to add |
-
-
-
 
 ***
 
@@ -499,44 +284,18 @@ Outdents the generated code.
 public outdent(int $step = 1): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$step` | **int** | The number of indentation to remove |
 
-
-
-
 ***
 
 ### getVarName
-
-
 
 ```php
 public getVarName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

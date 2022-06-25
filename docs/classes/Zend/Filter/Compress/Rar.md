@@ -4,39 +4,27 @@
 
 Compression adapter for Rar
 
-
-
 * Full name: `\Zend\Filter\Compress\Rar`
 * Parent class: [`\Zend\Filter\Compress\AbstractCompressionAlgorithm`](./AbstractCompressionAlgorithm.md)
 
-
-
 ## Properties
-
 
 ### options
 
-Compression Options
-array(
-    'callback' => Callback for compression
-    'archive'  => Archive to use
-    'password' => Password to use
-    'target'   => Target to write the files to
+Compression Options array(
+'callback' => Callback for compression
+'archive' => Archive to use
+'password' => Password to use
+'target' => Target to write the files to
 )
 
 ```php
 protected array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -46,21 +34,11 @@ Class constructor
 public __construct(array $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | (Optional) Options to set |
-
-
-
 
 ***
 
@@ -72,16 +50,6 @@ Returns the set callback for compression
 public getCallback(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCallback
@@ -92,21 +60,11 @@ Sets the callback to use
 public setCallback(string $callback): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **string** |  |
-
-
-
 
 ***
 
@@ -118,16 +76,6 @@ Returns the set archive
 public getArchive(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setArchive
@@ -138,21 +86,11 @@ Sets the archive to use for de-/compression
 public setArchive(string $archive): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$archive` | **string** | Archive to use |
-
-
-
 
 ***
 
@@ -164,16 +102,6 @@ Returns the set password
 public getPassword(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPassword
@@ -184,21 +112,11 @@ Sets the password to use
 public setPassword(string $password): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$password` | **string** |  |
-
-
-
 
 ***
 
@@ -210,16 +128,6 @@ Returns the set targetpath
 public getTarget(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTarget
@@ -230,21 +138,11 @@ Sets the targetpath to use
 public setTarget(string $target): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** |  |
-
-
-
 
 ***
 
@@ -256,21 +154,11 @@ Compresses the given content
 public compress(string|array $content): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -282,21 +170,11 @@ Decompresses the given content
 public decompress(string $content): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
-
-
-
 
 ***
 
@@ -308,21 +186,9 @@ Returns the adapter name
 public toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -332,21 +198,11 @@ Class constructor
 public __construct(null|array|\Traversable $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **null&#124;array&#124;\Traversable** | (Optional) Options to set |
-
-
-
 
 ***
 
@@ -358,21 +214,11 @@ Returns one or all set options
 public getOptions(string $option = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$option` | **string** | (Optional) Option to return |
-
-
-
 
 ***
 
@@ -384,24 +230,10 @@ Sets all or one option
 public setOptions(array $options): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

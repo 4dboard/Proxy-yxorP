@@ -9,8 +9,7 @@ human-readable documentation from it.
 
 * Full name: `\phpDocumentor\Plugin\Scrybe\ServiceProvider`
 * This class implements:
-[`\Cilex\ServiceProviderInterface`](../../../Cilex/ServiceProviderInterface.md)
-
+  [`\Cilex\ServiceProviderInterface`](../../../Cilex/ServiceProviderInterface.md)
 
 ## Constants
 
@@ -23,9 +22,7 @@ human-readable documentation from it.
 |`CONVERTERS`|public| |&#039;converters&#039;|
 |`TEMPLATE_FOLDER`|public| |&#039;template_folder&#039;|
 
-
 ## Methods
-
 
 ### register
 
@@ -35,21 +32,11 @@ Registers services on the given app.
 public register(\Cilex\Application $app): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Cilex\Application** | An Application instance. |
-
-
-
 
 ***
 
@@ -61,24 +48,10 @@ Method responsible for adding the commands for this application.
 protected addCommands(\Cilex\Application $app): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Cilex\Application** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

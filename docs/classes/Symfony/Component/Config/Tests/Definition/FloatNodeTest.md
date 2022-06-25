@@ -2,33 +2,16 @@
 
 # FloatNodeTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Config\Tests\Definition\FloatNodeTest`
 * Parent class: [`TestCase`](../../../../../PHPUnit/Framework/TestCase.md)
 
-
-
-
 ## Methods
 
-
 ### testNormalize
-
-
 
 ```php
 public testNormalize(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -36,25 +19,13 @@ public testNormalize(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### testValidNonEmptyValues
 
-
-
 ```php
 public testValidNonEmptyValues(int $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -62,45 +33,21 @@ public testValidNonEmptyValues(int $value): mixed
 |-----------|------|-------------|
 | `$value` | **int** |  |
 
-
-
-
 ***
 
 ### getValidValues
-
-
 
 ```php
 public getValidValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### testNormalizeThrowsExceptionOnInvalidValues
 
-
-
 ```php
 public testNormalizeThrowsExceptionOnInvalidValues(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -108,31 +55,12 @@ public testNormalizeThrowsExceptionOnInvalidValues(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### getInvalidValues
-
-
 
 ```php
 public getInvalidValues(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

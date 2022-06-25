@@ -2,51 +2,29 @@
 
 # Message
 
-
-
-
-
 * Full name: `\Zend\Stdlib\Message`
 * This class implements:
-[`\Zend\Stdlib\MessageInterface`](./MessageInterface.md)
-
-
+  [`\Zend\Stdlib\MessageInterface`](./MessageInterface.md)
 
 ## Properties
 
-
 ### metadata
-
-
 
 ```php
 protected array $metadata
 ```
 
-
-
-
-
-
 ***
 
 ### content
-
-
 
 ```php
 protected string $content
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setMetadata
 
@@ -56,13 +34,8 @@ Set message metadata
 public setMetadata(string|int|array|\Traversable $spec, mixed $value = null): \Zend\Stdlib\Message
 ```
 
-Non-destructive setting of message metadata; always adds to the metadata, never overwrites
-the entire metadata container.
-
-
-
-
-
+Non-destructive setting of message metadata; always adds to the metadata, never overwrites the entire metadata
+container.
 
 **Parameters:**
 
@@ -70,9 +43,6 @@ the entire metadata container.
 |-----------|------|-------------|
 | `$spec` | **string&#124;int&#124;array&#124;\Traversable** |  |
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -84,22 +54,12 @@ Retrieve all metadata or a single metadatum as specified by key
 public getMetadata(null|string|int $key = null, null|mixed $default = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **null&#124;string&#124;int** |  |
 | `$default` | **null&#124;mixed** |  |
-
-
-
 
 ***
 
@@ -111,21 +71,11 @@ Set message content
 public setContent(mixed $value): \Zend\Stdlib\Message
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
-
-
-
 
 ***
 
@@ -137,38 +87,12 @@ Get message content
 public getContent(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toString
-
-
 
 ```php
 public toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

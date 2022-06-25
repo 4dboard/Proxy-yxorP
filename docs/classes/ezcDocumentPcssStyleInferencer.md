@@ -4,22 +4,20 @@
 
 Style inferencer
 
-Inferences the style of a element, basing on the default styles for the
-element and the given list of user defined style directives.
+Inferences the style of a element, basing on the default styles for the element and the given list of user defined style
+directives.
 
-This class is meant to return a list of styles for any element in the
-Docbook document tree. To speed up the inferencing process styles for
-elements with the same path are cached.
+This class is meant to return a list of styles for any element in the Docbook document tree. To speed up the inferencing
+process styles for elements with the same path are cached.
 
 The inferencing algorithm basically works like:
 
 1) Apply the default styles to the element
 2) Inherit styles from the parent element
-3) Apply styles from all given style directives in their given order, so
-   that rules defined later overwrite rules defined earlier.
+3) Apply styles from all given style directives in their given order, so that rules defined later overwrite rules
+   defined earlier.
 
 * Full name: `\ezcDocumentPcssStyleInferencer`
-
 
 ## Constants
 
@@ -31,7 +29,6 @@ The inferencing algorithm basically works like:
 
 ## Properties
 
-
 ### styleCache
 
 Style cache
@@ -40,8 +37,7 @@ Style cache
 protected array $styleCache
 ```
 
-Caches styles for defined paths. This speeds up resolving of styles for
-similar or same elements multiple times.
+Caches styles for defined paths. This speeds up resolving of styles for similar or same elements multiple times.
 
 
 
@@ -56,9 +52,8 @@ Ordered list of style directives
 protected array $styleDirectives
 ```
 
-Ordered list of style directvies, which each include the pattern, and a
-list of formatting rules. Matching directives are applied in the given
-order and may overwrite each other.
+Ordered list of style directvies, which each include the pattern, and a list of formatting rules. Matching directives
+are applied in the given order and may overwrite each other.
 
 
 
@@ -82,22 +77,15 @@ If no class is given it will fall back to a generic string value.
 
 ### categories
 
-CSS property categories, used to minimize the amount of returned
-properties
+CSS property categories, used to minimize the amount of returned properties
 
 ```php
 protected array $categories
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -107,21 +95,11 @@ Construct style inference with default styles
 public __construct(bool $loadDefault = true): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$loadDefault` | **bool** |  |
-
-
-
 
 ***
 
@@ -153,23 +131,14 @@ Append list of style directives
 public appendStyleDirectives(array $styleDirectives): void
 ```
 
-Append another set of style directives. Since style directives are
-applied in the given order and may overwrite each other, all given
-directives might overwrite existing formatting rules.
-
-
-
-
-
+Append another set of style directives. Since style directives are applied in the given order and may overwrite each
+other, all given directives might overwrite existing formatting rules.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$styleDirectives` | **array** |  |
-
-
-
 
 ***
 
@@ -184,19 +153,11 @@ protected mergeBoxValues(array $values): array
 Merges partial box definitions, like "margin-top", into a single
 "margin" definition, so it can be access easier.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** |  |
-
-
-
 
 ***
 
@@ -208,22 +169,14 @@ Merges border values into one single definition
 protected mergeBorderValues(array $values): array
 ```
 
-Merges partial border definitions like "border-style" into a single
-border definition, which then includes all border properties.
-
-
-
-
-
+Merges partial border definitions like "border-style" into a single border definition, which then includes all border
+properties.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$values` | **array** |  |
-
-
-
 
 ***
 
@@ -235,14 +188,8 @@ Merge formatting rules
 protected mergeFormattingRules(array $base, array $new): array
 ```
 
-Merges two sets of formatting rules, while rules set in the second rule
-set will always overwrite existing rules of the same name in the first.
-Rules in the first set, not existing in the second will left untouched.
-
-
-
-
-
+Merges two sets of formatting rules, while rules set in the second rule set will always overwrite existing rules of the
+same name in the first. Rules in the first set, not existing in the second will left untouched.
 
 **Parameters:**
 
@@ -250,9 +197,6 @@ Rules in the first set, not existing in the second will left untouched.
 |-----------|------|-------------|
 | `$base` | **array** |  |
 | `$new` | **array** |  |
-
-
-
 
 ***
 
@@ -264,13 +208,7 @@ Filter the styles
 protected filterStyles(array $formats, int $types): array
 ```
 
-Filter the styles so that only styles of the specified classes are
-returned.
-
-
-
-
-
+Filter the styles so that only styles of the specified classes are returned.
 
 **Parameters:**
 
@@ -278,7 +216,6 @@ returned.
 |-----------|------|-------------|
 | `$formats` | **array** |  |
 | `$types` | **int** |  |
-
 
 **Return Value:**
 
@@ -296,17 +233,10 @@ Inference formatting rules for element
 public inferenceFormattingRules(\ezcDocumentLocateable $element, int $types = -1): array
 ```
 
-Inference the formatting rules for the passed DOMElement or location id.
-First the cache will be checked for already inferenced formatting rules
-defined for this element type, using its generated location identifier.
+Inference the formatting rules for the passed DOMElement or location id. First the cache will be checked for already
+inferenced formatting rules defined for this element type, using its generated location identifier.
 
-Of not cached, the formatting rules will be inferenced using the
-algorithm described in the class header.
-
-
-
-
-
+Of not cached, the formatting rules will be inferenced using the algorithm described in the class header.
 
 **Parameters:**
 
@@ -314,9 +244,6 @@ algorithm described in the class header.
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateable** |  |
 | `$types` | **int** |  |
-
-
-
 
 ***
 
@@ -328,13 +255,7 @@ Get definition directives of given type
 public getDefinitions(string $type): array
 ```
 
-Returns an array of definition directives, which matches the type passed
-as a parameter.
-
-
-
-
-
+Returns an array of definition directives, which matches the type passed as a parameter.
 
 **Parameters:**
 
@@ -342,11 +263,4 @@ as a parameter.
 |-----------|------|-------------|
 | `$type` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

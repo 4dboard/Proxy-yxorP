@@ -2,94 +2,49 @@
 
 # Response
 
-
-
-
-
 * Full name: `\yxorP\Http\Response`
-
-
 
 ## Properties
 
-
 ### status
-
-
 
 ```php
 public $status
 ```
 
-
-
-
-
-
 ***
 
 ### headers
-
-
 
 ```php
 public \yxorP\Http\ParamStore $headers
 ```
 
-
-
-
-
-
 ***
 
 ### content
-
-
 
 ```php
 private string $content
 ```
 
-
-
-
-
-
 ***
 
 ### statusCodes
-
-
 
 ```php
 private array $statusCodes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $content = &#039;&#039;, mixed $status = 200, mixed $headers = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -99,25 +54,13 @@ public __construct(mixed $content = &#039;&#039;, mixed $status = 200, mixed $he
 | `$status` | **mixed** |  |
 | `$headers` | **mixed** |  |
 
-
-
-
 ***
 
 ### setStatusCode
 
-
-
 ```php
 public setStatusCode(mixed $code): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -125,45 +68,21 @@ public setStatusCode(mixed $code): void
 |-----------|------|-------------|
 | `$code` | **mixed** |  |
 
-
-
-
 ***
 
 ### getContent
-
-
 
 ```php
 public getContent(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setContent
 
-
-
 ```php
 public setContent(mixed $content): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -171,91 +90,36 @@ public setContent(mixed $content): void
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
 
-
-
-
 ***
 
 ### printContent
-
-
 
 ```php
 public printContent(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### sendHeaders
-
-
 
 ```php
 public sendHeaders(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getStatusText
-
-
 
 ```php
 public getStatusText(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getStatusCode
-
-
 
 ```php
 public getStatusCode(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

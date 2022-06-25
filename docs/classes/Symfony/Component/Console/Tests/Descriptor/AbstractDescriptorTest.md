@@ -2,34 +2,17 @@
 
 # AbstractDescriptorTest
 
-
-
-
-
 * Full name: `\Symfony\Component\Console\Tests\Descriptor\AbstractDescriptorTest`
 * Parent class: [`TestCase`](../../../../../PHPUnit/Framework/TestCase.md)
 * This class is an **Abstract class**
 
-
-
-
 ## Methods
 
-
 ### testDescribeInputArgument
-
-
 
 ```php
 public testDescribeInputArgument(\Symfony\Component\Console\Input\InputArgument $argument, mixed $expectedDescription): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,25 +21,13 @@ public testDescribeInputArgument(\Symfony\Component\Console\Input\InputArgument 
 | `$argument` | **\Symfony\Component\Console\Input\InputArgument** |  |
 | `$expectedDescription` | **mixed** |  |
 
-
-
-
 ***
 
 ### testDescribeInputOption
 
-
-
 ```php
 public testDescribeInputOption(\Symfony\Component\Console\Input\InputOption $option, mixed $expectedDescription): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -65,25 +36,13 @@ public testDescribeInputOption(\Symfony\Component\Console\Input\InputOption $opt
 | `$option` | **\Symfony\Component\Console\Input\InputOption** |  |
 | `$expectedDescription` | **mixed** |  |
 
-
-
-
 ***
 
 ### testDescribeInputDefinition
 
-
-
 ```php
 public testDescribeInputDefinition(\Symfony\Component\Console\Input\InputDefinition $definition, mixed $expectedDescription): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -92,25 +51,13 @@ public testDescribeInputDefinition(\Symfony\Component\Console\Input\InputDefinit
 | `$definition` | **\Symfony\Component\Console\Input\InputDefinition** |  |
 | `$expectedDescription` | **mixed** |  |
 
-
-
-
 ***
 
 ### testDescribeCommand
 
-
-
 ```php
 public testDescribeCommand(\Symfony\Component\Console\Command\Command $command, mixed $expectedDescription): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -119,25 +66,13 @@ public testDescribeCommand(\Symfony\Component\Console\Command\Command $command, 
 | `$command` | **\Symfony\Component\Console\Command\Command** |  |
 | `$expectedDescription` | **mixed** |  |
 
-
-
-
 ***
 
 ### testDescribeApplication
 
-
-
 ```php
 public testDescribeApplication(\Symfony\Component\Console\Application $application, mixed $expectedDescription): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -146,165 +81,73 @@ public testDescribeApplication(\Symfony\Component\Console\Application $applicati
 | `$application` | **\Symfony\Component\Console\Application** |  |
 | `$expectedDescription` | **mixed** |  |
 
-
-
-
 ***
 
 ### getDescribeInputArgumentTestData
-
-
 
 ```php
 public getDescribeInputArgumentTestData(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDescribeInputOptionTestData
-
-
 
 ```php
 public getDescribeInputOptionTestData(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDescribeInputDefinitionTestData
-
-
 
 ```php
 public getDescribeInputDefinitionTestData(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDescribeCommandTestData
-
-
 
 ```php
 public getDescribeCommandTestData(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDescribeApplicationTestData
-
-
 
 ```php
 public getDescribeApplicationTestData(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getDescriptor
-
-
 
 ```php
 protected getDescriptor(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### getFormat
 
-
-
 ```php
 protected getFormat(): mixed
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
 ### getDescriptionTestData
 
-
-
 ```php
 protected getDescriptionTestData(array $objects): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -312,25 +155,13 @@ protected getDescriptionTestData(array $objects): mixed
 |-----------|------|-------------|
 | `$objects` | **array** |  |
 
-
-
-
 ***
 
 ### assertDescription
 
-
-
 ```php
 protected assertDescription(mixed $expectedDescription, mixed $describedObject): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -339,11 +170,4 @@ protected assertDescription(mixed $expectedDescription, mixed $describedObject):
 | `$expectedDescription` | **mixed** |  |
 | `$describedObject` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

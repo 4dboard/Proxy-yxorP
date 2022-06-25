@@ -4,15 +4,10 @@
 
 Exception thrown, when the RST parser could not parse asome token sequence.
 
-
-
 * Full name: `\ezcDocumentConversionException`
 * Parent class: [`\ezcDocumentException`](./ezcDocumentException.md)
 
-
-
 ## Properties
-
 
 ### levelMapping
 
@@ -21,11 +16,6 @@ Mapping of error levels to strings
 ```php
 protected array $levelMapping
 ```
-
-
-
-
-
 
 ***
 
@@ -52,15 +42,9 @@ Original exception message
 public string $parseError
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -69,13 +53,6 @@ Construct exception from errnous string and current position
 ```php
 public __construct(int $level, string $message, string $file = null, int $line = null, int $position = null, \Exception $exception = null): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -88,14 +65,9 @@ public __construct(int $level, string $message, string $file = null, int $line =
 | `$position` | **int** |  |
 | `$exception` | **\Exception** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -105,24 +77,10 @@ Constructs a new ezcBaseException with $message
 public __construct(string $message): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$message` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,59 +4,35 @@
 
 Decorates output to add console style guide helpers.
 
-
-
 * Full name: `\Symfony\Component\Console\Style\OutputStyle`
 * This class implements:
-[`\Symfony\Component\Console\Output\OutputInterface`](../Output/OutputInterface.md), [`\Symfony\Component\Console\Style\StyleInterface`](./StyleInterface.md)
+  [`\Symfony\Component\Console\Output\OutputInterface`](../Output/OutputInterface.md)
+  , [`\Symfony\Component\Console\Style\StyleInterface`](./StyleInterface.md)
 * This class is an **Abstract class**
-
-
 
 ## Properties
 
-
 ### output
-
-
 
 ```php
 private $output
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Output\OutputInterface $output): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$output` | **\Symfony\Component\Console\Output\OutputInterface** |  |
-
-
-
 
 ***
 
@@ -68,47 +44,25 @@ Add newline(s).
 public newLine(mixed $count = 1): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$count` | **mixed** | The number of newlines |
 
-
-
-
 ***
 
 ### createProgressBar
 
-
-
 ```php
 public createProgressBar(int $max): \Symfony\Component\Console\Helper\ProgressBar
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$max` | **int** |  |
-
-
-
 
 ***
 
@@ -120,13 +74,6 @@ Writes a message to the output.
 public write(mixed $messages, mixed $newline = false, mixed $type = self::OUTPUT_NORMAL): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -134,9 +81,6 @@ public write(mixed $messages, mixed $newline = false, mixed $type = self::OUTPUT
 | `$messages` | **mixed** | The message as an array of strings or a single string |
 | `$newline` | **mixed** | Whether to add a newline |
 | `$type` | **mixed** |  |
-
-
-
 
 ***
 
@@ -148,22 +92,12 @@ Writes a message to the output and adds a newline at the end.
 public writeln(mixed $messages, mixed $type = self::OUTPUT_NORMAL): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$messages` | **mixed** | The message as an array of strings or a single string |
 | `$type` | **mixed** |  |
-
-
-
 
 ***
 
@@ -175,21 +109,11 @@ Sets the verbosity of the output.
 public setVerbosity(mixed $level): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **mixed** | The level of verbosity (one of the VERBOSITY constants) |
-
-
-
 
 ***
 
@@ -200,14 +124,6 @@ Gets the current verbosity of the output.
 ```php
 public getVerbosity(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -225,21 +141,11 @@ Sets the decorated flag.
 public setDecorated(mixed $decorated): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$decorated` | **mixed** | Whether to decorate the messages |
-
-
-
 
 ***
 
@@ -251,14 +157,6 @@ Gets the decorated flag.
 public isDecorated(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if the output will decorate messages, false otherwise
@@ -269,27 +167,15 @@ true if the output will decorate messages, false otherwise
 
 ### setFormatter
 
-
-
 ```php
 public setFormatter(\Symfony\Component\Console\Formatter\OutputFormatterInterface $formatter): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Symfony\Component\Console\Formatter\OutputFormatterInterface** |  |
-
-
-
 
 ***
 
@@ -301,18 +187,4 @@ Returns current output formatter instance.
 public getFormatter(): \Symfony\Component\Console\Formatter\OutputFormatterInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,14 +2,9 @@
 
 # PriorityList
 
-
-
-
-
 * Full name: `\Zend\Stdlib\PriorityList`
 * This class implements:
-[`\Iterator`](../../Iterator.md), [`\Countable`](../../Countable.md)
-
+  [`\Iterator`](../../Iterator.md), [`\Countable`](../../Countable.md)
 
 ## Constants
 
@@ -21,7 +16,6 @@
 
 ## Properties
 
-
 ### items
 
 Internal list of all items.
@@ -29,11 +23,6 @@ Internal list of all items.
 ```php
 protected array[] $items
 ```
-
-
-
-
-
 
 ***
 
@@ -45,11 +34,6 @@ Serial assigned to items to preserve LIFO.
 protected int $serial
 ```
 
-
-
-
-
-
 ***
 
 ### isLIFO
@@ -59,11 +43,6 @@ Serial order mode
 ```php
 protected int $isLIFO
 ```
-
-
-
-
-
 
 ***
 
@@ -75,11 +54,6 @@ Internal counter to avoid usage of count().
 protected int $count
 ```
 
-
-
-
-
-
 ***
 
 ### sorted
@@ -90,15 +64,9 @@ Whether the list was already sorted.
 protected bool $sorted
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### insert
 
@@ -108,13 +76,6 @@ Insert a new item.
 public insert(string $name, mixed $value, int $priority): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -123,25 +84,13 @@ public insert(string $name, mixed $value, int $priority): void
 | `$value` | **mixed** |  |
 | `$priority` | **int** |  |
 
-
-
-
 ***
 
 ### setPriority
 
-
-
 ```php
 public setPriority(string $name, int $priority): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -149,9 +98,6 @@ public setPriority(string $name, int $priority): $this
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$priority` | **int** |  |
-
-
-
 
 ***
 
@@ -163,21 +109,11 @@ Remove a item.
 public remove(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -189,16 +125,6 @@ Remove all items.
 public clear(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### get
@@ -209,21 +135,11 @@ Get a item.
 public get(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -235,16 +151,6 @@ Sort all items.
 protected sort(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### compare
@@ -255,22 +161,12 @@ Compare the priority of two items.
 protected compare(array $item1, array $item2): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$item1` | **array** |  |
 | `$item2` | **array** |  |
-
-
-
 
 ***
 
@@ -282,21 +178,11 @@ Get/Set serial order mode
 public isLIFO(bool|null $flag = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **bool&#124;null** |  |
-
-
-
 
 ***
 
@@ -308,16 +194,6 @@ public isLIFO(bool|null $flag = null): bool
 public rewind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### current
@@ -327,16 +203,6 @@ public rewind(): mixed
 ```php
 public current(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -348,16 +214,6 @@ public current(): mixed
 public key(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### next
@@ -367,16 +223,6 @@ public key(): mixed
 ```php
 public next(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -388,35 +234,13 @@ public next(): mixed
 public valid(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
 
-
-
 ```php
 public getIterator(): self
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -428,16 +252,6 @@ public getIterator(): self
 public count(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toArray
@@ -448,24 +262,10 @@ Return list as array
 public toArray(int $flag = self::EXTR_DATA): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

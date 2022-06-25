@@ -4,58 +4,33 @@
 
 A read-only proxy for an event dispatcher.
 
-
-
 * Full name: `\Symfony\Component\EventDispatcher\ImmutableEventDispatcher`
 * This class implements:
-[`\Symfony\Component\EventDispatcher\EventDispatcherInterface`](./EventDispatcherInterface.md)
-
-
+  [`\Symfony\Component\EventDispatcher\EventDispatcherInterface`](./EventDispatcherInterface.md)
 
 ## Properties
 
-
 ### dispatcher
-
-
 
 ```php
 private $dispatcher
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dispatcher` | **\Symfony\Component\EventDispatcher\EventDispatcherInterface** |  |
-
-
-
 
 ***
 
@@ -67,22 +42,14 @@ Dispatches an event to all registered listeners.
 public dispatch(mixed $eventName, \Symfony\Component\EventDispatcher\Event $event = null): \Symfony\Component\EventDispatcher\Event
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$eventName` | **mixed** | The name of the event to dispatch. The name of<br />the event is the name of the method that is<br />invoked on listeners. |
-| `$event` | **\Symfony\Component\EventDispatcher\Event** | The event to pass to the event handlers/listeners<br />If not supplied, an empty Event instance is created |
-
-
-
+| `$eventName` | **
+mixed** | The name of the event to dispatch. The name of<br />the event is the name of the method that is<br />invoked on listeners. |
+| `$event` | **
+\Symfony\Component\EventDispatcher\Event** | The event to pass to the event handlers/listeners<br />If not supplied, an empty Event instance is created |
 
 ***
 
@@ -94,23 +61,14 @@ Adds an event listener that listens on the specified events.
 public addListener(mixed $eventName, mixed $listener, mixed $priority): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** | The event to listen on |
 | `$listener` | **mixed** | The listener |
-| `$priority` | **mixed** | The higher this value, the earlier an event<br />listener will be triggered in the chain (defaults to 0) |
-
-
-
+| `$priority` | **
+mixed** | The higher this value, the earlier an event<br />listener will be triggered in the chain (defaults to 0) |
 
 ***
 
@@ -122,21 +80,11 @@ Adds an event subscriber.
 public addSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterface $subscriber): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subscriber` | **\Symfony\Component\EventDispatcher\EventSubscriberInterface** |  |
-
-
-
 
 ***
 
@@ -148,13 +96,6 @@ Removes an event listener from the specified events.
 public removeListener(mixed $eventName, mixed $listener): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -162,34 +103,19 @@ public removeListener(mixed $eventName, mixed $listener): mixed
 | `$eventName` | **mixed** | The event to remove a listener from |
 | `$listener` | **mixed** | The listener to remove |
 
-
-
-
 ***
 
 ### removeSubscriber
 
-
-
 ```php
 public removeSubscriber(\Symfony\Component\EventDispatcher\EventSubscriberInterface $subscriber): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$subscriber` | **\Symfony\Component\EventDispatcher\EventSubscriberInterface** |  |
-
-
-
 
 ***
 
@@ -201,19 +127,11 @@ Gets the listeners of a specific event or all listeners sorted by descending pri
 public getListeners(mixed $eventName = null): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** | The name of the event |
-
 
 **Return Value:**
 
@@ -231,22 +149,12 @@ The event listeners for the specified event, or all event listeners by event nam
 public getListenerPriority(mixed $eventName, mixed $listener): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** |  |
 | `$listener` | **mixed** |  |
-
-
-
 
 ***
 
@@ -258,28 +166,12 @@ Checks whether an event has any registered listeners.
 public hasListeners(mixed $eventName = null): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$eventName` | **mixed** | The name of the event |
 
-
 **Return Value:**
 
-true if the specified event has any listeners, false otherwise
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+true if the specified event has any listeners, false otherwise yxorP::get('REQUEST')

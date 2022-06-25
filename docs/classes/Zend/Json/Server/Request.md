@@ -2,16 +2,9 @@
 
 # Request
 
-
-
-
-
 * Full name: `\Zend\Json\Server\Request`
 
-
-
 ## Properties
-
 
 ### id
 
@@ -20,11 +13,6 @@ Request ID
 ```php
 protected mixed $id
 ```
-
-
-
-
-
 
 ***
 
@@ -36,11 +24,6 @@ Flag
 protected bool $isMethodError
 ```
 
-
-
-
-
-
 ***
 
 ### isParseError
@@ -50,11 +33,6 @@ Flag
 ```php
 protected bool $isParseError
 ```
-
-
-
-
-
 
 ***
 
@@ -66,11 +44,6 @@ Requested method
 protected string $method
 ```
 
-
-
-
-
-
 ***
 
 ### methodRegex
@@ -80,11 +53,6 @@ Regex for method
 ```php
 protected string $methodRegex
 ```
-
-
-
-
-
 
 ***
 
@@ -96,11 +64,6 @@ Request parameters
 protected array $params
 ```
 
-
-
-
-
-
 ***
 
 ### version
@@ -111,15 +74,9 @@ JSON-RPC version of request
 protected string $version
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setOptions
 
@@ -129,21 +86,11 @@ Set request state
 public setOptions(array $options): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -155,22 +102,12 @@ Add a parameter to the request
 public addParam(mixed $value, string $key = null): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 | `$key` | **string** |  |
-
-
-
 
 ***
 
@@ -182,21 +119,11 @@ Add many params
 public addParams(array $params): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **array** |  |
-
-
-
 
 ***
 
@@ -208,21 +135,11 @@ Overwrite params
 public setParams(array $params): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$params` | **array** |  |
-
-
-
 
 ***
 
@@ -234,19 +151,11 @@ Retrieve param by index or key
 public getParam(int|string $index): mixed|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$index` | **int&#124;string** |  |
-
 
 **Return Value:**
 
@@ -264,16 +173,6 @@ Retrieve parameters
 public getParams(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setMethod
@@ -284,21 +183,11 @@ Set request method
 public setMethod(string $name): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -310,16 +199,6 @@ Get request method name
 public getMethod(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isMethodError
@@ -329,16 +208,6 @@ Was a bad method provided?
 ```php
 public isMethodError(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -350,16 +219,6 @@ Was a malformed JSON provided?
 public isParseError(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setId
@@ -370,21 +229,11 @@ Set request identifier
 public setId(mixed $name): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
@@ -396,16 +245,6 @@ Retrieve request identifier
 public getId(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setVersion
@@ -416,21 +255,11 @@ Set JSON-RPC version
 public setVersion(string $version): \Zend\Json\Server\Request
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$version` | **string** |  |
-
-
-
 
 ***
 
@@ -442,16 +271,6 @@ Retrieve JSON-RPC version
 public getVersion(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### loadJson
@@ -462,21 +281,11 @@ Set request state based on JSON
 public loadJson(string $json): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$json` | **string** |  |
-
-
-
 
 ***
 
@@ -488,16 +297,6 @@ Cast request to JSON
 public toJson(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -508,18 +307,4 @@ Cast request to string (JSON)
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

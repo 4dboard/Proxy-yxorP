@@ -2,161 +2,128 @@
 
 # ezcDocumentPdfMainRenderer
 
-Main PDF renderer class, dispatching to sub renderer, maintaining page
-contexts and transactions.
+Main PDF renderer class, dispatching to sub renderer, maintaining page contexts and transactions.
 
-The basic principles behind the used stacked backtracking rendering
-algorithm are explained below.
+The basic principles behind the used stacked backtracking rendering algorithm are explained below.
 
 The basics
 ==========
 
-The rendering size of a single block (paragraph, image) cannot be guessed
-properly beforehand, because the dimensions depend on the associated styles
-and the driver which needs to render the styles. Because of different fonts
-the size of a single simple string may notably vary. The renderer do not
-know about font properties, but only the drivers do.
+The rendering size of a single block (paragraph, image) cannot be guessed properly beforehand, because the dimensions
+depend on the associated styles and the driver which needs to render the styles. Because of different fonts the size of
+a single simple string may notably vary. The renderer do not know about font properties, but only the drivers do.
 
-Because of that the renderers (like the paragraph renderer) can only
-request the used dimensions for each word, or word part from the current
-driver and try to fit that word into the currently available space.
+Because of that the renderers (like the paragraph renderer) can only request the used dimensions for each word, or word
+part from the current driver and try to fit that word into the currently available space.
 
-Some general constraints, like the handling of orphans and widows, require
-the renderer to backtrack. If a orphans constraint could not be fulfilled
-with the first rendering try, the renderer needs to decide to render less
-lines on the prior page and therefore needs to revert all local rendering
-steps and retry the rendering with the additional knowledge.
+Some general constraints, like the handling of orphans and widows, require the renderer to backtrack. If a orphans
+constraint could not be fulfilled with the first rendering try, the renderer needs to decide to render less lines on the
+prior page and therefore needs to revert all local rendering steps and retry the rendering with the additional
+knowledge.
 
-For widow constraints this may mean, that a full paragraph is moved to the
-next page, which could mean, that the title before that paragraph might
-also be relocated to the following page, which would mean to revert
-multiple renderers and elements. To make this possible the renderer wraps
-the driver in a transactional driver wrapper.
+For widow constraints this may mean, that a full paragraph is moved to the next page, which could mean, that the title
+before that paragraph might also be relocated to the following page, which would mean to revert multiple renderers and
+elements. To make this possible the renderer wraps the driver in a transactional driver wrapper.
 
 The transactional driver wrapper
 --------------------------------
 
 Like the last paragraph explained it might be necessary to revert (large)
-amounts of rendering operations. Once the rendering operations (like
-drawWord) hit the driver they are immediately serialized into the
-respective output format (PDF), and could not be reverted anymore.
+amounts of rendering operations. Once the rendering operations (like drawWord) hit the driver they are immediately
+serialized into the respective output format (PDF), and could not be reverted anymore.
 
-So an additional layer has been implemented in the class
-ezcDocumentPdfTransactionalDriverWrapper, which implements the same
-interface as all the other drivers, as well as some additional methods to
-handle "transactions".
+So an additional layer has been implemented in the class ezcDocumentPdfTransactionalDriverWrapper, which implements the
+same interface as all the other drivers, as well as some additional methods to handle "transactions".
 
-A renderer, like the paragraph renderer, may start a transaction, receives
-an ID identifying the started transaction, and may then start its rendering
-operations. If the rendering reached a dead end, it may revert everything
-using the initially given transaction ID. The revert will affect all
-operations since the original call to startTransaction(), even if other
-sub-renderers also started transactions in the meantime.
+A renderer, like the paragraph renderer, may start a transaction, receives an ID identifying the started transaction,
+and may then start its rendering operations. If the rendering reached a dead end, it may revert everything using the
+initially given transaction ID. The revert will affect all operations since the original call to startTransaction(),
+even if other sub-renderers also started transactions in the meantime.
 
 The logged calls to the driver are passed up to the real driver once save()
-is called explicitly for the given transaction ID, or the main renderer
-attempts to write the PDF into a file.
+is called explicitly for the given transaction ID, or the main renderer attempts to write the PDF into a file.
 
-Depending on the type of the call the driver wrapper logs and / or passes
-the call directly up to the actual driver.
+Depending on the type of the call the driver wrapper logs and / or passes the call directly up to the actual driver.
 
 Calls which are logged only:
- - Everything performing actual rendering, like drawLine(), drawWord(), ...
+
+- Everything performing actual rendering, like drawLine(), drawWord(), ...
 
 Calls which are logged and passed:
- - Everything setting the current style configuration, which might also be
-   relevant for font width estimation, especially: setStyle()
+
+- Everything setting the current style configuration, which might also be relevant for font width estimation,
+  especially: setStyle()
 
 Calls which are not logged, but passed:
- - Everything, which only requests properties, but does not change the
-   driver state, like getTextWidth()
+
+- Everything, which only requests properties, but does not change the driver state, like getTextWidth()
 
 The stacked renderers
 ---------------------
 
-The main renderer, which is defined in this class, is responsible for
-managing the pages, the available horizontal space on the current page and
-calling the sub renderers for the distinct parts in the Docbook document.
+The main renderer, which is defined in this class, is responsible for managing the pages, the available horizontal space
+on the current page and calling the sub renderers for the distinct parts in the Docbook document.
 
-For each part there is a specialized renderer, which is only responsible
-for rendering such a part, like a list renderer, a list item renderer or a
-paragraph renderer. The main renderer traverses the Docbook document and calls
-the appropriate renderer. You may register additional renderers with the
-main renderer, for your custom elements, or overwrite the defined default
-renderers.
+For each part there is a specialized renderer, which is only responsible for rendering such a part, like a list
+renderer, a list item renderer or a paragraph renderer. The main renderer traverses the Docbook document and calls the
+appropriate renderer. You may register additional renderers with the main renderer, for your custom elements, or
+overwrite the defined default renderers.
 
-The main renderer also handles special page elements, like headers and
-footers for each page.
+The main renderer also handles special page elements, like headers and footers for each page.
 
-The sub renderers ask the main renderer for new space, if they exceeded the
-available space in the current column / on the current page. This is
-implemented in the method getNextRenderingPosition(). This method might
-request a new page from the driver.
+The sub renderers ask the main renderer for new space, if they exceeded the available space in the current column / on
+the current page. This is implemented in the method getNextRenderingPosition(). This method might request a new page
+from the driver.
 
-The sub renderer may as well call other sub renderer, for stacked element
-definitions or may request rendering for all those elements by the main
-renderer calling back to the process() method.
+The sub renderer may as well call other sub renderer, for stacked element definitions or may request rendering for all
+those elements by the main renderer calling back to the process() method.
 
 The table sub renderer
 ----------------------
 
-The table renderer is a special sub renderer, since the common space
-estimation does not apply here. Tables are structured into cells and the
-elements contained in one cell may only use the space defined by the cell.
-The table renderer therefore mimics (and extends) the main renderer. So
-when the contents of one cell are rendered the sub renderers for the cell
-contents (paragraphs, lists, ...) receive an instance of the table renderer
-as their "new" main renderer. The table renderer overwrites the methods
-like process() and getNextRenderingPosition(), so the sub renderers render
-their stuff at the correct positions in the cell.
+The table renderer is a special sub renderer, since the common space estimation does not apply here. Tables are
+structured into cells and the elements contained in one cell may only use the space defined by the cell. The table
+renderer therefore mimics (and extends) the main renderer. So when the contents of one cell are rendered the sub
+renderers for the cell contents (paragraphs, lists, ...) receive an instance of the table renderer as their "new" main
+renderer. The table renderer overwrites the methods like process() and getNextRenderingPosition(), so the sub renderers
+render their stuff at the correct positions in the cell.
 
-The table renderer itself again dispatches to its main renderer, when, for
-example, allocating new pages. In case of a stacked table, the main
-renderer of a table renderer may again be a table renderer, which then
-dispatches to the original main renderer.
+The table renderer itself again dispatches to its main renderer, when, for example, allocating new pages. In case of a
+stacked table, the main renderer of a table renderer may again be a table renderer, which then dispatches to the
+original main renderer.
 
 Style inheritance
 -----------------
 
-The definition of styles works just like CSS with HTML. Each element
-inherits the styles from its parent element, which are then overwritten by
-the defined styles in the (P)CSS file.
+The definition of styles works just like CSS with HTML. Each element inherits the styles from its parent element, which
+are then overwritten by the defined styles in the (P)CSS file.
 
-The inferring of the styles for a given element is implemented in the
-ezcDocumentPcssStyleInferencer class. An instance of this class containing
-the currently defined styles is available during the whole rendering
-process and will provide the styles for any element, which is passed to the
-object.
+The inferring of the styles for a given element is implemented in the ezcDocumentPcssStyleInferencer class. An instance
+of this class containing the currently defined styles is available during the whole rendering process and will provide
+the styles for any element, which is passed to the object.
 
 Hyphenation
 -----------
 
-Hyphenation is a critical task for proper text rendering. A custom
-hyphenator may be defined and passed to the renderer. Each text renderer
-will the ask the hyphenator to split words, if the whole word does not fit
-into one line any more. It would be sensible to implement a hyphenator
-based on some available dictionary files.
+Hyphenation is a critical task for proper text rendering. A custom hyphenator may be defined and passed to the renderer.
+Each text renderer will the ask the hyphenator to split words, if the whole word does not fit into one line any more. It
+would be sensible to implement a hyphenator based on some available dictionary files.
 
 Tokenizer
 ---------
 
-For some languages it might be necessary to implement a different text
-tokenizer, which does not just split words at whitespaces. To accomplish
-that you may implement and pass a custom tokenizer, which is the
-responsible for splitting texts.
+For some languages it might be necessary to implement a different text tokenizer, which does not just split words at
+whitespaces. To accomplish that you may implement and pass a custom tokenizer, which is the responsible for splitting
+texts.
 
-Some renderers, like the literal box renderer, may already use custom
-tokenizers, to implement special rendering tasks.
+Some renderers, like the literal box renderer, may already use custom tokenizers, to implement special rendering tasks.
 
 * Full name: `\ezcDocumentPdfMainRenderer`
 * Parent class: [`\ezcDocumentPdfRenderer`](./ezcDocumentPdfRenderer.md)
 * This class implements:
-[`\ezcDocumentErrorReporting`](./ezcDocumentErrorReporting.md)
-
-
+  [`\ezcDocumentErrorReporting`](./ezcDocumentErrorReporting.md)
 
 ## Properties
-
 
 ### hyphenator
 
@@ -165,11 +132,6 @@ Hyphenator used to split up words
 ```php
 protected \ezcDocumentPdfHyphenator $hyphenator
 ```
-
-
-
-
-
 
 ***
 
@@ -181,11 +143,6 @@ Tokenizer used to split up strings into words
 protected \ezcDocumentPdfTokenizer $tokenizer
 ```
 
-
-
-
-
-
 ***
 
 ### document
@@ -196,43 +153,26 @@ Document to render
 protected \ezcDocumentDocbook $document
 ```
 
-
-
-
-
-
 ***
 
 ### titleTransaction
 
-Last transactions started before rendering a new title. This is used to
-determine, if a title is positioned as a single item in a column or on a
-page and switch it to the next page in this case.
+Last transactions started before rendering a new title. This is used to determine, if a title is positioned as a single
+item in a column or on a page and switch it to the next page in this case.
 
 ```php
 protected mixed $titleTransaction
 ```
 
-
-
-
-
-
 ***
 
 ### restart
 
-Indicator to restart rendering with an earlier item on the same level in
-the DOM document tree.
+Indicator to restart rendering with an earlier item on the same level in the DOM document tree.
 
 ```php
 protected mixed $restart
 ```
-
-
-
-
-
 
 ***
 
@@ -244,11 +184,6 @@ Errors occured during the conversion process
 protected array $errors
 ```
 
-
-
-
-
-
 ***
 
 ### handlerMapping
@@ -259,8 +194,7 @@ Maps document elements to handler functions
 protected array $handlerMapping
 ```
 
-Maps each document element of the associated namespace to its handler
-method in the current class.
+Maps each document element of the associated namespace to its handler method in the current class.
 
 
 
@@ -275,11 +209,6 @@ Additional PDF parts.
 protected array $parts
 ```
 
-
-
-
-
-
 ***
 
 ### errorReporting
@@ -289,11 +218,6 @@ Error reporting level
 ```php
 protected int $errorReporting
 ```
-
-
-
-
-
 
 ***
 
@@ -305,15 +229,9 @@ PDF renderer options
 protected \ezcDocumentPdfOptions $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -323,13 +241,6 @@ Construct renderer from driver to use
 public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles, \ezcDocumentPdfOptions $options = null): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -337,9 +248,6 @@ public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInference
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
 | `$options` | **\ezcDocumentPdfOptions** |  |
-
-
-
 
 ***
 
@@ -351,13 +259,7 @@ Trigger visitor error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a vistitor error, and convert it to an exception depending on the
-error reporting settings.
-
-
-
-
-
+Emit a vistitor error, and convert it to an exception depending on the error reporting settings.
 
 **Parameters:**
 
@@ -369,9 +271,6 @@ error reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -382,8 +281,7 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
 
 
@@ -403,22 +301,14 @@ Tries to locate a file
 public locateFile(string $file): string
 ```
 
-Tries to locate a file, referenced in a docbook document. If available
-the document path is used a base for relative paths.
-
-
-
-
-
+Tries to locate a file, referenced in a docbook document. If available the document path is used a base for relative
+paths.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **string** |  |
-
-
-
 
 ***
 
@@ -432,19 +322,11 @@ public registerPdfPart(\ezcDocumentPdfPart $part): void
 
 Register additional parts, like footnotes, headers or title pages.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$part` | **\ezcDocumentPdfPart** |  |
-
-
-
 
 ***
 
@@ -458,11 +340,6 @@ public render(\ezcDocumentDocbook $document, \ezcDocumentPdfHyphenator $hyphenat
 
 Returns the rendered PDF as string
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -470,9 +347,6 @@ Returns the rendered PDF as string
 | `$document` | **\ezcDocumentDocbook** |  |
 | `$hyphenator` | **\ezcDocumentPdfHyphenator** |  |
 | `$tokenizer` | **\ezcDocumentPdfTokenizer** |  |
-
-
-
 
 ***
 
@@ -484,8 +358,7 @@ Register fonts in driver
 protected registerFonts(): void
 ```
 
-Register the font classes specified in the styles with the driver, so
-the driver can use the fonts during the rendering.
+Register the font classes specified in the styles with the driver, so the driver can use the fonts during the rendering.
 
 
 
@@ -505,21 +378,12 @@ Check column or page skip prerequisite
 public checkSkipPrerequisites(float $move, float $width): bool
 ```
 
-If no content has been rendered any more in the current column, this
-method should be called to check prerequisite for the skip, which is
-especially important for already rendered items, which impose
-assumptions on following contents.
+If no content has been rendered any more in the current column, this method should be called to check prerequisite for
+the skip, which is especially important for already rendered items, which impose assumptions on following contents.
 
-One example for this are titles, which should always be followed by at
-least some content in the same column.
+One example for this are titles, which should always be followed by at least some content in the same column.
 
-Returns false, if prerequisite are not fulfileld and rendering should be
-aborted.
-
-
-
-
-
+Returns false, if prerequisite are not fulfileld and rendering should be aborted.
 
 **Parameters:**
 
@@ -527,9 +391,6 @@ aborted.
 |-----------|------|-------------|
 | `$move` | **float** |  |
 | `$width` | **float** |  |
-
-
-
 
 ***
 
@@ -541,13 +402,7 @@ Calculate text width
 public calculateTextWidth(\ezcDocumentPdfPage $page, \ezcDocumentLocateableDomElement $text): float
 ```
 
-Calculate the available horizontal space for texts depending on the
-page layout settings.
-
-
-
-
-
+Calculate the available horizontal space for texts depending on the page layout settings.
 
 **Parameters:**
 
@@ -555,9 +410,6 @@ page layout settings.
 |-----------|------|-------------|
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$text` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -569,18 +421,10 @@ Get next rendering position
 public getNextRenderingPosition(float $move, float $width): \ezcDocumentPdfPage
 ```
 
-If the current space has been exceeded this method calculates
-a new rendering position, optionally creates a new page for
-this, or switches to the next column. The new rendering
-position is set on the returned page object.
+If the current space has been exceeded this method calculates a new rendering position, optionally creates a new page
+for this, or switches to the next column. The new rendering position is set on the returned page object.
 
-As the parameter you need to pass the required width for the object to
-place on the page.
-
-
-
-
-
+As the parameter you need to pass the required width for the object to place on the page.
 
 **Parameters:**
 
@@ -588,9 +432,6 @@ place on the page.
 |-----------|------|-------------|
 | `$move` | **float** |  |
 | `$width` | **float** |  |
-
-
-
 
 ***
 
@@ -602,22 +443,12 @@ Process a single element with the registered renderers.
 public processNode(\DOMElement $element, int $number): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMElement** |  |
 | `$number` | **int** |  |
-
-
-
 
 ***
 
@@ -629,21 +460,11 @@ Recurse into DOMDocument tree and call appropriate element handlers
 public process(\DOMNode $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\DOMNode** |  |
-
-
-
 
 ***
 
@@ -655,21 +476,11 @@ Ignore elements, which should not be rendered
 private ignore(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -681,21 +492,11 @@ Initialize document according to detected root node
 private initializeDocument(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -707,21 +508,11 @@ Append document metadata
 private appendMetaData(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -733,21 +524,11 @@ Handle calls to block element renderer
 private renderBlock(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -759,21 +540,11 @@ Handle calls to block element renderer
 private renderBlockquote(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -785,21 +556,11 @@ Handle calls to table element renderer
 private renderTable(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -811,21 +572,11 @@ Handle calls to List element renderer
 private renderList(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -837,21 +588,11 @@ Handle calls to list item element renderer
 private renderListItem(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -863,21 +604,11 @@ Handle calls to paragraph renderer
 private renderParagraph(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -889,22 +620,12 @@ Handle calls to title renderer
 private renderTitle(\ezcDocumentLocateableDomElement $element, int $position): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
 | `$position` | **int** |  |
-
-
-
 
 ***
 
@@ -916,21 +637,11 @@ Handle calls to media object renderer
 private renderMediaObject(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -942,21 +653,11 @@ Handle calls to paragraph renderer
 private renderLiteralLayout(\ezcDocumentLocateableDomElement $element): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
-
-
-
 
 ***
 
@@ -968,13 +669,7 @@ Handle all anchors inside the current element
 private handleAnchors(\ezcDocumentLocateableDomElement $element): void
 ```
 
-Finds all anchors somewhere in the current element and adds reference
-targets for them.
-
-
-
-
-
+Finds all anchors somewhere in the current element and adds reference targets for them.
 
 **Parameters:**
 
@@ -982,14 +677,9 @@ targets for them.
 |-----------|------|-------------|
 | `$element` | **\ezcDocumentLocateableDomElement** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -999,22 +689,12 @@ Construct renderer from driver to use
 public __construct(\ezcDocumentPdfDriver $driver, \ezcDocumentPcssStyleInferencer $styles): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$driver` | **\ezcDocumentPdfDriver** |  |
 | `$styles` | **\ezcDocumentPcssStyleInferencer** |  |
-
-
-
 
 ***
 
@@ -1026,13 +706,7 @@ Render box background
 protected renderBoxBackground(\ezcDocumentPdfBoundingBox $space, array $styles): void
 ```
 
-Render box background for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box background for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -1040,9 +714,6 @@ styles.
 |-----------|------|-------------|
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -1054,13 +725,7 @@ Render box border
 protected renderBoxBorder(\ezcDocumentPdfBoundingBox $space, array $styles, bool $renderTop = true, bool $renderBottom = true): void
 ```
 
-Render box border for the given bounding box with the given
-styles.
-
-
-
-
-
+Render box border for the given bounding box with the given styles.
 
 **Parameters:**
 
@@ -1070,9 +735,6 @@ styles.
 | `$styles` | **array** |  |
 | `$renderTop` | **bool** |  |
 | `$renderBottom` | **bool** |  |
-
-
-
 
 ***
 
@@ -1086,11 +748,6 @@ protected setBoxCovered(\ezcDocumentPdfPage $page, \ezcDocumentPdfBoundingBox $s
 
 Mark rendered space as convered on the page.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1098,9 +755,6 @@ Mark rendered space as convered on the page.
 | `$page` | **\ezcDocumentPdfPage** |  |
 | `$space` | **\ezcDocumentPdfBoundingBox** |  |
 | `$styles` | **array** |  |
-
-
-
 
 ***
 
@@ -1112,13 +766,7 @@ Evaluate available bounding box
 protected evaluateAvailableBoundingBox(\ezcDocumentPdfPage $page, array $styles, float $width): mixed
 ```
 
-Returns false, if not enough space is available on current
-page, and a bounding box otherwise.
-
-
-
-
-
+Returns false, if not enough space is available on current page, and a bounding box otherwise.
 
 **Parameters:**
 
@@ -1128,11 +776,4 @@ page, and a bounding box otherwise.
 | `$styles` | **array** |  |
 | `$width` | **float** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

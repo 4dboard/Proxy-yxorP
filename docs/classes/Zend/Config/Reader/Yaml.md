@@ -4,16 +4,11 @@
 
 YAML config reader.
 
-
-
 * Full name: `\Zend\Config\Reader\Yaml`
 * This class implements:
-[`\Zend\Config\Reader\ReaderInterface`](./ReaderInterface.md)
-
-
+  [`\Zend\Config\Reader\ReaderInterface`](./ReaderInterface.md)
 
 ## Properties
-
 
 ### directory
 
@@ -22,11 +17,6 @@ Directory of the YAML file
 ```php
 protected string $directory
 ```
-
-
-
-
-
 
 ***
 
@@ -38,15 +28,9 @@ YAML decoder callback
 protected callable $yamlDecoder
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -56,21 +40,11 @@ Constructor
 public __construct(callable $yamlDecoder = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$yamlDecoder` | **callable** |  |
-
-
-
 
 ***
 
@@ -82,21 +56,11 @@ Set callback for decoding YAML
 public setYamlDecoder(string|callable $yamlDecoder): \Zend\Config\Reader\Yaml
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$yamlDecoder` | **string&#124;callable** | the decoder to set |
-
-
-
 
 ***
 
@@ -108,16 +72,6 @@ Get callback for decoding YAML
 public getYamlDecoder(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### fromFile
@@ -128,24 +82,15 @@ fromFile(): defined by Reader interface.
 public fromFile(string $filename): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filename` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Reader\ReaderInterface::fromFile() - 
+* \Zend\Config\Reader\ReaderInterface::fromFile() -
 
 ***
 
@@ -157,24 +102,15 @@ fromString(): defined by Reader interface.
 public fromString(string $string): array|bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Config\Reader\ReaderInterface::fromString() - 
+* \Zend\Config\Reader\ReaderInterface::fromString() -
 
 ***
 
@@ -186,24 +122,10 @@ Process the array for @include
 protected process(array $data): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

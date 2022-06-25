@@ -4,71 +4,32 @@
 
 Class Controller
 
-
-
 * Full name: `\Cockpit\Controller\Settings`
 * Parent class: [`\Cockpit\AuthController`](../AuthController.md)
 
-
-
-
 ## Methods
 
-
 ### index
-
-
 
 ```php
 public index(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### info
-
-
 
 ```php
 public info(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### edit
 
-
-
 ```php
 public edit(mixed $createconfig = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -76,69 +37,31 @@ public edit(mixed $createconfig = false): mixed
 |-----------|------|-------------|
 | `$createconfig` | **mixed** |  |
 
-
-
-
 ***
 
 ### update
-
-
 
 ```php
 public update(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getUptdateInfo
-
-
 
 ```php
 protected getUptdateInfo(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $app): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -146,65 +69,29 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
-
-
-
 ***
 
 ### index
-
-
 
 ```php
 public index(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### before
-
-
 
 ```php
 protected before(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### render
 
-
-
 ```php
 protected render( $view, array $params = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -213,25 +100,13 @@ protected render( $view, array $params = array()): mixed
 | `$view` | **** |  |
 | `$params` | **array** |  |
 
-
-
-
 ***
 
 ### param
 
-
-
 ```php
 protected param( $key, null $default = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -240,25 +115,13 @@ protected param( $key, null $default = null): mixed
 | `$key` | **** |  |
 | `$default` | **null** |  |
 
-
-
-
 ***
 
 ### module
 
-
-
 ```php
 protected module( $module): null
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -266,25 +129,13 @@ protected module( $module): null
 |-----------|------|-------------|
 | `$module` | **** |  |
 
-
-
-
 ***
 
 ### helper
 
-
-
 ```php
 protected helper( $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -292,25 +143,13 @@ protected helper( $name): mixed
 |-----------|------|-------------|
 | `$name` | **** |  |
 
-
-
-
 ***
 
 ### stop
 
-
-
 ```php
 protected stop(mixed $data = false, mixed $status = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -319,45 +158,21 @@ protected stop(mixed $data = false, mixed $status = null): mixed
 | `$data` | **mixed** |  |
 | `$status` | **mixed** |  |
 
-
-
-
 ***
 
 ### initialize
-
-
 
 ```php
 public initialize(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -366,25 +181,13 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
-
-
-
 ***
 
 ### __invoke
 
-
-
 ```php
 public __invoke(mixed $helper): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -392,25 +195,13 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
-
-
-
 ***
 
 ### __get
 
-
-
 ```php
 public __get(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -418,11 +209,4 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

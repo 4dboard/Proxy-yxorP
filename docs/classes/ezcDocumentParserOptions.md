@@ -4,15 +4,10 @@
 
 Class containing the basic options for the ezcDocumentParser.
 
-
-
 * Full name: `\ezcDocumentParserOptions`
 * Parent class: [`\ezcBaseOptions`](./ezcBaseOptions.md)
 
-
-
 ## Properties
-
 
 ### properties
 
@@ -22,17 +17,9 @@ Container to hold the properties.
 protected $properties
 ```
 
-
-
-
-
-
 ***
 
-
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -42,23 +29,14 @@ Construct a new options object.
 public __construct(array $options = array()): mixed
 ```
 
-Options are constructed from an option array by default. The constructor
-automatically passes the given options to the __set() method to set them
-in the class.
-
-
-
-
-
+Options are constructed from an option array by default. The constructor automatically passes the given options to
+the __set() method to set them in the class.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -72,19 +50,11 @@ public merge(array $newOptions): mixed
 
 This method merges an array of new options into the actual options object.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newOptions` | **array** |  |
-
-
-
 
 ***
 
@@ -98,17 +68,11 @@ public offsetExists(string $propertyName): bool
 
 Allows isset() using ArrayAccess.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$propertyName` | **string** | The name of the option to get. |
-
 
 **Return Value:**
 
@@ -128,17 +92,11 @@ public offsetGet(string $propertyName): mixed
 
 Get an option value by ArrayAccess.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$propertyName` | **string** | The name of the option to get. |
-
 
 **Return Value:**
 
@@ -158,20 +116,12 @@ public offsetSet(string $propertyName, mixed $propertyValue): mixed
 
 Sets an option using ArrayAccess.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$propertyName` | **string** | The name of the option to set. |
 | `$propertyValue` | **mixed** | The value for the option. |
-
-
-
 
 ***
 
@@ -185,19 +135,11 @@ public offsetUnset(string $propertyName): mixed
 
 Unsets an option using ArrayAccess.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$propertyName` | **string** | The name of the option to unset. |
-
-
-
 
 ***
 
@@ -209,16 +151,6 @@ Return the current element.
 public current(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### key
@@ -228,16 +160,6 @@ Return the key of the current element.
 ```php
 public key(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -249,16 +171,6 @@ Move forward to next element.
 public next(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### rewind
@@ -269,39 +181,14 @@ Rewind the Iterator to the first element.
 public rewind(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### valid
 
-Check if there is a current element after calls to {@link rewind()} or
-{@link next()}.
+Check if there is a current element after calls to {@link rewind()} or {@link next()}.
 
 ```php
 public valid(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

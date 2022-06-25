@@ -4,13 +4,10 @@
 
 Simple lexer for docblock annotations.
 
-
-
 * Full name: `\Doctrine\Common\Annotations\DocLexer`
 * Parent class: [`\Doctrine\Common\Lexer\AbstractLexer`](../Lexer/AbstractLexer.md)
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
-
 
 ## Constants
 
@@ -37,58 +34,31 @@ Simple lexer for docblock annotations.
 
 ## Properties
 
-
 ### noCase
-
-
 
 ```php
 protected array&lt;string,int&gt; $noCase
 ```
 
-
-
-
-
-
 ***
 
 ### withCase
-
-
 
 ```php
 protected array&lt;string,int&gt; $withCase
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### nextTokenIsAdjacent
 
-Whether the next token starts immediately, or if there were
-non-captured symbols before that
+Whether the next token starts immediately, or if there were non-captured symbols before that
 
 ```php
 public nextTokenIsAdjacent(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -100,16 +70,6 @@ Lexical catchable patterns.
 protected getCatchablePatterns(): string[]
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getNonCatchablePatterns
@@ -119,16 +79,6 @@ Lexical non-catchable patterns.
 ```php
 protected getNonCatchablePatterns(): string[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -140,27 +90,15 @@ Retrieve token type. Also processes the token value if necessary.
 protected getType(mixed& $value): int|string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setInput
 
@@ -170,22 +108,13 @@ Sets the input data to be tokenized.
 public setInput(string $input): void
 ```
 
-The Lexer is immediately reset and the new input tokenized.
-Any unprocessed tokens from any previous input are lost.
-
-
-
-
-
+The Lexer is immediately reset and the new input tokenized. Any unprocessed tokens from any previous input are lost.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | The input to be tokenized. |
-
-
-
 
 ***
 
@@ -197,16 +126,6 @@ Resets the lexer.
 public reset(): void
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### resetPeek
@@ -216,16 +135,6 @@ Resets the peek pointer to 0.
 ```php
 public resetPeek(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -237,21 +146,11 @@ Resets the lexer position on the input to the given position.
 public resetPosition(int $position): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$position` | **int** | Position to place the lexical scanner. |
-
-
-
 
 ***
 
@@ -263,21 +162,11 @@ Retrieve the original lexer's input until a given position.
 public getInputUntilPosition(int $position): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$position` | **int** |  |
-
-
-
 
 ***
 
@@ -289,21 +178,11 @@ Checks whether a given token matches the current lookahead.
 public isNextToken(int|string $type): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int&#124;string** |  |
-
-
-
 
 ***
 
@@ -315,21 +194,11 @@ Checks whether any of the given tokens matches the current lookahead.
 public isNextTokenAny(list&lt;int|string&gt; $types): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$types` | **list<int&#124;string>** |  |
-
-
-
 
 ***
 
@@ -341,16 +210,6 @@ Moves to the next token in the input string.
 public moveNext(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### skipUntil
@@ -361,21 +220,11 @@ Tells the lexer to skip input tokens until it sees a token with the given value.
 public skipUntil(string $type): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** | The token type to skip until. |
-
-
-
 
 ***
 
@@ -387,22 +236,12 @@ Checks if given value is identical to the given token.
 public isA(mixed $value, int|string $token): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 | `$token` | **int&#124;string** |  |
-
-
-
 
 ***
 
@@ -413,14 +252,6 @@ Moves the lookahead token forward.
 ```php
 public peek(): array|null
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -438,14 +269,6 @@ Peeks at the next token, returns it and immediately resets the peek.
 public glimpse(): array|null
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The next token or NULL if there are no more tokens ahead.
@@ -462,21 +285,11 @@ Scans the input string for tokens.
 protected scan(string $input): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | A query string. |
-
-
-
 
 ***
 
@@ -488,21 +301,11 @@ Gets the literal for a given token.
 public getLiteral(int|string $token): int|string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$token` | **int&#124;string** |  |
-
-
-
 
 ***
 
@@ -514,16 +317,6 @@ Regex modifiers
 protected getModifiers(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCatchablePatterns
@@ -534,15 +327,7 @@ Lexical catchable patterns.
 protected getCatchablePatterns(): string[]
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -554,15 +339,7 @@ Lexical non-catchable patterns.
 protected getNonCatchablePatterns(): string[]
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -574,12 +351,7 @@ Retrieve token type. Also processes the token value if necessary.
 protected getType(string& $value): int|string|null
 ```
 
-
-
-
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -587,11 +359,4 @@ protected getType(string& $value): int|string|null
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

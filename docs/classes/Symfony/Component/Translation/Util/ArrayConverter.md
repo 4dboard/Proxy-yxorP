@@ -5,20 +5,14 @@
 ArrayConverter generates tree like structure from a message catalogue.
 
 e.g. this
-  'foo.bar1' => 'test1',
-  'foo.bar2' => 'test2'
-converts to follows:
-  foo:
-    bar1: test1
-    bar2: test2.
+'foo.bar1' => 'test1',
+'foo.bar2' => 'test2' converts to follows:
+foo:
+bar1: test1 bar2: test2.
 
 * Full name: `\Symfony\Component\Translation\Util\ArrayConverter`
 
-
-
-
 ## Methods
-
 
 ### expandToTree
 
@@ -32,15 +26,11 @@ For example this rray('foo.bar' => 'value') will be converted to array('foo' => 
 
 * This method is **static**.
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$messages` | **array** | Linear messages array |
-
 
 **Return Value:**
 
@@ -52,18 +42,11 @@ Tree-like messages array
 
 ### getElementByPath
 
-
-
 ```php
 private static getElementByPath(array& $tree, array $parts): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -72,25 +55,15 @@ private static getElementByPath(array& $tree, array $parts): mixed
 | `$tree` | **array** |  |
 | `$parts` | **array** |  |
 
-
-
-
 ***
 
 ### cancelExpand
-
-
 
 ```php
 private static cancelExpand(array& $tree, mixed $prefix, array $node): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -100,11 +73,4 @@ private static cancelExpand(array& $tree, mixed $prefix, array $node): mixed
 | `$prefix` | **mixed** |  |
 | `$node` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

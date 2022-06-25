@@ -2,12 +2,7 @@
 
 # Smd
 
-
-
-
-
 * Full name: `\Zend\Json\Server\Smd`
-
 
 ## Constants
 
@@ -19,7 +14,6 @@
 
 ## Properties
 
-
 ### contentType
 
 Content type
@@ -27,11 +21,6 @@ Content type
 ```php
 protected string $contentType
 ```
-
-
-
-
-
 
 ***
 
@@ -43,11 +32,6 @@ Content type regex
 protected string $contentTypeRegex
 ```
 
-
-
-
-
-
 ***
 
 ### description
@@ -57,11 +41,6 @@ Service description
 ```php
 protected string $description
 ```
-
-
-
-
-
 
 ***
 
@@ -73,11 +52,6 @@ Generate Dojo-compatible SMD
 protected bool $dojoCompatible
 ```
 
-
-
-
-
-
 ***
 
 ### envelope
@@ -87,11 +61,6 @@ Current envelope
 ```php
 protected string $envelope
 ```
-
-
-
-
-
 
 ***
 
@@ -103,11 +72,6 @@ Allowed envelope types
 protected array $envelopeTypes
 ```
 
-
-
-
-
-
 ***
 
 ### id
@@ -117,11 +81,6 @@ Service id
 ```php
 protected string $id
 ```
-
-
-
-
-
 
 ***
 
@@ -133,11 +92,6 @@ Services offered
 protected array $services
 ```
 
-
-
-
-
-
 ***
 
 ### target
@@ -147,11 +101,6 @@ Service target
 ```php
 protected string $target
 ```
-
-
-
-
-
 
 ***
 
@@ -163,11 +112,6 @@ Global transport
 protected string $transport
 ```
 
-
-
-
-
-
 ***
 
 ### transportTypes
@@ -178,15 +122,9 @@ Allowed transport types
 protected array $transportTypes
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setOptions
 
@@ -196,21 +134,11 @@ Set object state via options
 public setOptions(array $options): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -222,21 +150,11 @@ Set transport
 public setTransport(string $transport): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$transport` | **string** |  |
-
-
-
 
 ***
 
@@ -248,16 +166,6 @@ Get transport
 public getTransport(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setEnvelope
@@ -268,21 +176,11 @@ Set envelope
 public setEnvelope(string $envelopeType): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$envelopeType` | **string** |  |
-
-
-
 
 ***
 
@@ -294,16 +192,6 @@ Retrieve envelope
 public getEnvelope(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setContentType
@@ -314,21 +202,11 @@ Set content type
 public setContentType(string $type): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **string** |  |
-
-
-
 
 ***
 
@@ -340,16 +218,6 @@ Retrieve content type
 public getContentType(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTarget
@@ -360,21 +228,11 @@ Set service target
 public setTarget(string $target): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$target` | **string** |  |
-
-
-
 
 ***
 
@@ -386,16 +244,6 @@ Retrieve service target
 public getTarget(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setId
@@ -406,21 +254,11 @@ Set service ID
 public setId(string $id): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$id` | **string** |  |
-
-
-
 
 ***
 
@@ -432,16 +270,6 @@ Get service id
 public getId(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDescription
@@ -452,21 +280,11 @@ Set service description
 public setDescription(string $description): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$description` | **string** |  |
-
-
-
 
 ***
 
@@ -478,16 +296,6 @@ Get service description
 public getDescription(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDojoCompatible
@@ -498,21 +306,11 @@ Indicate whether or not to generate Dojo-compatible SMD
 public setDojoCompatible(bool $flag): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$flag` | **bool** |  |
-
-
-
 
 ***
 
@@ -524,16 +322,6 @@ Is this a Dojo compatible SMD?
 public isDojoCompatible(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### addService
@@ -544,21 +332,11 @@ Add Service
 public addService(\Zend\Json\Server\Smd\Service|array $service): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$service` | **\Zend\Json\Server\Smd\Service&#124;array** |  |
-
-
-
 
 ***
 
@@ -570,21 +348,11 @@ Add many services
 public addServices(array $services): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$services` | **array** |  |
-
-
-
 
 ***
 
@@ -596,21 +364,11 @@ Overwrite existing services with new ones
 public setServices(array $services): \Zend\Json\Server\Smd
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$services` | **array** |  |
-
-
-
 
 ***
 
@@ -622,21 +380,11 @@ Get service object
 public getService(string $name): bool|\Zend\Json\Server\Smd\Service
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -648,16 +396,6 @@ Return services
 public getServices(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### removeService
@@ -668,21 +406,11 @@ Remove service
 public removeService(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -694,16 +422,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### toDojoArray
@@ -713,16 +431,6 @@ Export to DOJO-compatible SMD array
 ```php
 public toDojoArray(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -734,16 +442,6 @@ Cast to JSON
 public toJson(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -754,18 +452,4 @@ Cast to string (JSON)
 public __toString(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,15 +4,10 @@
 
 HTML visitor for the RST AST.
 
-
-
 * Full name: `\ezcDocumentRstXhtmlVisitor`
 * Parent class: [`\ezcDocumentRstVisitor`](./ezcDocumentRstVisitor.md)
 
-
-
 ## Properties
-
 
 ### complexVisitMapping
 
@@ -21,11 +16,6 @@ Mapping of class names to internal visitors for the respective nodes.
 ```php
 protected array $complexVisitMapping
 ```
-
-
-
-
-
 
 ***
 
@@ -37,26 +27,16 @@ Direct mapping of AST node class names to docbook element names.
 protected array $simpleVisitMapping
 ```
 
-
-
-
-
-
 ***
 
 ### skipNodes
 
-Array with nodes, which can be ignored during the transformation
-process, they only provide additional information during preprocessing.
+Array with nodes, which can be ignored during the transformation process, they only provide additional information
+during preprocessing.
 
 ```php
 protected array $skipNodes
 ```
-
-
-
-
-
 
 ***
 
@@ -68,11 +48,6 @@ DOM document
 protected \DOMDocument $document
 ```
 
-
-
-
-
-
 ***
 
 ### head
@@ -82,11 +57,6 @@ Reference to head node
 ```php
 protected \DOMElement $head
 ```
-
-
-
-
-
 
 ***
 
@@ -98,11 +68,6 @@ Current depth in document.
 protected int $depth
 ```
 
-
-
-
-
-
 ***
 
 ### options
@@ -113,15 +78,9 @@ HTML rendering options
 protected \ezcDocumentHtmlConverterOptions $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -131,22 +90,12 @@ Create visitor from RST document handler.
 public __construct(\ezcDocumentRst $document, string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\ezcDocumentRst** |  |
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -160,19 +109,11 @@ public visit(\ezcDocumentRstDocumentNode $ast): mixed
 
 Visit the RST abstract syntax tree.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **\ezcDocumentRstDocumentNode** |  |
-
-
-
 
 ***
 
@@ -184,14 +125,8 @@ Visit single AST node
 protected visitNode(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-Visit a single AST node, may be called for each node found anywhere
-as child. The current position in the DOMDocument is passed by a
-reference to the current DOMNode, which is operated on.
-
-
-
-
-
+Visit a single AST node, may be called for each node found anywhere as child. The current position in the DOMDocument is
+passed by a reference to the current DOMNode, which is operated on.
 
 **Parameters:**
 
@@ -199,9 +134,6 @@ reference to the current DOMNode, which is operated on.
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -213,21 +145,11 @@ Add stylesheets to header
 protected addStylesheets(\DOMElement $head): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$head` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -239,22 +161,12 @@ Visit section node
 protected visitSection(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -266,21 +178,11 @@ Escape all special characters in URIs
 public escapeUrl(string $url): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$url` | **string** |  |
-
-
-
 
 ***
 
@@ -292,22 +194,12 @@ Visit interpreted text node markup
 protected visitInterpretedTextNode(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -319,22 +211,12 @@ Visit external reference node
 protected visitExternalReference(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -346,22 +228,12 @@ Visit internal reference node
 protected visitInternalFootnoteReference(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -373,22 +245,12 @@ Visit inline target node
 protected visitInlineTarget(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -400,22 +262,12 @@ Visit anonomyous reference node
 protected visitAnonymousReference(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -427,22 +279,12 @@ Visit blockquotes
 protected visitBlockquote(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -454,22 +296,12 @@ Visit bullet lists
 protected visitBulletList(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -481,22 +313,12 @@ Visit enumerated lists
 protected visitEnumeratedList(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -508,14 +330,8 @@ Generate footnote reference link
 protected generateFootnoteReferenceLink(string $name, string $number): string
 ```
 
-Generate an internal target name out of the footnote name, which may
-contain special characters, which are not allowed for URL anchors and
-are converted to alphanumeric strings by this method.
-
-
-
-
-
+Generate an internal target name out of the footnote name, which may contain special characters, which are not allowed
+for URL anchors and are converted to alphanumeric strings by this method.
 
 **Parameters:**
 
@@ -523,9 +339,6 @@ are converted to alphanumeric strings by this method.
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$number` | **string** |  |
-
-
-
 
 ***
 
@@ -537,22 +350,12 @@ Visit footnote
 protected visitFootnote(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -564,22 +367,12 @@ Visit line block
 protected visitLineBlock(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -591,22 +384,12 @@ Visit line block line
 protected visitLineBlockLine(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -618,22 +401,12 @@ Visit comment
 protected visitComment(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -645,22 +418,12 @@ Visit definition list item
 protected visitDefinitionListItem(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -672,22 +435,12 @@ Visit table cell
 protected visitTableCell(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -699,22 +452,12 @@ Visit field list item
 protected visitFieldListItem(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -726,13 +469,6 @@ Visit directive
 protected visitDirective(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -740,14 +476,9 @@ protected visitDirective(\DOMNode $root, \ezcDocumentRstNode $node): void
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -757,22 +488,12 @@ Create visitor from RST document handler.
 public __construct(\ezcDocumentRst $document, string $path): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\ezcDocumentRst** |  |
 | `$path` | **string** |  |
-
-
-
 
 ***
 
@@ -784,13 +505,7 @@ Trigger visitor error
 public triggerError(int $level, string $message, string $file = null, int $line = null, int $position = null): void
 ```
 
-Emit a vistitor error, and convert it to an exception depending on the
-error reporting settings.
-
-
-
-
-
+Emit a vistitor error, and convert it to an exception depending on the error reporting settings.
 
 **Parameters:**
 
@@ -802,9 +517,6 @@ error reporting settings.
 | `$line` | **int** |  |
 | `$position` | **int** |  |
 
-
-
-
 ***
 
 ### getErrors
@@ -815,8 +527,7 @@ Return list of errors occured during visiting the document.
 public getErrors(): array
 ```
 
-May be an empty array, if on errors occured, or a list of
-ezcDocumentVisitException objects.
+May be an empty array, if on errors occured, or a list of ezcDocumentVisitException objects.
 
 
 
@@ -838,19 +549,11 @@ public visit(\ezcDocumentRstDocumentNode $ast): mixed
 
 Visit the RST abstract syntax tree.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ast` | **\ezcDocumentRstDocumentNode** |  |
-
-
-
 
 ***
 
@@ -862,21 +565,11 @@ Add a reference target
 private addReferenceTarget(string $string): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -888,22 +581,14 @@ Transform a node tree into a string
 public nodeToString(\ezcDocumentRstNode $node): string
 ```
 
-Transform a node tree, with all its subnodes into a string by only
-getting the textuual contents from ezcDocumentRstTextLineNode objects.
-
-
-
-
-
+Transform a node tree, with all its subnodes into a string by only getting the textuual contents from
+ezcDocumentRstTextLineNode objects.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -915,21 +600,11 @@ Get string from token list.
 protected tokenListToString(array $tokens): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$tokens` | **array** |  |
-
-
-
 
 ***
 
@@ -941,13 +616,8 @@ Compare two list items
 protected compareListType(\ezcDocumentRstNode $item, \ezcDocumentRstNode $lastItem): bool
 ```
 
-Check if the given list item may be a successor in the same list, as the
-last item in the list. Returns the boolean status o the check.
-
-
-
-
-
+Check if the given list item may be a successor in the same list, as the last item in the list. Returns the boolean
+status o the check.
 
 **Parameters:**
 
@@ -955,9 +625,6 @@ last item in the list. Returns the boolean status o the check.
 |-----------|------|-------------|
 | `$item` | **\ezcDocumentRstNode** |  |
 | `$lastItem` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -969,23 +636,14 @@ Aggregate list items
 protected aggregateListItems(\ezcDocumentRstNode $node): void
 ```
 
-Aggregate list items into lists. In RST there are only list items, which
-are aggregated to lists depending on their bullet type. The related list
-items are aggregated into one list.
-
-
-
-
-
+Aggregate list items into lists. In RST there are only list items, which are aggregated to lists depending on their
+bullet type. The related list items are aggregated into one list.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -997,21 +655,11 @@ Add footnote
 protected addFootnote(\ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -1025,28 +673,18 @@ protected preProcessAst(\ezcDocumentRstNode $node): void
 
 Performs multiple preprocessing steps on the AST:
 
-Collect all possible reference targets in the AST to know the actual
-destianation for references while decorating. The references are stored
-in an internal structure and you may request the actual link by using
-the getReferenceTarget() method.
+Collect all possible reference targets in the AST to know the actual destianation for references while decorating. The
+references are stored in an internal structure and you may request the actual link by using the getReferenceTarget()
+method.
 
-Aggregate list items into lists. In RST there are only list items, which
-are aggregated to lists depending on their bullet type. The related list
-items are aggregated into one list.
-
-
-
-
-
+Aggregate list items into lists. In RST there are only list items, which are aggregated to lists depending on their
+bullet type. The related list items are aggregated into one list.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -1058,13 +696,7 @@ Check for internal footnote reference target
 public hasFootnoteTarget(string $string, \ezcDocumentRstNode $node): \ezcDocumentRstFootnoteNode
 ```
 
-Returns the target name, when an internal reference target exists and
-sets it to used, and false otherwise.
-
-
-
-
-
+Returns the target name, when an internal reference target exists and sets it to used, and false otherwise.
 
 **Parameters:**
 
@@ -1072,9 +704,6 @@ sets it to used, and false otherwise.
 |-----------|------|-------------|
 | `$string` | **string** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -1086,18 +715,11 @@ Check for internal reference target
 public hasReferenceTarget(string $string, \ezcDocumentRstNode $node = null, bool $force = false): string
 ```
 
-Returns the target name, when an internal reference target exists and
-sets it to used, and false otherwise. For duplicate reference targets
-and missing reference targets an error will be triggered.
+Returns the target name, when an internal reference target exists and sets it to used, and false otherwise. For
+duplicate reference targets and missing reference targets an error will be triggered.
 
-An optional third parameter may enforce the fetching of the reference,
-even if there are duplicates, so that they still can be referenced in
-some way.
-
-
-
-
-
+An optional third parameter may enforce the fetching of the reference, even if there are duplicates, so that they still
+can be referenced in some way.
 
 **Parameters:**
 
@@ -1106,9 +728,6 @@ some way.
 | `$string` | **string** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
 | `$force` | **bool** |  |
-
-
-
 
 ***
 
@@ -1122,19 +741,11 @@ public getNamedExternalReference(string $name): string
 
 Get the target value of a named external reference.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -1166,21 +777,11 @@ Get substitution contents
 protected substitute(string $string): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -1194,19 +795,11 @@ protected calculateId(string $string): string
 
 Get a valid identifier string from an arbritrary string.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -1220,19 +813,11 @@ protected calculateUniqueId(string $string): string
 
 Calculate a valid identifier, which is unique for this document.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$string` | **string** |  |
-
-
-
 
 ***
 
@@ -1244,22 +829,12 @@ Visit text node
 protected visitText(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -1271,13 +846,7 @@ Visit children
 protected visitChildren(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-Just recurse into node and visit its children, ignoring the actual
-node.
-
-
-
-
-
+Just recurse into node and visit its children, ignoring the actual node.
 
 **Parameters:**
 
@@ -1285,9 +854,6 @@ node.
 |-----------|------|-------------|
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
-
-
-
 
 ***
 
@@ -1299,13 +865,6 @@ Visit substitution reference node
 protected visitSubstitutionReference(\DOMNode $root, \ezcDocumentRstNode $node): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1313,11 +872,4 @@ protected visitSubstitutionReference(\DOMNode $root, \ezcDocumentRstNode $node):
 | `$root` | **\DOMNode** |  |
 | `$node` | **\ezcDocumentRstNode** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

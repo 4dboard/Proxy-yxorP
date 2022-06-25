@@ -4,34 +4,24 @@
 
 Event manager: notification system
 
-Use the EventManager when you want to create a per-instance notification
-system for your objects.
+Use the EventManager when you want to create a per-instance notification system for your objects.
 
 * Full name: `\Zend\EventManager\GlobalEventManager`
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
-
-
 ## Properties
 
-
 ### events
-
-
 
 ```php
 protected static \Zend\EventManager\EventManagerInterface $events
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### setEventCollection
 
@@ -41,21 +31,13 @@ Set the event collection on which this will operate
 public static setEventCollection(null|\Zend\EventManager\EventManagerInterface $events = null): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$events` | **null&#124;\Zend\EventManager\EventManagerInterface** |  |
-
-
-
 
 ***
 
@@ -67,15 +49,7 @@ Get event collection on which this operates
 public static getEventCollection(): \Zend\EventManager\EventManagerInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -87,12 +61,7 @@ Trigger an event
 public static trigger(string $event, object|string $context, array|object $argv = [], null|callable $callback = null): \Zend\EventManager\ResponseCollection
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -103,28 +72,20 @@ public static trigger(string $event, object|string $context, array|object $argv 
 | `$argv` | **array&#124;object** |  |
 | `$callback` | **null&#124;callable** |  |
 
-
-
-
 ***
 
 ### triggerUntil
 
-Trigger listeners until return value of one causes a callback to evaluate
-to true.
+Trigger listeners until return value of one causes a callback to evaluate to true.
 
 ```php
 public static triggerUntil(string $event, string|object $context, array|object $argv, callable $callback): \Zend\EventManager\ResponseCollection
 ```
 
-
-
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -134,9 +95,6 @@ public static triggerUntil(string $event, string|object $context, array|object $
 | `$context` | **string&#124;object** |  |
 | `$argv` | **array&#124;object** |  |
 | `$callback` | **callable** |  |
-
-
-
 
 ***
 
@@ -148,12 +106,7 @@ Attach a listener to an event
 public static attach(string $event, callable $callback, int $priority = 1): \Zend\Stdlib\CallbackHandler
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -162,9 +115,6 @@ public static attach(string $event, callable $callback, int $priority = 1): \Zen
 | `$event` | **string** |  |
 | `$callback` | **callable** |  |
 | `$priority` | **int** |  |
-
-
-
 
 ***
 
@@ -176,21 +126,13 @@ Detach a callback from a listener
 public static detach(\Zend\Stdlib\CallbackHandler $listener): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$listener` | **\Zend\Stdlib\CallbackHandler** |  |
-
-
-
 
 ***
 
@@ -202,15 +144,7 @@ Retrieve list of events this object manages
 public static getEvents(): array
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -222,21 +156,13 @@ Retrieve all listeners for a given event
 public static getListeners(string $event): \Zend\Stdlib\PriorityQueue|array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$event` | **string** |  |
-
-
-
 
 ***
 
@@ -248,12 +174,7 @@ Clear all listeners for a given event
 public static clearListeners(string $event): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -261,11 +182,4 @@ public static clearListeners(string $event): void
 |-----------|------|-------------|
 | `$event` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

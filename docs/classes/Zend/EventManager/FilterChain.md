@@ -4,34 +4,21 @@
 
 FilterChain: intercepting filter manager
 
-
-
 * Full name: `\Zend\EventManager\FilterChain`
 * This class implements:
-[`\Zend\EventManager\Filter\FilterInterface`](./Filter/FilterInterface.md)
-
-
+  [`\Zend\EventManager\Filter\FilterInterface`](./Filter/FilterInterface.md)
 
 ## Properties
 
-
 ### filters
-
-
 
 ```php
 protected \Zend\EventManager\Filter\FilterIterator $filters
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -63,20 +50,12 @@ public run(mixed $context, mixed $argv = []): mixed
 
 Begins iteration of the filters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **mixed** | Object under observation |
 | `$argv` | **mixed** | Associative array of arguments |
-
-
-
 
 ***
 
@@ -88,20 +67,12 @@ Connect a filter to the chain
 public attach(callable $callback, int $priority = 1): \Zend\Stdlib\CallbackHandler
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** | PHP Callback |
 | `$priority` | **int** | Priority in the queue at which to execute; defaults to 1 (higher numbers == higher priority) |
-
 
 **Return Value:**
 
@@ -119,19 +90,11 @@ Detach a filter from the chain
 public detach(\Zend\Stdlib\CallbackHandler $filter): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filter` | **\Zend\Stdlib\CallbackHandler** |  |
-
 
 **Return Value:**
 
@@ -149,16 +112,6 @@ Retrieve all filters
 public getFilters(): \Zend\EventManager\Filter\FilterIterator
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### clearFilters
@@ -168,16 +121,6 @@ Clear all filters
 ```php
 public clearFilters(): void
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -189,19 +132,6 @@ Return current responses
 public getResponses(): null|\Zend\EventManager\ResponseCollection
 ```
 
-Only available while the chain is still being iterated. Returns the
-current ResponseCollection.
+Only available while the chain is still being iterated. Returns the current ResponseCollection.
 
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

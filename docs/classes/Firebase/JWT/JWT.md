@@ -11,8 +11,7 @@ PHP version 5
 
 **See Also:**
 
-* https://github.com/firebase/php-jwt - 
-
+* https://github.com/firebase/php-jwt -
 
 ## Constants
 
@@ -24,21 +23,15 @@ PHP version 5
 
 ## Properties
 
-
 ### leeway
 
-When checking nbf, iat or expiration times,
-we want to provide some extra leeway time to
-account for clock skew.
+When checking nbf, iat or expiration times, we want to provide some extra leeway time to account for clock skew.
 
 ```php
 public static $leeway
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -56,26 +49,19 @@ Will default to PHP time() value if null.
 
 * This property is **static**.
 
-
 ***
 
 ### supported_algs
-
-
 
 ```php
 public static $supported_algs
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### decode
 
@@ -85,21 +71,17 @@ Decodes a JWT string into a PHP object.
 public static decode(string $jwt, string|array|resource $key, array $allowed_algs = array()): object
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$jwt` | **string** | The JWT |
-| `$key` | **string&#124;array&#124;resource** | The key, or map of keys.<br />If the algorithm used is asymmetric, this is the public key |
-| `$allowed_algs` | **array** | List of supported verification algorithms<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
-
+| `$key` | **
+string&#124;array&#124;resource** | The key, or map of keys.<br />If the algorithm used is asymmetric, this is the public key |
+| `$allowed_algs` | **
+array** | List of supported verification algorithms<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
 
 **Return Value:**
 
@@ -117,23 +99,19 @@ Converts and signs a PHP object or array into a JWT string.
 public static encode(object|array $payload, string|resource $key, string $alg = &#039;HS256&#039;, mixed $keyId = null, array $head = null): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$payload` | **object&#124;array** | PHP object or array |
-| `$key` | **string&#124;resource** | The secret key.<br />If the algorithm used is asymmetric, this is the private key |
-| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
+| `$key` | **
+string&#124;resource** | The secret key.<br />If the algorithm used is asymmetric, this is the private key |
+| `$alg` | **
+string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
 | `$keyId` | **mixed** |  |
 | `$head` | **array** | An array with header elements to attach |
-
 
 **Return Value:**
 
@@ -151,12 +129,7 @@ Sign a string with a given key and algorithm.
 public static sign(string $msg, string|resource $key, string $alg = &#039;HS256&#039;): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -164,8 +137,8 @@ public static sign(string $msg, string|resource $key, string $alg = &#039;HS256&
 |-----------|------|-------------|
 | `$msg` | **string** | The message to sign |
 | `$key` | **string&#124;resource** | The secret key |
-| `$alg` | **string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
-
+| `$alg` | **
+string** | The signing algorithm.<br />Supported algorithms are &#039;ES384&#039;,&#039;ES256&#039;, &#039;HS256&#039;, &#039;HS384&#039;,<br />&#039;HS512&#039;, &#039;RS256&#039;, &#039;RS384&#039;, and &#039;RS512&#039; |
 
 **Return Value:**
 
@@ -177,19 +150,14 @@ An encrypted message
 
 ### verify
 
-Verify a signature with the message, key and method. Not all methods
-are symmetric, so we must have a separate verify and sign method.
+Verify a signature with the message, key and method. Not all methods are symmetric, so we must have a separate verify
+and sign method.
 
 ```php
 private static verify(string $msg, string $signature, string|resource $key, string $alg): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -197,11 +165,9 @@ private static verify(string $msg, string $signature, string|resource $key, stri
 |-----------|------|-------------|
 | `$msg` | **string** | The original message (header and body) |
 | `$signature` | **string** | The original signature |
-| `$key` | **string&#124;resource** | For HS*, a string key works. for RS*, must be a resource of an openssl public key |
+| `$key` | **
+string&#124;resource** | For HS*, a string key works. for RS*, must be a resource of an openssl public key |
 | `$alg` | **string** | The algorithm |
-
-
-
 
 ***
 
@@ -213,19 +179,13 @@ Decode a JSON string into a PHP object.
 public static jsonDecode(string $input): object
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | JSON string |
-
 
 **Return Value:**
 
@@ -243,19 +203,13 @@ Encode a PHP object into a JSON string.
 public static jsonEncode(object|array $input): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **object&#124;array** | A PHP object or array |
-
 
 **Return Value:**
 
@@ -273,19 +227,13 @@ Decode a string with URL-safe Base64.
 public static urlsafeB64Decode(string $input): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | A Base64 encoded string |
-
 
 **Return Value:**
 
@@ -303,19 +251,13 @@ Encode a string with URL-safe Base64.
 public static urlsafeB64Encode(string $input): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **string** | The string you want encoded |
-
 
 **Return Value:**
 
@@ -333,21 +275,13 @@ Helper method to create a JSON error.
 private static handleJsonError(int $errno): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$errno` | **int** | An error number from json_last_error() |
-
-
-
 
 ***
 
@@ -359,21 +293,13 @@ Get the number of bytes in cryptographic strings.
 private static safeStrlen(string $str): int
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$str` | **string** |  |
-
-
-
 
 ***
 
@@ -385,19 +311,13 @@ Convert an ECDSA signature to an ASN.1 DER sequence
 private static signatureToDER(string $sig): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sig` | **string** | The ECDSA signature to convert |
-
 
 **Return Value:**
 
@@ -415,12 +335,7 @@ Encodes a value into a DER object.
 private static encodeDER(int $type, string $value): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -428,7 +343,6 @@ private static encodeDER(int $type, string $value): string
 |-----------|------|-------------|
 | `$type` | **int** | DER tag |
 | `$value` | **string** | the value to encode |
-
 
 **Return Value:**
 
@@ -446,12 +360,7 @@ Encodes signature from a DER object.
 private static signatureFromDER(string $der, int $keySize): string
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -459,7 +368,6 @@ private static signatureFromDER(string $der, int $keySize): string
 |-----------|------|-------------|
 | `$der` | **string** | binary signature in DER format |
 | `$keySize` | **int** | the number of bits in the key |
-
 
 **Return Value:**
 
@@ -477,12 +385,7 @@ Reads binary DER-encoded data and decodes into a single object
 private static readDER(string $der, int $offset): array
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -491,15 +394,6 @@ private static readDER(string $der, int $offset): array
 | `$der` | **string** | the binary data in DER format |
 | `$offset` | **int** | the offset of the data stream containing the object<br />to decode |
 
-
 **Return Value:**
 
-[$offset, $data] the new offset and the decoded object
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+[$offset, $data] the new offset and the decoded object yxorP::get('REQUEST')

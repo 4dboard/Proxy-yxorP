@@ -2,16 +2,9 @@
 
 # Factory
 
-
-
-
-
 * Full name: `\Zend\Config\Factory`
 
-
-
 ## Properties
-
 
 ### readers
 
@@ -21,10 +14,7 @@ Plugin manager for loading readers
 public static null|\Zend\Config\ReaderPluginManager $readers
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -36,10 +26,7 @@ Plugin manager for loading writers
 public static null|\Zend\Config\WriterPluginManager $writers
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
@@ -55,27 +42,21 @@ key is extension, value is reader instance or plugin name
 
 * This property is **static**.
 
-
 ***
 
 ### writerExtensions
 
-Register config file extensions for writing
-key is extension, value is writer instance or plugin name
+Register config file extensions for writing key is extension, value is writer instance or plugin name
 
 ```php
 protected static array $writerExtensions
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### fromFile
 
@@ -85,12 +66,7 @@ Read a config from a file.
 public static fromFile(string $filename, bool $returnConfigObject = false, bool $useIncludePath = false): array|\Zend\Config\Config
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -99,9 +75,6 @@ public static fromFile(string $filename, bool $returnConfigObject = false, bool 
 | `$filename` | **string** |  |
 | `$returnConfigObject` | **bool** |  |
 | `$useIncludePath` | **bool** |  |
-
-
-
 
 ***
 
@@ -113,12 +86,7 @@ Read configuration from multiple files and merge them.
 public static fromFiles(array $files, bool $returnConfigObject = false, bool $useIncludePath = false): array|\Zend\Config\Config
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -127,9 +95,6 @@ public static fromFiles(array $files, bool $returnConfigObject = false, bool $us
 | `$files` | **array** |  |
 | `$returnConfigObject` | **bool** |  |
 | `$useIncludePath` | **bool** |  |
-
-
-
 
 ***
 
@@ -141,12 +106,7 @@ Writes a config to a file
 public static toFile(string $filename, array|\Zend\Config\Config $config): bool
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -154,7 +114,6 @@ public static toFile(string $filename, array|\Zend\Config\Config $config): bool
 |-----------|------|-------------|
 | `$filename` | **string** |  |
 | `$config` | **array&#124;\Zend\Config\Config** |  |
-
 
 **Return Value:**
 
@@ -172,21 +131,13 @@ Set reader plugin manager
 public static setReaderPluginManager(\Zend\Config\ReaderPluginManager $readers): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readers` | **\Zend\Config\ReaderPluginManager** |  |
-
-
-
 
 ***
 
@@ -198,15 +149,7 @@ Get the reader plugin manager
 public static getReaderPluginManager(): \Zend\Config\ReaderPluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -218,21 +161,13 @@ Set writer plugin manager
 public static setWriterPluginManager(\Zend\Config\WriterPluginManager $writers): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writers` | **\Zend\Config\WriterPluginManager** |  |
-
-
-
 
 ***
 
@@ -244,15 +179,7 @@ Get the writer plugin manager
 public static getWriterPluginManager(): \Zend\Config\WriterPluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -264,12 +191,7 @@ Set config reader for file extension
 public static registerReader(string $extension, string|\Zend\Config\Reader\ReaderInterface $reader): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -277,9 +199,6 @@ public static registerReader(string $extension, string|\Zend\Config\Reader\Reade
 |-----------|------|-------------|
 | `$extension` | **string** |  |
 | `$reader` | **string&#124;\Zend\Config\Reader\ReaderInterface** |  |
-
-
-
 
 ***
 
@@ -291,12 +210,7 @@ Set config writer for file extension
 public static registerWriter(string $extension, string|\Zend\Config\Writer\AbstractWriter $writer): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -305,11 +219,4 @@ public static registerWriter(string $extension, string|\Zend\Config\Writer\Abstr
 | `$extension` | **string** |  |
 | `$writer` | **string&#124;\Zend\Config\Writer\AbstractWriter** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

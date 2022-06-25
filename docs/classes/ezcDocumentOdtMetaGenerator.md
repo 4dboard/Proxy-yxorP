@@ -4,10 +4,7 @@
 
 Generates basic meta data for ODT files.
 
-
-
 * Full name: `\ezcDocumentOdtMetaGenerator`
-
 
 ## Constants
 
@@ -17,9 +14,7 @@ Generates basic meta data for ODT files.
 |`DEV_VERSION`|public| |&#039;dev&#039;|
 |`GENERATOR`|public| |&#039;eZComponents/Document-%s&#039;|
 
-
 ## Methods
-
 
 ### generateMetaData
 
@@ -29,21 +24,11 @@ Generates basic meta data in $odtDocument.
 public generateMetaData(\DOMElement $odtMetaSection): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$odtMetaSection` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -55,21 +40,11 @@ Inserts the <meta:generator/> tag.
 protected insertGenerator(\DOMElement $metaSection): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$metaSection` | **\DOMElement** |  |
-
-
-
 
 ***
 
@@ -81,14 +56,8 @@ Inserts <meta:creation-date /> and <dc:date/> tags.
 protected insertDate(\DOMElement $metaSection): mixed
 ```
 
-Note that OpenOffice.org 3.1.1 is not capable of parsing W3C compliant
-dates with TZ offset correctly {@see}. We do not work
-around this issue, since it's too minor.
-
-
-
-
-
+Note that OpenOffice.org 3.1.1 is not capable of parsing W3C compliant dates with TZ offset correctly {@see}. We do not
+work around this issue, since it's too minor.
 
 **Parameters:**
 
@@ -96,11 +65,4 @@ around this issue, since it's too minor.
 |-----------|------|-------------|
 | `$metaSection` | **\DOMElement** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

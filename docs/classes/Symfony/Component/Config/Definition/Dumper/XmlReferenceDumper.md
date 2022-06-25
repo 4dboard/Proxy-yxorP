@@ -4,47 +4,25 @@
 
 Dumps a XML reference configuration for the given configuration/node instance.
 
-
-
 * Full name: `\Symfony\Component\Config\Definition\Dumper\XmlReferenceDumper`
-
-
 
 ## Properties
 
-
 ### reference
-
-
 
 ```php
 private $reference
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### dump
-
-
 
 ```php
 public dump(\Symfony\Component\Config\Definition\ConfigurationInterface $configuration, mixed $namespace = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,25 +31,13 @@ public dump(\Symfony\Component\Config\Definition\ConfigurationInterface $configu
 | `$configuration` | **\Symfony\Component\Config\Definition\ConfigurationInterface** |  |
 | `$namespace` | **mixed** |  |
 
-
-
-
 ***
 
 ### dumpNode
 
-
-
 ```php
 public dumpNode(\Symfony\Component\Config\Definition\NodeInterface $node, mixed $namespace = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -80,25 +46,13 @@ public dumpNode(\Symfony\Component\Config\Definition\NodeInterface $node, mixed 
 | `$node` | **\Symfony\Component\Config\Definition\NodeInterface** |  |
 | `$namespace` | **mixed** |  |
 
-
-
-
 ***
 
 ### writeNode
 
-
-
 ```php
 private writeNode(\Symfony\Component\Config\Definition\NodeInterface $node, int $depth, bool $root = false, string $namespace = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -108,9 +62,6 @@ private writeNode(\Symfony\Component\Config\Definition\NodeInterface $node, int 
 | `$depth` | **int** |  |
 | `$root` | **bool** | If the node is the root node |
 | `$namespace` | **string** | The namespace of the node |
-
-
-
 
 ***
 
@@ -122,22 +73,12 @@ Outputs a single config reference line.
 private writeLine(string $text, int $indent): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **string** |  |
 | `$indent` | **int** |  |
-
-
-
 
 ***
 
@@ -149,24 +90,10 @@ Renders the string conversion of the value.
 private writeValue(mixed $value): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

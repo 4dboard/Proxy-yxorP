@@ -9,7 +9,6 @@ This is especially useful for logging to files
 * Full name: `\Monolog\Formatter\LineFormatter`
 * Parent class: [`\Monolog\Formatter\NormalizerFormatter`](./NormalizerFormatter.md)
 
-
 ## Constants
 
 | Constant | Visibility | Type | Value |
@@ -18,84 +17,45 @@ This is especially useful for logging to files
 
 ## Properties
 
-
 ### format
-
-
 
 ```php
 protected $format
 ```
 
-
-
-
-
-
 ***
 
 ### allowInlineLineBreaks
-
-
 
 ```php
 protected $allowInlineLineBreaks
 ```
 
-
-
-
-
-
 ***
 
 ### ignoreEmptyContextAndExtra
-
-
 
 ```php
 protected $ignoreEmptyContextAndExtra
 ```
 
-
-
-
-
-
 ***
 
 ### includeStacktraces
-
-
 
 ```php
 protected $includeStacktraces
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $format = null, string $dateFormat = null, bool $allowInlineLineBreaks = false, bool $ignoreEmptyContextAndExtra = false): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -106,25 +66,13 @@ public __construct(string $format = null, string $dateFormat = null, bool $allow
 | `$allowInlineLineBreaks` | **bool** | Whether to allow inline line breaks in log entries |
 | `$ignoreEmptyContextAndExtra` | **bool** |  |
 
-
-
-
 ***
 
 ### includeStacktraces
 
-
-
 ```php
 public includeStacktraces(mixed $include = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -132,25 +80,13 @@ public includeStacktraces(mixed $include = true): mixed
 |-----------|------|-------------|
 | `$include` | **mixed** |  |
 
-
-
-
 ***
 
 ### allowInlineLineBreaks
 
-
-
 ```php
 public allowInlineLineBreaks(mixed $allow = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -158,34 +94,19 @@ public allowInlineLineBreaks(mixed $allow = true): mixed
 |-----------|------|-------------|
 | `$allow` | **mixed** |  |
 
-
-
-
 ***
 
 ### ignoreEmptyContextAndExtra
 
-
-
 ```php
 public ignoreEmptyContextAndExtra(mixed $ignore = true): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignore` | **mixed** |  |
-
-
-
 
 ***
 
@@ -197,19 +118,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -227,19 +140,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -251,18 +156,9 @@ The formatted set of records
 
 ### stringify
 
-
-
 ```php
 public stringify(mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -270,25 +166,13 @@ public stringify(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeException
 
-
-
 ```php
 protected normalizeException(mixed $e): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -296,25 +180,13 @@ protected normalizeException(mixed $e): mixed
 |-----------|------|-------------|
 | `$e` | **mixed** |  |
 
-
-
-
 ***
 
 ### convertToString
 
-
-
 ```php
 protected convertToString(mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -322,25 +194,13 @@ protected convertToString(mixed $data): mixed
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### replaceNewlines
 
-
-
 ```php
 protected replaceNewlines(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -348,29 +208,15 @@ protected replaceNewlines(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -378,9 +224,6 @@ public __construct(string $dateFormat = null, int $maxDepth = 9): mixed
 |-----------|------|-------------|
 | `$dateFormat` | **string** | The format of the timestamp: one supported by DateTime::format |
 | `$maxDepth` | **int** |  |
-
-
-
 
 ***
 
@@ -392,19 +235,11 @@ Formats a log record.
 public format(array $record): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$record` | **array** | A record to format |
-
 
 **Return Value:**
 
@@ -422,19 +257,11 @@ Formats a set of log records.
 public formatBatch(array $records): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$records` | **array** | A set of records to format |
-
 
 **Return Value:**
 
@@ -446,38 +273,17 @@ The formatted set of records
 
 ### getMaxDepth
 
-
-
 ```php
 public getMaxDepth(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
 ### setMaxDepth
 
-
-
 ```php
 public setMaxDepth(int $maxDepth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -485,25 +291,13 @@ public setMaxDepth(int $maxDepth): mixed
 |-----------|------|-------------|
 | `$maxDepth` | **int** |  |
 
-
-
-
 ***
 
 ### normalize
 
-
-
 ```php
 protected normalize(mixed $data, mixed $depth): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -512,34 +306,19 @@ protected normalize(mixed $data, mixed $depth): mixed
 | `$data` | **mixed** |  |
 | `$depth` | **mixed** |  |
 
-
-
-
 ***
 
 ### normalizeException
 
-
-
 ```php
 protected normalizeException(mixed $e): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$e` | **mixed** |  |
-
-
-
 
 ***
 
@@ -551,13 +330,6 @@ Return the JSON representation of a value
 protected toJson(mixed $data, bool $ignoreErrors = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -565,11 +337,4 @@ protected toJson(mixed $data, bool $ignoreErrors = false): string
 | `$data` | **mixed** |  |
 | `$ignoreErrors` | **bool** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

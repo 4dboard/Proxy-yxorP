@@ -4,33 +4,18 @@
 
 A simple map implementation which basically wraps an array with an object oriented interface.
 
-
-
 * Full name: `\PhpCollection\Map`
 * Parent class: [`\PhpCollection\AbstractMap`](./AbstractMap.md)
 * This class implements:
-[`\PhpCollection\SortableInterface`](./SortableInterface.md)
-
-
-
+  [`\PhpCollection\SortableInterface`](./SortableInterface.md)
 
 ## Methods
 
-
 ### sortWith
-
-
 
 ```php
 public sortWith(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,38 +23,21 @@ public sortWith(mixed $callable): mixed
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
 
-
-
-
 ***
-
 
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $elements = array()): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$elements` | **array** |  |
-
-
-
 
 ***
 
@@ -81,13 +49,6 @@ Puts a new element in the map.
 public set(mixed $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -95,34 +56,19 @@ public set(mixed $key, mixed $value): void
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### exists
 
-
-
 ```php
 public exists(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -134,21 +80,11 @@ Sets all key/value pairs in the map.
 public setAll(array $kvMap): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$kvMap` | **array** |  |
-
-
-
 
 ***
 
@@ -160,21 +96,11 @@ Adds all another map to this map, and returns itself.
 public addMap(\PhpCollection\MapInterface $map): \PhpCollection\MapInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$map` | **\PhpCollection\MapInterface** |  |
-
-
-
 
 ***
 
@@ -186,19 +112,11 @@ Returns the value associated with the given key.
 public get(mixed $key): \PhpOption\Option
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -216,16 +134,6 @@ Returns all elements in this collection.
 public all(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### remove
@@ -236,41 +144,19 @@ Removes an element from the map.
 public remove(mixed $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
-
 ***
 
 ### clear
 
-
-
 ```php
 public clear(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -281,14 +167,6 @@ Returns the first element in the collection if available.
 ```php
 public first(): \PhpOption\Option
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -306,14 +184,6 @@ Returns the last element in the collection if available.
 public last(): \PhpOption\Option
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 on array<K,V>
@@ -324,27 +194,15 @@ on array<K,V>
 
 ### contains
 
-
-
 ```php
 public contains(mixed $searchedElem): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$searchedElem` | **mixed** |  |
-
-
-
 
 ***
 
@@ -356,41 +214,19 @@ Returns whether this map contains a given key.
 public containsKey(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
-
 ***
 
 ### isEmpty
 
-
-
 ```php
 public isEmpty(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -402,21 +238,11 @@ Returns a new filtered map.
 public filter(callable $callable): \PhpCollection\AbstractMap
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** | receives the element and must return true (= keep), or false (= remove). |
-
-
-
 
 ***
 
@@ -428,38 +254,19 @@ Returns a new filtered map.
 public filterNot(callable $callable): \PhpCollection\AbstractMap
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **callable** | receives the element and must return true (= remove), or false (= keep). |
 
-
-
-
 ***
 
 ### filterInternal
 
-
-
 ```php
 private filterInternal(callable $callable, bool $booleanKeep): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -468,52 +275,28 @@ private filterInternal(callable $callable, bool $booleanKeep): mixed
 | `$callable` | **callable** |  |
 | `$booleanKeep` | **bool** |  |
 
-
-
-
 ***
 
 ### foldLeft
-
-
 
 ```php
 public foldLeft(mixed $initialValue, mixed $callable): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$initialValue` | **mixed** |  |
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
 ### foldRight
 
-
-
 ```php
 public foldRight(mixed $initialValue, mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -521,9 +304,6 @@ public foldRight(mixed $initialValue, mixed $callable): mixed
 |-----------|------|-------------|
 | `$initialValue` | **mixed** |  |
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -535,21 +315,11 @@ Returns a new sequence by omitting elements from the beginning for as long as th
 public dropWhile(mixed $callable): \PhpCollection\MapInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** | Receives the element to drop as first argument, and returns true (drop), or false (stop). |
-
-
-
 
 ***
 
@@ -563,19 +333,11 @@ public drop(mixed $number): \PhpCollection\MapInterface
 
 If the passed number is greater than the available number of elements, all will be removed.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
-
-
-
 
 ***
 
@@ -589,38 +351,24 @@ public dropRight(mixed $number): \PhpCollection\MapInterface
 
 If the passed number is greater than the available number of elements, all will be removed.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
-
-
-
 
 ***
 
 ### take
 
-Creates a new collection by taking the given number of elements from the beginning
-of the current collection.
+Creates a new collection by taking the given number of elements from the beginning of the current collection.
 
 ```php
 public take(mixed $number): \PhpCollection\MapInterface
 ```
 
-If the passed number is greater than the available number of elements, then all elements
-will be returned as a new collection.
-
-
-
-
-
+If the passed number is greater than the available number of elements, then all elements will be returned as a new
+collection.
 
 **Parameters:**
 
@@ -628,61 +376,35 @@ will be returned as a new collection.
 |-----------|------|-------------|
 | `$number` | **mixed** |  |
 
-
-
-
 ***
 
 ### takeWhile
 
-Creates a new collection by taking elements from the current collection
-for as long as the callable returns true.
+Creates a new collection by taking elements from the current collection for as long as the callable returns true.
 
 ```php
 public takeWhile(mixed $callable): \PhpCollection\MapInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
 ### find
 
-
-
 ```php
 public find(mixed $callable): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callable` | **mixed** |  |
-
-
-
 
 ***
 
@@ -694,16 +416,6 @@ Returns an array with the keys.
 public keys(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### values
@@ -714,72 +426,29 @@ Returns an array with the values.
 public values(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### count
-
-
 
 ```php
 public count(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### createNew
 
-
-
 ```php
 protected createNew(array $elements): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -787,11 +456,4 @@ protected createNew(array $elements): mixed
 |-----------|------|-------------|
 | `$elements` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

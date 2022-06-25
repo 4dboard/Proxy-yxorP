@@ -4,169 +4,94 @@
 
 Serializer Implementation.
 
-
-
 * Full name: `\JMS\Serializer\Serializer`
 * This class implements:
-[`\JMS\Serializer\SerializerInterface`](./SerializerInterface.md), [`\JMS\Serializer\ArrayTransformerInterface`](./ArrayTransformerInterface.md)
-
-
+  [`\JMS\Serializer\SerializerInterface`](./SerializerInterface.md)
+  , [`\JMS\Serializer\ArrayTransformerInterface`](./ArrayTransformerInterface.md)
 
 ## Properties
 
-
 ### factory
-
-
 
 ```php
 private $factory
 ```
 
-
-
-
-
-
 ***
 
 ### handlerRegistry
-
-
 
 ```php
 private $handlerRegistry
 ```
 
-
-
-
-
-
 ***
 
 ### objectConstructor
-
-
 
 ```php
 private $objectConstructor
 ```
 
-
-
-
-
-
 ***
 
 ### dispatcher
-
-
 
 ```php
 private $dispatcher
 ```
 
-
-
-
-
-
 ***
 
 ### typeParser
-
-
 
 ```php
 private $typeParser
 ```
 
-
-
-
-
-
 ***
 
 ### serializationVisitors
-
-
 
 ```php
 private \PhpCollection\MapInterface $serializationVisitors
 ```
 
-
-
-
-
-
 ***
 
 ### deserializationVisitors
-
-
 
 ```php
 private \PhpCollection\MapInterface $deserializationVisitors
 ```
 
-
-
-
-
-
 ***
 
 ### navigator
-
-
 
 ```php
 private $navigator
 ```
 
-
-
-
-
-
 ***
 
 ### serializationContextFactory
-
-
 
 ```php
 private \JMS\Serializer\ContextFactory\SerializationContextFactoryInterface $serializationContextFactory
 ```
 
-
-
-
-
-
 ***
 
 ### deserializationContextFactory
-
-
 
 ```php
 private \JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface $deserializationContextFactory
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -175,13 +100,6 @@ Constructor.
 ```php
 public __construct(\Metadata\MetadataFactoryInterface $factory, \JMS\Serializer\Handler\HandlerRegistryInterface $handlerRegistry, \JMS\Serializer\Construction\ObjectConstructorInterface $objectConstructor, \PhpCollection\MapInterface $serializationVisitors, \PhpCollection\MapInterface $deserializationVisitors, \JMS\Serializer\EventDispatcher\EventDispatcherInterface $dispatcher = null, \JMS\Serializer\TypeParser $typeParser = null, \JMS\Serializer\Expression\ExpressionEvaluatorInterface|null $expressionEvaluator = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -196,9 +114,6 @@ public __construct(\Metadata\MetadataFactoryInterface $factory, \JMS\Serializer\
 | `$typeParser` | **\JMS\Serializer\TypeParser** |  |
 | `$expressionEvaluator` | **\JMS\Serializer\Expression\ExpressionEvaluatorInterface&#124;null** |  |
 
-
-
-
 ***
 
 ### serialize
@@ -209,13 +124,6 @@ Serializes the given data to the specified output format.
 public serialize(mixed $data, mixed $format, \JMS\Serializer\SerializationContext $context = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -223,9 +131,6 @@ public serialize(mixed $data, mixed $format, \JMS\Serializer\SerializationContex
 | `$data` | **mixed** |  |
 | `$format` | **mixed** |  |
 | `$context` | **\JMS\Serializer\SerializationContext** |  |
-
-
-
 
 ***
 
@@ -237,13 +142,6 @@ Deserializes the given data to the specified type.
 public deserialize(mixed $data, mixed $type, mixed $format, \JMS\Serializer\DeserializationContext $context = null): object|array|scalar
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -252,9 +150,6 @@ public deserialize(mixed $data, mixed $type, mixed $format, \JMS\Serializer\Dese
 | `$type` | **mixed** |  |
 | `$format` | **mixed** |  |
 | `$context` | **\JMS\Serializer\DeserializationContext** |  |
-
-
-
 
 ***
 
@@ -266,22 +161,12 @@ Converts objects to an array structure.
 public toArray(mixed $data, \JMS\Serializer\SerializationContext $context = null): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** | anything that converts to an array, typically an object or an array of objects |
 | `$context` | **\JMS\Serializer\SerializationContext** |  |
-
-
-
 
 ***
 
@@ -293,13 +178,6 @@ Restores objects from an array structure.
 public fromArray(array $data, mixed $type, \JMS\Serializer\DeserializationContext $context = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -307,7 +185,6 @@ public fromArray(array $data, mixed $type, \JMS\Serializer\DeserializationContex
 | `$data` | **array** |  |
 | `$type` | **mixed** |  |
 | `$context` | **\JMS\Serializer\DeserializationContext** |  |
-
 
 **Return Value:**
 
@@ -319,18 +196,9 @@ this returns whatever the passed type is, typically an object or an array of obj
 
 ### visit
 
-
-
 ```php
 private visit(\JMS\Serializer\VisitorInterface $visitor, \JMS\Serializer\Context $context, mixed $data, mixed $format, array $type = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -342,25 +210,13 @@ private visit(\JMS\Serializer\VisitorInterface $visitor, \JMS\Serializer\Context
 | `$format` | **mixed** |  |
 | `$type` | **array** |  |
 
-
-
-
 ***
 
 ### handleDeserializeResult
 
-
-
 ```php
 private handleDeserializeResult(mixed $visitorResult, mixed $navigatorResult): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -369,25 +225,13 @@ private handleDeserializeResult(mixed $visitorResult, mixed $navigatorResult): m
 | `$visitorResult` | **mixed** |  |
 | `$navigatorResult` | **mixed** |  |
 
-
-
-
 ***
 
 ### convertArrayObjects
 
-
-
 ```php
 private convertArrayObjects(mixed $data): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -395,45 +239,21 @@ private convertArrayObjects(mixed $data): mixed
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
 
-
-
-
 ***
 
 ### getMetadataFactory
-
-
 
 ```php
 public getMetadataFactory(): \Metadata\MetadataFactoryInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSerializationContextFactory
 
-
-
 ```php
 public setSerializationContextFactory(\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface $serializationContextFactory): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -441,25 +261,13 @@ public setSerializationContextFactory(\JMS\Serializer\ContextFactory\Serializati
 |-----------|------|-------------|
 | `$serializationContextFactory` | **\JMS\Serializer\ContextFactory\SerializationContextFactoryInterface** |  |
 
-
-
-
 ***
 
 ### setDeserializationContextFactory
 
-
-
 ```php
 public setDeserializationContextFactory(\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface $deserializationContextFactory): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -467,11 +275,4 @@ public setDeserializationContextFactory(\JMS\Serializer\ContextFactory\Deseriali
 |-----------|------|-------------|
 | `$deserializationContextFactory` | **\JMS\Serializer\ContextFactory\DeserializationContextFactoryInterface** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

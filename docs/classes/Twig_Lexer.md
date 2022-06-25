@@ -4,33 +4,16 @@
 
 Lexes a template string.
 
-
-
 * Full name: `\Twig_Lexer`
 * Parent class: [`\Twig\Lexer`](./Twig/Lexer.md)
 
-
-
-
-
-
 ## Inherited methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Twig\Environment $env, array $options = []): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -38,9 +21,6 @@ public __construct(\Twig\Environment $env, array $options = []): mixed
 |-----------|------|-------------|
 | `$env` | **\Twig\Environment** |  |
 | `$options` | **array** |  |
-
-
-
 
 ***
 
@@ -52,13 +32,6 @@ Tokenizes a source code.
 public tokenize(mixed $code, mixed $name = null): \TokenStream
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -66,105 +39,45 @@ public tokenize(mixed $code, mixed $name = null): \TokenStream
 | `$code` | **mixed** | The source code |
 | `$name` | **mixed** | A unique identifier for the source code |
 
-
-
-
 ***
 
 ### lexData
-
-
 
 ```php
 protected lexData(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lexBlock
-
-
 
 ```php
 protected lexBlock(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lexVar
-
-
 
 ```php
 protected lexVar(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lexExpression
-
-
 
 ```php
 protected lexExpression(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lexRawData
 
-
-
 ```php
 protected lexRawData(mixed $tag): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -172,85 +85,37 @@ protected lexRawData(mixed $tag): mixed
 |-----------|------|-------------|
 | `$tag` | **mixed** |  |
 
-
-
-
 ***
 
 ### lexComment
-
-
 
 ```php
 protected lexComment(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lexString
-
-
 
 ```php
 protected lexString(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### lexInterpolation
-
-
 
 ```php
 protected lexInterpolation(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### pushToken
 
-
-
 ```php
 protected pushToken(mixed $type, mixed $value = &#039;&#039;): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -259,25 +124,13 @@ protected pushToken(mixed $type, mixed $value = &#039;&#039;): mixed
 | `$type` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
-
 ***
 
 ### moveCursor
 
-
-
 ```php
 protected moveCursor(mixed $text): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -285,45 +138,21 @@ protected moveCursor(mixed $text): mixed
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
 
-
-
-
 ***
 
 ### getOperatorRegex
-
-
 
 ```php
 protected getOperatorRegex(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### pushState
 
-
-
 ```php
 protected pushState(mixed $state): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -331,31 +160,12 @@ protected pushState(mixed $state): mixed
 |-----------|------|-------------|
 | `$state` | **mixed** |  |
 
-
-
-
 ***
 
 ### popState
-
-
 
 ```php
 protected popState(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

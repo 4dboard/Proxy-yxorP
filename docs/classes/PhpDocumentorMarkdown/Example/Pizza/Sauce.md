@@ -4,14 +4,9 @@
 
 Pizza sauce class.
 
-
-
 * Full name: `\PhpDocumentorMarkdown\Example\Pizza\Sauce`
 
-
-
 ## Properties
-
 
 ### name
 
@@ -20,11 +15,6 @@ Sauce name.
 ```php
 protected string $name
 ```
-
-
-
-
-
 
 ***
 
@@ -36,30 +26,17 @@ Tomato supplier.
 public static string $tomatoSupplier
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -67,11 +44,4 @@ public __construct(string $name): mixed
 |-----------|------|-------------|
 | `$name` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -2,14 +2,10 @@
 
 # ServiceManager
 
-
-
-
-
 * Full name: `\Zend\ServiceManager\ServiceManager`
 * This class implements:
-[`\Zend\ServiceManager\ServiceLocatorInterface`](./ServiceLocatorInterface.md), [`\Interop\Container\ContainerInterface`](../../Interop/Container/ContainerInterface.md)
-
+  [`\Zend\ServiceManager\ServiceLocatorInterface`](./ServiceLocatorInterface.md)
+  , [`\Interop\Container\ContainerInterface`](../../Interop/Container/ContainerInterface.md)
 
 ## Constants
 
@@ -20,7 +16,6 @@
 
 ## Properties
 
-
 ### canonicalNames
 
 Lookup for canonicalized names.
@@ -29,145 +24,77 @@ Lookup for canonicalized names.
 protected array $canonicalNames
 ```
 
-
-
-
-
-
 ***
 
 ### allowOverride
-
-
 
 ```php
 protected bool $allowOverride
 ```
 
-
-
-
-
-
 ***
 
 ### invokableClasses
-
-
 
 ```php
 protected array $invokableClasses
 ```
 
-
-
-
-
-
 ***
 
 ### factories
-
-
 
 ```php
 protected string|callable|\Closure|\Zend\ServiceManager\FactoryInterface[] $factories
 ```
 
-
-
-
-
-
 ***
 
 ### abstractFactories
-
-
 
 ```php
 protected \Zend\ServiceManager\AbstractFactoryInterface[] $abstractFactories
 ```
 
-
-
-
-
-
 ***
 
 ### delegators
-
-
 
 ```php
 protected array[] $delegators
 ```
 
-
-
-
-
-
 ***
 
 ### pendingAbstractFactoryRequests
-
-
 
 ```php
 protected array $pendingAbstractFactoryRequests
 ```
 
-
-
-
-
-
 ***
 
 ### nestedContextCounter
-
-
 
 ```php
 protected int $nestedContextCounter
 ```
 
-
-
-
-
-
 ***
 
 ### nestedContext
-
-
 
 ```php
 protected array $nestedContext
 ```
 
-
-
-
-
-
 ***
 
 ### shared
 
-
-
 ```php
 protected array $shared
 ```
-
-
-
-
-
 
 ***
 
@@ -179,55 +106,29 @@ Registered services and cached values
 protected array $instances
 ```
 
-
-
-
-
-
 ***
 
 ### aliases
-
-
 
 ```php
 protected array $aliases
 ```
 
-
-
-
-
-
 ***
 
 ### initializers
-
-
 
 ```php
 protected array $initializers
 ```
 
-
-
-
-
-
 ***
 
 ### peeringServiceManagers
 
-
-
 ```php
 protected \Zend\ServiceManager\ServiceManager[] $peeringServiceManagers
 ```
-
-
-
-
-
 
 ***
 
@@ -239,75 +140,41 @@ Whether or not to share by default
 protected bool $shareByDefault
 ```
 
-
-
-
-
-
 ***
 
 ### retrieveFromPeeringManagerFirst
-
-
 
 ```php
 protected bool $retrieveFromPeeringManagerFirst
 ```
 
-
-
-
-
-
 ***
 
 ### throwExceptionInCreate
-
-
 
 ```php
 protected bool $throwExceptionInCreate
 ```
 
-
-
-
-
-
 ***
 
 ### canonicalNamesReplacements
-
-
 
 ```php
 protected array $canonicalNamesReplacements
 ```
 
-
-
-
-
-
 ***
 
 ### serviceManagerCaller
-
-
 
 ```php
 protected \Zend\ServiceManager\ServiceLocatorInterface $serviceManagerCaller
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -317,21 +184,11 @@ Constructor
 public __construct(\Zend\ServiceManager\ConfigInterface $config = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **\Zend\ServiceManager\ConfigInterface** |  |
-
-
-
 
 ***
 
@@ -343,21 +200,11 @@ Set allow override
 public setAllowOverride( $allowOverride): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$allowOverride` | **** |  |
-
-
-
 
 ***
 
@@ -369,16 +216,6 @@ Get allow override
 public getAllowOverride(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setShareByDefault
@@ -389,21 +226,11 @@ Set flag indicating whether services are shared by default
 public setShareByDefault(bool $shareByDefault): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$shareByDefault` | **bool** |  |
-
-
-
 
 ***
 
@@ -415,16 +242,6 @@ Are services shared by default?
 public shareByDefault(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setThrowExceptionInCreate
@@ -435,21 +252,11 @@ Set throw exceptions in create
 public setThrowExceptionInCreate(bool $throwExceptionInCreate): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$throwExceptionInCreate` | **bool** |  |
-
-
-
 
 ***
 
@@ -461,16 +268,6 @@ Get throw exceptions in create
 public getThrowExceptionInCreate(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setRetrieveFromPeeringManagerFirst
@@ -481,21 +278,11 @@ Set flag indicating whether to pull from peering manager before attempting creat
 public setRetrieveFromPeeringManagerFirst(bool $retrieveFromPeeringManagerFirst = true): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$retrieveFromPeeringManagerFirst` | **bool** |  |
-
-
-
 
 ***
 
@@ -507,16 +294,6 @@ Should we retrieve from the peering manager prior to attempting to create a serv
 public retrieveFromPeeringManagerFirst(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setInvokableClass
@@ -527,13 +304,6 @@ Set invokable class
 public setInvokableClass(string $name, string $invokableClass, bool $shared = null): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -541,9 +311,6 @@ public setInvokableClass(string $name, string $invokableClass, bool $shared = nu
 | `$name` | **string** |  |
 | `$invokableClass` | **string** |  |
 | `$shared` | **bool** |  |
-
-
-
 
 ***
 
@@ -555,13 +322,6 @@ Set factory
 public setFactory(string $name, string|\Zend\ServiceManager\FactoryInterface|callable $factory, bool $shared = null): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -569,9 +329,6 @@ public setFactory(string $name, string|\Zend\ServiceManager\FactoryInterface|cal
 | `$name` | **string** |  |
 | `$factory` | **string&#124;\Zend\ServiceManager\FactoryInterface&#124;callable** |  |
 | `$shared` | **bool** |  |
-
-
-
 
 ***
 
@@ -583,22 +340,12 @@ Add abstract factory
 public addAbstractFactory(\Zend\ServiceManager\AbstractFactoryInterface|string $factory, bool $topOfStack = true): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$factory` | **\Zend\ServiceManager\AbstractFactoryInterface&#124;string** |  |
 | `$topOfStack` | **bool** |  |
-
-
-
 
 ***
 
@@ -610,22 +357,12 @@ Sets the given service name as to be handled by a delegator factory
 public addDelegator(string $serviceName, string $delegatorFactoryName): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serviceName` | **string** | name of the service being the delegate |
 | `$delegatorFactoryName` | **string** | name of the service being the delegator factory |
-
-
-
 
 ***
 
@@ -637,22 +374,12 @@ Add initializer
 public addInitializer(callable|\Zend\ServiceManager\InitializerInterface $initializer, bool $topOfStack = true): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$initializer` | **callable&#124;\Zend\ServiceManager\InitializerInterface** |  |
 | `$topOfStack` | **bool** |  |
-
-
-
 
 ***
 
@@ -664,13 +391,6 @@ Register a service with the locator
 public setService(string $name, mixed $service): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -678,25 +398,13 @@ public setService(string $name, mixed $service): \Zend\ServiceManager\ServiceMan
 | `$name` | **string** |  |
 | `$service` | **mixed** |  |
 
-
-
-
 ***
 
 ### setShared
 
-
-
 ```php
 public setShared(string $name, bool $isShared): \Zend\ServiceManager\ServiceManager
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -705,34 +413,19 @@ public setShared(string $name, bool $isShared): \Zend\ServiceManager\ServiceMana
 | `$name` | **string** |  |
 | `$isShared` | **bool** |  |
 
-
-
-
 ***
 
 ### isShared
 
-
-
 ```php
 public isShared(string $name): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -744,19 +437,11 @@ Resolve the alias for the given canonical name
 protected resolveAlias(string $cName): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cName` | **string** | The canonical name to resolve |
-
 
 **Return Value:**
 
@@ -774,22 +459,12 @@ Retrieve a registered instance
 public get(string $name, bool $usePeeringServiceManagers = true): object|array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
 | `$usePeeringServiceManagers` | **bool** |  |
-
-
-
 
 ***
 
@@ -801,21 +476,11 @@ Create an instance of the requested service
 public create(string|array $name): bool|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string&#124;array** |  |
-
-
-
 
 ***
 
@@ -827,13 +492,6 @@ Creates a callback that uses a delegator to create a service
 private createDelegatorCallback(\Zend\ServiceManager\DelegatorFactoryInterface|callable $delegatorFactory, string $rName, string $cName, callable $creationCallback): callable
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -842,9 +500,6 @@ private createDelegatorCallback(\Zend\ServiceManager\DelegatorFactoryInterface|c
 | `$rName` | **string** | requested service name |
 | `$cName` | **string** | canonical service name |
 | `$creationCallback` | **callable** | callback for instantiating the real service |
-
-
-
 
 ***
 
@@ -856,22 +511,12 @@ Actually creates the service
 protected doCreate(string $rName, string $cName): bool|mixed|null|object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$rName` | **string** | real service name |
 | `$cName` | **string** | canonicalized service name |
-
-
-
 
 ***
 
@@ -885,12 +530,7 @@ public canCreate(string|array $name, bool $checkAbstractFactories = true): bool
 
 Proxies to has()
 
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -898,9 +538,6 @@ Proxies to has()
 |-----------|------|-------------|
 | `$name` | **string&#124;array** |  |
 | `$checkAbstractFactories` | **bool** |  |
-
-
-
 
 ***
 
@@ -912,23 +549,14 @@ Determine if an instance exists.
 public has(string|array $name, bool $checkAbstractFactories = true, bool $usePeeringServiceManagers = true): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string&#124;array** | An array argument accepts exactly two values.<br />Example: array(&#039;canonicalName&#039;, &#039;requestName&#039;) |
+| `$name` | **
+string&#124;array** | An array argument accepts exactly two values.<br />Example: array(&#039;canonicalName&#039;, &#039;requestName&#039;) |
 | `$checkAbstractFactories` | **bool** |  |
 | `$usePeeringServiceManagers` | **bool** |  |
-
-
-
 
 ***
 
@@ -940,22 +568,12 @@ Determine if we can create an instance from an abstract factory.
 public canCreateFromAbstractFactory(string $cName, string $rName): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cName` | **string** |  |
 | `$rName` | **string** |  |
-
-
-
 
 ***
 
@@ -967,39 +585,20 @@ Ensure the alias definition will not result in a circular reference
 protected checkForCircularAliasReference(string $alias, string $nameOrAlias): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$alias` | **string** |  |
 | `$nameOrAlias` | **string** |  |
-
-
-
 
 ***
 
 ### setAlias
 
-
-
 ```php
 public setAlias(string $alias, string $nameOrAlias): \Zend\ServiceManager\ServiceManager
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1007,9 +606,6 @@ public setAlias(string $alias, string $nameOrAlias): \Zend\ServiceManager\Servic
 |-----------|------|-------------|
 | `$alias` | **string** |  |
 | `$nameOrAlias` | **string** |  |
-
-
-
 
 ***
 
@@ -1021,21 +617,11 @@ Determine if we have an alias
 public hasAlias(string $alias): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$alias` | **string** |  |
-
-
-
 
 ***
 
@@ -1047,21 +633,11 @@ Create scoped service manager
 public createScopedServiceManager(string $peering = self::SCOPE_PARENT): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$peering` | **string** |  |
-
-
-
 
 ***
 
@@ -1073,22 +649,12 @@ Add a peering relationship
 public addPeeringServiceManager(\Zend\ServiceManager\ServiceManager $manager, string $peering = self::SCOPE_PARENT): \Zend\ServiceManager\ServiceManager
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$manager` | **\Zend\ServiceManager\ServiceManager** |  |
 | `$peering` | **string** |  |
-
-
-
 
 ***
 
@@ -1100,21 +666,11 @@ Canonicalize name
 protected canonicalizeName(string $name): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -1126,13 +682,6 @@ Create service via callback
 protected createServiceViaCallback(callable $callable, string $cName, string $rName): object
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1140,9 +689,6 @@ protected createServiceViaCallback(callable $callable, string $cName, string $rN
 | `$callable` | **callable** |  |
 | `$cName` | **string** |  |
 | `$rName` | **string** |  |
-
-
-
 
 ***
 
@@ -1154,16 +700,6 @@ Retrieve a keyed list of all registered services. Handy for debugging!
 public getRegisteredServices(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getCanonicalNames
@@ -1174,42 +710,21 @@ Retrieve a keyed list of all canonical names. Handy for debugging!
 public getCanonicalNames(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCanonicalNames
 
-Allows to override the canonical names lookup map with predefined
-values.
+Allows to override the canonical names lookup map with predefined values.
 
 ```php
 public setCanonicalNames(array $canonicalNames): \Zend\ServiceManager\ServiceManager
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$canonicalNames` | **array** |  |
-
-
-
 
 ***
 
@@ -1221,21 +736,11 @@ Attempt to retrieve an instance via a peering manager
 protected retrieveFromPeeringManager(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -1247,21 +752,11 @@ Loop over peering service managers.
 protected loopPeeringServiceManagers(string $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -1273,22 +768,12 @@ Attempt to create an instance via an invokable class
 protected createFromInvokable(string $canonicalName, string $requestedName): null|\stdClass
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$canonicalName` | **string** |  |
 | `$requestedName` | **string** |  |
-
-
-
 
 ***
 
@@ -1300,22 +785,12 @@ Attempt to create an instance via a factory
 protected createFromFactory(string $canonicalName, string $requestedName): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$canonicalName` | **string** |  |
 | `$requestedName` | **string** |  |
-
-
-
 
 ***
 
@@ -1327,13 +802,6 @@ Attempt to create an instance via an abstract factory
 protected createFromAbstractFactory(string $canonicalName, string $requestedName): object|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1341,25 +809,13 @@ protected createFromAbstractFactory(string $canonicalName, string $requestedName
 | `$canonicalName` | **string** |  |
 | `$requestedName` | **string** |  |
 
-
-
-
 ***
 
 ### checkNestedContextStart
 
-
-
 ```php
 protected checkNestedContextStart(string $cName): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1367,25 +823,13 @@ protected checkNestedContextStart(string $cName): self
 |-----------|------|-------------|
 | `$cName` | **string** |  |
 
-
-
-
 ***
 
 ### checkNestedContextStop
 
-
-
 ```php
 protected checkNestedContextStop(bool $force = false): self
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1393,25 +837,13 @@ protected checkNestedContextStop(bool $force = false): self
 |-----------|------|-------------|
 | `$force` | **bool** |  |
 
-
-
-
 ***
 
 ### createDelegatorFromFactory
 
-
-
 ```php
 protected createDelegatorFromFactory( $canonicalName,  $requestedName): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -1419,9 +851,6 @@ protected createDelegatorFromFactory( $canonicalName,  $requestedName): mixed
 |-----------|------|-------------|
 | `$canonicalName` | **** |  |
 | `$requestedName` | **** |  |
-
-
-
 
 ***
 
@@ -1433,14 +862,10 @@ Checks if the object has this class as one of its parents
 protected static isSubclassOf(string $className, string $type): bool
 ```
 
-
-
 * This method is **static**.
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -1449,11 +874,9 @@ protected static isSubclassOf(string $className, string $type): bool
 | `$className` | **string** |  |
 | `$type` | **string** |  |
 
-
-
 **See Also:**
 
-* https://bugs.php.net/bug.php?id=53727 - * https://github.com/zendframework/zf2/pull/1807 - 
+* https://bugs.php.net/bug.php?id=53727 - * https://github.com/zendframework/zf2/pull/1807 -
 
 ***
 
@@ -1465,14 +888,8 @@ Unregister a service
 protected unregisterService(string $canonical): void
 ```
 
-Called when $allowOverride is true and we detect that a service being
-added to the instance already exists. This will remove the duplicate
-entry, and also any shared flags previously registered.
-
-
-
-
-
+Called when $allowOverride is true and we detect that a service being added to the instance already exists. This will
+remove the duplicate entry, and also any shared flags previously registered.
 
 **Parameters:**
 
@@ -1480,11 +897,4 @@ entry, and also any shared flags previously registered.
 |-----------|------|-------------|
 | `$canonical` | **string** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

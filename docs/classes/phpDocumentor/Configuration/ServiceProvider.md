@@ -4,14 +4,14 @@
 
 Provides a series of services in order to handle the configuration for phpDocumentor.
 
-This class is responsible for registering a 'Merger' service that is used to combine several configuration
-definitions into one and will add a new option `config` to all commands of phpDocumentor.
+This class is responsible for registering a 'Merger' service that is used to combine several configuration definitions
+into one and will add a new option `config` to all commands of phpDocumentor.
 
 Exposed services:
 
 - 'config', the configuration service containing all options and parameters for phpDocumentor.
-- 'config.merger', a service used to combine the configuration template with the user configuration file (phpdoc.xml
-  of phpdoc.dist.xml).
+- 'config.merger', a service used to combine the configuration template with the user configuration file (phpdoc.xml of
+  phpdoc.dist.xml).
 
 The following variables are exposed:
 
@@ -21,13 +21,9 @@ The following variables are exposed:
 
 * Full name: `\phpDocumentor\Configuration\ServiceProvider`
 * This class implements:
-[`\Cilex\ServiceProviderInterface`](../../Cilex/ServiceProviderInterface.md)
-
-
-
+  [`\Cilex\ServiceProviderInterface`](../../Cilex/ServiceProviderInterface.md)
 
 ## Methods
-
 
 ### register
 
@@ -38,25 +34,15 @@ public register(\Cilex\Application $app): mixed
 ```
 
 phpDocumentor first loads the template config file (/data/phpdoc.tpl.xml)
-and then the phpdoc.dist.xml, or the phpdoc.xml if it exists but not both,
-from the current working directory.
+and then the phpdoc.dist.xml, or the phpdoc.xml if it exists but not both, from the current working directory.
 
-The user config file (either phpdoc.dist.xml or phpdoc.xml) is merged
-with the template file.
-
-
-
-
-
+The user config file (either phpdoc.dist.xml or phpdoc.xml) is merged with the template file.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$app` | **\Cilex\Application** | An Application instance |
-
-
-
 
 ***
 
@@ -68,21 +54,11 @@ Initializes and adds the configuration merger object as the 'config.merger' serv
 private addMerger(\Cilex\Application $container): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$container` | **\Cilex\Application** |  |
-
-
-
 
 ***
 
@@ -94,24 +70,10 @@ Adds the annotations for the Merger component to the Serializer.
 private addMergerAnnotations(\Cilex\Application $container): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$container` | **\Cilex\Application** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

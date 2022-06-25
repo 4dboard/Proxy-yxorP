@@ -4,16 +4,10 @@
 
 View helper for translating messages.
 
-
-
 * Full name: `\Zend\I18n\View\Helper\Translate`
 * Parent class: [`\Zend\I18n\View\Helper\AbstractTranslatorHelper`](./AbstractTranslatorHelper.md)
 
-
-
-
 ## Methods
-
 
 ### __invoke
 
@@ -23,13 +17,6 @@ Translate a message
 public __invoke(string $message, string $textDomain = null, string $locale = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -38,14 +25,9 @@ public __invoke(string $message, string $textDomain = null, string $locale = nul
 | `$textDomain` | **string** |  |
 | `$locale` | **string** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setTranslator
 
@@ -55,22 +37,13 @@ Sets translator to use in helper
 public setTranslator(\Zend\I18n\Translator\TranslatorInterface $translator = null, string $textDomain = null): \Zend\I18n\View\Helper\AbstractTranslatorHelper
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$translator` | **\Zend\I18n\Translator\TranslatorInterface** | [optional] translator.<br />Default is null, which sets no translator. |
+| `$translator` | **
+\Zend\I18n\Translator\TranslatorInterface** | [optional] translator.<br />Default is null, which sets no translator. |
 | `$textDomain` | **string** | [optional] text domain<br />Default is null, which skips setTranslatorTextDomain |
-
-
-
 
 ***
 
@@ -82,16 +55,6 @@ Returns translator used in helper
 public getTranslator(): \Zend\I18n\Translator\TranslatorInterface|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasTranslator
@@ -101,16 +64,6 @@ Checks if the helper has a translator
 ```php
 public hasTranslator(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -122,21 +75,11 @@ Sets whether translator is enabled and should be used
 public setTranslatorEnabled(bool $enabled = true): \Zend\I18n\View\Helper\AbstractTranslatorHelper
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$enabled` | **bool** |  |
-
-
-
 
 ***
 
@@ -148,16 +91,6 @@ Returns whether translator is enabled and should be used
 public isTranslatorEnabled(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTranslatorTextDomain
@@ -168,21 +101,11 @@ Set translation text domain
 public setTranslatorTextDomain(string $textDomain = &#039;default&#039;): \Zend\I18n\View\Helper\AbstractTranslatorHelper
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$textDomain` | **string** |  |
-
-
-
 
 ***
 
@@ -194,18 +117,4 @@ Return the translation text domain
 public getTranslatorTextDomain(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

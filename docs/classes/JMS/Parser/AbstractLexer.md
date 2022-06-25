@@ -4,93 +4,52 @@
 
 Abstract Lexer.
 
-
-
 * Full name: `\JMS\Parser\AbstractLexer`
 * This class is an **Abstract class**
 
-
-
 ## Properties
 
-
 ### token
-
-
 
 ```php
 public $token
 ```
 
-
-
-
-
-
 ***
 
 ### next
-
-
 
 ```php
 public $next
 ```
 
-
-
-
-
-
 ***
 
 ### i
-
-
 
 ```php
 private $i
 ```
 
-
-
-
-
-
 ***
 
 ### peek
-
-
 
 ```php
 private $peek
 ```
 
-
-
-
-
-
 ***
 
 ### tokens
-
-
 
 ```php
 private $tokens
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getName
 
@@ -100,38 +59,19 @@ Returns the name of the given token.
 public getName(int $type): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
 
-
-
-
 ***
 
 ### setInput
 
-
-
 ```php
 public setInput(mixed $str): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -139,28 +79,13 @@ public setInput(mixed $str): mixed
 |-----------|------|-------------|
 | `$str` | **mixed** |  |
 
-
-
-
 ***
 
 ### reset
 
-
-
 ```php
 public reset(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -171,14 +96,6 @@ Moves the pointer one token forward.
 ```php
 public moveNext(): bool
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -196,38 +113,19 @@ Skips the token stream until a token of the given type.
 public skipUntil(int $type): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$type` | **int** |  |
-
-
-
 
 ***
 
 ### isNext
 
-
-
 ```php
 public isNext(int $type): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -235,25 +133,13 @@ public isNext(int $type): bool
 |-----------|------|-------------|
 | `$type` | **int** |  |
 
-
-
-
 ***
 
 ### isNextAny
 
-
-
 ```php
 public isNextAny(int[] $types): bool
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -261,48 +147,23 @@ public isNextAny(int[] $types): bool
 |-----------|------|-------------|
 | `$types` | **int[]** |  |
 
-
-
-
 ***
 
 ### peek
-
-
 
 ```php
 public peek(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getRegex
-
-
 
 ```php
 protected getRegex(): string
 ```
 
-
-
-
 * This method is **abstract**.
-
-
-
-
-
 
 ***
 
@@ -314,13 +175,9 @@ Determines the type of the given value.
 protected determineTypeAndValue(string $value): array
 ```
 
-This method may also modify the passed value for example to cast them to
-a different PHP type where necessary.
-
+This method may also modify the passed value for example to cast them to a different PHP type where necessary.
 
 * This method is **abstract**.
-
-
 
 **Parameters:**
 
@@ -328,15 +185,6 @@ a different PHP type where necessary.
 |-----------|------|-------------|
 | `$value` | **string** |  |
 
-
 **Return Value:**
 
-a tupel of type and normalized value
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+a tupel of type and normalized value yxorP::get('REQUEST')

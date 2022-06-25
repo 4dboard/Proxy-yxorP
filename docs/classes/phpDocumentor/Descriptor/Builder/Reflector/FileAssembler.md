@@ -4,16 +4,10 @@
 
 Assembles an FileDescriptor using an FileReflector and ParamDescriptors.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\Builder\Reflector\FileAssembler`
 * Parent class: [`\phpDocumentor\Descriptor\Builder\Reflector\AssemblerAbstract`](./AssemblerAbstract.md)
 
-
-
-
 ## Methods
-
 
 ### create
 
@@ -23,21 +17,11 @@ Creates a Descriptor from the provided data.
 public create(\phpDocumentor\Reflection\FileReflector $data): \phpDocumentor\Descriptor\FileDescriptor
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **\phpDocumentor\Reflection\FileReflector** |  |
-
-
-
 
 ***
 
@@ -49,22 +33,12 @@ Registers the child constants with the generated File Descriptor.
 protected addConstants(\phpDocumentor\Reflection\ConstantReflector[] $constants, \phpDocumentor\Descriptor\FileDescriptor $fileDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$constants` | **\phpDocumentor\Reflection\ConstantReflector[]** |  |
 | `$fileDescriptor` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
-
-
-
 
 ***
 
@@ -76,22 +50,12 @@ Registers the child functions with the generated File Descriptor.
 protected addFunctions(\phpDocumentor\Reflection\FunctionReflector[] $functions, \phpDocumentor\Descriptor\FileDescriptor $fileDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$functions` | **\phpDocumentor\Reflection\FunctionReflector[]** |  |
 | `$fileDescriptor` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
-
-
-
 
 ***
 
@@ -103,22 +67,12 @@ Registers the child classes with the generated File Descriptor.
 protected addClasses(\phpDocumentor\Reflection\ClassReflector[] $classes, \phpDocumentor\Descriptor\FileDescriptor $fileDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$classes` | **\phpDocumentor\Reflection\ClassReflector[]** |  |
 | `$fileDescriptor` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
-
-
-
 
 ***
 
@@ -130,22 +84,12 @@ Registers the child interfaces with the generated File Descriptor.
 protected addInterfaces(\phpDocumentor\Reflection\InterfaceReflector[] $interfaces, \phpDocumentor\Descriptor\FileDescriptor $fileDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$interfaces` | **\phpDocumentor\Reflection\InterfaceReflector[]** |  |
 | `$fileDescriptor` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
-
-
-
 
 ***
 
@@ -157,22 +101,12 @@ Registers the child traits with the generated File Descriptor.
 protected addTraits(\phpDocumentor\Reflection\TraitReflector[] $traits, \phpDocumentor\Descriptor\FileDescriptor $fileDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$traits` | **\phpDocumentor\Reflection\TraitReflector[]** |  |
 | `$fileDescriptor` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
-
-
-
 
 ***
 
@@ -184,13 +118,6 @@ Registers the markers that were found in a File with the File Descriptor.
 protected addMarkers(string[] $markers, \phpDocumentor\Descriptor\FileDescriptor $fileDescriptor): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -198,25 +125,13 @@ protected addMarkers(string[] $markers, \phpDocumentor\Descriptor\FileDescriptor
 | `$markers` | **string[]** |  |
 | `$fileDescriptor` | **\phpDocumentor\Descriptor\FileDescriptor** |  |
 
-
-
-
 ***
 
 ### overridePackageTag
 
-
-
 ```php
 protected overridePackageTag( $data,  $fileDescriptor): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -225,14 +140,9 @@ protected overridePackageTag( $data,  $fileDescriptor): mixed
 | `$data` | **** |  |
 | `$fileDescriptor` | **** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### assembleDocBlock
 
@@ -242,22 +152,12 @@ Assemble DocBlock.
 protected assembleDocBlock(\phpDocumentor\Reflection\DocBlock|null $docBlock, \phpDocumentor\Descriptor\DescriptorAbstract $target): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock&#124;null** |  |
 | `$target` | **\phpDocumentor\Descriptor\DescriptorAbstract** |  |
-
-
-
 
 ***
 
@@ -269,21 +169,11 @@ Extracts the package from the DocBlock.
 protected extractPackageFromDocBlock(\phpDocumentor\Reflection\DocBlock $docBlock): string|null
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$docBlock` | **\phpDocumentor\Reflection\DocBlock** |  |
-
-
-
 
 ***
 
@@ -295,16 +185,6 @@ Returns the builder for this Assembler or null if none is set.
 public getBuilder(): null|\phpDocumentor\Descriptor\ProjectDescriptorBuilder
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setBuilder
@@ -315,13 +195,7 @@ Registers the Builder with this Assembler.
 public setBuilder(\phpDocumentor\Descriptor\ProjectDescriptorBuilder $builder): void
 ```
 
-The Builder may be used to recursively assemble Descriptors using
-the {@link} method.
-
-
-
-
-
+The Builder may be used to recursively assemble Descriptors using the {@link} method.
 
 **Parameters:**
 
@@ -329,11 +203,4 @@ the {@link} method.
 |-----------|------|-------------|
 | `$builder` | **\phpDocumentor\Descriptor\ProjectDescriptorBuilder** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,11 +4,8 @@
 
 Struct which defines a repository directory.
 
-
-
 * Full name: `\ezcBaseRepositoryDirectory`
 * Parent class: [`\ezcBaseStruct`](./ezcBaseStruct.md)
-
 
 ## Constants
 
@@ -19,7 +16,6 @@ Struct which defines a repository directory.
 
 ## Properties
 
-
 ### type
 
 The $type is one of the two TYPE_* constants defined in this class.
@@ -27,11 +23,6 @@ The $type is one of the two TYPE_* constants defined in this class.
 ```php
 public string $type
 ```
-
-
-
-
-
 
 ***
 
@@ -43,11 +34,6 @@ The path to the configured repository.
 public string $basePath
 ```
 
-
-
-
-
-
 ***
 
 ### autoloadPath
@@ -58,31 +44,17 @@ The path to the autoload files.
 public string $autoloadPath
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
 
-Constructs a new ezcBaseRepositoryDirectory of type $type with base path
-$basePath and autoload path $autoloadPath.
+Constructs a new ezcBaseRepositoryDirectory of type $type with base path $basePath and autoload path $autoloadPath.
 
 ```php
 public __construct(string $type, string $basePath, string $autoloadPath): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -91,9 +63,6 @@ public __construct(string $type, string $basePath, string $autoloadPath): mixed
 | `$type` | **string** |  |
 | `$basePath` | **string** |  |
 | `$autoloadPath` | **string** |  |
-
-
-
 
 ***
 
@@ -108,14 +77,10 @@ public static __set_state(array $array): \ezcBaseRepositoryDirectory
 $array contains all the data members of this class in the form:
 array('member_name'=>value).
 
-__set_state makes this class exportable with var_export.
-var_export() generates code, that calls this method when it
-is parsed with PHP.
+__set_state makes this class exportable with var_export. var_export() generates code, that calls this method when it is
+parsed with PHP.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -123,11 +88,4 @@ is parsed with PHP.
 |-----------|------|-------------|
 | `$array` | **array** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

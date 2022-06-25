@@ -4,17 +4,11 @@
 
 XliffFileLoader loads translations from XLIFF files.
 
-
-
 * Full name: `\Symfony\Component\Translation\Loader\XliffFileLoader`
 * This class implements:
-[`\Symfony\Component\Translation\Loader\LoaderInterface`](./LoaderInterface.md)
-
-
-
+  [`\Symfony\Component\Translation\Loader\LoaderInterface`](./LoaderInterface.md)
 
 ## Methods
-
 
 ### load
 
@@ -24,13 +18,6 @@ Loads a locale.
 public load(mixed $resource, mixed $locale, mixed $domain = &#039;messages&#039;): \Symfony\Component\Translation\MessageCatalogue
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -38,7 +25,6 @@ public load(mixed $resource, mixed $locale, mixed $domain = &#039;messages&#039;
 | `$resource` | **mixed** | A resource |
 | `$locale` | **mixed** | A locale |
 | `$domain` | **mixed** | The domain |
-
 
 **Return Value:**
 
@@ -50,18 +36,9 @@ A MessageCatalogue instance
 
 ### extract
 
-
-
 ```php
 private extract(mixed $resource, \Symfony\Component\Translation\MessageCatalogue $catalogue, mixed $domain): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -70,9 +47,6 @@ private extract(mixed $resource, \Symfony\Component\Translation\MessageCatalogue
 | `$resource` | **mixed** |  |
 | `$catalogue` | **\Symfony\Component\Translation\MessageCatalogue** |  |
 | `$domain` | **mixed** |  |
-
-
-
 
 ***
 
@@ -84,40 +58,22 @@ Extract messages and metadata from DOMDocument into a MessageCatalogue.
 private extractXliff1(\DOMDocument $dom, \Symfony\Component\Translation\MessageCatalogue $catalogue, string $domain): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dom` | **\DOMDocument** | Source to extract messages and metadata |
-| `$catalogue` | **\Symfony\Component\Translation\MessageCatalogue** | Catalogue where we&#039;ll collect messages and metadata |
+| `$catalogue` | **
+\Symfony\Component\Translation\MessageCatalogue** | Catalogue where we&#039;ll collect messages and metadata |
 | `$domain` | **string** | The domain |
-
-
-
 
 ***
 
 ### extractXliff2
 
-
-
 ```php
 private extractXliff2(\DOMDocument $dom, \Symfony\Component\Translation\MessageCatalogue $catalogue, string $domain): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -126,9 +82,6 @@ private extractXliff2(\DOMDocument $dom, \Symfony\Component\Translation\MessageC
 | `$dom` | **\DOMDocument** |  |
 | `$catalogue` | **\Symfony\Component\Translation\MessageCatalogue** |  |
 | `$domain` | **string** |  |
-
-
-
 
 ***
 
@@ -140,22 +93,12 @@ Convert a UTF8 string to the specified encoding.
 private utf8ToCharset(string $content, string $encoding = null): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** | String to decode |
 | `$encoding` | **string** | Target encoding |
-
-
-
 
 ***
 
@@ -167,13 +110,6 @@ Validates and parses the given file into a DOMDocument.
 private validateSchema(string $file, \DOMDocument $dom, string $schema): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -182,34 +118,19 @@ private validateSchema(string $file, \DOMDocument $dom, string $schema): mixed
 | `$dom` | **\DOMDocument** |  |
 | `$schema` | **string** | source of the schema |
 
-
-
-
 ***
 
 ### getSchema
 
-
-
 ```php
 private getSchema(mixed $xliffVersion): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$xliffVersion` | **mixed** |  |
-
-
-
 
 ***
 
@@ -221,22 +142,12 @@ Internally changes the URI of a dependent xsd to be loaded locally.
 private fixXmlLocation(string $schemaSource, string $xmlUri): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$schemaSource` | **string** | Current content of schema file |
 | `$xmlUri` | **string** | External URI of XML to convert to local |
-
-
-
 
 ***
 
@@ -248,19 +159,11 @@ Returns the XML errors of the internal XML parser.
 private getXmlErrors(bool $internalErrors): array
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$internalErrors` | **bool** |  |
-
 
 **Return Value:**
 
@@ -280,36 +183,19 @@ private getVersionNumber(\DOMDocument $dom): string
 
 Defaults to 1.2 for backwards compatibility.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dom` | **\DOMDocument** |  |
 
-
-
-
 ***
 
 ### parseNotesMetadata
 
-
-
 ```php
 private parseNotesMetadata(\SimpleXMLElement $noteElement = null, mixed $encoding = null): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -318,11 +204,4 @@ private parseNotesMetadata(\SimpleXMLElement $noteElement = null, mixed $encodin
 | `$noteElement` | **\SimpleXMLElement** |  |
 | `$encoding` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

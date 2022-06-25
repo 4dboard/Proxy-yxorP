@@ -4,35 +4,20 @@
 
 Test class for \phpDocumentor\Reflection\DocBlock\Tag\MethodTag
 
-
-
 * Full name: `\phpDocumentor\Reflection\DocBlock\Tag\MethodTagTest`
 * Parent class: [`PHPUnit_Framework_TestCase`](../../../../PHPUnit_Framework_TestCase.md)
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
-
+* http://phpdoc.org -
 
 ## Methods
 
-
 ### testConstruct
-
-
 
 ```php
 public testConstruct(string $signature, bool $valid, string $expected_name, string $expected_return, mixed $expected_isStatic, bool $paramCount, string $description): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -46,31 +31,12 @@ public testConstruct(string $signature, bool $valid, string $expected_name, stri
 | `$paramCount` | **bool** | Number of parameters in the signature. |
 | `$description` | **string** | The short description mentioned in the<br />signature. |
 
-
-
-
 ***
 
 ### getTestSignatures
-
-
 
 ```php
 public getTestSignatures(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

@@ -4,64 +4,37 @@
 
 This is the entry class for building a config tree.
 
-
-
 * Full name: `\Symfony\Component\Config\Definition\Builder\TreeBuilder`
 * This class implements:
-[`\Symfony\Component\Config\Definition\Builder\NodeParentInterface`](./NodeParentInterface.md)
-
-
+  [`\Symfony\Component\Config\Definition\Builder\NodeParentInterface`](./NodeParentInterface.md)
 
 ## Properties
 
-
 ### tree
-
-
 
 ```php
 protected $tree
 ```
 
-
-
-
-
-
 ***
 
 ### root
-
-
 
 ```php
 protected $root
 ```
 
-
-
-
-
-
 ***
 
 ### builder
-
-
 
 ```php
 protected $builder
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### root
 
@@ -71,13 +44,6 @@ Creates the root node.
 public root(string $name, string $type = &#039;array&#039;, \Symfony\Component\Config\Definition\Builder\NodeBuilder $builder = null): \Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition|\Symfony\Component\Config\Definition\Builder\NodeDefinition
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -85,7 +51,6 @@ public root(string $name, string $type = &#039;array&#039;, \Symfony\Component\C
 | `$name` | **string** | The name of the root node |
 | `$type` | **string** | The type of the root node |
 | `$builder` | **\Symfony\Component\Config\Definition\Builder\NodeBuilder** | A custom node builder instance |
-
 
 **Return Value:**
 
@@ -103,18 +68,4 @@ Builds the tree.
 public buildTree(): \Symfony\Component\Config\Definition\NodeInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

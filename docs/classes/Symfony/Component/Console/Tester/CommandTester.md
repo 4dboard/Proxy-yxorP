@@ -4,101 +4,55 @@
 
 Eases the testing of console commands.
 
-
-
 * Full name: `\Symfony\Component\Console\Tester\CommandTester`
-
-
 
 ## Properties
 
-
 ### command
-
-
 
 ```php
 private $command
 ```
 
-
-
-
-
-
 ***
 
 ### input
-
-
 
 ```php
 private $input
 ```
 
-
-
-
-
-
 ***
 
 ### output
-
-
 
 ```php
 private $output
 ```
 
-
-
-
-
-
 ***
 
 ### statusCode
-
-
 
 ```php
 private $statusCode
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Symfony\Component\Console\Command\Command $command): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$command` | **\Symfony\Component\Console\Command\Command** |  |
-
-
-
 
 ***
 
@@ -116,18 +70,12 @@ Available execution options:
 * decorated:   Sets the output decorated flag
 * verbosity:   Sets the output verbosity flag
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$input` | **array** | An array of command arguments and options |
 | `$options` | **array** | An array of execution options |
-
 
 **Return Value:**
 
@@ -145,19 +93,11 @@ Gets the display returned by the last execution of the command.
 public getDisplay(bool $normalize = false): string
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$normalize` | **bool** | Whether to normalize end of lines to \n or not |
-
 
 **Return Value:**
 
@@ -175,14 +115,6 @@ Gets the input instance used by the last execution of the command.
 public getInput(): \Symfony\Component\Console\Input\InputInterface
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 The current input instance
@@ -198,14 +130,6 @@ Gets the output instance used by the last execution of the command.
 ```php
 public getOutput(): \Symfony\Component\Console\Output\OutputInterface
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -223,22 +147,6 @@ Gets the status code returned by the last execution of the application.
 public getStatusCode(): int
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
-The status code
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+The status code yxorP::get('REQUEST')

@@ -2,13 +2,8 @@
 
 # IsInt
 
-
-
-
-
 * Full name: `\Zend\I18n\Validator\IsInt`
 * Parent class: [`AbstractValidator`](../../Validator/AbstractValidator.md)
-
 
 ## Constants
 
@@ -19,19 +14,11 @@
 
 ## Properties
 
-
 ### messageTemplates
-
-
 
 ```php
 protected array $messageTemplates
 ```
-
-
-
-
-
 
 ***
 
@@ -43,15 +30,9 @@ Optional locale
 protected string|null $locale
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -61,21 +42,11 @@ Constructor for the integer validator
 public __construct(array|\Traversable $options = array()): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable** |  |
-
-
-
 
 ***
 
@@ -87,16 +58,6 @@ Returns the set locale
 public getLocale(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLocale
@@ -107,21 +68,11 @@ Sets the locale to use
 public setLocale(string $locale): int
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$locale` | **string** |  |
-
-
-
 
 ***
 
@@ -133,24 +84,10 @@ Returns true if and only if $value is a valid integer
 public isValid(string|int $value): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string&#124;int** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

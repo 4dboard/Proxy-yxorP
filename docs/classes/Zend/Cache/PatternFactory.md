@@ -2,17 +2,10 @@
 
 # PatternFactory
 
-
-
-
-
 * Full name: `\Zend\Cache\PatternFactory`
 * This class is an **Abstract class**
 
-
-
 ## Properties
-
 
 ### plugins
 
@@ -22,15 +15,11 @@ The pattern manager
 protected static null|\Zend\Cache\PatternPluginManager $plugins
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ## Methods
-
 
 ### factory
 
@@ -40,12 +29,7 @@ Instantiate a cache pattern
 public static factory(string|\Zend\Cache\Pattern\PatternInterface $patternName, array|\Traversable|\Zend\Cache\Pattern\PatternOptions $options = []): \Zend\Cache\Pattern\PatternInterface
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -53,9 +37,6 @@ public static factory(string|\Zend\Cache\Pattern\PatternInterface $patternName, 
 |-----------|------|-------------|
 | `$patternName` | **string&#124;\Zend\Cache\Pattern\PatternInterface** |  |
 | `$options` | **array&#124;\Traversable&#124;\Zend\Cache\Pattern\PatternOptions** |  |
-
-
-
 
 ***
 
@@ -67,15 +48,7 @@ Get the pattern plugin manager
 public static getPluginManager(): \Zend\Cache\PatternPluginManager
 ```
 
-
-
 * This method is **static**.
-
-
-
-
-
-
 
 ***
 
@@ -87,21 +60,13 @@ Set the pattern plugin manager
 public static setPluginManager(\Zend\Cache\PatternPluginManager $plugins): void
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugins` | **\Zend\Cache\PatternPluginManager** |  |
-
-
-
 
 ***
 
@@ -113,18 +78,6 @@ Reset pattern plugin manager to default
 public static resetPluginManager(): void
 ```
 
-
-
 * This method is **static**.
 
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

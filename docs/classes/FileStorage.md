@@ -2,105 +2,55 @@
 
 # FileStorage
 
-
-
-
-
 * Full name: `\FileStorage`
-
-
 
 ## Properties
 
-
 ### config
-
-
 
 ```php
 protected $config
 ```
 
-
-
-
-
-
 ***
 
 ### storages
-
-
 
 ```php
 protected $storages
 ```
 
-
-
-
-
-
 ***
 
 ### manager
-
-
 
 ```php
 protected $manager
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(mixed $config = []): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **mixed** |  |
-
-
-
 
 ***
 
 ### addStorage
 
-
-
 ```php
 public addStorage(mixed $name, mixed $config): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -109,25 +59,13 @@ public addStorage(mixed $name, mixed $config): mixed
 | `$name` | **mixed** |  |
 | `$config` | **mixed** |  |
 
-
-
-
 ***
 
 ### use
 
-
-
 ```php
 public use(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -135,25 +73,13 @@ public use(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### getURL
 
-
-
 ```php
 public getURL(mixed $file): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -161,25 +87,13 @@ public getURL(mixed $file): mixed
 |-----------|------|-------------|
 | `$file` | **mixed** |  |
 
-
-
-
 ***
 
 ### initStorage
 
-
-
 ```php
 protected initStorage(mixed $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -187,25 +101,13 @@ protected initStorage(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
-
-
-
 ***
 
 ### __call
 
-
-
 ```php
 public __call(mixed $name, mixed $args): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -214,11 +116,4 @@ public __call(mixed $name, mixed $args): mixed
 | `$name` | **mixed** |  |
 | `$args` | **mixed** |  |
 
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')

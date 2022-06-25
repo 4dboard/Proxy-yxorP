@@ -2,24 +2,14 @@
 
 # AbstractHydrator
 
-
-
-
-
 * Full name: `\Zend\Stdlib\Hydrator\AbstractHydrator`
 * Parent class: [`\Zend\Hydrator\AbstractHydrator`](../../Hydrator/AbstractHydrator.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 * This class implements:
-[`\Zend\Stdlib\Hydrator\HydratorInterface`](./HydratorInterface.md)
+  [`\Zend\Stdlib\Hydrator\HydratorInterface`](./HydratorInterface.md)
 * This class is an **Abstract class**
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -28,16 +18,6 @@ Initializes a new instance of this class.
 ```php
 public __construct(): mixed
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -49,21 +29,11 @@ Gets the strategy with the given name.
 public getStrategy(string $name): \Zend\Hydrator\Strategy\StrategyInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the strategy to get. |
-
-
-
 
 ***
 
@@ -75,21 +45,11 @@ Checks if the strategy with the given name exists.
 public hasStrategy(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the strategy to check for. |
-
-
-
 
 ***
 
@@ -101,22 +61,12 @@ Adds the given strategy under the given name.
 public addStrategy(string $name, \Zend\Hydrator\Strategy\StrategyInterface $strategy): \Zend\Hydrator\HydratorInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the strategy to register. |
 | `$strategy` | **\Zend\Hydrator\Strategy\StrategyInterface** | The strategy to register. |
-
-
-
 
 ***
 
@@ -128,21 +78,11 @@ Removes the strategy with the given name.
 public removeStrategy(string $name): \Zend\Hydrator\HydratorInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name of the strategy to remove. |
-
-
-
 
 ***
 
@@ -154,13 +94,6 @@ Converts a value for extraction. If no strategy exists the plain value is return
 public extractValue(string $name, mixed $value, mixed $object = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -168,9 +101,6 @@ public extractValue(string $name, mixed $value, mixed $object = null): mixed
 | `$name` | **string** | The name of the strategy to use. |
 | `$value` | **mixed** | The value that should be converted. |
 | `$object` | **mixed** | The object is optionally provided as context. |
-
-
-
 
 ***
 
@@ -182,13 +112,6 @@ Converts a value for hydration. If no strategy exists the plain value is returne
 public hydrateValue(string $name, mixed $value, array $data = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -196,9 +119,6 @@ public hydrateValue(string $name, mixed $value, array $data = null): mixed
 | `$name` | **string** | The name of the strategy to use. |
 | `$value` | **mixed** | The value that should be converted. |
 | `$data` | **array** | The whole data is optionally provided as context. |
-
-
-
 
 ***
 
@@ -210,22 +130,12 @@ Convert a name for extraction. If no naming strategy exists, the plain value is 
 public extractName(string $name, null $object = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name to convert. |
 | `$object` | **null** | The object is optionally provided as context. |
-
-
-
 
 ***
 
@@ -237,22 +147,12 @@ Converts a value for hydration. If no naming strategy exists, the plain value is
 public hydrateName(string $name, array $data = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | The name to convert. |
 | `$data` | **array** | The whole data is optionally provided as context. |
-
-
-
 
 ***
 
@@ -263,16 +163,6 @@ Get the filter instance
 ```php
 public getFilter(): \Zend\Hydrator\Filter\FilterComposite
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -311,9 +201,6 @@ $composite->addFilter("servicelocator",
 | `$filter` | **callable&#124;\Zend\Hydrator\Filter\FilterInterface** |  |
 | `$condition` | **int** |  |
 
-
-
-
 ***
 
 ### hasFilter
@@ -324,21 +211,11 @@ Check whether a specific filter exists at key $name or not
 public hasFilter(string $name): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** | Index in the composite |
-
-
-
 
 ***
 
@@ -367,9 +244,6 @@ $filterComposite->removeFilter('has');
 |-----------|------|-------------|
 | `$name` | **** |  |
 
-
-
-
 ***
 
 ### setNamingStrategy
@@ -380,21 +254,11 @@ Adds the given naming strategy
 public setNamingStrategy(\Zend\Hydrator\NamingStrategy\NamingStrategyInterface $strategy): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$strategy` | **\Zend\Hydrator\NamingStrategy\NamingStrategyInterface** | The naming to register. |
-
-
-
 
 ***
 
@@ -406,16 +270,6 @@ Gets the naming strategy.
 public getNamingStrategy(): \Zend\Hydrator\NamingStrategy\NamingStrategyInterface
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### hasNamingStrategy
@@ -425,16 +279,6 @@ Checks if a naming strategy exists.
 ```php
 public hasNamingStrategy(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -446,18 +290,4 @@ Removes the naming strategy
 public removeNamingStrategy(): self
 ```
 
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+yxorP::get('REQUEST')
