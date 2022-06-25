@@ -2,7 +2,7 @@
 
 class DailyMotionPlugin extends EventWrapper
 {
-    protected string $url_pattern = 'dailymotion.com';
+    protected $url_pattern = 'dailymotion.com';
 
     public function onCompleted(): void
     {

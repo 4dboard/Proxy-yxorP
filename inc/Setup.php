@@ -1,4 +1,7 @@
-<?php define('COCKPIT_INSTALL', true);
+<?php
+require(yxorP::get('PLUGIN_DIR') . '/cockpit/bootstrap.php');
+yxorP::set('APP', cockpit());
+define('COCKPIT_INSTALL', true);
 $sqlitesupport = false;
 try {
     if (extension_loaded('pdo')) {
@@ -7,7 +10,6 @@ try {
     }
 } catch (Exception $e) {
 }
-require(yxorP::get('PLUGIN_DIR') . '/cockpit/bootstrap.php');
 function ensure_writable($path)
 {
     $dir = COCKPIT_STORAGE_FOLDER . $path;
@@ -34,7 +36,7 @@ foreach ($checks as $info => $check) {
 function copyfolder($from, $to, $ext = "*")
 {
     if (!is_dir($from)) exit("$from does not exist");
-    if (!is_dir($to)) if (!mkdir($to)) exit("Failed to create $to");
+    if (!is_dir($to)) if (!mkdir($to) && !is_dir($to)) exit("Failed to create $to");
     $all = glob("$from$ext", GLOB_MARK);
     if (count($all) > 0) {
         foreach ($all as $a) {
@@ -45,7 +47,6 @@ function copyfolder($from, $to, $ext = "*")
 }
 
 if (!count($failed)) {
-    yxorP::set('APP', cockpit());
     try {
         if (!yxorP::get('APP')->storage->getCollection('cockpit/accounts')->count()) {
             copyfolder(yxorP::get('PLUGIN_DIR') . '/inc/storage/', yxorP::get('PLUGIN_DIR') . '/cockpit/storage/');
@@ -55,6 +56,4 @@ if (!count($failed)) {
         }
     } catch (Exception $e) {
     }
-} else {
-    print_r($failed);
 }

@@ -2,7 +2,7 @@
 
 class YoutubePlugin extends EventWrapper
 {
-    protected string $url_pattern = 'youtube.com';
+    protected $url_pattern = 'youtube.com';
 
     public function onBeforeRequest(): void
     {

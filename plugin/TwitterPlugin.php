@@ -2,7 +2,7 @@
 
 class TwitterPlugin extends EventWrapper
 {
-    protected string $url_pattern = 'twitter.com';
+    protected $url_pattern = 'twitter.com';
 
     public function onCompleted(): void
     {

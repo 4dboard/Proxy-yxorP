@@ -21,7 +21,6 @@ class GeneralHelper
             $video_url = rawurlencode($video_url);
             $html = '<object id="flowplayer" width="' . $width . '" height="' . $height . '" data="
 
-       	<param name="allowfullscreen" value="true" />
 		<param name="wmode" value="transparent" />
         <param name="flashvars" value=\'inc={"clip":"' . $video_url . '", "plugins": {"controls": {"autoHide" : false} }}\' />
 
@@ -91,12 +90,12 @@ class GeneralHelper
 
     public static function app_url(): string
     {
-        return 'https:' . yxorP::get('SITE_CONTEXT')->SITE_HOST . yxorP::get('SERVER')['PHP_SELF'];
+        return 'https:' . yxorP::get('SITE_HOST') . yxorP::get('SERVER')['PHP_SELF'];
     }
 
     public static function render_string($str, $vars = array())
     {
-        preg_match_all('@{([a-z0-9_]+)}@s', $str, $matches, PREG_SET_ORDER);
+        preg_match_all('@{([a - z0 - 9_] +)}@s', $str, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
             extract($vars, EXTR_PREFIX_ALL, "_var");
             $var_val = ${"_var_" . $match[1]};
@@ -112,12 +111,12 @@ class GeneralHelper
 
     public static function base64_url_encode($input): string
     {
-        return rtrim(strtr(base64_encode($input), '+/', '-_'), '=');
+        return rtrim(strtr(base64_encode($input), ' +/', ' - _'), ' = ');
     }
 
     public static function base64_url_decode($input): bool|string
     {
-        return base64_decode(str_pad(strtr($input, '-_', '+/'), strlen($input) % 4, '='));
+        return base64_decode(str_pad(strtr($input, ' - _', ' +/'), strlen($input) % 4, ' = '));
     }
 
     public static function proxify_url($url, $base_url = '')
@@ -130,7 +129,7 @@ class GeneralHelper
             $base_url = self::add_http($base_url);
             $url = self::rel2abs($url, $base_url);
         }
-        return str_replace(yxorP::get('SITE_CONTEXT')->TARGET_URL, '', $url);
+        return str_replace(yxorP::get('TARGET_URL'), '', $url);
     }
 
     public static function add_http($url)

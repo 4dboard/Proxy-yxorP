@@ -1,5 +1,11 @@
 <?php namespace yxorP\Http;
-abstract class EventWrapper
+
+use yxorP;
+
+abstract /**
+ *
+ */
+class EventWrapper
 {
     protected $url_pattern;
 
@@ -17,6 +23,22 @@ abstract class EventWrapper
         $dispatcher->addListener('request.complete', function () {
             $this->route('request.complete');
         });
+    }
+
+    public function onBeforeRequest()
+    {
+    }
+
+    public function onHeadersReceived()
+    {
+    }
+
+    public function onCurlWrite()
+    {
+    }
+
+    public function onCompleted()
+    {
     }
 
     private function route($event_name): void
@@ -44,21 +66,5 @@ abstract class EventWrapper
                 $this->onCompleted();
                 break;
         }
-    }
-
-    public function onBeforeRequest()
-    {
-    }
-
-    public function onHeadersReceived()
-    {
-    }
-
-    public function onCurlWrite()
-    {
-    }
-
-    public function onCompleted()
-    {
     }
 }

@@ -1,0 +1,338 @@
+html {
+    filter: opacity(.99) saturate(1.5) hue-rotate(-25deg) !important;
+}
+
+main > z {
+    z-index: 0 !important;
+}
+
+#headxr a.g {
+    color: #fff !important;
+    text-shadow: 0 0 6px #ffffffe3 !important;
+}
+
+* {
+    box-sizing: border-box !important;
+}
+
+html.don body {
+    background-image: url('/bg.gif?v1') !important;
+    background-size: cover !important;
+    background-attachment: fixed;
+}
+
+
+@-webkit-keyframes notyf-fadeinup {
+    0% {
+        opacity: 0;
+        transform: translateY(25%)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes notyf-fadeinup {
+    0% {
+        opacity: 0;
+        transform: translateY(25%)
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@-webkit-keyframes notyf-fadeinleft {
+    0% {
+        opacity: 0;
+        transform: translateX(25%)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@keyframes notyf-fadeinleft {
+    0% {
+        opacity: 0;
+        transform: translateX(25%)
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@-webkit-keyframes notyf-fadeoutright {
+    0% {
+        opacity: 1;
+        transform: translateX(0)
+    }
+    to {
+        opacity: 0;
+        transform: translateX(25%)
+    }
+}
+
+@keyframes notyf-fadeoutright {
+    0% {
+        opacity: 1;
+        transform: translateX(0)
+    }
+    to {
+        opacity: 0;
+        transform: translateX(25%)
+    }
+}
+
+@-webkit-keyframes notyf-fadeoutdown {
+    0% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+    to {
+        opacity: 0;
+        transform: translateY(25%)
+    }
+}
+
+@keyframes notyf-fadeoutdown {
+    0% {
+        opacity: 1;
+        transform: translateY(0)
+    }
+    to {
+        opacity: 0;
+        transform: translateY(25%)
+    }
+}
+
+@-webkit-keyframes ripple {
+    0% {
+        transform: scale(0) translateY(-45%) translateX(13%)
+    }
+    to {
+        transform: scale(1) translateY(-45%) translateX(13%)
+    }
+}
+
+@keyframes ripple {
+    0% {
+        transform: scale(0) translateY(-45%) translateX(13%)
+    }
+    to {
+        transform: scale(1) translateY(-45%) translateX(13%)
+    }
+}
+
+@media only screen and (max-width: 480px) {
+
+}
+
+#relatedGames, .size--side .c-products, #main .row-main .size--content, #main .row-main .size--side {
+    width: 100% !important;
+}
+
+#relatedGames, .size--side .c-products, #main .row-main .size--content, #main .row-main .size--side {
+    width: 100% !important;
+}
+
+#side-games-panel, .b-above #game-panel #side-games-panel {
+    width: 300px !important;
+}
+
+strong {
+    color: #0b5990 !important;
+}
+
+
+.footer .content p {
+    padding-right: 100px !important;
+}
+
+body {
+    width: 100% !important;
+    height: initial !important;
+}
+
+.footer {
+    min-height: initial !important;
+}
+
+
+#relatedGames, .size--side .c-products, #main .row-main .size--content, #main .row-main .size--side {
+    width: 100% !important;
+}
+
+#side-games-panel, .b-above #game-panel #side-games-panel {
+    width: 300px !important;
+}
+
+strong {
+    color: #0b5990 !important;
+}
+
+
+.footer .content p {
+    padding-right: 100px !important;
+}
+
+
+.footer {
+    min-height: initial !important;
+}
+
+
+.title-main__name--link:hover * {
+    color: #fff !important;
+}
+
+a.language__item span {
+    display: inline-block !important;
+}
+
+#relatedGames .c-products__item h3,
+#side-games-panel .c-products__item h3 {
+    margin-bottom: 10px !important;
+}
+
+.menu-hide .main {
+    padding-left: 0 !important;
+    padding-right: 95px !important;
+}
+
+@media (min-width: 801px) {
+    #menu-main {
+        right: 0 !important;
+    }
+
+    .main {
+        padding-right: 115px !important;
+        padding-left: 0 !important;
+
+    }
+
+
+}
+
+
+.installMsg b, .welcomeMsg b {
+    font-weight: bold !important;
+    text-shadow: 1px 1px 5px #5600ff !important;
+    font-size: 14px !important;
+    color: #ff00d4 !important;
+}
+
+
+#menu-main ul li:first-child {
+    display: none !important;
+}
+
+#menu-main {
+    z-index: 9999999999 !important;
+    background: linear-gradient(182deg, #444444, transparent) !important;
+}
+
+header.header {
+    position: fixed !important;
+    width: 100% !important;
+    background-position: bottom left !important;
+}
+
+header.header, .footer {
+    background-image: url(/banner.gif?v1) !important;
+    box-shadow: #000 0 0 20px 0;
+    opacity: .9 !important;
+}
+
+.footer {
+    margin: 0;
+    padding-right: 150px;
+    background-position: right center !important;
+}
+
+.title-main__name--link:hover * {
+    color: #fff !important;
+}
+
+a.language__item span {
+    display: inline-block !important;
+}
+
+#relatedGames .c-products__item h3,
+#side-games-panel .c-products__item h3 {
+    margin-bottom: 10px !important;
+}
+
+.menu-hide .main {
+    padding-left: 0 !important;
+    padding-right: 95px !important;
+}
+
+@media (min-width: 801px) {
+    #menu-main {
+        right: 0 !important;
+    }
+
+    .main {
+        padding-left: 0 !important;
+        padding-right: 115px !important;
+
+    }
+
+
+}
+
+.installMsg b, .welcomeMsg b {
+    font-weight: bold !important;
+    text-shadow: 1px 1px 5px #5600ff !important;
+    font-size: 14px !important;
+    color: #ff00d4 !important;
+}
+
+
+#menu-main ul li:first-child {
+    display: none !important;
+}
+
+#menu-main {
+    z-index: 9999999999 !important;
+    background: linear-gradient(182deg, #444444, transparent) !important;
+}
+
+
+#main {
+    margin-top: 76px !important;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, .5), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, 1), rgba(0, 0, 0, .5), transparent, transparent, transparent) !important
+}
+
+@keyframes movingclouds {
+    0% {
+        right: 0;;
+    }
+    100% {
+        right: -1%;
+    }
+}
+
+html:hover body::before {
+    opacity: .1 !important;
+}
+
+#czyLogo a scaff, #czyLogo a div, body main > z:nth-child(1) > h {
+    display: none !important;
+}
+
+
+#czyLogo a {
+    display: block;
+    width: 175px;
+    height: 60px;
+    background-image: url('/logo.png?v1');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}

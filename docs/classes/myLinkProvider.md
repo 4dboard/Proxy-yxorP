@@ -1,0 +1,193 @@
+***
+
+# myLinkProvider
+
+Class providing access to links referenced in eZXml documents by url IDs,
+node IDs or object IDs.
+
+
+
+* Full name: `\myLinkProvider`
+* Parent class: [`\ezcDocumentEzXmlLinkProvider`](./ezcDocumentEzXmlLinkProvider.md)
+
+
+
+
+## Methods
+
+
+### fetchUrlById
+
+Fetch URL by ID
+
+```php
+public fetchUrlById(mixed $id, mixed $view, mixed $show_path): string
+```
+
+Fetch and return URL referenced by url_id property.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **mixed** |  |
+| `$view` | **mixed** |  |
+| `$show_path` | **mixed** |  |
+
+
+
+
+***
+
+### fetchUrlByNodeId
+
+Fetch URL by node ID
+
+```php
+public fetchUrlByNodeId(mixed $id, mixed $view, mixed $show_path): string
+```
+
+Create and return the URL for a referenced node.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **mixed** |  |
+| `$view` | **mixed** |  |
+| `$show_path` | **mixed** |  |
+
+
+
+
+***
+
+### fetchUrlByObjectId
+
+Fetch URL by ID
+
+```php
+public fetchUrlByObjectId(mixed $id, mixed $view, mixed $show_path): string
+```
+
+Create and return the URL for a referenced object.
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **mixed** |  |
+| `$view` | **mixed** |  |
+| `$show_path` | **mixed** |  |
+
+
+
+
+***
+
+
+## Inherited methods
+
+
+### fetchUrlById
+
+Fetch URL by ID
+
+```php
+public fetchUrlById(string $id, string $view, string $show_path): string
+```
+
+Fetch and return URL referenced by url_id property.
+
+
+* This method is **abstract**.
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **string** |  |
+| `$view` | **string** |  |
+| `$show_path` | **string** |  |
+
+
+
+
+***
+
+### fetchUrlByNodeId
+
+Fetch URL by node ID
+
+```php
+public fetchUrlByNodeId(string $id, string $view, string $show_path): string
+```
+
+Create and return the URL for a referenced node.
+
+
+* This method is **abstract**.
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **string** |  |
+| `$view` | **string** |  |
+| `$show_path` | **string** |  |
+
+
+
+
+***
+
+### fetchUrlByObjectId
+
+Fetch URL by ID
+
+```php
+public fetchUrlByObjectId(string $id, string $view, string $show_path): string
+```
+
+Create and return the URL for a referenced object.
+
+
+* This method is **abstract**.
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **string** |  |
+| `$view` | **string** |  |
+| `$show_path` | **string** |  |
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

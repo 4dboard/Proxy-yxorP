@@ -38,11 +38,6 @@ class ParamStore
         }
     }
 
-    private function normalizeKey($key)
-    {
-        return $this->case_sensitive ? $key : strtolower($key);
-    }
-
     #[Pure] public function has($key): bool
     {
         return isset($this->data[$this->normalizeKey($key)]);
@@ -56,5 +51,10 @@ class ParamStore
     public function all(): array
     {
         return $this->data;
+    }
+
+    private function normalizeKey($key)
+    {
+        return $this->case_sensitive ? $key : strtolower($key);
     }
 }

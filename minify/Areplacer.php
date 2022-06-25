@@ -10,7 +10,10 @@ use function strlen;
 
 require yxorP::get('PLUGIN_DIR') . '/minify/MinfyInterface.php';
 
-abstract class Areplacer
+abstract /**
+ *
+ */
+class Areplacer
 {
     public function process(string $buffer): string
     {
