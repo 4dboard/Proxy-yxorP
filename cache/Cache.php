@@ -77,7 +77,6 @@ class Cache
 
     public function set($val): Cache
     {
-        echo yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY');
         $loc = fopen(yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY'), 'w');
         $file = fwrite($loc, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;');
         fclose($file);
