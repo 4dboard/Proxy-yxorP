@@ -25,7 +25,7 @@ class yxorP
     {
 
         if (array_key_exists($_name, self::$_yx)) {
-            throw new RuntimeException('yxorP::set("' . $_name . '") - Argument already exists and cannot be redefined!');
+            throw new RuntimeException('yxorP::set("' . $_name . '")-Argument already exists and cannot be redefined!');
         }
 
         self::$_yx[$_name] = $_value;
@@ -44,13 +44,6 @@ class yxorP
         require self::get('PLUGIN_DIR') . '/cache/Cache.php';
         require self::get('PLUGIN_DIR') . '/inc/guzzle.phar';
         require self::get('PLUGIN_DIR') . '/inc/bugsnag.phar';
-
-        if (!file_exists(self::set('CACHE_DIR', self::get('PLUGIN_DIR') . '/.cache/')) &&
-            !mkdir($concurrentDirectory = self::get('CACHE_DIR')) && !is_dir($concurrentDirectory))
-            throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
-
-        self::set('CACHE_TIME', @time() + (60 * 60 * 24 * 31 * 365));
-        self::set('CACHE_KEY', base64_encode(self::get('SERVER')['HTTP_HOST'] . self::get('SERVER')['REQUEST_URI']));
 
 
         try {
@@ -129,6 +122,7 @@ class yxorP
         self::fileCheck(self::get('PLUGIN_DIR') . '/override/global', false);
         if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
         error_reporting(self::get('DEBUG') || !(int)str_contains(self::get('SERVER')['SERVER_NAME'], '.'));
+        error_reporting(1);
 
         if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
 
@@ -151,26 +145,12 @@ class yxorP
 
     public static function fileCheck($dir, $inc)
     {
-
-        if (file($dir) || is_dir($dir)) {
-            foreach (scandir($dir) as $x) {
-
-                if (strlen($x) > 3) {
-                    if (str_contains($x, 'Interface')) {
-                        continue;
-                    }
-                    if (is_dir($_loc = $dir . '/' . $x)) {
-                        self::fileCheck($_loc, $inc);
-
-                    } else if ($inc) {
-                        require_once($_loc);
-                    } else if (str_contains(self::get('PROXY_URL'), $x)) {
-
-                        return Cache::cache()->set(file_get_contents($_loc));
-
-                    }
-
-                }
+        foreach (scandir($dir) as $x) {
+            if (strlen($x) > 3) {
+                if (str_contains($x, 'Interface')) continue;
+                if (is_dir($_loc = $dir . '/' . $x)) return self::fileCheck($_loc, $inc);
+                if (str_contains(self::get('PROXY_URL'), $x)) return Cache::cache()->set(file_get_contents($_loc));
+                if ($inc) require_once($_loc);
             }
         }
     }
@@ -186,10 +166,10 @@ class yxorP
     {
         header("Access-Control-Allow-Origin: *");
         header("Access-Control-Allow-Methods: POST,GET,OPTIONS");
-        header('Access - Control - Allow - Credentials: true');
-        header('Access - Control - Allow - Headers: Origin,Access - Control - Allow - Headers,Content - Type,Access - Control - Allow - Methods, Authorization, X - Requested - With,Access - Control - Allow - Credentials');
+        header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Headers: Origin,Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With,Access-Control-Allow-Credentials');
 
-        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x - shockwave - flash', 'flv' => 'video/x - flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg + xml', 'svgz' => 'image/svg + xml', 'zip' => 'application/zip', 'rar' => 'application/x - rar - compressed', 'exe' => 'application/x - msdownload', 'msi' => 'application/x - msdownload', 'cab' => 'application/vnd', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd', 'ppt' => 'application/vnd - powerpoint', 'odt' => 'application/vnd', 'ods' => 'application/vnd');
+        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg + xml', 'svgz' => 'image/svg + xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd', 'ppt' => 'application/vnd-powerpoint', 'odt' => 'application/vnd', 'ods' => 'application/vnd');
         $_ext = pathinfo(strtok(self::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
         if (str_contains(self::get('PROXY_URL'), 'bundle.js')) {
             self::set('MIME', 'application/wasm');
@@ -209,7 +189,7 @@ class yxorP
             self::set('MIME', 'text/html');
         }
 
-        header('Content - Type: ' . self::get('MIME') . '; charset = UTF - 8');
+        header('Content-Type: ' . self::get('MIME') . '; charset = UTF-8');
     }
 
     public static function forward()

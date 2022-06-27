@@ -4,6 +4,14 @@ use yxorP;
 
 require yxorP::get('PLUGIN_DIR') . '/cache/State.php';
 
+mkdir(yxorp::set('CACHE_DIR', yxorp::get('PLUGIN_DIR') . DIRECTORY_SEPARATOR . 'tmp'));
+
+yxorp::set('CACHE_KEY', rtrim(strtr(base64_encode(yxorp::get('SERVER')['HTTP_HOST'] . yxorp::get('SERVER')['REQUEST_URI']), '+/', '-_'), '=') . '.tmp');
+
+
+yxorp::set('CACHE_TIME', @time() + (60 * 60 * 24 * 31 * 365));
+
+
 class Cache
 {
     public const OPTIONS = '.attr';
@@ -13,8 +21,10 @@ class Cache
 
     private function __construct($is_super = true)
     {
+
+
         if (isset($_GET["CLECHE"])) $this->clearAll();
-        $this->options = ['expiry' => -1, 'lock' => false];
+        $this->options = ['expiry' => yxorp::get('CACHE_DIR')];
         if ($is_super) {
             $this->attr_instance = new self(false);
             if ($this->attr_instance->isExists()) {
@@ -43,7 +53,7 @@ class Cache
         if (!$this->isValid()) {
             return;
         }
-        @include yxorP::get('CACHE_DIR') . yxorP::get('CACHE_KEY');
+        @include yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY');
     }
 
     public function isValid(): bool
@@ -67,14 +77,9 @@ class Cache
 
     public function set($val): Cache
     {
-        if ($this->options['lock']) {
-            return $this;
-        }
-        $val = var_export($val, true);
-        $val = '<?=' . str_replace('stdClass::__set_state', '(object)', $val) . ';exit;';
-        $loc = yxorP::get('CACHE_DIR') . yxorP::get('CACHE_KEY');
-        $file = fopen($loc, 'w');
-        fwrite($file, $val);
+        echo yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY');
+        $loc = fopen(yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY'), 'w');
+        $file = fwrite($loc, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;');
         fclose($file);
         return $this;
     }
