@@ -7,11 +7,7 @@ class OverridePlugin extends EventWrapper
     public function onCompleted()
     {
         if (yxorP::get('MIME') !== 'text/html' && yxorP::get('MIME') !== 'application/javascript' && yxorP::get('MIME') !== 'text/css' && yxorP::get('MIME') !== 'application/xml' && !str_contains(yxorP::get('MIME'), 'text')) return;
-        $GLOBAL_SEARCH_MERGE = GeneralHelper::array_merge_ignore(array(yxorP::get('TARGET_DOMAIN')), array_keys((array)yxorP::get('REPLACE')), array_keys((array)yxorP::get('TARGET')['replace']));
-        $GLOBAL_REPLACE_MERGE = GeneralHelper::array_merge_ignore(array(yxorP::get('SITE_DOMAIN')), array_values((array)yxorP::get('REPLACE')), array_values((array)yxorP::get('TARGET')['replace']));
-        $PATTERN_SEARCH_MERGE = GeneralHelper::array_merge_ignore(array_keys((array)yxorP::get('PATTERN')), array_keys((array)yxorP::get('TARGET')['pattern']));
-        $PATTERN_REPLACE_MERGE = GeneralHelper::array_merge_ignore(array_values((array)yxorP::get('PATTERN')), array_keys((array)yxorP::get('TARGET')['pattern']));
-        yxorP::get('RESPONSE')->setContent($this->REWRITE(str_replace($GLOBAL_SEARCH_MERGE, $GLOBAL_REPLACE_MERGE, preg_replace($PATTERN_SEARCH_MERGE, $PATTERN_REPLACE_MERGE, yxorP::get('RESPONSE')->getContent()))));
+        yxorP::get('RESPONSE')->setContent($this->REWRITE(str_replace(GeneralHelper::array_merge_ignore(array(yxorP::get('TARGET_DOMAIN')), array_keys((array)yxorP::get('REPLACE')), array_keys((array)yxorP::get('TARGET')['replace'])), GeneralHelper::array_merge_ignore(array(yxorP::get('SITE_DOMAIN')), array_values((array)yxorP::get('REPLACE')), array_values((array)yxorP::get('TARGET')['replace'])), preg_replace(GeneralHelper::array_merge_ignore(array_keys((array)yxorP::get('PATTERN')), array_keys((array)yxorP::get('TARGET')['pattern'])), GeneralHelper::array_merge_ignore(array_values((array)yxorP::get('PATTERN')), array_keys((array)yxorP::get('TARGET')['pattern'])), yxorP::get('RESPONSE')->getContent()))));
     }
 
     public function REWRITE($content): string
