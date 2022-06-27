@@ -42,9 +42,6 @@ AddType    application/x-web-app-manifest+json    webapp
 AddType    text/x-vcard                vcf
 AddType    application/x-shockwave-flash        swf
 AddType    text/vtt                vtt
-# --------------------------------------------------------------------------------------
-# Compression: http://code.google.com/speed/page-speed/docs/payload.html#GzipCompression
-&lt;IfModule mod_deflate.c&gt;
 AddOutputFilter DEFLATE application/atom+xml
 AddOutputFilter DEFLATE application/json
 AddOutputFilter DEFLATE application/xhtml+xml
@@ -75,11 +72,6 @@ AddOutputFilter DEFLATE application/pdf
 AddOutputFilter DEFLATE font/opentype
 AddOutputFilter DEFLATE application/x-font-ttf
 AddOutputFilter DEFLATE application/vnd.ms-fontobject
-&lt;/IfModule&gt;
-# Enabling filename rewriting (file.XXX.ext) if URL rewriting is enabled
-# Otherwise URLs will use query strings (file.ext?v=XXX)
-# More proxies cache assets if there is no query string
-&lt;IfModule mod_rewrite.c&gt;
 RewriteEngine On
 # Setting up an environment variable so your code can detect if mod_rewrite rules are executable
 # in this folder and you can use file.123.jpg or you need to fall back to file.jpg?123
@@ -92,20 +84,6 @@ RewriteRule ^(.*)\.(\d+)(_m_\d+)?\.([^.]+)$    $1.$4    [L,QSA]
 # so you can use it instead of file.jpg?123 which isn't cached in some proxies.
 # Used for hash-based URLs where having a timestamp is not necessary.
 RewriteRule ^(.*)\.([a-z\d]+)\.([^.]+)$    $1.$3    [L,QSA]
-# -------------------------------------------------------------------------------------------------
-# Browser Caching: http://code.google.com/speed/page-speed/docs/caching.html#LeverageBrowserCaching
-# Google recommends specifying the following for all cacheable resources:
-#    1. Expires or Cache-Control max-age
-#     Set Expires to a minimum of one month, and preferably up to one year, in the future. (We
-#     prefer Expires over Cache-Control: max-age because it is is more widely supported.) Do not
-#     set it to more than one year in the future, as that violates the RFC guidelines.
-#    2. Last-Modified or ETag
-#     Set the Last-Modified date to the last time the resource was changed. If the Last-Modified
-#    date is sufficiently far enough in the past, chances are the browser won't refetch it.
-# Per Google: "it is redundant to specify both Expires and Cache-Control: max-age, or to specify
-# both Last-Modified and ETag."
-# --------------------------------------------------------------------------------------------------
-&lt;IfModule mod_expires.c&gt;
 ExpiresActive On
 ExpiresByType application/json            "access plus 1 year"
 ExpiresByType application/pdf            "access plus 1 year"
@@ -133,42 +111,6 @@ ExpiresByType application/x-javascript         "access plus 1 year"
 ExpiresByType application/javascript         "access plus 1 year"
 ExpiresByType text/ecmascript             "access plus 1 year"
 ExpiresByType text/javascript             "access plus 1 year"
-# TODO: Set Last-Modified per Google's recommendation to complete browser caching
-# -------------------------------------------------------------------------
-# Disabling ETags as they are most likely misconfigured and
-# do not add functionalit beyond Last-Modified
-&lt;IfModule mod_headers.c&gt;
-# Try removing etag headers (if it's coming from proxy for example)
-Header unset ETag
-# Remove ETags
-FileETag None
-# Turn on Expires and set default to 0
-ExpiresDefault A0
-# Set up caching on media files for 1 year (forever?)
-&lt;FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$"&gt;
-ExpiresDefault A29030400
-Header append Cache-Control "public"
-&lt;/FilesMatch&gt;
-# Set up caching on media files for 1 week
-&lt;FilesMatch "\.(gif|jpg|jpeg|png|swf)$"&gt;
-ExpiresDefault A604800
-# Set up 2 Hour caching on commonly updated files
-&lt;FilesMatch "\.(xml|txt|js|css)$"&gt;
-Header append Cache-Control "proxy-revalidate"
-&lt;FilesMatch "\.(js|css|xml|gz)$"&gt;
-Header append Vary Accept-Encoding
-# Force no caching for dynamic files
-&lt;FilesMatch "\.(php|cgi|pl|htm)$"&gt;
-ExpiresActive Off
-Header set Cache-Control "private, no-cache, no-store, proxy-revalidate, no-transform"
-Header set Pragma "no-cache"
-AddEncoding gzip .gz
-&lt;Files *.css.gz&gt;
-ForceType text/css
-&lt;/Files&gt;
-&lt;Files *.js.gz&gt;
-ForceType text/javascript
-&lt;FilesMatch .*\.(js|css)&gt;
 RewriteCond %{HTTP_USER_AGENT} !MSIE
 RewriteCond %{HTTP:Accept-encoding} gzip
 RewriteCond %{REQUEST_FILENAME}.gz -f
@@ -200,40 +142,6 @@ ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
 # CSS and JavaScript
 ExpiresByType text/css                  "access plus 1 year"
 ExpiresByType application/javascript    "access plus 1 year"
-# Specify a Vary: Accept-Encoding Header (put in .htaccess)
-###############################################################################################################
-&lt;FilesMatch ".(js|css|xml|gz|html)$"&gt;
-Header append Vary: Accept-Encoding
-# Remove query strings from static resources (put in functions.php)
-//* TN - Remove Query String from Static Resources
-function remove_css_js_ver( $src ) {
-if( strpos( $src, '?ver=' ) )
-$src = remove_query_arg( 'ver', $src );
-return $src;
-}
-add_filter( 'style_loader_src', 'remove_css_js_ver', 10, 2 );
-add_filter( 'script_loader_src', 'remove_css_js_ver', 10, 2 );
-# Defer parsing JS (put in functions.php)
-function defer_parsing_of_js ( $url ) {
-if ( FALSE === strpos( $url, '.js' ) ) return $url;
-if ( strpos( $url, 'jquery.js' ) ) return $url;
-return "$url' defer ";
-add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
-# Use cookie-free domains
-# Make fewer HTTP requests
-# Reduce the number of DOM elements
-=&gt; Plugin named &gt; Fast Velocity Minify
-# Cache Website
-=&gt; WP Fastest Cache plugin
-=&gt; WP Rocket
-# Serve scaled images
-=&gt; ShortPixel Adaptive Images
-# Disable Ajax Call from WooCommerce in Homepage
-/** Disable Ajax Call from WooCommerce */
-add_action( 'wp_enqueue_scripts', 'dequeue_woocommerce_cart_fragments', 11);
-function dequeue_woocommerce_cart_fragments() { if (is_front_page()) wp_dequeue_script('wc-cart-fragments'); }
-# Leverage browser caching & Enable Compression [Source: Rasel Ahmed]  (put in .htaccess)
-# Enable Compression
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/rss+xml
 AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
@@ -254,7 +162,6 @@ AddOutputFilterByType DEFLATE text/css
 AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/javascript
 AddOutputFilterByType DEFLATE text/plain
-&lt;IfModule mod_gzip.c&gt;
 mod_gzip_on Yes
 mod_gzip_dechunk Yes
 mod_gzip_item_include file .(html?|txt|css|js|php|pl)$
@@ -275,54 +182,6 @@ ExpiresByType text/x-javascript "access 1 month"
 ExpiresByType application/x-shockwave-flash "access 1 month"
 ExpiresByType image/x-icon "access 1 year"
 ExpiresDefault "access 1 month"
-&lt;filesmatch "\.(ico|flv|jpg|jpeg|png|gif|css|swf)$"&gt;
-Header set Cache-Control "max-age=2678400, public"
-&lt;/filesmatch&gt;
-&lt;filesmatch "\.(html|htm)$"&gt;
-Header set Cache-Control "max-age=7200, private, must-revalidate"
-&lt;filesmatch "\.(pdf)$"&gt;
-Header set Cache-Control "max-age=86400, public"
-&lt;filesmatch "\.(js)$"&gt;
-Header set Cache-Control "max-age=2678400, private"
-# Remove version from WordPress, Plugin, Srcset
-// remove version from head
-remove_action('wp_head', 'wp_generator');
-// remove version from rss
-add_filter('the_generator', '__return_empty_string');
-// remove version from scripts and styles
-function shapeSpace_remove_version_scripts_styles ($src) {
-if (strpos($src, 'ver=')) {
-$src = remove_query_arg('ver', $src);
-add_filter('style_loader_src', 'shapeSpace_remove_version_scripts_styles', 9999);
-add_filter('script_loader_src', 'shapeSpace_remove_version_scripts_styles', 9999);
-function shapeSpace_remove_version_scripts_styles($src) {
-// Remove map from theme if you're not using map
-add_filter( 'avf_load_google_map_api', '__return_false' );
-// Stop heartbeat
-add_action( 'init', 'stop_heartbeat', 1 );
-function stop_heartbeat() {
-wp_deregister_script('heartbeat');
-// Remove XML-RPC {Ususallly use when you need to connect your website in an app/Using API}
-add_filter( 'xmlrpc_enabled', '__return_false' );
-// RSD Link / Pingback Stop
-remove_action( 'wp_head', 'rsd_link' ) ;
-// *** Put in htaccess
-// Stop access xmlrpc.php
-&lt;Files xmlrpc.php&gt;
-&lt;IfModule mod_authz_core.c&gt;
-Require all denied
-&lt;IfModule !mod_authz_core.c&gt;
-Order allow,deny
-Deny from all
-//htaccess after WordPress
-Header set Connection keep-alive
-//Remove query strings add in functions.php
-function _remove_script_version( $src ){
-$parts = explode( '?', $src );
-return $parts[0];
-add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
-add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
-// htaccess Expires Header Manual
 # Images
 ExpiresByType image/jpeg "access plus 1 year"
 ExpiresByType image/gif "access plus 1 year"
@@ -341,10 +200,6 @@ ExpiresByType application/pdf "access plus 1 month"
 ExpiresByType application/x-shockwave-flash "access plus 1 month"
 # Everything else
 ExpiresDefault "access 7 days"
-# Apache Server Configs v2.14.0 | MIT License / https://github.com/h5bp/server-configs-apache
-# Copyright (c) HTML5 Boilerplate / https://github.com/h5bp/html5-boilerplate
-# Speed Up - Browser Caching | GPLv2 / http://wordpress.org/plugins/speed-up-browser-caching/
-&lt;IfModule mod_mime.c&gt;
 AddType application/javascript                      js
 AddType audio/mp4                                   f4a f4b m4a
 AddType audio/ogg                                   oga ogg opus
@@ -362,10 +217,8 @@ AddType application/vnd.ms-fontobject               eot
 AddType application/x-font-ttf                      ttc ttf
 AddType font/opentype                               otf
 AddCharset utf-8 .css .js .webapp
-&lt;IfModule mod_setenvif.c&gt;
 SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
 RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
-&lt;IfModule mod_filter.c&gt;
 AddOutputFilterByType DEFLATE "application/javascript"
 AddOutputFilterByType DEFLATE "application/vnd.ms-fontobject"
 AddOutputFilterByType DEFLATE "application/x-font-ttf"
@@ -405,23 +258,6 @@ ExpiresByType application/font-woff                 "access plus 1 month"
 ExpiresByType application/x-font-woff               "access plus 1 month"
 ExpiresByType font/woff                             "access plus 1 month"
 ExpiresByType application/font-woff2                "access plus 1 month"
-##### Optimization #####
-# The following directives stop screen flicker in IE on CSS rollovers. If
-# needed, un-comment the following rules. When they're in place, you may have
-# to do a force-refresh in order to see changes in your designs.
-#ExpiresActive On
-#ExpiresByType image/gif A2592000
-#ExpiresByType image/jpeg A2592000
-#ExpiresByType image/png A2592000
-#BrowserMatch "MSIE" brokenvary=1
-#BrowserMatch "Mozilla/4.[0-9]{2}" brokenvary=1
-#BrowserMatch "Opera" !brokenvary
-#SetEnvIf brokenvary 1 force-no-vary
-# Webfont access
-# allow access from all domains for webfonts
-# alternatively you could only whitelist
-# your subdomains like "sub.domain.com"
-&lt;FilesMatch "\.(ttf|ttc|otf|eot|woff|font.css)$"&gt;
 Header set Access-Control-Allow-Origin "*"
 AddType application/javascript                  js jsonp
 AddType application/json                        json
@@ -450,10 +286,6 @@ AddType application/x-web-app-manifest+json     webapp
 AddType text/x-vcard                            vcf
 AddType application/x-shockwave-flash           swf
 AddType text/vtt                                vtt
-# force deflate for mangled headers
-# developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
-# HTML, TXT, CSS, JavaScript, JSON, XML, HTC:
-&lt;IfModule filter_module&gt;
 FilterDeclare   COMPRESS
 FilterProvider  COMPRESS  DEFLATE "%{Content_Type} = 'text/html'"
 FilterProvider  COMPRESS  DEFLATE "%{Content_Type} = 'text/css'"
@@ -480,7 +312,6 @@ FilterProvider  COMPRESS  DEFLATE "%{Content_Type} = 'image/svg+xml'"
 FilterProvider  COMPRESS  DEFLATE "%{Content_Type} = 'font/opentype'"
 FilterChain     COMPRESS
 FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
-&lt;IfModule !mod_filter.c&gt;
 # Legacy versions of Apache
 AddOutputFilterByType DEFLATE text/html text/css text/plain
 AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
