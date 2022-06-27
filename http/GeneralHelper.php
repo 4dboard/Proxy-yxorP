@@ -183,4 +183,12 @@ class GeneralHelper
 
         return $mergedArrays;
     }
+
+
+    public static function CSV($filename = ''): array
+    {
+        $csvArray = array_map('str_getcsv', file($filename));
+        return array_merge(...$csvArray);
+    }
+
 }

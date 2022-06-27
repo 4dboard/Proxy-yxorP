@@ -83,11 +83,10 @@ class yxorP
         self::set('TARGET_URL', self::get('TARGET')['target']);
         self::set('TARGET_SUB_DOMAIN', self::extractSubdomains(self::get('TARGET_URL')));
         self::set('TARGET_DOMAIN', self::extractDomain(self::get('TARGET_URL')));
-        self::set('GLOBAL_REPLACE', self::get('APP')->storage->findOne('collections/global', ['type' => 'replace']) ?
+        self::set('REPLACE', self::get('APP')->storage->findOne('collections/global', ['type' => 'replace']) ?
             self::get('APP')->storage->findOne('collections/global', ['type' => 'replace'])['value'] : null);
-        self::set('GLOBAL_PATTERN', self::get('APP')->storage->findOne('collections /global', ['type' => 'pattern']) ?
-            self::get('APP')->storage->findOne('collections /global', ['type' => 'pattern'])['value'] : null);
-        self::set('GLOBAL_REWRITE', file_get_contents(self::get('PLUGIN_DIR') . '/override/global/includes/rewrite.csv'));
+        self::set('PATTERN', self::get('APP')->storage->findOne('collections/global', ['type' => 'pattern']) ?
+            self::get('APP')->storage->findOne('collections/global', ['type' => 'pattern'])['value'] : null);
         self::set('FETCH', "https://" . ((!is_null(self::get('SITE_SUB_DOMAIN'))) ? (self::get('SITE_SUB_DOMAIN') . ".") : null) . self::get('TARGET_DOMAIN'));
         self::set('PROXY_URL', self::get('FETCH') . self::get('REQUEST_URI'));
         self::set('DIR_FULL', self::get('PLUGIN_DIR') . '/override/' . self::get('TARGET')['files']);
@@ -127,7 +126,7 @@ class yxorP
         self::set('REQUEST', Request::createFromGlobals());
         self::fileCheck(self::get('DIR_FULL'), false);
         if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
-        self::fileCheck(self::get('PLUGIN_DIR') . '/override /global', false);
+        self::fileCheck(self::get('PLUGIN_DIR') . '/override/global', false);
         if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
         error_reporting(self::get('DEBUG') || !(int)str_contains(self::get('SERVER')['SERVER_NAME'], '.'));
 
@@ -243,11 +242,5 @@ class yxorP
     public function addListener($event, $callback, $priority = 0): void
     {
         self::$listeners[$event][$priority][] = $callback;
-    }
-
-    public function CSV($filename = ''): array
-    {
-        $csvArray = array_map('str_getcsv', file($filename));
-        return array_merge(...$csvArray);
     }
 }
