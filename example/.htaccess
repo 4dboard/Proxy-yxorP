@@ -1,9 +1,9 @@
-# This 1.htaccess file is used to speed up this website
+# This .htaccess file is used to speed up this website
 # See https://github.com/sergeychernyshev/.htaccess
 # ----------------------------------------------------------------------
 # Proper MIME type for all files
 #
-# Copied from the HTML5 boilerplate project's 1.htaccess file
+# Copied from the HTML5 boilerplate project's .htaccess file
 # https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
 # JavaScript
 #   Normalize to standard type (it's sniffed in IE anyways)
@@ -173,7 +173,7 @@ RewriteCond %{HTTP_USER_AGENT} !MSIE
 RewriteCond %{HTTP:Accept-encoding} gzip
 RewriteCond %{REQUEST_FILENAME}.gz -f
 RewriteRule ^(.*)$ $1.gz [L]
-#Expire headers (put in 1.htaccess)
+#Expire headers (put in .htaccess)
 #################################################################################################
 ExpiresActive on
 # Perhaps better to whitelist expires rules? Perhaps.
@@ -200,7 +200,7 @@ ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
 # CSS and JavaScript
 ExpiresByType text/css                  "access plus 1 year"
 ExpiresByType application/javascript    "access plus 1 year"
-# Specify a Vary: Accept-Encoding Header (put in 1.htaccess)
+# Specify a Vary: Accept-Encoding Header (put in .htaccess)
 ###############################################################################################################
 &lt;FilesMatch ".(js|css|xml|gz|html)$"&gt;
 Header append Vary: Accept-Encoding
@@ -232,7 +232,7 @@ add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
 /** Disable Ajax Call from WooCommerce */
 add_action( 'wp_enqueue_scripts', 'dequeue_woocommerce_cart_fragments', 11);
 function dequeue_woocommerce_cart_fragments() { if (is_front_page()) wp_dequeue_script('wc-cart-fragments'); }
-# Leverage browser caching & Enable Compression [Source: Rasel Ahmed]  (put in 1.htaccess)
+# Leverage browser caching & Enable Compression [Source: Rasel Ahmed]  (put in .htaccess)
 # Enable Compression
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/rss+xml

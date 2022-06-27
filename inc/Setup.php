@@ -18,7 +18,7 @@ function ensure_writable($path)
             throw new RuntimeException(sprintf('Directory "%s" was not created', $dir));
         }
         if ($path === '/data') {
-            if (file_put_contents($dir . '/1.htaccess', 'deny from all') === false) {
+            if (file_put_contents($dir . '/.htaccess', 'deny from all') === false) {
                 return false;
             }
         }
