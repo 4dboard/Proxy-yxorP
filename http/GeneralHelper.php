@@ -1,4 +1,7 @@
 <?php namespace yxorP\Http;
+
+use function array_merge;
+
 class GeneralHelper
 {
     public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string
@@ -171,16 +174,10 @@ class GeneralHelper
     {
         $mergedArrays = [];
         $args = func_get_args();
-        foreach ($args as $arg) {
-            if (!empty($argArry = (array)$arg)) {
-                if (empty($mergedArrays)) {
-                    $mergedArrays = $argArry;
-                } else {
-                    array_merge($mergedArrays, $argArry);
-                }
-            }
-        }
-
+        foreach ($args as $arg)
+            if (!empty((array)$arg))
+                if (empty($mergedArrays)) $mergedArrays = (array)$arg; else
+                    foreach ((array)$arg as $item) $mergedArrays[] = $item;
         return $mergedArrays;
     }
 

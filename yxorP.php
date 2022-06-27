@@ -95,7 +95,7 @@ class yxorP
 
     public static function extractDomain($domain)
     {
-        if (str_contains($domain, ' . ')) {
+        if (str_contains($domain, '.')) {
             if (preg_match("/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i", $domain, $matches)) {
                 return $matches['domain'];
             } else {
@@ -108,10 +108,10 @@ class yxorP
 
     public static function extractSubdomains($domain)
     {
-        if (str_contains($domain, ' . ')) {
+        if (str_contains($domain, '.')) {
             $subdomains = $domain;
             $domain = self::extractDomain($subdomains);
-            $subdomains = rtrim(strstr($subdomains, $domain, true), ' . ');
+            $subdomains = rtrim(strstr($subdomains, $domain, true), '.');
             return $subdomains;
         } else {
             return null;
@@ -121,7 +121,7 @@ class yxorP
     public function fetchIncludes()
     {
         foreach (array('http', 'minify') as $_asset) self::fileCheck(self::get('PLUGIN_DIR') . DIRECTORY_SEPARATOR . $_asset, true);
-        if (str_contains(self::get('SERVER')['REQUEST_URI'], '/cockpit')) require self::get('PLUGIN_DIR') . 'cockpit/index . php';
+        if (str_contains(self::get('SERVER')['REQUEST_URI'], '/cockpit')) require self::get('PLUGIN_DIR') . 'cockpit/index.php';
         self::set('RESPONSE', new Response());
         self::set('REQUEST', Request::createFromGlobals());
         self::fileCheck(self::get('DIR_FULL'), false);
@@ -189,9 +189,9 @@ class yxorP
         header('Access - Control - Allow - Credentials: true');
         header('Access - Control - Allow - Headers: Origin,Access - Control - Allow - Headers,Content - Type,Access - Control - Allow - Methods, Authorization, X - Requested - With,Access - Control - Allow - Credentials');
 
-        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x - shockwave - flash', 'flv' => 'video/x - flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd . microsoft . icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg + xml', 'svgz' => 'image/svg + xml', 'zip' => 'application/zip', 'rar' => 'application/x - rar - compressed', 'exe' => 'application/x - msdownload', 'msi' => 'application/x - msdownload', 'cab' => 'application/vnd . ms - cab - compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd . adobe . photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd . ms - excel', 'ppt' => 'application/vnd . ms - powerpoint', 'odt' => 'application/vnd', 'ods' => 'application/vnd');
+        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x - shockwave - flash', 'flv' => 'video/x - flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg + xml', 'svgz' => 'image/svg + xml', 'zip' => 'application/zip', 'rar' => 'application/x - rar - compressed', 'exe' => 'application/x - msdownload', 'msi' => 'application/x - msdownload', 'cab' => 'application/vnd', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd', 'ppt' => 'application/vnd - powerpoint', 'odt' => 'application/vnd', 'ods' => 'application/vnd');
         $_ext = pathinfo(strtok(self::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
-        if (str_contains(self::get('PROXY_URL'), 'bundle . js')) {
+        if (str_contains(self::get('PROXY_URL'), 'bundle.js')) {
             self::set('MIME', 'application/wasm');
         } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'sitemap')) {
             self::set('MIME', 'application/xml');
@@ -199,9 +199,9 @@ class yxorP
             self::set('MIME', 'image/png');
         } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'format')) {
             self::set('MIME', 'image/png');
-        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), ' . mp4')) {
+        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), '.mp4')) {
             self::set('MIME', 'video/mp4');
-        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), ' . js . br')) {
+        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), '.js.br')) {
             self::set('MIME', 'br');
         } else if (!self::get('MIME') && array_key_exists($_ext, $_types)) {
             self::set('MIME', $_types[$_ext]);
