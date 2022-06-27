@@ -838,7 +838,7 @@ also
 
 * /
 class = 'g'
-href = 'https://www.xn--gme-nnb.com/' > Game.com < /a><a / * *
+href = 'https://www.xn--gme-nnb.com/' > Game.com < /a><a/ * *
 
     * {@inlinetag}
 
@@ -904,7 +904,7 @@ also
 * @standardtag
 
 * /
-class = 'clouds-1' > < /z> <z / * *
+class = 'clouds-1' > < /z> <z/ * *
 
     * {@inlinetag}
 
@@ -928,7 +928,7 @@ also
 * @standardtag
 
 * /
-class = 'clouds-2' > < /z> <z / * *
+class = 'clouds-2' > < /z> <z/ * *
 
     * {@inlinetag}
 

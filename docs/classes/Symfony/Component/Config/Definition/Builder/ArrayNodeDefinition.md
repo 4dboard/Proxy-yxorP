@@ -334,7 +334,9 @@ public canBeEnabled(): $this
 By default, the section is disabled. If any configuration is specified then the node will be automatically enabled:
 
 enableableArrayNode: {enabled: true, ...} # The config is enabled & default values get overridden enableableArrayNode: ~
+
 # The config is enabled & use the default values enableableArrayNode: true # The config is enabled & use the default
+
 values enableableArrayNode: {other: value, ...} # The config is enabled & default values get overridden
 enableableArrayNode: {enabled: false, ...} # The config is disabled enableableArrayNode: false # The config is disabled
 

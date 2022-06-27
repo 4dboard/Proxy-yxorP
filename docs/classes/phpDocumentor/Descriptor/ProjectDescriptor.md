@@ -4,109 +4,61 @@
 
 Represents the entire project with its files, namespaces and indexes.
 
-
-
 * Full name: `\phpDocumentor\Descriptor\ProjectDescriptor`
 * This class implements:
-[`\phpDocumentor\Descriptor\Interfaces\ProjectInterface`](./Interfaces/ProjectInterface.md)
-
-
+  [`\phpDocumentor\Descriptor\Interfaces\ProjectInterface`](./Interfaces/ProjectInterface.md)
 
 ## Properties
 
-
 ### name
-
-
 
 ```php
 protected string $name
 ```
 
-
-
-
-
-
 ***
 
 ### namespace
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\NamespaceDescriptor $namespace
 ```
 
-
-
-
-
-
 ***
 
 ### files
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Collection $files
 ```
 
-
-
-
-
-
 ***
 
 ### indexes
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Collection $indexes
 ```
 
-
-
-
-
-
 ***
 
 ### settings
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\ProjectDescriptor\Settings $settings
 ```
 
-
-
-
-
-
 ***
 
 ### partials
-
-
 
 ```php
 protected \phpDocumentor\Descriptor\Collection $partials
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -116,21 +68,11 @@ Initializes this descriptor.
 public __construct(mixed $name): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
-
-
-
 
 ***
 
@@ -142,21 +84,11 @@ Sets the name for this project.
 public setName(string $name): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -168,16 +100,6 @@ Returns the name of this project.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFiles
@@ -188,21 +110,11 @@ Sets all files on this project.
 public setFiles(\phpDocumentor\Descriptor\Collection $files): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$files` | **\phpDocumentor\Descriptor\Collection** |  |
-
-
-
 
 ***
 
@@ -213,16 +125,6 @@ Returns all files with their sub-elements.
 ```php
 public getFiles(): \phpDocumentor\Descriptor\Collection|\phpDocumentor\Descriptor\FileDescriptor[]
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -235,22 +137,14 @@ public setIndexes(\phpDocumentor\Descriptor\Collection $indexes): void
 ```
 
 An index is a compilation of references to elements, usually constructed in a compiler step, that aids template
-generation by providing a conveniently assembled list. An example of such an index is the 'marker' index where
-a list of TODOs and FIXMEs are located in a central location for reporting.
-
-
-
-
-
+generation by providing a conveniently assembled list. An example of such an index is the 'marker' index where a list of
+TODOs and FIXMEs are located in a central location for reporting.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$indexes` | **\phpDocumentor\Descriptor\Collection** |  |
-
-
-
 
 ***
 
@@ -261,15 +155,6 @@ Returns all indexes in this project.
 ```php
 public getIndexes(): \phpDocumentor\Descriptor\Collection
 ```
-
-
-
-
-
-
-
-
-
 
 **See Also:**
 
@@ -285,21 +170,11 @@ Sets the root namespace for this project together with all sub-namespaces.
 public setNamespace(\phpDocumentor\Descriptor\NamespaceDescriptor $namespace): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **\phpDocumentor\Descriptor\NamespaceDescriptor** |  |
-
-
-
 
 ***
 
@@ -311,16 +186,6 @@ Returns the root (global) namespace.
 public getNamespace(): \phpDocumentor\Descriptor\NamespaceDescriptor
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setSettings
@@ -331,21 +196,11 @@ Sets the settings used to build the documentation for this project.
 public setSettings(\phpDocumentor\Descriptor\ProjectDescriptor\Settings $settings): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$settings` | **\phpDocumentor\Descriptor\ProjectDescriptor\Settings** |  |
-
-
-
 
 ***
 
@@ -357,16 +212,6 @@ Returns the settings used to build the documentation for this project.
 public getSettings(): \phpDocumentor\Descriptor\ProjectDescriptor\Settings
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPartials
@@ -377,22 +222,14 @@ Sets all partials that can be used in a template.
 public setPartials(\phpDocumentor\Descriptor\Collection $partials): void
 ```
 
-Partials are blocks of text that can be inserted anywhere in a template using a special indicator. An example is
-the introduction partial that can add a custom piece of text to the homepage.
-
-
-
-
-
+Partials are blocks of text that can be inserted anywhere in a template using a special indicator. An example is the
+introduction partial that can add a custom piece of text to the homepage.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$partials` | **\phpDocumentor\Descriptor\Collection** |  |
-
-
-
 
 ***
 
@@ -403,15 +240,6 @@ Returns a list of all partials.
 ```php
 public getPartials(): \phpDocumentor\Descriptor\Collection
 ```
-
-
-
-
-
-
-
-
-
 
 **See Also:**
 
@@ -427,20 +255,11 @@ Checks whether the Project supports the given visibility.
 public isVisibilityAllowed(int $visibility): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$visibility` | **int** | One of the VISIBILITY_* constants of the Settings class. |
-
-
 
 **See Also:**
 

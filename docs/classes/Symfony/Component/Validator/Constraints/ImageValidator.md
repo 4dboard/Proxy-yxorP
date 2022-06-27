@@ -2,19 +2,13 @@
 
 # ImageValidator
 
-Validates whether a value is a valid image file and is valid
-against minWidth, maxWidth, minHeight and maxHeight constraints.
-
-
+Validates whether a value is a valid image file and is valid against minWidth, maxWidth, minHeight and maxHeight
+constraints.
 
 * Full name: `\Symfony\Component\Validator\Constraints\ImageValidator`
 * Parent class: [`\Symfony\Component\Validator\Constraints\FileValidator`](./FileValidator.md)
 
-
-
-
 ## Methods
-
 
 ### validate
 
@@ -24,28 +18,16 @@ against minWidth, maxWidth, minHeight and maxHeight constraints.
 public validate(mixed $value, \Symfony\Component\Validator\Constraint $constraint): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 | `$constraint` | **\Symfony\Component\Validator\Constraint** |  |
-
-
-
 
 ***
 
-
 ## Inherited methods
-
 
 ### validate
 
@@ -55,39 +37,22 @@ public validate(mixed $value, \Symfony\Component\Validator\Constraint $constrain
 public validate(mixed $value, \Symfony\Component\Validator\Constraint $constraint): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 | `$constraint` | **\Symfony\Component\Validator\Constraint** |  |
-
-
-
 
 ***
 
 ### moreDecimalsThan
 
-
-
 ```php
 private static moreDecimalsThan(mixed $double, mixed $numberOfDecimals): mixed
 ```
 
-
-
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -95,9 +60,6 @@ private static moreDecimalsThan(mixed $double, mixed $numberOfDecimals): mixed
 |-----------|------|-------------|
 | `$double` | **mixed** |  |
 | `$numberOfDecimals` | **mixed** |  |
-
-
-
 
 ***
 
@@ -110,13 +72,6 @@ Convert the limit to the smallest possible number
 private factorizeSizes(mixed $size, mixed $limit, mixed $binaryFormat): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -124,9 +79,6 @@ private factorizeSizes(mixed $size, mixed $limit, mixed $binaryFormat): mixed
 | `$size` | **mixed** |  |
 | `$limit` | **mixed** |  |
 | `$binaryFormat` | **mixed** |  |
-
-
-
 
 ***
 
@@ -138,41 +90,23 @@ Initializes the constraint validator.
 public initialize(\Symfony\Component\Validator\ExecutionContextInterface $context): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$context` | **\Symfony\Component\Validator\ExecutionContextInterface** | The current validation context |
 
-
-
-
 ***
 
 ### buildViolation
 
-Wrapper for {@link ExecutionContextInterface::buildViolation} that
-supports the 2.4 context API.
+Wrapper for {@link ExecutionContextInterface::buildViolation} that supports the 2.4 context API.
 
 ```php
 protected buildViolation(string $message, array $parameters = array()): \Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -180,7 +114,6 @@ protected buildViolation(string $message, array $parameters = array()): \Symfony
 |-----------|------|-------------|
 | `$message` | **string** | The violation message |
 | `$parameters` | **array** | The message parameters |
-
 
 **Return Value:**
 
@@ -192,21 +125,13 @@ The violation builder
 
 ### buildViolationInContext
 
-Wrapper for {@link ExecutionContextInterface::buildViolation} that
-supports the 2.4 context API.
+Wrapper for {@link ExecutionContextInterface::buildViolation} that supports the 2.4 context API.
 
 ```php
 protected buildViolationInContext(\Symfony\Component\Validator\ExecutionContextInterface $context, string $message, array $parameters = array()): \Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -215,7 +140,6 @@ protected buildViolationInContext(\Symfony\Component\Validator\ExecutionContextI
 | `$context` | **\Symfony\Component\Validator\ExecutionContextInterface** | The context to use |
 | `$message` | **string** | The violation message |
 | `$parameters` | **array** | The message parameters |
-
 
 **Return Value:**
 
@@ -233,22 +157,14 @@ Returns a string representation of the type of the value.
 protected formatTypeOf(mixed $value): string
 ```
 
-This method should be used if you pass the type of a value as
-message parameter to a constraint violation. Note that such
-parameters should usually not be included in messages aimed at
-non-technical people.
-
-
-
-
-
+This method should be used if you pass the type of a value as message parameter to a constraint violation. Note that
+such parameters should usually not be included in messages aimed at non-technical people.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to return the type of |
-
 
 **Return Value:**
 
@@ -267,22 +183,14 @@ protected formatValue(mixed $value, int $format): string
 ```
 
 This method returns the equivalent PHP tokens for most scalar types
-(i.e. "false" for false, "1" for 1 etc.). Strings are always wrapped
-in double quotes ("). Objects, arrays and resources are formatted as
-"object", "array" and "resource". If the $format bitmask contains
-the PRETTY_DATE bit, then {@link} objects will be formatted
-as RFC-3339 dates ("Y-m-d H:i:s").
+(i.e. "false" for false, "1" for 1 etc.). Strings are always wrapped in double quotes ("). Objects, arrays and resources
+are formatted as
+"object", "array" and "resource". If the $format bitmask contains the PRETTY_DATE bit, then {@link} objects will be
+formatted as RFC-3339 dates ("Y-m-d H:i:s").
 
-Be careful when passing message parameters to a constraint violation
-that (may) contain objects, arrays or resources. These parameters
-should only be displayed for technical users. Non-technical users
-won't know what an "object", "array" or "resource" is and will be
-confused by the violation message.
-
-
-
-
-
+Be careful when passing message parameters to a constraint violation that (may) contain objects, arrays or resources.
+These parameters should only be displayed for technical users. Non-technical users won't know what an "object", "array"
+or "resource" is and will be confused by the violation message.
 
 **Parameters:**
 
@@ -290,7 +198,6 @@ confused by the violation message.
 |-----------|------|-------------|
 | `$value` | **mixed** | The value to format as string |
 | `$format` | **int** | A bitwise combination of the format<br />constants in this class |
-
 
 **Return Value:**
 
@@ -308,13 +215,7 @@ Returns a string representation of a list of values.
 protected formatValues(array $values, int $format): string
 ```
 
-Each of the values is converted to a string using
-{@link}. The values are then concatenated with commas.
-
-
-
-
-
+Each of the values is converted to a string using {@link}. The values are then concatenated with commas.
 
 **Parameters:**
 
@@ -323,15 +224,13 @@ Each of the values is converted to a string using
 | `$values` | **array** | A list of values |
 | `$format` | **int** | A bitwise combination of the format<br />constants in this class |
 
-
 **Return Value:**
 
 The string representation of the value list
 
-
 **See Also:**
 
-* \Symfony\Component\Validator\formatValue() - 
+* \Symfony\Component\Validator\formatValue() -
 
 ***
 

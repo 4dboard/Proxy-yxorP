@@ -4,51 +4,31 @@
 
 Class representing a single GraphViz attribute.
 
-
-
 * Full name: `\phpDocumentor\GraphViz\Attribute`
 
 **See Also:**
 
-* http://phpdoc.org - 
-
-
+* http://phpdoc.org -
 
 ## Properties
 
-
 ### key
-
-
 
 ```php
 protected string $key
 ```
 
-
-
-
-
-
 ***
 
 ### value
-
-
 
 ```php
 protected string $value
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -58,22 +38,12 @@ Creating a new attribute.
 public __construct(string $key, string $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | Id for the new attribute. |
 | `$value` | **string** | Value for this attribute, |
-
-
-
 
 ***
 
@@ -85,21 +55,11 @@ Sets the key for this attribute.
 public setKey(string $key): \phpDocumentor\GraphViz\Attribute
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** | The new name of this attribute. |
-
-
-
 
 ***
 
@@ -111,16 +71,6 @@ Returns the name for this attribute.
 public getKey(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setValue
@@ -131,21 +81,11 @@ Sets the value for this attribute.
 public setValue(string $value): \phpDocumentor\GraphViz\Attribute
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$value` | **string** | The new value. |
-
-
-
 
 ***
 
@@ -157,16 +97,6 @@ Returns the value for this attribute.
 public getValue(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __toString
@@ -176,16 +106,6 @@ Returns the attribute definition as is requested by GraphViz.
 ```php
 public __toString(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -197,16 +117,6 @@ Returns whether the value contains HTML.
 public isValueInHtml(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### isValueContainingSpecials
@@ -216,16 +126,6 @@ Checks whether the value contains any any special characters needing escaping.
 ```php
 public isValueContainingSpecials(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -237,18 +137,9 @@ Encode special characters so the escape sequences aren't removed
 protected encodeSpecials(): string
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://www.graphviz.org/doc/info/attrs.html#k:escString - 
+* http://www.graphviz.org/doc/info/attrs.html#k:escString -
 
 ***
 

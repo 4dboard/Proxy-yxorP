@@ -4,39 +4,26 @@
 
 Operation for the ListDatabases command, returning only database names.
 
-
-
 * Full name: `\MongoDB\Operation\ListDatabaseNames`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Client::listDatabaseNames() - 
-* http://docs.mongodb.org/manual/reference/command/ListDatabases/ - 
-
-
+* \MongoDB\Client::listDatabaseNames() -
+* http://docs.mongodb.org/manual/reference/command/ListDatabases/ -
 
 ## Properties
 
-
 ### listDatabases
-
-
 
 ```php
 private \MongoDB\Command\ListDatabases $listDatabases
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -48,8 +35,7 @@ public __construct(array $options = []): mixed
 
 Supported options:
 
-* authorizedDatabases (boolean): Determines which databases are returned
-  based on the user privileges.
+* authorizedDatabases (boolean): Determines which databases are returned based on the user privileges.
 
   For servers < 4.0.5, this option is ignored.
 
@@ -57,26 +43,17 @@ Supported options:
 
   For servers < 3.6, this option is ignored.
 
-* maxTimeMS (integer): The maximum amount of time to allow the query to
-  run.
+* maxTimeMS (integer): The maximum amount of time to allow the query to run.
 
 * session (MongoDB\Driver\Session): Client session.
 
   Sessions are not supported for server versions < 3.6.
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -88,24 +65,15 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \Iterator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 

@@ -2,7 +2,6 @@
 
 use GuzzleHttp\Client;
 use yxorP\Cache\Cache;
-use yxorP\Helper\HeaderHelper;
 use yxorP\Http\Request;
 use yxorP\Http\Response;
 
@@ -42,29 +41,31 @@ class yxorP
         $yxorP = new yxorP();
         $yxorP->siteContext($REQUEST);
 
-        require $yxorP::get('PLUGIN_DIR') . '/cache/State.php';
-        require $yxorP::get('PLUGIN_DIR') . '/cache/Cache.php';
-        require $yxorP::get('PLUGIN_DIR') . '/inc/guzzle.phar';
-        require $yxorP::get('PLUGIN_DIR') . '/inc/bugsnag.phar';
+        require self::get('PLUGIN_DIR') . '/cache/Cache.php';
+        require self::get('PLUGIN_DIR') . '/inc/guzzle.phar';
+        require self::get('PLUGIN_DIR') . '/inc/bugsnag.phar';
 
-        if (!file_exists($yxorP::set('CACHE_DIR', $yxorP::get('PLUGIN_DIR') . '/.cache/')) &&
-            !mkdir($concurrentDirectory = $yxorP::get('CACHE_DIR')) && !is_dir($concurrentDirectory))
+        if (!file_exists(self::set('CACHE_DIR', self::get('PLUGIN_DIR') . '/.cache/')) &&
+            !mkdir($concurrentDirectory = self::get('CACHE_DIR')) && !is_dir($concurrentDirectory))
             throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
 
-        $yxorP::set('CACHE_TIME', @time() + (60 * 60 * 24 * 31 * 365));
-        $yxorP::set('CACHE_KEY', base64_encode($yxorP::get('SERVER')['HTTP_HOST'] . $yxorP::get('SERVER')['REQUEST_URI']));
+        self::set('CACHE_TIME', @time() + (60 * 60 * 24 * 31 * 365));
+        self::set('CACHE_KEY', base64_encode(self::get('SERVER')['HTTP_HOST'] . self::get('SERVER')['REQUEST_URI']));
+
 
         try {
             $yxorP->fetchIncludes();
             $yxorP->header();
             $yxorP->forward();
         } catch (Exception $e) {
-            if ($yxorP::get('MIME') !== 'text/html') {
-                header("Location: " . $yxorP::get('PROXY_URL'));
+            if (self::get('MIME') === 'text/html' && self::get('MIME') != "document") {
+                header("Location: " . self::get('PROXY_URL'));
             } else {
-                Handler::Register($yxorP::set('BUGSNAG'), Client::make($yxorP::get('BUG_SNAG_KEY')));
-                if ($yxorP::get('DEBUG')) echo $e->__toString();
-                if ($yxorP::get('BUGSNAG')) $yxorP::get('BUGSNAG')->notifyException($e);
+                if (self::get('DEBUG') || !(int)str_contains(self::get('SERVER')['SERVER_NAME'], '.')) {
+                    echo $e->__toString();
+                }
+                Handler::Register(self::set('BUGSNAG'), Client::make(self::get('BUG_SNAG_KEY')));
+                if (self::get('BUGSNAG')) self::get('BUGSNAG')->notifyException($e);
             }
         }
         return (string)Cache::cache()->get();
@@ -75,19 +76,20 @@ class yxorP
         self::set('SERVER', $REQUEST);
         self::set('SITE_CONTEXT', new stdclass());
         require self::get('PLUGIN_DIR') . '/inc/Setup.php';
-        self::set('SITE_DOMAIN', self::extractDomain((string)self::get('SERVER')['SERVER_NAME']));
-        self::set('SITE_SUB_DOMAIN', self::extractSubdomains((string)self::get('SERVER')['SERVER_NAME']));
+        self::set('SITE_URL', self::get('SERVER')['SERVER_NAME']);
+        self::set('SITE_DOMAIN', self::extractDomain(self::get('SITE_URL')));
+        self::set('SITE_SUB_DOMAIN', self::extractSubdomains(self::get('SITE_URL')));
         self::set('TARGET', self::get('APP')->storage->findOne('collections/sites', ['host' => self::get('SITE_DOMAIN')]));
-        self::set('TARGET_SUB_DOMAIN', self::extractSubdomains(self::get('TARGET')['target']));
-        self::set('TARGET_DOMAIN', self::extractDomain(self::get('TARGET')['target']));
+        self::set('TARGET_URL', self::get('TARGET')['target']);
+        self::set('TARGET_SUB_DOMAIN', self::extractSubdomains(self::get('TARGET_URL')));
+        self::set('TARGET_DOMAIN', self::extractDomain(self::get('TARGET_URL')));
         self::set('GLOBAL_REPLACE', self::get('APP')->storage->findOne('collections/global', ['type' => 'replace']) ?
-            self::get('APP')->storage->findOne('collections /global', ['type' => 'replace'])['value'] : null);
+            self::get('APP')->storage->findOne('collections/global', ['type' => 'replace'])['value'] : null);
         self::set('GLOBAL_PATTERN', self::get('APP')->storage->findOne('collections /global', ['type' => 'pattern']) ?
             self::get('APP')->storage->findOne('collections /global', ['type' => 'pattern'])['value'] : null);
         self::set('GLOBAL_REWRITE', file_get_contents(self::get('PLUGIN_DIR') . '/override/global/includes/rewrite.csv'));
-        self::set('TARGET_URL', "https://" . self::get('SITE_SUB_DOMAIN') ?
-            (self::get('SITE_SUB_DOMAIN') . ".") : null . self::get('SITE_SUB_DOMAIN'));
-        self::set('PROXY_URL', self::get('TARGET_URL') . self::get('REQUEST_URI'));
+        self::set('FETCH', "https://" . ((!is_null(self::get('SITE_SUB_DOMAIN'))) ? (self::get('SITE_SUB_DOMAIN') . ".") : null) . self::get('TARGET_DOMAIN'));
+        self::set('PROXY_URL', self::get('FETCH') . self::get('REQUEST_URI'));
         self::set('DIR_FULL', self::get('PLUGIN_DIR') . '/override/' . self::get('TARGET')['files']);
 
     }
@@ -119,18 +121,15 @@ class yxorP
 
     public function fetchIncludes()
     {
-
         foreach (array('http', 'minify') as $_asset) self::fileCheck(self::get('PLUGIN_DIR') . DIRECTORY_SEPARATOR . $_asset, true);
-        if (str_contains(self::get('SERVER')['REQUEST_URI'], ' / cockpit')) require self::get('PLUGIN_DIR') . 'cockpit / index . php';
+        if (str_contains(self::get('SERVER')['REQUEST_URI'], '/cockpit')) require self::get('PLUGIN_DIR') . 'cockpit/index . php';
         self::set('RESPONSE', new Response());
         self::set('REQUEST', Request::createFromGlobals());
         self::fileCheck(self::get('DIR_FULL'), false);
         if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
-        self::fileCheck(self::get('PLUGIN_DIR') . ' / override /global', false);
+        self::fileCheck(self::get('PLUGIN_DIR') . '/override /global', false);
         if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
-        error_reporting(!(int)str_contains(self::get('SERVER')['SERVER_NAME'], ' . '));
-
-        if (isset($_GET["CLECHE"])) Cache::cache()->clearAll();
+        error_reporting(self::get('DEBUG') || !(int)str_contains(self::get('SERVER')['SERVER_NAME'], '.'));
 
         if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
 
@@ -191,26 +190,25 @@ class yxorP
         header('Access - Control - Allow - Credentials: true');
         header('Access - Control - Allow - Headers: Origin,Access - Control - Allow - Headers,Content - Type,Access - Control - Allow - Methods, Authorization, X - Requested - With,Access - Control - Allow - Credentials');
 
-        $_types = array('txt' => 'text / plain', 'htm' => 'text / html', 'html' => 'text / html', 'php' => 'text / html', 'css' => 'text / css', 'js' => 'application / javascript', 'json' => 'application / json', 'xml' => 'application / xml', 'swf' => 'application / x - shockwave - flash', 'flv' => 'video / x - flv', 'png' => 'image / png', 'jpe' => 'image / jpeg', 'jpeg' => 'image / jpeg', 'jpg' => 'image / jpeg', 'gif' => 'image / gif', 'bmp' => 'image / bmp', 'ico' => 'image / vnd . microsoft . icon', 'tiff' => 'image / tiff', 'tif' => 'image / tiff', 'svg' => 'image / svg + xml', 'svgz' => 'image / svg + xml', 'zip' => 'application / zip', 'rar' => 'application / x - rar - compressed', 'exe' => 'application / x - msdownload', 'msi' => 'application / x - msdownload', 'cab' => 'application / vnd . ms - cab - compressed', 'mp3' => 'audio / mpeg', 'qt' => 'video / quicktime', 'mov' => 'video / quicktime', 'pdf' => 'application / pdf', 'psd' => 'image / vnd . adobe . photoshop', 'ai' => 'application / postscript', 'eps' => 'application / postscript', 'ps' => 'application / postscript', 'doc' => 'application / msword', 'rtf' => 'application / rtf', 'xls' => 'application / vnd . ms - excel', 'ppt' => 'application / vnd . ms - powerpoint', 'odt' => 'application / vnd . oasis . opendocument . text', 'ods' => 'application / vnd . oasis . opendocument . spreadsheet');
+        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x - shockwave - flash', 'flv' => 'video/x - flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd . microsoft . icon', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg + xml', 'svgz' => 'image/svg + xml', 'zip' => 'application/zip', 'rar' => 'application/x - rar - compressed', 'exe' => 'application/x - msdownload', 'msi' => 'application/x - msdownload', 'cab' => 'application/vnd . ms - cab - compressed', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd . adobe . photoshop', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd . ms - excel', 'ppt' => 'application/vnd . ms - powerpoint', 'odt' => 'application/vnd', 'ods' => 'application/vnd');
         $_ext = pathinfo(strtok(self::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
         if (str_contains(self::get('PROXY_URL'), 'bundle . js')) {
-            self::set('MIME', 'application / wasm');
-        } else
-            if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'sitemap')) {
-                self::set('MIME', 'application / xml');
-            } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'crop')) {
-                self::set('MIME', 'image / png');
-            } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'format')) {
-                self::set('MIME', 'image / png');
-            } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), ' . mp4')) {
-                self::set('MIME', 'video / mp4');
-            } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), ' . js . br')) {
-                self::set('MIME', 'br');
-            } else if (!self::get('MIME') && array_key_exists($_ext, $_types)) {
-                self::set('MIME', $_types[$_ext]);
-            } else {
-                self::set('MIME', 'text / html');
-            }
+            self::set('MIME', 'application/wasm');
+        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'sitemap')) {
+            self::set('MIME', 'application/xml');
+        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'crop')) {
+            self::set('MIME', 'image/png');
+        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'format')) {
+            self::set('MIME', 'image/png');
+        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), ' . mp4')) {
+            self::set('MIME', 'video/mp4');
+        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), ' . js . br')) {
+            self::set('MIME', 'br');
+        } else if (!self::get('MIME') && array_key_exists($_ext, $_types)) {
+            self::set('MIME', $_types[$_ext]);
+        } else {
+            self::set('MIME', 'text/html');
+        }
 
         header('Content - Type: ' . self::get('MIME') . '; charset = UTF - 8');
     }
@@ -219,7 +217,7 @@ class yxorP
     {
         if ($_body = file_get_contents('php://input')) self::get('REQUEST')->setBody(json_decode($_body, true), self::get('MIME'));
         self::dispatch('request.before_send');
-        self::get('RESPONSE')->setContent((new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]))->request(self::get('REQUEST')->getMethod(), self::get('REQUEST')->getUri(), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
+        self::get('RESPONSE')->setContent((new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]))->request(self::get('REQUEST')->getMethod(), self::get('FETCH'), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
         self::dispatch('request.complete');
         Cache::cache()->set(self::get('RESPONSE')->getContent());
     }

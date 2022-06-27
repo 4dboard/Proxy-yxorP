@@ -4,64 +4,41 @@
 
 Database information model class.
 
-This class models the database information returned by the listDatabases
-command. It provides methods to access common database properties.
+This class models the database information returned by the listDatabases command. It provides methods to access common
+database properties.
 
 * Full name: `\MongoDB\Model\DatabaseInfo`
 * This class implements:
-[`\ArrayAccess`](../../ArrayAccess.md)
+  [`\ArrayAccess`](../../ArrayAccess.md)
 
 **See Also:**
 
-* \MongoDB\Client::listDatabases() - 
-* http://docs.mongodb.org/manual/reference/command/listDatabases/ - 
-
-
+* \MongoDB\Client::listDatabases() -
+* http://docs.mongodb.org/manual/reference/command/listDatabases/ -
 
 ## Properties
 
-
 ### info
-
-
 
 ```php
 private array $info
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(array $info): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$info` | **array** | Database info |
-
-
-
 
 ***
 
@@ -73,18 +50,9 @@ Return the database info as an array.
 public __debugInfo(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/oop5.magic#language.oop5.magic.debuginfo - 
+* http://php.net/oop5.magic#language.oop5.magic.debuginfo -
 
 ***
 
@@ -96,16 +64,6 @@ Return the database name.
 public getName(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getSizeOnDisk
@@ -115,16 +73,6 @@ Return the databases size on disk (in bytes).
 ```php
 public getSizeOnDisk(): int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -136,16 +84,6 @@ Return whether the database is empty.
 public isEmpty(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### offsetExists
@@ -156,24 +94,15 @@ Check whether a field exists in the database information.
 public offsetExists(mixed $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetexists - 
+* http://php.net/arrayaccess.offsetexists -
 
 ***
 
@@ -185,24 +114,15 @@ Return the field's value from the database information.
 public offsetGet(mixed $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetget - 
+* http://php.net/arrayaccess.offsetget -
 
 ***
 
@@ -214,13 +134,6 @@ Not supported.
 public offsetSet(mixed $key, mixed $value): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -228,11 +141,9 @@ public offsetSet(mixed $key, mixed $value): mixed
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetset - 
+* http://php.net/arrayaccess.offsetset -
 
 ***
 
@@ -244,24 +155,15 @@ Not supported.
 public offsetUnset(mixed $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/arrayaccess.offsetunset - 
+* http://php.net/arrayaccess.offsetunset -
 
 ***
 

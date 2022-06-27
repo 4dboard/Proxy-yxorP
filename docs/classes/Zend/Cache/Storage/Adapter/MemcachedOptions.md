@@ -4,15 +4,10 @@
 
 These are options specific to the Memcached adapter
 
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\MemcachedOptions`
 * Parent class: [`\Zend\Cache\Storage\Adapter\AdapterOptions`](./AdapterOptions.md)
 
-
-
 ## Properties
-
 
 ### namespaceSeparator
 
@@ -21,11 +16,6 @@ The namespace separator
 ```php
 protected string $namespaceSeparator
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ The memcached resource manager
 protected null|\Zend\Cache\Storage\Adapter\MemcachedResourceManager $resourceManager
 ```
 
-
-
-
-
-
 ***
 
 ### resourceId
@@ -52,15 +37,9 @@ The resource id of the resource manager
 protected string $resourceId
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setNamespace
 
@@ -70,13 +49,7 @@ Set namespace.
 public setNamespace(mixed $namespace): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-The option Memcached::OPT_PREFIX_KEY will be used as the namespace.
-It can't be longer than 128 characters.
-
-
-
-
-
+The option Memcached::OPT_PREFIX_KEY will be used as the namespace. It can't be longer than 128 characters.
 
 **Parameters:**
 
@@ -84,11 +57,10 @@ It can't be longer than 128 characters.
 |-----------|------|-------------|
 | `$namespace` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\AdapterOptions::setNamespace() - * \Zend\Cache\Storage\Adapter\MemcachedOptions::setPrefixKey() - 
+* \Zend\Cache\Storage\Adapter\AdapterOptions::setNamespace() - * \Zend\Cache\Storage\Adapter\MemcachedOptions::
+  setPrefixKey() -
 
 ***
 
@@ -100,21 +72,11 @@ Set namespace separator
 public setNamespaceSeparator(string $namespaceSeparator): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespaceSeparator` | **string** |  |
-
-
-
 
 ***
 
@@ -126,16 +88,6 @@ Get namespace separator
 public getNamespaceSeparator(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setMemcachedResource
@@ -146,23 +98,13 @@ A memcached resource to share
 public setMemcachedResource(null|\Memcached $memcachedResource = null): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$memcachedResource` | **null&#124;\Memcached** |  |
-
-
-
 
 ***
 
@@ -174,17 +116,7 @@ Get memcached resource to share
 public getMemcachedResource(): \Memcached
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
-
-
-
 
 ***
 
@@ -196,21 +128,11 @@ Set the memcached resource manager to use
 public setResourceManager(null|\Zend\Cache\Storage\Adapter\MemcachedResourceManager $resourceManager = null): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceManager` | **null&#124;\Zend\Cache\Storage\Adapter\MemcachedResourceManager** |  |
-
-
-
 
 ***
 
@@ -222,16 +144,6 @@ Get the memcached resource manager
 public getResourceManager(): \Zend\Cache\Storage\Adapter\MemcachedResourceManager
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getResourceId
@@ -241,16 +153,6 @@ Get the memcached resource id
 ```php
 public getResourceId(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -262,21 +164,11 @@ Set the memcached resource id
 public setResourceId(string $resourceId): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **string** |  |
-
-
-
 
 ***
 
@@ -288,16 +180,6 @@ Get the persistent id
 public getPersistentId(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setPersistentId
@@ -308,21 +190,11 @@ Set the persistent id
 public setPersistentId(string $persistentId): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$persistentId` | **string** |  |
-
-
-
 
 ***
 
@@ -334,14 +206,7 @@ Add a server to the list
 public addServer(string $host, int $port = 11211, int $weight): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -350,9 +215,6 @@ public addServer(string $host, int $port = 11211, int $weight): \Zend\Cache\Stor
 | `$host` | **string** |  |
 | `$port` | **int** |  |
 | `$weight` | **int** |  |
-
-
-
 
 ***
 
@@ -364,21 +226,11 @@ Set a list of memcached servers to add on initialize
 public setServers(string|array $servers): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$servers` | **string&#124;array** | list of servers |
-
-
-
 
 ***
 
@@ -390,16 +242,6 @@ Get Servers
 public getServers(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setLibOptions
@@ -410,24 +252,15 @@ Set libmemcached options
 public setLibOptions(array $libOptions): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$libOptions` | **array** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/memcached.constants.php - 
+* http://php.net/manual/memcached.constants.php -
 
 ***
 
@@ -439,14 +272,7 @@ Set libmemcached option
 public setLibOption(string|int $key, mixed $value): \Zend\Cache\Storage\Adapter\MemcachedOptions
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -455,11 +281,9 @@ public setLibOption(string|int $key, mixed $value): \Zend\Cache\Storage\Adapter\
 | `$key` | **string&#124;int** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/memcached.constants.php - 
+* http://php.net/manual/memcached.constants.php -
 
 ***
 
@@ -471,18 +295,9 @@ Get libmemcached options
 public getLibOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/memcached.constants.php - 
+* http://php.net/manual/memcached.constants.php -
 
 ***
 
@@ -494,14 +309,7 @@ Get libmemcached option
 public getLibOption(string|int $key): mixed
 ```
 
-
-
-
-
-
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
-
 
 **Parameters:**
 
@@ -509,17 +317,13 @@ public getLibOption(string|int $key): mixed
 |-----------|------|-------------|
 | `$key` | **string&#124;int** |  |
 
-
-
 **See Also:**
 
-* http://php.net/manual/memcached.constants.php - 
+* http://php.net/manual/memcached.constants.php -
 
 ***
 
-
 ## Inherited methods
-
 
 ### setAdapter
 
@@ -529,21 +333,11 @@ Adapter using this instance
 public setAdapter(\Zend\Cache\Storage\StorageInterface|null $adapter = null): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapter` | **\Zend\Cache\Storage\StorageInterface&#124;null** |  |
-
-
-
 
 ***
 
@@ -555,21 +349,11 @@ Set key pattern
 public setKeyPattern(null|string $keyPattern): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyPattern` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -581,16 +365,6 @@ Get key pattern
 public getKeyPattern(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespace
@@ -601,21 +375,11 @@ Set namespace.
 public setNamespace(string $namespace): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -627,16 +391,6 @@ Get namespace
 public getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setReadable
@@ -647,21 +401,11 @@ Enable/Disable reading data from cache.
 public setReadable(bool $readable): \Zend\Cache\Storage\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readable` | **bool** |  |
-
-
-
 
 ***
 
@@ -673,16 +417,6 @@ If reading data from cache enabled.
 public getReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTtl
@@ -693,21 +427,11 @@ Set time to live.
 public setTtl(int|float $ttl): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -719,16 +443,6 @@ Get time to live.
 public getTtl(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setWritable
@@ -739,21 +453,11 @@ Enable/Disable writing data to cache.
 public setWritable(bool $writable): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writable` | **bool** |  |
-
-
-
 
 ***
 
@@ -765,33 +469,15 @@ If writing data to cache enabled.
 public getWritable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### triggerOptionEvent
 
-Triggers an option event if this options instance has a connection to
-an adapter implements EventsCapableInterface.
+Triggers an option event if this options instance has a connection to an adapter implements EventsCapableInterface.
 
 ```php
 protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -799,9 +485,6 @@ protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 |-----------|------|-------------|
 | `$optionName` | **string** |  |
 | `$optionValue` | **mixed** |  |
-
-
-
 
 ***
 
@@ -813,21 +496,11 @@ Validates and normalize a TTL.
 protected normalizeTtl(int|float& $ttl): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -839,21 +512,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -865,19 +528,11 @@ Set one or more configuration properties
 public setFromArray(array|\Traversable|\Zend\Stdlib\AbstractOptions $options): \Zend\Stdlib\AbstractOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Stdlib\AbstractOptions** |  |
-
 
 **Return Value:**
 
@@ -895,16 +550,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __set
@@ -915,13 +560,6 @@ Set a configuration property
 public __set(string $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -929,11 +567,9 @@ public __set(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__set() - 
+* \Zend\Stdlib\ParameterObject::__set() -
 
 ***
 
@@ -945,24 +581,15 @@ Get a configuration property
 public __get(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__get() - 
+* \Zend\Stdlib\ParameterObject::__get() -
 
 ***
 
@@ -974,24 +601,15 @@ Test if a configuration property is null
 public __isset(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__isset() - 
+* \Zend\Stdlib\ParameterObject::__isset() -
 
 ***
 
@@ -1003,24 +621,15 @@ Set a configuration property to NULL
 public __unset(string $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__unset() - 
+* \Zend\Stdlib\ParameterObject::__unset() -
 
 ***
 

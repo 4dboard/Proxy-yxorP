@@ -2,10 +2,7 @@
 
 # FilterIterator
 
-This iterator just overrides the rewind method in order to correct a PHP bug,
-which existed before version 5.5.23/5.6.7.
-
-
+This iterator just overrides the rewind method in order to correct a PHP bug, which existed before version 5.5.23/5.6.7.
 
 * Full name: `\Symfony\Component\Finder\Iterator\FilterIterator`
 * Parent class: [`FilterIterator`](../../../../FilterIterator.md)
@@ -13,35 +10,22 @@ which existed before version 5.5.23/5.6.7.
 
 **See Also:**
 
-* https://bugs.php.net/68557 - 
-
-
-
+* https://bugs.php.net/68557 -
 
 ## Methods
 
-
 ### rewind
 
-This is a workaround for the problem with \FilterIterator leaving inner \FilesystemIterator in wrong state after
-rewind in some cases.
+This is a workaround for the problem with \FilterIterator leaving inner \FilesystemIterator in wrong state after rewind
+in some cases.
 
 ```php
 public rewind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilterIterator::rewind() - 
+* \Symfony\Component\Finder\Iterator\FilterIterator::rewind() -
 
 ***
 

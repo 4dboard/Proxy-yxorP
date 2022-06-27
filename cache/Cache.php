@@ -2,6 +2,8 @@
 
 use yxorP;
 
+require yxorP::get('PLUGIN_DIR') . '/cache/State.php';
+
 class Cache
 {
     public const OPTIONS = '.attr';
@@ -9,9 +11,9 @@ class Cache
     private Cache $attr_instance;
     private $options;
 
-
     private function __construct($is_super = true)
     {
+        if (isset($_GET["CLECHE"])) $this->clearAll();
         $this->options = ['expiry' => -1, 'lock' => false];
         if ($is_super) {
             $this->attr_instance = new self(false);
@@ -19,14 +21,6 @@ class Cache
                 $this->options = $this->attr_instance->get();
             }
         }
-    }
-
-    public static function cache()
-    {
-        if (!isset(self::$instance[yxorP::get('CACHE_KEY')])) {
-            self::$instance[yxorP::get('CACHE_KEY')] = new self(yxorP::get('CACHE_KEY'));
-        }
-        return self::$instance[yxorP::get('CACHE_KEY')];
     }
 
     public static function clearAll(): void
@@ -37,6 +31,11 @@ class Cache
                 unlink($file);
             }
         }
+    }
+
+    private function isExists(): bool
+    {
+        return file_exists(yxorP::get('CACHE_DIR') . yxorP::get('CACHE_KEY'));
     }
 
     public function get()
@@ -58,23 +57,25 @@ class Cache
         return true;
     }
 
-    public function set($val): Cache
+    public static function cache()
     {
-        if ($this->options['lock']) return $this;
-        $_fopen = fopen(yxorP::get('CACHE_DIR') . yxorP::get('CACHE_KEY') . ".cache", 'xb');
-        $_cache = '<?=' . str_replace('std/**
-
- *
-
- */
-class::__set_state', '(object)', var_export($val, true)) . ';exit;';
-        $_write = fwrite($_fopen, $_cache);
-        fclose();
-        return $this;
+        if (!isset(self::$instance[yxorP::get('CACHE_KEY')])) {
+            self::$instance[yxorP::get('CACHE_KEY')] = new self();
+        }
+        return self::$instance[yxorP::get('CACHE_KEY')];
     }
 
-    private function isExists(): bool
+    public function set($val): Cache
     {
-        return file_exists(yxorP::get('CACHE_DIR') . yxorP::get('CACHE_KEY'));
+        if ($this->options['lock']) {
+            return $this;
+        }
+        $val = var_export($val, true);
+        $val = '<?=' . str_replace('stdClass::__set_state', '(object)', $val) . ';exit;';
+        $loc = yxorP::get('CACHE_DIR') . yxorP::get('CACHE_KEY');
+        $file = fopen($loc, 'w');
+        fwrite($file, $val);
+        fclose($file);
+        return $this;
     }
 }

@@ -4,99 +4,60 @@
 
 Operation for inserting a single document with the insert command.
 
-
-
 * Full name: `\MongoDB\Operation\InsertOne`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::insertOne() - 
-* http://docs.mongodb.org/manual/reference/command/insert/ - 
-
-
+* \MongoDB\Collection::insertOne() -
+* http://docs.mongodb.org/manual/reference/command/insert/ -
 
 ## Properties
 
-
 ### wireVersionForDocumentLevelValidation
-
-
 
 ```php
 private static int $wireVersionForDocumentLevelValidation
 ```
 
-
-
 * This property is **static**.
-
 
 ***
 
 ### databaseName
 
-
-
 ```php
 private string $databaseName
 ```
-
-
-
-
-
 
 ***
 
 ### collectionName
 
-
-
 ```php
 private string $collectionName
 ```
-
-
-
-
-
 
 ***
 
 ### document
 
-
-
 ```php
 private array|object $document
 ```
-
-
-
-
-
 
 ***
 
 ### options
 
-
-
 ```php
 private array $options
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -108,22 +69,15 @@ public __construct(string $databaseName, string $collectionName, array|object $d
 
 Supported options:
 
-* bypassDocumentValidation (boolean): If true, allows the write to
-  circumvent document level validation.
+* bypassDocumentValidation (boolean): If true, allows the write to circumvent document level validation.
 
-  For servers < 3.2, this option is ignored as document level validation
-  is not available.
+  For servers < 3.2, this option is ignored as document level validation is not available.
 
 * session (MongoDB\Driver\Session): Client session.
 
   Sessions are not supported for server versions < 3.6.
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
-
-
-
-
-
 
 **Parameters:**
 
@@ -133,9 +87,6 @@ Supported options:
 | `$collectionName` | **string** | Collection name |
 | `$document` | **array&#124;object** | Document to insert |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -147,24 +98,15 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \MongoDB\InsertOneResult
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 
@@ -176,18 +118,9 @@ Create options for executing the bulk write.
 private createOptions(): array
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php - 
+* http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php -
 
 ***
 

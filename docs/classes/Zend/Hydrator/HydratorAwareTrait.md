@@ -2,16 +2,9 @@
 
 # HydratorAwareTrait
 
-
-
-
-
 * Full name: `\Zend\Hydrator\HydratorAwareTrait`
 
-
-
 ## Properties
-
 
 ### hydrator
 
@@ -21,15 +14,9 @@ Hydrator instance
 protected \Zend\Hydrator\HydratorInterface $hydrator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setHydrator
 
@@ -39,21 +26,11 @@ Set hydrator
 public setHydrator(\Zend\Hydrator\HydratorInterface $hydrator): self
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$hydrator` | **\Zend\Hydrator\HydratorInterface** |  |
-
-
-
 
 ***
 
@@ -64,16 +41,6 @@ Retrieve hydrator
 ```php
 public getHydrator(): null|\Zend\Hydrator\HydratorInterface
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

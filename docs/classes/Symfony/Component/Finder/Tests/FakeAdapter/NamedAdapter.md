@@ -4,57 +4,32 @@
 
 Interface for finder engine implementations.
 
-
-
 * Full name: `\Symfony\Component\Finder\Tests\FakeAdapter\NamedAdapter`
 * Parent class: [`\Symfony\Component\Finder\Adapter\AbstractAdapter`](../../Adapter/AbstractAdapter.md)
 
-
-
 ## Properties
 
-
 ### name
-
-
 
 ```php
 private string $name
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(string $name): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **string** |  |
-
-
-
 
 ***
 
@@ -66,21 +41,11 @@ public __construct(string $name): mixed
 public searchInDirectory(mixed $dir): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dir` | **mixed** |  |
-
-
-
 
 ***
 
@@ -92,16 +57,6 @@ public searchInDirectory(mixed $dir): mixed
 public getName(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### canBeUsed
@@ -112,14 +67,6 @@ Returns whether the adapter is supported in the current environment.
 protected canBeUsed(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 Whether the adapter is supported
@@ -128,9 +75,7 @@ Whether the adapter is supported
 
 ***
 
-
 ## Inherited methods
-
 
 ### isSupported
 
@@ -140,32 +85,13 @@ Tests adapter support for current platform.
 public isSupported(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFollowLinks
 
-
-
 ```php
 public setFollowLinks(mixed $followLinks): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -173,25 +99,13 @@ public setFollowLinks(mixed $followLinks): $this
 |-----------|------|-------------|
 | `$followLinks` | **mixed** |  |
 
-
-
-
 ***
 
 ### setMode
 
-
-
 ```php
 public setMode(mixed $mode): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -199,25 +113,13 @@ public setMode(mixed $mode): $this
 |-----------|------|-------------|
 | `$mode` | **mixed** |  |
 
-
-
-
 ***
 
 ### setDepths
 
-
-
 ```php
 public setDepths(array $depths): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -225,25 +127,13 @@ public setDepths(array $depths): $this
 |-----------|------|-------------|
 | `$depths` | **array** |  |
 
-
-
-
 ***
 
 ### setExclude
 
-
-
 ```php
 public setExclude(array $exclude): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -251,25 +141,13 @@ public setExclude(array $exclude): $this
 |-----------|------|-------------|
 | `$exclude` | **array** |  |
 
-
-
-
 ***
 
 ### setNames
 
-
-
 ```php
 public setNames(array $names): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -277,25 +155,13 @@ public setNames(array $names): $this
 |-----------|------|-------------|
 | `$names` | **array** |  |
 
-
-
-
 ***
 
 ### setNotNames
 
-
-
 ```php
 public setNotNames(array $notNames): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -303,25 +169,13 @@ public setNotNames(array $notNames): $this
 |-----------|------|-------------|
 | `$notNames` | **array** |  |
 
-
-
-
 ***
 
 ### setContains
 
-
-
 ```php
 public setContains(array $contains): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -329,25 +183,13 @@ public setContains(array $contains): $this
 |-----------|------|-------------|
 | `$contains` | **array** |  |
 
-
-
-
 ***
 
 ### setNotContains
 
-
-
 ```php
 public setNotContains(array $notContains): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -355,25 +197,13 @@ public setNotContains(array $notContains): $this
 |-----------|------|-------------|
 | `$notContains` | **array** |  |
 
-
-
-
 ***
 
 ### setSizes
 
-
-
 ```php
 public setSizes(array $sizes): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -381,25 +211,13 @@ public setSizes(array $sizes): $this
 |-----------|------|-------------|
 | `$sizes` | **array** |  |
 
-
-
-
 ***
 
 ### setDates
 
-
-
 ```php
 public setDates(array $dates): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -407,25 +225,13 @@ public setDates(array $dates): $this
 |-----------|------|-------------|
 | `$dates` | **array** |  |
 
-
-
-
 ***
 
 ### setFilters
 
-
-
 ```php
 public setFilters(array $filters): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -433,25 +239,13 @@ public setFilters(array $filters): $this
 |-----------|------|-------------|
 | `$filters` | **array** |  |
 
-
-
-
 ***
 
 ### setSort
 
-
-
 ```php
 public setSort(mixed $sort): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -459,25 +253,13 @@ public setSort(mixed $sort): $this
 |-----------|------|-------------|
 | `$sort` | **mixed** |  |
 
-
-
-
 ***
 
 ### setPath
 
-
-
 ```php
 public setPath(array $paths): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -485,25 +267,13 @@ public setPath(array $paths): $this
 |-----------|------|-------------|
 | `$paths` | **array** |  |
 
-
-
-
 ***
 
 ### setNotPath
 
-
-
 ```php
 public setNotPath(array $notPaths): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -511,34 +281,19 @@ public setNotPath(array $notPaths): $this
 |-----------|------|-------------|
 | `$notPaths` | **array** |  |
 
-
-
-
 ***
 
 ### ignoreUnreadableDirs
 
-
-
 ```php
 public ignoreUnreadableDirs(mixed $ignore = true): $this
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ignore` | **mixed** |  |
-
-
-
 
 ***
 
@@ -550,24 +305,18 @@ Returns whether the adapter is supported in the current environment.
 protected canBeUsed(): bool
 ```
 
-This method should be implemented in all adapters. Do not implement
-isSupported in the adapters as the generic implementation provides a cache
-layer.
-
+This method should be implemented in all adapters. Do not implement isSupported in the adapters as the generic
+implementation provides a cache layer.
 
 * This method is **abstract**.
-
-
-
 
 **Return Value:**
 
 Whether the adapter is supported
 
-
 **See Also:**
 
-* \Symfony\Component\Finder\Adapter\isSupported() - 
+* \Symfony\Component\Finder\Adapter\isSupported() -
 
 ***
 

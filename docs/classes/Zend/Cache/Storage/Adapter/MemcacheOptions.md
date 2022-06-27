@@ -4,15 +4,10 @@
 
 These are options specific to the Memcache adapter
 
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\MemcacheOptions`
 * Parent class: [`\Zend\Cache\Storage\Adapter\AdapterOptions`](./AdapterOptions.md)
 
-
-
 ## Properties
-
 
 ### namespaceSeparator
 
@@ -21,11 +16,6 @@ The namespace separator
 ```php
 protected string $namespaceSeparator
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ The memcache resource manager
 protected null|\Zend\Cache\Storage\Adapter\MemcacheResourceManager $resourceManager
 ```
 
-
-
-
-
-
 ***
 
 ### resourceId
@@ -51,11 +36,6 @@ The resource id of the resource manager
 ```php
 protected string $resourceId
 ```
-
-
-
-
-
 
 ***
 
@@ -67,15 +47,9 @@ Enable compression when data is written
 protected bool $compression
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setNamespace
 
@@ -87,22 +61,16 @@ public setNamespace(mixed $namespace): \Zend\Cache\Storage\Adapter\AdapterOption
 
 It can't be longer than 128 characters.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\AdapterOptions::setNamespace() - * \Zend\Cache\Storage\Adapter\MemcacheOptions::setPrefixKey() - 
+* \Zend\Cache\Storage\Adapter\AdapterOptions::setNamespace() - * \Zend\Cache\Storage\Adapter\MemcacheOptions::
+  setPrefixKey() -
 
 ***
 
@@ -114,21 +82,11 @@ Set namespace separator
 public setNamespaceSeparator(string $namespaceSeparator): \Zend\Cache\Storage\Adapter\MemcacheOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespaceSeparator` | **string** |  |
-
-
-
 
 ***
 
@@ -140,16 +98,6 @@ Get namespace separator
 public getNamespaceSeparator(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setResourceManager
@@ -160,21 +108,11 @@ Set the memcache resource manager to use
 public setResourceManager(null|\Zend\Cache\Storage\Adapter\MemcacheResourceManager $resourceManager = null): \Zend\Cache\Storage\Adapter\MemcacheOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceManager` | **null&#124;\Zend\Cache\Storage\Adapter\MemcacheResourceManager** |  |
-
-
-
 
 ***
 
@@ -186,16 +124,6 @@ Get the memcache resource manager
 public getResourceManager(): \Zend\Cache\Storage\Adapter\MemcacheResourceManager
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### getResourceId
@@ -205,16 +133,6 @@ Get the memcache resource id
 ```php
 public getResourceId(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -226,21 +144,11 @@ Set the memcache resource id
 public setResourceId(string $resourceId): \Zend\Cache\Storage\Adapter\MemcacheOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resourceId` | **string** |  |
-
-
-
 
 ***
 
@@ -252,16 +160,6 @@ Is compressed writes turned on?
 public getCompression(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setCompression
@@ -272,21 +170,11 @@ Set whether compressed writes are turned on or not
 public setCompression(bool $compression): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$compression` | **bool** |  |
-
-
-
 
 ***
 
@@ -298,21 +186,11 @@ Sets a list of memcache servers to add on initialize
 public setServers(string|array $servers): \Zend\Cache\Storage\Adapter\MemcacheOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$servers` | **string&#124;array** | list of servers |
-
-
-
 
 ***
 
@@ -324,16 +202,6 @@ Get Servers
 public getServers(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAutoCompressThreshold
@@ -344,21 +212,11 @@ Set compress threshold
 public setAutoCompressThreshold(int|string|array|\ArrayAccess|null $threshold): \Zend\Cache\Storage\Adapter\MemcacheOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$threshold` | **int&#124;string&#124;array&#124;\ArrayAccess&#124;null** |  |
-
-
-
 
 ***
 
@@ -370,16 +228,6 @@ Get compress threshold
 public getAutoCompressThreshold(): int|null
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setAutoCompressMinSavings
@@ -390,21 +238,11 @@ Set compress min savings option
 public setAutoCompressMinSavings(float|string|null $minSavings): \Zend\Cache\Storage\Adapter\MemcacheOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$minSavings` | **float&#124;string&#124;null** |  |
-
-
-
 
 ***
 
@@ -416,16 +254,6 @@ Get compress min savings
 public getAutoCompressMinSavings(): \Zend\Cache\Exception\RuntimeException
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setServerDefaults
@@ -436,21 +264,11 @@ Set default server values
 public setServerDefaults(array $serverDefaults): \Zend\Cache\Storage\Adapter\MemcacheOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serverDefaults` | **array** |  |
-
-
-
 
 ***
 
@@ -462,16 +280,6 @@ Get default server values
 public getServerDefaults(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFailureCallback
@@ -482,21 +290,11 @@ Set callback for server connection failures
 public setFailureCallback(callable $callback): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$callback` | **callable** |  |
-
-
-
 
 ***
 
@@ -508,21 +306,9 @@ Get callback for server connection failures
 public getFailureCallback(): callable
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setAdapter
 
@@ -532,21 +318,11 @@ Adapter using this instance
 public setAdapter(\Zend\Cache\Storage\StorageInterface|null $adapter = null): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapter` | **\Zend\Cache\Storage\StorageInterface&#124;null** |  |
-
-
-
 
 ***
 
@@ -558,21 +334,11 @@ Set key pattern
 public setKeyPattern(null|string $keyPattern): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyPattern` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -584,16 +350,6 @@ Get key pattern
 public getKeyPattern(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespace
@@ -604,21 +360,11 @@ Set namespace.
 public setNamespace(string $namespace): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -630,16 +376,6 @@ Get namespace
 public getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setReadable
@@ -650,21 +386,11 @@ Enable/Disable reading data from cache.
 public setReadable(bool $readable): \Zend\Cache\Storage\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readable` | **bool** |  |
-
-
-
 
 ***
 
@@ -676,16 +402,6 @@ If reading data from cache enabled.
 public getReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTtl
@@ -696,21 +412,11 @@ Set time to live.
 public setTtl(int|float $ttl): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -722,16 +428,6 @@ Get time to live.
 public getTtl(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setWritable
@@ -742,21 +438,11 @@ Enable/Disable writing data to cache.
 public setWritable(bool $writable): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writable` | **bool** |  |
-
-
-
 
 ***
 
@@ -768,33 +454,15 @@ If writing data to cache enabled.
 public getWritable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### triggerOptionEvent
 
-Triggers an option event if this options instance has a connection to
-an adapter implements EventsCapableInterface.
+Triggers an option event if this options instance has a connection to an adapter implements EventsCapableInterface.
 
 ```php
 protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -802,9 +470,6 @@ protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 |-----------|------|-------------|
 | `$optionName` | **string** |  |
 | `$optionValue` | **mixed** |  |
-
-
-
 
 ***
 
@@ -816,21 +481,11 @@ Validates and normalize a TTL.
 protected normalizeTtl(int|float& $ttl): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -842,21 +497,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -868,19 +513,11 @@ Set one or more configuration properties
 public setFromArray(array|\Traversable|\Zend\Stdlib\AbstractOptions $options): \Zend\Stdlib\AbstractOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Stdlib\AbstractOptions** |  |
-
 
 **Return Value:**
 
@@ -898,16 +535,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __set
@@ -918,13 +545,6 @@ Set a configuration property
 public __set(string $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -932,11 +552,9 @@ public __set(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__set() - 
+* \Zend\Stdlib\ParameterObject::__set() -
 
 ***
 
@@ -948,24 +566,15 @@ Get a configuration property
 public __get(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__get() - 
+* \Zend\Stdlib\ParameterObject::__get() -
 
 ***
 
@@ -977,24 +586,15 @@ Test if a configuration property is null
 public __isset(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__isset() - 
+* \Zend\Stdlib\ParameterObject::__isset() -
 
 ***
 
@@ -1006,24 +606,15 @@ Set a configuration property to NULL
 public __unset(string $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__unset() - 
+* \Zend\Stdlib\ParameterObject::__unset() -
 
 ***
 

@@ -2,34 +2,19 @@
 
 # PluggableTrait
 
-
-
-
-
 * Full name: `\League\Flysystem\Plugin\PluggableTrait`
-
-
 
 ## Properties
 
-
 ### plugins
-
-
 
 ```php
 protected array $plugins
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### addPlugin
 
@@ -39,21 +24,11 @@ Register a plugin.
 public addPlugin(\League\Flysystem\PluginInterface $plugin): $this
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$plugin` | **\League\Flysystem\PluginInterface** |  |
-
-
-
 
 ***
 
@@ -65,21 +40,11 @@ Find a specific plugin.
 protected findPlugin(string $method): \League\Flysystem\PluginInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
-
-
-
 
 ***
 
@@ -91,13 +56,6 @@ Invoke a plugin by method name.
 protected invokePlugin(string $method, array $arguments, \League\Flysystem\FilesystemInterface $filesystem): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -105,9 +63,6 @@ protected invokePlugin(string $method, array $arguments, \League\Flysystem\Files
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
-
-
-
 
 ***
 
@@ -119,22 +74,12 @@ Plugins pass-through.
 public __call(string $method, array $arguments): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
-
-
-
 
 ***
 

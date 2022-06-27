@@ -4,47 +4,27 @@
 
 Configuration definition for the logger.
 
-
-
 * Full name: `\phpDocumentor\Configuration\Logging`
-
-
 
 ## Properties
 
-
 ### level
-
-
 
 ```php
 protected string $level
 ```
 
-
-
-
-
-
 ***
 
 ### paths
-
-
 
 ```php
 protected string[] $paths
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### getLevel
 
@@ -53,16 +33,6 @@ Returns the minimum output level for logging.
 ```php
 public getLevel(): string
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -74,21 +44,11 @@ Sets the minimum output level for the logger.
 public setLevel(string $level): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$level` | **string** |  |
-
-
-
 
 ***
 
@@ -105,14 +65,6 @@ phpDocumentor uses two types of log files to be able to sift through the logs mo
 - 'default', contains all logs as mentioned in the logging level in this object and
 - 'debug', contains debugging information that is exposed when debugging is enabled.
 
-
-
-
-
-
-
-
-
 ***
 
 ### setPaths
@@ -123,20 +75,11 @@ Registers the paths that determine where to store log files.
 public setPaths(\string[] $paths): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$paths` | **\string[]** |  |
-
-
 
 **See Also:**
 

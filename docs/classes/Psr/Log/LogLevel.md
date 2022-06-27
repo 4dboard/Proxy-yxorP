@@ -4,10 +4,7 @@
 
 Describes log levels.
 
-
-
 * Full name: `\Psr\Log\LogLevel`
-
 
 ## Constants
 
@@ -21,9 +18,6 @@ Describes log levels.
 |`NOTICE`|public| |&#039;notice&#039;|
 |`INFO`|public| |&#039;info&#039;|
 |`DEBUG`|public| |&#039;debug&#039;|
-
-
-
 
 ***
 > Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

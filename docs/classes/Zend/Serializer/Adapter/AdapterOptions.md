@@ -2,20 +2,10 @@
 
 # AdapterOptions
 
-
-
-
-
 * Full name: `\Zend\Serializer\Adapter\AdapterOptions`
 * Parent class: [`\Zend\Stdlib\AbstractOptions`](../../Stdlib/AbstractOptions.md)
 
-
-
-
-
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -25,21 +15,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -51,19 +31,11 @@ Set one or more configuration properties
 public setFromArray(array|\Traversable|\Zend\Stdlib\AbstractOptions $options): \Zend\Stdlib\AbstractOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Stdlib\AbstractOptions** |  |
-
 
 **Return Value:**
 
@@ -81,16 +53,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __set
@@ -101,13 +63,6 @@ Set a configuration property
 public __set(string $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -115,11 +70,9 @@ public __set(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__set() - 
+* \Zend\Stdlib\ParameterObject::__set() -
 
 ***
 
@@ -131,24 +84,15 @@ Get a configuration property
 public __get(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__get() - 
+* \Zend\Stdlib\ParameterObject::__get() -
 
 ***
 
@@ -160,24 +104,15 @@ Test if a configuration property is null
 public __isset(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__isset() - 
+* \Zend\Stdlib\ParameterObject::__isset() -
 
 ***
 
@@ -189,24 +124,15 @@ Set a configuration property to NULL
 public __unset(string $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__unset() - 
+* \Zend\Stdlib\ParameterObject::__unset() -
 
 ***
 

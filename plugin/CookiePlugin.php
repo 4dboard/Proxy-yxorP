@@ -6,7 +6,7 @@ class CookiePlugin extends EventWrapper
 
     public function onBeforeRequest(): void
     {
-        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', yxorP::get('require_onceUEST')->headers->get("cookie"),
+        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', yxorP::get('REQUEST')->headers->get('cookie'),
             $matches, PREG_SET_ORDER)) foreach ($matches as $match) {
             $_cookieDomain = str_replace("_", ".", $match[1]);
             $cookie = ["cookie_domain" => $_cookieDomain, "cookie_name" => $match[2], "cookie_value" => $match[3]];

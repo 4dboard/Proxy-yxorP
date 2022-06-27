@@ -4,49 +4,28 @@
 
 An array-acting object that holds many author instances.
 
-
-
 * Full name: `\JMS\Serializer\Tests\Fixtures\AuthorList`
 * This class implements:
-[`\IteratorAggregate`](../../../../IteratorAggregate.md), [`\Countable`](../../../../Countable.md), [`\ArrayAccess`](../../../../ArrayAccess.md)
-
-
+  [`\IteratorAggregate`](../../../../IteratorAggregate.md), [`\Countable`](../../../../Countable.md)
+  , [`\ArrayAccess`](../../../../ArrayAccess.md)
 
 ## Properties
 
-
 ### authors
-
-
 
 ```php
 protected array $authors
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### add
-
-
 
 ```php
 public add(\JMS\Serializer\Tests\Fixtures\Author $author): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -54,71 +33,37 @@ public add(\JMS\Serializer\Tests\Fixtures\Author $author): mixed
 |-----------|------|-------------|
 | `$author` | **\JMS\Serializer\Tests\Fixtures\Author** |  |
 
-
-
-
 ***
 
 ### getIterator
-
-
 
 ```php
 public getIterator(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \JMS\Serializer\Tests\Fixtures\IteratorAggregate - 
+* \JMS\Serializer\Tests\Fixtures\IteratorAggregate -
 
 ***
 
 ### count
 
-
-
 ```php
 public count(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \JMS\Serializer\Tests\Fixtures\Countable - 
+* \JMS\Serializer\Tests\Fixtures\Countable -
 
 ***
 
 ### offsetExists
 
-
-
 ```php
 public offsetExists(mixed $offset): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -126,28 +71,17 @@ public offsetExists(mixed $offset): mixed
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \JMS\Serializer\Tests\Fixtures\ArrayAccess - 
+* \JMS\Serializer\Tests\Fixtures\ArrayAccess -
 
 ***
 
 ### offsetGet
 
-
-
 ```php
 public offsetGet(mixed $offset): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -155,28 +89,17 @@ public offsetGet(mixed $offset): mixed
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \JMS\Serializer\Tests\Fixtures\ArrayAccess - 
+* \JMS\Serializer\Tests\Fixtures\ArrayAccess -
 
 ***
 
 ### offsetSet
 
-
-
 ```php
 public offsetSet(mixed $offset, mixed $value): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -185,28 +108,17 @@ public offsetSet(mixed $offset, mixed $value): mixed
 | `$offset` | **mixed** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \JMS\Serializer\Tests\Fixtures\ArrayAccess - 
+* \JMS\Serializer\Tests\Fixtures\ArrayAccess -
 
 ***
 
 ### offsetUnset
 
-
-
 ```php
 public offsetUnset(mixed $offset): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -214,11 +126,9 @@ public offsetUnset(mixed $offset): mixed
 |-----------|------|-------------|
 | `$offset` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \JMS\Serializer\Tests\Fixtures\ArrayAccess - 
+* \JMS\Serializer\Tests\Fixtures\ArrayAccess -
 
 ***
 

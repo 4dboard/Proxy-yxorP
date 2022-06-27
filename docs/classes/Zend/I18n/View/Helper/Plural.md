@@ -9,6 +9,7 @@ Please note that we did not write any hard-coded rules for languages, as languag
 developer define the rules himself, instead of potentially break applications if we change rules in the future.
 
 However, you can find most of the up-to-date plural rules for most languages in those links:
+
 - http://unicode.org/repos/cldr-tmp/trunk/diff/supplemental/language_plural_rules.html
 - https://developer.mozilla.org/en-US/docs/Localization_and_Plurals
 

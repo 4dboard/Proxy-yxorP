@@ -4,39 +4,26 @@
 
 Operation for the listCollectionNames helper.
 
-
-
 * Full name: `\MongoDB\Operation\ListCollectionNames`
 * This class implements:
-[`\MongoDB\Operation\Executable`](./Executable.md)
+  [`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Database::listCollectionNames() - 
-* http://docs.mongodb.org/manual/reference/command/listCollections/ - 
-
-
+* \MongoDB\Database::listCollectionNames() -
+* http://docs.mongodb.org/manual/reference/command/listCollections/ -
 
 ## Properties
 
-
 ### listCollections
-
-
 
 ```php
 private \MongoDB\Command\ListCollections $listCollections
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -50,17 +37,11 @@ Supported options:
 
 * filter (document): Query by which to filter collections.
 
-* maxTimeMS (integer): The maximum amount of time to allow the query to
-  run.
+* maxTimeMS (integer): The maximum amount of time to allow the query to run.
 
 * session (MongoDB\Driver\Session): Client session.
 
   Sessions are not supported for server versions < 3.6.
-
-
-
-
-
 
 **Parameters:**
 
@@ -68,9 +49,6 @@ Supported options:
 |-----------|------|-------------|
 | `$databaseName` | **string** | Database name |
 | `$options` | **array** | Command options |
-
-
-
 
 ***
 
@@ -82,24 +60,15 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \Iterator
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
-
-
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() - 
+* \MongoDB\Operation\Executable::execute() -
 
 ***
 

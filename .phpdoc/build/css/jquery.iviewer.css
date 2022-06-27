@@ -3,9 +3,9 @@
 }
 
 .iviewer_common {
-    position:absolute;
-    bottom:10px;
-    border: 1px  solid #000;
+    position: absolute;
+    bottom: 10px;
+    border: 1px solid #000;
     height: 28px;
     z-index: 5000;
 }

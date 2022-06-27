@@ -4,15 +4,10 @@
 
 These are options specific to the Filesystem adapter
 
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\FilesystemOptions`
 * Parent class: [`\Zend\Cache\Storage\Adapter\AdapterOptions`](./AdapterOptions.md)
 
-
-
 ## Properties
-
 
 ### cacheDir
 
@@ -21,11 +16,6 @@ Directory to store cache files
 ```php
 protected null|string $cacheDir
 ```
-
-
-
-
-
 
 ***
 
@@ -37,11 +27,6 @@ Call clearstatcache enabled?
 protected bool $clearStatCache
 ```
 
-
-
-
-
-
 ***
 
 ### dirLevel
@@ -51,11 +36,6 @@ How much sub-directaries should be created?
 ```php
 protected int $dirLevel
 ```
-
-
-
-
-
 
 ***
 
@@ -67,11 +47,6 @@ Permission creating new directories
 protected false|int $dirPermission
 ```
 
-
-
-
-
-
 ***
 
 ### fileLocking
@@ -82,11 +57,6 @@ Lock files on writing
 protected bool $fileLocking
 ```
 
-
-
-
-
-
 ***
 
 ### filePermission
@@ -96,11 +66,6 @@ Permission creating new files
 ```php
 protected false|int $filePermission
 ```
-
-
-
-
-
 
 ***
 
@@ -127,11 +92,6 @@ Namespace separator
 protected string $namespaceSeparator
 ```
 
-
-
-
-
-
 ***
 
 ### noAtime
@@ -141,11 +101,6 @@ Don't get 'fileatime' as 'atime' on metadata
 ```php
 protected bool $noAtime
 ```
-
-
-
-
-
 
 ***
 
@@ -157,11 +112,6 @@ Don't get 'filectime' as 'ctime' on metadata
 protected bool $noCtime
 ```
 
-
-
-
-
-
 ***
 
 ### umask
@@ -172,15 +122,9 @@ Umask to create files and directories
 protected false|int $umask
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -190,21 +134,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -216,21 +150,11 @@ Set cache dir
 public setCacheDir(string $cacheDir): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cacheDir` | **string** |  |
-
-
-
 
 ***
 
@@ -242,16 +166,6 @@ Get cache dir
 public getCacheDir(): null|string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setClearStatCache
@@ -262,21 +176,11 @@ Set clear stat cache
 public setClearStatCache(bool $clearStatCache): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$clearStatCache` | **bool** |  |
-
-
-
 
 ***
 
@@ -288,16 +192,6 @@ Get clear stat cache
 public getClearStatCache(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDirLevel
@@ -308,21 +202,11 @@ Set dir level
 public setDirLevel(int $dirLevel): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirLevel` | **int** |  |
-
-
-
 
 ***
 
@@ -334,16 +218,6 @@ Get dir level
 public getDirLevel(): int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setDirPermission
@@ -354,24 +228,16 @@ Set permission to create directories on unix systems
 public setDirPermission(false|string|int $dirPermission): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirPermission` | **false&#124;string&#124;int** | FALSE to disable explicit permission or an octal number |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\setUmask - * \Zend\Cache\Storage\Adapter\setFilePermission - * http://php.net/manual/function.chmod.php - 
+* \Zend\Cache\Storage\Adapter\setUmask - * \Zend\Cache\Storage\Adapter\setFilePermission -
+  * http://php.net/manual/function.chmod.php -
 
 ***
 
@@ -383,16 +249,6 @@ Get permission to create directories on unix systems
 public getDirPermission(): false|int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFileLocking
@@ -403,21 +259,11 @@ Set file locking
 public setFileLocking(bool $fileLocking): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fileLocking` | **bool** |  |
-
-
-
 
 ***
 
@@ -429,16 +275,6 @@ Get file locking
 public getFileLocking(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setFilePermission
@@ -449,24 +285,16 @@ Set permission to create files on unix systems
 public setFilePermission(false|string|int $filePermission): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filePermission` | **false&#124;string&#124;int** | FALSE to disable explicit permission or an octal number |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\setUmask - * \Zend\Cache\Storage\Adapter\setDirPermission - * http://php.net/manual/function.chmod.php - 
+* \Zend\Cache\Storage\Adapter\setUmask - * \Zend\Cache\Storage\Adapter\setDirPermission -
+  * http://php.net/manual/function.chmod.php -
 
 ***
 
@@ -478,16 +306,6 @@ Get permission to create files on unix systems
 public getFilePermission(): false|int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespaceSeparator
@@ -498,21 +316,11 @@ Set namespace separator
 public setNamespaceSeparator(string $namespaceSeparator): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespaceSeparator` | **string** |  |
-
-
-
 
 ***
 
@@ -524,16 +332,6 @@ Get namespace separator
 public getNamespaceSeparator(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNoAtime
@@ -544,21 +342,11 @@ Set no atime
 public setNoAtime(bool $noAtime): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$noAtime` | **bool** |  |
-
-
-
 
 ***
 
@@ -570,16 +358,6 @@ Get no atime
 public getNoAtime(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNoCtime
@@ -590,21 +368,11 @@ Set no ctime
 public setNoCtime(bool $noCtime): \Zend\Cache\Storage\Adapter\FilesystemOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$noCtime` | **bool** |  |
-
-
-
 
 ***
 
@@ -615,16 +383,6 @@ Get no ctime
 ```php
 public getNoCtime(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -638,22 +396,16 @@ public setUmask(false|string|int $umask): \Zend\Cache\Storage\Adapter\Filesystem
 
 Note: On multithreaded webservers it's better to explicit set file and dir permission.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$umask` | **false&#124;string&#124;int** | FALSE to disable umask or an octal number |
 
-
-
 **See Also:**
 
-* \Zend\Cache\Storage\Adapter\setFilePermission - * \Zend\Cache\Storage\Adapter\setDirPermission - * http://php.net/manual/function.umask.php - * http://en.wikipedia.org/wiki/Umask - 
+* \Zend\Cache\Storage\Adapter\setFilePermission - * \Zend\Cache\Storage\Adapter\setDirPermission -
+  * http://php.net/manual/function.umask.php - * http://en.wikipedia.org/wiki/Umask -
 
 ***
 
@@ -665,21 +417,9 @@ Get the umask to create files and directories on unix systems
 public getUmask(): false|int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setAdapter
 
@@ -689,21 +429,11 @@ Adapter using this instance
 public setAdapter(\Zend\Cache\Storage\StorageInterface|null $adapter = null): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapter` | **\Zend\Cache\Storage\StorageInterface&#124;null** |  |
-
-
-
 
 ***
 
@@ -715,21 +445,11 @@ Set key pattern
 public setKeyPattern(null|string $keyPattern): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyPattern` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -741,16 +461,6 @@ Get key pattern
 public getKeyPattern(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespace
@@ -761,21 +471,11 @@ Set namespace.
 public setNamespace(string $namespace): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -787,16 +487,6 @@ Get namespace
 public getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setReadable
@@ -807,21 +497,11 @@ Enable/Disable reading data from cache.
 public setReadable(bool $readable): \Zend\Cache\Storage\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readable` | **bool** |  |
-
-
-
 
 ***
 
@@ -833,16 +513,6 @@ If reading data from cache enabled.
 public getReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTtl
@@ -853,21 +523,11 @@ Set time to live.
 public setTtl(int|float $ttl): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -879,16 +539,6 @@ Get time to live.
 public getTtl(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setWritable
@@ -899,21 +549,11 @@ Enable/Disable writing data to cache.
 public setWritable(bool $writable): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writable` | **bool** |  |
-
-
-
 
 ***
 
@@ -925,33 +565,15 @@ If writing data to cache enabled.
 public getWritable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### triggerOptionEvent
 
-Triggers an option event if this options instance has a connection to
-an adapter implements EventsCapableInterface.
+Triggers an option event if this options instance has a connection to an adapter implements EventsCapableInterface.
 
 ```php
 protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -959,9 +581,6 @@ protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 |-----------|------|-------------|
 | `$optionName` | **string** |  |
 | `$optionValue` | **mixed** |  |
-
-
-
 
 ***
 
@@ -973,21 +592,11 @@ Validates and normalize a TTL.
 protected normalizeTtl(int|float& $ttl): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -999,21 +608,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -1025,19 +624,11 @@ Set one or more configuration properties
 public setFromArray(array|\Traversable|\Zend\Stdlib\AbstractOptions $options): \Zend\Stdlib\AbstractOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Stdlib\AbstractOptions** |  |
-
 
 **Return Value:**
 
@@ -1055,16 +646,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __set
@@ -1075,13 +656,6 @@ Set a configuration property
 public __set(string $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1089,11 +663,9 @@ public __set(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__set() - 
+* \Zend\Stdlib\ParameterObject::__set() -
 
 ***
 
@@ -1105,24 +677,15 @@ Get a configuration property
 public __get(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__get() - 
+* \Zend\Stdlib\ParameterObject::__get() -
 
 ***
 
@@ -1134,24 +697,15 @@ Test if a configuration property is null
 public __isset(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__isset() - 
+* \Zend\Stdlib\ParameterObject::__isset() -
 
 ***
 
@@ -1163,24 +717,15 @@ Set a configuration property to NULL
 public __unset(string $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__unset() - 
+* \Zend\Stdlib\ParameterObject::__unset() -
 
 ***
 

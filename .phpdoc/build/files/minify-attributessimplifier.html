@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
     <meta charset="utf-8"/>
     <title>Documentation</title>
-    <meta name="author" content=""/>
-    <meta name="description" content=""/>
+    <meta content="" name="author"/>
+    <meta content="" name="description"/>
     <base href="../">
 
     <link href="css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prism.css" rel="stylesheet" media="all"/>
-    <link href="css/template.css" rel="stylesheet" media="all"/>
-    
+    <link href="css/prism.css" media="all" rel="stylesheet"/>
+    <link href="css/template.css" media="all" rel="stylesheet"/>
+
     <!--[if lt IE 9]>
     <script src="js/html5.js"></script>
     <![endif]-->
@@ -22,10 +22,10 @@
     <script src="js/jquery.smooth-scroll.js"></script>
     <script src="js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-        <script type="text/javascript">
+    <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var src = pre.getAttribute('data-src').replace(/\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -49,11 +49,9 @@
                             code.textContent = xhr.responseText;
 
                             Prism.highlightElement(code);
-                        }
-                        else if (xhr.status >= 400) {
+                        } else if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                        }
-                        else {
+                        } else {
                             code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
                         }
                     }
@@ -63,7 +61,7 @@
             });
         }
 
-        $(document).ready(function(){
+        $(document).ready(function () {
             loadExternalCodeSnippets();
         });
         $('#source-view').on('shown', function () {
@@ -71,33 +69,33 @@
         })
     </script>
 
-    <link rel="shortcut icon" href="images/favicon.ico"/>
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
+    <link href="images/favicon.ico" rel="shortcut icon"/>
+    <link href="images/apple-touch-icon.png" rel="apple-touch-icon"/>
+    <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+    <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"/>
 </head>
 <body>
 
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
                 <i class="icon-ellipsis-vertical"></i>
             </a>
             <a class="brand" href="index.html">Documentation</a>
 
             <div class="nav-collapse">
                 <ul class="nav pull-right">
-                                        <li class="dropdown">
-                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="index.html">
                             API Documentation <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                                                        <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
-                                                    </ul>
+                            <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
+                        </ul>
                     </li>
-                                        <li class="dropdown" id="charts-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="dropdown" id="charts-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Charts <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
@@ -109,23 +107,25 @@
                         </ul>
                     </li>
                     <li class="dropdown" id="reports-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Reports <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                    <i class="icon-list-alt"></i>&#160;Markers <span
+                                        class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="reports/deprecated.html">
-                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                    <i class="icon-list-alt"></i>&#160;Deprecated <span
+                                        class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                         </ul>
@@ -139,161 +139,250 @@
     <!--</div>-->
 </div>
 
-<div id="___" class="container-fluid">
-        <section class="row-fluid">
+<div class="container-fluid" id="___">
+    <section class="row-fluid">
         <div class="span2 sidebar">
-                                <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1289619592"></a>
-                                <a href="namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
-            </div>
-            <div id="namespace-1289619592" class="accordion-body collapse in">
-                <div class="accordion-inner">
+            <div class="accordion" style="margin-bottom: 0">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle " data-target="#namespace-1289619592" data-toggle="collapse"></a>
+                        <a href="namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+                    </div>
+                    <div class="accordion-body collapse in" id="namespace-1289619592">
+                        <div class="accordion-inner">
 
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-938072816"></a>
-                                <a href="namespaces/yxorp.html" style="margin-left: 30px; padding-left: 0">yxorP</a>
-            </div>
-            <div id="namespace-938072816" class="accordion-body collapse ">
-                <div class="accordion-inner">
+                            <div class="accordion" style="margin-bottom: 0">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle collapsed" data-target="#namespace-938072816"
+                                           data-toggle="collapse"></a>
+                                        <a href="namespaces/yxorp.html"
+                                           style="margin-left: 30px; padding-left: 0">yxorP</a>
+                                    </div>
+                                    <div class="accordion-body collapse " id="namespace-938072816">
+                                        <div class="accordion-inner">
 
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1864844075"></a>
-                                <a href="namespaces/yxorp-build.html" style="margin-left: 30px; padding-left: 0">Build</a>
-            </div>
-            <div id="namespace-1864844075" class="accordion-body collapse ">
-                <div class="accordion-inner">
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-1864844075"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-build.html"
+                                                           style="margin-left: 30px; padding-left: 0">Build</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-1864844075">
+                                                        <div class="accordion-inner">
 
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-655180777"></a>
-                                <a href="namespaces/yxorp-build-exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
-            </div>
-            <div id="namespace-655180777" class="accordion-body collapse ">
-                <div class="accordion-inner">
+                                                            <div class="accordion" style="margin-bottom: 0">
+                                                                <div class="accordion-group">
+                                                                    <div class="accordion-heading">
+                                                                        <a class="accordion-toggle collapsed"
+                                                                           data-target="#namespace-655180777"
+                                                                           data-toggle="collapse"></a>
+                                                                        <a href="namespaces/yxorp-build-exceptions.html"
+                                                                           style="margin-left: 30px; padding-left: 0">Exceptions</a>
+                                                                    </div>
+                                                                    <div class="accordion-body collapse "
+                                                                         id="namespace-655180777">
+                                                                        <div class="accordion-inner">
 
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/yxorP-Build-Exceptions-BasicException.html"><abbr title="\yxorP\Build\Exceptions\BasicException">BasicException</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Exceptions-FileImportException.html"><abbr title="\yxorP\Build\Exceptions\FileImportException">FileImportException</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Exceptions-IOException.html"><abbr title="\yxorP\Build\Exceptions\IOException">IOException</abbr></a></li>
+
+                                                                            <ul>
+                                                                                <li class="class"><a
+                                                                                        href="classes/yxorP-Build-Exceptions-BasicException.html"><abbr
+                                                                                        title="\yxorP\Build\Exceptions\BasicException">BasicException</abbr></a>
+                                                                                </li>
+                                                                                <li class="class"><a
+                                                                                        href="classes/yxorP-Build-Exceptions-FileImportException.html"><abbr
+                                                                                        title="\yxorP\Build\Exceptions\FileImportException">FileImportException</abbr></a>
+                                                                                </li>
+                                                                                <li class="class"><a
+                                                                                        href="classes/yxorP-Build-Exceptions-IOException.html"><abbr
+                                                                                        title="\yxorP\Build\Exceptions\IOException">IOException</abbr></a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <ul>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Build-CSS.html"><abbr
+                                                                        title="\yxorP\Build\CSS">CSS</abbr></a></li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Build-Exception.html"><abbr
+                                                                        title="\yxorP\Build\Exception">Exception</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a href="classes/yxorP-Build-JS.html"><abbr
+                                                                        title="\yxorP\Build\JS">JS</abbr></a></li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Build-Minify.html"><abbr
+                                                                        title="\yxorP\Build\Minify">Minify</abbr></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-1922010187"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-cache.html"
+                                                           style="margin-left: 30px; padding-left: 0">cache</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-1922010187">
+                                                        <div class="accordion-inner">
+
+
+                                                            <ul>
+                                                                <li class="trait"><a
+                                                                        href="classes/yxorP-cache-State.html"><abbr
+                                                                        title="\yxorP\cache\State">State</abbr></a></li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-cache-Cache.html"><abbr
+                                                                        title="\yxorP\cache\Cache">Cache</abbr></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-1651200107"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-http.html"
+                                                           style="margin-left: 30px; padding-left: 0">Http</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-1651200107">
+                                                        <div class="accordion-inner">
+
+
+                                                            <ul>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-EventWrapper.html"><abbr
+                                                                        title="\yxorP\Http\EventWrapper">EventWrapper</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-GeneralHelper.html"><abbr
+                                                                        title="\yxorP\Http\GeneralHelper">GeneralHelper</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-ParamStore.html"><abbr
+                                                                        title="\yxorP\Http\ParamStore">ParamStore</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-Request.html"><abbr
+                                                                        title="\yxorP\Http\Request">Request</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-Response.html"><abbr
+                                                                        title="\yxorP\Http\Response">Response</abbr></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-1956631965"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-minify.html"
+                                                           style="margin-left: 30px; padding-left: 0">Minify</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-1956631965">
+                                                        <div class="accordion-inner">
+
+
+                                                            <ul>
+                                                                <li class="interface"><a
+                                                                        href="classes/yxorP-Minify-MinfyInterface.html"><abbr
+                                                                        title="\yxorP\Minify\MinfyInterface">MinfyInterface</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-Areplacer.html"><abbr
+                                                                        title="\yxorP\Minify\Areplacer">Areplacer</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-AttributesSimplifier.html"><abbr
+                                                                        title="\yxorP\Minify\AttributesSimplifier">AttributesSimplifier</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-HtmlCommentsRemover.html"><abbr
+                                                                        title="\yxorP\Minify\HtmlCommentsRemover">HtmlCommentsRemover</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-InlineCssMinifier.html"><abbr
+                                                                        title="\yxorP\Minify\InlineCssMinifier">InlineCssMinifier</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-InlineJavascriptMinifier.html"><abbr
+                                                                        title="\yxorP\Minify\InlineJavascriptMinifier">InlineJavascriptMinifier</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-Minify.html"><abbr
+                                                                        title="\yxorP\Minify\Minify">Minify</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-QuotesRemover.html"><abbr
+                                                                        title="\yxorP\Minify\QuotesRemover">QuotesRemover</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-WhitespacesRemover.html"><abbr
+                                                                        title="\yxorP\Minify\WhitespacesRemover">WhitespacesRemover</abbr></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <ul>
                                             </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <ul>
+                                <li class="class"><a href="classes/BlockListPlugin.html"><abbr title="\BlockListPlugin">BlockListPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/CookiePlugin.html"><abbr title="\CookiePlugin">CookiePlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/DailyMotionPlugin.html"><abbr
+                                        title="\DailyMotionPlugin">DailyMotionPlugin</abbr></a></li>
+                                <li class="class"><a href="classes/HeaderRewritePlugin.html"><abbr
+                                        title="\HeaderRewritePlugin">HeaderRewritePlugin</abbr></a></li>
+                                <li class="class"><a href="classes/LogPlugin.html"><abbr
+                                        title="\LogPlugin">LogPlugin</abbr></a></li>
+                                <li class="class"><a href="classes/OverridePlugin.html"><abbr title="\OverridePlugin">OverridePlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/ProxifyPlugin.html"><abbr title="\ProxifyPlugin">ProxifyPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/StreamPlugin.html"><abbr title="\StreamPlugin">StreamPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/TwitterPlugin.html"><abbr title="\TwitterPlugin">TwitterPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/YoutubePlugin.html"><abbr title="\YoutubePlugin">YoutubePlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/yxorP.html"><abbr title="\yxorP">yxorP</abbr></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/yxorP-Build-CSS.html"><abbr title="\yxorP\Build\CSS">CSS</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Exception.html"><abbr title="\yxorP\Build\Exception">Exception</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-JS.html"><abbr title="\yxorP\Build\JS">JS</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Minify.html"><abbr title="\yxorP\Build\Minify">Minify</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1922010187"></a>
-                                <a href="namespaces/yxorp-cache.html" style="margin-left: 30px; padding-left: 0">cache</a>
-            </div>
-            <div id="namespace-1922010187" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                                            <li class="trait"><a href="classes/yxorP-cache-State.html"><abbr title="\yxorP\cache\State">State</abbr></a></li>
-                                                                            <li class="class"><a href="classes/yxorP-cache-Cache.html"><abbr title="\yxorP\cache\Cache">Cache</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1651200107"></a>
-                                <a href="namespaces/yxorp-http.html" style="margin-left: 30px; padding-left: 0">Http</a>
-            </div>
-            <div id="namespace-1651200107" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/yxorP-Http-EventWrapper.html"><abbr title="\yxorP\Http\EventWrapper">EventWrapper</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-GeneralHelper.html"><abbr title="\yxorP\Http\GeneralHelper">GeneralHelper</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-ParamStore.html"><abbr title="\yxorP\Http\ParamStore">ParamStore</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-Request.html"><abbr title="\yxorP\Http\Request">Request</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-Response.html"><abbr title="\yxorP\Http\Response">Response</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1956631965"></a>
-                                <a href="namespaces/yxorp-minify.html" style="margin-left: 30px; padding-left: 0">Minify</a>
-            </div>
-            <div id="namespace-1956631965" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="classes/yxorP-Minify-MinfyInterface.html"><abbr title="\yxorP\Minify\MinfyInterface">MinfyInterface</abbr></a></li>
-                                                                                                    <li class="class"><a href="classes/yxorP-Minify-Areplacer.html"><abbr title="\yxorP\Minify\Areplacer">Areplacer</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-AttributesSimplifier.html"><abbr title="\yxorP\Minify\AttributesSimplifier">AttributesSimplifier</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-HtmlCommentsRemover.html"><abbr title="\yxorP\Minify\HtmlCommentsRemover">HtmlCommentsRemover</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-InlineCssMinifier.html"><abbr title="\yxorP\Minify\InlineCssMinifier">InlineCssMinifier</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-InlineJavascriptMinifier.html"><abbr title="\yxorP\Minify\InlineJavascriptMinifier">InlineJavascriptMinifier</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-Minify.html"><abbr title="\yxorP\Minify\Minify">Minify</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-QuotesRemover.html"><abbr title="\yxorP\Minify\QuotesRemover">QuotesRemover</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-WhitespacesRemover.html"><abbr title="\yxorP\Minify\WhitespacesRemover">WhitespacesRemover</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/BlockListPlugin.html"><abbr title="\BlockListPlugin">BlockListPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/CookiePlugin.html"><abbr title="\CookiePlugin">CookiePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/DailyMotionPlugin.html"><abbr title="\DailyMotionPlugin">DailyMotionPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/HeaderRewritePlugin.html"><abbr title="\HeaderRewritePlugin">HeaderRewritePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/LogPlugin.html"><abbr title="\LogPlugin">LogPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/OverridePlugin.html"><abbr title="\OverridePlugin">OverridePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/ProxifyPlugin.html"><abbr title="\ProxifyPlugin">ProxifyPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/StreamPlugin.html"><abbr title="\StreamPlugin">StreamPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/TwitterPlugin.html"><abbr title="\TwitterPlugin">TwitterPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/YoutubePlugin.html"><abbr title="\YoutubePlugin">YoutubePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP.html"><abbr title="\yxorP">yxorP</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
         </div>
     </section>
@@ -302,50 +391,53 @@
             <div class="row-fluid">
                 <div class="span8 content file">
                     <nav>
-                                                                    </nav>
+                    </nav>
 
-                                        <h1><small>minify</small>AttributesSimplifier.php</h1>
+                    <h1><small>minify</small>AttributesSimplifier.php</h1>
                     <p><em></em></p>
-                    
 
-                    
-                    
-                                        <h2>Classes</h2>
+
+                    <h2>Classes</h2>
                     <table class="table table-hover">
-                                            <tr>
-                            <td><a href="classes/yxorP-Minify-AttributesSimplifier.html"><abbr title="\yxorP\Minify\AttributesSimplifier">AttributesSimplifier</abbr></a></td>
+                        <tr>
+                            <td><a href="classes/yxorP-Minify-AttributesSimplifier.html"><abbr
+                                    title="\yxorP\Minify\AttributesSimplifier">AttributesSimplifier</abbr></a></td>
                             <td><em></em></td>
                         </tr>
-                                        </table>
-                                    </div>
+                    </table>
+                </div>
 
                 <aside class="span4 detailsbar">
                     <dl>
-                                                    <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">\Application</div></dd>
-                        
-                        
+                        <dt>Package</dt>
+                        <dd>
+                            <div class="namespace-wrapper">\Application</div>
+                        </dd>
+
+
                     </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
-                                                    <tr><td colspan="2"><em>None found</em></td></tr>
-                                            </table>
+                        <tr>
+                            <td colspan="2"><em>None found</em></td>
+                        </tr>
+                    </table>
 
                 </aside>
             </div>
 
-            
-            
+
         </div>
     </section>
 
-    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+    <div aria-hidden="true" aria-labelledby="source-view-label" class="modal hide fade" id="source-view" role="dialog"
+         tabindex="-1">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
             <h3 id="source-view-label"></h3>
         </div>
         <div class="modal-body">
-            <pre data-src="files/minify/AttributesSimplifier.php.txt" class="language-php line-numbers"></pre>
+            <pre class="language-php line-numbers" data-src="files/minify/AttributesSimplifier.php.txt"></pre>
         </div>
     </div>
 
@@ -355,15 +447,15 @@
                 <section class="span10 offset1">
                     <section class="row-fluid footer-sections">
                         <section class="span4">
-                                                        <h1><i class="icon-code"></i></h1>
+                            <h1><i class="icon-code"></i></h1>
                             <div>
                                 <ul>
-                                                                            <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
-                                                                    </ul>
+                                    <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
+                                </ul>
                             </div>
                         </section>
                         <section class="span4">
-                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <h1><i class="icon-bar-chart"></i></h1>
                             <div>
                                 <ul>
                                     <li><a href="graphs/class.html">Class Hierarchy Diagram</a></li>
@@ -371,7 +463,7 @@
                             </div>
                         </section>
                         <section class="span4">
-                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <h1><i class="icon-pushpin"></i></h1>
                             <div>
                                 <ul>
                                     <li><a href="reports/errors.html">Errors</a></li>
@@ -384,7 +476,7 @@
             </section>
             <section class="row-fluid">
                 <section class="span10 offset1">
-                    <hr />
+                    <hr/>
                     Documentation is powered by <a href="https://www.phpdoc.org/">phpDocumentor </a> and authored
                     on June 25th, 2022 at 10:01.
                 </section>

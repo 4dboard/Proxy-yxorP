@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
     <meta charset="utf-8"/>
     <title>Documentation</title>
-    <meta name="author" content=""/>
-    <meta name="description" content=""/>
+    <meta content="" name="author"/>
+    <meta content="" name="description"/>
     <base href="../">
 
     <link href="css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/prism.css" rel="stylesheet" media="all"/>
-    <link href="css/template.css" rel="stylesheet" media="all"/>
-    
+    <link href="css/prism.css" media="all" rel="stylesheet"/>
+    <link href="css/template.css" media="all" rel="stylesheet"/>
+
     <!--[if lt IE 9]>
     <script src="js/html5.js"></script>
     <![endif]-->
@@ -22,10 +22,10 @@
     <script src="js/jquery.smooth-scroll.js"></script>
     <script src="js/prism.min.js"></script>
     <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
-        <script type="text/javascript">
+    <script type="text/javascript">
         function loadExternalCodeSnippets() {
             Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
-                var src = pre.getAttribute('data-src').replace( /\\/g, '/');
+                var src = pre.getAttribute('data-src').replace(/\\/g, '/');
                 var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
                 var language = 'php';
 
@@ -49,11 +49,9 @@
                             code.textContent = xhr.responseText;
 
                             Prism.highlightElement(code);
-                        }
-                        else if (xhr.status >= 400) {
+                        } else if (xhr.status >= 400) {
                             code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
-                        }
-                        else {
+                        } else {
                             code.textContent = '✖ Error: File does not exist, is empty or trying to view from localhost';
                         }
                     }
@@ -63,7 +61,7 @@
             });
         }
 
-        $(document).ready(function(){
+        $(document).ready(function () {
             loadExternalCodeSnippets();
         });
         $('#source-view').on('shown', function () {
@@ -71,33 +69,33 @@
         })
     </script>
 
-    <link rel="shortcut icon" href="images/favicon.ico"/>
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png"/>
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png"/>
+    <link href="images/favicon.ico" rel="shortcut icon"/>
+    <link href="images/apple-touch-icon.png" rel="apple-touch-icon"/>
+    <link href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
+    <link href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"/>
 </head>
 <body>
 
 <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
         <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
                 <i class="icon-ellipsis-vertical"></i>
             </a>
             <a class="brand" href="index.html">Documentation</a>
 
             <div class="nav-collapse">
                 <ul class="nav pull-right">
-                                        <li class="dropdown">
-                        <a href="index.html" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="index.html">
                             API Documentation <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                                                        <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
-                                                    </ul>
+                            <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
+                        </ul>
                     </li>
-                                        <li class="dropdown" id="charts-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <li class="dropdown" id="charts-menu">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Charts <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
@@ -109,23 +107,25 @@
                         </ul>
                     </li>
                     <li class="dropdown" id="reports-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             Reports <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <a href="reports/errors.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                    <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="reports/markers.html">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                    <i class="icon-list-alt"></i>&#160;Markers <span
+                                        class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="reports/deprecated.html">
-                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                    <i class="icon-list-alt"></i>&#160;Deprecated <span
+                                        class="label label-info pull-right">0</span>
                                 </a>
                             </li>
                         </ul>
@@ -139,161 +139,250 @@
     <!--</div>-->
 </div>
 
-<div id="___" class="container-fluid">
-        <section class="row-fluid">
+<div class="container-fluid" id="___">
+    <section class="row-fluid">
         <div class="span2 sidebar">
-                                <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-597942477"></a>
-                                <a href="namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
-            </div>
-            <div id="namespace-597942477" class="accordion-body collapse in">
-                <div class="accordion-inner">
+            <div class="accordion" style="margin-bottom: 0">
+                <div class="accordion-group">
+                    <div class="accordion-heading">
+                        <a class="accordion-toggle " data-target="#namespace-597942477" data-toggle="collapse"></a>
+                        <a href="namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+                    </div>
+                    <div class="accordion-body collapse in" id="namespace-597942477">
+                        <div class="accordion-inner">
 
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1340693823"></a>
-                                <a href="namespaces/yxorp.html" style="margin-left: 30px; padding-left: 0">yxorP</a>
-            </div>
-            <div id="namespace-1340693823" class="accordion-body collapse ">
-                <div class="accordion-inner">
+                            <div class="accordion" style="margin-bottom: 0">
+                                <div class="accordion-group">
+                                    <div class="accordion-heading">
+                                        <a class="accordion-toggle collapsed" data-target="#namespace-1340693823"
+                                           data-toggle="collapse"></a>
+                                        <a href="namespaces/yxorp.html"
+                                           style="margin-left: 30px; padding-left: 0">yxorP</a>
+                                    </div>
+                                    <div class="accordion-body collapse " id="namespace-1340693823">
+                                        <div class="accordion-inner">
 
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1034006321"></a>
-                                <a href="namespaces/yxorp-build.html" style="margin-left: 30px; padding-left: 0">Build</a>
-            </div>
-            <div id="namespace-1034006321" class="accordion-body collapse ">
-                <div class="accordion-inner">
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-1034006321"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-build.html"
+                                                           style="margin-left: 30px; padding-left: 0">Build</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-1034006321">
+                                                        <div class="accordion-inner">
 
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-443819136"></a>
-                                <a href="namespaces/yxorp-build-exceptions.html" style="margin-left: 30px; padding-left: 0">Exceptions</a>
-            </div>
-            <div id="namespace-443819136" class="accordion-body collapse ">
-                <div class="accordion-inner">
+                                                            <div class="accordion" style="margin-bottom: 0">
+                                                                <div class="accordion-group">
+                                                                    <div class="accordion-heading">
+                                                                        <a class="accordion-toggle collapsed"
+                                                                           data-target="#namespace-443819136"
+                                                                           data-toggle="collapse"></a>
+                                                                        <a href="namespaces/yxorp-build-exceptions.html"
+                                                                           style="margin-left: 30px; padding-left: 0">Exceptions</a>
+                                                                    </div>
+                                                                    <div class="accordion-body collapse "
+                                                                         id="namespace-443819136">
+                                                                        <div class="accordion-inner">
 
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/yxorP-Build-Exceptions-BasicException.html"><abbr title="\yxorP\Build\Exceptions\BasicException">BasicException</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Exceptions-FileImportException.html"><abbr title="\yxorP\Build\Exceptions\FileImportException">FileImportException</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Exceptions-IOException.html"><abbr title="\yxorP\Build\Exceptions\IOException">IOException</abbr></a></li>
+
+                                                                            <ul>
+                                                                                <li class="class"><a
+                                                                                        href="classes/yxorP-Build-Exceptions-BasicException.html"><abbr
+                                                                                        title="\yxorP\Build\Exceptions\BasicException">BasicException</abbr></a>
+                                                                                </li>
+                                                                                <li class="class"><a
+                                                                                        href="classes/yxorP-Build-Exceptions-FileImportException.html"><abbr
+                                                                                        title="\yxorP\Build\Exceptions\FileImportException">FileImportException</abbr></a>
+                                                                                </li>
+                                                                                <li class="class"><a
+                                                                                        href="classes/yxorP-Build-Exceptions-IOException.html"><abbr
+                                                                                        title="\yxorP\Build\Exceptions\IOException">IOException</abbr></a>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+
+                                                            <ul>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Build-CSS.html"><abbr
+                                                                        title="\yxorP\Build\CSS">CSS</abbr></a></li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Build-Exception.html"><abbr
+                                                                        title="\yxorP\Build\Exception">Exception</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a href="classes/yxorP-Build-JS.html"><abbr
+                                                                        title="\yxorP\Build\JS">JS</abbr></a></li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Build-Minify.html"><abbr
+                                                                        title="\yxorP\Build\Minify">Minify</abbr></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-1578172028"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-cache.html"
+                                                           style="margin-left: 30px; padding-left: 0">cache</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-1578172028">
+                                                        <div class="accordion-inner">
+
+
+                                                            <ul>
+                                                                <li class="trait"><a
+                                                                        href="classes/yxorP-cache-State.html"><abbr
+                                                                        title="\yxorP\cache\State">State</abbr></a></li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-cache-Cache.html"><abbr
+                                                                        title="\yxorP\cache\Cache">Cache</abbr></a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-1865588903"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-http.html"
+                                                           style="margin-left: 30px; padding-left: 0">Http</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-1865588903">
+                                                        <div class="accordion-inner">
+
+
+                                                            <ul>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-EventWrapper.html"><abbr
+                                                                        title="\yxorP\Http\EventWrapper">EventWrapper</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-GeneralHelper.html"><abbr
+                                                                        title="\yxorP\Http\GeneralHelper">GeneralHelper</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-ParamStore.html"><abbr
+                                                                        title="\yxorP\Http\ParamStore">ParamStore</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-Request.html"><abbr
+                                                                        title="\yxorP\Http\Request">Request</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Http-Response.html"><abbr
+                                                                        title="\yxorP\Http\Response">Response</abbr></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="accordion" style="margin-bottom: 0">
+                                                <div class="accordion-group">
+                                                    <div class="accordion-heading">
+                                                        <a class="accordion-toggle collapsed" data-target="#namespace-540081116"
+                                                           data-toggle="collapse"></a>
+                                                        <a href="namespaces/yxorp-minify.html"
+                                                           style="margin-left: 30px; padding-left: 0">Minify</a>
+                                                    </div>
+                                                    <div class="accordion-body collapse " id="namespace-540081116">
+                                                        <div class="accordion-inner">
+
+
+                                                            <ul>
+                                                                <li class="interface"><a
+                                                                        href="classes/yxorP-Minify-MinfyInterface.html"><abbr
+                                                                        title="\yxorP\Minify\MinfyInterface">MinfyInterface</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-Areplacer.html"><abbr
+                                                                        title="\yxorP\Minify\Areplacer">Areplacer</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-AttributesSimplifier.html"><abbr
+                                                                        title="\yxorP\Minify\AttributesSimplifier">AttributesSimplifier</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-HtmlCommentsRemover.html"><abbr
+                                                                        title="\yxorP\Minify\HtmlCommentsRemover">HtmlCommentsRemover</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-InlineCssMinifier.html"><abbr
+                                                                        title="\yxorP\Minify\InlineCssMinifier">InlineCssMinifier</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-InlineJavascriptMinifier.html"><abbr
+                                                                        title="\yxorP\Minify\InlineJavascriptMinifier">InlineJavascriptMinifier</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-Minify.html"><abbr
+                                                                        title="\yxorP\Minify\Minify">Minify</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-QuotesRemover.html"><abbr
+                                                                        title="\yxorP\Minify\QuotesRemover">QuotesRemover</abbr></a>
+                                                                </li>
+                                                                <li class="class"><a
+                                                                        href="classes/yxorP-Minify-WhitespacesRemover.html"><abbr
+                                                                        title="\yxorP\Minify\WhitespacesRemover">WhitespacesRemover</abbr></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <ul>
                                             </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <ul>
+                                <li class="class"><a href="classes/BlockListPlugin.html"><abbr title="\BlockListPlugin">BlockListPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/CookiePlugin.html"><abbr title="\CookiePlugin">CookiePlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/DailyMotionPlugin.html"><abbr
+                                        title="\DailyMotionPlugin">DailyMotionPlugin</abbr></a></li>
+                                <li class="class"><a href="classes/HeaderRewritePlugin.html"><abbr
+                                        title="\HeaderRewritePlugin">HeaderRewritePlugin</abbr></a></li>
+                                <li class="class"><a href="classes/LogPlugin.html"><abbr
+                                        title="\LogPlugin">LogPlugin</abbr></a></li>
+                                <li class="class"><a href="classes/OverridePlugin.html"><abbr title="\OverridePlugin">OverridePlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/ProxifyPlugin.html"><abbr title="\ProxifyPlugin">ProxifyPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/StreamPlugin.html"><abbr title="\StreamPlugin">StreamPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/TwitterPlugin.html"><abbr title="\TwitterPlugin">TwitterPlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/YoutubePlugin.html"><abbr title="\YoutubePlugin">YoutubePlugin</abbr></a>
+                                </li>
+                                <li class="class"><a href="classes/yxorP.html"><abbr title="\yxorP">yxorP</abbr></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/yxorP-Build-CSS.html"><abbr title="\yxorP\Build\CSS">CSS</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Exception.html"><abbr title="\yxorP\Build\Exception">Exception</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-JS.html"><abbr title="\yxorP\Build\JS">JS</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Build-Minify.html"><abbr title="\yxorP\Build\Minify">Minify</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1578172028"></a>
-                                <a href="namespaces/yxorp-cache.html" style="margin-left: 30px; padding-left: 0">cache</a>
-            </div>
-            <div id="namespace-1578172028" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                                            <li class="trait"><a href="classes/yxorP-cache-State.html"><abbr title="\yxorP\cache\State">State</abbr></a></li>
-                                                                            <li class="class"><a href="classes/yxorP-cache-Cache.html"><abbr title="\yxorP\cache\Cache">Cache</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1865588903"></a>
-                                <a href="namespaces/yxorp-http.html" style="margin-left: 30px; padding-left: 0">Http</a>
-            </div>
-            <div id="namespace-1865588903" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/yxorP-Http-EventWrapper.html"><abbr title="\yxorP\Http\EventWrapper">EventWrapper</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-GeneralHelper.html"><abbr title="\yxorP\Http\GeneralHelper">GeneralHelper</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-ParamStore.html"><abbr title="\yxorP\Http\ParamStore">ParamStore</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-Request.html"><abbr title="\yxorP\Http\Request">Request</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Http-Response.html"><abbr title="\yxorP\Http\Response">Response</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                                                    <div class="accordion" style="margin-bottom: 0">
-        <div class="accordion-group">
-            <div class="accordion-heading">
-                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-540081116"></a>
-                                <a href="namespaces/yxorp-minify.html" style="margin-left: 30px; padding-left: 0">Minify</a>
-            </div>
-            <div id="namespace-540081116" class="accordion-body collapse ">
-                <div class="accordion-inner">
-
-                    
-                    <ul>
-                                                    <li class="interface"><a href="classes/yxorP-Minify-MinfyInterface.html"><abbr title="\yxorP\Minify\MinfyInterface">MinfyInterface</abbr></a></li>
-                                                                                                    <li class="class"><a href="classes/yxorP-Minify-Areplacer.html"><abbr title="\yxorP\Minify\Areplacer">Areplacer</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-AttributesSimplifier.html"><abbr title="\yxorP\Minify\AttributesSimplifier">AttributesSimplifier</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-HtmlCommentsRemover.html"><abbr title="\yxorP\Minify\HtmlCommentsRemover">HtmlCommentsRemover</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-InlineCssMinifier.html"><abbr title="\yxorP\Minify\InlineCssMinifier">InlineCssMinifier</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-InlineJavascriptMinifier.html"><abbr title="\yxorP\Minify\InlineJavascriptMinifier">InlineJavascriptMinifier</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-Minify.html"><abbr title="\yxorP\Minify\Minify">Minify</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-QuotesRemover.html"><abbr title="\yxorP\Minify\QuotesRemover">QuotesRemover</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP-Minify-WhitespacesRemover.html"><abbr title="\yxorP\Minify\WhitespacesRemover">WhitespacesRemover</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-                    
-                    <ul>
-                                                                                                    <li class="class"><a href="classes/BlockListPlugin.html"><abbr title="\BlockListPlugin">BlockListPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/CookiePlugin.html"><abbr title="\CookiePlugin">CookiePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/DailyMotionPlugin.html"><abbr title="\DailyMotionPlugin">DailyMotionPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/HeaderRewritePlugin.html"><abbr title="\HeaderRewritePlugin">HeaderRewritePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/LogPlugin.html"><abbr title="\LogPlugin">LogPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/OverridePlugin.html"><abbr title="\OverridePlugin">OverridePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/ProxifyPlugin.html"><abbr title="\ProxifyPlugin">ProxifyPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/StreamPlugin.html"><abbr title="\StreamPlugin">StreamPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/TwitterPlugin.html"><abbr title="\TwitterPlugin">TwitterPlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/YoutubePlugin.html"><abbr title="\YoutubePlugin">YoutubePlugin</abbr></a></li>
-                                                    <li class="class"><a href="classes/yxorP.html"><abbr title="\yxorP">yxorP</abbr></a></li>
-                                            </ul>
-                </div>
-            </div>
-        </div>
-    </div>
 
         </div>
     </section>
@@ -302,1599 +391,1715 @@
             <div class="row-fluid">
                 <div class="span8 content file">
                     <nav>
-                                                                    </nav>
+                    </nav>
 
-                                        <h1><small>build</small>tools.php</h1>
+                    <h1><small>build</small>tools.php</h1>
                     <p><em>ALOM Tools</em></p>
-                    
 
-                    
-                    
-                                    </div>
+
+                </div>
 
                 <aside class="span4 detailsbar">
                     <dl>
-                                                    <dt>Package</dt>
-                            <dd><div class="namespace-wrapper">\Application</div></dd>
-                        
-                        
+                        <dt>Package</dt>
+                        <dd>
+                            <div class="namespace-wrapper">\Application</div>
+                        </dd>
+
+
                     </dl>
                     <h2>Tags</h2>
                     <table class="table table-condensed">
-                                                    <tr>
-                                <th>
-                                    author:
-                                </th>
-                                <td>
-                                                                                                                    <p>Avid [@Av_id]</p>
+                        <tr>
+                            <th>
+                                author:
+                            </th>
+                            <td>
+                                <p>Avid [@Av_id]</p>
 
-                                                                    </td>
-                            </tr>
-                                            </table>
+                            </td>
+                        </tr>
+                    </table>
 
                 </aside>
             </div>
 
-                        <div class="row-fluid">
+            <div class="row-fluid">
                 <section class="span8 content file">
                     <h2>Constants</h2>
                 </section>
                 <aside class="span4 detailsbar"></aside>
             </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="constant_ALOM_VERSION" name="constant_ALOM_VERSION" class="anchor"></a>
-            <article id="constant_ALOM_VERSION" class="constant">
-                <h3 class="">ALOM_VERSION</h3>
-                <pre class="signature">ALOM_VERSION = &#039;2.8.2&#039;</pre>
-                <p><em></em></p>
-                
-            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                        <dl>
-                                <dt>File</dt>
-                <dd><a href=""><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="constant_ALOM_VERSION" name="constant_ALOM_VERSION"></a>
+                    <article class="constant" id="constant_ALOM_VERSION">
+                        <h3 class="">ALOM_VERSION</h3>
+                        <pre class="signature">ALOM_VERSION = &#039;2.8.2&#039;</pre>
+                        <p><em></em></p>
 
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="constant_ALOM_VERSION_NUMBER" name="constant_ALOM_VERSION_NUMBER" class="anchor"></a>
-            <article id="constant_ALOM_VERSION_NUMBER" class="constant">
-                <h3 class="">ALOM_VERSION_NUMBER</h3>
-                <pre class="signature">ALOM_VERSION_NUMBER = 20802</pre>
-                <p><em></em></p>
-                
-            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                        <dl>
-                                <dt>File</dt>
-                <dd><a href=""><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
 
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="constant_ALOM_VERSION_NUMBER" name="constant_ALOM_VERSION_NUMBER"></a>
+                    <article class="constant" id="constant_ALOM_VERSION_NUMBER">
+                        <h3 class="">ALOM_VERSION_NUMBER</h3>
+                        <pre class="signature">ALOM_VERSION_NUMBER = 20802</pre>
+                        <p><em></em></p>
 
-                            
-                        <div class="row-fluid">
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+
+            <div class="row-fluid">
                 <section class="span8 content file">
                     <h2>Functions</h2>
                 </section>
                 <aside class="span4 detailsbar"></aside>
             </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_is_alom_obfuscated" name="method_is_alom_obfuscated" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">is_alom_obfuscated()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">is_alom_obfuscated(string  <span class="argument">$file</span>) : bool</pre>
-                <p><em>Check if input file is an obfuscated file by alom</em></p>
-                
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_is_alom_obfuscated" name="method_is_alom_obfuscated"></a>
+                    <article class="method">
+                        <h3 class=" ">is_alom_obfuscated()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">is_alom_obfuscated(string  <span
+                                class="argument">$file</span>) : bool</pre>
+                        <p><em>Check if input file is an obfuscated file by alom</em></p>
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_protect" name="method_alom_protect" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_protect()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_protect(string  <span class="argument">$file</span>, array  <span class="argument">$settings = array()</span>) : bool</pre>
-                <p><em>Alom auto protection method</em></p>
-                
+                        <h4>Returns</h4>
+                        bool
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_protect" name="method_alom_protect"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_protect()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_protect(string  <span class="argument">$file</span>, array  <span
+                                class="argument">$settings = array()</span>) : bool</pre>
+                        <p><em>Alom auto protection method</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>array</td>
-                                <td>$settings </td>
+                                <td>$settings</td>
                                 <td><p>= []</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; <p>true if now obfuscatored and false if before obfuscatored or file dont exists</p>
+                        </table>
 
-                                    
-                                                            <h4>Examples</h4>
-                                                                <h5>alom_protect(__FILE__);</h5>
+
+                        <h4>Returns</h4>
+                        bool
+                        &mdash; <p>true if now obfuscatored and false if before obfuscatored or file dont exists</p>
+
+
+                        <h4>Examples</h4>
+                        <h5>alom_protect(__FILE__);</h5>
                         <pre class="pre-scrollable"></pre>
-                                                </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_get_license_code" name="method_alom_get_license_code" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_get_license_code()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_get_license_code(string  <span class="argument">$file</span>) : string</pre>
-                <p><em>Alom get license code from license file</em></p>
-                
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_get_license_code" name="method_alom_get_license_code"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_get_license_code()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_get_license_code(string  <span
+                                class="argument">$file</span>) : string</pre>
+                        <p><em>Alom get license code from license file</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>or false if licenese code do not exists</p>
+                        </table>
 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                        <h4>Returns</h4>
+                        string
+                        &mdash; <p>or false if licenese code do not exists</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_exists_license_code" name="method_alom_exists_license_code" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_exists_license_code()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_exists_license_code(string  <span class="argument">$file</span>) : bool</pre>
-                <p><em>Alom check if exists license code in license file</em></p>
-                
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_exists_license_code" name="method_alom_exists_license_code"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_exists_license_code()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_exists_license_code(string  <span
+                                class="argument">$file</span>) : bool</pre>
+                        <p><em>Alom check if exists license code in license file</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_insert_license_code" name="method_alom_insert_license_code" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_insert_license_code()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_insert_license_code(string  <span class="argument">$file</span>, mixed  <span class="argument">$license_code</span>) : bool</pre>
-                <p><em>Alom insert license code with license file</em></p>
-                
+                        <h4>Returns</h4>
+                        bool
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_insert_license_code" name="method_alom_insert_license_code"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_insert_license_code()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_insert_license_code(string  <span
+                                class="argument">$file</span>, mixed  <span class="argument">$license_code</span>) : bool</pre>
+                        <p><em>Alom insert license code with license file</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>mixed</td>
-                                <td>$license_code </td>
+                                <td>$license_code</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; <p>Return false if license file do not need license code or invalid license code</p>
+                        </table>
 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                        <h4>Returns</h4>
+                        bool
+                        &mdash; <p>Return false if license file do not need license code or invalid license code</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_minify" name="method_alom_minify" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_minify()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_minify(string|callable  <span class="argument">$code</span>) : string</pre>
-                <p><em>Alom minify contents</em></p>
-                
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_minify" name="method_alom_minify"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_minify()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_minify(string|callable  <span
+                                class="argument">$code</span>) : string</pre>
+                        <p><em>Alom minify contents</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string|callable</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>minified script</p>
+                        </table>
 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                        <h4>Returns</h4>
+                        string
+                        &mdash; <p>minified script</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_phpify" name="method_alom_phpify" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_phpify()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_phpify(string|callable  <span class="argument">$code</span>) : string</pre>
-                <p><em>Alom phpify contents</em></p>
-                
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_phpify" name="method_alom_phpify"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_phpify()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_phpify(string|callable  <span
+                                class="argument">$code</span>) : string</pre>
+                        <p><em>Alom phpify contents</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string|callable</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>phpified script</p>
+                        </table>
 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                        <h4>Returns</h4>
+                        string
+                        &mdash; <p>phpified script</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_obfuscate" name="method_alom_obfuscate" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_obfuscate()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_obfuscate(string|callable  <span class="argument">$code</span>, array  <span class="argument">$settings = []</span>) : string</pre>
-                <p><em>Alom obfuscate contents</em></p>
-                
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_obfuscate" name="method_alom_obfuscate"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_obfuscate()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_obfuscate(string|callable  <span
+                                class="argument">$code</span>, array  <span class="argument">$settings = []</span>) : string</pre>
+                        <p><em>Alom obfuscate contents</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string|callable</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>array</td>
-                                <td>$settings </td>
+                                <td>$settings</td>
                                 <td><p>= []</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>obfuscated code</p>
+                        </table>
 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                        <h4>Returns</h4>
+                        string
+                        &mdash; <p>obfuscated code</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_put" name="method_alom_put" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_put()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_put(string  <span class="argument">$file</span>, string|callable  <span class="argument">$code</span>) : int</pre>
-                <p><em>Alom file put script</em></p>
-                
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_put" name="method_alom_put"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_put()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_put(string  <span
+                                class="argument">$file</span>, string|callable  <span class="argument">$code</span>) : int</pre>
+                        <p><em>Alom file put script</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string|callable</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    int
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_minify_into" name="method_alom_minify_into" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_minify_into()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_minify_into(string  <span class="argument">$code</span>, string  <span class="argument">$file</span>) : bool</pre>
-                <p><em>Alom minify contents into file</em></p>
-                
+                        <h4>Returns</h4>
+                        int
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_minify_into" name="method_alom_minify_into"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_minify_into()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_minify_into(string  <span
+                                class="argument">$code</span>, string  <span class="argument">$file</span>) : bool</pre>
+                        <p><em>Alom minify contents into file</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_obfuscate_into" name="method_alom_obfuscate_into" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_obfuscate_into()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_obfuscate_into(string|callable  <span class="argument">$code</span>, string  <span class="argument">$file</span>, array  <span class="argument">$settings = []</span>) : bool</pre>
-                <p><em>Alom obfuscate contents into file</em></p>
-                
+                        <h4>Returns</h4>
+                        bool
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_obfuscate_into" name="method_alom_obfuscate_into"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_obfuscate_into()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_obfuscate_into(string|callable  <span
+                                class="argument">$code</span>, string  <span class="argument">$file</span>, array  <span
+                                class="argument">$settings = []</span>) : bool</pre>
+                        <p><em>Alom obfuscate contents into file</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string|callable</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>array</td>
-                                <td>$settings </td>
+                                <td>$settings</td>
                                 <td><p>= []</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_license_key_generate" name="method_alom_license_key_generate" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_license_key_generate()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_license_key_generate(string  <span class="argument">$init = null</span>) : string</pre>
-                <p><em>Alom generate license key</em></p>
-                
+                        <h4>Returns</h4>
+                        bool
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_license_key_generate" name="method_alom_license_key_generate"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_license_key_generate()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_license_key_generate(string  <span
+                                class="argument">$init = null</span>) : string</pre>
+                        <p><em>Alom generate license key</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$init </td>
+                                <td>$init</td>
                                 <td><p>= Random</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_license_systemhash_generate" name="method_alom_license_systemhash_generate" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_license_systemhash_generate()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_license_systemhash_generate(array  <span class="argument">$datas = array()</span>) : string</pre>
-                <p><em>Alom generate systemhash for license code</em></p>
-                
+                        <h4>Returns</h4>
+                        string
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_license_systemhash_generate"
+                       name="method_alom_license_systemhash_generate"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_license_systemhash_generate()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_license_systemhash_generate(array  <span
+                                class="argument">$datas = array()</span>) : string</pre>
+                        <p><em>Alom generate systemhash for license code</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>array</td>
-                                <td>$datas </td>
+                                <td>$datas</td>
                                 <td><p>[
-string $uname,
-string $username,
-string $ipaddr,
-string $hostname
-] = []</p>
-</td>
+                                    string $uname,
+                                    string $username,
+                                    string $ipaddr,
+                                    string $hostname
+                                    ] = []</p>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_license_code_encrypt" name="method_alom_license_code_encrypt" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_license_code_encrypt()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_license_code_encrypt(string  <span class="argument">$systemhash</span>, string  <span class="argument">$license_key</span>, int  <span class="argument">$expiration = 0x7fffffff</span>, int  <span class="argument">$ready</span>) : string</pre>
-                <p><em>Alom license code generator</em></p>
-                
+                        <h4>Returns</h4>
+                        string
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_license_code_encrypt" name="method_alom_license_code_encrypt"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_license_code_encrypt()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_license_code_encrypt(string  <span
+                                class="argument">$systemhash</span>, string  <span class="argument">$license_key</span>, int  <span
+                                class="argument">$expiration = 0x7fffffff</span>, int  <span
+                                class="argument">$ready</span>) : string</pre>
+                        <p><em>Alom license code generator</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$systemhash </td>
+                                <td>$systemhash</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$license_key </td>
+                                <td>$license_key</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>int</td>
-                                <td>$expiration </td>
+                                <td>$expiration</td>
                                 <td><p>= 0x7fffffff Unix time</p>
-</td>
+                                </td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>int</td>
-                                <td>$ready </td>
+                                <td>$ready</td>
                                 <td><p>= 0 Unix time</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>license code</p>
+                        </table>
 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                        <h4>Returns</h4>
+                        string
+                        &mdash; <p>license code</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_license_code_decrypt" name="method_alom_license_code_decrypt" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_license_code_decrypt()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_license_code_decrypt(string  <span class="argument">$license_code</span>, string  <span class="argument">$license_key</span>) : array</pre>
-                <p><em>Alom license code decryption</em></p>
-                
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_license_code_decrypt" name="method_alom_license_code_decrypt"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_license_code_decrypt()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_license_code_decrypt(string  <span
+                                class="argument">$license_code</span>, string  <span
+                                class="argument">$license_key</span>) : array</pre>
+                        <p><em>Alom license code decryption</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$license_code </td>
+                                <td>$license_code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$license_key </td>
+                                <td>$license_key</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    array
-                                            &mdash; <p>or false if license code invalid</p>
+                        </table>
 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                        <h4>Returns</h4>
+                        array
+                        &mdash; <p>or false if license code invalid</p>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_includekey_generate" name="method_alom_includekey_generate" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_includekey_generate()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_includekey_generate(string  <span class="argument">$init = null</span>) : string</pre>
-                <p><em>Alom include key generate</em></p>
-                
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_includekey_generate" name="method_alom_includekey_generate"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_includekey_generate()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_includekey_generate(string  <span
+                                class="argument">$init = null</span>) : string</pre>
+                        <p><em>Alom include key generate</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$init </td>
+                                <td>$init</td>
                                 <td><p>= Random</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_includekey_encrypt" name="method_alom_includekey_encrypt" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_includekey_encrypt()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_includekey_encrypt(string|callable  <span class="argument">$code</span>, string  <span class="argument">$key</span>) : string</pre>
-                <p><em>Alom include key encrypt</em></p>
-                
+                        <h4>Returns</h4>
+                        string
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_includekey_encrypt" name="method_alom_includekey_encrypt"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_includekey_encrypt()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature"
+                             style="margin-right: 54px;">alom_includekey_encrypt(string|callable  <span
+                                class="argument">$code</span>, string  <span
+                                class="argument">$key</span>) : string</pre>
+                        <p><em>Alom include key encrypt</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string|callable</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$key </td>
+                                <td>$key</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_includekey_decrypt" name="method_alom_includekey_decrypt" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_includekey_decrypt()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_includekey_decrypt(string  <span class="argument">$code</span>, string  <span class="argument">$key</span>) : string</pre>
-                <p><em>Alom include key decrypt</em></p>
-                
+                        <h4>Returns</h4>
+                        string
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_includekey_decrypt" name="method_alom_includekey_decrypt"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_includekey_decrypt()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_includekey_decrypt(string  <span
+                                class="argument">$code</span>, string  <span
+                                class="argument">$key</span>) : string</pre>
+                        <p><em>Alom include key decrypt</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$key </td>
+                                <td>$key</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_includekey_encrypt_into" name="method_alom_includekey_encrypt_into" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_includekey_encrypt_into()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_includekey_encrypt_into(string|callable  <span class="argument">$code</span>, string  <span class="argument">$file</span>, string  <span class="argument">$key</span>) : int</pre>
-                <p><em>Alom include key encrypt into file</em></p>
-                
+                        <h4>Returns</h4>
+                        string
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_includekey_encrypt_into"
+                       name="method_alom_includekey_encrypt_into"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_includekey_encrypt_into()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_includekey_encrypt_into(string|callable  <span
+                                class="argument">$code</span>, string  <span
+                                class="argument">$file</span>, string  <span class="argument">$key</span>) : int</pre>
+                        <p><em>Alom include key encrypt into file</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string|callable</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$key </td>
+                                <td>$key</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    int
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_includekey_decrypt_into" name="method_alom_includekey_decrypt_into" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_includekey_decrypt_into()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_includekey_decrypt_into(string  <span class="argument">$code</span>, string  <span class="argument">$file</span>, string  <span class="argument">$key</span>) : int</pre>
-                <p><em>Alom include key decrypt into file</em></p>
-                
+                        <h4>Returns</h4>
+                        int
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_includekey_decrypt_into"
+                       name="method_alom_includekey_decrypt_into"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_includekey_decrypt_into()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_includekey_decrypt_into(string  <span
+                                class="argument">$code</span>, string  <span
+                                class="argument">$file</span>, string  <span class="argument">$key</span>) : int</pre>
+                        <p><em>Alom include key decrypt into file</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$code </td>
+                                <td>$code</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$key </td>
+                                <td>$key</td>
                                 <td></td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    int
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_prepare_oscript" name="method_alom_prepare_oscript" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_prepare_oscript()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_prepare_oscript(string  <span class="argument">$file</span>, string  <span class="argument">$license_key</span>, string  <span class="argument">$password = &#039;&#039;</span>) : bool</pre>
-                <p><em>Alom oscript web server (send to output)</em></p>
-                
+                        <h4>Returns</h4>
+                        int
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_prepare_oscript" name="method_alom_prepare_oscript"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_prepare_oscript()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_prepare_oscript(string  <span
+                                class="argument">$file</span>, string  <span class="argument">$license_key</span>, string  <span
+                                class="argument">$password = &#039;&#039;</span>) : bool</pre>
+                        <p><em>Alom oscript web server (send to output)</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$file </td>
+                                <td>$file</td>
                                 <td><p>obfuscated script with license_code</p>
-</td>
+                                </td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$license_key </td>
+                                <td>$license_key</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$password </td>
+                                <td>$password</td>
                                 <td><p>= ''</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_exec_oscript" name="method_alom_exec_oscript" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_exec_oscript()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_exec_oscript(string  <span class="argument">$url</span>, string  <span class="argument">$password = &#039;&#039;</span>) : string</pre>
-                <p><em>Alom oscript client</em></p>
-                
+                        <h4>Returns</h4>
+                        bool
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_exec_oscript" name="method_alom_exec_oscript"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_exec_oscript()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_exec_oscript(string  <span
+                                class="argument">$url</span>, string  <span
+                                class="argument">$password = &#039;&#039;</span>) : string</pre>
+                        <p><em>Alom oscript client</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$url </td>
+                                <td>$url</td>
                                 <td></td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$password </td>
+                                <td>$password</td>
                                 <td><p>= ''</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    string
-                                            &mdash; <p>oscript code or false if oscript url is invalid</p>
+                        </table>
 
-                                    
-                                                            <h4>Examples</h4>
-                                                                <h5>include(alom_exec_oscript(&quot;https://example.code/oscript.php&quot;));</h5>
+
+                        <h4>Returns</h4>
+                        string
+                        &mdash; <p>oscript code or false if oscript url is invalid</p>
+
+
+                        <h4>Examples</h4>
+                        <h5>include(alom_exec_oscript(&quot;https://example.code/oscript.php&quot;));</h5>
                         <pre class="pre-scrollable"></pre>
-                                                </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_obfuscate_dir" name="method_alom_obfuscate_dir" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_obfuscate_dir()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_obfuscate_dir(string  <span class="argument">$from</span>, string  <span class="argument">$to</span>, array  <span class="argument">$settings = []</span>, bool  <span class="argument">$copy = false</span>) : mixed</pre>
-                <p><em>Alom directory obfuscator
-obfuscate all php files in directory into another directory</em></p>
-                
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_obfuscate_dir" name="method_alom_obfuscate_dir"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_obfuscate_dir()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_obfuscate_dir(string  <span
+                                class="argument">$from</span>, string  <span class="argument">$to</span>, array  <span
+                                class="argument">$settings = []</span>, bool  <span
+                                class="argument">$copy = false</span>) : mixed</pre>
+                        <p><em>Alom directory obfuscator
+                            obfuscate all php files in directory into another directory</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$from </td>
+                                <td>$from</td>
                                 <td><p>directory</p>
-</td>
+                                </td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>string</td>
-                                <td>$to </td>
+                                <td>$to</td>
                                 <td><p>directory</p>
-</td>
+                                </td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>array</td>
-                                <td>$settings </td>
+                                <td>$settings</td>
                                 <td><p>= []</p>
-</td>
+                                </td>
                             </tr>
-                                                    <tr>
+                            <tr>
                                 <td>bool</td>
-                                <td>$copy </td>
+                                <td>$copy</td>
                                 <td><p>= false Copy non php files</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    mixed
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                                        <div class="row-fluid">
-        <div class="span8 content class">
-            <a id="method_alom_autogit" name="method_alom_autogit" class="anchor"></a>
-            <article class="method">
-                <h3 class=" ">alom_autogit()</h3>
-                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
-                <pre class="signature" style="margin-right: 54px;">alom_autogit(string  <span class="argument">$path = &#039;.&#039;</span>) : bool</pre>
-                <p><em>Alom auto update files from github</em></p>
-                
+                        <h4>Returns</h4>
+                        mixed
+                        &mdash;
 
-                                    <h4>Parameters</h4>
-                    <table class="table table-condensed table-hover">
-                                                    <tr>
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <a class="anchor" id="method_alom_autogit" name="method_alom_autogit"></a>
+                    <article class="method">
+                        <h3 class=" ">alom_autogit()</h3>
+                        <a class="pull-right btn" data-toggle="modal" href="#source-view" role="button"
+                           style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                        <pre class="signature" style="margin-right: 54px;">alom_autogit(string  <span class="argument">$path = &#039;.&#039;</span>) : bool</pre>
+                        <p><em>Alom auto update files from github</em></p>
+
+
+                        <h4>Parameters</h4>
+                        <table class="table table-condensed table-hover">
+                            <tr>
                                 <td>string</td>
-                                <td>$path </td>
+                                <td>$path</td>
                                 <td><p>= '.'</p>
-</td>
+                                </td>
                             </tr>
-                                            </table>
-                
-                
-                                    <h4>Returns</h4>
-                    bool
-                                            &mdash; 
-                                    
-                            </article>
-        </div>
-        <aside class="span4 detailsbar">
-            <h1><i class="icon-arrow-down"></i></h1>
-                                                            <dl>
-                                    <dt>File</dt>
-                    <dd><a href="files/build-tools.html"><div class="path-wrapper">build/tools.php</div></a></dd>
-                                                                            </dl>
-            <h2>Tags</h2>
-            <table class="table table-condensed">
-                                    <tr>
-                        <th>
-                            package
-                        </th>
-                        <td>
-                                                                                            <p>Application</p>
+                        </table>
 
-                                                    </td>
-                    </tr>
-                                    <tr>
-                        <th>
-                            method
-                        </th>
-                        <td>
-                                                                                            
-                                                    </td>
-                    </tr>
-                            </table>
-        </aside>
-    </div>
 
-                            
+                        <h4>Returns</h4>
+                        bool
+                        &mdash;
+
+                    </article>
+                </div>
+                <aside class="span4 detailsbar">
+                    <h1><i class="icon-arrow-down"></i></h1>
+                    <dl>
+                        <dt>File</dt>
+                        <dd><a href="files/build-tools.html">
+                            <div class="path-wrapper">build/tools.php</div>
+                        </a></dd>
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                        <tr>
+                            <th>
+                                package
+                            </th>
+                            <td>
+                                <p>Application</p>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                method
+                            </th>
+                            <td>
+
+                            </td>
+                        </tr>
+                    </table>
+                </aside>
+            </div>
+
+
         </div>
     </section>
 
-    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+    <div aria-hidden="true" aria-labelledby="source-view-label" class="modal hide fade" id="source-view" role="dialog"
+         tabindex="-1">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <button aria-hidden="true" class="close" data-dismiss="modal" type="button">×</button>
             <h3 id="source-view-label"></h3>
         </div>
         <div class="modal-body">
-            <pre data-src="files/build/tools.php.txt" class="language-php line-numbers"></pre>
+            <pre class="language-php line-numbers" data-src="files/build/tools.php.txt"></pre>
         </div>
     </div>
 
@@ -1904,15 +2109,15 @@ obfuscate all php files in directory into another directory</em></p>
                 <section class="span10 offset1">
                     <section class="row-fluid footer-sections">
                         <section class="span4">
-                                                        <h1><i class="icon-code"></i></h1>
+                            <h1><i class="icon-code"></i></h1>
                             <div>
                                 <ul>
-                                                                            <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
-                                                                    </ul>
+                                    <li><a href="namespaces/yxorp.html"><abbr title="\yxorP">yxorP</abbr></a></li>
+                                </ul>
                             </div>
                         </section>
                         <section class="span4">
-                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <h1><i class="icon-bar-chart"></i></h1>
                             <div>
                                 <ul>
                                     <li><a href="graphs/class.html">Class Hierarchy Diagram</a></li>
@@ -1920,7 +2125,7 @@ obfuscate all php files in directory into another directory</em></p>
                             </div>
                         </section>
                         <section class="span4">
-                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <h1><i class="icon-pushpin"></i></h1>
                             <div>
                                 <ul>
                                     <li><a href="reports/errors.html">Errors</a></li>
@@ -1933,7 +2138,7 @@ obfuscate all php files in directory into another directory</em></p>
             </section>
             <section class="row-fluid">
                 <section class="span10 offset1">
-                    <hr />
+                    <hr/>
                     Documentation is powered by <a href="https://www.phpdoc.org/">phpDocumentor </a> and authored
                     on June 25th, 2022 at 10:01.
                 </section>

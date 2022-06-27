@@ -2,34 +2,19 @@
 
 # ServiceLocatorAwareTrait
 
-
-
-
-
 * Full name: `\Zend\ServiceManager\ServiceLocatorAwareTrait`
-
-
 
 ## Properties
 
-
 ### serviceLocator
-
-
 
 ```php
 protected \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setServiceLocator
 
@@ -39,21 +24,11 @@ Set service locator
 public setServiceLocator(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serviceLocator` | **\Zend\ServiceManager\ServiceLocatorInterface** |  |
-
-
-
 
 ***
 
@@ -64,16 +39,6 @@ Get service locator
 ```php
 public getServiceLocator(): \Zend\ServiceManager\ServiceLocatorInterface
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

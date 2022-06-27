@@ -2,6 +2,7 @@
 
 use JetBrains\PhpStorm\Pure;
 
+
 class ParamStore
 {
     private array $data;
@@ -38,6 +39,11 @@ class ParamStore
         }
     }
 
+    private function normalizeKey($key)
+    {
+        return $this->case_sensitive ? $key : strtolower($key);
+    }
+
     #[Pure] public function has($key): bool
     {
         return isset($this->data[$this->normalizeKey($key)]);
@@ -48,13 +54,19 @@ class ParamStore
         unset($this->data[$this->normalizeKey($key)]);
     }
 
+    #[Pure] public function get($key, $default = null)
+    {
+        $key = $this->normalizeKey($key);
+        return $this->has($key) ? $this->data[$key] : $default;
+    }
+
     public function all(): array
     {
         return $this->data;
     }
 
-    private function normalizeKey($key)
+    public function __toString()
     {
-        return $this->case_sensitive ? $key : strtolower($key);
+        return json_encode($this->data);
     }
 }

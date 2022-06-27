@@ -4,15 +4,10 @@
 
 These are options specific to the APC adapter
 
-
-
 * Full name: `\Zend\Cache\Storage\Adapter\SessionOptions`
 * Parent class: [`\Zend\Cache\Storage\Adapter\AdapterOptions`](./AdapterOptions.md)
 
-
-
 ## Properties
-
 
 ### sessionContainer
 
@@ -22,15 +17,9 @@ The session container
 protected null|\Zend\Session\Container $sessionContainer
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setSessionContainer
 
@@ -40,21 +29,11 @@ Set the session container
 public setSessionContainer(null|\Zend\Session\Container $sessionContainer = null): \Zend\Cache\Storage\Adapter\SessionOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$sessionContainer` | **null&#124;\Zend\Session\Container** |  |
-
-
-
 
 ***
 
@@ -66,21 +45,9 @@ Get the session container
 public getSessionContainer(): null|\Zend\Session\Container
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### setAdapter
 
@@ -90,21 +57,11 @@ Adapter using this instance
 public setAdapter(\Zend\Cache\Storage\StorageInterface|null $adapter = null): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$adapter` | **\Zend\Cache\Storage\StorageInterface&#124;null** |  |
-
-
-
 
 ***
 
@@ -116,21 +73,11 @@ Set key pattern
 public setKeyPattern(null|string $keyPattern): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$keyPattern` | **null&#124;string** |  |
-
-
-
 
 ***
 
@@ -142,16 +89,6 @@ Get key pattern
 public getKeyPattern(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setNamespace
@@ -162,21 +99,11 @@ Set namespace.
 public setNamespace(string $namespace): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$namespace` | **string** |  |
-
-
-
 
 ***
 
@@ -188,16 +115,6 @@ Get namespace
 public getNamespace(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setReadable
@@ -208,21 +125,11 @@ Enable/Disable reading data from cache.
 public setReadable(bool $readable): \Zend\Cache\Storage\Adapter\AbstractAdapter
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$readable` | **bool** |  |
-
-
-
 
 ***
 
@@ -234,16 +141,6 @@ If reading data from cache enabled.
 public getReadable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setTtl
@@ -254,21 +151,11 @@ Set time to live.
 public setTtl(int|float $ttl): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -280,16 +167,6 @@ Get time to live.
 public getTtl(): float
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setWritable
@@ -300,21 +177,11 @@ Enable/Disable writing data to cache.
 public setWritable(bool $writable): \Zend\Cache\Storage\Adapter\AdapterOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writable` | **bool** |  |
-
-
-
 
 ***
 
@@ -326,33 +193,15 @@ If writing data to cache enabled.
 public getWritable(): bool
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### triggerOptionEvent
 
-Triggers an option event if this options instance has a connection to
-an adapter implements EventsCapableInterface.
+Triggers an option event if this options instance has a connection to an adapter implements EventsCapableInterface.
 
 ```php
 protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -360,9 +209,6 @@ protected triggerOptionEvent(string $optionName, mixed $optionValue): void
 |-----------|------|-------------|
 | `$optionName` | **string** |  |
 | `$optionValue` | **mixed** |  |
-
-
-
 
 ***
 
@@ -374,21 +220,11 @@ Validates and normalize a TTL.
 protected normalizeTtl(int|float& $ttl): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ttl` | **int&#124;float** |  |
-
-
-
 
 ***
 
@@ -400,21 +236,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -426,19 +252,11 @@ Set one or more configuration properties
 public setFromArray(array|\Traversable|\Zend\Stdlib\AbstractOptions $options): \Zend\Stdlib\AbstractOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Stdlib\AbstractOptions** |  |
-
 
 **Return Value:**
 
@@ -456,16 +274,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __set
@@ -476,13 +284,6 @@ Set a configuration property
 public __set(string $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -490,11 +291,9 @@ public __set(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__set() - 
+* \Zend\Stdlib\ParameterObject::__set() -
 
 ***
 
@@ -506,24 +305,15 @@ Get a configuration property
 public __get(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__get() - 
+* \Zend\Stdlib\ParameterObject::__get() -
 
 ***
 
@@ -535,24 +325,15 @@ Test if a configuration property is null
 public __isset(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__isset() - 
+* \Zend\Stdlib\ParameterObject::__isset() -
 
 ***
 
@@ -564,24 +345,15 @@ Set a configuration property to NULL
 public __unset(string $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__unset() - 
+* \Zend\Stdlib\ParameterObject::__unset() -
 
 ***
 

@@ -8,28 +8,17 @@ This trait is present in monolog 1.x to ease forward compatibility.
 
 * Full name: `\Monolog\Handler\FormattableHandlerTrait`
 
-
-
 ## Properties
 
-
 ### formatter
-
-
 
 ```php
 protected \Monolog\Formatter\FormatterInterface $formatter
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setFormatter
 
@@ -39,21 +28,11 @@ protected \Monolog\Formatter\FormatterInterface $formatter
 public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): \Monolog\Handler\HandlerInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$formatter` | **\Monolog\Formatter\FormatterInterface** |  |
-
-
-
 
 ***
 
@@ -64,16 +43,6 @@ public setFormatter(\Monolog\Formatter\FormatterInterface $formatter): \Monolog\
 ```php
 public getFormatter(): \Monolog\Formatter\FormatterInterface
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 

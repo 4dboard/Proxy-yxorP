@@ -129,7 +129,7 @@ class GeneralHelper
             $base_url = self::add_http($base_url);
             $url = self::rel2abs($url, $base_url);
         }
-        return str_replace(yxorP::get('TARGET_URL'), '', $url);
+        return str_replace(yxorP::get('FETCH'), '', $url);
     }
 
     public static function add_http($url)
@@ -165,5 +165,22 @@ class GeneralHelper
         for ($n = 1; $n > 0; $abs = preg_replace($re, '/', $abs, -1, $n)) {
         }
         return $scheme . ':' . $abs;
+    }
+
+    public static function array_merge_ignore($arrays): array
+    {
+        $mergedArrays = [];
+        $args = func_get_args();
+        foreach ($args as $arg) {
+            if (!empty($argArry = (array)$arg)) {
+                if (empty($mergedArrays)) {
+                    $mergedArrays = $argArry;
+                } else {
+                    array_merge($mergedArrays, $argArry);
+                }
+            }
+        }
+
+        return $mergedArrays;
     }
 }

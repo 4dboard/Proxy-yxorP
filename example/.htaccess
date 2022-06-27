@@ -1,9 +1,9 @@
-# This .htaccess file is used to speed up this website
+# This 1.htaccess file is used to speed up this website
 # See https://github.com/sergeychernyshev/.htaccess
 # ----------------------------------------------------------------------
 # Proper MIME type for all files
 #
-# Copied from the HTML5 boilerplate project's .htaccess file
+# Copied from the HTML5 boilerplate project's 1.htaccess file
 # https://github.com/h5bp/html5-boilerplate/blob/master/.htaccess
 # JavaScript
 #   Normalize to standard type (it's sniffed in IE anyways)
@@ -173,7 +173,7 @@ RewriteCond %{HTTP_USER_AGENT} !MSIE
 RewriteCond %{HTTP:Accept-encoding} gzip
 RewriteCond %{REQUEST_FILENAME}.gz -f
 RewriteRule ^(.*)$ $1.gz [L]
-#Expire headers (put in .htaccess)
+#Expire headers (put in 1.htaccess)
 #################################################################################################
 ExpiresActive on
 # Perhaps better to whitelist expires rules? Perhaps.
@@ -200,7 +200,7 @@ ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
 # CSS and JavaScript
 ExpiresByType text/css                  "access plus 1 year"
 ExpiresByType application/javascript    "access plus 1 year"
-# Specify a Vary: Accept-Encoding Header (put in .htaccess)
+# Specify a Vary: Accept-Encoding Header (put in 1.htaccess)
 ###############################################################################################################
 &lt;FilesMatch ".(js|css|xml|gz|html)$"&gt;
 Header append Vary: Accept-Encoding
@@ -232,7 +232,7 @@ add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
 /** Disable Ajax Call from WooCommerce */
 add_action( 'wp_enqueue_scripts', 'dequeue_woocommerce_cart_fragments', 11);
 function dequeue_woocommerce_cart_fragments() { if (is_front_page()) wp_dequeue_script('wc-cart-fragments'); }
-# Leverage browser caching & Enable Compression [Source: Rasel Ahmed]  (put in .htaccess)
+# Leverage browser caching & Enable Compression [Source: Rasel Ahmed]  (put in 1.htaccess)
 # Enable Compression
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/rss+xml
@@ -304,7 +304,7 @@ function stop_heartbeat() {
 wp_deregister_script('heartbeat');
 // Remove XML-RPC {Ususallly use when you need to connect your website in an app/Using API}
 add_filter( 'xmlrpc_enabled', '__return_false' );
-// RSD Link / Pingback Stop
+// RSD Link/Pingback Stop
 remove_action( 'wp_head', 'rsd_link' ) ;
 // *** Put in htaccess
 // Stop access xmlrpc.php
@@ -341,9 +341,9 @@ ExpiresByType application/pdf "access plus 1 month"
 ExpiresByType application/x-shockwave-flash "access plus 1 month"
 # Everything else
 ExpiresDefault "access 7 days"
-# Apache Server Configs v2.14.0 | MIT License / https://github.com/h5bp/server-configs-apache
-# Copyright (c) HTML5 Boilerplate / https://github.com/h5bp/html5-boilerplate
-# Speed Up - Browser Caching | GPLv2 / http://wordpress.org/plugins/speed-up-browser-caching/
+# Apache Server Configs v2.14.0 | MIT License/https://github.com/h5bp/server-configs-apache
+# Copyright (c) HTML5 Boilerplate/https://github.com/h5bp/html5-boilerplate
+# Speed Up - Browser Caching | GPLv2/http://wordpress.org/plugins/speed-up-browser-caching/
 &lt;IfModule mod_mime.c&gt;
 AddType application/javascript                      js
 AddType audio/mp4                                   f4a f4b m4a

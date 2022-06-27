@@ -197,7 +197,7 @@ EasyPeasyICS or iCalcreator.
 **See Also:**
 
 * http://sprain.ch/blog/downloads/php-class-easypeasyics-create-ical-files-with-php/ -
-  * http://kigkonsult.se/iCalcreator/ -
+    * http://kigkonsult.se/iCalcreator/ -
 
 ***
 
@@ -894,7 +894,7 @@ only for addresses with IDN.
 **See Also:**
 
 * \PHPMailer\PHPMailer\PHPMailer::$to - * \PHPMailer\PHPMailer\PHPMailer::$cc - * \PHPMailer\PHPMailer\PHPMailer::$bcc -
-  * \PHPMailer\PHPMailer\PHPMailer::$all_recipients -
+    * \PHPMailer\PHPMailer\PHPMailer::$all_recipients -
 
 ***
 

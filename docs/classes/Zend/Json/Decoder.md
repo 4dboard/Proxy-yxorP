@@ -4,10 +4,7 @@
 
 Decode JSON encoded string to PHP variable constructs
 
-
-
 * Full name: `\Zend\Json\Decoder`
-
 
 ## Constants
 
@@ -24,7 +21,6 @@ Decode JSON encoded string to PHP variable constructs
 
 ## Properties
 
-
 ### source
 
 Use to maintain a "pointer" to the source being decoded
@@ -32,11 +28,6 @@ Use to maintain a "pointer" to the source being decoded
 ```php
 protected string $source
 ```
-
-
-
-
-
 
 ***
 
@@ -48,11 +39,6 @@ Caches the source length
 protected int $sourceLength
 ```
 
-
-
-
-
-
 ***
 
 ### offset
@@ -62,11 +48,6 @@ The offset within the source being decoded
 ```php
 protected int $offset
 ```
-
-
-
-
-
 
 ***
 
@@ -78,11 +59,6 @@ The current token being considered in the parser cycle
 protected int $token
 ```
 
-
-
-
-
-
 ***
 
 ### decodeType
@@ -93,30 +69,17 @@ Flag indicating how objects should be decoded
 protected int $decodeType
 ```
 
-
-
-
-
-
 ***
 
 ### tokenValue
-
-
 
 ```php
 protected $tokenValue
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### decodeUnicodeString
 
@@ -126,13 +89,9 @@ Decode Unicode Characters from \u0000 ASCII syntax.
 public static decodeUnicodeString(string $chrs): string
 ```
 
-This algorithm was originally developed for the
-Solar Framework by Paul M. Jones
+This algorithm was originally developed for the Solar Framework by Paul M. Jones
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -140,11 +99,9 @@ Solar Framework by Paul M. Jones
 |-----------|------|-------------|
 | `$chrs` | **string** |  |
 
-
-
 **See Also:**
 
-* http://solarphp.com/ - * https://github.com/solarphp/core/blob/master/Solar/Json.php - 
+* http://solarphp.com/ - * https://github.com/solarphp/core/blob/master/Solar/Json.php -
 
 ***
 
@@ -156,22 +113,12 @@ Constructor
 protected __construct(string $source, int $decodeType): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string** | String source to decode |
 | `$decodeType` | **int** | How objects should be decoded -- see<br />{@link} and {@link} for<br />valid values |
-
-
-
 
 ***
 
@@ -183,34 +130,21 @@ Decode a JSON source string
 public static decode(string $source, int $objectDecodeType = Json::TYPE_OBJECT): mixed
 ```
 
-Decodes a JSON encoded string. The value returned will be one of the
-following:
-       - integer
-       - float
-       - boolean
-       - null
-     - stdClass
-     - array
-        - array of one or more of the above types
+Decodes a JSON encoded string. The value returned will be one of the following:
+- integer - float - boolean - null - stdClass - array - array of one or more of the above types
 
-By default, decoded objects will be returned as associative arrays; to
-return a stdClass object instead, pass {@link} to
+By default, decoded objects will be returned as associative arrays; to return a stdClass object instead, pass {@link} to
 the $objectDecodeType parameter.
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **string** | String to be decoded |
-| `$objectDecodeType` | **int** | How objects should be decoded; should be<br />either or {@link} or<br />{@link}; defaults to TYPE_ARRAY |
-
-
-
+| `$objectDecodeType` | **
+int** | How objects should be decoded; should be<br />either or {@link} or<br />{@link}; defaults to TYPE_ARRAY |
 
 ***
 
@@ -222,34 +156,22 @@ Recursive driving routine for supported toplevel tops
 protected _decodeValue(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### _decodeObject
 
 Decodes an object of the form:
- { "attribute: value, "attribute2" : value,...}
+{ "attribute: value, "attribute2" : value,...}
 
 ```php
 protected _decodeObject(): array|\stdClass
 ```
 
-If Zend\Json\Encoder was used to encode the original object then
-a special attribute called __className which specifies a class
-name that should wrap the data contained within the encoded source.
+If Zend\Json\Encoder was used to encode the original object then a special attribute called __className which specifies
+a class name that should wrap the data contained within the encoded source.
 
-Decodes to either an array or stdClass object, based on the value of
-{@link}. If invalid $decodeType present, returns as an
-array.
+Decodes to either an array or stdClass object, based on the value of {@link}. If invalid $decodeType present, returns as
+an array.
 
 
 
@@ -264,21 +186,11 @@ array.
 ### _decodeArray
 
 Decodes a JSON array format:
-   [element, element2,...,elementN]
+[element, element2,...,elementN]
 
 ```php
 protected _decodeArray(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -290,16 +202,6 @@ Removes whitespace characters from the source input
 protected _eatWhitespace(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### _getNextToken
@@ -309,14 +211,6 @@ Retrieves the next token from the source stream
 ```php
 protected _getNextToken(): int
 ```
-
-
-
-
-
-
-
-
 
 **Return Value:**
 
@@ -334,16 +228,12 @@ Convert a string from one UTF-16 char to one UTF-8 char.
 protected static _utf162utf8(string $utf16): string
 ```
 
-Normally should be handled by mb_convert_encoding, but
-provides a slower PHP-only method for installations
-that lack the multibyte string extension.
+Normally should be handled by mb_convert_encoding, but provides a slower PHP-only method for installations that lack the
+multibyte string extension.
 
 This method is from the Solar Framework by Paul M. Jones
 
 * This method is **static**.
-
-
-
 
 **Parameters:**
 
@@ -351,15 +241,13 @@ This method is from the Solar Framework by Paul M. Jones
 |-----------|------|-------------|
 | `$utf16` | **string** | UTF-16 character |
 
-
 **Return Value:**
 
 UTF-8 character
 
-
 **See Also:**
 
-* http://solarphp.com - 
+* http://solarphp.com -
 
 ***
 

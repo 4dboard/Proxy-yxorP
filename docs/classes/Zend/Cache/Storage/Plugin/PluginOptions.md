@@ -2,132 +2,96 @@
 
 # PluginOptions
 
-
-
-
-
 * Full name: `\Zend\Cache\Storage\Plugin\PluginOptions`
 * Parent class: [`\Zend\Stdlib\AbstractOptions`](../../../Stdlib/AbstractOptions.md)
 
-
-
 ## Properties
-
 
 ### clearingFactor
 
 Used by:
+
 - ClearByFactor
 
 ```php
 protected int $clearingFactor
 ```
 
-
-
-
-
-
 ***
 
 ### exceptionCallback
 
 Used by:
+
 - ExceptionHandler
 
 ```php
 protected null|callable $exceptionCallback
 ```
 
-
-
-
-
-
 ***
 
 ### exitOnAbort
 
 Used by:
+
 - IgnoreUserAbort
 
 ```php
 protected bool $exitOnAbort
 ```
 
-
-
-
-
-
 ***
 
 ### optimizingFactor
 
 Used by:
+
 - OptimizeByFactor
 
 ```php
 protected int $optimizingFactor
 ```
 
-
-
-
-
-
 ***
 
 ### serializer
 
 Used by:
+
 - Serializer
 
 ```php
 protected string|\Zend\Serializer\Adapter\AdapterInterface $serializer
 ```
 
-
-
-
-
-
 ***
 
 ### serializerOptions
 
 Used by:
+
 - Serializer
 
 ```php
 protected array $serializerOptions
 ```
 
-
-
-
-
-
 ***
 
 ### throwExceptions
 
 Used by:
+
 - ExceptionHandler
 
 ```php
 protected bool $throwExceptions
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### setClearingFactor
 
@@ -138,21 +102,14 @@ public setClearingFactor(int $clearingFactor): \Zend\Cache\Storage\Plugin\Plugin
 ```
 
 Used by:
+
 - ClearExpiredByFactor
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$clearingFactor` | **int** |  |
-
-
-
 
 ***
 
@@ -165,15 +122,8 @@ public getClearingFactor(): int
 ```
 
 Used by:
+
 - ClearExpiredByFactor
-
-
-
-
-
-
-
-
 
 ***
 
@@ -186,21 +136,14 @@ public setExceptionCallback(null|callable $exceptionCallback): \Zend\Cache\Stora
 ```
 
 Used by:
+
 - ExceptionHandler
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$exceptionCallback` | **null&#124;callable** |  |
-
-
-
 
 ***
 
@@ -213,15 +156,8 @@ public getExceptionCallback(): null|callable
 ```
 
 Used by:
+
 - ExceptionHandler
-
-
-
-
-
-
-
-
 
 ***
 
@@ -233,21 +169,11 @@ Exit if connection aborted and ignore_user_abort is disabled.
 public setExitOnAbort(bool $exitOnAbort): \Zend\Cache\Storage\Plugin\PluginOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$exitOnAbort` | **bool** |  |
-
-
-
 
 ***
 
@@ -258,16 +184,6 @@ Exit if connection aborted and ignore_user_abort is disabled.
 ```php
 public getExitOnAbort(): bool
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -280,21 +196,14 @@ public setOptimizingFactor(int $optimizingFactor): \Zend\Cache\Storage\Plugin\Pl
 ```
 
 Used by:
+
 - OptimizeByFactor
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$optimizingFactor` | **int** |  |
-
-
-
 
 ***
 
@@ -307,15 +216,8 @@ public getOptimizingFactor(): int
 ```
 
 Used by:
+
 - OptimizeByFactor
-
-
-
-
-
-
-
-
 
 ***
 
@@ -328,21 +230,14 @@ public setSerializer(string|\Zend\Serializer\Adapter\AdapterInterface $serialize
 ```
 
 Used by:
+
 - Serializer
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serializer` | **string&#124;\Zend\Serializer\Adapter\AdapterInterface** |  |
-
-
-
 
 ***
 
@@ -355,15 +250,8 @@ public getSerializer(): \Zend\Serializer\Adapter\AdapterInterface
 ```
 
 Used by:
+
 - Serializer
-
-
-
-
-
-
-
-
 
 ***
 
@@ -376,21 +264,14 @@ public setSerializerOptions(mixed $serializerOptions): \Zend\Cache\Storage\Plugi
 ```
 
 Used by:
+
 - Serializer
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$serializerOptions` | **mixed** |  |
-
-
-
 
 ***
 
@@ -403,15 +284,8 @@ public getSerializerOptions(): array
 ```
 
 Used by:
+
 - Serializer
-
-
-
-
-
-
-
-
 
 ***
 
@@ -424,21 +298,14 @@ public setThrowExceptions(bool $throwExceptions): \Zend\Cache\Storage\Plugin\Plu
 ```
 
 Used by:
+
 - ExceptionHandler
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$throwExceptions` | **bool** |  |
-
-
-
 
 ***
 
@@ -451,15 +318,8 @@ public getThrowExceptions(): bool
 ```
 
 Used by:
+
 - ExceptionHandler
-
-
-
-
-
-
-
-
 
 ***
 
@@ -473,25 +333,15 @@ protected normalizeFactor(int $factor): int
 
 Cast to int and ensure we have a value greater than zero.
 
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$factor` | **int** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -501,21 +351,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -527,19 +367,11 @@ Set one or more configuration properties
 public setFromArray(array|\Traversable|\Zend\Stdlib\AbstractOptions $options): \Zend\Stdlib\AbstractOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Stdlib\AbstractOptions** |  |
-
 
 **Return Value:**
 
@@ -557,16 +389,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __set
@@ -577,13 +399,6 @@ Set a configuration property
 public __set(string $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -591,11 +406,9 @@ public __set(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__set() - 
+* \Zend\Stdlib\ParameterObject::__set() -
 
 ***
 
@@ -607,24 +420,15 @@ Get a configuration property
 public __get(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__get() - 
+* \Zend\Stdlib\ParameterObject::__get() -
 
 ***
 
@@ -636,24 +440,15 @@ Test if a configuration property is null
 public __isset(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__isset() - 
+* \Zend\Stdlib\ParameterObject::__isset() -
 
 ***
 
@@ -665,24 +460,15 @@ Set a configuration property to NULL
 public __unset(string $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__unset() - 
+* \Zend\Stdlib\ParameterObject::__unset() -
 
 ***
 

@@ -1,4 +1,4 @@
-<p align="center">📢<sub><sup> <i><b> YOUR SUPPORT IS GREATLY APPRECIATED / </b> <a href="https://www.patreon.com/donPabloNow">PATREON.COM/DONPABLONOW</a> / <b>BTC</b>  3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ / <b>ETH</b> 0X3D288C7A673501294C9289C6FC42480A2EA61417 </i>🙏 </sub></sup></p><blockquote><p> ⛔️ <sub><b>ARCHIVE PENDING</b>: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.</sub></p></blockquote></br><a href="https://www.donPabloNow.com/#notice"><img alt="image" src="https://www.donPabloNow.com/notice.wepd"/></a></br></br>
+<p align="center">📢<sub><sup> <i><b> YOUR SUPPORT IS GREATLY APPRECIATED/</b> <a href="https://www.patreon.com/donPabloNow">PATREON.COM/DONPABLONOW</a>/<b>BTC</b>  3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ/<b>ETH</b> 0X3D288C7A673501294C9289C6FC42480A2EA61417 </i>🙏 </sub></sup></p><blockquote><p> ⛔️ <sub><b>ARCHIVE PENDING</b>: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.</sub></p></blockquote></br><a href="https://www.donPabloNow.com/#notice"><img alt="image" src="https://www.donPabloNow.com/notice.wepd"/></a></br></br>
 
 <p align="center">
 <img alt="image" align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png' />
@@ -173,7 +173,7 @@ via a simple API.
 
 <p align="center"><img alt="image" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (3).gif' /></p>
 
-## Use case / Applications
+## Use case/Applications
 
 Create static flat file variants of your original webpages by using yxorP to mirror your websites and offer the
 mirrored/cloned copies as static flat file variations of the original webpages.
@@ -440,45 +440,45 @@ interpretation of results. We appreciate all of your assistance and support.
 ## Road Map
 
 - [x] Front-end
-    - [x] Combine Proxy Engines
-    - [x] Allow Multi-tent rendering
-    - [x] Build Caching Layer
-    - [x] Develop Multi-threading support (PHP Vanilla/Independent)
+  - [x] Combine Proxy Engines
+  - [x] Allow Multi-tent rendering
+  - [x] Build Caching Layer
+  - [x] Develop Multi-threading support (PHP Vanilla/Independent)
 
-    + More (To be listed soon)
+  + More (To be listed soon)
 
 - [x] Foundation
-    - [x] API Service
-    - [x] TxT DB
-    - [x] Login
-    - [x] Registration
-    - [x] Dashboard
-    - [x] Who is Online
-    - [x] Documentation
+  - [x] API Service
+  - [x] TxT DB
+  - [x] Login
+  - [x] Registration
+  - [x] Dashboard
+  - [x] Who is Online
+  - [x] Documentation
 - [ ] Tables
-    - [x] Users
-    - [x] Notes
-    - [x] Tasks
-    - [ ] Chat
+  - [x] Users
+  - [x] Notes
+  - [x] Tasks
+  - [ ] Chat
 - [ ] Notes
-    - [x] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [x] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Tasks
-    - [x] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [x] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Chat
-    - [ ] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [ ] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Testing
-    - [x] Versions
-    - [x] Owners
-    - [ ] Crate details
+  - [x] Versions
+  - [x] Owners
+  - [ ] Crate details
 
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png' />
@@ -914,17 +914,17 @@ in a number of forms and without the source code because they are licensed works
 | [`ezcDocumentDocbookToRstIgnoreHandler`](./docs/classes/ezcDocumentDocbookToRstIgnoreHandler.md) | Handler for elements, which are safe to ignore|
 | [`ezcDocumentDocbookToRstInlineMediaObjectHandler`](./docs/classes/ezcDocumentDocbookToRstInlineMediaObjectHandler.md) | Visit inline media objects|
 | [`ezcDocumentDocbookToRstInternalLinkHandler`](./docs/classes/ezcDocumentDocbookToRstInternalLinkHandler.md) | Visit internal links.|
-| [`ezcDocumentDocbookToRstItemizedListHandler`](./docs/classes/ezcDocumentDocbookToRstItemizedListHandler.md) | Visit itemized list / bullet lists|
+| [`ezcDocumentDocbookToRstItemizedListHandler`](./docs/classes/ezcDocumentDocbookToRstItemizedListHandler.md) | Visit itemized list/bullet lists|
 | [`ezcDocumentDocbookToRstLiteralHandler`](./docs/classes/ezcDocumentDocbookToRstLiteralHandler.md) | Visit inline literals|
 | [`ezcDocumentDocbookToRstLiteralLayoutHandler`](./docs/classes/ezcDocumentDocbookToRstLiteralLayoutHandler.md) | Visit literallayout elements|
 | [`ezcDocumentDocbookToRstMediaObjectHandler`](./docs/classes/ezcDocumentDocbookToRstMediaObjectHandler.md) | Visit media objects|
-| [`ezcDocumentDocbookToRstOrderedListHandler`](./docs/classes/ezcDocumentDocbookToRstOrderedListHandler.md) | Visit itemized list / bullet lists|
+| [`ezcDocumentDocbookToRstOrderedListHandler`](./docs/classes/ezcDocumentDocbookToRstOrderedListHandler.md) | Visit itemized list/bullet lists|
 | [`ezcDocumentDocbookToRstParagraphHandler`](./docs/classes/ezcDocumentDocbookToRstParagraphHandler.md) | Visit paragraphs|
 | [`ezcDocumentDocbookToRstRecurseHandler`](./docs/classes/ezcDocumentDocbookToRstRecurseHandler.md) | Handler for elements, which are safe to ignore, but into which contents<br />should be recursed, so the childs are still converted.|
 | [`ezcDocumentDocbookToRstSectionHandler`](./docs/classes/ezcDocumentDocbookToRstSectionHandler.md) | Visit docbook sections|
 | [`ezcDocumentDocbookToRstSpecialParagraphHandler`](./docs/classes/ezcDocumentDocbookToRstSpecialParagraphHandler.md) | Visit special paragraphs.|
 | [`ezcDocumentDocbookToRstTableHandler`](./docs/classes/ezcDocumentDocbookToRstTableHandler.md) | Visit tables|
-| [`ezcDocumentDocbookToRstVariableListHandler`](./docs/classes/ezcDocumentDocbookToRstVariableListHandler.md) | Visit itemized list / bullet lists|
+| [`ezcDocumentDocbookToRstVariableListHandler`](./docs/classes/ezcDocumentDocbookToRstVariableListHandler.md) | Visit itemized list/bullet lists|
 | [`ezcDocumentDocbookToWikiBaseHandler`](./docs/classes/ezcDocumentDocbookToWikiBaseHandler.md) | Basic converter which stores a list of handlers for each node in the docbook<br />element tree. Those handlers will be executed for the elements, when found.|
 | [`ezcDocumentDocbookToWikiBeginPageHandler`](./docs/classes/ezcDocumentDocbookToWikiBeginPageHandler.md) | Visit begin page elements|
 | [`ezcDocumentDocbookToWikiConverter`](./docs/classes/ezcDocumentDocbookToWikiConverter.md) | Converter for docbook to Wiki with a PHP callback based mechanism, for fast<br />and easy PHP based extensible transformations.|
@@ -934,11 +934,11 @@ in a number of forms and without the source code because they are licensed works
 | [`ezcDocumentDocbookToWikiIgnoreHandler`](./docs/classes/ezcDocumentDocbookToWikiIgnoreHandler.md) | Handler for elements, which are safe to ignore.|
 | [`ezcDocumentDocbookToWikiInlineMediaObjectHandler`](./docs/classes/ezcDocumentDocbookToWikiInlineMediaObjectHandler.md) | Visit inline media objects|
 | [`ezcDocumentDocbookToWikiInternalLinkHandler`](./docs/classes/ezcDocumentDocbookToWikiInternalLinkHandler.md) | Visit internal links.|
-| [`ezcDocumentDocbookToWikiItemizedListHandler`](./docs/classes/ezcDocumentDocbookToWikiItemizedListHandler.md) | Visit itemized list / bullet lists.|
+| [`ezcDocumentDocbookToWikiItemizedListHandler`](./docs/classes/ezcDocumentDocbookToWikiItemizedListHandler.md) | Visit itemized list/bullet lists.|
 | [`ezcDocumentDocbookToWikiLiteralHandler`](./docs/classes/ezcDocumentDocbookToWikiLiteralHandler.md) | Visit inline literals|
 | [`ezcDocumentDocbookToWikiLiteralLayoutHandler`](./docs/classes/ezcDocumentDocbookToWikiLiteralLayoutHandler.md) | Visit literallayout elements|
 | [`ezcDocumentDocbookToWikiMediaObjectHandler`](./docs/classes/ezcDocumentDocbookToWikiMediaObjectHandler.md) | Visit media objects|
-| [`ezcDocumentDocbookToWikiOrderedListHandler`](./docs/classes/ezcDocumentDocbookToWikiOrderedListHandler.md) | Visit ordered list / enumerated lists|
+| [`ezcDocumentDocbookToWikiOrderedListHandler`](./docs/classes/ezcDocumentDocbookToWikiOrderedListHandler.md) | Visit ordered list/enumerated lists|
 | [`ezcDocumentDocbookToWikiParagraphHandler`](./docs/classes/ezcDocumentDocbookToWikiParagraphHandler.md) | Visit paragraphs|
 | [`ezcDocumentDocbookToWikiRecurseHandler`](./docs/classes/ezcDocumentDocbookToWikiRecurseHandler.md) | Handler for elements, which are safe to ignore|
 | [`ezcDocumentDocbookToWikiSectionHandler`](./docs/classes/ezcDocumentDocbookToWikiSectionHandler.md) | Visit docbook sections|
@@ -978,7 +978,7 @@ in a number of forms and without the source code because they are licensed works
 | [`ezcDocumentListBulletGuesserTest`](./docs/classes/ezcDocumentListBulletGuesserTest.md) | |
 | [`ezcDocumentListItemGenerator`](./docs/classes/ezcDocumentListItemGenerator.md) | List item generator|
 | [`ezcDocumentLocateableDomElement`](./docs/classes/ezcDocumentLocateableDomElement.md) | Custom DOMElement extension|
-| [`ezcDocumentMissingVisitorException`](./docs/classes/ezcDocumentMissingVisitorException.md) | Exception thrown, when a visitor could not be found for a node / subtree.|
+| [`ezcDocumentMissingVisitorException`](./docs/classes/ezcDocumentMissingVisitorException.md) | Exception thrown, when a visitor could not be found for a node/subtree.|
 | [`ezcDocumentNoListItemGenerator`](./docs/classes/ezcDocumentNoListItemGenerator.md) | Numbered list item generator.|
 | [`ezcDocumentNumberedListItemGenerator`](./docs/classes/ezcDocumentNumberedListItemGenerator.md) | Numbered list item generator.|
 | [`ezcDocumentOdt`](./docs/classes/ezcDocumentOdt.md) | The document handler for Open Document Text (ODT) documents.|
@@ -1119,7 +1119,7 @@ in a number of forms and without the source code because they are licensed works
 | [`ezcDocumentPdfListItemRenderer`](./docs/classes/ezcDocumentPdfListItemRenderer.md) | Renders a list item.|
 | [`ezcDocumentPdfListRenderer`](./docs/classes/ezcDocumentPdfListRenderer.md) | Renders a list.|
 | [`ezcDocumentPdfListRendererTests`](./docs/classes/ezcDocumentPdfListRendererTests.md) | Test suite for class.|
-| [`ezcDocumentPdfLiteralBlockRenderer`](./docs/classes/ezcDocumentPdfLiteralBlockRenderer.md) | Renders a literal block / code section.|
+| [`ezcDocumentPdfLiteralBlockRenderer`](./docs/classes/ezcDocumentPdfLiteralBlockRenderer.md) | Renders a literal block/code section.|
 | [`ezcDocumentPdfLiteralTokenizer`](./docs/classes/ezcDocumentPdfLiteralTokenizer.md) | Tokenizer implementation for literal blocks, preserving whitespaces.|
 | [`ezcDocumentPdfLiteralTokenizerTests`](./docs/classes/ezcDocumentPdfLiteralTokenizerTests.md) | Test suite for class.|
 | [`ezcDocumentPdfLiterallayoutRendererTests`](./docs/classes/ezcDocumentPdfLiterallayoutRendererTests.md) | Test suite for class.|
@@ -6002,7 +6002,7 @@ in a number of forms and without the source code because they are licensed works
 
 | Interface | Description |
 |-----------|-------------|
-| [`NamingStrategyInterface`](./docs/classes/Zend/Hydrator/NamingStrategy/NamingStrategyInterface.md) | Allow property extraction / hydration for hydrator|
+| [`NamingStrategyInterface`](./docs/classes/Zend/Hydrator/NamingStrategy/NamingStrategyInterface.md) | Allow property extraction/hydration for hydrator|
 
 ### \Zend\Hydrator\Strategy
 
@@ -6633,7 +6633,7 @@ in a number of forms and without the source code because they are licensed works
 
 | Interface | Description |
 |-----------|-------------|
-| [`NamingStrategyInterface`](./docs/classes/Zend/Stdlib/Hydrator/NamingStrategy/NamingStrategyInterface.md) | Allow property extraction / hydration for hydrator|
+| [`NamingStrategyInterface`](./docs/classes/Zend/Stdlib/Hydrator/NamingStrategy/NamingStrategyInterface.md) | Allow property extraction/hydration for hydrator|
 
 ### \Zend\Stdlib\Hydrator\Strategy
 
@@ -6742,7 +6742,7 @@ in a number of forms and without the source code because they are licensed works
 
 | Interface | Description |
 |-----------|-------------|
-| [`CompilerPassInterface`](./docs/classes/phpDocumentor/Compiler/CompilerPassInterface.md) | Represents a single pass / business rule to be executed by the Compiler.|
+| [`CompilerPassInterface`](./docs/classes/phpDocumentor/Compiler/CompilerPassInterface.md) | Represents a single pass/business rule to be executed by the Compiler.|
 
 ### \phpDocumentor\Compiler\Linker
 
@@ -7048,7 +7048,7 @@ in a number of forms and without the source code because they are licensed works
 | [`Exception`](./docs/classes/phpDocumentor/GraphViz/Exception.md) | Class representing an exception in this GraphViz component.|
 | [`Graph`](./docs/classes/phpDocumentor/GraphViz/Graph.md) | Class representing a graph; this may be a main graph but also a subgraph.|
 | [`GraphTest`](./docs/classes/phpDocumentor/GraphViz/GraphTest.md) | Generated by PHPUnit_SkeletonGenerator 1.2.0 on 2012-12-09 at 19:06:57.|
-| [`Node`](./docs/classes/phpDocumentor/GraphViz/Node.md) | Class representing a node / element in a graph.|
+| [`Node`](./docs/classes/phpDocumentor/GraphViz/Node.md) | Class representing a node/element in a graph.|
 
 ### \phpDocumentor\GraphViz\Test
 

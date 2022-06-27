@@ -235,7 +235,7 @@ private createOptions(bool $hasWriteStage, bool $hasExplain): array
 **See Also:**
 
 * http://php.net/manual/en/mongodb-driver-server.executereadcommand.php -
-  * http://php.net/manual/en/mongodb-driver-server.executereadwritecommand.php -
+    * http://php.net/manual/en/mongodb-driver-server.executereadwritecommand.php -
 
 ***
 

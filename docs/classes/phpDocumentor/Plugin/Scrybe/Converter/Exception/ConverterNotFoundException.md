@@ -4,15 +4,8 @@
 
 Exception indicating that a requested Converter could not be found.
 
-
-
 * Full name: `\phpDocumentor\Plugin\Scrybe\Converter\Exception\ConverterNotFoundException`
 * Parent class: [`InvalidArgumentException`](../../../../../InvalidArgumentException.md)
-
-
-
-
-
 
 ***
 > Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

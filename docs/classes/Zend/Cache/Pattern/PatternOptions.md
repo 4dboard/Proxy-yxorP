@@ -2,21 +2,15 @@
 
 # PatternOptions
 
-
-
-
-
 * Full name: `\Zend\Cache\Pattern\PatternOptions`
 * Parent class: [`\Zend\Stdlib\AbstractOptions`](../../Stdlib/AbstractOptions.md)
 
-
-
 ## Properties
-
 
 ### cacheByDefault
 
 Used by:
+
 - ClassCache
 - ObjectCache
 
@@ -24,16 +18,12 @@ Used by:
 protected bool $cacheByDefault
 ```
 
-
-
-
-
-
 ***
 
 ### cacheOutput
 
 Used by:
+
 - CallbackCache
 - ClassCache
 - ObjectCache
@@ -42,240 +32,180 @@ Used by:
 protected bool $cacheOutput
 ```
 
-
-
-
-
-
 ***
 
 ### class
 
 Used by:
+
 - ClassCache
 
 ```php
 protected null|string $class
 ```
 
-
-
-
-
-
 ***
 
 ### classCacheMethods
 
 Used by:
+
 - ClassCache
 
 ```php
 protected array $classCacheMethods
 ```
 
-
-
-
-
-
 ***
 
 ### classNonCacheMethods
 
 Used by:
+
 - ClassCache
 
 ```php
 protected array $classNonCacheMethods
 ```
 
-
-
-
-
-
 ***
 
 ### umask
 
 Used by:
+
 - CaptureCache
 
 ```php
 protected false|int $umask
 ```
 
-
-
-
-
-
 ***
 
 ### dirPermission
 
 Used by:
+
 - CaptureCache
 
 ```php
 protected false|int $dirPermission
 ```
 
-
-
-
-
-
 ***
 
 ### filePermission
 
 Used by:
+
 - CaptureCache
 
 ```php
 protected false|int $filePermission
 ```
 
-
-
-
-
-
 ***
 
 ### fileLocking
 
 Used by:
+
 - CaptureCache
 
 ```php
 protected bool $fileLocking
 ```
 
-
-
-
-
-
 ***
 
 ### indexFilename
 
 Used by:
+
 - CaptureCache
 
 ```php
 protected string $indexFilename
 ```
 
-
-
-
-
-
 ***
 
 ### object
 
 Used by:
+
 - ObjectCache
 
 ```php
 protected null|object $object
 ```
 
-
-
-
-
-
 ***
 
 ### objectCacheMagicProperties
 
 Used by:
+
 - ObjectCache
 
 ```php
 protected bool $objectCacheMagicProperties
 ```
 
-
-
-
-
-
 ***
 
 ### objectCacheMethods
 
 Used by:
+
 - ObjectCache
 
 ```php
 protected array $objectCacheMethods
 ```
 
-
-
-
-
-
 ***
 
 ### objectKey
 
 Used by:
+
 - ObjectCache
 
 ```php
 protected null|string $objectKey
 ```
 
-
-
-
-
-
 ***
 
 ### objectNonCacheMethods
 
 Used by:
+
 - ObjectCache
 
 ```php
 protected array $objectNonCacheMethods
 ```
 
-
-
-
-
-
 ***
 
 ### publicDir
 
 Used by:
+
 - CaptureCache
 
 ```php
 protected null|string $publicDir
 ```
 
-
-
-
-
-
 ***
 
 ### storage
 
 Used by:
+
 - CallbackCache
 - ClassCache
 - ObjectCache
@@ -285,15 +215,9 @@ Used by:
 protected null|\Zend\Cache\Storage\StorageInterface $storage
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
-
 
 ### __construct
 
@@ -303,21 +227,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -330,22 +244,15 @@ public setCacheByDefault(bool $cacheByDefault): \Zend\Cache\Pattern\PatternOptio
 ```
 
 Used by:
+
 - ClassCache
 - ObjectCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cacheByDefault` | **bool** |  |
-
-
-
 
 ***
 
@@ -358,16 +265,9 @@ public getCacheByDefault(): bool
 ```
 
 Used by:
+
 - ClassCache
 - ObjectCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -380,23 +280,16 @@ public setCacheOutput(bool $cacheOutput): \Zend\Cache\Pattern\PatternOptions
 ```
 
 Used by:
+
 - CallbackCache
 - ClassCache
 - ObjectCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$cacheOutput` | **bool** |  |
-
-
-
 
 ***
 
@@ -409,17 +302,10 @@ public getCacheOutput(): bool
 ```
 
 Used by:
+
 - CallbackCache
 - ClassCache
 - ObjectCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -432,21 +318,14 @@ public setClass(string $class): \Zend\Cache\Pattern\PatternOptions
 ```
 
 Used by:
+
 - ClassCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$class` | **string** |  |
-
-
-
 
 ***
 
@@ -459,15 +338,8 @@ public getClass(): null|string
 ```
 
 Used by:
+
 - ClassCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -480,21 +352,14 @@ public setClassCacheMethods(array $classCacheMethods): \Zend\Cache\Pattern\Patte
 ```
 
 Used by:
+
 - ClassCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$classCacheMethods` | **array** |  |
-
-
-
 
 ***
 
@@ -507,15 +372,8 @@ public getClassCacheMethods(): array
 ```
 
 Used by:
+
 - ClassCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -528,21 +386,14 @@ public setClassNonCacheMethods(array $classNonCacheMethods): \Zend\Cache\Pattern
 ```
 
 Used by:
+
 - ClassCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$classNonCacheMethods` | **array** |  |
-
-
-
 
 ***
 
@@ -555,15 +406,8 @@ public getClassNonCacheMethods(): array
 ```
 
 Used by:
+
 - ClassCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -575,21 +419,11 @@ Set directory permission
 public setDirPermission(false|int $dirPermission): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirPermission` | **false&#124;int** |  |
-
-
-
 
 ***
 
@@ -600,16 +434,6 @@ Gets directory permission
 ```php
 public getDirPermission(): false|int
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -622,21 +446,14 @@ public setUmask(false|int $umask): \Zend\Cache\Pattern\PatternOptions
 ```
 
 Used by:
+
 - CaptureCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$umask` | **false&#124;int** |  |
-
-
-
 
 ***
 
@@ -649,15 +466,8 @@ public getUmask(): false|int
 ```
 
 Used by:
+
 - CaptureCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -670,21 +480,14 @@ public setFileLocking(bool $fileLocking): \Zend\Cache\Pattern\PatternOptions
 ```
 
 Used by:
+
 - CaptureCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$fileLocking` | **bool** |  |
-
-
-
 
 ***
 
@@ -697,15 +500,8 @@ public getFileLocking(): bool
 ```
 
 Used by:
+
 - CaptureCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -717,21 +513,11 @@ Set file permission
 public setFilePermission(false|int $filePermission): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filePermission` | **false&#124;int** |  |
-
-
-
 
 ***
 
@@ -743,16 +529,6 @@ Gets file permission
 public getFilePermission(): false|int
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setIndexFilename
@@ -763,21 +539,11 @@ Set value for index filename
 public setIndexFilename(string $indexFilename): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$indexFilename` | **string** |  |
-
-
-
 
 ***
 
@@ -789,16 +555,6 @@ Get value for index filename
 public getIndexFilename(): string
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### setObject
@@ -809,21 +565,11 @@ Set object to cache
 public setObject(mixed $object): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$object` | **mixed** |  |
-
-
-
 
 ***
 
@@ -834,16 +580,6 @@ Get object to cache
 ```php
 public getObject(): null|object
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -856,21 +592,14 @@ public setObjectCacheMagicProperties(bool $objectCacheMagicProperties): \Zend\Ca
 ```
 
 Used by:
+
 - ObjectCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectCacheMagicProperties` | **bool** |  |
-
-
-
 
 ***
 
@@ -883,15 +612,8 @@ public getObjectCacheMagicProperties(): bool
 ```
 
 Used by:
+
 - ObjectCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -903,21 +625,11 @@ Set list of object methods for which to cache return values
 public setObjectCacheMethods(array $objectCacheMethods): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectCacheMethods` | **array** |  |
-
-
-
 
 ***
 
@@ -928,16 +640,6 @@ Get list of object methods for which to cache return values
 ```php
 public getObjectCacheMethods(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -952,21 +654,14 @@ public setObjectKey(null|string $objectKey): \Zend\Cache\Pattern\PatternOptions
 Used to generate a callback key in order to speed up key generation.
 
 Used by:
+
 - ObjectCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectKey` | **null&#124;string** | The object key or NULL to use the objects class name |
-
-
-
 
 ***
 
@@ -979,15 +674,8 @@ public getObjectKey(): string
 ```
 
 Used by:
+
 - ObjectCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -999,21 +687,11 @@ Set list of object methods for which NOT to cache return values
 public setObjectNonCacheMethods(array $objectNonCacheMethods): \Zend\Cache\Pattern\PatternOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$objectNonCacheMethods` | **array** |  |
-
-
-
 
 ***
 
@@ -1024,16 +702,6 @@ Get list of object methods for which NOT to cache return values
 ```php
 public getObjectNonCacheMethods(): array
 ```
-
-
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1046,21 +714,14 @@ public setPublicDir(string $publicDir): \Zend\Cache\Pattern\PatternOptions
 ```
 
 Used by:
+
 - CaptureCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$publicDir` | **string** |  |
-
-
-
 
 ***
 
@@ -1073,15 +734,8 @@ public getPublicDir(): null|string
 ```
 
 Used by:
+
 - CaptureCache
-
-
-
-
-
-
-
-
 
 ***
 
@@ -1094,24 +748,17 @@ public setStorage(string|array|\Zend\Cache\Storage\StorageInterface $storage): \
 ```
 
 Required for the following Pattern classes:
+
 - CallbackCache
 - ClassCache
 - ObjectCache
 - OutputCache
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$storage` | **string&#124;array&#124;\Zend\Cache\Storage\StorageInterface** |  |
-
-
-
 
 ***
 
@@ -1124,45 +771,27 @@ public getStorage(): null|\Zend\Cache\Storage\StorageInterface
 ```
 
 Used by:
+
 - CallbackCache
 - ClassCache
 - ObjectCache
 - OutputCache
 
-
-
-
-
-
-
-
-
 ***
 
 ### recursiveStrtolower
 
-Recursively apply strtolower on all values of an array, and return as a
-list of unique values
+Recursively apply strtolower on all values of an array, and return as a list of unique values
 
 ```php
 protected recursiveStrtolower(array $array): array
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$array` | **array** |  |
-
-
-
 
 ***
 
@@ -1174,22 +803,14 @@ Normalize object methods
 protected normalizeObjectMethods(array $methods): array
 ```
 
-Recursively casts values to lowercase, then determines if any are in a
-list of methods not handled, raising an exception if so.
-
-
-
-
-
+Recursively casts values to lowercase, then determines if any are in a list of methods not handled, raising an exception
+if so.
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$methods` | **array** |  |
-
-
-
 
 ***
 
@@ -1201,27 +822,15 @@ Create a storage object from a given specification
 protected storageFactory(array|string|\Zend\Cache\Storage\StorageInterface $storage): \Zend\Cache\Storage\StorageInterface
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$storage` | **array&#124;string&#124;\Zend\Cache\Storage\StorageInterface** |  |
 
-
-
-
 ***
 
-
 ## Inherited methods
-
 
 ### __construct
 
@@ -1231,21 +840,11 @@ Constructor
 public __construct(array|\Traversable|null $options = null): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;null** |  |
-
-
-
 
 ***
 
@@ -1257,19 +856,11 @@ Set one or more configuration properties
 public setFromArray(array|\Traversable|\Zend\Stdlib\AbstractOptions $options): \Zend\Stdlib\AbstractOptions
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$options` | **array&#124;\Traversable&#124;\Zend\Stdlib\AbstractOptions** |  |
-
 
 **Return Value:**
 
@@ -1287,16 +878,6 @@ Cast to array
 public toArray(): array
 ```
 
-
-
-
-
-
-
-
-
-
-
 ***
 
 ### __set
@@ -1307,13 +888,6 @@ Set a configuration property
 public __set(string $key, mixed $value): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -1321,11 +895,9 @@ public __set(string $key, mixed $value): void
 | `$key` | **string** |  |
 | `$value` | **mixed** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__set() - 
+* \Zend\Stdlib\ParameterObject::__set() -
 
 ***
 
@@ -1337,24 +909,15 @@ Get a configuration property
 public __get(string $key): mixed
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__get() - 
+* \Zend\Stdlib\ParameterObject::__get() -
 
 ***
 
@@ -1366,24 +929,15 @@ Test if a configuration property is null
 public __isset(string $key): bool
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__isset() - 
+* \Zend\Stdlib\ParameterObject::__isset() -
 
 ***
 
@@ -1395,24 +949,15 @@ Set a configuration property to NULL
 public __unset(string $key): void
 ```
 
-
-
-
-
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
 
-
-
 **See Also:**
 
-* \Zend\Stdlib\ParameterObject::__unset() - 
+* \Zend\Stdlib\ParameterObject::__unset() -
 
 ***
 

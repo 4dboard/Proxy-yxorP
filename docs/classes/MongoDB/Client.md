@@ -134,8 +134,8 @@ Other options are documented in MongoDB\Driver\Manager::__construct().
 **See Also:**
 
 * http://docs.mongodb.org/manual/reference/connection-string/ -
-  * http://php.net/manual/en/mongodb-driver-manager.construct.php -
-  * http://php.net/manual/en/mongodb.persistence.php#mongodb.persistence.typemaps -
+    * http://php.net/manual/en/mongodb-driver-manager.construct.php -
+    * http://php.net/manual/en/mongodb.persistence.php#mongodb.persistence.typemaps -
 
 ***
 

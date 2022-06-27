@@ -4,48 +4,26 @@
 
 DateRangeFilterIterator filters out files that are not in the given date range (last modified dates).
 
-
-
 * Full name: `\Symfony\Component\Finder\Iterator\DateRangeFilterIterator`
 * Parent class: [`\Symfony\Component\Finder\Iterator\FilterIterator`](./FilterIterator.md)
 
-
-
 ## Properties
 
-
 ### comparators
-
-
 
 ```php
 private $comparators
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Iterator $iterator, \Symfony\Component\Finder\Comparator\DateComparator[] $comparators): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -53,9 +31,6 @@ public __construct(\Iterator $iterator, \Symfony\Component\Finder\Comparator\Dat
 |-----------|------|-------------|
 | `$iterator` | **\Iterator** | The Iterator to filter |
 | `$comparators` | **\Symfony\Component\Finder\Comparator\DateComparator[]** | An array of DateComparator instances |
-
-
-
 
 ***
 
@@ -67,14 +42,6 @@ Filters the iterator values.
 public accept(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if the value should be kept, false otherwise
@@ -83,31 +50,20 @@ true if the value should be kept, false otherwise
 
 ***
 
-
 ## Inherited methods
-
 
 ### rewind
 
-This is a workaround for the problem with \FilterIterator leaving inner \FilesystemIterator in wrong state after
-rewind in some cases.
+This is a workaround for the problem with \FilterIterator leaving inner \FilesystemIterator in wrong state after rewind
+in some cases.
 
 ```php
 public rewind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilterIterator::rewind() - 
+* \Symfony\Component\Finder\Iterator\FilterIterator::rewind() -
 
 ***
 

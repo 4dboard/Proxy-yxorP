@@ -4,11 +4,8 @@
 
 FileTypeFilterIterator only keeps files, directories, or both.
 
-
-
 * Full name: `\Symfony\Component\Finder\Iterator\FileTypeFilterIterator`
 * Parent class: [`\Symfony\Component\Finder\Iterator\FilterIterator`](./FilterIterator.md)
-
 
 ## Constants
 
@@ -19,39 +16,21 @@ FileTypeFilterIterator only keeps files, directories, or both.
 
 ## Properties
 
-
 ### mode
-
-
 
 ```php
 private $mode
 ```
 
-
-
-
-
-
 ***
 
 ## Methods
 
-
 ### __construct
-
-
 
 ```php
 public __construct(\Iterator $iterator, int $mode): mixed
 ```
-
-
-
-
-
-
-
 
 **Parameters:**
 
@@ -59,9 +38,6 @@ public __construct(\Iterator $iterator, int $mode): mixed
 |-----------|------|-------------|
 | `$iterator` | **\Iterator** | The Iterator to filter |
 | `$mode` | **int** | The mode (self::ONLY_FILES or self::ONLY_DIRECTORIES) |
-
-
-
 
 ***
 
@@ -73,14 +49,6 @@ Filters the iterator values.
 public accept(): bool
 ```
 
-
-
-
-
-
-
-
-
 **Return Value:**
 
 true if the value should be kept, false otherwise
@@ -89,31 +57,20 @@ true if the value should be kept, false otherwise
 
 ***
 
-
 ## Inherited methods
-
 
 ### rewind
 
-This is a workaround for the problem with \FilterIterator leaving inner \FilesystemIterator in wrong state after
-rewind in some cases.
+This is a workaround for the problem with \FilterIterator leaving inner \FilesystemIterator in wrong state after rewind
+in some cases.
 
 ```php
 public rewind(): mixed
 ```
 
-
-
-
-
-
-
-
-
-
 **See Also:**
 
-* \Symfony\Component\Finder\Iterator\FilterIterator::rewind() - 
+* \Symfony\Component\Finder\Iterator\FilterIterator::rewind() -
 
 ***
 
