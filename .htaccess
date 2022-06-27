@@ -1,5 +1,3 @@
-Action application/x-pair-sphp /cgi-bin/php8.cgi
-AddType application/x-pair-sphp .php
 <IfModule mod_rewrite.c>
     RewriteEngine On
     RewriteBase /

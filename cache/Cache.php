@@ -4,7 +4,7 @@ use yxorP;
 
 require yxorP::get('PLUGIN_DIR') . '/cache/State.php';
 
-mkdir(yxorp::set('CACHE_DIR', yxorp::get('PLUGIN_DIR') . DIRECTORY_SEPARATOR . 'tmp'));
+if (!is_dir(yxorp::set('CACHE_DIR', yxorp::get('PLUGIN_DIR') . DIRECTORY_SEPARATOR . 'tmp'))) mkdir(yxorp::get('CACHE_DIR'));
 
 yxorp::set('CACHE_KEY', rtrim(strtr(base64_encode(yxorp::get('SERVER')['HTTP_HOST'] . yxorp::get('SERVER')['REQUEST_URI']), '+/', '-_'), '=') . '.tmp');
 
@@ -45,7 +45,7 @@ class Cache
 
     private function isExists(): bool
     {
-        return file_exists(yxorP::get('CACHE_DIR') . yxorP::get('CACHE_KEY'));
+        return file_exists(yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY'));
     }
 
     public function get()

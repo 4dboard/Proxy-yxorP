@@ -21,14 +21,14 @@ class yxorP
         }
     }
 
-    public static function set($_name, $_value): void
+    public static function set($_name, $_value)
     {
 
         if (array_key_exists($_name, self::$_yx)) {
             throw new RuntimeException('yxorP::set("' . $_name . '")-Argument already exists and cannot be redefined!');
         }
 
-        self::$_yx[$_name] = $_value;
+        return self::$_yx[$_name] = $_value;
     }
 
     public static function get($_name)
@@ -198,7 +198,7 @@ class yxorP
         self::dispatch('request.before_send');
         self::get('RESPONSE')->setContent((new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]))->request(self::get('REQUEST')->getMethod(), self::get('FETCH'), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
         self::dispatch('request.complete');
-        Cache::cache()->set(self::get('RESPONSE')->getContent());
+        if (!Cache::cache()->isValid()) Cache::cache()->set(self::get('RESPONSE')->getContent());
     }
 
     public static function dispatch($event_name): void
