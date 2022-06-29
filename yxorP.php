@@ -20,10 +20,19 @@ require './inc/bugsnag.phar';
 class yxorP
 {
     /* It's a singleton. */
+    /**
+     * @var yxorP
+     */
     private static yxorP $yxorP;
     /* It's an array of events that will be triggered. */
+    /**
+     * @var array
+     */
     private static array $events = [];
     /* It's an array of events that will be triggered. */
+    /**
+     * @var array
+     */
     private array $listeners = [];
 
     /**
@@ -80,14 +89,14 @@ class yxorP
     }
 
     /**
-     * > It loops through all the events in the `init()` function and dispatches them to the `yxorP()` function
-     *
-     * @param _req The request object
+     * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
+     * @param $_req
+     * @return void
      */
-    public static function proxy($_req): void
+    public static function proxy($_req = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::init() as $_event) self::yxorP($_req)->dispatch($_event);
+        foreach (self::init() as $_event) self::yxorP($_req ?: $_SERVER)->dispatch($_event);
     }
 
     /**

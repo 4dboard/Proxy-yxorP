@@ -3,11 +3,15 @@
 
 namespace yxorP\inc;
 
-/* Defining constants. */
+/* Defining constants. Creating a class called Constants. */
 
 class Constants
 {
-    /* Defining constants. */
+    /* Defining constants.Creating a new directory.  */
+    /**
+     * @param $_dir
+     * @return void
+     */
     public static function create($_dir)
     {
         /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
@@ -204,6 +208,10 @@ class Constants
 
 
     /* A function that is being called to fetch .env values. */
+    /**
+     * @param $line
+     * @return void
+     */
     public static function env($line)
     {
         /* Checking if the line starts with a hash. If it does, it returns. */
@@ -215,6 +223,11 @@ class Constants
     }
 
     /* Setting the value of the variable $_name to the value of the variable $_value. */
+    /**
+     * @param $_name
+     * @param $_value
+     * @return mixed
+     */
     public static function set($_name, $_value)
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
@@ -223,6 +236,10 @@ class Constants
     }
 
     /* A function that is being called to localise constants. */
+    /**
+     * @param $_req
+     * @return void
+     */
     public static function localise($_req)
     {
         /* Defining a constant called CACHE_SERVER and setting it to the value of $_req. */
@@ -232,6 +249,10 @@ class Constants
     }
 
     /* A static method that returns the value of the $_name variable. */
+    /**
+     * @param $_name
+     * @return false|mixed
+     */
     public static function get($_name)
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
