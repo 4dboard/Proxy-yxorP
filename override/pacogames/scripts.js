@@ -1973,1387 +1973,1387 @@ if (typeof gameNAMES === 'undefined') {
     "
 },
     {
-        TITLE: "Tiny Planet", URL
+        "Tiny Planet", URL
     :
         "https://xn--ply-onb.com/driving/tiny-planet"
     }
 ,
     {
-        TITLE: "Top Speed 2",
+        "Top Speed 2",
             URL
     :
         "https://xn--ply-onb.com/driving/top-speed-2"
     }
 ,
     {
-        TITLE: "Towing Train", URL
+        "Towing Train", URL
     :
         "https://xn--ply-onb.com/driving/towing-train"
     }
 ,
     {
-        TITLE: "Tractor Delivery",
+        "Tractor Delivery",
             URL
     :
         "https://xn--ply-onb.com/driving/tractor-delivery"
     }
 ,
     {
-        TITLE: "Traffic Zone Car Racer",
+        "Traffic Zone Car Racer",
             URL
     :
         "https://xn--ply-onb.com/driving/traffic-zone-car-racer"
     }
 ,
     {
-        TITLE: "Train Fascinate Travels",
+        "Train Fascinate Travels",
             URL
     :
         "https://xn--ply-onb.com/driving/train-fascinate-travels"
     }
 ,
     {
-        TITLE: "Train Snake",
+        "Train Snake",
             URL
     :
         "https://xn--ply-onb.com/driving/train-snake"
     }
 ,
     {
-        TITLE: "Transport Driving Simulator",
+        "Transport Driving Simulator",
             URL
     :
         "https://xn--ply-onb.com/driving/transport-driving-simulator"
     }
 ,
     {
-        TITLE: "Trials Ride", URL
+        "Trials Ride", URL
     :
         "https://xn--ply-onb.com/driving/trials-ride"
     }
 ,
     {
-        TITLE: "Truck Cargo Driver Game",
+        "Truck Cargo Driver Game",
             URL
     :
         "https://xn--ply-onb.com/driving/truck-cargo-driver-game"
     }
 ,
     {
-        TITLE: "Tuk Tuk Auto Rickshaw 2020",
+        "Tuk Tuk Auto Rickshaw 2020",
             URL
     :
         "https://xn--ply-onb.com/driving/tuk-tuk-auto-rickshaw-2020"
     }
 ,
     {
-        TITLE: "Tuning Cars Stunts",
+        "Tuning Cars Stunts",
             URL
     :
         "https://xn--ply-onb.com/driving/tuning-cars-stunts"
     }
 ,
     {
-        TITLE: "Tunnel Racing", URL
+        "Tunnel Racing", URL
     :
         "https://xn--ply-onb.com/driving/tunnel-racing"
     }
 ,
     {
-        TITLE: "Turbo Car City Stunt",
+        "Turbo Car City Stunt",
             URL
     :
         "https://xn--ply-onb.com/driving/turbo-car-city-stunt"
     }
 ,
     {
-        TITLE: "Ultimate Truck Driving Simulator 2020",
+        "Ultimate Truck Driving Simulator 2020",
             URL
     :
         "https://xn--ply-onb.com/driving/ultimate-truck-driving-simulator-2020"
     }
 ,
     {
-        TITLE: "Uphill Jeep Driving",
+        "Uphill Jeep Driving",
             URL
     :
         "https://xn--ply-onb.com/driving/uphill-jeep-driving"
     }
 ,
     {
-        TITLE: "Water Car Surfing 3d",
+        "Water Car Surfing 3d",
             URL
     :
         "https://xn--ply-onb.com/driving/water-car-surfing-3d"
     }
 ,
     {
-        TITLE: "Wheelie Buddy",
+        "Wheelie Buddy",
             URL
     :
         "https://xn--ply-onb.com/driving/wheelie-buddy"
     }
 ,
     {
-        TITLE: "Xtrem Demolition Derby Racing",
+        "Xtrem Demolition Derby Racing",
             URL
     :
         "https://xn--ply-onb.com/driving/xtrem-demolition-derby-racing"
     }
 ,
     {
-        TITLE: "Xtreme Dirt Bike Racing Game",
+        "Xtreme Dirt Bike Racing Game",
             URL
     :
         "https://xn--ply-onb.com/driving/xtreme-dirt-bike-racing-game"
     }
 ,
     {
-        TITLE: "Xtreme Drift 2 0nline",
+        "Xtreme Drift 2 0nline",
             URL
     :
         "https://xn--ply-onb.com/driving/xtreme-drift-2-0nline"
     }
 ,
     {
-        TITLE: "Xtreme Motorbikes",
+        "Xtreme Motorbikes",
             URL
     :
         "https://xn--ply-onb.com/driving/xtreme-motorbikes"
     }
 ,
     {
-        TITLE: "Xtreme Offroad Truck 4x4 Demolition Derby 2020",
+        "Xtreme Offroad Truck 4x4 Demolition Derby 2020",
             URL
     :
         "https://xn--ply-onb.com/driving/xtreme-offroad-truck-4x4-demolition-derby-2020"
     }
 ,
     {
-        TITLE: "Xtreme Speed Stunts Bmx",
+        "Xtreme Speed Stunts Bmx",
             URL
     :
         "https://xn--ply-onb.com/driving/xtreme-speed-stunts-bmx"
     }
 ,
     {
-        TITLE: "Xtreme Sports Cars Shift Racing",
+        "Xtreme Sports Cars Shift Racing",
             URL
     :
         "https://xn--ply-onb.com/driving/xtreme-sports-cars-shift-racing"
     }
 ,
     {
-        TITLE: "Xtreme Trials Bike 2019",
+        "Xtreme Trials Bike 2019",
             URL
     :
         "https://xn--ply-onb.com/driving/xtreme-trials-bike-2019"
     }
 ,
     {
-        TITLE: "You Drive I Shoot", URL
+        "You Drive I Shoot", URL
     :
         "https://xn--ply-onb.com/driving/you-drive-i-shoot"
     }
 ,
     {
-        TITLE: "Zombie Curse",
+        "Zombie Curse",
             URL
     :
         "https://xn--ply-onb.com/driving/zombie-curse"
     }
 ,
     {
-        TITLE: "Zombie Derby 2", URL
+        "Zombie Derby 2", URL
     :
         "https://xn--ply-onb.com/driving/zombie-derby-2"
     }
 ,
     {
-        TITLE: "Zombie Derby Drift",
+        "Zombie Derby Drift",
             URL
     :
         "https://xn--ply-onb.com/driving/zombie-derby-drift"
     }
 ,
     {
-        TITLE: "Zombie Drift Arena", URL
+        "Zombie Drift Arena", URL
     :
         "https://xn--ply-onb.com/driving/zombie-drift-arena"
     }
 ,
     {
-        TITLE: "Adam And Eve",
+        "Adam And Eve",
             URL
     :
         "https://xn--ply-onb.com/girls/adam-and-eve"
     }
 ,
     {
-        TITLE: "Adventure Bedtime Stories",
+        "Adventure Bedtime Stories",
             URL
     :
         "https://xn--ply-onb.com/girls/adventure-bedtime-stories"
     }
 ,
     {
-        TITLE: "Almond And Apple Cake",
+        "Almond And Apple Cake",
             URL
     :
         "https://xn--ply-onb.com/girls/almond-and-apple-cake"
     }
 ,
     {
-        TITLE: "American Trucks Coloring",
+        "American Trucks Coloring",
             URL
     :
         "https://xn--ply-onb.com/girls/american-trucks-coloring"
     }
 ,
     {
-        TITLE: "Animal Daycare Games",
+        "Animal Daycare Games",
             URL
     :
         "https://xn--ply-onb.com/girls/animal-daycare-games"
     }
 ,
     {
-        TITLE: "Anime Girls Fashion Makeup",
+        "Anime Girls Fashion Makeup",
             URL
     :
         "https://xn--ply-onb.com/girls/anime-girls-fashion-makeup"
     }
 ,
     {
-        TITLE: "Ariels Life Cycle",
+        "Ariels Life Cycle",
             URL
     :
         "https://xn--ply-onb.com/girls/ariels-life-cycle"
     }
 ,
     {
-        TITLE: "Ariels Mermaid 101",
+        "Ariels Mermaid 101",
             URL
     :
         "https://xn--ply-onb.com/girls/ariels-mermaid-101"
     }
 ,
     {
-        TITLE: "Baby Doll House Cleaning Game",
+        "Baby Doll House Cleaning Game",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-doll-house-cleaning-game"
     }
 ,
     {
-        TITLE: "Baby Hazel African Safari",
+        "Baby Hazel African Safari",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-african-safari"
     }
 ,
     {
-        TITLE: "Baby Hazel Alien Friend",
+        "Baby Hazel Alien Friend",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-alien-friend"
     }
 ,
     {
-        TITLE: "Baby Hazel Christmas Time",
+        "Baby Hazel Christmas Time",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-christmas-time"
     }
 ,
     {
-        TITLE: "Baby Hazel Dental Care",
+        "Baby Hazel Dental Care",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-dental-care"
     }
 ,
     {
-        TITLE: "Baby Hazel Doctor Play",
+        "Baby Hazel Doctor Play",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-doctor-play"
     }
 ,
     {
-        TITLE: "Baby Hazel Family Picnic",
+        "Baby Hazel Family Picnic",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-family-picnic"
     }
 ,
     {
-        TITLE: "Baby Hazel Fancy Dress",
+        "Baby Hazel Fancy Dress",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-fancy-dress"
     }
 ,
     {
-        TITLE: "Baby Hazel Funtime",
+        "Baby Hazel Funtime",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-funtime"
     }
 ,
     {
-        TITLE: "Baby Hazel Grandparents Day",
+        "Baby Hazel Grandparents Day",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-grandparents-day"
     }
 ,
     {
-        TITLE: "Baby Hazel Mini Pizzas",
+        "Baby Hazel Mini Pizzas",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-mini-pizzas"
     }
 ,
     {
-        TITLE: "Baby Hazel Nature Explorer",
+        "Baby Hazel Nature Explorer",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-nature-explorer"
     }
 ,
     {
-        TITLE: "Baby Hazel Smoked Salmon Sandwiches",
+        "Baby Hazel Smoked Salmon Sandwiches",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-smoked-salmon-sandwiches"
     }
 ,
     {
-        TITLE: "Baby Hazel Sports Day",
+        "Baby Hazel Sports Day",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-sports-day"
     }
 ,
     {
-        TITLE: "Baby Hazel Tea Party",
+        "Baby Hazel Tea Party",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-tea-party"
     }
 ,
     {
-        TITLE: "Baby Hazel Valentine S Day",
+        "Baby Hazel Valentine S Day",
             URL
     :
         "https://xn--ply-onb.com/girls/baby-hazel-valentine-s-day"
     }
 ,
     {
-        TITLE: "Babysitter Crazy Daycare",
+        "Babysitter Crazy Daycare",
             URL
     :
         "https://xn--ply-onb.com/girls/babysitter-crazy-daycare"
     }
 ,
     {
-        TITLE: "Christmas Cake",
+        "Christmas Cake",
             URL
     :
         "https://xn--ply-onb.com/girls/christmas-cake"
     }
 ,
     {
-        TITLE: "Christmas Puppet Princess House",
+        "Christmas Puppet Princess House",
             URL
     :
         "https://xn--ply-onb.com/girls/christmas-puppet-princess-house"
     }
 ,
     {
-        TITLE: "Christmas Trend 2019 Riding Boots",
+        "Christmas Trend 2019 Riding Boots",
             URL
     :
         "https://xn--ply-onb.com/girls/christmas-trend-2019-riding-boots"
     }
 ,
     {
-        TITLE: "Cooking Madness", URL
+        "Cooking Madness", URL
     :
         "https://xn--ply-onb.com/girls/cooking-madness"
     }
 ,
     {
-        TITLE: "Cotton Candy",
+        "Cotton Candy",
             URL
     :
         "https://xn--ply-onb.com/girls/cotton-candy"
     }
 ,
     {
-        TITLE: "Doll House Games Design And Decoration",
+        "Doll House Games Design And Decoration",
             URL
     :
         "https://xn--ply-onb.com/girls/doll-house-games-design-and-decoration"
     }
 ,
     {
-        TITLE: "Dotted Girl Ambulance For Superhero",
+        "Dotted Girl Ambulance For Superhero",
             URL
     :
         "https://xn--ply-onb.com/girls/dotted-girl-ambulance-for-superhero"
     }
 ,
     {
-        TITLE: "Dotted Girl Back To School",
+        "Dotted Girl Back To School",
             URL
     :
         "https://xn--ply-onb.com/girls/dotted-girl-back-to-school"
     }
 ,
     {
-        TITLE: "Ear Doctor", URL
+        "Ear Doctor", URL
     :
         "https://xn--ply-onb.com/girls/ear-doctor"
     }
 ,
     {
-        TITLE: "Easy Kids Coloring Game",
+        "Easy Kids Coloring Game",
             URL
     :
         "https://xn--ply-onb.com/girls/easy-kids-coloring-game"
     }
 ,
     {
-        TITLE: "Eliza Dawn Of Frost Magic",
+        "Eliza Dawn Of Frost Magic",
             URL
     :
         "https://xn--ply-onb.com/girls/eliza-dawn-of-frost-magic"
     }
 ,
     {
-        TITLE: "Ellie Stuck At Home",
+        "Ellie Stuck At Home",
             URL
     :
         "https://xn--ply-onb.com/girls/ellie-stuck-at-home"
     }
 ,
     {
-        TITLE: "Elsa Fat 2 Fit", URL
+        "Elsa Fat 2 Fit", URL
     :
         "https://xn--ply-onb.com/girls/elsa-fat-2-fit"
     }
 ,
     {
-        TITLE: "Elsa Life Cycle",
+        "Elsa Life Cycle",
             URL
     :
         "https://xn--ply-onb.com/girls/elsa-life-cycle"
     }
 ,
     {
-        TITLE: "Emergency Surgery",
+        "Emergency Surgery",
             URL
     :
         "https://xn--ply-onb.com/girls/emergency-surgery"
     }
 ,
     {
-        TITLE: "Enchanting Animal Spirits",
+        "Enchanting Animal Spirits",
             URL
     :
         "https://xn--ply-onb.com/girls/enchanting-animal-spirits"
     }
 ,
     {
-        TITLE: "Fabulous Cute Unicorn Coloring Book",
+        "Fabulous Cute Unicorn Coloring Book",
             URL
     :
         "https://xn--ply-onb.com/girls/fabulous-cute-unicorn-coloring-book"
     }
 ,
     {
-        TITLE: "Face Paint", URL
+        "Face Paint", URL
     :
         "https://xn--ply-onb.com/girls/face-paint"
     }
 ,
     {
-        TITLE: "Fairy Princess Jigsaw",
+        "Fairy Princess Jigsaw",
             URL
     :
         "https://xn--ply-onb.com/girls/fairy-princess-jigsaw"
     }
 ,
     {
-        TITLE: "Fantabulous Emancipation Of Harlequin",
+        "Fantabulous Emancipation Of Harlequin",
             URL
     :
         "https://xn--ply-onb.com/girls/fantabulous-emancipation-of-harlequin"
     }
 ,
     {
-        TITLE: "Foot Doctor Game", URL
+        "Foot Doctor Game", URL
     :
         "https://xn--ply-onb.com/girls/foot-doctor-game"
     }
 ,
     {
-        TITLE: "Funny Bone Surgery",
+        "Funny Bone Surgery",
             URL
     :
         "https://xn--ply-onb.com/girls/funny-bone-surgery"
     }
 ,
     {
-        TITLE: "Funny Camping Day", URL
+        "Funny Camping Day", URL
     :
         "https://xn--ply-onb.com/girls/funny-camping-day"
     }
 ,
     {
-        TITLE: "Funny Hair Salon",
+        "Funny Hair Salon",
             URL
     :
         "https://xn--ply-onb.com/girls/funny-hair-salon"
     }
 ,
     {
-        TITLE: "Funny Princesses Spot The Difference",
+        "Funny Princesses Spot The Difference",
             URL
     :
         "https://xn--ply-onb.com/girls/funny-princesses-spot-the-difference"
     }
 ,
     {
-        TITLE: "Halloween Fashionista",
+        "Halloween Fashionista",
             URL
     :
         "https://xn--ply-onb.com/girls/halloween-fashionista"
     }
 ,
     {
-        TITLE: "Happy Halloween Princess Card Designer",
+        "Happy Halloween Princess Card Designer",
             URL
     :
         "https://xn--ply-onb.com/girls/happy-halloween-princess-card-designer"
     }
 ,
     {
-        TITLE: "Hello Kitty Jigsaw",
+        "Hello Kitty Jigsaw",
             URL
     :
         "https://xn--ply-onb.com/girls/hello-kitty-jigsaw"
     }
 ,
     {
-        TITLE: "High School Cheerleader Dress Up",
+        "High School Cheerleader Dress Up",
             URL
     :
         "https://xn--ply-onb.com/girls/high-school-cheerleader-dress-up"
     }
 ,
     {
-        TITLE: "Holographic Trends",
+        "Holographic Trends",
             URL
     :
         "https://xn--ply-onb.com/girls/holographic-trends"
     }
 ,
     {
-        TITLE: "Horrible Lovely Manicure Halloween",
+        "Horrible Lovely Manicure Halloween",
             URL
     :
         "https://xn--ply-onb.com/girls/horrible-lovely-manicure-halloween"
     }
 ,
     {
-        TITLE: "Ice Slushy Maker",
+        "Ice Slushy Maker",
             URL
     :
         "https://xn--ply-onb.com/girls/ice-slushy-maker"
     }
 ,
     {
-        TITLE: "Instayum Handmade Sweets",
+        "Instayum Handmade Sweets",
             URL
     :
         "https://xn--ply-onb.com/girls/instayum-handmade-sweets"
     }
 ,
     {
-        TITLE: "Is Jack Frost Cheating On Elsa",
+        "Is Jack Frost Cheating On Elsa",
             URL
     :
         "https://xn--ply-onb.com/girls/is-jack-frost-cheating-on-elsa"
     }
 ,
     {
-        TITLE: "Jasmine And Elsa School Bag Design Contest",
+        "Jasmine And Elsa School Bag Design Contest",
             URL
     :
         "https://xn--ply-onb.com/girls/jasmine-and-elsa-school-bag-design-contest"
     }
 ,
     {
-        TITLE: "Kogama Fall Guys",
+        "Kogama Fall Guys",
             URL
     :
         "https://xn--ply-onb.com/girls/kogama-fall-guys"
     }
 ,
     {
-        TITLE: "Ladybug Cat Noir Maker",
+        "Ladybug Cat Noir Maker",
             URL
     :
         "https://xn--ply-onb.com/girls/ladybug-cat-noir-maker"
     }
 ,
     {
-        TITLE: "Magic Nails Spa",
+        "Magic Nails Spa",
             URL
     :
         "https://xn--ply-onb.com/girls/magic-nails-spa"
     }
 ,
     {
-        TITLE: "Marinett Freaky Black Friday Sale",
+        "Marinett Freaky Black Friday Sale",
             URL
     :
         "https://xn--ply-onb.com/girls/marinett-freaky-black-friday-sale"
     }
 ,
     {
-        TITLE: "Masha And Bear Cooking Dash",
+        "Masha And Bear Cooking Dash",
             URL
     :
         "https://xn--ply-onb.com/girls/masha-and-bear-cooking-dash"
     }
 ,
     {
-        TITLE: "Masha And The Bear Cleaning Game",
+        "Masha And The Bear Cleaning Game",
             URL
     :
         "https://xn--ply-onb.com/girls/masha-and-the-bear-cleaning-game"
     }
 ,
     {
-        TITLE: "Masha And The Bear Dentist",
+        "Masha And The Bear Dentist",
             URL
     :
         "https://xn--ply-onb.com/girls/masha-and-the-bear-dentist"
     }
 ,
     {
-        TITLE: "Masha And The Bear Jigsaw",
+        "Masha And The Bear Jigsaw",
             URL
     :
         "https://xn--ply-onb.com/girls/masha-and-the-bear-jigsaw"
     }
 ,
     {
-        TITLE: "Masha Puzzle Time", URL
+        "Masha Puzzle Time", URL
     :
         "https://xn--ply-onb.com/girls/masha-puzzle-time"
     }
 ,
     {
-        TITLE: "Mermaid Games",
+        "Mermaid Games",
             URL
     :
         "https://xn--ply-onb.com/girls/mermaid-games"
     }
 ,
     {
-        TITLE: "Milkshake Cafe",
+        "Milkshake Cafe",
             URL
     :
         "https://xn--ply-onb.com/girls/milkshake-cafe"
     }
 ,
     {
-        TITLE: "Miruna S Adventures Meeting Maria",
+        "Miruna S Adventures Meeting Maria",
             URL
     :
         "https://xn--ply-onb.com/girls/miruna-s-adventures-meeting-maria"
     }
 ,
     {
-        TITLE: "Miss Charming Unicorn Hairstyle",
+        "Miss Charming Unicorn Hairstyle",
             URL
     :
         "https://xn--ply-onb.com/girls/miss-charming-unicorn-hairstyle"
     }
 ,
     {
-        TITLE: "Moana Vs Ariel Ugly Fashion",
+        "Moana Vs Ariel Ugly Fashion",
             URL
     :
         "https://xn--ply-onb.com/girls/moana-vs-ariel-ugly-fashion"
     }
 ,
     {
-        TITLE: "My Dolphin Show",
+        "My Dolphin Show",
             URL
     :
         "https://xn--ply-onb.com/girls/my-dolphin-show"
     }
 ,
     {
-        TITLE: "New Kids Coloring Book",
+        "New Kids Coloring Book",
             URL
     :
         "https://xn--ply-onb.com/girls/new-kids-coloring-book"
     }
 ,
     {
-        TITLE: "New Makeup Snow Queen Eliza",
+        "New Makeup Snow Queen Eliza",
             URL
     :
         "https://xn--ply-onb.com/girls/new-makeup-snow-queen-eliza"
     }
 ,
     {
-        TITLE: "Penguin Diner 2",
+        "Penguin Diner 2",
             URL
     :
         "https://xn--ply-onb.com/girls/penguin-diner-2"
     }
 ,
     {
-        TITLE: "Pet House Little Friends",
+        "Pet House Little Friends",
             URL
     :
         "https://xn--ply-onb.com/girls/pet-house-little-friends"
     }
 ,
     {
-        TITLE: "Pizza Margherita Cooking With Emma",
+        "Pizza Margherita Cooking With Emma",
             URL
     :
         "https://xn--ply-onb.com/girls/pizza-margherita-cooking-with-emma"
     }
 ,
     {
-        TITLE: "Pizzaiolo", URL
+        "Pizzaiolo", URL
     :
         "https://xn--ply-onb.com/girls/pizzaiolo"
     }
 ,
     {
-        TITLE: "Pony Pet Salon",
+        "Pony Pet Salon",
             URL
     :
         "https://xn--ply-onb.com/girls/pony-pet-salon"
     }
 ,
     {
-        TITLE: "Popsy Surprise Valentines Day Prank",
+        "Popsy Surprise Valentines Day Prank",
             URL
     :
         "https://xn--ply-onb.com/girls/popsy-surprise-valentines-day-prank"
     }
 ,
     {
-        TITLE: "Pow", URL
+        "Pow", URL
     :
         "https://xn--ply-onb.com/girls/pow"
     }
 ,
     {
-        TITLE: "Princess Back 2 School Lockers",
+        "Princess Back 2 School Lockers",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-back-2-school-lockers"
     }
 ,
     {
-        TITLE: "Princess Cool Graffiti",
+        "Princess Cool Graffiti",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-cool-graffiti"
     }
 ,
     {
-        TITLE: "Princess Cyberpunk 2200",
+        "Princess Cyberpunk 2200",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-cyberpunk-2200"
     }
 ,
     {
-        TITLE: "Princess Family Halloween Costume",
+        "Princess Family Halloween Costume",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-family-halloween-costume"
     }
 ,
     {
-        TITLE: "Princess Girls Oscars Design",
+        "Princess Girls Oscars Design",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-girls-oscars-design"
     }
 ,
     {
-        TITLE: "Princess Halloween Makeup Halffaces Tutorial",
+        "Princess Halloween Makeup Halffaces Tutorial",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-halloween-makeup-halffaces-tutorial"
     }
 ,
     {
-        TITLE: "Princess Makeover",
+        "Princess Makeover",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-makeover"
     }
 ,
     {
-        TITLE: "Princess Sweet Candy Cosplay",
+        "Princess Sweet Candy Cosplay",
             URL
     :
         "https://xn--ply-onb.com/girls/princess-sweet-candy-cosplay"
     }
 ,
     {
-        TITLE: "Princesses Bff Rush To School",
+        "Princesses Bff Rush To School",
             URL
     :
         "https://xn--ply-onb.com/girls/princesses-bff-rush-to-school"
     }
 ,
     {
-        TITLE: "Princesses Trendy Social Networks",
+        "Princesses Trendy Social Networks",
             URL
     :
         "https://xn--ply-onb.com/girls/princesses-trendy-social-networks"
     }
 ,
     {
-        TITLE: "Puffy Sleeves Fashion",
+        "Puffy Sleeves Fashion",
             URL
     :
         "https://xn--ply-onb.com/girls/puffy-sleeves-fashion"
     }
 ,
     {
-        TITLE: "Pumpkin Ice Cream",
+        "Pumpkin Ice Cream",
             URL
     :
         "https://xn--ply-onb.com/girls/pumpkin-ice-cream"
     }
 ,
     {
-        TITLE: "Puzzles Princesses And Angels New Look",
+        "Puzzles Princesses And Angels New Look",
             URL
     :
         "https://xn--ply-onb.com/girls/puzzles-princesses-and-angels-new-look"
     }
 ,
     {
-        TITLE: "Queen Mal Mistress Of Evil",
+        "Queen Mal Mistress Of Evil",
             URL
     :
         "https://xn--ply-onb.com/girls/queen-mal-mistress-of-evil"
     }
 ,
     {
-        TITLE: "Retro Arcade Days",
+        "Retro Arcade Days",
             URL
     :
         "https://xn--ply-onb.com/girls/retro-arcade-days"
     }
 ,
     {
-        TITLE: "Rick And Morty Princess Maker",
+        "Rick And Morty Princess Maker",
             URL
     :
         "https://xn--ply-onb.com/girls/rick-and-morty-princess-maker"
     }
 ,
     {
-        TITLE: "Road To Royalty Battle Of Dolls",
+        "Road To Royalty Battle Of Dolls",
             URL
     :
         "https://xn--ply-onb.com/girls/road-to-royalty-battle-of-dolls"
     }
 ,
     {
-        TITLE: "Santa Haircut", URL
+        "Santa Haircut", URL
     :
         "https://xn--ply-onb.com/girls/santa-haircut"
     }
 ,
     {
-        TITLE: "Summertime Celebration",
+        "Summertime Celebration",
             URL
     :
         "https://xn--ply-onb.com/girls/summertime-celebration"
     }
 ,
     {
-        TITLE: "Sweet Cake Shop", URL
+        "Sweet Cake Shop", URL
     :
         "https://xn--ply-onb.com/girls/sweet-cake-shop"
     }
 ,
     {
-        TITLE: "Tattoo Salon",
+        "Tattoo Salon",
             URL
     :
         "https://xn--ply-onb.com/girls/tattoo-salon"
     }
 ,
     {
-        TITLE: "Tessa Fashion Game", URL
+        "Tessa Fashion Game", URL
     :
         "https://xn--ply-onb.com/girls/tessa-fashion-game"
     }
 ,
     {
-        TITLE: "Testgame",
+        "Testgame",
             URL
     :
         "https://xn--ply-onb.com/girls/testgame"
     }
 ,
     {
-        TITLE: "Tiktok Girls Vs Likee Girls",
+        "Tiktok Girls Vs Likee Girls",
             URL
     :
         "https://xn--ply-onb.com/girls/tiktok-girls-vs-likee-girls"
     }
 ,
     {
-        TITLE: "Tooth Fairy Lifestyle",
+        "Tooth Fairy Lifestyle",
             URL
     :
         "https://xn--ply-onb.com/girls/tooth-fairy-lifestyle"
     }
 ,
     {
-        TITLE: "Tropical And Rosehip Princesses Sew Swimwear",
+        "Tropical And Rosehip Princesses Sew Swimwear",
             URL
     :
         "https://xn--ply-onb.com/girls/tropical-and-rosehip-princesses-sew-swimwear"
     }
 ,
     {
-        TITLE: "Underwater Odyssey Of The Little Mermaid",
+        "Underwater Odyssey Of The Little Mermaid",
             URL
     :
         "https://xn--ply-onb.com/girls/underwater-odyssey-of-the-little-mermaid"
     }
 ,
     {
-        TITLE: "Unicorn Kitty Coloring Book",
+        "Unicorn Kitty Coloring Book",
             URL
     :
         "https://xn--ply-onb.com/girls/unicorn-kitty-coloring-book"
     }
 ,
     {
-        TITLE: "Valentines Day Coloring",
+        "Valentines Day Coloring",
             URL
     :
         "https://xn--ply-onb.com/girls/valentines-day-coloring"
     }
 ,
     {
-        TITLE: "Will You Be My Girlfriend",
+        "Will You Be My Girlfriend",
             URL
     :
         "https://xn--ply-onb.com/girls/will-you-be-my-girlfriend"
     }
 ,
     {
-        TITLE: "Wonder Princess Vivid 80s",
+        "Wonder Princess Vivid 80s",
             URL
     :
         "https://xn--ply-onb.com/girls/wonder-princess-vivid-80s"
     }
 ,
     {
-        TITLE: "Zucchini Spaghetti Bolognese Cooking With Emma",
+        "Zucchini Spaghetti Bolognese Cooking With Emma",
             URL
     :
         "https://xn--ply-onb.com/girls/zucchini-spaghetti-bolognese-cooking-with-emma"
     }
 ,
     {
-        TITLE: "123 Puzzle", URL
+        "123 Puzzle", URL
     :
         "https://xn--ply-onb.com/logic/123-puzzle"
     }
 ,
     {
-        TITLE: "2048 Drag Drop",
+        "2048 Drag Drop",
             URL
     :
         "https://xn--ply-onb.com/logic/2048-drag-drop"
     }
 ,
     {
-        TITLE: "4 Pics 1 Word", URL
+        "4 Pics 1 Word", URL
     :
         "https://xn--ply-onb.com/logic/4-pics-1-word"
     }
 ,
     {
-        TITLE: "4 Win",
+        "4 Win",
             URL
     :
         "https://xn--ply-onb.com/logic/4-win"
     }
 ,
     {
-        TITLE: "4xpuzzle", URL
+        "4xpuzzle", URL
     :
         "https://xn--ply-onb.com/logic/4xpuzzle"
     }
 ,
     {
-        TITLE: "Adam And Eve 2",
+        "Adam And Eve 2",
             URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-2"
     }
 ,
     {
-        TITLE: "Adam And Eve 3", URL
+        "Adam And Eve 3", URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-3"
     }
 ,
     {
-        TITLE: "Adam And Eve 6",
+        "Adam And Eve 6",
             URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-6"
     }
 ,
     {
-        TITLE: "Adam And Eve 7", URL
+        "Adam And Eve 7", URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-7"
     }
 ,
     {
-        TITLE: "Adam And Eve Astronaut",
+        "Adam And Eve Astronaut",
             URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-astronaut"
     }
 ,
     {
-        TITLE: "Adam And Eve Go", URL
+        "Adam And Eve Go", URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-go"
     }
 ,
     {
-        TITLE: "Adam And Eve Go Xmas",
+        "Adam And Eve Go Xmas",
             URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-go-xmas"
     }
 ,
     {
-        TITLE: "Adam And Eve Snow", URL
+        "Adam And Eve Snow", URL
     :
         "https://xn--ply-onb.com/logic/adam-and-eve-snow"
     }
 ,
     {
-        TITLE: "Africa Maze",
+        "Africa Maze",
             URL
     :
         "https://xn--ply-onb.com/logic/africa-maze"
     }
 ,
     {
-        TITLE: "Amazing Sticky Hex",
+        "Amazing Sticky Hex",
             URL
     :
         "https://xn--ply-onb.com/logic/amazing-sticky-hex"
     }
 ,
     {
-        TITLE: "American Cars Memory",
+        "American Cars Memory",
             URL
     :
         "https://xn--ply-onb.com/logic/american-cars-memory"
     }
 ,
     {
-        TITLE: "Ancient Egypt Spot The Differences",
+        "Ancient Egypt Spot The Differences",
             URL
     :
         "https://xn--ply-onb.com/logic/ancient-egypt-spot-the-differences"
     }
 ,
     {
-        TITLE: "Apple Worm", URL
+        "Apple Worm", URL
     :
         "https://xn--ply-onb.com/logic/apple-worm"
     }
 ,
     {
-        TITLE: "Atomic Puzzle",
+        "Atomic Puzzle",
             URL
     :
         "https://xn--ply-onb.com/logic/atomic-puzzle"
     }
 ,
     {
-        TITLE: "Baby Doll The House Cleaning Game",
+        "Baby Doll The House Cleaning Game",
             URL
     :
         "https://xn--ply-onb.com/logic/baby-doll-the-house-cleaning-game"
     }
 ,
     {
-        TITLE: "Backorder Storehouse",
+        "Backorder Storehouse",
             URL
     :
         "https://xn--ply-onb.com/logic/backorder-storehouse"
     }
 ,
     {
-        TITLE: "Ball Impact", URL
+        "Ball Impact", URL
     :
         "https://xn--ply-onb.com/logic/ball-impact"
     }
 ,
     {
-        TITLE: "Ball Paint",
+        "Ball Paint",
             URL
     :
         "https://xn--ply-onb.com/logic/ball-paint"
     }
 ,
     {
-        TITLE: "Ball Slide", URL
+        "Ball Slide", URL
     :
         "https://xn--ply-onb.com/logic/ball-slide"
     }
 ,
     {
-        TITLE: "Balloons Creator",
+        "Balloons Creator",
             URL
     :
         "https://xn--ply-onb.com/logic/balloons-creator"
     }
 ,
     {
-        TITLE: "Basket Puzzle",
+        "Basket Puzzle",
             URL
     :
         "https://xn--ply-onb.com/logic/basket-puzzle"
     }
 ,
     {
-        TITLE: "Block Square Puzzle Tangram For Kids",
+        "Block Square Puzzle Tangram For Kids",
             URL
     :
         "https://xn--ply-onb.com/logic/block-square-puzzle-tangram-for-kids"
     }
 ,
     {
-        TITLE: "Blockcraft", URL
+        "Blockcraft", URL
     :
         "https://xn--ply-onb.com/logic/blockcraft"
     }
 ,
     {
-        TITLE: "Blocks Must Fall",
+        "Blocks Must Fall",
             URL
     :
         "https://xn--ply-onb.com/logic/blocks-must-fall"
     }
 ,
     {
-        TITLE: "Blocks Puzzle Zoo", URL
+        "Blocks Puzzle Zoo", URL
     :
         "https://xn--ply-onb.com/logic/blocks-puzzle-zoo"
     }
 ,
     {
-        TITLE: "Bobble Shooter",
+        "Bobble Shooter",
             URL
     :
         "https://xn--ply-onb.com/logic/bobble-shooter"
     }
 ,
     {
-        TITLE: "Bouncy Ball Challenge",
+        "Bouncy Ball Challenge",
             URL
     :
         "https://xn--ply-onb.com/logic/bouncy-ball-challenge"
     }
 ,
     {
-        TITLE: "Box Factory", URL
+        "Box Factory", URL
     :
         "https://xn--ply-onb.com/logic/box-factory"
     }
 ,
     {
-        TITLE: "Break The Gems",
+        "Break The Gems",
             URL
     :
         "https://xn--ply-onb.com/logic/break-the-gems"
     }
 ,
     {
-        TITLE: "Btc Imperium", URL
+        "Btc Imperium", URL
     :
         "https://xn--ply-onb.com/logic/btc-imperium"
     }
 ,
     {
-        TITLE: "Bts Motorbike Coloring",
+        "Bts Motorbike Coloring",
             URL
     :
         "https://xn--ply-onb.com/logic/bts-motorbike-coloring"
     }
 ,
     {
-        TITLE: "Bubble Farm", URL
+        "Bubble Farm", URL
     :
         "https://xn--ply-onb.com/logic/bubble-farm"
     }
 ,
     {
-        TITLE: "Bubble Quad",
+        "Bubble Quad",
             URL
     :
         "https://xn--ply-onb.com/logic/bubble-quad"
     }
 ,
     {
-        TITLE: "Bubble Tea", URL
+        "Bubble Tea", URL
     :
         "https://xn--ply-onb.com/logic/bubble-tea"
     }
 ,
     {
-        TITLE: "Bubble Tower 3d",
+        "Bubble Tower 3d",
             URL
     :
         "https://xn--ply-onb.com/logic/bubble-tower-3d"
     }
 ,
     {
-        TITLE: "Bubblewobble", URL
+        "Bubblewobble", URL
     :
         "https://xn--ply-onb.com/logic/bubblewobble"
     }
 ,
     {
-        TITLE: "Bugs Match",
+        "Bugs Match",
             URL
     :
         "https://xn--ply-onb.com/logic/bugs-match"
     }
 ,
     {
-        TITLE: "Bullet Master", URL
+        "Bullet Master", URL
     :
         "https://xn--ply-onb.com/logic/bullet-master"
     }
 ,
     {
-        TITLE: "Car Engine Sound",
+        "Car Engine Sound",
             URL
     :
         "https://xn--ply-onb.com/logic/car-engine-sound"
     }
 ,
     {
-        TITLE: "Car Girl Garage",
+        "Car Girl Garage",
             URL
     :
         "https://xn--ply-onb.com/logic/car-girl-garage"
     }
 ,
     {
-        TITLE: "Car Parts Coloring Book",
+        "Car Parts Coloring Book",
             URL
     :
         "https://xn--ply-onb.com/logic/car-parts-coloring-book"
     }
 ,
     {
-        TITLE: "Castle Puzzle", URL
+        "Castle Puzzle", URL
     :
         "https://xn--ply-onb.com/logic/castle-puzzle"
     }
 ,
     {
-        TITLE: "Charge Now",
+        "Charge Now",
             URL
     :
         "https://xn--ply-onb.com/logic/charge-now"
     }
 ,
     {
-        TITLE: "Cheat Death", URL
+        "Cheat Death", URL
     :
         "https://xn--ply-onb.com/logic/cheat-death"
     }
 ,
     {
-        TITLE: "Cheating Exam",
+        "Cheating Exam",
             URL
     :
         "https://xn--ply-onb.com/logic/cheating-exam"
     }
 ,
     {
-        TITLE: "Cheerful Glass", URL
+        "Cheerful Glass", URL
     :
         "https://xn--ply-onb.com/logic/cheerful-glass"
     }
 ,
     {
-        TITLE: "Chess",
+        "Chess",
             URL
     :
         "https://xn--ply-onb.com/logic/chess"
     }
 ,
     {
-        TITLE: "Chess Mania", URL
+        "Chess Mania", URL
     :
         "https://xn--ply-onb.com/logic/chess-mania"
     }
 ,
     {
-        TITLE: "City Match 2",
+        "City Match 2",
             URL
     :
         "https://xn--ply-onb.com/logic/city-match-2"
     }
 ,
     {
-        TITLE: "Clash Imposter 3d",
+        "Clash Imposter 3d",
             URL
     :
         "https://xn--ply-onb.com/logic/clash-imposter-3d"
     }
 ,
     {
-        TITLE: "Clash Of Stickman Warrior",
+        "Clash Of Stickman Warrior",
             URL
     :
         "https://xn--ply-onb.com/logic/clash-of-stickman-warrior"
     }
 ,
     {
-        TITLE: "/**
+        "/**
 
         * {@inlinetag}
 
@@ -3381,7 +3381,7 @@ if (typeof gameNAMES === 'undefined') {
         Mahjong
         Solitaire
         ",
-        URL: "https://xn--ply-onb.com/logic//**
+        "https://xn--ply-onb.com/logic//**
 
         * {@inlinetag}
 
@@ -3410,7 +3410,7 @@ if (typeof gameNAMES === 'undefined') {
     }
 ,
     {
-        TITLE: "/**
+        "/**
 
         * {@inlinetag}
 
@@ -3466,2715 +3466,2715 @@ if (typeof gameNAMES === 'undefined') {
         * /
         classic - match3
         "}, {
-        TITLE: "Cocktails Puzzles",
+        "Cocktails Puzzles",
             URL
     :
         "https://xn--ply-onb.com/logic/cocktails-puzzles"
     }
 ,
     {
-        TITLE: "Color Trouble", URL
+        "Color Trouble", URL
     :
         "https://xn--ply-onb.com/logic/color-trouble"
     }
 ,
     {
-        TITLE: "Colored Water Pin",
+        "Colored Water Pin",
             URL
     :
         "https://xn--ply-onb.com/logic/colored-water-pin"
     }
 ,
     {
-        TITLE: "Colors", URL
+        "Colors", URL
     :
         "https://xn--ply-onb.com/logic/colors"
     }
 ,
     {
-        TITLE: "Colors Potions And Cats",
+        "Colors Potions And Cats",
             URL
     :
         "https://xn--ply-onb.com/logic/colors-potions-and-cats"
     }
 ,
     {
-        TITLE: "Colors Pressing", URL
+        "Colors Pressing", URL
     :
         "https://xn--ply-onb.com/logic/colors-pressing"
     }
 ,
     {
-        TITLE: "Conenct Lines",
+        "Conenct Lines",
             URL
     :
         "https://xn--ply-onb.com/logic/conenct-lines"
     }
 ,
     {
-        TITLE: "Connect Dots", URL
+        "Connect Dots", URL
     :
         "https://xn--ply-onb.com/logic/connect-dots"
     }
 ,
     {
-        TITLE: "Connect Merge",
+        "Connect Merge",
             URL
     :
         "https://xn--ply-onb.com/logic/connect-merge"
     }
 ,
     {
-        TITLE: "Connect The Gems", URL
+        "Connect The Gems", URL
     :
         "https://xn--ply-onb.com/logic/connect-the-gems"
     }
 ,
     {
-        TITLE: "Cookies Match 3",
+        "Cookies Match 3",
             URL
     :
         "https://xn--ply-onb.com/logic/cookies-match-3"
     }
 ,
     {
-        TITLE: "Cover Orange Journey Pirates",
+        "Cover Orange Journey Pirates",
             URL
     :
         "https://xn--ply-onb.com/logic/cover-orange-journey-pirates"
     }
 ,
     {
-        TITLE: "Crazy Maze", URL
+        "Crazy Maze", URL
     :
         "https://xn--ply-onb.com/logic/crazy-maze"
     }
 ,
     {
-        TITLE: "Crazy Pizza",
+        "Crazy Pizza",
             URL
     :
         "https://xn--ply-onb.com/logic/crazy-pizza"
     }
 ,
     {
-        TITLE: "Cube Blast", URL
+        "Cube Blast", URL
     :
         "https://xn--ply-onb.com/logic/cube-blast"
     }
 ,
     {
-        TITLE: "Cube Flip",
+        "Cube Flip",
             URL
     :
         "https://xn--ply-onb.com/logic/cube-flip"
     }
 ,
     {
-        TITLE: "Cup And Minecraft",
+        "Cup And Minecraft",
             URL
     :
         "https://xn--ply-onb.com/logic/cup-and-minecraft"
     }
 ,
     {
-        TITLE: "Cut The Cord Piggy Bank",
+        "Cut The Cord Piggy Bank",
             URL
     :
         "https://xn--ply-onb.com/logic/cut-the-cord-piggy-bank"
     }
 ,
     {
-        TITLE: "Cute Animals Pairs Game",
+        "Cute Animals Pairs Game",
             URL
     :
         "https://xn--ply-onb.com/logic/cute-animals-pairs-game"
     }
 ,
     {
-        TITLE: "Cute Fish Memory Challenge",
+        "Cute Fish Memory Challenge",
             URL
     :
         "https://xn--ply-onb.com/logic/cute-fish-memory-challenge"
     }
 ,
     {
-        TITLE: "Day At School", URL
+        "Day At School", URL
     :
         "https://xn--ply-onb.com/logic/day-at-school"
     }
 ,
     {
-        TITLE: "Destroyer",
+        "Destroyer",
             URL
     :
         "https://xn--ply-onb.com/logic/destroyer"
     }
 ,
     {
-        TITLE: "Detective Loupe Puzzle",
+        "Detective Loupe Puzzle",
             URL
     :
         "https://xn--ply-onb.com/logic/detective-loupe-puzzle"
     }
 ,
     {
-        TITLE: "Dibbles For The Greater Good",
+        "Dibbles For The Greater Good",
             URL
     :
         "https://xn--ply-onb.com/logic/dibbles-for-the-greater-good"
     }
 ,
     {
-        TITLE: "Dinosaur Bone Digging", URL
+        "Dinosaur Bone Digging", URL
     :
         "https://xn--ply-onb.com/logic/dinosaur-bone-digging"
     }
 ,
     {
-        TITLE: "Divide",
+        "Divide",
             URL
     :
         "https://xn--ply-onb.com/logic/divide"
     }
 ,
     {
-        TITLE: "Donutosaur", URL
+        "Donutosaur", URL
     :
         "https://xn--ply-onb.com/logic/donutosaur"
     }
 ,
     {
-        TITLE: "Doraemon Cut Puzzle",
+        "Doraemon Cut Puzzle",
             URL
     :
         "https://xn--ply-onb.com/logic/doraemon-cut-puzzle"
     }
 ,
     {
-        TITLE: "Dot Shot", URL
+        "Dot Shot", URL
     :
         "https://xn--ply-onb.com/logic/dot-shot"
     }
 ,
     {
-        TITLE: "Easter Jigsaw",
+        "Easter Jigsaw",
             URL
     :
         "https://xn--ply-onb.com/logic/easter-jigsaw"
     }
 ,
     {
-        TITLE: "Element Blocks", URL
+        "Element Blocks", URL
     :
         "https://xn--ply-onb.com/logic/element-blocks"
     }
 ,
     {
-        TITLE: "Energy Doors",
+        "Energy Doors",
             URL
     :
         "https://xn--ply-onb.com/logic/energy-doors"
     }
 ,
     {
-        TITLE: "Escape Plan In Squid Game",
+        "Escape Plan In Squid Game",
             URL
     :
         "https://xn--ply-onb.com/logic/escape-plan-in-squid-game"
     }
 ,
     {
-        TITLE: "Exit", URL
+        "Exit", URL
     :
         "https://xn--ply-onb.com/logic/exit"
     }
 ,
     {
-        TITLE: "Explode Ballz",
+        "Explode Ballz",
             URL
     :
         "https://xn--ply-onb.com/logic/explode-ballz"
     }
 ,
     {
-        TITLE: "Farming Puzzle", URL
+        "Farming Puzzle", URL
     :
         "https://xn--ply-onb.com/logic/farming-puzzle"
     }
 ,
     {
-        TITLE: "Fast Math 2",
+        "Fast Math 2",
             URL
     :
         "https://xn--ply-onb.com/logic/fast-math-2"
     }
 ,
     {
-        TITLE: "Fg Plumber 2", URL
+        "Fg Plumber 2", URL
     :
         "https://xn--ply-onb.com/logic/fg-plumber-2"
     }
 ,
     {
-        TITLE: "Filled Glass",
+        "Filled Glass",
             URL
     :
         "https://xn--ply-onb.com/logic/filled-glass"
     }
 ,
     {
-        TITLE: "Filled Glass 2 No Gravity",
+        "Filled Glass 2 No Gravity",
             URL
     :
         "https://xn--ply-onb.com/logic/filled-glass-2-no-gravity"
     }
 ,
     {
-        TITLE: "Filled Glass 3 Portals",
+        "Filled Glass 3 Portals",
             URL
     :
         "https://xn--ply-onb.com/logic/filled-glass-3-portals"
     }
 ,
     {
-        TITLE: "Find The Candywinter",
+        "Find The Candywinter",
             URL
     :
         "https://xn--ply-onb.com/logic/find-the-candywinter"
     }
 ,
     {
-        TITLE: "Find The Pairs",
+        "Find The Pairs",
             URL
     :
         "https://xn--ply-onb.com/logic/find-the-pairs"
     }
 ,
     {
-        TITLE: "Fireboy And Watergirl 1 Forest Temple",
+        "Fireboy And Watergirl 1 Forest Temple",
             URL
     :
         "https://xn--ply-onb.com/logic/fireboy-and-watergirl-1-forest-temple"
     }
 ,
     {
-        TITLE: "Fireboy And Watergirl 2 Light Temple",
+        "Fireboy And Watergirl 2 Light Temple",
             URL
     :
         "https://xn--ply-onb.com/logic/fireboy-and-watergirl-2-light-temple"
     }
 ,
     {
-        TITLE: "Fishdom Online", URL
+        "Fishdom Online", URL
     :
         "https://xn--ply-onb.com/logic/fishdom-online"
     }
 ,
     {
-        TITLE: "Food Tycoon Frvr",
+        "Food Tycoon Frvr",
             URL
     :
         "https://xn--ply-onb.com/logic/food-tycoon-frvr"
     }
 ,
     {
-        TITLE: "Forest Jigsaw Puzzle",
+        "Forest Jigsaw Puzzle",
             URL
     :
         "https://xn--ply-onb.com/logic/forest-jigsaw-puzzle"
     }
 ,
     {
-        TITLE: "Formula Jigsaw", URL
+        "Formula Jigsaw", URL
     :
         "https://xn--ply-onb.com/logic/formula-jigsaw"
     }
 ,
     {
-        TITLE: "Four In A Row",
+        "Four In A Row",
             URL
     :
         "https://xn--ply-onb.com/logic/four-in-a-row"
     }
 ,
     {
-        TITLE: "Fruit Samurai", URL
+        "Fruit Samurai", URL
     :
         "https://xn--ply-onb.com/logic/fruit-samurai"
     }
 ,
     {
-        TITLE: "Fun Birds Hidden Stars",
+        "Fun Birds Hidden Stars",
             URL
     :
         "https://xn--ply-onb.com/logic/fun-birds-hidden-stars"
     }
 ,
     {
-        TITLE: "Fun Hidden Objects",
+        "Fun Hidden Objects",
             URL
     :
         "https://xn--ply-onb.com/logic/fun-hidden-objects"
     }
 ,
     {
-        TITLE: "Fun Learning For Kids",
+        "Fun Learning For Kids",
             URL
     :
         "https://xn--ply-onb.com/logic/fun-learning-for-kids"
     }
 ,
     {
-        TITLE: "Funny Face Jigsaw", URL
+        "Funny Face Jigsaw", URL
     :
         "https://xn--ply-onb.com/logic/funny-face-jigsaw"
     }
 ,
     {
-        TITLE: "Furtive Dao",
+        "Furtive Dao",
             URL
     :
         "https://xn--ply-onb.com/logic/furtive-dao"
     }
 ,
     {
-        TITLE: "Garbage Trucks Hidden Trash Can",
+        "Garbage Trucks Hidden Trash Can",
             URL
     :
         "https://xn--ply-onb.com/logic/garbage-trucks-hidden-trash-can"
     }
 ,
     {
-        TITLE: "Gem 11", URL
+        "Gem 11", URL
     :
         "https://xn--ply-onb.com/logic/gem-11"
     }
 ,
     {
-        TITLE: "Gems Merge",
+        "Gems Merge",
             URL
     :
         "https://xn--ply-onb.com/logic/gems-merge"
     }
 ,
     {
-        TITLE: "Get The Girl", URL
+        "Get The Girl", URL
     :
         "https://xn--ply-onb.com/logic/get-the-girl"
     }
 ,
     {
-        TITLE: "Gold Train Frvr",
+        "Gold Train Frvr",
             URL
     :
         "https://xn--ply-onb.com/logic/gold-train-frvr"
     }
 ,
     {
-        TITLE: "Golden Scarabaeus", URL
+        "Golden Scarabaeus", URL
     :
         "https://xn--ply-onb.com/logic/golden-scarabaeus"
     }
 ,
     {
-        TITLE: "Golf Pin",
+        "Golf Pin",
             URL
     :
         "https://xn--ply-onb.com/logic/golf-pin"
     }
 ,
     {
-        TITLE: "Governor Of Poker 2",
+        "Governor Of Poker 2",
             URL
     :
         "https://xn--ply-onb.com/logic/governor-of-poker-2"
     }
 ,
     {
-        TITLE: "Granny Jigsaw", URL
+        "Granny Jigsaw", URL
     :
         "https://xn--ply-onb.com/logic/granny-jigsaw"
     }
 ,
     {
-        TITLE: "Grass Cutter",
+        "Grass Cutter",
             URL
     :
         "https://xn--ply-onb.com/logic/grass-cutter"
     }
 ,
     {
-        TITLE: "Gravity Frog", URL
+        "Gravity Frog", URL
     :
         "https://xn--ply-onb.com/logic/gravity-frog"
     }
 ,
     {
-        TITLE: "Gravity Snake",
+        "Gravity Snake",
             URL
     :
         "https://xn--ply-onb.com/logic/gravity-snake"
     }
 ,
     {
-        TITLE: "Halloween Connection",
+        "Halloween Connection",
             URL
     :
         "https://xn--ply-onb.com/logic/halloween-connection"
     }
 ,
     {
-        TITLE: "Halloween Differences",
+        "Halloween Differences",
             URL
     :
         "https://xn--ply-onb.com/logic/halloween-differences"
     }
 ,
     {
-        TITLE: "Halloween Hidden Pumpkins",
+        "Halloween Hidden Pumpkins",
             URL
     :
         "https://xn--ply-onb.com/logic/halloween-hidden-pumpkins"
     }
 ,
     {
-        TITLE: "Halloween Mahjong 2019",
+        "Halloween Mahjong 2019",
             URL
     :
         "https://xn--ply-onb.com/logic/halloween-mahjong-2019"
     }
 ,
     {
-        TITLE: "Halloween Night Jigsaw",
+        "Halloween Night Jigsaw",
             URL
     :
         "https://xn--ply-onb.com/logic/halloween-night-jigsaw"
     }
 ,
     {
-        TITLE: "Halloween Slide Puzzle",
+        "Halloween Slide Puzzle",
             URL
     :
         "https://xn--ply-onb.com/logic/halloween-slide-puzzle"
     }
 ,
     {
-        TITLE: "Halloween Truck Jigsaw",
+        "Halloween Truck Jigsaw",
             URL
     :
         "https://xn--ply-onb.com/logic/halloween-truck-jigsaw"
     }
 ,
     {
-        TITLE: "Happy Filled Glass",
+        "Happy Filled Glass",
             URL
     :
         "https://xn--ply-onb.com/logic/happy-filled-glass"
     }
 ,
     {
-        TITLE: "Happy Green Earth", URL
+        "Happy Green Earth", URL
     :
         "https://xn--ply-onb.com/logic/happy-green-earth"
     }
 ,
     {
-        TITLE: "Happy Shapes",
+        "Happy Shapes",
             URL
     :
         "https://xn--ply-onb.com/logic/happy-shapes"
     }
 ,
     {
-        TITLE: "Happy Slushie", URL
+        "Happy Slushie", URL
     :
         "https://xn--ply-onb.com/logic/happy-slushie"
     }
 ,
     {
-        TITLE: "Hedgehogs Paradise",
+        "Hedgehogs Paradise",
             URL
     :
         "https://xn--ply-onb.com/logic/hedgehogs-paradise"
     }
 ,
     {
-        TITLE: "Hexable", URL
+        "Hexable", URL
     :
         "https://xn--ply-onb.com/logic/hexable"
     }
 ,
     {
-        TITLE: "Hexalau",
+        "Hexalau",
             URL
     :
         "https://xn--ply-onb.com/logic/hexalau"
     }
 ,
     {
-        TITLE: "Hole Vs Bomb", URL
+        "Hole Vs Bomb", URL
     :
         "https://xn--ply-onb.com/logic/hole-vs-bomb"
     }
 ,
     {
-        TITLE: "Home House Painter",
+        "Home House Painter",
             URL
     :
         "https://xn--ply-onb.com/logic/home-house-painter"
     }
 ,
     {
-        TITLE: "Homescapes", URL
+        "Homescapes", URL
     :
         "https://xn--ply-onb.com/logic/homescapes"
     }
 ,
     {
-        TITLE: "House Wall Paint",
+        "House Wall Paint",
             URL
     :
         "https://xn--ply-onb.com/logic/house-wall-paint"
     }
 ,
     {
-        TITLE: "House Word Search",
+        "House Word Search",
             URL
     :
         "https://xn--ply-onb.com/logic/house-word-search"
     }
 ,
     {
-        TITLE: "Https Icestonesoft Com Online Games Blocks",
+        "Https Icestonesoft Com Online Games Blocks",
             URL
     :
         "https://xn--ply-onb.com/logic/https-icestonesoft-com-online-games-blocks"
     }
 ,
     {
-        TITLE: "Idle Startup Tycoon", URL
+        "Idle Startup Tycoon", URL
     :
         "https://xn--ply-onb.com/logic/idle-startup-tycoon"
     }
 ,
     {
-        TITLE: "Illuminate",
+        "Illuminate",
             URL
     :
         "https://xn--ply-onb.com/logic/illuminate"
     }
 ,
     {
-        TITLE: "Impossible Ball", URL
+        "Impossible Ball", URL
     :
         "https://xn--ply-onb.com/logic/impossible-ball"
     }
 ,
     {
-        TITLE: "Impostor Crash",
+        "Impostor Crash",
             URL
     :
         "https://xn--ply-onb.com/logic/impostor-crash"
     }
 ,
     {
-        TITLE: "Jelly Crush Match3", URL
+        "Jelly Crush Match3", URL
     :
         "https://xn--ply-onb.com/logic/jelly-crush-match3"
     }
 ,
     {
-        TITLE: "Jelly Match3",
+        "Jelly Match3",
             URL
     :
         "https://xn--ply-onb.com/logic/jelly-match3"
     }
 ,
     {
-        TITLE: "Jelly Mergence", URL
+        "Jelly Mergence", URL
     :
         "https://xn--ply-onb.com/logic/jelly-mergence"
     }
 ,
     {
-        TITLE: "Jelly Slice",
+        "Jelly Slice",
             URL
     :
         "https://xn--ply-onb.com/logic/jelly-slice"
     }
 ,
     {
-        TITLE: "Jewel And Crazy Birds",
+        "Jewel And Crazy Birds",
             URL
     :
         "https://xn--ply-onb.com/logic/jewel-and-crazy-birds"
     }
 ,
     {
-        TITLE: "Jewel Crunch", URL
+        "Jewel Crunch", URL
     :
         "https://xn--ply-onb.com/logic/jewel-crunch"
     }
 ,
     {
-        TITLE: "Jewel Puzzle Blocks",
+        "Jewel Puzzle Blocks",
             URL
     :
         "https://xn--ply-onb.com/logic/jewel-puzzle-blocks"
     }
 ,
     {
-        TITLE: "Juicy Dash", URL
+        "Juicy Dash", URL
     :
         "https://xn--ply-onb.com/logic/juicy-dash"
     }
 ,
     {
-        TITLE: "Jumpme",
+        "Jumpme",
             URL
     :
         "https://xn--ply-onb.com/logic/jumpme"
     }
 ,
     {
-        TITLE: "Jungle Matching", URL
+        "Jungle Matching", URL
     :
         "https://xn--ply-onb.com/logic/jungle-matching"
     }
 ,
     {
-        TITLE: "Kill The Buddy",
+        "Kill The Buddy",
             URL
     :
         "https://xn--ply-onb.com/logic/kill-the-buddy"
     }
 ,
     {
-        TITLE: "Kill The Zombie", URL
+        "Kill The Zombie", URL
     :
         "https://xn--ply-onb.com/logic/kill-the-zombie"
     }
 ,
     {
-        TITLE: "Laser Box",
+        "Laser Box",
             URL
     :
         "https://xn--ply-onb.com/logic/laser-box"
     }
 ,
     {
-        TITLE: "Liquid Orange",
+        "Liquid Orange",
             URL
     :
         "https://xn--ply-onb.com/logic/liquid-orange"
     }
 ,
     {
-        TITLE: "Location Of African Countries Quiz",
+        "Location Of African Countries Quiz",
             URL
     :
         "https://xn--ply-onb.com/logic/location-of-african-countries-quiz"
     }
 ,
     {
-        TITLE: "Location Of European Countries Quiz",
+        "Location Of European Countries Quiz",
             URL
     :
         "https://xn--ply-onb.com/logic/location-of-european-countries-quiz"
     }
 ,
     {
-        TITLE: "Location Of United States Countries Quiz",
+        "Location Of United States Countries Quiz",
             URL
     :
         "https://xn--ply-onb.com/logic/location-of-united-states-countries-quiz"
     }
 ,
     {
-        TITLE: "Logistics Inc",
+        "Logistics Inc",
             URL
     :
         "https://xn--ply-onb.com/logic/logistics-inc"
     }
 ,
     {
-        TITLE: "Love Balls Animals Version",
+        "Love Balls Animals Version",
             URL
     :
         "https://xn--ply-onb.com/logic/love-balls-animals-version"
     }
 ,
     {
-        TITLE: "Magic Cube", URL
+        "Magic Cube", URL
     :
         "https://xn--ply-onb.com/logic/magic-cube"
     }
 ,
     {
-        TITLE: "Magical Bubble Shooter",
+        "Magical Bubble Shooter",
             URL
     :
         "https://xn--ply-onb.com/logic/magical-bubble-shooter"
     }
 ,
     {
-        TITLE: "Mahjong Connect Halloween",
+        "Mahjong Connect Halloween",
             URL
     :
         "https://xn--ply-onb.com/logic/mahjong-connect-halloween"
     }
 ,
     {
-        TITLE: "Mahjong Connect Remastered",
+        "Mahjong Connect Remastered",
             URL
     :
         "https://xn--ply-onb.com/logic/mahjong-connect-remastered"
     }
 ,
     {
-        TITLE: "Mandala Coloring Books",
+        "Mandala Coloring Books",
             URL
     :
         "https://xn--ply-onb.com/logic/mandala-coloring-books"
     }
 ,
     {
-        TITLE: "Mario Spot The Differences",
+        "Mario Spot The Differences",
             URL
     :
         "https://xn--ply-onb.com/logic/mario-spot-the-differences"
     }
 ,
     {
-        TITLE: "Maze Control", URL
+        "Maze Control", URL
     :
         "https://xn--ply-onb.com/logic/maze-control"
     }
 ,
     {
-        TITLE: "Merge Cakes",
+        "Merge Cakes",
             URL
     :
         "https://xn--ply-onb.com/logic/merge-cakes"
     }
 ,
     {
-        TITLE: "Merge Monster Pool", URL
+        "Merge Monster Pool", URL
     :
         "https://xn--ply-onb.com/logic/merge-monster-pool"
     }
 ,
     {
-        TITLE: "Mi Adventures",
+        "Mi Adventures",
             URL
     :
         "https://xn--ply-onb.com/logic/mi-adventures"
     }
 ,
     {
-        TITLE: "Millionaire", URL
+        "Millionaire", URL
     :
         "https://xn--ply-onb.com/logic/millionaire"
     }
 ,
     {
-        TITLE: "Mills",
+        "Mills",
             URL
     :
         "https://xn--ply-onb.com/logic/mills"
     }
 ,
     {
-        TITLE: "Minecoin Adventure",
+        "Minecoin Adventure",
             URL
     :
         "https://xn--ply-onb.com/logic/minecoin-adventure"
     }
 ,
     {
-        TITLE: "Minecraft Survival", URL
+        "Minecraft Survival", URL
     :
         "https://xn--ply-onb.com/logic/minecraft-survival"
     }
 ,
     {
-        TITLE: "Mini Switcher",
+        "Mini Switcher",
             URL
     :
         "https://xn--ply-onb.com/logic/mini-switcher"
     }
 ,
     {
-        TITLE: "Miraculous Dream Catcher Coloring Book",
+        "Miraculous Dream Catcher Coloring Book",
             URL
     :
         "https://xn--ply-onb.com/logic/miraculous-dream-catcher-coloring-book"
     }
 ,
     {
-        TITLE: "Monster Candy", URL
+        "Monster Candy", URL
     :
         "https://xn--ply-onb.com/logic/monster-candy"
     }
 ,
     {
-        TITLE: "Monster Destroyer",
+        "Monster Destroyer",
             URL
     :
         "https://xn--ply-onb.com/logic/monster-destroyer"
     }
 ,
     {
-        TITLE: "Monster Truck Hidden Keys",
+        "Monster Truck Hidden Keys",
             URL
     :
         "https://xn--ply-onb.com/logic/monster-truck-hidden-keys"
     }
 ,
     {
-        TITLE: "Monster World", URL
+        "Monster World", URL
     :
         "https://xn--ply-onb.com/logic/monster-world"
     }
 ,
     {
-        TITLE: "Mortar Watermelon",
+        "Mortar Watermelon",
             URL
     :
         "https://xn--ply-onb.com/logic/mortar-watermelon"
     }
 ,
     {
-        TITLE: "Mouse Jigsaw", URL
+        "Mouse Jigsaw", URL
     :
         "https://xn--ply-onb.com/logic/mouse-jigsaw"
     }
 ,
     {
-        TITLE: "Move It",
+        "Move It",
             URL
     :
         "https://xn--ply-onb.com/logic/move-it"
     }
 ,
     {
-        TITLE: "Move The Pin", URL
+        "Move The Pin", URL
     :
         "https://xn--ply-onb.com/logic/move-the-pin"
     }
 ,
     {
-        TITLE: "Mystery Pic",
+        "Mystery Pic",
             URL
     :
         "https://xn--ply-onb.com/logic/mystery-pic"
     }
 ,
     {
-        TITLE: "Neon Catapult", URL
+        "Neon Catapult", URL
     :
         "https://xn--ply-onb.com/logic/neon-catapult"
     }
 ,
     {
-        TITLE: "Ninja Treasure Match 3",
+        "Ninja Treasure Match 3",
             URL
     :
         "https://xn--ply-onb.com/logic/ninja-treasure-match-3"
     }
 ,
     {
-        TITLE: "Ninja Turtles Coloring Book",
+        "Ninja Turtles Coloring Book",
             URL
     :
         "https://xn--ply-onb.com/logic/ninja-turtles-coloring-book"
     }
 ,
     {
-        TITLE: "No Driver Parking",
+        "No Driver Parking",
             URL
     :
         "https://xn--ply-onb.com/logic/no-driver-parking"
     }
 ,
     {
-        TITLE: "Nonograms Valentines Day",
+        "Nonograms Valentines Day",
             URL
     :
         "https://xn--ply-onb.com/logic/nonograms-valentines-day"
     }
 ,
     {
-        TITLE: "Nonosparks Genesis", URL
+        "Nonosparks Genesis", URL
     :
         "https://xn--ply-onb.com/logic/nonosparks-genesis"
     }
 ,
     {
-        TITLE: "Octagor",
+        "Octagor",
             URL
     :
         "https://xn--ply-onb.com/logic/octagor"
     }
 ,
     {
-        TITLE: "Omit Orange 2", URL
+        "Omit Orange 2", URL
     :
         "https://xn--ply-onb.com/logic/omit-orange-2"
     }
 ,
     {
-        TITLE: "Over The Bridge",
+        "Over The Bridge",
             URL
     :
         "https://xn--ply-onb.com/logic/over-the-bridge"
     }
 ,
     {
-        TITLE: "Paper Fold Origami",
+        "Paper Fold Origami",
             URL
     :
         "https://xn--ply-onb.com/logic/paper-fold-origami"
     }
 ,
     {
-        TITLE: "Penguin Adventures", URL
+        "Penguin Adventures", URL
     :
         "https://xn--ply-onb.com/logic/penguin-adventures"
     }
 ,
     {
-        TITLE: "Physics Box",
+        "Physics Box",
             URL
     :
         "https://xn--ply-onb.com/logic/physics-box"
     }
 ,
     {
-        TITLE: "Piggy In The Puddle",
+        "Piggy In The Puddle",
             URL
     :
         "https://xn--ply-onb.com/logic/piggy-in-the-puddle"
     }
 ,
     {
-        TITLE: "Pipol Smasher", URL
+        "Pipol Smasher", URL
     :
         "https://xn--ply-onb.com/logic/pipol-smasher"
     }
 ,
     {
-        TITLE: "Pirate Islands Nonograms",
+        "Pirate Islands Nonograms",
             URL
     :
         "https://xn--ply-onb.com/logic/pirate-islands-nonograms"
     }
 ,
     {
-        TITLE: "Pizzeria Idle", URL
+        "Pizzeria Idle", URL
     :
         "https://xn--ply-onb.com/logic/pizzeria-idle"
     }
 ,
     {
-        TITLE: "Plumber",
+        "Plumber",
             URL
     :
         "https://xn--ply-onb.com/logic/plumber"
     }
 ,
     {
-        TITLE: "Police Chase Turn Based Game",
+        "Police Chase Turn Based Game",
             URL
     :
         "https://xn--ply-onb.com/logic/police-chase-turn-based-game"
     }
 ,
     {
-        TITLE: "Poly Art 3d", URL
+        "Poly Art 3d", URL
     :
         "https://xn--ply-onb.com/logic/poly-art-3d"
     }
 ,
     {
-        TITLE: "Pool Buddy",
+        "Pool Buddy",
             URL
     :
         "https://xn--ply-onb.com/logic/pool-buddy"
     }
 ,
     {
-        TITLE: "Pool Buddy 2", URL
+        "Pool Buddy 2", URL
     :
         "https://xn--ply-onb.com/logic/pool-buddy-2"
     }
 ,
     {
-        TITLE: "Pool Buddy 3",
+        "Pool Buddy 3",
             URL
     :
         "https://xn--ply-onb.com/logic/pool-buddy-3"
     }
 ,
     {
-        TITLE: "Pool Buddy 4", URL
+        "Pool Buddy 4", URL
     :
         "https://xn--ply-onb.com/logic/pool-buddy-4"
     }
 ,
     {
-        TITLE: "Popcorn Show",
+        "Popcorn Show",
             URL
     :
         "https://xn--ply-onb.com/logic/popcorn-show"
     }
 ,
     {
-        TITLE: "Press The Longest Stick",
+        "Press The Longest Stick",
             URL
     :
         "https://xn--ply-onb.com/logic/press-the-longest-stick"
     }
 ,
     {
-        TITLE: "Puck Hero", URL
+        "Puck Hero", URL
     :
         "https://xn--ply-onb.com/logic/puck-hero"
     }
 ,
     {
-        TITLE: "Pull Him Out",
+        "Pull Him Out",
             URL
     :
         "https://xn--ply-onb.com/logic/pull-him-out"
     }
 ,
     {
-        TITLE: "Quick Draw Ai", URL
+        "Quick Draw Ai", URL
     :
         "https://xn--ply-onb.com/logic/quick-draw-ai"
     }
 ,
     {
-        TITLE: "Red Man Imposter",
+        "Red Man Imposter",
             URL
     :
         "https://xn--ply-onb.com/logic/red-man-imposter"
     }
 ,
     {
-        TITLE: "Red Rope", URL
+        "Red Rope", URL
     :
         "https://xn--ply-onb.com/logic/red-rope"
     }
 ,
     {
-        TITLE: "Robot Bar Spot The Differences",
+        "Robot Bar Spot The Differences",
             URL
     :
         "https://xn--ply-onb.com/logic/robot-bar-spot-the-differences"
     }
 ,
     {
-        TITLE: "Robotex", URL
+        "Robotex", URL
     :
         "https://xn--ply-onb.com/logic/robotex"
     }
 ,
     {
-        TITLE: "Roloong",
+        "Roloong",
             URL
     :
         "https://xn--ply-onb.com/logic/roloong"
     }
 ,
     {
-        TITLE: "Rooms Hidden Numbers",
+        "Rooms Hidden Numbers",
             URL
     :
         "https://xn--ply-onb.com/logic/rooms-hidden-numbers"
     }
 ,
     {
-        TITLE: "Rope Rescue Unique Puzzle",
+        "Rope Rescue Unique Puzzle",
             URL
     :
         "https://xn--ply-onb.com/logic/rope-rescue-unique-puzzle"
     }
 ,
     {
-        TITLE: "Route Digger", URL
+        "Route Digger", URL
     :
         "https://xn--ply-onb.com/logic/route-digger"
     }
 ,
     {
-        TITLE: "Route Digger 2",
+        "Route Digger 2",
             URL
     :
         "https://xn--ply-onb.com/logic/route-digger-2"
     }
 ,
     {
-        TITLE: "Russian Trucks Differences",
+        "Russian Trucks Differences",
             URL
     :
         "https://xn--ply-onb.com/logic/russian-trucks-differences"
     }
 ,
     {
-        TITLE: "Russian Trucks Jigsaw",
+        "Russian Trucks Jigsaw",
             URL
     :
         "https://xn--ply-onb.com/logic/russian-trucks-jigsaw"
     }
 ,
     {
-        TITLE: "Save Red Square", URL
+        "Save Red Square", URL
     :
         "https://xn--ply-onb.com/logic/save-red-square"
     }
 ,
     {
-        TITLE: "Save The Girl",
+        "Save The Girl",
             URL
     :
         "https://xn--ply-onb.com/logic/save-the-girl"
     }
 ,
     {
-        TITLE: "Scary Faces Jigsaw", URL
+        "Scary Faces Jigsaw", URL
     :
         "https://xn--ply-onb.com/logic/scary-faces-jigsaw"
     }
 ,
     {
-        TITLE: "Screw The Nut",
+        "Screw The Nut",
             URL
     :
         "https://xn--ply-onb.com/logic/screw-the-nut"
     }
 ,
     {
-        TITLE: "Sea Creatures Coloring Book",
+        "Sea Creatures Coloring Book",
             URL
     :
         "https://xn--ply-onb.com/logic/sea-creatures-coloring-book"
     }
 ,
     {
-        TITLE: "Sea Match 3", URL
+        "Sea Match 3", URL
     :
         "https://xn--ply-onb.com/logic/sea-match-3"
     }
 ,
     {
-        TITLE: "Searching For The Elephant",
+        "Searching For The Elephant",
             URL
     :
         "https://xn--ply-onb.com/logic/searching-for-the-elephant"
     }
 ,
     {
-        TITLE: "Serpents Cavern Escape",
+        "Serpents Cavern Escape",
             URL
     :
         "https://xn--ply-onb.com/logic/serpents-cavern-escape"
     }
 ,
     {
-        TITLE: "Shapeof-water", URL
+        "Shapeof-water", URL
     :
         "https://xn--ply-onb.com/logic/shape-of-water"
     }
 ,
     {
-        TITLE: "ship-containers",
+        "ship-containers",
             URL
     :
         "https://xn--ply-onb.com/logic/ship-containers"
     }
 ,
     {
-        TITLE: "silly-ways-to-die-christmas-party",
+        "silly-ways-to-die-christmas-party",
             URL
     :
         "https://xn--ply-onb.com/logic/silly-ways-to-die-christmas-party"
     }
 ,
     {
-        TITLE: "skiptouch", URL
+        "skiptouch", URL
     :
         "https://xn--ply-onb.com/logic/skiptouch"
     }
 ,
     {
-        TITLE: "slide",
+        "slide",
             URL
     :
         "https://xn--ply-onb.com/logic/slide"
     }
 ,
     {
-        TITLE: "slip-blocks", URL
+        "slip-blocks", URL
     :
         "https://xn--ply-onb.com/logic/slip-blocks"
     }
 ,
     {
-        TITLE: "slippy-knight",
+        "slippy-knight",
             URL
     :
         "https://xn--ply-onb.com/logic/slippy-knight"
     }
 ,
     {
-        TITLE: "smarty-bubbles",
+        "smarty-bubbles",
             URL
     :
         "https://xn--ply-onb.com/logic/smarty-bubbles"
     }
 ,
     {
-        TITLE: "solitaire-klondike-spider-freecell",
+        "solitaire-klondike-spider-freecell",
             URL
     :
         "https://xn--ply-onb.com/logic/solitaire-klondike-spider-freecell"
     }
 ,
     {
-        TITLE: "space-match-3", URL
+        "space-match-3", URL
     :
         "https://xn--ply-onb.com/logic/space-match-3"
     }
 ,
     {
-        TITLE: "spacex",
+        "spacex",
             URL
     :
         "https://xn--ply-onb.com/logic/spacex"
     }
 ,
     {
-        TITLE: "sparkman-2", URL
+        "sparkman-2", URL
     :
         "https://xn--ply-onb.com/logic/sparkman-2"
     }
 ,
     {
-        TITLE: "spell-o-pic",
+        "spell-o-pic",
             URL
     :
         "https://xn--ply-onb.com/logic/spell-o-pic"
     }
 ,
     {
-        TITLE: "spin", URL
+        "spin", URL
     :
         "https://xn--ply-onb.com/logic/spin"
     }
 ,
     {
-        TITLE: "spin-basketball",
+        "spin-basketball",
             URL
     :
         "https://xn--ply-onb.com/logic/spin-basketball"
     }
 ,
     {
-        TITLE: "splitter", URL
+        "splitter", URL
     :
         "https://xn--ply-onb.com/logic/splitter"
     }
 ,
     {
-        TITLE: "splitty-adventures",
+        "splitty-adventures",
             URL
     :
         "https://xn--ply-onb.com/logic/splitty-adventures"
     }
 ,
     {
-        TITLE: "stupid-zombies-2",
+        "stupid-zombies-2",
             URL
     :
         "https://xn--ply-onb.com/logic/stupid-zombies-2"
     }
 ,
     {
-        TITLE: "super-escape-masters",
+        "super-escape-masters",
             URL
     :
         "https://xn--ply-onb.com/logic/super-escape-masters"
     }
 ,
     {
-        TITLE: "supercars-puzzle-game",
+        "supercars-puzzle-game",
             URL
     :
         "https://xn--ply-onb.com/logic/supercars-puzzle-game"
     }
 ,
     {
-        TITLE: "superhero-memory-match",
+        "superhero-memory-match",
             URL
     :
         "https://xn--ply-onb.com/logic/superhero-memory-match"
     }
 ,
     {
-        TITLE: "sushi-challenge", URL
+        "sushi-challenge", URL
     :
         "https://xn--ply-onb.com/logic/sushi-challenge"
     }
 ,
     {
-        TITLE: "sweet-candy-saga",
+        "sweet-candy-saga",
             URL
     :
         "https://xn--ply-onb.com/logic/sweet-candy-saga"
     }
 ,
     {
-        TITLE: "sweet-fruit-candy", URL
+        "sweet-fruit-candy", URL
     :
         "https://xn--ply-onb.com/logic/sweet-fruit-candy"
     }
 ,
     {
-        TITLE: "tap-break-game",
+        "tap-break-game",
             URL
     :
         "https://xn--ply-onb.com/logic/tap-break-game"
     }
 ,
     {
-        TITLE: "taya-s-alphabet", URL
+        "taya-s-alphabet", URL
     :
         "https://xn--ply-onb.com/logic/taya-s-alphabet"
     }
 ,
     {
-        TITLE: "tetris-cube",
+        "tetris-cube",
             URL
     :
         "https://xn--ply-onb.com/logic/tetris-cube"
     }
 ,
     {
-        TITLE: "that-blurry-place-chapter-1-the-boat",
+        "that-blurry-place-chapter-1-the-boat",
             URL
     :
         "https://xn--ply-onb.com/logic/that-blurry-place-chapter-1-the-boat"
     }
 ,
     {
-        TITLE: "thief-ro", URL
+        "thief-ro", URL
     :
         "https://xn--ply-onb.com/logic/thief-ro"
     }
 ,
     {
-        TITLE: "tic-tac-toe",
+        "tic-tac-toe",
             URL
     :
         "https://xn--ply-onb.com/logic/tic-tac-toe"
     }
 ,
     {
-        TITLE: "tie-dye", URL
+        "tie-dye", URL
     :
         "https://xn--ply-onb.com/logic/tie-dye"
     }
 ,
     {
-        TITLE: "tiger-jigsaw",
+        "tiger-jigsaw",
             URL
     :
         "https://xn--ply-onb.com/logic/tiger-jigsaw"
     }
 ,
     {
-        TITLE: "tomb-of-the-cat-color",
+        "tomb-of-the-cat-color",
             URL
     :
         "https://xn--ply-onb.com/logic/tomb-of-the-cat-color"
     }
 ,
     {
-        TITLE: "toy-crush-match", URL
+        "toy-crush-match", URL
     :
         "https://xn--ply-onb.com/logic/toy-crush-match"
     }
 ,
     {
-        TITLE: "traffic-control",
+        "traffic-control",
             URL
     :
         "https://xn--ply-onb.com/logic/traffic-control"
     }
 ,
     {
-        TITLE: "traffic-io", URL
+        "traffic-io", URL
     :
         "https://xn--ply-onb.com/logic/traffic-io"
     }
 ,
     {
-        TITLE: "trollface-quest-usa-1",
+        "trollface-quest-usa-1",
             URL
     :
         "https://xn--ply-onb.com/logic/trollface-quest-usa-1"
     }
 ,
     {
-        TITLE: "trollface-quest-usa-2",
+        "trollface-quest-usa-2",
             URL
     :
         "https://xn--ply-onb.com/logic/trollface-quest-usa-2"
     }
 ,
     {
-        TITLE: "trust-me-i-got-this",
+        "trust-me-i-got-this",
             URL
     :
         "https://xn--ply-onb.com/logic/trust-me-i-got-this"
     }
 ,
     {
-        TITLE: "wake-up-the-box", URL
+        "wake-up-the-box", URL
     :
         "https://xn--ply-onb.com/logic/wake-up-the-box"
     }
 ,
     {
-        TITLE: "way-dawn",
+        "way-dawn",
             URL
     :
         "https://xn--ply-onb.com/logic/way-dawn"
     }
 ,
     {
-        TITLE: "wheely-2", URL
+        "wheely-2", URL
     :
         "https://xn--ply-onb.com/logic/wheely-2"
     }
 ,
     {
-        TITLE: "wheely-3",
+        "wheely-3",
             URL
     :
         "https://xn--ply-onb.com/logic/wheely-3"
     }
 ,
     {
-        TITLE: "wheely-4-time-travel",
+        "wheely-4-time-travel",
             URL
     :
         "https://xn--ply-onb.com/logic/wheely-4-time-travel"
     }
 ,
     {
-        TITLE: "wheely-5-armageddon",
+        "wheely-5-armageddon",
             URL
     :
         "https://xn--ply-onb.com/logic/wheely-5-armageddon"
     }
 ,
     {
-        TITLE: "wheely-7-detective", URL
+        "wheely-7-detective", URL
     :
         "https://xn--ply-onb.com/logic/wheely-7-detective"
     }
 ,
     {
-        TITLE: "white-dot",
+        "white-dot",
             URL
     :
         "https://xn--ply-onb.com/logic/white-dot"
     }
 ,
     {
-        TITLE: "wildlife-park-escape",
+        "wildlife-park-escape",
             URL
     :
         "https://xn--ply-onb.com/logic/wildlife-park-escape"
     }
 ,
     {
-        TITLE: "witch-s-house-halloween-puzzles",
+        "witch-s-house-halloween-puzzles",
             URL
     :
         "https://xn--ply-onb.com/logic/witch-s-house-halloween-puzzles"
     }
 ,
     {
-        TITLE: "wizard-vs-orcs", URL
+        "wizard-vs-orcs", URL
     :
         "https://xn--ply-onb.com/logic/wizard-vs-orcs"
     }
 ,
     {
-        TITLE: "word-detector",
+        "word-detector",
             URL
     :
         "https://xn--ply-onb.com/logic/word-detector"
     }
 ,
     {
-        TITLE: "word-puzzle", URL
+        "word-puzzle", URL
     :
         "https://xn--ply-onb.com/logic/word-puzzle"
     }
 ,
     {
-        TITLE: "word-wood",
+        "word-wood",
             URL
     :
         "https://xn--ply-onb.com/logic/word-wood"
     }
 ,
     {
-        TITLE: "yummy-tales-2", URL
+        "yummy-tales-2", URL
     :
         "https://xn--ply-onb.com/logic/yummy-tales-2"
     }
 ,
     {
-        TITLE: "zombie-buster",
+        "zombie-buster",
             URL
     :
         "https://xn--ply-onb.com/logic/zombie-buster"
     }
 ,
     {
-        TITLE: "zombie-survival-challenge",
+        "zombie-survival-challenge",
             URL
     :
         "https://xn--ply-onb.com/logic/zombie-survival-challenge"
     }
 ,
     {
-        TITLE: "zoo-trivia", URL
+        "zoo-trivia", URL
     :
         "https://xn--ply-onb.com/logic/zoo-trivia"
     }
 ,
     {
-        TITLE: "army-wars",
+        "army-wars",
             URL
     :
         "https://xn--ply-onb.com/mmo/army-wars"
     }
 ,
     {
-        TITLE: "darkorbit-reloaded", URL
+        "darkorbit-reloaded", URL
     :
         "https://xn--ply-onb.com/mmo/darkorbit-reloaded"
     }
 ,
     {
-        TITLE: "game-of-thrones",
+        "game-of-thrones",
             URL
     :
         "https://xn--ply-onb.com/mmo/game-of-thrones"
     }
 ,
     {
-        TITLE: "seafight", URL
+        "seafight", URL
     :
         "https://xn--ply-onb.com/mmo/seafight"
     }
 ,
     {
-        TITLE: "wartime",
+        "wartime",
             URL
     :
         "https://xn--ply-onb.com/mmo/wartime"
     }
 ,
     {
-        TITLE: "1v1-lol", URL
+        "1v1-lol", URL
     :
         "https://xn--ply-onb.com/multiplayer/1v1-lol"
     }
 ,
     {
-        TITLE: "air-wars-3",
+        "air-wars-3",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/air-wars-3"
     }
 ,
     {
-        TITLE: "area-51-stomers", URL
+        "area-51-stomers", URL
     :
         "https://xn--ply-onb.com/multiplayer/area-51-stomers"
     }
 ,
     {
-        TITLE: "babysharkio",
+        "babysharkio",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/babysharkio"
     }
 ,
     {
-        TITLE: "bloom", URL
+        "bloom", URL
     :
         "https://xn--ply-onb.com/multiplayer/bloom"
     }
 ,
     {
-        TITLE: "bomb-town",
+        "bomb-town",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/bomb-town"
     }
 ,
     {
-        TITLE: "c-a-t-s-crash-arena-turbo-stars",
+        "c-a-t-s-crash-arena-turbo-stars",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/c-a-t-s-crash-arena-turbo-stars"
     }
 ,
     {
-        TITLE: "car-crash-online-steam-edition",
+        "car-crash-online-steam-edition",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/car-crash-online-steam-edition"
     }
 ,
     {
-        TITLE: "carcrashmicromachinesonline",
+        "carcrashmicromachinesonline",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/carcrashmicromachinesonline"
     }
 ,
     {
-        TITLE: "castle-of-honor",
+        "castle-of-honor",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/castle-of-honor"
     }
 ,
     {
-        TITLE: "chibi-fall-guys-run-knockdown",
+        "chibi-fall-guys-run-knockdown",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/chibi-fall-guys-run-knockdown"
     }
 ,
     {
-        TITLE: "chicken-wars", URL
+        "chicken-wars", URL
     :
         "https://xn--ply-onb.com/multiplayer/chicken-wars"
     }
 ,
     {
-        TITLE: "chompers-io",
+        "chompers-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/chompers-io"
     }
 ,
     {
-        TITLE: "christmas-survival",
+        "christmas-survival",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/christmas-survival"
     }
 ,
     {
-        TITLE: "dino-meat-hunt-3-extra",
+        "dino-meat-hunt-3-extra",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/dino-meat-hunt-3-extra"
     }
 ,
     {
-        TITLE: "dinosaurs-survival-the-end-of-world",
+        "dinosaurs-survival-the-end-of-world",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/dinosaurs-survival-the-end-of-world"
     }
 ,
     {
-        TITLE: "dogflight", URL
+        "dogflight", URL
     :
         "https://xn--ply-onb.com/multiplayer/dogflight"
     }
 ,
     {
-        TITLE: "dragonsro",
+        "dragonsro",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/dragonsro"
     }
 ,
     {
-        TITLE: "forward-assault",
+        "forward-assault",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/forward-assault"
     }
 ,
     {
-        TITLE: "free-rally-stalker-mode",
+        "free-rally-stalker-mode",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/free-rally-stalker-mode"
     }
 ,
     {
-        TITLE: "future-soldier", URL
+        "future-soldier", URL
     :
         "https://xn--ply-onb.com/multiplayer/future-soldier"
     }
 ,
     {
-        TITLE: "goosegame-io",
+        "goosegame-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/goosegame-io"
     }
 ,
     {
-        TITLE: "gulper-io", URL
+        "gulper-io", URL
     :
         "https://xn--ply-onb.com/multiplayer/gulper-io"
     }
 ,
     {
-        TITLE: "gun-night-io",
+        "gun-night-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/gun-night-io"
     }
 ,
     {
-        TITLE: "gungame-shooting-warfare-blocky-gangster",
+        "gungame-shooting-warfare-blocky-gangster",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/gungame-shooting-warfare-blocky-gangster"
     }
 ,
     {
-        TITLE: "headless",
+        "headless",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/headless"
     }
 ,
     {
-        TITLE: "helicopter-and-tank-battle-desert-storm",
+        "helicopter-and-tank-battle-desert-storm",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/helicopter-and-tank-battle-desert-storm"
     }
 ,
     {
-        TITLE: "huryio", URL
+        "huryio", URL
     :
         "https://xn--ply-onb.com/multiplayer/huryio"
     }
 ,
     {
-        TITLE: "killer-city",
+        "killer-city",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/killer-city"
     }
 ,
     {
-        TITLE: "knight-arena-io",
+        "knight-arena-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/knight-arena-io"
     }
 ,
     {
-        TITLE: "kogama-dungeon-run",
+        "kogama-dungeon-run",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/kogama-dungeon-run"
     }
 ,
     {
-        TITLE: "kogama-escape-from-prison",
+        "kogama-escape-from-prison",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/kogama-escape-from-prison"
     }
 ,
     {
-        TITLE: "kogama-mine-of-crystals",
+        "kogama-mine-of-crystals",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/kogama-mine-of-crystals"
     }
 ,
     {
-        TITLE: "kogama-pro-run", URL
+        "kogama-pro-run", URL
     :
         "https://xn--ply-onb.com/multiplayer/kogama-pro-run"
     }
 ,
     {
-        TITLE: "last-mortem",
+        "last-mortem",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/last-mortem"
     }
 ,
     {
-        TITLE: "lolbeansio",
+        "lolbeansio",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/lolbeansio"
     }
 ,
     {
-        TITLE: "maximum-derby-car-crash-online",
+        "maximum-derby-car-crash-online",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/maximum-derby-car-crash-online"
     }
 ,
     {
-        TITLE: "merczone", URL
+        "merczone", URL
     :
         "https://xn--ply-onb.com/multiplayer/merczone"
     }
 ,
     {
-        TITLE: "micro-physics-mashine-online",
+        "micro-physics-mashine-online",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/micro-physics-mashine-online"
     }
 ,
     {
-        TITLE: "micro-physics-mashine-online-2",
+        "micro-physics-mashine-online-2",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/micro-physics-mashine-online-2"
     }
 ,
     {
-        TITLE: "micro-physics-mashine-online-3",
+        "micro-physics-mashine-online-3",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/micro-physics-mashine-online-3"
     }
 ,
     {
-        TITLE: "minestrike-fun",
+        "minestrike-fun",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/minestrike-fun"
     }
 ,
     {
-        TITLE: "miniroyale-2-battle-royale-game",
+        "miniroyale-2-battle-royale-game",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/miniroyale-2-battle-royale-game"
     }
 ,
     {
-        TITLE: "multiplayer-tanks",
+        "multiplayer-tanks",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/multiplayer-tanks"
     }
 ,
     {
-        TITLE: "ninja-clash-heroes",
+        "ninja-clash-heroes",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/ninja-clash-heroes"
     }
 ,
     {
-        TITLE: "outlive-the-bureau",
+        "outlive-the-bureau",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/outlive-the-bureau"
     }
 ,
     {
-        TITLE: "parkour-25-levels",
+        "parkour-25-levels",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/parkour-25-levels"
     }
 ,
     {
-        TITLE: "pixel-fps-swat-command",
+        "pixel-fps-swat-command",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/pixel-fps-swat-command"
     }
 ,
     {
-        TITLE: "plane-fight",
+        "plane-fight",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/plane-fight"
     }
 ,
     {
-        TITLE: "police-extreme-pursuit-sandboxed",
+        "police-extreme-pursuit-sandboxed",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/police-extreme-pursuit-sandboxed"
     }
 ,
     {
-        TITLE: "polyblicy",
+        "polyblicy",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/polyblicy"
     }
 ,
     {
-        TITLE: "project-cars-destruction-engine",
+        "project-cars-destruction-engine",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/project-cars-destruction-engine"
     }
 ,
     {
-        TITLE: "project-cars-destruction-engine-2",
+        "project-cars-destruction-engine-2",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/project-cars-destruction-engine-2"
     }
 ,
     {
-        TITLE: "robofight-io", URL
+        "robofight-io", URL
     :
         "https://xn--ply-onb.com/multiplayer/robofight-io"
     }
 ,
     {
-        TITLE: "rush-team",
+        "rush-team",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/rush-team"
     }
 ,
     {
-        TITLE: "seadragons-io", URL
+        "seadragons-io", URL
     :
         "https://xn--ply-onb.com/multiplayer/seadragons-io"
     }
 ,
     {
-        TITLE: "shootem",
+        "shootem",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/shootem"
     }
 ,
     {
-        TITLE: "shooting-blocky-combat-swat-gungame-survival",
+        "shooting-blocky-combat-swat-gungame-survival",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/shooting-blocky-combat-swat-gungame-survival"
     }
 ,
     {
-        TITLE: "shootup-io", URL
+        "shootup-io", URL
     :
         "https://xn--ply-onb.com/multiplayer/shootup-io"
     }
 ,
     {
-        TITLE: "smash-karts",
+        "smash-karts",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/smash-karts"
     }
 ,
     {
-        TITLE: "soldiers-6-world-war-z",
+        "soldiers-6-world-war-z",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/soldiers-6-world-war-z"
     }
 ,
     {
-        TITLE: "songtrivia", URL
+        "songtrivia", URL
     :
         "https://xn--ply-onb.com/multiplayer/songtrivia"
     }
 ,
     {
-        TITLE: "spaceguard-io",
+        "spaceguard-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/spaceguard-io"
     }
 ,
     {
-        TITLE: "special-ops", URL
+        "special-ops", URL
     :
         "https://xn--ply-onb.com/multiplayer/special-ops"
     }
 ,
     {
-        TITLE: "strike-online-shooter",
+        "strike-online-shooter",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/strike-online-shooter"
     }
 ,
     {
-        TITLE: "supra-crash-shooting-cars",
+        "supra-crash-shooting-cars",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/supra-crash-shooting-cars"
     }
 ,
     {
-        TITLE: "swordzio", URL
+        "swordzio", URL
     :
         "https://xn--ply-onb.com/multiplayer/swordzio"
     }
 ,
     {
-        TITLE: "tangies-io",
+        "tangies-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/tangies-io"
     }
 ,
     {
-        TITLE: "tank-off", URL
+        "tank-off", URL
     :
         "https://xn--ply-onb.com/multiplayer/tank-off"
     }
 ,
     {
-        TITLE: "towerzio",
+        "towerzio",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/towerzio"
     }
 ,
     {
-        TITLE: "vengeio", URL
+        "vengeio", URL
     :
         "https://xn--ply-onb.com/multiplayer/vengeio"
     }
 ,
     {
-        TITLE: "voxiomio",
+        "voxiomio",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/voxiomio"
     }
 ,
     {
-        TITLE: "war-attack", URL
+        "war-attack", URL
     :
         "https://xn--ply-onb.com/multiplayer/war-attack"
     }
 ,
     {
-        TITLE: "warcall-io",
+        "warcall-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/warcall-io"
     }
 ,
     {
-        TITLE: "world-cars-cops-simulator-sandboxed",
+        "world-cars-cops-simulator-sandboxed",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/world-cars-cops-simulator-sandboxed"
     }
 ,
     {
-        TITLE: "worms-zone",
+        "worms-zone",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/worms-zone"
     }
 ,
     {
-        TITLE: "ww2-modern-war-tanks-1942",
+        "ww2-modern-war-tanks-1942",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/ww2-modern-war-tanks-1942"
     }
 ,
     {
-        TITLE: "zapper-io",
+        "zapper-io",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/zapper-io"
     }
 ,
     {
-        TITLE: "zombie-apocalypse-tunnel-survival",
+        "zombie-apocalypse-tunnel-survival",
             URL
     :
         "https://xn--ply-onb.com/multiplayer/zombie-apocalypse-tunnel-survival"
     }
 ,
     {
-        TITLE: "balls-rugby-flick", URL
+        "balls-rugby-flick", URL
     :
         "https://xn--ply-onb.com/sports/balls-rugby-flick"
     }
 ,
     {
-        TITLE: "basketball-io",
+        "basketball-io",
             URL
     :
         "https://xn--ply-onb.com/sports/basketball-io"
     }
 ,
     {
-        TITLE: "basketball-master",
+        "basketball-master",
             URL
     :
         "https://xn--ply-onb.com/sports/basketball-master"
     }
 ,
     {
-        TITLE: "basketball-slam-dunk",
+        "basketball-slam-dunk",
             URL
     :
         "https://xn--ply-onb.com/sports/basketball-slam-dunk"
     }
 ,
     {
-        TITLE: "basketball-swooshes", URL
+        "basketball-swooshes", URL
     :
         "https://xn--ply-onb.com/sports/basketball-swooshes"
     }
 ,
     {
-        TITLE: "basketball2",
+        "basketball2",
             URL
     :
         "https://xn--ply-onb.com/sports/basketball2"
     }
 ,
     {
-        TITLE: "basketbros", URL
+        "basketbros", URL
     :
         "https://xn--ply-onb.com/sports/basketbros"
     }
 ,
     {
-        TITLE: "cerkio",
+        "cerkio",
             URL
     :
         "https://xn--ply-onb.com/sports/cerkio"
     }
 ,
     {
-        TITLE: "extreme-ramp-car-stunts",
+        "extreme-ramp-car-stunts",
             URL
     :
         "https://xn--ply-onb.com/sports/extreme-ramp-car-stunts"
     }
 ,
     {
-        TITLE: "finger-soccer", URL
+        "finger-soccer", URL
     :
         "https://xn--ply-onb.com/sports/finger-soccer"
     }
 ,
     {
-        TITLE: "five-hoops",
+        "five-hoops",
             URL
     :
         "https://xn--ply-onb.com/sports/five-hoops"
     }
 ,
     {
-        TITLE: "floppy-footchinko", URL
+        "floppy-footchinko", URL
     :
         "https://xn--ply-onb.com/sports/floppy-footchinko"
     }
 ,
     {
-        TITLE: "football-flick",
+        "football-flick",
             URL
     :
         "https://xn--ply-onb.com/sports/football-flick"
     }
 ,
     {
-        TITLE: "football-soccer-league",
+        "football-soccer-league",
             URL
     :
         "https://xn--ply-onb.com/sports/football-soccer-league"
     }
 ,
     {
-        TITLE: "footyzag", URL
+        "footyzag", URL
     :
         "https://xn--ply-onb.com/sports/footyzag"
     }
 ,
     {
-        TITLE: "futbol-chapas",
+        "futbol-chapas",
             URL
     :
         "https://xn--ply-onb.com/sports/futbol-chapas"
     }
 ,
     {
-        TITLE: "golf-blast", URL
+        "golf-blast", URL
     :
         "https://xn--ply-onb.com/sports/golf-blast"
     }
 ,
     {
-        TITLE: "golfroyaleio",
+        "golfroyaleio",
             URL
     :
         "https://xn--ply-onb.com/sports/golfroyaleio"
     }
 ,
     {
-        TITLE: "jumping-horses-champions",
+        "jumping-horses-champions",
             URL
     :
         "https://xn--ply-onb.com/sports/jumping-horses-champions"
     }
 ,
     {
-        TITLE: "kickaround-live", URL
+        "kickaround-live", URL
     :
         "https://xn--ply-onb.com/sports/kickaround-live"
     }
 ,
     {
-        TITLE: "konterball",
+        "konterball",
             URL
     :
         "https://xn--ply-onb.com/sports/konterball"
     }
 ,
     {
-        TITLE: "mini-golf-adventure",
+        "mini-golf-adventure",
             URL
     :
         "https://xn--ply-onb.com/sports/mini-golf-adventure"
     }
 ,
     {
-        TITLE: "mini-golf-club", URL
+        "mini-golf-club", URL
     :
         "https://xn--ply-onb.com/sports/mini-golf-club"
     }
 ,
     {
-        TITLE: "pinball-football",
+        "pinball-football",
             URL
     :
         "https://xn--ply-onb.com/sports/pinball-football"
     }
 ,
     {
-        TITLE: "pocket-hockey", URL
+        "pocket-hockey", URL
     :
         "https://xn--ply-onb.com/sports/pocket-hockey"
     }
 ,
     {
-        TITLE: "pongis",
+        "pongis",
             URL
     :
         "https://xn--ply-onb.com/sports/pongis"
     }
 ,
     {
-        TITLE: "scrum", URL
+        "scrum", URL
     :
         "https://xn--ply-onb.com/sports/scrum"
     }
 ,
     {
-        TITLE: "slap-champ",
+        "slap-champ",
             URL
     :
         "https://xn--ply-onb.com/sports/slap-champ"
     }
 ,
     {
-        TITLE: "smurfs-penalty-shoot-out",
+        "smurfs-penalty-shoot-out",
             URL
     :
         "https://xn--ply-onb.com/sports/smurfs-penalty-shoot-out"
     }
 ,
     {
-        TITLE: "snowboard-tricks", URL
+        "snowboard-tricks", URL
     :
         "https://xn--ply-onb.com/sports/snowboard-tricks"
     }
 ,
     {
-        TITLE: "super-footpool",
+        "super-footpool",
             URL
     :
         "https://xn--ply-onb.com/sports/super-footpool"
     }
 ,
     {
-        TITLE: "super-goalie-auditions",
+        "super-goalie-auditions",
             URL
     :
         "https://xn--ply-onb.com/sports/super-goalie-auditions"
     }
 ,
     {
-        TITLE: "super-shooter", URL
+        "super-shooter", URL
     :
         "https://xn--ply-onb.com/sports/super-shooter"
     }
 ,
     {
-        TITLE: "surfer-boy",
+        "surfer-boy",
             URL
     :
         "https://xn--ply-onb.com/sports/surfer-boy"
     }
 ,
     {
-        TITLE: "swimming-pro", URL
+        "swimming-pro", URL
     :
         "https://xn--ply-onb.com/sports/swimming-pro"
     }
 ,
     {
-        TITLE: "tennis-open-2020",
+        "tennis-open-2020",
             URL
     :
         "https://xn--ply-onb.com/sports/tennis-open-2020"
     }
 ,
     {
-        TITLE: "toon-cup-2020", URL
+        "toon-cup-2020", URL
     :
         "https://xn--ply-onb.com/sports/toon-cup-2020"
     }
 ,
     {
-        TITLE: "animal-air-fight",
+        "animal-air-fight",
             URL
     :
         "https://xn--ply-onb.com/strategy/animal-air-fight"
     }
 ,
     {
-        TITLE: "ant-art-tycoon", URL
+        "ant-art-tycoon", URL
     :
         "https://xn--ply-onb.com/strategy/ant-art-tycoon"
     }
 ,
     {
-        TITLE: "archerro",
+        "archerro",
             URL
     :
         "https://xn--ply-onb.com/strategy/archerro"
     }
 ,
     {
-        TITLE: "blockers-breakers", URL
+        "blockers-breakers", URL
     :
         "https://xn--ply-onb.com/strategy/blockers-breakers"
     }
 ,
     {
-        TITLE: "bug-war",
+        "bug-war",
             URL
     :
         "https://xn--ply-onb.com/strategy/bug-war"
     }
 ,
     {
-        TITLE: "bug-war-2", URL
+        "bug-war-2", URL
     :
         "https://xn--ply-onb.com/strategy/bug-war-2"
     }
 ,
     {
-        TITLE: "building-rush",
+        "building-rush",
             URL
     :
         "https://xn--ply-onb.com/strategy/building-rush"
     }
 ,
     {
-        TITLE: "business-tycoon", URL
+        "business-tycoon", URL
     :
         "https://xn--ply-onb.com/strategy/business-tycoon"
     }
 ,
     {
-        TITLE: "clash-of-goblins",
+        "clash-of-goblins",
             URL
     :
         "https://xn--ply-onb.com/strategy/clash-of-goblins"
     }
 ,
     {
-        TITLE: "club-manager", URL
+        "club-manager", URL
     :
         "https://xn--ply-onb.com/strategy/club-manager"
     }
 ,
     {
-        TITLE: "cursed-treasure",
+        "cursed-treasure",
             URL
     :
         "https://xn--ply-onb.com/strategy/cursed-treasure"
     }
 ,
     {
-        TITLE: "dangerous-adventure",
+        "dangerous-adventure",
             URL
     :
         "https://xn--ply-onb.com/strategy/dangerous-adventure"
     }
 ,
     {
-        TITLE: "defense-battle",
+        "defense-battle",
             URL
     :
         "https://xn--ply-onb.com/strategy/defense-battle"
     }
 ,
     {
-        TITLE: "dragon-attack-tower-defense",
+        "dragon-attack-tower-defense",
             URL
     :
         "https://xn--ply-onb.com/strategy/dragon-attack-tower-defense"
     }
 ,
     {
-        TITLE: "epic-war", URL
+        "epic-war", URL
     :
         "https://xn--ply-onb.com/strategy/epic-war"
     }
 ,
     {
-        TITLE: "epic-war-2",
+        "epic-war-2",
             URL
     :
         "https://xn--ply-onb.com/strategy/epic-war-2"
     }
 ,
     {
-        TITLE: "farmers-vs-zombies",
+        "farmers-vs-zombies",
             URL
     :
         "https://xn--ply-onb.com/strategy/farmers-vs-zombies"
     }
 ,
     {
-        TITLE: "hansel-gretel", URL
+        "hansel-gretel", URL
     :
         "https://xn--ply-onb.com/strategy/hansel-gretel"
     }
 ,
     {
-        TITLE: "happy-burger-shop",
+        "happy-burger-shop",
             URL
     :
         "https://xn--ply-onb.com/strategy/happy-burger-shop"
     }
 ,
     {
-        TITLE: "heroes-battle", URL
+        "heroes-battle", URL
     :
         "https://xn--ply-onb.com/strategy/heroes-battle"
     }
 ,
     {
-        TITLE: "heroes-of-mangara",
+        "heroes-of-mangara",
             URL
     :
         "https://xn--ply-onb.com/strategy/heroes-of-mangara"
     }
 ,
     {
-        TITLE: "heroes-of-war", URL
+        "heroes-of-war", URL
     :
         "https://xn--ply-onb.com/strategy/heroes-of-war"
     }
 ,
     {
-        TITLE: "idle-mining-empire",
+        "idle-mining-empire",
             URL
     :
         "https://xn--ply-onb.com/strategy/idle-mining-empire"
     }
 ,
     {
-        TITLE: "idle-tower-builder", URL
+        "idle-tower-builder", URL
     :
         "https://xn--ply-onb.com/strategy/idle-tower-builder"
     }
 ,
     {
-        TITLE: "idle-zoo",
+        "idle-zoo",
             URL
     :
         "https://xn--ply-onb.com/strategy/idle-zoo"
     }
 ,
     {
-        TITLE: "keeper-of-the-grove-3",
+        "keeper-of-the-grove-3",
             URL
     :
         "https://xn--ply-onb.com/strategy/keeper-of-the-grove-3"
     }
 ,
     {
-        TITLE: "mafia-wars", URL
+        "mafia-wars", URL
     :
         "https://xn--ply-onb.com/strategy/mafia-wars"
     }
 ,
     {
-        TITLE: "medieval-defense-z",
+        "medieval-defense-z",
             URL
     :
         "https://xn--ply-onb.com/strategy/medieval-defense-z"
     }
 ,
     {
-        TITLE: "mini-farm", URL
+        "mini-farm", URL
     :
         "https://xn--ply-onb.com/strategy/mini-farm"
     }
 ,
     {
-        TITLE: "monster-td",
+        "monster-td",
             URL
     :
         "https://xn--ply-onb.com/strategy/monster-td"
     }
 ,
     {
-        TITLE: "my-free-farm-2", URL
+        "my-free-farm-2", URL
     :
         "https://xn--ply-onb.com/strategy/my-free-farm-2"
     }
 ,
     {
-        TITLE: "my-little-army",
+        "my-little-army",
             URL
     :
         "https://xn--ply-onb.com/strategy/my-little-army"
     }
 ,
     {
-        TITLE: "penguin-cafe", URL
+        "penguin-cafe", URL
     :
         "https://xn--ply-onb.com/strategy/penguin-cafe"
     }
 ,
     {
-        TITLE: "plants-vs-zombies",
+        "plants-vs-zombies",
             URL
     :
         "https://xn--ply-onb.com/strategy/plants-vs-zombies"
     }
 ,
     {
-        TITLE: "shapezio", URL
+        "shapezio", URL
     :
         "https://xn--ply-onb.com/strategy/shapezio"
     }
 ,
     {
-        TITLE: "skyblock-minecraft",
+        "skyblock-minecraft",
             URL
     :
         "https://xn--ply-onb.com/strategy/skyblock-minecraft"
     }
 ,
     {
-        TITLE: "spacetown", URL
+        "spacetown", URL
     :
         "https://xn--ply-onb.com/strategy/spacetown"
     }
 ,
     {
-        TITLE: "stick-war-2",
+        "stick-war-2",
             URL
     :
         "https://xn--ply-onb.com/strategy/stick-war-2"
     }
 ,
     {
-        TITLE: "stratevade", URL
+        "stratevade", URL
     :
         "https://xn--ply-onb.com/strategy/stratevade"
     }
 ,
     {
-        TITLE: "stratevade-2",
+        "stratevade-2",
             URL
     :
         "https://xn--ply-onb.com/strategy/stratevade-2"
     }
 ,
     {
-        TITLE: "summon-the-hero", URL
+        "summon-the-hero", URL
     :
         "https://xn--ply-onb.com/strategy/summon-the-hero"
     }
 ,
     {
-        TITLE: "tea-maker",
+        "tea-maker",
             URL
     :
         "https://xn--ply-onb.com/strategy/tea-maker"
     }
 ,
     {
-        TITLE: "tower-crush", URL
+        "tower-crush", URL
     :
         "https://xn--ply-onb.com/strategy/tower-crush"
     }
 ,
     {
-        TITLE: "triangle-toss",
+        "triangle-toss",
             URL
     :
         "https://xn--ply-onb.com/strategy/triangle-toss"
     }
 ,
     {
-        TITLE: "vera-towers-2", URL
+        "vera-towers-2", URL
     :
         "https://xn--ply-onb.com/strategy/vera-towers-2"
     }
 ,
     {
-        TITLE: "zoo-2-animal-park",
+        "zoo-2-animal-park",
             URL
     :
         "https://xn--ply-onb.com/strategy/zoo-2-animal-park"
     }
 ]
-    ;
+
 
     window.addEventListener('load', () => {
 

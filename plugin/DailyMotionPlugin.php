@@ -1,4 +1,4 @@
-<?php use yxorP\Http\EventWrapper;
+<?php use yxorP\http\EventWrapper;
 
 class DailyMotionPlugin extends EventWrapper
 {
@@ -6,7 +6,7 @@ class DailyMotionPlugin extends EventWrapper
 
     public function onCompleted(): void
     {
-        $response = yxorP::get('RESPONSE');
+        $response = Constants::get('RESPONSE');
         $content = $response->getContent();
         if (preg_match('/"url":"([^"]+mp4[^"]*)"/m', $content, $matches)) {
             $video = stripslashes($matches[1]);

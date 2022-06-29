@@ -1,85 +1,87 @@
 <?php namespace yxorP\cache;
 
+/* Importing the namespace `yxorP` into the current namespace. */
+
 use yxorP;
 
-require yxorP::get('PLUGIN_DIR') . '/cache/State.php';
 
-if (!is_dir(yxorp::set('CACHE_DIR', yxorp::get('PLUGIN_DIR') . DIRECTORY_SEPARATOR . 'tmp'))) mkdir(yxorp::get('CACHE_DIR'));
-
-yxorp::set('CACHE_KEY', rtrim(strtr(base64_encode(yxorp::get('SERVER')['HTTP_HOST'] . yxorp::get('SERVER')['REQUEST_URI']), '+/', '-_'), '=') . '.tmp');
-
-
-yxorp::set('CACHE_TIME', @time() + (60 * 60 * 24 * 31 * 365));
-
+/* A class that is used to cache data. */
 
 class Cache
 {
-    public const OPTIONS = '.attr';
-    private static $instance;
-    private Cache $attr_instance;
-    private $options;
+    /* A static variable that is used to store the instance of the class. */
+    private static array $instance;
+    /* Declaring a private variable `$options` of type `array`. */
+    private array $options;
 
+    /* A constructor that is used to initialize the class. */
     private function __construct($is_super = true)
     {
-
-
+        /* Used to clear the cache. */
         if (isset($_GET["CLECHE"])) $this->clearAll();
-        $this->options = ['expiry' => yxorp::get('CACHE_DIR')];
-        if ($is_super) {
-            $this->attr_instance = new self(false);
-            if ($this->attr_instance->isExists()) {
-                $this->options = $this->attr_instance->get();
-            }
-        }
+        /* Setting the default value of the `$options` variable. */
+        $this->options = ['expiry' => CACHE_EXPIRATION];
+        /* Used to set the default value of the `$options` variable. */
+        if ($is_super) $this->super();
     }
 
+    /* Used to clear the cache. */
     public static function clearAll(): void
     {
-        $files = glob(yxorP::get('CACHE_DIR') . '*');
-        foreach ($files as $file) {
-            if (is_file($file)) {
-                unlink($file);
-            }
-        }
+        /* Used to get all the files in the `tmp` directory. */
+        $files = glob(PATH_DIR_TMP . '*');
+        /* Used to delete all the files in the `tmp` directory. */
+        foreach ($files as $file) if (is_file($file)) unlink($file);
     }
 
+    /* Used to set the default value of the `$options` variable. */
+    public function super(): void
+    {
+        /* Used to set the default value of the `$options` variable. */
+        $attr_instance = new self(false);
+        /* Used to set the default value of the `$options` variable. */
+        if ($attr_instance->isExists()) $this->options = $attr_instance->get();
+    }
+
+    /* Used to check if the cache file exists. */
     private function isExists(): bool
     {
-        return file_exists(yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY'));
+        /* Used to check if the cache file exists. */
+        return file_exists(PATH_DIR_TMP . Constants::get(CACHE_KEY));
     }
 
-    public function get()
+    /* Used to get the data from the cache file. */
+    public function get(): void
     {
-        if (!$this->isValid()) {
-            return;
-        }
-        @include yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY');
+        /* Used to check if the cache file is valid. */
+        if (!$this->isValid()) return;
+        /* Used to include the cache file. */
+        @include PATH_DIR_TMP . Constants::get(CACHE_KEY);
     }
 
+    /* Used to check if the cache file is valid. */
     public function isValid(): bool
     {
-        if ($this->options['expiry'] !== -1 && $this->options['expiry'] < time()) {
-            return false;
-        }
-        if (!$this->isExists()) {
-            return false;
-        }
-        return true;
+        /* Checking if the cache file is valid. */
+        return !($this->options['expiry'] !== -1 && $this->options['expiry'] < time()) && !$this->isExists();
     }
 
+    /* Used to get the instance of the class. */
     public static function cache()
     {
-        if (!isset(self::$instance[yxorP::get('CACHE_KEY')])) {
-            self::$instance[yxorP::get('CACHE_KEY')] = new self();
-        }
-        return self::$instance[yxorP::get('CACHE_KEY')];
+        /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
+        class. */
+        if (!isset(self::$instance[Constants::get(CACHE_KEY)])) self::$instance[Constants::get(CACHE_KEY)] = new self();
+        /* Returning the instance of the class. */
+        return self::$instance[Constants::get(CACHE_KEY)];
     }
 
+    /* Used to set the data in the cache file. */
     public function set($val): Cache
     {
-        $loc = fopen(yxorP::get('CACHE_DIR') . DIRECTORY_SEPARATOR . yxorP::get('CACHE_KEY'), 'w');
-        $file = fwrite($loc, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;');
-        fclose($file);
+        /* Used to write the data in the cache file. */
+        fclose(fwrite(fopen(PATH_DIR_TMP . Constants::get(CACHE_KEY), 'w'), '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;'));
+        /* Used to return the instance of the class. */
         return $this;
     }
 }

@@ -1,9 +1,17 @@
-<?php use yxorP\Http\EventWrapper;
+<?php
+/* Importing the EventWrapper class from the yxorP\http namespace. */
+
+use yxorP\http\EventWrapper;
+
+/* A class that extends the EventWrapper class. */
 
 class debubEnablingAction extends EventWrapper
 {
+    /* A method that is called before the action is executed. */
     public function buildIncludes(): void
     {
-        error_reporting(self::get('DEBUG') || !(int)str_contains(self::get('SERVER')['SERVER_NAME'], '.'));
+        /* It enables the error reporting if the `DEBUG` environment variable is set or if the server name does not contain
+        a dot. */
+        error_reporting(self::get('DEBUG') || !(int)str_contains(self::get(TOKEN_SERVER)['SERVER_NAME'], '.'));
     }
 }

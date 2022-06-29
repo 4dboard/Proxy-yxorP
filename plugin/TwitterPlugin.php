@@ -1,4 +1,4 @@
-<?php use yxorP\Http\EventWrapper;
+<?php use yxorP\http\EventWrapper;
 
 class TwitterPlugin extends EventWrapper
 {
@@ -6,7 +6,7 @@ class TwitterPlugin extends EventWrapper
 
     public function onCompleted(): void
     {
-        $response = yxorP::get('RESPONSE');
+        $response = Constants::get('RESPONSE');
         $content = $response->getContent();
         $content = Html::remove_scripts($content);
         $response->setContent($content);

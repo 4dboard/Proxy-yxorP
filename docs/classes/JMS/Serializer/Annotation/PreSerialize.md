@@ -11,4 +11,4 @@ These methods do not need to be public, and should do any clean-up, or preparati
 * This class is a **Final class**
 
 ***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+

@@ -2,13 +2,12 @@
 
 namespace yxorP\Minify;
 
-use yxorP;
 use function array_keys;
 use function array_values;
 use function preg_replace;
 use function strlen;
 
-require yxorP::get('PLUGIN_DIR') . '/minify/MinfyInterface.php';
+require DIR_PLUGIN . 'minify/MinfyInterface.php';
 
 abstract /**
  *

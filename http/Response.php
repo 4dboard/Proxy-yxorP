@@ -1,4 +1,4 @@
-<?php namespace yxorP\Http;
+<?php namespace yxorP\http;
 
 use JetBrains\PhpStorm\Pure;
 
@@ -29,9 +29,7 @@ class Response
     public function setContent($content): void
     {
         $content = (string)$content;
-        if (!$content) {
-            return;
-        }
+        if (!$content) return;
         $this->content = $content;
     }
 
@@ -43,15 +41,11 @@ class Response
 
     public function sendHeaders(): void
     {
-        if (headers_sent()) {
-            return;
-        }
+        if (headers_sent()) return;
         @header(sprintf('HTTP/1.1 %s %s', $this->status, $this->getStatusText()), true, $this->status);
         foreach ($this->headers->all() as $name => $value) {
             $values = is_array($value) ? $value : array($value);
-            foreach ($values as $item) {
-                @header("$name: $item", false);
-            }
+            foreach ($values as $item) @header("$name: $item", false);
         }
     }
 

@@ -11,4 +11,4 @@ interface is mostly useful if you need to implement a custom strategy for storin
 * Parent class: [`\Twig\Cache\CacheInterface`](./Twig/Cache/CacheInterface.md)
 
 ***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+

@@ -9,4 +9,4 @@ Annotation that can be used to signal to the parser to check if that attribute i
 * This class is a **Final class**
 
 ***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+

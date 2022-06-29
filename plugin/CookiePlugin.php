@@ -1,4 +1,4 @@
-<?php use yxorP\Http\EventWrapper;
+<?php use yxorP\http\EventWrapper;
 
 class CookiePlugin extends EventWrapper
 {
@@ -6,26 +6,26 @@ class CookiePlugin extends EventWrapper
 
     public function onBeforeRequest(): void
     {
-        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', yxorP::get('REQUEST')->headers->get('cookie'),
+        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', Constants::get('REQUEST')->headers->get('cookie'),
             $matches, PREG_SET_ORDER)) foreach ($matches as $match) {
             $_cookieDomain = str_replace("_", ".", $match[1]);
             $cookie = ["cookie_domain" => $_cookieDomain, "cookie_name" => $match[2], "cookie_value" => $match[3]];
-            $host = parse_url(yxorP::get('REQUEST')->getUri(), PHP_URL_HOST);
+            $host = parse_url(Constants::get('REQUEST')->getUri(), PHP_URL_HOST);
             if (str_contains($host, $cookie->cookie_domain)) $send_cookies[] = $cookie->cookie_name . '=' . $cookie->cookie_value;
         }
-        if ($send_cookies) yxorP::get('REQUEST')->headers->set('cookie', implode("; ", $send_cookies));
+        if ($send_cookies) Constants::get('REQUEST')->headers->set('cookie', implode("; ", $send_cookies));
     }
 
     public function onHeadersReceived(): void
     {
-        $response = yxorP::get('RESPONSE');
+        $response = Constants::get('RESPONSE');
         $set_cookie = $response->headers->get('set-cookie');
         if ($set_cookie) {
             $response->headers->remove('set-cookie');
             foreach ((array)$set_cookie as $line) {
-                $cookie = $this->parse_cookie($line, yxorP::get('REQUEST')->getUri());
+                $cookie = $this->parse_cookie($line, Constants::get('REQUEST')->getUri());
                 $cookie_name = sprintf("%s_%s__%s", self::COOKIE_PREFIX, str_replace('.', '_', $cookie['domain']), $cookie['name']);
-                yxorP::get('RESPONSE')->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
+                Constants::get('RESPONSE')->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
             }
         }
     }

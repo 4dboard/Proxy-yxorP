@@ -1,5 +1,6 @@
 /.settings
 /.project
+/.run
 /.buildpath
 /composer.phar
 /vendor
@@ -22,3 +23,6 @@ phpunit.xml
 Vagrantfile
 .php-cs-fixer.cache
 .env
+composer.json
+composer.lock
+phpdoc.xml

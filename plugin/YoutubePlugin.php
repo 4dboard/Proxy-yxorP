@@ -1,4 +1,4 @@
-<?php use yxorP\Http\EventWrapper;
+<?php use yxorP\http\EventWrapper;
 
 class YoutubePlugin extends EventWrapper
 {
@@ -6,14 +6,14 @@ class YoutubePlugin extends EventWrapper
 
     public function onBeforeRequest(): void
     {
-        yxorP::get('REQUEST')->headers->set('Cookie', 'PREF=f6=8');
-        yxorP::get('REQUEST')->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
+        Constants::get('REQUEST')->headers->set('Cookie', 'PREF=f6=8');
+        Constants::get('REQUEST')->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
     }
 
     public function onCompleted(): void
     {
-        $response = yxorP::get('RESPONSE');
-        $url = yxorP::get('REQUEST')->getUrl();
+        $response = Constants::get('RESPONSE');
+        $url = Constants::get('REQUEST')->getUrl();
         $output = $response->getContent();
         if (!preg_match('/(watch|results|feed|channel|ombed|css)/i', $url)) {
             $response->headers->set('location', proxify_url("https:www.youtube.com/feed/trending", $url));

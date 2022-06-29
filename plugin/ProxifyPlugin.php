@@ -1,4 +1,4 @@
-<?php use yxorP\Http\EventWrapper;
+<?php use yxorP\http\EventWrapper;
 
 class ProxifyPlugin extends EventWrapper
 {
@@ -6,7 +6,7 @@ class ProxifyPlugin extends EventWrapper
 
     public function onBeforeRequest(): void
     {
-        $request = yxorP::get('REQUEST');
+        $request = Constants::get('REQUEST');
         if ($request->post->has('convertGET')) {
             $request->post->remove('convertGET');
             $request->get->replace($request->post->all());
@@ -19,8 +19,8 @@ class ProxifyPlugin extends EventWrapper
     public function onCompleted(): void
     {
         return;
-        $this->base_url = yxorP::get('REQUEST')->getUri();
-        $response = yxorP::get('RESPONSE');
+        $this->base_url = Constants::get('REQUEST')->getUri();
+        $response = Constants::get('RESPONSE');
         $content_type = $this->clean_content_type($response->headers->get('content-type'));
         $str = $response->getContent();
         $no_proxify = array('text/javascript', 'application/javascript', 'application/javascript', 'text/plain');

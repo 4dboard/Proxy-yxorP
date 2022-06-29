@@ -1,4 +1,4 @@
-<?php use yxorP\Http\EventWrapper;
+<?php use yxorP\http\EventWrapper;
 
 class StreamPlugin extends EventWrapper
 {
@@ -8,12 +8,12 @@ class StreamPlugin extends EventWrapper
 
     public function onHeadersReceived(): void
     {
-        $content_type = yxorP::get('RESPONSE')->headers->get('content-type');
-        $content_length = yxorP::get('RESPONSE')->headers->get('content-length');
+        $content_type = Constants::get('RESPONSE')->headers->get('content-type');
+        $content_length = Constants::get('RESPONSE')->headers->get('content-length');
         if (!in_array($content_type, $this->output_buffer_types, true) || $content_length > $this->max_content_length) {
             $this->stream = true;
-            yxorP::get('RESPONSE')->sendHeaders();
-            if (!yxorP::get('REQUEST')->params->has('force_buffering')) {
+            Constants::get('RESPONSE')->sendHeaders();
+            if (!Constants::get('REQUEST')->params->has('force_buffering')) {
                 $event['proxy']->setOutputBuffering(false);
             }
         }

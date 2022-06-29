@@ -1,226 +1,206 @@
 <?php
 
-use GuzzleHttp\Client;
-use yxorP\Cache\Cache;
-use yxorP\Http\Request;
-use yxorP\Http\Response;
+namespace yxorP;
 
+/* Importing the Constants class from the inc folder. */
+
+use yxorP\inc\Constants;
+
+/* Loading the required files. */
+require './inc/Constants.php';
+require './cockpit/bootstrap.php';
+require './cache/State.php';
+require './cache/Cache.php';
+require './inc/guzzle.phar';
+require './inc/bugsnag.phar';
+
+/**
+ * It's a proxy for the yxorp plugin
+ */
 class yxorP
 {
+    /* It's a singleton. */
+    private static yxorP $yxorP;
+    /* It's an array of events that will be triggered. */
+    private static array $events = [];
+    /* It's an array of events that will be triggered. */
+    private array $listeners = [];
 
-    public static array $listeners = [];
-    static protected array $_yx = [];
-
-    public function __construct()
+    /**
+     * It's a constructor that sets up the plugin
+     *
+     * @param _req The request URI
+     */
+    private function __construct($_req)
     {
-        self::set('PLUGIN_DIR', __DIR__);
-        foreach (file(self::get('PLUGIN_DIR') . '/.env') as $line) {
-            if (trim((string)str_starts_with(trim($line), '#'))) continue;
-            [$name, $value] = explode('=', $line, 2);
-            self::set($name, str_replace("\r\n", null, $value));
-        }
+        /* It's setting the constants that are used in the plugin. */
+        Constants::localise($_req);
+        /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
+        file. */
+        if (str_contains(CACHE_SERVER[TOKEN_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
+        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
+        creates them. */
+        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) yxorp::fileCheck(DIR_PLUGIN . $_asset, true);
+        /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
+        it's calling the `subscribe()` function. */
+        foreach (scandir(DIR_PLUGIN . DIR_ACTION) as $action) if (strlen($action) > 3) $this->subscribe($action);
+        /* It's setting the `TOKEN_REWRITE_SEARCH` constant to the value of the `PATH_REWRITE_SEARCH` constant. */
+        Constants::set(TOKEN_REWRITE_SEARCH, GeneralHelper::CSV(PATH_REWRITE_SEARCH));
+        /* It's setting the `TOKEN_REWRITE_REPLACE` constant to the value of the `PATH_REWRITE_REPLACE` constant. */
+        Constants::set(TOKEN_REWRITE_REPLACE, GeneralHelper::CSV(PATH_REWRITE_REPLACE));
     }
 
-    public static function set($_name, $_value)
+    /**
+     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
+     * class exists in the yxorP namespace, if it does, it creates an instance of it
+     *
+     * @param action The name of the action to be executed.
+     */
+    private function subscribe($action): void
     {
-
-        if (array_key_exists($_name, self::$_yx)) {
-            throw new RuntimeException('yxorP::set("' . $_name . '")-Argument already exists and cannot be redefined!');
-        }
-
-        return self::$_yx[$_name] = $_value;
+        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
+        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
+        if (file_exists(DIR_PLUGIN . DIR_ACTION . $action)) require(DIR_PLUGIN . DIR_ACTION . $action); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
+        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
+        function. */
+        $this->addSubscriber(new $action());
     }
 
-    public static function get($_name)
+    /**
+     * > If the subscriber has a subscribe method, call it and pass the event manager to it
+     *
+     * @param subscriber The subscriber to add to the event dispatcher.
+     */
+    private function addSubscriber($subscriber): void
     {
-        return (array_key_exists($_name, self::$_yx)) ? self::$_yx[$_name] : false;
+        /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
+        and
+        passing the `$this` object to it. */
+        if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe($this);
     }
 
-    public static function Proxy($REQUEST)
+    /**
+     * > It loops through all the events in the `init()` function and dispatches them to the `yxorP()` function
+     *
+     * @param _req The request object
+     */
+    public static function proxy($_req): void
     {
-        $yxorP = new yxorP();
-        $yxorP->siteContext($REQUEST);
-
-        require self::get('PLUGIN_DIR') . '/cache/Cache.php';
-        require self::get('PLUGIN_DIR') . '/inc/guzzle.phar';
-        require self::get('PLUGIN_DIR') . '/inc/bugsnag.phar';
-
-
-        try {
-            $yxorP->fetchIncludes();
-            $yxorP->header();
-            $yxorP->forward();
-        } catch (Exception $e) {
-            if (self::get('MIME') === 'text/html' && self::get('MIME') != "document") {
-                header("Location: " . self::get('PROXY_URL'));
-            } else {
-                if (self::get('DEBUG') || !(int)str_contains(self::get('SERVER')['SERVER_NAME'], '.')) {
-                    echo $e->__toString();
-                }
-                Handler::Register(self::set('BUGSNAG'), Client::make(self::get('BUG_SNAG_KEY')));
-                if (self::get('BUGSNAG')) self::get('BUGSNAG')->notifyException($e);
-            }
-        }
-        return (string)Cache::cache()->get();
+        /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
+        foreach (self::init() as $_event) self::yxorP($_req)->dispatch($_event);
     }
 
-    public function siteContext($REQUEST)
+    /**
+     * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
+     *
+     * @return array An array of events.
+     */
+    private static function init(): array
     {
-        self::set('SERVER', $REQUEST);
-        self::set('SITE_CONTEXT', new stdclass());
-        require self::get('PLUGIN_DIR') . '/inc/Setup.php';
-        self::set('SITE_URL', self::get('SERVER')['SERVER_NAME']);
-        self::set('SITE_DOMAIN', self::extractDomain(self::get('SITE_URL')));
-        self::set('SITE_SUB_DOMAIN', self::extractSubdomains(self::get('SITE_URL')));
-        self::set('TARGET', self::get('APP')->storage->findOne('collections/sites', ['host' => self::get('SITE_DOMAIN')]));
-        self::set('TARGET_URL', self::get('TARGET')['target']);
-        self::set('TARGET_SUB_DOMAIN', self::extractSubdomains(self::get('TARGET_URL')));
-        self::set('TARGET_DOMAIN', self::extractDomain(self::get('TARGET_URL')));
-        self::set('REPLACE', self::get('APP')->storage->findOne('collections/global', ['type' => 'replace']) ?
-            self::get('APP')->storage->findOne('collections/global', ['type' => 'replace'])['value'] : null);
-        self::set('PATTERN', self::get('APP')->storage->findOne('collections/global', ['type' => 'pattern']) ?
-            self::get('APP')->storage->findOne('collections/global', ['type' => 'pattern'])['value'] : null);
-        self::set('FETCH', "https://" . ((!is_null(self::get('SITE_SUB_DOMAIN'))) ? (self::get('SITE_SUB_DOMAIN') . ".") : null) . self::get('TARGET_DOMAIN'));
-        self::set('PROXY_URL', self::get('FETCH') . self::get('REQUEST_URI'));
-        self::set('DIR_FULL', self::get('PLUGIN_DIR') . '/override/' . self::get('TARGET')['files']);
+        /* It's checking if the `$events` variable is set, and if it is, it returns it. */
+        if (self::$events) return self::$events;
+        /* It's creating the constants that are used in the plugin. */
+        Constants::create(__DIR__);
 
+        /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
+        if (!is_dir(DIR_PLUGIN)) if (!mkdir($concurrentDirectory = DIR_PLUGIN) && !is_dir($concurrentDirectory))
+            throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $concurrentDirectory));
+
+        /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
+        `install()` function. */
+        if (!COCKPIT_APP->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
+        /* It's returning an array of events. */
+        return self::$events = [EVENT_BUILD_CACHED, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
+            EVENT_SEND, EVENT_SENT, EVENT_COMPLETE, EVENT_FINAL];
     }
 
-    public static function extractDomain($domain)
+    /**
+     * It creates a new user with the credentials defined in the `.env` file
+     */
+    private static function install(): void
     {
-        if (str_contains($domain, '.')) {
-            if (preg_match("/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i", $domain, $matches)) {
-                return $matches['domain'];
-            } else {
-                return $domain;
-            }
-        } else {
-            return $domain;
-        }
+        /* It's defining the `TOKEN_COCKPIT_INSTALL` constant as `true`. */
+        define(TOKEN_COCKPIT_INSTALL, true);
+        /* It's copying all the files from the `local` directory to the `cockpit` directory. */
+        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+
+        /* It's inserting a new user into the `cockpit_accounts` collection. */
+        COCKPIT_APP->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => Constants::get(TOKEN_ADMIN_USER . EXT_ENV), VAR_NAME => Constants::get(TOKEN_ADMIN_NAME . EXT_ENV), VAR_EMAIL =>
+            Constants::get(TOKEN_ADMIN_EMAIL . EXT_ENV), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(Constants::get(TOKEN_ADMIN_PASSWORD . EXT_ENV)),
+            VAR_I18N => COCKPIT_APP->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 
-    public static function extractSubdomains($domain)
+    /**
+     * It takes a source directory, a destination directory, and a file extension, and copies all files with that extension
+     * from the source directory to the destination directory
+     *
+     * @param from The directory to migrate from.
+     * @param to The destination directory.
+     * @param ext The extension of the files to be migrated.
+     */
+    private static function migrate($from, $to, $ext = CHAR_ASTRIX): void
     {
-        if (str_contains($domain, '.')) {
-            $subdomains = $domain;
-            $domain = self::extractDomain($subdomains);
-            $subdomains = rtrim(strstr($subdomains, $domain, true), '.');
-            return $subdomains;
-        } else {
-            return null;
-        }
+        /* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
+        calling the `base()` function. */
+        if (count($all = glob("$from$ext", GLOB_MARK)) > 0) foreach ($all as $a) self::base($from, $to, $a);
     }
 
-    public function fetchIncludes()
+    /**
+     * It takes a source and destination directory, and copies all files and subdirectories from the source to the
+     * destination
+     *
+     * @param from The source directory
+     * @param to The destination directory
+     * @param a the file or directory to be copied
+     */
+    private static function base($from, $to, $a): void
     {
-        foreach (array('http', 'minify') as $_asset) self::fileCheck(self::get('PLUGIN_DIR') . DIRECTORY_SEPARATOR . $_asset, true);
-        if (str_contains(self::get('SERVER')['REQUEST_URI'], '/cockpit')) require self::get('PLUGIN_DIR') . 'cockpit/index.php';
-        self::set('RESPONSE', new Response());
-        self::set('REQUEST', Request::createFromGlobals());
-        self::fileCheck(self::get('DIR_FULL'), false);
-        if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
-        self::fileCheck(self::get('PLUGIN_DIR') . '/override/global', false);
-        if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
-        error_reporting(self::get('DEBUG') || !(int)str_contains(self::get('SERVER')['SERVER_NAME'], '.'));
-        error_reporting(1);
-
-        if (Cache::cache()->isValid()) return (string)Cache::cache()->get();
-
-        $_plugins = self::get('TARGET')['plugins'] ?: [];
-
-        array_push($_plugins, 'BlockListPlugin', 'CookiePlugin', 'DailyMotionPlugin', 'HeaderRewritePlugin', 'LogPlugin', 'OverridePlugin', 'ProxifyPlugin', 'StreamPlugin', 'TwitterPlugin', 'YoutubePlugin');
-
-        foreach ($_plugins as $plugin) {
-
-            if (file_exists(self::get('PLUGIN_DIR') . '/plugin/' . $plugin . '.php')) {
-                require(self::get('PLUGIN_DIR') . '/plugin/' . $plugin . '.php');
-            } elseif ('\\yxorP\\plugin\\' . $plugin) {
-                $plugin = '\\yxorP\\plugin\\' . $plugin;
-            }
-
-            $this->addSubscriber(new $plugin());
-        }
-
+        /* It's getting the base name of the file or directory. */
+        $ff = basename($a);
+        /* It's checking if the `$a` variable is a directory, and if it is, it's calling the `migrate()` function. */
+        if (is_dir($a)) self::migrate("$from$ff/", "$to$ff/");
     }
 
-    public static function fileCheck($dir, $inc)
+    /**
+     * "If there are any listeners for the event, call them."
+     *
+     * The first thing the function does is check if there are any listeners for the event. If there are, it loops through
+     * them and calls them
+     *
+     * @param event_name The name of the event to dispatch.
+     */
+    private function dispatch($event_name): void
     {
-        foreach (scandir($dir) as $x) {
-            if (strlen($x) > 3) {
-                if (str_contains($x, 'Interface')) continue;
-                if (is_dir($_loc = $dir . '/' . $x)) return self::fileCheck($_loc, $inc);
-                if (str_contains(self::get('PROXY_URL'), $x)) return Cache::cache()->set(file_get_contents($_loc));
-                if ($inc) require_once($_loc);
-            }
-        }
+        /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
+        them. */
+        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
+            if (is_callable($listener)) $listener();
     }
 
-    public function addSubscriber($subscriber): void
+    /**
+     * > `yxorP` is a function that returns a `yxorP` object
+     *
+     * @param _req The request object.
+     *
+     * @return yxorP The yxorP object.
+     */
+    public static function yxorP($_req = null): yxorP
     {
-        if (method_exists($subscriber, 'subscribe')) {
-            $subscriber->subscribe($this);
-        }
+        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
+        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
+        return self::$yxorP ?: self::$yxorP = new yxorP($_req ?: $_SERVER);
     }
 
-    public function header()
+    /**
+     * > This function adds a listener to the listeners array
+     *
+     * @param event The name of the event to listen for.
+     * @param callback The callback function to be executed when the event is triggered.
+     * @param priority The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     */
+    private function addListener($event, $callback, $priority = 0): void
     {
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Methods: POST,GET,OPTIONS");
-        header('Access-Control-Allow-Credentials: true');
-        header('Access-Control-Allow-Headers: Origin,Access-Control-Allow-Headers,Content-Type,Access-Control-Allow-Methods, Authorization, X-Requested-With,Access-Control-Allow-Credentials');
-
-        $_types = array('txt' => 'text/plain', 'htm' => 'text/html', 'html' => 'text/html', 'php' => 'text/html', 'css' => 'text/css', 'js' => 'application/javascript', 'json' => 'application/json', 'xml' => 'application/xml', 'swf' => 'application/x-shockwave-flash', 'flv' => 'video/x-flv', 'png' => 'image/png', 'jpe' => 'image/jpeg', 'jpeg' => 'image/jpeg', 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'bmp' => 'image/bmp', 'ico' => 'image/vnd', 'tiff' => 'image/tiff', 'tif' => 'image/tiff', 'svg' => 'image/svg + xml', 'svgz' => 'image/svg + xml', 'zip' => 'application/zip', 'rar' => 'application/x-rar-compressed', 'exe' => 'application/x-msdownload', 'msi' => 'application/x-msdownload', 'cab' => 'application/vnd', 'mp3' => 'audio/mpeg', 'qt' => 'video/quicktime', 'mov' => 'video/quicktime', 'pdf' => 'application/pdf', 'psd' => 'image/vnd', 'ai' => 'application/postscript', 'eps' => 'application/postscript', 'ps' => 'application/postscript', 'doc' => 'application/msword', 'rtf' => 'application/rtf', 'xls' => 'application/vnd', 'ppt' => 'application/vnd-powerpoint', 'odt' => 'application/vnd', 'ods' => 'application/vnd');
-        $_ext = pathinfo(strtok(self::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
-        if (str_contains(self::get('PROXY_URL'), 'bundle.js')) {
-            self::set('MIME', 'application/wasm');
-        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'sitemap')) {
-            self::set('MIME', 'application/xml');
-        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'crop')) {
-            self::set('MIME', 'image/png');
-        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'format')) {
-            self::set('MIME', 'image/png');
-        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), '.mp4')) {
-            self::set('MIME', 'video/mp4');
-        } else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), '.js.br')) {
-            self::set('MIME', 'br');
-        } else if (!self::get('MIME') && array_key_exists($_ext, $_types)) {
-            self::set('MIME', $_types[$_ext]);
-        } else {
-            self::set('MIME', 'text/html');
-        }
-
-        header('Content-Type: ' . self::get('MIME') . '; charset = UTF-8');
-    }
-
-    public static function forward()
-    {
-        if ($_body = file_get_contents('php://input')) self::get('REQUEST')->setBody(json_decode($_body, true), self::get('MIME'));
-        self::dispatch('request.before_send');
-        self::get('RESPONSE')->setContent((new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]))->request(self::get('REQUEST')->getMethod(), self::get('FETCH'), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
-        self::dispatch('request.complete');
-        if (!Cache::cache()->isValid()) Cache::cache()->set(self::get('RESPONSE')->getContent());
-    }
-
-    public static function dispatch($event_name): void
-    {
-        if (isset(self::$listeners[$event_name])) {
-            $temp = (array)self::$listeners[$event_name];
-            foreach ($temp as $priority => $listeners) {
-                foreach ((array)$listeners as $listener) {
-                    if (is_callable($listener)) {
-                        $listener();
-                    }
-                }
-            }
-        }
-    }
-
-    public function init(): void
-    {
-    }
-
-    public function addListener($event, $callback, $priority = 0): void
-    {
-        self::$listeners[$event][$priority][] = $callback;
+        /* It's adding a listener to the listeners array. */
+        $this->listeners[$event][$priority][] = $callback;
     }
 }

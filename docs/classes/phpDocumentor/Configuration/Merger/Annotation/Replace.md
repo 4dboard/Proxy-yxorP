@@ -12,4 +12,4 @@ the newer version.
 * Full name: `\phpDocumentor\Configuration\Merger\Annotation\Replace`
 
 ***
-> Automatically generated from source code comments on 2022-06-25 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
