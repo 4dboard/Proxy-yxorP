@@ -1,6 +1,0 @@
-<component name="ProjectRunConfigurationManager">
-    <configuration default="false" name="yxorP" type="PhpBuiltInWebServerConfigurationType"
-                   factoryName="PHP Built-in Web Server" singleton="true" document_root="$PROJECT_DIR$">
-        <method v="2"/>
-    </configuration>
-</component>

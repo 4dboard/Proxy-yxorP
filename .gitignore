@@ -1,10 +1,11 @@
 /.settings
 /.project
-/build
 /.run
+/.phpdocs
 /.buildpath
 /composer.phar
 /vendor
+/build
 /node_modules
 /npm-debug.log
 /yarn-error.log
@@ -13,10 +14,11 @@
 /vendor
 /nbproject
 /yomama
+/vendor
 /.cache
 /.idea
 /.phpdoc
-/tmp/*
+/tmp
 composer.phar
 .phpunit.result.cache
 phpunit.xml
