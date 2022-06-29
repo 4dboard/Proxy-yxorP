@@ -1,5 +1,6 @@
 /.settings
 /.project
+/build
 /.run
 /.buildpath
 /composer.phar
