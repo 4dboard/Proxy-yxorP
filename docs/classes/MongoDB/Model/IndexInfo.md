@@ -221,7 +221,8 @@ their original names. It may also be used to access fields that do not have a he
 **See Also:**
 
 * http://php.net/arrayaccess.offsetget -
-  * https://github.com/mongodb/specifications/blob/master/source/enumerate-indexes.rst#getting-full-index-information -
+    * https://github.com/mongodb/specifications/blob/master/source/enumerate-indexes.rst#getting-full-index-information
+      -
 
 ***
 

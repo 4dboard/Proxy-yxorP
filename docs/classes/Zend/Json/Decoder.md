@@ -131,6 +131,7 @@ public static decode(string $source, int $objectDecodeType = Json::TYPE_OBJECT):
 ```
 
 Decodes a JSON encoded string. The value returned will be one of the following:
+
 - integer - float - boolean - null - stdClass - array - array of one or more of the above types
 
 By default, decoded objects will be returned as associative arrays; to return a stdClass object instead, pass {@link} to

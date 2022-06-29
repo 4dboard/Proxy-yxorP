@@ -237,7 +237,7 @@ public setDirPermission(false|string|int $dirPermission): \Zend\Cache\Storage\Ad
 **See Also:**
 
 * \Zend\Cache\Storage\Adapter\setUmask - * \Zend\Cache\Storage\Adapter\setFilePermission -
-  * http://php.net/manual/function.chmod.php -
+    * http://php.net/manual/function.chmod.php -
 
 ***
 
@@ -294,7 +294,7 @@ public setFilePermission(false|string|int $filePermission): \Zend\Cache\Storage\
 **See Also:**
 
 * \Zend\Cache\Storage\Adapter\setUmask - * \Zend\Cache\Storage\Adapter\setDirPermission -
-  * http://php.net/manual/function.chmod.php -
+    * http://php.net/manual/function.chmod.php -
 
 ***
 
@@ -405,7 +405,7 @@ Note: On multithreaded webservers it's better to explicit set file and dir permi
 **See Also:**
 
 * \Zend\Cache\Storage\Adapter\setFilePermission - * \Zend\Cache\Storage\Adapter\setDirPermission -
-  * http://php.net/manual/function.umask.php - * http://en.wikipedia.org/wiki/Umask -
+    * http://php.net/manual/function.umask.php - * http://en.wikipedia.org/wiki/Umask -
 
 ***
 

@@ -133,7 +133,7 @@ Supported options:
 **See Also:**
 
 * http://source.wiredtiger.com/2.4.1/struct_w_t___s_e_s_s_i_o_n.html#a358ca4141d59c345f401c58501276bbb -
-  * https://docs.mongodb.org/manual/core/document-validation/ -
+    * https://docs.mongodb.org/manual/core/document-validation/ -
 
 ***
 

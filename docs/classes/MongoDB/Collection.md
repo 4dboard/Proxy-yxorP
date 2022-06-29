@@ -329,8 +329,9 @@ The names of the created indexes
 **See Also:**
 
 * http://docs.mongodb.org/manual/reference/command/createIndexes/ -
-  * http://docs.mongodb.org/manual/reference/method/db.collection.createIndex/ - * \MongoDB\Operation\CreateIndexes::__
-  construct() - for supported command options
+    * http://docs.mongodb.org/manual/reference/method/db.collection.createIndex/ - *
+      \MongoDB\Operation\CreateIndexes::__
+      construct() - for supported command options
 
 ***
 
