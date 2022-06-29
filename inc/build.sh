@@ -12,12 +12,4 @@ f1() {
 }
 
 
-f1 './cache/'
-f1 './domain/'
-f1 './helper/'
-f1 './http/'
-f1 './plugin/'
-f1 './inc/'
-f1 './minfy/'
-f1 './yxorP.php'
-f1 './index.php'
+#f1 './cache/'
