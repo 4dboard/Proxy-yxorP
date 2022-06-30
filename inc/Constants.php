@@ -7,7 +7,7 @@ namespace yxorP\inc;
 require 'bugsnag.phar';
 
 /* Loading the guzzle.phar file. */
-require 'guzzle.phar';
+require './guzzle.phar';
 
 /* Defining constants. Creating a class called Constants. */
 
