@@ -54,6 +54,7 @@ FilterProvider  COMPRESS  DEFLATE "%{Content_Type} = 'image/svg+xml'"
 FilterProvider  COMPRESS  DEFLATE "%{Content_Type} = 'font/opentype'"
 FilterChain     COMPRESS
 FilterProtocol  COMPRESS  DEFLATE change=yes;byteranges=no
+</IfModule>
 <IfModule !mod_filter.c>
 AddOutputFilterByType DEFLATE text/html text/css text/plain
 AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
