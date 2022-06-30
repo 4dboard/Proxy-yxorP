@@ -248,6 +248,7 @@ class Constants
 
         // Reporting
         self::set(TOKEN_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        
         self::set(TOKEN_GUZZLE, new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE
