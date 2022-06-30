@@ -30,6 +30,7 @@ class Constants
         define('CHAR_EQUALS', '=');
         /* Defining a constant called `CHAR_ASTRIX` and setting it to the value of `*`. */
         define('CHAR_ASTRIX', '*');
+        define('EMPTY_STRING', '');
 
         // NUMBERS
         /* Defining a constant called `NUM_ENV_LIMIT` and setting it to the value of `2`. */
@@ -73,39 +74,39 @@ class Constants
 
         // EXTENSIONS
         /* Defining a constant called `EXT_CSV` and setting it to the value of `.csv`. */
-        define('EXT_CSV', '.csv');
+        define('EXT_CSV', ' . csv');
         /* Defining a constant called `EXT_PHP` and setting it to the value of `.php`. */
-        define('EXT_PHP', '.php');
+        define('EXT_PHP', ' . php');
         /* Defining a constant called `EXT_TMP` and setting it to the value of `.tmp`. */
-        define('EXT_TMP', '.tmp');
+        define('EXT_TMP', ' . tmp');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
-        define('EXT_ENV', '.env');
+        define('EXT_ENV', ' . env');
 
         // EVENTS
         /* Defining a constant called `EVENT_BUILD_CACHED` and setting it to the value of `request.build_cached`. */
-        define('EVENT_BUILD_CACHED', 'request.build_cached');
+        define('EVENT_BUILD_CACHED', 'request . build_cached');
         /* Defining a constant called `EVENT_BUILD_CONTEXT` and setting it to the value of `request.build_context`. */
-        define('EVENT_BUILD_CONTEXT', 'request.build_context');
+        define('EVENT_BUILD_CONTEXT', 'request . build_context');
         /* Defining a constant called `EVENT_BUILD_INCLUDES` and setting it to the value of `request.build_includes`. */
-        define('EVENT_BUILD_INCLUDES', 'request.build_includes');
+        define('EVENT_BUILD_INCLUDES', 'request . build_includes');
         /* Defining a constant called `EVENT_BUILD_HEADERS` and setting it to the value of `request.build_headers`. */
-        define('EVENT_BUILD_HEADERS', 'request.build_headers');
+        define('EVENT_BUILD_HEADERS', 'request . build_headers');
         /* Defining a constant called `EVENT_BUILD_REQUEST` and setting it to the value of `request.build_request`. */
-        define('EVENT_BUILD_REQUEST', 'request.build_request');
+        define('EVENT_BUILD_REQUEST', 'request . build_request');
         /* Defining a constant called `EVENT_BEFORE_SEND` and setting it to the value of `request.before_send`. */
-        define('EVENT_BEFORE_SEND', 'request.before_send');
+        define('EVENT_BEFORE_SEND', 'request . before_send');
         /* Defining a constant called `EVENT_SEND` and setting it to the value of `request.send`. */
-        define('EVENT_SEND', 'request.send');
+        define('EVENT_SEND', 'request . send');
         /* Defining a constant called `EVENT_SENT` and setting it to the value of `request.sent`. */
-        define('EVENT_SENT', 'request.sent');
+        define('EVENT_SENT', 'request . sent');
         /* Defining a constant called `EVENT_COMPLETE` and setting it to the value of `request.complete`. */
-        define('EVENT_COMPLETE', 'request.complete');
+        define('EVENT_COMPLETE', 'request . complete');
         /* Defining a constant called `EVENT_FINAL` and setting it to the value of `request.final`. */
-        define('EVENT_FINAL', 'request.final');
+        define('EVENT_FINAL', 'request .final');
         /* Defining a constant called `EVENT_EXCEPTION` and setting it to the value of `request.build_exception`. */
-        define('EVENT_EXCEPTION', 'request.build_exception');
+        define('EVENT_EXCEPTION', 'request . build_exception');
         /* Defining a constant called `EVENT_WRITE` and setting it to the value of `curl.callback.write`. */
-        define('EVENT_WRITE', 'curl.callback.write');
+        define('EVENT_WRITE', 'curl . callback . write');
 
 
         // FILES
@@ -207,7 +208,7 @@ class Constants
         /* Defining the constant COCKPIT_APP as the function cockpit(). */
         define('COCKPIT_APP', cockpit());
         /* Defining a constant. */
-        define('COCKPIT_ACCOUNTS', 'cockpit/accounts');
+        define('COCKPIT_ACCOUNTS', 'cockpit / accounts');
 
         //EXCEPTIONS
         /* Defining a constant called RUNTIME_EXCEPTION. */
@@ -216,9 +217,9 @@ class Constants
 
         // INCLUDES
         /* Importing the Bugsnag PHP library. */
-        require DIR_PLUGIN . DIR_INC . 'bugsnag.phar';
+        require DIR_PLUGIN . DIR_INC . 'bugsnag . phar';
         /* Loading the guzzle.phar file. */
-        require DIR_PLUGIN . DIR_INC . 'guzzle.phar';
+        require DIR_PLUGIN . DIR_INC . 'guzzle . phar';
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
@@ -261,7 +262,7 @@ class Constants
     public static function set($_name, $_value): mixed
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope. */
+        doesn't, it adds the argument to the global scope . */
         return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException('Argument already exists and cannot be redefined!') : $GLOBALS[$_name] = $_value;
     }
 
