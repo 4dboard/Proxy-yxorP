@@ -4,10 +4,10 @@
 namespace yxorP\inc;
 
 /* Importing the Bugsnag PHP library. */
-require './bugsnag.phar';
+require 'bugsnag.phar';
 
 /* Loading the guzzle.phar file. */
-require './inc/guzzle.phar';
+require 'guzzle.phar';
 
 /* Defining constants. Creating a class called Constants. */
 
