@@ -233,8 +233,7 @@ class Constants
         foreach (file(DIR_PLUGIN . EXT_ENV) as $line) self::env($line);
 
         // Reporting
-        $_bugsnagClient = \Bugsnag\Client::make(ENV_BUG_SNAG_KEY);
-        define('BUGSNAG', $_bugsnagClient);
+        define('BUGSNAG', $_bugsnagClient = \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
         define('GUZZLE', new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE
