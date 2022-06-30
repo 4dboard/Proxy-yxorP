@@ -3,11 +3,6 @@
 
 namespace yxorP\inc;
 
-/* Importing the Bugsnag PHP library. */
-require 'bugsnag.phar';
-
-/* Loading the guzzle.phar file. */
-require './guzzle.phar';
 
 /* Defining constants. Creating a class called Constants. */
 
@@ -20,9 +15,16 @@ class Constants
      */
     public static function create($_dir)
     {
+
         /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_PLUGIN', $_dir . DIRECTORY_SEPARATOR);
+
+        /* Importing the Bugsnag PHP library. */
+        require DIR_PLUGIN . 'bugsnag.phar';
+
+        /* Loading the guzzle.phar file. */
+        require DIR_PLUGIN . 'guzzle.phar';
 
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
