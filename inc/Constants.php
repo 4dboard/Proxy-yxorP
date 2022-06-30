@@ -118,8 +118,8 @@ class Constants
         define('FILE_REWRITE_REPLACE', 'REWRITE_SEARCH');
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index');
-        /* Defining a constant called FILE_Constants::get(BUGSNAG) and setting it to the string 'Constants::get(BUGSNAG)'. */
-        define('FILE_Constants::get(BUGSNAG)', 'Constants::get(BUGSNAG)');
+        /* Defining a constant called FILE_BUGSNAG and setting it to the string 'bugsnag'. */
+        define('FILE_BUGSNAG', 'bugsnag');
         /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
         define('FILE_GUZZLE', 'guzzle');
 
@@ -194,6 +194,10 @@ class Constants
         define('TOKEN_REWRITE_REPLACE', 'INC_REWRITE_REPLACE');
         /* Defining a constant. */
         define('TOKEN_COCKPIT_INSTALL', 'COCKPIT_INSTALL');
+        /* Defining a constant called TOKEN_BUGSNAG and setting it to the string BUGSNAG. */
+        define('TOKEN_BUGSNAG', 'BUGSNAG');
+        /* Defining a constant called TOKEN_GUZZLE and setting it to the string 'GUZZLE'. */
+        define('TOKEN_GUZZLE', 'GUZZLE');
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
@@ -223,9 +227,10 @@ class Constants
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
 
         // INCLUDES
-        /* Importing the Constants::get(BUGSNAG) PHP library. */
-        require DIR_PLUGIN . DIR_INC . FILE_Constants::get(BUGSNAG) . EXT_PHAR;
-        /* Loading the guzzle.phar file. */
+
+        /* Loading the Bugsnag PHP library. */
+        require DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR;
+        /* Requiring the Guzzle library. */
         require DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR;
 
         // ENV
@@ -233,9 +238,8 @@ class Constants
         foreach (file(DIR_PLUGIN . EXT_ENV) as $line) self::env($line);
 
         // Reporting
-        $_Constants::get(BUGSNAG)Client = \Constants::get(BUGSNAG)\Client::make(ENV_BUG_SNAG_KEY);
-        define('Constants::get(BUGSNAG)', $_Constants::get(BUGSNAG)Client)
-        define('GUZZLE', new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+        self::set(TOKEN_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        self::set(TOKEN_GUZZLE, new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
@@ -244,8 +248,6 @@ class Constants
 
 
     }
-
-
     /* A function that is being called to fetch .env values. */
     /**
      * @param $line
