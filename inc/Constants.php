@@ -118,8 +118,11 @@ class Constants
         define('FILE_REWRITE_REPLACE', 'REWRITE_SEARCH');
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index');
-        bugsnag
-        guzzle
+        /* Defining a constant called FILE_BUGSNAG and setting it to the string 'bugsnag'. */
+        define('FILE_BUGSNAG', 'bugsnag');
+        /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
+        define('FILE_GUZZLE', 'guzzle');
+
 
         // PATHS
         /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_PLUGIN` with a `DIR_TMP` appended
