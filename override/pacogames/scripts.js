@@ -2601,12 +2601,12 @@ if (typeof gameNAMES === 'undefined') {
         let e = document.querySelectorAll("[data-bi]");
         for (i = 0; i < e.length; i++) e[i].style = 'background-image: url("https://data.xn--ply-onb.com/images/hp/' + e[i].getAttribute("data-bi");
         let t = document.querySelectorAll(".lazy-image");
+
         for (i = 0; i < t.length; i++) {
             t[i].classList.remove("lazy-image")
+            t[i].src = "https://data.xn--ply-onb.com/images/webp/" + t[i].getAttribute("data-src");
         }
 
-    ,
-        t[i].src = "https://data.xn--ply-onb.com/images/webp/" + t[i].getAttribute("data-src");
 
         let _swfGame = document.querySelector('#swfGame');
         if (_swfGame) {
