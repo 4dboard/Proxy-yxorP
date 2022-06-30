@@ -4,9 +4,9 @@
 use yxorP\Cache\Cache;
 use yxorP\inc\ActionWrapper;
 
-/* Importing the actionWrapper class from the yxorP\http namespace. Extending the actionWrapper class, which is a class that is used to wrap events. */
+/* Importing the ActionWrapper class from the yxorP\http namespace. Extending the ActionWrapper class, which is a class that is used to wrap events. */
 
-class readyCheckAction extends actionWrapper
+class readyCheckAction extends ActionWrapper
 {
     /* A function that is called when the event is checked. */
     public function onCheck(): string

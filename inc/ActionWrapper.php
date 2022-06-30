@@ -1,13 +1,12 @@
-<?php namespace yxorP\action;
+<?php namespace yxorP\inc;
 
 /* Importing the namespace `yxorP` into the current namespace. */
 
 use yxorP;
-use yxorP\inc\Constants;
 
 /* A wrapper for the events. */
 
-abstract class actionWrapper
+abstract class ActionWrapper
 {
     /* A property that is used to filter the events. */
     protected $url_pattern;

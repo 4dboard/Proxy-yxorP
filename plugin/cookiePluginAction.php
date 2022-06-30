@@ -1,13 +1,13 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the actionWrapper class. */
+/* Extending the ActionWrapper class. */
 
-class cookiePluginAction extends actionWrapper
+class cookiePluginAction extends ActionWrapper
 {
     /* A constant that is used to prefix the cookie name. */
     public const COOKIE_PREFIX = 'pc';

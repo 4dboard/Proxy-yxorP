@@ -1,15 +1,15 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the actionWrapper class. */
+/* Extending the ActionWrapper class. */
 
-class pluginLoaderAction extends actionWrapper
+class pluginLoaderAction extends ActionWrapper
 {
-    /* A method that is called by the actionWrapper class. */
+    /* A method that is called by the ActionWrapper class. */
     public function buildIncludes(): void
     {
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
@@ -21,7 +21,7 @@ class pluginLoaderAction extends actionWrapper
             /* Checking if the plugin is in the `DIR_PLUGIN` directory, if it is, it will load it. If it is not, it will
             check if the plugin is in the `yxorP\plugin` namespace. If it is, it will load it. */
             if (file_exists(DIR_PLUGIN . 'plugin' . DIRECTORY_SEPARATOR . $plugin . '.php')) require(DIR_PLUGIN . 'plugin' . DIRECTORY_SEPARATOR . $plugin . '.php'); elseif ('\\yxorP\\plugin\\' . $plugin) $plugin = '\\yxorP\\plugin\\' . $plugin;
-            /* Adding the plugin to the actionWrapper class. */
+            /* Adding the plugin to the ActionWrapper class. */
             $this->addSubscriber(new $plugin());
         }
     }

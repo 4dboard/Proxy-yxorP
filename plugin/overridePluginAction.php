@@ -1,5 +1,5 @@
 <?php
-/* Importing the `actionWrapper` class from the `yxorP\http` namespace. */
+/* Importing the `ActionWrapper` class from the `yxorP\http` namespace. */
 
 use yxorP\inc\ActionWrapper;
 use yxorP\http\GeneralHelper;
@@ -10,11 +10,11 @@ use yxorP\Minify\Minify;
 
 /* Importing the `Minify` class from the `yxorP\Minify` namespace. */
 
-/* Extending the `actionWrapper` class. */
+/* Extending the `ActionWrapper` class. */
 
-class overridePluginAction extends actionWrapper
+class overridePluginAction extends ActionWrapper
 {
-    /* Overriding the `onCompleted` method of the `actionWrapper` class. */
+    /* Overriding the `onCompleted` method of the `ActionWrapper` class. */
     public function onCompleted()
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */

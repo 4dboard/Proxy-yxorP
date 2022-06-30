@@ -1,12 +1,12 @@
 <?php
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the `actionWrapper` class. */
+/* Extending the `ActionWrapper` class. */
 
-class globalCollectionAction extends actionWrapper
+class globalCollectionAction extends ActionWrapper
 {
     /* A method that is called when the context is built. */
     public function onBuildContext(): void

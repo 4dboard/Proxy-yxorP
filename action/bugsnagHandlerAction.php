@@ -1,12 +1,12 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
 
-/* A class that extends the actionWrapper class. */
+/* A class that extends the ActionWrapper class. */
 
-class bugsnagHandlerAction extends actionWrapper
+class bugsnagHandlerAction extends ActionWrapper
 {
     /* A method that is called when an exception is thrown. */
     public function onBuildException($e): void
