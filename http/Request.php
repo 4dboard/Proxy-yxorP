@@ -38,6 +38,22 @@ class Request
 
     /* Setting the URL of the request. */
 
+    public function setUrl($url): void
+    {
+        $url = preg_replace('/#.*/', '', $url);
+        $query = parse_url($url, PHP_URL_QUERY);
+        if ($query) {
+            $url = str_replace('?' . $query, '', $url);
+            $url = preg_replace('/\?.*/', '', $url);
+            $result = self::parseQuery($query);
+            $this->get->replace($result);
+        }
+        $this->url = $url;
+        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
+    }
+
+    /* Parsing a query string into an array. */
+
     public static function parseQuery($query): array
     {
         $result = array();
@@ -45,7 +61,50 @@ class Request
         return $result;
     }
 
-    /* Parsing a query string into an array. */
+    /* Setting the body of the request. */
+
+    public function setBody($body, $content_type = false): void
+    {
+        $this->post->clear();
+        $this->files->clear();
+        if (is_array($body)) $body = http_build_query($body);
+        $this->body = (string)$body;
+        if ($content_type) $this->headers->set('content-type', $content_type);
+        $this->prepare();
+    }
+
+    /* Preparing the body of the request. */
+
+    public function prepare(): void
+    {
+        if ($this->files->all()) {
+            $boundary = self::generateBoundary();
+            $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
+            $this->headers->set('content-type', 'multipart/form-data; boundary=' . $boundary);
+        } else if ($this->post->all()) {
+            $this->prepared_body = http_build_query($this->post->all());
+            $this->headers->set('content-type', 'application/x-www-form-urlencoded');
+        } else {
+            $this->headers->set('content-type', $this->detectContentType($this->body));
+            $this->prepared_body = $this->body;
+        }
+
+        $len = strlen($this->prepared_body);
+
+        if ($len > 0) $this->headers->set('content-length', $len); else {
+            $this->headers->remove('content-length');
+            $this->headers->remove('content-type');
+        }
+    }
+
+    /* Generating a boundary for the multipart/form-data request. */
+
+    private static function generateBoundary(): string
+    {
+        return '-----' . md5(microtime() . mt_rand());
+    }
+
+    /* Building the body of the request. */
 
     public static function buildPostBody($fields, $files, $boundary = null): string
     {
@@ -85,7 +144,19 @@ class Request
         return $body;
     }
 
-    /* Setting the body of the request. */
+    /* Detecting the content type of the request. */
+
+    private function detectContentType($data): string
+    {
+        $content_type = 'application/octet-stream';
+        if (preg_match('/^{\s*"[^"]+"\s*:/', $data))
+            $content_type = 'application/json'; else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data))
+            $content_type = 'application/xml'; else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data))
+            $content_type = 'application/x-www-form-urlencoded';
+        return $content_type;
+    }
+
+    /* Creating a new request from the global variables. */
 
     public static function createFromGlobals(): Request
     {
@@ -109,94 +180,35 @@ class Request
         return $request;
     }
 
-    /* Preparing the body of the request. */
-
-    private static function generateBoundary(): string
-    {
-        return '-----' . md5(microtime() . mt_rand());
-    }
-
-    /* Generating a boundary for the multipart/form-data request. */
-
-    public function setUrl($url): void
-    {
-        $url = preg_replace('/#.*/', '', $url);
-        $query = parse_url($url, PHP_URL_QUERY);
-        if ($query) {
-            $url = str_replace('?' . $query, '', $url);
-            $url = preg_replace('/\?.*/', '', $url);
-            $result = self::parseQuery($query);
-            $this->get->replace($result);
-        }
-        $this->url = $url;
-        $this->headers->set('host', parse_url($url, PHP_URL_HOST));
-    }
-
-    /* Building the body of the request. */
-
-    public function setBody($body, $content_type = false): void
-    {
-        $this->post->clear();
-        $this->files->clear();
-        if (is_array($body)) $body = http_build_query($body);
-        $this->body = (string)$body;
-        if ($content_type) $this->headers->set('content-type', $content_type);
-        $this->prepare();
-    }
-
-    /* Detecting the content type of the request. */
-
-    public function prepare(): void
-    {
-        if ($this->files->all()) {
-            $boundary = self::generateBoundary();
-            $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
-            $this->headers->set('content-type', 'multipart/form-data; boundary=' . $boundary);
-        } else if ($this->post->all()) {
-            $this->prepared_body = http_build_query($this->post->all());
-            $this->headers->set('content-type', 'application/x-www-form-urlencoded');
-        } else {
-            $this->headers->set('content-type', $this->detectContentType($this->body));
-            $this->prepared_body = $this->body;
-        }
-
-        $len = strlen($this->prepared_body);
-
-        if ($len > 0) $this->headers->set('content-length', $len); else {
-            $this->headers->remove('content-length');
-            $this->headers->remove('content-type');
-        }
-    }
-
-    /* Creating a new request from the global variables. */
+    /* A getter method for the `$method` property. */
 
     public function getMethod(): string
     {
         return $this->method;
     }
 
-    /* A getter method for the `$method` property. */
+    /* Setting the method of the request. */
 
     public function setMethod($method): void
     {
         $this->method = strtoupper($method);
     }
 
-    /* Setting the method of the request. */
+    /* A getter method for the `$url` property. */
 
     public function getUrl(): string
     {
         return Constants::get('PROXY_URL');
     }
 
-    /* A getter method for the `$url` property. */
+    /* A getter method for the `$protocol_version` property. */
 
     public function getProtocolVersion(): string
     {
         return $this->protocol_version;
     }
 
-    /* A getter method for the `$protocol_version` property. */
+    /* Getting the raw headers of the request. */
 
     public function getRawHeaders(): string
     {
@@ -210,29 +222,17 @@ class Request
         return implode("\r\n", $result);
     }
 
-    /* Getting the raw headers of the request. */
+    /* Returning the prepared body of the request. */
 
     public function getRawBody(): string
     {
         return $this->prepared_body;
     }
 
-    /* Returning the prepared body of the request. */
+    /* An alias for `public function getUrl()`. */
 
     public function getUri()
     {
         return call_user_func_array(array($this, "getUrl"), func_get_args());
-    }
-
-    /* An alias for `public function getUrl()`. */
-
-    private function detectContentType($data): string
-    {
-        $content_type = 'application/octet-stream';
-        if (preg_match('/^{\s*"[^"]+"\s*:/', $data))
-            $content_type = 'application/json'; else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data))
-            $content_type = 'application/xml'; else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data))
-            $content_type = 'application/x-www-form-urlencoded';
-        return $content_type;
     }
 }
