@@ -28,10 +28,10 @@ class siteCollectionAction extends actionWrapper
         Constants::set('TARGET_DOMAIN', self::extractDomain(Constants::get('TARGET_URL')));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        Constants::set('FETCH', 'https:' . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(Constants::get('SITE_SUB_DOMAIN'))) ? (Constants::get('SITE_SUB_DOMAIN') . ".") : null) . Constants::get('TARGET_DOMAIN'));
+        Constants::set('FETCH', 'https:' . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(Constants::get('SITE_SUB_DOMAIN'))) ? (Constants::get('SITE_SUB_DOMAIN')->__toString() . ".") : null) . Constants::get('TARGET_DOMAIN')->__toString());
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `TOKEN_REQUEST_URI`
         variable appended to it. */
-        Constants::set('PROXY_URL', Constants::get('FETCH') . Constants::get(TOKEN_REQUEST_URI));
+        Constants::set('PROXY_URL', Constants::get('FETCH')->__toString() . Constants::get(TOKEN_REQUEST_URI)->__toString());
         /* Setting the `DIR_FULL` variable to the value of the `DIR_PLUGIN` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */

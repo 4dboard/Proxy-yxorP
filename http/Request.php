@@ -2,6 +2,7 @@
 
 /* Importing the namespace `yxorP` into the current namespace. */
 
+use JetBrains\PhpStorm\Pure;
 use yxorP;
 use yxorP\inc\Constants;
 
@@ -162,7 +163,7 @@ class Request
     {
         $method = CACHE_SERVER['REQUEST_METHOD'];
         $scheme = (isset(CACHE_SERVER['HTTPS']) && CACHE_SERVER['HTTPS']) ? 'https' : 'http';
-        $url = $scheme . ':' . Constants::get('PROXY_URL');
+        $url = $scheme . ':' . Constants::get('PROXY_URL')->__toString();
         $request = new Request($method, $url);
         foreach (CACHE_SERVER as $name => $value) if (str_starts_with($name, 'HTTP_')) {
             $name = substr($name, 5);
@@ -196,7 +197,7 @@ class Request
 
     /* A getter method for the `$url` property. */
 
-    public function getUrl(): string
+    #[Pure] public function getUrl(): string
     {
         return Constants::get('PROXY_URL');
     }

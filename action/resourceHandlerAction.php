@@ -14,6 +14,6 @@ class resourceHandlerAction extends actionWrapper
     {
         /* Checking if the MIME type is text/html and if it is not a document, then it will redirect the user to the proxy
               URL. */
-        if (Constants::get('MIME') === 'text' . DIRECTORY_SEPARATOR . 'html' && Constants::get('MIME') != "document") header("Location: " . Constants::get('PROXY_URL'));
+        if (Constants::get('MIME') === 'text' . DIRECTORY_SEPARATOR . 'html' && Constants::get('MIME') != "document") header("Location: " . Constants::get('PROXY_URL')->__toString());
     }
 }

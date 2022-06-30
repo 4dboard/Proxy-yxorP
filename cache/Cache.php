@@ -2,6 +2,7 @@
 
 /* Importing the namespace `yxorP` into the current namespace. */
 
+use JetBrains\PhpStorm\Pure;
 use yxorP;
 use yxorP\inc\Constants;
 
@@ -47,10 +48,10 @@ class Cache
 
     /* Used to check if the cache file exists. */
 
-    private function isExists(): bool
+    #[Pure] private function isExists(): bool
     {
         /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_TMP . Constants::get(CACHE_KEY));
+        return file_exists(PATH_DIR_TMP . Constants::get(CACHE_KEY)->__toString());
     }
 
     /* Used to get the data from the cache file. */
@@ -60,7 +61,7 @@ class Cache
         /* Used to check if the cache file is valid. */
         if (!$this->isValid()) return;
         /* Used to include the cache file. */
-        @include PATH_DIR_TMP . Constants::get(CACHE_KEY);
+        @include PATH_DIR_TMP . Constants::get(CACHE_KEY)->__toString();
     }
 
     /* Used to check if the cache file is valid. */
@@ -86,7 +87,7 @@ class Cache
     public function set($val): Cache
     {
         /* Used to write the data in the cache file. */
-        fclose(fwrite(fopen(PATH_DIR_TMP . Constants::get(CACHE_KEY), 'w'), '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;'));
+        fclose(fwrite(fopen(PATH_DIR_TMP . Constants::get(CACHE_KEY)->__toString(), 'w'), '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;'));
         /* Used to return the instance of the class. */
         return $this;
     }

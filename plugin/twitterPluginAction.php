@@ -10,7 +10,7 @@ class twitterPluginAction extends actionWrapper
 {
     /* A regular expression that will be used to match the URL. */
     /* A method that is called when the request is completed. */
-    protected $url_pattern = 'twitter.com';
+    protected string $url_pattern = 'twitter.com';
 
     public function onCompleted(): void
     {

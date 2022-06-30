@@ -11,7 +11,7 @@ use yxorP\inc\Constants;
 class dailyMotionPluginAction extends actionWrapper
 {
     /* Defining the URL pattern that the plugin will be applied to. */
-    protected $url_pattern = 'dailymotion.com';
+    protected string $url_pattern = 'dailymotion.com';
 
     /* A method that is called when the request is completed. */
 

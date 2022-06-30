@@ -9,7 +9,7 @@ use yxorP\inc\Constants;
 class youtubePluginAction extends actionWrapper
 {
     /* A regex pattern that will be used to match the url of the request. */
-    protected $url_pattern = 'youtube.com';
+    protected string $url_pattern = 'youtube.com';
 
     /* Setting the cookie and user-agent of the request. */
     public function onBeforeRequest(): void
