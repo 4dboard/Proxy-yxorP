@@ -1366,7 +1366,7 @@
                     const modals = document.querySelectorAll("[data-modal]");
 
                     modals.forEach(function (trigger) {
-                        trigger.addEventListener("click", function (event) {
+                        trigger.addEventListener("click", function () {
                             //event.preventDefault();
                             const modal = document.getElementById(trigger.dataset.modal);
                             modal.classList.add("phpdocumentor-modal__open");
