@@ -149,7 +149,10 @@ class Constants
         define('PATH_REWRITE_REPLACE', DIR_PLUGIN . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
         /* Defining the path to the bugsnag.phar file. */
         define('PATH_BUGSNAG_PHAR', DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
+        /* Defining the path to the guzzle phar file. */
         define('PATH_GUZZLE_PHAR', DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR);
+        /* Defining the path to the action wrapper file. */
+        define('PATH_ACTION_WRAPPER', DIR_PLUGIN . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
 
         //METHODS
         /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
@@ -231,14 +234,13 @@ class Constants
         define('RUNTIME_EXCEPTION', 'Directory "%s" was not created');
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
 
-        // INCLUDES
-
+        // REQUIRED
         /* Loading the Bugsnag PHP library. */
         require PATH_BUGSNAG_PHAR;
         /* Requiring the Guzzle library. */
         require PATH_GUZZLE_PHAR;
-
-        require DIR_PLUGIN . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHAR;
+        /* Requiring the file at the path specified by the constant PATH_ACTION_WRAPPER. */
+        require PATH_ACTION_WRAPPER;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
