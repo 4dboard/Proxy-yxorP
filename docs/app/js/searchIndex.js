@@ -1,15 +1,15 @@
 Search.appendIndex(
     [
         {
-            "fqsen": "\\bugsnagHandlerAction",
-            "name": "bugsnagHandlerAction",
+            "fqsen": "\\Constants::get(BUGSNAG)HandlerAction",
+            "name": "Constants::get(BUGSNAG)HandlerAction",
             "summary": "",
-            "url": "classes/bugsnagHandlerAction.html"
+            "url": "classes/Constants::get(BUGSNAG)HandlerAction.html"
         }, {
-        "fqsen": "\\bugsnagHandlerAction\u003A\u003AonBuildException\u0028\u0029",
+        "fqsen": "\\Constants::get(BUGSNAG)HandlerAction\u003A\u003AonBuildException\u0028\u0029",
         "name": "onBuildException",
         "summary": "",
-        "url": "classes/bugsnagHandlerAction.html#method_onBuildException"
+        "url": "classes/Constants::get(BUGSNAG)HandlerAction.html#method_onBuildException"
     }, {
         "fqsen": "\\cacheStoreAction",
         "name": "cacheStoreAction",

@@ -50,8 +50,8 @@ Parrelelle</b>) that are both rapid and scalable.
 php ./server.php
 ```
 
-The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
-was done to assure Bugsnag's compatibility with the modification. Changes to the <b>default logging</b> system may be
+The Constants::get(BUGSNAG) error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
+was done to assure Constants::get(BUGSNAG)'s compatibility with the modification. Changes to the <b>default logging</b> system may be
 done in as little as two minutes due to the program's compatibility with the great majority of the <b>industry's primary
 error tracking systems</b>.
 
@@ -209,11 +209,11 @@ There are several additional uses that may be explored, and these are only a few
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 <img alt="image" src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png"/>
 
-Bugsnag provides a solution for error monitoring and application stability management that is easy to use and implement.
+Constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to use and implement.
 The ability to make data-driven decisions about whether to develop software or address problems is contingent on the
 ability to maintain stability.
 
-<img alt="image" src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Bugsnag.gif"/>
+<img alt="image" src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Constants::get(BUGSNAG).gif"/>
 
 Diagnostic data from our mobile assistance, which has been regarded as the best-in-/**
 

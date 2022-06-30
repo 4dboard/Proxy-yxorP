@@ -118,8 +118,8 @@ class Constants
         define('FILE_REWRITE_REPLACE', 'REWRITE_SEARCH');
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index');
-        /* Defining a constant called FILE_BUGSNAG and setting it to the string 'bugsnag'. */
-        define('FILE_BUGSNAG', 'bugsnag');
+        /* Defining a constant called FILE_Constants::get(BUGSNAG) and setting it to the string 'Constants::get(BUGSNAG)'. */
+        define('FILE_Constants::get(BUGSNAG)', 'Constants::get(BUGSNAG)');
         /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
         define('FILE_GUZZLE', 'guzzle');
 
@@ -223,8 +223,8 @@ class Constants
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
 
         // INCLUDES
-        /* Importing the Bugsnag PHP library. */
-        require DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR;
+        /* Importing the Constants::get(BUGSNAG) PHP library. */
+        require DIR_PLUGIN . DIR_INC . FILE_Constants::get(BUGSNAG) . EXT_PHAR;
         /* Loading the guzzle.phar file. */
         require DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR;
 
@@ -233,8 +233,8 @@ class Constants
         foreach (file(DIR_PLUGIN . EXT_ENV) as $line) self::env($line);
 
         // Reporting
-        $_bugsnagClient = \Bugsnag\Client::make(ENV_BUG_SNAG_KEY);
-        define('BUGSNAG', $_bugsnagClient);
+        $_Constants::get(BUGSNAG)Client =  \Constants::get(BUGSNAG)\Client::make(ENV_BUG_SNAG_KEY);
+        define('Constants::get(BUGSNAG)', $_Constants::get(BUGSNAG)Client);
         define('GUZZLE', new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE

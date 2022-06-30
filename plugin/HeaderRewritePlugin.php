@@ -39,8 +39,8 @@ class HeaderRewritePlugin extends EventWrapper
         if ($response->headers->has('location')) self::headersReceived($response, $request_url);
         $code = $response->getStatusCode();
         /* It's checking if the status code of the response is between 400 and 600 and if it is, it's sending an error to
-        Bugsnag. */
-        if ($code >= 400 && $code <= 600) BUGSNAG->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
+        Constants::get(BUGSNAG). */
+        if ($code >= 400 && $code <= 600) Constants::get(BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
         /* It's an array of headers that should be forwarded to the client. */
         $forward_headers = array('content-type', 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
         /* It's removing all headers that aren't in the `$forward_headers` array. */
