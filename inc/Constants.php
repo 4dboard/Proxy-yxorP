@@ -74,13 +74,15 @@ class Constants
 
         // EXTENSIONS
         /* Defining a constant called `EXT_CSV` and setting it to the value of `.csv`. */
-        define('EXT_CSV', ' . csv');
+        define('EXT_CSV', CHAR_PERIOD . 'csv');
         /* Defining a constant called `EXT_PHP` and setting it to the value of `.php`. */
-        define('EXT_PHP', ' . php');
+        define('EXT_PHP', CHAR_PERIOD . 'php');
         /* Defining a constant called `EXT_TMP` and setting it to the value of `.tmp`. */
-        define('EXT_TMP', ' . tmp');
+        define('EXT_TMP', CHAR_PERIOD . 'tmp');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
-        define('EXT_ENV', ' . env');
+        define('EXT_ENV', CHAR_PERIOD . 'env');
+        /* Defining a constant. */
+        define('EXT_PHAR', CHAR_PERIOD . 'phar');
 
         // EVENTS
         /* Defining a constant called `EVENT_BUILD_CACHED` and setting it to the value of `request.build_cached`. */
@@ -116,6 +118,8 @@ class Constants
         define('FILE_REWRITE_REPLACE', 'REWRITE_SEARCH');
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index');
+        bugsnag
+        guzzle
 
         // PATHS
         /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_PLUGIN` with a `DIR_TMP` appended
