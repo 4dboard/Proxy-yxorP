@@ -249,7 +249,7 @@ class Constants
         /* Exploding the $line variable into an array of two elements. */
         [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
         /* Replacing all the new lines with null. */
-        self::set($name . EXT_ENV, str_replace("\r\n", null, $value));
+        self::set($name . EXT_ENV, str_replace("\r\n", "", $value));
     }
 
     /* Setting the value of the variable $_name to the value of the variable $_value. */
