@@ -3,6 +3,7 @@
 
 use yxorP\http\EventWrapper;
 use yxorP\http\GeneralHelper;
+use yxorP\inc\Constants;
 use yxorP\Minify\Minify;
 
 /* Importing the `GeneralHelper` class from the `yxorP\http` namespace. */
@@ -26,7 +27,7 @@ class OverridePlugin extends EventWrapper
     public function REWRITE($content): string
     {
         /* Minifying the content of the response. */
-        return (Minify::createDefault())->process(Constants::get('MIME') !== 'text/html' ? $content : preg_replace_callback("(\<(p|span|div|li|ul)(.*)\>(.*)\<\/(p|span|div|li|ul)\>)", static function ($m) {
+        return (Minify::createDefault())->process(Constants::get('MIME') !== 'text/html' ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
             /* Replacing the content of the response with the content of the `REWRITE` method. */
             return str_replace(Constants::get(TOKEN_REWRITE_SEARCH), Constants::get(TOKEN_REWRITE_REPLACE), $m[3]);
         }, $content));

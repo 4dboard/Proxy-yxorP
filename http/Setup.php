@@ -1,4 +1,7 @@
 <?php
+
+use yxorP\inc\Constants;
+
 require(DIR_PLUGIN . 'cockpit/bootstrap.php');
 
 /* A class that is used to install the Cockpit CMS. */

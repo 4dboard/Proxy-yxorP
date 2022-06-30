@@ -3,9 +3,13 @@
 /* Importing the namespace `yxorP` into the current namespace. */
 
 use yxorP;
+use yxorP\inc\Constants;
 
 /* A class that represents an HTTP request. */
 
+/**
+ * @property array|string|string[]|null $url
+ */
 class Request
 {
     public ParamStore $params;

@@ -2,6 +2,7 @@
 /* Importing the EventWrapper class from the yxorP\http namespace. */
 
 use yxorP\http\EventWrapper;
+use yxorP\inc\Constants;
 
 /* A class that extends the EventWrapper class. */
 

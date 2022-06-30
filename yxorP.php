@@ -4,6 +4,8 @@ namespace yxorP;
 
 /* Importing the Constants class from the inc folder. */
 
+use MongoDB\Driver\Monitoring\Subscriber;
+use yxorP\http\GeneralHelper;
 use yxorP\inc\Constants;
 
 /* Loading the required files. */
@@ -19,7 +21,7 @@ class yxorP
 {
     /* It's a singleton. */
     /**
-     * @var yxorP
+     * @var yxorP|null
      */
     private static yxorP $yxorP;
     /* It's an array of events that will be triggered. */

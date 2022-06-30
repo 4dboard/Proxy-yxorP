@@ -3,6 +3,7 @@
 /* Importing the namespace `yxorP` into the current namespace. */
 
 use yxorP;
+use yxorP\inc\Constants;
 
 
 /* A class that is used to cache data. */

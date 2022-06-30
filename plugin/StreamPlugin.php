@@ -3,6 +3,7 @@
 /* Importing the EventWrapper class from the yxorP\http namespace. */
 
 use yxorP\http\EventWrapper;
+use yxorP\inc\Constants;
 
 /* Extending the EventWrapper class, which is a class that allows you to listen to events. */
 

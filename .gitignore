@@ -11,10 +11,8 @@
 /yarn-error.log
 /bootstrap/compiled.php
 /app/storage
-/vendor
 /nbproject
 /yomama
-/vendor
 /.cache
 /.idea
 /.phpdoc

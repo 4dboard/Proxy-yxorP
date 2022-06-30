@@ -134,7 +134,6 @@ class Constants
         define('PATH_COCKPIT_INDEX', DIR_PLUGIN . DIR_COCKPIT . FILE_INDEX . EXT_PHP);
         /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_PLUGIN` with a `DIR_COCKPIT`
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
-        define('PATH_COCKPIT_INDEX', DIR_PLUGIN . DIR_COCKPIT . FILE_INDEX . EXT_PHP);
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_PLUGIN` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_SEARCH', DIR_PLUGIN . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);

@@ -3,6 +3,7 @@
 /* Importing the Constants class from the yxorP\inc namespace. */
 
 use JetBrains\PhpStorm\Pure;
+use yxorP\cache\Cache;
 use yxorP\inc\Constants;
 use function array_map;
 use function array_merge;
@@ -116,7 +117,7 @@ class GeneralHelper
     /* It's returning the application URL. */
     #[Pure] public static function app_url(): string
     {
-        return 'https:' . Constants::get('SITE_HOST') . CACHE_SERVER['PHP_SELF'];
+        return 'https:' . Constants::get('SITE_HOST')->__toString() . CACHE_SERVER['PHP_SELF'];
     }
 
     /* It's replacing the `{$var}` with the `$var` value. */
@@ -243,7 +244,7 @@ class GeneralHelper
     /* It's extracting the domain from the `$domain`. */
     public static function extractDomain($domain)
     {
-        if (str_contains($domain, CHAR_PERIOD)) if (preg_match("/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z\.]{2,6})$/i", $domain, $matches)) return $matches['domain']; else   return $domain; else  return $domain;
+        if (str_contains($domain, CHAR_PERIOD)) if (preg_match("/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i", $domain, $matches)) return $matches['domain']; else   return $domain; else  return $domain;
     }
 
 }
