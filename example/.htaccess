@@ -326,8 +326,8 @@ php_flag zend.ze1_compatibility_mode Off
 </IfModule>
 <IfModule mod_rewrite.c>
 RewriteCond %{THE_REQUEST} ^.*/index.php
-RewriteRule ^(.*)index.php$ http://www.yourdomain.com/$1 [R=301,L]
-redirect 301 /home http://www.yourdomain.com
+RewriteRule ^(.*)index.php$ https:// [R=301,L]
+redirect 301 /home https://
 Options +FollowSymLinks
 RewriteEngine on
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
