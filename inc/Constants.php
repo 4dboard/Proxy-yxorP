@@ -233,8 +233,8 @@ class Constants
         foreach (file(DIR_PLUGIN . EXT_ENV) as $line) self::env($line);
 
         // Reporting
-        define('BUGSNAG', Client::make(ENV_BUG_SNAG_KEY));
-        define('GUZZLE', new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+        define('BUGSNAG', Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        define('GUZZLE', new Guzzle\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
