@@ -66,9 +66,7 @@ class yxorP
     {
         /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
         if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        if (file_exists(DIR_PLUGIN . DIR_ACTION . $action))
-            require(DIR_PLUGIN . DIR_ACTION . $action);
-        elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
+        if (file_exists(DIR_PLUGIN . DIR_ACTION . $action)) require(DIR_PLUGIN . DIR_ACTION . $action); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
         /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
         function. */
         $this->addSubscriber(new $action());
