@@ -1,43 +1,10 @@
 setTimeout(function () {
-    document.querySelector('html')./**
-
-     * {@inlinetag}
-
-     * this is @not a standardtag - must begin a line.
-
-     * this is a valid {@inlinetag} also
-
-     * @standardtag
-
-     */
-        classList.add('don')
+    document.querySelector('html').classList.add('don')
 }, 100);
 
 
 window.addEventListener("beforeinstallprompt", t => (function (t) {
-    return window.matchMedia("(display-mode: standalone)").matches ? (document.querySelector(".welcomeMsg")./**
-
-     * {@inlinetag}
-
-     * this is @not a standardtag - must begin a line.
-
-     * this is a valid {@inlinetag} also
-
-     * @standardtag
-
-     */
-        classList.add("activation"), createEl("welcomeMsg", "WELCOME TO OUR APP"), t.preventDefault()) : (createEl("installMsg", "<span><b>CLICK HERE</b> TO INSTALL THIS APP ON YOUR DEVICE</span>"), document.querySelector(".installMsg").onclick = (n => t.prompt()), t.preventDefault(), document.querySelector(".installMsg")./**
-
-     * {@inlinetag}
-
-     * this is @not a standardtag - must begin a line.
-
-     * this is a valid {@inlinetag} also
-
-     * @standardtag
-
-     */
-        classList.add("activation"))
+    return window.matchMedia("(display-mode: standalone)").matches ? (document.querySelector(".welcomeMsg").classList.add("activation"), createEl("welcomeMsg", "WELCOME TO OUR APP"), t.preventDefault()) : (createEl("installMsg", "<span><b>CLICK HERE</b> TO INSTALL THIS APP ON YOUR DEVICE</span>"), document.querySelector(".installMsg").onclick = (n => t.prompt()), t.preventDefault(), document.querySelector(".installMsg").classList.add("activation"))
 }));
 
 function octo() {
@@ -387,62 +354,14 @@ var Notyf = function () {
     var r = {
         types: [{
             type: "success",
-            /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
             className: "notyf__toast--success",
             backgroundColor: "#3dc763",
-            icon: {
-                /**
-
-                 * {@inlinetag}
-
-                 * this is @not a standardtag - must begin a line.
-
-                 * this is a valid {@inlinetag} also
-
-                 * @standardtag
-
-                 */
-                className: "notyf__icon--success", tagName: "i"
-            }
+            icon: {className: "notyf__icon--success", tagName: "i"}
         }, {
             type: "error",
-            /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
             className: "notyf__toast--error",
             backgroundColor: "#ed3d3d",
-            icon: {
-                /**
-
-                 * {@inlinetag}
-
-                 * this is @not a standardtag - must begin a line.
-
-                 * this is a valid {@inlinetag} also
-
-                 * @standardtag
-
-                 */
-                className: "notyf__icon--error", tagName: "i"
-            }
+            icon: {className: "notyf__icon--error", tagName: "i"}
         }], duration: 2e3, ripple: !0, position: {x: "right", y: "bottom"}, dismissible: !(i.Click = "click")
     }, c = (p.prototype.on = function (t, i) {
         var e;
@@ -451,48 +370,15 @@ var Notyf = function () {
         i === e.Add ? this.addNotification(t) : i === e.Remove && this.removeNotification(t)
     }, p.prototype.removeNotification = function (t) {
         var i, e, n = this, t = this._popRenderedNotification(t);
-        t && ((e = t.node)./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            classList.add("notyf__toast--disappear"), e.addEventListener(this.animationEndEventName, i = function (t) {
+        t && ((e = t.node).classList.add("notyf__toast--disappear"), e.addEventListener(this.animationEndEventName, i = function (t) {
             t.target === e && (e.removeEventListener(n.animationEndEventName, i), n.container.removeChild(e))
         }))
     }, p.prototype.addNotification = function (t) {
         var i = this._renderNotification(t);
         this.notifications.push({notification: t, node: i}), this._announce(t.options.message || "Notification")
     }, p.prototype._renderNotification = function (t) {
-        var i = this._buildNotificationCard(t), e = t.options./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            className;
-        return e && (t = i./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            classList).add.apply(t, e.split(" ")), this.container.appendChild(i), i
+        var i = this._buildNotificationCard(t), e = t.options.className;
+        return e && (t = i.classList).add.apply(t, e.split(" ")), this.container.appendChild(i), i
     }, p.prototype._popRenderedNotification = function (t) {
         for (var i = -1, e = 0; e < this.notifications.length && i < 0; e++) this.notifications[e].notification === t && (i = e);
         if (-1 !== i) return this.notifications.splice(i, 1)[0]
@@ -507,139 +393,21 @@ var Notyf = function () {
     }, p.prototype._buildNotificationCard = function (n) {
         var o = this, t = n.options, i = t.icon;
         this.adjustContainerAlignment(t);
-        var e = this._createHTMLElement({
-                tagName: "div", /**
-
-                 * {@inlinetag}
-
-                 * this is @not a standardtag - must begin a line.
-
-                 * this is a valid {@inlinetag} also
-
-                 * @standardtag
-
-                 */
-                className: "notyf__toast"
-            }),
-            s = this._createHTMLElement({
-                tagName: "div", /**
-
-                 * {@inlinetag}
-
-                 * this is @not a standardtag - must begin a line.
-
-                 * this is a valid {@inlinetag} also
-
-                 * @standardtag
-
-                 */
-                className: "notyf__ripple"
-            }),
-            a = this._createHTMLElement({
-                tagName: "div", /**
-
-                 * {@inlinetag}
-
-                 * this is @not a standardtag - must begin a line.
-
-                 * this is a valid {@inlinetag} also
-
-                 * @standardtag
-
-                 */
-                className: "notyf__wrapper"
-            }),
-            r = this._createHTMLElement({
-                tagName: "div", /**
-
-                 * {@inlinetag}
-
-                 * this is @not a standardtag - must begin a line.
-
-                 * this is a valid {@inlinetag} also
-
-                 * @standardtag
-
-                 */
-                className: "notyf__message"
-            });
+        var e = this._createHTMLElement({tagName: "div", className: "notyf__toast"}),
+            s = this._createHTMLElement({tagName: "div", className: "notyf__ripple"}),
+            a = this._createHTMLElement({tagName: "div", className: "notyf__wrapper"}),
+            r = this._createHTMLElement({tagName: "div", className: "notyf__message"});
         r.innerHTML = t.message || "";
         var c, p, d, l, u = t.background || t.backgroundColor;
         i && (c = this._createHTMLElement({
-            tagName: "div", /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
-            className: "notyf__icon"
-        }), ("string" === typeof i || i instanceof String) && (c.innerHTML = String(i).valueOf()), "object" === typeof i && (p = i.tagName, d = i./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            className, l = i.text, i = void 0 === (i = i.color) ? u : i, l = this._createHTMLElement({
-            tagName: void 0 === p ? "i" : p, /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
-            className: d, text: l
+            tagName: "div", className: "notyf__icon"
+        }), ("string" === typeof i || i instanceof String) && (c.innerHTML = String(i).valueOf()), "object" === typeof i && (p = i.tagName, d = i.className, l = i.text, i = void 0 === (i = i.color) ? u : i, l = this._createHTMLElement({
+            tagName: void 0 === p ? "i" : p, className: d, text: l
         }), i && (l.style.color = i), c.appendChild(l)), a.appendChild(c)), a.appendChild(r), e.appendChild(a), u && (t.ripple ? (s.style.background = u, e.appendChild(s)) : e.style.background = u), t.dismissible && (s = this._createHTMLElement({
-            tagName: "div", /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
-            className: "notyf__dismiss"
+            tagName: "div", className: "notyf__dismiss"
         }), u = this._createHTMLElement({
-            tagName: "button", /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
-            className: "notyf__dismiss-btn"
-        }), s.appendChild(u), a.appendChild(s), e./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            classList.add("notyf__toast--dismissible"), u.addEventListener("click", function (t) {
+            tagName: "button", className: "notyf__dismiss-btn"
+        }), s.appendChild(u), a.appendChild(s), e.classList.add("notyf__toast--dismissible"), u.addEventListener("click", function (t) {
             var i, e;
             null !== (e = (i = o.events)[f.Dismiss]) && void 0 !== e && e.call(i, {
                 target: n, event: t
@@ -649,58 +417,12 @@ var Notyf = function () {
             return null === (e = (i = o.events)[f.Click]) || void 0 === e ? void 0 : e.call(i, {target: n, event: t})
         });
         t = "top" === this.getYPosition(t) ? "upper" : "lower";
-        return e./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            classList.add("notyf__toast--" + t), e
+        return e.classList.add("notyf__toast--" + t), e
     }, p.prototype._createHTMLElement = function (t) {
-        var i = t.tagName, e = t./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            className, t = t.text, i = document.createElement(i);
-        return e && (i./**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-            className = e), i.textContent = t || null, i
+        var i = t.tagName, e = t.className, t = t.text, i = document.createElement(i);
+        return e && (i.className = e), i.textContent = t || null, i
     }, p.prototype._createA11yContainer = function () {
-        var t = this._createHTMLElement({
-            tagName: "div", /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
-            className: "notyf-announcer"
-        });
+        var t = this._createHTMLElement({tagName: "div", className: "notyf-announcer"});
         t.setAttribute("aria-atomic", "true"), t.setAttribute("aria-live", "polite"), t.style.border = "0", t.style.clip = "rect(0 0 0 0)", t.style.height = "1px", t.style.margin = "-1px", t.style.overflow = "hidden", t.style.padding = "0", t.style.position = "absolute", t.style.width = "1px", t.style.outline = "0", document.body.appendChild(t), this.a11yContainer = t
     }, p.prototype._announce = function (t) {
         var i = this;
@@ -722,20 +444,7 @@ var Notyf = function () {
         this.notifications = [], this.events = {}, this.X_POSITION_FLEX_MAP = {
             left: "flex-start", center: "center", right: "flex-end"
         }, this.Y_POSITION_FLEX_MAP = {top: "flex-start", center: "center", bottom: "flex-end"};
-        var t = document.createDocumentFragment(), i = this._createHTMLElement({
-            tagName: "div", /**
-
-             * {@inlinetag}
-
-             * this is @not a standardtag - must begin a line.
-
-             * this is a valid {@inlinetag} also
-
-             * @standardtag
-
-             */
-            className: "notyf"
-        });
+        var t = document.createDocumentFragment(), i = this._createHTMLElement({tagName: "div", className: "notyf"});
         t.appendChild(i), document.body.appendChild(t), this.container = i, this.animationEndEventName = this._getAnimationEndEventName(), this._createA11yContainer()
     }
 
@@ -813,146 +522,9 @@ function checkFor(e, t, i, c, l) {
     if (l && typeof l === 'function' && document.querySelectorAll('#' + i).length) return l();
 }
 
-headxr = "<a href='/'><img height='20px' src='/don.png?ver=001' /></a> <n id='nav'><a /**
+headxr = "<a href='/'><img height='20px' src='/don.png?ver=001' /></a> <n id='nav'><a class='g'  href='https://www.xn--gme-nnb.com/'>Game.com</a><a class='p'  href='https://www.xn--ply-onb.com/'>Play.com</a></n><m>You make the impossible possible on our site every day, no matter where you are!<m>";
 
-    * {@inlinetag}
-
-    * this
-is
-@not
-a
-standardtag - must
-begin
-a
-line.
-
-* this
-is
-a
-valid
-{@inlinetag
-}
-also
-
-* @standardtag
-
-* /
-class = 'g'
-href = 'https://www.xn--gme-nnb.com/' > Game.com < /a><a/ * *
-
-    * {@inlinetag}
-
-    * this
-is
-@not
-a
-standardtag - must
-begin
-a
-line.
-
-* this
-is
-a
-valid
-{@inlinetag
-}
-also
-
-* @standardtag
-
-* /
-class = 'p'
-href = 'https://www.xn--ply-onb.com/' > Play.com < /a></
-n > < m > You
-make
-the
-impossible
-possible
-on
-our
-site
-every
-day, no
-matter
-where
-you
-are
-! < m > ";
-
-clxds = "<z /**
-
-    * {@inlinetag}
-
-    * this
-is
-@not
-a
-standardtag - must
-begin
-a
-line.
-
-* this
-is
-a
-valid
-{@inlinetag
-}
-also
-
-* @standardtag
-
-* /
-class = 'clouds-1' > < /z> <z/ * *
-
-    * {@inlinetag}
-
-    * this
-is
-@not
-a
-standardtag - must
-begin
-a
-line.
-
-* this
-is
-a
-valid
-{@inlinetag
-}
-also
-
-* @standardtag
-
-* /
-class = 'clouds-2' > < /z> <z/ * *
-
-    * {@inlinetag}
-
-    * this
-is
-@not
-a
-standardtag - must
-begin
-a
-line.
-
-* this
-is
-a
-valid
-{@inlinetag
-}
-also
-
-* @standardtag
-
-* /
-class = 'clouds-3' > < /z>";
+clxds = "<z class='clouds-1'></z> <z class='clouds-2'></z> <z class='clouds-3'></z>";
 
 function onChangePlay() {
     if (document.querySelectorAll('img[alt="Error"]').length) window.location = window.location.href
@@ -988,452 +560,7 @@ onChangePlay();
     }
 
     function a0_0x131d() {
-        var _0x2e16aa = ['__cpOriginalGetRegistration', '(((.+)+)+)+$', 'No\x20configurable\x20descriptor\x20for\x20object\x20', 'recodeUrnPath', 'getRegistration', '\x22\x20he\x20was\x20assigned\x20to\x20\x22', 'URNs\x20do\x20not\x20have\x20any\x20generally\x20defined\x20hierarchical\x20components', 'username', 'position', 'getTime', 'scroll', 'directory', 'inet6', 'cid', 'blur', 'getPropertyValue', '__cpOriginalRegister', 'prototype', '[Ã°-Ã·][\u0080-Â¿]{3}', 'version', 'prepend', 'submit', 'ServiceWorkerContainer', 'hasAttribute', 'initCookie', 'absoluteTo', 'noConflict', 'HTMLLinkElement', 'join', 'auto', 'absolute', 'hostname', '#__cpsHeaderZapper', 'decodePath', 'sandbox', 'URI.hasQuery()\x20accepts\x20a\x20string,\x20regular\x20expression\x20or\x20object\x20as\x20the\x20name\x20parameter', 'concat', 'withinString', ',\x20possible\x20result\x20is\x20', 'window', 'translateY(', 'clearEvent', 'replaceChild', 'cache', 'domain', 'px)', 'build', 'IPv6', 'password', 'No\x20method\x20', 'History', 'href', 'HTMLIFrameElement', 'Number', 'Navigator', 'readable', 'duplicated\x20init', 'Location', 'charAt', 'extendString', 'Launching\x20CroxyProxy\x20advertisement...', 'Cookie', '\x22,\x20must\x20be\x200-based\x20integer', '_parts', 'initUi', '[CP\x20', 'colorDepth', 'removeSearch', 'encodeURI', '\x22></iframe>', 'URI\x20is\x20already\x20relative', 'initMouseEvent', 'overflow-y', 'FAB', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.-]\x20and\x20Punycode.js\x20is\x20not\x20available', '\x27).then(function\x20(response)\x20{\x20if\x20(response.ok)\x20{\x20response.text().then((body)\x20=>\x20{\x20eval.call(window,\x20body);\x20});\x20}});\x20}\x20catch\x20(e)\x20{\x20console.warn(\x27CP\x20Worker\x20Error:\x20\x27\x20+\x20e.message);\x20}}}', 'lastIndex', 'SecondLevelDomains', 'function', 'clearInterval', 'Popup', 'search', 'childList', 'getElementById', '443', 'Bait\x20has\x20been\x20created', 'end', 'show', 'log', '/**
-
-        * {@inlinetag}
-
-        * this is @not a standardtag - must begin a line.
-
-        * this is a valid {@inlinetag} also
-
-        * @standardtag
-
-        * /
-        classList', 'URI', 'popstate', '40Ozdkxa', 'fromCharCode', 'permalink', ' / __cpw.php ? u = ', 'urn', 'pageYOffset', 'buildAuthority', ' < iframe\x20/**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class
-
-        =\x22__cpsInfoFrame\x22\x20src =\x22 / __cpp.php ? page = terms\x22 > < /iframe><button\x20id=\x22__cpsButtonOk\x22\x20/ * *
-
-        * {@inlinetag}
-
-        * this
-        is
-    @not
-        a
-        standardtag - must
-        begin
-        a
-        line.
-
-        * this
-        is
-        a
-        valid
-        {@inlinetag
-        }
-        also
-
-        * @standardtag
-
-        * /
-        class =\x22__cpsButton\x20__cpsMainButton\x22 > I\x20agree < /button>', 'GA\x20hit:\x20', 'escapeQuerySpace', 'block', '2.4.3', 'buildUserinfo', 'isArray', '13622MBIUZX', 'amd', 'importScripts(\x27', 'loop', 'oMatchesSelector', 'sessionEndRedirectUrl', 'setAttribute', 'HTMLMediaElement', 'document', 'data:text/
-        html, <script>window.close();</script>;
-        ', '
-        hide
-        ', '
-        abp
-        ', '
-        _checkBait
-        ', '
-        __chromeNewWindowOptions
-        ', '
-        data-- - cpt
-        ', '
-        target
-        ', '
-        serviceWorkerUrl
-        ', '
-        message
-        ', '
-        parseQuery
-        ', '
-        afterOpen
-        ', '
-        JSON.stringify\x20failed\x20with\x20the\x20error:\
-        x20
-        ', '
-        parentElement
-        ', '
-        port
-        ', '
-        invalid\x20input
-        ', '
-        equals
-        ', '
-        zapperOrigin
-        ', '
-        duplicateQueryParameters
-        ', '
-        attribute
-        ', '
-        push
-        ', '
-        Bait\x20has\x20been\x20removed
-        ', '
-        screen
-        ', '
-        check
-        ', '
-        metaKey
-        ', '
-        decodePathSegment
-        ', '
-        resolve
-        ', '
-        slice
-        ', '
-        body
-        ', '
-        1991430
-        aRIjcA
-        ', '
-        normalizeHostname
-        ', '
-        adsJson
-        ', '
-        _stopLoop
-        ', '
-        ignoreHtml
-        ', '
-        replaceState
-        ', '
-        bind
-        ', '
-        authority
-        ', '
-        __cpsHeaderTab
-        ', '
-        Navigated\x20to\x20
-        ', '
-        match
-        ', '
-        has
-        ', '
-        type
-        ', '
-        origin
-        ', '
-        The\x20event\x20list\x20has\x20been\x20cleared
-        ', '
-        createEvent
-        ', '
-        preventDefault
-        ', '
-        name
-        ', '
-        toUnicode
-        ', ' < iframe\x20scrolling =\x22no\x22\x20sandbox =\x22allow - forms\x20allow - popups\x20allow - popups - to - escape - sandbox\x20allow - scripts\x20allow - same - origin\x22\x20id =\x22
-        ', '
-        offsetHeight
-        ', '
-        create
-        ', '
-        detected
-        ', '
-        __cpOriginal
-        ', '
-        buildQueryParameter
-        ', '
-        appendChild
-        ', '
-        important
-        ', '
-        __cpsUrl
-        ', '
-        apply
-        ', '
-        B64
-        ', ' % 23
-        ', '
-        scope
-        ', '
-        transitionend
-        ', '
-        __cpsPermalinkButton
-        ', '
-        index
-        ', '
-        sessionTtl
-        ', '
-        HTMLAreaElement
-        ', '
-    ://', 'insertAdjacentHTML', 'Object', 'sync', 'about:blank', 'visible', 'Wrong\x20CPO\x20hash\x20supplied,\x20url:\x20', 'suffix', 'normalizeProtocol', 'querySelectorAll', 'UrnPathSegment', 'headerClosed', '\x27);\x20}\x20catch\x20(e)\x20{\x20if\x20(e.name\x20===\x20\x27NetworkError\x27)\x20{console.warn(\x27CP\x20worker\x20error:\x20\x27\x20+\x20e.message\x20+\x20\x27.\x20Trying\x20the\x20eval\x20method...\x27);try\x20{\x20fetch(\x27', 'fragment', 'No\x20permalink\x20defined\x20for\x20this\x20window', 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx', 'resetOnEnd', '__cpn', 'navigator', '264619JsaOft', 'String', 'scrollTop', 'application/javascript', '_string', 'dispatchEvent', 'div', 'select', 'punycode_expression', 'defaultPorts', 'atob', 'Scope', '_creatBait', 'transform', 'setProperty', 'warn', 'nextNode', 'fuckAdBlock', 'stack', 'ipv6', 'after', '\x5c$&', 'ignore', 'defaultPopOptions', '23305428PLyeSt', 'keydown', '[CP]', 'Invalid\x20url\x20', 'hash', 'translateY(-', 'Adblock:\x20', 'HTMLAnchorElement', 'method', 'An\x20event\x20with\x20a\x20', 'sw\x20unregister\x20called,\x20trying\x20to\x20re-install\x20the\x20default\x20worker\x20if\x20needed\x20for:\x20', 'string', 'No\x20ad\x20code\x20container\x20#', 'tagName', '0.2s', 'keyup', 'chrome', 'pop', '__cpsButtonOk', 'event', 'The\x20option\x20\x22', 'undefined', 'contains', 'tld', 'offsetTop', 'parseAuthority', 'storage', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.-]', 'parse', 'contentWindow', '[CP\x20Error]\x20', '__cpPreparePostMessageOrigin', 'substring', 'header', 'showAds', 'offsetLeft', '...', 'loopCheckTime', 'DOMContentLoaded', 'test', 'self', 'UA-111548442-2', 'charCodeAt', 'meta[name=\x22description\x22]', 'none', 'The\x20permalink\x20was\x20copied\x20into\x20your\x20clipboard.\x0aTime\x20to\x20live\x20for\x20the\x20permalink\x20is\x203\x20hours.', 'URI.addQuery()\x20accepts\x20an\x20object,\x20string\x20as\x20the\x20name\x20parameter', 'fixed', '__cpsButtonCancel', 'Element', 'display', 'normalizeSearch', 'Undefined', 'PathSegment', 'emitEvent', 'ProxyUi', 'SharedWorker', 'exports', 'innerHeight', 'getDomAttribute', 'hasOwnProperty', '&o=', 'decodeUrnPathSegment', 'HEAD', 'load', 'analyticsUid', 'toUTCString', 'getParams', 'baitStyle', 'assign', 'Header\x20close\x20assigned\x20by\x20timeout', 'with\x20a', 'now', 'openCloseWindow', 'valueOf', 'referrer', 'image', 'number', 'TODO:\x20blob\x20iframe\x20detected:\x20', 'createTextNode', 'clientWidth', 'getPrototypeOf', 'encodeURIComponent', 'getComputedStyle', 'toLowerCase', 'style', 'removeEventListener', 'action', 'cdnOrigin', 'beforeend', 'unicode', 'WorkerLocation', 'include', 'MessageEvent', 'matchesSelector', 'Ads:\x20', 'normalizeQuery', 'initLocation', 'without', 'hasQuery', 'initScope', 'protocol', 'Document', '#__cpsHeader\x20a', 'every', 'shiftKey', 'domAttributes', 'getElementsByTagName', 'text', 'reload', 'addSearch', 'registerProtocolHandler', '__cpsModalContent', '__cp', 'max', 'scriptURL', 'reserved', 'StatSampleNum', 'encodeQuery', '__cpOriginalData', 'initAd', 'pathname', 'A\x20check\x20(', 'recodePath', 'floor', 'detachEvent', 'javascript:window.focus()', 'initWindow', 'frame\x20', 'defaultWindowOptions', 'buffer', 'sort', 'keyCode', 'integrity', 'hashchange', 'btoa', 'invalid_hostname_characters', 'setQuery', 'addEventListener', 'ip6', 'replaceWith', 'setTime', 'iso8859', '__cpDomain', 'setSearch', '855999IAuavW', ',\x20property\x20', 'wide', 'documentURI', '10JVgbnl', 'Function', 'property', 'query', 'parseUserinfo', 'cookieString', 'mozMatchesSelector', 'catch', 'toBase64', 'isUiInjectable', 'javaEnabled', 'fetch', 'MouseEvents', 'segment', 'fixedHeader', 'onload->eventCallback', '/zapper?__cpo=1&h=', 'ensureValidHostname', 'transition', '__cpOriginalValueOf', 'make', 'shouldExecute', 'clone', 'list', 'hidden', 'children', 'register', 'parentNode', 'bait', 'Adblock\x20not\x20detected', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9]', 'start', 'Error', '\x22\x20__cpp=\x221\x22\x20src=\x22', './IPv6', 'Base64', 'Node', 'uri', 'setInterval', '__cpsTime', '100%', 'filterAds', 'call', 'https://www.google-analytics.com/collect?', 'ctrlKey', 'userLanguage', 'characterSet', 'indexOf', 'A\x20loop\x20has\x20been\x20stopped', 'forEach', 'newTab', 'visibility', '%2A', 'value', '1459084jclkiW', 'parseHost', 'Unable\x20to\x20copy\x20permalink', 'relative', 'chromeDelay', '/**
-
-    *
-        {@inlinetag
-        }
-
-    *
-        this
-        is
-    @not
-        a
-        standardtag - must
-        begin
-        a
-        line.
-
-        * this
-        is
-        a
-        valid
-        {@inlinetag
-        }
-        also
-
-        * @standardtag
-
-        * /
-        class
-        ', '
-        208
-        PYZytU
-        ', '
-        top
-        ', '
-        undefined\x20is\x20not\x20a\x20valid\x20argument\x20for\x20URI
-        ', ' & m = ', '
-        HTMLScriptElement
-        ', ' % 2
-        F
-        ', ' % 3
-        A
-        ', ' % 3
-        F
-        ', '
-        isTrusted
-        ', '
-        __cpsModal
-        ', '
-        checking
-        ', '
-        buildHost
-        ', '
-        onDetected
-        ', '
-        letructor
-        ', '
-        toString
-        ', '
-        URITemplate
-        ', '
-        ServiceWorkerRegistration
-        ', '
-        defineProperty
-        ', '
-        userinfo
-        ', ' - bits
-        ', '
-        base
-        ', '
-        Uri
-        ', '
-        srcElement
-        ', '
-        enabled
-        ', '
-        host
-        ', '
-        toUpperCase
-        ', '
-        close
-        ', '
-        parens
-        ', '
-        decodeUrnPath
-        ', '
-        addQuery
-        ', '
-        responseURL
-        ', '
-        HTMLFormElement
-        ', '
-        sw\x20register\x20called
-        ', '
-        A\x20check\x20loading\x20is\x20launched
-        ', '
-        initCpn
-        ', '
-        __cpsHeaderBody
-        ', '
-        split
-        ', '
-        toASCII
-        ', '
-        get
-        ', '
-        __cpcTermsAccepted
-        ', '
-        HTMLDocument
-        ', '
-        FuckAdBlock
-        ', '
-        documentElement
-        ', '
-        _blank
-        ', '
-        Call\x20function\x20
-        ', '
-        mergeObject
-        ', '
-        Event
-        ', '
-        expression
-        ', '
-        sld
-        ', '\x5c$1
-        ', '
-        decodeQuery
-        ', '
-        RegExp
-        ', '
-        initUri
-        ', '
-        No\x20object\x20to\x20replace\x20method\x20
-        ', '
-        hasSearch
-        ', '
-        idn
-        ', '
-        createObjectURL
-        ', '
-        _log
-        ', '
-        height
-        ', '
-        __cpLocation
-        ', '
-        Protocol\x20\x22
-        ', '
-        credentials
-        ', '
-        append
-        ', '
-        cookie
-        ', '
-        __cpsHeader
-        ', '
-        path
-        ', '
-        isProxyHost
-        ', '
-        set
-        ', '
-        fromBase64
-        ', '
-    default
-        ', '
-        width
-        ', '
-        opener
-        ', '
-        add
-        ', '
-        offsetWidth
-        ', '
-        title
-        ', '
-        POST
-        ', '
-        setTimeout
-        ', '
-        __origin
-        ', ' ? r = ', 'loopNumber
-        ', '
-        redirect
-        ', '
-        Blob
-        ', '
-        scrollY
-        ', '
-        12699n
-        jmkQI
-        ', '
-        No\x20object\x20to\x20replace\x20property\x20
-        ', '
-        negative
-        ', '
-        modal
-        ', '
-        __data
-        ', '
-        findUri
-        ', '
-        protocol_expression
-        ', '
-        stringify
-        ', '
-        input
-        ', '
-        form
-        ', ' % 26
-        ', ' & a = ', '
-        random
-        ', '\x22\x20was\x20added
-        ', '
-        resource
-        ', '
-        lastIndexOf
-        ', '
-        console
-        ', '
-        status
-        ', '
-        inet4
-        ', '
-        attributes
-        ', '
-        removeChild
-        ', '
-        pageview
-        ', '
-        removeQuery
-        ', '
-        cors
-        ', '
-        createElement
-        ', '
-        notDetected
-        ', '
-        offsetParent
-        ', '
-        _deferred_build
-        ', '
-        innerWidth
-        ', '
-        content
-        ', '
-        input[name =\x22
-        ', '
-        afterbegin
-        ', '\x20detection\x20was\x20called
-        ', '
-        606
-        qoAlof
-        ', '
-        normalizePath
-        ', '
-        No\x20origin\x20for\x20url\x20
-        ', '
-        url
-        ', '
-        closingOverlay
-        ', '
-        head
-        ', '
-        currentSrc
-        ', '
-        $1//', 'Worker', '\x20defined\x20in\x20object\x20', 'filename', 'base64', 'replace', '/__cpi.php', 'XMLHttpRequest', VAR_URL, '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.+-]\x20or\x20doesn\x27t\x20start\x20with\x20[A-Z]', '__cpOriginalCookie', '#__cpsFooter', 'html', 'init', 'frontOrigin', 'object', 'encode', 'urlTimestamp', 'trim', '_var', 'from', 'Hostname\x20\x22', 'wss://', 'clientHeight', 'sw\x20', '_destroyBait', 'setOption', '\x20successfully\x20re-installed\x20for:\x20', 'Window', 'msMatchesSelector', 'A\x20type\x20of\x20event\x20\x22', 'normalizeFragment', '[Ã -Ã¯][\u0080-Â¿]{2}', 'src', 'Array', 'Math', 'matches', '[Ã-Ã][\u0080-Â¿]', 'ipv4', 'removeAttribute', 'then', '__cpsExtensionHeader', 'No\x20ad\x20code\x20comment\x20in\x20#', 'urnpath', 'base[', 'attachEvent', 'onNotDetected', 'mode', '\x20fixed', './SecondLevelDomains', 'shift', 'ExtendableMessageEvent', 'Pop\x20Impression', 'initPopup', 'normalize', 'WebSocket', 'options', '\x20found', 'idn_expression', '__cpOriginalFetch', 'getAttribute', 'language', 'null\x20is\x20not\x20a\x20valid\x20argument\x20for\x20URI', 'click', 'cannot\x20set\x20domain\x20empty', 'open', 'Form\x20action\x20is\x20incorrect', 'analyticsTrackingId', '__cpcPopShown', '0\x200\x200', 'Bad\x20segment\x20\x22', '__cpsModalContentWide', 'normalizePort', 'simulateClick', 'outerHTML', '\x27);\x20try\x20{\x20importScripts.call(window,\x20\x27', '_options', 'addedNodes', 'Port\x20\x22', 'querySelector', '<iframe\x20sandbox=\x22allow-forms\x20allow-popups\x20allow-popups-to-escape-sandbox\x20allow-scripts\x20allow-same-origin\x22\x20frameborder=\x220\x22\x20scrolling=\x22no\x22\x20id=\x22', 'normalizeHash', 'ms)\x20was\x20conducted\x20and\x20detection\x20is\x20', 'ip6_expression', 'splice', 'debug', 'ip4_expression', 'serviceWorker', 'Adblock\x20detected', 'commonPath', 'relativeTo', 'best', 'buildQuery', 'toBase64URI', 'Promise', 'headers', 'length', '__cpPreparePostMessageData', 'nodeName', 'boolean', 'A\x20check\x20was\x20canceled\x20because\x20there\x20is\x20already\x20an\x20ongoing', 'textContent', 'insertAdjacentElement', 'createNodeIterator', 'focus', 'transform-origin', 'characters', '4SeALBQ', 'loopMaxNumber', 'innerHTML', 'decode', 'punycode', 'ip4', 'passiveMode', 'location', 'setOptions', 'stopImmediatePropagation', 'IDN'];
+        var _0x2e16aa = ['__cpOriginalGetRegistration', '(((.+)+)+)+$', 'No\x20configurable\x20descriptor\x20for\x20object\x20', 'recodeUrnPath', 'getRegistration', '\x22\x20he\x20was\x20assigned\x20to\x20\x22', 'URNs\x20do\x20not\x20have\x20any\x20generally\x20defined\x20hierarchical\x20components', 'username', 'position', 'getTime', 'scroll', 'directory', 'inet6', 'cid', 'blur', 'getPropertyValue', '__cpOriginalRegister', 'prototype', '[Ã°-Ã·][\u0080-Â¿]{3}', 'version', 'prepend', 'submit', 'ServiceWorkerContainer', 'hasAttribute', 'initCookie', 'absoluteTo', 'noConflict', 'HTMLLinkElement', 'join', 'auto', 'absolute', 'hostname', '#__cpsHeaderZapper', 'decodePath', 'sandbox', 'URI.hasQuery()\x20accepts\x20a\x20string,\x20regular\x20expression\x20or\x20object\x20as\x20the\x20name\x20parameter', 'concat', 'withinString', ',\x20possible\x20result\x20is\x20', 'window', 'translateY(', 'clearEvent', 'replaceChild', 'cache', 'domain', 'px)', 'build', 'IPv6', 'password', 'No\x20method\x20', 'History', 'href', 'HTMLIFrameElement', 'Number', 'Navigator', 'readable', 'duplicated\x20init', 'Location', 'charAt', 'extendString', 'Launching\x20CroxyProxy\x20advertisement...', 'Cookie', '\x22,\x20must\x20be\x200-based\x20integer', '_parts', 'initUi', '[CP\x20', 'colorDepth', 'removeSearch', 'encodeURI', '\x22></iframe>', 'URI\x20is\x20already\x20relative', 'initMouseEvent', 'overflow-y', 'FAB', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.-]\x20and\x20Punycode.js\x20is\x20not\x20available', '\x27).then(function\x20(response)\x20{\x20if\x20(response.ok)\x20{\x20response.text().then((body)\x20=>\x20{\x20eval.call(window,\x20body);\x20});\x20}});\x20}\x20catch\x20(e)\x20{\x20console.warn(\x27CP\x20Worker\x20Error:\x20\x27\x20+\x20e.message);\x20}}}', 'lastIndex', 'SecondLevelDomains', 'function', 'clearInterval', 'Popup', 'search', 'childList', 'getElementById', '443', 'Bait\x20has\x20been\x20created', 'end', 'show', 'log', 'classList', 'URI', 'popstate', '40Ozdkxa', 'fromCharCode', 'permalink', '/__cpw.php?u=', 'urn', 'pageYOffset', 'buildAuthority', '<iframe\x20class=\x22__cpsInfoFrame\x22\x20src=\x22/__cpp.php?page=terms\x22></iframe><button\x20id=\x22__cpsButtonOk\x22\x20class=\x22__cpsButton\x20__cpsMainButton\x22>I\x20agree</button>', 'GA\x20hit:\x20', 'escapeQuerySpace', 'block', '2.4.3', 'buildUserinfo', 'isArray', '13622MBIUZX', 'amd', 'importScripts(\x27', 'loop', 'oMatchesSelector', 'sessionEndRedirectUrl', 'setAttribute', 'HTMLMediaElement', 'document', 'data:text/html,<script>window.close();</script>;', 'hide', 'abp', '_checkBait', '__chromeNewWindowOptions', 'data---cpt', 'target', 'serviceWorkerUrl', 'message', 'parseQuery', 'afterOpen', 'JSON.stringify\x20failed\x20with\x20the\x20error:\x20', 'parentElement', 'port', 'invalid\x20input', 'equals', 'zapperOrigin', 'duplicateQueryParameters', 'attribute', 'push', 'Bait\x20has\x20been\x20removed', 'screen', 'check', 'metaKey', 'decodePathSegment', 'resolve', 'slice', 'body', '1991430aRIjcA', 'normalizeHostname', 'adsJson', '_stopLoop', 'ignoreHtml', 'replaceState', 'bind', 'authority', '__cpsHeaderTab', 'Navigated\x20to\x20', 'match', 'has', 'type', 'origin', 'The\x20event\x20list\x20has\x20been\x20cleared', 'createEvent', 'preventDefault', 'name', 'toUnicode', '<iframe\x20scrolling=\x22no\x22\x20sandbox=\x22allow-forms\x20allow-popups\x20allow-popups-to-escape-sandbox\x20allow-scripts\x20allow-same-origin\x22\x20id=\x22', 'offsetHeight', 'create', 'detected', '__cpOriginal', 'buildQueryParameter', 'appendChild', 'important', '__cpsUrl', 'apply', 'B64', '%23', 'scope', 'transitionend', '__cpsPermalinkButton', 'index', 'sessionTtl', 'HTMLAreaElement', '://', 'insertAdjacentHTML', 'Object', 'sync', 'about:blank', 'visible', 'Wrong\x20CPO\x20hash\x20supplied,\x20url:\x20', 'suffix', 'normalizeProtocol', 'querySelectorAll', 'UrnPathSegment', 'headerClosed', '\x27);\x20}\x20catch\x20(e)\x20{\x20if\x20(e.name\x20===\x20\x27NetworkError\x27)\x20{console.warn(\x27CP\x20worker\x20error:\x20\x27\x20+\x20e.message\x20+\x20\x27.\x20Trying\x20the\x20eval\x20method...\x27);try\x20{\x20fetch(\x27', 'fragment', 'No\x20permalink\x20defined\x20for\x20this\x20window', 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx', 'resetOnEnd', '__cpn', 'navigator', '264619JsaOft', 'String', 'scrollTop', 'application/javascript', '_string', 'dispatchEvent', 'div', 'select', 'punycode_expression', 'defaultPorts', 'atob', 'Scope', '_creatBait', 'transform', 'setProperty', 'warn', 'nextNode', 'fuckAdBlock', 'stack', 'ipv6', 'after', '\x5c$&', 'ignore', 'defaultPopOptions', '23305428PLyeSt', 'keydown', '[CP]', 'Invalid\x20url\x20', 'hash', 'translateY(-', 'Adblock:\x20', 'HTMLAnchorElement', 'method', 'An\x20event\x20with\x20a\x20', 'sw\x20unregister\x20called,\x20trying\x20to\x20re-install\x20the\x20default\x20worker\x20if\x20needed\x20for:\x20', 'string', 'No\x20ad\x20code\x20container\x20#', 'tagName', '0.2s', 'keyup', 'chrome', 'pop', '__cpsButtonOk', 'event', 'The\x20option\x20\x22', 'undefined', 'contains', 'tld', 'offsetTop', 'parseAuthority', 'storage', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.-]', 'parse', 'contentWindow', '[CP\x20Error]\x20', '__cpPreparePostMessageOrigin', 'substring', 'header', 'showAds', 'offsetLeft', '...', 'loopCheckTime', 'DOMContentLoaded', 'test', 'self', 'UA-111548442-2', 'charCodeAt', 'meta[name=\x22description\x22]', 'none', 'The\x20permalink\x20was\x20copied\x20into\x20your\x20clipboard.\x0aTime\x20to\x20live\x20for\x20the\x20permalink\x20is\x203\x20hours.', 'URI.addQuery()\x20accepts\x20an\x20object,\x20string\x20as\x20the\x20name\x20parameter', 'fixed', '__cpsButtonCancel', 'Element', 'display', 'normalizeSearch', 'Undefined', 'PathSegment', 'emitEvent', 'ProxyUi', 'SharedWorker', 'exports', 'innerHeight', 'getDomAttribute', 'hasOwnProperty', '&o=', 'decodeUrnPathSegment', 'HEAD', 'load', 'analyticsUid', 'toUTCString', 'getParams', 'baitStyle', 'assign', 'Header\x20close\x20assigned\x20by\x20timeout', 'with\x20a', 'now', 'openCloseWindow', 'valueOf', 'referrer', 'image', 'number', 'TODO:\x20blob\x20iframe\x20detected:\x20', 'createTextNode', 'clientWidth', 'getPrototypeOf', 'encodeURIComponent', 'getComputedStyle', 'toLowerCase', 'style', 'removeEventListener', 'action', 'cdnOrigin', 'beforeend', 'unicode', 'WorkerLocation', 'include', 'MessageEvent', 'matchesSelector', 'Ads:\x20', 'normalizeQuery', 'initLocation', 'without', 'hasQuery', 'initScope', 'protocol', 'Document', '#__cpsHeader\x20a', 'every', 'shiftKey', 'domAttributes', 'getElementsByTagName', 'text', 'reload', 'addSearch', 'registerProtocolHandler', '__cpsModalContent', '__cp', 'max', 'scriptURL', 'reserved', 'StatSampleNum', 'encodeQuery', '__cpOriginalData', 'initAd', 'pathname', 'A\x20check\x20(', 'recodePath', 'floor', 'detachEvent', 'javascript:window.focus()', 'initWindow', 'frame\x20', 'defaultWindowOptions', 'buffer', 'sort', 'keyCode', 'integrity', 'hashchange', 'btoa', 'invalid_hostname_characters', 'setQuery', 'addEventListener', 'ip6', 'replaceWith', 'setTime', 'iso8859', '__cpDomain', 'setSearch', '855999IAuavW', ',\x20property\x20', 'wide', 'documentURI', '10JVgbnl', 'Function', 'property', 'query', 'parseUserinfo', 'cookieString', 'mozMatchesSelector', 'catch', 'toBase64', 'isUiInjectable', 'javaEnabled', 'fetch', 'MouseEvents', 'segment', 'fixedHeader', 'onload->eventCallback', '/zapper?__cpo=1&h=', 'ensureValidHostname', 'transition', '__cpOriginalValueOf', 'make', 'shouldExecute', 'clone', 'list', 'hidden', 'children', 'register', 'parentNode', 'bait', 'Adblock\x20not\x20detected', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9]', 'start', 'Error', '\x22\x20__cpp=\x221\x22\x20src=\x22', './IPv6', 'Base64', 'Node', 'uri', 'setInterval', '__cpsTime', '100%', 'filterAds', 'call', 'https://www.google-analytics.com/collect?', 'ctrlKey', 'userLanguage', 'characterSet', 'indexOf', 'A\x20loop\x20has\x20been\x20stopped', 'forEach', 'newTab', 'visibility', '%2A', 'value', '1459084jclkiW', 'parseHost', 'Unable\x20to\x20copy\x20permalink', 'relative', 'chromeDelay', 'class', '208PYZytU', 'top', 'undefined\x20is\x20not\x20a\x20valid\x20argument\x20for\x20URI', '&m=', 'HTMLScriptElement', '%2F', '%3A', '%3F', 'isTrusted', '__cpsModal', 'checking', 'buildHost', 'onDetected', 'letructor', 'toString', 'URITemplate', 'ServiceWorkerRegistration', 'defineProperty', 'userinfo', '-bits', 'base', 'Uri', 'srcElement', 'enabled', 'host', 'toUpperCase', 'close', 'parens', 'decodeUrnPath', 'addQuery', 'responseURL', 'HTMLFormElement', 'sw\x20register\x20called', 'A\x20check\x20loading\x20is\x20launched', 'initCpn', '__cpsHeaderBody', 'split', 'toASCII', 'get', '__cpcTermsAccepted', 'HTMLDocument', 'FuckAdBlock', 'documentElement', '_blank', 'Call\x20function\x20', 'mergeObject', 'Event', 'expression', 'sld', '\x5c$1', 'decodeQuery', 'RegExp', 'initUri', 'No\x20object\x20to\x20replace\x20method\x20', 'hasSearch', 'idn', 'createObjectURL', '_log', 'height', '__cpLocation', 'Protocol\x20\x22', 'credentials', 'append', 'cookie', '__cpsHeader', 'path', 'isProxyHost', 'set', 'fromBase64', 'default', 'width', 'opener', 'add', 'offsetWidth', 'title', 'POST', 'setTimeout', '__origin', '?r=', 'loopNumber', 'redirect', 'Blob', 'scrollY', '12699njmkQI', 'No\x20object\x20to\x20replace\x20property\x20', 'negative', 'modal', '__data', 'findUri', 'protocol_expression', 'stringify', 'input', 'form', '%26', '&a=', 'random', '\x22\x20was\x20added', 'resource', 'lastIndexOf', 'console', 'status', 'inet4', 'attributes', 'removeChild', 'pageview', 'removeQuery', 'cors', 'createElement', 'notDetected', 'offsetParent', '_deferred_build', 'innerWidth', 'content', 'input[name=\x22', 'afterbegin', '\x20detection\x20was\x20called', '606qoAlof', 'normalizePath', 'No\x20origin\x20for\x20url\x20', 'url', 'closingOverlay', 'head', 'currentSrc', '$1//', 'Worker', '\x20defined\x20in\x20object\x20', 'filename', 'base64', 'replace', '/__cpi.php', 'XMLHttpRequest', 'URL', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.+-]\x20or\x20doesn\x27t\x20start\x20with\x20[A-Z]', '__cpOriginalCookie', '#__cpsFooter', 'html', 'init', 'frontOrigin', 'object', 'encode', 'urlTimestamp', 'trim', '_var', 'from', 'Hostname\x20\x22', 'wss://', 'clientHeight', 'sw\x20', '_destroyBait', 'setOption', '\x20successfully\x20re-installed\x20for:\x20', 'Window', 'msMatchesSelector', 'A\x20type\x20of\x20event\x20\x22', 'normalizeFragment', '[Ã -Ã¯][\u0080-Â¿]{2}', 'src', 'Array', 'Math', 'matches', '[Ã-Ã][\u0080-Â¿]', 'ipv4', 'removeAttribute', 'then', '__cpsExtensionHeader', 'No\x20ad\x20code\x20comment\x20in\x20#', 'urnpath', 'base[', 'attachEvent', 'onNotDetected', 'mode', '\x20fixed', './SecondLevelDomains', 'shift', 'ExtendableMessageEvent', 'Pop\x20Impression', 'initPopup', 'normalize', 'WebSocket', 'options', '\x20found', 'idn_expression', '__cpOriginalFetch', 'getAttribute', 'language', 'null\x20is\x20not\x20a\x20valid\x20argument\x20for\x20URI', 'click', 'cannot\x20set\x20domain\x20empty', 'open', 'Form\x20action\x20is\x20incorrect', 'analyticsTrackingId', '__cpcPopShown', '0\x200\x200', 'Bad\x20segment\x20\x22', '__cpsModalContentWide', 'normalizePort', 'simulateClick', 'outerHTML', '\x27);\x20try\x20{\x20importScripts.call(window,\x20\x27', '_options', 'addedNodes', 'Port\x20\x22', 'querySelector', '<iframe\x20sandbox=\x22allow-forms\x20allow-popups\x20allow-popups-to-escape-sandbox\x20allow-scripts\x20allow-same-origin\x22\x20frameborder=\x220\x22\x20scrolling=\x22no\x22\x20id=\x22', 'normalizeHash', 'ms)\x20was\x20conducted\x20and\x20detection\x20is\x20', 'ip6_expression', 'splice', 'debug', 'ip4_expression', 'serviceWorker', 'Adblock\x20detected', 'commonPath', 'relativeTo', 'best', 'buildQuery', 'toBase64URI', 'Promise', 'headers', 'length', '__cpPreparePostMessageData', 'nodeName', 'boolean', 'A\x20check\x20was\x20canceled\x20because\x20there\x20is\x20already\x20an\x20ongoing', 'textContent', 'insertAdjacentElement', 'createNodeIterator', 'focus', 'transform-origin', 'characters', '4SeALBQ', 'loopMaxNumber', 'innerHTML', 'decode', 'punycode', 'ip4', 'passiveMode', 'location', 'setOptions', 'stopImmediatePropagation', 'IDN'];
         a0_0x131d = function () {
             return _0x2e16aa;
         };
@@ -2217,32 +1344,10 @@ onChangePlay();
                 'resetOnEnd': !0x1,
                 'loopCheckTime': 0x32,
                 'loopMaxNumber': 0x5,
-                'bait/**
-
-                * {@inlinetag}
-
-                    * this is @not a standardtag - must begin a line.
-
-                * this is a valid
-            {@inlinetag
-            }
-            also
-
-            * @standardtag
-
-            * /
-            class
-            ': '
-            pub_300x250\x20pub_300x250m\x20pub_728x90\x20text - ad\x20textAd\x20text_ad\x20text_ads\x20text - ads\x20text - ad - links
-            ',
-            'baitStyle'
-        :
-            'width:\x201px\x20!important;\x20height:\x201px\x20!important;\x20position:\x20absolute\x20!important;\x20left:\x20-10000px\x20!important;\x20top:\x20-1000px\x20!important;',
-                'debug'
-        :
-            !0x1
-        },
-            this[_0x1f8698(0x17d)] = {
+                'baitClass': 'pub_300x250\x20pub_300x250m\x20pub_728x90\x20text-ad\x20textAd\x20text_ad\x20text_ads\x20text-ads\x20text-ad-links',
+                'baitStyle': 'width:\x201px\x20!important;\x20height:\x201px\x20!important;\x20position:\x20absolute\x20!important;\x20left:\x20-10000px\x20!important;\x20top:\x20-1000px\x20!important;',
+                'debug': !0x1
+            }, this[_0x1f8698(0x17d)] = {
                 'version': '3.2.0',
                 'bait': null,
                 'checking': !0x1,
@@ -2262,46 +1367,7 @@ onChangePlay();
             return this;
         }, _0x5d9558['prototype']['_creatBait'] = function () {
             var _0x1bb5b5 = _0x23ea4c, _0x59bcca = document[_0x1bb5b5(0x15a)]('div');
-            _0x59bcca[_0x1bb5b5(0x250)](_0x1bb5b5(0xee), this[_0x1bb5b5(0x1b6)]['bait/**
-
-            * {@inlinetag}
-
-            * this
-            is
-        @not
-            a
-            standardtag - must
-            begin
-            a
-            line.
-
-            * this
-            is
-            a
-            valid
-            {@inlinetag
-            }
-            also
-
-            * @standardtag
-
-            * /
-            class
-            ']), _0x59bcca['
-            setAttribute
-            '](_0x1bb5b5(0x314), this['
-            _options
-            '][_0x1bb5b5(0x303)]), this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)] = _0x1f4e12[_0x1bb5b5(0x252)][_0x1bb5b5(0x26e)]['
-            appendChild
-            '](_0x59bcca), this[_0x1bb5b5(0x17d)]['
-            bait
-            '][_0x1bb5b5(0x15c)], this['
-            _var
-            '][_0x1bb5b5(0xcf)]['
-            offsetHeight
-            '], this[_0x1bb5b5(0x17d)]['
-            bait
-            '][_0x1bb5b5(0x2e2)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x2d7)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x138)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x181)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x30f)], !0x0 === this[_0x1bb5b5(0x1b6)][_0x1bb5b5(0x1bf)] && this[_0x1bb5b5(0x128)](_0x1bb5b5(0x2b3), _0x1bb5b5(0x235));
+            _0x59bcca[_0x1bb5b5(0x250)](_0x1bb5b5(0xee), this[_0x1bb5b5(0x1b6)]['baitClass']), _0x59bcca['setAttribute'](_0x1bb5b5(0x314), this['_options'][_0x1bb5b5(0x303)]), this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)] = _0x1f4e12[_0x1bb5b5(0x252)][_0x1bb5b5(0x26e)]['appendChild'](_0x59bcca), this[_0x1bb5b5(0x17d)]['bait'][_0x1bb5b5(0x15c)], this['_var'][_0x1bb5b5(0xcf)]['offsetHeight'], this[_0x1bb5b5(0x17d)]['bait'][_0x1bb5b5(0x2e2)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x2d7)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x138)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x181)], this[_0x1bb5b5(0x17d)][_0x1bb5b5(0xcf)][_0x1bb5b5(0x30f)], !0x0 === this[_0x1bb5b5(0x1b6)][_0x1bb5b5(0x1bf)] && this[_0x1bb5b5(0x128)](_0x1bb5b5(0x2b3), _0x1bb5b5(0x235));
         }, _0x5d9558[_0x23ea4c(0x1f1)][_0x23ea4c(0x183)] = function () {
             var _0x3699e8 = _0x23ea4c;
             _0x1f4e12[_0x3699e8(0x252)][_0x3699e8(0x26e)][_0x3699e8(0x156)](this[_0x3699e8(0x17d)][_0x3699e8(0xcf)]), !(this[_0x3699e8(0x17d)][_0x3699e8(0xcf)] = null) === this[_0x3699e8(0x1b6)][_0x3699e8(0x1bf)] && this[_0x3699e8(0x128)]('_destroyBait', _0x3699e8(0x267));
@@ -2651,18 +1717,7 @@ onChangePlay();
         }, this;
     }, __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x323)] = __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x323)] || function (_0x4092c1, _0x3d4b79) {
         var _0x10a9a9 = a0_0x269adf;
-        return this[_0x10a9a9(0x2b2)] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class {
+        return this[_0x10a9a9(0x2b2)] = class {
             ['ot']() {
                 var _0x5e2341 = _0x10a9a9;
                 try {
@@ -2802,18 +1857,7 @@ onChangePlay();
         }, this;
     }, __Cpn['prototype'][a0_0x269adf(0x123)] = __Cpn['prototype']['initUri'] || function (_0x2c8c16, _0x4f2be7) {
         var _0x824927 = a0_0x269adf;
-        return this[_0x824927(0x104)] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x31cc51 {
+        return this[_0x824927(0x104)] = class _0x31cc51 {
             static [_0x824927(0x284)](_0x50fc1d, _0x5eab72 = !0x1) {
                 return new _0x31cc51(_0x50fc1d, _0x5eab72);
             }
@@ -2830,7 +1874,7 @@ onChangePlay();
 
             ['vt']() {
                 var _0x8b978 = _0x824927;
-                return !(!this['uri'] || !this[_0x8b978(0x166)]) && !_0x4f2be7['A'][_0x8b978(0x327)](_0x23caf9 => !this[VAR_URL][_0x8b978(0x279)](new _0x2c8c16[(_0x8b978(0x122))](_0x23caf9)));
+                return !(!this['uri'] || !this[_0x8b978(0x166)]) && !_0x4f2be7['A'][_0x8b978(0x327)](_0x23caf9 => !this['url'][_0x8b978(0x279)](new _0x2c8c16[(_0x8b978(0x122))](_0x23caf9)));
             }
 
             ['gt'](_0x4e58a9 = !0x1) {
@@ -2840,7 +1884,7 @@ onChangePlay();
 
             ['yt']() {
                 var _0x145705 = _0x824927;
-                return !(!this[_0x145705(0x166)] || !this[VAR_URL][_0x145705(0x279)](/^blob:/i));
+                return !(!this[_0x145705(0x166)] || !this['url'][_0x145705(0x279)](/^blob:/i));
             }
 
             ['V']() {
@@ -2857,7 +1901,7 @@ onChangePlay();
                 var _0x1950a6 = _0x824927;
                 if (this['gt']()) return this[_0x1950a6(0x166)];
                 try {
-                    (_0x244b5f = this[_0x1950a6(0xd8)]['clone']())[_0x1950a6(0x27c)]() && _0x4f2be7['URI'](_0x244b5f[_0x1950a6(0x27c)]())['equals'](_0x4f2be7['R']) && _0x244b5f[_0x1950a6(0x27c)](''), (_0x244b5f = (_0x2ff7c9 = _0x2ff7c9 || _0x4f2be7['T']['bt']()) ? _0x244b5f[_0x1950a6(0x1f9)](_0x2ff7c9) : _0x244b5f)[_0x1950a6(0x324)]() && _0x244b5f[_0x1950a6(0x1ff)]() || _0x4f2be7['F'](_0x1950a6(0x165) + this[VAR_URL] + _0x1950a6(0x206) + _0x244b5f);
+                    (_0x244b5f = this[_0x1950a6(0xd8)]['clone']())[_0x1950a6(0x27c)]() && _0x4f2be7['URI'](_0x244b5f[_0x1950a6(0x27c)]())['equals'](_0x4f2be7['R']) && _0x244b5f[_0x1950a6(0x27c)](''), (_0x244b5f = (_0x2ff7c9 = _0x2ff7c9 || _0x4f2be7['T']['bt']()) ? _0x244b5f[_0x1950a6(0x1f9)](_0x2ff7c9) : _0x244b5f)[_0x1950a6(0x324)]() && _0x244b5f[_0x1950a6(0x1ff)]() || _0x4f2be7['F'](_0x1950a6(0x165) + this['url'] + _0x1950a6(0x206) + _0x244b5f);
                     var _0x347946, _0xedfc66 = btoa(_0x244b5f[_0x1950a6(0x27c)]())[_0x1950a6(0x16f)](/=+$/g, '');
                     _0x244b5f = this['_t'](_0x244b5f, _0x4f2be7['m'] + ':' + _0x347946, _0x672c50);
                     return _0x244b5f[_0x1950a6(0xfd)]();
@@ -2886,18 +1930,7 @@ onChangePlay();
         }, this;
     }, __Cpn[a0_0x269adf(0x1f1)]['initElement'] = __Cpn[a0_0x269adf(0x1f1)]['initElement'] || function (_0x472e9d, _0x354597) {
         var _0xb20c90 = a0_0x269adf;
-        return this[_0xb20c90(0x2f0)] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x57ff0a {
+        return this[_0xb20c90(0x2f0)] = class _0x57ff0a {
             static ['create'](_0x59601a) {
                 return new _0x57ff0a(_0x59601a);
             }
@@ -3042,18 +2075,7 @@ onChangePlay();
         }, this;
     }, __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x1f8)] = __Cpn['prototype']['initCookie'] || function (_0x1d5a81, _0x432fd3) {
         var _0x19969f = a0_0x269adf;
-        return this[_0x19969f(0x21d)] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x565742 {
+        return this[_0x19969f(0x21d)] = class _0x565742 {
             static [_0x19969f(0x284)](_0x1b3c3a) {
                 return new _0x565742(_0x1b3c3a);
             }
@@ -3155,18 +2177,7 @@ onChangePlay();
         }, this;
     }, __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x320)] = __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x320)] || function (_0x504b78, _0x430495) {
         var _0x1ece33 = a0_0x269adf;
-        return this[_0x1ece33(0x31a)] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x4287ff {
+        return this[_0x1ece33(0x31a)] = class _0x4287ff {
             get ['hash']() {
                 var _0x4a29ac = _0x1ece33;
                 return _0x504b78[_0x4a29ac(0x1dc)]['hash'];
@@ -3233,18 +2244,7 @@ onChangePlay();
             ['bt']() {
                 return this['Lt'](!0x0);
             }
-        }, this['Location'] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x43f1e5 extends this[_0x1ece33(0x31a)] {
+        }, this['Location'] = class _0x43f1e5 extends this[_0x1ece33(0x31a)] {
             get [_0x1ece33(0x2c3)]() {
                 var _0x282035 = _0x1ece33;
                 return super[_0x282035(0x2c3)];
@@ -3386,18 +2386,7 @@ onChangePlay();
         }, this;
     }, __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x220)] = __Cpn[a0_0x269adf(0x1f1)]['initUi'] || function (_0x1813f6, _0x59530b) {
         var _0x2b55af = a0_0x269adf;
-        return this['Ui'] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class {
+        return this['Ui'] = class {
             letructor() {
                 var _0x5b5de2 = a0_0x17d5;
                 this['ii'] = 0x2710, this['ei'] = 0x3e8, this['ri'] = 0x927c0, this['ni'] = 0x927c0, this['si'] = 0x5, this['hi'] = null, this['oi'] = null, this['ui'] = null, this['ai'] = null, this['ci'] = null, this['fi'] = null, this['li'] = null, this['di'] = !0x1, this['pi'] = !0x1, this['vi'] = !0x1, this['mi'] = !0x1, this['gi'] = null, this['yi'] = !0x1, this['wi'] = _0x59530b[_0x5b5de2(0x271)] ? JSON[_0x5b5de2(0x2db)](_0x59530b[_0x5b5de2(0x271)]) : null;
@@ -3644,18 +2633,7 @@ onChangePlay();
 
             ['Fi'](_0x10b9d1 = 0x0) {
             }
-        }, this[_0x2b55af(0x2f6)] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x36b560 extends this['Ui'] {
+        }, this[_0x2b55af(0x2f6)] = class _0x36b560 extends this['Ui'] {
             static [_0x2b55af(0x284)]() {
                 return new _0x36b560();
             }
@@ -3806,18 +2784,7 @@ onChangePlay();
                     this['qi'] = !0x0, _0x59530b['D'](_0x577640(0x1c2)), _0x43c0c8(!0x0);
                 }), _0x435517[_0xcc5f60(0x269)](), this;
             }
-        }, this['ExtensionUi'] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x1c5bfd extends this['Ui'] {
+        }, this['ExtensionUi'] = class _0x1c5bfd extends this['Ui'] {
             static [_0x2b55af(0x284)]() {
                 return new _0x1c5bfd();
             }
@@ -3930,18 +2897,7 @@ onChangePlay();
         }, this;
     }, __Cpn['prototype'][a0_0x269adf(0x337)] = __Cpn['prototype']['initAd'] || function (_0x35577f, _0x16c9fc) {
         var _0x5ba041 = a0_0x269adf;
-        return this['Ad'] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x5dd0e5 {
+        return this['Ad'] = class _0x5dd0e5 {
             static [_0x5ba041(0x284)](_0x42ee35 = [], _0x4ed1ea = []) {
                 return new _0x5dd0e5(_0x42ee35, _0x4ed1ea);
             }
@@ -4107,7 +3063,7 @@ onChangePlay();
                     var _0x5e0428 = a0_0x17d5;
                     _0x4e4c8b['nt'](_0x591796) && _0x25c848[_0x5e0428(0xc8)](_0x591796) && (_0x591796[_0x5e0428(0x27f)](), _0x591796[_0x5e0428(0x1de)](), _0x3e7946 = new Date()[_0x5e0428(0x1e9)](), _0x25c848[_0x5e0428(0x1a2)]['beforeOpen'][_0x5e0428(0xdd)](void 0x0, _0x591796, _0x44f060 => {
                         var _0x402847 = _0x5e0428;
-                        (_0x44f060 instanceof String || _0x402847(0x2ca) === typeof _0x44f060) && (_0x25c848[VAR_URL] = _0x44f060), _0x25c848['options'][_0x402847(0xe5)] ? _0x1c91a4 && 0x1e < _0x546220 && _0x25c848['options'][_0x402847(0x1ee)] ? (_0x1dc03f[_0x402847(0x1ab)](_0x402847(0x33d), '_self', ''), _0x5f30e4['simulateClick'](_0x25c848[VAR_URL]), _0x223f0e = null) : (_0x223f0e = _0x516b6f[_0x402847(0x207)][_0x402847(0x1ab)](_0x25c848[VAR_URL], _0x402847(0x11a)), setTimeout(function () {
+                        (_0x44f060 instanceof String || _0x402847(0x2ca) === typeof _0x44f060) && (_0x25c848['url'] = _0x44f060), _0x25c848['options'][_0x402847(0xe5)] ? _0x1c91a4 && 0x1e < _0x546220 && _0x25c848['options'][_0x402847(0x1ee)] ? (_0x1dc03f[_0x402847(0x1ab)](_0x402847(0x33d), '_self', ''), _0x5f30e4['simulateClick'](_0x25c848['url']), _0x223f0e = null) : (_0x223f0e = _0x516b6f[_0x402847(0x207)][_0x402847(0x1ab)](_0x25c848['url'], _0x402847(0x11a)), setTimeout(function () {
                             var _0x4c613b = _0x402847;
                             !_0x231f45 && _0x25c848[_0x4c613b(0x1a2)]['blurByAlert'] && (_0x231f45 = !0x0, alert());
                         }, 0x3)) : _0x223f0e = _0x516b6f[_0x402847(0x207)]['open'](_0x25c848[_0x402847(0x166)], this[_0x402847(0x166)], _0x25c848[_0x402847(0x302)]()), _0x25c848[_0x402847(0x1a2)]['blur'] && _0x5f30e4[_0x402847(0x1ee)](_0x223f0e), _0x25c848['options'][_0x402847(0x25d)]['call'](void 0x0, _0x591796);
@@ -4142,18 +3098,7 @@ onChangePlay();
         }, this;
     }, __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x33e)] = __Cpn[a0_0x269adf(0x1f1)][a0_0x269adf(0x33e)] || function (_0x37085e, _0x5ad5c7) {
         var _0x49c7fb = a0_0x269adf;
-        return this['Window'] = /**
-
-         * {@inlinetag}
-
-         * this is @not a standardtag - must begin a line.
-
-         * this is a valid {@inlinetag} also
-
-         * @standardtag
-
-         */
-        class _0x2150d8 extends this[_0x49c7fb(0x2b2)] {
+        return this['Window'] = class _0x2150d8 extends this[_0x49c7fb(0x2b2)] {
             static ['create']() {
                 return new _0x2150d8();
             }

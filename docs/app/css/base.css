@@ -421,12 +421,6 @@ textarea {
     appearance: none;
 }
 
-.phpdocumentor-textarea {
-    min-height: 65px;
-    padding-bottom: var(--spacing-xxxs);
-    padding-top: var(--spacing-xxxs);
-}
-
 .phpdocumentor-field:focus {
     border: 1px solid var(--button-color-primary);
     outline: 0;
@@ -856,12 +850,6 @@ td.phpdocumentor-cell:last-child {
     border-color: var(--admonition-success-color);
 }
 
-.phpdocumentor-admonition__icon {
-    margin-right: var(--spacing-md);
-    color: var(--primary-color);
-    max-width: 3rem;
-}
-
 .phpdocumentor ul.phpdocumentor-breadcrumbs {
     font-size: var(--text-md);
     list-style: none;
@@ -1018,12 +1006,6 @@ td.phpdocumentor-cell:last-child {
     margin: 0;
 }
 
-.phpdocumentor-search-results__entry {
-    border-bottom: 1px solid var(--table-separator-color);
-    padding: var(--spacing-sm) 0;
-    text-align: left;
-}
-
 .phpdocumentor-search-results__entry a {
     display: block;
 }
@@ -1079,14 +1061,6 @@ td.phpdocumentor-cell:last-child {
     visibility: visible;
     opacity: 1;
     transition-delay: 0s;
-}
-
-.phpdocumentor-modal-bg {
-    position: absolute;
-    background: gray;
-    opacity: 50%;
-    width: 100%;
-    height: 100%;
 }
 
 .phpdocumentor-modal-container {
