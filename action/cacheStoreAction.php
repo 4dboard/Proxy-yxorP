@@ -11,6 +11,6 @@ class cacheStoreAction extends EventWrapper
     public function onCompleted(): void
     {
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
-        if (!Cache::cache()->isValid()) Cache::cache()->set(self::get('RESPONSE')->getContent());
+        if (!Cache::cache()->isValid()) Cache::cache()->set(Constants::get('RESPONSE')->getContent());
     }
 }

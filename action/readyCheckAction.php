@@ -4,9 +4,7 @@
 use yxorP\Cache\Cache;
 use yxorP\http\EventWrapper;
 
-/* Importing the EventWrapper class from the yxorP\http namespace. */
-
-/* Extending the EventWrapper class, which is a class that is used to wrap events. */
+/* Importing the EventWrapper class from the yxorP\http namespace. Extending the EventWrapper class, which is a class that is used to wrap events. */
 
 class readyCheckAction extends EventWrapper
 {

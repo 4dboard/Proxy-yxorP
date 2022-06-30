@@ -1,4 +1,5 @@
 <?php
+
 /* Importing the EventWrapper class from the yxorP\http namespace. */
 
 use yxorP\http\EventWrapper;
@@ -11,6 +12,6 @@ class bugsnagHandlerAction extends EventWrapper
     public function onBuildException($e): void
     {
         /* Checking if the BUGSNAG service is available and if it is, it is notifying the exception. */
-        if (self::get('BUGSNAG')) self::get('BUGSNAG')->notifyException($e);
+        if (BUGSNAG) BUGSNAG->notifyException($e);
     }
 }

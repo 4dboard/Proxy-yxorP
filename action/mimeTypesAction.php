@@ -27,18 +27,18 @@ class mimeTypesAction extends EventWrapper
             DIRECTORY_SEPARATOR . 'vnd');
 
         /* Getting the file extension of the requested file. */
-        $_ext = pathinfo(strtok(self::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
+        $_ext = pathinfo(strtok(Constants::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
 
         /* Setting the content type of the response. */
-        if (str_contains(self::get('PROXY_URL'), 'bundle.js')) self::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'wasm'); else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'sitemap'))
-            self::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'xml'); else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'crop'))
-            self::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), 'format'))
-            self::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), '.mp4'))
-            self::set('MIME', 'video' . DIRECTORY_SEPARATOR . 'mp4'); else if (!self::get('MIME') && str_contains(self::get('PROXY_URL'), '.js.br'))
-            self::set('MIME', 'br'); else if (array_key_exists($_ext, $_types) && !self::get('MIME')) self::set('MIME', $_types[$_ext]); else
-            self::set('MIME', 'text' . DIRECTORY_SEPARATOR . 'html');
+        if (str_contains(Constants::get('PROXY_URL'), 'bundle.js')) Constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'wasm'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), 'sitemap'))
+            Constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'xml'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), 'crop'))
+            Constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), 'format'))
+            Constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), '.mp4'))
+            Constants::set('MIME', 'video' . DIRECTORY_SEPARATOR . 'mp4'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), '.js.br'))
+            Constants::set('MIME', 'br'); else if (array_key_exists($_ext, $_types) && !Constants::get('MIME')) Constants::set('MIME', $_types[$_ext]); else
+            Constants::set('MIME', 'text' . DIRECTORY_SEPARATOR . 'html');
 
         /* Setting the content type of the response. */
-        header('Content-Type: ' . self::get('MIME') . '; charset = UTF-8');
+        header('Content-Type: ' . Constants::get('MIME') . '; charset = UTF-8');
     }
 }

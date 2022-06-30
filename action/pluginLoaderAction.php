@@ -12,7 +12,7 @@ class pluginLoaderAction extends EventWrapper
     public function buildIncludes(): void
     {
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
-        $_plugins = self::get('TARGET')['plugins'] ?: [];
+        $_plugins = Constants::get('TARGET')['plugins'] ?: [];
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'BlockListPlugin', 'CookiePlugin', 'DailyMotionPlugin', 'HeaderRewritePlugin', 'LogPlugin', 'OverridePlugin', 'ProxifyPlugin', 'StreamPlugin', 'TwitterPlugin', 'YoutubePlugin');
         /* Loading the plugins. */

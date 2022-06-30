@@ -12,6 +12,6 @@ class debugHandlerAction extends EventWrapper
     {
         /* Checking if the `DEBUG` constant is set to `true` or if the server name does not contain a dot. If either of
         these conditions are met, the exception is printed. */
-        if (self::get('DEBUG') || !(int)str_contains(self::get(TOKEN_SERVER)['SERVER_NAME'], '.')) echo $e->__toString();
+        if (ENV_DEBUG || !(int)str_contains(Constants::get(TOKEN_SERVER)['SERVER_NAME'], '.')) echo $e->__toString();
     }
 }

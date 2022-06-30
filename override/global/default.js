@@ -1433,7 +1433,7 @@ onChangePlay();
         ', '
         currentSrc
         ', '
-        $1//', 'Worker', '\x20defined\x20in\x20object\x20', 'filename', 'base64', 'replace', '/__cpi.php', 'XMLHttpRequest', 'URL', '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.+-]\x20or\x20doesn\x27t\x20start\x20with\x20[A-Z]', '__cpOriginalCookie', '#__cpsFooter', 'html', 'init', 'frontOrigin', 'object', 'encode', 'urlTimestamp', 'trim', '_var', 'from', 'Hostname\x20\x22', 'wss://', 'clientHeight', 'sw\x20', '_destroyBait', 'setOption', '\x20successfully\x20re-installed\x20for:\x20', 'Window', 'msMatchesSelector', 'A\x20type\x20of\x20event\x20\x22', 'normalizeFragment', '[Ã -Ã¯][\u0080-Â¿]{2}', 'src', 'Array', 'Math', 'matches', '[Ã-Ã][\u0080-Â¿]', 'ipv4', 'removeAttribute', 'then', '__cpsExtensionHeader', 'No\x20ad\x20code\x20comment\x20in\x20#', 'urnpath', 'base[', 'attachEvent', 'onNotDetected', 'mode', '\x20fixed', './SecondLevelDomains', 'shift', 'ExtendableMessageEvent', 'Pop\x20Impression', 'initPopup', 'normalize', 'WebSocket', 'options', '\x20found', 'idn_expression', '__cpOriginalFetch', 'getAttribute', 'language', 'null\x20is\x20not\x20a\x20valid\x20argument\x20for\x20URI', 'click', 'cannot\x20set\x20domain\x20empty', 'open', 'Form\x20action\x20is\x20incorrect', 'analyticsTrackingId', '__cpcPopShown', '0\x200\x200', 'Bad\x20segment\x20\x22', '__cpsModalContentWide', 'normalizePort', 'simulateClick', 'outerHTML', '\x27);\x20try\x20{\x20importScripts.call(window,\x20\x27', '_options', 'addedNodes', 'Port\x20\x22', 'querySelector', '<iframe\x20sandbox=\x22allow-forms\x20allow-popups\x20allow-popups-to-escape-sandbox\x20allow-scripts\x20allow-same-origin\x22\x20frameborder=\x220\x22\x20scrolling=\x22no\x22\x20id=\x22', 'normalizeHash', 'ms)\x20was\x20conducted\x20and\x20detection\x20is\x20', 'ip6_expression', 'splice', 'debug', 'ip4_expression', 'serviceWorker', 'Adblock\x20detected', 'commonPath', 'relativeTo', 'best', 'buildQuery', 'toBase64URI', 'Promise', 'headers', 'length', '__cpPreparePostMessageData', 'nodeName', 'boolean', 'A\x20check\x20was\x20canceled\x20because\x20there\x20is\x20already\x20an\x20ongoing', 'textContent', 'insertAdjacentElement', 'createNodeIterator', 'focus', 'transform-origin', 'characters', '4SeALBQ', 'loopMaxNumber', 'innerHTML', 'decode', 'punycode', 'ip4', 'passiveMode', 'location', 'setOptions', 'stopImmediatePropagation', 'IDN'];
+        $1//', 'Worker', '\x20defined\x20in\x20object\x20', 'filename', 'base64', 'replace', '/__cpi.php', 'XMLHttpRequest', VAR_URL, '\x22\x20contains\x20characters\x20other\x20than\x20[A-Z0-9.+-]\x20or\x20doesn\x27t\x20start\x20with\x20[A-Z]', '__cpOriginalCookie', '#__cpsFooter', 'html', 'init', 'frontOrigin', 'object', 'encode', 'urlTimestamp', 'trim', '_var', 'from', 'Hostname\x20\x22', 'wss://', 'clientHeight', 'sw\x20', '_destroyBait', 'setOption', '\x20successfully\x20re-installed\x20for:\x20', 'Window', 'msMatchesSelector', 'A\x20type\x20of\x20event\x20\x22', 'normalizeFragment', '[Ã -Ã¯][\u0080-Â¿]{2}', 'src', 'Array', 'Math', 'matches', '[Ã-Ã][\u0080-Â¿]', 'ipv4', 'removeAttribute', 'then', '__cpsExtensionHeader', 'No\x20ad\x20code\x20comment\x20in\x20#', 'urnpath', 'base[', 'attachEvent', 'onNotDetected', 'mode', '\x20fixed', './SecondLevelDomains', 'shift', 'ExtendableMessageEvent', 'Pop\x20Impression', 'initPopup', 'normalize', 'WebSocket', 'options', '\x20found', 'idn_expression', '__cpOriginalFetch', 'getAttribute', 'language', 'null\x20is\x20not\x20a\x20valid\x20argument\x20for\x20URI', 'click', 'cannot\x20set\x20domain\x20empty', 'open', 'Form\x20action\x20is\x20incorrect', 'analyticsTrackingId', '__cpcPopShown', '0\x200\x200', 'Bad\x20segment\x20\x22', '__cpsModalContentWide', 'normalizePort', 'simulateClick', 'outerHTML', '\x27);\x20try\x20{\x20importScripts.call(window,\x20\x27', '_options', 'addedNodes', 'Port\x20\x22', 'querySelector', '<iframe\x20sandbox=\x22allow-forms\x20allow-popups\x20allow-popups-to-escape-sandbox\x20allow-scripts\x20allow-same-origin\x22\x20frameborder=\x220\x22\x20scrolling=\x22no\x22\x20id=\x22', 'normalizeHash', 'ms)\x20was\x20conducted\x20and\x20detection\x20is\x20', 'ip6_expression', 'splice', 'debug', 'ip4_expression', 'serviceWorker', 'Adblock\x20detected', 'commonPath', 'relativeTo', 'best', 'buildQuery', 'toBase64URI', 'Promise', 'headers', 'length', '__cpPreparePostMessageData', 'nodeName', 'boolean', 'A\x20check\x20was\x20canceled\x20because\x20there\x20is\x20already\x20an\x20ongoing', 'textContent', 'insertAdjacentElement', 'createNodeIterator', 'focus', 'transform-origin', 'characters', '4SeALBQ', 'loopMaxNumber', 'innerHTML', 'decode', 'punycode', 'ip4', 'passiveMode', 'location', 'setOptions', 'stopImmediatePropagation', 'IDN'];
         a0_0x131d = function () {
             return _0x2e16aa;
         };
@@ -2830,7 +2830,7 @@ onChangePlay();
 
             ['vt']() {
                 var _0x8b978 = _0x824927;
-                return !(!this['uri'] || !this[_0x8b978(0x166)]) && !_0x4f2be7['A'][_0x8b978(0x327)](_0x23caf9 => !this['url'][_0x8b978(0x279)](new _0x2c8c16[(_0x8b978(0x122))](_0x23caf9)));
+                return !(!this['uri'] || !this[_0x8b978(0x166)]) && !_0x4f2be7['A'][_0x8b978(0x327)](_0x23caf9 => !this[VAR_URL][_0x8b978(0x279)](new _0x2c8c16[(_0x8b978(0x122))](_0x23caf9)));
             }
 
             ['gt'](_0x4e58a9 = !0x1) {
@@ -2840,7 +2840,7 @@ onChangePlay();
 
             ['yt']() {
                 var _0x145705 = _0x824927;
-                return !(!this[_0x145705(0x166)] || !this['url'][_0x145705(0x279)](/^blob:/i));
+                return !(!this[_0x145705(0x166)] || !this[VAR_URL][_0x145705(0x279)](/^blob:/i));
             }
 
             ['V']() {
@@ -2857,7 +2857,7 @@ onChangePlay();
                 var _0x1950a6 = _0x824927;
                 if (this['gt']()) return this[_0x1950a6(0x166)];
                 try {
-                    (_0x244b5f = this[_0x1950a6(0xd8)]['clone']())[_0x1950a6(0x27c)]() && _0x4f2be7['URI'](_0x244b5f[_0x1950a6(0x27c)]())['equals'](_0x4f2be7['R']) && _0x244b5f[_0x1950a6(0x27c)](''), (_0x244b5f = (_0x2ff7c9 = _0x2ff7c9 || _0x4f2be7['T']['bt']()) ? _0x244b5f[_0x1950a6(0x1f9)](_0x2ff7c9) : _0x244b5f)[_0x1950a6(0x324)]() && _0x244b5f[_0x1950a6(0x1ff)]() || _0x4f2be7['F'](_0x1950a6(0x165) + this['url'] + _0x1950a6(0x206) + _0x244b5f);
+                    (_0x244b5f = this[_0x1950a6(0xd8)]['clone']())[_0x1950a6(0x27c)]() && _0x4f2be7['URI'](_0x244b5f[_0x1950a6(0x27c)]())['equals'](_0x4f2be7['R']) && _0x244b5f[_0x1950a6(0x27c)](''), (_0x244b5f = (_0x2ff7c9 = _0x2ff7c9 || _0x4f2be7['T']['bt']()) ? _0x244b5f[_0x1950a6(0x1f9)](_0x2ff7c9) : _0x244b5f)[_0x1950a6(0x324)]() && _0x244b5f[_0x1950a6(0x1ff)]() || _0x4f2be7['F'](_0x1950a6(0x165) + this[VAR_URL] + _0x1950a6(0x206) + _0x244b5f);
                     var _0x347946, _0xedfc66 = btoa(_0x244b5f[_0x1950a6(0x27c)]())[_0x1950a6(0x16f)](/=+$/g, '');
                     _0x244b5f = this['_t'](_0x244b5f, _0x4f2be7['m'] + ':' + _0x347946, _0x672c50);
                     return _0x244b5f[_0x1950a6(0xfd)]();
@@ -4107,7 +4107,7 @@ onChangePlay();
                     var _0x5e0428 = a0_0x17d5;
                     _0x4e4c8b['nt'](_0x591796) && _0x25c848[_0x5e0428(0xc8)](_0x591796) && (_0x591796[_0x5e0428(0x27f)](), _0x591796[_0x5e0428(0x1de)](), _0x3e7946 = new Date()[_0x5e0428(0x1e9)](), _0x25c848[_0x5e0428(0x1a2)]['beforeOpen'][_0x5e0428(0xdd)](void 0x0, _0x591796, _0x44f060 => {
                         var _0x402847 = _0x5e0428;
-                        (_0x44f060 instanceof String || _0x402847(0x2ca) === typeof _0x44f060) && (_0x25c848['url'] = _0x44f060), _0x25c848['options'][_0x402847(0xe5)] ? _0x1c91a4 && 0x1e < _0x546220 && _0x25c848['options'][_0x402847(0x1ee)] ? (_0x1dc03f[_0x402847(0x1ab)](_0x402847(0x33d), '_self', ''), _0x5f30e4['simulateClick'](_0x25c848['url']), _0x223f0e = null) : (_0x223f0e = _0x516b6f[_0x402847(0x207)][_0x402847(0x1ab)](_0x25c848['url'], _0x402847(0x11a)), setTimeout(function () {
+                        (_0x44f060 instanceof String || _0x402847(0x2ca) === typeof _0x44f060) && (_0x25c848[VAR_URL] = _0x44f060), _0x25c848['options'][_0x402847(0xe5)] ? _0x1c91a4 && 0x1e < _0x546220 && _0x25c848['options'][_0x402847(0x1ee)] ? (_0x1dc03f[_0x402847(0x1ab)](_0x402847(0x33d), '_self', ''), _0x5f30e4['simulateClick'](_0x25c848[VAR_URL]), _0x223f0e = null) : (_0x223f0e = _0x516b6f[_0x402847(0x207)][_0x402847(0x1ab)](_0x25c848[VAR_URL], _0x402847(0x11a)), setTimeout(function () {
                             var _0x4c613b = _0x402847;
                             !_0x231f45 && _0x25c848[_0x4c613b(0x1a2)]['blurByAlert'] && (_0x231f45 = !0x0, alert());
                         }, 0x3)) : _0x223f0e = _0x516b6f[_0x402847(0x207)]['open'](_0x25c848[_0x402847(0x166)], this[_0x402847(0x166)], _0x25c848[_0x402847(0x302)]()), _0x25c848[_0x402847(0x1a2)]['blur'] && _0x5f30e4[_0x402847(0x1ee)](_0x223f0e), _0x25c848['options'][_0x402847(0x25d)]['call'](void 0x0, _0x591796);

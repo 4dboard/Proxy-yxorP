@@ -11,8 +11,6 @@ require './inc/Constants.php';
 require './cockpit/bootstrap.php';
 require './cache/State.php';
 require './cache/Cache.php';
-require './inc/guzzle.phar';
-require './inc/bugsnag.phar';
 
 /**
  * It's a proxy for the yxorp plugin
@@ -134,8 +132,8 @@ class yxorP
         self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
         /* It's inserting a new user into the `cockpit_accounts` collection. */
-        COCKPIT_APP->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => Constants::get(TOKEN_ADMIN_USER . EXT_ENV), VAR_NAME => Constants::get(TOKEN_ADMIN_NAME . EXT_ENV), VAR_EMAIL =>
-            Constants::get(TOKEN_ADMIN_EMAIL . EXT_ENV), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(Constants::get(TOKEN_ADMIN_PASSWORD . EXT_ENV)),
+        COCKPIT_APP->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => Constants::get(ENV_ADMIN_USER), VAR_NAME => Constants::get(ENV_ADMIN_NAME), VAR_EMAIL =>
+            Constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(Constants::get(ENV_ADMIN_PASSWORD)),
             VAR_I18N => COCKPIT_APP->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
     }
 

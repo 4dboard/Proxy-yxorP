@@ -11,8 +11,8 @@ class requestResponseAction extends EventWrapper
     public function buildIncludes(): void
     {
         /* Setting the response object to the key RESPONSE. */
-        self::set('RESPONSE', new Response());
+        Constants::set('RESPONSE', new Response());
         /* Setting the request object to the key REQUEST. */
-        self::set('REQUEST', Request::createFromGlobals());
+        Constants::set('REQUEST', Request::createFromGlobals());
     }
 }

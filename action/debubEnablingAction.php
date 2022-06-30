@@ -12,6 +12,6 @@ class debubEnablingAction extends EventWrapper
     {
         /* It enables the error reporting if the `DEBUG` environment variable is set or if the server name does not contain
         a dot. */
-        error_reporting(self::get('DEBUG') || !(int)str_contains(self::get(TOKEN_SERVER)['SERVER_NAME'], '.'));
+        error_reporting(ENV_DEBUG || !(int)str_contains(Constants::get(TOKEN_SERVER)['SERVER_NAME'], '.'));
     }
 }
