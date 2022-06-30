@@ -149,7 +149,7 @@ class Constants
         define('PATH_REWRITE_REPLACE', DIR_PLUGIN . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
         /* Defining the path to the bugsnag.phar file. */
         define('PATH_BUGSNAG_PHAR', DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
-        define('PATH_BUGSNAG_PHAR', DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
+        define('PATH_GUZZLE_PHAR', DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR);
 
         //METHODS
         /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
