@@ -224,9 +224,9 @@ class Constants
 
         // INCLUDES
         /* Importing the Bugsnag PHP library. */
-        require DIR_PLUGIN . DIR_INC . 'bugsnag . phar';
+        require DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR;
         /* Loading the guzzle.phar file. */
-        require DIR_PLUGIN . DIR_INC . 'guzzle . phar';
+        require DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
