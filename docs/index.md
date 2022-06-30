@@ -21,10 +21,10 @@ a predefined time inside a custom-built, flat-file cache system architectured to
 systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes,
 which resulted a significantly faster cache.
 
-The Constants::get(BUGSNAG) error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
-was done to assure Constants::get(BUGSNAG)'s compatibility with the modification. Changes to the default logging system may be done in
-as little as two minutes due to the program's compatibility with the great majority of the industry's primary error
-tracking systems.
+The Constants::get(BUGSNAG) error reporting and warning system now supports yxorP in its most complete version after an
+upgrade. This was done to assure Constants::get(BUGSNAG)'s compatibility with the modification. Changes to the default
+logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the
+industry's primary error tracking systems.
 
 <video controls="true" width="100%" height="auto" autoplay="" name="media"><source src="https://4dboard.github.io/proxy-yxorp/movie.mp4?8" type="video/mp4"></video>
 
@@ -160,9 +160,9 @@ There are several additional uses that may be explored, and these are only a few
 <img src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 <img src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png"/>
 
-Constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to use and implement.
-The ability to make data-driven decisions about whether to develop software or address problems is contingent on the
-ability to maintain stability.
+Constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to
+use and implement. The ability to make data-driven decisions about whether to develop software or address problems is
+contingent on the ability to maintain stability.
 
 <img src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Constants::get(BUGSNAG).gif"/>
 
