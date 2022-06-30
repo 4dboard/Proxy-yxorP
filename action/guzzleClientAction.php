@@ -8,6 +8,9 @@ use yxorP\http\EventWrapper;
 class guzzleClientAction extends EventWrapper
 {
     /* A method that is called before the request is sent. */
+    /**
+     * @throws JsonException
+     */
     public function onBeforeRequest(): void
     {
         /* Creating a new `GuzzleHttp\Client` object, and then it is sending a request to the `Constants::get('FETCH')` URL,

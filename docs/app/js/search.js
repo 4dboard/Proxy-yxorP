@@ -25,10 +25,10 @@
 // After the page has fully loaded, and all these deferred indexes loaded, the initialization of the search module will
 // be called and the form will receive the class 'phpdocumentor-search--active', indicating search is ready. At this
 // point, the input field will also have it's 'disabled' attribute removed.
-var Search = (function () {
-    var fuse;
-    var index = [];
-    var options = {
+const Search = (function () {
+    let fuse;
+    let index = [];
+    const options = {
         shouldSort: true,
         threshold: 0.6,
         location: 0,
@@ -49,18 +49,18 @@ var Search = (function () {
     // N milliseconds. If `immediate` is passed, trigger the function on the
     // leading edge, instead of the trailing.
     function debounce(func, wait, immediate) {
-        var timeout;
+        let timeout;
 
         return function executedFunction() {
-            var context = this;
-            var args = arguments;
+            const context = this;
+            const args = arguments;
 
-            var later = function () {
+            const later = function () {
                 timeout = null;
                 if (!immediate) func.apply(context, args);
             };
 
-            var callNow = immediate && !timeout;
+            const callNow = immediate && !timeout;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
             if (callNow) func.apply(context, args);
@@ -75,12 +75,12 @@ var Search = (function () {
         window.scrollTo(0, parseInt(scrollY || '0') * -1);
         // End scroll prevention
 
-        var form = document.querySelector('[data-search-form]');
-        var searchResults = document.querySelector('[data-search-results]');
+        const form = document.querySelector('[data-search-form]');
+        const searchResults = document.querySelector('[data-search-results]');
 
         form.classList.toggle('phpdocumentor-search--has-results', false);
         searchResults.classList.add('phpdocumentor-search-results--hidden');
-        var searchField = document.querySelector('[data-search-form] input[type="search"]');
+        const searchField = document.querySelector('[data-search-form] input[type="search"]');
         searchField.blur();
     }
 
@@ -93,9 +93,9 @@ var Search = (function () {
         // prevent enter's from autosubmitting
         event.stopPropagation();
 
-        var form = document.querySelector('[data-search-form]');
-        var searchResults = document.querySelector('[data-search-results]');
-        var searchResultEntries = document.querySelector('[data-search-results] .phpdocumentor-search-results__entries');
+        const form = document.querySelector('[data-search-form]');
+        const searchResults = document.querySelector('[data-search-results]');
+        const searchResultEntries = document.querySelector('[data-search-results] .phpdocumentor-search-results__entries');
 
         searchResultEntries.innerHTML = '';
 
@@ -106,10 +106,10 @@ var Search = (function () {
 
         form.classList.toggle('phpdocumentor-search--has-results', true);
         searchResults.classList.remove('phpdocumentor-search-results--hidden');
-        var results = fuse.search(event.target.value, {limit: 25});
+        const results = fuse.search(event.target.value, {limit: 25});
 
         results.forEach(function (result) {
-            var entry = document.createElement("li");
+            const entry = document.createElement("li");
             entry.classList.add("phpdocumentor-search-results__entry");
             entry.innerHTML += '<h3><a href="' + document.baseURI + result.url + '">' + result.name + "</a></h3>\n";
             entry.innerHTML += '<small>' + result.fqsen + "</small>\n";
@@ -130,15 +130,15 @@ var Search = (function () {
     function init() {
         fuse = new Fuse(index, options);
 
-        var form = document.querySelector('[data-search-form]');
-        var searchField = document.querySelector('[data-search-form] input[type="search"]');
+        const form = document.querySelector('[data-search-form]');
+        const searchField = document.querySelector('[data-search-form] input[type="search"]');
 
-        var closeButton = document.querySelector('.phpdocumentor-search-results__close');
+        const closeButton = document.querySelector('.phpdocumentor-search-results__close');
         closeButton.addEventListener('click', function () {
             close()
         }.bind(this));
 
-        var searchResults = document.querySelector('[data-search-results]');
+        const searchResults = document.querySelector('[data-search-results]');
         searchResults.addEventListener('click', function () {
             close()
         }.bind(this));
@@ -166,7 +166,7 @@ var Search = (function () {
 })();
 
 window.addEventListener('DOMContentLoaded', function () {
-    var form = document.querySelector('[data-search-form]');
+    const form = document.querySelector('[data-search-form]');
 
     // When JS is supported; show search box. Must be before including the search for it to take effect immediately
     form.classList.add('phpdocumentor-search--enabled');

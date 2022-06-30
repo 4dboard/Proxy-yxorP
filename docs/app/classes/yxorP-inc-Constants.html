@@ -715,11 +715,11 @@
                 <script type="text/javascript">
                     function loadExternalCodeSnippets(line) {
                         Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach((pre) => {
-                            var src = pre.getAttribute('data-src').replace(/\\/g, '/');
-                            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
-                            var language = 'php';
+                            const src = pre.getAttribute('data-src').replace(/\\/g, '/');
+                            const extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                            const language = 'php';
 
-                            var code = document.createElement('code');
+                            const code = document.createElement('code');
                             code.className = 'language-' + language;
 
                             pre.textContent = '';
@@ -729,7 +729,7 @@
 
                             pre.appendChild(code);
 
-                            var xhr = new XMLHttpRequest();
+                            const xhr = new XMLHttpRequest();
 
                             xhr.open('GET', src, true);
 
@@ -752,7 +752,7 @@
                         });
                     }
 
-                    var modals = document.querySelectorAll("[data-modal]");
+                    const modals = document.querySelectorAll("[data-modal]");
 
                     modals.forEach(function (trigger) {
                         trigger.addEventListener("click", function (event) {
