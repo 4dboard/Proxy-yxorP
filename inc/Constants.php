@@ -3,6 +3,12 @@
 
 namespace yxorP\inc;
 
+/* Importing the Bugsnag PHP library. */
+require './bugsnag.phar';
+
+/* Loading the guzzle.phar file. */
+require './inc/guzzle.phar';
+
 /* Defining constants. Creating a class called Constants. */
 
 class Constants
@@ -162,6 +168,14 @@ class Constants
         define('VAR_CREATED', '_created');
         /* Defining a constant called `VAR_MODIFIED` and setting it to the value of `_modified`. */
         define('VAR_MODIFIED', '_modified');
+        /* Defining a constant. */
+        define('VAR_USER_IP', 'user_ip');
+        /* Defining a constant. */
+        define('VAR_USER_IP_LONG', 'user_ip_long');
+        /* Defining a constant. */
+        define('VAR_URL', 'url');
+        /* Defining a constant. */
+        define('VAR_URL_HOST', 'url_host');
 
         // TOKENS
         /* Defining a constant called `TOKEN_SERVER` and setting it to the value of `SERVER`. */
@@ -176,14 +190,22 @@ class Constants
         define('TOKEN_REWRITE_REPLACE', 'INC_REWRITE_REPLACE');
         /* Defining a constant. */
         define('TOKEN_COCKPIT_INSTALL', 'COCKPIT_INSTALL');
-        /* Defining a constant called TOKEN_ADMIN_USER and setting it to the value of ADMIN_USER. */
-        define('TOKEN_ADMIN_USER', 'ADMIN_USER');
-        /* Defining a constant called TOKEN_ADMIN_NAME and setting it equal to the string "ADMIN_NAME". */
-        define('TOKEN_ADMIN_NAME', 'ADMIN_NAME');
-        /* Defining a constant called TOKEN_ADMIN_EMAIL and setting it equal to the string 'ADMIN_EMAIL'. */
-        define('TOKEN_ADMIN_EMAIL', 'ADMIN_EMAIL');
-        /* Defining a constant called TOKEN_ADMIN_PASSWORD and setting it equal to the string 'ADMIN_PASSWORD'. */
-        define('TOKEN_ADMIN_PASSWORD', 'ADMIN_PASSWORD');
+
+        //ENV
+        /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
+        define('ENV_ADMIN_USER', 'ADMIN_USER' . EXT_ENV);
+        /* Defining a constant called ENV_ADMIN_NAME and setting it equal to the string "ADMIN_NAME". */
+        define('ENV_ADMIN_NAME', 'ADMIN_NAME' . EXT_ENV);
+        /* Defining a constant called ENV_ADMIN_EMAIL and setting it equal to the string 'ADMIN_EMAIL'. */
+        define('ENV_ADMIN_EMAIL', 'ADMIN_EMAIL' . EXT_ENV);
+        /* Defining a constant called ENV_ADMIN_PASSWORD and setting it equal to the string 'ADMIN_PASSWORD'. */
+        define('ENV_ADMIN_PASSWORD', 'ADMIN_PASSWORD' . EXT_ENV);
+        /* Defining a constant called ENV_GA_UTM and setting it equal to the string 'GA_UTM'. */
+        define('ENV_GA_UTM', 'GA_UTM' . EXT_ENV);
+        /* Defining a constant called ENV_BUG_SNAG_KEY and setting it equal to the string 'BUG_SNAG_KEY'. */
+        define('ENV_BUG_SNAG_KEY', 'BUG_SNAG_KEY' . EXT_ENV);
+        /* Defining a constant called ENV_DEBUG and setting it to the value of 'DEBUG' . EXT_ENV. */
+        define('ENV_DEBUG', 'DEBUG' . EXT_ENV);
 
         // COCKPIT
         /* Defining the constant COCKPIT_APP as the function cockpit(). */
@@ -194,15 +216,21 @@ class Constants
         //EXCEPTIONS
         /* Defining a constant called RUNTIME_EXCEPTION. */
         define('RUNTIME_EXCEPTION', 'Directory "%s" was not created');
+        define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
         foreach (file(DIR_PLUGIN . EXT_ENV) as $line) self::env($line);
 
+        // Reporting
+        define('BUGSNAG', Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        define('GUZZLE', new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
         seconds in a year. */
         define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
+
 
     }
 
