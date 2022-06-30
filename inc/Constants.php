@@ -122,6 +122,9 @@ class Constants
         define('FILE_BUGSNAG', 'bugsnag');
         /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
         define('FILE_GUZZLE', 'guzzle');
+        /* Defining a constant. */
+        define('FILE_ACTION_WRAPPER', 'ActionWrapper');
+
 
 
         // PATHS
@@ -232,6 +235,8 @@ class Constants
         require DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR;
         /* Requiring the Guzzle library. */
         require DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR;
+
+        require DIR_PLUGIN . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHAR;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
