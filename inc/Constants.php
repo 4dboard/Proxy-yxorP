@@ -247,8 +247,9 @@ class Constants
         foreach (file(DIR_PLUGIN . EXT_ENV) as $line) self::env($line);
 
         // Reporting
+        /* Setting the token to the bugsnag key. */
         self::set(TOKEN_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
-        
+        /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
         self::set(TOKEN_GUZZLE, new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE
