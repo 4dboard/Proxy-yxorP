@@ -126,7 +126,6 @@ class Constants
         define('FILE_ACTION_WRAPPER', 'ActionWrapper');
 
 
-
         // PATHS
         /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_PLUGIN` with a `DIR_TMP` appended
         to it. */
