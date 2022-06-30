@@ -256,7 +256,7 @@ class Constants
      * @param $_value
      * @return mixed
      */
-    public static function set($_name, $_value)
+    public static function set($_name, $_value): mixed
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope. */
@@ -281,7 +281,7 @@ class Constants
      * @param $_name
      * @return false|mixed
      */
-    public static function get($_name)
+    public static function get($_name): mixed
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false. */

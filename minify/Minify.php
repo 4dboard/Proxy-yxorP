@@ -2,16 +2,18 @@
 
 namespace yxorP\Minify;
 
+use JetBrains\PhpStorm\Pure;
+
 class Minify implements MinfyInterface
 {
-    private $processors;
+    private array $processors;
 
     public function __construct(MinfyInterface ...$processors)
     {
         $this->processors = $processors;
     }
 
-    public static function createDefault(): self
+    #[Pure] public static function createDefault(): self
     {
         return new self(
             new WhitespacesRemover,

@@ -145,11 +145,10 @@ class yxorP
      * @param to The destination directory.
      * @param ext The extension of the files to be migrated.
      */
-    private static function migrate($from, $to, $ext = CHAR_ASTRIX): void
-    {
-        /* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
+    private static function migrate($from, $to): void
+    {/* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
         calling the `base()` function. */
-        if (count($all = glob("$from$ext", GLOB_MARK)) > 0) foreach ($all as $a) self::base($from, $to, $a);
+        if (count($all = glob("$from" . (CHAR_ASTRIX) . "", GLOB_MARK)) > 0) foreach ($all as $a) self::base($from, $to, $a);
     }
 
     /**
@@ -205,9 +204,8 @@ class yxorP
      * @param callback The callback function to be executed when the event is triggered.
      * @param priority The priority of the listener. Higher priority listeners are called before lower priority listeners.
      */
-    private function addListener($event, $callback, $priority = 0): void
-    {
-        /* It's adding a listener to the listeners array. */
-        $this->listeners[$event][$priority][] = $callback;
+    private function addListener($event, $callback): void
+    {/* It's adding a listener to the listeners array. */
+        $this->listeners[$event][0][] = $callback;
     }
 }

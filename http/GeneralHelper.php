@@ -2,6 +2,7 @@
 
 /* Importing the Constants class from the yxorP\inc namespace. */
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\inc\Constants;
 use function array_map;
 use function array_merge;
@@ -113,7 +114,7 @@ class GeneralHelper
     }
 
     /* It's returning the application URL. */
-    public static function app_url(): string
+    #[Pure] public static function app_url(): string
     {
         return 'https:' . Constants::get('SITE_HOST') . CACHE_SERVER['PHP_SELF'];
     }
@@ -230,13 +231,12 @@ class GeneralHelper
     }
 
     /* It's extracting the subdomains from the `$domain`. */
-    public static function extractSubdomains($domain)
+    public static function extractSubdomains($domain): ?string
     {
         if (str_contains($domain, CHAR_PERIOD)) {
             $subdomains = $domain;
             $domain = self::extractDomain($subdomains);
-            $subdomains = rtrim(strstr($subdomains, $domain, true), CHAR_PERIOD);
-            return $subdomains;
+            return rtrim(strstr($subdomains, $domain, true), CHAR_PERIOD);
         } else  return null;
     }
 

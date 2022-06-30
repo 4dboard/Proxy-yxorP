@@ -19,7 +19,7 @@ class Setup
             }
         } catch (Exception $e) {
         }
-        function ensure_writable($path)
+        function ensure_writable($path): bool
         {
             $dir = PATH_DIR_COCKPIT . $path;
             if (!file_exists($dir)) {
