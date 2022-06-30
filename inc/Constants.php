@@ -236,7 +236,7 @@ class Constants
 
         // Reporting
         define('BUGSNAG', \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
-        define('GUZZLE', new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+        define('GUZZLE', new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
