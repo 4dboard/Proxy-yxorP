@@ -1931,66 +1931,14 @@ if (typeof gameNAMES === 'undefined') {
         TITLE: "Supra Racing Speed Turbo Dift",
         URL: "https://xn--ply-onb.com/driving/supra-racing-speed-turbo-dift"
     }, {
-        TITLE: "Suv /**
-
-            * {@inlinetag}
-
-            * this is @not a standardtag - must begin a line.
-
-        * this is a valid {@inlinetag} also
-
-    * @standardtag
-
-    * /
-    classic Car Parking",
-        URL
+        "Top Speed 2", URL: "https://xn--ply-onb.com/driving/top-speed-2"
+    }
+        ,
+        {
+            "Towing Train", URL
 :
-    "https://xn--ply-onb.com/driving/suv-/**
-
-    * {@inlinetag}
-
-    * this
-    is
-@not
-    a
-    standardtag - must
-    begin
-    a
-    line.
-
-    * this
-    is
-    a
-    valid
-    {@inlinetag
-    }
-    also
-
-    * @standardtag
-
-    * /
-    classic - car - parking
-    "
+    "https://xn--ply-onb.com/driving/towing-train"
 },
-    {
-        "Tiny Planet", URL
-    :
-        "https://xn--ply-onb.com/driving/tiny-planet"
-    }
-,
-    {
-        "Top Speed 2",
-            URL
-    :
-        "https://xn--ply-onb.com/driving/top-speed-2"
-    }
-,
-    {
-        "Towing Train", URL
-    :
-        "https://xn--ply-onb.com/driving/towing-train"
-    }
-,
     {
         "Tractor Delivery",
             URL
