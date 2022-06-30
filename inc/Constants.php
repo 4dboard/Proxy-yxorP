@@ -147,6 +147,9 @@ class Constants
         /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_PLUGIN` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_REPLACE', DIR_PLUGIN . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
+        /* Defining the path to the bugsnag.phar file. */
+        define('PATH_BUGSNAG_PHAR', DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
+        define('PATH_BUGSNAG_PHAR', DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
 
         //METHODS
         /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
@@ -231,9 +234,9 @@ class Constants
         // INCLUDES
 
         /* Loading the Bugsnag PHP library. */
-        require DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR;
+        require PATH_BUGSNAG_PHAR;
         /* Requiring the Guzzle library. */
-        require DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR;
+        require PATH_GUZZLE_PHAR;
 
         require DIR_PLUGIN . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHAR;
 
