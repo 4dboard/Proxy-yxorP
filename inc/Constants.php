@@ -6,6 +6,8 @@ namespace yxorP\inc;
 
 /* Defining constants. Creating a class called Constants. */
 
+use Guzzle\Client;
+
 class Constants
 {
     /* Defining constants.Creating a new directory.  */
@@ -234,7 +236,7 @@ class Constants
 
         // Reporting
         define('BUGSNAG', Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
-        define('GUZZLE', new Guzzle\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+        define('GUZZLE', new Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
