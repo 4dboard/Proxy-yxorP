@@ -2,7 +2,7 @@
 
 /* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\actionWrapper;
+use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
 /* Extending the actionWrapper class, which is a class that allows you to listen to events. */
