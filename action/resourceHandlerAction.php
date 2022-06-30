@@ -1,13 +1,13 @@
 <?php
 
-/* Importing the EventWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\EventWrapper;
+use yxorP\http\actionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the EventWrapper class, which is a class that is used to handle events. */
+/* Extending the actionWrapper class, which is a class that is used to handle events. */
 
-class resourceHandlerAction extends EventWrapper
+class resourceHandlerAction extends actionWrapper
 {
     /* A function that is called when an exception is thrown. */
     public function onBuildException($e): void

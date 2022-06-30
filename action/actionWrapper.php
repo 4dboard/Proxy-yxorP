@@ -1,4 +1,4 @@
-<?php namespace yxorP\http;
+<?php namespace yxorP\action;
 
 /* Importing the namespace `yxorP` into the current namespace. */
 
@@ -7,7 +7,7 @@ use yxorP\inc\Constants;
 
 /* A wrapper for the events. */
 
-abstract class EventWrapper
+abstract class actionWrapper
 {
     /* A property that is used to filter the events. */
     protected $url_pattern;

@@ -1,15 +1,15 @@
 <?php
 
-/* Importing the EventWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\EventWrapper;
+use yxorP\http\actionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the EventWrapper class. */
+/* Extending the actionWrapper class. */
 
-class siteCollectionAction extends EventWrapper
+class siteCollectionAction extends actionWrapper
 {
-    /* A method that is called by the EventWrapper class. */
+    /* A method that is called by the actionWrapper class. */
     public function onBuildContext(): void
     {
         /* Setting the `TARGET` variable to the result of the `findOne` method. */

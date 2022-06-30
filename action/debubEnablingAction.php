@@ -1,12 +1,12 @@
 <?php
-/* Importing the EventWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\EventWrapper;
+use yxorP\http\actionWrapper;
 use yxorP\inc\Constants;
 
-/* A class that extends the EventWrapper class. */
+/* A class that extends the actionWrapper class. */
 
-class debubEnablingAction extends EventWrapper
+class debubEnablingAction extends actionWrapper
 {
     /* A method that is called before the action is executed. */
     public function buildIncludes(): void

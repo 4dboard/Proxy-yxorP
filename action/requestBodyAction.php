@@ -1,14 +1,14 @@
 <?php
-/* Importing the EventWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\EventWrapper;
+use yxorP\http\actionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the EventWrapper class. */
+/* Extending the actionWrapper class. */
 
-class requestBodyAction extends EventWrapper
+class requestBodyAction extends actionWrapper
 {
-    /* A method that is called by the EventWrapper class. */
+    /* A method that is called by the actionWrapper class. */
     public function buildRequest(): void
     {
         /* Getting the request body from the input stream and setting it to the request object. */

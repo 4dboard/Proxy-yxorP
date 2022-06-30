@@ -2,11 +2,11 @@
 /* Importing the Cache class from the Cache namespace. */
 
 use yxorP\Cache\Cache;
-use yxorP\http\EventWrapper;
+use yxorP\http\actionWrapper;
 
-/* Importing the EventWrapper class from the yxorP\http namespace. Extending the EventWrapper class, which is a class that is used to wrap events. */
+/* Importing the actionWrapper class from the yxorP\http namespace. Extending the actionWrapper class, which is a class that is used to wrap events. */
 
-class readyCheckAction extends EventWrapper
+class readyCheckAction extends actionWrapper
 {
     /* A function that is called when the event is checked. */
     public function onCheck(): string

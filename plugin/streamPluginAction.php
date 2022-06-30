@@ -1,13 +1,13 @@
 <?php
 
-/* Importing the EventWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\EventWrapper;
+use yxorP\http\actionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the EventWrapper class, which is a class that allows you to listen to events. */
+/* Extending the actionWrapper class, which is a class that allows you to listen to events. */
 
-class StreamPlugin extends EventWrapper
+class streamPluginAction extends actionWrapper
 {
     /* An array of content types that will be streamed. */
     private array $output_buffer_types = array('text/html', 'text/plain', 'text/css', 'text/javascript', 'application/x-javascript', 'application/javascript');

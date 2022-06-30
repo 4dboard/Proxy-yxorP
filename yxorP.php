@@ -23,7 +23,7 @@ class yxorP
     /**
      * @var yxorP|null
      */
-    private static yxorP $yxorP;
+    public static ?yxorP $yxorP = null;
     /* It's an array of events that will be triggered. */
     /**
      * @var array
@@ -40,16 +40,13 @@ class yxorP
      *
      * @param _req The request URI
      */
-    private function __construct($_req)
+    public function __construct($_req)
     {
         /* It's setting the constants that are used in the plugin. */
         Constants::localise($_req);
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
         if (str_contains(CACHE_SERVER[TOKEN_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
-        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
-        creates them. */
-        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) yxorp::fileCheck(DIR_PLUGIN . $_asset, true);
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
         foreach (scandir(DIR_PLUGIN . DIR_ACTION) as $action) if (strlen($action) > 3) $this->subscribe($action);
@@ -57,6 +54,35 @@ class yxorP
         Constants::set(TOKEN_REWRITE_SEARCH, GeneralHelper::CSV(PATH_REWRITE_SEARCH));
         /* It's setting the `TOKEN_REWRITE_REPLACE` constant to the value of the `PATH_REWRITE_REPLACE` constant. */
         Constants::set(TOKEN_REWRITE_REPLACE, GeneralHelper::CSV(PATH_REWRITE_REPLACE));
+    }
+
+    /**
+     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
+     * class exists in the yxorP namespace, if it does, it creates an instance of it
+     *
+     * @param action The name of the action to be executed.
+     */
+    private function subscribe($action): void
+    {
+        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
+        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
+        if (file_exists(DIR_PLUGIN . DIR_ACTION . $action)) require(DIR_PLUGIN . DIR_ACTION . $action); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
+        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
+        function. */
+        $this->addSubscriber(new $action());
+    }
+
+    /**
+     * > If the subscriber has a subscribe method, call it and pass the event manager to it
+     *
+     * @param subscriber The subscriber to add to the event dispatcher.
+     */
+    private function addSubscriber($subscriber): void
+    {
+        /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
+        and
+        passing the `$this` object to it. */
+        if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe($this);
     }
 
     /**
@@ -68,20 +94,6 @@ class yxorP
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init() as $_event) self::yxorP($_req ?: $_SERVER)->dispatch($_event);
-    }
-
-    /**
-     * > `yxorP` is a function that returns a `yxorP` object
-     *
-     * @param _req The request object.
-     *
-     * @return yxorP The yxorP object.
-     */
-    public static function yxorP($_req = null): yxorP
-    {
-        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
-        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
-        return self::$yxorP ?: self::$yxorP = new yxorP($_req ?: $_SERVER);
     }
 
     /**
@@ -118,10 +130,10 @@ class yxorP
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
         self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
+        $_account = [VAR_USER => Constants::get(ENV_ADMIN_USER), VAR_NAME => Constants::get(ENV_ADMIN_NAME), VAR_EMAIL => Constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(Constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => COCKPIT_APP->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
+
         /* It's inserting a new user into the `cockpit_accounts` collection. */
-        COCKPIT_APP->storage->insert(COCKPIT_ACCOUNTS, [VAR_USER => Constants::get(ENV_ADMIN_USER), VAR_NAME => Constants::get(ENV_ADMIN_NAME), VAR_EMAIL =>
-            Constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(Constants::get(ENV_ADMIN_PASSWORD)),
-            VAR_I18N => COCKPIT_APP->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()]);
+        COCKPIT_APP->storage->insert(COCKPIT_ACCOUNTS, $_account);
     }
 
     /**
@@ -155,35 +167,6 @@ class yxorP
     }
 
     /**
-     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
-     * class exists in the yxorP namespace, if it does, it creates an instance of it
-     *
-     * @param action The name of the action to be executed.
-     */
-    private function subscribe($action): void
-    {
-        /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
-        if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        if (file_exists(DIR_PLUGIN . DIR_ACTION . $action)) require(DIR_PLUGIN . DIR_ACTION . $action); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
-        /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
-        function. */
-        $this->addSubscriber(new $action());
-    }
-
-    /**
-     * > If the subscriber has a subscribe method, call it and pass the event manager to it
-     *
-     * @param subscriber The subscriber to add to the event dispatcher.
-     */
-    private function addSubscriber($subscriber): void
-    {
-        /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
-        and
-        passing the `$this` object to it. */
-        if (method_exists($subscriber, SUBSCRIBE_METHOD)) $subscriber->subscribe($this);
-    }
-
-    /**
      * "If there are any listeners for the event, call them."
      *
      * The first thing the function does is check if there are any listeners for the event. If there are, it loops through
@@ -197,6 +180,20 @@ class yxorP
         them. */
         if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
             if (is_callable($listener)) $listener();
+    }
+
+    /**
+     * > `yxorP` is a function that returns a `yxorP` object
+     *
+     * @param _req The request object.
+     *
+     * @return yxorP The yxorP object.
+     */
+    public static function yxorP($_req = null): yxorP
+    {
+        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
+        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
+        return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
     }
 
     /**

@@ -1,12 +1,12 @@
 <?php
-/* Importing the EventWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\EventWrapper;
+use yxorP\http\actionWrapper;
 use yxorP\inc\Constants;
 
-/* Extending the EventWrapper class, which is a class that is used to wrap the request and response objects. */
+/* Extending the actionWrapper class, which is a class that is used to wrap the request and response objects. */
 
-class requestResponseAction extends EventWrapper
+class requestResponseAction extends actionWrapper
 {
     /* This function is used to build the request and response objects. */
     public function buildIncludes(): void

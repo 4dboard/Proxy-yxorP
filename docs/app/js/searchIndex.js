@@ -14786,82 +14786,82 @@ Search.appendIndex(
         "summary": "",
         "url": "classes/Singletons-Controller-RestApi.html#method_listSingletons"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper",
-        "name": "EventWrapper",
+        "fqsen": "\\yxorP\\http\\actionWrapper",
+        "name": "actionWrapper",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003Asubscribe\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003Asubscribe\u0028\u0029",
         "name": "subscribe",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_subscribe"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003Aroute\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003Aroute\u0028\u0029",
         "name": "route",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_route"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonCheck\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonCheck\u0028\u0029",
         "name": "onCheck",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onCheck"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBuildCached\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildCached\u0028\u0029",
         "name": "onBuildCached",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBuildCached"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBuildContext\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildContext\u0028\u0029",
         "name": "onBuildContext",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBuildContext"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBuildIncludes\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildIncludes\u0028\u0029",
         "name": "onBuildIncludes",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBuildIncludes"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBuildHeaders\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildHeaders\u0028\u0029",
         "name": "onBuildHeaders",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBuildHeaders"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBuildRequest\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildRequest\u0028\u0029",
         "name": "onBuildRequest",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBuildRequest"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBuildResult\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildResult\u0028\u0029",
         "name": "onBuildResult",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBuildResult"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBeforeRequest\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBeforeRequest\u0028\u0029",
         "name": "onBeforeRequest",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBeforeRequest"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonHeadersReceived\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonHeadersReceived\u0028\u0029",
         "name": "onHeadersReceived",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onHeadersReceived"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonCurlWrite\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonCurlWrite\u0028\u0029",
         "name": "onCurlWrite",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onCurlWrite"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onCompleted"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003AonBuildException\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildException\u0028\u0029",
         "name": "onBuildException",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#method_onBuildException"
     }, {
-        "fqsen": "\\yxorP\\http\\EventWrapper\u003A\u003A\u0024url_pattern",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003A\u0024url_pattern",
         "name": "url_pattern",
         "summary": "",
         "url": "classes/yxorP-http-EventWrapper.html#property_url_pattern"
@@ -15896,222 +15896,222 @@ Search.appendIndex(
         "summary": "",
         "url": "classes/yxorP-Minify-WhitespacesRemover.html#constant_BLOCK_ELEMENTS"
     }, {
-        "fqsen": "\\BlockListPlugin",
-        "name": "BlockListPlugin",
+        "fqsen": "\\blockListPluginAction",
+        "name": "blockListPluginAction",
         "summary": "",
         "url": "classes/BlockListPlugin.html"
     }, {
-        "fqsen": "\\BlockListPlugin\u003A\u003AonBeforeRequest\u0028\u0029",
+        "fqsen": "\\blockListPluginAction\u003A\u003AonBeforeRequest\u0028\u0029",
         "name": "onBeforeRequest",
         "summary": "",
         "url": "classes/BlockListPlugin.html#method_onBeforeRequest"
     }, {
-        "fqsen": "\\CookiePlugin",
-        "name": "CookiePlugin",
+        "fqsen": "\\cookiePluginAction",
+        "name": "cookiePluginAction",
         "summary": "",
         "url": "classes/CookiePlugin.html"
     }, {
-        "fqsen": "\\CookiePlugin\u003A\u003AonBeforeRequest\u0028\u0029",
+        "fqsen": "\\cookiePluginAction\u003A\u003AonBeforeRequest\u0028\u0029",
         "name": "onBeforeRequest",
         "summary": "",
         "url": "classes/CookiePlugin.html#method_onBeforeRequest"
     }, {
-        "fqsen": "\\CookiePlugin\u003A\u003AonHeadersReceived\u0028\u0029",
+        "fqsen": "\\cookiePluginAction\u003A\u003AonHeadersReceived\u0028\u0029",
         "name": "onHeadersReceived",
         "summary": "",
         "url": "classes/CookiePlugin.html#method_onHeadersReceived"
     }, {
-        "fqsen": "\\CookiePlugin\u003A\u003Aparse_cookie\u0028\u0029",
+        "fqsen": "\\cookiePluginAction\u003A\u003Aparse_cookie\u0028\u0029",
         "name": "parse_cookie",
         "summary": "",
         "url": "classes/CookiePlugin.html#method_parse_cookie"
     }, {
-        "fqsen": "\\CookiePlugin\u003A\u003ACOOKIE_PREFIX",
+        "fqsen": "\\cookiePluginAction\u003A\u003ACOOKIE_PREFIX",
         "name": "COOKIE_PREFIX",
         "summary": "",
         "url": "classes/CookiePlugin.html#constant_COOKIE_PREFIX"
     }, {
-        "fqsen": "\\DailyMotionPlugin",
-        "name": "DailyMotionPlugin",
+        "fqsen": "\\dailyMotionPluginAction",
+        "name": "dailyMotionPluginAction",
         "summary": "",
         "url": "classes/DailyMotionPlugin.html"
     }, {
-        "fqsen": "\\DailyMotionPlugin\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\dailyMotionPluginAction\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/DailyMotionPlugin.html#method_onCompleted"
     }, {
-        "fqsen": "\\DailyMotionPlugin\u003A\u003A\u0024url_pattern",
+        "fqsen": "\\dailyMotionPluginAction\u003A\u003A\u0024url_pattern",
         "name": "url_pattern",
         "summary": "",
         "url": "classes/DailyMotionPlugin.html#property_url_pattern"
     }, {
-        "fqsen": "\\HeaderRewritePlugin",
-        "name": "HeaderRewritePlugin",
+        "fqsen": "\\headerRewritePluginAction",
+        "name": "headerRewritePluginAction",
         "summary": "",
         "url": "classes/HeaderRewritePlugin.html"
     }, {
-        "fqsen": "\\HeaderRewritePlugin\u003A\u003AonBeforeRequest\u0028\u0029",
+        "fqsen": "\\headerRewritePluginAction\u003A\u003AonBeforeRequest\u0028\u0029",
         "name": "onBeforeRequest",
         "summary": "",
         "url": "classes/HeaderRewritePlugin.html#method_onBeforeRequest"
     }, {
-        "fqsen": "\\HeaderRewritePlugin\u003A\u003AonHeadersReceived\u0028\u0029",
+        "fqsen": "\\headerRewritePluginAction\u003A\u003AonHeadersReceived\u0028\u0029",
         "name": "onHeadersReceived",
         "summary": "",
         "url": "classes/HeaderRewritePlugin.html#method_onHeadersReceived"
     }, {
-        "fqsen": "\\LogPlugin",
-        "name": "LogPlugin",
+        "fqsen": "\\logPluginAction",
+        "name": "logPluginAction",
         "summary": "",
         "url": "classes/LogPlugin.html"
     }, {
-        "fqsen": "\\LogPlugin\u003A\u003AonHeadersReceived\u0028\u0029",
+        "fqsen": "\\logPluginAction\u003A\u003AonHeadersReceived\u0028\u0029",
         "name": "onHeadersReceived",
         "summary": "",
         "url": "classes/LogPlugin.html#method_onHeadersReceived"
     }, {
-        "fqsen": "\\OverridePlugin",
-        "name": "OverridePlugin",
+        "fqsen": "\\overridePluginAction",
+        "name": "overridePluginAction",
         "summary": "",
         "url": "classes/OverridePlugin.html"
     }, {
-        "fqsen": "\\OverridePlugin\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\overridePluginAction\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/OverridePlugin.html#method_onCompleted"
     }, {
-        "fqsen": "\\OverridePlugin\u003A\u003AREWRITE\u0028\u0029",
+        "fqsen": "\\overridePluginAction\u003A\u003AREWRITE\u0028\u0029",
         "name": "REWRITE",
         "summary": "",
         "url": "classes/OverridePlugin.html#method_REWRITE"
     }, {
-        "fqsen": "\\ProxifyPlugin",
-        "name": "ProxifyPlugin",
+        "fqsen": "\\proxifyPluginAction",
+        "name": "proxifyPluginAction",
         "summary": "",
         "url": "classes/ProxifyPlugin.html"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003AonBeforeRequest\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003AonBeforeRequest\u0028\u0029",
         "name": "onBeforeRequest",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_onBeforeRequest"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_onCompleted"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Aclean_content_type\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Aclean_content_type\u0028\u0029",
         "name": "clean_content_type",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_clean_content_type"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Aproxify_head\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Aproxify_head\u0028\u0029",
         "name": "proxify_head",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_proxify_head"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Aproxify_css\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Aproxify_css\u0028\u0029",
         "name": "proxify_css",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_proxify_css"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Acss_url\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Acss_url\u0028\u0029",
         "name": "css_url",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_css_url"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Acss_import\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Acss_import\u0028\u0029",
         "name": "css_import",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_css_import"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Ahtml_attr\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Ahtml_attr\u0028\u0029",
         "name": "html_attr",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_html_attr"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Aform_action\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Aform_action\u0028\u0029",
         "name": "form_action",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_form_action"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003Ameta_refresh\u0028\u0029",
+        "fqsen": "\\proxifyPluginAction\u003A\u003Ameta_refresh\u0028\u0029",
         "name": "meta_refresh",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#method_meta_refresh"
     }, {
-        "fqsen": "\\ProxifyPlugin\u003A\u003A\u0024base_url",
+        "fqsen": "\\proxifyPluginAction\u003A\u003A\u0024base_url",
         "name": "base_url",
         "summary": "",
         "url": "classes/ProxifyPlugin.html#property_base_url"
     }, {
-        "fqsen": "\\StreamPlugin",
-        "name": "StreamPlugin",
+        "fqsen": "\\streamPluginAction",
+        "name": "streamPluginAction",
         "summary": "",
         "url": "classes/StreamPlugin.html"
     }, {
-        "fqsen": "\\StreamPlugin\u003A\u003AonHeadersReceived\u0028\u0029",
+        "fqsen": "\\streamPluginAction\u003A\u003AonHeadersReceived\u0028\u0029",
         "name": "onHeadersReceived",
         "summary": "",
         "url": "classes/StreamPlugin.html#method_onHeadersReceived"
     }, {
-        "fqsen": "\\StreamPlugin\u003A\u003AonCurlWrite\u0028\u0029",
+        "fqsen": "\\streamPluginAction\u003A\u003AonCurlWrite\u0028\u0029",
         "name": "onCurlWrite",
         "summary": "",
         "url": "classes/StreamPlugin.html#method_onCurlWrite"
     }, {
-        "fqsen": "\\StreamPlugin\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\streamPluginAction\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/StreamPlugin.html#method_onCompleted"
     }, {
-        "fqsen": "\\StreamPlugin\u003A\u003A\u0024output_buffer_types",
+        "fqsen": "\\streamPluginAction\u003A\u003A\u0024output_buffer_types",
         "name": "output_buffer_types",
         "summary": "",
         "url": "classes/StreamPlugin.html#property_output_buffer_types"
     }, {
-        "fqsen": "\\StreamPlugin\u003A\u003A\u0024stream",
+        "fqsen": "\\streamPluginAction\u003A\u003A\u0024stream",
         "name": "stream",
         "summary": "",
         "url": "classes/StreamPlugin.html#property_stream"
     }, {
-        "fqsen": "\\StreamPlugin\u003A\u003A\u0024max_content_length",
+        "fqsen": "\\streamPluginAction\u003A\u003A\u0024max_content_length",
         "name": "max_content_length",
         "summary": "",
         "url": "classes/StreamPlugin.html#property_max_content_length"
     }, {
-        "fqsen": "\\TwitterPlugin",
-        "name": "TwitterPlugin",
+        "fqsen": "\\twitterPluginAction",
+        "name": "twitterPluginAction",
         "summary": "",
         "url": "classes/TwitterPlugin.html"
     }, {
-        "fqsen": "\\TwitterPlugin\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\twitterPluginAction\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/TwitterPlugin.html#method_onCompleted"
     }, {
-        "fqsen": "\\TwitterPlugin\u003A\u003A\u0024url_pattern",
+        "fqsen": "\\twitterPluginAction\u003A\u003A\u0024url_pattern",
         "name": "url_pattern",
         "summary": "",
         "url": "classes/TwitterPlugin.html#property_url_pattern"
     }, {
-        "fqsen": "\\YoutubePlugin",
-        "name": "YoutubePlugin",
+        "fqsen": "\\youtubePluginAction",
+        "name": "youtubePluginAction",
         "summary": "",
         "url": "classes/YoutubePlugin.html"
     }, {
-        "fqsen": "\\YoutubePlugin\u003A\u003AonBeforeRequest\u0028\u0029",
+        "fqsen": "\\youtubePluginAction\u003A\u003AonBeforeRequest\u0028\u0029",
         "name": "onBeforeRequest",
         "summary": "",
         "url": "classes/YoutubePlugin.html#method_onBeforeRequest"
     }, {
-        "fqsen": "\\YoutubePlugin\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\youtubePluginAction\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/YoutubePlugin.html#method_onCompleted"
     }, {
-        "fqsen": "\\YoutubePlugin\u003A\u003A\u0024url_pattern",
+        "fqsen": "\\youtubePluginAction\u003A\u003A\u0024url_pattern",
         "name": "url_pattern",
         "summary": "",
         "url": "classes/YoutubePlugin.html#property_url_pattern"
