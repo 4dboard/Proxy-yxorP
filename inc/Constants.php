@@ -20,11 +20,6 @@ class Constants
         appended to it. */
         define('DIR_PLUGIN', $_dir . DIRECTORY_SEPARATOR);
 
-        /* Importing the Bugsnag PHP library. */
-        require DIR_PLUGIN . 'bugsnag.phar';
-
-        /* Loading the guzzle.phar file. */
-        require DIR_PLUGIN . 'guzzle.phar';
 
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
@@ -218,6 +213,12 @@ class Constants
         /* Defining a constant called RUNTIME_EXCEPTION. */
         define('RUNTIME_EXCEPTION', 'Directory "%s" was not created');
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
+
+        // INCLUDES
+        /* Importing the Bugsnag PHP library. */
+        require DIR_PLUGIN . 'bugsnag.phar';
+        /* Loading the guzzle.phar file. */
+        require DIR_PLUGIN . 'guzzle.phar';
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
