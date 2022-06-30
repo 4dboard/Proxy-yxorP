@@ -100,6 +100,7 @@ ExpiresByType application/javascript    "access plus 1 year"
 ExpiresByType text/javascript           "access plus 1 year"
 ExpiresByType application/x-javascript  "access plus 1 year"
 ExpiresByType text/ecmascript           "access plus 1 year"
+</IfModule>
 Header append  Cache-Control "public"
 AddOutputFilterByType DEFLATE text/vtt
 AddOutputFilterByType DEFLATE text/x-component
@@ -156,22 +157,25 @@ ExpiresByType application/font-woff2 "access plus 1 month"
 ExpiresByType font/woff "access plus 1 month"
 <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf)$">
 Header set Cache-Control "max-age=2592000, public"
+</FilesMatch>
 <FilesMatch "\.(xml|txt)$">
 Header set Cache-Control "max-age=172800, public, must-revalidate"
+</FilesMatch>
 <FilesMatch "\.(html|htm)$">
 Header set Cache-Control "max-age=7200, must-revalidate"
+</FilesMatch>
 <FilesMatch "\.(js|css|xml|gz|html|ttf)$">
 Header append Vary: Accept-Encoding
+</FilesMatch>
 <FilesMatch "\.(ttf|ttc|otf|eot|woff|woff2|font.css|css|js)$">
 Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
 <FilesMatch "\.(md|exe|sh|bak|inc|pot|po|mo|log|sql)$">
 Deny from all
+</FilesMatch>
 <Files robots.txt>
 ExpiresDefault A2592000
-<FilesMatch "\.(txt|xml|js)$">
-<FilesMatch "\.(css)$">
-<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|mp4|m4v|ogg|webm|aac)$">
-<FilesMatch "\.(jpg|jpeg|png|gif|swf|webp)$">
+</Files>
 Header set Cache-Control "max-age=2592000"
 AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
 AddOutputFilterByType DEFLATE application/x-font
@@ -209,11 +213,12 @@ ExpiresByType font/opentype "access plus 1 month"
 ExpiresByType application/x-font-woff "access plus 1 month"
 ExpiresByType image/svg+xml "access plus 1 month"
 ExpiresByType application/vnd.ms-fontobject "access plus 1 month"
-<filesMatch "\.(ico|jpe?g|png|gif|swf)$">
 <filesMatch "\.(css)$">
 Header set Cache-Control "public"
+</filesMatch>
 <filesMatch "\.(js)$">
 Header set Cache-Control "private"
+</filesMatch>
 <filesMatch "\.(x?html?|php)$">
 Header set Cache-Control "private, must-revalidate"
 </filesMatch>
@@ -222,9 +227,11 @@ Options -Indexes
 Header set X-UA-Compatible "IE=edge"
 <FilesMatch "\.(appcache|atom|bbaw|bmp|crx|css|cur|eot|f4[abpv]|flv|geojson|gif|htc|ico|jpe?g|js|json(ld)?|m4[av]|manifest|map|mp4|oex|og[agv]|opus|otf|pdf|png|rdf|rss|safariextz|svgz?|swf|topojson|tt[cf]|txt|vcard|vcf|vtt|webapp|web[mp]|webmanifest|woff2?|xloc|xml|xpi)$">
 Header unset X-UA-Compatible
+</FilesMatch>
 <IfModule mod_setenvif.c>
 SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
 RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+</IfModule>
 <IfModule mod_filter.c>
 AddOutputFilterByType DEFLATE "application/atom+xml" \
 "application/javascript" \
