@@ -279,7 +279,7 @@ class Constants
     /* A static method that returns the value of the $_name variable. */
     /**
      * @param $_name
-     * @return false|mixed
+     * @return mixed
      */
     public static function get($_name): mixed
     {
