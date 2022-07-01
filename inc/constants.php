@@ -128,7 +128,7 @@ class constants
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
         define('FILE_BOOTSTRAP', 'bootstrap');
         /* Defining a constant. */
-        define('FILE_ACTION_WRAPPER', 'actionWrapper');
+        define('FILE_ACTION_WRAPPER', 'wrapper');
 
 
         // PATHS

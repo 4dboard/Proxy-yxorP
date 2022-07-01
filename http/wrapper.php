@@ -11,7 +11,7 @@ use yxorP\inc\constants;
 /* Importing the `response` class from the `http` namespace. */
 
 
-abstract class actionWrapper
+abstract class wrapper
 {
     /* A property that is used to filter the events. */
     protected string $url_pattern;

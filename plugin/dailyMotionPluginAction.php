@@ -1,14 +1,14 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\http\actionWrapper;
+use yxorP\http\wrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
-/* Extending the actionWrapper class. */
+/* Extending the wrapper class. */
 
-class dailyMotionPluginAction extends actionWrapper
+class dailyMotionPluginAction extends wrapper
 {
     /* Defining the URL pattern that the plugin will be applied to. */
     protected string $url_pattern = 'dailymotion.com';

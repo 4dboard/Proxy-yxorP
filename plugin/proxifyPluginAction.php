@@ -1,14 +1,14 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\http\actionWrapper;
+use yxorP\http\wrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
-/* Extending the actionWrapper class. */
+/* Extending the wrapper class. */
 
-class proxifyPluginAction extends actionWrapper
+class proxifyPluginAction extends wrapper
 {
     /* It's a private variable that is used to store the base url of the request. */
     private string $base_url = '';

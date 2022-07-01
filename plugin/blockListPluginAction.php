@@ -1,14 +1,14 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\http\actionWrapper;
+use yxorP\http\wrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
-/* Extending the actionWrapper class. */
+/* Extending the wrapper class. */
 
-class blockListPluginAction extends actionWrapper
+class blockListPluginAction extends wrapper
 {
     /* A method that is called before the request is processed. */
     public static function callable($fnc_custom, $url)

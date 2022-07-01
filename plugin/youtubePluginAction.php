@@ -1,12 +1,12 @@
 <?php
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\http\actionWrapper;
+use yxorP\http\wrapper;
 use yxorP\inc\constants;
 
-/* Extending the actionWrapper class. */
+/* Extending the wrapper class. */
 
-class youtubePluginAction extends actionWrapper
+class youtubePluginAction extends wrapper
 {
     /* A regex pattern that will be used to match the url of the request. */
     protected string $url_pattern = 'youtube.com';
