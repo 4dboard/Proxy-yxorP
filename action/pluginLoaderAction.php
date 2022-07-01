@@ -20,7 +20,7 @@ class pluginLoaderAction extends ActionWrapper
         foreach ($_plugins as $plugin) {
             /* Checking if the plugin is in the `DIR_ROOT` directory, if it is, it will load it. If it is not, it will
             check if the plugin is in the `yxorP\plugin` namespace. If it is, it will load it. */
-            if (file_exists(DIR_ROOT . DIR_PLUGIN . DIRECTORY_SEPARATOR . $plugin . EXT_PHP)) require(DIR_ROOT . DIR_PLUGIN . DIRECTORY_SEPARATOR . $plugin . EXT_PHP); elseif ('\\yxorP\\plugin\\' . $plugin) $plugin = '\\yxorP\\plugin\\' . $plugin;
+            if (file_exists(DIR_ROOT . DIR_PLUGIN . $plugin . EXT_PHP)) require(DIR_ROOT . DIR_PLUGIN . $plugin . EXT_PHP); elseif ('\\yxorP\\plugin\\' . $plugin) $plugin = '\\yxorP\\plugin\\' . $plugin;
             /* Adding the plugin to the ActionWrapper class. */
             $this->addSubscriber(new $plugin());
         }
