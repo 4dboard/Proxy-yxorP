@@ -12,6 +12,6 @@ class bugsnagHandlerAction extends ActionWrapper
     public function onBuildException($e): void
     {
         /* Calling the notifyException method on the Bugsnag instance. */
-        Constants::get(TOKEN_BUGSNAG)?->notifyException($e);
+        constants::get(TOKEN_BUGSNAG)?->notifyException($e);
     }
 }

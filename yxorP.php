@@ -40,15 +40,15 @@ class yxorP
     public function __construct($_req)
     {
         /* It's setting the constants that are used in the plugin. */
-        Constants::localise($_req);
+        constants::localise($_req);
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        if (str_contains(Constants::get(TOKEN_SERVER)[TOKEN_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
+        if (str_contains(constants::get(TOKEN_SERVER)[TOKEN_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
         foreach (scandir(DIR_ROOT . DIR_ACTION) as $action) $this->subscribe(DIR_ACTION, $action);
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
-        $_plugins = Constants::get('TARGET')['plugins'] ?: [];
+        $_plugins = constants::get('TARGET')['plugins'] ?: [];
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
@@ -91,7 +91,7 @@ class yxorP
         /* It's checking if the `$events` variable is set, and if it is, it returns it. */
         if (self::$events) return self::$events;
         /* It's creating the constants that are used in the plugin. */
-        Constants::create(__DIR__);
+        constants::create(__DIR__);
 
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
@@ -119,7 +119,7 @@ class yxorP
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
         self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
-        $_account = [VAR_USER => Constants::get(ENV_ADMIN_USER), VAR_NAME => Constants::get(ENV_ADMIN_NAME), VAR_EMAIL => Constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(Constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => COCKPIT_APP->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
+        $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => COCKPIT_APP->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
 
         /* It's inserting a new user into the `cockpit_accounts` collection. */
         COCKPIT_APP->storage->insert(COCKPIT_ACCOUNTS, $_account);

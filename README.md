@@ -50,8 +50,8 @@ Parrelelle</b>) that are both rapid and scalable.
 php ./server.php
 ```
 
-The Constants::get(BUGSNAG) error reporting and warning system now supports yxorP in its most complete version after an
-upgrade. This was done to assure Constants::get(BUGSNAG)'s compatibility with the modification. Changes to the <b>
+The constants::get(BUGSNAG) error reporting and warning system now supports yxorP in its most complete version after an
+upgrade. This was done to assure constants::get(BUGSNAG)'s compatibility with the modification. Changes to the <b>
 default logging</b> system may be done in as little as two minutes due to the program's compatibility with the great
 majority of the <b>industry's primary error tracking systems</b>.
 
@@ -209,11 +209,11 @@ There are several additional uses that may be explored, and these are only a few
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 <img alt="image" src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png"/>
 
-Constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to
+constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to
 use and implement. The ability to make data-driven decisions about whether to develop software or address problems is
 contingent on the ability to maintain stability.
 
-<img alt="image" src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Constants::get(BUGSNAG).gif"/>
+<img alt="image" src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/constants::get(BUGSNAG).gif"/>
 
 Diagnostic data from our mobile assistance, which has been regarded as the best-in-/**
 
@@ -7251,7 +7251,7 @@ in a number of forms and without the source code because they are licensed works
 | [`ArgumentConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/ArgumentConverter.md) | Converter used to create an XML Element representing a method or function argument.|
 | [`ConstantConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/ConstantConverter.md) | Converter used to create an XML Element representing the constant and its DocBlock.|
 | [`DocBlockConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/DocBlockConverter.md) | Converter used to create an XML Element representing a DocBlock and its tags.|
-| [`InterfaceConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/InterfaceConverter.md) | Converter used to create an XML Element representing the interface and its Constants, Methods and DocBlock.|
+| [`InterfaceConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/InterfaceConverter.md) | Converter used to create an XML Element representing the interface and its constants, Methods and DocBlock.|
 | [`MethodConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/MethodConverter.md) | Converter used to create an XML Element representing the method, its arguments and its DocBlock.|
 | [`PropertyConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/PropertyConverter.md) | Converter used to create an XML Element representing the property and its DocBlock.|
 | [`TagConverter`](./docs/classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/TagConverter.md) | Creates an XML Element &#039;tag&#039; and appends it to the provided parent element.|

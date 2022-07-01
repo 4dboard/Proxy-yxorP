@@ -21,8 +21,8 @@ a predefined time inside a custom-built, flat-file cache system architectured to
 systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization processes,
 which resulted a significantly faster cache.
 
-The Constants::get(BUGSNAG) error reporting and warning system now supports yxorP in its most complete version after an
-upgrade. This was done to assure Constants::get(BUGSNAG)'s compatibility with the modification. Changes to the default
+The constants::get(BUGSNAG) error reporting and warning system now supports yxorP in its most complete version after an
+upgrade. This was done to assure constants::get(BUGSNAG)'s compatibility with the modification. Changes to the default
 logging system may be done in as little as two minutes due to the program's compatibility with the great majority of the
 industry's primary error tracking systems.
 
@@ -160,11 +160,11 @@ There are several additional uses that may be explored, and these are only a few
 <img src='https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png' />
 <img src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png"/>
 
-Constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to
+constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to
 use and implement. The ability to make data-driven decisions about whether to develop software or address problems is
 contingent on the ability to maintain stability.
 
-<img src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Constants::get(BUGSNAG).gif"/>
+<img src="https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/constants::get(BUGSNAG).gif"/>
 
 Diagnostic data from our mobile assistance, which has been regarded as the best-in-class in the industry, enables teams
 to reproduce and fix issues as soon as they begin to have an impact on system stability. Reports on error situations are
@@ -7710,7 +7710,7 @@ This is an automatically generated documentation for **yxorP**.
 | [`ArgumentConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/ArgumentConverter.md) | Converter used to create an XML Element representing a method or function argument.|
 | [`ConstantConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/ConstantConverter.md) | Converter used to create an XML Element representing the constant and its DocBlock.|
 | [`DocBlockConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/DocBlockConverter.md) | Converter used to create an XML Element representing a DocBlock and its tags.|
-| [`InterfaceConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/InterfaceConverter.md) | Converter used to create an XML Element representing the interface and its Constants, Methods and DocBlock.|
+| [`InterfaceConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/InterfaceConverter.md) | Converter used to create an XML Element representing the interface and its constants, Methods and DocBlock.|
 | [`MethodConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/MethodConverter.md) | Converter used to create an XML Element representing the method, its arguments and its DocBlock.|
 | [`PropertyConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/PropertyConverter.md) | Converter used to create an XML Element representing the property and its DocBlock.|
 | [`TagConverter`](./classes/phpDocumentor/Plugin/Core/Transformer/Writer/Xml/TagConverter.md) | Creates an XML Element &#039;tag&#039; and appends it to the provided parent element.|
