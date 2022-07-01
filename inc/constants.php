@@ -213,7 +213,9 @@ class constants
         define('TOKEN_RESPONSE', 'RESPONSE');
         /* Defining a constant called TOKEN_REQUEST and setting it to the string TOKEN_REQUEST. */
         define('TOKEN_REQUEST', 'REQUEST');
+        /* Defining a constant called TOKEN_COCKPIT_APP and setting it to the string COCKPIT_APP. */
         define('TOKEN_COCKPIT_APP', 'COCKPIT_APP');
+        define('TOKEN_COCKPIT_ACCOUNTS', 'accounts');
 
 
         //ENV
@@ -234,7 +236,7 @@ class constants
 
         // COCKPIT
         /* Defining a constant. */
-        define('COCKPIT_ACCOUNTS', 'cockpit/accounts');
+        define('COCKPIT_ACCOUNTS', DIR_COCKPIT . TOKEN_COCKPIT_ACCOUNTS);
 
         //EXCEPTIONS
         /* Defining a constant called RUNTIME_EXCEPTION. */
