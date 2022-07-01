@@ -44,7 +44,7 @@ class yxorP
         constants::localise($_req);
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
-        foreach (scandir(DIR_ROOT . DIR_ACTION) as $action) $this->subscribe(DIR_ACTION, $action);
+        foreach ( as $action) $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
         if (str_contains(constants::get(YXORP_SERVER)[YXORP_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
@@ -53,7 +53,18 @@ class yxorP
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        foreach ($_plugins as $action) $this->subscribe(DIR_PLUGIN, $action); //foreach (constants::get('TARGET')[YXORP_PLUGINS] ?: [] as $action) $this->subscribe(DIR_PLUGIN, $action);
+        foreach ($_plugins as $action) $this->subscribers(DIR_PLUGIN, $action); //foreach (constants::get('TARGET')[YXORP_PLUGINS] ?: [] as $action) $this->subscribe(DIR_PLUGIN, $action);
+    }
+
+    /**
+     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
+     * class exists in the yxorP namespace, if it does, it creates an instance of it
+     *
+     * @param action The name of the action to be executed.
+     */
+    private function subscribers($dir, $array): void
+    {
+        foreach ($array as $action) $this->subscribe($dir, $action);
     }
 
     /**
@@ -64,7 +75,6 @@ class yxorP
      */
     private function subscribe($dir, $action): void
     {
-        foreach ($_plugins as $action) $this->subscribe(DIR_PLUGIN, $action);
         /* It's removing the `.php` extension from the `$action` variable. */
         $action = str_replace(EXT_PHP, '', $action);
         /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
@@ -217,16 +227,5 @@ class yxorP
     public function addListener($event, $callback): void
     {/* It's adding a listener to the listeners array. */
         $this->listeners[$event][0][] = $callback;
-    }
-
-    /**
-     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
-     * class exists in the yxorP namespace, if it does, it creates an instance of it
-     *
-     * @param action The name of the action to be executed.
-     */
-    private function subscribers($array, $dir): void
-    {
-        foreach ($array as $action) $this->subscribe($dir, $action);
     }
 }
