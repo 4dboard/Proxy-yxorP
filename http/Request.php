@@ -161,18 +161,18 @@ class Request
 
     public static function createFromGlobals(): Request
     {
-        $method = CACHE_SERVER['REQUEST_METHOD'];
-        $scheme = (isset(CACHE_SERVER['HTTPS']) && CACHE_SERVER['HTTPS']) ? 'https' : 'http';
+        $method = Constants::get(TOKEN_SERVER)['REQUEST_METHOD'];
+        $scheme = (isset(Constants::get(TOKEN_SERVER)['HTTPS']) && Constants::get(TOKEN_SERVER)['HTTPS']) ? 'https' : 'http';
         $url = $scheme . ':' . Constants::get('PROXY_URL')->__toString();
         $request = new Request($method, $url);
-        foreach (CACHE_SERVER as $name => $value) if (str_starts_with($name, 'HTTP_')) {
+        foreach (Constants::get(TOKEN_SERVER) as $name => $value) if (str_starts_with($name, 'HTTP_')) {
             $name = substr($name, 5);
             $name = str_replace('_', ' ', $name);
             $name = ucwords(strtolower($name));
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set('user - ip', CACHE_SERVER['REMOTE_ADDR']);
+        $request->params->set('user - ip', Constants::get(TOKEN_SERVER)['REMOTE_ADDR']);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);

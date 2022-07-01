@@ -15,7 +15,7 @@ class guzzleClientAction extends ActionWrapper
     public function onBeforeRequest(): void
     {
         /* Creating a new `GuzzleHttp\Client` object, and then it is sending a request to the `Constants::get('FETCH')` URL,
-        with the `Constants::get('REQUEST')->getMethod()` method, and the `$_REQUEST` array as the body. */
-        Constants::get('RESPONSE')->setContent(GUZZLE->request(Constants::get('REQUEST')->getMethod(), Constants::get('FETCH'), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
+        with the `Constants::get(TOKEN_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body. */
+        Constants::get(TOKEN_RESPONSE)->setContent(GUZZLE->request(Constants::get(TOKEN_REQUEST)->getMethod(), Constants::get('FETCH'), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
     }
 }

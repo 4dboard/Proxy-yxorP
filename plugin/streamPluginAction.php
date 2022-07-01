@@ -21,19 +21,19 @@ class streamPluginAction extends ActionWrapper
     public function onHeadersReceived(): void
     {
         /* Getting the content type of the response. */
-        $content_type = Constants::get('RESPONSE')->headers->get('content-type');
+        $content_type = Constants::get(TOKEN_RESPONSE)->headers->get('content-type');
         /* Getting the content length of the response. */
-        $content_length = Constants::get('RESPONSE')->headers->get('content-length');
+        $content_length = Constants::get(TOKEN_RESPONSE)->headers->get('content-length');
         /* Checking if the content type is in the array of content types that should be streamed. If it is, it sets the
         `$stream` variable to true. */
         if (!in_array($content_type, $this->output_buffer_types, true) || $content_length > $this->max_content_length) {
             /* Setting the `$stream` variable to true. */
             $this->stream = true;
             /* Sending the headers of the response. */
-            Constants::get('RESPONSE')->sendHeaders();
+            Constants::get(TOKEN_RESPONSE)->sendHeaders();
             /* Checking if the request has a parameter called `force_buffering`. If it does, it will not disable the output
             buffering. */
-            if (!Constants::get('REQUEST')->params->has('force_buffering')) $event['proxy']->setOutputBuffering(false);
+            if (!Constants::get(TOKEN_REQUEST)->params->has('force_buffering')) $event['proxy']->setOutputBuffering(false);
         }
     }
 

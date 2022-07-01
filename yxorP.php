@@ -5,7 +5,6 @@ namespace yxorP;
 /* Importing the Constants class from the inc folder. */
 
 use MongoDB\Driver\Monitoring\Subscriber;
-use yxorP\http\GeneralHelper;
 use yxorP\inc\Constants;
 
 /* Loading the required files. */
@@ -46,14 +45,16 @@ class yxorP
         Constants::localise($_req);
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        if (str_contains(CACHE_SERVER[TOKEN_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
+        if (str_contains(Constants::get(TOKEN_SERVER)[TOKEN_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
-        foreach (scandir(DIR_ROOT . DIR_ACTION) as $action) if (strlen($action) > 3) $this->subscribe($action);
-        /* It's setting the `TOKEN_REWRITE_SEARCH` constant to the value of the `PATH_REWRITE_SEARCH` constant. */
-        Constants::set(TOKEN_REWRITE_SEARCH, GeneralHelper::CSV(PATH_REWRITE_SEARCH));
-        /* It's setting the `TOKEN_REWRITE_REPLACE` constant to the value of the `PATH_REWRITE_REPLACE` constant. */
-        Constants::set(TOKEN_REWRITE_REPLACE, GeneralHelper::CSV(PATH_REWRITE_REPLACE));
+        foreach (scandir(DIR_ROOT . DIR_ACTION) as $action) $this->subscribe(DIR_ACTION, $action);
+        /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
+        $_plugins = Constants::get('TARGET')['plugins'] ?: [];
+        /* Adding the default plugins to the `$_plugins` array. */
+        array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
+        /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
+        foreach ($_plugins as $action) $this->subscribe(DIR_PLUGIN, $action); //foreach (Constants::get('TARGET')['plugins'] ?: [] as $action) $this->subscribe(DIR_PLUGIN, $action);
     }
 
     /**
@@ -62,11 +63,15 @@ class yxorP
      *
      * @param action The name of the action to be executed.
      */
-    private function subscribe($action): void
+    private function subscribe($dir, $action): void
     {
+        /* It's removing the `.php` extension from the `$action` variable. */
+        $action = str_replace(EXT_PHP, '', $action);
+        /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
+        if (strlen($action) < 3) return;
         /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
         if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        if (file_exists(DIR_ROOT . DIR_ACTION . $action)) require(DIR_ROOT . DIR_ACTION . $action); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
+        if (file_exists(DIR_ROOT . $dir . $action . EXT_PHP)) require(DIR_ROOT . $dir . $action . EXT_PHP); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
         /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
         function. */
         $this->addSubscriber(new $action());
@@ -203,7 +208,7 @@ class yxorP
      * @param callback The callback function to be executed when the event is triggered.
      * @param priority The priority of the listener. Higher priority listeners are called before lower priority listeners.
      */
-    private function addListener($event, $callback): void
+    public function addListener($event, $callback): void
     {/* It's adding a listener to the listeners array. */
         $this->listeners[$event][0][] = $callback;
     }
