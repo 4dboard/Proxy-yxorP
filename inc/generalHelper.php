@@ -1,10 +1,9 @@
-<?php namespace yxorP\http;
+<?php namespace yxorP\inc;
 
 /* Importing the Constants class from the yxorP\inc namespace. */
 
 use JetBrains\PhpStorm\Pure;
 use yxorP\cache\Cache;
-use yxorP\inc\Constants;
 use function array_map;
 use function array_merge;
 use function file;
