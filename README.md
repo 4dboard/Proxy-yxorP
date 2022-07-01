@@ -7,7 +7,7 @@
 <a align="center" href="https://sourceforge.net/projects/proxy-yxorp/files/latest/download"><img alt="image" align="center" alt="Download Proxy yxorP" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>
 </p>
 
-<h1  align="center">🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler</h1><blockquote><p> ⭐️ <sub><b>PREVIEW</b>: Working Live Demo / Sneak Preview availible <a href="https://gitpod.io/#https://github.com/4dboard/proxy-yxorp">[Live Demo]</a></blockquote>
+<h1  align="center">🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler</h1><blockquote><p> ⭐️<sub><b>NEW</b>: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now availible via gitpod <a href="https://gitpod.io/#https://github.com/4dboard/proxy-yxorp">[Live Demo]</a></blockquote>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
 
 <br />
@@ -440,45 +440,45 @@ interpretation of results. We appreciate all of your assistance and support.
 ## Road Map
 
 - [x] Front-end
-    - [x] Combine Proxy Engines
-    - [x] Allow Multi-tent rendering
-    - [x] Build Caching Layer
-    - [x] Develop Multi-threading support (PHP Vanilla/Independent)
+  - [x] Combine Proxy Engines
+  - [x] Allow Multi-tent rendering
+  - [x] Build Caching Layer
+  - [x] Develop Multi-threading support (PHP Vanilla/Independent)
 
-    + More (To be listed soon)
+  + More (To be listed soon)
 
 - [x] Foundation
-    - [x] API Service
-    - [x] TxT DB
-    - [x] Login
-    - [x] Registration
-    - [x] Dashboard
-    - [x] Who is Online
-    - [x] Documentation
+  - [x] API Service
+  - [x] TxT DB
+  - [x] Login
+  - [x] Registration
+  - [x] Dashboard
+  - [x] Who is Online
+  - [x] Documentation
 - [ ] Tables
-    - [x] Users
-    - [x] Notes
-    - [x] Tasks
-    - [ ] Chat
+  - [x] Users
+  - [x] Notes
+  - [x] Tasks
+  - [ ] Chat
 - [ ] Notes
-    - [x] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [x] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Tasks
-    - [x] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [x] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Chat
-    - [ ] Data Scheme
-    - [x] API Endpoints
-    - [x] Functions
-    - [ ] UI
+  - [ ] Data Scheme
+  - [x] API Endpoints
+  - [x] Functions
+  - [ ] UI
 - [ ] Testing
-    - [x] Versions
-    - [x] Owners
-    - [ ] Crate details
+  - [x] Versions
+  - [x] Owners
+  - [ ] Crate details
 
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png' />
