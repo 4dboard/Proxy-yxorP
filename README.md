@@ -440,45 +440,45 @@ interpretation of results. We appreciate all of your assistance and support.
 ## Road Map
 
 - [x] Front-end
-  - [x] Combine Proxy Engines
-  - [x] Allow Multi-tent rendering
-  - [x] Build Caching Layer
-  - [x] Develop Multi-threading support (PHP Vanilla/Independent)
+    - [x] Combine Proxy Engines
+    - [x] Allow Multi-tent rendering
+    - [x] Build Caching Layer
+    - [x] Develop Multi-threading support (PHP Vanilla/Independent)
 
-  + More (To be listed soon)
+    + More (To be listed soon)
 
 - [x] Foundation
-  - [x] API Service
-  - [x] TxT DB
-  - [x] Login
-  - [x] Registration
-  - [x] Dashboard
-  - [x] Who is Online
-  - [x] Documentation
+    - [x] API Service
+    - [x] TxT DB
+    - [x] Login
+    - [x] Registration
+    - [x] Dashboard
+    - [x] Who is Online
+    - [x] Documentation
 - [ ] Tables
-  - [x] Users
-  - [x] Notes
-  - [x] Tasks
-  - [ ] Chat
+    - [x] Users
+    - [x] Notes
+    - [x] Tasks
+    - [ ] Chat
 - [ ] Notes
-  - [x] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [x] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Tasks
-  - [x] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [x] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Chat
-  - [ ] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [ ] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Testing
-  - [x] Versions
-  - [x] Owners
-  - [ ] Crate details
+    - [x] Versions
+    - [x] Owners
+    - [ ] Crate details
 
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png' />
