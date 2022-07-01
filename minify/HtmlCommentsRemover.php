@@ -2,9 +2,6 @@
 
 namespace yxorP\minify;
 
-
-// Remove comments from HTML Code (non-MSIE conditionals)
-
 use JetBrains\PhpStorm\ArrayShape;
 
 class htmlCommentsRemover extends areplacer implements minfyInterface
