@@ -64,6 +64,7 @@ class yxorP
      */
     private function subscribe($dir, $action): void
     {
+        foreach ($_plugins as $action) $this->subscribe(DIR_PLUGIN, $action);
         /* It's removing the `.php` extension from the `$action` variable. */
         $action = str_replace(EXT_PHP, '', $action);
         /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
@@ -216,5 +217,16 @@ class yxorP
     public function addListener($event, $callback): void
     {/* It's adding a listener to the listeners array. */
         $this->listeners[$event][0][] = $callback;
+    }
+
+    /**
+     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
+     * class exists in the yxorP namespace, if it does, it creates an instance of it
+     *
+     * @param action The name of the action to be executed.
+     */
+    private function subscribers($array, $dir): void
+    {
+        foreach ($array as $action) $this->subscribe($dir, $action);
     }
 }
