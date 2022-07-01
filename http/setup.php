@@ -2,7 +2,7 @@
 
 use yxorP\inc\constants;
 
-require DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP;
+require PATH_COCKPIT_BOOTSTRAP;
 
 /* A class that is used to install the Cockpit CMS. */
 
