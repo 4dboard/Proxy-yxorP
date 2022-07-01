@@ -122,8 +122,6 @@ class yxorP
             throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $concurrentDirectory));
 
 
-        constants::set(TOKEN_constants::get(TOKEN_COCKPIT_APP), cockpit());
-
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
         if (!constants::get(TOKEN_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();

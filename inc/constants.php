@@ -266,6 +266,8 @@ class constants
         self::set(TOKEN_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
         self::set(TOKEN_GUZZLE, new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+        /* It's setting the `TOKEN_COCKPIT_APP` constant to the `cockpit()` function. */
+        constants::set(TOKEN_constants::get(TOKEN_COCKPIT_APP), cockpit());
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
