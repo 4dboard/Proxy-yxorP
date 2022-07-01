@@ -197,32 +197,32 @@ class constants
         /* Defining a constant. */
         define('VAR_URL_HOST', 'url_host');
 
-        // TOKENS
-        /* Defining a constant called `TOKEN_SERVER` and setting it to the value of `SERVER`. */
-        define('TOKEN_SERVER', 'SERVER');
-        /* Defining a constant called `TOKEN_REQUEST_URI` and setting it to the value of `REQUEST_URI`. */
-        define('TOKEN_REQUEST_URI', 'REQUEST_URI');
-        /* Defining a constant called TOKEN_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
-        define('TOKEN_HTTP_HOST', 'HTTP_HOST');
+        // YXORPS
+        /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
+        define('YXORP_SERVER', 'SERVER');
+        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URI`. */
+        define('YXORP_REQUEST_URI', 'REQUEST_URI');
+        /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
+        define('YXORP_HTTP_HOST', 'HTTP_HOST');
         /* Defining a constant. */
-        define('TOKEN_REWRITE_SEARCH', 'INC_REWRITE_SEARCH');
+        define('YXORP_REWRITE_SEARCH', 'INC_REWRITE_SEARCH');
         /* Defining a constant. */
-        define('TOKEN_REWRITE_REPLACE', 'INC_REWRITE_REPLACE');
+        define('YXORP_REWRITE_REPLACE', 'INC_REWRITE_REPLACE');
         /* Defining a constant. */
-        define('TOKEN_COCKPIT_INSTALL', 'COCKPIT_INSTALL');
-        /* Defining a constant called TOKEN_BUGSNAG and setting it to the string BUGSNAG. */
-        define('TOKEN_BUGSNAG', 'BUGSNAG');
-        /* Defining a constant called TOKEN_GUZZLE and setting it to the string 'GUZZLE'. */
-        define('TOKEN_GUZZLE', 'GUZZLE');
-        /* Defining a constant called TOKEN_RESPONSE and setting it to the string TOKEN_RESPONSE. */
-        define('TOKEN_RESPONSE', 'RESPONSE');
-        /* Defining a constant called TOKEN_REQUEST and setting it to the string TOKEN_REQUEST. */
-        define('TOKEN_REQUEST', 'REQUEST');
-        /* Defining a constant called TOKEN_COCKPIT_APP and setting it to the string COCKPIT_APP. */
-        define('TOKEN_COCKPIT_APP', 'COCKPIT_APP');
-        /* Defining a constant called TOKEN_COCKPIT_ACCOUNTS and setting it to the string accounts. */
-        define('TOKEN_COCKPIT_ACCOUNTS', 'accounts');
-        define('TOKEN_PLUGINS', 'plugins');
+        define('YXORP_COCKPIT_INSTALL', 'COCKPIT_INSTALL');
+        /* Defining a constant called YXORP_BUGSNAG and setting it to the string BUGSNAG. */
+        define('YXORP_BUGSNAG', 'BUGSNAG');
+        /* Defining a constant called YXORP_GUZZLE and setting it to the string 'GUZZLE'. */
+        define('YXORP_GUZZLE', 'GUZZLE');
+        /* Defining a constant called YXORP_RESPONSE and setting it to the string YXORP_RESPONSE. */
+        define('YXORP_RESPONSE', 'RESPONSE');
+        /* Defining a constant called YXORP_REQUEST and setting it to the string YXORP_REQUEST. */
+        define('YXORP_REQUEST', 'REQUEST');
+        /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
+        define('YXORP_COCKPIT_APP', 'COCKPIT_APP');
+        /* Defining a constant called YXORP_COCKPIT_ACCOUNTS and setting it to the string accounts. */
+        define('YXORP_COCKPIT_ACCOUNTS', 'accounts');
+        define('YXORP_PLUGINS', 'plugins');
 
 
         //ENV
@@ -243,7 +243,7 @@ class constants
 
         // COCKPIT
         /* Defining a constant. */
-        define('COCKPIT_ACCOUNTS', DIR_COCKPIT . TOKEN_COCKPIT_ACCOUNTS);
+        define('COCKPIT_ACCOUNTS', DIR_COCKPIT . YXORP_COCKPIT_ACCOUNTS);
 
         //EXCEPTIONS
         /* Defining a constant called RUNTIME_EXCEPTION. */
@@ -264,11 +264,11 @@ class constants
 
         // Reporting
         /* Setting the token to the bugsnag key. */
-        self::set(TOKEN_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        self::set(YXORP_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
-        self::set(TOKEN_GUZZLE, new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
-        /* It's setting the `TOKEN_COCKPIT_APP` constant to the `cockpit()` function. */
-        constants::set(TOKEN_COCKPIT_APP, cockpit());
+        self::set(YXORP_GUZZLE, new \GuzzleHttp\Client(['allow_redirects' => true, 'http_errors' => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+        /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
+        constants::set(YXORP_COCKPIT_APP, cockpit());
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
@@ -312,10 +312,10 @@ class constants
      */
     public static function localise($_req)
     {
-        /* Defining a constant called self::get(TOKEN_SERVER) and setting it to the value of $_req. */
-        self::set(TOKEN_SERVER, $_req);
+        /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $_req. */
+        self::set(YXORP_SERVER, $_req);
         /* Creating a unique key for the cache file. */
-        define('CACHE_KEY', base64_encode($_req[TOKEN_HTTP_HOST] . $_req[TOKEN_REQUEST_URI]) . EXT_TMP);
+        define('CACHE_KEY', base64_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
 
     }
 
