@@ -11,6 +11,7 @@ use yxorP\inc\genralHelper;
 /* Loading the required files. */
 require './cockpit/bootstrap.php';
 require './inc/generalHelper.php';
+require './inc/constants.php';
 
 /**
  * It's a proxy for the yxorp plugin
