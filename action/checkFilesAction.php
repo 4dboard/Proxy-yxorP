@@ -1,8 +1,8 @@
 <?php
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\ActionWrapper;
 use yxorP\http\GeneralHelper;
+use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
 /* Extending the ActionWrapper class. */
