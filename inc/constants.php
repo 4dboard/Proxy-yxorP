@@ -126,7 +126,7 @@ class constants
         /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
         define('FILE_GUZZLE', 'guzzle');
         /* Defining a constant. */
-        define('FILE_ACTION_WRAPPER', 'ActionWrapper');
+        define('FILE_ACTION_WRAPPER', 'actionWrapper');
 
 
         // PATHS
