@@ -2,14 +2,20 @@
 
 /* Importing the namespace `yxorP` into the current namespace. */
 
-use yxorP;
 
-/* A wrapper for the events. */
+use yxorP;
+use yxorP\http\Request;
+use yxorP\http\Response;
+
+/* Importing the class `request` from the namespace `yxorP\http`. */
+
+/* Importing the `Response` class from the `http` namespace. */
+
 
 abstract class ActionWrapper
 {
     /* A property that is used to filter the events. */
-    protected $url_pattern;
+    protected string $url_pattern;
 
     /* Subscribing to all the events. */
     final public function subscribe($dispatcher): void
@@ -77,9 +83,13 @@ abstract class ActionWrapper
     {
         /* Used to catch exceptions. */
         try {
+            /* Setting the response object to the key RESPONSE. */
+            Constants::set(TOKEN_RESPONSE, new Response());
+            /* Setting the request object to the key REQUEST. */
+            Constants::set(TOKEN_REQUEST, Request::createFromGlobals());
 
             /* Getting the current URL. */
-            $url = Constants::get('REQUEST')->getUri();
+            $url = Constants::get(TOKEN_REQUEST)->getUri();
 
             /* Used to filter the events. */
             if ($this->url_pattern) if (GeneralHelper::starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1)

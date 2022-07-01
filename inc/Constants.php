@@ -209,6 +209,10 @@ class Constants
         define('TOKEN_BUGSNAG', 'BUGSNAG');
         /* Defining a constant called TOKEN_GUZZLE and setting it to the string 'GUZZLE'. */
         define('TOKEN_GUZZLE', 'GUZZLE');
+        /* Defining a constant called TOKEN_RESPONSE and setting it to the string TOKEN_RESPONSE. */
+        define('TOKEN_RESPONSE', 'RESPONSE');
+        /* Defining a constant called TOKEN_REQUEST and setting it to the string TOKEN_REQUEST. */
+        define('TOKEN_REQUEST', TOKEN_REQUEST);
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
@@ -297,10 +301,11 @@ class Constants
      */
     public static function localise($_req)
     {
-        /* Defining a constant called CACHE_SERVER and setting it to the value of $_req. */
-        define('CACHE_SERVER', $_req);
+        /* Defining a constant called self::get(TOKEN_SERVER) and setting it to the value of $_req. */
+        self::set(TOKEN_SERVER, $_req);
         /* Creating a unique key for the cache file. */
-        define('CACHE_KEY', rtrim(strtr(base64_encode(CACHE_SERVER[TOKEN_HTTP_HOST] . CACHE_SERVER[TOKEN_REQUEST_URI]), ' +/', ' - _'), ' = ') . EXT_TMP);
+        define('CACHE_KEY', base64_encode($_req[TOKEN_HTTP_HOST] . $_req[TOKEN_REQUEST_URI]) . EXT_TMP);
+
     }
 
     /* A static method that returns the value of the $_name variable. */
