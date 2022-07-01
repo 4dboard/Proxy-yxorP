@@ -254,6 +254,8 @@ class constants
         require PATH_BUGSNAG_PHAR;
         /* Requiring the Guzzle library. */
         require PATH_GUZZLE_PHAR;
+        /* Requiring the Cockpit library. */
+        require PATH_COCKPIT_BOOTSTRAP;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
