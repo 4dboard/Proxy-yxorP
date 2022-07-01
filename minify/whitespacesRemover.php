@@ -10,7 +10,7 @@ use function sizeof;
 use function str_replace;
 use function strlen;
 
-class WhitespacesRemover implements MinfyInterface
+class whitespacesRemover implements minfyInterface
 {
     private const BLOCK_ELEMENTS = [
         'address',

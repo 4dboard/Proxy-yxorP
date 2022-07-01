@@ -7,7 +7,7 @@ namespace yxorP\Minify;
 
 use JetBrains\PhpStorm\ArrayShape;
 
-class HtmlCommentsRemover extends Areplacer implements MinfyInterface
+class htmlCommentsRemover extends areplacer implements minfyInterface
 {
     #[ArrayShape(['{\s*<!--[^\[<>].*(?<!!)-->\s*}msU' => "string"])] public function getReplacePatternData(): array
     {

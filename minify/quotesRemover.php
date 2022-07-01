@@ -3,7 +3,7 @@
 namespace yxorP\Minify;
 
 
-class QuotesRemover extends Areplacer implements MinfyInterface
+class quotesRemover extends areplacer implements minfyInterface
 {
     public function getReplacePatternData(): array
     {

@@ -6,7 +6,7 @@ require(DIR_ROOT . 'cockpit/bootstrap.php');
 
 /* A class that is used to install the Cockpit CMS. */
 
-class Setup
+class setup
 {
     /* A function that is used to install the Cockpit CMS. */
     public static function install()
@@ -32,7 +32,7 @@ class Setup
             return is_writable($dir);
         }
 
-        $checks = array('Php version >= 7.3.0' => (version_compare(PHP_VERSION, '7.3.0') >= 0), 'Missing PDO extension with Sqlite support' => $sqlitesupport, 'GD extension not available' => extension_loaded('gd'), 'MBString extension not available' => extension_loaded('mbstring'), 'Data folder is not writable: /storage/data' => ensure_writable('/data'), 'Cache folder is not writable: /storage/cache' => ensure_writable('/cache'), 'Temp folder is not writable: /storage/tmp' => ensure_writable('/tmp'), 'Thumbs folder is not writable: /storage/thumbs' => ensure_writable('/thumbs'), 'Uploads folder is not writable: /storage/uploads' => ensure_writable('/uploads'),);
+        $checks = array('Php version >= 7.3.0' => (version_compare(PHP_VERSION, '7.3.0') >= 0), 'Missing PDO extension with Sqlite support' => $sqlitesupport, 'GD extension not available' => extension_loaded('gd'), 'MBString extension not available' => extension_loaded('mbstring'), 'Data folder is not writable: /storage/data' => ensure_writable('/data'), 'cache folder is not writable: /storage/cache' => ensure_writable('/cache'), 'Temp folder is not writable: /storage/tmp' => ensure_writable('/tmp'), 'Thumbs folder is not writable: /storage/thumbs' => ensure_writable('/thumbs'), 'Uploads folder is not writable: /storage/uploads' => ensure_writable('/uploads'),);
         $failed = [];
         foreach ($checks as $info => $check) if (!$check) $failed[] = $info;
         function copyfolder($from, $to, $ext = "*")

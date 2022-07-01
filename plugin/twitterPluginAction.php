@@ -1,12 +1,12 @@
 <?php
-/* Importing the ActionWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\ActionWrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* Extending the ActionWrapper class, which is a class that is used to create plugins. */
+/* Extending the actionWrapper class, which is a class that is used to create plugins. */
 
-class twitterPluginAction extends ActionWrapper
+class twitterPluginAction extends actionWrapper
 {
     /* A regular expression that will be used to match the URL. */
     /* A method that is called when the request is completed. */

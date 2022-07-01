@@ -1,12 +1,12 @@
 <?php
-/* Importing the ActionWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\ActionWrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* A class that extends the ActionWrapper class. */
+/* A class that extends the actionWrapper class. */
 
-class mimeTypesAction extends ActionWrapper
+class mimeTypesAction extends actionWrapper
 {
     /* Setting the content type of the response. */
     public function buildHeaders(): void

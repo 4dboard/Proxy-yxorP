@@ -4,11 +4,11 @@ namespace yxorP\Minify;
 
 use JetBrains\PhpStorm\Pure;
 
-class Minify implements MinfyInterface
+class minify implements minfyInterface
 {
     private array $processors;
 
-    public function __construct(MinfyInterface ...$processors)
+    public function __construct(minfyInterface ...$processors)
     {
         $this->processors = $processors;
     }
@@ -16,10 +16,10 @@ class Minify implements MinfyInterface
     #[Pure] public static function createDefault(): self
     {
         return new self(
-            new WhitespacesRemover,
-            new InlineCssMinifier,
-            new InlineJavascriptMinifier,
-            new HtmlCommentsRemover
+            new whitespacesRemover,
+            new inlineCssMinifier,
+            new inlineJavascriptMinifier,
+            new htmlCommentsRemover
         );
     }
 
@@ -32,7 +32,7 @@ class Minify implements MinfyInterface
         return $buffer;
     }
 
-    public function addProcessor(MinfyInterface $processor): self
+    public function addProcessor(minfyInterface $processor): self
     {
         $this->processors[] = $processor;
 

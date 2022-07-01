@@ -10,7 +10,7 @@ use yxorP;
 /**
  * @property array|string|string[]|null $url
  */
-class Request
+class request
 {
     public ParamStore $params;
     public ParamStore $headers;
@@ -87,12 +87,12 @@ class Request
 
     /* Setting the body of the request. */
 
-    public static function createFromGlobals(): Request
+    public static function createFromGlobals(): request
     {
         $method = constants::get(TOKEN_SERVER)['REQUEST_METHOD'];
         $scheme = (isset(constants::get(TOKEN_SERVER)['HTTPS']) && constants::get(TOKEN_SERVER)['HTTPS']) ? 'https' : 'http';
         $url = $scheme . ':' . constants::get('PROXY_URL')->__toString();
-        $request = new Request($method, $url);
+        $request = new request($method, $url);
         foreach (constants::get(TOKEN_SERVER) as $name => $value) if (str_starts_with($name, 'HTTP_')) {
             $name = substr($name, 5);
             $name = str_replace('_', ' ', $name);

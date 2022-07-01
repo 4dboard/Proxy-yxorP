@@ -1,12 +1,12 @@
 <?php
 
-/* Importing the ActionWrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\ActionWrapper;
+use yxorP\inc\actionWrapper;
 
-/* Extending the ActionWrapper class. */
+/* Extending the actionWrapper class. */
 
-class setHeadersAction extends ActionWrapper
+class setHeadersAction extends actionWrapper
 {
     /* Setting the headers for the request. */
     public function buildHeaders(): void

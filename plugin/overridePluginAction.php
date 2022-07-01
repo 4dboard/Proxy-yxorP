@@ -1,20 +1,20 @@
 <?php
-/* Importing the `ActionWrapper` class from the `yxorP\http` namespace. */
+/* Importing the `actionWrapper` class from the `yxorP\http` namespace. */
 
-use yxorP\inc\ActionWrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
-use yxorP\Minify\Minify;
+use yxorP\Minify\minify;
 
 /* Importing the `generalHelper` class from the `yxorP\http` namespace. */
 
-/* Importing the `Minify` class from the `yxorP\Minify` namespace. */
+/* Importing the `minify` class from the `yxorP\minify` namespace. */
 
-/* Extending the `ActionWrapper` class. */
+/* Extending the `actionWrapper` class. */
 
-class overridePluginAction extends ActionWrapper
+class overridePluginAction extends actionWrapper
 {
-    /* Overriding the `onCompleted` method of the `ActionWrapper` class. */
+    /* Overriding the `onCompleted` method of the `actionWrapper` class. */
     public function onCompleted()
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
@@ -31,7 +31,7 @@ class overridePluginAction extends ActionWrapper
         /* It's setting the `TOKEN_REWRITE_REPLACE` constant to the value of the `PATH_REWRITE_REPLACE` constant. */
         constants::set(TOKEN_REWRITE_REPLACE, generalHelper::CSV(PATH_REWRITE_REPLACE));
         /* Minifying the content of the response. */
-        return (Minify::createDefault())->process(constants::get('MIME') !== 'text/html' ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
+        return (minify::createDefault())->process(constants::get('MIME') !== 'text/html' ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
             /* Replacing the content of the response with the content of the `REWRITE` method. */
             return str_replace(constants::get(TOKEN_REWRITE_SEARCH), constants::get(TOKEN_REWRITE_REPLACE), $m[3]);
         }, $content));

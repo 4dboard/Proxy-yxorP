@@ -9,7 +9,7 @@ use yxorP\inc\constants;
 
 /* A class that is used to cache data. */
 
-class Cache
+class cache
 {
     /* A static variable that is used to store the instance of the class. */
     private static array $instance;
@@ -76,7 +76,7 @@ class Cache
 
     /* Used to get the instance of the class. */
 
-    public function set($val): Cache
+    public function set($val): cache
     {
         /* Used to write the data in the cache file. */
         fclose(fwrite(fopen(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString(), 'w'), '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;'));

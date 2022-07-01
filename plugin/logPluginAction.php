@@ -1,13 +1,13 @@
 <?php
 
-/* It's importing the ActionWrapper class from the yxorP\http namespace. */
+/* It's importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\ActionWrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* It's extending the ActionWrapper class. */
+/* It's extending the actionWrapper class. */
 
-class logPluginAction extends ActionWrapper
+class logPluginAction extends actionWrapper
 {
     /* It's a method that is called when the headers are received. */
     public function onHeadersReceived(): void

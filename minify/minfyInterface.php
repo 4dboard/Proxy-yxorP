@@ -2,7 +2,7 @@
 
 namespace yxorP\Minify;
 
-interface MinfyInterface
+interface minfyInterface
 {
     public function process(string $buffer): string;
 }

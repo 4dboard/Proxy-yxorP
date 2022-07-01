@@ -14,7 +14,7 @@ use function strpos;
 use function strrchr;
 use function substr;
 
-class InlineCssMinifier implements MinfyInterface
+class inlineCssMinifier implements minfyInterface
 {
     public function process(string $buffer): string
     {
@@ -25,7 +25,7 @@ class InlineCssMinifier implements MinfyInterface
         $css_minified = [];
         preg_match_all('{<style.+</style>}msU', $buffer, $style_blocks);
 
-        // Minify the javascript in <script> tags.
+        // minify the javascript in <script> tags.
         foreach ($style_blocks[0] as $block) {
             $css_minified[] = $this->minifyCss($block);
         }
@@ -63,10 +63,10 @@ class InlineCssMinifier implements MinfyInterface
             '#(background-position):0(?=[;\}])#si' => '$1:0 0',
             // Replace `0.6` with `.6`, but only when preceded by `:`, `,`, `-` or a white-space
             '#(?<=[\s:,\-])0+\.(\d+)#s' => '.$1',
-            // Minify string value
+            // minify string value
             '#(\/\*(?>.*?\*\/))|(?<!content\:)([\'"])([a-z_][a-z0-9\-_]*?)\2(?=[\s\{\}\];,])#si' => '$1$3',
             '#(\/\*(?>.*?\*\/))|(\burl\()([\'"])([^\s]+?)\3(\))#si' => '$1$2$4$5',
-            // Minify HEX color code
+            // minify HEX color code
             '#(?<=[\s:,\-]\#)([a-f0-6]+)\1([a-f0-6]+)\2([a-f0-6]+)\3#i' => '$1$2$3',
             // Replace `(border|outline):none` with `(border|outline):0`
             '#(?<=[\{;])(border|outline):none(?=[;\}\!])#' => '$1:0',

@@ -1,12 +1,12 @@
 <?php
-/* It's importing the ActionWrapper class from the yxorP\http namespace. */
+/* It's importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\ActionWrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* It's extending the ActionWrapper class. */
+/* It's extending the actionWrapper class. */
 
-class headerRewritePluginAction extends ActionWrapper
+class headerRewritePluginAction extends actionWrapper
 {
     /* It's setting the `accept-encoding` header to `identity` and removing the `referer` header. */
     public static function headersReceived($response, $request_url): void

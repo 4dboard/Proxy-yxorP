@@ -7,10 +7,10 @@ use yxorP;
 
 /* Importing the class `request` from the namespace `yxorP\http`. */
 
-/* Importing the `Response` class from the `http` namespace. */
+/* Importing the `response` class from the `http` namespace. */
 
 
-abstract class ActionWrapper
+abstract class actionWrapper
 {
     /* A property that is used to filter the events. */
     protected string $url_pattern;
@@ -154,9 +154,9 @@ abstract class ActionWrapper
         /* Used to catch exceptions. */
         try {
             /* Setting the response object to the key RESPONSE. */
-            constants::set(TOKEN_RESPONSE, new Response());
+            constants::set(TOKEN_RESPONSE, new response());
             /* Setting the request object to the key REQUEST. */
-            constants::set(TOKEN_REQUEST, Request::createFromGlobals());
+            constants::set(TOKEN_REQUEST, request::createFromGlobals());
 
             /* Getting the current URL. */
             $url = constants::get(TOKEN_REQUEST)->getUri();

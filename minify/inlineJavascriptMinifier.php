@@ -20,7 +20,7 @@ use function substr;
 use function trim;
 use const PREG_OFFSET_CAPTURE;
 
-class InlineJavascriptMinifier implements MinfyInterface
+class inlineJavascriptMinifier implements minfyInterface
 {
     public function process(string $buffer): string
     {
@@ -31,7 +31,7 @@ class InlineJavascriptMinifier implements MinfyInterface
         $javascript_minified = [];
         preg_match_all('{<script.+</script>}msU', $buffer, $script_blocks);
 
-        // Minify the javascript in <script> tags.
+        // minify the javascript in <script> tags.
         foreach ($script_blocks[0] as $block) {
             $javascript_minified[] = $this->minifyJavascript($block);
         }
