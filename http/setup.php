@@ -2,8 +2,6 @@
 
 use yxorP\inc\constants;
 
-require PATH_COCKPIT_BOOTSTRAP;
-
 /* A class that is used to install the Cockpit CMS. */
 
 class setup
