@@ -1,10 +1,9 @@
-<?php namespace yxorP\http;
+<?php namespace yxorP\inc;
 
 /* Importing the namespace `yxorP` into the current namespace. */
 
 use JetBrains\PhpStorm\Pure;
 use yxorP;
-use yxorP\inc\Constants;
 
 /* A class that represents an HTTP request. */
 

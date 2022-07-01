@@ -1,4 +1,4 @@
-<?php namespace yxorP\http;
+<?php namespace yxorP\inc;
 
 use JetBrains\PhpStorm\Pure;
 
