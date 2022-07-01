@@ -158,6 +158,9 @@ class constants
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
         /* Defining the path to the action wrapper file. */
         define('PATH_ACTION_WRAPPER', DIR_ROOT . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
+        /* Defining the path to the action wrapper file. */
+        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
+
 
         //METHODS
         /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
