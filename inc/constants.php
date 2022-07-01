@@ -213,6 +213,8 @@ class constants
         define('TOKEN_RESPONSE', 'RESPONSE');
         /* Defining a constant called TOKEN_REQUEST and setting it to the string TOKEN_REQUEST. */
         define('TOKEN_REQUEST', 'REQUEST');
+        define('TOKEN_COCKPIT_APP', 'COCKPIT_APP');
+
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
