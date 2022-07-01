@@ -9,7 +9,6 @@ class setup
     /* A function that is used to install the Cockpit CMS. */
     public static function install()
     {
-        constants::set(TOKEN_constants::get(TOKEN_COCKPIT_APP), cockpit());
         define('COCKPIT_INSTALL', true);
 
         $sqlitesupport = false;
