@@ -5,6 +5,7 @@ namespace yxorP;
 /* Importing the Constants class from the inc folder. */
 
 use MongoDB\Driver\Monitoring\Subscriber;
+use yxorP\inc\genralHelper;
 
 /* Loading the required files. */
 require './cockpit/bootstrap.php';
