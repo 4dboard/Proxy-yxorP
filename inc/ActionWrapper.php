@@ -5,7 +5,7 @@
 
 use yxorP;
 use yxorP\http\Request;
-use yxorP\http\Response;
+use yxorP\inc\Response;
 
 /* Importing the class `request` from the namespace `yxorP\http`. */
 
