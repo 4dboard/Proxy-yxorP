@@ -7,7 +7,7 @@
 <a align="center" href="https://sourceforge.net/projects/proxy-yxorp/files/latest/download"><img alt="image" align="center" alt="Download Proxy yxorP" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>
 </p>
 
-<h1  align="center">🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler</h1><blockquote><p> ⭐️<sub><b>NEW</b>: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now availible via gitpod <a href="https://gitpod.io/#https://github.com/4dboard/proxy-yxorp">[Live Demo]</a></blockquote>
+<h1  align="center">🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler</h1><blockquote><p> ⭐️<sub><b>DEMO LIVE</b>: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now availible via gitpod <a href="https://gitpod.io/#https://github.com/4dboard/proxy-yxorp">[Live Demo]</a></blockquote>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
 
 <br />
