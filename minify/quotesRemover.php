@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\Minify;
+namespace yxorP\minify;
 
 
 class quotesRemover extends areplacer implements minfyInterface

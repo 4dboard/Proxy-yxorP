@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\Minify;
+namespace yxorP\minify;
 
 use function array_keys;
 use function array_values;

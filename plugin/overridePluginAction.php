@@ -4,7 +4,7 @@
 use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
-use yxorP\Minify\minify;
+use yxorP\minify\minify;
 
 /* Importing the `generalHelper` class from the `yxorP\http` namespace. */
 

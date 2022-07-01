@@ -1,6 +1,6 @@
 <?php
 
-namespace yxorP\Minify;
+namespace yxorP\minify;
 
 
 // Remove comments from HTML Code (non-MSIE conditionals)

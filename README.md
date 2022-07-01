@@ -7795,7 +7795,7 @@ in a number of forms and without the source code because they are licensed works
 | [`Request`](./docs/classes/yxorP/Http/Request.md) | |
 | [`Response`](./docs/classes/yxorP/Http/Response.md) | |
 
-### \yxorP\Minify
+### \yxorP\minify
 
 #### Classes
 

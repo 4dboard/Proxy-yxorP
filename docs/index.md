@@ -8254,7 +8254,7 @@ This is an automatically generated documentation for **yxorP**.
 | [`Request`](./classes/yxorP/Http/Request.md) | |
 | [`Response`](./classes/yxorP/Http/Response.md) | |
 
-### \yxorP\Minify
+### \yxorP\minify
 
 #### Classes
 
