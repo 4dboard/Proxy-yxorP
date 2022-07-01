@@ -6,7 +6,7 @@ namespace yxorP;
 
 use MongoDB\Driver\Monitoring\Subscriber;
 use yxorP\inc\constants;
-use yxorP\inc\genralHelper;
+use yxorP\inc\generalHelper;
 
 /* Loading the required files. */
 require './cockpit/bootstrap.php';
