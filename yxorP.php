@@ -104,10 +104,15 @@ class yxorP
      */
     private static function init(): array
     {
+
         /* It's checking if the `$events` variable is set, and if it is, it returns it. */
         if (self::$events) return self::$events;
         /* It's creating the constants that are used in the plugin. */
         Constants::create(__DIR__);
+
+        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
+        creates them. */
+        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) GeneralHelper::fileCheck(DIR_ROOT . $_asset, true);
 
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         if (!is_dir(DIR_ROOT)) if (!mkdir($concurrentDirectory = DIR_ROOT) && !is_dir($concurrentDirectory))
