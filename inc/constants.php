@@ -231,10 +231,8 @@ class constants
         define('ENV_DEBUG', 'DEBUG' . EXT_ENV);
 
         // COCKPIT
-        /* Defining the constant COCKPIT_APP as the function cockpit(). */
-        define('COCKPIT_APP', cockpit());
         /* Defining a constant. */
-        define('COCKPIT_ACCOUNTS', 'cockpit / accounts');
+        define('COCKPIT_ACCOUNTS', 'cockpit/accounts');
 
         //EXCEPTIONS
         /* Defining a constant called RUNTIME_EXCEPTION. */
