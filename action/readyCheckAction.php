@@ -1,7 +1,7 @@
 <?php
 /* Importing the cache class from the cache namespace. */
 
-use yxorP\Cache\cache;
+use yxorP\http\cache;
 use yxorP\inc\actionWrapper;
 
 /* Importing the actionWrapper class from the yxorP\http namespace. Extending the actionWrapper class, which is a class that is used to wrap events. */

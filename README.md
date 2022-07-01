@@ -7816,7 +7816,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`MinfyInterface`](./docs/classes/yxorP/Minify/MinfyInterface.md) | |
 
-### \yxorP\cache
+### \yxorP\http
 
 #### Classes
 

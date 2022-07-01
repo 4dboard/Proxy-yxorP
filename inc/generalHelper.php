@@ -1,7 +1,7 @@
 <?php namespace yxorP\inc;
 
 use JetBrains\PhpStorm\Pure;
-use yxorP\cache\cache;
+use yxorP\http\cache;
 use function array_map;
 use function array_merge;
 use function file;

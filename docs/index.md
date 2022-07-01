@@ -8275,7 +8275,7 @@ This is an automatically generated documentation for **yxorP**.
 |-----------|-------------|
 | [`MinfyInterface`](./classes/yxorP/Minify/MinfyInterface.md) | |
 
-### \yxorP\cache
+### \yxorP\http
 
 #### Classes
 
