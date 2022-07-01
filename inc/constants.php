@@ -125,6 +125,8 @@ class constants
         define('FILE_BUGSNAG', 'bugsnag');
         /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
         define('FILE_GUZZLE', 'guzzle');
+        /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
+        define('FILE_BOOTSTRAP', 'bootstrap');
         /* Defining a constant. */
         define('FILE_ACTION_WRAPPER', 'actionWrapper');
 
