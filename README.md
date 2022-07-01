@@ -20,7 +20,7 @@ all optional additions that are fully supported. yxorP is intended to act as a p
 of <b>multiple websites</b> using a PHAR (PHP archive) binary version of <b>Guzzle</b>, and managed via a
 user-friendly <b>Cockpit backend (GUI)</b>.
 <br/>
-yxorP is event driven and 
+The fact that yxorP is event-driven and makes use of overridable plugin actions gives it a great level of flexibility and makes it simple to change or remove any functionality. As a consequence of this, it is an option worth considering for the development of individualized programs. As a consequence of this, it is incredibly adaptive and ranks among the most flexible systems that are now accessible.
 <br/>
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then
 retrieved and modified accordingly. Additionally, the website content can be optionally spun using the <b>article
