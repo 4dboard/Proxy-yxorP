@@ -1,7 +1,7 @@
 <?php namespace yxorP\cache;
 /* A trait that allows the class to be serialized and unserialized. */
 
-trait State
+trait AState
 {
     /* A magic method that allows the class to be serialized and unserialized. */
     public static function __set_state($data)
