@@ -246,8 +246,6 @@ class constants
         require PATH_BUGSNAG_PHAR;
         /* Requiring the Guzzle library. */
         require PATH_GUZZLE_PHAR;
-        /* Requiring the file at the path specified by the constant PATH_ACTION_WRAPPER. */
-        require PATH_ACTION_WRAPPER;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
