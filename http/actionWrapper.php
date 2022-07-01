@@ -4,6 +4,7 @@
 
 
 use yxorP;
+use yxorP\inc\constants;
 
 /* Importing the class `request` from the namespace `yxorP\http`. */
 
@@ -76,78 +77,6 @@ abstract class actionWrapper
     }
 
     /* A method that is used to route the events to the appropriate methods. */
-
-    public function onCheck()
-    {
-    }
-
-    /* Used to check if the event should be executed. */
-
-    public function onBuildCached()
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_CACHED` is triggered. */
-
-    public function onBuildContext()
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
-
-    public function onBuildIncludes()
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
-
-    public function onBuildHeaders()
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
-
-    public function onBuildRequest()
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
-
-    public function onBuildResult()
-    {
-    }
-
-    /* Used to build the result. */
-
-    public function onBeforeRequest()
-    {
-    }
-
-    /* Used to execute code before the request is sent. */
-
-    public function onHeadersReceived()
-    {
-    }
-
-    /* Used to execute code when the headers are received. */
-
-    public function onCurlWrite()
-    {
-    }
-
-    /* Used to execute code when the headers are received. */
-
-    public function onCompleted()
-    {
-    }
-
-    /* Used to execute code when the request is completed. */
-
-    public function onBuildException($e)
-    {
-    }
-
-    /* Used to execute code when an exception is thrown. */
 
     private function route($event_name): void
     {
@@ -225,5 +154,77 @@ abstract class actionWrapper
             /* Calling the `onBuildException` method. */
             $this->build_exception($e);
         }
+    }
+
+    /* Used to check if the event should be executed. */
+
+    public function onCheck()
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_CACHED` is triggered. */
+
+    public function onBuildCached()
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
+
+    public function onBuildContext()
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
+
+    public function onBuildIncludes()
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
+
+    public function onBuildHeaders()
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
+
+    public function onBuildRequest()
+    {
+    }
+
+    /* Used to build the result. */
+
+    public function onBuildResult()
+    {
+    }
+
+    /* Used to execute code before the request is sent. */
+
+    public function onBeforeRequest()
+    {
+    }
+
+    /* Used to execute code when the headers are received. */
+
+    public function onHeadersReceived()
+    {
+    }
+
+    /* Used to execute code when the headers are received. */
+
+    public function onCurlWrite()
+    {
+    }
+
+    /* Used to execute code when the request is completed. */
+
+    public function onCompleted()
+    {
+    }
+
+    /* Used to execute code when an exception is thrown. */
+
+    public function onBuildException($e)
+    {
     }
 }
