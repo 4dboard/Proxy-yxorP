@@ -13,13 +13,13 @@ yxorP is a plug-and-play, flat-file application that <b>does not need Composer, 
 all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
 of <b>multiple websites</b> using a PHAR (PHP archive) binary version of <b>Guzzle</b>, and managed via a
 user-friendly <b>Cockpit backend (GUI)</b>.<br/>
-<br/>It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web proxy systems now available on the market. This is owing to its event-driven architecture and emphasis on its plugin-based design, as opposed to its built-in features, which are the most crucial and differentiating components that allow customization and development of its capabilities. In addition to its Back-end administration CMS and graphical user interface, yxorP has a number of other distinguishing features.<br/>
+<br/>It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web proxy systems now available on the market. This is owing to its event-driven architecture and emphasis on its plugin-based design, as opposed to its built-in features, which are the most crucial and differentiating components that allow customization and development of its capabilities. In addition to its Back-end administration CMS and graphical user interface, yxorP has a number of other distinguishing features.<br/><br/>
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then
 retrieved and modified accordingly. Additionally, the website content can be optionally spun using the <b>article
 spinning engine</b> that is already embedded into the application. After the website has been modified the result is
 then stored for a predefined time inside a custom-built, <b>flat-file cache</b> system architectured to be <b>500x
 faster than memory-based cache</b> systems such as Memcache and Redis. This is accomplished by bypassing the
-serialisation and deserialization processes, which resulted a significantly faster cache.<br />
+serialisation and deserialization processes, which resulted a significantly faster cache.<br /><br/>
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
