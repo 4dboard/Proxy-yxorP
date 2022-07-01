@@ -2,7 +2,7 @@
 /* It's importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 
 /* It's extending the ActionWrapper class. */
 
@@ -12,25 +12,25 @@ class headerRewritePluginAction extends ActionWrapper
     public function onBeforeRequest(): void
     {
         /* It's setting the `accept-encoding` header to `identity`. */
-        Constants::get(TOKEN_REQUEST)->headers->set('accept-encoding', 'identity');
+        constants::get(TOKEN_REQUEST)->headers->set('accept-encoding', 'identity');
         /* It's removing the `referer` header from the request. */
-        Constants::get(TOKEN_REQUEST)->headers->remove('referer');
+        constants::get(TOKEN_REQUEST)->headers->remove('referer');
     }
 
     /* It's checking if the response has a `location` header and if it does, it's proxifying the URL. */
 
     public function onHeadersReceived(): void
     {
-        /* It's getting the response object from the `Constants` class. */
-        $response = Constants::get(TOKEN_RESPONSE);
+        /* It's getting the response object from the `constants` class. */
+        $response = constants::get(TOKEN_RESPONSE);
         /* It's getting the URL of the request. */
-        $request_url = Constants::get(TOKEN_REQUEST)->getUri();
+        $request_url = constants::get(TOKEN_REQUEST)->getUri();
         /* It's checking if the response has a `location` header and if it does, it's proxifying the URL. */
         if ($response->headers->has('location')) self::headersReceived($response, $request_url);
         $code = $response->getStatusCode();
         /* It's checking if the status code of the response is between 400 and 600 and if it is, it's sending an error to
-        Constants::get(BUGSNAG). */
-        if ($code >= 400 && $code <= 600) Constants::get(BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
+        constants::get(BUGSNAG). */
+        if ($code >= 400 && $code <= 600) constants::get(BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
         /* It's an array of headers that should be forwarded to the client. */
         $forward_headers = array('content-type', 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
         /* It's removing all headers that aren't in the `$forward_headers` array. */

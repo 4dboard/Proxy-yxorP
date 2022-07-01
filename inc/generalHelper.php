@@ -122,7 +122,7 @@ class generalHelper
 
     #[Pure] public static function app_url(): string
     {
-        return 'https:' . Constants::get('SITE_HOST')->__toString() . Constants::get(TOKEN_SERVER)['PHP_SELF'];
+        return 'https:' . constants::get('SITE_HOST')->__toString() . constants::get(TOKEN_SERVER)['PHP_SELF'];
     }
 
     /* It's returning the application URL. */
@@ -171,7 +171,7 @@ class generalHelper
             $base_url = self::add_http($base_url);
             $url = self::rel2abs($url, $base_url);
         }
-        return str_replace(Constants::get('FETCH'), '', $url);
+        return str_replace(constants::get('FETCH'), '', $url);
     }
 
     /* It's proxifying the `$url` with the `$base_url`. */
@@ -241,7 +241,7 @@ class generalHelper
         foreach (scandir($dir) as $x) if (strlen($x) > 3) {
             if (str_contains($x, 'interface')) continue;
             if (is_dir($_loc = $dir . DIRECTORY_SEPARATOR . $x)) return self::fileCheck($_loc, $inc);
-            if (str_contains(Constants::get('PROXY_URL'), $x)) return Cache::cache()->set(file_get_contents($_loc));
+            if (str_contains(constants::get('PROXY_URL'), $x)) return Cache::cache()->set(file_get_contents($_loc));
             if ($inc) require_once($_loc);
         }
     }

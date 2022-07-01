@@ -3,7 +3,7 @@
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
 /* Extending the ActionWrapper class. */
@@ -16,8 +16,8 @@ class proxifyPluginAction extends ActionWrapper
     /* A function that is called before the request is sent to the server. */
     public function onBeforeRequest(): void
     {
-        /* It's getting the request object from the Constants class. */
-        $request = Constants::get(TOKEN_REQUEST);
+        /* It's getting the request object from the constants class. */
+        $request = constants::get(TOKEN_REQUEST);
         /* It's checking if the request has a post parameter called `convertGET`. */
         if ($request->post->has('convertGET')) {
             /* It's removing the `convertGET` post parameter. */
@@ -37,9 +37,9 @@ class proxifyPluginAction extends ActionWrapper
     public function onCompleted(): void
     {
         /* It's getting the base url of the request. */
-        $this->base_url = Constants::get(TOKEN_REQUEST)->getUri();
-        /* It's getting the response object from the Constants class. */
-        $response = Constants::get(TOKEN_RESPONSE);
+        $this->base_url = constants::get(TOKEN_REQUEST)->getUri();
+        /* It's getting the response object from the constants class. */
+        $response = constants::get(TOKEN_RESPONSE);
         /* It's getting the content type of the response. */
         /* It's getting the response content. */
         $content_type = $this->clean_content_type($response->headers->get('content-type'));

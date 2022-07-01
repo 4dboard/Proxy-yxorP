@@ -1,6 +1,6 @@
 <?php
 
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 
 require(DIR_ROOT . 'cockpit/bootstrap.php');
 
@@ -11,7 +11,7 @@ class Setup
     /* A function that is used to install the Cockpit CMS. */
     public static function install()
     {
-        Constants::set(COCKPIT_APP, cockpit());
+        constants::set(COCKPIT_APP, cockpit());
         define('COCKPIT_INSTALL', true);
 
         $sqlitesupport = false;
@@ -51,7 +51,7 @@ class Setup
                 if (!COCKPIT_APP->storage->getCollection('cockpit/accounts')->count()) {
                     copyfolder(DIR_ROOT . 'inc/storage/', DIR_ROOT . 'cockpit/storage/');
                     $created = time();
-                    $account = ['user' => Constants::get('ADMIN_USER'), 'name' => Constants::get('ADMIN_NAME'), 'email' => Constants::get('ADMIN_EMAIL'), 'active' => true, 'group' => 'admin', 'password' => COCKPIT_APP->hash(Constants::get('ADMIN_PASSWORD')), 'i18n' => COCKPIT_APP->helper('i18n')->locale, '_created' => $created, '_modified' => $created];
+                    $account = ['user' => constants::get('ADMIN_USER'), 'name' => constants::get('ADMIN_NAME'), 'email' => constants::get('ADMIN_EMAIL'), 'active' => true, 'group' => 'admin', 'password' => COCKPIT_APP->hash(constants::get('ADMIN_PASSWORD')), 'i18n' => COCKPIT_APP->helper('i18n')->locale, '_created' => $created, '_modified' => $created];
                     COCKPIT_APP->storage->insert("cockpit/accounts", $account);
                 }
             } catch (Exception $e) {

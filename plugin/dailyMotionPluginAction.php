@@ -3,7 +3,7 @@
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
 /* Extending the ActionWrapper class. */
@@ -17,8 +17,8 @@ class dailyMotionPluginAction extends ActionWrapper
 
     public function onCompleted(): void
     {
-        /* Getting the response object from the `Constants` class. */
-        $response = Constants::get(TOKEN_RESPONSE);
+        /* Getting the response object from the `constants` class. */
+        $response = constants::get(TOKEN_RESPONSE);
         /* Getting the content of the response object. */
         $content = $response->getContent();
         /* Checking if the content of the response object contains a video URL. If it does, it calls the `completed`

@@ -3,7 +3,7 @@
 
 use yxorP\cache\Cache;
 use yxorP\inc\ActionWrapper;
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 
 /* Extending the ActionWrapper class, which is a class that allows you to hook into the request lifecycle. */
 
@@ -13,6 +13,6 @@ class cacheStoreAction extends ActionWrapper
     public function onCompleted(): void
     {
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
-        if (!Cache::cache()->isValid()) Cache::cache()->set(Constants::get(TOKEN_RESPONSE)->getContent());
+        if (!Cache::cache()->isValid()) Cache::cache()->set(constants::get(TOKEN_RESPONSE)->getContent());
     }
 }

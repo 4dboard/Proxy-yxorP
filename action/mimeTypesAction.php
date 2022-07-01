@@ -2,7 +2,7 @@
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 
 /* A class that extends the ActionWrapper class. */
 
@@ -28,18 +28,18 @@ class mimeTypesAction extends ActionWrapper
             DIRECTORY_SEPARATOR . 'vnd');
 
         /* Getting the file extension of the requested file. */
-        $_ext = pathinfo(strtok(Constants::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
+        $_ext = pathinfo(strtok(constants::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
 
         /* Setting the content type of the response. */
-        if (str_contains(Constants::get('PROXY_URL'), 'bundle.js')) Constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'wasm'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), 'sitemap'))
-            Constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'xml'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), 'crop'))
-            Constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), 'format'))
-            Constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), '.mp4'))
-            Constants::set('MIME', 'video' . DIRECTORY_SEPARATOR . 'mp4'); else if (!Constants::get('MIME') && str_contains(Constants::get('PROXY_URL'), '.js.br'))
-            Constants::set('MIME', 'br'); else if (array_key_exists($_ext, $_types) && !Constants::get('MIME')) Constants::set('MIME', $_types[$_ext]); else
-            Constants::set('MIME', 'text' . DIRECTORY_SEPARATOR . 'html');
+        if (str_contains(constants::get('PROXY_URL'), 'bundle.js')) constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'wasm'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), 'sitemap'))
+            constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'xml'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), 'crop'))
+            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), 'format'))
+            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), '.mp4'))
+            constants::set('MIME', 'video' . DIRECTORY_SEPARATOR . 'mp4'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), '.js.br'))
+            constants::set('MIME', 'br'); else if (array_key_exists($_ext, $_types) && !constants::get('MIME')) constants::set('MIME', $_types[$_ext]); else
+            constants::set('MIME', 'text' . DIRECTORY_SEPARATOR . 'html');
 
         /* Setting the content type of the response. */
-        header('Content-Type: ' . Constants::get('MIME')->__toString() . '; charset = UTF-8');
+        header('Content-Type: ' . constants::get('MIME')->__toString() . '; charset = UTF-8');
     }
 }

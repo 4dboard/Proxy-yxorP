@@ -4,7 +4,7 @@
 
 use JetBrains\PhpStorm\Pure;
 use yxorP;
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 
 
 /* A class that is used to cache data. */
@@ -51,7 +51,7 @@ class Cache
     #[Pure] private function isExists(): bool
     {
         /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_TMP . Constants::get(CACHE_KEY)->__toString());
+        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString());
     }
 
     /* Used to get the data from the cache file. */
@@ -61,7 +61,7 @@ class Cache
         /* Used to check if the cache file is valid. */
         if (!$this->isValid()) return;
         /* Used to include the cache file. */
-        @include PATH_DIR_TMP . Constants::get(CACHE_KEY)->__toString();
+        @include PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString();
     }
 
     /* Used to check if the cache file is valid. */
@@ -77,9 +77,9 @@ class Cache
     {
         /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
         class. */
-        if (!isset(self::$instance[Constants::get(CACHE_KEY)])) self::$instance[Constants::get(CACHE_KEY)] = new self();
+        if (!isset(self::$instance[constants::get(CACHE_KEY)])) self::$instance[constants::get(CACHE_KEY)] = new self();
         /* Returning the instance of the class. */
-        return self::$instance[Constants::get(CACHE_KEY)];
+        return self::$instance[constants::get(CACHE_KEY)];
     }
 
     /* Used to set the data in the cache file. */
@@ -87,7 +87,7 @@ class Cache
     public function set($val): Cache
     {
         /* Used to write the data in the cache file. */
-        fclose(fwrite(fopen(PATH_DIR_TMP . Constants::get(CACHE_KEY)->__toString(), 'w'), '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;'));
+        fclose(fwrite(fopen(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString(), 'w'), '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;'));
         /* Used to return the instance of the class. */
         return $this;
     }

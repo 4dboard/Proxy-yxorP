@@ -2,7 +2,7 @@
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\ActionWrapper;
-use yxorP\inc\Constants;
+use yxorP\inc\constants;
 
 /* Extending the ActionWrapper class, which is a class that is used to create plugins. */
 
@@ -15,7 +15,7 @@ class twitterPluginAction extends ActionWrapper
     public function onCompleted(): void
     {
         /* Getting the response object from the constants class. */
-        $response = Constants::get(TOKEN_RESPONSE);
+        $response = constants::get(TOKEN_RESPONSE);
         /* Getting the content of the response. */
         /* Removing all the scripts from the HTML. */
         $content = $response->getContent();
