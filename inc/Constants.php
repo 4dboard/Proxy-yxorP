@@ -40,7 +40,8 @@ class Constants
         /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_ACTION', 'action' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called DIR_PLUGIN. */
+        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `override` with a `DIRECTORY_SEPARATOR`
+        appended to it. */
         define('DIR_PLUGIN', 'plugin' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `DIRECTORY_SEPARATOR`
         appended to it. */
