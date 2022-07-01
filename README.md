@@ -20,7 +20,7 @@ all optional additions that are fully supported. yxorP is intended to act as a p
 of <b>multiple websites</b> using a PHAR (PHP archive) binary version of <b>Guzzle</b>, and managed via a
 user-friendly <b>Cockpit backend (GUI)</b>.
 <br/>
-It is common knowledge that yxorP is one of the web proxy systems that provides the highest amount of customization when compared to other web proxy systems that are currently available on the market. This is as a result of the event-driven architecture and emphasis on its plugin-based design rather than its built-in capabilities. These are the most significant and distinguishing elements that simplify the customization and extensibility of its capabilities, and they are the reason for why this is the case. One of the many aspects that sets yxorP apart from other solutions is its back-end administration CMS that is both user-friendly and powerful.
+It is common knowledge that yxorP is one of the web proxy systems that provides the maximum amount of customization compared to other web proxy systems on the market today. This is due to the event-driven architecture and focus on its plugin-based design as opposed to its built-in capabilities, which are the most important and differentiating elements that ease the customization and expansion of its capabilities. The user-friendly, but powerful back-end administrative CMS / graphical user interface is only one of the numerous characteristics that distinguish yxorP from other options.
 <br/>
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then
 retrieved and modified accordingly. Additionally, the website content can be optionally spun using the <b>article
