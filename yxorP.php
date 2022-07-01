@@ -44,7 +44,7 @@ class yxorP
         constants::localise($_req);
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
-        foreach ( as $action) $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
+        $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
         if (str_contains(constants::get(YXORP_SERVER)[YXORP_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
@@ -53,7 +53,7 @@ class yxorP
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        foreach ($_plugins as $action) $this->subscribers(DIR_PLUGIN, $action); //foreach (constants::get('TARGET')[YXORP_PLUGINS] ?: [] as $action) $this->subscribe(DIR_PLUGIN, $action);
+        $this->subscribers(DIR_PLUGIN, $_plugins); //$this->subscribe(DIR_PLUGIN, constants::get('TARGET')[YXORP_PLUGINS] ?: []);
     }
 
     /**
