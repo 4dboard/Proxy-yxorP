@@ -9,7 +9,6 @@ use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
 /* Loading the required files. */
-require './cockpit/bootstrap.php';
 require './inc/generalHelper.php';
 require './inc/constants.php';
 
