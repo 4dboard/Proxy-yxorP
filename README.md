@@ -14,6 +14,8 @@
 <br />
 
 <img alt="image" align="center" src='https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png' />
+<blockquote><p> ⛔️ <sub><b>ARCHIVE PENDING</b>: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.</sub></p></blockquote></br></br>
+
 
 yxorP is a plug-and-play, flat-file application that <b>does not need Composer, PHP CURL, or databases</b>; these are
 all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
