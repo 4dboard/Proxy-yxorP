@@ -74,8 +74,8 @@ return array(
                 ),
             4 =>
                 array(
-                    'name' => TOKEN_PLUGINS,
-                    'label' => TOKEN_PLUGINS,
+                    'name' => 'plugins',
+                    'label' => 'plugins',
                     'type' => 'multipleselect',
                     'default' => '',
                     'info' => 'Activate selected site plugins, located in the \'/plugin\' directory',
