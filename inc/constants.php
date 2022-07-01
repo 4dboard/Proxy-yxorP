@@ -222,7 +222,7 @@ class constants
         define('TOKEN_COCKPIT_APP', 'COCKPIT_APP');
         /* Defining a constant called TOKEN_COCKPIT_ACCOUNTS and setting it to the string accounts. */
         define('TOKEN_COCKPIT_ACCOUNTS', 'accounts');
-        define('TOKEN_PLUGINS', 'plugins');
+        define('TOKEN_PLUGINS', TOKEN_PLUGINS);
 
 
         //ENV

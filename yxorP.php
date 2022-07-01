@@ -49,11 +49,11 @@ class yxorP
         it's calling the `subscribe()` function. */
         foreach (scandir(DIR_ROOT . DIR_ACTION) as $action) $this->subscribe(DIR_ACTION, $action);
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
-        $_plugins = constants::get('TARGET')['plugins'] ?: [];
+        $_plugins = constants::get('TARGET')[TOKEN_PLUGINS] ?: [];
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        foreach ($_plugins as $action) $this->subscribe(DIR_PLUGIN, $action); //foreach (constants::get('TARGET')['plugins'] ?: [] as $action) $this->subscribe(DIR_PLUGIN, $action);
+        foreach ($_plugins as $action) $this->subscribe(DIR_PLUGIN, $action); //foreach (constants::get('TARGET')[TOKEN_PLUGINS] ?: [] as $action) $this->subscribe(DIR_PLUGIN, $action);
     }
 
     /**
