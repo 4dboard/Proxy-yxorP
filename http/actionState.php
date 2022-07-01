@@ -1,4 +1,4 @@
-<?php namespace yxorP\cache;
+<?php namespace yxorP\http;
 /* A trait that allows the class to be serialized and unserialized. */
 
 trait actionState
