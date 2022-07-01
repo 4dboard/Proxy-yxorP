@@ -8,12 +8,7 @@ use MongoDB\Driver\Monitoring\Subscriber;
 use yxorP\inc\Constants;
 
 /* Loading the required files. */
-require './inc/Constants.php';
 require './cockpit/bootstrap.php';
-require './cache/State.php';
-require './cache/Cache.php';
-require './inc/Request.php';
-require './inc/Response.php';
 
 /**
  * It's a proxy for the yxorp plugin
