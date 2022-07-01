@@ -16,9 +16,9 @@ class Constants
     public static function create($_dir)
     {
 
-        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
+        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_PLUGIN', $_dir . DIRECTORY_SEPARATOR);
+        define('DIR_ROOT', $_dir . DIRECTORY_SEPARATOR);
 
 
         // SPECIAL
@@ -127,32 +127,32 @@ class Constants
 
 
         // PATHS
-        /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_PLUGIN` with a `DIR_TMP` appended
+        /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
         to it. */
-        define('PATH_DIR_TMP', DIR_PLUGIN . DIR_TMP);
-        /* Defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_PLUGIN` with a `DIR_COCKPIT`
+        define('PATH_DIR_TMP', DIR_ROOT . DIR_TMP);
+        /* Defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `DIR_STORAGE` appended to it. */
-        define('PATH_DIR_COCKPIT', DIR_PLUGIN . DIR_COCKPIT . DIR_STORAGE);
-        /* Defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_PLUGIN` with a `DIR_INC` and
+        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT . DIR_STORAGE);
+        /* Defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a `DIR_INC` and
         `DIR_STORAGE` appended to it. */
-        define('PATH_COCKPIT_LOCAL', DIR_PLUGIN . DIR_INC . DIR_STORAGE);
-        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_PLUGIN` with a `DIR_COCKPIT`
+        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INC . DIR_STORAGE);
+        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
-        define('PATH_COCKPIT_INDEX', DIR_PLUGIN . DIR_COCKPIT . FILE_INDEX . EXT_PHP);
-        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_PLUGIN` with a `DIR_COCKPIT`
+        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX . EXT_PHP);
+        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
-        /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_PLUGIN` with a
+        /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_SEARCH', DIR_PLUGIN . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);
-        /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_PLUGIN` with a
+        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);
+        /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_REPLACE', DIR_PLUGIN . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
+        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
         /* Defining the path to the bugsnag.phar file. */
-        define('PATH_BUGSNAG_PHAR', DIR_PLUGIN . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
+        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
         /* Defining the path to the guzzle phar file. */
-        define('PATH_GUZZLE_PHAR', DIR_PLUGIN . DIR_INC . FILE_GUZZLE . EXT_PHAR);
+        define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
         /* Defining the path to the action wrapper file. */
-        define('PATH_ACTION_WRAPPER', DIR_PLUGIN . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
+        define('PATH_ACTION_WRAPPER', DIR_ROOT . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
 
         //METHODS
         /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
@@ -244,7 +244,7 @@ class Constants
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
-        foreach (file(DIR_PLUGIN . EXT_ENV) as $line) self::env($line);
+        foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
 
         // Reporting
         /* Setting the token to the bugsnag key. */

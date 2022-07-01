@@ -49,7 +49,7 @@ class yxorP
         if (str_contains(CACHE_SERVER[TOKEN_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
-        foreach (scandir(DIR_PLUGIN . DIR_ACTION) as $action) if (strlen($action) > 3) $this->subscribe($action);
+        foreach (scandir(DIR_ROOT . DIR_ACTION) as $action) if (strlen($action) > 3) $this->subscribe($action);
         /* It's setting the `TOKEN_REWRITE_SEARCH` constant to the value of the `PATH_REWRITE_SEARCH` constant. */
         Constants::set(TOKEN_REWRITE_SEARCH, GeneralHelper::CSV(PATH_REWRITE_SEARCH));
         /* It's setting the `TOKEN_REWRITE_REPLACE` constant to the value of the `PATH_REWRITE_REPLACE` constant. */
@@ -66,7 +66,7 @@ class yxorP
     {
         /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
         if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        if (file_exists(DIR_PLUGIN . DIR_ACTION . $action)) require(DIR_PLUGIN . DIR_ACTION . $action); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
+        if (file_exists(DIR_ROOT . DIR_ACTION . $action)) require(DIR_ROOT . DIR_ACTION . $action); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
         /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
         function. */
         $this->addSubscriber(new $action());
@@ -109,7 +109,7 @@ class yxorP
         Constants::create(__DIR__);
 
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
-        if (!is_dir(DIR_PLUGIN)) if (!mkdir($concurrentDirectory = DIR_PLUGIN) && !is_dir($concurrentDirectory))
+        if (!is_dir(DIR_ROOT)) if (!mkdir($concurrentDirectory = DIR_ROOT) && !is_dir($concurrentDirectory))
             throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $concurrentDirectory));
 
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the

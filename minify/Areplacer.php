@@ -7,7 +7,7 @@ use function array_values;
 use function preg_replace;
 use function strlen;
 
-require DIR_PLUGIN . 'minify/MinfyInterface.php';
+require DIR_ROOT . 'minify/MinfyInterface.php';
 
 abstract /**
  *

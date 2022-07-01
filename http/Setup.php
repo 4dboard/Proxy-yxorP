@@ -2,7 +2,7 @@
 
 use yxorP\inc\Constants;
 
-require(DIR_PLUGIN . 'cockpit/bootstrap.php');
+require(DIR_ROOT . 'cockpit/bootstrap.php');
 
 /* A class that is used to install the Cockpit CMS. */
 
@@ -49,7 +49,7 @@ class Setup
         if (!count($failed)) {
             try {
                 if (!COCKPIT_APP->storage->getCollection('cockpit/accounts')->count()) {
-                    copyfolder(DIR_PLUGIN . 'inc/storage/', DIR_PLUGIN . 'cockpit/storage/');
+                    copyfolder(DIR_ROOT . 'inc/storage/', DIR_ROOT . 'cockpit/storage/');
                     $created = time();
                     $account = ['user' => Constants::get('ADMIN_USER'), 'name' => Constants::get('ADMIN_NAME'), 'email' => Constants::get('ADMIN_EMAIL'), 'active' => true, 'group' => 'admin', 'password' => COCKPIT_APP->hash(Constants::get('ADMIN_PASSWORD')), 'i18n' => COCKPIT_APP->helper('i18n')->locale, '_created' => $created, '_modified' => $created];
                     COCKPIT_APP->storage->insert("cockpit/accounts", $account);

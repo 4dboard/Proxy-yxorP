@@ -32,9 +32,9 @@ class siteCollectionAction extends ActionWrapper
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `TOKEN_REQUEST_URI`
         variable appended to it. */
         Constants::set('PROXY_URL', Constants::get('FETCH')->__toString() . Constants::get(TOKEN_REQUEST_URI)->__toString());
-        /* Setting the `DIR_FULL` variable to the value of the `DIR_PLUGIN` constant, with the `override` string appended
+        /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
-        Constants::set('DIR_FULL', DIR_PLUGIN . 'override' . DIRECTORY_SEPARATOR . Constants::get('TARGET')['files']);
+        Constants::set('DIR_FULL', DIR_ROOT . 'override' . DIRECTORY_SEPARATOR . Constants::get('TARGET')['files']);
     }
 }
