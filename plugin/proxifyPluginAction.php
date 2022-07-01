@@ -17,7 +17,7 @@ class proxifyPluginAction extends actionWrapper
     public function onBeforeRequest(): void
     {
         /* It's getting the request object from the constants class. */
-        $request = constants::get(TOKEN_REQUEST);
+        $request = constants::get(YXORP_REQUEST);
         /* It's checking if the request has a post parameter called `convertGET`. */
         if ($request->post->has('convertGET')) {
             /* It's removing the `convertGET` post parameter. */
@@ -37,9 +37,9 @@ class proxifyPluginAction extends actionWrapper
     public function onCompleted(): void
     {
         /* It's getting the base url of the request. */
-        $this->base_url = constants::get(TOKEN_REQUEST)->getUri();
+        $this->base_url = constants::get(YXORP_REQUEST)->getUri();
         /* It's getting the response object from the constants class. */
-        $response = constants::get(TOKEN_RESPONSE);
+        $response = constants::get(YXORP_RESPONSE);
         /* It's getting the content type of the response. */
         /* It's getting the response content. */
         $content_type = $this->clean_content_type($response->headers->get('content-type'));

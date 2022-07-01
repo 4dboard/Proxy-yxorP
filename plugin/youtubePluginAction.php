@@ -15,18 +15,18 @@ class youtubePluginAction extends actionWrapper
     public function onBeforeRequest(): void
     {
         /* Setting the cookie of the request. */
-        constants::get(TOKEN_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
+        constants::get(YXORP_REQUEST)->headers->set('Cookie', 'PREF=f6=8');
         /* Setting the user-agent of the request. */
-        constants::get(TOKEN_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
+        constants::get(YXORP_REQUEST)->headers->set('User-Agent', 'Mozilla/5.0 (compatible; Googlebot/2.1; +http:www.google.com/bot.html)');
     }
 
     /* A function that is called when the request is completed. */
     public function onCompleted(): void
     {
         /* Getting the response object from the `constants` class. */
-        $response = constants::get(TOKEN_RESPONSE);
+        $response = constants::get(YXORP_RESPONSE);
         /* Getting the url of the request. */
-        $url = constants::get(TOKEN_REQUEST)->getUrl();
+        $url = constants::get(YXORP_REQUEST)->getUrl();
         /* Getting the content of the response. */
         $output = $response->getContent();
         /* Checking if the url is not a watch page, results page, feed page, channel page, oembed page or css page. */

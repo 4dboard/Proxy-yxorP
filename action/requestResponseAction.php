@@ -12,8 +12,8 @@ class requestResponseAction extends actionWrapper
     public function buildIncludes(): void
     {
         /* Setting the response object to the key RESPONSE. */
-        constants::set(TOKEN_RESPONSE, new Response());
+        constants::set(YXORP_RESPONSE, new Response());
         /* Setting the request object to the key REQUEST. */
-        constants::set(TOKEN_REQUEST, Request::createFromGlobals());
+        constants::set(YXORP_REQUEST, Request::createFromGlobals());
     }
 }

@@ -13,6 +13,6 @@ class cacheStoreAction extends actionWrapper
     public function onCompleted(): void
     {
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
-        if (!cache::cache()->isValid()) cache::cache()->set(constants::get(TOKEN_RESPONSE)->getContent());
+        if (!cache::cache()->isValid()) cache::cache()->set(constants::get(YXORP_RESPONSE)->getContent());
     }
 }

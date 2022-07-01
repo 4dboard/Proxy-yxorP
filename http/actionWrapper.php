@@ -154,12 +154,12 @@ abstract class actionWrapper
         /* Used to catch exceptions. */
         try {
             /* Setting the response object to the key RESPONSE. */
-            constants::set(TOKEN_RESPONSE, new response());
+            constants::set(YXORP_RESPONSE, new response());
             /* Setting the request object to the key REQUEST. */
-            constants::set(TOKEN_REQUEST, request::createFromGlobals());
+            constants::set(YXORP_REQUEST, request::createFromGlobals());
 
             /* Getting the current URL. */
-            $url = constants::get(TOKEN_REQUEST)->getUri();
+            $url = constants::get(YXORP_REQUEST)->getUri();
 
             /* Used to filter the events. */
             if ($this->url_pattern) if (generalHelper::starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1)

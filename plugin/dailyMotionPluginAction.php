@@ -31,7 +31,7 @@ class dailyMotionPluginAction extends actionWrapper
     public function onCompleted(): void
     {
         /* Getting the response object from the `constants` class. */
-        $response = constants::get(TOKEN_RESPONSE);
+        $response = constants::get(YXORP_RESPONSE);
         /* Getting the content of the response object. */
         $content = $response->getContent();
         /* Checking if the content of the response object contains a video URL. If it does, it calls the `completed`

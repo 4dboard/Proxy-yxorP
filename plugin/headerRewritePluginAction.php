@@ -22,9 +22,9 @@ class headerRewritePluginAction extends actionWrapper
     public function onBeforeRequest(): void
     {
         /* It's setting the `accept-encoding` header to `identity`. */
-        constants::get(TOKEN_REQUEST)->headers->set('accept-encoding', 'identity');
+        constants::get(YXORP_REQUEST)->headers->set('accept-encoding', 'identity');
         /* It's removing the `referer` header from the request. */
-        constants::get(TOKEN_REQUEST)->headers->remove('referer');
+        constants::get(YXORP_REQUEST)->headers->remove('referer');
     }
 
     /* It's proxifying the URL of the `location` header. */
@@ -32,9 +32,9 @@ class headerRewritePluginAction extends actionWrapper
     public function onHeadersReceived(): void
     {
         /* It's getting the response object from the `constants` class. */
-        $response = constants::get(TOKEN_RESPONSE);
+        $response = constants::get(YXORP_RESPONSE);
         /* It's getting the URL of the request. */
-        $request_url = constants::get(TOKEN_REQUEST)->getUri();
+        $request_url = constants::get(YXORP_REQUEST)->getUri();
         /* It's checking if the response has a `location` header and if it does, it's proxifying the URL. */
         if ($response->headers->has('location')) self::headersReceived($response, $request_url);
         $code = $response->getStatusCode();

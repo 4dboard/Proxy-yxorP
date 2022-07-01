@@ -15,7 +15,7 @@ class twitterPluginAction extends actionWrapper
     public function onCompleted(): void
     {
         /* Getting the response object from the constants class. */
-        $response = constants::get(TOKEN_RESPONSE);
+        $response = constants::get(YXORP_RESPONSE);
         /* Getting the content of the response. */
         /* Removing all the scripts from the HTML. */
         $content = $response->getContent();

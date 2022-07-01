@@ -45,11 +45,11 @@ class setup
 
         if (!count($failed)) {
             try {
-                if (!constants::get(TOKEN_COCKPIT_APP)->storage->getCollection('cockpit/accounts')->count()) {
+                if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection('cockpit/accounts')->count()) {
                     copyfolder(DIR_ROOT . 'inc/storage/', DIR_ROOT . 'cockpit/storage/');
                     $created = time();
-                    $account = ['user' => constants::get('ADMIN_USER'), 'name' => constants::get('ADMIN_NAME'), 'email' => constants::get('ADMIN_EMAIL'), 'active' => true, 'group' => 'admin', 'password' => constants::get(TOKEN_COCKPIT_APP)->hash(constants::get('ADMIN_PASSWORD')), 'i18n' => constants::get(TOKEN_COCKPIT_APP)->helper('i18n')->locale, '_created' => $created, '_modified' => $created];
-                    constants::get(TOKEN_COCKPIT_APP)->storage->insert("cockpit/accounts", $account);
+                    $account = ['user' => constants::get('ADMIN_USER'), 'name' => constants::get('ADMIN_NAME'), 'email' => constants::get('ADMIN_EMAIL'), 'active' => true, 'group' => 'admin', 'password' => constants::get(YXORP_COCKPIT_APP)->hash(constants::get('ADMIN_PASSWORD')), 'i18n' => constants::get(YXORP_COCKPIT_APP)->helper('i18n')->locale, '_created' => $created, '_modified' => $created];
+                    constants::get(YXORP_COCKPIT_APP)->storage->insert("cockpit/accounts", $account);
                 }
             } catch (Exception $e) {
             }

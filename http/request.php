@@ -89,18 +89,18 @@ class request
 
     public static function createFromGlobals(): request
     {
-        $method = constants::get(TOKEN_SERVER)['REQUEST_METHOD'];
-        $scheme = (isset(constants::get(TOKEN_SERVER)['HTTPS']) && constants::get(TOKEN_SERVER)['HTTPS']) ? 'https' : 'http';
+        $method = constants::get(YXORP_SERVER)['REQUEST_METHOD'];
+        $scheme = (isset(constants::get(YXORP_SERVER)['HTTPS']) && constants::get(YXORP_SERVER)['HTTPS']) ? 'https' : 'http';
         $url = $scheme . ':' . constants::get('PROXY_URL')->__toString();
         $request = new request($method, $url);
-        foreach (constants::get(TOKEN_SERVER) as $name => $value) if (str_starts_with($name, 'HTTP_')) {
+        foreach (constants::get(YXORP_SERVER) as $name => $value) if (str_starts_with($name, 'HTTP_')) {
             $name = substr($name, 5);
             $name = str_replace('_', ' ', $name);
             $name = ucwords(strtolower($name));
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set('user - ip', constants::get(TOKEN_SERVER)['REMOTE_ADDR']);
+        $request->params->set('user - ip', constants::get(YXORP_SERVER)['REMOTE_ADDR']);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);

@@ -25,11 +25,11 @@ class blockListPluginAction extends actionWrapper
     public function onBeforeRequest(): void
     {
         /* Getting the user's IP address. */
-        $user_ip = constants::get(TOKEN_SERVER)['REMOTE_ADDR'];
+        $user_ip = constants::get(YXORP_SERVER)['REMOTE_ADDR'];
         /* It converts the IP address to an unsigned integer. */
         $user_ip_long = sprintf('%u', ip2long($user_ip));
         /* Getting the URL of the request. */
-        $url = constants::get(TOKEN_REQUEST)->getUrl();
+        $url = constants::get(YXORP_REQUEST)->getUrl();
         /* Getting the value of the `BLOCKLIST` constant. */
         $fnc_custom = constants::get('BLOCKLIST');
         /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
