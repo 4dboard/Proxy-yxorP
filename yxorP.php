@@ -8,6 +8,7 @@ use MongoDB\Driver\Monitoring\Subscriber;
 
 /* Loading the required files. */
 require './cockpit/bootstrap.php';
+require './inc/generalHelper.php';
 
 /**
  * It's a proxy for the yxorp plugin
