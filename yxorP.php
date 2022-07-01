@@ -42,12 +42,12 @@ class yxorP
     {
         /* It's setting the constants that are used in the plugin. */
         constants::localise($_req);
-        /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
-        file. */
-        if (str_contains(constants::get(YXORP_SERVER)[YXORP_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
         foreach (scandir(DIR_ROOT . DIR_ACTION) as $action) $this->subscribe(DIR_ACTION, $action);
+        /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
+        file. */
+        if (str_contains(constants::get(YXORP_SERVER)[YXORP_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
         $_plugins = constants::get('TARGET')[YXORP_PLUGINS] ?: [];
         /* Adding the default plugins to the `$_plugins` array. */
