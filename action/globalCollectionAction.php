@@ -12,10 +12,10 @@ class globalCollectionAction extends actionWrapper
     public function onBuildContext(): void
     {
         /* Setting the `REPLACE` context variable to the value of the `replace` type in the `global` collection. */
-        constants::set('REPLACE', constants::get(COCKPIT_APP)->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'replace']) ?
-            constants::get(COCKPIT_APP)->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'replace'])['value'] : null);
+        constants::set('REPLACE', constants::get(constants::get(TOKEN_COCKPIT_APP))->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'replace']) ?
+            constants::get(constants::get(TOKEN_COCKPIT_APP))->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'replace'])['value'] : null);
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
-        constants::set('PATTERN', constants::get(COCKPIT_APP)->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'pattern']) ?
-            constants::get(COCKPIT_APP)->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'pattern'])['value'] : null);
+        constants::set('PATTERN', constants::get(constants::get(TOKEN_COCKPIT_APP))->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'pattern']) ?
+            constants::get(constants::get(TOKEN_COCKPIT_APP))->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'global', ['type' => 'pattern'])['value'] : null);
     }
 }

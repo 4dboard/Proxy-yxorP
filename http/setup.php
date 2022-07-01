@@ -11,7 +11,7 @@ class setup
     /* A function that is used to install the Cockpit CMS. */
     public static function install()
     {
-        constants::set(TOKEN_COCKPIT_APP, cockpit());
+        constants::set(TOKEN_constants::get(TOKEN_COCKPIT_APP), cockpit());
         define('COCKPIT_INSTALL', true);
 
         $sqlitesupport = false;
@@ -48,11 +48,11 @@ class setup
 
         if (!count($failed)) {
             try {
-                if (!COCKPIT_APP->storage->getCollection('cockpit/accounts')->count()) {
+                if (!constants::get(TOKEN_COCKPIT_APP)->storage->getCollection('cockpit/accounts')->count()) {
                     copyfolder(DIR_ROOT . 'inc/storage/', DIR_ROOT . 'cockpit/storage/');
                     $created = time();
-                    $account = ['user' => constants::get('ADMIN_USER'), 'name' => constants::get('ADMIN_NAME'), 'email' => constants::get('ADMIN_EMAIL'), 'active' => true, 'group' => 'admin', 'password' => COCKPIT_APP->hash(constants::get('ADMIN_PASSWORD')), 'i18n' => COCKPIT_APP->helper('i18n')->locale, '_created' => $created, '_modified' => $created];
-                    COCKPIT_APP->storage->insert("cockpit/accounts", $account);
+                    $account = ['user' => constants::get('ADMIN_USER'), 'name' => constants::get('ADMIN_NAME'), 'email' => constants::get('ADMIN_EMAIL'), 'active' => true, 'group' => 'admin', 'password' => constants::get(TOKEN_COCKPIT_APP)->hash(constants::get('ADMIN_PASSWORD')), 'i18n' => constants::get(TOKEN_COCKPIT_APP)->helper('i18n')->locale, '_created' => $created, '_modified' => $created];
+                    constants::get(TOKEN_COCKPIT_APP)->storage->insert("cockpit/accounts", $account);
                 }
             } catch (Exception $e) {
             }

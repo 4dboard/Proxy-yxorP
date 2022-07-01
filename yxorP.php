@@ -124,7 +124,7 @@ class yxorP
 
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
-        if (!COCKPIT_APP->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
+        if (!constants::get(TOKEN_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
         /* It's returning an array of events. */
         return self::$events = [EVENT_BUILD_CACHED, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
             EVENT_SEND, EVENT_SENT, EVENT_COMPLETE, EVENT_FINAL];
@@ -140,10 +140,10 @@ class yxorP
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
         self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
-        $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => COCKPIT_APP->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => COCKPIT_APP->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
+        $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(TOKEN_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(TOKEN_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
 
         /* It's inserting a new user into the `cockpit_accounts` collection. */
-        COCKPIT_APP->storage->insert(COCKPIT_ACCOUNTS, $_account);
+        constants::get(TOKEN_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
     }
 
     /**

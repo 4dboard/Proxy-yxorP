@@ -13,7 +13,7 @@ class siteCollectionAction extends actionWrapper
     public function onBuildContext(): void
     {
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        constants::set('TARGET', constants::get(COCKPIT_APP)->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'sites', ['host' => constants::get('SITE_DOMAIN')]));
+        constants::set('TARGET', constants::get(constants::get(TOKEN_COCKPIT_APP))->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'sites', ['host' => constants::get('SITE_DOMAIN')]));
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `TOKEN_SERVER` array. */
         constants::set('SITE_URL', constants::get(TOKEN_SERVER)['SERVER_NAME']);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
