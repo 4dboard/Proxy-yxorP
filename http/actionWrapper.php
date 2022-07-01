@@ -1,4 +1,4 @@
-<?php namespace yxorP\inc;
+<?php namespace yxorP\http;
 
 /* Importing the namespace `yxorP` into the current namespace. */
 
