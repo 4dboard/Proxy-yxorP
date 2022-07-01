@@ -8,7 +8,7 @@
 </p>
 <h1  align="center">🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler</h1><blockquote><p> ⭐️<sub><b>DEMO LIVE</b>: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now available via gitpod <a href="https://gitpod.io/#https://github.com/4dboard/proxy-yxorp">[Live Demo]</a></blockquote>
 <h3  align="center"><i>Backend (GUI) included, PHP CURL+Composer are Optional</i></h3>
-<br /><img alt="image" align="center" src='https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png' /><br/>
+<br /><img alt="image" align="center" src='https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png' /><br/><br/>
 yxorP is a plug-and-play, flat-file application that <b>does not need Composer, PHP CURL, or databases</b>; these are
 all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
 of <b>multiple websites</b> using a PHAR (PHP archive) binary version of <b>Guzzle</b>, and managed via a
