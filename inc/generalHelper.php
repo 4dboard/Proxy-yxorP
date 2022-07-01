@@ -17,7 +17,7 @@ use function file;
 
 /* A class that contains a bunch of functions that are used throughout the application. */
 
-class GeneralHelper
+class generalHelper
 {
 
     public static function vid_player($url, $width = '100%', $height = '100%', $extension = false): string

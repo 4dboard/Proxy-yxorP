@@ -2,7 +2,7 @@
 
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\GeneralHelper;
+use yxorP\inc\generalHelper;
 use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
@@ -120,7 +120,7 @@ class proxifyPluginAction extends ActionWrapper
         /* It's getting the url from the `$matches` array. */
         $url = trim($matches[1]);
         /* It's checking if the url starts with `data:`. If it does, it's returning the `$matches[0]` variable. */
-        if (GeneralHelper::starts_with($url, 'data:')) return $matches[0];
+        if (generalHelper::starts_with($url, 'data:')) return $matches[0];
         /* It's replacing the `url()` in the CSS with the proxified url. */
         return str_replace($matches[1], proxify_url($matches[1], $this->base_url), $matches[0]);
     }
@@ -141,7 +141,7 @@ class proxifyPluginAction extends ActionWrapper
         $schemes = array('data:', 'magnet:', 'about:', 'javascript:', 'mailto:', 'tel:', 'ios-app:', 'android-app:');
         /* It's checking if the url starts with `data:`, `magnet:`, `about:`, `javascript:`, `mailto:`, `tel:`, `ios-app:`
         or `android-app:`. If it does, it's returning the `$matches[0]` variable. */
-        if (GeneralHelper::starts_with($url, $schemes)) return $matches[0];
+        if (generalHelper::starts_with($url, $schemes)) return $matches[0];
         /* It's replacing the `url()` in the CSS with the proxified url. */
         return str_replace($url, proxify_url($url, $this->base_url), $matches[0]);
     }

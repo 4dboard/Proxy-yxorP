@@ -2,7 +2,7 @@
 
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\GeneralHelper;
+use yxorP\inc\generalHelper;
 use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
@@ -37,7 +37,7 @@ class dailyMotionPluginAction extends ActionWrapper
         /* The `stripslashes` function removes backslashes from a string. */
         $video = stripslashes($matches[1]);
         /* Creating a video player with the video URL and the width and height of the player. */
-        $player = GeneralHelper::vid_player($video, 1240, 478);
+        $player = generalHelper::vid_player($video, 1240, 478);
         /* Replacing the content of the element with the id `player` with the `$player` variable. */
         $content = Html::replace_inner("#player", $player, $content);
 

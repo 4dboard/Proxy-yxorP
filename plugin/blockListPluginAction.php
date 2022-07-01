@@ -2,7 +2,7 @@
 
 /* Importing the ActionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\GeneralHelper;
+use yxorP\inc\generalHelper;
 use yxorP\inc\ActionWrapper;
 use yxorP\inc\Constants;
 
@@ -30,7 +30,7 @@ class blockListPluginAction extends ActionWrapper
         if (Constants::get('BLOCKLIST')) $ip_match = Constants::get('BLOCKLIST');
         /* Checking if the `$ip_match` variable is set and if it is, it checks if the `$user_ip` variable matches the
         `$ip_match` variable. If it does not match, it throws an exception. */
-        if ($ip_match) if ((!GeneralHelper::re_match($ip_match, $user_ip))) Constants::get(BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
+        if ($ip_match) if ((!generalHelper::re_match($ip_match, $user_ip))) Constants::get(BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
     }
 
     /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
