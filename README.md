@@ -19,7 +19,7 @@ retrieved and modified accordingly. Additionally, the website content can be opt
 spinning engine</b> that is already embedded into the application. After the website has been modified the result is
 then stored for a predefined time inside a custom-built, <b>flat-file cache</b> system architectured to be <b>500x
 faster than memory-based cache</b> systems such as Memcache and Redis. This is accomplished by bypassing the
-serialisation and deserialization processes, which resulted a significantly faster cache.
+serialisation and deserialization processes, which resulted a significantly faster cache.<br />
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
