@@ -95,7 +95,7 @@ class yxorP
 
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) GeneralHelper::fileCheck(DIR_ROOT . $_asset, true);
+        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
 
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         if (!is_dir(DIR_ROOT)) if (!mkdir($concurrentDirectory = DIR_ROOT) && !is_dir($concurrentDirectory))

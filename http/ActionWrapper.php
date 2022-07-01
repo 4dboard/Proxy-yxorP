@@ -162,7 +162,7 @@ abstract class ActionWrapper
             $url = constants::get(TOKEN_REQUEST)->getUri();
 
             /* Used to filter the events. */
-            if ($this->url_pattern) if (GeneralHelper::starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1)
+            if ($this->url_pattern) if (generalHelper::starts_with($this->url_pattern, '/') && preg_match($this->url_pattern, $url) !== 1)
                 return; else if (stripos($url, $this->url_pattern) === false) return;
 
             /* Used to check if the event should be executed. */

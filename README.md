@@ -7790,7 +7790,7 @@ in a number of forms and without the source code because they are licensed works
 | Class | Description |
 |-------|-------------|
 | [`EventWrapper`](./docs/classes/yxorP/Http/EventWrapper.md) | |
-| [`GeneralHelper`](./docs/classes/yxorP/Http/GeneralHelper.md) | |
+| [`generalHelper`](./docs/classes/yxorP/Http/generalHelper.md) | |
 | [`ParamStore`](./docs/classes/yxorP/Http/ParamStore.md) | |
 | [`Request`](./docs/classes/yxorP/Http/Request.md) | |
 | [`Response`](./docs/classes/yxorP/Http/Response.md) | |

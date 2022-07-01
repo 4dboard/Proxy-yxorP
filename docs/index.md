@@ -8249,7 +8249,7 @@ This is an automatically generated documentation for **yxorP**.
 | Class | Description |
 |-------|-------------|
 | [`EventWrapper`](./classes/yxorP/Http/EventWrapper.md) | |
-| [`GeneralHelper`](./classes/yxorP/Http/GeneralHelper.md) | |
+| [`generalHelper`](./classes/yxorP/Http/generalHelper.md) | |
 | [`ParamStore`](./classes/yxorP/Http/ParamStore.md) | |
 | [`Request`](./classes/yxorP/Http/Request.md) | |
 | [`Response`](./classes/yxorP/Http/Response.md) | |

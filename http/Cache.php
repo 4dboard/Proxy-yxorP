@@ -38,20 +38,23 @@ class Cache
 
     /* Used to set the default value of the `$options` variable. */
 
+    public static function cache()
+    {
+        /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
+        class. */
+        if (!isset(self::$instance[constants::get(CACHE_KEY)])) self::$instance[constants::get(CACHE_KEY)] = new self();
+        /* Returning the instance of the class. */
+        return self::$instance[constants::get(CACHE_KEY)];
+    }
+
+    /* Used to check if the cache file exists. */
+
     public function super(): void
     {
         /* Used to set the default value of the `$options` variable. */
         $attr_instance = new self(false);
         /* Used to set the default value of the `$options` variable. */
         if ($attr_instance->isExists()) $this->options = $attr_instance->get();
-    }
-
-    /* Used to check if the cache file exists. */
-
-    #[Pure] private function isExists(): bool
-    {
-        /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString());
     }
 
     /* Used to get the data from the cache file. */
@@ -73,22 +76,19 @@ class Cache
 
     /* Used to get the instance of the class. */
 
-    public static function cache()
-    {
-        /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
-        class. */
-        if (!isset(self::$instance[constants::get(CACHE_KEY)])) self::$instance[constants::get(CACHE_KEY)] = new self();
-        /* Returning the instance of the class. */
-        return self::$instance[constants::get(CACHE_KEY)];
-    }
-
-    /* Used to set the data in the cache file. */
-
     public function set($val): Cache
     {
         /* Used to write the data in the cache file. */
         fclose(fwrite(fopen(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString(), 'w'), '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;'));
         /* Used to return the instance of the class. */
         return $this;
+    }
+
+    /* Used to set the data in the cache file. */
+
+    #[Pure] private function isExists(): bool
+    {
+        /* Used to check if the cache file exists. */
+        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString());
     }
 }
