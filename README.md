@@ -19,7 +19,9 @@ yxorP is a plug-and-play, flat-file application that <b>does not need Composer, 
 all optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
 of <b>multiple websites</b> using a PHAR (PHP archive) binary version of <b>Guzzle</b>, and managed via a
 user-friendly <b>Cockpit backend (GUI)</b>.
-
+<br/>
+yxorP is event driven and 
+<br/>
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then
 retrieved and modified accordingly. Additionally, the website content can be optionally spun using the <b>article
 spinning engine</b> that is already embedded into the application. After the website has been modified the result is
