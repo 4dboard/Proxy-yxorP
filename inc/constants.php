@@ -102,44 +102,6 @@ class constants
         /* Defining a constant called `NUM_ENV_LIMIT` and setting it to the value of `2`. */
         define('NUM_ENV_LIMIT', 2);
 
-        // DIRECTORIES
-        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_ACTION', 'action' . CHAR_SLASH);
-        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_PLUGIN', 'plugin' . CHAR_SLASH);
-        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_OVERRIDE', 'override' . CHAR_SLASH);
-        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_GLOBAL', 'global' . CHAR_SLASH);
-        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_INCLUDES', 'includes' . CHAR_SLASH);
-        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_COCKPIT', 'cockpit' . CHAR_SLASH);
-        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_ACCOUNTS', 'accounts' . CHAR_SLASH);
-        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `CHAR_SLASH` appended
-        to it. */
-        define('DIR_INC', 'inc' . CHAR_SLASH);
-        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_STORAGE', 'storage' . CHAR_SLASH);
-        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `CHAR_SLASH` appended
-        to it. */
-        define('DIR_TMP', 'tmp' . CHAR_SLASH);
-        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_HTTP', YXORP_HTTP . CHAR_SLASH);
-        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `CHAR_SLASH`
-        appended to it. */
-        define('DIR_MINIFY', 'minify' . CHAR_SLASH);
-
 
         // EXTENSIONS
         /* Defining a constant called `EXT_CSV` and setting it to the value of `.csv`. */
@@ -195,37 +157,6 @@ class constants
         define('FILE_BOOTSTRAP', 'bootstrap');
         /* Defining a constant. */
         define('FILE_ACTION_WRAPPER', 'wrapper');
-
-
-        // PATHS
-        /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
-        to it. */
-        define('PATH_DIR_TMP', DIR_ROOT . DIR_TMP);
-        /* Defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
-        and `DIR_STORAGE` appended to it. */
-        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT . DIR_STORAGE);
-        /* Defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a `DIR_INC` and
-        `DIR_STORAGE` appended to it. */
-        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INC . DIR_STORAGE);
-        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
-        and `FILE_INDEX` and `EXT_PHP` appended to it. */
-        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX . EXT_PHP);
-        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
-        and `FILE_INDEX` and `EXT_PHP` appended to it. */
-        /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
-        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);
-        /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
-        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . CHAR_SLASH . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
-        /* Defining the path to the bugsnag.phar file. */
-        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
-        /* Defining the path to the guzzle phar file. */
-        define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
-        /* Defining the path to the action wrapper file. */
-        define('PATH_ACTION_WRAPPER', DIR_ROOT . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
-        /* Defining the path to the cockpit bootstrap file. */
-        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
 
 
         //METHODS
@@ -435,6 +366,76 @@ class constants
         define('YXORP_HTTP_', YXORP_HTTPS . CHAR_UNDER);
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
         define('YXORP_REMOTE_ADDR', YXORP_REMOTE . CHAR_UNDER . YXORP_ADDR);
+
+
+        // DIRECTORIES
+        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_ACTION', 'action' . CHAR_SLASH);
+        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_PLUGIN', 'plugin' . CHAR_SLASH);
+        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_OVERRIDE', 'override' . CHAR_SLASH);
+        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_GLOBAL', 'global' . CHAR_SLASH);
+        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_INCLUDES', 'includes' . CHAR_SLASH);
+        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_COCKPIT', 'cockpit' . CHAR_SLASH);
+        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_ACCOUNTS', 'accounts' . CHAR_SLASH);
+        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `CHAR_SLASH` appended
+        to it. */
+        define('DIR_INC', 'inc' . CHAR_SLASH);
+        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_STORAGE', 'storage' . CHAR_SLASH);
+        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `CHAR_SLASH` appended
+        to it. */
+        define('DIR_TMP', 'tmp' . CHAR_SLASH);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_HTTP', YXORP_HTTP . CHAR_SLASH);
+        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `CHAR_SLASH`
+        appended to it. */
+        define('DIR_MINIFY', 'minify' . CHAR_SLASH);
+
+        // PATHS
+        /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
+        to it. */
+        define('PATH_DIR_TMP', DIR_ROOT . DIR_TMP);
+        /* Defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
+        and `DIR_STORAGE` appended to it. */
+        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT . DIR_STORAGE);
+        /* Defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a `DIR_INC` and
+        `DIR_STORAGE` appended to it. */
+        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INC . DIR_STORAGE);
+        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
+        and `FILE_INDEX` and `EXT_PHP` appended to it. */
+        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX . EXT_PHP);
+        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
+        and `FILE_INDEX` and `EXT_PHP` appended to it. */
+        /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
+        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
+        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);
+        /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
+        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
+        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . CHAR_SLASH . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
+        /* Defining the path to the bugsnag.phar file. */
+        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
+        /* Defining the path to the guzzle phar file. */
+        define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
+        /* Defining the path to the action wrapper file. */
+        define('PATH_ACTION_WRAPPER', DIR_ROOT . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
+        /* Defining the path to the cockpit bootstrap file. */
+        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
+
 
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
