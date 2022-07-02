@@ -587,7 +587,7 @@ class constants
         array appended to it. */
         constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(YXORP_TARGET))[YXORP_FILES]);
 
-        define(CACHE_KEY, generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
+        define(YXORP_CACHE_KEY, generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
 
     }
 

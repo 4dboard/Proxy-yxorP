@@ -51,7 +51,7 @@ class cache
     #[Pure] private function isExists(): bool
     {
         /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY));
+        return file_exists(PATH_DIR_TMP . constants::get(YXORP_CACHE_KEY));
     }
 
     /* Used to get the data from the cache file. */
