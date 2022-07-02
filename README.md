@@ -492,12 +492,6 @@ in a number of forms and without the source code because they are licensed works
 
 ![](asset/live.png?v=3)
 
-***
-
-# My Project Documentation
-
-This is an automatically generated documentation for **My Project Documentation**.
-
 ## Namespaces
 
 ### \
