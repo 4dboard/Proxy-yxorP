@@ -261,7 +261,7 @@ class generalHelper
 
     public static function extractDomain($domain)
     {
-        if (str_contains($domain, CHAR_PERIOD)) if (preg_match("/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i", $domain, $matches)) return $matches[YXORP_DOMAIN]; else   return $domain; else  return $domain;
+        if (str_contains($domain, CHAR_PERIOD)) if (preg_match(REG_EIGHT, $domain, $matches)) return $matches[YXORP_DOMAIN]; else   return $domain; else  return $domain;
     }
 
 }
