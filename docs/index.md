@@ -1,15 +1,10 @@
-
 ***
 
 # yxorP Documentation
 
-
-
 This is an automatically generated documentation for **yxorP Documentation**.
 
-
 ## Namespaces
-
 
 ### \
 
@@ -65,15 +60,11 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`twitterPluginAction`](./classes/twitterPluginAction.md) | |
 | [`youtubePluginAction`](./classes/youtubePluginAction.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`Stringable`](./classes/Stringable.md) | |
-
-
 
 ### \Cockpit
 
@@ -82,9 +73,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`AuthController`](./classes/Cockpit/AuthController.md) | Class Controller|
-
-
-
 
 ### \Cockpit\Controller
 
@@ -102,9 +90,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Utils`](./classes/Cockpit/Controller/Utils.md) | Class Controller|
 | [`Webhooks`](./classes/Cockpit/Controller/Webhooks.md) | Class Controller|
 
-
-
-
 ### \Cockpit\Helper
 
 #### Classes
@@ -118,9 +103,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Revisions`](./classes/Cockpit/Helper/Revisions.md) | |
 | [`Updater`](./classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
 
-
-
-
 ### \ColinODell\Json5
 
 #### Classes
@@ -129,9 +111,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 |-------|-------------|
 | [`Json5Decoder`](./classes/ColinODell/Json5/Json5Decoder.md) | |
 | [`SyntaxError`](./classes/ColinODell/Json5/SyntaxError.md) | |
-
-
-
 
 ### \Collections\Controller
 
@@ -145,9 +124,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Trash`](./classes/Collections/Controller/Trash.md) | Class Controller|
 | [`Utils`](./classes/Collections/Controller/Utils.md) | Class Controller|
 
-
-
-
 ### \ColorThief
 
 #### Classes
@@ -159,9 +135,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`PQueue`](./classes/ColorThief/PQueue.md) | |
 | [`VBox`](./classes/ColorThief/VBox.md) | |
 
-
-
-
 ### \ColorThief\Image
 
 #### Classes
@@ -169,9 +142,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`ImageLoader`](./classes/ColorThief/Image/ImageLoader.md) | |
-
-
-
 
 ### \ColorThief\Image\Adapter
 
@@ -184,15 +154,11 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`ImageAdapter`](./classes/ColorThief/Image/Adapter/ImageAdapter.md) | Base adapter implementation to handle image manipulation.|
 | [`ImagickImageAdapter`](./classes/ColorThief/Image/Adapter/ImagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`IImageAdapter`](./classes/ColorThief/Image/Adapter/IImageAdapter.md) | Basic interface for all image adapters.|
-
-
 
 ### \Composer
 
@@ -202,9 +168,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 |-------|-------------|
 | [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
 
-
-
-
 ### \Composer\Autoload
 
 #### Classes
@@ -213,9 +176,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 |-------|-------------|
 | [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
 | [`ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1`](./classes/Composer/Autoload/ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
-
-
-
 
 ### \Firebase\JWT
 
@@ -229,9 +189,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`JWT`](./classes/Firebase/JWT/JWT.md) | JSON Web Token implementation, based on this spec:<br />https://tools.ietf.org/html/rfc7519|
 | [`SignatureInvalidException`](./classes/Firebase/JWT/SignatureInvalidException.md) | |
 
-
-
-
 ### \Forms\Controller
 
 #### Classes
@@ -240,9 +197,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 |-------|-------------|
 | [`Admin`](./classes/Forms/Controller/Admin.md) | Class Controller|
 | [`RestApi`](./classes/Forms/Controller/RestApi.md) | Class Controller|
-
-
-
 
 ### \Jean85
 
@@ -253,9 +207,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`PrettyVersions`](./classes/Jean85/PrettyVersions.md) | |
 | [`Version`](./classes/Jean85/Version.md) | |
 
-
-
-
 ### \League\ColorExtractor
 
 #### Classes
@@ -265,9 +216,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Color`](./classes/League/ColorExtractor/Color.md) | |
 | [`ColorExtractor`](./classes/League/ColorExtractor/ColorExtractor.md) | |
 | [`Palette`](./classes/League/ColorExtractor/Palette.md) | |
-
-
-
 
 ### \League\Flysystem
 
@@ -295,8 +243,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`UnreadableFileException`](./classes/League/Flysystem/UnreadableFileException.md) | |
 | [`Util`](./classes/League/Flysystem/Util.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -306,8 +252,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`FilesystemInterface`](./classes/League/Flysystem/FilesystemInterface.md) | |
 | [`PluginInterface`](./classes/League/Flysystem/PluginInterface.md) | |
 | [`ReadInterface`](./classes/League/Flysystem/ReadInterface.md) | |
-
-
 
 ### \League\Flysystem\Adapter
 
@@ -323,19 +267,13 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`NullAdapter`](./classes/League/Flysystem/Adapter/NullAdapter.md) | |
 | [`SynologyFtp`](./classes/League/Flysystem/Adapter/SynologyFtp.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`CanOverwriteFiles`](./classes/League/Flysystem/Adapter/CanOverwriteFiles.md) | Adapters that implement this interface let the Filesystem know that files can be overwritten using the write<br />functions and don&#039;t need the update function to be called. This can help improve performance when asserts are disabled.|
 
-
-
 ### \League\Flysystem\Adapter\Polyfill
-
-
 
 #### Traits
 
@@ -346,9 +284,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`StreamedReadingTrait`](./classes/League/Flysystem/Adapter/Polyfill/StreamedReadingTrait.md) | A helper for adapters that only handle strings to provide read streams.|
 | [`StreamedTrait`](./classes/League/Flysystem/Adapter/Polyfill/StreamedTrait.md) | |
 | [`StreamedWritingTrait`](./classes/League/Flysystem/Adapter/Polyfill/StreamedWritingTrait.md) | |
-
-
-
 
 ### \League\Flysystem\Plugin
 
@@ -366,15 +301,11 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`ListWith`](./classes/League/Flysystem/Plugin/ListWith.md) | |
 | [`PluginNotFoundException`](./classes/League/Flysystem/Plugin/PluginNotFoundException.md) | |
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`PluggableTrait`](./classes/League/Flysystem/Plugin/PluggableTrait.md) | |
-
-
-
 
 ### \League\Flysystem\Util
 
@@ -383,9 +314,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`StreamHasher`](./classes/League/Flysystem/Util/StreamHasher.md) | |
-
-
-
 
 ### \League\MimeTypeDetection
 
@@ -398,16 +326,12 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`FinfoMimeTypeDetector`](./classes/League/MimeTypeDetection/FinfoMimeTypeDetector.md) | |
 | [`GeneratedExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/ExtensionToMimeTypeMap.md) | |
 | [`MimeTypeDetector`](./classes/League/MimeTypeDetection/MimeTypeDetector.md) | |
-
-
 
 ### \Lime
 
@@ -422,9 +346,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Request`](./classes/Lime/Request.md) | |
 | [`Response`](./classes/Lime/Response.md) | |
 
-
-
-
 ### \LimeExtra
 
 #### Classes
@@ -433,9 +354,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 |-------|-------------|
 | [`App`](./classes/LimeExtra/App.md) | Class App|
 | [`Controller`](./classes/LimeExtra/Controller.md) | Class Controller|
-
-
-
 
 ### \LimeExtra\Helper
 
@@ -455,9 +373,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Utils`](./classes/LimeExtra/Helper/Utils.md) | Class Utils|
 | [`YAML`](./classes/LimeExtra/Helper/YAML.md) | Class YAML|
 
-
-
-
 ### \Lime\Helper
 
 #### Classes
@@ -466,9 +381,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 |-------|-------------|
 | [`Cache`](./classes/Lime/Helper/Cache.md) | |
 | [`Session`](./classes/Lime/Helper/Session.md) | |
-
-
-
 
 ### \MongoDB
 
@@ -487,9 +399,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`MapReduceResult`](./classes/MongoDB/MapReduceResult.md) | Result class for mapReduce command results.|
 | [`UpdateResult`](./classes/MongoDB/UpdateResult.md) | Result class for an update operation.|
 
-
-
-
 ### \MongoDB\Exception
 
 #### Classes
@@ -503,15 +412,11 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`UnexpectedValueException`](./classes/MongoDB/Exception/UnexpectedValueException.md) | |
 | [`UnsupportedException`](./classes/MongoDB/Exception/UnsupportedException.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`Exception`](./classes/MongoDB/Exception/Exception.md) | |
-
-
 
 ### \MongoDB\GridFS
 
@@ -520,9 +425,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Bucket`](./classes/MongoDB/GridFS/Bucket.md) | Bucket provides a public API for interacting with the GridFS files and chunks<br />collections.|
-
-
-
 
 ### \MongoDB\GridFS\Exception
 
@@ -533,9 +435,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`CorruptFileException`](./classes/MongoDB/GridFS/Exception/CorruptFileException.md) | |
 | [`FileNotFoundException`](./classes/MongoDB/GridFS/Exception/FileNotFoundException.md) | |
 | [`StreamException`](./classes/MongoDB/GridFS/Exception/StreamException.md) | |
-
-
-
 
 ### \MongoDB\Model
 
@@ -550,8 +449,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`DatabaseInfo`](./classes/MongoDB/Model/DatabaseInfo.md) | Database information model class.|
 | [`IndexInfo`](./classes/MongoDB/Model/IndexInfo.md) | Index information model class.|
 
-
-
 #### Interfaces
 
 | Interface | Description |
@@ -559,8 +456,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`CollectionInfoIterator`](./classes/MongoDB/Model/CollectionInfoIterator.md) | CollectionInfoIterator interface.|
 | [`DatabaseInfoIterator`](./classes/MongoDB/Model/DatabaseInfoIterator.md) | DatabaseInfoIterator interface.|
 | [`IndexInfoIterator`](./classes/MongoDB/Model/IndexInfoIterator.md) | IndexInfoIterator interface.|
-
-
 
 ### \MongoDB\Operation
 
@@ -602,9 +497,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`UpdateOne`](./classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
 | [`Watch`](./classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
 
-
-
-
 ### \MongoHybrid
 
 #### Classes
@@ -615,9 +507,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Mongo`](./classes/MongoHybrid/Mongo.md) | |
 | [`MongoLite`](./classes/MongoHybrid/MongoLite.md) | |
 | [`ResultSet`](./classes/MongoHybrid/ResultSet.md) | |
-
-
-
 
 ### \MongoLite
 
@@ -631,9 +520,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Database`](./classes/MongoLite/Database.md) | Database object.|
 | [`UtilArrayQuery`](./classes/MongoLite/UtilArrayQuery.md) | |
 
-
-
-
 ### \PHPMailer\PHPMailer
 
 #### Classes
@@ -646,9 +532,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`POP3`](./classes/PHPMailer/PHPMailer/POP3.md) | PHPMailer POP-Before-SMTP Authentication Class.|
 | [`SMTP`](./classes/PHPMailer/PHPMailer/SMTP.md) | PHPMailer RFC821 SMTP email transport class.|
 
-
-
-
 ### \PackageVersions
 
 #### Classes
@@ -658,9 +541,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Installer`](./classes/PackageVersions/Installer.md) | |
 | [`Versions`](./classes/PackageVersions/Versions.md) | This class is generated by composer/package-versions-deprecated, specifically by|
 
-
-
-
 ### \SimpleStorage
 
 #### Classes
@@ -668,9 +548,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`Client`](./classes/SimpleStorage/Client.md) | |
-
-
-
 
 ### \Singletons\Controller
 
@@ -681,9 +558,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`Admin`](./classes/Singletons/Controller/Admin.md) | Class Controller|
 | [`RestApi`](./classes/Singletons/Controller/RestApi.md) | Class Controller|
 
-
-
-
 ### \ZipStream
 
 #### Classes
@@ -692,9 +566,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 |-------|-------------|
 | [`Exception`](./classes/ZipStream/Exception.md) | This class is only for inheriting|
 | [`ZipStream`](./classes/ZipStream/ZipStream.md) | ZipStream|
-
-
-
 
 ### \ZipStream\Exception
 
@@ -707,9 +578,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`InvalidOptionException`](./classes/ZipStream/Exception/InvalidOptionException.md) | This Exception gets invoked if an invalid parameter gets passed on as option|
 | [`StreamNotReadableException`](./classes/ZipStream/Exception/StreamNotReadableException.md) | This Exception gets invoked if fread() fails on a stream.|
 
-
-
-
 ### \claviska
 
 #### Classes
@@ -717,9 +585,6 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | Class | Description |
 |-------|-------------|
 | [`SimpleImage`](./classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
-
-
-
 
 ### \yxorP\http
 
@@ -733,15 +598,11 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`response`](./classes/yxorP/http/response.md) | |
 | [`wrapper`](./classes/yxorP/http/wrapper.md) | |
 
-
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`actionState`](./classes/yxorP/http/actionState.md) | |
-
-
-
 
 ### \yxorP\minify
 
@@ -758,15 +619,11 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`quotesRemover`](./classes/yxorP/minify/quotesRemover.md) | |
 | [`whitespacesRemover`](./classes/yxorP/minify/whitespacesRemover.md) | |
 
-
-
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`minfyInterface`](./classes/yxorP/minify/minfyInterface.md) | |
 
-
-
 ***
-> Automatically generated from source code comments on 2022-07-02 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+> yxorP Documentation
