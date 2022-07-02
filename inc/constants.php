@@ -435,10 +435,10 @@ class constants
         /* Defining a constant named REG_EIGHT. */
 
         define('REG_EIGHT', CHAR_HASH . CHAR_UP . VAR_HTTPS_ONLY . CHAR_QUESTION . CHAR_COLON . CHAR_HASH . CHAR_I);
-        define('REG_EIGHT', '#/[^/]*$#');
-        define('REG_EIGHT', '#/(?!\.\.)[^/]+/\.\./#');
-        define('REG_EIGHT', '#(/\.?/)#');
-        define('REG_EIGHT', '/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i');
+        define('REG_NINE', '#/[^/]*$#');
+        define('REG_TEN', '#/(?!\.\.)[^/]+/\.\./#');
+        define('REG_ELEVEN', '#(/\.?/)#');
+        define('REG_TWELVE', '/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i');
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */

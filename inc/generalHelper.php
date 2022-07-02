@@ -178,7 +178,7 @@ class generalHelper
 
     public static function add_http($url)
     {
-        if (!preg_match('#^https?:#i', $url)) {
+        if (!preg_match(REG_TWELVE, $url)) {
             $url = VAR_HTTPS . $url;
         }
         return $url;
