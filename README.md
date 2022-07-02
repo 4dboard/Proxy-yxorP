@@ -19,7 +19,8 @@
 
 ---
 
-https://4dboard.github.io/proxy-yxorp/docs/movie.mp4
+[![Alternate Text]({image-url})](
+"Link Title")
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
