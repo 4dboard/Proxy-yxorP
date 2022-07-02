@@ -75,7 +75,7 @@ class generalHelper
 
     public static function in_arrayi($needle, $haystack): bool
     {
-        return in_array(strtolower($needle), array_map('strtolower', $haystack), true);
+        return in_array(strtolower($needle), array_map(VAR_STRTOLOWER, $haystack), true);
     }
 
     /* Checking if the `$needle` is in the `$haystack` array. */
