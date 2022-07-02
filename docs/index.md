@@ -1,6 +1,15 @@
+
 ***
 
+# My Project Documentation
+
+
+
+This is an automatically generated documentation for **My Project Documentation**.
+
+
 ## Namespaces
+
 
 ### \
 
@@ -33,6 +42,9 @@
 | [`twitterPluginAction`](./classes/twitterPluginAction.md) | |
 | [`youtubePluginAction`](./classes/youtubePluginAction.md) | |
 
+
+
+
 ### \yxorP\http
 
 #### Classes
@@ -45,11 +57,15 @@
 | [`response`](./classes/yxorP/http/response.md) | |
 | [`wrapper`](./classes/yxorP/http/wrapper.md) | |
 
+
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`actionState`](./classes/yxorP/http/actionState.md) | |
+
+
+
 
 ### \yxorP\minify
 
@@ -66,11 +82,15 @@
 | [`quotesRemover`](./classes/yxorP/minify/quotesRemover.md) | |
 | [`whitespacesRemover`](./classes/yxorP/minify/whitespacesRemover.md) | |
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`minfyInterface`](./classes/yxorP/minify/minfyInterface.md) | |
 
-***
 
+
+***
+> Automatically generated from source code comments on 2022-07-02 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
