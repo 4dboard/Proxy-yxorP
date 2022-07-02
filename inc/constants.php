@@ -574,7 +574,7 @@ class constants
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
 
-        $YXORP_SITE_SUB_DOMAIN = (constants::get(YXORP_TARGET));
+        $YXORP_SITE_SUB_DOMAIN = (constants::get(YXORP_SITE_URL));
         print_r($YXORP_SITE_SUB_DOMAIN);
 
         constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
