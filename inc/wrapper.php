@@ -15,7 +15,7 @@ use yxorP\http\response;
 abstract class wrapper
 {
     /* A property that is used to filter the events. */
-    protected string $url_pattern;
+    protected ?string $url_pattern = null;
 
     /* Subscribing to all the events. */
     final public function subscribe($dispatcher): void
