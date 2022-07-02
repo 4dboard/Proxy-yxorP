@@ -9,7 +9,7 @@ use yxorP\inc\wrapper;
 class requestResponseAction extends wrapper
 {
     /* This function is used to build the request and response objects. */
-    public function buildIncludes(): void
+    public function onBuildContext(): void
     {
         /* Setting the response object to the key RESPONSE. */
         constants::set(YXORP_RESPONSE, new Response());
