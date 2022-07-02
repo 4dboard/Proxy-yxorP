@@ -434,7 +434,7 @@ class constants
         define('REG_SEVEN', CHAR_HASH . CHAR_UP);
         /* Defining a constant named REG_EIGHT. */
 
-        define('REG_EIGHT', CHAR_HASH.CHAR_UP.VAR_HTTPS_ONLY.CHAR_QUESTION.CHAR_COLON.CHAR_HASH.CHAR_I);
+        define('REG_EIGHT', CHAR_HASH . CHAR_UP . VAR_HTTPS_ONLY . CHAR_QUESTION . CHAR_COLON . CHAR_HASH . CHAR_I);
         define('REG_EIGHT', '#/[^/]*$#');
         define('REG_EIGHT', '#/(?!\.\.)[^/]+/\.\./#');
         define('REG_EIGHT', '#(/\.?/)#');
