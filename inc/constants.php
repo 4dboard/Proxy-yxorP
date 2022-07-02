@@ -30,7 +30,8 @@ class constants
         define('CHAR_EQUALS', '=');
         /* Defining a constant called `CHAR_ASTRIX` and setting it to the value of `*`. */
         define('CHAR_ASTRIX', '*');
-        define('CHAR_EMPTY_STRING', CHAR_EMPTY_STRING);
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('CHAR_EMPTY_STRING', '');
 
         // NUMBERS
         /* Defining a constant called `NUM_ENV_LIMIT` and setting it to the value of `2`. */
