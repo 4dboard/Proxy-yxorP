@@ -13,7 +13,7 @@ class twitterPluginAction extends wrapper
     /* A method that is called when the request is completed. */
     protected ?string $url_pattern = 'twitter.com';
 
-    public function onCompleted(): void
+    public function onEventCompleted(): void
     {
         /* Getting the response object from the constants class. */
         $response = constants::get(YXORP_RESPONSE);

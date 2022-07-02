@@ -23,7 +23,7 @@ class youtubePluginAction extends wrapper
     }
 
     /* A function that is called when the request is completed. */
-    public function onCompleted(): void
+    public function onEventCompleted(): void
     {
         /* Getting the response object from the `constants` class. */
         $response = constants::get(YXORP_RESPONSE);

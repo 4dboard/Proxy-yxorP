@@ -126,15 +126,15 @@ abstract class wrapper
                     /* Calling the `onEventWrite` method. */
                     $this->onEventWrite();
                     break;
-                /* Calling the `onCompleted` method. */
+                /* Calling the `onEventCompleted` method. */
                 case EVENT_COMPLETE:
-                    /* Calling the `onCompleted` method. */
-                    $this->onCompleted();
+                    /* Calling the `onEventCompleted` method. */
+                    $this->onEventCompleted();
                     break;
-                /* Calling the `onFinal` method. */
+                /* Calling the `onEventFinal` method. */
                 case EVENT_FINAL:
-                    /* Calling the `onFinal` method. */
-                    $this->onFinal();
+                    /* Calling the `onEventFinal` method. */
+                    $this->onEventFinal();
                     break;
             }
         } catch (Exception $e) {
@@ -199,13 +199,13 @@ abstract class wrapper
 
     /* Used to execute code when the headers are received. */
 
-    public function onCompleted()
+    public function onEventCompleted()
     {
     }
 
     /* Used to execute code when the request is completed. */
 
-    public function onFinal()
+    public function onEventFinal()
     {
     }
 
