@@ -341,7 +341,7 @@ class constants
         /* Defining a constant called YXORP_PROXY_URL and setting it to the string PROXY_URL. */
         define('YXORP_PROXY_URL', YXORP_PROXY . CHAR_UNDER . YXORP_URL);
         /* Defining a constant called YXORP_SERVER_NAME and setting it to the string SERVER_NAME. */
-        define('YXORP_SERVER_NAME', YXORP_PROXY . CHAR_UNDER . YXORP_NAME);
+        define('YXORP_SERVER_NAME', YXORP_SERVER . CHAR_UNDER . YXORP_NAME);
         /* Defining a constant called YXORP_SITE_URL and setting it to the string SITE_URL. */
         define('YXORP_SITE_URL', YXORP_SITE . CHAR_UNDER . YXORP_URL);
         /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
