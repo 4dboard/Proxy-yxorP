@@ -83,7 +83,7 @@ class generalHelper
     public static function re_match($pattern, $string): bool
     {
         $quoted = preg_quote($pattern, CHAR_HASH);
-        $translated = strtr($quoted, array('\*' => '.*', '\?' => CHAR_PERIOD));
+        $translated = strtr($quoted, array(CHAR_SLASH_BACK => REG_FIVE, '\?' => CHAR_PERIOD));
         return preg_match("#^" . $translated . "$#i", $string) === 1;
     }
 

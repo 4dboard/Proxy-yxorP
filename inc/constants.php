@@ -69,6 +69,12 @@ class constants
         define('CHAR_0', '0');
         /* Defining a constant called `CHAR_9` and setting it to the value of `9`. */
         define('CHAR_9', '9');
+        /* Defining a constant called `CHAR_UP` and setting it to the value of `^`. */
+        define('CHAR_UP', '^');
+        /* Defining a constant called `CHAR_USD` and setting it to the value of `$`. */
+        define('CHAR_USD', '$');
+        /* Defining a constant called `CHAR_I` and setting it to the value of `i`. */
+        define('CHAR_I', 'i');
 
 
         // NUMBERS
@@ -270,16 +276,6 @@ class constants
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
         define('VAR_UCFIRST', 'ucfirst');
 
-        define('CHAR_UP', '^');
-        define('CHAR_USD', '$');
-        define('CHAR_I', 'i');
-
-        /* Defining a constant called `USER_IP` and setting it to the value of `user-ip`. */
-        define('VAR_UCFIRST', CHAR_SLASH_BACK . CHAR_ASTRIX);
-        define('VAR_UCFIRST', CHAR_PERIOD . CHAR_ASTRIX);
-        define('VAR_UCFIRST', CHAR_SLASH_BACK . CHAR_QUESTION);
-        define('VAR_UCFIRST', CHAR_HASH . CHAR_UP);
-        define('VAR_UCFIRST', CHAR_USD . CHAR_HASH . CHAR_I);
 
         // YXORPS SINGLE
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
@@ -395,9 +391,22 @@ class constants
 
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
+        /* Defining a constant called REG_ONE. */
         define('REG_ONE', CHAR_SLASH . CHAR_SLASH_BACK . CHAR_QUESTION . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
+        /* Defining a constant called REG_TWO. */
         define('REG_TWO', CHAR_HASH . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
+        /* Defining a regular expression for PHP. */
         define('REG_THREE', CHAR_AT . CHAR_CURVE . CHAR_BRACKET . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_UNDER . CHAR_SQUARE_CLOSE . CHAR_PLUS . CHAR_BRACKET_CLOSE . CHAR_CURVE_CLOSE . CHAR_AT . CHAR_S);
+        /* Defining a constant named REG_FOUR. */
+        define('REG_FOUR', CHAR_SLASH_BACK . CHAR_ASTRIX);
+        /* Defining a constant named REG_FIVE. */
+        define('REG_FIVE', CHAR_PERIOD . CHAR_ASTRIX);
+        /* Defining a constant named REG_SIX. */
+        define('REG_SIX', CHAR_SLASH_BACK . CHAR_QUESTION);
+        /* Defining a constant named REG_SEVEN. */
+        define('REG_SEVEN', CHAR_HASH . CHAR_UP);
+        /* Defining a constant named REG_EIGHT. */
+        define('REG_EIGHT', CHAR_USD . CHAR_HASH . CHAR_I);
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
