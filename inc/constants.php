@@ -578,10 +578,10 @@ class constants
         constants::set(YXORP_TARGET_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_TARGET_URL)));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null . constants::get(YXORP_TARGET_DOMAIN));
+        constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . (constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null) . constants::get(YXORP_TARGET_DOMAIN));
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
-        echo constants::get(YXORP_FETCH) . constants::get(YXORP_REQUEST_URI);
+        echo constants::get(YXORP_SITE_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN);
         constants::set(YXORP_PROXY_URL, constants::get(YXORP_FETCH) . constants::get(YXORP_REQUEST_URI));
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
