@@ -544,7 +544,7 @@ class constants
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = JSON . stringify($_value);
+        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = json_encode($_value);
     }
 
     /* A function that is being called to localise constants. */
@@ -570,7 +570,7 @@ class constants
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false. */
-        return (array_key_exists($_name, $GLOBALS)) ? base64_decode($GLOBALS[$_name]) : false;
+        return (array_key_exists($_name, $GLOBALS)) ? json_decode($GLOBALS[$_name]) : false;
     }
 
 }
