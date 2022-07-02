@@ -58,7 +58,6 @@ class cache
 
     public function get(): void
     {
-        echo $this->isValid();
         /* Used to check if the cache file is valid. */
         if (!$this->isValid()) return;
         /* Used to include the cache file. */
