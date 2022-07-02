@@ -122,7 +122,7 @@ class generalHelper
 
     #[Pure] public static function app_url(): string
     {
-        return VAR_HTTPS . (constants::get(YXORP_SITE_HOST)->__toString() . constants::get(YXORP_SERVER))[YXORP_PHP_SELF];
+        return VAR_HTTPS . (constants::get(YXORP_SITE_HOST) . constants::get(YXORP_SERVER))[YXORP_PHP_SELF];
     }
 
     /* It's returning the application URL. */
