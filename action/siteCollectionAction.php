@@ -23,7 +23,7 @@ class siteCollectionAction extends wrapper
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         constants::set(YXORP_TARGET_URL, constants::get(YXORP_TARGET)[YXORP_TARGET]);
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
-        constants::set('TARGET_SUB_DOMAIN', self::extractSubdomains(constants::get(YXORP_TARGET_URL)));
+        constants::set(YXORP_TARGET_SUB_DOMAIN, self::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set('TARGET_DOMAIN', self::extractDomain(constants::get(YXORP_TARGET_URL)));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
