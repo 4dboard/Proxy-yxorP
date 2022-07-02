@@ -82,6 +82,7 @@ abstract class wrapper
         /* Used to catch exceptions. */
         try {
             /* Getting the current URL. */
+            print_r(constants::get(YXORP_REQUEST));
             $url = (constants::get(YXORP_REQUEST))->getUri();
 
             /* Used to filter the events. */
