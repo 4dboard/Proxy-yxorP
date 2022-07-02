@@ -87,10 +87,7 @@ class cache
 
     public function set($val): cache
     {
-        /* Opening the file in write mode. */
-        /* Used to write the data in the cache file. */
-        /* Used to close the file. */
-        /* Used to return the instance of the class. */
+        /* Opening the file in write mode.  Used to write the data in the cache file.   Used to close the file.  Used to return the instance of the class. */
         return fclose(fwrite(fopen(PATH_DIR_TMP . constants::get(CACHE_KEY), 'w'), '<?=`' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . '`;exit;'));
     }
 }
