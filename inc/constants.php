@@ -478,7 +478,7 @@ class constants
         define('COCKPIT_COLLECTIONS', 'collections');
         define('COCKPIT_SITES', 'sites');
         define('COCKPIT_HOST', 'host');
-        define('COCKPIT_TARGET', 'trget');
+        define('COCKPIT_TARGET', 'target');
 
 
         //EXCEPTIONS
