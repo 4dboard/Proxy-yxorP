@@ -280,6 +280,7 @@ class constants
         define('VAR_TEXT', 'text');
         /* Defining a constant called `VAR_VAR` and setting it to the value of `var`. */
         define('VAR_VAR', 'var');
+        define('VAR_HTTP', 'http:');
 
 
         //VARIBLES MULTIPLE
@@ -291,10 +292,8 @@ class constants
         define('VAR_TEXT_HTML', VAR_TEXT . CHAR_SLASH . VAR_HTML);
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
         define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
-        VAR_VAR_UNDER
-        VAR_VAR_UNDER_END
         '#^https?:#i'
-        "http:" 
+        VAR_HTTP 
         '#/[^/]*$#'
         '#/(?!\.\.)[^/]+/\.\./#'
         '#(/\.?/)#'
