@@ -215,7 +215,7 @@ class constants
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_HTTP_ERRORS', 'http_errors');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
-        define('VAR_DECODE_CONTENT', 'decode_content');
+        define('VAR_DECODE_CONTENT', VAR_DECODE_CONTENT);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_VERIFY', 'verify');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
@@ -325,7 +325,7 @@ class constants
         /* Setting the token to the bugsnag key. */
         self::set(YXORP_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
-        self::set(YXORP_GUZZLE, new \GuzzleHttp\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, 'decode_content' => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
+        self::set(YXORP_GUZZLE, new \GuzzleHttp\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, 'verify' => false, 'cookies' => true, 'idn_conversion' => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
 
