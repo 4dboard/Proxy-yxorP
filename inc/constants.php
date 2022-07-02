@@ -230,6 +230,28 @@ class constants
         define('YXORP_PROXY_URL', 'PROXY_URL');
 
 
+        /* Defining a constant called YXORP_SERVER_NAME and setting it to the string SERVER_NAME. */
+        define('YXORP_SERVER_NAME', 'SERVER_NAME');
+        /* Defining a constant called YXORP_SITE_URL and setting it to the string SITE_URL. */
+        define('YXORP_SITE_URL', 'SITE_URL');
+        /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
+        define('SITE_DOMAIN', 'SITE_DOMAIN');
+        /* Defining a constant called YXORP_SITE_URL and setting it to the string SITE_URL. */
+        define('SITE_URL', 'SITE_URL');
+        /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
+        define('SITE_SUB_DOMAIN', 'SITE_SUB_DOMAIN');
+        /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
+        define('TARGET_URL', 'TARGET_URL');
+        /* Defining a constant called YXORP_TARGET_SUB_DOMAIN and setting it to the string TARGET_SUB_DOMAIN. */
+        define('TARGET_SUB_DOMAIN', 'TARGET_SUB_DOMAIN');
+        /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
+        define('TARGET_DOMAIN', 'TARGET_DOMAIN');
+        /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
+        define('FETCH', 'FETCH');
+        /* Defining a constant called YXORP_DIR_FULL and setting it to the string DIR_FULL. */
+        define('DIR_FULL', 'DIR_FULL');
+
+
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
         define('ENV_ADMIN_USER', 'ADMIN_USER' . EXT_ENV);
