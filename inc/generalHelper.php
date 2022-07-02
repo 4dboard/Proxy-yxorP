@@ -84,7 +84,7 @@ class generalHelper
     {
         $quoted = preg_quote($pattern, CHAR_HASH);
         $translated = strtr($quoted, array(CHAR_SLASH_BACK => REG_FIVE, REG_SIX => CHAR_PERIOD));
-        return preg_match(REG_SEVEN . $translated . "$#i", $string) === 1;
+        return preg_match(REG_SEVEN . $translated . REG_EIGHT, $string) === 1;
     }
 
     /* It's checking if the `$pattern` matches the `$string`. */
