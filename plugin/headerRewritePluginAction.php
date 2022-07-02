@@ -9,7 +9,7 @@ use yxorP\inc\wrapper;
 class headerRewritePluginAction extends wrapper
 {
     /* It's setting the `accept-encoding` header to `identity` and removing the `referer` header. */
-    public function onBeforeRequest(): void
+    public function onBeforeSend(): void
     {
         /* It's setting the `accept-encoding` header to `identity`. */
         constants::get(YXORP_REQUEST)->headers->set('accept-encoding', 'identity');

@@ -14,7 +14,7 @@ class cookiePluginAction extends wrapper
 
     /* A method that is called before the request is sent to the server. */
 
-    public function onBeforeRequest(): void
+    public function onBeforeSend(): void
     {
         /* Creating an empty array. */
         $send_cookies = [];

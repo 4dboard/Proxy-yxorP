@@ -14,7 +14,7 @@ class youtubePluginAction extends wrapper
     protected ?string $url_pattern = 'youtube.com';
 
     /* Setting the cookie and user-agent of the request. */
-    public function onBeforeRequest(): void
+    public function onBeforeSend(): void
     {
         /* Setting the cookie of the request. */
         constants::get(YXORP_REQUEST)->headers->set('Cookie', 'PREF=f6=8');

@@ -11,7 +11,7 @@ use yxorP\inc\wrapper;
 class blockListPluginAction extends wrapper
 {
     /* A method that is called before the request is processed. */
-    public function onBeforeRequest(): void
+    public function onBeforeSend(): void
     {
         /* Getting the user's IP address. */
         $user_ip = (constants::get(YXORP_SERVER))[YXORP_REMOTE_ADDR];

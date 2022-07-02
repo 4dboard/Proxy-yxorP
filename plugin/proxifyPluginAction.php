@@ -14,7 +14,7 @@ class proxifyPluginAction extends wrapper
     private string $base_url = CHAR_EMPTY_STRING;
 
     /* A function that is called before the request is sent to the server. */
-    public function onBeforeRequest(): void
+    public function onBeforeSend(): void
     {
         /* It's getting the request object from the constants class. */
         $request = constants::get(YXORP_REQUEST);

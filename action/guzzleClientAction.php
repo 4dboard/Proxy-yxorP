@@ -12,7 +12,7 @@ class guzzleClientAction extends wrapper
     /**
      * @throws JsonException
      */
-    public function onBeforeRequest(): void
+    public function onBeforeSend(): void
     {
         /* Creating a new `GuzzleHttp\Client` object, and then it is sending a request to the `constants::get(YXORP_FETCH)` URL,
         with the `constants::get(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body. */
