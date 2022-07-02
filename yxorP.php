@@ -53,13 +53,13 @@ class yxorP
 
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        if (str_contains(((constants::get(YXORP_SERVER)))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
+        if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
-        $_plugins = ((constants::get(YXORP_TARGET)))[YXORP_PLUGINS] ?: [];
+        $_plugins = (constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: [];
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        $this->subscribers(DIR_PLUGIN, $_plugins); //$this->subscribe(DIR_PLUGIN,((constants::get(YXORP_TARGET)))[YXORP_PLUGINS] ?: []);
+        $this->subscribers(DIR_PLUGIN, $_plugins); //$this->subscribe(DIR_PLUGIN,(constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: []);
     }
 
     /**

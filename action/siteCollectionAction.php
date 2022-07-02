@@ -14,13 +14,13 @@ class siteCollectionAction extends wrapper
 //        /* Setting the `TARGET` variable to the result of the `findOne` method. */
 //        constants::set(YXORP_TARGET, constants::get(constants::get(YXORP_COCKPIT_APP))->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
 //        /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
-//        constants::set(YXORP_SITE_URL,((constants::get(YXORP_SERVER)))[YXORP_SERVER_NAME]);
+//        constants::set(YXORP_SITE_URL,(constants::get(YXORP_SERVER))[YXORP_SERVER_NAME]);
 //        /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
 //        constants::set(YXORP_SITE_DOMAIN, self::extractDomain(constants::get(YXORP_SITE_URL)));
 //        /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
 //        constants::set(YXORP_SITE_SUB_DOMAIN, self::extractSubdomains(constants::get(YXORP_SITE_URL)));
 //        /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
-//        constants::set(YXORP_TARGET_URL,((constants::get(YXORP_TARGET)))[YXORP_TARGET]);
+//        constants::set(YXORP_TARGET_URL,(constants::get(YXORP_TARGET))[YXORP_TARGET]);
 //        /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
 //        constants::set(YXORP_TARGET_SUB_DOMAIN, self::extractSubdomains(constants::get(YXORP_TARGET_URL)));
 //        /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
@@ -34,6 +34,6 @@ class siteCollectionAction extends wrapper
 //        /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
 //        to it, with the `CHAR_SLASH` constant appended to it, with the value of the `files` key in the `TARGET`
 //        array appended to it. */
-//        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE .((constants::get(YXORP_TARGET)))[YXORP_FILES]);
+//        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE .(constants::get(YXORP_TARGET))[YXORP_FILES]);
     }
 }
