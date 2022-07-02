@@ -19,7 +19,7 @@ class siteCollectionAction extends wrapper
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, self::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
-        constants::set('SITE_SUB_DOMAIN', self::extractSubdomains(constants::get(YXORP_SITE_URL)));
+        constants::set(YXORP_SITE_SUB_DOMAIN, self::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         constants::set('TARGET_URL', constants::get(YXORP_TARGET)[YXORP_TARGET]);
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
@@ -28,7 +28,7 @@ class siteCollectionAction extends wrapper
         constants::set('TARGET_DOMAIN', self::extractDomain(constants::get('TARGET_URL')));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        constants::set('FETCH', 'https:' . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(constants::get('SITE_SUB_DOMAIN'))) ? (constants::get('SITE_SUB_DOMAIN')->__toString() . ".") : null) . constants::get('TARGET_DOMAIN')->__toString());
+        constants::set('FETCH', 'https:' . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get('TARGET_DOMAIN')->__toString());
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
         constants::set(YXORP_PROXY_URL, constants::get('FETCH')->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());
