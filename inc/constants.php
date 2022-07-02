@@ -246,7 +246,6 @@ class constants
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
         define('VAR_UCFIRST', 'ucfirst');
         /* Defining a constant called `USER_IP` and setting it to the value of `user-ip`. */
-        define('VAR_USER_IP', 'user-ip');
 
         // YXORPS SINGLE
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
@@ -360,11 +359,24 @@ class constants
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
         define('YXORP_REMOTE_ADDR', YXORP_REMOTE . CHAR_UNDER . YXORP_ADDR);
 
+        define('CHAR_AT', '@');
+        define('CHAR_CURVE', '{');
+        define('CHAR_CURVE_CLOSE', '}');
+        define('CHAR_BRACKET', '(');
+        define('CHAR_BRACKET_CLOSE', ')');
+        define('CHAR_S', 's');
+        define('CHAR_SQUARE', '[');
+        define('CHAR_SQUARE_CLOSE', ']');
+        define('CHAR_A', 'a');
+        define('CHAR_Z', 'z');
+        define('CHAR_0', '0');
+        define('CHAR_9', '9');
 
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
         define('REG_ONE', CHAR_SLASH . CHAR_SLASH_BACK . CHAR_QUESTION . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
         define('REG_TWO', CHAR_HASH . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
+        define('REG_THREE', CHAR_AT . CHAR_CURVE . CHAR_BRACKET . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_UNDER . CHAR_SQUARE_CLOSE . CHAR_PLUS . CHAR_BRACKET_CLOSE . CHAR_CURVE_CLOSE . CHAR_AT . CHAR_S);
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */

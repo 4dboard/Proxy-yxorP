@@ -1106,7 +1106,7 @@ td.phpdocumentor-cell:last-child {
     appearance: none;
     color: var(--primary-color);
     background: none;
-    border: 0px;
+    border: 0;
     font-weight: bold;
     cursor: pointer;
 }

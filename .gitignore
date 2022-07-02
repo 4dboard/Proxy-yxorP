@@ -30,8 +30,6 @@ Vagrantfile
 .php-cs-fixer.cache
 .env
 composer.json
-composer.lock
-phpdoc.xml
 =======
 *
 
@@ -78,5 +76,4 @@ phpdoc.xml
 !http/*
 !override/default/*
 !override/www.example.com/*
-!plugin/*
 >>>>>>> parent of a542dc64 (update)

@@ -3,8 +3,8 @@
     <partials/>
     <file path="yxorP.php" generated-path="yxorP.html" hash="e02f57c234d036b4fcd378df44bcd0be" package="Default">
         <docblock line="0">
-            <description></description>
-            <long-description></long-description>
+            <description/>
+            <long-description/>
             <tag name="package" line="0" description="Default"/>
         </docblock>
         <parse_markers>
@@ -16,8 +16,8 @@
     </file>
     <file path="index.php" generated-path="index.html" hash="5d1be54226b424aace8aa2604ea99245" package="Default">
         <docblock line="0">
-            <description></description>
-            <long-description></long-description>
+            <description/>
+            <long-description/>
             <tag name="package" line="0" description="Default"/>
         </docblock>
         <parse_markers>

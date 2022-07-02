@@ -3,6 +3,7 @@
 /* Importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\http\wrapper;
+use yxorP\inc\constants;
 
 /* A class that extends the wrapper class. */
 

@@ -129,7 +129,7 @@ class generalHelper
 
     public static function render_string($str, $vars = array())
     {
-        preg_match_all('@{([a - z0 - 9_] +)}@s', $str, $matches, PREG_SET_ORDER);
+        preg_match_all('@{([a-z0-9_]+)}@s', $str, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
             extract($vars, EXTR_PREFIX_ALL, "_var");
             $var_val = ${"_var_" . $match[1]};
