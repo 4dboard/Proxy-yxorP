@@ -333,7 +333,7 @@ class constants
         /* Defining a constant. */
         define('YXORP_COCKPIT_INSTALL', YXORP_COCKPIT . CHAR_UNDER . YXORP_INSTALL);
         /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URI`. */
-        define('YXORP_REQUEST_URI', YXORP_REQUEST . YXORP_URI);
+        define('YXORP_REQUEST_URI', YXORP_REQUEST . CHAR_UNDER . YXORP_URI);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', YXORP_HTTP . CHAR_UNDER . YXORP_HOST);
         /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
