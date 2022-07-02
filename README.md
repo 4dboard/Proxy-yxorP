@@ -1,7 +1,9 @@
-📢 _**YOUR SUPPORT IS GREATLY APPRECIATED/** [PATREON.COM/DONPABLONOW](https://www.patreon.com/donPabloNow)/**BTC**
-3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ/**ETH** 0X3D288C7A673501294C9289C6FC42480A2EA61417_ 🙏
+📢 _*YOUR SUPPORT IS GREATLY APPRECIATED/* [PATREON.COM/DONPABLONOW](https://www.patreon.com/donPabloNow)/*BTC*
+3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ/*ETH* 0X3D288C7A673501294C9289C6FC42480A2EA61417_ 🙏
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
+
+> ⛔️ *ARCHIVE PENDING*: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
@@ -11,16 +13,16 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
-> ⭐️**DEMO LIVE**: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now available via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
+> ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now available via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
 # 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
-> ⛔️ **ARCHIVE PENDING**: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
+---
 
-yxorP is a plug-and-play, flat-file application that **does not need Composer, PHP CURL, or databases**; these are all
+yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
-of **multiple websites** using a PHAR (PHP archive) binary version of **Guzzle**, and managed via a user-friendly **
-Cockpit backend (GUI)**.
+of *multiple websites* using a PHAR (PHP archive) binary version of *Guzzle*, and managed via a user-friendly *
+Cockpit backend (GUI)*.
 
 It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web
 proxy systems now available on the market. This is owing to its event-driven architecture and emphasis on its
@@ -29,18 +31,18 @@ allow customization and development of its capabilities. In addition to its Back
 user interface, yxorP has a number of other distinguishing features.
 
 The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then
-retrieved and modified accordingly. Additionally, the website content can be optionally spun using the **article
-spinning engine** that is already embedded into the application. After the website has been modified the result is then
-stored for a predefined time inside a custom-built, **flat-file cache** system architectured to be **500x faster than
-memory-based cache** systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and
-deserialization processes, which resulted a significantly faster cache.
+retrieved and modified accordingly. Additionally, the website content can be optionally spun using the *article spinning
+engine* that is already embedded into the application. After the website has been modified the result is then stored for
+a predefined time inside a custom-built, *flat-file cache* system architectured to be *500x faster than memory-based
+cache* systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization
+processes, which resulted a significantly faster cache.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
-yxorP was designed to operate with either a stateless server (Apache) or a **stateful server** (Swoole) which are **
-high-performance** networking frameworks with an **event-driven, asynchronous, and non-blocking I/O** model - Compatible
-with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services ( **Parrelelle**) that
-are both rapid and scalable.
+yxorP was designed to operate with either a stateless server (Apache) or a *stateful server* (Swoole) which are *
+high-performance* networking frameworks with an *event-driven, asynchronous, and non-blocking I/O* model - Compatible
+with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services ( *Parrelelle*) that are
+both rapid and scalable.
 
 ## Stateless Server:
 
@@ -55,9 +57,9 @@ ServerAlias server
 ``` php ./server.php ```
 
 The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
-was done to assure Bugsnag's compatibility with the modification. Changes to the **default logging** system may be done
-in as little as two minutes due to the program's compatibility with the great majority of the **industry's primary error
-tracking systems**.
+was done to assure Bugsnag's compatibility with the modification. Changes to the *default logging* system may be done in
+as little as two minutes due to the program's compatibility with the great majority of the *industry's primary error
+tracking systems*.
 
 ## Docker Composer:
 
@@ -71,7 +73,7 @@ tracking systems**.
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
 
-**NB:** _Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in
+*NB:* _Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in
 the '.env.example' are correct and the file has been renamed '.env'._ Cockpit is the graphical user interface (GUI) for
 the administration interface, which may be immediately accessed by entering "/cockpit" and supplying the admin username
 and password set in the '.env' file. The credentials defined in the '.env' file are used to setup the sqlite database
@@ -287,7 +289,7 @@ permissive nature of the program, which assures compliance with licensing agreem
 and concise; it is a permissive license that just requires copyright protection and prominent display of licensing
 information in the form of terms. They may be released in a number of forms and without the source code because they are
 licensed works, adaptations, or large-scale works. !\[\](asset/live.png?v=3)
-***
+**
 
 # yxorP Documentation
 
@@ -912,5 +914,5 @@ licensed works, adaptations, or large-scale works. !\[\](asset/live.png?v=3)
 |-----------|-------------|
 | [`minfyInterface`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/minify/minfyInterface.md) | |
 
-***
+**
 > yxorP Documentation
