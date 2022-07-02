@@ -51,7 +51,7 @@ class streamPluginAction extends wrapper
     }
 
     /* Used to exit the script when the response is streamed. */
-    public function onEventCompleted(): void
+    public function onEventComplete(): void
     {
         /* Used to exit the script. */
         /* Checking if the response should be streamed or not. */

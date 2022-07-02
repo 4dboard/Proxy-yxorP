@@ -126,10 +126,10 @@ abstract class wrapper
                     /* Calling the `onEventWrite` method. */
                     $this->onEventWrite();
                     break;
-                /* Calling the `onEventCompleted` method. */
+                /* Calling the `onEventComplete` method. */
                 case EVENT_COMPLETE:
-                    /* Calling the `onEventCompleted` method. */
-                    $this->onEventCompleted();
+                    /* Calling the `onEventComplete` method. */
+                    $this->onEventComplete();
                     break;
                 /* Calling the `onEventFinal` method. */
                 case EVENT_FINAL:
@@ -199,7 +199,7 @@ abstract class wrapper
 
     /* Used to execute code when the headers are received. */
 
-    public function onEventCompleted()
+    public function onEventComplete()
     {
     }
 

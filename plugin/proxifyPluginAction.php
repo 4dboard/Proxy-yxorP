@@ -34,7 +34,7 @@ class proxifyPluginAction extends wrapper
     }
 
     /* It's a function that is called after the request is completed. */
-    public function onEventCompleted(): void
+    public function onEventComplete(): void
     {
         /* It's getting the base url of the request. */
         $this->base_url = constants::get(YXORP_REQUEST)->getUri();

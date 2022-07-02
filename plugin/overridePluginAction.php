@@ -14,8 +14,8 @@ use yxorP\minify\minify;
 
 class overridePluginAction extends wrapper
 {
-    /* Overriding the `onEventCompleted` method of the `wrapper` class. */
-    public function onEventCompleted()
+    /* Overriding the `onEventComplete` method of the `wrapper` class. */
+    public function onEventComplete()
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
         if (constants::get('MIME') !== VAR_TEXT_HTML && constants::get('MIME') !== 'application/javascript' && constants::get('MIME') !== 'text/css' && constants::get('MIME') !== 'application/xml' && !str_contains(constants::get('MIME'), 'text')) return;

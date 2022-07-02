@@ -10,7 +10,7 @@ use yxorP\inc\wrapper;
 class cacheStoreAction extends wrapper
 {
     /* A method that is called when the request is completed. */
-    public function onEventFinal(): void
+    public function onEventComplete(): void
     {
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
         if (!cache::cache()->isValid()) cache::cache()->set(constants::get(YXORP_RESPONSE)->getContent());
