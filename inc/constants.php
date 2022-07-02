@@ -286,23 +286,22 @@ class constants
         define('YXORP_PHP', 'PHP');
         /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
         define('YXORP_SELF', 'SELF');
-
         /* Defining a constant called YXORP_APP and setting it to the string APP. */
-define('YXORP_APP', 'APP');
-/* Defining a constant called YXORP_PROXY and setting it to the string PROXY. */
-define('YXORP_PROXY', 'PROXY');
-/* Defining a constant called YXORP_NAME and setting it to the string NAME. */
-define('YXORP_NAME', 'NAME');
-/* Defining a constant called YXORP_URL and setting it to the string URL. */
-define('YXORP_URL', 'URL');
-/* Defining a constant called YXORP_SUB and setting it to the string SUB. */
-define('YXORP_SUB', 'SUB');
-/* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
-define('YXORP_DOMAIN', 'DOMAIN');
-/* Defining a constant called YXORP_DIR and setting it to the string DIR. */
-define('YXORP_DIR', 'DIR');
-/* Defining a constant called YXORP_FULL and setting it to the string FULL. */
-define('YXORP_FULL', 'FULL');
+        define('YXORP_APP', 'APP');
+        /* Defining a constant called YXORP_PROXY and setting it to the string PROXY. */
+        define('YXORP_PROXY', 'PROXY');
+        /* Defining a constant called YXORP_NAME and setting it to the string NAME. */
+        define('YXORP_NAME', 'NAME');
+        /* Defining a constant called YXORP_URL and setting it to the string URL. */
+        define('YXORP_URL', 'URL');
+        /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
+        define('YXORP_SUB', 'SUB');
+        /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
+        define('YXORP_DOMAIN', 'DOMAIN');
+        /* Defining a constant called YXORP_DIR and setting it to the string DIR. */
+        define('YXORP_DIR', 'DIR');
+        /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
+        define('YXORP_FULL', 'FULL');
 
         // YXORP MULTI
         /* Defining a constant. */
