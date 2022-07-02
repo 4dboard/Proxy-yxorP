@@ -29,7 +29,7 @@ class cookiePluginAction extends wrapper
     public static function beforeRequest($match)
     {
         /* Replacing the `_` with `.` in the cookie domain. */
-        $_cookieDomain = str_replace(CHAR_LOWER, ".", $match[1]);
+        $_cookieDomain = str_replace(CHAR_UNDER, ".", $match[1]);
         /* Creating an array with the cookie domain, name and value. */
         $cookie = ["cookie_domain" => $_cookieDomain, "cookie_name" => $match[2], "cookie_value" => $match[3]];
         /* Getting the host from the request url. */
@@ -68,7 +68,7 @@ class cookiePluginAction extends wrapper
         /* Parsing the cookie and then it is setting the cookie header. */
         $cookie = self::parse_cookie($line, constants::get(YXORP_REQUEST)->getUri());
         /* Creating the cookie name. */
-        $cookie_name = sprintf("%s_%s__%s", self::COOKIE_PREFIX, str_replace('.', CHAR_LOWER, $cookie['domain']), $cookie['name']);
+        $cookie_name = sprintf("%s_%s__%s", self::COOKIE_PREFIX, str_replace('.', CHAR_UNDER, $cookie['domain']), $cookie['name']);
         /* Setting the cookie header. */
         constants::get(YXORP_RESPONSE)->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
     }
