@@ -14,7 +14,7 @@ class blockListPluginAction extends wrapper
     public function onBeforeRequest(): void
     {
         /* Getting the user's IP address. */
-        $user_ip = constants::get(YXORP_SERVER)['REMOTE_ADDR'];
+        $user_ip = constants::get(YXORP_SERVER)[YXORP_REMOTE_ADDR];
         /* It converts the IP address to an unsigned integer. */
         $user_ip_long = sprintf('%u', ip2long($user_ip));
         /* Getting the URL of the request. */

@@ -172,7 +172,7 @@ class request
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set('user-ip', constants::get(YXORP_SERVER)['REMOTE_ADDR']);
+        $request->params->set('user-ip', constants::get(YXORP_SERVER)[YXORP_REMOTE_ADDR]);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);
