@@ -165,7 +165,7 @@ class request
         $scheme = (isset(constants::get(YXORP_SERVER)['HTTPS']) && constants::get(YXORP_SERVER)['HTTPS']) ? 'https' : 'http';
         $url = $scheme . ':' . constants::get(YXORP_PROXY_URL)->__toString();
         $request = new request($method, $url);
-        foreach (constants::get(YXORP_SERVER) as $name => $value) if (str_starts_with($name, 'HTTP_')) {
+        foreach (constants::get(YXORP_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
             $name = substr($name, 5);
             $name = str_replace(CHAR_UNDER, ' ', $name);
             $name = ucwords(strtolower($name));
