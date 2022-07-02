@@ -229,13 +229,13 @@ class constants
         /* Defining a constant called YXORP_PROXY_URL and setting it to the string PROXY_URL. */
         define('YXORP_PROXY_URL', 'PROXY_URL');
         /* Defining a constant called YXORP_SERVER_NAME and setting it to the string SERVER_NAME. */
-        define('YXORP_SERVER_NAME', YXORP_SERVER_NAME);
+        define('YXORP_SERVER_NAME', 'SERVER_NAME');
         /* Defining a constant called YXORP_SITE_URL and setting it to the string SITE_URL. */
-        define('YXORP_SITE_URL', 'SITE_URL');
+        define('YXORP_SITE_URL', YXORP_SITE_URL);
         /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
         define('YXORP_SITE_DOMAIN', 'SITE_DOMAIN');
         /* Defining a constant called YXORP_SITE_URL and setting it to the string SITE_URL. */
-        define('YXORP_SITE_URL', 'SITE_URL');
+        define('YXORP_SITE_URL', YXORP_SITE_URL);
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
         define('YXORP_SITE_SUB_DOMAIN', 'SITE_SUB_DOMAIN');
         /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
