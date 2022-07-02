@@ -320,6 +320,10 @@ class constants
         define('YXORP_REMOTE', 'REMOTE');
         /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
         define('YXORP_ADDR', 'ADDR');
+        /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string ADDR. */
+        define('YXORP_GLOBAL_PATTERN', 'ADDR');
+        /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
+        define('YXORP_GLOBAL_REPLACE, 'ADDR');
 
         // YXORP MULTI
         /* Defining a constant. */
@@ -518,6 +522,21 @@ class constants
 
     }
     /* A function that is being called to fetch .env values. */
+
+    /**
+     * @param $_name
+     * @param $_value
+     * @return mixed
+     */
+    public static function set($_name, $_value): mixed
+    {
+        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
+    }
+
+    /* Setting the value of the variable $_name to the value of the variable $_value. */
+
     /**
      * @param $line
      * @return void
@@ -532,20 +551,8 @@ class constants
         self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
     }
 
-    /* Setting the value of the variable $_name to the value of the variable $_value. */
-    /**
-     * @param $_name
-     * @param $_value
-     * @return mixed
-     */
-    public static function set($_name, $_value): mixed
-    {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
-    }
-
     /* A function that is being called to localise constants. */
+
     /**
      * @param $_req
      * @return void
