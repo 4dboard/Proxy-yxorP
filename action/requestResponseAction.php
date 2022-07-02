@@ -15,5 +15,6 @@ class requestResponseAction extends wrapper
         constants::set(YXORP_RESPONSE, new Response());
         /* Setting the request object to the key REQUEST. */
         constants::set(YXORP_REQUEST, Request::createFromGlobals());
+        print_r(constants::get(YXORP_REQUEST));
     }
 }
