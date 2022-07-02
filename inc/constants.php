@@ -302,6 +302,10 @@ class constants
         define('YXORP_DIR', 'DIR');
         /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
         define('YXORP_FULL', 'FULL');
+        /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
+        define('YXORP_HTTPS', 'HTTPS');
+        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
+        define('YXORP_HTTP', 'HTTP');
 
         // YXORP MULTI
         /* Defining a constant. */
@@ -339,10 +343,6 @@ class constants
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', YXORP_PHP . CHAR_UNDER . YXORP_SELF);
 
-        /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
-        define('YXORP_HTTPS', 'HTTPS');
-        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
-        define('YXORP_HTTP', 'HTTP');
         /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
         define('YXORP_REQUEST_METHOD', 'REQUEST_METHOD');
         /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
