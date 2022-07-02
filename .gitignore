@@ -17,6 +17,7 @@
 /.idea
 /.phpdoc
 /tmp
+phpdoc.xml
 composer.phar
 .phpunit.result.cache
 phpunit.xml
