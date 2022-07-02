@@ -278,6 +278,8 @@ class constants
         define('VAR_HTML', 'html');
         /* Defining a constant called `VAR_TEXT` and setting it to the value of `text`. */
         define('VAR_TEXT', 'text');
+        /* Defining a constant called `VAR_VAR` and setting it to the value of `var`. */
+        define('VAR_VAR', 'var');
 
 
         //VARIBLES MULTIPLE
@@ -286,7 +288,9 @@ class constants
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
-        define('VAR_TEXT_HTML', VAR_TEXT . CHAR_PERIOD . VAR_HTML);
+        define('VAR_TEXT_HTML', VAR_TEXT . CHAR_SLASH . VAR_HTML);
+        define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
+        define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VARL . CHAR_UNDER);
         "_var"
         "_var_"
         '#^https?:#i'
