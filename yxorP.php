@@ -57,7 +57,8 @@ class yxorP
                 require PATH_COCKPIT_INDEX;
 
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
-        $_plugins = (constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: [];
+
+        $_plugins = array_key_exists(YXORP_PLUGINS, constants::get(YXORP_TARGET)) ? constants::get(YXORP_TARGET)[YXORP_PLUGINS] : [];
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
