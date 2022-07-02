@@ -91,6 +91,7 @@ class constants
         define('CHAR_6', '6');
         /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `3`. */
         define('CHAR_3', '3');
+        define('CHAR_SLASH', '/');
 
 
         // NUMBERS
@@ -557,7 +558,7 @@ class constants
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
 
-        echo COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES;
+        echo COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES;
         print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne('collections/sites'));
         exit;
 
