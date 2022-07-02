@@ -577,7 +577,7 @@ class constants
         print_r($x);
         $y = [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)];
         print_r($y);
-        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne($x, $y));
+        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne('collections/sites', $y));
         //[COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]
         constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
