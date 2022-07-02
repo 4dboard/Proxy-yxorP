@@ -299,11 +299,11 @@ class constants
         /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
         define('YXORP_SITE_DOMAIN', YXORP_SITE . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
-        define('YXORP_SITE_SUB_DOMAIN', 'SITE_SUB_DOMAIN');
+        define('YXORP_SITE_SUB_DOMAIN', YXORP_SITE . CHAR_UNDER . YXORP_SUB . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
-        define('YXORP_TARGET_URL', 'TARGET_URL');
+        define('YXORP_TARGET_URL', YXORP_TARGET . CHAR_UNDER . YXORP_URL);
         /* Defining a constant called YXORP_TARGET_SUB_DOMAIN and setting it to the string TARGET_SUB_DOMAIN. */
-        define('YXORP_TARGET_SUB_DOMAIN', 'TARGET_SUB_DOMAIN');
+        define('YXORP_TARGET_SUB_DOMAIN', YXORP_TARGET . CHAR_UNDER . YXORP_SUB . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
         define('YXORP_TARGET_DOMAIN', 'TARGET_DOMAIN');
         /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
