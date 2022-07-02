@@ -1,7 +1,7 @@
 <p align="center">📢<sub><sup> <i><b> YOUR SUPPORT IS GREATLY APPRECIATED/</b> <a href="https://www.patreon.com/donPabloNow">PATREON.COM/DONPABLONOW</a>/<b>BTC</b>  3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ/<b>ETH</b> 0X3D288C7A673501294C9289C6FC42480A2EA61417 </i>🙏 </sub></sup></p><blockquote><p> ⛔️ <sub><b>ARCHIVE PENDING</b>: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.</sub></p></blockquote></br><a href="https://www.donPabloNow.com/#notice"><img alt="image" src="https://www.donPabloNow.com/notice.wepd"/></a></br></br>
 
 <p align="center">
-<img alt="image" align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png' />[ <a href="./app">ARCHITECTURE</a> ] [ <a href="./app">DEVELOPERS</a> ] [ <a href="./app">DOCUMENTATION</a> ]</p>
+<img alt="image" align="center" src='https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png' />[ <a href="https://github.com/4dboard/proxy-yxorp/wiki">ARCHITECTURE</a> ] [ <a href="https://github.com/4dboard/proxy-yxorp/wiki">DEVELOPERS</a> ] [ <a href="https://github.com/4dboard/proxy-yxorp/wiki">DOCUMENTATION</a> ]</p>
 </p>
 <p align="center">
 <a align="center" href="https://sourceforge.net/projects/proxy-yxorp/files/latest/download"><img alt="image" align="center" alt="Download Proxy yxorP" src="https://a.fsdn.com/con/app/sf-download-button" width=276 height=48 srcset="https://a.fsdn.com/con/app/sf-download-button?button_size=2x 2x"></a>
@@ -434,45 +434,45 @@ interpretation of results. We appreciate all of your assistance and support.
 ## Road Map
 
 - [x] Front-end
-  - [x] Combine Proxy Engines
-  - [x] Allow Multi-tent rendering
-  - [x] Build Caching Layer
-  - [x] Develop Multi-threading support (PHP Vanilla/Independent)
+    - [x] Combine Proxy Engines
+    - [x] Allow Multi-tent rendering
+    - [x] Build Caching Layer
+    - [x] Develop Multi-threading support (PHP Vanilla/Independent)
 
-  + More (To be listed soon)
+    + More (To be listed soon)
 
 - [x] Foundation
-  - [x] API Service
-  - [x] TxT DB
-  - [x] Login
-  - [x] Registration
-  - [x] Dashboard
-  - [x] Who is Online
-  - [x] Documentation
+    - [x] API Service
+    - [x] TxT DB
+    - [x] Login
+    - [x] Registration
+    - [x] Dashboard
+    - [x] Who is Online
+    - [x] Documentation
 - [ ] Tables
-  - [x] Users
-  - [x] Notes
-  - [x] Tasks
-  - [ ] Chat
+    - [x] Users
+    - [x] Notes
+    - [x] Tasks
+    - [ ] Chat
 - [ ] Notes
-  - [x] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [x] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Tasks
-  - [x] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [x] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Chat
-  - [ ] Data Scheme
-  - [x] API Endpoints
-  - [x] Functions
-  - [ ] UI
+    - [ ] Data Scheme
+    - [x] API Endpoints
+    - [x] Functions
+    - [ ] UI
 - [ ] Testing
-  - [x] Versions
-  - [x] Owners
-  - [ ] Crate details
+    - [x] Versions
+    - [x] Owners
+    - [ ] Crate details
 
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png' />
 <img alt="image" src='https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png' />
