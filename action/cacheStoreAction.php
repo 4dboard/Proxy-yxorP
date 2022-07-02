@@ -12,6 +12,8 @@ class cacheStoreAction extends wrapper
     /* A method that is called when the request is completed. */
     public function onEventComplete(): void
     {
+        echo 999;
+        exit;
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
         if (!cache::cache()->isValid()) cache::cache()->set(constants::get(YXORP_RESPONSE)->getContent());
     }
