@@ -28,14 +28,14 @@ class mimeTypesAction extends wrapper
             DIRECTORY_SEPARATOR . 'vnd');
 
         /* Getting the file extension of the requested file. */
-        $_ext = pathinfo(strtok(constants::get('PROXY_URL'), ' ? '), PATHINFO_EXTENSION);
+        $_ext = pathinfo(strtok(constants::get(YXORP_PROXY_URL), ' ? '), PATHINFO_EXTENSION);
 
         /* Setting the content type of the response. */
-        if (str_contains(constants::get('PROXY_URL'), 'bundle.js')) constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'wasm'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), 'sitemap'))
-            constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'xml'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), 'crop'))
-            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), 'format'))
-            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), '.mp4'))
-            constants::set('MIME', 'video' . DIRECTORY_SEPARATOR . 'mp4'); else if (!constants::get('MIME') && str_contains(constants::get('PROXY_URL'), '.js.br'))
+        if (str_contains(constants::get(YXORP_PROXY_URL), 'bundle.js')) constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'wasm'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'sitemap'))
+            constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'xml'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'crop'))
+            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'format'))
+            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), '.mp4'))
+            constants::set('MIME', 'video' . DIRECTORY_SEPARATOR . 'mp4'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), '.js.br'))
             constants::set('MIME', 'br'); else if (array_key_exists($_ext, $_types) && !constants::get('MIME')) constants::set('MIME', $_types[$_ext]); else
             constants::set('MIME', 'text' . DIRECTORY_SEPARATOR . 'html');
 

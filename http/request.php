@@ -163,7 +163,7 @@ class request
     {
         $method = constants::get(YXORP_SERVER)['REQUEST_METHOD'];
         $scheme = (isset(constants::get(YXORP_SERVER)['HTTPS']) && constants::get(YXORP_SERVER)['HTTPS']) ? 'https' : 'http';
-        $url = $scheme . ':' . constants::get('PROXY_URL')->__toString();
+        $url = $scheme . ':' . constants::get(YXORP_PROXY_URL)->__toString();
         $request = new request($method, $url);
         foreach (constants::get(YXORP_SERVER) as $name => $value) if (str_starts_with($name, 'HTTP_')) {
             $name = substr($name, 5);
@@ -199,7 +199,7 @@ class request
 
     #[Pure] public function getUrl(): string
     {
-        return constants::get('PROXY_URL');
+        return constants::get(YXORP_PROXY_URL);
     }
 
     /* A getter method for the `$protocol_version` property. */

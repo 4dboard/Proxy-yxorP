@@ -31,7 +31,7 @@ class siteCollectionAction extends wrapper
         constants::set('FETCH', 'https:' . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(constants::get('SITE_SUB_DOMAIN'))) ? (constants::get('SITE_SUB_DOMAIN')->__toString() . ".") : null) . constants::get('TARGET_DOMAIN')->__toString());
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
-        constants::set('PROXY_URL', constants::get('FETCH')->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());
+        constants::set(YXORP_PROXY_URL, constants::get('FETCH')->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
