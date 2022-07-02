@@ -246,16 +246,6 @@ class constants
         // YXORPS
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
         define('YXORP_SERVER', 'SERVER');
-        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URI`. */
-        define('YXORP_REQUEST_URI', 'REQUEST_URI');
-        /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
-        define('YXORP_HTTP_HOST', 'HTTP_HOST');
-        /* Defining a constant. */
-        define('YXORP_REWRITE_SEARCH', 'INC_REWRITE_SEARCH');
-        /* Defining a constant. */
-        define('YXORP_REWRITE_REPLACE', 'INC_REWRITE_REPLACE');
-        /* Defining a constant. */
-        define('YXORP_COCKPIT_INSTALL', 'COCKPIT_INSTALL');
         /* Defining a constant called YXORP_BUGSNAG and setting it to the string BUGSNAG. */
         define('YXORP_BUGSNAG', 'BUGSNAG');
         /* Defining a constant called YXORP_GUZZLE and setting it to the string 'GUZZLE'. */
@@ -264,14 +254,31 @@ class constants
         define('YXORP_RESPONSE', 'RESPONSE');
         /* Defining a constant called YXORP_REQUEST and setting it to the string YXORP_REQUEST. */
         define('YXORP_REQUEST', 'REQUEST');
-        /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
-        define('YXORP_COCKPIT_APP', 'COCKPIT_APP');
         /* Defining a constant called YXORP_COCKPIT_ACCOUNTS and setting it to the string accounts. */
         define('YXORP_COCKPIT_ACCOUNTS', 'accounts');
         /* Defining a constant called YXORP_PLUGINS and setting it to the string plugins. */
         define('YXORP_PLUGINS', 'plugins');
         /* Defining a constant called YXORP_TARGET and setting it to the string TARGET. */
         define('YXORP_TARGET', 'TARGET');
+        /* Defining a constant called YXORP_SITE and setting it to the string SITE. */
+        define('YXORP_SITE', 'SITE');
+        /* Defining a constant called YXORP_HOST and setting it to the string HOST. */
+        define('YXORP_HOST', 'HOST');
+        /* Defining a constant called URI and setting it to the string URI. */
+        define('YXORP_URI', 'URI');
+
+        /* Defining a constant. */
+        define('YXORP_REWRITE_SEARCH', 'INC_REWRITE_SEARCH');
+        /* Defining a constant. */
+        define('YXORP_REWRITE_REPLACE', 'INC_REWRITE_REPLACE');
+        /* Defining a constant. */
+        define('YXORP_COCKPIT_INSTALL', 'COCKPIT_INSTALL');
+        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URI`. */
+        define('YXORP_REQUEST_URI', 'REQUEST_URI');
+        /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
+        define('YXORP_HTTP_HOST', 'HTTP_HOST');
+        /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
+        define('YXORP_COCKPIT_APP', 'COCKPIT_APP');
         /* Defining a constant called YXORP_PROXY_URL and setting it to the string PROXY_URL. */
         define('YXORP_PROXY_URL', 'PROXY_URL');
         /* Defining a constant called YXORP_SERVER_NAME and setting it to the string SERVER_NAME. */
