@@ -5,13 +5,13 @@
         <target>build</target>
     </parser>
     <transformer>
-        <target>docs</target>
+        <target>./docs</target>
     </transformer>
     <transformations>
         <template name="./vendor/saggre/phpdocumentor-markdown/themes/markdown"/>
     </transformations>
     <files>
-        <directory>src</directory>
+        <directory>./</directory>
         <ignore>test/*</ignore>
     </files>
 </phpdoc>
