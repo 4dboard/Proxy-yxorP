@@ -1,15 +1,15 @@
 <?php
 
-/* Importing the wrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\wrapper;
+use yxorP\action\actionWrapper;
 use yxorP\inc\constants;
 
-/* Extending the wrapper class. */
+/* Extending the actionWrapper class. */
 
-class siteCollectionAction extends wrapper
+class siteCollectionAction extends actionWrapper
 {
-    /* A method that is called by the wrapper class. */
+    /* A method that is called by the actionWrapper class. */
     public function onBuildContext(): void
     {
         /* Setting the `TARGET` variable to the result of the `findOne` method. */

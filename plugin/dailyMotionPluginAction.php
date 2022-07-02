@@ -1,18 +1,31 @@
 <?php
 
-/* Importing the wrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
 use Nette\Utils\Html;
-use yxorP\http\wrapper;
+use yxorP\action\actionWrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
-/* Extending the wrapper class. */
+/* Extending the actionWrapper class. */
 
-class dailyMotionPluginAction extends wrapper
+class dailyMotionPluginAction extends actionWrapper
 {
     /* Defining the URL pattern that the plugin will be applied to. */
     protected string $url_pattern = 'dailymotion.com';
+
+    /* A method that is called when the request is completed. */
+
+    public static function completed($matches, $content): void
+    {
+        /* The `stripslashes` function removes backslashes from a string. */
+        $video = stripslashes($matches[1]);
+        /* Creating a video player with the video URL and the width and height of the player. */
+        $player = generalHelper::vid_player($video, 1240, 478);
+        /* Replacing the content of the element with the id `player` with the `$player` variable. */
+        $content = Html::replace_inner("#player", $player, $content);
+
+    }
 
     /* A method that is called when the request is completed. */
 
@@ -29,18 +42,5 @@ class dailyMotionPluginAction extends wrapper
         $content = Html::remove_scripts($content);
         /* It sets the content of the response object to the `$content` variable. */
         $response->setContent($content);
-    }
-
-    /* A method that is called when the request is completed. */
-
-    public static function completed($matches, $content): void
-    {
-        /* The `stripslashes` function removes backslashes from a string. */
-        $video = stripslashes($matches[1]);
-        /* Creating a video player with the video URL and the width and height of the player. */
-        $player = generalHelper::vid_player($video, 1240, 478);
-        /* Replacing the content of the element with the id `player` with the `$player` variable. */
-        $content = Html::replace_inner("#player", $player, $content);
-
     }
 }

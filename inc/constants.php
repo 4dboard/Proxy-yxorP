@@ -156,7 +156,7 @@ class constants
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
         define('FILE_BOOTSTRAP', 'bootstrap');
         /* Defining a constant. */
-        define('FILE_ACTION_WRAPPER', 'wrapper');
+        define('FILE_ACTION_WRAPPER', 'actionWrapper');
 
 
         //METHODS
@@ -431,7 +431,7 @@ class constants
         define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
         /* Defining the path to the guzzle phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
-        /* Defining the path to the action wrapper file. */
+        /* Defining the path to the action actionWrapper file. */
         define('PATH_ACTION_WRAPPER', DIR_ROOT . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);

@@ -1,12 +1,12 @@
 <?php
-/* Importing the wrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\wrapper;
+use yxorP\action\actionWrapper;
 use yxorP\inc\constants;
 
-/* A class that extends the wrapper class. */
+/* A class that extends the actionWrapper class. */
 
-class debubEnablingAction extends wrapper
+class debubEnablingAction extends actionWrapper
 {
     /* A method that is called before the action is executed. */
     public function buildIncludes(): void

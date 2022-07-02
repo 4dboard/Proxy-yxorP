@@ -471,82 +471,82 @@ Search.appendIndex(
         "summary": "",
         "url": "classes/yxorP-http-response.html#property_statusCodes"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper",
-        "name": "wrapper",
+        "fqsen": "\\yxorP\\http\\actionWrapper",
+        "name": "actionWrapper",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003Asubscribe\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003Asubscribe\u0028\u0029",
         "name": "subscribe",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_subscribe"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003Aroute\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003Aroute\u0028\u0029",
         "name": "route",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_route"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonCheck\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonCheck\u0028\u0029",
         "name": "onCheck",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onCheck"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBuildCached\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildCached\u0028\u0029",
         "name": "onBuildCached",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBuildCached"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBuildContext\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildContext\u0028\u0029",
         "name": "onBuildContext",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBuildContext"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBuildIncludes\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildIncludes\u0028\u0029",
         "name": "onBuildIncludes",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBuildIncludes"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBuildHeaders\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildHeaders\u0028\u0029",
         "name": "onBuildHeaders",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBuildHeaders"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBuildRequest\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildRequest\u0028\u0029",
         "name": "onBuildRequest",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBuildRequest"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBuildResult\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildResult\u0028\u0029",
         "name": "onBuildResult",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBuildResult"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBeforeRequest\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBeforeRequest\u0028\u0029",
         "name": "onBeforeRequest",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBeforeRequest"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonHeadersReceived\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonHeadersReceived\u0028\u0029",
         "name": "onHeadersReceived",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onHeadersReceived"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonCurlWrite\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonCurlWrite\u0028\u0029",
         "name": "onCurlWrite",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onCurlWrite"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonCompleted\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonCompleted\u0028\u0029",
         "name": "onCompleted",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onCompleted"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003AonBuildException\u0028\u0029",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003AonBuildException\u0028\u0029",
         "name": "onBuildException",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#method_onBuildException"
     }, {
-        "fqsen": "\\yxorP\\http\\wrapper\u003A\u003A\u0024url_pattern",
+        "fqsen": "\\yxorP\\http\\actionWrapper\u003A\u003A\u0024url_pattern",
         "name": "url_pattern",
         "summary": "",
         "url": "classes/yxorP-http-wrapper.html#property_url_pattern"

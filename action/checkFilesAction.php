@@ -1,13 +1,13 @@
 <?php
-/* Importing the wrapper class from the yxorP\http namespace. */
+/* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\http\wrapper;
+use yxorP\action\actionWrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
-/* Extending the wrapper class. */
+/* Extending the actionWrapper class. */
 
-class checkFilesAction extends wrapper
+class checkFilesAction extends actionWrapper
 {
     public function buildIncludes()
     {
