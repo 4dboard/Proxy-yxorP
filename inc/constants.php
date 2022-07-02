@@ -80,6 +80,22 @@ class constants
         define('CHAR_COLON', ':');
         /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `!`. */
         define('CHAR_EXCLAMATION', '!');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `!`. */
+        define('CHAR_CAP_P', 'P');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `<`. */
+        define('CHAR_ARROW', '<');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `>`. */
+        define('CHAR_ARROW_CLOSE', '>');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `,`. */
+        define('CHAR_COMMA', ',');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `2`. */
+        define('CHAR_2', '2');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `1`. */
+        define('CHAR_1', '1');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `6`. */
+        define('CHAR_6', '6');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `3`. */
+        define('CHAR_3', '3');
 
 
         // NUMBERS
@@ -291,6 +307,8 @@ class constants
         define('VAR_INTERFACE', 'interface');
         /* Defining a constant called `VAR_GETCSV` and setting it to the value of `str_getcsv`. */
         define('VAR_GETCSV', 'str_getcsv');
+        /* Defining a constant called `VAR_DOMAIN` and setting it to the value of `domain`. */
+        define('VAR_DOMAIN', 'domain');
 
 
         //VARIBLES MULTIPLE
@@ -440,7 +458,7 @@ class constants
         define('REG_NINE', CHAR_HASH . CHAR_SLASH . CHAR_SQUARE . CHAR_UP . CHAR_SLASH . CHAR_SQUARE_CLOSE . CHAR_ASTRIX . CHAR_USD . CHAR_HASH);
         define('REG_TEN', CHAR_HASH . CHAR_SLASH . CHAR_QUESTION . CHAR_EXCLAMATION . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_BRACKET_CLOSE . CHAR_SQUARE . CHAR_UP . CHAR_SLASH . CHAR_SQUARE_CLOSE . CHAR_PLUS . CHAR_SLASH . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH . CHAR_HASH);
         define('REG_ELEVEN', CHAR_HASH . CHAR_BRACKET . CHAR_SLASH . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_QUESTION . CHAR_SLASH . CHAR_BRACKET_CLOSE . CHAR_HASH);
-        define('REG_TWELVE', '/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i');
+        define('REG_TWELVE', CHAR_SLASH . CHAR_BRACKET . CHAR_QUESTION . CHAR_CAP_P . CHAR_ARROW . VAR_DOMAIN . CHAR_ARROW_CLOSE . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_SQUARE_CLOSE . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_SLASH_BACK . CHAR_DASH . CHAR_SQUARE_CLOSE . CHAR_CURVE . CHAR_1 . CHAR_COMMA . CHAR_6 . CHAR_3 . CHAR_CURVE_CLOSE . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_PERIOD . CHAR_SQUARE_CLOSE . CHAR_CURVE . CHAR_2 . CHAR_COMMA . CHAR_6 . CHAR_CURVE_CLOSE . CHAR_BRACKET_CLOSE . CHAR_USD . CHAR_SLASH . CHAR_I);
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
