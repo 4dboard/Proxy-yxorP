@@ -175,8 +175,7 @@ class yxorP
     {/* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
         calling the `base()` function. */
         if (!is_dir($to)) mkdir($to);
-        $dir = opendir($from);
-        while (($ff = readdir($dir)) !== false) if ($ff != CHAR_PERIOD && $ff != CHAR_PERIOD . CHAR_PERIOD) if (is_dir("$from$ff")) self::migrate("$from$ff" . DIRECTORY_SEPARATOR, "$to$ff" . DIRECTORY_SEPARATOR); else   copy("$from$ff", "$to$ff");
+        while (($ff = readdir(($dir = opendir($from)))) !== false) if ($ff != CHAR_PERIOD && $ff != CHAR_PERIOD . CHAR_PERIOD) if (is_dir("$from$ff")) self::migrate("$from$ff" . DIRECTORY_SEPARATOR, "$to$ff" . DIRECTORY_SEPARATOR); else   copy("$from$ff", "$to$ff");
         closedir($dir);
     }
 
