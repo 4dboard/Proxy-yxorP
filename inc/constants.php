@@ -33,6 +33,7 @@ class constants
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('CHAR_EMPTY_STRING', '');
 
+
         // NUMBERS
         /* Defining a constant called `NUM_ENV_LIMIT` and setting it to the value of `2`. */
         define('NUM_ENV_LIMIT', 2);
