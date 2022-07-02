@@ -212,7 +212,7 @@ class constants
         define('SUBSCRIBE_METHOD', 'subscribe');
 
 
-        //VARIBLES
+        //VARIBLES SINGLE
         /* Defining a constant called `VAR_USER` and setting it to the value of `user`. */
         define('VAR_USER', 'user');
         /* Defining a constant called `VAR_NAME` and setting it to the value of `name`. */
@@ -243,10 +243,6 @@ class constants
         define('VAR_URL_HOST', 'url_host');
         /* Defining a constant called `VAR_HTTPS` and setting it to the value of `https`. */
         define('VAR_HTTPS', 'https:');
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . CHAR_SLASH. */
-        define('VAR_PLUS_SLASH', CHAR_PLUS . CHAR_SLASH);
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
-        define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_ALLOW_REDIRECTS', 'allow_redirects');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
@@ -282,6 +278,13 @@ class constants
         /* Defining a constant called `VAR_TEXT` and setting it to the value of `text`. */
         define('VAR_TEXT', 'text');
         /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
+
+
+        //VARIBLES MULTIPLE
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . CHAR_SLASH. */
+        define('VAR_PLUS_SLASH', CHAR_PLUS . CHAR_SLASH);
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         define('VAR_TEXT_HTML', VAR_TEXT . CHAR_PERIOD . VAR_HTML);
 
 
