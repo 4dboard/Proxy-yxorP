@@ -2,12 +2,12 @@
 /* Importing the wrapper class from the yxorP\http namespace. */
 
 use Nette\Utils\Html;
-use yxorP\inc\actionWrapper;
+use yxorP\inc\wrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class, which is a class that is used to create plugins. */
 
-class twitterPluginAction extends actionWrapper
+class twitterPluginAction extends wrapper
 {
     /* A regular expression that will be used to match the URL. */
     /* A method that is called when the request is completed. */

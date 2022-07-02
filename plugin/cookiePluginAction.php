@@ -2,12 +2,12 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\actionWrapper;
+use yxorP\inc\wrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class. */
 
-class cookiePluginAction extends actionWrapper
+class cookiePluginAction extends wrapper
 {
     /* A constant that is used to prefix the cookie name. */
     public const COOKIE_PREFIX = 'pc';

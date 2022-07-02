@@ -2,11 +2,11 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\actionWrapper;
+use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
-class setHeadersAction extends actionWrapper
+class setHeadersAction extends wrapper
 {
     /* Setting the headers for the request. */
     public function buildHeaders(): void

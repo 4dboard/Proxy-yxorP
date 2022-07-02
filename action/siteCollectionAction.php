@@ -2,12 +2,12 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\actionWrapper;
+use yxorP\inc\wrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class. */
 
-class siteCollectionAction extends actionWrapper
+class siteCollectionAction extends wrapper
 {
     /* A method that is called by the wrapper class. */
     public function onBuildContext(): void

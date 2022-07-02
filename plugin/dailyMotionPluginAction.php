@@ -3,13 +3,13 @@
 /* Importing the wrapper class from the yxorP\http namespace. */
 
 use Nette\Utils\Html;
-use yxorP\inc\actionWrapper;
+use yxorP\inc\wrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
 /* Extending the wrapper class. */
 
-class dailyMotionPluginAction extends actionWrapper
+class dailyMotionPluginAction extends wrapper
 {
     /* Defining the URL pattern that the plugin will be applied to. */
     protected string $url_pattern = 'dailymotion.com';
