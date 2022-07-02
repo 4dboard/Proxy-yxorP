@@ -179,10 +179,7 @@ class yxorP
         }
 
         if (!is_dir($to)) {
-            if (!mkdir($to)) {
-                exit("Failed to create $to");
-            }
-            echo "$to created\r\n";
+            mkdir($to);
         }
 
         $dir = opendir($from);
@@ -191,10 +188,7 @@ class yxorP
                 if (is_dir("$from$ff")) {
                     self::migrate("$from$ff/", "$to$ff/");
                 } else {
-                    if (!copy("$from$ff", "$to$ff")) {
-                        exit("Error copying $from$ff to $to$ff");
-                    }
-                    echo "$from$ff copied to $to$ff\r\n";
+                    copy("$from$ff", "$to$ff");
                 }
             }
         }
