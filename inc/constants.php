@@ -243,7 +243,7 @@ class constants
         'https'
         'http'
 
-        // YXORPS
+        // YXORPS SINGLE
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
         define('YXORP_SERVER', 'SERVER');
         /* Defining a constant called YXORP_BUGSNAG and setting it to the string BUGSNAG. */
@@ -278,6 +278,17 @@ class constants
         define('YXORP_REWRITE', 'REWRITE');
         /* Defining a constant called YXORP_SEARCH and setting it to the string SEARCH. */
         define('YXORP_SEARCH', 'SEARCH');
+        /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
+        define('YXORP_FETCH', 'FETCH');
+        /* Defining a constant called YXORP_FILES and setting it to the string files. */
+        define('YXORP_FILES', 'files');
+        /* Defining a constant called YXORP_PHP and setting it to the string PHP. */
+        define('YXORP_PHP', 'PHP');
+        /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
+        define('YXORP_SELF', 'SELF');
+
+
+        // YXORP MULTI
         /* Defining a constant. */
         define('YXORP_REWRITE_SEARCH', YXORP_INC . CHAR_UNDER . YXORP_REWRITE . YXORP_SEARCH);
         /* Defining a constant. */
@@ -305,19 +316,11 @@ class constants
         /* Defining a constant called YXORP_TARGET_SUB_DOMAIN and setting it to the string TARGET_SUB_DOMAIN. */
         define('YXORP_TARGET_SUB_DOMAIN', YXORP_TARGET . CHAR_UNDER . YXORP_SUB . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
-        define('YXORP_TARGET_DOMAIN', XORP_TARGET . CHAR_UNDER . YXORP_DOMAIN);
-        /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
-        define('YXORP_FETCH', 'FETCH');
+        define('YXORP_TARGET_DOMAIN', YXORP_TARGET . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_DIR_FULL and setting it to the string DIR_FULL. */
         define('YXORP_DIR_FULL', 'DIR_FULL');
-        /* Defining a constant called YXORP_FILES and setting it to the string files. */
-        define('YXORP_FILES', 'files');
         /* Defining a constant called YXORP_SITE_HOST and setting it to the string SITE_HOST. */
         define('YXORP_SITE_HOST', 'SITE_HOST');
-        /* Defining a constant called YXORP_PHP and setting it to the string PHP. */
-        define('YXORP_PHP', 'PHP');
-        /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
-        define('YXORP_SELF', 'SELF');
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', YXORP_PHP . CHAR_UNDER . YXORP_SELF);
 
