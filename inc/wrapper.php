@@ -111,15 +111,10 @@ abstract class wrapper
                     /* Calling the `onBuildRequest` method. */
                     $this->onBuildRequest();
                     break;
-                /* Calling the `onFinal` method. */
-                case EVENT_FINAL:
-                    /* Calling the `onFinal` method. */
-                    $this->onFinal();
-                    break;
-                /* Calling the `onBeforeRequest` method. */
+                /* Calling the `onBeforeSend` method. */
                 case EVENT_BEFORE_SEND:
-                    /* Calling the `onBeforeRequest` method. */
-                    $this->onBeforeRequest();
+                    /* Calling the `onBeforeSend` method. */
+                    $this->onBeforeSend();
                     break;
                 /* Calling the `onHeadersReceived` method. */
                 case EVENT_SENT:
@@ -135,6 +130,11 @@ abstract class wrapper
                 case EVENT_COMPLETE:
                     /* Calling the `onCompleted` method. */
                     $this->onCompleted();
+                    break;
+                /* Calling the `onFinal` method. */
+                case EVENT_FINAL:
+                    /* Calling the `onFinal` method. */
+                    $this->onFinal();
                     break;
             }
         } catch (Exception $e) {
@@ -181,17 +181,11 @@ abstract class wrapper
 
     /* Used to build the result. */
 
-    public function onFinal()
+    public function onBeforeSend()
     {
     }
 
     /* Used to execute code before the request is sent. */
-
-    public function onBeforeRequest()
-    {
-    }
-
-    /* Used to execute code when the headers are received. */
 
     public function onHeadersReceived()
     {
@@ -203,9 +197,15 @@ abstract class wrapper
     {
     }
 
-    /* Used to execute code when the request is completed. */
+    /* Used to execute code when the headers are received. */
 
     public function onCompleted()
+    {
+    }
+
+    /* Used to execute code when the request is completed. */
+
+    public function onFinal()
     {
     }
 
