@@ -81,13 +81,6 @@ abstract class wrapper
     {
         /* Used to catch exceptions. */
         try {
-            /* Getting the current URL. */
-            $url = constants::get(YXORP_REQUEST)->getUri();
-
-            /* Used to filter the events. */
-            if ($this->url_pattern) if (generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1)
-                return; else if (stripos($url, $this->url_pattern) === false) return;
-
             /* Used to check if the event should be executed. */
             $this->onCheck();
 
