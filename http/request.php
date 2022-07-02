@@ -167,7 +167,7 @@ class request
         $request = new request($method, $url);
         foreach (constants::get(YXORP_SERVER) as $name => $value) if (str_starts_with($name, 'HTTP_')) {
             $name = substr($name, 5);
-            $name = str_replace('_', ' ', $name);
+            $name = str_replace(CHAR_LOWER, ' ', $name);
             $name = ucwords(strtolower($name));
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
