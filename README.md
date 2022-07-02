@@ -3,11 +3,7 @@
 
 > ⛔️ **ARCHIVE PENDING**: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
 
-<font align="center">
-
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
-
-[![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler
 =======================================================
@@ -16,13 +12,13 @@
 
 ### _Backend (GUI) included, PHP CURL+Composer are Optional_
 
+[![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
+
 [ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ] [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ][ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/)]
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
-
-</font>
 
 yxorP is a plug-and-play, flat-file application that **does not need Composer, PHP CURL, or databases**; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
