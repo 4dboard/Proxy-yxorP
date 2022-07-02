@@ -240,7 +240,7 @@ class constants
         'application/x-www-form-urlencoded'
         '?'
 
-        'https'
+        YXORP_HTTPS
         YXORP_HTTP
 
         // YXORPS SINGLE
@@ -303,9 +303,9 @@ class constants
         /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
         define('YXORP_FULL', 'FULL');
         /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
-        define('YXORP_HTTPS', 'HTTPS');
+        define('YXORP_HTTPS', YXORP_HTTPS);
         /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
-        define('YXORP_HTTP', YXORP_HTTP);
+        define('YXORP_HTTP', 'HTTP');
         /* Defining a constant called YXORP_METHOD and setting it to the string METHOD. */
         define('YXORP_METHOD', 'METHOD');
         /* Defining a constant called YXORP_REMOTE and setting it to the string REMOTE. */
