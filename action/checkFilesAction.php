@@ -1,7 +1,7 @@
 <?php
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\actionWrapper;
+use yxorP\inc\wrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 

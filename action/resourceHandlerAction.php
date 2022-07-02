@@ -2,7 +2,7 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\actionWrapper;
+use yxorP\inc\wrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class, which is a class that is used to handle events. */
