@@ -16,6 +16,10 @@ class constants
     public static function create($_dir): void
     {
 
+
+        /* Defining a constant called `CHAR_SLASH` and setting it to the value of `/`. */
+        define('CHAR_SLASH', '/');
+
         /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `CHAR_SLASH`
         appended to it. */
         define('DIR_ROOT', $_dir . CHAR_SLASH);
@@ -39,8 +43,6 @@ class constants
         define('CHAR_UNDER', '_');
         /* Defining a constant called `CHAR_PLUS` and setting it to the value of `+`. */
         define('CHAR_PLUS', '+');
-        /* Defining a constant called `CHAR_SLASH` and setting it to the value of `/`. */
-        define('CHAR_SLASH', '/');
         /* Defining a constant called `CHAR_SLASH_BACK` and setting it to the value of `\`. */
         define('CHAR_SLASH_BACK', '\\');
         /* Defining a constant called `CHAR_QUESTION` and setting it to the value of `?`. */
