@@ -19,6 +19,7 @@ class constants
         /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `CHAR_SLASH`
         appended to it. */
         define('DIR_ROOT', $_dir . CHAR_SLASH);
+        mb_convert_case('ẞ', MB_CASE_FOLD, 'UTF-8');
 
 
         // SPECIAL
