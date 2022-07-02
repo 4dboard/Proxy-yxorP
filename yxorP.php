@@ -136,8 +136,6 @@ class yxorP
         if (!is_dir(DIR_ROOT)) if (!mkdir($concurrentDirectory = DIR_ROOT) && !is_dir($concurrentDirectory))
             throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $concurrentDirectory));
 
-        echo constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count();
-        exit;
 
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
