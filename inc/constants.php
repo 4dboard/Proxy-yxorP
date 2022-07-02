@@ -307,7 +307,7 @@ class constants
         /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
         define('YXORP_SUB', 'SUB');
         /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
-        define('YXORP_DOMAIN', YXORP_DOMAIN);
+        define('YXORP_DOMAIN', 'DOMAIN');
         /* Defining a constant called YXORP_DIR and setting it to the string DIR. */
         define('YXORP_DIR', 'DIR');
         /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
