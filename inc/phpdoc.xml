@@ -15,5 +15,6 @@
         <ignore>test/*</ignore>
         <ignore>inc/*</ignore>
         <ignore>vendor/*</ignore>
+        <ignore>*/TextNormalizer.php</ignore>
     </files>
 </phpdoc>
