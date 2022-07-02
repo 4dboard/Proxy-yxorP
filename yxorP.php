@@ -155,8 +155,8 @@ class yxorP
         /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
         define(YXORP_COCKPIT_INSTALL, true);
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
-        $from = PATH_COCKPIT_LOCAL . DIRECTORY_SEPARATOR . '*';
-        $to = PATH_DIR_COCKPIT . DIRECTORY_SEPARATOR;
+        $from = PATH_COCKPIT_LOCAL . '*';
+        $to = PATH_DIR_COCKPIT;
         $files = array_filter(glob("$from*"), "is_file");
         foreach ($files as $f) {
             copy($f, $to . basename($f));
