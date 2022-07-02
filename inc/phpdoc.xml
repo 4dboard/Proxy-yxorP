@@ -13,5 +13,6 @@
     <files>
         <directory>./</directory>
         <ignore>test/*</ignore>
+        <ignore>inc/*</ignore>
     </files>
 </phpdoc>
