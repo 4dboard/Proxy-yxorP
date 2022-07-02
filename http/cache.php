@@ -43,11 +43,19 @@ class cache
         /* Used to set the default value of the `$options` variable. */
         $attr_instance = new self(false);
         /* Used to set the default value of the `$options` variable. */
-        print_r($attr_instance->get());
+        print_r($attr_instance);
         if ($attr_instance->isExists()) $this->options = $attr_instance->get();
     }
 
     /* Used to check if the cache file exists. */
+
+    #[Pure] private function isExists(): bool
+    {
+        /* Used to check if the cache file exists. */
+        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY));
+    }
+
+    /* Used to get the data from the cache file. */
 
     public function get(): void
     {
@@ -57,20 +65,12 @@ class cache
         @include PATH_DIR_TMP . constants::get(CACHE_KEY);
     }
 
-    /* Used to get the data from the cache file. */
+    /* Used to check if the cache file is valid. */
 
     public function isValid(): bool
     {
         /* Checking if the cache file is valid. */
         return !($this->options['expiry'] !== -1 && $this->options['expiry'] < time()) && !$this->isExists();
-    }
-
-    /* Used to check if the cache file is valid. */
-
-    #[Pure] private function isExists(): bool
-    {
-        /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY));
     }
 
     /* Used to get the instance of the class. */
