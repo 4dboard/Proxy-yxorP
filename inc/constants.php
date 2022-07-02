@@ -20,7 +20,6 @@ class constants
         appended to it. */
         define('DIR_ROOT', $_dir . DIRECTORY_SEPARATOR);
 
-
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
