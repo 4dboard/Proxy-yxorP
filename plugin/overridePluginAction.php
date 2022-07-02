@@ -23,6 +23,7 @@ class overridePluginAction extends wrapper
         echo constants::get(YXORP_TARGET_DOMAIN);
         print_r((array)constants::get(YXORP_GLOBAL_REPLACE));
         print_r((array)constants::get(YXORP_TARGET)['replace']);
+        exit;
 
         $this->REWRITE(
             str_replace(
