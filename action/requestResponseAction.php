@@ -1,6 +1,8 @@
 <?php
 /* Importing the wrapper class from the yxorP\http namespace. */
 
+use yxorP\http\request;
+use yxorP\http\response;
 use yxorP\inc\constants;
 use yxorP\inc\wrapper;
 
@@ -15,8 +17,5 @@ class requestResponseAction extends wrapper
         constants::set(YXORP_RESPONSE, new Response());
         /* Setting the request object to the key REQUEST. */
         constants::set(YXORP_REQUEST, Request::createFromGlobals());
-        print_r(constants::get(YXORP_REQUEST));
-        echo 1;
-        exit('1243');
     }
 }
