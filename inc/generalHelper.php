@@ -83,7 +83,7 @@ class generalHelper
     public static function re_match($pattern, $string): bool
     {
         $quoted = preg_quote($pattern, CHAR_HASH);
-        $translated = strtr($quoted, array(CHAR_SLASH_BACK => REG_FIVE, REG_SIX => CHAR_PERIOD));
+        $translated = strtr($quoted, array(DIRECTORY_SEPARATOR_BACK => REG_FIVE, REG_SIX => CHAR_PERIOD));
         return preg_match(REG_SEVEN . $translated . REG_EIGHT, $string) === 1;
     }
 
@@ -203,12 +203,12 @@ class generalHelper
         $_parse_url = parse_url($base);
         extract($_parse_url);
         $path = preg_replace(REG_NINE, CHAR_EMPTY_STRING, $path);
-        if ($rel[0] === CHAR_SLASH) {
+        if ($rel[0] === DIRECTORY_SEPARATOR) {
             $path = CHAR_EMPTY_STRING;
         }
         $abs = "$host$path/$rel";
         $re = array(REG_ELEVEN, REG_TEN);
-        for ($n = 1; $n > 0; $abs = preg_replace($re, CHAR_SLASH, $abs, -1, $n)) {
+        for ($n = 1; $n > 0; $abs = preg_replace($re, DIRECTORY_SEPARATOR, $abs, -1, $n)) {
         }
         return $scheme . ':' . $abs;
     }
@@ -240,7 +240,7 @@ class generalHelper
     {
         foreach (scandir($dir) as $x) if (strlen($x) > 3) {
             if (str_contains($x, VAR_INTERFACE)) continue;
-            if (is_dir($_loc = $dir . CHAR_SLASH . $x)) return self::fileCheck($_loc, $inc);
+            if (is_dir($_loc = $dir . DIRECTORY_SEPARATOR . $x)) return self::fileCheck($_loc, $inc);
             if (str_contains(constants::get(YXORP_PROXY_URL), $x)) return cache::cache()->set(file_get_contents($_loc));
             if ($inc) require_once($_loc);
         }

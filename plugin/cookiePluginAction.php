@@ -2,8 +2,8 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\wrapper;
 use yxorP\inc\constants;
+use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
@@ -13,6 +13,18 @@ class cookiePluginAction extends wrapper
     public const COOKIE_PREFIX = 'pc';
 
     /* A method that is called before the request is sent to the server. */
+
+    public function onBeforeRequest(): void
+    {
+        /* Creating an empty array. */
+        $send_cookies = [];
+        /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
+        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', constants::get(YXORP_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
+        /* Setting the cookie header. */
+        if (!is_empty($send_cookies)) constants::get(YXORP_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
+    }
+
+    /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
 
     public static function beforeRequest($match)
     {
@@ -26,7 +38,19 @@ class cookiePluginAction extends wrapper
         if (str_contains($host, $cookie->cookie_domain)) return $cookie->cookie_name . '=' . $cookie->cookie_value;
     }
 
-    /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
+    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
+
+    public function onHeadersReceived(): void
+    {
+        /* Getting the response object from the constants class. */
+        $response = constants::get(YXORP_RESPONSE);
+        /* Getting the `set-cookie` header from the response. */
+        $set_cookie = $response->headers->get('set-cookie');
+        /* Checking if the `set-cookie` header is set and if it is, it calls the `headersReceived` method. */
+        if ($set_cookie) self::headersReceived($response, $set_cookie);
+    }
+
+    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
 
     public static function headersReceived($response, $set_cookie): void
     {
@@ -37,7 +61,7 @@ class cookiePluginAction extends wrapper
         foreach ((array)$set_cookie as $line) self::Received($line);
     }
 
-    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
+    /* Parsing the cookie and then it is setting the cookie header. */
 
     public static function Received($line): void
     {
@@ -49,12 +73,12 @@ class cookiePluginAction extends wrapper
         constants::get(YXORP_RESPONSE)->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
     }
 
-    /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
+    /* Parsing the cookie and then it is returning an array with the cookie data. */
 
     private static function parse_cookie($line, $url): array
     {
         /* Creating an array with the cookie data. */
-        $data = array('name' => CHAR_EMPTY_STRING, 'value' => CHAR_EMPTY_STRING, YXORP_DOMAIN => parse_url($url, PHP_URL_HOST), 'path' => CHAR_SLASH, 'expires' => 0, 'secure' => false, 'httpOnly' => true);
+        $data = array('name' => CHAR_EMPTY_STRING, 'value' => CHAR_EMPTY_STRING, YXORP_DOMAIN => parse_url($url, PHP_URL_HOST), 'path' => DIRECTORY_SEPARATOR, 'expires' => 0, 'secure' => false, 'httpOnly' => true);
         /* Removing the `Set-Cookie2: ` from the cookie header and then it is exploding the cookie header by `;` and then
         it is trimming the cookie header and then it is filtering the cookie header. */
         $pairs = array_filter(array_map('trim', explode(';', preg_replace('/^Set-Cookie2?: /i', CHAR_EMPTY_STRING, trim($line)))));
@@ -81,29 +105,5 @@ class cookiePluginAction extends wrapper
         }
         /* Returning the cookie data. */
         return $data;
-    }
-
-    /* Parsing the cookie and then it is setting the cookie header. */
-
-    public function onBeforeRequest(): void
-    {
-        /* Creating an empty array. */
-        $send_cookies = [];
-        /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
-        if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', constants::get(YXORP_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
-        /* Setting the cookie header. */
-        if (!is_empty($send_cookies)) constants::get(YXORP_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
-    }
-
-    /* Parsing the cookie and then it is returning an array with the cookie data. */
-
-    public function onHeadersReceived(): void
-    {
-        /* Getting the response object from the constants class. */
-        $response = constants::get(YXORP_RESPONSE);
-        /* Getting the `set-cookie` header from the response. */
-        $set_cookie = $response->headers->get('set-cookie');
-        /* Checking if the `set-cookie` header is set and if it is, it calls the `headersReceived` method. */
-        if ($set_cookie) self::headersReceived($response, $set_cookie);
     }
 }

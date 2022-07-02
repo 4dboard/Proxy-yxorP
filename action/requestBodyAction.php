@@ -1,8 +1,8 @@
 <?php
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\wrapper;
 use yxorP\inc\constants;
+use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
@@ -12,6 +12,6 @@ class requestBodyAction extends wrapper
     public function buildRequest(): void
     {
         /* Getting the request body from the input stream and setting it to the request object. */
-        if ($_body = file_get_contents('php:' . CHAR_SLASH . CHAR_SLASH . 'input')) constants::get(YXORP_REQUEST)->setBody(json_decode($_body, true), constants::get('MIME'));
+        if ($_body = file_get_contents('php:' . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . 'input')) constants::get(YXORP_REQUEST)->setBody(json_decode($_body, true), constants::get('MIME'));
     }
 }

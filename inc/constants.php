@@ -17,12 +17,12 @@ class constants
     {
 
 
-        /* Defining a constant called `CHAR_SLASH` and setting it to the value of `/`. */
-        define('CHAR_SLASH', '/');
+        /* Defining a constant called `DIRECTORY_SEPARATOR` and setting it to the value of `/`. */
+        define('DIRECTORY_SEPARATOR', '/');
 
-        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `CHAR_SLASH`
+        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_ROOT', $_dir . CHAR_SLASH);
+        define('DIR_ROOT', $_dir . DIRECTORY_SEPARATOR);
 
 
         // SPECIAL
@@ -42,8 +42,8 @@ class constants
         define('CHAR_UNDER', '_');
         /* Defining a constant called `CHAR_PLUS` and setting it to the value of `+`. */
         define('CHAR_PLUS', '+');
-        /* Defining a constant called `CHAR_SLASH_BACK` and setting it to the value of `\`. */
-        define('CHAR_SLASH_BACK', '\\');
+        /* Defining a constant called `DIRECTORY_SEPARATOR_BACK` and setting it to the value of `\`. */
+        define('DIRECTORY_SEPARATOR_BACK', '\\');
         /* Defining a constant called `CHAR_QUESTION` and setting it to the value of `?`. */
         define('CHAR_QUESTION', '?');
         /* Defining a constant called `CHAR_AT` and setting it to the value of `@`. */
@@ -243,12 +243,12 @@ class constants
 
 
         //VARIBLES MULTIPLE
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . CHAR_SLASH. */
-        define('VAR_PLUS_SLASH', CHAR_PLUS . CHAR_SLASH);
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
+        define('VAR_PLUS_SLASH', CHAR_PLUS . DIRECTORY_SEPARATOR);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
-        define('VAR_TEXT_HTML', VAR_TEXT . CHAR_SLASH . VAR_HTML);
+        define('VAR_TEXT_HTML', VAR_TEXT . DIRECTORY_SEPARATOR . VAR_HTML);
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
         define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
 
@@ -369,42 +369,42 @@ class constants
 
 
         // DIRECTORIES
-        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `CHAR_SLASH`
+        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_ACTION', 'action' . CHAR_SLASH);
-        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `CHAR_SLASH`
+        define('DIR_ACTION', 'action' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_PLUGIN', 'plugin' . CHAR_SLASH);
-        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `CHAR_SLASH`
+        define('DIR_PLUGIN', 'plugin' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_OVERRIDE', 'override' . CHAR_SLASH);
-        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `CHAR_SLASH`
+        define('DIR_OVERRIDE', 'override' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_GLOBAL', 'global' . CHAR_SLASH);
-        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `CHAR_SLASH`
+        define('DIR_GLOBAL', 'global' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_INCLUDES', 'includes' . CHAR_SLASH);
-        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `CHAR_SLASH`
+        define('DIR_INCLUDES', 'includes' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_COCKPIT', 'cockpit' . CHAR_SLASH);
-        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `CHAR_SLASH`
+        define('DIR_COCKPIT', 'cockpit' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_ACCOUNTS', 'accounts' . CHAR_SLASH);
-        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `CHAR_SLASH` appended
+        define('DIR_ACCOUNTS', 'accounts' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `DIRECTORY_SEPARATOR` appended
         to it. */
-        define('DIR_INC', 'inc' . CHAR_SLASH);
-        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `CHAR_SLASH`
+        define('DIR_INC', 'inc' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_STORAGE', 'storage' . CHAR_SLASH);
-        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `CHAR_SLASH` appended
+        define('DIR_STORAGE', 'storage' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
         to it. */
-        define('DIR_TMP', 'tmp' . CHAR_SLASH);
-        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
+        define('DIR_TMP', 'tmp' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_HTTP', YXORP_HTTP . CHAR_SLASH);
-        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `CHAR_SLASH`
+        define('DIR_HTTP', YXORP_HTTP . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_MINIFY', 'minify' . CHAR_SLASH);
+        define('DIR_MINIFY', 'minify' . DIRECTORY_SEPARATOR);
 
         // PATHS
         /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
@@ -426,7 +426,7 @@ class constants
         define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);
         /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . CHAR_SLASH . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
+        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
         /* Defining the path to the bugsnag.phar file. */
         define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
         /* Defining the path to the guzzle phar file. */
@@ -440,26 +440,26 @@ class constants
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
         /* Defining a constant called REG_ONE. */
-        define('REG_ONE', CHAR_SLASH . CHAR_SLASH_BACK . CHAR_QUESTION . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
+        define('REG_ONE', DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR_BACK . CHAR_QUESTION . CHAR_PERIOD . CHAR_ASTRIX . DIRECTORY_SEPARATOR);
         /* Defining a constant called REG_TWO. */
-        define('REG_TWO', CHAR_HASH . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
+        define('REG_TWO', CHAR_HASH . CHAR_PERIOD . CHAR_ASTRIX . DIRECTORY_SEPARATOR);
         /* Defining a regular expression for PHP. */
         define('REG_THREE', CHAR_AT . CHAR_CURVE . CHAR_BRACKET . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_UNDER . CHAR_SQUARE_CLOSE . CHAR_PLUS . CHAR_BRACKET_CLOSE . CHAR_CURVE_CLOSE . CHAR_AT . CHAR_S);
         /* Defining a constant named REG_FOUR. */
-        define('REG_FOUR', CHAR_SLASH_BACK . CHAR_ASTRIX);
+        define('REG_FOUR', DIRECTORY_SEPARATOR_BACK . CHAR_ASTRIX);
         /* Defining a constant named REG_FIVE. */
         define('REG_FIVE', CHAR_PERIOD . CHAR_ASTRIX);
         /* Defining a constant named REG_SIX. */
-        define('REG_SIX', CHAR_SLASH_BACK . CHAR_QUESTION);
+        define('REG_SIX', DIRECTORY_SEPARATOR_BACK . CHAR_QUESTION);
         /* Defining a constant named REG_SEVEN. */
         define('REG_SEVEN', CHAR_HASH . CHAR_UP);
         /* Defining a constant named REG_EIGHT. */
 
         define('REG_EIGHT', CHAR_HASH . CHAR_UP . VAR_HTTPS_ONLY . CHAR_QUESTION . CHAR_COLON . CHAR_HASH . CHAR_I);
-        define('REG_NINE', CHAR_HASH . CHAR_SLASH . CHAR_SQUARE . CHAR_UP . CHAR_SLASH . CHAR_SQUARE_CLOSE . CHAR_ASTRIX . CHAR_USD . CHAR_HASH);
-        define('REG_TEN', CHAR_HASH . CHAR_SLASH . CHAR_QUESTION . CHAR_EXCLAMATION . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_BRACKET_CLOSE . CHAR_SQUARE . CHAR_UP . CHAR_SLASH . CHAR_SQUARE_CLOSE . CHAR_PLUS . CHAR_SLASH . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH . CHAR_HASH);
-        define('REG_ELEVEN', CHAR_HASH . CHAR_BRACKET . CHAR_SLASH . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_QUESTION . CHAR_SLASH . CHAR_BRACKET_CLOSE . CHAR_HASH);
-        define('REG_TWELVE', CHAR_SLASH . CHAR_BRACKET . CHAR_QUESTION . CHAR_CAP_P . CHAR_ARROW . VAR_DOMAIN . CHAR_ARROW_CLOSE . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_SQUARE_CLOSE . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_SLASH_BACK . CHAR_DASH . CHAR_SQUARE_CLOSE . CHAR_CURVE . CHAR_1 . CHAR_COMMA . CHAR_6 . CHAR_3 . CHAR_CURVE_CLOSE . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_PERIOD . CHAR_SQUARE_CLOSE . CHAR_CURVE . CHAR_2 . CHAR_COMMA . CHAR_6 . CHAR_CURVE_CLOSE . CHAR_BRACKET_CLOSE . CHAR_USD . CHAR_SLASH . CHAR_I);
+        define('REG_NINE', CHAR_HASH . DIRECTORY_SEPARATOR . CHAR_SQUARE . CHAR_UP . DIRECTORY_SEPARATOR . CHAR_SQUARE_CLOSE . CHAR_ASTRIX . CHAR_USD . CHAR_HASH);
+        define('REG_TEN', CHAR_HASH . DIRECTORY_SEPARATOR . CHAR_QUESTION . CHAR_EXCLAMATION . DIRECTORY_SEPARATOR_BACK . CHAR_PERIOD . DIRECTORY_SEPARATOR_BACK . CHAR_PERIOD . CHAR_BRACKET_CLOSE . CHAR_SQUARE . CHAR_UP . DIRECTORY_SEPARATOR . CHAR_SQUARE_CLOSE . CHAR_PLUS . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR_BACK . CHAR_PERIOD . DIRECTORY_SEPARATOR_BACK . CHAR_PERIOD . DIRECTORY_SEPARATOR . CHAR_HASH);
+        define('REG_ELEVEN', CHAR_HASH . CHAR_BRACKET . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR_BACK . CHAR_PERIOD . CHAR_QUESTION . DIRECTORY_SEPARATOR . CHAR_BRACKET_CLOSE . CHAR_HASH);
+        define('REG_TWELVE', DIRECTORY_SEPARATOR . CHAR_BRACKET . CHAR_QUESTION . CHAR_CAP_P . CHAR_ARROW . VAR_DOMAIN . CHAR_ARROW_CLOSE . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . CHAR_SQUARE_CLOSE . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_0 . CHAR_DASH . CHAR_9 . DIRECTORY_SEPARATOR_BACK . CHAR_DASH . CHAR_SQUARE_CLOSE . CHAR_CURVE . CHAR_1 . CHAR_COMMA . CHAR_6 . CHAR_3 . CHAR_CURVE_CLOSE . DIRECTORY_SEPARATOR_BACK . CHAR_PERIOD . CHAR_SQUARE . CHAR_A . CHAR_DASH . CHAR_Z . CHAR_PERIOD . CHAR_SQUARE_CLOSE . CHAR_CURVE . CHAR_2 . CHAR_COMMA . CHAR_6 . CHAR_CURVE_CLOSE . CHAR_BRACKET_CLOSE . CHAR_USD . DIRECTORY_SEPARATOR . CHAR_I);
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
@@ -562,7 +562,7 @@ class constants
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
+        constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
@@ -573,19 +573,19 @@ class constants
         constants::set(YXORP_TARGET_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_TARGET_URL)));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        $x = COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES;
+        $x = COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES;
         print_r($x);
         $y = [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)];
         print_r($y);
         print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne('collections/sites', ['host' => 'localhost']));
         exit;
         //[COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]
-        constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
+        constants::set(YXORP_FETCH, VAR_HTTPS . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
         constants::set(YXORP_PROXY_URL, constants::get(YXORP_FETCH)->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
-        to it, with the `CHAR_SLASH` constant appended to it, with the value of the `files` key in the `TARGET`
+        to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
         constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(YXORP_TARGET))[YXORP_FILES]);
 
