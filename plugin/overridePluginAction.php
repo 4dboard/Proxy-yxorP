@@ -26,8 +26,7 @@ class overridePluginAction extends wrapper
     }
 
     /* Minifying the content of the response. */
-    public
-    function REWRITE($content): string
+    public function REWRITE($content): string
     {
         /* It's setting the `YXORP_REWRITE_SEARCH` constant to the value of the `PATH_REWRITE_SEARCH` constant. */
         constants::set(YXORP_REWRITE_SEARCH, generalHelper::CSV(PATH_REWRITE_SEARCH));
