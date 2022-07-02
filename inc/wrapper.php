@@ -121,10 +121,10 @@ abstract class wrapper
                     /* Calling the `onEventSent` method. */
                     $this->onEventSent();
                     break;
-                /* Calling the `onCurlWrite` method. */
+                /* Calling the `onEventWrite` method. */
                 case EVENT_WRITE:
-                    /* Calling the `onCurlWrite` method. */
-                    $this->onCurlWrite();
+                    /* Calling the `onEventWrite` method. */
+                    $this->onEventWrite();
                     break;
                 /* Calling the `onCompleted` method. */
                 case EVENT_COMPLETE:
@@ -193,7 +193,7 @@ abstract class wrapper
 
     /* Used to execute code when the headers are received. */
 
-    public function onCurlWrite()
+    public function onEventWrite()
     {
     }
 
