@@ -59,7 +59,7 @@ class yxorP
         /* Adding the default plugins to the `$_plugins` array. */
         array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'dailyMotionPluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction', 'streamPluginAction', 'twitterPluginAction', 'youtubePluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        $this->subscribers(DIR_PLUGIN, $_plugins); //$this->subscribe(DIR_PLUGIN, constants::get(YXORP_TARGET)[YXORP_PLUGINS] ?: []);
+        $this->subscribers(DIR_PLUGIN, $_plugins); //$this->subscribe(DIR_PLUGIN,(constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: []);
     }
 
     /**

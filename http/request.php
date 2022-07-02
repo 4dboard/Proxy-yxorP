@@ -163,8 +163,8 @@ class request
     public static function createFromGlobals(): request
     {
         self::onBuildContext();
-        $method = constants::get(YXORP_SERVER)[YXORP_REQUEST_METHOD];
-        $scheme = (isset(constants::get(YXORP_SERVER)[YXORP_HTTPS]) && constants::get(YXORP_SERVER)[YXORP_HTTPS]) ? YXORP_HTTPS : VAR_HTTP;
+        $method = (constants::get(YXORP_SERVER))[YXORP_REQUEST_METHOD];
+        $scheme = (isset(constants::get(YXORP_SERVER)[YXORP_HTTPS]) && (constants::get(YXORP_SERVER))[YXORP_HTTPS]) ? YXORP_HTTPS : VAR_HTTP;
         $url = $scheme . ':' . constants::get(YXORP_PROXY_URL)->__toString();
         $request = new request($method, $url);
         foreach (constants::get(YXORP_SERVER) as $name => $value) if (str_starts_with($name, YXORP_HTTP_)) {
@@ -174,7 +174,7 @@ class request
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set(VAR_USER_IP, constants::get(YXORP_SERVER)[YXORP_REMOTE_ADDR]);
+        $request->params->set(VAR_USER_IP, (constants::get(YXORP_SERVER))[YXORP_REMOTE_ADDR]);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);
@@ -212,7 +212,7 @@ class request
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `CHAR_SLASH` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
-        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . constants::get(YXORP_TARGET)[YXORP_FILES]);
+        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(YXORP_TARGET))[YXORP_FILES]);
     }
 
     /* A getter method for the `$method` property. */
