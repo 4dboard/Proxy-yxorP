@@ -227,7 +227,7 @@ class constants
         /* Defining a constant called YXORP_TARGET and setting it to the string TARGET. */
         define('YXORP_TARGET', 'TARGET');
         /* Defining a constant called YXORP_PROXY_URL and setting it to the string PROXY_URL. */
-        define('YXORP_PROXY_URL', YXORP_PROXY_URL);
+        define('YXORP_PROXY_URL', 'PROXY_URL');
 
 
         //ENV
