@@ -9,9 +9,9 @@ use yxorP\inc\wrapper;
 class readyCheckAction extends wrapper
 {
     /* A function that is called when the event is checked. */
-    public function onCheck()
+    public function onCheck(): void
     {
         /* Checking if the cache is valid, and if it is, it returns the cached data. */
-        if (cache::cache()->isValid()) return cache::cache()->get(); //Todo: Call final event
+        if (cache::cache()->isValid()) cache::cache()->get(); //Todo: Call final event
     }
 }
