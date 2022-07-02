@@ -174,24 +174,9 @@ class yxorP
     private static function migrate($from, $to): void
     {/* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
         calling the `base()` function. */
-        if (!is_dir($from)) {
-            exit("$from does not exist");
-        }
-
-        if (!is_dir($to)) {
-            mkdir($to);
-        }
-
+        if (!is_dir($to)) mkdir($to);
         $dir = opendir($from);
-        while (($ff = readdir($dir)) !== false) {
-            if ($ff != "." && $ff != "..") {
-                if (is_dir("$from$ff")) {
-                    self::migrate("$from$ff/", "$to$ff/");
-                } else {
-                    copy("$from$ff", "$to$ff");
-                }
-            }
-        }
+        while (($ff = readdir($dir)) !== false) if ($ff != "." && $ff != "..") if (is_dir("$from$ff")) self::migrate("$from$ff/", "$to$ff/"); else   copy("$from$ff", "$to$ff");
         closedir($dir);
     }
 
