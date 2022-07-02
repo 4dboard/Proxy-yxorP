@@ -4,8 +4,6 @@
 
 
 use yxorP;
-use yxorP\http\request;
-use yxorP\http\response;
 
 /* Importing the class `request` from the namespace `yxorP\http`. */
 
@@ -83,10 +81,10 @@ abstract class wrapper
     {
         /* Used to catch exceptions. */
         try {
-            /* Setting the response object to the key RESPONSE. */
-            constants::set(YXORP_RESPONSE, new response());
-            /* Setting the request object to the key REQUEST. */
-            constants::set(YXORP_REQUEST, request::createFromGlobals());
+//            /* Setting the response object to the key RESPONSE. */
+//            constants::set(YXORP_RESPONSE, new response());
+//            /* Setting the request object to the key REQUEST. */
+//            constants::set(YXORP_REQUEST, request::createFromGlobals());
 
             /* Getting the current URL. */
             $url = constants::get(YXORP_REQUEST)->getUri();
