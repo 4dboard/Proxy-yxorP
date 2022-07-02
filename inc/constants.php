@@ -188,14 +188,17 @@ class constants
         define('VAR_CREATED', '_created');
         /* Defining a constant called `VAR_MODIFIED` and setting it to the value of `_modified`. */
         define('VAR_MODIFIED', '_modified');
-        /* Defining a constant. */
+        /* Defining a constant called `VAR_USER_IP` and setting it to the value of `user_ip`. */
         define('VAR_USER_IP', 'user_ip');
-        /* Defining a constant. */
+        /* Defining a constant called `VAR_USER_IP_LONG` and setting it to the value of `user_ip_long`. */
         define('VAR_USER_IP_LONG', 'user_ip_long');
-        /* Defining a constant. */
+        /* Defining a constant called `VAR_URL` and setting it to the value of `url`. */
         define('VAR_URL', 'url');
-        /* Defining a constant. */
+        /* Defining a constant called `VAR_URL_HOST` and setting it to the value of `url_host`. */
         define('VAR_URL_HOST', 'url_host');
+        /* Defining a constant called `VAR_HTTPS` and setting it to the value of `https`. */
+        define('VAR_HTTPS', 'https:');
+
 
         // YXORPS
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
