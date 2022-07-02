@@ -581,24 +581,22 @@ class constants
         to it, with the `CHAR_SLASH` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
         constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(YXORP_TARGET))[YXORP_FILES]);
+
+        /* Creating a unique key for the cache file. */
+        define('CACHE_KEY', generalHelper::base64_url_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
+
     }
 
-    /* Creating a unique key for the cache file. */
-define('CACHE_KEY', generalHelper::base64_url_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
-
-}
-
-/* A static method that returns the value of the $_name variable. */
-/**
- * @param $_name
- * @return mixed
- */
-public
-static function get($_name): mixed
-{
-    /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
-    returns false. */
-    return (array_key_exists($_name, $GLOBALS)) ? $GLOBALS[$_name] : false;
-}
+    /* A static method that returns the value of the $_name variable. */
+    /**
+     * @param $_name
+     * @return mixed
+     */
+    public static function get($_name): mixed
+    {
+        /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
+        returns false. */
+        return (array_key_exists($_name, $GLOBALS)) ? $GLOBALS[$_name] : false;
+    }
 
 }
