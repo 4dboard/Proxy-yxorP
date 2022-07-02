@@ -179,7 +179,7 @@ class yxorP
     private static function migrate($from, $to): void
     {/* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
         calling the `base()` function. */
-        if (count($all = glob("$from" . (CHAR_ASTRIX), GLOB_MARK)) > 0) foreach ($all as $a) self::base($from, $to, $a);
+        if (count($all = glob("$from" . CHAR_ASTRIX, GLOB_MARK)) > 0) foreach ($all as $a) self::base($from, $to, $a);
     }
 
     /**
