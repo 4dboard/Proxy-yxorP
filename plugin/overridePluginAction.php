@@ -21,6 +21,8 @@ class overridePluginAction extends wrapper
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
         if (constants::get('MIME') !== VAR_TEXT_HTML && constants::get('MIME') !== 'application/javascript' && constants::get('MIME') !== 'text/css' && constants::get('MIME') !== 'application/xml' && !str_contains(constants::get('MIME'), 'text')) return;
 
+        echo 555;
+        exit;
         echo constants::get(YXORP_TARGET_DOMAIN);
         print_r((array)constants::get(YXORP_GLOBAL_REPLACE));
         print_r((array)constants::get(YXORP_TARGET)['replace']);
