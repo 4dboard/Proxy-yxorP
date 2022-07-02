@@ -84,7 +84,7 @@ class request
             $this->headers->set(VAR_CONTENT_TYPE, 'multipart/form-data; boundary=' . $boundary);
         } else if ($this->post->all()) {
             $this->prepared_body = http_build_query($this->post->all());
-            $this->headers->set(VAR_CONTENT_TYPE, 'application/x-www-form-urlencoded');
+            $this->headers->set(VAR_CONTENT_TYPE, VAR_APPLICATION_URLENCODED);
         } else {
             $this->headers->set(VAR_CONTENT_TYPE, $this->detectContentType($this->body));
             $this->prepared_body = $this->body;
@@ -153,7 +153,7 @@ class request
         if (preg_match('/^{\s*"[^"]+"\s*:/', $data))
             $content_type = 'application/json'; else if (preg_match('/^<\?xml[^?>]+\?>\s*<[^>]+>/i', $data))
             $content_type = 'application/xml'; else if (preg_match('/^[a-zA-Z0-9_.~-]+=[^&]*&/', $data))
-            $content_type = 'application/x-www-form-urlencoded';
+            $content_type = VAR_APPLICATION_URLENCODED;
         return $content_type;
     }
 
