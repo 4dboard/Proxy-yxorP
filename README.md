@@ -102,8 +102,8 @@ static site builders. Build unique applications and let Cockpit feed them with c
 Introduction Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify
 the process of publication by separating content management from content consumption on the client side. Cockpit is
 focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its
-goal is to provide structured content across different channels via a simple API.
-![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
+goal is to provide structured content across different channels via a simple
+API.![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
 #### Key features:
 
