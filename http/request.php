@@ -188,11 +188,10 @@ class request
     public static function onBuildContext(): void
     {
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
-        constants::set(YXORP_SITE_URL, constants::get(YXORP_SERVER)[YXORP_SERVER_NAME]);
+        constants::set(YXORP_SITE_URL, (constants::get(YXORP_SERVER)[YXORP_SERVER_NAME]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        print_r((constants::get(YXORP_SERVER))['SERVER_NAME']);
         exit;
         constants::set(YXORP_TARGET, constants::get(constants::get(YXORP_COCKPIT_APP))->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
