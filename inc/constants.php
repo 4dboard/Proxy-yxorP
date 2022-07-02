@@ -557,7 +557,7 @@ class constants
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
 
-        print_r(constants::get(YXORP_SITE_DOMAIN));
+        print_r(constants::get(constants::get(YXORP_COCKPIT_APP)->storage));
         exit;
 
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
