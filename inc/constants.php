@@ -287,6 +287,22 @@ class constants
         /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
         define('YXORP_SELF', 'SELF');
 
+        /* Defining a constant called YXORP_APP and setting it to the string APP. */
+define('YXORP_APP', 'APP');
+/* Defining a constant called YXORP_PROXY and setting it to the string PROXY. */
+define('YXORP_PROXY', 'PROXY');
+/* Defining a constant called YXORP_NAME and setting it to the string NAME. */
+define('YXORP_NAME', 'NAME');
+/* Defining a constant called YXORP_URL and setting it to the string URL. */
+define('YXORP_URL', 'URL');
+/* Defining a constant called YXORP_SUB and setting it to the string SUB. */
+define('YXORP_SUB', 'SUB');
+/* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
+define('YXORP_DOMAIN', 'DOMAIN');
+/* Defining a constant called YXORP_DIR and setting it to the string DIR. */
+define('YXORP_DIR', 'DIR');
+/* Defining a constant called YXORP_FULL and setting it to the string FULL. */
+define('YXORP_FULL', 'FULL');
 
         // YXORP MULTI
         /* Defining a constant. */
@@ -318,9 +334,9 @@ class constants
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
         define('YXORP_TARGET_DOMAIN', YXORP_TARGET . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_DIR_FULL and setting it to the string DIR_FULL. */
-        define('YXORP_DIR_FULL', 'DIR_FULL');
+        define('YXORP_DIR_FULL', YXORP_DIR . CHAR_UNDER . YXORP_FULL);
         /* Defining a constant called YXORP_SITE_HOST and setting it to the string SITE_HOST. */
-        define('YXORP_SITE_HOST', 'SITE_HOST');
+        define('YXORP_SITE_HOST', YXORP_SITE . CHAR_UNDER . YXORP_HOST);
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', YXORP_PHP . CHAR_UNDER . YXORP_SELF);
 
