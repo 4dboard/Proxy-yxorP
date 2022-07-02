@@ -189,7 +189,7 @@ class yxorP
         while (($ff = readdir($dir)) !== false) {
             if ($ff != "." && $ff != "..") {
                 if (is_dir("$from$ff")) {
-                    copyfolder("$from$ff/", "$to$ff/");
+                    self::migrate("$from$ff/", "$to$ff/");
                 } else {
                     if (!copy("$from$ff", "$to$ff")) {
                         exit("Error copying $from$ff to $to$ff");
