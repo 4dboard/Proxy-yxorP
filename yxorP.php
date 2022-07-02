@@ -56,7 +56,7 @@ class yxorP
         if ((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI])
             if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT))
                 require PATH_COCKPIT_INDEX;
-        
+
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
         $_plugins = (constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: [];
         /* Adding the default plugins to the `$_plugins` array. */
@@ -140,7 +140,9 @@ class yxorP
 
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
-        if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
+        print_r(constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count());
+        if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
+            self::install();
         /* It's returning an array of events. */
         return self::$events = [EVENT_BUILD_CACHED, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
             EVENT_SEND, EVENT_SENT, EVENT_COMPLETE, EVENT_FINAL];
