@@ -280,7 +280,12 @@ class constants
         define('VAR_TEXT', 'text');
         /* Defining a constant called `VAR_VAR` and setting it to the value of `var`. */
         define('VAR_VAR', 'var');
+        /* Defining a constant called `VAR_VAR` and setting it to the value of `var`. */
         define('VAR_HTTP', 'http:');
+        /* Defining a constant called `VAR_INTERFACE` and setting it to the value of `interface`. */
+        define('VAR_INTERFACE', VAR_INTERFACE);
+        /* Defining a constant called `VAR_GETCSV` and setting it to the value of `str_getcsv`. */
+        define('VAR_GETCSV', 'str_getcsv');
 
 
         //VARIBLES MULTIPLE
@@ -293,12 +298,9 @@ class constants
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
         define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
         '#^https?:#i'
-        VAR_HTTP 
         '#/[^/]*$#'
         '#/(?!\.\.)[^/]+/\.\./#'
         '#(/\.?/)#'
-        'str_getcsv'
-        'interface'
         / (?P < domain>[a - z0 - 9][a - z0 - 9 -]{
         1,63}.[a - z .]{
         2,6})$/i
