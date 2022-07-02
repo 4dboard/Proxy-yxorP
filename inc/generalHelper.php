@@ -203,12 +203,12 @@ class generalHelper
         $_parse_url = parse_url($base);
         extract($_parse_url);
         $path = preg_replace('#/[^/]*$#', CHAR_EMPTY_STRING, $path);
-        if ($rel[0] === '/') {
+        if ($rel[0] === CHAR_SLASH) {
             $path = CHAR_EMPTY_STRING;
         }
         $abs = "$host$path/$rel";
         $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
-        for ($n = 1; $n > 0; $abs = preg_replace($re, '/', $abs, -1, $n)) {
+        for ($n = 1; $n > 0; $abs = preg_replace($re, CHAR_SLASH, $abs, -1, $n)) {
         }
         return $scheme . ':' . $abs;
     }
