@@ -56,6 +56,7 @@ class yxorP
         if ((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI])
             if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT))
                 require PATH_COCKPIT_INDEX;
+        
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
         $_plugins = (constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: [];
         /* Adding the default plugins to the `$_plugins` array. */
