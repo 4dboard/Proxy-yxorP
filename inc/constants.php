@@ -366,8 +366,6 @@ class constants
         define('YXORP_HTTP_', YXORP_HTTPS . CHAR_UNDER);
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
         define('YXORP_REMOTE_ADDR', YXORP_REMOTE . CHAR_UNDER . YXORP_ADDR);
-
-
         // DIRECTORIES
         /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
         appended to it. */
@@ -518,6 +516,7 @@ class constants
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
         seconds in a year. */
         define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
+        define('CACHE_KEY', 'CACHE_KEY');
 
 
     }
