@@ -178,7 +178,7 @@ class generalHelper
 
     public static function add_http($url)
     {
-        if (!preg_match(REG_TWELVE, $url)) {
+        if (!preg_match(REG_EIGHT, $url)) {
             $url = VAR_HTTPS . $url;
         }
         return $url;
@@ -261,7 +261,7 @@ class generalHelper
 
     public static function extractDomain($domain)
     {
-        if (str_contains($domain, CHAR_PERIOD)) if (preg_match(REG_EIGHT, $domain, $matches)) return $matches[YXORP_DOMAIN]; else   return $domain; else  return $domain;
+        if (str_contains($domain, CHAR_PERIOD)) if (preg_match(REG_TWELVE, $domain, $matches)) return $matches[YXORP_DOMAIN]; else   return $domain; else  return $domain;
     }
 
 }
