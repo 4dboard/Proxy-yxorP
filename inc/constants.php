@@ -238,9 +238,9 @@ class constants
         /* Defining a constant called `VAR_CONTENT_LENGTH` and setting it to the value of `content-length`. */
         define('VAR_CONTENT_LENGTH', 'content-length');
         /* Defining a constant called `VAR_TYPE` and setting it to the value of `type`. */
-        define('VAR_TYPE', 'type');
+        define('VAR_TYPE', VAR_TYPE);
         /* Defining a constant called `VAR_ERROR` and setting it to the value of `error`. */
-        define('VAR_ERROR', VAR_ERROR);
+        define('VAR_ERROR', 'error');
         /* Defining a constant called `VAR_TMP_NAME` and setting it to the value of `tmp_name`. */
         define('VAR_TMP_NAME', 'tmp_name');
         /* Defining a constant called `VAR_GET_URL` and setting it to the value of `getUrl`. */

@@ -136,7 +136,7 @@ class request
                 if (!$multiValues[VAR_TMP_NAME][$key] || $multiValues[VAR_ERROR][$key] !== 0 || !is_readable($multiValues[VAR_TMP_NAME][$key])) {
                     continue;
                 }
-                $body .= sprintf($part_file, $boundary, $fieldName, $multiValues['name'][$key], $multiValues['type'][$key]);
+                $body .= sprintf($part_file, $boundary, $fieldName, $multiValues['name'][$key], $multiValues[VAR_TYPE][$key]);
                 $body .= file_get_contents($multiValues[VAR_TMP_NAME][$key]);
                 $body .= "\r\n";
             }
