@@ -268,7 +268,7 @@ class constants
         /* Defining a constant. */
         define('COCKPIT_ACCOUNTS', DIR_COCKPIT . YXORP_COCKPIT_ACCOUNTS);
         define('COCKPIT_COLLECTIONS', 'collections');
-        define('COCKPIT_SITES', COCKPIT_SITES);
+        define('COCKPIT_SITES', 'sites');
         define('COCKPIT_HOST', 'host');
 
         //EXCEPTIONS
