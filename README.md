@@ -15,8 +15,6 @@
 
 > ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now available via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
-# 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
-
 ---
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
