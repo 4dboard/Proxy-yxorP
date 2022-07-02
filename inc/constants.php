@@ -478,6 +478,8 @@ class constants
         define('COCKPIT_COLLECTIONS', 'collections');
         define('COCKPIT_SITES', 'sites');
         define('COCKPIT_HOST', 'host');
+        define('COCKPIT_TARGET', 'trget');
+
 
         //EXCEPTIONS
         /* Defining a constant called RUNTIME_EXCEPTION. */
@@ -561,9 +563,7 @@ class constants
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
-        print_r(constants::get(YXORP_TARGET));
-        exit;
-        constants::set(YXORP_TARGET_URL, (constants::get(YXORP_TARGET))[YXORP_TARGET]);
+        constants::set(YXORP_TARGET_URL, (constants::get(YXORP_TARGET))[COCKPIT_TARGET]);
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
