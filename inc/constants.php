@@ -240,9 +240,9 @@ class constants
         /* Defining a constant called `VAR_TYPE` and setting it to the value of `type`. */
         define('VAR_TYPE', 'type');
         /* Defining a constant called `VAR_ERROR` and setting it to the value of `error`. */
-        define('VAR_ERROR', 'error');
+        define('VAR_ERROR', VAR_ERROR);
         /* Defining a constant called `VAR_TMP_NAME` and setting it to the value of `tmp_name`. */
-        define('VAR_TMP_NAME', VAR_TMP_NAME);
+        define('VAR_TMP_NAME', 'tmp_name');
         /* Defining a constant called `VAR_GET_URL` and setting it to the value of `getUrl`. */
         define('VAR_GET_URL', 'getUrl');
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
