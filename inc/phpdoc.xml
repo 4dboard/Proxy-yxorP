@@ -12,9 +12,8 @@
     </transformations>
     <files>
         <directory>./</directory>
-        <ignore>test/*</ignore>
-        <ignore>inc/*</ignore>
-        <ignore>vendor/*</ignore>
+        <ignore>./inc/*</ignore>
+        <ignore>./vendor/*</ignore>
         <ignore>TextNormalizer.php</ignore>
     </files>
 </phpdoc>
