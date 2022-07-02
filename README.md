@@ -3,14 +3,11 @@
 
 > ⛔️ **ARCHIVE PENDING**: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
 
-
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
 
-[ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki)
-] [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
-[ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/)]
+[ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ] [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ][ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/)]
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
