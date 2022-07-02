@@ -17,6 +17,7 @@ class overridePluginAction extends wrapper
     /* Overriding the `onEventComplete` method of the `wrapper` class. */
     public function onEventWrite()
     {
+        echo 1;
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
         if (constants::get('MIME') !== VAR_TEXT_HTML && constants::get('MIME') !== 'application/javascript' && constants::get('MIME') !== 'text/css' && constants::get('MIME') !== 'application/xml' && !str_contains(constants::get('MIME'), 'text')) return;
         /* Replacing the content of the response with the content of the `REWRITE` method. */
