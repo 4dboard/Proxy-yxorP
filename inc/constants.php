@@ -243,9 +243,9 @@ class constants
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
         define('YXORP_TARGET_DOMAIN', 'TARGET_DOMAIN');
         /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
-        define('YXORP_FETCH', YXORP_FETCH);
+        define('YXORP_FETCH', 'FETCH');
         /* Defining a constant called YXORP_DIR_FULL and setting it to the string DIR_FULL. */
-        define('YXORP_DIR_FULL', 'DIR_FULL');
+        define('YXORP_DIR_FULL', YXORP_DIR_FULL);
 
 
         //ENV
