@@ -13,7 +13,7 @@ class constants
      * @param $_dir
      * @return void
      */
-    public static function create($_dir)
+    public static function create($_dir): void
     {
 
         /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `CHAR_SLASH`
