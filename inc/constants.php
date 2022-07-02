@@ -561,6 +561,8 @@ class constants
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
+        print_r(constants::get(YXORP_TARGET));
+        exit;
         constants::set(YXORP_TARGET_URL, (constants::get(YXORP_TARGET))[YXORP_TARGET]);
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
