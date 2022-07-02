@@ -45,7 +45,7 @@ class request
         $query = parse_url($url, PHP_URL_QUERY);
         if ($query) {
             $url = str_replace('?' . $query, CHAR_EMPTY_STRING, $url);
-            $url = preg_replace(REG_TWOONE, CHAR_EMPTY_STRING, $url);
+            $url = preg_replace(REG_ONE, CHAR_EMPTY_STRING, $url);
             $result = self::parseQuery($query);
             $this->get->replace($result);
         }
