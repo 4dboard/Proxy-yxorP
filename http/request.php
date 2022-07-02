@@ -185,7 +185,7 @@ class request
 
     /* Creating a new request from the global variables. */
 
-    public function onBuildContext(): void
+    public static function onBuildContext(): void
     {
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(constants::get(YXORP_COCKPIT_APP))->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
