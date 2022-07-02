@@ -435,7 +435,7 @@ class constants
         /* Defining a constant named REG_EIGHT. */
 
         define('REG_EIGHT', CHAR_HASH . CHAR_UP . VAR_HTTPS_ONLY . CHAR_QUESTION . CHAR_COLON . CHAR_HASH . CHAR_I);
-        define('REG_NINE', CHAR_HASH. CHAR_SLASH. CHAR_SQUARE. CHAR_UP. CHAR_SLASH. CHAR_SQUARE_CLOSE. CHAR_ASTRIX. CHAR_USD. CHAR_HASH);
+        define('REG_NINE', CHAR_HASH . CHAR_SLASH . CHAR_SQUARE . CHAR_UP . CHAR_SLASH . CHAR_SQUARE_CLOSE . CHAR_ASTRIX . CHAR_USD . CHAR_HASH);
         define('REG_TEN', '#/(?!\.\.)[^/]+/\.\./#');
         define('REG_ELEVEN', '#(/\.?/)#');
         define('REG_TWELVE', '/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i');
