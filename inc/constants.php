@@ -275,7 +275,14 @@ class constants
         define('VAR_GET_URL', 'getUrl');
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
         define('VAR_UCFIRST', 'ucfirst');
+        /* Defining a constant called `VAR_STRTOLOWER` and setting it to the value of `strtolower`. */
         define('VAR_STRTOLOWER', 'strtolower');
+        /* Defining a constant called `VAR_HTML` and setting it to the value of `html`. */
+        define('VAR_HTML', 'html');
+        /* Defining a constant called `VAR_TEXT` and setting it to the value of `text`. */
+        define('VAR_TEXT', 'text');
+        /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
+        define('VAR_TEXT_HTML', VAR_TEXT . CHAR_PERIOD . VAR_HTML);
 
 
         // YXORPS SINGLE
