@@ -317,8 +317,6 @@ class constants
         define('YXORP_REMOTE', 'REMOTE');
         /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
         define('YXORP_ADDR', 'ADDR');
-        /* Defining a constant called YXORP_DOMAIN and setting it to the string domain. */
-        define('YXORP_DOMAIN', 'domain');
 
         // YXORP MULTI
         /* Defining a constant. */
