@@ -40,7 +40,7 @@ class cache
 
     /* Used to check if the cache file exists. */
 
-    #[Pure] private function isValid(): bool
+    #[Pure] public function isValid(): bool
     {
         /* Used to check if the cache file exists. */
         return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY));
