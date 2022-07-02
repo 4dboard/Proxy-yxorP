@@ -1,1 +1,1 @@
- php ./inc/phpDocumentor.phar --directory './action' --directory './http' --directory './minify' --directory './plugin'--directory '/cockpit' -t './docs/'
+ php ./inc/phpDocumentor.phar --directory './action' --directory './http' --directory './minify' --directory './plugin'--directory '/cockpit' -t './docs/' --template 'vendor/cvuorinen/phpdoc-markdown-public/data/templates/markdown-public'
