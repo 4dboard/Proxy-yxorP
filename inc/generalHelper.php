@@ -82,7 +82,7 @@ class generalHelper
 
     public static function re_match($pattern, $string): bool
     {
-        $quoted = preg_quote($pattern, '#');
+        $quoted = preg_quote($pattern, CHAR_HASH);
         $translated = strtr($quoted, array('\*' => '.*', '\?' => '.'));
         return preg_match("#^" . $translated . "$#i", $string) === 1;
     }
@@ -197,7 +197,7 @@ class generalHelper
         if (parse_url($rel, PHP_URL_SCHEME) !== CHAR_EMPTY_STRING) {
             return $rel;
         }
-        if ($rel[0] === '#' || $rel[0] === '?') {
+        if ($rel[0] === CHAR_HASH || $rel[0] === '?') {
             return $base . $rel;
         }
         $_parse_url = parse_url($base);
