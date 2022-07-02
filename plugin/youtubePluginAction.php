@@ -2,15 +2,15 @@
 /* Importing the wrapper class from the yxorP\http namespace. */
 
 use Nette\Utils\Html;
-use yxorP\inc\wrapper;
 use yxorP\inc\constants;
+use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
 class youtubePluginAction extends wrapper
 {
     /* A regex pattern that will be used to match the url of the request. */
-    protected string $url_pattern = 'youtube.com';
+    protected ?string $url_pattern = 'youtube.com';
 
     /* Setting the cookie and user-agent of the request. */
     public function onBeforeRequest(): void
