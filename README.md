@@ -3,7 +3,7 @@
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
-> ⛔️ *ARCHIVE PENDING*: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
+> ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now available via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
@@ -15,7 +15,7 @@
 
 # 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
-> ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now available via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
+> ⛔️ *ARCHIVE PENDING*: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
 
 ---
 
