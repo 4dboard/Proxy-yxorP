@@ -207,7 +207,7 @@ class generalHelper
             $path = CHAR_EMPTY_STRING;
         }
         $abs = "$host$path/$rel";
-        $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
+        $re = array('#(/\.?/)#', REG_TEN);
         for ($n = 1; $n > 0; $abs = preg_replace($re, CHAR_SLASH, $abs, -1, $n)) {
         }
         return $scheme . ':' . $abs;
