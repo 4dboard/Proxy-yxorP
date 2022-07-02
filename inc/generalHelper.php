@@ -230,7 +230,7 @@ class generalHelper
 
     public static function CSV($filename = CHAR_EMPTY_STRING): array
     {
-        $csvArray = array_map('str_getcsv', file($filename));
+        $csvArray = array_map(VAR_GETCSV, file($filename));
         return array_merge(...$csvArray);
     }
 
