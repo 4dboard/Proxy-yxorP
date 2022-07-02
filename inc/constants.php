@@ -16,10 +16,6 @@ class constants
     public static function create($_dir): void
     {
 
-
-        /* Defining a constant called `DIRECTORY_SEPARATOR` and setting it to the value of `/`. */
-        define('DIRECTORY_SEPARATOR', '/');
-
         /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_ROOT', $_dir . DIRECTORY_SEPARATOR);
