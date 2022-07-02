@@ -156,7 +156,7 @@ class constants
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
         define('FILE_BOOTSTRAP', 'bootstrap');
         /* Defining a constant. */
-        define('FILE_ACTION_WRAPPER', 'wrapper');
+        define('FILE_WRAPPER', 'wrapper');
 
 
         //METHODS
@@ -498,7 +498,7 @@ class constants
         require PATH_GUZZLE_PHAR;
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
-        /* Requiring the Cockpit library. */
+        /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
 
         // ENV
