@@ -30,7 +30,7 @@ class constants
         define('CHAR_EQUALS', '=');
         /* Defining a constant called `CHAR_ASTRIX` and setting it to the value of `*`. */
         define('CHAR_ASTRIX', '*');
-        define('EMPTY_STRING', '');
+        define('CHAR_EMPTY_STRING', '');
 
         // NUMBERS
         /* Defining a constant called `NUM_ENV_LIMIT` and setting it to the value of `2`. */
@@ -324,7 +324,7 @@ class constants
         /* Exploding the $line variable into an array of two elements. */
         [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
         /* Replacing all the new lines with null. */
-        self::set($name . EXT_ENV, str_replace("\r\n", EMPTY_STRING, $value));
+        self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
     }
 
     /* Setting the value of the variable $_name to the value of the variable $_value. */

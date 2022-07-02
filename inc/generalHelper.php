@@ -149,14 +149,14 @@ class generalHelper
 
     public static function base64_url_encode($input): string
     {
-        return rtrim(strtr(base64_encode($input), ' +/', ' - _'), ' = ');
+        return rtrim(strtr(base64_encode($input), '+/', '-_'), VAR_EQUALS);
     }
 
     /* It's encoding the `$input` with the base64. */
 
     public static function base64_url_decode($input): bool|string
     {
-        return base64_decode(str_pad(strtr($input, ' - _', ' +/'), strlen($input) % 4, ' = '));
+        return base64_decode(str_pad(strtr($input, '-_', '+/'), strlen($input) % 4, '='));
     }
 
     /* It's decoding the `$input` with the base64. */
