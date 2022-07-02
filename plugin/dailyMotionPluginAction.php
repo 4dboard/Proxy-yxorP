@@ -8,6 +8,8 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
+//Todo: Fix plugin
+
 class dailyMotionPluginAction extends wrapper
 {
     /* Defining the URL pattern that the plugin will be applied to. */
