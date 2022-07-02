@@ -86,10 +86,10 @@ abstract class wrapper
 
             /* Used to route the events to the appropriate methods. */
             switch ($event_name) {
-                /* Calling the `onBuildCached` method. */
+                /* Calling the `onBuildCache` method. */
                 case EVENT_BUILD_CACHED:
-                    /* Calling the `onBuildCached` method. */
-                    $this->onBuildCached();
+                    /* Calling the `onBuildCache` method. */
+                    $this->onBuildCache();
                     break;
                 /* Calling the `onBuildContext` method. */
                 case EVENT_BUILD_CONTEXT:
@@ -151,7 +151,7 @@ abstract class wrapper
 
     /* A method that is called when the event `EVENT_BUILD_CACHED` is triggered. */
 
-    public function onBuildCached()
+    public function onBuildCache()
     {
     }
 
