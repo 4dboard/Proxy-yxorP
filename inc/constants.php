@@ -35,8 +35,8 @@ class constants
         define('CHAR_EMPTY_STRING', '');
         /* Defining a constant called `CHAR_DASH` and setting it to the value of `-`. */
         define('CHAR_DASH', '-');
-        /* Defining a constant called `CHAR_LOWER` and setting it to the value of `_`. */
-        define('CHAR_LOWER', '_');
+        /* Defining a constant called `CHAR_UNDER` and setting it to the value of `_`. */
+        define('CHAR_UNDER', '_');
         /* Defining a constant called `CHAR_PLUS` and setting it to the value of `+`. */
         define('CHAR_PLUS', '+');
         /* Defining a constant called `CHAR_SLASH` and setting it to the value of `/`. */
@@ -216,7 +216,7 @@ class constants
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . CHAR_SLASH. */
         define('VAR_PLUS_SLASH', CHAR_PLUS . CHAR_SLASH);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
-        define('VAR_DASH_LOWER', CHAR_DASH . CHAR_LOWER);
+        define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_ALLOW_REDIRECTS', 'allow_redirects');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
@@ -305,7 +305,7 @@ class constants
         /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
         define('YXORP_REQUEST_METHOD', 'REQUEST_METHOD');
         /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
-        define('YXORP_HTTP_', YXORP_HTTPS . CHAR_LOWER);
+        define('YXORP_HTTP_', YXORP_HTTPS . CHAR_UNDER);
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
         define('YXORP_REMOTE_ADDR', 'REMOTE_ADDR');
         
