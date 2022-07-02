@@ -1,10 +1,10 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\actionWrapper;
 
-/* Extending the actionWrapper class. */
+/* Extending the wrapper class. */
 
 class setHeadersAction extends actionWrapper
 {

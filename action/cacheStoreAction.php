@@ -1,11 +1,11 @@
 <?php
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\http\cache;
 use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* Extending the actionWrapper class, which is a class that allows you to hook into the request lifecycle. */
+/* Extending the wrapper class, which is a class that allows you to hook into the request lifecycle. */
 
 class cacheStoreAction extends actionWrapper
 {

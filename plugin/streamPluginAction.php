@@ -1,11 +1,11 @@
 <?php
 
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* Extending the actionWrapper class, which is a class that allows you to listen to events. */
+/* Extending the wrapper class, which is a class that allows you to listen to events. */
 
 class streamPluginAction extends actionWrapper
 {

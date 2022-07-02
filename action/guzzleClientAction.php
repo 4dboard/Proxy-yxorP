@@ -1,10 +1,10 @@
 <?php
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* Extending the `actionWrapper` class, which is a class that is used to wrap the `Event` class. */
+/* Extending the `wrapper` class, which is a class that is used to wrap the `Event` class. */
 
 class guzzleClientAction extends actionWrapper
 {

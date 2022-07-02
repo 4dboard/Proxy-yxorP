@@ -1,10 +1,10 @@
 <?php
-/* Importing the actionWrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* Extending the `actionWrapper` class. */
+/* Extending the `wrapper` class. */
 
 class globalCollectionAction extends actionWrapper
 {

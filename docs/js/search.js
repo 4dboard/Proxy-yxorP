@@ -1,6 +1,6 @@
 // Search module for phpDocumentor
 //
-// This module is a actionWrapper around fuse.js that will use a given index and attach itself to a
+// This module is a wrapper around fuse.js that will use a given index and attach itself to a
 // search form and to a search results pane identified by the following data attributes:
 //
 // 1. data-search-form

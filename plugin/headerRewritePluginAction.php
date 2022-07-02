@@ -1,10 +1,10 @@
 <?php
-/* It's importing the actionWrapper class from the yxorP\http namespace. */
+/* It's importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
-/* It's extending the actionWrapper class. */
+/* It's extending the wrapper class. */
 
 class headerRewritePluginAction extends actionWrapper
 {
