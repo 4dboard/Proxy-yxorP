@@ -155,7 +155,7 @@ class yxorP
         /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
         define(YXORP_COCKPIT_INSTALL, true);
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
-        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+        self::migrate(PATH_COCKPIT_LOCAL . CHAR_ASTRIX, PATH_DIR_COCKPIT);
 
         echo PATH_COCKPIT_LOCAL;
 
