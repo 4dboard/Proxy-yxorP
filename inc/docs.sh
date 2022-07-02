@@ -1,1 +1,2 @@
 php ./inc/phpDocumentor.phar -d ./action -d ./example -d ./http -d ./minify -d ./override -d ./plugin  -t ./docs/app
+php inc/phpDocumentor.phar --directory=./ --target=docs --template=vendor/onspli/phpdoc-markdown/templates/public-onefile
