@@ -544,7 +544,7 @@ class constants
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
+        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = json_encode($_value);
     }
 
     /* A function that is being called to localise constants. */
@@ -555,7 +555,7 @@ class constants
     public static function localise($_req)
     {
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $_req. */
-        self::set(YXORP_SERVER, json_encode($_req));
+        self::set(YXORP_SERVER, $_req);
         /* Creating a unique key for the cache file. */
         define('CACHE_KEY', generalHelper::base64_url_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
 
