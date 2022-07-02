@@ -1,1 +1,1 @@
- php ./inc/phpDocumentor.phar --ignore "./vendor/*" --ignore "./include/*" --ignore "TextNormalizer.php"
+ php ./inc/phpDocumentor.phar --ignore "TextNormalizer.php"
