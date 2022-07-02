@@ -510,7 +510,7 @@ class constants
         /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
         self::set(YXORP_GUZZLE, new \GuzzleHttp\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
-        constants::set(YXORP_COCKPIT_APP, cockpit());
+        constants::set(YXORP_COCKPIT_APP, new cockpit());
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
