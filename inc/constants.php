@@ -36,12 +36,8 @@ class constants
         define('CHAR_DASH', '-');
         /* Defining a constant called `CHAR_LOWER` and setting it to the value of `_`. */
         define('CHAR_LOWER', '_');
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
-        define('VAR_PLUSS_SLASH', '');
-        '+/'
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
-        define('VAR_DASH_LOWER', CHAR_DASH . );
-        '-_'
+        /* Defining a constant called `CHAR_PLUS` and setting it to the value of `+`. */
+        define('CHAR_PLUS', '+');
 
 
         // NUMBERS
