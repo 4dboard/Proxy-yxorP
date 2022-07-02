@@ -2,9 +2,9 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\wrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
+use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
@@ -72,7 +72,7 @@ class proxifyPluginAction extends wrapper
                     /* It's getting the url from the `srcset` attribute. */
                     $url = substr($part, 0, $pos);
                     /* It's replacing the `src` attribute with the proxified url. */
-                    $src = str_replace($url, proxify_url($url, $this->base_url), $src);
+                    $src = str_replace($url, generalHelper::proxify_url($url, $this->base_url), $src);
                 }
             }
             /* It's returning the `srcset` attribute with the proxified url. */
@@ -122,14 +122,14 @@ class proxifyPluginAction extends wrapper
         /* It's checking if the url starts with `data:`. If it does, it's returning the `$matches[0]` variable. */
         if (generalHelper::starts_with($url, 'data:')) return $matches[0];
         /* It's replacing the `url()` in the CSS with the proxified url. */
-        return str_replace($matches[1], proxify_url($matches[1], $this->base_url), $matches[0]);
+        return str_replace($matches[1], generalHelper::proxify_url($matches[1], $this->base_url), $matches[0]);
     }
 
     /* It's replacing the `@import` in the CSS with the proxified url. */
     private function css_import($matches): array|string
     {
         /* It's replacing the `url()` in the CSS with the proxified url. */
-        return str_replace($matches[2], proxify_url($matches[2], $this->base_url), $matches[0]);
+        return str_replace($matches[2], generalHelper::proxify_url($matches[2], $this->base_url), $matches[0]);
     }
 
     /* It's replacing the `src` and `href` attributes in the HTML with the proxified url. */
@@ -143,7 +143,7 @@ class proxifyPluginAction extends wrapper
         or `android-app:`. If it does, it's returning the `$matches[0]` variable. */
         if (generalHelper::starts_with($url, $schemes)) return $matches[0];
         /* It's replacing the `url()` in the CSS with the proxified url. */
-        return str_replace($url, proxify_url($url, $this->base_url), $matches[0]);
+        return str_replace($url, generalHelper::proxify_url($url, $this->base_url), $matches[0]);
     }
 
     /* It's replacing the `action` attribute in the `<form>` tag with the proxified url. */
@@ -153,7 +153,7 @@ class proxifyPluginAction extends wrapper
         `$this->base_url` variable. */
         if (!$matches[2]) $matches[2] = $this->base_url;
         /* It's replacing the `action` attribute in the `<form>` tag with the proxified url. */
-        $new_action = proxify_url($matches[2], $this->base_url);
+        $new_action = generalHelper::proxify_url($matches[2], $this->base_url);
         /* It's checking if the `<form>` tag has a `method` attribute with the value `post`. */
         $form_post = preg_match('@method=(["\'])post\1@i', $matches[0]) === 1;
         /* It's replacing the `action` attribute in the `<form>` tag with the proxified url. */
@@ -176,6 +176,6 @@ class proxifyPluginAction extends wrapper
         $url = $matches[2];
 
         /* It's replacing the `url()` in the CSS with the proxified url. */
-        return str_replace($url, proxify_url($url, $this->base_url), $matches[0]);
+        return str_replace($url, generalHelper::proxify_url($url, $this->base_url), $matches[0]);
     }
 }
