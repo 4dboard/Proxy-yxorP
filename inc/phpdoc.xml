@@ -8,7 +8,7 @@
         <target>docs</target>
     </transformer>
     <transformations>
-        <template name="vendor/fr3nch13/phpdoc-markdown/data/templates/markdown"/>
+        <template name="vendor/cvuorinen/phpdoc-markdown-public/data/templates/markdown-public"/>
     </transformations>
     <files>
         <directory>src</directory>
