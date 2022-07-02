@@ -1,1 +1,2 @@
-  php ./inc/phpDocumentor.phar  --directory './action' --directory './http' --directory './minify' --directory './plugin' -t './docs/' --template="vendor/saggre/phpdocumentor-markdown/themes/markdown"
+php ./inc/phpDocumentor.phar  --directory './action' --directory './http' --directory './minify' --directory './plugin' -t './docs/'
+php ./inc/phpDocumentor.phar  --directory './action' --directory './http' --directory './minify' --directory './plugin' -t './docs/' --template="vendor/saggre/phpdocumentor-markdown/themes/markdown"
