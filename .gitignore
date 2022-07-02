@@ -17,6 +17,7 @@
 /.idea
 /.phpdoc
 /tmp
+/inc/phpdoc.xml
 phpdoc.xml
 composer.lock
 composer.phar
