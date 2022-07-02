@@ -32,6 +32,16 @@ class constants
         define('CHAR_ASTRIX', '*');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('CHAR_EMPTY_STRING', '');
+        /* Defining a constant called `CHAR_DASH` and setting it to the value of `-`. */
+        define('CHAR_DASH', '-');
+        /* Defining a constant called `CHAR_LOWER` and setting it to the value of `_`. */
+        define('CHAR_LOWER', '_');
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_PLUSS_SLASH', '');
+        '+/'
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_DASH_LOWER', CHAR_DASH . );
+        '-_'
 
 
         // NUMBERS
