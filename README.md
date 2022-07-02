@@ -7,7 +7,7 @@
 
 [ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ] [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ][ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/)]
 
-> ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview of the yxorP Proxy, which is now available via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
+> ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
