@@ -4,7 +4,6 @@ namespace yxorP;
 
 /* Importing the constants class from the inc folder. */
 
-use Metadata\Tests\Driver\Fixture\A\A;
 use MongoDB\Driver\Monitoring\Subscriber;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
@@ -155,22 +154,51 @@ class yxorP
         /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
         define(YXORP_COCKPIT_INSTALL, true);
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
-        $from = PATH_COCKPIT_LOCAL . '*';
-        $to = PATH_DIR_COCKPIT;
-        $files = array_filter(glob("$from*"), "is_file");
-        foreach ($files as $f) {
-            copy($f, $to . basename($f));
-        }
-
-        echo $from;
-        echo $to;
-
+        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
         exit;
 
         $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
 
         /* It's inserting a new user into the `cockpit_accounts` collection. */
         constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
+    }
+
+    /**
+     * It takes a source directory, a destination directory, and a file extension, and copies all files with that extension
+     * from the source directory to the destination directory
+     *
+     * @param from The directory to migrate from.
+     * @param to The destination directory.
+     * @param ext The extension of the files to be migrated.
+     */
+    private static function migrate($from, $to): void
+    {/* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
+        calling the `base()` function. */
+        if (!is_dir($from)) {
+            exit("$from does not exist");
+        }
+
+        if (!is_dir($to)) {
+            if (!mkdir($to)) {
+                exit("Failed to create $to");
+            }
+            echo "$to created\r\n";
+        }
+
+        $dir = opendir($from);
+        while (($ff = readdir($dir)) !== false) {
+            if ($ff != "." && $ff != "..") {
+                if (is_dir("$from$ff")) {
+                    copyfolder("$from$ff/", "$to$ff/");
+                } else {
+                    if (!copy("$from$ff", "$to$ff")) {
+                        exit("Error copying $from$ff to $to$ff");
+                    }
+                    echo "$from$ff copied to $to$ff\r\n";
+                }
+            }
+        }
+        closedir($dir);
     }
 
     /**
@@ -201,36 +229,6 @@ class yxorP
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
         return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
-    }
-
-    /**
-     * It takes a source directory, a destination directory, and a file extension, and copies all files with that extension
-     * from the source directory to the destination directory
-     *
-     * @param from The directory to migrate from.
-     * @param to The destination directory.
-     * @param ext The extension of the files to be migrated.
-     */
-    private static function migrate($from, $to): void
-    {/* It's checking if there are any files in the `$from` directory, and if there are, it's looping through them and
-        calling the `base()` function. */
-        if (count($all = glob("$from" . (CHAR_ASTRIX), GLOB_MARK)) > 0) foreach ($all as $a) self::base($from, $to, $a);
-    }
-
-    /**
-     * It takes a source and destination directory, and copies all files and subdirectories from the source to the
-     * destination
-     *
-     * @param from The source directory
-     * @param to The destination directory
-     * @param a the file or directory to be copied
-     */
-    private static function base($from, $to, $a): void
-    {
-        /* It's getting the base name of the file or directory. */
-        $ff = basename($a);
-        /* It's checking if the `$a` variable is a directory, and if it is, it's calling the `migrate()` function. */
-        if (is_dir($a)) self::migrate("$from$ff/", "$to$ff/");
     }
 
     /**
