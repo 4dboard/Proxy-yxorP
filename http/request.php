@@ -172,7 +172,7 @@ class request
             $name = str_replace(' ', ' - ', $name);
             $request->headers->set($name, $value);
         }
-        $request->params->set('user-ip', constants::get(YXORP_SERVER)[YXORP_REMOTE_ADDR]);
+        $request->params->set(VAR_USER_IP, constants::get(YXORP_SERVER)[YXORP_REMOTE_ADDR]);
         if (count($_FILES) > 0) {
             $request->post->replace($_POST);
             $request->files->replace($_FILES);
@@ -217,7 +217,7 @@ class request
         $headers = $this->headers->all();
         ksort($headers);
         foreach ($headers as $name => $values) foreach ((array)$values as $value) {
-            $name = implode(CHAR_DASH, array_map('ucfirst', explode(CHAR_DASH, $name)));
+            $name = implode(CHAR_DASH, array_map(VAR_UCFIRST, explode(CHAR_DASH, $name)));
             $result[] = sprintf("%s: %s", $name, $value);
         }
         return implode("\r\n", $result);

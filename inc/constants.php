@@ -229,19 +229,26 @@ class constants
         define('VAR_COOKIES', 'cookies');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_IDN_CONVERSION', 'idn_conversion');
-        'user-ip'
-        'ucfirst'
-        "getUrl"
-        'tmp_name'
-        'error'
-        'type'
-        'content-length'
-        'content-type'
-        'application/x-www-form-urlencoded'
-        '?'
 
-        YXORP_HTTPS
-        YXORP_HTTP
+
+        /* Defining a constant called `VAR_APPLICATION_URLENCODED` and setting it to the value of `application/x-www-form-urlencoded`. */
+        define('VAR_APPLICATION_URLENCODED', 'application/x-www-form-urlencoded');
+        /* Defining a constant called `VAR_CONTENT_TYPE` and setting it to the value of `content-type`. */
+        define('VAR_CONTENT_TYPE', 'content-type');
+        /* Defining a constant called `VAR_CONTENT_LENGTH` and setting it to the value of `content-length`. */
+        define('VAR_CONTENT_LENGTH', 'content-length');
+        /* Defining a constant called `VAR_TYPE` and setting it to the value of `type`. */
+        define('VAR_TYPE', 'type');
+        /* Defining a constant called `VAR_ERROR` and setting it to the value of `error`. */
+        define('VAR_ERROR', 'error');
+        /* Defining a constant called `VAR_TMP_NAME` and setting it to the value of `tmp_name`. */
+        define('VAR_TMP_NAME', 'tmp_name');
+        /* Defining a constant called `VAR_GET_URL` and setting it to the value of `getUrl`. */
+        define('VAR_GET_URL', 'getUrl');
+        /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
+        define('VAR_UCFIRST', VAR_UCFIRST);
+        /* Defining a constant called `USER_IP` and setting it to the value of `user-ip`. */
+        define('VAR_USER_IP', 'user-ip');
 
         // YXORPS SINGLE
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
@@ -354,13 +361,13 @@ class constants
         define('YXORP_HTTP_', YXORP_HTTPS . CHAR_UNDER);
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
         define('YXORP_REMOTE_ADDR', YXORP_REMOTE . CHAR_UNDER . YXORP_ADDR);
-        
-        
+
+
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
         define('REG_ONE', CHAR_SLASH . CHAR_SLASH_BACK . CHAR_QUESTION . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
         define('REG_TWO', CHAR_HASH . CHAR_PERIOD . CHAR_ASTRIX . CHAR_SLASH);
-        
+
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
         define('ENV_ADMIN_USER', 'ADMIN_USER' . EXT_ENV);
