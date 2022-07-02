@@ -158,6 +158,7 @@ class yxorP
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
         //self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
+        echo YXORP_COCKPIT_APP;
         print_r(constants::get(YXORP_COCKPIT_APP));
 
         /* It's creating an array of user data. */
