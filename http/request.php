@@ -133,7 +133,7 @@ class request
                 $fieldName = (string)$name;
             }
             foreach (array_keys($multiValues[VAR_TMP_NAME]) as $key) {
-                if (!$multiValues[VAR_TMP_NAME][$key] || $multiValues['error'][$key] !== 0 || !is_readable($multiValues[VAR_TMP_NAME][$key])) {
+                if (!$multiValues[VAR_TMP_NAME][$key] || $multiValues[VAR_ERROR][$key] !== 0 || !is_readable($multiValues[VAR_TMP_NAME][$key])) {
                     continue;
                 }
                 $body .= sprintf($part_file, $boundary, $fieldName, $multiValues['name'][$key], $multiValues['type'][$key]);
