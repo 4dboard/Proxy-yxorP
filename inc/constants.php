@@ -270,6 +270,12 @@ class constants
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
         define('VAR_UCFIRST', 'ucfirst');
         /* Defining a constant called `USER_IP` and setting it to the value of `user-ip`. */
+        '\*'
+        '.*'
+        '\?'
+        CHAR_PERIOD
+        "#^"
+        "$#i"
 
         // YXORPS SINGLE
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
