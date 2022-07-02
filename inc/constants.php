@@ -84,7 +84,7 @@ class constants
         define('DIR_TMP', 'tmp' . CHAR_SLASH);
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_HTTP', 'http' . CHAR_SLASH);
+        define('DIR_HTTP', YXORP_HTTP . CHAR_SLASH);
         /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `CHAR_SLASH`
         appended to it. */
         define('DIR_MINIFY', 'minify' . CHAR_SLASH);
@@ -241,7 +241,7 @@ class constants
         '?'
 
         'https'
-        'http'
+        YXORP_HTTP
 
         // YXORPS SINGLE
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
@@ -305,7 +305,7 @@ class constants
         /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
         define('YXORP_HTTPS', 'HTTPS');
         /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
-        define('YXORP_HTTP', 'HTTP');
+        define('YXORP_HTTP', YXORP_HTTP);
         /* Defining a constant called YXORP_METHOD and setting it to the string METHOD. */
         define('YXORP_METHOD', 'METHOD');
         /* Defining a constant called YXORP_REMOTE and setting it to the string REMOTE. */
