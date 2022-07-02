@@ -188,11 +188,11 @@ class generalHelper
 
     public static function rel2abs($rel, $base)
     {
-        if (str_starts_with($rel, "")) {
+        if (str_starts_with($rel, CHAR_EMPTY_STRING)) {
             return "http:" . $rel;
         }
-        if ($rel === "") {
-            return "";
+        if ($rel === CHAR_EMPTY_STRING) {
+            return CHAR_EMPTY_STRING;
         }
         if (parse_url($rel, PHP_URL_SCHEME) !== CHAR_EMPTY_STRING) {
             return $rel;
