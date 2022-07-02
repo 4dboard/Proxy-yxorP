@@ -15,11 +15,11 @@ class siteCollectionAction extends wrapper
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(constants::get(YXORP_COCKPIT_APP))->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'sites', ['host' => constants::get('SITE_DOMAIN')]));
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
-        constants::set('SITE_URL', constants::get(YXORP_SERVER)[YXORP_SERVER_NAME]);
+        constants::set(YXORP_SITE_URL, constants::get(YXORP_SERVER)[YXORP_SERVER_NAME]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set('SITE_DOMAIN', self::extractDomain(constants::get('SITE_URL')));
+        constants::set('SITE_DOMAIN', self::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
-        constants::set('SITE_SUB_DOMAIN', self::extractSubdomains(constants::get('SITE_URL')));
+        constants::set('SITE_SUB_DOMAIN', self::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         constants::set('TARGET_URL', constants::get(YXORP_TARGET)[YXORP_TARGET]);
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
