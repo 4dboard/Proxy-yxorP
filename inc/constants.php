@@ -272,6 +272,7 @@ class constants
 
         define('CHAR_UP', '^');
         define('CHAR_USD', '$');
+        define('CHAR_I', 'i');
 
         /* Defining a constant called `USER_IP` and setting it to the value of `user-ip`. */
         define('VAR_UCFIRST', CHAR_SLASH_BACK . CHAR_ASTRIX);
