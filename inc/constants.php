@@ -251,6 +251,10 @@ class constants
         define('YXORP_DIR_FULL', 'DIR_FULL');
         /* Defining a constant called YXORP_FILES and setting it to the string files. */
         define('YXORP_FILES', 'files');
+        /* Defining a constant called YXORP_SITE_HOST and setting it to the string SITE_HOST. */
+        define('YXORP_SITE_HOST', 'SITE_HOST');
+        /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
+        define('YXORP_PHP_SELF', 'PHP_SELF');
 
 
         //ENV
