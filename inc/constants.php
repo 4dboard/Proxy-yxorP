@@ -588,6 +588,7 @@ class constants
         constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(YXORP_TARGET))[YXORP_FILES]);
 
         /* Creating a unique key for the cache file. */
+        echo generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP;
         define('CACHE_KEY', generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
 
     }
