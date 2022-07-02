@@ -14,5 +14,6 @@
         <directory>./</directory>
         <ignore>test/*</ignore>
         <ignore>inc/*</ignore>
+        <ignore>vendor/*</ignore>
     </files>
 </phpdoc>
