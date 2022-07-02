@@ -491,6 +491,7 @@ requires copyright protection and prominent display of licensing information in 
 in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works.
 
 ![](asset/live.png?v=3)
+
 # Documentation
 
 ## Table of Contents
@@ -538,7 +539,8 @@ in a number of forms and without the source code because they are licensed works
 | [ClassLoader::loadClass](#ClassLoaderloadClass) | Loads the given class or interface. |
 | [ClassLoader::findFile](#ClassLoaderfindFile) | Finds the path to the file where the class is defined. |
 | [ClassLoader::getRegisteredLoaders](#ClassLoadergetRegisteredLoaders) | Returns the currently registered loaders indexed by their corresponding vendor directories. |
-| [**ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40**](#ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40) |  |
+| [**
+ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40**](#ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40) |  |
 | [ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::loadClassLoader](#ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40loadClassLoader) |  |
 | [ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::getLoader](#ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40getLoader) |  |
 | [**ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40**](#ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40) |  |
@@ -680,7 +682,8 @@ in a number of forms and without the source code because they are licensed works
 | [inlineCssMinifier::process](#inlineCssMinifierprocess) |  |
 | [**inlineJavascriptMinifier**](#inlineJavascriptMinifier) |  |
 | [inlineJavascriptMinifier::process](#inlineJavascriptMinifierprocess) |  |
-| [**InstalledVersions**](#InstalledVersions) | This class is copied in every Composer installed project and available to all |
+| [**
+InstalledVersions**](#InstalledVersions) | This class is copied in every Composer installed project and available to all |
 | [InstalledVersions::getInstalledPackages](#InstalledVersionsgetInstalledPackages) | Returns a list of all package names which are present, either by being installed, replaced or provided |
 | [InstalledVersions::getInstalledPackagesByType](#InstalledVersionsgetInstalledPackagesByType) | Returns a list of all package names with a specific type e.g. &#039;library&#039; |
 | [InstalledVersions::isInstalled](#InstalledVersionsisInstalled) | Checks whether the given package is installed |
@@ -908,27 +911,16 @@ in a number of forms and without the source code because they are licensed works
 
 ## attributesSimplifier
 
-
-
-
-
 * Full name: \yxorP\minify\attributesSimplifier
 * Parent class: \yxorP\minify\areplacer
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### attributesSimplifier::getReplacePatternData
-
-
 
 ```php
 attributesSimplifier::getReplacePatternData(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -936,28 +928,18 @@ attributesSimplifier::getReplacePatternData(  ): array
 
 
 ---
+
 ## blockListPluginAction
-
-
-
-
 
 * Full name: \blockListPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### blockListPluginAction::onBeforeRequest
-
-
 
 ```php
 blockListPluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -965,15 +947,12 @@ blockListPluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### blockListPluginAction::callable
-
-
 
 ```php
 blockListPluginAction::callable( mixed fnc_custom, mixed url ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -983,7 +962,6 @@ blockListPluginAction::callable( mixed fnc_custom, mixed url ): mixed
 | `fnc_custom` | **mixed** |  |
 | `url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -991,26 +969,17 @@ blockListPluginAction::callable( mixed fnc_custom, mixed url ): mixed
 
 
 ---
+
 ## bugsnagHandlerAction
-
-
-
-
 
 * Full name: \bugsnagHandlerAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### bugsnagHandlerAction::onBuildException
-
-
 
 ```php
 bugsnagHandlerAction::onBuildException( mixed e ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1018,7 +987,6 @@ bugsnagHandlerAction::onBuildException( mixed e ): void
 |-----------|------|-------------|
 | `e` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1026,25 +994,17 @@ bugsnagHandlerAction::onBuildException( mixed e ): void
 
 
 ---
+
 ## cache
-
-
-
-
 
 * Full name: \yxorP\http\cache
 
-
 ### cache::clearAll
-
-
 
 ```php
 cache::clearAll(  ): void
 ```
 
-
-
 * This method is **static**.
 
 **Return Value:**
@@ -1054,18 +1014,13 @@ cache::clearAll(  ): void
 
 
 ---
+
 ### cache::super
-
-
 
 ```php
 cache::super(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1073,18 +1028,13 @@ cache::super(  ): void
 
 
 ---
+
 ### cache::get
-
-
 
 ```php
 cache::get(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1092,18 +1042,13 @@ cache::get(  ): void
 
 
 ---
+
 ### cache::isValid
-
-
 
 ```php
 cache::isValid(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1111,15 +1056,12 @@ cache::isValid(  ): bool
 
 
 ---
+
 ### cache::cache
-
-
 
 ```php
 cache::cache(  ): mixed
 ```
-
-
 
 * This method is **static**.
 
@@ -1130,16 +1072,12 @@ cache::cache(  ): mixed
 
 
 ---
+
 ### cache::set
-
-
 
 ```php
 cache::set( mixed val ): \yxorP\http\cache
 ```
-
-
-
 
 **Parameters:**
 
@@ -1147,7 +1085,6 @@ cache::set( mixed val ): \yxorP\http\cache
 |-----------|------|-------------|
 | `val` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1155,28 +1092,18 @@ cache::set( mixed val ): \yxorP\http\cache
 
 
 ---
+
 ## cacheStoreAction
-
-
-
-
 
 * Full name: \cacheStoreAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### cacheStoreAction::onCompleted
-
-
 
 ```php
 cacheStoreAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1184,28 +1111,18 @@ cacheStoreAction::onCompleted(  ): void
 
 
 ---
+
 ## checkFilesAction
-
-
-
-
 
 * Full name: \checkFilesAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### checkFilesAction::buildIncludes
-
-
 
 ```php
 checkFilesAction::buildIncludes(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1213,6 +1130,7 @@ checkFilesAction::buildIncludes(  ): mixed
 
 
 ---
+
 ## ClassLoader
 
 ClassLoader implements a PSR-0, PSR-4 and classmap class loader.
@@ -1229,11 +1147,9 @@ $loader = new \Composer\Autoload\ClassLoader();
     // to enable searching the include path (eg. for PEAR packages)
     $loader->setUseIncludePath(true);
 
-In this example, if you try to use a class in the Symfony\Component
-namespace or one of its children (Symfony\Component\Console for instance),
-the autoloader will first look for the class under the component/
-directory, and it will then fallback to the framework/ directory if not
-found before giving up.
+In this example, if you try to use a class in the Symfony\Component namespace or one of its children (
+Symfony\Component\Console for instance), the autoloader will first look for the class under the component/ directory,
+and it will then fallback to the framework/ directory if not found before giving up.
 
 This class is loosely based on the Symfony UniversalClassLoader.
 
@@ -1245,14 +1161,9 @@ This class is loosely based on the Symfony UniversalClassLoader.
 
 ### ClassLoader::__construct
 
-
-
 ```php
 ClassLoader::__construct( ?string vendorDir = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -1260,7 +1171,6 @@ ClassLoader::__construct( ?string vendorDir = null ): mixed
 |-----------|------|-------------|
 | `vendorDir` | **?string** |  |
 
-
 **Return Value:**
 
 
@@ -1268,18 +1178,13 @@ ClassLoader::__construct( ?string vendorDir = null ): mixed
 
 
 ---
+
 ### ClassLoader::getPrefixes
-
-
 
 ```php
 ClassLoader::getPrefixes(  ): string[]
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1287,18 +1192,13 @@ ClassLoader::getPrefixes(  ): string[]
 
 
 ---
+
 ### ClassLoader::getPrefixesPsr4
-
-
 
 ```php
 ClassLoader::getPrefixesPsr4(  ): array[]
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1306,18 +1206,13 @@ ClassLoader::getPrefixesPsr4(  ): array[]
 
 
 ---
+
 ### ClassLoader::getFallbackDirs
-
-
 
 ```php
 ClassLoader::getFallbackDirs(  ): array[]
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1325,18 +1220,13 @@ ClassLoader::getFallbackDirs(  ): array[]
 
 
 ---
+
 ### ClassLoader::getFallbackDirsPsr4
-
-
 
 ```php
 ClassLoader::getFallbackDirsPsr4(  ): array[]
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1344,17 +1234,12 @@ ClassLoader::getFallbackDirsPsr4(  ): array[]
 
 
 ---
+
 ### ClassLoader::getClassMap
-
-
 
 ```php
 ClassLoader::getClassMap(  ): string[]
 ```
-
-
-
-
 
 **Return Value:**
 
@@ -1363,23 +1248,18 @@ Array of classname => path
 
 
 ---
+
 ### ClassLoader::addClassMap
-
-
 
 ```php
 ClassLoader::addClassMap( string[] classMap ): void
 ```
-
-
-
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `classMap` | **string[]** | Class to filename map |
-
 
 **Return Value:**
 
@@ -1388,17 +1268,15 @@ ClassLoader::addClassMap( string[] classMap ): void
 
 
 ---
+
 ### ClassLoader::add
 
-Registers a set of PSR-0 directories for a given prefix, either
-appending or prepending to the ones previously set for this prefix.
+Registers a set of PSR-0 directories for a given prefix, either appending or prepending to the ones previously set for
+this prefix.
 
 ```php
 ClassLoader::add( string prefix, string[]|string paths, bool prepend = false ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1408,7 +1286,6 @@ ClassLoader::add( string prefix, string[]|string paths, bool prepend = false ): 
 | `paths` | **string[]\|string** | The PSR-0 root directories |
 | `prepend` | **bool** | Whether to prepend the directories |
 
-
 **Return Value:**
 
 
@@ -1416,17 +1293,15 @@ ClassLoader::add( string prefix, string[]|string paths, bool prepend = false ): 
 
 
 ---
+
 ### ClassLoader::addPsr4
 
-Registers a set of PSR-4 directories for a given namespace, either
-appending or prepending to the ones previously set for this namespace.
+Registers a set of PSR-4 directories for a given namespace, either appending or prepending to the ones previously set
+for this namespace.
 
 ```php
 ClassLoader::addPsr4( string prefix, string[]|string paths, bool prepend = false ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1436,7 +1311,6 @@ ClassLoader::addPsr4( string prefix, string[]|string paths, bool prepend = false
 | `paths` | **string[]\|string** | The PSR-4 base directories |
 | `prepend` | **bool** | Whether to prepend the directories |
 
-
 **Return Value:**
 
 
@@ -1444,17 +1318,14 @@ ClassLoader::addPsr4( string prefix, string[]|string paths, bool prepend = false
 
 
 ---
+
 ### ClassLoader::set
 
-Registers a set of PSR-0 directories for a given prefix,
-replacing any others previously set for this prefix.
+Registers a set of PSR-0 directories for a given prefix, replacing any others previously set for this prefix.
 
 ```php
 ClassLoader::set( string prefix, string[]|string paths ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1463,7 +1334,6 @@ ClassLoader::set( string prefix, string[]|string paths ): void
 | `prefix` | **string** | The prefix |
 | `paths` | **string[]\|string** | The PSR-0 base directories |
 
-
 **Return Value:**
 
 
@@ -1471,17 +1341,14 @@ ClassLoader::set( string prefix, string[]|string paths ): void
 
 
 ---
+
 ### ClassLoader::setPsr4
 
-Registers a set of PSR-4 directories for a given namespace,
-replacing any others previously set for this namespace.
+Registers a set of PSR-4 directories for a given namespace, replacing any others previously set for this namespace.
 
 ```php
 ClassLoader::setPsr4( string prefix, string[]|string paths ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1490,7 +1357,6 @@ ClassLoader::setPsr4( string prefix, string[]|string paths ): void
 | `prefix` | **string** | The prefix/namespace, with trailing &#039;\\&#039; |
 | `paths` | **string[]\|string** | The PSR-4 base directories |
 
-
 **Return Value:**
 
 
@@ -1498,6 +1364,7 @@ ClassLoader::setPsr4( string prefix, string[]|string paths ): void
 
 
 ---
+
 ### ClassLoader::setUseIncludePath
 
 Turns on searching the include path for class files.
@@ -1506,16 +1373,12 @@ Turns on searching the include path for class files.
 ClassLoader::setUseIncludePath( bool useIncludePath ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `useIncludePath` | **bool** |  |
 
-
 **Return Value:**
 
 
@@ -1523,19 +1386,15 @@ ClassLoader::setUseIncludePath( bool useIncludePath ): void
 
 
 ---
+
 ### ClassLoader::getUseIncludePath
 
-Can be used to check if the autoloader uses the include path to check
-for classes.
+Can be used to check if the autoloader uses the include path to check for classes.
 
 ```php
 ClassLoader::getUseIncludePath(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1543,17 +1402,14 @@ ClassLoader::getUseIncludePath(  ): bool
 
 
 ---
+
 ### ClassLoader::setClassMapAuthoritative
 
-Turns off searching the prefix and fallback directories for classes
-that have not been registered with the class map.
+Turns off searching the prefix and fallback directories for classes that have not been registered with the class map.
 
 ```php
 ClassLoader::setClassMapAuthoritative( bool classMapAuthoritative ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1561,7 +1417,6 @@ ClassLoader::setClassMapAuthoritative( bool classMapAuthoritative ): void
 |-----------|------|-------------|
 | `classMapAuthoritative` | **bool** |  |
 
-
 **Return Value:**
 
 
@@ -1569,6 +1424,7 @@ ClassLoader::setClassMapAuthoritative( bool classMapAuthoritative ): void
 
 
 ---
+
 ### ClassLoader::isClassMapAuthoritative
 
 Should class lookup fail if not found in the current class map?
@@ -1577,10 +1433,6 @@ Should class lookup fail if not found in the current class map?
 ClassLoader::isClassMapAuthoritative(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1588,6 +1440,7 @@ ClassLoader::isClassMapAuthoritative(  ): bool
 
 
 ---
+
 ### ClassLoader::setApcuPrefix
 
 APCu prefix to use to cache found/not-found classes, if the extension is enabled.
@@ -1596,15 +1449,11 @@ APCu prefix to use to cache found/not-found classes, if the extension is enabled
 ClassLoader::setApcuPrefix( string|null apcuPrefix ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `apcuPrefix` | **string\|null** |  |
-
 
 **Return Value:**
 
@@ -1613,6 +1462,7 @@ ClassLoader::setApcuPrefix( string|null apcuPrefix ): void
 
 
 ---
+
 ### ClassLoader::getApcuPrefix
 
 The APCu prefix in use, or null if APCu caching is not enabled.
@@ -1621,10 +1471,6 @@ The APCu prefix in use, or null if APCu caching is not enabled.
 ClassLoader::getApcuPrefix(  ): string|null
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1632,6 +1478,7 @@ ClassLoader::getApcuPrefix(  ): string|null
 
 
 ---
+
 ### ClassLoader::register
 
 Registers this instance as an autoloader.
@@ -1640,15 +1487,11 @@ Registers this instance as an autoloader.
 ClassLoader::register( bool prepend = false ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `prepend` | **bool** | Whether to prepend the autoloader or not |
-
 
 **Return Value:**
 
@@ -1657,6 +1500,7 @@ ClassLoader::register( bool prepend = false ): void
 
 
 ---
+
 ### ClassLoader::unregister
 
 Unregisters this instance as an autoloader.
@@ -1665,10 +1509,6 @@ Unregisters this instance as an autoloader.
 ClassLoader::unregister(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1676,6 +1516,7 @@ ClassLoader::unregister(  ): void
 
 
 ---
+
 ### ClassLoader::loadClass
 
 Loads the given class or interface.
@@ -1684,15 +1525,11 @@ Loads the given class or interface.
 ClassLoader::loadClass( string class ): true|null
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `class` | **string** | The name of the class |
-
 
 **Return Value:**
 
@@ -1701,6 +1538,7 @@ True if loaded, null otherwise
 
 
 ---
+
 ### ClassLoader::findFile
 
 Finds the path to the file where the class is defined.
@@ -1709,15 +1547,11 @@ Finds the path to the file where the class is defined.
 ClassLoader::findFile( string class ): string|false
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `class` | **string** | The name of the class |
-
 
 **Return Value:**
 
@@ -1726,6 +1560,7 @@ The path if found, false otherwise
 
 
 ---
+
 ### ClassLoader::getRegisteredLoaders
 
 Returns the currently registered loaders indexed by their corresponding vendor directories.
@@ -1734,8 +1569,6 @@ Returns the currently registered loaders indexed by their corresponding vendor d
 ClassLoader::getRegisteredLoaders(  ): self[]
 ```
 
-
-
 * This method is **static**.
 
 **Return Value:**
@@ -1745,24 +1578,16 @@ ClassLoader::getRegisteredLoaders(  ): self[]
 
 
 ---
+
 ## ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40
-
-
-
-
 
 * Full name: \ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40
 
-
 ### ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::loadClassLoader
-
-
 
 ```php
 ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::loadClassLoader( mixed class ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -1771,7 +1596,6 @@ ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::loadClassLoader( mixed c
 |-----------|------|-------------|
 | `class` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1779,15 +1603,12 @@ ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::loadClassLoader( mixed c
 
 
 ---
+
 ### ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::getLoader
-
-
 
 ```php
 ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::getLoader(  ): \Composer\Autoload\ClassLoader
 ```
-
-
 
 * This method is **static**.
 
@@ -1798,24 +1619,16 @@ ComposerAutoloaderInitab293cd0cd12e6cb9da10a8189827d40::getLoader(  ): \Composer
 
 
 ---
+
 ## ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40
-
-
-
-
 
 * Full name: \Composer\Autoload\ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40
 
-
 ### ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40::getInitializer
-
-
 
 ```php
 ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40::getInitializer( \Composer\Autoload\ClassLoader loader ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -1824,7 +1637,6 @@ ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40::getInitializer( \Composer\Au
 |-----------|------|-------------|
 | `loader` | **\Composer\Autoload\ClassLoader** |  |
 
-
 **Return Value:**
 
 
@@ -1832,25 +1644,16 @@ ComposerStaticInitab293cd0cd12e6cb9da10a8189827d40::getInitializer( \Composer\Au
 
 
 ---
+
 ## Config
-
-
-
-
 
 * Full name: \League\Flysystem\Config
 
-
 ### Config::__construct
-
-
 
 ```php
 Config::__construct( array options = [] ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -1858,7 +1661,6 @@ Config::__construct( array options = [] ): mixed
 |-----------|------|-------------|
 | `options` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -1866,16 +1668,12 @@ Config::__construct( array options = [] ): mixed
 
 
 ---
+
 ### Config::get
-
-
 
 ```php
 Config::get( string property, mixed default = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -1884,7 +1682,6 @@ Config::get( string property, mixed default = null ): mixed
 | `property` | **string** |  |
 | `default` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1892,16 +1689,12 @@ Config::get( string property, mixed default = null ): mixed
 
 
 ---
+
 ### Config::extend
-
-
 
 ```php
 Config::extend( array options ): \League\Flysystem\Config
 ```
-
-
-
 
 **Parameters:**
 
@@ -1909,7 +1702,6 @@ Config::extend( array options ): \League\Flysystem\Config
 |-----------|------|-------------|
 | `options` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -1917,16 +1709,12 @@ Config::extend( array options ): \League\Flysystem\Config
 
 
 ---
+
 ### Config::withDefaults
-
-
 
 ```php
 Config::withDefaults( array defaults ): \League\Flysystem\Config
 ```
-
-
-
 
 **Parameters:**
 
@@ -1934,7 +1722,6 @@ Config::withDefaults( array defaults ): \League\Flysystem\Config
 |-----------|------|-------------|
 | `defaults` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -1942,24 +1729,16 @@ Config::withDefaults( array defaults ): \League\Flysystem\Config
 
 
 ---
+
 ## constants
-
-
-
-
 
 * Full name: \yxorP\inc\constants
 
-
 ### constants::create
-
-
 
 ```php
 constants::create( _dir ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -1968,7 +1747,6 @@ constants::create( _dir ): void
 |-----------|------|-------------|
 | `_dir` | **** |  |
 
-
 **Return Value:**
 
 
@@ -1976,15 +1754,12 @@ constants::create( _dir ): void
 
 
 ---
+
 ### constants::env
-
-
 
 ```php
 constants::env( line ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -1993,7 +1768,6 @@ constants::env( line ): void
 |-----------|------|-------------|
 | `line` | **** |  |
 
-
 **Return Value:**
 
 
@@ -2001,15 +1775,12 @@ constants::env( line ): void
 
 
 ---
+
 ### constants::set
-
-
 
 ```php
 constants::set( _name, _value ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2019,7 +1790,6 @@ constants::set( _name, _value ): mixed
 | `_name` | **** |  |
 | `_value` | **** |  |
 
-
 **Return Value:**
 
 
@@ -2027,15 +1797,12 @@ constants::set( _name, _value ): mixed
 
 
 ---
+
 ### constants::localise
-
-
 
 ```php
 constants::localise( _req ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2044,7 +1811,6 @@ constants::localise( _req ): void
 |-----------|------|-------------|
 | `_req` | **** |  |
 
-
 **Return Value:**
 
 
@@ -2052,15 +1818,12 @@ constants::localise( _req ): void
 
 
 ---
+
 ### constants::get
-
-
 
 ```php
 constants::get( _name ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2069,7 +1832,6 @@ constants::get( _name ): mixed
 |-----------|------|-------------|
 | `_name` | **** |  |
 
-
 **Return Value:**
 
 
@@ -2077,28 +1839,18 @@ constants::get( _name ): mixed
 
 
 ---
+
 ## cookiePluginAction
-
-
-
-
 
 * Full name: \cookiePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### cookiePluginAction::onBeforeRequest
-
-
 
 ```php
 cookiePluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2106,15 +1858,12 @@ cookiePluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### cookiePluginAction::beforeRequest
-
-
 
 ```php
 cookiePluginAction::beforeRequest( mixed match ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2123,7 +1872,6 @@ cookiePluginAction::beforeRequest( mixed match ): mixed
 |-----------|------|-------------|
 | `match` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -2131,18 +1879,13 @@ cookiePluginAction::beforeRequest( mixed match ): mixed
 
 
 ---
+
 ### cookiePluginAction::onHeadersReceived
-
-
 
 ```php
 cookiePluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2150,15 +1893,12 @@ cookiePluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ### cookiePluginAction::headersReceived
-
-
 
 ```php
 cookiePluginAction::headersReceived( mixed response, mixed set_cookie ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2168,7 +1908,6 @@ cookiePluginAction::headersReceived( mixed response, mixed set_cookie ): void
 | `response` | **mixed** |  |
 | `set_cookie` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -2176,15 +1915,12 @@ cookiePluginAction::headersReceived( mixed response, mixed set_cookie ): void
 
 
 ---
+
 ### cookiePluginAction::Received
-
-
 
 ```php
 cookiePluginAction::Received( mixed line ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2193,7 +1929,6 @@ cookiePluginAction::Received( mixed line ): void
 |-----------|------|-------------|
 | `line` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -2201,26 +1936,18 @@ cookiePluginAction::Received( mixed line ): void
 
 
 ---
+
 ## CorruptedPathDetected
-
-
-
-
 
 * Full name: \League\Flysystem\CorruptedPathDetected
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ### CorruptedPathDetected::forPath
-
-
 
 ```php
 CorruptedPathDetected::forPath( string path ): \League\Flysystem\CorruptedPathDetected
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2229,7 +1956,6 @@ CorruptedPathDetected::forPath( string path ): \League\Flysystem\CorruptedPathDe
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -2237,28 +1963,18 @@ CorruptedPathDetected::forPath( string path ): \League\Flysystem\CorruptedPathDe
 
 
 ---
+
 ## dailyMotionPluginAction
-
-
-
-
 
 * Full name: \dailyMotionPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### dailyMotionPluginAction::onCompleted
-
-
 
 ```php
 dailyMotionPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2266,15 +1982,12 @@ dailyMotionPluginAction::onCompleted(  ): void
 
 
 ---
+
 ### dailyMotionPluginAction::completed
-
-
 
 ```php
 dailyMotionPluginAction::completed( mixed matches, mixed content ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2284,7 +1997,6 @@ dailyMotionPluginAction::completed( mixed matches, mixed content ): void
 | `matches` | **mixed** |  |
 | `content` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -2292,28 +2004,18 @@ dailyMotionPluginAction::completed( mixed matches, mixed content ): void
 
 
 ---
+
 ## debubEnablingAction
-
-
-
-
 
 * Full name: \debubEnablingAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### debubEnablingAction::buildIncludes
-
-
 
 ```php
 debubEnablingAction::buildIncludes(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2321,26 +2023,17 @@ debubEnablingAction::buildIncludes(  ): void
 
 
 ---
+
 ## debugHandlerAction
-
-
-
-
 
 * Full name: \debugHandlerAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### debugHandlerAction::onBuildException
-
-
 
 ```php
 debugHandlerAction::onBuildException( mixed e ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -2348,7 +2041,6 @@ debugHandlerAction::onBuildException( mixed e ): void
 |-----------|------|-------------|
 | `e` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -2356,26 +2048,17 @@ debugHandlerAction::onBuildException( mixed e ): void
 
 
 ---
+
 ## DirectoryAttributes
-
-
-
-
 
 * Full name: \League\Flysystem\DirectoryAttributes
 * This class implements: \League\Flysystem\StorageAttributes
 
-
 ### DirectoryAttributes::__construct
-
-
 
 ```php
 DirectoryAttributes::__construct( string path, ?string visibility = null, ?int lastModified = null, array extraMetadata = [] ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -2386,7 +2069,6 @@ DirectoryAttributes::__construct( string path, ?string visibility = null, ?int l
 | `lastModified` | **?int** |  |
 | `extraMetadata` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -2394,18 +2076,13 @@ DirectoryAttributes::__construct( string path, ?string visibility = null, ?int l
 
 
 ---
+
 ### DirectoryAttributes::path
-
-
 
 ```php
 DirectoryAttributes::path(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2413,18 +2090,13 @@ DirectoryAttributes::path(  ): string
 
 
 ---
+
 ### DirectoryAttributes::type
-
-
 
 ```php
 DirectoryAttributes::type(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2432,18 +2104,13 @@ DirectoryAttributes::type(  ): string
 
 
 ---
+
 ### DirectoryAttributes::visibility
-
-
 
 ```php
 DirectoryAttributes::visibility(  ): ?string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2451,18 +2118,13 @@ DirectoryAttributes::visibility(  ): ?string
 
 
 ---
+
 ### DirectoryAttributes::lastModified
-
-
 
 ```php
 DirectoryAttributes::lastModified(  ): ?int
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2470,18 +2132,13 @@ DirectoryAttributes::lastModified(  ): ?int
 
 
 ---
+
 ### DirectoryAttributes::extraMetadata
-
-
 
 ```php
 DirectoryAttributes::extraMetadata(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2489,18 +2146,13 @@ DirectoryAttributes::extraMetadata(  ): array
 
 
 ---
+
 ### DirectoryAttributes::isFile
-
-
 
 ```php
 DirectoryAttributes::isFile(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2508,18 +2160,13 @@ DirectoryAttributes::isFile(  ): bool
 
 
 ---
+
 ### DirectoryAttributes::isDir
-
-
 
 ```php
 DirectoryAttributes::isDir(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2527,16 +2174,12 @@ DirectoryAttributes::isDir(  ): bool
 
 
 ---
+
 ### DirectoryAttributes::withPath
-
-
 
 ```php
 DirectoryAttributes::withPath( string path ): \League\Flysystem\StorageAttributes
 ```
-
-
-
 
 **Parameters:**
 
@@ -2544,7 +2187,6 @@ DirectoryAttributes::withPath( string path ): \League\Flysystem\StorageAttribute
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -2552,15 +2194,12 @@ DirectoryAttributes::withPath( string path ): \League\Flysystem\StorageAttribute
 
 
 ---
+
 ### DirectoryAttributes::fromArray
-
-
 
 ```php
 DirectoryAttributes::fromArray( array attributes ): \League\Flysystem\StorageAttributes
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -2569,7 +2208,6 @@ DirectoryAttributes::fromArray( array attributes ): \League\Flysystem\StorageAtt
 |-----------|------|-------------|
 | `attributes` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -2577,18 +2215,13 @@ DirectoryAttributes::fromArray( array attributes ): \League\Flysystem\StorageAtt
 
 
 ---
+
 ### DirectoryAttributes::jsonSerialize
-
-
 
 ```php
 DirectoryAttributes::jsonSerialize(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2596,26 +2229,17 @@ DirectoryAttributes::jsonSerialize(  ): array
 
 
 ---
+
 ## DirectoryListing
-
-
-
-
 
 * Full name: \League\Flysystem\DirectoryListing
 * This class implements: \IteratorAggregate
 
-
 ### DirectoryListing::__construct
-
-
 
 ```php
 DirectoryListing::__construct( iterable&lt;\League\Flysystem\T&gt; listing ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -2623,7 +2247,6 @@ DirectoryListing::__construct( iterable&lt;\League\Flysystem\T&gt; listing ): mi
 |-----------|------|-------------|
 | `listing` | **iterable&lt;\League\Flysystem\T&gt;** |  |
 
-
 **Return Value:**
 
 
@@ -2631,16 +2254,12 @@ DirectoryListing::__construct( iterable&lt;\League\Flysystem\T&gt; listing ): mi
 
 
 ---
+
 ### DirectoryListing::filter
-
-
 
 ```php
 DirectoryListing::filter( callable filter ): \League\Flysystem\DirectoryListing
 ```
-
-
-
 
 **Parameters:**
 
@@ -2648,7 +2267,6 @@ DirectoryListing::filter( callable filter ): \League\Flysystem\DirectoryListing
 |-----------|------|-------------|
 | `filter` | **callable** |  |
 
-
 **Return Value:**
 
 
@@ -2656,16 +2274,12 @@ DirectoryListing::filter( callable filter ): \League\Flysystem\DirectoryListing
 
 
 ---
+
 ### DirectoryListing::map
-
-
 
 ```php
 DirectoryListing::map( callable mapper ): \League\Flysystem\DirectoryListing
 ```
-
-
-
 
 **Parameters:**
 
@@ -2673,7 +2287,6 @@ DirectoryListing::map( callable mapper ): \League\Flysystem\DirectoryListing
 |-----------|------|-------------|
 | `mapper` | **callable** |  |
 
-
 **Return Value:**
 
 
@@ -2681,18 +2294,13 @@ DirectoryListing::map( callable mapper ): \League\Flysystem\DirectoryListing
 
 
 ---
+
 ### DirectoryListing::sortByPath
-
-
 
 ```php
 DirectoryListing::sortByPath(  ): \League\Flysystem\DirectoryListing
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2700,18 +2308,13 @@ DirectoryListing::sortByPath(  ): \League\Flysystem\DirectoryListing
 
 
 ---
+
 ### DirectoryListing::getIterator
-
-
 
 ```php
 DirectoryListing::getIterator(  ): \Traversable&lt;\League\Flysystem\T&gt;
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2719,18 +2322,13 @@ DirectoryListing::getIterator(  ): \Traversable&lt;\League\Flysystem\T&gt;
 
 
 ---
+
 ### DirectoryListing::toArray
-
-
 
 ```php
 DirectoryListing::toArray(  ): \League\Flysystem\T[]
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2738,26 +2336,17 @@ DirectoryListing::toArray(  ): \League\Flysystem\T[]
 
 
 ---
+
 ## EmptyExtensionToMimeTypeMap
-
-
-
-
 
 * Full name: \League\MimeTypeDetection\EmptyExtensionToMimeTypeMap
 * This class implements: \League\MimeTypeDetection\ExtensionToMimeTypeMap
 
-
 ### EmptyExtensionToMimeTypeMap::lookupMimeType
-
-
 
 ```php
 EmptyExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -2765,7 +2354,6 @@ EmptyExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 |-----------|------|-------------|
 | `extension` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -2773,26 +2361,17 @@ EmptyExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 
 
 ---
+
 ## ExtensionMimeTypeDetector
-
-
-
-
 
 * Full name: \League\MimeTypeDetection\ExtensionMimeTypeDetector
 * This class implements: \League\MimeTypeDetection\MimeTypeDetector
 
-
 ### ExtensionMimeTypeDetector::__construct
-
-
 
 ```php
 ExtensionMimeTypeDetector::__construct( \League\MimeTypeDetection\ExtensionToMimeTypeMap extensions = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -2800,7 +2379,6 @@ ExtensionMimeTypeDetector::__construct( \League\MimeTypeDetection\ExtensionToMim
 |-----------|------|-------------|
 | `extensions` | **\League\MimeTypeDetection\ExtensionToMimeTypeMap** |  |
 
-
 **Return Value:**
 
 
@@ -2808,16 +2386,12 @@ ExtensionMimeTypeDetector::__construct( \League\MimeTypeDetection\ExtensionToMim
 
 
 ---
+
 ### ExtensionMimeTypeDetector::detectMimeType
-
-
 
 ```php
 ExtensionMimeTypeDetector::detectMimeType( string path, mixed contents ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -2826,7 +2400,6 @@ ExtensionMimeTypeDetector::detectMimeType( string path, mixed contents ): ?strin
 | `path` | **string** |  |
 | `contents` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -2834,23 +2407,18 @@ ExtensionMimeTypeDetector::detectMimeType( string path, mixed contents ): ?strin
 
 
 ---
+
 ### ExtensionMimeTypeDetector::detectMimeTypeFromPath
-
-
 
 ```php
 ExtensionMimeTypeDetector::detectMimeTypeFromPath( string path ): ?string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -2859,23 +2427,18 @@ ExtensionMimeTypeDetector::detectMimeTypeFromPath( string path ): ?string
 
 
 ---
+
 ### ExtensionMimeTypeDetector::detectMimeTypeFromFile
-
-
 
 ```php
 ExtensionMimeTypeDetector::detectMimeTypeFromFile( string path ): ?string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -2884,16 +2447,12 @@ ExtensionMimeTypeDetector::detectMimeTypeFromFile( string path ): ?string
 
 
 ---
+
 ### ExtensionMimeTypeDetector::detectMimeTypeFromBuffer
-
-
 
 ```php
 ExtensionMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -2901,7 +2460,6 @@ ExtensionMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 |-----------|------|-------------|
 | `contents` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -2909,26 +2467,17 @@ ExtensionMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 
 
 ---
+
 ## FallbackMimeTypeDetector
-
-
-
-
 
 * Full name: \League\Flysystem\Local\FallbackMimeTypeDetector
 * This class implements: \League\MimeTypeDetection\MimeTypeDetector
 
-
 ### FallbackMimeTypeDetector::__construct
-
-
 
 ```php
 FallbackMimeTypeDetector::__construct( \League\MimeTypeDetection\MimeTypeDetector detector, array inconclusiveMimetypes = self::INCONCLUSIVE_MIME_TYPES ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -2937,7 +2486,6 @@ FallbackMimeTypeDetector::__construct( \League\MimeTypeDetection\MimeTypeDetecto
 | `detector` | **\League\MimeTypeDetection\MimeTypeDetector** |  |
 | `inconclusiveMimetypes` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -2945,16 +2493,12 @@ FallbackMimeTypeDetector::__construct( \League\MimeTypeDetection\MimeTypeDetecto
 
 
 ---
+
 ### FallbackMimeTypeDetector::detectMimeType
-
-
 
 ```php
 FallbackMimeTypeDetector::detectMimeType( string path, mixed contents ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -2963,7 +2507,6 @@ FallbackMimeTypeDetector::detectMimeType( string path, mixed contents ): ?string
 | `path` | **string** |  |
 | `contents` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -2971,16 +2514,12 @@ FallbackMimeTypeDetector::detectMimeType( string path, mixed contents ): ?string
 
 
 ---
+
 ### FallbackMimeTypeDetector::detectMimeTypeFromBuffer
-
-
 
 ```php
 FallbackMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -2988,7 +2527,6 @@ FallbackMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 |-----------|------|-------------|
 | `contents` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -2996,23 +2534,18 @@ FallbackMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 
 
 ---
+
 ### FallbackMimeTypeDetector::detectMimeTypeFromPath
-
-
 
 ```php
 FallbackMimeTypeDetector::detectMimeTypeFromPath( string path ): ?string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -3021,23 +2554,18 @@ FallbackMimeTypeDetector::detectMimeTypeFromPath( string path ): ?string
 
 
 ---
+
 ### FallbackMimeTypeDetector::detectMimeTypeFromFile
-
-
 
 ```php
 FallbackMimeTypeDetector::detectMimeTypeFromFile( string path ): ?string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -3046,26 +2574,17 @@ FallbackMimeTypeDetector::detectMimeTypeFromFile( string path ): ?string
 
 
 ---
+
 ## FileAttributes
-
-
-
-
 
 * Full name: \League\Flysystem\FileAttributes
 * This class implements: \League\Flysystem\StorageAttributes
 
-
 ### FileAttributes::__construct
-
-
 
 ```php
 FileAttributes::__construct( string path, ?int fileSize = null, ?string visibility = null, ?int lastModified = null, ?string mimeType = null, array extraMetadata = [] ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -3078,7 +2597,6 @@ FileAttributes::__construct( string path, ?int fileSize = null, ?string visibili
 | `mimeType` | **?string** |  |
 | `extraMetadata` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3086,18 +2604,13 @@ FileAttributes::__construct( string path, ?int fileSize = null, ?string visibili
 
 
 ---
+
 ### FileAttributes::type
-
-
 
 ```php
 FileAttributes::type(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3105,18 +2618,13 @@ FileAttributes::type(  ): string
 
 
 ---
+
 ### FileAttributes::path
-
-
 
 ```php
 FileAttributes::path(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3124,18 +2632,13 @@ FileAttributes::path(  ): string
 
 
 ---
+
 ### FileAttributes::fileSize
-
-
 
 ```php
 FileAttributes::fileSize(  ): ?int
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3143,18 +2646,13 @@ FileAttributes::fileSize(  ): ?int
 
 
 ---
+
 ### FileAttributes::visibility
-
-
 
 ```php
 FileAttributes::visibility(  ): ?string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3162,18 +2660,13 @@ FileAttributes::visibility(  ): ?string
 
 
 ---
+
 ### FileAttributes::lastModified
-
-
 
 ```php
 FileAttributes::lastModified(  ): ?int
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3181,18 +2674,13 @@ FileAttributes::lastModified(  ): ?int
 
 
 ---
+
 ### FileAttributes::mimeType
-
-
 
 ```php
 FileAttributes::mimeType(  ): ?string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3200,18 +2688,13 @@ FileAttributes::mimeType(  ): ?string
 
 
 ---
+
 ### FileAttributes::extraMetadata
-
-
 
 ```php
 FileAttributes::extraMetadata(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3219,18 +2702,13 @@ FileAttributes::extraMetadata(  ): array
 
 
 ---
+
 ### FileAttributes::isFile
-
-
 
 ```php
 FileAttributes::isFile(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3238,18 +2716,13 @@ FileAttributes::isFile(  ): bool
 
 
 ---
+
 ### FileAttributes::isDir
-
-
 
 ```php
 FileAttributes::isDir(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3257,16 +2730,12 @@ FileAttributes::isDir(  ): bool
 
 
 ---
+
 ### FileAttributes::withPath
-
-
 
 ```php
 FileAttributes::withPath( string path ): \League\Flysystem\StorageAttributes
 ```
-
-
-
 
 **Parameters:**
 
@@ -3274,7 +2743,6 @@ FileAttributes::withPath( string path ): \League\Flysystem\StorageAttributes
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -3282,15 +2750,12 @@ FileAttributes::withPath( string path ): \League\Flysystem\StorageAttributes
 
 
 ---
+
 ### FileAttributes::fromArray
-
-
 
 ```php
 FileAttributes::fromArray( array attributes ): \League\Flysystem\StorageAttributes
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -3299,7 +2764,6 @@ FileAttributes::fromArray( array attributes ): \League\Flysystem\StorageAttribut
 |-----------|------|-------------|
 | `attributes` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3307,18 +2771,13 @@ FileAttributes::fromArray( array attributes ): \League\Flysystem\StorageAttribut
 
 
 ---
+
 ### FileAttributes::jsonSerialize
-
-
 
 ```php
 FileAttributes::jsonSerialize(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -3326,26 +2785,17 @@ FileAttributes::jsonSerialize(  ): array
 
 
 ---
+
 ## Filesystem
-
-
-
-
 
 * Full name: \League\Flysystem\Filesystem
 * This class implements: \League\Flysystem\FilesystemOperator
 
-
 ### Filesystem::__construct
-
-
 
 ```php
 Filesystem::__construct( \League\Flysystem\FilesystemAdapter adapter, array config = [], \League\Flysystem\PathNormalizer pathNormalizer = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -3355,7 +2805,6 @@ Filesystem::__construct( \League\Flysystem\FilesystemAdapter adapter, array conf
 | `config` | **array** |  |
 | `pathNormalizer` | **\League\Flysystem\PathNormalizer** |  |
 
-
 **Return Value:**
 
 
@@ -3363,23 +2812,18 @@ Filesystem::__construct( \League\Flysystem\FilesystemAdapter adapter, array conf
 
 
 ---
+
 ### Filesystem::fileExists
-
-
 
 ```php
 Filesystem::fileExists( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -3388,23 +2832,18 @@ Filesystem::fileExists( string location ): bool
 
 
 ---
+
 ### Filesystem::directoryExists
-
-
 
 ```php
 Filesystem::directoryExists( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -3413,23 +2852,18 @@ Filesystem::directoryExists( string location ): bool
 
 
 ---
+
 ### Filesystem::has
-
-
 
 ```php
 Filesystem::has( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -3438,16 +2872,12 @@ Filesystem::has( string location ): bool
 
 
 ---
+
 ### Filesystem::write
-
-
 
 ```php
 Filesystem::write( string location, string contents, array config = [] ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -3457,7 +2887,6 @@ Filesystem::write( string location, string contents, array config = [] ): void
 | `contents` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3465,16 +2894,12 @@ Filesystem::write( string location, string contents, array config = [] ): void
 
 
 ---
+
 ### Filesystem::writeStream
-
-
 
 ```php
 Filesystem::writeStream( string location, mixed contents, array config = [] ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -3484,7 +2909,6 @@ Filesystem::writeStream( string location, mixed contents, array config = [] ): v
 | `contents` | **mixed** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3492,23 +2916,18 @@ Filesystem::writeStream( string location, mixed contents, array config = [] ): v
 
 
 ---
+
 ### Filesystem::read
-
-
 
 ```php
 Filesystem::read( string location ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -3517,23 +2936,18 @@ Filesystem::read( string location ): string
 
 
 ---
+
 ### Filesystem::readStream
-
-
 
 ```php
 Filesystem::readStream( string location ): mixed
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -3542,23 +2956,18 @@ Filesystem::readStream( string location ): mixed
 
 
 ---
+
 ### Filesystem::delete
-
-
 
 ```php
 Filesystem::delete( string location ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -3567,23 +2976,18 @@ Filesystem::delete( string location ): void
 
 
 ---
+
 ### Filesystem::deleteDirectory
-
-
 
 ```php
 Filesystem::deleteDirectory( string location ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -3592,16 +2996,12 @@ Filesystem::deleteDirectory( string location ): void
 
 
 ---
+
 ### Filesystem::createDirectory
-
-
 
 ```php
 Filesystem::createDirectory( string location, array config = [] ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -3610,7 +3010,6 @@ Filesystem::createDirectory( string location, array config = [] ): void
 | `location` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3618,16 +3017,12 @@ Filesystem::createDirectory( string location, array config = [] ): void
 
 
 ---
+
 ### Filesystem::listContents
-
-
 
 ```php
 Filesystem::listContents( string location, bool deep = self::LIST_SHALLOW ): \League\Flysystem\DirectoryListing
 ```
-
-
-
 
 **Parameters:**
 
@@ -3636,7 +3031,6 @@ Filesystem::listContents( string location, bool deep = self::LIST_SHALLOW ): \Le
 | `location` | **string** |  |
 | `deep` | **bool** |  |
 
-
 **Return Value:**
 
 
@@ -3644,17 +3038,13 @@ Filesystem::listContents( string location, bool deep = self::LIST_SHALLOW ): \Le
 
 
 ---
+
 ### Filesystem::move
-
-
 
 ```php
 Filesystem::move( string source, string destination, array config = [] ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -3663,7 +3053,6 @@ Filesystem::move( string source, string destination, array config = [] ): void
 | `destination` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3671,17 +3060,13 @@ Filesystem::move( string source, string destination, array config = [] ): void
 
 
 ---
+
 ### Filesystem::copy
-
-
 
 ```php
 Filesystem::copy( string source, string destination, array config = [] ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -3690,7 +3075,6 @@ Filesystem::copy( string source, string destination, array config = [] ): void
 | `destination` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3698,23 +3082,18 @@ Filesystem::copy( string source, string destination, array config = [] ): void
 
 
 ---
+
 ### Filesystem::lastModified
-
-
 
 ```php
 Filesystem::lastModified( string path ): int
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -3723,23 +3102,18 @@ Filesystem::lastModified( string path ): int
 
 
 ---
+
 ### Filesystem::fileSize
-
-
 
 ```php
 Filesystem::fileSize( string path ): int
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -3748,23 +3122,18 @@ Filesystem::fileSize( string path ): int
 
 
 ---
+
 ### Filesystem::mimeType
-
-
 
 ```php
 Filesystem::mimeType( string path ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -3773,16 +3142,12 @@ Filesystem::mimeType( string path ): string
 
 
 ---
+
 ### Filesystem::setVisibility
-
-
 
 ```php
 Filesystem::setVisibility( string path, string visibility ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -3791,7 +3156,6 @@ Filesystem::setVisibility( string path, string visibility ): void
 | `path` | **string** |  |
 | `visibility` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -3799,16 +3163,12 @@ Filesystem::setVisibility( string path, string visibility ): void
 
 
 ---
+
 ### Filesystem::visibility
-
-
 
 ```php
 Filesystem::visibility( string path ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -3816,7 +3176,6 @@ Filesystem::visibility( string path ): string
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -3824,26 +3183,17 @@ Filesystem::visibility( string path ): string
 
 
 ---
+
 ## FinfoMimeTypeDetector
-
-
-
-
 
 * Full name: \League\MimeTypeDetection\FinfoMimeTypeDetector
 * This class implements: \League\MimeTypeDetection\MimeTypeDetector
 
-
 ### FinfoMimeTypeDetector::__construct
-
-
 
 ```php
 FinfoMimeTypeDetector::__construct( string magicFile = '', \League\MimeTypeDetection\ExtensionToMimeTypeMap extensionMap = null, ?int bufferSampleSize = null, array inconclusiveMimetypes = self::INCONCLUSIVE_MIME_TYPES ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -3854,7 +3204,6 @@ FinfoMimeTypeDetector::__construct( string magicFile = '', \League\MimeTypeDetec
 | `bufferSampleSize` | **?int** |  |
 | `inconclusiveMimetypes` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -3862,16 +3211,12 @@ FinfoMimeTypeDetector::__construct( string magicFile = '', \League\MimeTypeDetec
 
 
 ---
+
 ### FinfoMimeTypeDetector::detectMimeType
-
-
 
 ```php
 FinfoMimeTypeDetector::detectMimeType( string path, mixed contents ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -3880,7 +3225,6 @@ FinfoMimeTypeDetector::detectMimeType( string path, mixed contents ): ?string
 | `path` | **string** |  |
 | `contents` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -3888,23 +3232,18 @@ FinfoMimeTypeDetector::detectMimeType( string path, mixed contents ): ?string
 
 
 ---
+
 ### FinfoMimeTypeDetector::detectMimeTypeFromPath
-
-
 
 ```php
 FinfoMimeTypeDetector::detectMimeTypeFromPath( string path ): ?string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -3913,23 +3252,18 @@ FinfoMimeTypeDetector::detectMimeTypeFromPath( string path ): ?string
 
 
 ---
+
 ### FinfoMimeTypeDetector::detectMimeTypeFromFile
-
-
 
 ```php
 FinfoMimeTypeDetector::detectMimeTypeFromFile( string path ): ?string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -3938,16 +3272,12 @@ FinfoMimeTypeDetector::detectMimeTypeFromFile( string path ): ?string
 
 
 ---
+
 ### FinfoMimeTypeDetector::detectMimeTypeFromBuffer
-
-
 
 ```php
 FinfoMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -3955,7 +3285,6 @@ FinfoMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 |-----------|------|-------------|
 | `contents` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -3963,24 +3292,16 @@ FinfoMimeTypeDetector::detectMimeTypeFromBuffer( string contents ): ?string
 
 
 ---
+
 ## generalHelper
-
-
-
-
 
 * Full name: \yxorP\inc\generalHelper
 
-
 ### generalHelper::vid_player
-
-
 
 ```php
 generalHelper::vid_player( mixed url, mixed width = '100%', mixed height = '100%', mixed extension = false ): string
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -3992,7 +3313,6 @@ generalHelper::vid_player( mixed url, mixed width = '100%', mixed height = '100%
 | `height` | **mixed** |  |
 | `extension` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4000,15 +3320,12 @@ generalHelper::vid_player( mixed url, mixed width = '100%', mixed height = '100%
 
 
 ---
+
 ### generalHelper::starts_with
-
-
 
 ```php
 generalHelper::starts_with( mixed haystack, mixed needles ): bool
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4018,7 +3335,6 @@ generalHelper::starts_with( mixed haystack, mixed needles ): bool
 | `haystack` | **mixed** |  |
 | `needles` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4026,15 +3342,12 @@ generalHelper::starts_with( mixed haystack, mixed needles ): bool
 
 
 ---
+
 ### generalHelper::str_before
-
-
 
 ```php
 generalHelper::str_before( mixed subject, mixed search ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4044,7 +3357,6 @@ generalHelper::str_before( mixed subject, mixed search ): mixed
 | `subject` | **mixed** |  |
 | `search` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4052,15 +3364,12 @@ generalHelper::str_before( mixed subject, mixed search ): mixed
 
 
 ---
+
 ### generalHelper::is_html
-
-
 
 ```php
 generalHelper::is_html( mixed content_type ): bool
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4069,7 +3378,6 @@ generalHelper::is_html( mixed content_type ): bool
 |-----------|------|-------------|
 | `content_type` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4077,15 +3385,12 @@ generalHelper::is_html( mixed content_type ): bool
 
 
 ---
+
 ### generalHelper::in_arrayi
-
-
 
 ```php
 generalHelper::in_arrayi( mixed needle, mixed haystack ): bool
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4095,7 +3400,6 @@ generalHelper::in_arrayi( mixed needle, mixed haystack ): bool
 | `needle` | **mixed** |  |
 | `haystack` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4103,15 +3407,12 @@ generalHelper::in_arrayi( mixed needle, mixed haystack ): bool
 
 
 ---
+
 ### generalHelper::re_match
-
-
 
 ```php
 generalHelper::re_match( mixed pattern, mixed string ): bool
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4121,7 +3422,6 @@ generalHelper::re_match( mixed pattern, mixed string ): bool
 | `pattern` | **mixed** |  |
 | `string` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4129,15 +3429,12 @@ generalHelper::re_match( mixed pattern, mixed string ): bool
 
 
 ---
+
 ### generalHelper::array_merge_custom
-
-
 
 ```php
 generalHelper::array_merge_custom(  ): array
 ```
-
-
 
 * This method is **static**.
 
@@ -4148,15 +3445,12 @@ generalHelper::array_merge_custom(  ): array
 
 
 ---
+
 ### generalHelper::str_rot_pass
-
-
 
 ```php
 generalHelper::str_rot_pass( mixed str, mixed key, mixed decrypt = false ): string
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4167,7 +3461,6 @@ generalHelper::str_rot_pass( mixed str, mixed key, mixed decrypt = false ): stri
 | `key` | **mixed** |  |
 | `decrypt` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4175,15 +3468,12 @@ generalHelper::str_rot_pass( mixed str, mixed key, mixed decrypt = false ): stri
 
 
 ---
+
 ### generalHelper::app_url
-
-
 
 ```php
 generalHelper::app_url(  ): string
 ```
-
-
 
 * This method is **static**.
 
@@ -4194,15 +3484,12 @@ generalHelper::app_url(  ): string
 
 
 ---
+
 ### generalHelper::render_string
-
-
 
 ```php
 generalHelper::render_string( mixed str, mixed vars = array() ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4212,7 +3499,6 @@ generalHelper::render_string( mixed str, mixed vars = array() ): mixed
 | `str` | **mixed** |  |
 | `vars` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4220,16 +3506,13 @@ generalHelper::render_string( mixed str, mixed vars = array() ): mixed
 
 
 ---
+
 ### generalHelper::time_ms
-
-
 
 ```php
 generalHelper::time_ms(  ): float
 ```
 
-
-
 * This method is **static**.
 
 **Return Value:**
@@ -4239,23 +3522,19 @@ generalHelper::time_ms(  ): float
 
 
 ---
+
 ### generalHelper::base64_url_encode
-
-
 
 ```php
 generalHelper::base64_url_encode( mixed input ): string
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `input` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -4264,23 +3543,19 @@ generalHelper::base64_url_encode( mixed input ): string
 
 
 ---
+
 ### generalHelper::base64_url_decode
-
-
 
 ```php
 generalHelper::base64_url_decode( mixed input ): bool|string
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `input` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -4289,15 +3564,12 @@ generalHelper::base64_url_decode( mixed input ): bool|string
 
 
 ---
+
 ### generalHelper::proxify_url
-
-
 
 ```php
 generalHelper::proxify_url( mixed url, mixed base_url = CHAR_EMPTY_STRING ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4307,7 +3579,6 @@ generalHelper::proxify_url( mixed url, mixed base_url = CHAR_EMPTY_STRING ): mix
 | `url` | **mixed** |  |
 | `base_url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4315,15 +3586,12 @@ generalHelper::proxify_url( mixed url, mixed base_url = CHAR_EMPTY_STRING ): mix
 
 
 ---
+
 ### generalHelper::add_http
-
-
 
 ```php
 generalHelper::add_http( mixed url ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4332,7 +3600,6 @@ generalHelper::add_http( mixed url ): mixed
 |-----------|------|-------------|
 | `url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4340,15 +3607,12 @@ generalHelper::add_http( mixed url ): mixed
 
 
 ---
+
 ### generalHelper::rel2abs
-
-
 
 ```php
 generalHelper::rel2abs( mixed rel, mixed base ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4358,7 +3622,6 @@ generalHelper::rel2abs( mixed rel, mixed base ): mixed
 | `rel` | **mixed** |  |
 | `base` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4366,15 +3629,12 @@ generalHelper::rel2abs( mixed rel, mixed base ): mixed
 
 
 ---
+
 ### generalHelper::array_merge_ignore
-
-
 
 ```php
 generalHelper::array_merge_ignore( mixed arrays ): array
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4383,7 +3643,6 @@ generalHelper::array_merge_ignore( mixed arrays ): array
 |-----------|------|-------------|
 | `arrays` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4391,15 +3650,12 @@ generalHelper::array_merge_ignore( mixed arrays ): array
 
 
 ---
+
 ### generalHelper::CSV
-
-
 
 ```php
 generalHelper::CSV( mixed filename = CHAR_EMPTY_STRING ): array
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4408,7 +3664,6 @@ generalHelper::CSV( mixed filename = CHAR_EMPTY_STRING ): array
 |-----------|------|-------------|
 | `filename` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4416,15 +3671,12 @@ generalHelper::CSV( mixed filename = CHAR_EMPTY_STRING ): array
 
 
 ---
+
 ### generalHelper::fileCheck
-
-
 
 ```php
 generalHelper::fileCheck( mixed dir, mixed inc ): mixed
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4434,7 +3686,6 @@ generalHelper::fileCheck( mixed dir, mixed inc ): mixed
 | `dir` | **mixed** |  |
 | `inc` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4442,23 +3693,19 @@ generalHelper::fileCheck( mixed dir, mixed inc ): mixed
 
 
 ---
+
 ### generalHelper::extractSubdomains
-
-
 
 ```php
 generalHelper::extractSubdomains( mixed domain ): ?string
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `domain` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -4467,23 +3714,19 @@ generalHelper::extractSubdomains( mixed domain ): ?string
 
 
 ---
+
 ### generalHelper::extractDomain
-
-
 
 ```php
 generalHelper::extractDomain( mixed domain ): mixed
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `domain` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -4492,26 +3735,17 @@ generalHelper::extractDomain( mixed domain ): mixed
 
 
 ---
+
 ## GeneratedExtensionToMimeTypeMap
-
-
-
-
 
 * Full name: \League\MimeTypeDetection\GeneratedExtensionToMimeTypeMap
 * This class implements: \League\MimeTypeDetection\ExtensionToMimeTypeMap
 
-
 ### GeneratedExtensionToMimeTypeMap::lookupMimeType
-
-
 
 ```php
 GeneratedExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -4519,7 +3753,6 @@ GeneratedExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 |-----------|------|-------------|
 | `extension` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -4527,28 +3760,18 @@ GeneratedExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 
 
 ---
+
 ## globalCollectionAction
-
-
-
-
 
 * Full name: \globalCollectionAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### globalCollectionAction::onBuildContext
-
-
 
 ```php
 globalCollectionAction::onBuildContext(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -4556,28 +3779,18 @@ globalCollectionAction::onBuildContext(  ): void
 
 
 ---
+
 ## guzzleClientAction
-
-
-
-
 
 * Full name: \guzzleClientAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### guzzleClientAction::onBeforeRequest
-
-
 
 ```php
 guzzleClientAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -4585,28 +3798,18 @@ guzzleClientAction::onBeforeRequest(  ): void
 
 
 ---
+
 ## headerRewritePluginAction
-
-
-
-
 
 * Full name: \headerRewritePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### headerRewritePluginAction::onBeforeRequest
-
-
 
 ```php
 headerRewritePluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -4614,18 +3817,13 @@ headerRewritePluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### headerRewritePluginAction::onHeadersReceived
-
-
 
 ```php
 headerRewritePluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -4633,15 +3831,12 @@ headerRewritePluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ### headerRewritePluginAction::headersReceived
-
-
 
 ```php
 headerRewritePluginAction::headersReceived( mixed response, mixed request_url ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4651,7 +3846,6 @@ headerRewritePluginAction::headersReceived( mixed response, mixed request_url ):
 | `response` | **mixed** |  |
 | `request_url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -4659,29 +3853,19 @@ headerRewritePluginAction::headersReceived( mixed response, mixed request_url ):
 
 
 ---
+
 ## htmlCommentsRemover
-
-
-
-
 
 * Full name: \yxorP\minify\htmlCommentsRemover
 * Parent class: \yxorP\minify\areplacer
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### htmlCommentsRemover::getReplacePatternData
-
-
 
 ```php
 htmlCommentsRemover::getReplacePatternData(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -4689,33 +3873,23 @@ htmlCommentsRemover::getReplacePatternData(  ): array
 
 
 ---
+
 ## inlineCssMinifier
-
-
-
-
 
 * Full name: \yxorP\minify\inlineCssMinifier
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### inlineCssMinifier::process
-
-
 
 ```php
 inlineCssMinifier::process( string buffer ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `buffer` | **string** |  |
-
 
 **Return Value:**
 
@@ -4724,33 +3898,23 @@ inlineCssMinifier::process( string buffer ): string
 
 
 ---
+
 ## inlineJavascriptMinifier
-
-
-
-
 
 * Full name: \yxorP\minify\inlineJavascriptMinifier
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### inlineJavascriptMinifier::process
-
-
 
 ```php
 inlineJavascriptMinifier::process( string buffer ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `buffer` | **string** |  |
-
 
 **Return Value:**
 
@@ -4759,6 +3923,7 @@ inlineJavascriptMinifier::process( string buffer ): string
 
 
 ---
+
 ## InstalledVersions
 
 This class is copied in every Composer installed project and available to all
@@ -4769,7 +3934,6 @@ To require its presence, you can require `composer-runtime-api ^2.0`
 
 * Full name: \Composer\InstalledVersions
 
-
 ### InstalledVersions::getInstalledPackages
 
 Returns a list of all package names which are present, either by being installed, replaced or provided
@@ -4778,8 +3942,6 @@ Returns a list of all package names which are present, either by being installed
 InstalledVersions::getInstalledPackages(  ): string[]
 ```
 
-
-
 * This method is **static**.
 
 **Return Value:**
@@ -4789,6 +3951,7 @@ InstalledVersions::getInstalledPackages(  ): string[]
 
 
 ---
+
 ### InstalledVersions::getInstalledPackagesByType
 
 Returns a list of all package names with a specific type e.g. 'library'
@@ -4797,15 +3960,12 @@ Returns a list of all package names with a specific type e.g. 'library'
 InstalledVersions::getInstalledPackagesByType( string type ): string[]
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `type` | **string** |  |
-
 
 **Return Value:**
 
@@ -4814,6 +3974,7 @@ InstalledVersions::getInstalledPackagesByType( string type ): string[]
 
 
 ---
+
 ### InstalledVersions::isInstalled
 
 Checks whether the given package is installed
@@ -4832,7 +3993,6 @@ This also returns true if the package name is provided or replaced by another pa
 | `packageName` | **string** |  |
 | `includeDevRequirements` | **bool** |  |
 
-
 **Return Value:**
 
 
@@ -4840,6 +4000,7 @@ This also returns true if the package name is provided or replaced by another pa
 
 
 ---
+
 ### InstalledVersions::satisfies
 
 Checks whether the given package satisfies a version constraint
@@ -4857,10 +4018,10 @@ Composer\InstalledVersions::satisfies(new VersionParser, 'foo/bar', '^2.3')
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `parser` | **\Composer\Semver\VersionParser** | Install composer/semver to have access to this class and functionality |
+| `parser` | **
+\Composer\Semver\VersionParser** | Install composer/semver to have access to this class and functionality |
 | `packageName` | **string** |  |
 | `constraint` | **string\|null** | A version constraint to check for, if you pass one you have to make sure composer/semver is required by your package |
-
 
 **Return Value:**
 
@@ -4869,6 +4030,7 @@ Composer\InstalledVersions::satisfies(new VersionParser, 'foo/bar', '^2.3')
 
 
 ---
+
 ### InstalledVersions::getVersionRanges
 
 Returns a version constraint representing all the range(s) which are installed for a given package
@@ -4877,8 +4039,8 @@ Returns a version constraint representing all the range(s) which are installed f
 InstalledVersions::getVersionRanges( string packageName ): string
 ```
 
-It is easier to use this via isInstalled() with the $constraint argument if you need to check
-whether a given version of a package is installed, and not just whether it exists
+It is easier to use this via isInstalled() with the $constraint argument if you need to check whether a given version of
+a package is installed, and not just whether it exists
 
 * This method is **static**.
   **Parameters:**
@@ -4886,7 +4048,6 @@ whether a given version of a package is installed, and not just whether it exist
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `packageName` | **string** |  |
-
 
 **Return Value:**
 
@@ -4895,16 +4056,13 @@ Version constraint usable with composer/semver
 
 
 ---
+
 ### InstalledVersions::getVersion
-
-
 
 ```php
 InstalledVersions::getVersion( string packageName ): string|null
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
@@ -4912,24 +4070,21 @@ InstalledVersions::getVersion( string packageName ): string|null
 |-----------|------|-------------|
 | `packageName` | **string** |  |
 
-
 **Return Value:**
 
-If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present
+If the package is being replaced or provided but is not really installed, null will be returned as version, use
+satisfies or getVersionRanges if you need to know if a given version is present
 
 
 
 ---
+
 ### InstalledVersions::getPrettyVersion
-
-
 
 ```php
 InstalledVersions::getPrettyVersion( string packageName ): string|null
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
@@ -4937,31 +4092,27 @@ InstalledVersions::getPrettyVersion( string packageName ): string|null
 |-----------|------|-------------|
 | `packageName` | **string** |  |
 
-
 **Return Value:**
 
-If the package is being replaced or provided but is not really installed, null will be returned as version, use satisfies or getVersionRanges if you need to know if a given version is present
+If the package is being replaced or provided but is not really installed, null will be returned as version, use
+satisfies or getVersionRanges if you need to know if a given version is present
 
 
 
 ---
+
 ### InstalledVersions::getReference
-
-
 
 ```php
 InstalledVersions::getReference( string packageName ): string|null
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `packageName` | **string** |  |
-
 
 **Return Value:**
 
@@ -4970,15 +4121,12 @@ If the package is being replaced or provided but is not really installed, null w
 
 
 ---
+
 ### InstalledVersions::getInstallPath
-
-
 
 ```php
 InstalledVersions::getInstallPath( string packageName ): string|null
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -4987,23 +4135,20 @@ InstalledVersions::getInstallPath( string packageName ): string|null
 |-----------|------|-------------|
 | `packageName` | **string** |  |
 
-
 **Return Value:**
 
-If the package is being replaced or provided but is not really installed, null will be returned as install path. Packages of type metapackages also have a null install path.
+If the package is being replaced or provided but is not really installed, null will be returned as install path.
+Packages of type metapackages also have a null install path.
 
 
 
 ---
+
 ### InstalledVersions::getRootPackage
-
-
 
 ```php
 InstalledVersions::getRootPackage(  ): array
 ```
-
-
 
 * This method is **static**.
 
@@ -5014,6 +4159,7 @@ InstalledVersions::getRootPackage(  ): array
 
 
 ---
+
 ### InstalledVersions::getRawData
 
 Returns the raw installed.php data for custom implementations
@@ -5022,10 +4168,8 @@ Returns the raw installed.php data for custom implementations
 InstalledVersions::getRawData(  ): array[]
 ```
 
-
-
-* This method is **static**.* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
-
+* This method is **static**.* **Warning:** this method is **deprecated**. This means that this method will likely be
+  removed in a future version.
 
 **Return Value:**
 
@@ -5034,6 +4178,7 @@ InstalledVersions::getRawData(  ): array[]
 
 
 ---
+
 ### InstalledVersions::getAllRawData
 
 Returns the raw data of all installed.php which are currently loaded for custom implementations
@@ -5042,8 +4187,6 @@ Returns the raw data of all installed.php which are currently loaded for custom 
 InstalledVersions::getAllRawData(  ): array[]
 ```
 
-
-
 * This method is **static**.
 
 **Return Value:**
@@ -5053,6 +4196,7 @@ InstalledVersions::getAllRawData(  ): array[]
 
 
 ---
+
 ### InstalledVersions::reload
 
 Lets you reload the static array from another file
@@ -5061,15 +4205,14 @@ Lets you reload the static array from another file
 InstalledVersions::reload( array[] data ): void
 ```
 
-This is only useful for complex integrations in which a project needs to use
-this class but then also needs to execute another project's autoloader in process,
-and wants to ensure both projects have access to their version of installed.php.
+This is only useful for complex integrations in which a project needs to use this class but then also needs to execute
+another project's autoloader in process, and wants to ensure both projects have access to their version of
+installed.php.
 
-A typical case would be PHPUnit, where it would need to make sure it reads all
-the data it needs from this class, then call reload() with
-`require $CWD/vendor/composer/installed.php` (or similar) as input to make sure
-the project in which it runs can then also use this class safely, without
-interference between PHPUnit's dependencies and the project's dependencies.
+A typical case would be PHPUnit, where it would need to make sure it reads all the data it needs from this class, then
+call reload() with
+`require $CWD/vendor/composer/installed.php` (or similar) as input to make sure the project in which it runs can then
+also use this class safely, without interference between PHPUnit's dependencies and the project's dependencies.
 
 * This method is **static**.
   **Parameters:**
@@ -5078,7 +4221,6 @@ interference between PHPUnit's dependencies and the project's dependencies.
 |-----------|------|-------------|
 | `data` | **array[]** | A vendor/composer/installed.php data set |
 
-
 **Return Value:**
 
 
@@ -5086,37 +4228,24 @@ interference between PHPUnit's dependencies and the project's dependencies.
 
 
 ---
+
 ## InvalidStreamProvided
-
-
-
-
 
 * Full name: \League\Flysystem\InvalidStreamProvided
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ## InvalidVisibilityProvided
-
-
-
-
 
 * Full name: \League\Flysystem\InvalidVisibilityProvided
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ### InvalidVisibilityProvided::withVisibility
-
-
 
 ```php
 InvalidVisibilityProvided::withVisibility( string visibility, string expectedMessage ): \League\Flysystem\InvalidVisibilityProvided
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -5126,7 +4255,6 @@ InvalidVisibilityProvided::withVisibility( string visibility, string expectedMes
 | `visibility` | **string** |  |
 | `expectedMessage` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -5134,26 +4262,17 @@ InvalidVisibilityProvided::withVisibility( string visibility, string expectedMes
 
 
 ---
+
 ## LocalFilesystemAdapter
-
-
-
-
 
 * Full name: \League\Flysystem\Local\LocalFilesystemAdapter
 * This class implements: \League\Flysystem\FilesystemAdapter
 
-
 ### LocalFilesystemAdapter::__construct
-
-
 
 ```php
 LocalFilesystemAdapter::__construct( string location, \League\Flysystem\UnixVisibility\VisibilityConverter visibility = null, int writeFlags = LOCK_EX, int linkHandling = self::DISALLOW_LINKS, \League\MimeTypeDetection\MimeTypeDetector mimeTypeDetector = null, bool lazyRootCreation = false ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -5166,7 +4285,6 @@ LocalFilesystemAdapter::__construct( string location, \League\Flysystem\UnixVisi
 | `mimeTypeDetector` | **\League\MimeTypeDetection\MimeTypeDetector** |  |
 | `lazyRootCreation` | **bool** |  |
 
-
 **Return Value:**
 
 
@@ -5174,16 +4292,12 @@ LocalFilesystemAdapter::__construct( string location, \League\Flysystem\UnixVisi
 
 
 ---
+
 ### LocalFilesystemAdapter::write
-
-
 
 ```php
 LocalFilesystemAdapter::write( string path, string contents, \League\Flysystem\Config config ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -5193,7 +4307,6 @@ LocalFilesystemAdapter::write( string path, string contents, \League\Flysystem\C
 | `contents` | **string** |  |
 | `config` | **\League\Flysystem\Config** |  |
 
-
 **Return Value:**
 
 
@@ -5201,16 +4314,12 @@ LocalFilesystemAdapter::write( string path, string contents, \League\Flysystem\C
 
 
 ---
+
 ### LocalFilesystemAdapter::writeStream
-
-
 
 ```php
 LocalFilesystemAdapter::writeStream( string path, mixed contents, \League\Flysystem\Config config ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -5220,7 +4329,6 @@ LocalFilesystemAdapter::writeStream( string path, mixed contents, \League\Flysys
 | `contents` | **mixed** |  |
 | `config` | **\League\Flysystem\Config** |  |
 
-
 **Return Value:**
 
 
@@ -5228,16 +4336,12 @@ LocalFilesystemAdapter::writeStream( string path, mixed contents, \League\Flysys
 
 
 ---
+
 ### LocalFilesystemAdapter::delete
-
-
 
 ```php
 LocalFilesystemAdapter::delete( string path ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -5245,7 +4349,6 @@ LocalFilesystemAdapter::delete( string path ): void
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -5253,16 +4356,12 @@ LocalFilesystemAdapter::delete( string path ): void
 
 
 ---
+
 ### LocalFilesystemAdapter::deleteDirectory
-
-
 
 ```php
 LocalFilesystemAdapter::deleteDirectory( string prefix ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -5270,7 +4369,6 @@ LocalFilesystemAdapter::deleteDirectory( string prefix ): void
 |-----------|------|-------------|
 | `prefix` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -5278,16 +4376,12 @@ LocalFilesystemAdapter::deleteDirectory( string prefix ): void
 
 
 ---
+
 ### LocalFilesystemAdapter::listContents
-
-
 
 ```php
 LocalFilesystemAdapter::listContents( string path, bool deep ): iterable&lt;\League\Flysystem\StorageAttributes&gt;
 ```
-
-
-
 
 **Parameters:**
 
@@ -5296,7 +4390,6 @@ LocalFilesystemAdapter::listContents( string path, bool deep ): iterable&lt;\Lea
 | `path` | **string** |  |
 | `deep` | **bool** |  |
 
-
 **Return Value:**
 
 
@@ -5304,17 +4397,13 @@ LocalFilesystemAdapter::listContents( string path, bool deep ): iterable&lt;\Lea
 
 
 ---
+
 ### LocalFilesystemAdapter::move
-
-
 
 ```php
 LocalFilesystemAdapter::move( string source, string destination, \League\Flysystem\Config config ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -5323,7 +4412,6 @@ LocalFilesystemAdapter::move( string source, string destination, \League\Flysyst
 | `destination` | **string** |  |
 | `config` | **\League\Flysystem\Config** |  |
 
-
 **Return Value:**
 
 
@@ -5331,17 +4419,13 @@ LocalFilesystemAdapter::move( string source, string destination, \League\Flysyst
 
 
 ---
+
 ### LocalFilesystemAdapter::copy
-
-
 
 ```php
 LocalFilesystemAdapter::copy( string source, string destination, \League\Flysystem\Config config ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -5350,7 +4434,6 @@ LocalFilesystemAdapter::copy( string source, string destination, \League\Flysyst
 | `destination` | **string** |  |
 | `config` | **\League\Flysystem\Config** |  |
 
-
 **Return Value:**
 
 
@@ -5358,23 +4441,18 @@ LocalFilesystemAdapter::copy( string source, string destination, \League\Flysyst
 
 
 ---
+
 ### LocalFilesystemAdapter::read
-
-
 
 ```php
 LocalFilesystemAdapter::read( string path ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -5383,24 +4461,19 @@ LocalFilesystemAdapter::read( string path ): string
 
 
 ---
+
 ### LocalFilesystemAdapter::readStream
-
-
 
 ```php
 LocalFilesystemAdapter::readStream( string path ): resource
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -5408,23 +4481,18 @@ LocalFilesystemAdapter::readStream( string path ): resource
 
 
 ---
+
 ### LocalFilesystemAdapter::fileExists
-
-
 
 ```php
 LocalFilesystemAdapter::fileExists( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5433,23 +4501,18 @@ LocalFilesystemAdapter::fileExists( string location ): bool
 
 
 ---
+
 ### LocalFilesystemAdapter::directoryExists
-
-
 
 ```php
 LocalFilesystemAdapter::directoryExists( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5458,16 +4521,12 @@ LocalFilesystemAdapter::directoryExists( string location ): bool
 
 
 ---
+
 ### LocalFilesystemAdapter::createDirectory
-
-
 
 ```php
 LocalFilesystemAdapter::createDirectory( string path, \League\Flysystem\Config config ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -5476,7 +4535,6 @@ LocalFilesystemAdapter::createDirectory( string path, \League\Flysystem\Config c
 | `path` | **string** |  |
 | `config` | **\League\Flysystem\Config** |  |
 
-
 **Return Value:**
 
 
@@ -5484,16 +4542,12 @@ LocalFilesystemAdapter::createDirectory( string path, \League\Flysystem\Config c
 
 
 ---
+
 ### LocalFilesystemAdapter::setVisibility
-
-
 
 ```php
 LocalFilesystemAdapter::setVisibility( string path, string visibility ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -5502,7 +4556,6 @@ LocalFilesystemAdapter::setVisibility( string path, string visibility ): void
 | `path` | **string** |  |
 | `visibility` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -5510,23 +4563,18 @@ LocalFilesystemAdapter::setVisibility( string path, string visibility ): void
 
 
 ---
+
 ### LocalFilesystemAdapter::visibility
-
-
 
 ```php
 LocalFilesystemAdapter::visibility( string path ): \League\Flysystem\FileAttributes
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -5535,23 +4583,18 @@ LocalFilesystemAdapter::visibility( string path ): \League\Flysystem\FileAttribu
 
 
 ---
+
 ### LocalFilesystemAdapter::mimeType
-
-
 
 ```php
 LocalFilesystemAdapter::mimeType( string path ): \League\Flysystem\FileAttributes
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -5560,23 +4603,18 @@ LocalFilesystemAdapter::mimeType( string path ): \League\Flysystem\FileAttribute
 
 
 ---
+
 ### LocalFilesystemAdapter::lastModified
-
-
 
 ```php
 LocalFilesystemAdapter::lastModified( string path ): \League\Flysystem\FileAttributes
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -5585,24 +4623,19 @@ LocalFilesystemAdapter::lastModified( string path ): \League\Flysystem\FileAttri
 
 
 ---
+
 ### LocalFilesystemAdapter::fileSize
-
-
 
 ```php
 LocalFilesystemAdapter::fileSize( string path ): \League\Flysystem\FileAttributes
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -5610,28 +4643,18 @@ LocalFilesystemAdapter::fileSize( string path ): \League\Flysystem\FileAttribute
 
 
 ---
+
 ## logPluginAction
-
-
-
-
 
 * Full name: \logPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### logPluginAction::onHeadersReceived
-
-
 
 ```php
 logPluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -5639,28 +4662,18 @@ logPluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ## mimeTypesAction
-
-
-
-
 
 * Full name: \mimeTypesAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### mimeTypesAction::buildHeaders
-
-
 
 ```php
 mimeTypesAction::buildHeaders(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -5668,26 +4681,17 @@ mimeTypesAction::buildHeaders(  ): void
 
 
 ---
+
 ## minify
-
-
-
-
 
 * Full name: \yxorP\minify\minify
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### minify::__construct
-
-
 
 ```php
 minify::__construct( \yxorP\minify\minfyInterface processors ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -5695,7 +4699,6 @@ minify::__construct( \yxorP\minify\minfyInterface processors ): mixed
 |-----------|------|-------------|
 | `processors` | **\yxorP\minify\minfyInterface** |  |
 
-
 **Return Value:**
 
 
@@ -5703,15 +4706,12 @@ minify::__construct( \yxorP\minify\minfyInterface processors ): mixed
 
 
 ---
+
 ### minify::createDefault
-
-
 
 ```php
 minify::createDefault(  ): self
 ```
-
-
 
 * This method is **static**.
 
@@ -5722,16 +4722,12 @@ minify::createDefault(  ): self
 
 
 ---
+
 ### minify::process
-
-
 
 ```php
 minify::process( string buffer ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -5739,7 +4735,6 @@ minify::process( string buffer ): string
 |-----------|------|-------------|
 | `buffer` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -5747,16 +4742,12 @@ minify::process( string buffer ): string
 
 
 ---
+
 ### minify::addProcessor
-
-
 
 ```php
 minify::addProcessor( \yxorP\minify\minfyInterface processor ): self
 ```
-
-
-
 
 **Parameters:**
 
@@ -5764,7 +4755,6 @@ minify::addProcessor( \yxorP\minify\minfyInterface processor ): self
 |-----------|------|-------------|
 | `processor` | **\yxorP\minify\minfyInterface** |  |
 
-
 **Return Value:**
 
 
@@ -5772,15 +4762,11 @@ minify::addProcessor( \yxorP\minify\minfyInterface processor ): self
 
 
 ---
+
 ## MountManager
-
-
-
-
 
 * Full name: \League\Flysystem\MountManager
 * This class implements: \League\Flysystem\FilesystemOperator
-
 
 ### MountManager::__construct
 
@@ -5790,16 +4776,12 @@ MountManager constructor.
 MountManager::__construct( array&lt;string,\League\Flysystem\FilesystemOperator&gt; filesystems = [] ): mixed
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `filesystems` | **array&lt;string,\League\Flysystem\FilesystemOperator&gt;** |  |
 
-
 **Return Value:**
 
 
@@ -5807,23 +4789,18 @@ MountManager::__construct( array&lt;string,\League\Flysystem\FilesystemOperator&
 
 
 ---
+
 ### MountManager::fileExists
-
-
 
 ```php
 MountManager::fileExists( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5832,23 +4809,18 @@ MountManager::fileExists( string location ): bool
 
 
 ---
+
 ### MountManager::has
-
-
 
 ```php
 MountManager::has( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5857,23 +4829,18 @@ MountManager::has( string location ): bool
 
 
 ---
+
 ### MountManager::directoryExists
-
-
 
 ```php
 MountManager::directoryExists( string location ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5882,23 +4849,18 @@ MountManager::directoryExists( string location ): bool
 
 
 ---
+
 ### MountManager::read
-
-
 
 ```php
 MountManager::read( string location ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5907,23 +4869,18 @@ MountManager::read( string location ): string
 
 
 ---
+
 ### MountManager::readStream
-
-
 
 ```php
 MountManager::readStream( string location ): mixed
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5932,16 +4889,12 @@ MountManager::readStream( string location ): mixed
 
 
 ---
+
 ### MountManager::listContents
-
-
 
 ```php
 MountManager::listContents( string location, bool deep = self::LIST_SHALLOW ): \League\Flysystem\DirectoryListing
 ```
-
-
-
 
 **Parameters:**
 
@@ -5950,7 +4903,6 @@ MountManager::listContents( string location, bool deep = self::LIST_SHALLOW ): \
 | `location` | **string** |  |
 | `deep` | **bool** |  |
 
-
 **Return Value:**
 
 
@@ -5958,23 +4910,18 @@ MountManager::listContents( string location, bool deep = self::LIST_SHALLOW ): \
 
 
 ---
+
 ### MountManager::lastModified
-
-
 
 ```php
 MountManager::lastModified( string location ): int
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -5983,23 +4930,18 @@ MountManager::lastModified( string location ): int
 
 
 ---
+
 ### MountManager::fileSize
-
-
 
 ```php
 MountManager::fileSize( string location ): int
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -6008,23 +4950,18 @@ MountManager::fileSize( string location ): int
 
 
 ---
+
 ### MountManager::mimeType
-
-
 
 ```php
 MountManager::mimeType( string location ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -6033,23 +4970,18 @@ MountManager::mimeType( string location ): string
 
 
 ---
+
 ### MountManager::visibility
-
-
 
 ```php
 MountManager::visibility( string location ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -6058,16 +4990,12 @@ MountManager::visibility( string location ): string
 
 
 ---
+
 ### MountManager::write
-
-
 
 ```php
 MountManager::write( string location, string contents, array config = [] ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -6077,7 +5005,6 @@ MountManager::write( string location, string contents, array config = [] ): void
 | `contents` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -6085,16 +5012,12 @@ MountManager::write( string location, string contents, array config = [] ): void
 
 
 ---
+
 ### MountManager::writeStream
-
-
 
 ```php
 MountManager::writeStream( string location, mixed contents, array config = [] ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -6104,7 +5027,6 @@ MountManager::writeStream( string location, mixed contents, array config = [] ):
 | `contents` | **mixed** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -6112,16 +5034,12 @@ MountManager::writeStream( string location, mixed contents, array config = [] ):
 
 
 ---
+
 ### MountManager::setVisibility
-
-
 
 ```php
 MountManager::setVisibility( string path, string visibility ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -6130,7 +5048,6 @@ MountManager::setVisibility( string path, string visibility ): void
 | `path` | **string** |  |
 | `visibility` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6138,23 +5055,18 @@ MountManager::setVisibility( string path, string visibility ): void
 
 
 ---
+
 ### MountManager::delete
-
-
 
 ```php
 MountManager::delete( string location ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -6163,23 +5075,18 @@ MountManager::delete( string location ): void
 
 
 ---
+
 ### MountManager::deleteDirectory
-
-
 
 ```php
 MountManager::deleteDirectory( string location ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `location` | **string** |  |
-
 
 **Return Value:**
 
@@ -6188,17 +5095,13 @@ MountManager::deleteDirectory( string location ): void
 
 
 ---
+
 ### MountManager::createDirectory
-
-
 
 ```php
 MountManager::createDirectory( string location, array config = [] ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -6206,7 +5109,6 @@ MountManager::createDirectory( string location, array config = [] ): void
 | `location` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -6214,17 +5116,13 @@ MountManager::createDirectory( string location, array config = [] ): void
 
 
 ---
+
 ### MountManager::move
-
-
 
 ```php
 MountManager::move( string source, string destination, array config = [] ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -6233,7 +5131,6 @@ MountManager::move( string source, string destination, array config = [] ): void
 | `destination` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -6241,17 +5138,13 @@ MountManager::move( string source, string destination, array config = [] ): void
 
 
 ---
+
 ### MountManager::copy
-
-
 
 ```php
 MountManager::copy( string source, string destination, array config = [] ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -6260,7 +5153,6 @@ MountManager::copy( string source, string destination, array config = [] ): void
 | `destination` | **string** |  |
 | `config` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -6268,28 +5160,18 @@ MountManager::copy( string source, string destination, array config = [] ): void
 
 
 ---
+
 ## overridePluginAction
-
-
-
-
 
 * Full name: \overridePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### overridePluginAction::onCompleted
-
-
 
 ```php
 overridePluginAction::onCompleted(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -6297,16 +5179,12 @@ overridePluginAction::onCompleted(  ): mixed
 
 
 ---
+
 ### overridePluginAction::REWRITE
-
-
 
 ```php
 overridePluginAction::REWRITE( mixed content ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -6314,7 +5192,6 @@ overridePluginAction::REWRITE( mixed content ): string
 |-----------|------|-------------|
 | `content` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -6322,26 +5199,17 @@ overridePluginAction::REWRITE( mixed content ): string
 
 
 ---
+
 ## OverridingExtensionToMimeTypeMap
-
-
-
-
 
 * Full name: \League\MimeTypeDetection\OverridingExtensionToMimeTypeMap
 * This class implements: \League\MimeTypeDetection\ExtensionToMimeTypeMap
 
-
 ### OverridingExtensionToMimeTypeMap::__construct
-
-
 
 ```php
 OverridingExtensionToMimeTypeMap::__construct( \League\MimeTypeDetection\ExtensionToMimeTypeMap innerMap, array&lt;string,string&gt; overrides ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -6350,7 +5218,6 @@ OverridingExtensionToMimeTypeMap::__construct( \League\MimeTypeDetection\Extensi
 | `innerMap` | **\League\MimeTypeDetection\ExtensionToMimeTypeMap** |  |
 | `overrides` | **array&lt;string,string&gt;** |  |
 
-
 **Return Value:**
 
 
@@ -6358,16 +5225,12 @@ OverridingExtensionToMimeTypeMap::__construct( \League\MimeTypeDetection\Extensi
 
 
 ---
+
 ### OverridingExtensionToMimeTypeMap::lookupMimeType
-
-
 
 ```php
 OverridingExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 ```
-
-
-
 
 **Parameters:**
 
@@ -6375,7 +5238,6 @@ OverridingExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 |-----------|------|-------------|
 | `extension` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6383,25 +5245,16 @@ OverridingExtensionToMimeTypeMap::lookupMimeType( string extension ): ?string
 
 
 ---
+
 ## paramStore
-
-
-
-
 
 * Full name: \yxorP\http\paramStore
 
-
 ### paramStore::__construct
-
-
 
 ```php
 paramStore::__construct( mixed parameters = array(), mixed case_sensitive = false ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -6410,7 +5263,6 @@ paramStore::__construct( mixed parameters = array(), mixed case_sensitive = fals
 | `parameters` | **mixed** |  |
 | `case_sensitive` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -6418,16 +5270,12 @@ paramStore::__construct( mixed parameters = array(), mixed case_sensitive = fals
 
 
 ---
+
 ### paramStore::replace
-
-
 
 ```php
 paramStore::replace( array data ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -6435,7 +5283,6 @@ paramStore::replace( array data ): void
 |-----------|------|-------------|
 | `data` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -6443,18 +5290,13 @@ paramStore::replace( array data ): void
 
 
 ---
+
 ### paramStore::clear
-
-
 
 ```php
 paramStore::clear(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -6462,16 +5304,12 @@ paramStore::clear(  ): void
 
 
 ---
+
 ### paramStore::set
-
-
 
 ```php
 paramStore::set( mixed key, mixed value, mixed replace = true ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -6481,7 +5319,6 @@ paramStore::set( mixed key, mixed value, mixed replace = true ): void
 | `value` | **mixed** |  |
 | `replace` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -6489,23 +5326,18 @@ paramStore::set( mixed key, mixed value, mixed replace = true ): void
 
 
 ---
+
 ### paramStore::has
-
-
 
 ```php
 paramStore::has( mixed key ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `key` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -6514,23 +5346,18 @@ paramStore::has( mixed key ): bool
 
 
 ---
+
 ### paramStore::remove
-
-
 
 ```php
 paramStore::remove( mixed key ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `key` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -6539,16 +5366,12 @@ paramStore::remove( mixed key ): void
 
 
 ---
+
 ### paramStore::get
-
-
 
 ```php
 paramStore::get( mixed key, mixed default = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -6557,7 +5380,6 @@ paramStore::get( mixed key, mixed default = null ): mixed
 | `key` | **mixed** |  |
 | `default` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -6565,18 +5387,13 @@ paramStore::get( mixed key, mixed default = null ): mixed
 
 
 ---
+
 ### paramStore::all
-
-
 
 ```php
 paramStore::all(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -6584,18 +5401,13 @@ paramStore::all(  ): array
 
 
 ---
+
 ### paramStore::__toString
-
-
 
 ```php
 paramStore::__toString(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -6603,25 +5415,16 @@ paramStore::__toString(  ): mixed
 
 
 ---
+
 ## PathPrefixer
-
-
-
-
 
 * Full name: \League\Flysystem\PathPrefixer
 
-
 ### PathPrefixer::__construct
-
-
 
 ```php
 PathPrefixer::__construct( string prefix, string separator = '/' ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -6630,7 +5433,6 @@ PathPrefixer::__construct( string prefix, string separator = '/' ): mixed
 | `prefix` | **string** |  |
 | `separator` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6638,23 +5440,18 @@ PathPrefixer::__construct( string prefix, string separator = '/' ): mixed
 
 
 ---
+
 ### PathPrefixer::prefixPath
-
-
 
 ```php
 PathPrefixer::prefixPath( string path ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -6663,23 +5460,18 @@ PathPrefixer::prefixPath( string path ): string
 
 
 ---
+
 ### PathPrefixer::stripPrefix
-
-
 
 ```php
 PathPrefixer::stripPrefix( string path ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -6688,23 +5480,18 @@ PathPrefixer::stripPrefix( string path ): string
 
 
 ---
+
 ### PathPrefixer::stripDirectoryPrefix
-
-
 
 ```php
 PathPrefixer::stripDirectoryPrefix( string path ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
-
 
 **Return Value:**
 
@@ -6713,24 +5500,19 @@ PathPrefixer::stripDirectoryPrefix( string path ): string
 
 
 ---
+
 ### PathPrefixer::prefixDirectoryPath
-
-
 
 ```php
 PathPrefixer::prefixDirectoryPath( string path ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6738,28 +5520,18 @@ PathPrefixer::prefixDirectoryPath( string path ): string
 
 
 ---
+
 ## PathTraversalDetected
-
-
-
-
 
 * Full name: \League\Flysystem\PathTraversalDetected
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ### PathTraversalDetected::path
-
-
 
 ```php
 PathTraversalDetected::path(  ): string
 ```
-
-
-
-
 
 **Return Value:**
 
@@ -6768,15 +5540,12 @@ PathTraversalDetected::path(  ): string
 
 
 ---
+
 ### PathTraversalDetected::forPath
-
-
 
 ```php
 PathTraversalDetected::forPath( string path ): \League\Flysystem\PathTraversalDetected
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -6785,7 +5554,6 @@ PathTraversalDetected::forPath( string path ): \League\Flysystem\PathTraversalDe
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6793,26 +5561,17 @@ PathTraversalDetected::forPath( string path ): \League\Flysystem\PathTraversalDe
 
 
 ---
+
 ## PortableVisibilityConverter
-
-
-
-
 
 * Full name: \League\Flysystem\UnixVisibility\PortableVisibilityConverter
 * This class implements: \League\Flysystem\UnixVisibility\VisibilityConverter
 
-
 ### PortableVisibilityConverter::__construct
-
-
 
 ```php
 PortableVisibilityConverter::__construct( int filePublic = 0644, int filePrivate = 0600, int directoryPublic = 0755, int directoryPrivate = 0700, string defaultForDirectories = Visibility::PRIVATE ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -6824,7 +5583,6 @@ PortableVisibilityConverter::__construct( int filePublic = 0644, int filePrivate
 | `directoryPrivate` | **int** |  |
 | `defaultForDirectories` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6832,23 +5590,18 @@ PortableVisibilityConverter::__construct( int filePublic = 0644, int filePrivate
 
 
 ---
+
 ### PortableVisibilityConverter::forFile
-
-
 
 ```php
 PortableVisibilityConverter::forFile( string visibility ): int
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `visibility` | **string** |  |
-
 
 **Return Value:**
 
@@ -6857,24 +5610,19 @@ PortableVisibilityConverter::forFile( string visibility ): int
 
 
 ---
+
 ### PortableVisibilityConverter::forDirectory
-
-
 
 ```php
 PortableVisibilityConverter::forDirectory( string visibility ): int
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `visibility` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6882,23 +5630,18 @@ PortableVisibilityConverter::forDirectory( string visibility ): int
 
 
 ---
+
 ### PortableVisibilityConverter::inverseForFile
-
-
 
 ```php
 PortableVisibilityConverter::inverseForFile( int visibility ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `visibility` | **int** |  |
-
 
 **Return Value:**
 
@@ -6907,24 +5650,19 @@ PortableVisibilityConverter::inverseForFile( int visibility ): string
 
 
 ---
+
 ### PortableVisibilityConverter::inverseForDirectory
-
-
 
 ```php
 PortableVisibilityConverter::inverseForDirectory( int visibility ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `visibility` | **int** |  |
 
-
 **Return Value:**
 
 
@@ -6932,18 +5670,13 @@ PortableVisibilityConverter::inverseForDirectory( int visibility ): string
 
 
 ---
+
 ### PortableVisibilityConverter::defaultForDirectories
-
-
 
 ```php
 PortableVisibilityConverter::defaultForDirectories(  ): int
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -6951,15 +5684,12 @@ PortableVisibilityConverter::defaultForDirectories(  ): int
 
 
 ---
+
 ### PortableVisibilityConverter::fromArray
-
-
 
 ```php
 PortableVisibilityConverter::fromArray( array permissionMap, string defaultForDirectories = Visibility::PRIVATE ): \League\Flysystem\UnixVisibility\PortableVisibilityConverter
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -6969,7 +5699,6 @@ PortableVisibilityConverter::fromArray( array permissionMap, string defaultForDi
 | `permissionMap` | **array** |  |
 | `defaultForDirectories` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -6977,24 +5706,16 @@ PortableVisibilityConverter::fromArray( array permissionMap, string defaultForDi
 
 
 ---
+
 ## PortableVisibilityGuard
-
-
-
-
 
 * Full name: \League\Flysystem\PortableVisibilityGuard
 
-
 ### PortableVisibilityGuard::guardAgainstInvalidInput
-
-
 
 ```php
 PortableVisibilityGuard::guardAgainstInvalidInput( string visibility ): void
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -7003,7 +5724,6 @@ PortableVisibilityGuard::guardAgainstInvalidInput( string visibility ): void
 |-----------|------|-------------|
 | `visibility` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -7011,28 +5731,18 @@ PortableVisibilityGuard::guardAgainstInvalidInput( string visibility ): void
 
 
 ---
+
 ## proxifyPluginAction
-
-
-
-
 
 * Full name: \proxifyPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### proxifyPluginAction::onBeforeRequest
-
-
 
 ```php
 proxifyPluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7040,18 +5750,13 @@ proxifyPluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### proxifyPluginAction::onCompleted
-
-
 
 ```php
 proxifyPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7059,16 +5764,12 @@ proxifyPluginAction::onCompleted(  ): void
 
 
 ---
+
 ### proxifyPluginAction::clean_content_type
-
-
 
 ```php
 proxifyPluginAction::clean_content_type( mixed content_type ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -7076,7 +5777,6 @@ proxifyPluginAction::clean_content_type( mixed content_type ): string
 |-----------|------|-------------|
 | `content_type` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7084,29 +5784,19 @@ proxifyPluginAction::clean_content_type( mixed content_type ): string
 
 
 ---
+
 ## quotesRemover
-
-
-
-
 
 * Full name: \yxorP\minify\quotesRemover
 * Parent class: \yxorP\minify\areplacer
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### quotesRemover::getReplacePatternData
-
-
 
 ```php
 quotesRemover::getReplacePatternData(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7114,28 +5804,18 @@ quotesRemover::getReplacePatternData(  ): array
 
 
 ---
+
 ## readyCheckAction
-
-
-
-
 
 * Full name: \readyCheckAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### readyCheckAction::onCheck
-
-
 
 ```php
 readyCheckAction::onCheck(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7143,25 +5823,16 @@ readyCheckAction::onCheck(  ): string
 
 
 ---
+
 ## request
-
-
-
-
 
 * Full name: \yxorP\http\request
 
-
 ### request::__construct
-
-
 
 ```php
 request::__construct( mixed method, mixed url, mixed body = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -7171,7 +5842,6 @@ request::__construct( mixed method, mixed url, mixed body = null ): mixed
 | `url` | **mixed** |  |
 | `body` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7179,16 +5849,12 @@ request::__construct( mixed method, mixed url, mixed body = null ): mixed
 
 
 ---
+
 ### request::setUrl
-
-
 
 ```php
 request::setUrl( mixed url ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -7196,7 +5862,6 @@ request::setUrl( mixed url ): void
 |-----------|------|-------------|
 | `url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7204,15 +5869,12 @@ request::setUrl( mixed url ): void
 
 
 ---
+
 ### request::parseQuery
-
-
 
 ```php
 request::parseQuery( mixed query ): array
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -7221,7 +5883,6 @@ request::parseQuery( mixed query ): array
 |-----------|------|-------------|
 | `query` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7229,16 +5890,12 @@ request::parseQuery( mixed query ): array
 
 
 ---
+
 ### request::setBody
-
-
 
 ```php
 request::setBody( mixed body, mixed content_type = false ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -7247,7 +5904,6 @@ request::setBody( mixed body, mixed content_type = false ): void
 | `body` | **mixed** |  |
 | `content_type` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7255,18 +5911,13 @@ request::setBody( mixed body, mixed content_type = false ): void
 
 
 ---
+
 ### request::prepare
-
-
 
 ```php
 request::prepare(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7274,15 +5925,12 @@ request::prepare(  ): void
 
 
 ---
+
 ### request::buildPostBody
-
-
 
 ```php
 request::buildPostBody( mixed fields, mixed files, mixed boundary = null ): string
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -7293,7 +5941,6 @@ request::buildPostBody( mixed fields, mixed files, mixed boundary = null ): stri
 | `files` | **mixed** |  |
 | `boundary` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7301,15 +5948,12 @@ request::buildPostBody( mixed fields, mixed files, mixed boundary = null ): stri
 
 
 ---
+
 ### request::createFromGlobals
-
-
 
 ```php
 request::createFromGlobals(  ): \yxorP\http\request
 ```
-
-
 
 * This method is **static**.
 
@@ -7320,17 +5964,12 @@ request::createFromGlobals(  ): \yxorP\http\request
 
 
 ---
+
 ### request::getMethod
-
-
 
 ```php
 request::getMethod(  ): string
 ```
-
-
-
-
 
 **Return Value:**
 
@@ -7339,16 +5978,12 @@ request::getMethod(  ): string
 
 
 ---
+
 ### request::setMethod
-
-
 
 ```php
 request::setMethod( mixed method ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -7356,7 +5991,6 @@ request::setMethod( mixed method ): void
 |-----------|------|-------------|
 | `method` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7364,18 +5998,13 @@ request::setMethod( mixed method ): void
 
 
 ---
+
 ### request::getUrl
-
-
 
 ```php
 request::getUrl(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7383,18 +6012,13 @@ request::getUrl(  ): string
 
 
 ---
+
 ### request::getProtocolVersion
-
-
 
 ```php
 request::getProtocolVersion(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7402,18 +6026,13 @@ request::getProtocolVersion(  ): string
 
 
 ---
+
 ### request::getRawHeaders
-
-
 
 ```php
 request::getRawHeaders(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7421,18 +6040,13 @@ request::getRawHeaders(  ): string
 
 
 ---
+
 ### request::getRawBody
-
-
 
 ```php
 request::getRawBody(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7440,18 +6054,13 @@ request::getRawBody(  ): string
 
 
 ---
+
 ### request::getUri
-
-
 
 ```php
 request::getUri(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7459,28 +6068,18 @@ request::getUri(  ): mixed
 
 
 ---
+
 ## requestBodyAction
-
-
-
-
 
 * Full name: \requestBodyAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### requestBodyAction::buildRequest
-
-
 
 ```php
 requestBodyAction::buildRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7488,28 +6087,18 @@ requestBodyAction::buildRequest(  ): void
 
 
 ---
+
 ## requestResponseAction
-
-
-
-
 
 * Full name: \requestResponseAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### requestResponseAction::buildIncludes
-
-
 
 ```php
 requestResponseAction::buildIncludes(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7517,26 +6106,17 @@ requestResponseAction::buildIncludes(  ): void
 
 
 ---
+
 ## resourceHandlerAction
-
-
-
-
 
 * Full name: \resourceHandlerAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### resourceHandlerAction::onBuildException
-
-
 
 ```php
 resourceHandlerAction::onBuildException( mixed e ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -7544,7 +6124,6 @@ resourceHandlerAction::onBuildException( mixed e ): void
 |-----------|------|-------------|
 | `e` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7552,25 +6131,16 @@ resourceHandlerAction::onBuildException( mixed e ): void
 
 
 ---
+
 ## response
-
-
-
-
 
 * Full name: \yxorP\http\response
 
-
 ### response::__construct
-
-
 
 ```php
 response::__construct( mixed content = CHAR_EMPTY_STRING, mixed status = 200, mixed headers = array() ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -7580,7 +6150,6 @@ response::__construct( mixed content = CHAR_EMPTY_STRING, mixed status = 200, mi
 | `status` | **mixed** |  |
 | `headers` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7588,16 +6157,12 @@ response::__construct( mixed content = CHAR_EMPTY_STRING, mixed status = 200, mi
 
 
 ---
+
 ### response::setStatusCode
-
-
 
 ```php
 response::setStatusCode( mixed code ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -7605,7 +6170,6 @@ response::setStatusCode( mixed code ): void
 |-----------|------|-------------|
 | `code` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7613,18 +6177,13 @@ response::setStatusCode( mixed code ): void
 
 
 ---
+
 ### response::getContent
-
-
 
 ```php
 response::getContent(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7632,16 +6191,12 @@ response::getContent(  ): string
 
 
 ---
+
 ### response::setContent
-
-
 
 ```php
 response::setContent( mixed content ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -7649,7 +6204,6 @@ response::setContent( mixed content ): void
 |-----------|------|-------------|
 | `content` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -7657,18 +6211,13 @@ response::setContent( mixed content ): void
 
 
 ---
+
 ### response::printContent
-
-
 
 ```php
 response::printContent(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7676,18 +6225,13 @@ response::printContent(  ): void
 
 
 ---
+
 ### response::sendHeaders
-
-
 
 ```php
 response::sendHeaders(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7695,18 +6239,13 @@ response::sendHeaders(  ): void
 
 
 ---
+
 ### response::getStatusText
-
-
 
 ```php
 response::getStatusText(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7714,18 +6253,13 @@ response::getStatusText(  ): string
 
 
 ---
+
 ### response::getStatusCode
-
-
 
 ```php
 response::getStatusCode(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7733,28 +6267,18 @@ response::getStatusCode(  ): mixed
 
 
 ---
+
 ## setHeadersAction
-
-
-
-
 
 * Full name: \setHeadersAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### setHeadersAction::buildHeaders
-
-
 
 ```php
 setHeadersAction::buildHeaders(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7762,28 +6286,18 @@ setHeadersAction::buildHeaders(  ): void
 
 
 ---
+
 ## siteCollectionAction
-
-
-
-
 
 * Full name: \siteCollectionAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### siteCollectionAction::onBuildContext
-
-
 
 ```php
 siteCollectionAction::onBuildContext(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7791,28 +6305,18 @@ siteCollectionAction::onBuildContext(  ): void
 
 
 ---
+
 ## streamPluginAction
-
-
-
-
 
 * Full name: \streamPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### streamPluginAction::onHeadersReceived
-
-
 
 ```php
 streamPluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7820,18 +6324,13 @@ streamPluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ### streamPluginAction::onCurlWrite
-
-
 
 ```php
 streamPluginAction::onCurlWrite(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7839,18 +6338,13 @@ streamPluginAction::onCurlWrite(  ): void
 
 
 ---
+
 ### streamPluginAction::onCompleted
-
-
 
 ```php
 streamPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7858,28 +6352,18 @@ streamPluginAction::onCompleted(  ): void
 
 
 ---
+
 ## SymbolicLinkEncountered
-
-
-
-
 
 * Full name: \League\Flysystem\SymbolicLinkEncountered
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ### SymbolicLinkEncountered::location
-
-
 
 ```php
 SymbolicLinkEncountered::location(  ): string
 ```
-
-
-
-
 
 **Return Value:**
 
@@ -7888,15 +6372,12 @@ SymbolicLinkEncountered::location(  ): string
 
 
 ---
+
 ### SymbolicLinkEncountered::atLocation
-
-
 
 ```php
 SymbolicLinkEncountered::atLocation( string pathName ): \League\Flysystem\SymbolicLinkEncountered
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -7905,7 +6386,6 @@ SymbolicLinkEncountered::atLocation( string pathName ): \League\Flysystem\Symbol
 |-----------|------|-------------|
 | `pathName` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -7913,28 +6393,18 @@ SymbolicLinkEncountered::atLocation( string pathName ): \League\Flysystem\Symbol
 
 
 ---
+
 ## twitterPluginAction
-
-
-
-
 
 * Full name: \twitterPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### twitterPluginAction::onCompleted
-
-
 
 ```php
 twitterPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7942,28 +6412,18 @@ twitterPluginAction::onCompleted(  ): void
 
 
 ---
+
 ## UnableToCheckDirectoryExistence
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToCheckDirectoryExistence
 * Parent class: \League\Flysystem\UnableToCheckExistence
 
-
 ### UnableToCheckDirectoryExistence::operation
-
-
 
 ```php
 UnableToCheckDirectoryExistence::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -7971,26 +6431,18 @@ UnableToCheckDirectoryExistence::operation(  ): string
 
 
 ---
+
 ## UnableToCheckExistence
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToCheckExistence
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToCheckExistence::forLocation
-
-
 
 ```php
 UnableToCheckExistence::forLocation( string path, \Throwable exception = null ): static
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8000,7 +6452,6 @@ UnableToCheckExistence::forLocation( string path, \Throwable exception = null ):
 | `path` | **string** |  |
 | `exception` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8008,18 +6459,13 @@ UnableToCheckExistence::forLocation( string path, \Throwable exception = null ):
 
 
 ---
+
 ### UnableToCheckExistence::operation
-
-
 
 ```php
 UnableToCheckExistence::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8027,28 +6473,18 @@ UnableToCheckExistence::operation(  ): string
 
 
 ---
+
 ## UnableToCheckFileExistence
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToCheckFileExistence
 * Parent class: \League\Flysystem\UnableToCheckExistence
 
-
 ### UnableToCheckFileExistence::operation
-
-
 
 ```php
 UnableToCheckFileExistence::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8056,29 +6492,19 @@ UnableToCheckFileExistence::operation(  ): string
 
 
 ---
+
 ## UnableToCopyFile
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToCopyFile
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToCopyFile::source
-
-
 
 ```php
 UnableToCopyFile::source(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8086,18 +6512,13 @@ UnableToCopyFile::source(  ): string
 
 
 ---
+
 ### UnableToCopyFile::destination
-
-
 
 ```php
 UnableToCopyFile::destination(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8105,15 +6526,12 @@ UnableToCopyFile::destination(  ): string
 
 
 ---
+
 ### UnableToCopyFile::fromLocationTo
-
-
 
 ```php
 UnableToCopyFile::fromLocationTo( string sourcePath, string destinationPath, \Throwable previous = null ): \League\Flysystem\UnableToCopyFile
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8124,7 +6542,6 @@ UnableToCopyFile::fromLocationTo( string sourcePath, string destinationPath, \Th
 | `destinationPath` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8132,18 +6549,13 @@ UnableToCopyFile::fromLocationTo( string sourcePath, string destinationPath, \Th
 
 
 ---
+
 ### UnableToCopyFile::operation
-
-
 
 ```php
 UnableToCopyFile::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8151,26 +6563,18 @@ UnableToCopyFile::operation(  ): string
 
 
 ---
+
 ## UnableToCreateDirectory
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToCreateDirectory
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToCreateDirectory::atLocation
-
-
 
 ```php
 UnableToCreateDirectory::atLocation( string dirname, string errorMessage = '' ): \League\Flysystem\UnableToCreateDirectory
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8180,7 +6584,6 @@ UnableToCreateDirectory::atLocation( string dirname, string errorMessage = '' ):
 | `dirname` | **string** |  |
 | `errorMessage` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -8188,15 +6591,12 @@ UnableToCreateDirectory::atLocation( string dirname, string errorMessage = '' ):
 
 
 ---
+
 ### UnableToCreateDirectory::dueToFailure
-
-
 
 ```php
 UnableToCreateDirectory::dueToFailure( string dirname, \Throwable previous ): \League\Flysystem\UnableToCreateDirectory
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8206,7 +6606,6 @@ UnableToCreateDirectory::dueToFailure( string dirname, \Throwable previous ): \L
 | `dirname` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8214,18 +6613,13 @@ UnableToCreateDirectory::dueToFailure( string dirname, \Throwable previous ): \L
 
 
 ---
+
 ### UnableToCreateDirectory::operation
-
-
 
 ```php
 UnableToCreateDirectory::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8233,18 +6627,13 @@ UnableToCreateDirectory::operation(  ): string
 
 
 ---
+
 ### UnableToCreateDirectory::location
-
-
 
 ```php
 UnableToCreateDirectory::location(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8252,27 +6641,19 @@ UnableToCreateDirectory::location(  ): string
 
 
 ---
+
 ## UnableToDeleteDirectory
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToDeleteDirectory
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToDeleteDirectory::atLocation
-
-
 
 ```php
 UnableToDeleteDirectory::atLocation( string location, string reason = '', \Throwable previous = null ): \League\Flysystem\UnableToDeleteDirectory
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
@@ -8282,7 +6663,6 @@ UnableToDeleteDirectory::atLocation( string location, string reason = '', \Throw
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8290,18 +6670,13 @@ UnableToDeleteDirectory::atLocation( string location, string reason = '', \Throw
 
 
 ---
+
 ### UnableToDeleteDirectory::operation
-
-
 
 ```php
 UnableToDeleteDirectory::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8309,18 +6684,13 @@ UnableToDeleteDirectory::operation(  ): string
 
 
 ---
+
 ### UnableToDeleteDirectory::reason
-
-
 
 ```php
 UnableToDeleteDirectory::reason(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8328,18 +6698,13 @@ UnableToDeleteDirectory::reason(  ): string
 
 
 ---
+
 ### UnableToDeleteDirectory::location
-
-
 
 ```php
 UnableToDeleteDirectory::location(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8347,26 +6712,18 @@ UnableToDeleteDirectory::location(  ): string
 
 
 ---
+
 ## UnableToDeleteFile
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToDeleteFile
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToDeleteFile::atLocation
-
-
 
 ```php
 UnableToDeleteFile::atLocation( string location, string reason = '', \Throwable previous = null ): \League\Flysystem\UnableToDeleteFile
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8377,7 +6734,6 @@ UnableToDeleteFile::atLocation( string location, string reason = '', \Throwable 
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8385,18 +6741,13 @@ UnableToDeleteFile::atLocation( string location, string reason = '', \Throwable 
 
 
 ---
+
 ### UnableToDeleteFile::operation
-
-
 
 ```php
 UnableToDeleteFile::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8404,18 +6755,13 @@ UnableToDeleteFile::operation(  ): string
 
 
 ---
+
 ### UnableToDeleteFile::reason
-
-
 
 ```php
 UnableToDeleteFile::reason(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8423,18 +6769,13 @@ UnableToDeleteFile::reason(  ): string
 
 
 ---
+
 ### UnableToDeleteFile::location
-
-
 
 ```php
 UnableToDeleteFile::location(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8442,26 +6783,18 @@ UnableToDeleteFile::location(  ): string
 
 
 ---
+
 ## UnableToMountFilesystem
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToMountFilesystem
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ### UnableToMountFilesystem::becauseTheKeyIsNotValid
-
-
 
 ```php
 UnableToMountFilesystem::becauseTheKeyIsNotValid( mixed key ): \League\Flysystem\UnableToMountFilesystem
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8470,7 +6803,6 @@ UnableToMountFilesystem::becauseTheKeyIsNotValid( mixed key ): \League\Flysystem
 |-----------|------|-------------|
 | `key` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -8478,15 +6810,12 @@ UnableToMountFilesystem::becauseTheKeyIsNotValid( mixed key ): \League\Flysystem
 
 
 ---
+
 ### UnableToMountFilesystem::becauseTheFilesystemWasNotValid
-
-
 
 ```php
 UnableToMountFilesystem::becauseTheFilesystemWasNotValid( mixed filesystem ): \League\Flysystem\UnableToMountFilesystem
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8495,7 +6824,6 @@ UnableToMountFilesystem::becauseTheFilesystemWasNotValid( mixed filesystem ): \L
 |-----------|------|-------------|
 | `filesystem` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -8503,29 +6831,19 @@ UnableToMountFilesystem::becauseTheFilesystemWasNotValid( mixed filesystem ): \L
 
 
 ---
+
 ## UnableToMoveFile
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToMoveFile
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToMoveFile::source
-
-
 
 ```php
 UnableToMoveFile::source(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8533,18 +6851,13 @@ UnableToMoveFile::source(  ): string
 
 
 ---
+
 ### UnableToMoveFile::destination
-
-
 
 ```php
 UnableToMoveFile::destination(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8552,15 +6865,12 @@ UnableToMoveFile::destination(  ): string
 
 
 ---
+
 ### UnableToMoveFile::fromLocationTo
-
-
 
 ```php
 UnableToMoveFile::fromLocationTo( string sourcePath, string destinationPath, \Throwable previous = null ): \League\Flysystem\UnableToMoveFile
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8571,7 +6881,6 @@ UnableToMoveFile::fromLocationTo( string sourcePath, string destinationPath, \Th
 | `destinationPath` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8579,18 +6888,13 @@ UnableToMoveFile::fromLocationTo( string sourcePath, string destinationPath, \Th
 
 
 ---
+
 ### UnableToMoveFile::operation
-
-
 
 ```php
 UnableToMoveFile::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8598,26 +6902,18 @@ UnableToMoveFile::operation(  ): string
 
 
 ---
+
 ## UnableToReadFile
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToReadFile
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToReadFile::fromLocation
-
-
 
 ```php
 UnableToReadFile::fromLocation( string location, string reason = '', \Throwable previous = null ): \League\Flysystem\UnableToReadFile
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8628,7 +6924,6 @@ UnableToReadFile::fromLocation( string location, string reason = '', \Throwable 
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8636,18 +6931,13 @@ UnableToReadFile::fromLocation( string location, string reason = '', \Throwable 
 
 
 ---
+
 ### UnableToReadFile::operation
-
-
 
 ```php
 UnableToReadFile::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8655,18 +6945,13 @@ UnableToReadFile::operation(  ): string
 
 
 ---
+
 ### UnableToReadFile::reason
-
-
 
 ```php
 UnableToReadFile::reason(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8674,18 +6959,13 @@ UnableToReadFile::reason(  ): string
 
 
 ---
+
 ### UnableToReadFile::location
-
-
 
 ```php
 UnableToReadFile::location(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8693,26 +6973,18 @@ UnableToReadFile::location(  ): string
 
 
 ---
+
 ## UnableToResolveFilesystemMount
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToResolveFilesystemMount
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ### UnableToResolveFilesystemMount::becauseTheSeparatorIsMissing
-
-
 
 ```php
 UnableToResolveFilesystemMount::becauseTheSeparatorIsMissing( string path ): \League\Flysystem\UnableToResolveFilesystemMount
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8721,7 +6993,6 @@ UnableToResolveFilesystemMount::becauseTheSeparatorIsMissing( string path ): \Le
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -8729,15 +7000,12 @@ UnableToResolveFilesystemMount::becauseTheSeparatorIsMissing( string path ): \Le
 
 
 ---
+
 ### UnableToResolveFilesystemMount::becauseTheMountWasNotRegistered
-
-
 
 ```php
 UnableToResolveFilesystemMount::becauseTheMountWasNotRegistered( string mountIdentifier ): \League\Flysystem\UnableToResolveFilesystemMount
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8746,7 +7014,6 @@ UnableToResolveFilesystemMount::becauseTheMountWasNotRegistered( string mountIde
 |-----------|------|-------------|
 | `mountIdentifier` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -8754,27 +7021,19 @@ UnableToResolveFilesystemMount::becauseTheMountWasNotRegistered( string mountIde
 
 
 ---
+
 ## UnableToRetrieveMetadata
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToRetrieveMetadata
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToRetrieveMetadata::lastModified
-
-
 
 ```php
 UnableToRetrieveMetadata::lastModified( string location, string reason = '', \Throwable previous = null ): self
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
@@ -8784,7 +7043,6 @@ UnableToRetrieveMetadata::lastModified( string location, string reason = '', \Th
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8792,16 +7050,13 @@ UnableToRetrieveMetadata::lastModified( string location, string reason = '', \Th
 
 
 ---
+
 ### UnableToRetrieveMetadata::visibility
-
-
 
 ```php
 UnableToRetrieveMetadata::visibility( string location, string reason = '', \Throwable previous = null ): self
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
@@ -8811,7 +7066,6 @@ UnableToRetrieveMetadata::visibility( string location, string reason = '', \Thro
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8819,16 +7073,13 @@ UnableToRetrieveMetadata::visibility( string location, string reason = '', \Thro
 
 
 ---
+
 ### UnableToRetrieveMetadata::fileSize
-
-
 
 ```php
 UnableToRetrieveMetadata::fileSize( string location, string reason = '', \Throwable previous = null ): self
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
@@ -8838,7 +7089,6 @@ UnableToRetrieveMetadata::fileSize( string location, string reason = '', \Throwa
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8846,16 +7096,13 @@ UnableToRetrieveMetadata::fileSize( string location, string reason = '', \Throwa
 
 
 ---
+
 ### UnableToRetrieveMetadata::mimeType
-
-
 
 ```php
 UnableToRetrieveMetadata::mimeType( string location, string reason = '', \Throwable previous = null ): self
 ```
 
-
-
 * This method is **static**.
   **Parameters:**
 
@@ -8865,7 +7112,6 @@ UnableToRetrieveMetadata::mimeType( string location, string reason = '', \Throwa
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8873,15 +7119,12 @@ UnableToRetrieveMetadata::mimeType( string location, string reason = '', \Throwa
 
 
 ---
+
 ### UnableToRetrieveMetadata::create
-
-
 
 ```php
 UnableToRetrieveMetadata::create( string location, string type, string reason = '', \Throwable previous = null ): self
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -8893,7 +7136,6 @@ UnableToRetrieveMetadata::create( string location, string type, string reason = 
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -8901,18 +7143,13 @@ UnableToRetrieveMetadata::create( string location, string type, string reason = 
 
 
 ---
+
 ### UnableToRetrieveMetadata::reason
-
-
 
 ```php
 UnableToRetrieveMetadata::reason(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8920,18 +7157,13 @@ UnableToRetrieveMetadata::reason(  ): string
 
 
 ---
+
 ### UnableToRetrieveMetadata::location
-
-
 
 ```php
 UnableToRetrieveMetadata::location(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8939,18 +7171,13 @@ UnableToRetrieveMetadata::location(  ): string
 
 
 ---
+
 ### UnableToRetrieveMetadata::metadataType
-
-
 
 ```php
 UnableToRetrieveMetadata::metadataType(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8958,18 +7185,13 @@ UnableToRetrieveMetadata::metadataType(  ): string
 
 
 ---
+
 ### UnableToRetrieveMetadata::operation
-
-
 
 ```php
 UnableToRetrieveMetadata::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -8977,28 +7199,18 @@ UnableToRetrieveMetadata::operation(  ): string
 
 
 ---
+
 ## UnableToSetVisibility
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToSetVisibility
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToSetVisibility::reason
-
-
 
 ```php
 UnableToSetVisibility::reason(  ): string
 ```
-
-
-
-
 
 **Return Value:**
 
@@ -9007,15 +7219,12 @@ UnableToSetVisibility::reason(  ): string
 
 
 ---
+
 ### UnableToSetVisibility::atLocation
-
-
 
 ```php
 UnableToSetVisibility::atLocation( string filename, string extraMessage = '', \Throwable previous = null ): self
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -9026,7 +7235,6 @@ UnableToSetVisibility::atLocation( string filename, string extraMessage = '', \T
 | `extraMessage` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -9034,18 +7242,13 @@ UnableToSetVisibility::atLocation( string filename, string extraMessage = '', \T
 
 
 ---
+
 ### UnableToSetVisibility::operation
-
-
 
 ```php
 UnableToSetVisibility::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -9053,18 +7256,13 @@ UnableToSetVisibility::operation(  ): string
 
 
 ---
+
 ### UnableToSetVisibility::location
-
-
 
 ```php
 UnableToSetVisibility::location(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -9072,26 +7270,18 @@ UnableToSetVisibility::location(  ): string
 
 
 ---
+
 ## UnableToWriteFile
-
-
-
-
 
 * Full name: \League\Flysystem\UnableToWriteFile
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemOperationFailed
 
-
 ### UnableToWriteFile::atLocation
-
-
 
 ```php
 UnableToWriteFile::atLocation( string location, string reason = '', \Throwable previous = null ): \League\Flysystem\UnableToWriteFile
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -9102,7 +7292,6 @@ UnableToWriteFile::atLocation( string location, string reason = '', \Throwable p
 | `reason` | **string** |  |
 | `previous` | **\Throwable** |  |
 
-
 **Return Value:**
 
 
@@ -9110,18 +7299,13 @@ UnableToWriteFile::atLocation( string location, string reason = '', \Throwable p
 
 
 ---
+
 ### UnableToWriteFile::operation
-
-
 
 ```php
 UnableToWriteFile::operation(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -9129,18 +7313,13 @@ UnableToWriteFile::operation(  ): string
 
 
 ---
+
 ### UnableToWriteFile::reason
-
-
 
 ```php
 UnableToWriteFile::reason(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -9148,18 +7327,13 @@ UnableToWriteFile::reason(  ): string
 
 
 ---
+
 ### UnableToWriteFile::location
-
-
 
 ```php
 UnableToWriteFile::location(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -9167,28 +7341,18 @@ UnableToWriteFile::location(  ): string
 
 
 ---
+
 ## UnreadableFileEncountered
-
-
-
-
 
 * Full name: \League\Flysystem\UnreadableFileEncountered
 * Parent class:
 * This class implements: \League\Flysystem\FilesystemException
 
-
 ### UnreadableFileEncountered::location
-
-
 
 ```php
 UnreadableFileEncountered::location(  ): string
 ```
-
-
-
-
 
 **Return Value:**
 
@@ -9197,15 +7361,12 @@ UnreadableFileEncountered::location(  ): string
 
 
 ---
+
 ### UnreadableFileEncountered::atLocation
-
-
 
 ```php
 UnreadableFileEncountered::atLocation( string location ): \League\Flysystem\UnreadableFileEncountered
 ```
-
-
 
 * This method is **static**.
   **Parameters:**
@@ -9214,7 +7375,6 @@ UnreadableFileEncountered::atLocation( string location ): \League\Flysystem\Unre
 |-----------|------|-------------|
 | `location` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -9222,35 +7382,21 @@ UnreadableFileEncountered::atLocation( string location ): \League\Flysystem\Unre
 
 
 ---
+
 ## Visibility
-
-
-
-
 
 * Full name: \League\Flysystem\Visibility
 
-
 ## WhitespacePathNormalizer
-
-
-
-
 
 * Full name: \League\Flysystem\WhitespacePathNormalizer
 * This class implements: \League\Flysystem\PathNormalizer
 
-
 ### WhitespacePathNormalizer::normalizePath
-
-
 
 ```php
 WhitespacePathNormalizer::normalizePath( string path ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -9258,7 +7404,6 @@ WhitespacePathNormalizer::normalizePath( string path ): string
 |-----------|------|-------------|
 | `path` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -9266,26 +7411,17 @@ WhitespacePathNormalizer::normalizePath( string path ): string
 
 
 ---
+
 ## whitespacesRemover
-
-
-
-
 
 * Full name: \yxorP\minify\whitespacesRemover
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### whitespacesRemover::process
-
-
 
 ```php
 whitespacesRemover::process( string buffer ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -9293,7 +7429,6 @@ whitespacesRemover::process( string buffer ): string
 |-----------|------|-------------|
 | `buffer` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -9301,28 +7436,18 @@ whitespacesRemover::process( string buffer ): string
 
 
 ---
+
 ## youtubePluginAction
-
-
-
-
 
 * Full name: \youtubePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### youtubePluginAction::onBeforeRequest
-
-
 
 ```php
 youtubePluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -9330,17 +7455,12 @@ youtubePluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### youtubePluginAction::onCompleted
-
-
 
 ```php
 youtubePluginAction::onCompleted(  ): void
 ```
-
-
-
-
 
 **Return Value:**
 
