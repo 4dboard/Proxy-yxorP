@@ -19,7 +19,7 @@ class streamPluginAction extends wrapper
 
     /* Checking if the content type is in the array of content types that should be streamed. If it is, it sets the
     `$stream` variable to true. */
-    public function onHeadersReceived(): void
+    public function onEventSent(): void
     {
         /* Getting the content type of the response. */
         $content_type = constants::get(YXORP_RESPONSE)->headers->get(VAR_CONTENT_TYPE);

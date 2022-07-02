@@ -116,10 +116,10 @@ abstract class wrapper
                     /* Calling the `onBeforeSend` method. */
                     $this->onBeforeSend();
                     break;
-                /* Calling the `onHeadersReceived` method. */
+                /* Calling the `onEventSent` method. */
                 case EVENT_SENT:
-                    /* Calling the `onHeadersReceived` method. */
-                    $this->onHeadersReceived();
+                    /* Calling the `onEventSent` method. */
+                    $this->onEventSent();
                     break;
                 /* Calling the `onCurlWrite` method. */
                 case EVENT_WRITE:
@@ -187,7 +187,7 @@ abstract class wrapper
 
     /* Used to execute code before the request is sent. */
 
-    public function onHeadersReceived()
+    public function onEventSent()
     {
     }
 

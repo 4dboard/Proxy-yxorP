@@ -40,7 +40,7 @@ class cookiePluginAction extends wrapper
 
     /* Removing the `set-cookie` header from the response and adding a new one with the cookie name prefixed with `pc_`. */
 
-    public function onHeadersReceived(): void
+    public function onEventSent(): void
     {
         /* Getting the response object from the constants class. */
         $response = constants::get(YXORP_RESPONSE);

@@ -19,7 +19,7 @@ class headerRewritePluginAction extends wrapper
 
     /* It's checking if the response has a `location` header and if it does, it's proxifying the URL. */
 
-    public function onHeadersReceived(): void
+    public function onEventSent(): void
     {
         /* It's getting the response object from the `constants` class. */
         $response = constants::get(YXORP_RESPONSE);
