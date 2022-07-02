@@ -11,7 +11,11 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
+<<<<<<< HEAD
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
+=======
+<video src="https://github.com/4dboard/proxy-yxorp/blob/main/asset/movie.mp4?raw=true" data-canonical-src="https://github.com/4dboard/proxy-yxorp/blob/main/asset/movie.mp4?raw=true" controls="controls"></video>
+>>>>>>> parent of a542dc64 (update)
 
 # 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
