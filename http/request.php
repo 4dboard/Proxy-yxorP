@@ -5,6 +5,7 @@
 use JetBrains\PhpStorm\Pure;
 use yxorP;
 use yxorP\inc\constants;
+use yxorP\inc\generalHelper;
 
 /* A class that represents an HTTP request. */
 
