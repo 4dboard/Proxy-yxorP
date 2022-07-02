@@ -6,9 +6,11 @@
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)\[ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki)
-\] \[ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) \]
-\[ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) \]
+![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
+
+[ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki)
+] [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
+[ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/)]
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
@@ -38,8 +40,9 @@ stored for a predefined time inside a custom-built, **flat-file cache** system a
 memory-based cache** systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and
 deserialization processes, which resulted a significantly faster cache.
 
-!\[image\](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png) yxorP
-was designed to operate with either a stateless server (Apache) or a **stateful server** (Swoole) which are **
+![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
+
+yxorP was designed to operate with either a stateless server (Apache) or a **stateful server** (Swoole) which are **
 high-performance** networking frameworks with an **event-driven, asynchronous, and non-blocking I/O** model - Compatible
 with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services ( **Parrelelle**) that
 are both rapid and scalable. ## Stateless Server: \`\`\` DocumentRoot "/.yxorP/index.php" ServerName www.demo.com
@@ -50,15 +53,17 @@ as little as two minutes due to the program's compatibility with the great major
 tracking systems**. ## Docker Composer: \`\`\` cd inc docker-composer up -d \`\`\` ## Docker: \`\`\` cd inc docker run
 -p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp \`\`\`
 
-![image](https://user-images.githubusercontent.com/6468571/174686718-8501af5f-3fd3-4df9-8854-3319f7837e51.png) >
-⚠️\*\*Requires\*\*: Minimum requirement is PHP version 8.0 + **NB:** _Before launching the website, you must ensure that
-the "cockpit" submodule has been pulled and the details in the '.env.example' are correct and the file has been
-renamed '.env'._ Cockpit is the graphical user interface (GUI) for the administration interface, which may be
-immediately accessed by entering "/cockpit" and supplying the admin username and password set in the '.env' file. The
-credentials defined in the '.env' file are used to setup the sqlite database for the 'cockpit' application. Once the
-application is accessed/run for the first time, the only way to 'update/change' the credentials is directly in the
-sqlite database or via the 'cockpit' application itself (The '.env' admin username and password are only used on the
-first run). The application can also always be reset via a clean installation.
+![image](https://user-images.githubusercontent.com/6468571/174686718-8501af5f-3fd3-4df9-8854-3319f7837e51.png)
+
+> ⚠️Requires: Minimum requirement is PHP version 8.0 +
+
+**NB:** _Before launching the website, you must ensure that the "cockpit" submodule has been pulled and the details in
+the '.env.example' are correct and the file has been renamed '.env'._ Cockpit is the graphical user interface (GUI) for
+the administration interface, which may be immediately accessed by entering "/cockpit" and supplying the admin username
+and password set in the '.env' file. The credentials defined in the '.env' file are used to setup the sqlite database
+for the 'cockpit' application. Once the application is accessed/run for the first time, the only way to 'update/change'
+the credentials is directly in the sqlite database or via the 'cockpit' application itself (The '.env' admin username
+and password are only used on the first run). The application can also always be reset via a clean installation.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
 
@@ -86,65 +91,97 @@ thesaurus/dictionary entries) while maintaining high quality.
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205365-af23c9a1-98a7-40fd-8b74-0b9b0918a259.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
+
 ### Cockpit Back-End Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to
+
 use the content. Cockpit is a perfect match if you want to support multiple devices or need a content management UI for
-static site builders. Build unique applications and let Cockpit feed them with
-content. ![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
+static site builders. Build unique applications and let Cockpit feed them with content.
+
+![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
+
 Introduction Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify
 the process of publication by separating content management from content consumption on the client side. Cockpit is
 focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its
-goal is to provide structured content across different channels via a simple
-API. ![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png) ####
-Key features: Manage flexible content models. There are no pre-defined content models. Define the content model
-yourself. Uncluttered UI. Cockpit offers you a modern and simple user interface. One system, consume it the way you
-want. Receive your content via a simple API. #### The Advantages Of Going Headless - No presentation limitations – build
-the best design ever. - Content for multiple channels – create content once, consume anywhere. - Highly scalable content
-– for all your devices and microsites. - Minimum training required – get started, immediately. - Easy integrations –
-connect with
-everything. ![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205537-31de601d-4b8b-4c6b-af36-4c1e7e3f184f.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
+goal is to provide structured content across different channels via a simple API.
+![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (3).gif)
+#### Key features:
 
-\## Use case/Applications Create static flat file variants of your original webpages by using yxorP to mirror your
-websites and offer the mirrored/cloned copies as static flat file variations of the original webpages. #### 🔥 Cache
+![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205537-31de601d-4b8b-4c6b-af36-4c1e7e3f184f.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
+
+![image]('https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (3).gif')
+
+## Use case
+
+Applications Create static flat file variants of your original webpages by using yxorP to mirror your websites and offer
+the mirrored/cloned copies as static flat file variations of the original webpages.
+
+#### 🔥 Cache
+
 When you use caching to load your websites, you may reduce loading time and server strain, resulting in websites that
-load faster. #### 📛 Firewall Create a virtual firewall to protect your websites behind your proxy server, giving
-security against website assaults such as DDOS attacks and other types of attacks. #### 🔳 iFrame It is possible to
-circumvent CORS for the iframing services that you need – \*\*not recommended, but feasible\*\*. #### 🔱 Load-balancing
+load faster.
+
+#### 📛 Firewall
+
+Create a virtual firewall to protect your websites behind your proxy server, giving security against website assaults
+such as DDOS attacks and other types of attacks.
+
+#### 🔳 iFrame
+
+It is possible to circumvent CORS for the iframing services that you need – \*\*not recommended, but feasible\*\*.
+
+#### 🔱 Load-balancing
+
 This may be accomplished by deploying cloned copies of your website on various servers that are connected to a
-load-balancing system. #### ⌛ Allways-online High/Continuous availability is achieved by running a proxy version of your
-existing website and switching to this version of the website during upgrades or down-time. ##### + many more.. There
-are several additional uses that may be explored, and these are only a few of the more common
-ones. ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png)
-constants::get(BUGSNAG) provides a solution for error monitoring and application stability management that is easy to
-use and implement. The ability to make data-driven decisions about whether to develop software or address problems is
-contingent on the ability to maintain
-stability. ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/constants::get(BUGSNAG).gif)
-Diagnostic data from our mobile assistance, which has been regarded as the best-in-/\*\* \* {@inlinetag} \* this is @not
-a standardtag - must begin a line. \* this is a valid {@inlinetag} also \* @standardtag \*/ class in the industry,
-enables teams to reproduce and fix issues as soon as they begin to have an impact on system stability. Reports on error
-situations are arranged by root cause and may also be /\*\* \* {@inlinetag} \* this is @not a standardtag - must begin a
-line. \* this is a valid {@inlinetag} also \* @standardtag \*/ classified by business impact. In addition, they are
-supplied with extensive diagnostic
-information. ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205793-efeaaa6c-eae6-4070-8838-50637876156b.png) ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
+load-balancing system.
+
+#### ⌛ Allways-online
+
+High/Continuous availability is achieved by running a proxy version of your existing website and switching to this
+version of the website during upgrades or down-time.
+
+##### + many more..
+
+There are several additional uses that may be explored, and these are only a few of the more common ones.
+
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png)
+
+Bugsnag provides a solution for error monitoring and application stability management that is easy to use and implement.
+The ability to make data-driven decisions about whether to develop software or address problems is contingent on the
+ability to maintain stability.
+
+![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Bugsnag.gif)
+
+Diagnostic data from our mobile assistance, which has been regarded as the best-in the industry, enables teams to
+reproduce and fix issues as soon as they begin to have an impact on system stability. Reports on error situations are
+arranged by root cause and may also be classified by business impact. In addition, they are supplied with extensive
+diagnostic information.
+
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205793-efeaaa6c-eae6-4070-8838-50637876156b.png) ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (4).gif)
 
 \## Instant Setup Instant Development Enviroment stup with your prefered service
 provider: [![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157205943-7e735dd6-4d7f-401b-97b7-a25ecc2b9c3b.png) ![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
+
 # Background Information Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to
+
 create a single web proxy that outperforms the two when their combined performance is considered. Please keep in mind
 that this is a brand-new project that may undergo changes in the future. With the php-proxy library, a component of the
 PHP programming language that is available for free download, you may quickly and easily configure a web proxy
 application for your web server. If you are able to contribute to or support this project, it would be much appreciated
 as it would enable me to devote more development time to it, therefore expediting its
 progress. ![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png) ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
+
 ## Web-Proxy vs Proxy Server Bear in mind that this proxy script may not function properly on websites or pages that are
+
 very script-heavy or include an excessive number of "dynamic components," as indicated above. Web proxies' inability to
 encrypt data is a well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate
 proxy server to redirect your browser's HTTP requests via the following
 domains: ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206147-738b606d-6a02-411e-ac17-b5a364601b62.png)
+
 ## Installation It is critical to keep in mind that this is a \*\*project\*\* and not a library. It is not recommended
+
 to install this package via \* require\*. This type of project should be immediately uploaded to your web server's
 public directory. Download a pre-installed version of this application as a ZIP archive from the downloads area. \[\*\*
 Releases\*\*\](https://github.com/4dboard/yxorP/releases/). # The Dashboard 🍦 The Dashboard component provides an
@@ -153,7 +190,9 @@ needs. Vanilla Dashboard, a free and open source program, may be downloaded from
 are scattered around the Dashboard. The "Who Is Online," "Live Chat," and "Who Is Online" services, as well as a variety
 of other features, are all wrapped up in an easy-to-use CSS-based user interface that is available for download for
 free. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png)
+
 ## Development Environment A Liberating Dev Tool For All Your Projects LAMP recipe, which may be purchased from the link
+
 above, are required in order to complete the Lando - A Liberating Dev Tool For All Your Projects project. You may use
 the Lando - A Liberating Dev Tool For All Your Projects project for all of your projects since it enables you to
 either "plug and play" on PHP-compatible PCs or create in a LAMP environment. If you need any further information
@@ -184,7 +223,9 @@ plugins, is not without its limitations, and users are urged to create their own
 range of options available. Think of a simple example like the file /plugins/TestPlugin.php in the plugins directory as
 an
 illustration. ![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png) ![image](https://user-images.githubusercontent.com/6468571/157206367-1c11d91a-87e6-4724-8501-14d9860d78de.png) ![image](https://user-images.githubusercontent.com/6468571/157188915-5ad7cad1-af0a-4e0a-8807-c9fe4708e06b.png)
+
 # Gitpod Gitpod, a free and open-source Kubernetes program that is freely accessible on the internet, allows developers
+
 to quickly and efficiently set up code-ready development environments on their workstations. With the use of cloud-based
 technology, every piece of work accomplished leads in the production of new, automated development environments in the
 cloud, which are then accessible to other developers. It is only via the use of cloud computing that this is made
@@ -192,9 +233,13 @@ feasible. The option to start immediate, remote, and cloud-based development env
 development environment is defined in code is available if you have a browser or desktop integrated development
 environment open on your
 computer. ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png) ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
+
 ## Usage & How to Guide Navigate to the root of the project with your browser, register an account and then
+
 login. ![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png) ![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
+
 ## Contributing to the Project Before pull requests may be implemented in the production environment, they must be
+
 evaluated and authorized by the development team. Please open a new issue with the appropriate subject title to discuss
 the modifications you want to make to the document. Please make every effort to keep tests current in order to minimize
 the chance of wrong interpretation of results. We appreciate all of your assistance and support.
@@ -203,15 +248,20 @@ the chance of wrong interpretation of results. We appreciate all of your assista
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)  
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png) ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
+
 ## Road Map - \[x\] Front-end - \[x\] Combine Proxy Engines - \[x\] Allow Multi-tent rendering - \[x\] Build Caching
+
 Layer - \[x\] Develop Multi-threading support (PHP Vanilla/Independent) + More (To be listed soon) - \[x\] Foundation -
 \[x\] API Service - \[x\] TxT DB - \[x\] Login - \[x\] Registration - \[x\] Dashboard - \[x\] Who is Online - \[x\]
 Documentation - \[ \] Tables - \[x\] Users - \[x\] Notes - \[x\] Tasks - \[ \] Chat - \[ \] Notes - \[x\] Data Scheme -
 \[x\] API Endpoints - \[x\] Functions - \[ \] UI - \[ \] Tasks - \[x\] Data Scheme - \[x\] API Endpoints - \[x\]
 Functions - \[ \] UI - \[ \] Chat - \[ \] Data Scheme - \[x\] API Endpoints - \[x\] Functions - \[ \] UI - \[ \] Testing
+
 - \[x\] Versions - \[x\] Owners - \[ \] Crate
-details ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
+  details ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
+
 ## Licensing \[MIT Software License for .yxorP The PHP Web-Proxy by don
+
 Pablo\](https://choosealicense.com/licenses/mit/) The Massachusetts Institute of Technology (MIT) License, sometimes
 referred to as the "MIT License," is a permissive free software license developed in the late 1980s and still in use at
 the Massachusetts Institute of Technology today. Repurposing is confined to a limited number of scenarios due to the
