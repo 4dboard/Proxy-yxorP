@@ -210,7 +210,18 @@ class constants
         define('VAR_PLUS_SLASH', CHAR_PLUS . DIRECTORY_SEPARATOR);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_LOWER);
-
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_ALLOW_REDIRECTS', 'allow_redirects');
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_HTTP_ERRORS', 'http_errors');
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_DECODE_CONTENT', 'decode_content');
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_VERIFY', 'verify');
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_COOKIES', 'cookies');
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_IDN_CONVERSION', 'idn_conversion');
 
         // YXORPS
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
@@ -297,7 +308,6 @@ class constants
         define('RUNTIME_EXCEPTION', 'Directory "%s" was not created');
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
-
 
         // REQUIRED
         /* Loading the Bugsnag PHP library. */
