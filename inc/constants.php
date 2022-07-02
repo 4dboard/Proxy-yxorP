@@ -557,7 +557,7 @@ class constants
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
 
-        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES));
+        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne('collections/sites'));
         exit;
 
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
@@ -574,7 +574,7 @@ class constants
         print_r($x);
         $y = [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)];
         print_r($y);
-        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne('collections/sites', ['host' => 'localhost']));
+        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne('collections / sites', ['host' => 'localhost']));
         exit;
         //[COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]
         constants::set(YXORP_FETCH, VAR_HTTPS . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
@@ -599,7 +599,7 @@ class constants
     public static function get($_name): mixed
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
-        returns false. */
+        returns false . */
         return (array_key_exists($_name, $GLOBALS)) ? $GLOBALS[$_name] : false;
     }
 
