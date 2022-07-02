@@ -43,6 +43,8 @@ class constants
         define('CHAR_SLASH', '/');
         /* Defining a constant called `CHAR_SLASH_BACK` and setting it to the value of `\`. */
         define('CHAR_SLASH_BACK', '\\');
+        /* Defining a constant called `CHAR_QUESTION` and setting it to the value of `?`. */
+        define('CHAR_QUESTION', '?');
 
 
         // NUMBERS
