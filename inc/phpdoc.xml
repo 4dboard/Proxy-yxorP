@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
-    <title>My Project Documentation</title>
+    <title>yxorP</title>
     <parser>
         <target>build</target>
     </parser>
