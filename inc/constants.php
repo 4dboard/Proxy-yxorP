@@ -237,9 +237,9 @@ class constants
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
         define('YXORP_SITE_SUB_DOMAIN', 'SITE_SUB_DOMAIN');
         /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
-        define('YXORP_TARGET_URL', YXORP_TARGET_URL);
+        define('YXORP_TARGET_URL', 'TARGET_URL');
         /* Defining a constant called YXORP_TARGET_SUB_DOMAIN and setting it to the string TARGET_SUB_DOMAIN. */
-        define('YXORP_TARGET_SUB_DOMAIN', 'TARGET_SUB_DOMAIN');
+        define('YXORP_TARGET_SUB_DOMAIN', YXORP_TARGET_SUB_DOMAIN);
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
         define('YXORP_TARGET_DOMAIN', 'TARGET_DOMAIN');
         /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
