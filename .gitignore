@@ -18,6 +18,7 @@
 /.phpdoc
 /tmp
 /inc/phpdoc.xml
+mkdocs.yml
 phpdoc.xml
 composer.lock
 composer.phar
