@@ -246,6 +246,8 @@ class constants
         define('YXORP_FETCH', 'FETCH');
         /* Defining a constant called YXORP_DIR_FULL and setting it to the string DIR_FULL. */
         define('YXORP_DIR_FULL', 'DIR_FULL');
+        /* Defining a constant called YXORP_FILES and setting it to the string files. */
+        define('YXORP_FILES', YXORP_FILES);
 
 
         //ENV
