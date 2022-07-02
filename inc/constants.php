@@ -306,12 +306,12 @@ class constants
         define('YXORP_HTTPS', 'HTTPS');
         /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
         define('YXORP_HTTP', 'HTTP');
-        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
-        define('YXORP_METHOD', 'HTTP');
-        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
-        define('YXORP_REMOTE', 'HTTP');
-        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
-        define('YXORP_ADDR', 'HTTP');
+        /* Defining a constant called YXORP_METHOD and setting it to the string METHOD. */
+        define('YXORP_METHOD', 'METHOD');
+        /* Defining a constant called YXORP_REMOTE and setting it to the string REMOTE. */
+        define('YXORP_REMOTE', 'REMOTE');
+        /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
+        define('YXORP_ADDR', 'ADDR');
 
         // YXORP MULTI
         /* Defining a constant. */
