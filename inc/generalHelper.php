@@ -131,8 +131,8 @@ class generalHelper
     {
         preg_match_all(REG_THREE, $str, $matches, PREG_SET_ORDER);
         foreach ($matches as $match) {
-            extract($vars, EXTR_PREFIX_ALL, "_var");
-            $var_val = ${"_var_" . $match[1]};
+            extract($vars, EXTR_PREFIX_ALL, VAR_VAR_UNDER);
+            $var_val = ${VAR_VAR_UNDER_END . $match[1]};
             $str = str_replace($match[0], $var_val, $str);
         }
         return $str;

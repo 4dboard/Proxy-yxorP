@@ -290,9 +290,9 @@ class constants
         /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
         define('VAR_TEXT_HTML', VAR_TEXT . CHAR_SLASH . VAR_HTML);
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
-        define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VARL . CHAR_UNDER);
-        "_var"
-        "_var_"
+        define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
+        VAR_VAR_UNDER
+        VAR_VAR_UNDER_END
         '#^https?:#i'
         "http:" 
         '#/[^/]*$#'
