@@ -59,17 +59,9 @@ class cache
     public function get(): void
     {
         /* Used to check if the cache file is valid. */
-        if (!$this->isValid()) return;
+        if (!$this->isExists()) return;
         /* Used to include the cache file. */
         @include PATH_DIR_TMP . constants::get(CACHE_KEY);
-    }
-
-    /* Used to check if the cache file is valid. */
-
-    public function isValid(): bool
-    {
-        /* Checking if the cache file is valid. */
-        return !($this->options['expiry'] !== -1 && $this->options['expiry'] < time()) && !$this->isExists();
     }
 
     /* Used to get the instance of the class. */
