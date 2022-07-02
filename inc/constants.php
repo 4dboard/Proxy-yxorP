@@ -5,6 +5,7 @@ namespace yxorP\inc;
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
 
 use Guzzle\Client;
+use const;
 
 class constants
 {
@@ -16,9 +17,9 @@ class constants
     public static function create($_dir)
     {
 
-        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
+        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_ROOT', $_dir . DIRECTORY_SEPARATOR);
+        define('DIR_ROOT', $_dir . CHAR_SLASH);
 
 
         // SPECIAL
@@ -38,6 +39,10 @@ class constants
         define('CHAR_LOWER', '_');
         /* Defining a constant called `CHAR_PLUS` and setting it to the value of `+`. */
         define('CHAR_PLUS', '+');
+        /* Defining a constant called `CHAR_SLASH` and setting it to the value of `/`. */
+        define('CHAR_SLASH', '/');
+        /* Defining a constant called `CHAR_SLASH_BACK` and setting it to the value of `\`. */
+        define('CHAR_SLASH_BACK', '\');
 
 
         // NUMBERS
@@ -45,42 +50,42 @@ class constants
         define('NUM_ENV_LIMIT', 2);
 
         // DIRECTORIES
-        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
+        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_ACTION', 'action' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
+        define('DIR_ACTION', 'action' . CHAR_SLASH);
+        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_PLUGIN', 'plugin' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `DIRECTORY_SEPARATOR`
+        define('DIR_PLUGIN', 'plugin' . CHAR_SLASH);
+        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_OVERRIDE', 'override' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `DIRECTORY_SEPARATOR`
+        define('DIR_OVERRIDE', 'override' . CHAR_SLASH);
+        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_GLOBAL', 'global' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `DIRECTORY_SEPARATOR`
+        define('DIR_GLOBAL', 'global' . CHAR_SLASH);
+        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_INCLUDES', 'includes' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `DIRECTORY_SEPARATOR`
+        define('DIR_INCLUDES', 'includes' . CHAR_SLASH);
+        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_COCKPIT', 'cockpit' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `DIRECTORY_SEPARATOR`
+        define('DIR_COCKPIT', 'cockpit' . CHAR_SLASH);
+        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_ACCOUNTS', 'accounts' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `DIRECTORY_SEPARATOR` appended
+        define('DIR_ACCOUNTS', 'accounts' . CHAR_SLASH);
+        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `CHAR_SLASH` appended
         to it. */
-        define('DIR_INC', 'inc' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
+        define('DIR_INC', 'inc' . CHAR_SLASH);
+        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_STORAGE', 'storage' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
+        define('DIR_STORAGE', 'storage' . CHAR_SLASH);
+        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `CHAR_SLASH` appended
         to it. */
-        define('DIR_TMP', 'tmp' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        define('DIR_TMP', 'tmp' . CHAR_SLASH);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_HTTP', 'http' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `DIRECTORY_SEPARATOR`
+        define('DIR_HTTP', 'http' . CHAR_SLASH);
+        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_MINIFY', 'minify' . DIRECTORY_SEPARATOR);
+        define('DIR_MINIFY', 'minify' . CHAR_SLASH);
 
 
         // EXTENSIONS
@@ -159,7 +164,7 @@ class constants
         define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);
         /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
+        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . CHAR_SLASH . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
         /* Defining the path to the bugsnag.phar file. */
         define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
         /* Defining the path to the guzzle phar file. */
@@ -206,8 +211,8 @@ class constants
         define('VAR_URL_HOST', 'url_host');
         /* Defining a constant called `VAR_HTTPS` and setting it to the value of `https`. */
         define('VAR_HTTPS', 'https:');
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
-        define('VAR_PLUS_SLASH', CHAR_PLUS . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . CHAR_SLASH. */
+        define('VAR_PLUS_SLASH', CHAR_PLUS . CHAR_SLASH);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_LOWER);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
@@ -278,11 +283,29 @@ class constants
         define('YXORP_SITE_HOST', 'SITE_HOST');
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', 'PHP_SELF');
+        'REQUEST_METHOD'
+        'HTTPS'
+        'https'
+        'http'
+        'HTTP_'
+        'REMOTE_ADDR'
+        'user - ip'
+        'ucfirst'
+        "getUrl"
+        'tmp_name'
+        'error'
+        'type'
+        'content - length'
+        'content - type'
+        'application / x - www - form - urlencoded'
+        ' ? '
+        ' / ?.*/'
+        ' /#.*/'
 
 
-        //ENV
-        /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
-        define('ENV_ADMIN_USER', 'ADMIN_USER' . EXT_ENV);
+    //ENV
+    /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
+    define('ENV_ADMIN_USER', 'ADMIN_USER' . EXT_ENV);
         /* Defining a constant called ENV_ADMIN_NAME and setting it equal to the string "ADMIN_NAME". */
         define('ENV_ADMIN_NAME', 'ADMIN_NAME' . EXT_ENV);
         /* Defining a constant called ENV_ADMIN_EMAIL and setting it equal to the string 'ADMIN_EMAIL'. */
