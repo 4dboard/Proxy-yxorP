@@ -76,7 +76,7 @@ class yxorP
     private function subscribe($dir, $action): void
     {
         /* It's removing the `.php` extension from the `$action` variable. */
-        $action = str_replace(EXT_PHP, '', $action);
+        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
         /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
         if (strlen($action) < 3) return;
         /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks

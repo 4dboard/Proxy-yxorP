@@ -78,10 +78,10 @@ class cookiePluginAction extends wrapper
     private static function parse_cookie($line, $url): array
     {
         /* Creating an array with the cookie data. */
-        $data = array('name' => '', 'value' => '', 'domain' => parse_url($url, PHP_URL_HOST), 'path' => '/', 'expires' => 0, 'secure' => false, 'httpOnly' => true);
+        $data = array('name' => CHAR_EMPTY_STRING, 'value' => CHAR_EMPTY_STRING, 'domain' => parse_url($url, PHP_URL_HOST), 'path' => '/', 'expires' => 0, 'secure' => false, 'httpOnly' => true);
         /* Removing the `Set-Cookie2: ` from the cookie header and then it is exploding the cookie header by `;` and then
         it is trimming the cookie header and then it is filtering the cookie header. */
-        $pairs = array_filter(array_map('trim', explode(';', preg_replace('/^Set-Cookie2?: /i', '', trim($line)))));
+        $pairs = array_filter(array_map('trim', explode(';', preg_replace('/^Set-Cookie2?: /i', CHAR_EMPTY_STRING, trim($line)))));
         /* Looping through the cookie header and then it is exploding the cookie header by `=` and then it is trimming the
         cookie header. */
         foreach ($pairs as $index => $comp) {

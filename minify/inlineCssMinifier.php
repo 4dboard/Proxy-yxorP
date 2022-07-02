@@ -16,7 +16,7 @@ class inlineCssMinifier implements minfyInterface
     public function process(string $buffer): string
     {
         if (strlen($buffer) === 0) {
-            return '';
+            return CHAR_EMPTY_STRING;
         }
         $css_minified = [];
         preg_match_all('{<style.+</style>}msU', $buffer, $style_blocks);

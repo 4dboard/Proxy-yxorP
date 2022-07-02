@@ -14,7 +14,7 @@ class whitespacesRemover implements minfyInterface
     public function process(string $buffer): string
     {
         if (strlen($buffer) === 0) {
-            return '';
+            return CHAR_EMPTY_STRING;
         }
         preg_match_all('{<pre.+</pre>}msU', $buffer, $pres_source);
         preg_match_all('{<code.+</code>}msU', $buffer, $codes_source);

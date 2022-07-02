@@ -41,11 +41,11 @@ class request
 
     public function setUrl($url): void
     {
-        $url = preg_replace('/#.*/', '', $url);
+        $url = preg_replace('/#.*/', CHAR_EMPTY_STRING, $url);
         $query = parse_url($url, PHP_URL_QUERY);
         if ($query) {
-            $url = str_replace('?' . $query, '', $url);
-            $url = preg_replace('/\?.*/', '', $url);
+            $url = str_replace('?' . $query, CHAR_EMPTY_STRING, $url);
+            $url = preg_replace('/\?.*/', CHAR_EMPTY_STRING, $url);
             $result = self::parseQuery($query);
             $this->get->replace($result);
         }
@@ -112,7 +112,7 @@ class request
         $part_field = "--%s\r\nContent-Disposition: form-data; name=\"%s\"\r\n\r\n";
         $part_file = "--%s\r\nContent-Disposition: form-data; name=\"%s\"; filename=\"%s\"\r\nContent-Type: %s\r\n\r\n";
         if (!$boundary) $boundary = self::generateBoundary();
-        $body = '';
+        $body = CHAR_EMPTY_STRING;
         foreach ($fields as $name => $value) if (is_array($value)) {
             foreach ($value as $v) {
                 $body .= sprintf($part_field, $boundary, (string)$name, $v);

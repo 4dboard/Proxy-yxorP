@@ -50,7 +50,7 @@ class generalHelper
     public static function starts_with($haystack, $needles): bool
     {
         foreach ((array)$needles as $n) {
-            if ($n !== '' && stripos($haystack, $n) === 0) {
+            if ($n !== CHAR_EMPTY_STRING && stripos($haystack, $n) === 0) {
                 return true;
             }
         }
@@ -61,7 +61,7 @@ class generalHelper
 
     public static function str_before($subject, $search)
     {
-        return $search === '' ? $subject : explode($search, $subject)[0];
+        return $search === CHAR_EMPTY_STRING ? $subject : explode($search, $subject)[0];
     }
 
     /* Returning the part of the string before the `$search` string. */
@@ -161,17 +161,17 @@ class generalHelper
 
     /* It's decoding the `$input` with the base64. */
 
-    public static function proxify_url($url, $base_url = '')
+    public static function proxify_url($url, $base_url = CHAR_EMPTY_STRING)
     {
         if (empty($url)) {
-            return '';
+            return CHAR_EMPTY_STRING;
         }
         $url = htmlspecialchars_decode($url);
         if ($base_url) {
             $base_url = self::add_http($base_url);
             $url = self::rel2abs($url, $base_url);
         }
-        return str_replace(constants::get(YXORP_FETCH), '', $url);
+        return str_replace(constants::get(YXORP_FETCH), CHAR_EMPTY_STRING, $url);
     }
 
     /* It's proxifying the `$url` with the `$base_url`. */
@@ -194,7 +194,7 @@ class generalHelper
         if ($rel === "") {
             return "";
         }
-        if (parse_url($rel, PHP_URL_SCHEME) !== '') {
+        if (parse_url($rel, PHP_URL_SCHEME) !== CHAR_EMPTY_STRING) {
             return $rel;
         }
         if ($rel[0] === '#' || $rel[0] === '?') {
@@ -202,9 +202,9 @@ class generalHelper
         }
         $_parse_url = parse_url($base);
         extract($_parse_url);
-        $path = preg_replace('#/[^/]*$#', '', $path);
+        $path = preg_replace('#/[^/]*$#', CHAR_EMPTY_STRING, $path);
         if ($rel[0] === '/') {
-            $path = '';
+            $path = CHAR_EMPTY_STRING;
         }
         $abs = "$host$path/$rel";
         $re = array('#(/\.?/)#', '#/(?!\.\.)[^/]+/\.\./#');
@@ -228,7 +228,7 @@ class generalHelper
 
     /* It's merging the arrays. */
 
-    public static function CSV($filename = ''): array
+    public static function CSV($filename = CHAR_EMPTY_STRING): array
     {
         $csvArray = array_map('str_getcsv', file($filename));
         return array_merge(...$csvArray);

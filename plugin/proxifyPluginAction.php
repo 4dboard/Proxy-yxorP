@@ -11,7 +11,7 @@ use yxorP\inc\generalHelper;
 class proxifyPluginAction extends wrapper
 {
     /* It's a private variable that is used to store the base url of the request. */
-    private string $base_url = '';
+    private string $base_url = CHAR_EMPTY_STRING;
 
     /* A function that is called before the request is sent to the server. */
     public function onBeforeRequest(): void
@@ -49,7 +49,7 @@ class proxifyPluginAction extends wrapper
         /* It's checking if the content type is in the `$no_proxify` array. If it is, it's returning. */
         /* It's removing all the iframes from the response. */
         if (in_array($content_type, $no_proxify)) return;
-        $str = preg_replace('@<iframe[^>]*>[^<]*</iframe>@is', '', $str);
+        $str = preg_replace('@<iframe[^>]*>[^<]*</iframe>@is', CHAR_EMPTY_STRING, $str);
         /* It's replacing the `url()` in the CSS with the proxified url. */
         /* It's replacing the `<head>` tag with the `<head>` tag. */
         $str = $this->proxify_head($str);
@@ -93,7 +93,7 @@ class proxifyPluginAction extends wrapper
          */
     {
         /* It's removing the `;` and everything after it from the `$content_type` variable. */
-        return trim(preg_replace('@;.*@', '', $content_type));
+        return trim(preg_replace('@;.*@', CHAR_EMPTY_STRING, $content_type));
     }
 
     /* It's replacing the `<head>` tag with the `<head>` tag. */
@@ -103,7 +103,7 @@ class proxifyPluginAction extends wrapper
         $str = preg_replace_callback('/content=(["\'])\d+\s*;\s*url=(.*?)\1/is', array($this, 'meta_refresh'), $str);
         /* It's replacing the `url()` in the CSS with the proxified url. */
         /* It's removing the `integrity` attribute from the `<head>` tag. */
-        return preg_replace('/[^<(.*?)]integrity=([\'"])(.*?)([\'"])/is', '', $str);
+        return preg_replace('/[^<(.*?)]integrity=([\'"])(.*?)([\'"])/is', CHAR_EMPTY_STRING, $str);
     }
 
     /* It's replacing the `url()` in the CSS with the proxified url. */

@@ -22,7 +22,7 @@ class inlineJavascriptMinifier implements minfyInterface
     public function process(string $buffer): string
     {
         if (strlen($buffer) === 0) {
-            return '';
+            return CHAR_EMPTY_STRING;
         }
         $javascript_minified = [];
         preg_match_all('{<script.+</script>}msU', $buffer, $script_blocks);

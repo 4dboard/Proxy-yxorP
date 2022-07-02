@@ -12,7 +12,7 @@ abstract class areplacer
     public function process(string $buffer): string
     {
         if (strlen($buffer) === 0) {
-            return '';
+            return CHAR_EMPTY_STRING;
         }
         return $this->replace($this->getReplacePatternData(), $buffer);
     }
