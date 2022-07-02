@@ -99,15 +99,16 @@ static site builders. Build unique applications and let Cockpit feed them with c
 
 ![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
 
-Introduction Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify
-the process of publication by separating content management from content consumption on the client side. Cockpit is
-focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its
-goal is to provide structured content across different channels via a simple
 API.![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
 #### Key features:
 
-![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205537-31de601d-4b8b-4c6b-af36-4c1e7e3f184f.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
+Manage flexible content models. There are no pre-defined content models. Define the content model yourself. Uncluttered
+UI. Cockpit offers you a modern and simple user interface. One system, consume it the way you want. Receive your content
+via a simple API. #### The Advantages Of Going Headless - No presentation limitations – build the best design ever. -
+Content for multiple channels – create content once, consume anywhere. - Highly scalable content – for all your devices
+and microsites. - Minimum training required – get started, immediately. - Easy integrations – connect with
+everything.![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205537-31de601d-4b8b-4c6b-af36-4c1e7e3f184f.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
 ![image]('https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (3).gif')
 
