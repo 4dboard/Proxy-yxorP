@@ -560,7 +560,7 @@ class constants
         constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . DIRECTORY_SEPARATOR . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
 
         echo COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES;
-        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne('collections/sites'));
+        print_r(constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES));
         exit;
 
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
