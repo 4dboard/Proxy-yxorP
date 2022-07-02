@@ -2,8 +2,8 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\wrapper;
 use yxorP\inc\constants;
+use yxorP\inc\wrapper;
 
 /* A class that extends the wrapper class. */
 
