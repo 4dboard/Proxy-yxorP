@@ -19,7 +19,8 @@ class guzzleClientAction extends wrapper
         $YXORP_REQUEST = constants::get(YXORP_REQUEST);
         $YXORP_GUZZLE = constants::get(YXORP_GUZZLE);
         $YXORP_FETCH = constants::get(YXORP_FETCH);
+        $YXORP_RESPONSE = constants::get(YXORP_RESPONSE);
         $_content = $YXORP_GUZZLE->request($YXORP_REQUEST->getMethod(), $YXORP_FETCH, json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody();
-        constants::get(YXORP_RESPONSE)->setContent($_content);
+        $YXORP_RESPONSE->setContent($_content);
     }
 }
