@@ -111,10 +111,10 @@ abstract class wrapper
                     /* Calling the `onBuildRequest` method. */
                     $this->onBuildRequest();
                     break;
-                /* Calling the `onBuildResult` method. */
+                /* Calling the `onFinal` method. */
                 case EVENT_FINAL:
-                    /* Calling the `onBuildResult` method. */
-                    $this->onBuildResult();
+                    /* Calling the `onFinal` method. */
+                    $this->onFinal();
                     break;
                 /* Calling the `onBeforeRequest` method. */
                 case EVENT_BEFORE_SEND:
@@ -181,7 +181,7 @@ abstract class wrapper
 
     /* Used to build the result. */
 
-    public function onBuildResult()
+    public function onFinal()
     {
     }
 
