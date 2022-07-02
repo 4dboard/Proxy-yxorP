@@ -1,5 +1,5 @@
-📢 _*YOUR SUPPORT IS GREATLY APPRECIATED/* [PATREON.COM/DONPABLONOW](https://www.patreon.com/donPabloNow)/*BTC*
-3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ/*ETH* 0X3D288C7A673501294C9289C6FC42480A2EA61417_ 🙏
+📢 _*YOUR SUPPORT IS GREATLY APPRECIATED/* [PATREON.COM/DONPABLONOW](https://www.patreon.com/donPabloNow)/ *BTC*
+3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ *ETH* 0X3D288C7A673501294C9289C6FC42480A2EA61417 🙏
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
@@ -13,15 +13,11 @@
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
 
-<video src="https://github.com/4dboard/proxy-yxorp/blob/main/asset/movie.mp4?raw=true" data-canonical-src="https://github.com/4dboard/proxy-yxorp/blob/main/asset/movie.mp4?raw=true" controls="controls"></video>
-
 # 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
 > ⛔️ *ARCHIVE PENDING*: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
 
 ---
-
-https://4dboard.github.io/proxy-yxorp/docs/movie.mp4
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
