@@ -21,7 +21,7 @@ class streamPluginAction extends wrapper
     public function onHeadersReceived(): void
     {
         /* Getting the content type of the response. */
-        $content_type = constants::get(YXORP_RESPONSE)->headers->get('content-type');
+        $content_type = constants::get(YXORP_RESPONSE)->headers->get(VAR_CONTENT_TYPE);
         /* Getting the content length of the response. */
         $content_length = constants::get(YXORP_RESPONSE)->headers->get(VAR_CONTENT_LENGTH);
         /* Checking if the content type is in the array of content types that should be streamed. If it is, it sets the

@@ -234,9 +234,9 @@ class constants
         /* Defining a constant called `VAR_APPLICATION_URLENCODED` and setting it to the value of `application/x-www-form-urlencoded`. */
         define('VAR_APPLICATION_URLENCODED', 'application/x-www-form-urlencoded');
         /* Defining a constant called `VAR_CONTENT_TYPE` and setting it to the value of `content-type`. */
-        define('VAR_CONTENT_TYPE', 'content-type');
+        define('VAR_CONTENT_TYPE', VAR_CONTENT_TYPE);
         /* Defining a constant called `VAR_CONTENT_LENGTH` and setting it to the value of `content-length`. */
-        define('VAR_CONTENT_LENGTH', VAR_CONTENT_LENGTH);
+        define('VAR_CONTENT_LENGTH', 'content-length');
         /* Defining a constant called `VAR_TYPE` and setting it to the value of `type`. */
         define('VAR_TYPE', 'type');
         /* Defining a constant called `VAR_ERROR` and setting it to the value of `error`. */

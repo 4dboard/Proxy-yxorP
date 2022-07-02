@@ -32,7 +32,7 @@ class headerRewritePluginAction extends wrapper
         constants::get(BUGSNAG). */
         if ($code >= 400 && $code <= 600) constants::get(BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
         /* It's an array of headers that should be forwarded to the client. */
-        $forward_headers = array('content-type', 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
+        $forward_headers = array(VAR_CONTENT_TYPE, 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
         /* It's removing all headers that aren't in the `$forward_headers` array. */
         foreach ($response->headers->all() as $name => $value) if (!in_array($name, $forward_headers, true)) $response->headers->remove($name);
         /* It's setting the `content-disposition` header to the filename of the request. */

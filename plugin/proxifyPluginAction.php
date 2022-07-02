@@ -42,7 +42,7 @@ class proxifyPluginAction extends wrapper
         $response = constants::get(YXORP_RESPONSE);
         /* It's getting the content type of the response. */
         /* It's getting the response content. */
-        $content_type = $this->clean_content_type($response->headers->get('content-type'));
+        $content_type = $this->clean_content_type($response->headers->get(VAR_CONTENT_TYPE));
         $str = $response->getContent();
         /* It's an array that contains the content types that should not be proxified. */
         $no_proxify = array('text/javascript', 'application/javascript', 'application/javascript', 'text/plain');

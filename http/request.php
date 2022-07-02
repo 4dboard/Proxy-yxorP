@@ -70,7 +70,7 @@ class request
         $this->files->clear();
         if (is_array($body)) $body = http_build_query($body);
         $this->body = (string)$body;
-        if ($content_type) $this->headers->set('content-type', $content_type);
+        if ($content_type) $this->headers->set(VAR_CONTENT_TYPE, $content_type);
         $this->prepare();
     }
 
@@ -81,12 +81,12 @@ class request
         if ($this->files->all()) {
             $boundary = self::generateBoundary();
             $this->prepared_body = self::buildPostBody($this->post->all(), $this->files->all(), $boundary);
-            $this->headers->set('content-type', 'multipart/form-data; boundary=' . $boundary);
+            $this->headers->set(VAR_CONTENT_TYPE, 'multipart/form-data; boundary=' . $boundary);
         } else if ($this->post->all()) {
             $this->prepared_body = http_build_query($this->post->all());
-            $this->headers->set('content-type', 'application/x-www-form-urlencoded');
+            $this->headers->set(VAR_CONTENT_TYPE, 'application/x-www-form-urlencoded');
         } else {
-            $this->headers->set('content-type', $this->detectContentType($this->body));
+            $this->headers->set(VAR_CONTENT_TYPE, $this->detectContentType($this->body));
             $this->prepared_body = $this->body;
         }
 
@@ -94,7 +94,7 @@ class request
 
         if ($len > 0) $this->headers->set(VAR_CONTENT_LENGTH, $len); else {
             $this->headers->remove(VAR_CONTENT_LENGTH);
-            $this->headers->remove('content-type');
+            $this->headers->remove(VAR_CONTENT_TYPE);
         }
     }
 
