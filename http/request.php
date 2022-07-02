@@ -161,7 +161,7 @@ class request
 
     public static function createFromGlobals(): request
     {
-        $method = constants::get(YXORP_SERVER)['REQUEST_METHOD'];
+        $method = constants::get(YXORP_SERVER)[YXORP_REQUEST_METHOD];
         $scheme = (isset(constants::get(YXORP_SERVER)['HTTPS']) && constants::get(YXORP_SERVER)['HTTPS']) ? 'https' : 'http';
         $url = $scheme . ':' . constants::get(YXORP_PROXY_URL)->__toString();
         $request = new request($method, $url);
