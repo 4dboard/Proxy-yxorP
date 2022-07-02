@@ -227,6 +227,16 @@ class constants
         define('VAR_COOKIES', 'cookies');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_IDN_CONVERSION', 'idn_conversion');
+        'user-ip'
+        'ucfirst'
+        "getUrl"
+        'tmp_name'
+        'error'
+        'type'
+        'content-length'
+        'content-type'
+        'application/x-www-form-urlencoded'
+        '?'
 
         // YXORPS
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
@@ -284,28 +294,22 @@ class constants
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', 'PHP_SELF');
         'REQUEST_METHOD'
-        'HTTPS'
-        'https'
-        'http'
         'HTTP_'
         'REMOTE_ADDR'
-        'user - ip'
-        'ucfirst'
-        "getUrl"
-        'tmp_name'
-        'error'
-        'type'
-        'content - length'
-        'content - type'
-        'application / x - www - form - urlencoded'
-        ' ? '
-        ' / ?.*/'
-        ' /#.*/'
-
-
-    //ENV
-    /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
-    define('ENV_ADMIN_USER', 'ADMIN_USER' . EXT_ENV);
+        'HTTPS'
+        'HTTP'
+        'https'
+        'http'
+        
+        
+        //REGEX
+        /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
+        define('REG_ONE', '/?.*/');
+        define('REG_TWO', '/#.*/');
+        
+        //ENV
+        /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
+        define('ENV_ADMIN_USER', 'ADMIN_USER' . EXT_ENV);
         /* Defining a constant called ENV_ADMIN_NAME and setting it equal to the string "ADMIN_NAME". */
         define('ENV_ADMIN_NAME', 'ADMIN_NAME' . EXT_ENV);
         /* Defining a constant called ENV_ADMIN_EMAIL and setting it equal to the string 'ADMIN_EMAIL'. */
