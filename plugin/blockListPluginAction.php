@@ -8,7 +8,7 @@ use yxorP\inc\generalHelper;
 
 /* Extending the wrapper class. */
 
-class blockListPluginAction extends actionWrapper
+class blockListPluginAction extends wrapper
 {
     /* A method that is called before the request is processed. */
     public static function callable($fnc_custom, $url)

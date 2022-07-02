@@ -6,7 +6,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
-class siteCollectionAction extends actionWrapper
+class siteCollectionAction extends wrapper
 {
     /* A method that is called by the wrapper class. */
     public function onBuildContext(): void

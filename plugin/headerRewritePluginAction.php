@@ -6,7 +6,7 @@ use yxorP\inc\constants;
 
 /* It's extending the wrapper class. */
 
-class headerRewritePluginAction extends actionWrapper
+class headerRewritePluginAction extends wrapper
 {
     /* It's setting the `accept-encoding` header to `identity` and removing the `referer` header. */
     public static function headersReceived($response, $request_url): void

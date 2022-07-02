@@ -6,7 +6,7 @@ use yxorP\inc\constants;
 
 /* Extending the `wrapper` class, which is a class that is used to wrap the `Event` class. */
 
-class guzzleClientAction extends actionWrapper
+class guzzleClientAction extends wrapper
 {
     /* A method that is called before the request is sent. */
     /**

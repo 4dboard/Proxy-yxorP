@@ -6,7 +6,7 @@ use yxorP\inc\constants;
 
 /* Extending the `wrapper` class. */
 
-class globalCollectionAction extends actionWrapper
+class globalCollectionAction extends wrapper
 {
     /* A method that is called when the context is built. */
     public function onBuildContext(): void

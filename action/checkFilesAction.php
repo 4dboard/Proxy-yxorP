@@ -7,7 +7,7 @@ use yxorP\inc\generalHelper;
 
 /* Extending the wrapper class. */
 
-class checkFilesAction extends actionWrapper
+class checkFilesAction extends wrapper
 {
     public function buildIncludes()
     {

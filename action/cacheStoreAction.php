@@ -7,7 +7,7 @@ use yxorP\inc\constants;
 
 /* Extending the wrapper class, which is a class that allows you to hook into the request lifecycle. */
 
-class cacheStoreAction extends actionWrapper
+class cacheStoreAction extends wrapper
 {
     /* A method that is called when the request is completed. */
     public function onCompleted(): void

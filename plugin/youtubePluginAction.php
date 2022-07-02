@@ -7,7 +7,7 @@ use yxorP\inc\constants;
 
 /* Extending the wrapper class. */
 
-class youtubePluginAction extends actionWrapper
+class youtubePluginAction extends wrapper
 {
     /* A regex pattern that will be used to match the url of the request. */
     protected string $url_pattern = 'youtube.com';

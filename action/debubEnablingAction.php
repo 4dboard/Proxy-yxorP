@@ -6,7 +6,7 @@ use yxorP\inc\constants;
 
 /* A class that extends the wrapper class. */
 
-class debubEnablingAction extends actionWrapper
+class debubEnablingAction extends wrapper
 {
     /* A method that is called before the action is executed. */
     public function buildIncludes(): void

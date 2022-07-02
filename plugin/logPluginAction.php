@@ -7,7 +7,7 @@ use yxorP\inc\constants;
 
 /* It's extending the wrapper class. */
 
-class logPluginAction extends actionWrapper
+class logPluginAction extends wrapper
 {
     /* It's a method that is called when the headers are received. */
     public function onHeadersReceived(): void

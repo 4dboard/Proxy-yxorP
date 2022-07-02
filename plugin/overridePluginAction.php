@@ -12,7 +12,7 @@ use yxorP\minify\minify;
 
 /* Extending the `wrapper` class. */
 
-class overridePluginAction extends actionWrapper
+class overridePluginAction extends wrapper
 {
     /* Overriding the `onCompleted` method of the `wrapper` class. */
     public function onCompleted()

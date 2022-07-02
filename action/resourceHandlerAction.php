@@ -7,7 +7,7 @@ use yxorP\inc\constants;
 
 /* Extending the wrapper class, which is a class that is used to handle events. */
 
-class resourceHandlerAction extends actionWrapper
+class resourceHandlerAction extends wrapper
 {
     /* A function that is called when an exception is thrown. */
     public function onBuildException($e): void
