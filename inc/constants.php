@@ -40,9 +40,9 @@ class constants
         /* Defining a constant called `CHAR_PLUS` and setting it to the value of `+`. */
         define('CHAR_PLUS', '+');
         /* Defining a constant called `CHAR_SLASH` and setting it to the value of `/`. */
-        define('CHAR_SLASH', CHAR_SLASH);
+        define('CHAR_SLASH', '/');
         /* Defining a constant called `CHAR_SLASH_BACK` and setting it to the value of `\`. */
-        define('CHAR_SLASH_BACK', '\');
+        define('CHAR_SLASH_BACK', '\\');
 
 
         // NUMBERS
