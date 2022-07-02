@@ -45,13 +45,32 @@ deserialization processes, which resulted a significantly faster cache.
 yxorP was designed to operate with either a stateless server (Apache) or a **stateful server** (Swoole) which are **
 high-performance** networking frameworks with an **event-driven, asynchronous, and non-blocking I/O** model - Compatible
 with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services ( **Parrelelle**) that
-are both rapid and scalable. ## Stateless Server: \`\`\` DocumentRoot "/.yxorP/index.php" ServerName www.demo.com
-ServerAlias server \`\`\` ## Statefull Server: \`\`\` php ./server.php \`\`\` The constants::get(BUGSNAG) error
-reporting and warning system now supports yxorP in its most complete version after an upgrade. This was done to assure
-constants::get(BUGSNAG)'s compatibility with the modification. Changes to the **default logging** system may be done in
-as little as two minutes due to the program's compatibility with the great majority of the **industry's primary error
-tracking systems**. ## Docker Composer: \`\`\` cd inc docker-composer up -d \`\`\` ## Docker: \`\`\` cd inc docker run
--p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp \`\`\`
+are both rapid and scalable.
+
+## Stateless Server:
+
+``` 
+DocumentRoot "/.yxorP/index.php" 
+ServerName www.demo.com
+ServerAlias server 
+``` 
+
+## Statefull Server:
+
+``` php ./server.php ```
+
+The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
+was done to assure Bugsnag's compatibility with the modification. Changes to the **default logging** system may be done
+in as little as two minutes due to the program's compatibility with the great majority of the **industry's primary error
+tracking systems**.
+
+## Docker Composer:
+
+``` cd inc docker-composer up -d ```
+
+## Docker: ``` cd inc docker run
+
+-p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp ```
 
 ![image](https://user-images.githubusercontent.com/6468571/174686718-8501af5f-3fd3-4df9-8854-3319f7837e51.png)
 
@@ -99,7 +118,11 @@ static site builders. Build unique applications and let Cockpit feed them with c
 
 ![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
 
-API.![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
+Introduction Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify
+the process of publication by separating content management from content consumption on the client side. Cockpit is
+focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its
+goal is to provide structured content across different channels via a
+simpleAPI.![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
 #### Key features:
 
@@ -204,12 +227,11 @@ it is possible to transcend the conceptual limitations imposed by this situation
 most important activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on
 the most important tasks may help to alleviate some of the
 stress. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
-Clone this repo \`\`\` git clone https://github.com/4dboard/proxy-yxorp \`\`\` Clone the "sample.env" to ".env" and
-update with the correct details. \`\`\` cp ./sample.env ./.env \`\`\` Host the files on a PHP server \`\`\` cd ./inc #
-Start it up lando start # List information about this app. lando info \`\`\` or \`\`\` # Initialize a lamp recipe using
-the latest codeigniter version lando init \\ --source remote \\
---remote-url https://github.com/bcit-ci/CodeIgniter/archive/3.1.10.tar.gz \\ --remote-options="--strip-components 1" \\
---recipe lamp \\ --webroot . \\ --name my-first-lamp-app \`\`\` For more information please
+Clone this repo ``` git clone https://github.com/4dboard/proxy-yxorp ``` Clone the "sample.env" to ".env" and update
+with the correct details. ``` cp ./sample.env ./.env ``` Host the files on a PHP
+server ``` cd ./inc # Start it up lando start # List information about this app. lando info ```
+or ``` # Initialize a lamp recipe using the latest codeigniter version lando init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/archive/3.1.10.tar.gz \\ --remote-options="--strip-components 1" \\ --recipe lamp \\ --webroot . \\ --name my-first-lamp-app ```
+For more information please
 see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (10).gif)
