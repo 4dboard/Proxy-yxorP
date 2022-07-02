@@ -596,6 +596,7 @@ class constants
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false. */
+        echo $_name;
         return (array_key_exists($_name, $GLOBALS)) ? $GLOBALS[$_name] : false;
     }
 
