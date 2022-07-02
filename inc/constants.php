@@ -244,9 +244,9 @@ class constants
         /* Defining a constant called `VAR_TMP_NAME` and setting it to the value of `tmp_name`. */
         define('VAR_TMP_NAME', 'tmp_name');
         /* Defining a constant called `VAR_GET_URL` and setting it to the value of `getUrl`. */
-        define('VAR_GET_URL', 'getUrl');
+        define('VAR_GET_URL', VAR_GET_URL);
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
-        define('VAR_UCFIRST', VAR_UCFIRST);
+        define('VAR_UCFIRST', 'ucfirst');
         /* Defining a constant called `USER_IP` and setting it to the value of `user-ip`. */
         define('VAR_USER_IP', 'user-ip');
 
