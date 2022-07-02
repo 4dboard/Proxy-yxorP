@@ -296,8 +296,13 @@ class constants
         define('YXORP_FILES', 'files');
         /* Defining a constant called YXORP_SITE_HOST and setting it to the string SITE_HOST. */
         define('YXORP_SITE_HOST', 'SITE_HOST');
+        /* Defining a constant called YXORP_PHP and setting it to the string PHP. */
+        define('YXORP_PHP', 'PHP');
+        /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
+        define('YXORP_SELF', 'SELF');
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', 'PHP_SELF');
+
         /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
         define('YXORP_HTTPS', 'HTTPS');
         /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
