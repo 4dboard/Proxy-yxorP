@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
-    <title>yxorP</title>
+    <title>My Project Documentation</title>
     <parser>
         <target>build</target>
     </parser>
@@ -8,7 +8,7 @@
         <target>docs</target>
     </transformer>
     <transformations>
-        <template name="vendor/cvuorinen/phpdoc-markdown-public/data/templates/markdown-public"/>
+        <template name="vendor/fr3nch13/phpdoc-markdown/data/templates/markdown"/>
     </transformations>
     <files>
         <directory>src</directory>
