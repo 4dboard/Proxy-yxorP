@@ -15,7 +15,7 @@ class siteCollectionAction extends wrapper
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(constants::get(YXORP_COCKPIT_APP))->storage->findOne('collections' . DIRECTORY_SEPARATOR . 'sites', ['host' => constants::get('SITE_DOMAIN')]));
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
-        constants::set('SITE_URL', constants::get(YXORP_SERVER)['SERVER_NAME']);
+        constants::set('SITE_URL', constants::get(YXORP_SERVER)[YXORP_SERVER_NAME]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set('SITE_DOMAIN', self::extractDomain(constants::get('SITE_URL')));
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
