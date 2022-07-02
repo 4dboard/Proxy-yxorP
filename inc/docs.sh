@@ -1,0 +1,1 @@
+php ./inc/phpDocumentor.phar -d ./action -d ./example -d ./http -d ./minify -d ./override -d ./plugin  -t ./docs/app
