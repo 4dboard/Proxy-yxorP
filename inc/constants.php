@@ -296,6 +296,8 @@ class constants
         /* Defining a constant called RUNTIME_EXCEPTION. */
         define('RUNTIME_EXCEPTION', 'Directory "%s" was not created');
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
+        define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
+
 
         // REQUIRED
         /* Loading the Bugsnag PHP library. */
@@ -349,7 +351,7 @@ class constants
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException('Argument already exists and cannot be redefined!') : $GLOBALS[$_name] = $_value;
+        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
     }
 
     /* A function that is being called to localise constants. */
