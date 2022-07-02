@@ -12,32 +12,32 @@ class mimeTypesAction extends wrapper
     public function buildHeaders(): void
     {
         /* An array of mime types. */
-        $_types = array('txt' => 'text' . DIRECTORY_SEPARATOR . 'plain', 'htm' => 'text' . DIRECTORY_SEPARATOR . 'html', 'html' => 'text' . DIRECTORY_SEPARATOR . 'html', 'php' => 'text' .
-            DIRECTORY_SEPARATOR . 'html', 'css' => 'text' . DIRECTORY_SEPARATOR . 'css', 'js' => 'application' . DIRECTORY_SEPARATOR . 'javascript', 'json' => 'application' .
-            DIRECTORY_SEPARATOR . 'json', 'xml' => 'application' . DIRECTORY_SEPARATOR . 'xml', 'swf' => 'application' . DIRECTORY_SEPARATOR . 'x-shockwave-flash', 'flv' => 'video' .
-            DIRECTORY_SEPARATOR . 'x-flv', 'png' => 'image' . DIRECTORY_SEPARATOR . 'png', 'jpe' => 'image' . DIRECTORY_SEPARATOR . 'jpeg', 'jpeg' => 'image' .
-            DIRECTORY_SEPARATOR . 'jpeg', 'jpg' => 'image' . DIRECTORY_SEPARATOR . 'jpeg', 'gif' => 'image' . DIRECTORY_SEPARATOR . 'gif', 'bmp' => 'image' .
-            DIRECTORY_SEPARATOR . 'bmp', 'ico' => 'image' . DIRECTORY_SEPARATOR . 'vnd', 'tiff' => 'image' . DIRECTORY_SEPARATOR . 'tiff', 'tif' => 'image' .
-            DIRECTORY_SEPARATOR . 'tiff', 'svg' => 'image' . DIRECTORY_SEPARATOR . 'svg + xml', 'svgz' => 'image' . DIRECTORY_SEPARATOR . 'svg + xml', 'zip' => 'application' .
-            DIRECTORY_SEPARATOR . 'zip', 'rar' => 'application' . DIRECTORY_SEPARATOR . 'x-rar-compressed', 'exe' => 'application' . DIRECTORY_SEPARATOR . 'x-msdownload', 'msi' => 'application' .
-            DIRECTORY_SEPARATOR . 'x-msdownload', 'cab' => 'application' . DIRECTORY_SEPARATOR . 'vnd', 'mp3' => 'audio' . DIRECTORY_SEPARATOR . 'mpeg', 'qt' => 'video' .
-            DIRECTORY_SEPARATOR . 'quicktime', 'mov' => 'video' . DIRECTORY_SEPARATOR . 'quicktime', 'pdf' => 'application' . DIRECTORY_SEPARATOR . 'pdf', 'psd' => 'image' .
-            DIRECTORY_SEPARATOR . 'vnd', 'ai' => 'application' . DIRECTORY_SEPARATOR . 'postscript', 'eps' => 'application' . DIRECTORY_SEPARATOR . 'postscript', 'ps' => 'application' .
-            DIRECTORY_SEPARATOR . 'postscript', 'doc' => 'application' . DIRECTORY_SEPARATOR . 'msword', 'rtf' => 'application' . DIRECTORY_SEPARATOR . 'rtf', 'xls' => 'application' .
-            DIRECTORY_SEPARATOR . 'vnd', 'ppt' => 'application' . DIRECTORY_SEPARATOR . 'vnd-powerpoint', 'odt' => 'application' . DIRECTORY_SEPARATOR . 'vnd', 'ods' => 'application' .
-            DIRECTORY_SEPARATOR . 'vnd');
+        $_types = array('txt' => 'text' . CHAR_SLASH . 'plain', 'htm' => 'text' . CHAR_SLASH . 'html', 'html' => 'text' . CHAR_SLASH . 'html', 'php' => 'text' .
+            CHAR_SLASH . 'html', 'css' => 'text' . CHAR_SLASH . 'css', 'js' => 'application' . CHAR_SLASH . 'javascript', 'json' => 'application' .
+            CHAR_SLASH . 'json', 'xml' => 'application' . CHAR_SLASH . 'xml', 'swf' => 'application' . CHAR_SLASH . 'x-shockwave-flash', 'flv' => 'video' .
+            CHAR_SLASH . 'x-flv', 'png' => 'image' . CHAR_SLASH . 'png', 'jpe' => 'image' . CHAR_SLASH . 'jpeg', 'jpeg' => 'image' .
+            CHAR_SLASH . 'jpeg', 'jpg' => 'image' . CHAR_SLASH . 'jpeg', 'gif' => 'image' . CHAR_SLASH . 'gif', 'bmp' => 'image' .
+            CHAR_SLASH . 'bmp', 'ico' => 'image' . CHAR_SLASH . 'vnd', 'tiff' => 'image' . CHAR_SLASH . 'tiff', 'tif' => 'image' .
+            CHAR_SLASH . 'tiff', 'svg' => 'image' . CHAR_SLASH . 'svg + xml', 'svgz' => 'image' . CHAR_SLASH . 'svg + xml', 'zip' => 'application' .
+            CHAR_SLASH . 'zip', 'rar' => 'application' . CHAR_SLASH . 'x-rar-compressed', 'exe' => 'application' . CHAR_SLASH . 'x-msdownload', 'msi' => 'application' .
+            CHAR_SLASH . 'x-msdownload', 'cab' => 'application' . CHAR_SLASH . 'vnd', 'mp3' => 'audio' . CHAR_SLASH . 'mpeg', 'qt' => 'video' .
+            CHAR_SLASH . 'quicktime', 'mov' => 'video' . CHAR_SLASH . 'quicktime', 'pdf' => 'application' . CHAR_SLASH . 'pdf', 'psd' => 'image' .
+            CHAR_SLASH . 'vnd', 'ai' => 'application' . CHAR_SLASH . 'postscript', 'eps' => 'application' . CHAR_SLASH . 'postscript', 'ps' => 'application' .
+            CHAR_SLASH . 'postscript', 'doc' => 'application' . CHAR_SLASH . 'msword', 'rtf' => 'application' . CHAR_SLASH . 'rtf', 'xls' => 'application' .
+            CHAR_SLASH . 'vnd', 'ppt' => 'application' . CHAR_SLASH . 'vnd-powerpoint', 'odt' => 'application' . CHAR_SLASH . 'vnd', 'ods' => 'application' .
+            CHAR_SLASH . 'vnd');
 
         /* Getting the file extension of the requested file. */
         $_ext = pathinfo(strtok(constants::get(YXORP_PROXY_URL), ' ? '), PATHINFO_EXTENSION);
 
         /* Setting the content type of the response. */
-        if (str_contains(constants::get(YXORP_PROXY_URL), 'bundle.js')) constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'wasm'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'sitemap'))
-            constants::set('MIME', 'application' . DIRECTORY_SEPARATOR . 'xml'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'crop'))
-            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'format'))
-            constants::set('MIME', 'image' . DIRECTORY_SEPARATOR . 'png'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), '.mp4'))
-            constants::set('MIME', 'video' . DIRECTORY_SEPARATOR . 'mp4'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), '.js.br'))
+        if (str_contains(constants::get(YXORP_PROXY_URL), 'bundle.js')) constants::set('MIME', 'application' . CHAR_SLASH . 'wasm'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'sitemap'))
+            constants::set('MIME', 'application' . CHAR_SLASH . 'xml'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'crop'))
+            constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), 'format'))
+            constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), '.mp4'))
+            constants::set('MIME', 'video' . CHAR_SLASH . 'mp4'); else if (!constants::get('MIME') && str_contains(constants::get(YXORP_PROXY_URL), '.js.br'))
             constants::set('MIME', 'br'); else if (array_key_exists($_ext, $_types) && !constants::get('MIME')) constants::set('MIME', $_types[$_ext]); else
-            constants::set('MIME', 'text' . DIRECTORY_SEPARATOR . 'html');
+            constants::set('MIME', 'text' . CHAR_SLASH . 'html');
 
         /* Setting the content type of the response. */
         header('Content-Type: ' . constants::get('MIME') . '; charset = UTF-8');
