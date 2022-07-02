@@ -26,7 +26,7 @@ class constants
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
         /* Defining a constant called `CHAR_HASH` and setting it to the value of `#`. */
-        define('CHAR_HASH', CHAR_HASH);
+        define('CHAR_HASH', '#');
         /* Defining a constant called `CHAR_EQUALS` and setting it to the value of `=`. */
         define('CHAR_EQUALS', '=');
         /* Defining a constant called `CHAR_ASTRIX` and setting it to the value of `*`. */
