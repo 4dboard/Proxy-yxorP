@@ -362,7 +362,7 @@ class constants
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $_req. */
         self::set(YXORP_SERVER, $_req);
         /* Creating a unique key for the cache file. */
-        define('CACHE_KEY', base64_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
+        define('CACHE_KEY', generalHelper::base64_url_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
 
     }
 
