@@ -10,7 +10,7 @@ use yxorP\inc\constants;
 class streamPluginAction extends wrapper
 {
     /* An array of content types that will be streamed. */
-    private array $output_buffer_types = array('text/html', 'text/plain', 'text/css', 'text/javascript', 'application/x-javascript', 'application/javascript');
+    private array $output_buffer_types = array(VAR_TEXT_HTML, 'text/plain', 'text/css', 'text/javascript', 'application/x-javascript', 'application/javascript');
     /* A variable that is used to determine if the response should be streamed or not. */
     private bool $stream = false;
     /* Used to determine if the response should be streamed or not. */

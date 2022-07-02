@@ -277,7 +277,6 @@ class constants
         define('VAR_HTML', 'html');
         /* Defining a constant called `VAR_TEXT` and setting it to the value of `text`. */
         define('VAR_TEXT', 'text');
-        /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
 
 
         //VARIBLES MULTIPLE
@@ -285,6 +284,7 @@ class constants
         define('VAR_PLUS_SLASH', CHAR_PLUS . CHAR_SLASH);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
+        /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
         define('VAR_TEXT_HTML', VAR_TEXT . CHAR_PERIOD . VAR_HTML);
 
 

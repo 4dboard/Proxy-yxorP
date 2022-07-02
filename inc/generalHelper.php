@@ -68,7 +68,7 @@ class generalHelper
 
     public static function is_html($content_type): bool
     {
-        return clean_content_type($content_type) === 'text/html';
+        return clean_content_type($content_type) === VAR_TEXT_HTML;
     }
 
     /* Checking if the `$content_type` is `text/html`. */
