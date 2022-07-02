@@ -68,7 +68,7 @@ class cookiePluginAction extends wrapper
         /* Parsing the cookie and then it is setting the cookie header. */
         $cookie = self::parse_cookie($line, constants::get(YXORP_REQUEST)->getUri());
         /* Creating the cookie name. */
-        $cookie_name = sprintf("%s_%s__%s", self::COOKIE_PREFIX, str_replace(CHAR_PERIOD, CHAR_UNDER, $cookie['domain']), $cookie['name']);
+        $cookie_name = sprintf("%s_%s__%s", self::COOKIE_PREFIX, str_replace(CHAR_PERIOD, CHAR_UNDER, $cookie[YXORP_DOMAIN]), $cookie['name']);
         /* Setting the cookie header. */
         constants::get(YXORP_RESPONSE)->headers->set('set-cookie', $cookie_name . '=' . $cookie['value'], false);
     }
@@ -78,7 +78,7 @@ class cookiePluginAction extends wrapper
     private static function parse_cookie($line, $url): array
     {
         /* Creating an array with the cookie data. */
-        $data = array('name' => CHAR_EMPTY_STRING, 'value' => CHAR_EMPTY_STRING, 'domain' => parse_url($url, PHP_URL_HOST), 'path' => CHAR_SLASH, 'expires' => 0, 'secure' => false, 'httpOnly' => true);
+        $data = array('name' => CHAR_EMPTY_STRING, 'value' => CHAR_EMPTY_STRING, YXORP_DOMAIN => parse_url($url, PHP_URL_HOST), 'path' => CHAR_SLASH, 'expires' => 0, 'secure' => false, 'httpOnly' => true);
         /* Removing the `Set-Cookie2: ` from the cookie header and then it is exploding the cookie header by `;` and then
         it is trimming the cookie header and then it is filtering the cookie header. */
         $pairs = array_filter(array_map('trim', explode(';', preg_replace('/^Set-Cookie2?: /i', CHAR_EMPTY_STRING, trim($line)))));

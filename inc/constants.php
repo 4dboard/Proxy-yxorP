@@ -5,6 +5,7 @@ namespace yxorP\inc;
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
 
 use Guzzle\Client;
+use const;
 
 class constants
 {
@@ -286,6 +287,18 @@ class constants
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
         define('VAR_TEXT_HTML', VAR_TEXT . CHAR_PERIOD . VAR_HTML);
+        "_var"
+        "_var_"
+        '#^https?:#i'
+        "http:" 
+        '#/[^/]*$#'
+        '#/(?!\.\.)[^/]+/\.\./#'
+        '#(/\.?/)#'
+        'str_getcsv'
+        'interface'
+        / (?P < domain>[a - z0 - 9][a - z0 - 9 -]{
+        1,63}.[a - z .]{
+        2,6})$/i
 
 
         // YXORPS SINGLE
@@ -342,7 +355,7 @@ class constants
         /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
         define('YXORP_SUB', 'SUB');
         /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
-        define('YXORP_DOMAIN', 'DOMAIN');
+        define('YXORP_DOMAIN', YXORP_DOMAIN);
         /* Defining a constant called YXORP_DIR and setting it to the string DIR. */
         define('YXORP_DIR', 'DIR');
         /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
@@ -357,6 +370,8 @@ class constants
         define('YXORP_REMOTE', 'REMOTE');
         /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
         define('YXORP_ADDR', 'ADDR');
+        /* Defining a constant called YXORP_DOMAIN and setting it to the string domain. */
+        define('YXORP_DOMAIN', 'domain');
 
         // YXORP MULTI
         /* Defining a constant. */
