@@ -1,9 +1,5 @@
 ***
 
-# My Project Documentation
-
-This is an automatically generated documentation for **My Project Documentation**.
-
 ## Namespaces
 
 ### \
