@@ -202,7 +202,7 @@ class generalHelper
         }
         $_parse_url = parse_url($base);
         extract($_parse_url);
-        $path = preg_replace('#/[^/]*$#', CHAR_EMPTY_STRING, $path);
+        $path = preg_replace(REG_NINE, CHAR_EMPTY_STRING, $path);
         if ($rel[0] === CHAR_SLASH) {
             $path = CHAR_EMPTY_STRING;
         }
