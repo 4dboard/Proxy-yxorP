@@ -43,7 +43,6 @@ class cache
         /* Used to set the default value of the `$options` variable. */
         $attr_instance = new self(false);
         /* Used to set the default value of the `$options` variable. */
-        print_r($attr_instance);
         if ($attr_instance->isExists()) $this->options = $attr_instance->get();
     }
 
