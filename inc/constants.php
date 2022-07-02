@@ -78,8 +78,8 @@ class constants
         define('CHAR_I', 'i');
         /* Defining a constant called `CHAR_COLON` and setting it to the value of `:`. */
         define('CHAR_COLON', ':');
-        /* Defining a constant called `CHAR_EXCLIMATION` and setting it to the value of `!`. */
-        define('CHAR_EXCLIMATION', '!');
+        /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `!`. */
+        define('CHAR_EXCLAMATION', '!');
 
 
         // NUMBERS
