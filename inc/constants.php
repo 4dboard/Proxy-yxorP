@@ -156,7 +156,7 @@ class constants
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
         define('FILE_BOOTSTRAP', 'bootstrap');
         /* Defining a constant. */
-        define('FILE_ACTION_WRAPPER', 'actionWrapper');
+        define('FILE_ACTION_WRAPPER', 'wrapper');
 
 
         //METHODS
@@ -431,10 +431,11 @@ class constants
         define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
         /* Defining the path to the guzzle phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
-        /* Defining the path to the action actionWrapper file. */
+        /* Defining the path to the action wrapper file. */
         define('PATH_ACTION_WRAPPER', DIR_ROOT . DIR_INC . FILE_ACTION_WRAPPER . EXT_PHP);
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
+        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER . EXT_PHP);
 
 
         //REGEX
@@ -497,6 +498,8 @@ class constants
         require PATH_GUZZLE_PHAR;
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
+        /* Requiring the Cockpit library. */
+        require PATH_INC_WRAPPER;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
