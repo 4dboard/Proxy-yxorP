@@ -250,7 +250,7 @@ class generalHelper
 
     public static function extractSubdomains($domain): ?string
     {
-        if (str_contains($domain, CHAR_PERIOD)) {
+        if ($domain && str_contains($domain, CHAR_PERIOD)) {
             $subdomains = $domain;
             $domain = self::extractDomain($subdomains);
             return rtrim(strstr($subdomains, $domain, true), CHAR_PERIOD);
