@@ -35,6 +35,6 @@ class siteCollectionAction extends wrapper
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
-        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . constants::get(YXORP_TARGET)['files']);
+        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . constants::get(YXORP_TARGET)[YXORP_FILES]);
     }
 }
