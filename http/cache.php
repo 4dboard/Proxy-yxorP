@@ -51,7 +51,6 @@ class cache
     #[Pure] private function isExists(): bool
     {
         /* Used to check if the cache file exists. */
-        echo PATH_DIR_TMP . constants::get(CACHE_KEY);
         return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY));
     }
 
