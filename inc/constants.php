@@ -223,6 +223,7 @@ class constants
         /* Defining a constant called YXORP_COCKPIT_ACCOUNTS and setting it to the string accounts. */
         define('YXORP_COCKPIT_ACCOUNTS', 'accounts');
         define('YXORP_PLUGINS', 'plugins');
+        define('YXORP_TARGET', 'TARGET');
 
 
         //ENV
