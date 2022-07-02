@@ -13,15 +13,12 @@ class cache
 {
     /* A static variable that is used to store the instance of the class. */
     private static array $instance;
-    /* Declaring a private variable `$options` of type `array`. */
-    private array $options;
 
     /* A constructor that is used to initialize the class. */
     private function __construct($is_super = true)
     {
         /* Used to clear the cache. */
         if (isset($_GET["CLECHE"])) $this->clearAll();
-        /* Used to set the default value of the `$options` variable. */
         if ($is_super) $this->super();
     }
 
@@ -34,13 +31,10 @@ class cache
         foreach ($files as $file) if (is_file($file)) unlink($file);
     }
 
-    /* Used to set the default value of the `$options` variable. */
 
     public function super(): void
     {
-        /* Used to set the default value of the `$options` variable. */
         $attr_instance = new self(false);
-        /* Used to set the default value of the `$options` variable. */
         if ($attr_instance->isExists()) $attr_instance->get();
     }
 
