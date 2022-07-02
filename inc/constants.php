@@ -222,7 +222,11 @@ class constants
         define('YXORP_COCKPIT_APP', 'COCKPIT_APP');
         /* Defining a constant called YXORP_COCKPIT_ACCOUNTS and setting it to the string accounts. */
         define('YXORP_COCKPIT_ACCOUNTS', 'accounts');
+        /* Defining a constant called YXORP_PLUGINS and setting it to the string plugins. */
         define('YXORP_PLUGINS', 'plugins');
+        /* Defining a constant called YXORP_TARGET and setting it to the string TARGET. */
+        define('YXORP_TARGET', 'TARGET');
+        /* Defining a constant called YXORP_TARGET and setting it to the string TARGET. */
         define('YXORP_TARGET', 'TARGET');
 
 
