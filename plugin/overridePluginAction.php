@@ -1,7 +1,7 @@
 <?php
 /* Importing the `wrapper` class from the `yxorP\http` namespace. */
 
-use yxorP\inc\wrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 use yxorP\minify\minify;
@@ -12,7 +12,7 @@ use yxorP\minify\minify;
 
 /* Extending the `wrapper` class. */
 
-class overridePluginAction extends wrapper
+class overridePluginAction extends actionWrapper
 {
     /* Overriding the `onCompleted` method of the `wrapper` class. */
     public function onCompleted()

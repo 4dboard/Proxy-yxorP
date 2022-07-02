@@ -2,12 +2,12 @@
 
 /* It's importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\wrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
 /* It's extending the wrapper class. */
 
-class logPluginAction extends wrapper
+class logPluginAction extends actionWrapper
 {
     /* It's a method that is called when the headers are received. */
     public function onHeadersReceived(): void

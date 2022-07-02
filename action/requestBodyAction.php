@@ -1,12 +1,12 @@
 <?php
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\wrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class. */
 
-class requestBodyAction extends wrapper
+class requestBodyAction extends actionWrapper
 {
     /* A method that is called by the wrapper class. */
     public function buildRequest(): void

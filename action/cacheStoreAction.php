@@ -2,12 +2,12 @@
 /* Importing the wrapper class from the yxorP\http namespace. */
 
 use yxorP\http\cache;
-use yxorP\inc\wrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class, which is a class that allows you to hook into the request lifecycle. */
 
-class cacheStoreAction extends wrapper
+class cacheStoreAction extends actionWrapper
 {
     /* A method that is called when the request is completed. */
     public function onCompleted(): void

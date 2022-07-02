@@ -2,12 +2,12 @@
 
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use yxorP\inc\wrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class, which is a class that is used to handle events. */
 
-class resourceHandlerAction extends wrapper
+class resourceHandlerAction extends actionWrapper
 {
     /* A function that is called when an exception is thrown. */
     public function onBuildException($e): void

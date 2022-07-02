@@ -2,12 +2,12 @@
 /* Importing the wrapper class from the yxorP\http namespace. */
 
 use Nette\Utils\Html;
-use yxorP\inc\wrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
 /* Extending the wrapper class. */
 
-class youtubePluginAction extends wrapper
+class youtubePluginAction extends actionWrapper
 {
     /* A regex pattern that will be used to match the url of the request. */
     protected string $url_pattern = 'youtube.com';
