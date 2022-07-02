@@ -217,7 +217,7 @@ class request
         $headers = $this->headers->all();
         ksort($headers);
         foreach ($headers as $name => $values) foreach ((array)$values as $value) {
-            $name = implode('-', array_map('ucfirst', explode('-', $name)));
+            $name = implode(CHAR_DASH, array_map('ucfirst', explode(CHAR_DASH, $name)));
             $result[] = sprintf("%s: %s", $name, $value);
         }
         return implode("\r\n", $result);
