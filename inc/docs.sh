@@ -1,2 +1,2 @@
-php ./inc/phpDocumentor.phar  --directory './action' --directory './http' --directory './cockpit' --directory './minify' --directory './plugin' --ignore 'CoreExtension.php' -t './docs/'
-php ./inc/phpDocumentor.phar  --directory './action' --directory './http' --directory './cockpit' --directory './minify' --directory './plugin'  --ignore 'CoreExtension.php'  -t './docs/' --template="vendor/saggre/phpdocumentor-markdown/themes/markdown"
+php ./inc/phpDocumentor.phar  --directory './action' --directory './http' --directory './cockpit' --directory './minify' --directory './plugin' --ignore 'CoreExtension.php' --ignore 'TextNormalizer.php'  -t './docs/'
+php ./inc/phpDocumentor.phar  --directory './action' --directory './http' --directory './cockpit' --directory './minify' --directory './plugin'  --ignore 'CoreExtension.php' --ignore 'TextNormalizer.php'   -t './docs/' --template="vendor/saggre/phpdocumentor-markdown/themes/markdown"
