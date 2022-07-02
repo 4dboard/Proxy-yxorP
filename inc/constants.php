@@ -275,6 +275,7 @@ class constants
         define('VAR_GET_URL', 'getUrl');
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
         define('VAR_UCFIRST', 'ucfirst');
+        define('VAR_STRTOLOWER', 'strtolower');
 
 
         // YXORPS SINGLE
