@@ -240,6 +240,9 @@ class constants
         'application/x-www-form-urlencoded'
         '?'
 
+        'https'
+        'http'
+
         // YXORPS
         /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
         define('YXORP_SERVER', 'SERVER');
@@ -295,13 +298,16 @@ class constants
         define('YXORP_SITE_HOST', 'SITE_HOST');
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', 'PHP_SELF');
-        'REQUEST_METHOD'
-        'HTTP_'
-        'REMOTE_ADDR'
-        'HTTPS'
-        'HTTP'
-        'https'
-        'http'
+        /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
+        define('YXORP_HTTPS', 'HTTPS');
+        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
+        define('YXORP_HTTP', 'HTTP');
+        /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
+        define('YXORP_REQUEST_METHOD', 'REQUEST_METHOD');
+        /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
+        define('YXORP_HTTP_', YXORP_HTTPS . CHAR_LOWER);
+        /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
+        define('YXORP_REMOTE_ADDR', 'REMOTE_ADDR');
         
         
         //REGEX
