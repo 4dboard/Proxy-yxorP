@@ -1,1 +1,1 @@
- php ./inc/phpDocumentor.phar -d './action' -d './http' -d './minify' -d './plugin' -d '/cockpit'
+ php ./inc/phpDocumentor.phar --directory './action' --directory './http' --directory './minify' --directory './plugin'--directory '/cockpit'
