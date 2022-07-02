@@ -1,7 +1,7 @@
 <?php
 /* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\action\actionWrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 
 /* Extending the actionWrapper class, which is a class that is used to wrap the request and response objects. */

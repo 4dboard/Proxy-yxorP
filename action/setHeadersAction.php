@@ -2,7 +2,7 @@
 
 /* Importing the actionWrapper class from the yxorP\http namespace. */
 
-use yxorP\action\actionWrapper;
+use yxorP\inc\actionWrapper;
 
 /* Extending the actionWrapper class. */
 

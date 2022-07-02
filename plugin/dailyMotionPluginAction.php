@@ -3,7 +3,7 @@
 /* Importing the actionWrapper class from the yxorP\http namespace. */
 
 use Nette\Utils\Html;
-use yxorP\action\actionWrapper;
+use yxorP\inc\actionWrapper;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
