@@ -127,27 +127,16 @@
 
 ## attributesSimplifier
 
-
-
-
-
 * Full name: \yxorP\minify\attributesSimplifier
 * Parent class: \yxorP\minify\areplacer
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### attributesSimplifier::getReplacePatternData
-
-
 
 ```php
 attributesSimplifier::getReplacePatternData(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -155,28 +144,18 @@ attributesSimplifier::getReplacePatternData(  ): array
 
 
 ---
+
 ## blockListPluginAction
-
-
-
-
 
 * Full name: \blockListPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### blockListPluginAction::onBeforeRequest
-
-
 
 ```php
 blockListPluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -184,25 +163,21 @@ blockListPluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### blockListPluginAction::callable
-
-
 
 ```php
 blockListPluginAction::callable( mixed fnc_custom, mixed url ): mixed
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `fnc_custom` | **mixed** |  |
 | `url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -210,26 +185,17 @@ blockListPluginAction::callable( mixed fnc_custom, mixed url ): mixed
 
 
 ---
+
 ## bugsnagHandlerAction
-
-
-
-
 
 * Full name: \bugsnagHandlerAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### bugsnagHandlerAction::onBuildException
-
-
 
 ```php
 bugsnagHandlerAction::onBuildException( mixed e ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -237,7 +203,6 @@ bugsnagHandlerAction::onBuildException( mixed e ): void
 |-----------|------|-------------|
 | `e` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -245,25 +210,17 @@ bugsnagHandlerAction::onBuildException( mixed e ): void
 
 
 ---
+
 ## cache
-
-
-
-
 
 * Full name: \yxorP\http\cache
 
-
 ### cache::clearAll
-
-
 
 ```php
 cache::clearAll(  ): void
 ```
 
-
-
 * This method is **static**.
 
 **Return Value:**
@@ -273,18 +230,13 @@ cache::clearAll(  ): void
 
 
 ---
+
 ### cache::super
-
-
 
 ```php
 cache::super(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -292,18 +244,13 @@ cache::super(  ): void
 
 
 ---
+
 ### cache::get
-
-
 
 ```php
 cache::get(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -311,18 +258,13 @@ cache::get(  ): void
 
 
 ---
+
 ### cache::isValid
-
-
 
 ```php
 cache::isValid(  ): bool
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -330,15 +272,12 @@ cache::isValid(  ): bool
 
 
 ---
+
 ### cache::cache
-
-
 
 ```php
 cache::cache(  ): mixed
 ```
-
-
 
 * This method is **static**.
 
@@ -349,16 +288,12 @@ cache::cache(  ): mixed
 
 
 ---
+
 ### cache::set
-
-
 
 ```php
 cache::set( mixed val ): \yxorP\http\cache
 ```
-
-
-
 
 **Parameters:**
 
@@ -366,7 +301,6 @@ cache::set( mixed val ): \yxorP\http\cache
 |-----------|------|-------------|
 | `val` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -374,28 +308,18 @@ cache::set( mixed val ): \yxorP\http\cache
 
 
 ---
+
 ## cacheStoreAction
-
-
-
-
 
 * Full name: \cacheStoreAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### cacheStoreAction::onCompleted
-
-
 
 ```php
 cacheStoreAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -403,28 +327,18 @@ cacheStoreAction::onCompleted(  ): void
 
 
 ---
+
 ## checkFilesAction
-
-
-
-
 
 * Full name: \checkFilesAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### checkFilesAction::buildIncludes
-
-
 
 ```php
 checkFilesAction::buildIncludes(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -432,28 +346,18 @@ checkFilesAction::buildIncludes(  ): mixed
 
 
 ---
+
 ## cookiePluginAction
-
-
-
-
 
 * Full name: \cookiePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### cookiePluginAction::onBeforeRequest
-
-
 
 ```php
 cookiePluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -461,24 +365,20 @@ cookiePluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### cookiePluginAction::beforeRequest
-
-
 
 ```php
 cookiePluginAction::beforeRequest( mixed match ): mixed
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `match` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -486,18 +386,13 @@ cookiePluginAction::beforeRequest( mixed match ): mixed
 
 
 ---
+
 ### cookiePluginAction::onHeadersReceived
-
-
 
 ```php
 cookiePluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -505,25 +400,21 @@ cookiePluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ### cookiePluginAction::headersReceived
-
-
 
 ```php
 cookiePluginAction::headersReceived( mixed response, mixed set_cookie ): void
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `response` | **mixed** |  |
 | `set_cookie` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -531,24 +422,20 @@ cookiePluginAction::headersReceived( mixed response, mixed set_cookie ): void
 
 
 ---
+
 ### cookiePluginAction::Received
-
-
 
 ```php
 cookiePluginAction::Received( mixed line ): void
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `line` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -556,28 +443,18 @@ cookiePluginAction::Received( mixed line ): void
 
 
 ---
+
 ## dailyMotionPluginAction
-
-
-
-
 
 * Full name: \dailyMotionPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### dailyMotionPluginAction::onCompleted
-
-
 
 ```php
 dailyMotionPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -585,25 +462,21 @@ dailyMotionPluginAction::onCompleted(  ): void
 
 
 ---
+
 ### dailyMotionPluginAction::completed
-
-
 
 ```php
 dailyMotionPluginAction::completed( mixed matches, mixed content ): void
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `matches` | **mixed** |  |
 | `content` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -611,28 +484,18 @@ dailyMotionPluginAction::completed( mixed matches, mixed content ): void
 
 
 ---
+
 ## debubEnablingAction
-
-
-
-
 
 * Full name: \debubEnablingAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### debubEnablingAction::buildIncludes
-
-
 
 ```php
 debubEnablingAction::buildIncludes(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -640,26 +503,17 @@ debubEnablingAction::buildIncludes(  ): void
 
 
 ---
+
 ## debugHandlerAction
-
-
-
-
 
 * Full name: \debugHandlerAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### debugHandlerAction::onBuildException
-
-
 
 ```php
 debugHandlerAction::onBuildException( mixed e ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -667,7 +521,6 @@ debugHandlerAction::onBuildException( mixed e ): void
 |-----------|------|-------------|
 | `e` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -675,28 +528,18 @@ debugHandlerAction::onBuildException( mixed e ): void
 
 
 ---
+
 ## globalCollectionAction
-
-
-
-
 
 * Full name: \globalCollectionAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### globalCollectionAction::onBuildContext
-
-
 
 ```php
 globalCollectionAction::onBuildContext(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -704,28 +547,18 @@ globalCollectionAction::onBuildContext(  ): void
 
 
 ---
+
 ## guzzleClientAction
-
-
-
-
 
 * Full name: \guzzleClientAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### guzzleClientAction::onBeforeRequest
-
-
 
 ```php
 guzzleClientAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -733,28 +566,18 @@ guzzleClientAction::onBeforeRequest(  ): void
 
 
 ---
+
 ## headerRewritePluginAction
-
-
-
-
 
 * Full name: \headerRewritePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### headerRewritePluginAction::onBeforeRequest
-
-
 
 ```php
 headerRewritePluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -762,18 +585,13 @@ headerRewritePluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### headerRewritePluginAction::onHeadersReceived
-
-
 
 ```php
 headerRewritePluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -781,25 +599,21 @@ headerRewritePluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ### headerRewritePluginAction::headersReceived
-
-
 
 ```php
 headerRewritePluginAction::headersReceived( mixed response, mixed request_url ): void
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `response` | **mixed** |  |
 | `request_url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -807,29 +621,19 @@ headerRewritePluginAction::headersReceived( mixed response, mixed request_url ):
 
 
 ---
+
 ## htmlCommentsRemover
-
-
-
-
 
 * Full name: \yxorP\minify\htmlCommentsRemover
 * Parent class: \yxorP\minify\areplacer
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### htmlCommentsRemover::getReplacePatternData
-
-
 
 ```php
 htmlCommentsRemover::getReplacePatternData(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -837,33 +641,23 @@ htmlCommentsRemover::getReplacePatternData(  ): array
 
 
 ---
+
 ## inlineCssMinifier
-
-
-
-
 
 * Full name: \yxorP\minify\inlineCssMinifier
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### inlineCssMinifier::process
-
-
 
 ```php
 inlineCssMinifier::process( string buffer ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `buffer` | **string** |  |
-
 
 **Return Value:**
 
@@ -872,34 +666,24 @@ inlineCssMinifier::process( string buffer ): string
 
 
 ---
+
 ## inlineJavascriptMinifier
-
-
-
-
 
 * Full name: \yxorP\minify\inlineJavascriptMinifier
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### inlineJavascriptMinifier::process
-
-
 
 ```php
 inlineJavascriptMinifier::process( string buffer ): string
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `buffer` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -907,28 +691,18 @@ inlineJavascriptMinifier::process( string buffer ): string
 
 
 ---
+
 ## logPluginAction
-
-
-
-
 
 * Full name: \logPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### logPluginAction::onHeadersReceived
-
-
 
 ```php
 logPluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -936,28 +710,18 @@ logPluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ## mimeTypesAction
-
-
-
-
 
 * Full name: \mimeTypesAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### mimeTypesAction::buildHeaders
-
-
 
 ```php
 mimeTypesAction::buildHeaders(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -965,26 +729,17 @@ mimeTypesAction::buildHeaders(  ): void
 
 
 ---
+
 ## minify
-
-
-
-
 
 * Full name: \yxorP\minify\minify
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### minify::__construct
-
-
 
 ```php
 minify::__construct( \yxorP\minify\minfyInterface processors ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -992,7 +747,6 @@ minify::__construct( \yxorP\minify\minfyInterface processors ): mixed
 |-----------|------|-------------|
 | `processors` | **\yxorP\minify\minfyInterface** |  |
 
-
 **Return Value:**
 
 
@@ -1000,15 +754,12 @@ minify::__construct( \yxorP\minify\minfyInterface processors ): mixed
 
 
 ---
+
 ### minify::createDefault
-
-
 
 ```php
 minify::createDefault(  ): self
 ```
-
-
 
 * This method is **static**.
 
@@ -1019,16 +770,12 @@ minify::createDefault(  ): self
 
 
 ---
+
 ### minify::process
-
-
 
 ```php
 minify::process( string buffer ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -1036,7 +783,6 @@ minify::process( string buffer ): string
 |-----------|------|-------------|
 | `buffer` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -1044,16 +790,12 @@ minify::process( string buffer ): string
 
 
 ---
+
 ### minify::addProcessor
-
-
 
 ```php
 minify::addProcessor( \yxorP\minify\minfyInterface processor ): self
 ```
-
-
-
 
 **Parameters:**
 
@@ -1061,7 +803,6 @@ minify::addProcessor( \yxorP\minify\minfyInterface processor ): self
 |-----------|------|-------------|
 | `processor` | **\yxorP\minify\minfyInterface** |  |
 
-
 **Return Value:**
 
 
@@ -1069,28 +810,18 @@ minify::addProcessor( \yxorP\minify\minfyInterface processor ): self
 
 
 ---
+
 ## overridePluginAction
-
-
-
-
 
 * Full name: \overridePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### overridePluginAction::onCompleted
-
-
 
 ```php
 overridePluginAction::onCompleted(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1098,16 +829,12 @@ overridePluginAction::onCompleted(  ): mixed
 
 
 ---
+
 ### overridePluginAction::REWRITE
-
-
 
 ```php
 overridePluginAction::REWRITE( mixed content ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -1115,7 +842,6 @@ overridePluginAction::REWRITE( mixed content ): string
 |-----------|------|-------------|
 | `content` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1123,25 +849,16 @@ overridePluginAction::REWRITE( mixed content ): string
 
 
 ---
+
 ## paramStore
-
-
-
-
 
 * Full name: \yxorP\http\paramStore
 
-
 ### paramStore::__construct
-
-
 
 ```php
 paramStore::__construct( mixed parameters = array(), mixed case_sensitive = false ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -1150,7 +867,6 @@ paramStore::__construct( mixed parameters = array(), mixed case_sensitive = fals
 | `parameters` | **mixed** |  |
 | `case_sensitive` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1158,16 +874,12 @@ paramStore::__construct( mixed parameters = array(), mixed case_sensitive = fals
 
 
 ---
+
 ### paramStore::replace
-
-
 
 ```php
 paramStore::replace( array data ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1175,7 +887,6 @@ paramStore::replace( array data ): void
 |-----------|------|-------------|
 | `data` | **array** |  |
 
-
 **Return Value:**
 
 
@@ -1183,18 +894,13 @@ paramStore::replace( array data ): void
 
 
 ---
+
 ### paramStore::clear
-
-
 
 ```php
 paramStore::clear(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1202,16 +908,12 @@ paramStore::clear(  ): void
 
 
 ---
+
 ### paramStore::set
-
-
 
 ```php
 paramStore::set( mixed key, mixed value, mixed replace = true ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1221,7 +923,6 @@ paramStore::set( mixed key, mixed value, mixed replace = true ): void
 | `value` | **mixed** |  |
 | `replace` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1229,23 +930,18 @@ paramStore::set( mixed key, mixed value, mixed replace = true ): void
 
 
 ---
+
 ### paramStore::has
-
-
 
 ```php
 paramStore::has( mixed key ): bool
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `key` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -1254,23 +950,18 @@ paramStore::has( mixed key ): bool
 
 
 ---
+
 ### paramStore::remove
-
-
 
 ```php
 paramStore::remove( mixed key ): void
 ```
 
-
-
-
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `key` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -1279,16 +970,12 @@ paramStore::remove( mixed key ): void
 
 
 ---
+
 ### paramStore::get
-
-
 
 ```php
 paramStore::get( mixed key, mixed default = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -1297,7 +984,6 @@ paramStore::get( mixed key, mixed default = null ): mixed
 | `key` | **mixed** |  |
 | `default` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1305,18 +991,13 @@ paramStore::get( mixed key, mixed default = null ): mixed
 
 
 ---
+
 ### paramStore::all
-
-
 
 ```php
 paramStore::all(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1324,18 +1005,13 @@ paramStore::all(  ): array
 
 
 ---
+
 ### paramStore::__toString
-
-
 
 ```php
 paramStore::__toString(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1343,28 +1019,18 @@ paramStore::__toString(  ): mixed
 
 
 ---
+
 ## proxifyPluginAction
-
-
-
-
 
 * Full name: \proxifyPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### proxifyPluginAction::onBeforeRequest
-
-
 
 ```php
 proxifyPluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1372,18 +1038,13 @@ proxifyPluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### proxifyPluginAction::onCompleted
-
-
 
 ```php
 proxifyPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1391,16 +1052,12 @@ proxifyPluginAction::onCompleted(  ): void
 
 
 ---
+
 ### proxifyPluginAction::clean_content_type
-
-
 
 ```php
 proxifyPluginAction::clean_content_type( mixed content_type ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -1408,7 +1065,6 @@ proxifyPluginAction::clean_content_type( mixed content_type ): string
 |-----------|------|-------------|
 | `content_type` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1416,29 +1072,19 @@ proxifyPluginAction::clean_content_type( mixed content_type ): string
 
 
 ---
+
 ## quotesRemover
-
-
-
-
 
 * Full name: \yxorP\minify\quotesRemover
 * Parent class: \yxorP\minify\areplacer
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### quotesRemover::getReplacePatternData
-
-
 
 ```php
 quotesRemover::getReplacePatternData(  ): array
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1446,28 +1092,18 @@ quotesRemover::getReplacePatternData(  ): array
 
 
 ---
+
 ## readyCheckAction
-
-
-
-
 
 * Full name: \readyCheckAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### readyCheckAction::onCheck
-
-
 
 ```php
 readyCheckAction::onCheck(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1475,25 +1111,16 @@ readyCheckAction::onCheck(  ): string
 
 
 ---
+
 ## request
-
-
-
-
 
 * Full name: \yxorP\http\request
 
-
 ### request::__construct
-
-
 
 ```php
 request::__construct( mixed method, mixed url, mixed body = null ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -1503,7 +1130,6 @@ request::__construct( mixed method, mixed url, mixed body = null ): mixed
 | `url` | **mixed** |  |
 | `body` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1511,16 +1137,12 @@ request::__construct( mixed method, mixed url, mixed body = null ): mixed
 
 
 ---
+
 ### request::setUrl
-
-
 
 ```php
 request::setUrl( mixed url ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1528,7 +1150,6 @@ request::setUrl( mixed url ): void
 |-----------|------|-------------|
 | `url` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1536,23 +1157,19 @@ request::setUrl( mixed url ): void
 
 
 ---
+
 ### request::parseQuery
-
-
 
 ```php
 request::parseQuery( mixed query ): array
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `query` | **mixed** |  |
-
 
 **Return Value:**
 
@@ -1561,16 +1178,12 @@ request::parseQuery( mixed query ): array
 
 
 ---
+
 ### request::setBody
-
-
 
 ```php
 request::setBody( mixed body, mixed content_type = false ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1579,7 +1192,6 @@ request::setBody( mixed body, mixed content_type = false ): void
 | `body` | **mixed** |  |
 | `content_type` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1587,18 +1199,13 @@ request::setBody( mixed body, mixed content_type = false ): void
 
 
 ---
+
 ### request::prepare
-
-
 
 ```php
 request::prepare(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1606,18 +1213,15 @@ request::prepare(  ): void
 
 
 ---
+
 ### request::buildPostBody
-
-
 
 ```php
 request::buildPostBody( mixed fields, mixed files, mixed boundary = null ): string
 ```
 
-
-
 * This method is **static**.
-**Parameters:**
+  **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
@@ -1625,7 +1229,6 @@ request::buildPostBody( mixed fields, mixed files, mixed boundary = null ): stri
 | `files` | **mixed** |  |
 | `boundary` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1633,15 +1236,12 @@ request::buildPostBody( mixed fields, mixed files, mixed boundary = null ): stri
 
 
 ---
+
 ### request::createFromGlobals
-
-
 
 ```php
 request::createFromGlobals(  ): \yxorP\http\request
 ```
-
-
 
 * This method is **static**.
 
@@ -1652,17 +1252,12 @@ request::createFromGlobals(  ): \yxorP\http\request
 
 
 ---
+
 ### request::getMethod
-
-
 
 ```php
 request::getMethod(  ): string
 ```
-
-
-
-
 
 **Return Value:**
 
@@ -1671,16 +1266,12 @@ request::getMethod(  ): string
 
 
 ---
+
 ### request::setMethod
-
-
 
 ```php
 request::setMethod( mixed method ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1688,7 +1279,6 @@ request::setMethod( mixed method ): void
 |-----------|------|-------------|
 | `method` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1696,18 +1286,13 @@ request::setMethod( mixed method ): void
 
 
 ---
+
 ### request::getUrl
-
-
 
 ```php
 request::getUrl(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1715,18 +1300,13 @@ request::getUrl(  ): string
 
 
 ---
+
 ### request::getProtocolVersion
-
-
 
 ```php
 request::getProtocolVersion(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1734,18 +1314,13 @@ request::getProtocolVersion(  ): string
 
 
 ---
+
 ### request::getRawHeaders
-
-
 
 ```php
 request::getRawHeaders(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1753,18 +1328,13 @@ request::getRawHeaders(  ): string
 
 
 ---
+
 ### request::getRawBody
-
-
 
 ```php
 request::getRawBody(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1772,18 +1342,13 @@ request::getRawBody(  ): string
 
 
 ---
+
 ### request::getUri
-
-
 
 ```php
 request::getUri(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1791,28 +1356,18 @@ request::getUri(  ): mixed
 
 
 ---
+
 ## requestBodyAction
-
-
-
-
 
 * Full name: \requestBodyAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### requestBodyAction::buildRequest
-
-
 
 ```php
 requestBodyAction::buildRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1820,28 +1375,18 @@ requestBodyAction::buildRequest(  ): void
 
 
 ---
+
 ## requestResponseAction
-
-
-
-
 
 * Full name: \requestResponseAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### requestResponseAction::buildIncludes
-
-
 
 ```php
 requestResponseAction::buildIncludes(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1849,26 +1394,17 @@ requestResponseAction::buildIncludes(  ): void
 
 
 ---
+
 ## resourceHandlerAction
-
-
-
-
 
 * Full name: \resourceHandlerAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### resourceHandlerAction::onBuildException
-
-
 
 ```php
 resourceHandlerAction::onBuildException( mixed e ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1876,7 +1412,6 @@ resourceHandlerAction::onBuildException( mixed e ): void
 |-----------|------|-------------|
 | `e` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1884,25 +1419,16 @@ resourceHandlerAction::onBuildException( mixed e ): void
 
 
 ---
+
 ## response
-
-
-
-
 
 * Full name: \yxorP\http\response
 
-
 ### response::__construct
-
-
 
 ```php
 response::__construct( mixed content = CHAR_EMPTY_STRING, mixed status = 200, mixed headers = array() ): mixed
 ```
-
-
-
 
 **Parameters:**
 
@@ -1912,7 +1438,6 @@ response::__construct( mixed content = CHAR_EMPTY_STRING, mixed status = 200, mi
 | `status` | **mixed** |  |
 | `headers` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1920,16 +1445,12 @@ response::__construct( mixed content = CHAR_EMPTY_STRING, mixed status = 200, mi
 
 
 ---
+
 ### response::setStatusCode
-
-
 
 ```php
 response::setStatusCode( mixed code ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1937,7 +1458,6 @@ response::setStatusCode( mixed code ): void
 |-----------|------|-------------|
 | `code` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1945,18 +1465,13 @@ response::setStatusCode( mixed code ): void
 
 
 ---
+
 ### response::getContent
-
-
 
 ```php
 response::getContent(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -1964,16 +1479,12 @@ response::getContent(  ): string
 
 
 ---
+
 ### response::setContent
-
-
 
 ```php
 response::setContent( mixed content ): void
 ```
-
-
-
 
 **Parameters:**
 
@@ -1981,7 +1492,6 @@ response::setContent( mixed content ): void
 |-----------|------|-------------|
 | `content` | **mixed** |  |
 
-
 **Return Value:**
 
 
@@ -1989,18 +1499,13 @@ response::setContent( mixed content ): void
 
 
 ---
+
 ### response::printContent
-
-
 
 ```php
 response::printContent(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2008,18 +1513,13 @@ response::printContent(  ): void
 
 
 ---
+
 ### response::sendHeaders
-
-
 
 ```php
 response::sendHeaders(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2027,18 +1527,13 @@ response::sendHeaders(  ): void
 
 
 ---
+
 ### response::getStatusText
-
-
 
 ```php
 response::getStatusText(  ): string
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2046,18 +1541,13 @@ response::getStatusText(  ): string
 
 
 ---
+
 ### response::getStatusCode
-
-
 
 ```php
 response::getStatusCode(  ): mixed
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2065,28 +1555,18 @@ response::getStatusCode(  ): mixed
 
 
 ---
+
 ## setHeadersAction
-
-
-
-
 
 * Full name: \setHeadersAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### setHeadersAction::buildHeaders
-
-
 
 ```php
 setHeadersAction::buildHeaders(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2094,28 +1574,18 @@ setHeadersAction::buildHeaders(  ): void
 
 
 ---
+
 ## siteCollectionAction
-
-
-
-
 
 * Full name: \siteCollectionAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### siteCollectionAction::onBuildContext
-
-
 
 ```php
 siteCollectionAction::onBuildContext(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2123,28 +1593,18 @@ siteCollectionAction::onBuildContext(  ): void
 
 
 ---
+
 ## streamPluginAction
-
-
-
-
 
 * Full name: \streamPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### streamPluginAction::onHeadersReceived
-
-
 
 ```php
 streamPluginAction::onHeadersReceived(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2152,18 +1612,13 @@ streamPluginAction::onHeadersReceived(  ): void
 
 
 ---
+
 ### streamPluginAction::onCurlWrite
-
-
 
 ```php
 streamPluginAction::onCurlWrite(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2171,18 +1626,13 @@ streamPluginAction::onCurlWrite(  ): void
 
 
 ---
+
 ### streamPluginAction::onCompleted
-
-
 
 ```php
 streamPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2190,28 +1640,18 @@ streamPluginAction::onCompleted(  ): void
 
 
 ---
+
 ## twitterPluginAction
-
-
-
-
 
 * Full name: \twitterPluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### twitterPluginAction::onCompleted
-
-
 
 ```php
 twitterPluginAction::onCompleted(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2219,26 +1659,17 @@ twitterPluginAction::onCompleted(  ): void
 
 
 ---
+
 ## whitespacesRemover
-
-
-
-
 
 * Full name: \yxorP\minify\whitespacesRemover
 * This class implements: \yxorP\minify\minfyInterface
 
-
 ### whitespacesRemover::process
-
-
 
 ```php
 whitespacesRemover::process( string buffer ): string
 ```
-
-
-
 
 **Parameters:**
 
@@ -2246,7 +1677,6 @@ whitespacesRemover::process( string buffer ): string
 |-----------|------|-------------|
 | `buffer` | **string** |  |
 
-
 **Return Value:**
 
 
@@ -2254,28 +1684,18 @@ whitespacesRemover::process( string buffer ): string
 
 
 ---
+
 ## youtubePluginAction
-
-
-
-
 
 * Full name: \youtubePluginAction
 * Parent class: \yxorP\http\wrapper
 
-
 ### youtubePluginAction::onBeforeRequest
-
-
 
 ```php
 youtubePluginAction::onBeforeRequest(  ): void
 ```
 
-
-
-
-
 **Return Value:**
 
 
@@ -2283,17 +1703,12 @@ youtubePluginAction::onBeforeRequest(  ): void
 
 
 ---
+
 ### youtubePluginAction::onCompleted
-
-
 
 ```php
 youtubePluginAction::onCompleted(  ): void
 ```
-
-
-
-
 
 **Return Value:**
 
