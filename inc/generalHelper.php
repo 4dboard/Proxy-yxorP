@@ -261,7 +261,7 @@ class generalHelper
 
     public static function extractDomain($domain)
     {
-        if ($domain && str_contains($domain, CHAR_PERIOD)) if (preg_match(REG_TWELVE, $domain, $matches)) return $matches[YXORP_DOMAIN]; else   return $domain; else  return $domain;
+        if ($domain && str_contains($domain, CHAR_PERIOD)) if (preg_match(REG_TWELVE, $domain, $matches)) return $matches[VAR_DOMAIN]; else   return $domain; else  return $domain;
     }
 
 }
