@@ -90,7 +90,7 @@ class cache
         /* Opening the file in write mode. */
         $fopen = fopen(PATH_DIR_TMP . constants::get(CACHE_KEY), 'w');
         /* Used to write the data in the cache file. */
-        $fwrite = fwrite($fopen, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;');
+        fwrite($fopen, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;');
         /* Used to close the file. */
         fclose($fopen);
         /* Used to return the instance of the class. */
