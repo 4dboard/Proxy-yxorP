@@ -114,8 +114,8 @@ class constants
         define('EXT_PHAR', CHAR_PERIOD . 'phar');
 
         // EVENTS
-        /* Defining a constant called `EVENT_BUILD_CACHED` and setting it to the value of `request.build_cached`. */
-        define('EVENT_BUILD_CACHED', 'request . build_cached');
+        /* Defining a constant called `EVENT_BUILD_CACHE` and setting it to the value of `request.build_cached`. */
+        define('EVENT_BUILD_CACHE', 'request . build_cached');
         /* Defining a constant called `EVENT_BUILD_CONTEXT` and setting it to the value of `request.build_context`. */
         define('EVENT_BUILD_CONTEXT', 'request . build_context');
         /* Defining a constant called `EVENT_BUILD_INCLUDES` and setting it to the value of `request.build_includes`. */

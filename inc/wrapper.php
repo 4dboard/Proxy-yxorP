@@ -18,10 +18,10 @@ abstract class wrapper
     /* Subscribing to all the events. */
     final public function subscribe($dispatcher): void
     {
-        /* Subscribing to the event `EVENT_BUILD_CACHED`. */
-        $dispatcher->addListener(EVENT_BUILD_CACHED, function () {
-            /* Calling the `route` method with the `EVENT_BUILD_CACHED` parameter. */
-            $this->route(EVENT_BUILD_CACHED);
+        /* Subscribing to the event `EVENT_BUILD_CACHE`. */
+        $dispatcher->addListener(EVENT_BUILD_CACHE, function () {
+            /* Calling the `route` method with the `EVENT_BUILD_CACHE` parameter. */
+            $this->route(EVENT_BUILD_CACHE);
         });
         /* Subscribing to the event `EVENT_BUILD_CONTEXT`. */
         $dispatcher->addListener(EVENT_BUILD_CONTEXT, function () {
@@ -87,7 +87,7 @@ abstract class wrapper
             /* Used to route the events to the appropriate methods. */
             switch ($event_name) {
                 /* Calling the `onBuildCache` method. */
-                case EVENT_BUILD_CACHED:
+                case EVENT_BUILD_CACHE:
                     /* Calling the `onBuildCache` method. */
                     $this->onBuildCache();
                     break;
@@ -149,7 +149,7 @@ abstract class wrapper
     {
     }
 
-    /* A method that is called when the event `EVENT_BUILD_CACHED` is triggered. */
+    /* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
 
     public function onBuildCache()
     {
