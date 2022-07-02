@@ -21,7 +21,7 @@ class cookiePluginAction extends wrapper
         /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
         if (preg_match_all('@pc_(.+?)__(.+?)=([^;]+)@', constants::get(YXORP_REQUEST)->headers->get('cookie'), $matches, PREG_SET_ORDER)) foreach ($matches as $match) $send_cookies[] = self::beforeRequest($match);
         /* Setting the cookie header. */
-        if (!is_empty($send_cookies)) constants::get(YXORP_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
+        if (!empty($send_cookies)) constants::get(YXORP_REQUEST)->headers->set('cookie', implode("; ", $send_cookies));
     }
 
     /* Parsing the cookie header and extracting the cookies that are prefixed with `pc_`. */
