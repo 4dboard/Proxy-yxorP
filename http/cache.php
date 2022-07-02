@@ -21,8 +21,6 @@ class cache
     {
         /* Used to clear the cache. */
         if (isset($_GET["CLECHE"])) $this->clearAll();
-        /* Setting the default value of the `$options` variable. */
-        $this->options = ['expiry' => CACHE_EXPIRATION];
         /* Used to set the default value of the `$options` variable. */
         if ($is_super) $this->super();
     }
