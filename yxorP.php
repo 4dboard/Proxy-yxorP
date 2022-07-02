@@ -134,8 +134,10 @@ class yxorP
         constants::create(__DIR__);
 
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
-        if (!is_dir(DIR_ROOT)) if (!mkdir($concurrentDirectory = DIR_ROOT) && !is_dir($concurrentDirectory))
-            throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $concurrentDirectory));
+        foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
+            if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
+                throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
+
 
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
