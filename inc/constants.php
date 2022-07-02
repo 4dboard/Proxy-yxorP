@@ -348,7 +348,6 @@ class constants
         define('YXORP_SITE_HOST', YXORP_SITE . CHAR_UNDER . YXORP_HOST);
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', YXORP_PHP . CHAR_UNDER . YXORP_SELF);
-
         /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
         define('YXORP_REQUEST_METHOD', YXORP_REQUEST . CHAR_UNDER . YXORP_METHOD);
         /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
