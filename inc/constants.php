@@ -303,7 +303,7 @@ class constants
         /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
         define('YXORP_FULL', 'FULL');
         /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
-        define('YXORP_HTTPS', YXORP_HTTPS);
+        define('YXORP_HTTPS', 'HTTPS');
         /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
         define('YXORP_HTTP', 'HTTP');
         /* Defining a constant called YXORP_METHOD and setting it to the string METHOD. */
