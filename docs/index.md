@@ -2,8 +2,6 @@
 
 # yxorP Documentation
 
-This is an automatically generated documentation for **yxorP Documentation**.
-
 ## Namespaces
 
 ### \
