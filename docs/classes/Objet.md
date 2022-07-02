@@ -1,8 +1,0 @@
-***
-
-# Objet
-
-* Full name: `\Objet`
-
-***
-

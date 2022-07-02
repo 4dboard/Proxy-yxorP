@@ -1,8 +1,0 @@
-***
-
-# trBasetestClass
-
-* Full name: `\trBasetestClass`
-
-***
-
