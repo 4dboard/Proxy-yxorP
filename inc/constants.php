@@ -206,6 +206,10 @@ class constants
         define('VAR_URL_HOST', 'url_host');
         /* Defining a constant called `VAR_HTTPS` and setting it to the value of `https`. */
         define('VAR_HTTPS', 'https:');
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
+        define('VAR_PLUS_SLASH', CHAR_PLUS . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
+        define('VAR_DASH_LOWER', CHAR_DASH . CHAR_LOWER);
 
 
         // YXORPS
