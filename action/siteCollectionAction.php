@@ -28,7 +28,7 @@ class siteCollectionAction extends wrapper
         constants::set(YXORP_TARGET_DOMAIN, self::extractDomain(constants::get(YXORP_TARGET_URL)));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        constants::set(YXORP_FETCH, 'https:' . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
+        constants::set(YXORP_FETCH, VAR_HTTPS . DIRECTORY_SEPARATOR . DIRECTORY_SEPARATOR . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
         constants::set(YXORP_PROXY_URL, constants::get(YXORP_FETCH)->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());

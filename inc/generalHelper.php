@@ -122,7 +122,7 @@ class generalHelper
 
     #[Pure] public static function app_url(): string
     {
-        return 'https:' . constants::get('SITE_HOST')->__toString() . constants::get(YXORP_SERVER)['PHP_SELF'];
+        return VAR_HTTPS . constants::get('SITE_HOST')->__toString() . constants::get(YXORP_SERVER)['PHP_SELF'];
     }
 
     /* It's returning the application URL. */
@@ -179,7 +179,7 @@ class generalHelper
     public static function add_http($url)
     {
         if (!preg_match('#^https?:#i', $url)) {
-            $url = 'https:' . $url;
+            $url = VAR_HTTPS . $url;
         }
         return $url;
     }
