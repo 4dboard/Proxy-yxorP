@@ -556,21 +556,49 @@ class constants
     {
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $_req. */
         self::set(YXORP_SERVER, $_req);
-        /* Creating a unique key for the cache file. */
-        define('CACHE_KEY', generalHelper::base64_url_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
 
+        /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
+        constants::set(YXORP_SITE_URL, ((constants::get(YXORP_SERVER))[YXORP_SERVER_NAME]));
+        /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
+        constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
+        /* Setting the `TARGET` variable to the result of the `findOne` method. */
+        constants::set(YXORP_TARGET, constants::get(constants::get(YXORP_COCKPIT_APP))->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
+        /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
+        constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
+        /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
+        constants::set(YXORP_TARGET_URL, (constants::get(YXORP_TARGET))[YXORP_TARGET]);
+        /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
+        constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
+        /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
+        constants::set(YXORP_TARGET_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_TARGET_URL)));
+        /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
+        `TARGET_DOMAIN` variable, with the `https://` protocol. */
+        constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . ((!is_null(constants::get(YXORP_SITE_SUB_DOMAIN))) ? (constants::get(YXORP_SITE_SUB_DOMAIN)->__toString() . ".") : null) . constants::get(YXORP_TARGET_DOMAIN)->__toString());
+        /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
+        variable appended to it. */
+        constants::set(YXORP_PROXY_URL, constants::get(YXORP_FETCH)->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());
+        /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
+        to it, with the `CHAR_SLASH` constant appended to it, with the value of the `files` key in the `TARGET`
+        array appended to it. */
+        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(YXORP_TARGET))[YXORP_FILES]);
     }
 
-    /* A static method that returns the value of the $_name variable. */
-    /**
-     * @param $_name
-     * @return mixed
-     */
-    public static function get($_name): mixed
-    {
-        /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
-        returns false. */
-        return (array_key_exists($_name, $GLOBALS)) ? $GLOBALS[$_name] : false;
-    }
+    /* Creating a unique key for the cache file. */
+define('CACHE_KEY', generalHelper::base64_url_encode($_req[YXORP_HTTP_HOST] . $_req[YXORP_REQUEST_URI]) . EXT_TMP);
+
+}
+
+/* A static method that returns the value of the $_name variable. */
+/**
+ * @param $_name
+ * @return mixed
+ */
+public
+static function get($_name): mixed
+{
+    /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
+    returns false. */
+    return (array_key_exists($_name, $GLOBALS)) ? $GLOBALS[$_name] : false;
+}
 
 }
