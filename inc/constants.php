@@ -45,6 +45,30 @@ class constants
         define('CHAR_SLASH_BACK', '\\');
         /* Defining a constant called `CHAR_QUESTION` and setting it to the value of `?`. */
         define('CHAR_QUESTION', '?');
+        /* Defining a constant called `CHAR_AT` and setting it to the value of `@`. */
+        define('CHAR_AT', '@');
+        /* Defining a constant called `CHAR_CURVE` and setting it to the value of `{?}`. */
+        define('CHAR_CURVE', '{');
+        /* Defining a constant called `CHAR_CURVE_CLOSE` and setting it to the value of `}`. */
+        define('CHAR_CURVE_CLOSE', '}');
+        /* Defining a constant called `CHAR_BRACKET` and setting it to the value of `(`. */
+        define('CHAR_BRACKET', '(');
+        /* Defining a constant called `CHAR_BRACKET_CLOSE` and setting it to the value of `)`. */
+        define('CHAR_BRACKET_CLOSE', ')');
+        /* Defining a constant called `CHAR_S` and setting it to the value of `s`. */
+        define('CHAR_S', 's');
+        /* Defining a constant called `CHAR_SQUARE` and setting it to the value of `[?]`. */
+        define('CHAR_SQUARE', '[');
+        /* Defining a constant called `CHAR_SQUARE_CLOSE` and setting it to the value of `]`. */
+        define('CHAR_SQUARE_CLOSE', ']');
+        /* Defining a constant called `CHAR_A` and setting it to the value of `A`. */
+        define('CHAR_A', 'a');
+        /* Defining a constant called `CHAR_Z` and setting it to the value of `z`. */
+        define('CHAR_Z', 'z');
+        /* Defining a constant called `CHAR_0` and setting it to the value of `0`. */
+        define('CHAR_0', '0');
+        /* Defining a constant called `CHAR_9` and setting it to the value of `9`. */
+        define('CHAR_9', '9');
 
 
         // NUMBERS
@@ -358,19 +382,6 @@ class constants
         define('YXORP_HTTP_', YXORP_HTTPS . CHAR_UNDER);
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
         define('YXORP_REMOTE_ADDR', YXORP_REMOTE . CHAR_UNDER . YXORP_ADDR);
-
-        define('CHAR_AT', '@');
-        define('CHAR_CURVE', '{');
-        define('CHAR_CURVE_CLOSE', '}');
-        define('CHAR_BRACKET', '(');
-        define('CHAR_BRACKET_CLOSE', ')');
-        define('CHAR_S', 's');
-        define('CHAR_SQUARE', '[');
-        define('CHAR_SQUARE_CLOSE', ']');
-        define('CHAR_A', 'a');
-        define('CHAR_Z', 'z');
-        define('CHAR_0', '0');
-        define('CHAR_9', '9');
 
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
