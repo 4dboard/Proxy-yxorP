@@ -91,6 +91,7 @@ class constants
         define('CHAR_6', '6');
         /* Defining a constant called `CHAR_EXCLAMATION` and setting it to the value of `3`. */
         define('CHAR_3', '3');
+        /* Defining a constant called `CHAR_SLASH` and setting it to the value of `/`. */
         define('CHAR_SLASH', '/');
 
 
