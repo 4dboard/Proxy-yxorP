@@ -21,6 +21,8 @@ class overridePluginAction extends wrapper
         if (constants::get('MIME') !== VAR_TEXT_HTML && constants::get('MIME') !== 'application/javascript' && constants::get('MIME') !== 'text/css' && constants::get('MIME') !== 'application/xml' && !str_contains(constants::get('MIME'), 'text')) return;
 
         echo constants::get(YXORP_TARGET_DOMAIN);
+        print_r((array)constants::get(YXORP_GLOBAL_REPLACE));
+        print_r((array)constants::get(YXORP_TARGET)['replace']);
 
         $this->REWRITE(
             str_replace(
