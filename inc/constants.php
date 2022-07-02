@@ -304,7 +304,7 @@ class constants
         
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
-        define('REG_ONE', '/?.*/');
+        define('REG_ONE', '/\?.*/');
         define('REG_TWO', '/#.*/');
         
         //ENV
