@@ -18,6 +18,7 @@
 /.phpdoc
 /tmp
 phpdoc.xml
+composer.lock
 composer.phar
 .phpunit.result.cache
 phpunit.xml
