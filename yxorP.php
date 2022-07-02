@@ -46,6 +46,11 @@ class yxorP
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
         $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
+
+        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
+        creates them. */
+        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
         if (str_contains(constants::get(YXORP_SERVER)[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
@@ -124,10 +129,6 @@ class yxorP
         if (self::$events) return self::$events;
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
-
-        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
-        creates them. */
-        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
 
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         if (!is_dir(DIR_ROOT)) if (!mkdir($concurrentDirectory = DIR_ROOT) && !is_dir($concurrentDirectory))
