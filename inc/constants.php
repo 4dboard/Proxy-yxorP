@@ -76,6 +76,8 @@ class constants
         define('CHAR_USD', '$');
         /* Defining a constant called `CHAR_I` and setting it to the value of `i`. */
         define('CHAR_I', 'i');
+        /* Defining a constant called `CHAR_COLON` and setting it to the value of `:`. */
+        define('CHAR_COLON', ':');
 
 
         // NUMBERS
@@ -244,6 +246,7 @@ class constants
         define('VAR_URL_HOST', 'url_host');
         /* Defining a constant called `VAR_HTTPS` and setting it to the value of `https`. */
         define('VAR_HTTPS', 'https:');
+        define('VAR_HTTPS_ONLY', 'https');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_ALLOW_REDIRECTS', 'allow_redirects');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
@@ -430,7 +433,12 @@ class constants
         /* Defining a constant named REG_SEVEN. */
         define('REG_SEVEN', CHAR_HASH . CHAR_UP);
         /* Defining a constant named REG_EIGHT. */
-        define('REG_EIGHT', CHAR_USD . CHAR_HASH . CHAR_I);
+
+        define('REG_EIGHT', CHAR_HASH.CHAR_UP.VAR_HTTPS_ONLY.CHAR_QUESTION.CHAR_COLON.CHAR_HASH.CHAR_I);
+        define('REG_EIGHT', '#/[^/]*$#');
+        define('REG_EIGHT', '#/(?!\.\.)[^/]+/\.\./#');
+        define('REG_EIGHT', '#(/\.?/)#');
+        define('REG_EIGHT', '/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i');
 
         //ENV
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
