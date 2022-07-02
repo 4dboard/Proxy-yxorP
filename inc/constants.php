@@ -301,7 +301,7 @@ class constants
         /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
         define('YXORP_SELF', 'SELF');
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
-        define('YXORP_PHP_SELF', 'PHP_SELF');
+        define('YXORP_PHP_SELF', YXORP_PHP . CHAR_UNDER . YXORP_SELF);
 
         /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
         define('YXORP_HTTPS', 'HTTPS');
