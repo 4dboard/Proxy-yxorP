@@ -78,6 +78,8 @@ class constants
         define('CHAR_I', 'i');
         /* Defining a constant called `CHAR_COLON` and setting it to the value of `:`. */
         define('CHAR_COLON', ':');
+        /* Defining a constant called `CHAR_EXCLIMATION` and setting it to the value of `!`. */
+        define('CHAR_EXCLIMATION', '!');
 
 
         // NUMBERS
@@ -436,7 +438,7 @@ class constants
 
         define('REG_EIGHT', CHAR_HASH . CHAR_UP . VAR_HTTPS_ONLY . CHAR_QUESTION . CHAR_COLON . CHAR_HASH . CHAR_I);
         define('REG_NINE', CHAR_HASH . CHAR_SLASH . CHAR_SQUARE . CHAR_UP . CHAR_SLASH . CHAR_SQUARE_CLOSE . CHAR_ASTRIX . CHAR_USD . CHAR_HASH);
-        define('REG_TEN', '#/(?!\.\.)[^/]+/\.\./#');
+        define('REG_TEN', CHAR_HASH . CHAR_SLASH . CHAR_QUESTION . CHAR_EXCLIMATION . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_BRACKET_CLOSE . CHAR_SQUARE . CHAR_UP . CHAR_SLASH . CHAR_SQUARE_CLOSE . CHAR_PLUS . CHAR_SLASH . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH_BACK . CHAR_PERIOD . CHAR_SLASH . CHAR_HASH);
         define('REG_ELEVEN', '#(/\.?/)#');
         define('REG_TWELVE', '/(?P<domain>[a-z0-9][a-z0-9\-]{1,63}\.[a-z.]{2,6})$/i');
 
