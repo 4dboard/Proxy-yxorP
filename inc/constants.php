@@ -115,29 +115,29 @@ class constants
 
         // EVENTS
         /* Defining a constant called `EVENT_BUILD_CACHE` and setting it to the value of `request.build_cached`. */
-        define('EVENT_BUILD_CACHE', 'request . build_cached');
+        define('EVENT_BUILD_CACHE', 'request' . CHAR_PERIOD . 'build_cached');
         /* Defining a constant called `EVENT_BUILD_CONTEXT` and setting it to the value of `request.build_context`. */
-        define('EVENT_BUILD_CONTEXT', 'request . build_context');
+        define('EVENT_BUILD_CONTEXT', 'request' . CHAR_PERIOD . 'build_context');
         /* Defining a constant called `EVENT_BUILD_INCLUDES` and setting it to the value of `request.build_includes`. */
-        define('EVENT_BUILD_INCLUDES', 'request . build_includes');
+        define('EVENT_BUILD_INCLUDES', 'request' . CHAR_PERIOD . 'build_includes');
         /* Defining a constant called `EVENT_BUILD_HEADERS` and setting it to the value of `request.build_headers`. */
-        define('EVENT_BUILD_HEADERS', 'request . build_headers');
+        define('EVENT_BUILD_HEADERS', 'request' . CHAR_PERIOD . 'build_headers');
         /* Defining a constant called `EVENT_BUILD_REQUEST` and setting it to the value of `request.build_request`. */
-        define('EVENT_BUILD_REQUEST', 'request . build_request');
+        define('EVENT_BUILD_REQUEST', 'request' . CHAR_PERIOD . 'build_request');
         /* Defining a constant called `EVENT_BEFORE_SEND` and setting it to the value of `request.before_send`. */
-        define('EVENT_BEFORE_SEND', 'request . before_send');
+        define('EVENT_BEFORE_SEND', 'request' . CHAR_PERIOD . 'before_send');
         /* Defining a constant called `EVENT_SEND` and setting it to the value of `request.send`. */
-        define('EVENT_SEND', 'request . send');
+        define('EVENT_SEND', 'request' . CHAR_PERIOD . 'send');
         /* Defining a constant called `EVENT_SENT` and setting it to the value of `request.sent`. */
-        define('EVENT_SENT', 'request . sent');
+        define('EVENT_SENT', 'request' . CHAR_PERIOD . 'sent');
         /* Defining a constant called `EVENT_COMPLETE` and setting it to the value of `request.complete`. */
-        define('EVENT_COMPLETE', 'request . complete');
+        define('EVENT_COMPLETE', 'request' . CHAR_PERIOD . 'complete');
         /* Defining a constant called `EVENT_FINAL` and setting it to the value of `request.final`. */
-        define('EVENT_FINAL', 'request .final');
+        define('EVENT_FINAL', 'request' . CHAR_PERIOD . 'final');
         /* Defining a constant called `EVENT_EXCEPTION` and setting it to the value of `request.build_exception`. */
-        define('EVENT_EXCEPTION', 'request . build_exception');
+        define('EVENT_EXCEPTION', 'request' . CHAR_PERIOD . 'build_exception');
         /* Defining a constant called `EVENT_WRITE` and setting it to the value of `curl.callback.write`. */
-        define('EVENT_WRITE', 'curl . callback . write');
+        define('EVENT_WRITE', 'curl' . CHAR_PERIOD . 'callback' . CHAR_PERIOD . 'write');
 
 
         // FILES
