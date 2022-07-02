@@ -92,8 +92,8 @@ class request
 
         $len = strlen($this->prepared_body);
 
-        if ($len > 0) $this->headers->set('content-length', $len); else {
-            $this->headers->remove('content-length');
+        if ($len > 0) $this->headers->set(VAR_CONTENT_LENGTH, $len); else {
+            $this->headers->remove(VAR_CONTENT_LENGTH);
             $this->headers->remove('content-type');
         }
     }

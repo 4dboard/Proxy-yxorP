@@ -23,7 +23,7 @@ class streamPluginAction extends wrapper
         /* Getting the content type of the response. */
         $content_type = constants::get(YXORP_RESPONSE)->headers->get('content-type');
         /* Getting the content length of the response. */
-        $content_length = constants::get(YXORP_RESPONSE)->headers->get('content-length');
+        $content_length = constants::get(YXORP_RESPONSE)->headers->get(VAR_CONTENT_LENGTH);
         /* Checking if the content type is in the array of content types that should be streamed. If it is, it sets the
         `$stream` variable to true. */
         if (!in_array($content_type, $this->output_buffer_types, true) || $content_length > $this->max_content_length) {
