@@ -167,18 +167,15 @@ class websocket implements protocolInterface
         }
     }
 
+    /* A function that is called when a new connection is made. */
     public static function dealHandshake($buffer, tcpConnection $connection)
     {
         if (str_starts_with($buffer, 'GET')) {
             $header_end_pos = strpos($buffer, "\r\n\r\n");
-            if (!$header_end_pos) {
-                return 0;
-            }
+            if (!$header_end_pos)  return 0;
             $header_length = $header_end_pos + 4;
             $Sec_WebSocket_Key = '';
-            if (preg_match("/Sec-WebSocket-Key: *(.*?)\r\n/i", $buffer, $match)) {
-                $Sec_WebSocket_Key = $match[1];
-            } else {
+            if (preg_match("/Sec-WebSocket-Key: *(.*?)\r\n/i", $buffer, $match)) $Sec_WebSocket_Key = $match[1]; else {
                 $connection->close("HTTP/1.1 200 WebSocket\r\nServer: yxorp/" . Worker::VERSION . "\r\n\r\n<div style=\"text-align:center\"><h1>WebSocket</h1><hr>yxorp/" . Worker::VERSION . "</div>", true);
                 return 0;
             }
