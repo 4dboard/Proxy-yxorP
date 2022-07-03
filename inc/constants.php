@@ -238,7 +238,10 @@ class constants
         define('VAR_GETCSV', 'str_getcsv');
         /* Defining a constant called `VAR_DOMAIN` and setting it to the value of `domain`. */
         define('VAR_DOMAIN', 'domain');
-
+        /* Defining a constant called `VAR_PATTERN` and setting it to the value of `pattern`. */
+        define('VAR_PATTERN', 'pattern');
+        /* Defining a constant called `VAR_REPLACE` and setting it to the value of `replace`. */
+        define('VAR_REPLACE', 'replace');
 
         //VARIBLES MULTIPLE
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
@@ -573,6 +576,7 @@ class constants
         constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
 
         constants::set(YXORP_TARGET_PATTERN, constants::get(YXORP_TARGET)['pattern']);
+        constants::set(YXORP_TARGET_REPLACE, constants::get(YXORP_TARGET)['replace']);
 
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
