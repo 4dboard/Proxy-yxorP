@@ -187,13 +187,9 @@ class ws
 
     public static function encode($payload, connectionInterface $connection): string
     {
-        if (empty($connection->websocketType)) {
-            $connection->websocketType = self::BINARY_TYPE_BLOB;
-        }
+        if (empty($connection->websocketType)) $connection->websocketType = self::BINARY_TYPE_BLOB;
         $payload = (string)$payload;
-        if (empty($connection->handshakeStep)) {
-            static::sendHandshake($connection);
-        }
+        if (empty($connection->handshakeStep)) static::sendHandshake($connection);
         $mask = 1;
         $mask_key = "\x00\x00\x00\x00";
         $pack = '';
