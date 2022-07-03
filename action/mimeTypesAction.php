@@ -9,7 +9,7 @@ use yxorP\inc\wrapper;
 class mimeTypesAction extends wrapper
 {
     /* Setting the content type of the response. */
-    public function buildHeaders(): void
+    public function onBuildHeaders(): void
     {
         echo 123;
         exit;
