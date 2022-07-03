@@ -125,6 +125,7 @@ class ws
         } else   return 0;
     }
 
+    /* A function that is called when a new connection is made. */
     public static function dealHandshake($buffer, tcpConnection $connection)
     {
         $pos = strpos($buffer, "\r\n\r\n");
@@ -168,6 +169,7 @@ class ws
         return 0;
     }
 
+    /* A method that takes in a string and a connectionInterface object and returns a string. */
     public static function decode($bytes, connectionInterface $connection): string
     {
         $data_length = ord($bytes[1]);
@@ -185,6 +187,7 @@ class ws
         }
     }
 
+    /* A static method that takes a payload and a connectionInterface as parameters and returns a string. */
     public static function encode($payload, connectionInterface $connection): string
     {
         if (empty($connection->websocketType)) $connection->websocketType = self::BINARY_TYPE_BLOB;
@@ -251,11 +254,13 @@ class ws
         $connection->tmpWebsocketData = '';
     }
 
+    /* A function that is called when a client connects to the server. */
     public static function onConnect($connection)
     {
         static::sendHandshake($connection);
     }
 
+    /* A callback function that is called when a connection is closed. */
     public static function onClose($connection)
     {
         $connection->handshakeStep = null;
@@ -268,11 +273,13 @@ class ws
         }
     }
 
+    /* Setting the protocol for the connection. */
     public static function WSSetProtocol($connection, $params)
     {
         $connection->WSClientProtocol = $params[0];
     }
 
+    /* A function that returns the protocol of the server. */
     public static function WSGetServerProtocol($connection)
     {
         return (property_exists($connection, 'WSServerProtocol') ? $connection->WSServerProtocol : null);
