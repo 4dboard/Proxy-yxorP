@@ -7,24 +7,23 @@ use yxorP\connection\tcpConnection;
 use yxorP\http\timer;
 use yxorP\http\worker;
 
+/* Creating a class called ws. */
+
 class ws
 {
     const BINARY_TYPE_BLOB = "\x81";
     const BINARY_TYPE_ARRAYBUFFER = "\x82";
 
+    /* A function that takes two parameters, $buffer and $connection. */
     public static function input($buffer, connectionInterface $connection)
     {
         if (empty($connection->handshakeStep)) {
             Worker::safeEcho("recv data before handshake. Buffer:" . bin2hex($buffer) . "\n");
             return false;
         }
-        if ($connection->handshakeStep === 1) {
-            return self::dealHandshake($buffer, $connection);
-        }
+        if ($connection->handshakeStep === 1) return self::dealHandshake($buffer, $connection);
         $recv_len = strlen($buffer);
-        if ($recv_len < 2) {
-            return 0;
-        }
+        if ($recv_len < 2) return 0;
         if ($connection->websocketCurrentFrameLength) {
             if ($connection->websocketCurrentFrameLength > $recv_len) {
                 return 0;
