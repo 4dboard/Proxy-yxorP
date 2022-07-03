@@ -11,8 +11,6 @@ class mimeTypesAction extends wrapper
     /* Setting the content type of the response. */
     public function onBuildHeaders(): void
     {
-        echo 123;
-        exit;
         /* An array of mime types. */
         $_types = array('txt' => 'text' . CHAR_SLASH . 'plain', 'htm' => 'text' . CHAR_SLASH . 'html', 'html' => 'text' . CHAR_SLASH . 'html', 'php' => 'text' .
             CHAR_SLASH . 'html', 'css' => 'text' . CHAR_SLASH . 'css', 'js' => 'application' . CHAR_SLASH . 'javascript', 'json' => 'application' .
