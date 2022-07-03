@@ -268,6 +268,8 @@ class constants
         define('YXORP_PLUGINS', 'plugins');
         /* Defining a constant called YXORP_TARGET and setting it to the string TARGET. */
         define('YXORP_TARGET', 'TARGET');
+        /* Defining a constant called YXORP_TARGET_PATTERN and setting it to the string TARGET. */
+        define('YXORP_TARGET_PATTERN', 'TARGET_PATTERN');
         /* Defining a constant called YXORP_SITE and setting it to the string SITE. */
         define('YXORP_SITE', 'SITE');
         /* Defining a constant called YXORP_HOST and setting it to the string HOST. */
@@ -567,6 +569,9 @@ class constants
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
+
+        constants::set(YXORP_TARGET_PATTERN, constants::get(YXORP_TARGET)['pattern']);
+
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
