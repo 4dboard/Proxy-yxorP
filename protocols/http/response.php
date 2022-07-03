@@ -168,31 +168,17 @@ class response
         if (empty($this->_header)) return "HTTP/{$this->_version} {$this->_status} $reason\r\nServer: yxorP\r\nContent-Type: text/html;charset=utf-8\r\nContent-Length: $body_len\r\nconnection: keep-alive\r\n\r\n{$this->_body}";
         $head = "HTTP/{$this->_version} {$this->_status} $reason\r\n";
         $headers = $this->_header;
-        if (!isset($headers['Server'])) {
-            $head .= "Server: yxorP\r\n";
-        }
+        if (!isset($headers['Server'])) $head .= "Server: yxorP\r\n";
         foreach ($headers as $name => $value) {
             if (is_array($value)) {
-                foreach ($value as $item) {
-                    $head .= "$name: $item\r\n";
-                }
+                foreach ($value as $item) $head .= "$name: $item\r\n";
                 continue;
             }
             $head .= "$name: $value\r\n";
         }
-        if (!isset($headers['connection'])) {
-            $head .= "connection: keep-alive\r\n";
-        }
-        if (!isset($headers['Content-Type'])) {
-            $head .= "Content-Type: text/html;charset=utf-8\r\n";
-        } else if ($headers['Content-Type'] === 'text/event-stream') {
-            return $head . $this->_body;
-        }
-        if (!isset($headers['Transfer-Encoding'])) {
-            $head .= "Content-Length: $body_len\r\n\r\n";
-        } else {
-            return "$head\r\n" . dechex($body_len) . "\r\n{$this->_body}\r\n";
-        }
+        if (!isset($headers['connection'])) $head .= "connection: keep-alive\r\n";
+        if (!isset($headers['Content-Type'])) $head .= "Content-Type: text/html;charset=utf-8\r\n"; else if ($headers['Content-Type'] === 'text/event-stream') return $head . $this->_body;
+        if (!isset($headers['Transfer-Encoding'])) $head .= "Content-Length: $body_len\r\n\r\n"; else  return "$head\r\n" . dechex($body_len) . "\r\n{$this->_body}\r\n";
         return $head . $this->_body;
     }
 
