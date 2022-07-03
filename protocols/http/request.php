@@ -192,12 +192,14 @@ class request
         }
     }
 
+    /* A function that is returning a string. */
     public function rawHead()
     {
         if (!isset($this->_data['head'])) $this->_data['head'] = strstr($this->_buffer, "\r\n\r\n", true);
         return $this->_data['head'];
     }
 
+    /*  */
     protected function parseUploadFiles($http_post_boundary)
     {
         $http_post_boundary = trim($http_post_boundary, '"');
@@ -208,6 +210,7 @@ class request
         while ($max_count-- > 0 && $offset) $offset = $this->parseUploadFile($http_post_boundary, $offset);
     }
 
+    /* Parsing the file upload. */
     protected function parseUploadFile($boundary, $section_start_offset): int
     {
         $file = [];
@@ -264,11 +267,13 @@ class request
         return $section_end_offset + strlen($boundary) + 2;
     }
 
+    /* A method that returns a string. */
     public function rawBody(): string
     {
         return substr($this->_buffer, strpos($this->_buffer, "\r\n\r\n") + 4);
     }
 
+    /* A function that is returning the name of the file. */
     public function file($name = null)
     {
         if (!isset($this->_data['files'])) $this->parsePost();
@@ -276,18 +281,21 @@ class request
         return $this->_data['files'][$name] ?? null;
     }
 
+    /* A method declaration. */
     public function method()
     {
         if (!isset($this->_data['method'])) $this->parseHeadFirstLine();
         return $this->_data['method'];
     }
 
+    /* A method that returns the protocol version. */
     public function protocolVersion()
     {
         if (!isset($this->_data['protocolVersion'])) $this->parseProtocolVersion();
         return $this->_data['protocolVersion'];
     }
 
+    /* A comment. */
     protected function parseProtocolVersion()
     {
         $first_line = strstr($this->_buffer, "\r\n", true);
@@ -295,6 +303,7 @@ class request
         $this->_data['protocolVersion'] = $protoco_version ?: '1.0';
     }
 
+    /* A function that returns the hostname of the server. */
     public function host($without_port = false)
     {
         $host = $this->header('host');
@@ -302,12 +311,14 @@ class request
         return $host;
     }
 
+    /* A method that returns the path of the file. */
     public function path()
     {
         if (!isset($this->_data['path'])) $this->_data['path'] = (string)parse_url($this->uri(), PHP_URL_PATH);
         return $this->_data['path'];
     }
 
+    /*  */
     public function sessionRegenerateId($delete_old_session = false)
     {
         $session = $this->session();
@@ -321,6 +332,7 @@ class request
         $this->setSidCookie($session_name, $new_sid, $cookie_params);
     }
 
+    /* Creating a function called session that returns a boolean or a Session object. */
     public function session(): bool|Session
     {
         if ($this->session === null) {
@@ -331,6 +343,7 @@ class request
         return $this->session;
     }
 
+    /*  */
     public function sessionId($session_id = null)
     {
         if ($session_id) unset($this->sid);
@@ -351,6 +364,7 @@ class request
         return $this->sid;
     }
 
+    /*  */
     public function cookie($name = null, $default = null)
     {
         if (!isset($this->_data['cookie'])) {
@@ -369,41 +383,49 @@ class request
         return bin2hex(pack('d', microtime(true)) . random_bytes(8));
     }
 
+    /*  */
     protected function setSidCookie(string $session_name, string $sid, array $cookie_params)
     {
         $this->connection->__header['Set-Cookie'] = [$session_name . '=' . $sid . (empty($cookie_params['domain']) ? '' : '; Domain=' . $cookie_params['domain']) . (empty($cookie_params['lifetime']) ? '' : '; Max-Age=' . $cookie_params['lifetime']) . (empty($cookie_params['path']) ? '' : '; Path=' . $cookie_params['path']) . (empty($cookie_params['samesite']) ? '' : '; SameSite=' . $cookie_params['samesite']) . (!$cookie_params['secure'] ? '' : '; Secure') . (!$cookie_params['httponly'] ? '' : '; HttpOnly')];
     }
 
+    /* A method that returns the raw buffer. */
     public function rawBuffer()
     {
         return $this->_buffer;
     }
 
+    /* A magic method that is called when a non-existent or inaccessible property is called. */
     public function __get($name)
     {
         return $this->properties[$name] ?? null;
     }
 
+    /* A magic method that allows you to set a property that does not exist. */
     public function __set($name, $value)
     {
         $this->properties[$name] = $value;
     }
 
+    /* Checking if the property is set. */
     public function __isset($name)
     {
         return isset($this->properties[$name]);
     }
 
+    /* A magic method that is called when you try to unset a property that does not exist. */
     public function __unset($name)
     {
         unset($this->properties[$name]);
     }
 
+    /* A magic method that is called when the object is used in a string context. */
     public function __toString()
     {
         return $this->_buffer;
     }
 
+    /* Destructor */
     public function __destruct()
     {
         if (isset($this->_data['files'])) {
