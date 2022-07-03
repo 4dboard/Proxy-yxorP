@@ -1,8 +1,8 @@
 <?php
 
-error_reporting(error_level: 0);
-
 namespace yxorP;
+
+error_reporting(error_level: 0);
 
 /* Importing the constants class from the inc folder. */
 
