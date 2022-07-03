@@ -953,6 +953,7 @@ class worker
                 }
             }
         }
+    }
 
         #[
         NoReturn] protected static function exitAndClearAll()
