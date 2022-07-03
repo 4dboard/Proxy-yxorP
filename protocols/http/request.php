@@ -138,19 +138,13 @@ class request
             return;
         }
         $body_buffer = $this->rawBody();
-        if ($body_buffer === '') {
-            return;
-        }
+        if ($body_buffer === '') return;
         $cacheable = static::$_enableCache && !isset($body_buffer[1024]);
         if ($cacheable && isset($cache[$body_buffer])) {
             $this->_data['post'] = $cache[$body_buffer];
             return;
         }
-        if (preg_match('/\bjson\b/i', $content_type)) {
-            $this->_data['post'] = (array)json_decode($body_buffer, true);
-        } else {
-            parse_str($body_buffer, $this->_data['post']);
-        }
+        if (preg_match('/\bjson\b/i', $content_type)) $this->_data['post'] = (array)json_decode($body_buffer, true); else  parse_str($body_buffer, $this->_data['post']);
         if ($cacheable) {
             $cache[$body_buffer] = $this->_data['post'];
             if (count($cache) > 256) {
