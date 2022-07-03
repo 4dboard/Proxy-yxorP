@@ -27,6 +27,7 @@ class websocket implements protocolInterface
     const BINARY_TYPE_BLOB = "\x81";
     const BINARY_TYPE_ARRAYBUFFER = "\x82";
 
+    /* A function that takes in a buffer and a connectionInterface and returns a string. */
     public static function input($buffer, connectionInterface $connection)
     {
         $recv_len = strlen($buffer);
