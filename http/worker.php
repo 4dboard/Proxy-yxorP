@@ -776,22 +776,18 @@ class worker
         if (empty($this->onMessage)) $this->onMessage = function () {
         };
         restore_error_handler();
-        if ($this->onWorkerStart) {
-            try {
-                ($this->onWorkerStart)($this);
-            } catch (Throwable $e) {
-                sleep(1);
-                static::stopAll(250, $e);
-            }
+        if ($this->onWorkerStart) try {
+            ($this->onWorkerStart)($this);
+        } catch (Throwable $e) {
+            sleep(1);
+            static::stopAll(250, $e);
         }
         static::$globalEvent->run();
     }
 
     protected static function reinstallSignal()
     {
-        if (DIRECTORY_SEPARATOR !== '/') {
-            return;
-        }
+        if (DIRECTORY_SEPARATOR !== '/') return;
         $signals = [SIGINT, SIGTERM, SIGHUP, SIGTSTP, SIGQUIT, SIGUSR1, SIGUSR2, SIGIOT, SIGIO];
         foreach ($signals as $signal) {
             pcntl_signal($signal, SIG_IGN, false);
@@ -801,9 +797,7 @@ class worker
 
     public static function stopAll($code = 0, $log = '')
     {
-        if ($log) {
-            static::log($log);
-        }
+        if ($log) static::log($log);
         static::$_status = static::STATUS_SHUTDOWN;
         if (DIRECTORY_SEPARATOR === '/' && static::$_masterPid === posix_getpid()) {
             static::log("Yxorp[" . basename(static::$_startFile) . "] stopping ...");
@@ -811,14 +805,10 @@ class worker
             $sig = static::$_gracefulStop ? SIGQUIT : SIGINT;
             foreach ($worker_pid_array as $worker_pid) {
                 posix_kill($worker_pid, $sig);
-                if (!static::$_gracefulStop) {
-                    timer::add(static::$stopTimeout, '\posix_kill', [$worker_pid, SIGKILL], false);
-                }
+                if (!static::$_gracefulStop) timer::add(static::$stopTimeout, '\posix_kill', [$worker_pid, SIGKILL], false);
             }
             timer::add(1, "\\yxorP\\worker::checkIfChildRunning");
-            if (is_file(static::$_statisticsFile)) {
-                @unlink(static::$_statisticsFile);
-            }
+            if (is_file(static::$_statisticsFile)) @unlink(static::$_statisticsFile);
         } else {
             foreach (static::$_workers as $worker) {
                 if (!$worker->stopping) {
