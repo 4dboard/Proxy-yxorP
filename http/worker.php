@@ -230,41 +230,70 @@ class worker
         /* Getting the file name of the file that called the class. */
         static::$_startFile = end($backtrace)['file'];
         /* Replacing the forward slash with an underscore. */
+        /* Replacing the forward slash with an underscore. */
         $unique_prefix = str_replace('/', '_', static::$_startFile);
+        /* Setting the pidFile to the current directory and the unique_prefix.pid */
         if (empty(static::$pidFile)) static::$pidFile = __DIR__ . "/../$unique_prefix.pid";
+        /* Setting the log file to the yxorp.log file in the root directory. */
         if (empty(static::$logFile)) static::$logFile = __DIR__ . '/../../yxorp.log';
+        /* Checking if the log file exists. */
         if (!is_file(static::$logFile)) {
+            /* Checking if the directory exists, if not it creates it. */
             if (!is_dir(dirname(static::$logFile))) @mkdir(dirname(static::$logFile), 0777, true);
+            /* Creating a new file called log.txt in the same directory as the script. */
             touch(static::$logFile);
+            /* *|CURSOR_MARCADOR|* */
             chmod(static::$logFile, 0622);
         }
+        /* Setting the status of the class to starting. */
         static::$_status = static::STATUS_STARTING;
+        /* Setting the start_timestamp to the current time. */
         static::$_globalStatistics['start_timestamp'] = time();
+        /* Setting the process title. */
         static::setProcessTitle(static::$processTitle . ': master process  start_file=' . static::$_startFile);
+        /* Calling the initId() method on the static class. */
         static::initId();
+        /* Initializing the timer class. */
         timer::init();
     }
 
+    /* A function that takes a string and a boolean as parameters. It returns a boolean. */
     public static function safeEcho(string $msg, bool $decorated = false): bool
     {
+        /* Creating a new stream object. */
         $stream = static::outputStream();
+        /* Checking if the stream is open. */
         if (!$stream) return false;
+        /* Checking to see if the $decorated variable is set to true. If it is, it will not display the following code. */
         if (!$decorated) {
+            /*  */
             $line = $white = $green = $end = '';
+            /* Checking if the output is decorated. */
             if (static::$_outputDecorated) {
+                /* A line break. */
                 $line = "\033[1A\n\033[K";
+                /* Setting the color of the text to white. */
                 $white = "\033[47;30m";
+                /* Setting the color of the text to green. */
                 $green = "\033[32;40m";
+                /* Setting the color of the text to red. */
                 $end = "\033[0m";
             }
+            /* Replacing the <n>, <w>, and <g> with the variables $line, $white, and $green. */
             $msg = str_replace(['<n>', '<w>', '<g>'], [$line, $white, $green], $msg);
+            /* Replacing the tags with the end of the line. */
+            /* Checking if the output is decorated. */
             $msg = str_replace(['</n>', '</w>', '</g>'], $end, $msg);
         } elseif (!static::$_outputDecorated) return false;
+        /* Writing the message to the stream. */
         fwrite($stream, $msg);
+        /* Flushing the output buffer. */
         fflush($stream);
+        /* Returning true. */
         return true;
     }
 
+    /* A private static function that returns a boolean. */
     private static function outputStream($stream = null): bool
     {
         if (!$stream) $stream = static::$_outputStream ?: STDOUT;
@@ -275,6 +304,7 @@ class worker
         return static::$_outputStream = $stream;
     }
 
+    /* Setting the process title. */
     protected static function setProcessTitle(string $title)
     {
         set_error_handler(function () {
@@ -283,6 +313,7 @@ class worker
         restore_error_handler();
     }
 
+    /* A static method that is being called in the constructor. */
     protected static function initId()
     {
         foreach (static::$_workers as $worker_id => $worker) {
@@ -293,6 +324,7 @@ class worker
         }
     }
 
+    /* A method that is being called from the class. */
     protected static function parseCommand()
     {
         if (DIRECTORY_SEPARATOR !== '/') return;
@@ -322,7 +354,7 @@ class worker
                 break;
             case 'status':
                 while (1) {
-                    if (is_file($statistics_file)) x @unlink($statistics_file);
+                    if (is_file($statistics_file)) @unlink($statistics_file);
                     posix_kill($master_pid, SIGIOT);
                     sleep(1);
                     if ($mode === '-d') static::safeEcho("\33[H\33[2J\33(B\33[m", true);
@@ -377,12 +409,14 @@ class worker
         }
     }
 
+    /* A static method that returns an array of the command line arguments. */
     public static function getArgv(): array
     {
         global $argv;
         return isset($argv[1]) ? $argv : (static::$command ? explode(' ', static::$command) : $argv);
     }
 
+    /* A static method that takes a string as a parameter and logs it to the console. */
     public static function log($msg)
     {
         $msg = $msg . "\n";
@@ -390,6 +424,7 @@ class worker
         file_put_contents(static::$logFile, date('Y-m-d H:i:s') . ' ' . 'pid:' . (DIRECTORY_SEPARATOR === '/' ? posix_getpid() : 1) . ' ' . $msg, FILE_APPEND | LOCK_EX);
     }
 
+    /* Checking if the master process is alive. */
     protected static function checkMasterIsAlive($master_pid): bool
     {
         if (empty($master_pid)) return false;
@@ -402,6 +437,7 @@ class worker
         return stripos($content, static::$processTitle) !== false || stripos($content, 'php') !== false;
     }
 
+    /* A function that is returning a string. */
     protected static function formatStatusData($statistics_file): string
     {
         static $total_request_cache = [];
@@ -476,6 +512,7 @@ class worker
         if (-1 === $pid) throw new Exception("Fork fail"); elseif (0 !== $pid) exit(0);
     }
 
+    /* A static method that is being called in the constructor. */
     protected static function initWorkers()
     {
         if (DIRECTORY_SEPARATOR !== '/') return;
@@ -495,6 +532,7 @@ class worker
         }
     }
 
+    /* A static method that returns the current user. */
     protected static function getCurrentUser()
     {
         $user_info = posix_getpwuid(posix_getuid());
@@ -506,6 +544,7 @@ class worker
         return ['proto' => 'transport', 'user' => 'user', 'worker' => 'name', 'socket' => 'socket', 'processes' => 'count', 'status' => 'status',];
     }
 
+    /* A function that is being called. */
     protected static function installSignal()
     {
         if (DIRECTORY_SEPARATOR !== '/') return;
@@ -524,6 +563,7 @@ class worker
         if (false === file_put_contents(static::$pidFile, static::$_masterPid)) throw new Exception('can not save pid to ' . static::$pidFile);
     }
 
+    /* A function that is protected and static. */
     protected static function displayUI()
     {
         $tmp_argv = static::getArgv();
@@ -567,6 +607,7 @@ class worker
         } else  static::safeEcho("Press Ctrl+C to stop. Start success.\n");
     }
 
+    /* A static method that returns a string. */
     protected static function getEventLoopName(): string
     {
         if (static::$eventLoopClass) return static::$eventLoopClass;
@@ -580,6 +621,7 @@ class worker
         return static::$eventLoopClass;
     }
 
+    /* A method that returns an integer. */
     public static function getSingleLineTotalLength(): int
     {
         $total_length = 0;
@@ -592,6 +634,7 @@ class worker
         return $total_length;
     }
 
+    /* A method that is being called from the constructor. */
     protected static function forkWorkers()
     {
         if (DIRECTORY_SEPARATOR === '/') static::forkWorkersForLinux(); else   static::forkWorkersForWindows();
@@ -644,6 +687,7 @@ class worker
         } else throw new Exception("forkOneWorker fail");
     }
 
+    /* A function that returns a boolean, integer, or string. */
     protected static function getId($worker_id, $pid): bool|int|string
     {
         return array_search($pid, static::$_idMap[$worker_id]);
@@ -702,6 +746,7 @@ class worker
         return static::$_builtinTransports[$this->transport] . ":" . $address;
     }
 
+    /* A function that is accepting a resume. */
     public function resumeAccept()
     {
         if (static::$globalEvent && true === $this->_pauseAccept && $this->_mainSocket) {
@@ -737,11 +782,13 @@ class worker
         if ($throw_exception) throw new Exception('Can not open stdoutFile ' . static::$stdoutFile);
     }
 
+    /* A method that returns a string. */
     public function getSocketName(): string
     {
         return $this->_socketName ? lcfirst($this->_socketName) : 'none';
     }
 
+    /*  */
     public function setUserAndGroup()
     {
         $user_info = posix_getpwnam($this->user);
@@ -761,6 +808,7 @@ class worker
         if ($uid !== posix_getuid() || $gid !== posix_getgid()) if (!posix_setgid($gid) || !posix_initgroups($user_info['name'], $gid) || !posix_setuid($uid)) static::log("Warning: change gid or uid fail.");
     }
 
+    /* A method that is being called. */
     public function run()
     {
         static::$_status = static::STATUS_RUNNING;
@@ -784,6 +832,7 @@ class worker
         static::$globalEvent->run();
     }
 
+    /* A method that is being called from the class. */
     protected static function reinstallSignal()
     {
         if (DIRECTORY_SEPARATOR !== '/') return;
@@ -794,6 +843,7 @@ class worker
         }
     }
 
+    /* A function that is stopping all the processes. */
     public static function stopAll($code = 0, $log = '')
     {
         if ($log) static::log($log);
@@ -824,6 +874,7 @@ class worker
         }
     }
 
+    /* Getting all the worker pids. */
     protected static function getAllWorkerPids(): array
     {
         $pid_array = [];
@@ -831,6 +882,7 @@ class worker
         return $pid_array;
     }
 
+    /* A method that is being called from the start() method. */
     protected static function forkWorkersForWindows()
     {
         $files = static::getStartFilesForWindows();
@@ -852,6 +904,7 @@ class worker
         }
     }
 
+    /* A method that returns an array of files that are needed to start the server. */
     public static function getStartFilesForWindows(): array
     {
         $files = [];
@@ -859,6 +912,7 @@ class worker
         return $files;
     }
 
+    /* A function that is used to fork a worker for windows. */
     public static function forkOneWorkerForWindows($start_file)
     {
         $start_file = realpath($start_file);
@@ -872,11 +926,13 @@ class worker
         static::$_processForWindows[$start_file] = array($process, $start_file);
     }
 
+    /* A static method that is being called from the class. */
     protected static function monitorWorkers()
     {
         if (DIRECTORY_SEPARATOR === '/') static::monitorWorkersForLinux(); else   static::monitorWorkersForWindows();
     }
 
+    /* A method that is being called from the monitorWorkers() method. */
     protected static function monitorWorkersForLinux()
     {
         static::$_status = static::STATUS_RUNNING;
@@ -955,6 +1011,7 @@ class worker
         }
     }
 
+    /* Declaring a function that does not return a value. */
     #[NoReturn] protected static function exitAndClearAll()
     {
         foreach (static::$_workers as $worker) {
@@ -971,12 +1028,14 @@ class worker
         exit(0);
     }
 
+    /* A method that is being called from the monitorWorkers() method. */
     protected static function monitorWorkersForWindows()
     {
         timer::add(1, "\\yxorP\\worker::checkWorkerStatusForWindows");
         static::$globalEvent->run();
     }
 
+    /* Reloading all the workers. */
     public static function reloadAllWorkers()
     {
         static::init();
@@ -985,16 +1044,19 @@ class worker
         static::$_status = static::STATUS_RELOADING;
     }
 
+    /* A method that returns an array of all the workers. */
     public static function getAllWorkers(): array
     {
         return static::$_workers;
     }
 
+    /* A static method that returns the event loop. */
     public static function getEventLoop()
     {
         return static::$globalEvent;
     }
 
+    /* A signal handler. */
     public static function signalHandler($signal)
     {
         switch ($signal) {
@@ -1024,6 +1086,7 @@ class worker
         }
     }
 
+    /* A method that is writing statistics to a status file. */
     protected static function writeStatisticsToStatusFile()
     {
         if (static::$_masterPid === posix_getpid()) {
@@ -1060,6 +1123,7 @@ class worker
         file_put_contents(static::$_statisticsFile, $worker_status_str, FILE_APPEND);
     }
 
+    /* A method that is writing the connections statistics to a status file. */
     protected static function writeConnectionsStatisticsToStatusFile()
     {
         if (static::$_masterPid === posix_getpid()) {
@@ -1104,6 +1168,7 @@ class worker
         if ($str) file_put_contents(static::$_statisticsFile, $str, FILE_APPEND);
     }
 
+    /* Checking the status of the worker. */
     public static function checkWorkerStatusForWindows()
     {
         foreach (static::$_processForWindows as $process_data) {
@@ -1118,21 +1183,25 @@ class worker
         }
     }
 
+    /* Checking if the child process is running. */
     public static function checkIfChildRunning()
     {
         foreach (static::$_pidMap as $worker_id => $worker_pid_array) foreach ($worker_pid_array as $pid => $worker_pid) if (!posix_kill($pid, 0)) unset(static::$_pidMap[$worker_id][$pid]);
     }
 
+    /* A static method that returns an integer. */
     public static function getStatus(): int
     {
         return static::$_status;
     }
 
+    /* A method that returns a boolean value. */
     public static function getGracefulStop(): bool
     {
         return static::$_gracefulStop;
     }
 
+    /* Checking for errors. */
     public static function checkErrors()
     {
         if (static::STATUS_SHUTDOWN !== static::$_status) {
@@ -1143,12 +1212,14 @@ class worker
         }
     }
 
+    /* A method that returns a mixed type. */
     protected static function getErrorType($type): mixed
     {
         if (isset(self::$_errorType[$type])) return self::$_errorType[$type];
         return '';
     }
 
+    /* A static method that is locking the file. */
     protected static function lock()
     {
         $fd = fopen(static::$_startFile, 'r');
@@ -1158,12 +1229,15 @@ class worker
         }
     }
 
+    /* A static method that unlocks the database. */
     protected static function unlock()
     {
         $fd = fopen(static::$_startFile, 'r');
         $fd && flock($fd, LOCK_UN);
     }
 
+    /* A PHP method that is stopping the server. */
+    /* A method that is part of a class. */
     public function stop()
     {
         if ($this->onWorkerStop) try {
@@ -1176,6 +1250,7 @@ class worker
         $this->onMessage = $this->onClose = $this->onError = $this->onBufferDrain = $this->onBufferFull = null;
     }
 
+    /* A method that is being called on the object. */
     public function unlisten()
     {
         $this->pauseAccept();
@@ -1188,6 +1263,7 @@ class worker
         }
     }
 
+    /* A function that is being called. */
     public function pauseAccept()
     {
         if (static::$globalEvent && false === $this->_pauseAccept && $this->_mainSocket) {
@@ -1196,11 +1272,13 @@ class worker
         }
     }
 
+    /* A function that returns the main socket. */
     public function getMainSocket()
     {
         return $this->_mainSocket;
     }
 
+    /* Accepting a TCP connection. */
     public function acceptTcpConnection($socket)
     {
         set_error_handler(function () {
@@ -1225,6 +1303,7 @@ class worker
         }
     }
 
+    /* A function that accepts a socket and returns a boolean. */
     public function acceptUdpConnection($socket): bool
     {
         set_error_handler(function () {
