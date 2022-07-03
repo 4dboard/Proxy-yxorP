@@ -105,7 +105,7 @@ class request
     /* A function that returns the URI of the current page. */
     public function uri()
     {
-        if (!isset($this->_data['uri']))   $this->parseHeadFirstLine();
+        if (!isset($this->_data['uri'])) $this->parseHeadFirstLine();
         return $this->_data['uri'];
     }
 
@@ -121,8 +121,8 @@ class request
     /* A function that is being called post. It is taking in two parameters, name and default. */
     public function post($name = null, $default = null)
     {
-        if (!isset($this->_data['post']))   $this->parsePost();
-        if (null === $name)  return $this->_data['post'];
+        if (!isset($this->_data['post'])) $this->parsePost();
+        if (null === $name) return $this->_data['post'];
         return $this->_data['post'][$name] ?? $default;
     }
 
