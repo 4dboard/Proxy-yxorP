@@ -193,9 +193,7 @@ class websocket implements protocolInterface
                         if (stripos($header, 'Server:') === 0) $has_server_header = true;
                         $handshake_message .= "$header\r\n";
                     } else {
-                    if (stripos($connection->headers, 'Server:') !== false) {
-                        $has_server_header = true;
-                    }
+                    if (stripos($connection->headers, 'Server:') !== false) $has_server_header = true;
                     $handshake_message .= "$connection->headers\r\n";
                 }
             }
