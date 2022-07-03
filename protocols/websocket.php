@@ -185,19 +185,14 @@ class websocket implements protocolInterface
             $connection->websocketCurrentFrameLength = 0;
             $connection->websocketCurrentFrameBuffer = '';
             $connection->consumeRecvBuffer($header_length);
-            if (empty($connection->websocketType)) {
-                $connection->websocketType = static::BINARY_TYPE_BLOB;
-            }
+            if (empty($connection->websocketType))   $connection->websocketType = static::BINARY_TYPE_BLOB;
             $has_server_header = false;
             if (isset($connection->headers)) {
-                if (is_array($connection->headers)) {
+                if (is_array($connection->headers))
                     foreach ($connection->headers as $header) {
-                        if (stripos($header, 'Server:') === 0) {
-                            $has_server_header = true;
-                        }
+                        if (stripos($header, 'Server:') === 0)   $has_server_header = true;
                         $handshake_message .= "$header\r\n";
-                    }
-                } else {
+                    }else {
                     if (stripos($connection->headers, 'Server:') !== false) {
                         $has_server_header = true;
                     }
