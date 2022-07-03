@@ -319,21 +319,21 @@ class worker
         $statistics_file = static::$statusFile ?: __DIR__ . "/../workerman-$master_pid.status";
         switch ($command) {
             case 'start':
-                if ($mode === '-d')   static::$daemonize = true;
+                if ($mode === '-d') static::$daemonize = true;
                 break;
             case 'status':
                 while (1) {
-                    if (is_file($statistics_file))x @unlink($statistics_file);
+                    if (is_file($statistics_file)) x @unlink($statistics_file);
                     posix_kill($master_pid, SIGIOT);
                     sleep(1);
                     if ($mode === '-d') static::safeEcho("\33[H\33[2J\33(B\33[m", true);
                     static::safeEcho(static::formatStatusData($statistics_file));
-                    if ($mode !== '-d')    exit(0);
+                    if ($mode !== '-d') exit(0);
                     static::safeEcho("\nPress Ctrl+C to quit.\n\n");
                 }
                 exit(0);
             case 'connections':
-                if (is_file($statistics_file) && is_writable($statistics_file))  unlink($statistics_file);
+                if (is_file($statistics_file) && is_writable($statistics_file)) unlink($statistics_file);
                 posix_kill($master_pid, SIGIO);
                 usleep(500000);
                 if (is_readable($statistics_file)) readfile($statistics_file);
@@ -363,13 +363,13 @@ class worker
                         continue;
                     }
                     static::log("Workerman[$start_file] stop success");
-                    if ($command === 'stop')  exit(0);
-                    if ($mode === '-d')   static::$daemonize = true;
+                    if ($command === 'stop') exit(0);
+                    if ($mode === '-d') static::$daemonize = true;
                     break;
                 }
                 break;
             case 'reload':
-                if ($mode === '-g')   $sig = SIGUSR2;else   $sig = SIGUSR1;
+                if ($mode === '-g') $sig = SIGUSR2; else   $sig = SIGUSR1;
                 posix_kill($master_pid, $sig);
                 exit;
             default:
@@ -387,28 +387,28 @@ class worker
     public static function log($msg)
     {
         $msg = $msg . "\n";
-        if (!static::$daemonize)static::safeEcho($msg);
+        if (!static::$daemonize) static::safeEcho($msg);
         file_put_contents(static::$logFile, date('Y-m-d H:i:s') . ' ' . 'pid:' . (DIRECTORY_SEPARATOR === '/' ? posix_getpid() : 1) . ' ' . $msg, FILE_APPEND | LOCK_EX);
     }
 
     protected static function checkMasterIsAlive($master_pid): bool
     {
-        if (empty($master_pid))    return false;
+        if (empty($master_pid)) return false;
         $master_is_alive = posix_kill((int)$master_pid, 0) && posix_getpid() !== $master_pid;
-        if (!$master_is_alive)  return false;
+        if (!$master_is_alive) return false;
         $cmdline = "/proc/{$master_pid}/cmdline";
-        if (!is_readable($cmdline) || empty(static::$processTitle))  return true;
+        if (!is_readable($cmdline) || empty(static::$processTitle)) return true;
         $content = file_get_contents($cmdline);
-        if (empty($content))  return true;
+        if (empty($content)) return true;
         return stripos($content, static::$processTitle) !== false || stripos($content, 'php') !== false;
     }
 
     protected static function formatStatusData($statistics_file): string
     {
         static $total_request_cache = [];
-        if (!is_readable($statistics_file))    return '';
+        if (!is_readable($statistics_file)) return '';
         $info = file($statistics_file, FILE_IGNORE_NEW_LINES);
-        if (!$info)   return '';
+        if (!$info) return '';
         $status_str = '';
         $current_total_request = [];
         $worker_info = unserialize($info[0]);
@@ -451,7 +451,7 @@ class worker
                 continue;
             }
             if (!isset($total_request_cache[$pid]) || !isset($current_total_request[$pid]))
-                $qps = 0;else {
+                $qps = 0; else {
                 $qps = $current_total_request[$pid] - $total_request_cache[$pid];
                 $total_qps += $qps;
             }
@@ -468,22 +468,22 @@ class worker
      */
     protected static function daemonize()
     {
-        if (!static::$daemonize || DIRECTORY_SEPARATOR !== '/')   return;
+        if (!static::$daemonize || DIRECTORY_SEPARATOR !== '/') return;
         umask(0);
         $pid = pcntl_fork();
-        if (-1 === $pid) throw new Exception('Fork fail'); elseif ($pid > 0)   exit(0);
-        if (-1 === posix_setsid())   throw new Exception("Setsid fail");
+        if (-1 === $pid) throw new Exception('Fork fail'); elseif ($pid > 0) exit(0);
+        if (-1 === posix_setsid()) throw new Exception("Setsid fail");
         $pid = pcntl_fork();
-        if (-1 === $pid)  throw new Exception("Fork fail");elseif (0 !== $pid)   exit(0);
+        if (-1 === $pid) throw new Exception("Fork fail"); elseif (0 !== $pid) exit(0);
     }
 
     protected static function initWorkers()
     {
-        if (DIRECTORY_SEPARATOR !== '/')    return;
+        if (DIRECTORY_SEPARATOR !== '/') return;
         static::$_statisticsFile = static::$statusFile ?: __DIR__ . '/../workerman-' . posix_getpid() . '.status';
         foreach (static::$_workers as $worker) {
             if (empty($worker->name)) $worker->name = 'none';
-            if (empty($worker->user))  $worker->user = static::getCurrentUser();else if (posix_getuid() !== 0 && $worker->user !== static::getCurrentUser())  static::log('Warning: You must have the root privileges to change uid and gid.');
+            if (empty($worker->user)) $worker->user = static::getCurrentUser(); else if (posix_getuid() !== 0 && $worker->user !== static::getCurrentUser()) static::log('Warning: You must have the root privileges to change uid and gid.');
             $worker->socket = $worker->getSocketName();
             $worker->status = '<g> [OK] </g>';
             foreach (static::getUiColumns() as $column_name => $prop) {
@@ -509,9 +509,9 @@ class worker
 
     protected static function installSignal()
     {
-        if (DIRECTORY_SEPARATOR !== '/')    return;
+        if (DIRECTORY_SEPARATOR !== '/') return;
         $signals = [SIGINT, SIGTERM, SIGHUP, SIGTSTP, SIGQUIT, SIGUSR1, SIGUSR2, SIGIOT, SIGIO];
-        foreach ($signals as $signal)  pcntl_signal($signal, [static::class, 'signalHandler'], false);
+        foreach ($signals as $signal) pcntl_signal($signal, [static::class, 'signalHandler'], false);
         pcntl_signal(SIGPIPE, SIG_IGN, false);
     }
 
@@ -520,7 +520,7 @@ class worker
      */
     protected static function saveMasterPid()
     {
-        if (DIRECTORY_SEPARATOR !== '/')   return;
+        if (DIRECTORY_SEPARATOR !== '/') return;
         static::$_masterPid = posix_getpid();
         if (false === file_put_contents(static::$pidFile, static::$_masterPid)) throw new Exception('can not save pid to ' . static::$pidFile);
     }
