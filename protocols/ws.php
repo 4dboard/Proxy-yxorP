@@ -1,10 +1,11 @@
 <?php namespace yxorP\protocols;
 
+use Exception;
 use Throwable;
 use yxorP\connection\connectionInterface;
 use yxorP\connection\tcpConnection;
 use yxorP\http\timer;
-use yxorP\Timer;
+use yxorP\http\timer;
 use yxorP\Worker;
 use function base64_encode;
 use function bin2hex;
@@ -285,7 +286,7 @@ class ws
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function sendHandshake(tcpConnection $connection)
     {

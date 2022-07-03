@@ -5,7 +5,7 @@
 use Exception;
 use Throwable;
 use yxorP\http\timer;
-use yxorP\Timer;
+use yxorP\http\timer;
 use yxorP\Worker;
 use function class_exists;
 use function explode;
