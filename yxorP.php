@@ -152,12 +152,21 @@ class yxorP
         /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
         define(YXORP_COCKPIT_INSTALL, true);
 
-        shell_exec('cp -a ' . PATH_COCKPIT_LOCAL . ' ' . PATH_DIR_COCKPIT);
+        /* It's copying the files from the `local` directory to the `cockpit` directory. */
+        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
 
         /* It's creating an array of user data. */
         $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
         /* It's inserting a new user into the `cockpit_accounts` collection. */
         constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
+    }
+
+    function migrate($src, $dst)
+    {
+        $dir = opendir($src);
+        @mkdir($dst);
+        foreach (scandir($src) as $file) if (($file != CHAR_PERIOD) && ($file != CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) copy_folder($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
+        closedir($dir);
     }
 
 
