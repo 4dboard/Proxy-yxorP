@@ -642,7 +642,7 @@ class worker
             $err = new Exception('event-loop exited');
             static::log($err);
             exit(250);
-        } else   throw new Exception("forkOneWorker fail");
+        } else throw new Exception("forkOneWorker fail");
     }
 
     protected static function getId($worker_id, $pid): bool|int|string
