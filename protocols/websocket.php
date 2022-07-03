@@ -266,17 +266,13 @@ class websocket implements protocolInterface
                 $encode_buffer = $first_byte . chr(127) . pack("xxxxN", $len) . $buffer;
 
         if (empty($connection->websocketHandshake)) {
-            if (empty($connection->tmpWebsocketData)) {
-                $connection->tmpWebsocketData = '';
-            }
+            if (empty($connection->tmpWebsocketData))  $connection->tmpWebsocketData = '';
             if (strlen($connection->tmpWebsocketData) > $connection->maxSendBufferSize) {
-                if ($connection->onError) {
-                    try {
+                if ($connection->onError)   try {
                         ($connection->onError)($connection, connectionInterface::SEND_FAIL, 'send buffer full and drop package');
                     } catch (Throwable $e) {
                         Worker::stopAll(250, $e);
                     }
-                }
                 return '';
             }
             $connection->tmpWebsocketData .= $encode_buffer;
