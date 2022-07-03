@@ -70,14 +70,11 @@ class Session
         if (static::$_handlerConfig === null) static::$_handler = new static::$_handlerClass(); else   static::$_handler = new static::$_handlerClass(static::$_handlerConfig);
     }
 
+    /* It's initializing the session handler. */
     public static function init()
     {
-        if ($gc_probability = (int)ini_get('session.gc_probability') && $gc_divisor = (int)ini_get('session.gc_divisor')) {
-            static::$gcProbability = [true, $gc_divisor];
-        }
-        if ($gc_max_life_time = ini_get('session.gc_maxlifetime')) {
-            self::$lifetime = (int)$gc_max_life_time;
-        }
+        if ($gc_probability = (int)ini_get('session.gc_probability') && $gc_divisor = (int)ini_get('session.gc_divisor')) static::$gcProbability = [true, $gc_divisor];
+        if ($gc_max_life_time = ini_get('session.gc_maxlifetime')) self::$lifetime = (int)$gc_max_life_time;
         $session_cookie_params = session_get_cookie_params();
         static::$cookieLifetime = $session_cookie_params['lifetime'];
         static::$cookiePath = $session_cookie_params['path'];
@@ -86,14 +83,11 @@ class Session
         static::$httpOnly = $session_cookie_params['httponly'];
     }
 
+    /* It's setting the session handler class. */
     public static function handlerClass($class_name = null, $config = null): string
     {
-        if ($class_name) {
-            static::$_handlerClass = $class_name;
-        }
-        if ($config) {
-            static::$_handlerConfig = $config;
-        }
+        if ($class_name) static::$_handlerClass = $class_name;
+        if ($config) static::$_handlerConfig = $config;
         return static::$_handlerClass;
     }
 
