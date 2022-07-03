@@ -9,7 +9,7 @@ use yxorP\inc\wrapper;
 class mimeTypesAction extends wrapper
 {
     /* Setting the content type of the response. */
-    public function onBuildHeaders(): void
+    public function onBuildContext(): void
     {
         /* An array of mime types. */
         $_types = array('txt' => 'text' . CHAR_SLASH . 'plain', 'htm' => 'text' . CHAR_SLASH . 'html', 'html' => 'text' . CHAR_SLASH . 'html', 'php' => 'text' .
