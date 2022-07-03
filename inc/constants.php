@@ -620,7 +620,7 @@ class constants
      * @param $_name
      * @return mixed
      */
-    public static function get($_name)
+    public static function get($_name): mixed
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
