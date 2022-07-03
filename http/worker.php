@@ -1043,7 +1043,7 @@ class worker
             file_put_contents(static::$_statisticsFile, str_pad('worker_name', static::$_maxWorkerNameLength) . " exit_status      exit_count\n", FILE_APPEND);
             foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
                 $worker = static::$_workers[$worker_id];
-                if (isset(static::$_globalStatistics['worker_exit_info'][$worker_id]))  foreach (static::$_globalStatistics['worker_exit_info'][$worker_id] as $worker_exit_status => $worker_exit_count) file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad($worker_exit_status, 16) . " $worker_exit_count\n", FILE_APPEND);else file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad(0, 16) . " 0\n", FILE_APPEND);
+                if (isset(static::$_globalStatistics['worker_exit_info'][$worker_id])) foreach (static::$_globalStatistics['worker_exit_info'][$worker_id] as $worker_exit_status => $worker_exit_count) file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad($worker_exit_status, 16) . " $worker_exit_count\n", FILE_APPEND); else file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad(0, 16) . " 0\n", FILE_APPEND);
 
             }
             file_put_contents(static::$_statisticsFile, "----------------------------------------------PROCESS STATUS---------------------------------------------------\n", FILE_APPEND);
