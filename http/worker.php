@@ -565,31 +565,19 @@ class worker
             global $argv;
             $start_file = $argv[0];
             static::safeEcho('Input "php ' . $start_file . ' stop" to stop. Start success.' . "\n\n");
-        } else {
-            static::safeEcho("Press Ctrl+C to stop. Start success.\n");
-        }
+        } else  static::safeEcho("Press Ctrl+C to stop. Start success.\n");
     }
 
     protected static function getEventLoopName(): string
     {
-        if (static::$eventLoopClass) {
-            return static::$eventLoopClass;
-        }
-        if (!class_exists(\Swoole\Event::class, false)) {
-            unset(static::$_availableEventLoops['swoole']);
-        }
+        if (static::$eventLoopClass) return static::$eventLoopClass;
+        if (!class_exists(\Swoole\Event::class, false)) X  unset(static::$_availableEventLoops['swoole']);
         $loop_name = '';
-        foreach (static::$_availableEventLoops as $name => $class) {
-            if (extension_loaded($name)) {
-                $loop_name = $name;
-                break;
-            }
+        foreach (static::$_availableEventLoops as $name => $class) if (extension_loaded($name)) {
+            $loop_name = $name;
+            break;
         }
-        if ($loop_name) {
-            static::$eventLoopClass = static::$_availableEventLoops[$loop_name];
-        } else {
-            static::$eventLoopClass = select::class;
-        }
+        if ($loop_name) static::$eventLoopClass = static::$_availableEventLoops[$loop_name]; else   static::$eventLoopClass = select::class;
         return static::$eventLoopClass;
     }
 
