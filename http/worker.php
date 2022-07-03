@@ -1114,19 +1114,13 @@ class worker
                 static::safeEcho("process $start_file terminated and try to restart\n");
                 proc_close($process);
                 static::forkOneWorkerForWindows($start_file);
-            } else   static::safeEcho("proc_get_status fail\n");
+            } else static::safeEcho("proc_get_status fail\n");
         }
     }
 
     public static function checkIfChildRunning()
     {
-        foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
-            foreach ($worker_pid_array as $pid => $worker_pid) {
-                if (!posix_kill($pid, 0)) {
-                    unset(static::$_pidMap[$worker_id][$pid]);
-                }
-            }
-        }
+        foreach (static::$_pidMap as $worker_id => $worker_pid_array) foreach ($worker_pid_array as $pid => $worker_pid) if (!posix_kill($pid, 0)) unset(static::$_pidMap[$worker_id][$pid]);
     }
 
     public static function getStatus(): int
