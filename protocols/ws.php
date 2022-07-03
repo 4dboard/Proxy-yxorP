@@ -89,9 +89,7 @@ class ws
                             Worker::stopAll(250, $e);
                         } else  $connection->send($ping_data);
                         $connection->websocketType = $tmp_connection_type;
-                        if ($recv_len > $current_frame_length) {
-                            return static::input(substr($buffer, $current_frame_length), $connection);
-                        }
+                        if ($recv_len > $current_frame_length) return static::input(substr($buffer, $current_frame_length), $connection);
                     }
                     return 0;
                 } else if ($opcode === 0xa) {
@@ -100,24 +98,18 @@ class ws
                         $connection->consumeRecvBuffer($current_frame_length);
                         $tmp_connection_type = $connection->websocketType ?? static::BINARY_TYPE_BLOB;
                         $connection->websocketType = "\x8a";
-                        if (isset($connection->onWebSocketPong)) {
-                            try {
-                                ($connection->onWebSocketPong)($connection, $pong_data);
-                            } catch (Throwable $e) {
-                                Worker::stopAll(250, $e);
-                            }
+                        if (isset($connection->onWebSocketPong)) try {
+                            ($connection->onWebSocketPong)($connection, $pong_data);
+                        } catch (Throwable $e) {
+                            Worker::stopAll(250, $e);
                         }
                         $connection->websocketType = $tmp_connection_type;
-                        if ($recv_len > $current_frame_length) {
-                            return static::input(substr($buffer, $current_frame_length), $connection);
-                        }
+                        if ($recv_len > $current_frame_length) return static::input(substr($buffer, $current_frame_length), $connection);
                     }
                     return 0;
                 }
                 return $current_frame_length;
-            } else {
-                $connection->websocketCurrentFrameLength = $current_frame_length;
-            }
+            } else   $connection->websocketCurrentFrameLength = $current_frame_length;
         }
         if ($connection->websocketCurrentFrameLength === $recv_len) {
             self::decode($buffer, $connection);
