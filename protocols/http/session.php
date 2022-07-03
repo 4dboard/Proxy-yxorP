@@ -180,30 +180,37 @@ class Session
         if (random_int(1, static::$gcProbability[1]) <= static::$gcProbability[0]) $this->gc();
     }
 
+    /* It's saving the session data. */
     public function save()
     {
         if ($this->_needSave) if (empty($this->_data)) static::$_handler->destroy($this->_sessionId); else  static::$_handler->write($this->_sessionId, serialize($this->_data)); elseif (static::$autoUpdateTimestamp) static::refresh();
         $this->_needSave = false;
     }
 
+    /* It's refreshing the session. */
     public function refresh()
     {
         static::$_handler->updateTimestamp($this->getId());
     }
 
+    /* It's returning the session id. */
     public function getId()
     {
         return $this->_sessionId;
     }
 
+    /* It's garbage collecting. */
     public function gc()
     {
         static::$_handler->gc(static::$lifetime);
     }
 }
 
+/* It's a class that handles sessions. */
+
 class SessionException extends RuntimeException
 {
 }
 
+/* It's initializing the session handler. */
 Session::init();
