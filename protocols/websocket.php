@@ -6,21 +6,8 @@ use yxorP\connection\connectionInterface;
 use yxorP\connection\tcpConnection;
 use yxorP\protocols\Http\request;
 use yxorP\Worker;
-use function base64_encode;
-use function chr;
-use function floor;
-use function gettype;
-use function is_array;
-use function ord;
-use function pack;
-use function preg_match;
-use function sha1;
-use function str_repeat;
-use function stripos;
-use function strlen;
-use function strpos;
-use function substr;
-use function unpack;
+
+/* Creating a class called websocket that implements the protocolInterface. */
 
 class websocket implements protocolInterface
 {
@@ -222,6 +209,7 @@ class websocket implements protocolInterface
         return 0;
     }
 
+    /* A method that takes a buffer and a connection as parameters and returns a string. */
     public static function decode($buffer, connectionInterface $connection): string
     {
         $len = ord($buffer[1]) & 127;
