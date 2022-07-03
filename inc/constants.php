@@ -270,6 +270,8 @@ class constants
         define('YXORP_TARGET', 'TARGET');
         /* Defining a constant called YXORP_TARGET_PATTERN and setting it to the string TARGET. */
         define('YXORP_TARGET_PATTERN', 'TARGET_PATTERN');
+        /* Defining a constant called YXORP_TARGET_REPLACE and setting it to the string TARGET_REPLACE. */
+        define('YXORP_TARGET_REPLACE', 'TARGET_REPLACE');
         /* Defining a constant called YXORP_SITE and setting it to the string SITE. */
         define('YXORP_SITE', 'SITE');
         /* Defining a constant called YXORP_HOST and setting it to the string HOST. */
