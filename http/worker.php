@@ -934,16 +934,12 @@ class worker
                 if ($worker->reloadable) foreach ($worker_pid_array as $pid) $reloadable_pid_array[$pid] = $pid; else foreach ($worker_pid_array as $pid) posix_kill($pid, $sig);
                 static::$_pidsToRestart = array_intersect(static::$_pidsToRestart, $reloadable_pid_array);
                 if (empty(static::$_pidsToRestart)) {
-                    if (static::$_status !== static::STATUS_SHUTDOWN) {
-                        static::$_status = static::STATUS_RUNNING;
-                    }
+                    if (static::$_status !== static::STATUS_SHUTDOWN) static::$_status = static::STATUS_RUNNING;
                     return;
                 }
                 $one_worker_pid = current(static::$_pidsToRestart);
                 posix_kill($one_worker_pid, $sig);
-                if (!static::$_gracefulStop) {
-                    timer::add(static::$stopTimeout, '\posix_kill', [$one_worker_pid, SIGKILL], false);
-                }
+                if (!static::$_gracefulStop) timer::add(static::$stopTimeout, '\posix_kill', [$one_worker_pid, SIGKILL], false);
             }
         else {
                 reset(static::$_workers);
