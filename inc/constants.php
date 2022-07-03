@@ -580,11 +580,11 @@ class constants
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
-        constants::set(YXORP_TARGET_PATTERN, constants::get(YXORP_TARGET)[VAR_PATTERN]) ?: [];
+        constants::set(YXORP_TARGET_PATTERN, constants::get(YXORP_TARGET)[VAR_PATTERN]);
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
-        constants::set(YXORP_TARGET_REPLACE, constants::get(YXORP_TARGET)[VAR_REPLACE]) ?: [];
+        constants::set(YXORP_TARGET_REPLACE, constants::get(YXORP_TARGET)[VAR_REPLACE]);
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        constants::set(YXORP_TARGET_PLUGINS, constants::get(YXORP_TARGET)[YXORP_PLUGINS]) ?: [];
+        constants::set(YXORP_TARGET_PLUGINS, constants::get(YXORP_TARGET)[YXORP_PLUGINS]);
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
