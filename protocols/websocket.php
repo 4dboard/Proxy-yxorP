@@ -4,8 +4,8 @@ use Exception;
 use Throwable;
 use yxorP\connection\connectionInterface;
 use yxorP\connection\tcpConnection;
+use yxorP\http\worker;
 use yxorP\protocols\Http\request;
-use yxorP\Worker;
 
 /* Creating a class called websocket that implements the protocolInterface. */
 

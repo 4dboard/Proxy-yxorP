@@ -7,7 +7,7 @@ use Swoole\Event;
 use Swoole\Process;
 use Swoole\Timer;
 use Throwable;
-use yxorP\Worker;
+use yxorP\http\worker;
 
 class swoole implements eventInterface
 {

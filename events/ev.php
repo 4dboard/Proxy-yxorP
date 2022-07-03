@@ -12,7 +12,6 @@ namespace yxorP\events;
 use EvIo;
 use EvSignal;
 use EvTimer;
-use yxorP\Worker;
 use function count;
 
 /**

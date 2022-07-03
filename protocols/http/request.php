@@ -1,8 +1,8 @@
 <?php namespace yxorP\protocols\Http;
 
 use Exception;
+use yxorP\http\worker;
 use yxorP\protocols\http;
-use yxorP\Worker;
 use function array_merge_recursive;
 use function array_walk_recursive;
 use function bin2hex;
