@@ -687,26 +687,18 @@ class worker
      */
     protected function parseSocketAddress()
     {
-        if (!$this->_socketName) {
-            return;
-        }
+        if (!$this->_socketName) return;
         list($scheme, $address) = explode(':', $this->_socketName, 2);
         if (!isset(static::$_builtinTransports[$scheme])) {
             $scheme = ucfirst($scheme);
             $this->protocol = str_starts_with($scheme, '\\') ? $scheme : 'protocols\\' . $scheme;
             if (!class_exists($this->protocol)) {
                 $this->protocol = "yxorP\\protocols\\$scheme";
-                if (!class_exists($this->protocol)) {
-                    throw new Exception("class \\protocols\\$scheme not exist");
-                }
+                if (!class_exists($this->protocol)) throw new Exception("class \\protocols\\$scheme not exist");
             }
-            if (!isset(static::$_builtinTransports[$this->transport])) {
-                throw new Exception('Bad worker->transport ' . var_export($this->transport, true));
-            }
+            if (!isset(static::$_builtinTransports[$this->transport])) throw new Exception('Bad worker->transport ' . var_export($this->transport, true));
         } else {
-            if ($this->transport === 'tcp') {
-                $this->transport = $scheme;
-            }
+            if ($this->transport === 'tcp') $this->transport = $scheme;
         }
         return static::$_builtinTransports[$this->transport] . ":" . $address;
     }
@@ -714,11 +706,7 @@ class worker
     public function resumeAccept()
     {
         if (static::$globalEvent && true === $this->_pauseAccept && $this->_mainSocket) {
-            if ($this->transport !== 'udp') {
-                static::$globalEvent->onReadable($this->_mainSocket, [$this, 'acceptTcpConnection']);
-            } else {
-                static::$globalEvent->onReadable($this->_mainSocket, [$this, 'acceptUdpConnection']);
-            }
+            if ($this->transport !== 'udp') static::$globalEvent->onReadable($this->_mainSocket, [$this, 'acceptTcpConnection']); else static::$globalEvent->onReadable($this->_mainSocket, [$this, 'acceptUdpConnection']);
             $this->_pauseAccept = false;
         }
     }
@@ -728,21 +716,16 @@ class worker
      */
     public static function resetStd(bool $throw_exception = true)
     {
-        if (!static::$daemonize || DIRECTORY_SEPARATOR !== '/') {
-            return;
-        }
+        if (!static::$daemonize || DIRECTORY_SEPARATOR !== '/') return;
         global $STDOUT, $STDERR;
         $handle = fopen(static::$stdoutFile, "a");
         if ($handle) {
             unset($handle);
             set_error_handler(function () {
             });
-            if ($STDOUT) {
-                fclose($STDOUT);
-            }
-            if ($STDERR) {
-                fclose($STDERR);
-            }
+            if ($STDOUT) fclose($STDOUT);
+            if ($STDERR) fclose($STDERR);
+            x
             fclose(STDOUT);
             fclose(STDERR);
             $STDOUT = fopen(static::$stdoutFile, "a");
@@ -752,9 +735,7 @@ class worker
             restore_error_handler();
             return;
         }
-        if ($throw_exception) {
-            throw new Exception('Can not open stdoutFile ' . static::$stdoutFile);
-        }
+        if ($throw_exception) throw new Exception('Can not open stdoutFile ' . static::$stdoutFile);
     }
 
     public function getSocketName(): string
@@ -777,14 +758,8 @@ class worker
                 return;
             }
             $gid = $group_info['gid'];
-        } else {
-            $gid = $user_info['gid'];
-        }
-        if ($uid !== posix_getuid() || $gid !== posix_getgid()) {
-            if (!posix_setgid($gid) || !posix_initgroups($user_info['name'], $gid) || !posix_setuid($uid)) {
-                static::log("Warning: change gid or uid fail.");
-            }
-        }
+        } else  $gid = $user_info['gid'];
+        if ($uid !== posix_getuid() || $gid !== posix_getgid()) if (!posix_setgid($gid) || !posix_initgroups($user_info['name'], $gid) || !posix_setuid($uid)) static::log("Warning: change gid or uid fail.");
     }
 
     public function run()
@@ -798,10 +773,8 @@ class worker
         }
         static::reinstallSignal();
         timer::init(static::$globalEvent);
-        if (empty($this->onMessage)) {
-            $this->onMessage = function () {
-            };
-        }
+        if (empty($this->onMessage)) $this->onMessage = function () {
+        };
         restore_error_handler();
         if ($this->onWorkerStart) {
             try {
