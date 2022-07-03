@@ -1412,7 +1412,7 @@ if (typeof gameNAMES === 'undefined') {
     }, {
         TITLE: "Realdrive Feel The Real Drive",
         URL: "https://xn--ply-onb.com/driving/realdrive-feel-the-real-drive"
-    }, {TITLE: "Reckles Car Revolt", URL: "https://xn--ply-onb.com/driving/reckles-car-revolt"}, {
+    }, {TITLE: "Reckles Car revolt", URL: "https://xn--ply-onb.com/driving/reckles-car-revolt"}, {
         TITLE: "Retro Speed",
         URL: "https://xn--ply-onb.com/driving/retro-speed"
     }, {

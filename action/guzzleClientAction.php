@@ -4,7 +4,7 @@
 use yxorP\inc\constants;
 use yxorP\inc\wrapper;
 
-/* Extending the `wrapper` class, which is a class that is used to wrap the `Event` class. */
+/* Extending the `wrapper` class, which is a class that is used to wrap the `event` class. */
 
 class guzzleClientAction extends wrapper
 {

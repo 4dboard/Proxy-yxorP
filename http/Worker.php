@@ -16,12 +16,12 @@ namespace yxorP\http;
 
 use Exception;
 use Throwable;
-use yxorP\connection\ConnectionInterface;
-use yxorP\connection\TcpConnection;
-use yxorP\connection\UdpConnection;
-use yxorP\events\Event;
-use yxorP\events\Select;
-use yxorP\protocols\ProtocolInterface;
+use yxorP\connection\connectionInterface;
+use yxorP\connection\tcpConnection;
+use yxorP\connection\udpConnection;
+use yxorP\events\event;
+use yxorP\events\select;
+use yxorP\protocols\protocolInterface;
 use function array_intersect;
 use function array_map;
 use function array_search;
@@ -263,7 +263,7 @@ class Worker
     /**
      * Global event loop.
      *
-     * @var Select
+     * @var select
      */
     public static $globalEvent = null;
     /**
@@ -410,7 +410,7 @@ class Worker
      * @var array<string, string>
      */
     protected static $_availableEventLoops = [
-        "event" => Event::class,
+        "event" => event::class,
     ];
     /**
      * PHP built-in protocols.
@@ -1418,7 +1418,7 @@ class Worker
         }
 
         //show version
-        $line_version = 'Workerman version:' . static::VERSION . str_pad('PHP version:', 16, ' ', STR_PAD_LEFT) . PHP_VERSION . str_pad('Event-loop:', 16, ' ', STR_PAD_LEFT) . static::getEventLoopName() . PHP_EOL;
+        $line_version = 'Workerman version:' . static::VERSION . str_pad('PHP version:', 16, ' ', STR_PAD_LEFT) . PHP_VERSION . str_pad('event-loop:', 16, ' ', STR_PAD_LEFT) . static::getEventLoopName() . PHP_EOL;
         !defined('LINE_VERSIOIN_LENGTH') && define('LINE_VERSIOIN_LENGTH', strlen($line_version));
         $total_length = static::getSingleLineTotalLength();
         $line_one = '<n>' . str_pad('<w> WORKERMAN </w>', $total_length + strlen('<w></w>'), '-', STR_PAD_BOTH) . '</n>' . PHP_EOL;
@@ -1486,7 +1486,7 @@ class Worker
         if ($loop_name) {
             static::$eventLoopClass = static::$_availableEventLoops[$loop_name];
         } else {
-            static::$eventLoopClass = Select::class;
+            static::$eventLoopClass = select::class;
         }
         return static::$eventLoopClass;
     }
@@ -1589,7 +1589,7 @@ class Worker
             $worker->setUserAndGroup();
             $worker->id = $id;
             $worker->run();
-            if (strpos(static::$eventLoopClass, 'yxorP\events\Swoole') !== false) {
+            if (strpos(static::$eventLoopClass, 'yxorP\events\swoole') !== false) {
                 exit(0);
             }
             $err = new Exception('event-loop exited');
@@ -1822,7 +1822,7 @@ class Worker
                     $worker->stopping = true;
                 }
             }
-            if (!static::$_gracefulStop || ConnectionInterface::$statistics['connection_count'] <= 0) {
+            if (!static::$_gracefulStop || connectionInterface::$statistics['connection_count'] <= 0) {
                 static::$_workers = [];
                 if (static::$globalEvent) {
                     static::$globalEvent->stop();
@@ -1906,7 +1906,7 @@ class Worker
             $worker->run();
             exit("@@@child exit@@@\r\n");
         } else {
-            static::$globalEvent = new Select();
+            static::$globalEvent = new select();
             Timer::init(static::$globalEvent);
             foreach ($files as $start_file) {
                 static::forkOneWorkerForWindows($start_file);
@@ -1947,7 +1947,7 @@ class Worker
         $process = proc_open("php \"$start_file\" -q", $descriptorspec, $pipes);
 
         if (empty(static::$globalEvent)) {
-            static::$globalEvent = new Select();
+            static::$globalEvent = new select();
             Timer::init(static::$globalEvent);
         }
 
@@ -2174,7 +2174,7 @@ class Worker
     /**
      * Get global event-loop instance.
      *
-     * @return Select
+     * @return select
      */
     public static function getEventLoop()
     {
@@ -2297,10 +2297,10 @@ class Worker
             . " " . str_pad($worker->getSocketName(), static::$_maxSocketNameLength) . " "
             . str_pad(($worker->name === $worker->getSocketName() ? 'none' : $worker->name), static::$_maxWorkerNameLength)
             . " ";
-        $worker_status_str .= str_pad(ConnectionInterface::$statistics['connection_count'], 11)
-            . " " . str_pad(ConnectionInterface::$statistics['send_fail'], 9)
+        $worker_status_str .= str_pad(connectionInterface::$statistics['connection_count'], 11)
+            . " " . str_pad(connectionInterface::$statistics['send_fail'], 9)
             . " " . str_pad(static::$globalEvent->getTimerCount(), 7)
-            . " " . str_pad(ConnectionInterface::$statistics['total_request'], 13) . "\n";
+            . " " . str_pad(connectionInterface::$statistics['total_request'], 13) . "\n";
         file_put_contents(static::$_statisticsFile, $worker_status_str, FILE_APPEND);
     }
 
@@ -2346,8 +2346,8 @@ class Worker
         $default_worker_name = $current_worker->name;
 
         /** @var static $worker */
-        foreach (TcpConnection::$connections as $connection) {
-            /** @var TcpConnection $connection */
+        foreach (tcpConnection::$connections as $connection) {
+            /** @var tcpConnection $connection */
             $transport = $connection->transport;
             $ipv4 = $connection->isIpV4() ? ' 1' : ' 0';
             $ipv6 = $connection->isIpV6() ? ' 1' : ' 0';
@@ -2527,8 +2527,8 @@ class Worker
             return;
         }
 
-        // TcpConnection.
-        $connection = new TcpConnection($new_socket, $remote_address);
+        // tcpConnection.
+        $connection = new tcpConnection($new_socket, $remote_address);
         $this->connections[$connection->id] = $connection;
         $connection->worker = $this;
         $connection->protocol = $this->protocol;
@@ -2564,14 +2564,14 @@ class Worker
         if (false === $recv_buffer || empty($remote_address)) {
             return false;
         }
-        // UdpConnection.
-        $connection = new UdpConnection($socket, $remote_address);
+        // udpConnection.
+        $connection = new udpConnection($socket, $remote_address);
         $connection->protocol = $this->protocol;
         $message_cb = $this->onMessage;
         if ($message_cb) {
             try {
                 if ($this->protocol !== null) {
-                    /** @var ProtocolInterface $parser */
+                    /** @var protocolInterface $parser */
                     $parser = $this->protocol;
                     if ($parser && method_exists($parser, 'input')) {
                         while ($recv_buffer !== '') {
@@ -2597,7 +2597,7 @@ class Worker
                 } else {
                     $message_cb($connection, $recv_buffer);
                 }
-                ++ConnectionInterface::$statistics['total_request'];
+                ++connectionInterface::$statistics['total_request'];
             } catch (Throwable $e) {
                 static::stopAll(250, $e);
             }

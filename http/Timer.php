@@ -16,8 +16,8 @@ namespace yxorP\http;
 
 use Exception;
 use Throwable;
-use yxorP\events\EventInterface;
-use yxorP\events\Select;
+use yxorP\events\eventInterface;
+use yxorP\events\select;
 use yxorP\Worker;
 use function function_exists;
 use function is_callable;
@@ -47,7 +47,7 @@ class Timer
     /**
      * event
      *
-     * @var Select
+     * @var select
      */
     protected static $_event = null;
 
@@ -73,7 +73,7 @@ class Timer
     /**
      * Init.
      *
-     * @param EventInterface $event
+     * @param eventInterface $event
      * @return void
      */
     public static function init($event = null)
