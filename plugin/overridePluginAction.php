@@ -29,7 +29,9 @@ class overridePluginAction extends wrapper
         /* It's merging the values of the `$YXORP_GLOBAL_PATTERN` and `$YXORP_TARGET_PATTERN` arrays. */
         $preg_replace = generalHelper::array_merge_ignore(array_values($YXORP_GLOBAL_PATTERN), array_values($YXORP_TARGET_PATTERN));
         /* It's replacing the content of the response with the content of the `REWRITE` method. */
-        echo constants::get(YXORP_RESPONSE)->getContent();
+        print_r($preg_search);
+        echo 123;
+        print_r($preg_replace);
         exit('12445354657');
         $preg = preg_replace($preg_search, $preg_replace, constants::get(YXORP_RESPONSE)->getContent());
         /* It's setting the `$YXORP_TARGET_DOMAIN` variable to the value of the `YXORP_TARGET_DOMAIN` constant. */
