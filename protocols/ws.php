@@ -122,9 +122,7 @@ class ws
             $current_frame_length = $connection->websocketCurrentFrameLength;
             $connection->websocketCurrentFrameLength = 0;
             return self::input(substr($buffer, $current_frame_length), $connection);
-        } else {
-            return 0;
-        }
+        } else   return 0;
     }
 
     public static function dealHandshake($buffer, tcpConnection $connection)
