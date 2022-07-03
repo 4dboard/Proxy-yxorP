@@ -46,9 +46,11 @@ class yxorP
         it's calling the `subscribe()` function. */
         $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
 
-        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
-        creates them. */
-        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+        /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
+        file. */
+        if ((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI])
+            if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT))
+                require PATH_COCKPIT_INDEX;
 
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
         $YXORP_TARGET_PLUGINS = constants::get(YXORP_TARGET_PLUGINS);
@@ -141,6 +143,9 @@ class yxorP
         return self::$events = [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
             EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL];
 
+        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
+        creates them. */
+        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
 
     }
 
