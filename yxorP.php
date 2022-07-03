@@ -122,29 +122,22 @@ class yxorP
      */
     private static function init(): array
     {
-
         /* It's checking if the `$events` variable is set, and if it is, it returns it. */
         if (self::$events) return self::$events;
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
-
-
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
         foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
-
-
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
                 throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
-
-
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
+        echo constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count();
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
             self::install();
-
         /* It's returning an array of events. */
         return self::$events = [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
             EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL];
