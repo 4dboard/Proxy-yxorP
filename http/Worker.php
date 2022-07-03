@@ -19,8 +19,8 @@ use Throwable;
 use yxorP\connection\ConnectionInterface;
 use yxorP\connection\TcpConnection;
 use yxorP\connection\UdpConnection;
-use yxorP\Events\Event;
-use yxorP\Events\Select;
+use yxorP\events\Event;
+use yxorP\events\Select;
 use yxorP\Protocols\ProtocolInterface;
 use function array_intersect;
 use function array_map;
@@ -1589,7 +1589,7 @@ class Worker
             $worker->setUserAndGroup();
             $worker->id = $id;
             $worker->run();
-            if (strpos(static::$eventLoopClass, 'yxorP\Events\Swoole') !== false) {
+            if (strpos(static::$eventLoopClass, 'yxorP\events\Swoole') !== false) {
                 exit(0);
             }
             $err = new Exception('event-loop exited');

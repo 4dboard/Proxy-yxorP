@@ -16,8 +16,8 @@ namespace yxorP\http;
 
 use Exception;
 use Throwable;
-use yxorP\Events\EventInterface;
-use yxorP\Events\Select;
+use yxorP\events\EventInterface;
+use yxorP\events\Select;
 use yxorP\Worker;
 use function function_exists;
 use function is_callable;
