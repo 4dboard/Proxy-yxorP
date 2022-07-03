@@ -29,26 +29,37 @@ use function trim;
 use function unlink;
 use function urlencode;
 
+/* Creating a class called request. */
 class request
 {
-    public static int $maxFileUploads = 1024;
+  /* Defining a constant. */
+      public static int $maxFileUploads = 1024;
+    /* Declaring a private static variable called $_enableCache and setting it to true. */
     private static bool $_enableCache = true;
+    /* Creating a variable called connection and setting it to null. */
+    /* Creating a variable called $session and setting it to null. */
     public $connection = null;
+    /* Declaring a class named `Person` with a property named `properties` that is an array. */
     public $session = null;
+    /* Creating a private variable called $_buffer. */
     public array $properties = [];
     private $_buffer = null;
+    /* Creating a private variable called $_data and setting it to null. */
     private $_data = null;
 
+    /* Creating a constructor for the class. */
     public function __construct($buffer)
     {
         $this->_buffer = $buffer;
     }
 
+    /* A method that is being called on the class. */
     public static function enableCache($value)
     {
         static::$_enableCache = (bool)$value;
     }
 
+    /* A method that returns the value of the given key. If the key does not exist, it returns the default value. */
     public function get($name = null, $default = null)
     {
         if (!isset($this->_data['get'])) {
@@ -60,6 +71,7 @@ class request
         return $this->_data['get'][$name] ?? $default;
     }
 
+    /* A function that is parsing the get request. */
     protected function parseGet()
     {
         static $cache = [];
@@ -82,11 +94,10 @@ class request
         }
     }
 
+    /* A function that returns the query string of the current URL. */
     public function queryString()
     {
-        if (!isset($this->_data['query_string'])) {
-            $this->_data['query_string'] = (string)parse_url($this->uri(), PHP_URL_QUERY);
-        }
+        if (!isset($this->_data['query_string']))    $this->_data['query_string'] = (string)parse_url($this->uri(), PHP_URL_QUERY);
         return $this->_data['query_string'];
     }
 

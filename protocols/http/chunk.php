@@ -3,6 +3,7 @@
 use function dechex;
 use function strlen;
 
+/* A class that is used to create a chunked HTTP response. */
 class chunk
 {
     private $_buffer = null;
