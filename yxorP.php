@@ -140,6 +140,13 @@ class yxorP
         /* It's returning an array of events. */
         return self::$events = [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
             EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL];
+
+
+        /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
+        file. */
+        if ((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI])
+            if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI], DIRECTORY_SEPARATOR . DIR_COCKPIT))
+                require PATH_COCKPIT_INDEX;
     }
 
     /**
