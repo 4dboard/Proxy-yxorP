@@ -489,9 +489,9 @@ class constants
 
         // COCKPIT
         /* Defining a constant. */
-        define('COCKPIT_ACCOUNTS', COCKPIT . CHAR_SLASH . YXORP_COCKPIT_ACCOUNTS);
+        define('COCKPIT_COCKPIT', 'cockpit');
+        define('COCKPIT_ACCOUNTS', COCKPIT_COCKPIT . CHAR_SLASH . YXORP_COCKPIT_ACCOUNTS);
         define('COCKPIT_COLLECTIONS', 'collections');
-        define('COCKPIT', 'cockpit');
         define('COCKPIT_SITES', 'sites');
         define('COCKPIT_HOST', 'host');
         define('COCKPIT_TARGET', 'target');
