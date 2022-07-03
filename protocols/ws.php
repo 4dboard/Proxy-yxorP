@@ -208,23 +208,19 @@ class ws
         $frame .= $payload ^ $mask_key;
         if ($connection->handshakeStep === 1) {
             if (strlen($connection->tmpWebsocketData) > $connection->maxSendBufferSize) {
-                if ($connection->onError) {
-                    try {
-                        ($connection->onError)($connection, connectionInterface::SEND_FAIL, 'send buffer full and drop package');
-                    } catch (Throwable $e) {
-                        Worker::stopAll(250, $e);
-                    }
+                if ($connection->onError) try {
+                    ($connection->onError)($connection, connectionInterface::SEND_FAIL, 'send buffer full and drop package');
+                } catch (Throwable $e) {
+                    Worker::stopAll(250, $e);
                 }
                 return '';
             }
             $connection->tmpWebsocketData = $connection->tmpWebsocketData . $frame;
             if ($connection->maxSendBufferSize <= strlen($connection->tmpWebsocketData)) {
-                if ($connection->onBufferFull) {
-                    try {
-                        ($connection->onBufferFull)($connection);
-                    } catch (Throwable $e) {
-                        Worker::stopAll(250, $e);
-                    }
+                if ($connection->onBufferFull) try {
+                    ($connection->onBufferFull)($connection);
+                } catch (Throwable $e) {
+                    Worker::stopAll(250, $e);
                 }
             }
             return '';
@@ -237,9 +233,7 @@ class ws
      */
     public static function sendHandshake(tcpConnection $connection)
     {
-        if (!empty($connection->handshakeStep)) {
-            return;
-        }
+        if (!empty($connection->handshakeStep)) return;
         $port = $connection->getRemotePort();
         $host = $port === 80 ? $connection->getRemoteHost() : $connection->getRemoteHost() . ':' . $port;
         $connection->websocketSecKey = base64_encode(random_bytes(16));
