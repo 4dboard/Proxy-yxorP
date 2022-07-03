@@ -184,25 +184,17 @@ class request
                 $key = strtolower($content);
                 $value = '';
             }
-            if (isset($this->_data['headers'][$key])) {
-                $this->_data['headers'][$key] = "{$this->_data['headers'][$key]},$value";
-            } else {
-                $this->_data['headers'][$key] = $value;
-            }
+            if (isset($this->_data['headers'][$key])) $this->_data['headers'][$key] = "{$this->_data['headers'][$key]},$value"; else    $this->_data['headers'][$key] = $value;
         }
         if ($cacheable) {
             $cache[$head_buffer] = $this->_data['headers'];
-            if (count($cache) > 128) {
-                unset($cache[key($cache)]);
-            }
+            if (count($cache) > 128) unset($cache[key($cache)]);
         }
     }
 
     public function rawHead()
     {
-        if (!isset($this->_data['head'])) {
-            $this->_data['head'] = strstr($this->_buffer, "\r\n\r\n", true);
-        }
+        if (!isset($this->_data['head'])) $this->_data['head'] = strstr($this->_buffer, "\r\n\r\n", true);
         return $this->_data['head'];
     }
 
@@ -213,9 +205,7 @@ class request
         $boday_position = strpos($buffer, "\r\n\r\n") + 4;
         $offset = $boday_position + strlen($http_post_boundary) + 2;
         $max_count = static::$maxFileUploads;
-        while ($max_count-- > 0 && $offset) {
-            $offset = $this->parseUploadFile($http_post_boundary, $offset);
-        }
+        while ($max_count-- > 0 && $offset)  $offset = $this->parseUploadFile($http_post_boundary, $offset);
     }
 
     protected function parseUploadFile($boundary, $section_start_offset): int
