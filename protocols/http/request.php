@@ -221,9 +221,7 @@ class request
         $boundary_value = substr($this->_buffer, $content_lines_end_offset + 4, $section_end_offset - $content_lines_end_offset - 4);
         $upload_key = false;
         foreach ($content_lines as $content_line) {
-            if (!strpos($content_line, ': ')) {
-                return 0;
-            }
+            if (!strpos($content_line, ': ')) return 0;
             [$key, $value] = explode(': ', $content_line);
             switch (strtolower($key)) {
                 case "content-disposition":
@@ -232,11 +230,7 @@ class request
                         $tmp_file = '';
                         $size = strlen($boundary_value);
                         $tmp_upload_dir = http::uploadTmpDir();
-                        if (!$tmp_upload_dir) {
-                            $error = UPLOAD_ERR_NO_TMP_DIR;
-                        } else if ($boundary_value === '') {
-                            $error = UPLOAD_ERR_NO_FILE;
-                        } else {
+                        if (!$tmp_upload_dir) $error = UPLOAD_ERR_NO_TMP_DIR; else if ($boundary_value === '') $error = UPLOAD_ERR_NO_FILE; else {
                             $tmp_file = tempnam($tmp_upload_dir, 'yxorp.upload.');
                             if ($tmp_file === false || false == file_put_contents($tmp_file, $boundary_value)) {
                                 $error = UPLOAD_ERR_CANT_WRITE;
