@@ -32,42 +32,42 @@ class Session
     public static string $domain = '';
     /* It's a class variable. */
     public static bool $secure = false;
+    /* It's a class variable. */
     public static bool $httpOnly = true;
     public static string $sameSite = '';
+    /* It's a class variable. */
     public static array $gcProbability = [1, 1000];
+    /* It's a class variable. */
     private static string $_handlerClass = fileSessionHandler::class;
+    /* It's a class variable. */
     private static $_handlerConfig = null;
+    /* It's a class variable. */
     private static $_handler = null;
     private mixed $_data = [];
+    /* It's a class variable. */
     private bool $_needSave = false;
+    /* It's a class variable. */
     private $_sessionId = null;
 
+    /* It's a constructor. */
     public function __construct($session_id)
     {
         static::checkSessionId($session_id);
-        if (static::$_handler === null) {
-            static::initHandler();
-        }
+        if (static::$_handler === null) static::initHandler();
         $this->_sessionId = $session_id;
-        if ($data = static::$_handler->read($session_id)) {
-            $this->_data = unserialize($data);
-        }
+        if ($data = static::$_handler->read($session_id)) $this->_data = unserialize($data);
     }
 
+    /* It's checking if the session id is valid. */
     protected static function checkSessionId($session_id)
     {
-        if (!preg_match('/^[a-zA-Z0-9]+$/', $session_id)) {
-            throw new SessionException("session_id $session_id is invalid");
-        }
+        if (!preg_match('/^[a-zA-Z0-9]+$/', $session_id)) throw new SessionException("session_id $session_id is invalid");
     }
 
+    /* It's initializing the session handler. */
     protected static function initHandler()
     {
-        if (static::$_handlerConfig === null) {
-            static::$_handler = new static::$_handlerClass();
-        } else {
-            static::$_handler = new static::$_handlerClass(static::$_handlerConfig);
-        }
+        if (static::$_handlerConfig === null) static::$_handler = new static::$_handlerClass(); else   static::$_handler = new static::$_handlerClass(static::$_handlerConfig);
     }
 
     public static function init()
