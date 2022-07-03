@@ -952,9 +952,9 @@ class worker
                 if ($worker->reloadable) static::stopAll(); else   static::resetStd(false);
             }
         }
+    }
 
-        #[
-        NoReturn] protected static function exitAndClearAll()
+    #[NoReturn] protected static function exitAndClearAll()
     {
         foreach (static::$_workers as $worker) {
             $socket_name = $worker->getSocketName();
