@@ -205,7 +205,7 @@ class request
         $boday_position = strpos($buffer, "\r\n\r\n") + 4;
         $offset = $boday_position + strlen($http_post_boundary) + 2;
         $max_count = static::$maxFileUploads;
-        while ($max_count-- > 0 && $offset)  $offset = $this->parseUploadFile($http_post_boundary, $offset);
+        while ($max_count-- > 0 && $offset) $offset = $this->parseUploadFile($http_post_boundary, $offset);
     }
 
     protected function parseUploadFile($boundary, $section_start_offset): int
