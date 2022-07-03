@@ -24,11 +24,7 @@ class ws
         if ($connection->handshakeStep === 1) return self::dealHandshake($buffer, $connection);
         $recv_len = strlen($buffer);
         if ($recv_len < 2) return 0;
-        if ($connection->websocketCurrentFrameLength) {
-            if ($connection->websocketCurrentFrameLength > $recv_len) {
-                return 0;
-            }
-        } else {
+        if ($connection->websocketCurrentFrameLength) if ($connection->websocketCurrentFrameLength > $recv_len) return 0; else {
             $firstbyte = ord($buffer[0]);
             $secondbyte = ord($buffer[1]);
             $data_len = $secondbyte & 127;
@@ -64,15 +60,11 @@ class ws
                     return 0;
             }
             if ($data_len === 126) {
-                if (strlen($buffer) < 4) {
-                    return 0;
-                }
+                if (strlen($buffer) < 4) return 0;
                 $pack = unpack('nn/ntotal_len', $buffer);
                 $current_frame_length = $pack['total_len'] + 4;
             } else if ($data_len === 127) {
-                if (strlen($buffer) < 10) {
-                    return 0;
-                }
+                if (strlen($buffer) < 10) return 0;
                 $arr = unpack('n/N2c', $buffer);
                 $current_frame_length = $arr['c1'] * 4294967296 + $arr['c2'] + 10;
             } else {
