@@ -278,17 +278,13 @@ class request
 
     public function method()
     {
-        if (!isset($this->_data['method'])) {
-            $this->parseHeadFirstLine();
-        }
+        if (!isset($this->_data['method'])) $this->parseHeadFirstLine();
         return $this->_data['method'];
     }
 
     public function protocolVersion()
     {
-        if (!isset($this->_data['protocolVersion'])) {
-            $this->parseProtocolVersion();
-        }
+        if (!isset($this->_data['protocolVersion'])) $this->parseProtocolVersion();
         return $this->_data['protocolVersion'];
     }
 
@@ -302,17 +298,13 @@ class request
     public function host($without_port = false)
     {
         $host = $this->header('host');
-        if ($host && $without_port && $pos = strpos($host, ':')) {
-            return substr($host, 0, $pos);
-        }
+        if ($host && $without_port && $pos = strpos($host, ':')) return substr($host, 0, $pos);
         return $host;
     }
 
     public function path()
     {
-        if (!isset($this->_data['path'])) {
-            $this->_data['path'] = (string)parse_url($this->uri(), PHP_URL_PATH);
-        }
+        if (!isset($this->_data['path'])) $this->_data['path'] = (string)parse_url($this->uri(), PHP_URL_PATH);
         return $this->_data['path'];
     }
 
@@ -320,9 +312,7 @@ class request
     {
         $session = $this->session();
         $session_data = $session->all();
-        if ($delete_old_session) {
-            $session->flush();
-        }
+        if ($delete_old_session) $session->flush();
         $new_sid = static::createSessionId();
         $session = new Session($new_sid);
         $session->put($session_data);
@@ -335,9 +325,7 @@ class request
     {
         if ($this->session === null) {
             $session_id = $this->sessionId();
-            if ($session_id === false) {
-                return false;
-            }
+            if ($session_id === false) return false;
             $this->session = new Session($session_id);
         }
         return $this->session;
@@ -345,9 +333,7 @@ class request
 
     public function sessionId($session_id = null)
     {
-        if ($session_id) {
-            unset($this->sid);
-        }
+        if ($session_id) unset($this->sid);
         if (!isset($this->sid)) {
             $session_name = Session::$name;
             $sid = $session_id ? '' : $this->cookie($session_name);
@@ -371,9 +357,7 @@ class request
             $this->_data['cookie'] = [];
             parse_str(preg_replace('/; ?/', '&', $this->header('cookie', '')), $this->_data['cookie']);
         }
-        if ($name === null) {
-            return $this->_data['cookie'];
-        }
+        if ($name === null) return $this->_data['cookie'];
         return $this->_data['cookie'][$name] ?? $default;
     }
 
@@ -425,11 +409,7 @@ class request
         if (isset($this->_data['files'])) {
             clearstatcache();
             array_walk_recursive($this->_data['files'], function ($value, $key) {
-                if ($key === 'tmp_name') {
-                    if (is_file($value)) {
-                        unlink($value);
-                    }
-                }
+                if ($key === 'tmp_name') if (is_file($value)) unlink($value);
             });
         }
     }
