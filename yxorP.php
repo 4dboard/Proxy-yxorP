@@ -152,8 +152,7 @@ class yxorP
         /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
         define(YXORP_COCKPIT_INSTALL, true);
 
-        /* It's copying all the files in the `PATH_COCKPIT_LOCAL` directory to the `PATH_DIR_COCKPIT` directory. */
-        foreach (glob(`PATH_COCKPIT_LOCAL/*.*`) as $file) copy(PATH_COCKPIT_LOCAL . $file, PATH_DIR_COCKPIT . $file);
+        shell_exec(escapeshellcmd('cp -a ' . PATH_COCKPIT_LOCAL . ' ' . PATH_DIR_COCKPIT));
 
         /* It's creating an array of user data. */
         $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
