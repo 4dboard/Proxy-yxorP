@@ -967,9 +967,7 @@ class worker
         }
         @unlink(static::$pidFile);
         static::log("Yxorp[" . basename(static::$_startFile) . "] has been stopped");
-        if (static::$onMasterStop) {
-            call_user_func(static::$onMasterStop);
-        }
+        if (static::$onMasterStop) call_user_func(static::$onMasterStop);
         exit(0);
     }
 
@@ -1032,9 +1030,7 @@ class worker
             $all_worker_info = [];
             foreach (static::$_pidMap as $worker_id => $pid_array) {
                 $worker = static::$_workers[$worker_id];
-                foreach ($pid_array as $pid) {
-                    $all_worker_info[$pid] = ['name' => $worker->name, 'listen' => $worker->getSocketName()];
-                }
+                foreach ($pid_array as $pid) $all_worker_info[$pid] = ['name' => $worker->name, 'listen' => $worker->getSocketName()];
             }
             file_put_contents(static::$_statisticsFile, serialize($all_worker_info) . "\n", FILE_APPEND);
             $loadavg = function_exists('sys_getloadavg') ? array_map('round', sys_getloadavg(), [2, 2, 2]) : ['-', '-', '-'];
@@ -1047,13 +1043,8 @@ class worker
             file_put_contents(static::$_statisticsFile, str_pad('worker_name', static::$_maxWorkerNameLength) . " exit_status      exit_count\n", FILE_APPEND);
             foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
                 $worker = static::$_workers[$worker_id];
-                if (isset(static::$_globalStatistics['worker_exit_info'][$worker_id])) {
-                    foreach (static::$_globalStatistics['worker_exit_info'][$worker_id] as $worker_exit_status => $worker_exit_count) {
-                        file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad($worker_exit_status, 16) . " $worker_exit_count\n", FILE_APPEND);
-                    }
-                } else {
-                    file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad(0, 16) . " 0\n", FILE_APPEND);
-                }
+                if (isset(static::$_globalStatistics['worker_exit_info'][$worker_id]))  foreach (static::$_globalStatistics['worker_exit_info'][$worker_id] as $worker_exit_status => $worker_exit_count) file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad($worker_exit_status, 16) . " $worker_exit_count\n", FILE_APPEND);else file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad(0, 16) . " 0\n", FILE_APPEND);
+
             }
             file_put_contents(static::$_statisticsFile, "----------------------------------------------PROCESS STATUS---------------------------------------------------\n", FILE_APPEND);
             file_put_contents(static::$_statisticsFile, "pid\tmemory  " . str_pad('listening', static::$_maxSocketNameLength) . " " . str_pad('worker_name', static::$_maxWorkerNameLength) . " connections " . str_pad('send_fail', 9) . " " . str_pad('timers', 8) . str_pad('total_request', 13) . " qps    status\n", FILE_APPEND);
