@@ -24,56 +24,126 @@ use yxorP\Events\Select;
 use yxorP\Protocols\ProtocolInterface;
 use function array_intersect;
 use function array_map;
+use function array_search;
 use function basename;
 use function call_user_func;
+use function chgrp;
 use function chmod;
+use function chown;
+use function class_exists;
+use function cli_set_process_title;
 use function count;
 use function current;
 use function date;
+use function debug_backtrace;
+use function define;
+use function defined;
 use function explode;
+use function extension_loaded;
+use function fclose;
+use function fflush;
+use function file;
+use function file_get_contents;
 use function file_put_contents;
 use function floor;
 use function fopen;
+use function fstat;
 use function function_exists;
+use function fwrite;
 use function gc_collect_cycles;
 use function gc_mem_caches;
+use function get_resource_type;
 use function implode;
 use function in_array;
+use function intval;
 use function is_file;
+use function is_readable;
+use function is_resource;
+use function is_writable;
+use function ksort;
+use function lcfirst;
+use function max;
 use function method_exists;
+use function mt_srand;
+use function pcntl_fork;
 use function pcntl_signal;
 use function pcntl_signal_dispatch;
 use function pcntl_wait;
+use function posix_getgid;
+use function posix_getgrnam;
 use function posix_getpid;
+use function posix_getpwnam;
+use function posix_getpwuid;
+use function posix_getuid;
+use function posix_initgroups;
+use function posix_isatty;
 use function posix_kill;
+use function posix_setgid;
+use function posix_setsid;
 use function posix_setuid;
+use function preg_match;
+use function preg_match_all;
 use function proc_close;
 use function proc_get_status;
 use function proc_open;
+use function readfile;
 use function realpath;
 use function register_shutdown_function;
 use function reset;
 use function restore_error_handler;
 use function serialize;
 use function set_error_handler;
+use function sleep;
+use function socket_import_stream;
+use function socket_set_option;
+use function spl_object_hash;
+use function srand;
+use function str_ireplace;
 use function str_pad;
+use function str_replace;
+use function stream_context_create;
+use function stream_context_set_option;
+use function stream_set_blocking;
 use function stream_socket_accept;
+use function stream_socket_enable_crypto;
 use function stream_socket_recvfrom;
+use function stream_socket_server;
 use function strlen;
 use function strrpos;
+use function strtolower;
 use function substr;
 use function sys_getloadavg;
 use function time;
+use function touch;
 use function trim;
+use function ucfirst;
+use function umask;
 use function unlink;
+use function unserialize;
+use function usleep;
+use function var_export;
 use const DIRECTORY_SEPARATOR;
 use const E_COMPILE_ERROR;
+use const E_COMPILE_WARNING;
 use const E_CORE_ERROR;
+use const E_CORE_WARNING;
+use const E_DEPRECATED;
 use const E_ERROR;
+use const E_NOTICE;
 use const E_PARSE;
 use const E_RECOVERABLE_ERROR;
+use const E_STRICT;
+use const E_USER_DEPRECATED;
+use const E_USER_ERROR;
+use const E_USER_NOTICE;
+use const E_USER_WARNING;
+use const E_WARNING;
 use const FILE_APPEND;
+use const FILE_IGNORE_NEW_LINES;
+use const LOCK_EX;
 use const LOCK_UN;
+use const PHP_EOL;
+use const PHP_SAPI;
 use const PHP_VERSION;
 use const SIG_IGN;
 use const SIGHUP;
@@ -81,11 +151,22 @@ use const SIGINT;
 use const SIGIO;
 use const SIGIOT;
 use const SIGKILL;
+use const SIGPIPE;
 use const SIGQUIT;
 use const SIGTERM;
 use const SIGTSTP;
 use const SIGUSR1;
 use const SIGUSR2;
+use const SO_KEEPALIVE;
+use const SOL_SOCKET;
+use const SOL_TCP;
+use const STDERR;
+use const STDOUT;
+use const STR_PAD_BOTH;
+use const STR_PAD_LEFT;
+use const STREAM_SERVER_BIND;
+use const STREAM_SERVER_LISTEN;
+use const TCP_NODELAY;
 use const WUNTRACED;
 
 
@@ -349,20 +430,20 @@ class Worker
      */
     protected static $_errorType = [
         E_ERROR => 'E_ERROR',             // 1
-        \E_WARNING => 'E_WARNING',           // 2
+        E_WARNING => 'E_WARNING',           // 2
         E_PARSE => 'E_PARSE',             // 4
-        \E_NOTICE => 'E_NOTICE',            // 8
+        E_NOTICE => 'E_NOTICE',            // 8
         E_CORE_ERROR => 'E_CORE_ERROR',        // 16
-        \E_CORE_WARNING => 'E_CORE_WARNING',      // 32
+        E_CORE_WARNING => 'E_CORE_WARNING',      // 32
         E_COMPILE_ERROR => 'E_COMPILE_ERROR',     // 64
-        \E_COMPILE_WARNING => 'E_COMPILE_WARNING',   // 128
-        \E_USER_ERROR => 'E_USER_ERROR',        // 256
-        \E_USER_WARNING => 'E_USER_WARNING',      // 512
-        \E_USER_NOTICE => 'E_USER_NOTICE',       // 1024
-        \E_STRICT => 'E_STRICT',            // 2048
+        E_COMPILE_WARNING => 'E_COMPILE_WARNING',   // 128
+        E_USER_ERROR => 'E_USER_ERROR',        // 256
+        E_USER_WARNING => 'E_USER_WARNING',      // 512
+        E_USER_NOTICE => 'E_USER_NOTICE',       // 1024
+        E_STRICT => 'E_STRICT',            // 2048
         E_RECOVERABLE_ERROR => 'E_RECOVERABLE_ERROR', // 4096
-        \E_DEPRECATED => 'E_DEPRECATED',        // 8192
-        \E_USER_DEPRECATED => 'E_USER_DEPRECATED'   // 16384
+        E_DEPRECATED => 'E_DEPRECATED',        // 8192
+        E_USER_DEPRECATED => 'E_USER_DEPRECATED'   // 16384
     ];
     /**
      * Graceful stop or not.
@@ -545,7 +626,7 @@ class Worker
     public function __construct(string $socket_name = null, array $context_option = [])
     {
         // Save all worker instances.
-        $this->workerId = \spl_object_hash($this);
+        $this->workerId = spl_object_hash($this);
         static::$_workers[$this->workerId] = $this;
         static::$_pidMap[$this->workerId] = [];
 
@@ -555,7 +636,7 @@ class Worker
             if (!isset($context_option['socket']['backlog'])) {
                 $context_option['socket']['backlog'] = static::DEFAULT_BACKLOG;
             }
-            $this->_context = \stream_context_create($context_option);
+            $this->_context = stream_context_create($context_option);
         }
 
         // Try to turn reusePort on.
@@ -610,7 +691,7 @@ class Worker
     protected static function checkSapiEnv()
     {
         // Only for cli.
-        if (\PHP_SAPI !== 'cli') {
+        if (PHP_SAPI !== 'cli') {
             exit("Only run in command line mode \n");
         }
     }
@@ -627,10 +708,10 @@ class Worker
         });
 
         // Start file.
-        $backtrace = \debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+        $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
         static::$_startFile = end($backtrace)['file'];
 
-        $unique_prefix = \str_replace('/', '_', static::$_startFile);
+        $unique_prefix = str_replace('/', '_', static::$_startFile);
 
         // Pid file.
         if (empty(static::$pidFile)) {
@@ -647,7 +728,7 @@ class Worker
             if (!is_dir(dirname(static::$logFile))) {
                 @mkdir(dirname(static::$logFile), 0777, true);
             }
-            \touch(static::$logFile);
+            touch(static::$logFile);
             chmod(static::$logFile, 0622);
         }
 
@@ -687,13 +768,13 @@ class Worker
                 $green = "\033[32;40m";
                 $end = "\033[0m";
             }
-            $msg = \str_replace(['<n>', '<w>', '<g>'], [$line, $white, $green], $msg);
-            $msg = \str_replace(['</n>', '</w>', '</g>'], $end, $msg);
+            $msg = str_replace(['<n>', '<w>', '<g>'], [$line, $white, $green], $msg);
+            $msg = str_replace(['</n>', '</w>', '</g>'], $end, $msg);
         } elseif (!static::$_outputDecorated) {
             return false;
         }
-        \fwrite($stream, $msg);
-        \fflush($stream);
+        fwrite($stream, $msg);
+        fflush($stream);
         return true;
     }
 
@@ -706,12 +787,12 @@ class Worker
     private static function outputStream($stream = null)
     {
         if (!$stream) {
-            $stream = static::$_outputStream ?: \STDOUT;
+            $stream = static::$_outputStream ?: STDOUT;
         }
-        if (!$stream || !\is_resource($stream) || 'stream' !== \get_resource_type($stream)) {
+        if (!$stream || !is_resource($stream) || 'stream' !== get_resource_type($stream)) {
             return false;
         }
-        $stat = \fstat($stream);
+        $stat = fstat($stream);
         if (!$stat) {
             return false;
         }
@@ -722,7 +803,7 @@ class Worker
             static::$_outputDecorated =
                 DIRECTORY_SEPARATOR === '/' && // linux or unix
                 function_exists('posix_isatty') &&
-                \posix_isatty($stream); // whether is interactive terminal
+                posix_isatty($stream); // whether is interactive terminal
         }
         return static::$_outputStream = $stream;
     }
@@ -737,7 +818,7 @@ class Worker
     {
         set_error_handler(function () {
         });
-        \cli_set_process_title($title);
+        cli_set_process_title($title);
         restore_error_handler();
     }
 
@@ -809,7 +890,7 @@ class Worker
         static::log("Workerman[$start_file] $command $mode_str");
 
         // Get master process PID.
-        $master_pid = is_file(static::$pidFile) ? (int)\file_get_contents(static::$pidFile) : 0;
+        $master_pid = is_file(static::$pidFile) ? (int)file_get_contents(static::$pidFile) : 0;
         // Master is still alive?
         if (static::checkMasterIsAlive($master_pid)) {
             if ($command === 'start') {
@@ -838,7 +919,7 @@ class Worker
                     // Master process will send SIGIOT signal to all child processes.
                     posix_kill($master_pid, SIGIOT);
                     // Sleep 1 second.
-                    \sleep(1);
+                    sleep(1);
                     // Clear terminal.
                     if ($mode === '-d') {
                         static::safeEcho("\33[H\33[2J\33(B\33[m", true);
@@ -852,16 +933,16 @@ class Worker
                 }
                 exit(0);
             case 'connections':
-                if (is_file($statistics_file) && \is_writable($statistics_file)) {
+                if (is_file($statistics_file) && is_writable($statistics_file)) {
                     unlink($statistics_file);
                 }
                 // Master process will send SIGIO signal to all child processes.
                 posix_kill($master_pid, SIGIO);
                 // Waiting amoment.
-                \usleep(500000);
+                usleep(500000);
                 // Display statisitcs data from a disk file.
-                if (\is_readable($statistics_file)) {
-                    \readfile($statistics_file);
+                if (is_readable($statistics_file)) {
+                    readfile($statistics_file);
                 }
                 exit(0);
             case 'restart':
@@ -890,7 +971,7 @@ class Worker
                             exit;
                         }
                         // Waiting amoment.
-                        \usleep(10000);
+                        usleep(10000);
                         continue;
                     }
                     // Stop success.
@@ -937,7 +1018,7 @@ class Worker
             static::safeEcho($msg);
         }
         file_put_contents(static::$logFile, date('Y-m-d H:i:s') . ' ' . 'pid:'
-            . (DIRECTORY_SEPARATOR === '/' ? posix_getpid() : 1) . ' ' . $msg, FILE_APPEND | \LOCK_EX);
+            . (DIRECTORY_SEPARATOR === '/' ? posix_getpid() : 1) . ' ' . $msg, FILE_APPEND | LOCK_EX);
     }
 
     /**
@@ -979,17 +1060,17 @@ class Worker
     protected static function formatStatusData($statistics_file)
     {
         static $total_request_cache = [];
-        if (!\is_readable($statistics_file)) {
+        if (!is_readable($statistics_file)) {
             return '';
         }
-        $info = \file($statistics_file, \FILE_IGNORE_NEW_LINES);
+        $info = file($statistics_file, FILE_IGNORE_NEW_LINES);
         if (!$info) {
             return '';
         }
         $status_str = '';
         $current_total_request = [];
-        $worker_info = \unserialize($info[0]);
-        \ksort($worker_info, SORT_NUMERIC);
+        $worker_info = unserialize($info[0]);
+        ksort($worker_info, SORT_NUMERIC);
         unset($info[0]);
         $data_waiting_sort = [];
         $read_process_status = false;
@@ -1004,23 +1085,23 @@ class Worker
         foreach ($info as $value) {
             if (!$read_process_status) {
                 $status_str .= $value . "\n";
-                if (\preg_match('/^pid.*?memory.*?listening/', $value)) {
+                if (preg_match('/^pid.*?memory.*?listening/', $value)) {
                     $read_process_status = true;
                 }
                 continue;
             }
-            if (\preg_match('/^[0-9]+/', $value, $pid_math)) {
+            if (preg_match('/^[0-9]+/', $value, $pid_math)) {
                 $pid = $pid_math[0];
                 $data_waiting_sort[$pid] = $value;
-                if (\preg_match('/^\S+?\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?/', $value, $match)) {
-                    $total_memory += \intval(\str_ireplace('M', '', $match[1]));
-                    $maxLen1 = \max($maxLen1, strlen($match[2]));
-                    $maxLen2 = \max($maxLen2, strlen($match[3]));
-                    $total_connections += \intval($match[4]);
-                    $total_fails += \intval($match[5]);
-                    $total_timers += \intval($match[6]);
+                if (preg_match('/^\S+?\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?(\S+?)\s+?/', $value, $match)) {
+                    $total_memory += intval(str_ireplace('M', '', $match[1]));
+                    $maxLen1 = max($maxLen1, strlen($match[2]));
+                    $maxLen2 = max($maxLen2, strlen($match[3]));
+                    $total_connections += intval($match[4]);
+                    $total_fails += intval($match[5]);
+                    $total_timers += intval($match[6]);
                     $current_total_request[$pid] = $match[7];
-                    $total_requests += \intval($match[7]);
+                    $total_requests += intval($match[7]);
                 }
             }
         }
@@ -1063,18 +1144,18 @@ class Worker
         if (!static::$daemonize || DIRECTORY_SEPARATOR !== '/') {
             return;
         }
-        \umask(0);
-        $pid = \pcntl_fork();
+        umask(0);
+        $pid = pcntl_fork();
         if (-1 === $pid) {
             throw new Exception('Fork fail');
         } elseif ($pid > 0) {
             exit(0);
         }
-        if (-1 === \posix_setsid()) {
+        if (-1 === posix_setsid()) {
             throw new Exception("Setsid fail");
         }
         // Fork again avoid SVR4 system regain the control of terminal.
-        $pid = \pcntl_fork();
+        $pid = pcntl_fork();
         if (-1 === $pid) {
             throw new Exception("Fork fail");
         } elseif (0 !== $pid) {
@@ -1103,7 +1184,7 @@ class Worker
             if (empty($worker->user)) {
                 $worker->user = static::getCurrentUser();
             } else {
-                if (\posix_getuid() !== 0 && $worker->user !== static::getCurrentUser()) {
+                if (posix_getuid() !== 0 && $worker->user !== static::getCurrentUser()) {
                     static::log('Warning: You must have the root privileges to change uid and gid.');
                 }
             }
@@ -1118,8 +1199,8 @@ class Worker
             foreach (static::getUiColumns() as $column_name => $prop) {
                 !isset($worker->{$prop}) && $worker->{$prop} = 'NNNN';
                 $prop_length = strlen($worker->{$prop});
-                $key = '_max' . \ucfirst(\strtolower($column_name)) . 'NameLength';
-                static::$$key = \max(static::$$key, $prop_length);
+                $key = '_max' . ucfirst(strtolower($column_name)) . 'NameLength';
+                static::$$key = max(static::$$key, $prop_length);
             }
 
             // Listen.
@@ -1136,7 +1217,7 @@ class Worker
      */
     protected static function getCurrentUser()
     {
-        $user_info = \posix_getpwuid(\posix_getuid());
+        $user_info = posix_getpwuid(posix_getuid());
         return $user_info['name'];
     }
 
@@ -1147,7 +1228,7 @@ class Worker
      */
     public function getSocketName()
     {
-        return $this->_socketName ? \lcfirst($this->_socketName) : 'none';
+        return $this->_socketName ? lcfirst($this->_socketName) : 'none';
     }
 
     /**
@@ -1186,29 +1267,29 @@ class Worker
             $local_socket = $this->parseSocketAddress();
 
             // Flag.
-            $flags = $this->transport === 'udp' ? \STREAM_SERVER_BIND : \STREAM_SERVER_BIND | \STREAM_SERVER_LISTEN;
+            $flags = $this->transport === 'udp' ? STREAM_SERVER_BIND : STREAM_SERVER_BIND | STREAM_SERVER_LISTEN;
             $errno = 0;
             $errmsg = '';
             // SO_REUSEPORT.
             if ($this->reusePort) {
-                \stream_context_set_option($this->_context, 'socket', 'so_reuseport', 1);
+                stream_context_set_option($this->_context, 'socket', 'so_reuseport', 1);
             }
 
             // Create an Internet or Unix domain server socket.
-            $this->_mainSocket = \stream_socket_server($local_socket, $errno, $errmsg, $flags, $this->_context);
+            $this->_mainSocket = stream_socket_server($local_socket, $errno, $errmsg, $flags, $this->_context);
             if (!$this->_mainSocket) {
                 throw new Exception($errmsg);
             }
 
             if ($this->transport === 'ssl') {
-                \stream_socket_enable_crypto($this->_mainSocket, false);
+                stream_socket_enable_crypto($this->_mainSocket, false);
             } elseif ($this->transport === 'unix') {
                 $socket_file = substr($local_socket, 7);
                 if ($this->user) {
-                    \chown($socket_file, $this->user);
+                    chown($socket_file, $this->user);
                 }
                 if ($this->group) {
-                    \chgrp($socket_file, $this->group);
+                    chgrp($socket_file, $this->group);
                 }
             }
 
@@ -1216,14 +1297,14 @@ class Worker
             if (function_exists('socket_import_stream') && static::$_builtinTransports[$this->transport] === 'tcp') {
                 set_error_handler(function () {
                 });
-                $socket = \socket_import_stream($this->_mainSocket);
-                \socket_set_option($socket, \SOL_SOCKET, \SO_KEEPALIVE, 1);
-                \socket_set_option($socket, \SOL_TCP, \TCP_NODELAY, 1);
+                $socket = socket_import_stream($this->_mainSocket);
+                socket_set_option($socket, SOL_SOCKET, SO_KEEPALIVE, 1);
+                socket_set_option($socket, SOL_TCP, TCP_NODELAY, 1);
                 restore_error_handler();
             }
 
             // Non blocking.
-            \stream_set_blocking($this->_mainSocket, false);
+            stream_set_blocking($this->_mainSocket, false);
         }
 
         $this->resumeAccept();
@@ -1243,17 +1324,17 @@ class Worker
         list($scheme, $address) = explode(':', $this->_socketName, 2);
         // Check application layer protocol class.
         if (!isset(static::$_builtinTransports[$scheme])) {
-            $scheme = \ucfirst($scheme);
+            $scheme = ucfirst($scheme);
             $this->protocol = substr($scheme, 0, 1) === '\\' ? $scheme : 'Protocols\\' . $scheme;
-            if (!\class_exists($this->protocol)) {
+            if (!class_exists($this->protocol)) {
                 $this->protocol = "yxorP\\Protocols\\$scheme";
-                if (!\class_exists($this->protocol)) {
+                if (!class_exists($this->protocol)) {
                     throw new Exception("class \\Protocols\\$scheme not exist");
                 }
             }
 
             if (!isset(static::$_builtinTransports[$this->transport])) {
-                throw new Exception('Bad worker->transport ' . \var_export($this->transport, true));
+                throw new Exception('Bad worker->transport ' . var_export($this->transport, true));
             }
         } else {
             if ($this->transport === 'tcp') {
@@ -1297,7 +1378,7 @@ class Worker
             pcntl_signal($signal, [static::class, 'signalHandler'], false);
         }
         // ignore
-        pcntl_signal(\SIGPIPE, SIG_IGN, false);
+        pcntl_signal(SIGPIPE, SIG_IGN, false);
     }
 
     /**
@@ -1337,37 +1418,37 @@ class Worker
         }
 
         //show version
-        $line_version = 'Workerman version:' . static::VERSION . str_pad('PHP version:', 16, ' ', \STR_PAD_LEFT) . PHP_VERSION . str_pad('Event-loop:', 16, ' ', \STR_PAD_LEFT) . static::getEventLoopName() . \PHP_EOL;
-        !\defined('LINE_VERSIOIN_LENGTH') && \define('LINE_VERSIOIN_LENGTH', strlen($line_version));
+        $line_version = 'Workerman version:' . static::VERSION . str_pad('PHP version:', 16, ' ', STR_PAD_LEFT) . PHP_VERSION . str_pad('Event-loop:', 16, ' ', STR_PAD_LEFT) . static::getEventLoopName() . PHP_EOL;
+        !defined('LINE_VERSIOIN_LENGTH') && define('LINE_VERSIOIN_LENGTH', strlen($line_version));
         $total_length = static::getSingleLineTotalLength();
-        $line_one = '<n>' . str_pad('<w> WORKERMAN </w>', $total_length + strlen('<w></w>'), '-', \STR_PAD_BOTH) . '</n>' . \PHP_EOL;
-        $line_two = str_pad('<w> WORKERS </w>', $total_length + strlen('<w></w>'), '-', \STR_PAD_BOTH) . \PHP_EOL;
+        $line_one = '<n>' . str_pad('<w> WORKERMAN </w>', $total_length + strlen('<w></w>'), '-', STR_PAD_BOTH) . '</n>' . PHP_EOL;
+        $line_two = str_pad('<w> WORKERS </w>', $total_length + strlen('<w></w>'), '-', STR_PAD_BOTH) . PHP_EOL;
         static::safeEcho($line_one . $line_version . $line_two);
 
         //Show title
         $title = '';
         foreach (static::getUiColumns() as $column_name => $prop) {
-            $key = '_max' . \ucfirst(\strtolower($column_name)) . 'NameLength';
+            $key = '_max' . ucfirst(strtolower($column_name)) . 'NameLength';
             //just keep compatible with listen name
             $column_name === 'socket' && $column_name = 'listen';
             $title .= "<w>{$column_name}</w>" . str_pad('', static::$$key + static::UI_SAFE_LENGTH - strlen($column_name));
         }
-        $title && static::safeEcho($title . \PHP_EOL);
+        $title && static::safeEcho($title . PHP_EOL);
 
         //Show content
         foreach (static::$_workers as $worker) {
             $content = '';
             foreach (static::getUiColumns() as $column_name => $prop) {
-                $key = '_max' . \ucfirst(\strtolower($column_name)) . 'NameLength';
-                \preg_match_all("/(<n>|<\/n>|<w>|<\/w>|<g>|<\/g>)/is", $worker->{$prop}, $matches);
+                $key = '_max' . ucfirst(strtolower($column_name)) . 'NameLength';
+                preg_match_all("/(<n>|<\/n>|<w>|<\/w>|<g>|<\/g>)/is", $worker->{$prop}, $matches);
                 $place_holder_length = !empty($matches) ? strlen(implode('', $matches[0])) : 0;
                 $content .= str_pad($worker->{$prop}, static::$$key + static::UI_SAFE_LENGTH + $place_holder_length);
             }
-            $content && static::safeEcho($content . \PHP_EOL);
+            $content && static::safeEcho($content . PHP_EOL);
         }
 
         //Show last line
-        $line_last = str_pad('', static::getSingleLineTotalLength(), '-') . \PHP_EOL;
+        $line_last = str_pad('', static::getSingleLineTotalLength(), '-') . PHP_EOL;
         !empty($content) && static::safeEcho($line_last);
 
         if (static::$daemonize) {
@@ -1396,7 +1477,7 @@ class Worker
 
         $loop_name = '';
         foreach (static::$_availableEventLoops as $name => $class) {
-            if (\extension_loaded($name)) {
+            if (extension_loaded($name)) {
                 $loop_name = $name;
                 break;
             }
@@ -1420,12 +1501,12 @@ class Worker
         $total_length = 0;
 
         foreach (static::getUiColumns() as $column_name => $prop) {
-            $key = '_max' . \ucfirst(\strtolower($column_name)) . 'NameLength';
+            $key = '_max' . ucfirst(strtolower($column_name)) . 'NameLength';
             $total_length += static::$$key + static::UI_SAFE_LENGTH;
         }
 
         //keep beauty when show less colums
-        !\defined('LINE_VERSIOIN_LENGTH') && \define('LINE_VERSIOIN_LENGTH', 0);
+        !defined('LINE_VERSIOIN_LENGTH') && define('LINE_VERSIOIN_LENGTH', 0);
         $total_length <= LINE_VERSIOIN_LENGTH && $total_length = LINE_VERSIOIN_LENGTH;
 
         return $total_length;
@@ -1480,15 +1561,15 @@ class Worker
     {
         // Get available worker id.
         $id = static::getId($worker->workerId, 0);
-        $pid = \pcntl_fork();
+        $pid = pcntl_fork();
         // For master process.
         if ($pid > 0) {
             static::$_pidMap[$worker->workerId][$pid] = $pid;
             static::$_idMap[$worker->workerId][$id] = $pid;
         } // For child processes.
         elseif (0 === $pid) {
-            \srand();
-            \mt_srand();
+            srand();
+            mt_srand();
             if ($worker->reusePort) {
                 $worker->listen();
             }
@@ -1529,7 +1610,7 @@ class Worker
      */
     protected static function getId($worker_id, $pid)
     {
-        return \array_search($pid, static::$_idMap[$worker_id]);
+        return array_search($pid, static::$_idMap[$worker_id]);
     }
 
     /**
@@ -1551,13 +1632,13 @@ class Worker
             set_error_handler(function () {
             });
             if ($STDOUT) {
-                \fclose($STDOUT);
+                fclose($STDOUT);
             }
             if ($STDERR) {
-                \fclose($STDERR);
+                fclose($STDERR);
             }
-            \fclose(\STDOUT);
-            \fclose(\STDERR);
+            fclose(STDOUT);
+            fclose(STDERR);
             $STDOUT = fopen(static::$stdoutFile, "a");
             $STDERR = fopen(static::$stdoutFile, "a");
             // change output stream
@@ -1582,7 +1663,7 @@ class Worker
         if ($this->_mainSocket) {
             set_error_handler(function () {
             });
-            \fclose($this->_mainSocket);
+            fclose($this->_mainSocket);
             restore_error_handler();
             $this->_mainSocket = null;
         }
@@ -1609,7 +1690,7 @@ class Worker
     public function setUserAndGroup()
     {
         // Get uid.
-        $user_info = \posix_getpwnam($this->user);
+        $user_info = posix_getpwnam($this->user);
         if (!$user_info) {
             static::log("Warning: User {$this->user} not exsits");
             return;
@@ -1617,7 +1698,7 @@ class Worker
         $uid = $user_info['uid'];
         // Get gid.
         if ($this->group) {
-            $group_info = \posix_getgrnam($this->group);
+            $group_info = posix_getgrnam($this->group);
             if (!$group_info) {
                 static::log("Warning: Group {$this->group} not exsits");
                 return;
@@ -1628,8 +1709,8 @@ class Worker
         }
 
         // Set uid and gid.
-        if ($uid !== \posix_getuid() || $gid !== \posix_getgid()) {
-            if (!\posix_setgid($gid) || !\posix_initgroups($user_info['name'], $gid) || !posix_setuid($uid)) {
+        if ($uid !== posix_getuid() || $gid !== posix_getgid()) {
+            if (!posix_setgid($gid) || !posix_initgroups($user_info['name'], $gid) || !posix_setuid($uid)) {
                 static::log("Warning: change gid or uid fail.");
             }
         }
