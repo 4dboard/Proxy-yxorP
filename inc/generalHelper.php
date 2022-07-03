@@ -228,7 +228,7 @@ class generalHelper
 
     /* It's merging the arrays. */
 
-    public static function CSV($filename = CHAR_EMPTY_STRING): array
+    public static function CSV($filename): array
     {
         $csvArray = array_map(VAR_GETCSV, file($filename));
         return array_merge(...$csvArray);
