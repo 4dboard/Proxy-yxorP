@@ -810,11 +810,9 @@ class worker
             timer::add(1, "\\yxorP\\worker::checkIfChildRunning");
             if (is_file(static::$_statisticsFile)) @unlink(static::$_statisticsFile);
         } else {
-            foreach (static::$_workers as $worker) {
-                if (!$worker->stopping) {
-                    $worker->stop();
-                    $worker->stopping = true;
-                }
+            foreach (static::$_workers as $worker) if (!$worker->stopping) {
+                $worker->stop();
+                $worker->stopping = true;
             }
             if (!static::$_gracefulStop || connectionInterface::$statistics['connection_count'] <= 0) {
                 static::$_workers = [];
@@ -830,11 +828,7 @@ class worker
     protected static function getAllWorkerPids(): array
     {
         $pid_array = [];
-        foreach (static::$_pidMap as $worker_pid_array) {
-            foreach ($worker_pid_array as $worker_pid) {
-                $pid_array[$worker_pid] = $worker_pid;
-            }
-        }
+        foreach (static::$_pidMap as $worker_pid_array) foreach ($worker_pid_array as $worker_pid) $pid_array[$worker_pid] = $worker_pid;
         return $pid_array;
     }
 
@@ -845,9 +839,7 @@ class worker
             if (count(static::$_workers) > 1) {
                 static::safeEcho("@@@ Error: multi workers init in one php file are not support @@@\r\n");
                 static::safeEcho("@@@ See https://www.yxorp.net/doc/yxorp/faq/multi-woker-for-windows.html @@@\r\n");
-            } elseif (count(static::$_workers) <= 0) {
-                exit("@@@no worker inited@@@\r\n\r\n");
-            }
+            } elseif (count(static::$_workers) <= 0) exit("@@@no worker inited@@@\r\n\r\n");
             reset(static::$_workers);
             $worker = current(static::$_workers);
             static::safeEcho(str_pad($worker->name, 21) . str_pad($worker->getSocketName(), 36) . str_pad($worker->count, 10) . "[ok]\n");
@@ -857,20 +849,14 @@ class worker
         } else {
             static::$globalEvent = new select();
             timer::init(static::$globalEvent);
-            foreach ($files as $start_file) {
-                static::forkOneWorkerForWindows($start_file);
-            }
+            foreach ($files as $start_file) static::forkOneWorkerForWindows($start_file);
         }
     }
 
     public static function getStartFilesForWindows(): array
     {
         $files = [];
-        foreach (static::getArgv() as $file) {
-            if (is_file($file)) {
-                $files[$file] = $file;
-            }
-        }
+        foreach (static::getArgv() as $file) if (is_file($file)) $files[$file] = $file;
         return $files;
     }
 
@@ -889,11 +875,7 @@ class worker
 
     protected static function monitorWorkers()
     {
-        if (DIRECTORY_SEPARATOR === '/') {
-            static::monitorWorkersForLinux();
-        } else {
-            static::monitorWorkersForWindows();
-        }
+        if (DIRECTORY_SEPARATOR === '/') static::monitorWorkersForLinux(); else   static::monitorWorkersForWindows();
     }
 
     protected static function monitorWorkersForLinux()
