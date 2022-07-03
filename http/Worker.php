@@ -21,7 +21,7 @@ use yxorP\connection\TcpConnection;
 use yxorP\connection\UdpConnection;
 use yxorP\events\Event;
 use yxorP\events\Select;
-use yxorP\Protocols\ProtocolInterface;
+use yxorP\protocols\ProtocolInterface;
 use function array_intersect;
 use function array_map;
 use function array_search;
@@ -1325,11 +1325,11 @@ class Worker
         // Check application layer protocol class.
         if (!isset(static::$_builtinTransports[$scheme])) {
             $scheme = ucfirst($scheme);
-            $this->protocol = substr($scheme, 0, 1) === '\\' ? $scheme : 'Protocols\\' . $scheme;
+            $this->protocol = substr($scheme, 0, 1) === '\\' ? $scheme : 'protocols\\' . $scheme;
             if (!class_exists($this->protocol)) {
-                $this->protocol = "yxorP\\Protocols\\$scheme";
+                $this->protocol = "yxorP\\protocols\\$scheme";
                 if (!class_exists($this->protocol)) {
-                    throw new Exception("class \\Protocols\\$scheme not exist");
+                    throw new Exception("class \\protocols\\$scheme not exist");
                 }
             }
 
