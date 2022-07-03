@@ -9,6 +9,8 @@ use yxorP\http\worker;
 
 /* Creating a class called ws. */
 
+/* Creating a class called ws. */
+
 class ws
 {
     const BINARY_TYPE_BLOB = "\x81";
