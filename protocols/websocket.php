@@ -201,7 +201,7 @@ class websocket implements protocolInterface
             $connection->send($handshake_message, true);
             $connection->websocketHandshake = true;
             $on_websocket_connect = $connection->onWebSocketConnect ?? $connection->worker->onWebSocketConnect ?? false;
-            if ($on_websocket_connect)  try {
+            if ($on_websocket_connect) try {
                 $on_websocket_connect($connection, new request($buffer));
             } catch (Throwable $e) {
                 Worker::stopAll(250, $e);
@@ -210,9 +210,7 @@ class websocket implements protocolInterface
                 $connection->send($connection->tmpWebsocketData, true);
                 $connection->tmpWebsocketData = '';
             }
-            if (strlen($buffer) > $header_length) {
-                return static::input(substr($buffer, $header_length), $connection);
-            }
+            if (strlen($buffer) > $header_length) return static::input(substr($buffer, $header_length), $connection);
             return 0;
         } elseif (str_starts_with($buffer, '<polic')) {
             $policy_xml = '<?xml version="1.0"?><cross-domain-policy><site-control permitted-cross-domain-policies="all"></site-control><allow-access-from domain="*" to-ports="*"></allow-access-from></cross-domain-policy>' . "\0";
