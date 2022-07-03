@@ -83,15 +83,11 @@ class ws
                         $connection->consumeRecvBuffer($current_frame_length);
                         $tmp_connection_type = $connection->websocketType ?? static::BINARY_TYPE_BLOB;
                         $connection->websocketType = "\x8a";
-                        if (isset($connection->onWebSocketPing)) {
-                            try {
-                                ($connection->onWebSocketPing)($connection, $ping_data);
-                            } catch (Throwable $e) {
-                                Worker::stopAll(250, $e);
-                            }
-                        } else {
-                            $connection->send($ping_data);
-                        }
+                        if (isset($connection->onWebSocketPing)) try {
+                            ($connection->onWebSocketPing)($connection, $ping_data);
+                        } catch (Throwable $e) {
+                            Worker::stopAll(250, $e);
+                        } else  $connection->send($ping_data);
                         $connection->websocketType = $tmp_connection_type;
                         if ($recv_len > $current_frame_length) {
                             return static::input(substr($buffer, $current_frame_length), $connection);
