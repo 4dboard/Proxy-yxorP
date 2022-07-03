@@ -890,12 +890,8 @@ class worker
                 foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
                     if (isset($worker_pid_array[$pid])) {
                         $worker = static::$_workers[$worker_id];
-                        if ($status !== 0) {
-                            static::log("worker[" . $worker->name . ":$pid] exit with status $status");
-                        }
-                        if (!isset(static::$_globalStatistics['worker_exit_info'][$worker_id][$status])) {
-                            static::$_globalStatistics['worker_exit_info'][$worker_id][$status] = 0;
-                        }
+                        if ($status !== 0) static::log("worker[" . $worker->name . ":$pid] exit with status $status");
+                        if (!isset(static::$_globalStatistics['worker_exit_info'][$worker_id][$status]))  static::$_globalStatistics['worker_exit_info'][$worker_id][$status] = 0;
                         ++static::$_globalStatistics['worker_exit_info'][$worker_id][$status];
                         unset(static::$_pidMap[$worker_id][$pid]);
                         $id = static::getId($worker_id, $pid);
@@ -911,9 +907,7 @@ class worker
                     }
                 }
             }
-            if (static::$_status === static::STATUS_SHUTDOWN && !static::getAllWorkerPids()) {
-                static::exitAndClearAll();
-            }
+            if (static::$_status === static::STATUS_SHUTDOWN && !static::getAllWorkerPids())  static::exitAndClearAll();
         }
     }
 
@@ -927,28 +921,18 @@ class worker
                 static::log("Yxorp[" . basename(static::$_startFile) . "] reloading");
                 static::$_status = static::STATUS_RELOADING;
                 static::resetStd(false);
-                if (static::$onMasterReload) {
-                    try {
+                if (static::$onMasterReload)  try {
                         call_user_func(static::$onMasterReload);
                     } catch (Throwable $e) {
                         static::stopAll(250, $e);
                     }
                     static::initId();
-                }
             }
             $sig = static::$_gracefulStop ? SIGUSR2 : SIGUSR1;
             $reloadable_pid_array = [];
             foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
                 $worker = static::$_workers[$worker_id];
-                if ($worker->reloadable) {
-                    foreach ($worker_pid_array as $pid) {
-                        $reloadable_pid_array[$pid] = $pid;
-                    }
-                } else {
-                    foreach ($worker_pid_array as $pid) {
-                        posix_kill($pid, $sig);
-                    }
-                }
+                if ($worker->reloadable) foreach ($worker_pid_array as $pid) $reloadable_pid_array[$pid] = $pid; else {foreach ($worker_pid_array as $pid)    posix_kill($pid, $sig);
             }
             static::$_pidsToRestart = array_intersect(static::$_pidsToRestart, $reloadable_pid_array);
             if (empty(static::$_pidsToRestart)) {
