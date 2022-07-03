@@ -15,6 +15,8 @@ use function substr;
 use const FILE_IGNORE_NEW_LINES;
 use const FILE_SKIP_EMPTY_LINES;
 
+/* A class that is used to create a response object. */
+
 class response
 {
     private static $_mimeTypeMap = null;
@@ -26,6 +28,7 @@ class response
     private string $_version = '1.1';
     private ?string $_body = null;
 
+    /* The constructor of the class. */
     public function __construct($status = 200, $headers = [], $body = '')
     {
         $this->_status = $status;
@@ -33,11 +36,14 @@ class response
         $this->_body = (string)$body;
     }
 
+    /* Initializing the mime type map. */
+    /* Initializing the mime type map. */
     public static function init()
     {
         static::initMimeTypeMap();
     }
 
+    /* Initializing the mime type map. */
     public static function initMimeTypeMap()
     {
         $mime_file = __DIR__ . '/mime.types';
@@ -54,29 +60,34 @@ class response
         }
     }
 
+    /* A method that is used to set a header. */
     public function withHeader($name, $value): static
     {
         return $this->header($name, $value);
     }
 
+    /* Setting a header. */
     public function header($name, $value): static
     {
         $this->_header[$name] = $value;
         return $this;
     }
 
+    /* Merging the headers. */
     public function withHeaders($headers): static
     {
         $this->_header = array_merge_recursive($this->_header, $headers);
         return $this;
     }
 
+    /* It removes a header. */
     public function withoutHeader($name): static
     {
         unset($this->_header[$name]);
         return $this;
     }
 
+    /* Getting the header. */
     public function getHeader($name)
     {
         if (!isset($this->_header[$name])) {
@@ -85,32 +96,38 @@ class response
         return $this->_header[$name];
     }
 
+    /* Getting the headers. */
     public function getHeaders(): ?array
     {
         return $this->_header;
     }
 
+    /* Returning the status code. */
     public function getStatusCode()
     {
         return $this->_status;
     }
 
+    /* Returning the reason phrase. */
     public function getReasonPhrase()
     {
         return $this->_reason;
     }
 
+    /* Setting the protocol version. */
     public function withProtocolVersion($version): static
     {
         $this->_version = $version;
         return $this;
     }
 
+    /* Returning the body of the response. */
     public function rawBody(): ?string
     {
         return $this->_body;
     }
 
+    /* Used to send a file to the client. */
     public function withFile($file, $offset = 0, $length = 0): response|static
     {
         if (!is_file($file)) {
@@ -120,12 +137,14 @@ class response
         return $this;
     }
 
+    /* Setting the body of the response. */
     public function withBody($body): static
     {
         $this->_body = (string)$body;
         return $this;
     }
 
+    /* Setting the status code and the reason phrase. */
     public function withStatus($code, $reason_phrase = null): static
     {
         $this->_status = $code;
@@ -133,22 +152,20 @@ class response
         return $this;
     }
 
+    /* Setting a cookie. */
     public function cookie($name, $value = '', $max_age = null, $path = '', $domain = '', $secure = false, $http_only = false, $same_site = false): static
     {
         $this->_header['Set-Cookie'][] = $name . '=' . rawurlencode($value) . (empty($domain) ? '' : '; Domain=' . $domain) . ($max_age === null ? '' : '; Max-Age=' . $max_age) . (empty($path) ? '' : '; Path=' . $path) . (!$secure ? '' : '; Secure') . (!$http_only ? '' : '; HttpOnly') . (empty($same_site) ? '' : '; SameSite=' . $same_site);
         return $this;
     }
 
+    /* Used to convert the response object to a string. */
     public function __toString()
     {
-        if (isset($this->file)) {
-            return $this->createHeadForFile($this->file);
-        }
+        if (isset($this->file)) return $this->createHeadForFile($this->file);
         $reason = $this->_reason ?: static::$_phrases[$this->_status] ?? '';
         $body_len = strlen($this->_body);
-        if (empty($this->_header)) {
-            return "HTTP/{$this->_version} {$this->_status} $reason\r\nServer: yxorP\r\nContent-Type: text/html;charset=utf-8\r\nContent-Length: $body_len\r\nconnection: keep-alive\r\n\r\n{$this->_body}";
-        }
+        if (empty($this->_header)) return "HTTP/{$this->_version} {$this->_status} $reason\r\nServer: yxorP\r\nContent-Type: text/html;charset=utf-8\r\nContent-Length: $body_len\r\nconnection: keep-alive\r\n\r\n{$this->_body}";
         $head = "HTTP/{$this->_version} {$this->_status} $reason\r\n";
         $headers = $this->_header;
         if (!isset($headers['Server'])) {
