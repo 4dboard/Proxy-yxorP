@@ -578,7 +578,7 @@ class constants
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
         constants::set(YXORP_TARGET_PATTERN, constants::get(YXORP_TARGET)[VAR_PATTERN]) ?: null;
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
-        constants::set(YXORP_TARGET_REPLACE, constants::get(YXORP_TARGET)[VAR_REPLACE]);
+        constants::set(YXORP_TARGET_REPLACE, constants::get(YXORP_TARGET)[VAR_REPLACE]) ?: null;
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
