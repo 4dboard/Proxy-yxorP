@@ -145,12 +145,10 @@ class ws
             }
             $connection->handshakeStep = 2;
             $handshake_response_length = $pos + 4;
-            if (isset($connection->onWebSocketConnect)) {
-                try {
-                    ($connection->onWebSocketConnect)($connection, substr($buffer, 0, $handshake_response_length));
-                } catch (Throwable $e) {
-                    Worker::stopAll(250, $e);
-                }
+            if (isset($connection->onWebSocketConnect)) try {
+                ($connection->onWebSocketConnect)($connection, substr($buffer, 0, $handshake_response_length));
+            } catch (Throwable $e) {
+                Worker::stopAll(250, $e);
             }
             if (!empty($connection->websocketPingInterval)) {
                 $connection->websocketPingTimer = Timer::add($connection->websocketPingInterval, function () use ($connection) {
@@ -165,9 +163,7 @@ class ws
                 $connection->send($connection->tmpWebsocketData, true);
                 $connection->tmpWebsocketData = '';
             }
-            if (strlen($buffer) > $handshake_response_length) {
-                return self::input(substr($buffer, $handshake_response_length), $connection);
-            }
+            if (strlen($buffer) > $handshake_response_length) return self::input(substr($buffer, $handshake_response_length), $connection);
         }
         return 0;
     }
@@ -175,13 +171,8 @@ class ws
     public static function decode($bytes, connectionInterface $connection): string
     {
         $data_length = ord($bytes[1]);
-        if ($data_length === 126) {
-            $decoded_data = substr($bytes, 4);
-        } else if ($data_length === 127) {
-            $decoded_data = substr($bytes, 10);
-        } else {
-            $decoded_data = substr($bytes, 2);
-        }
+        if ($data_length === 126) $decoded_data = substr($bytes, 4); else if ($data_length === 127) $decoded_data = substr($bytes, 10); else  $decoded_data = substr($bytes, 2);
+
         if ($connection->websocketCurrentFrameLength) {
             $connection->websocketDataBuffer .= $decoded_data;
             return $connection->websocketDataBuffer;
