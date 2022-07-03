@@ -1,23 +1,7 @@
-<?php
-/**
- * This file is part of workerman.
- *
- * Licensed under The MIT License
- * For full copyright and license information, please see the MIT-LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
- *
- * @author    walkor<walkor@workerman.net>
- * @copyright walkor<walkor@workerman.net>
- * @link      http://www.workerman.net/
- * @license   http://www.opensource.org/licenses/mit-license.php MIT License
- */
-
-namespace yxorP\http;
+<?php namespace yxorP\http;
 
 use Exception;
 use Throwable;
-use yxorP\events\eventInterface;
-use yxorP\events\select;
 use yxorP\Worker;
 use function function_exists;
 use function is_callable;
@@ -27,55 +11,13 @@ use function time;
 use const PHP_INT_MAX;
 use const SIGALRM;
 
-/**
- * Timer.
- */
-class Timer
+class timer
 {
-    /**
-     * Tasks that based on ALARM signal.
-     * [
-     *   run_time => [[$func, $args, $persistent, time_interval],[$func, $args, $persistent, time_interval],..]],
-     *   run_time => [[$func, $args, $persistent, time_interval],[$func, $args, $persistent, time_interval],..]],
-     *   ..
-     * ]
-     *
-     * @var array
-     */
-    protected static $_tasks = [];
+    private static array $_tasks = [];
+    private static $_event = null;
+    private static int $_timerId = 0;
+    private static array $_status = [];
 
-    /**
-     * event
-     *
-     * @var select
-     */
-    protected static $_event = null;
-
-    /**
-     * timer id
-     *
-     * @var int
-     */
-    protected static $_timerId = 0;
-
-    /**
-     * timer status
-     * [
-     *   timer_id1 => bool,
-     *   timer_id2 => bool,
-     *   ....................,
-     * ]
-     *
-     * @var array
-     */
-    protected static $_status = [];
-
-    /**
-     * Init.
-     *
-     * @param eventInterface $event
-     * @return void
-     */
     public static function init($event = null)
     {
         if ($event) {
@@ -87,11 +29,6 @@ class Timer
         }
     }
 
-    /**
-     * ALARM signal handler.
-     *
-     * @return void
-     */
     public static function signalHandle()
     {
         if (!self::$_event) {
@@ -100,11 +37,6 @@ class Timer
         }
     }
 
-    /**
-     * Tick.
-     *
-     * @return void
-     */
     public static function tick()
     {
         if (empty(self::$_tasks)) {
@@ -135,99 +67,59 @@ class Timer
         }
     }
 
-    /**
-     * @param float $delay
-     * @param $func
-     * @param array $args
-     * @return bool|int
-     */
     public static function delay(float $delay, $func, $args = [])
     {
         return static::add($delay, $func, $args, false);
     }
 
-    /**
-     * Add a timer.
-     *
-     * @param float $time_interval
-     * @param callable $func
-     * @param mixed $args
-     * @param bool $persistent
-     * @return int|bool
-     */
     public static function add(float $time_interval, $func, $args = [], $persistent = true)
     {
         if ($time_interval < 0) {
             Worker::safeEcho(new Exception("bad time_interval"));
             return false;
         }
-
         if ($args === null) {
             $args = [];
         }
-
         if (self::$_event) {
             return $persistent ? self::$_event->repeat($time_interval, $func, $args) : self::$_event->delay($time_interval, $func, $args);
         }
-
-        // If not workerman runtime just return.
         if (!Worker::getAllWorkers()) {
             return;
         }
-
         if (!is_callable($func)) {
             Worker::safeEcho(new Exception("not callable"));
             return false;
         }
-
         if (empty(self::$_tasks)) {
             pcntl_alarm(1);
         }
-
         $run_time = time() + $time_interval;
         if (!isset(self::$_tasks[$run_time])) {
             self::$_tasks[$run_time] = [];
         }
-
         self::$_timerId = self::$_timerId == PHP_INT_MAX ? 1 : ++self::$_timerId;
         self::$_status[self::$_timerId] = true;
         self::$_tasks[$run_time][self::$_timerId] = [$func, (array)$args, $persistent, $time_interval];
-
         return self::$_timerId;
     }
 
-    /**
-     * Remove a timer.
-     *
-     * @param mixed $timer_id
-     * @return bool
-     */
-    public static function del($timer_id)
+    public static function del($timer_id): bool
     {
         if (self::$_event) {
             return self::$_event->deleteTimer($timer_id);
         }
-
         foreach (self::$_tasks as $run_time => $task_data) {
             if (array_key_exists($timer_id, $task_data)) unset(self::$_tasks[$run_time][$timer_id]);
         }
-
         if (array_key_exists($timer_id, self::$_status)) unset(self::$_status[$timer_id]);
-
         return true;
     }
 
-    /**
-     * Remove all timers.
-     *
-     * @return void
-     */
     public static function delAll()
     {
         self::$_tasks = self::$_status = [];
         pcntl_alarm(0);
-        if (self::$_event) {
-            self::$_event->deleteAllTimer();
-        }
+        self::$_event?->deleteAllTimer();
     }
 }

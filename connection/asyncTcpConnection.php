@@ -4,6 +4,7 @@
 
 use Exception;
 use Throwable;
+use yxorP\http\timer;
 use yxorP\Timer;
 use yxorP\Worker;
 use function class_exists;
@@ -34,27 +35,30 @@ use const TCP_NODELAY;
 class asyncTcpConnection extends tcpConnection
 {
     /* A list of protocols that are supported by the asyncTcpConnection class. */
-    protected static $_builtinTransports = ['tcp' => 'tcp', 'udp' => 'udp', 'unix' => 'unix', 'ssl' => 'ssl', 'sslv2' => 'sslv2', 'sslv3' => 'sslv3', 'tls' => 'tls'];
+    protected static array $_builtinTransports = ['tcp' => 'tcp', 'udp' => 'udp', 'unix' => 'unix', 'ssl' => 'ssl', 'sslv2' => 'sslv2', 'sslv3' => 'sslv3', 'tls' => 'tls'];
     /* A callback function that is called when the connection is established. */
     public $onConnect = null;
     /* Setting the default transport to TCP. */
     public $transport = 'tcp';
     /* Setting the status of the connection to initial. */
-    protected $_status = self::STATUS_INITIAL;
+    protected int $_status = self::STATUS_INITIAL;
     /* Setting the default value of the `$_remoteHost` variable to an empty string. */
-    protected $_remoteHost = '';
+    protected mixed $_remoteHost = '';
     /* Setting the default port to 80. */
-    protected $_remotePort = 80;
+    protected mixed $_remotePort = 80;
     /* Setting the default value of the `$_connectStartTime` variable to 0. */
-    protected $_connectStartTime = 0;
+    protected int $_connectStartTime = 0;
     /* Setting the default value of the `$_remoteURI` variable to an empty string. */
-    protected $_remoteURI = '';
+    protected string $_remoteURI = '';
     /* Setting the default value of the `$_contextOption` variable to null. */
-    protected $_contextOption = null;
+    protected ?array $_contextOption = null;
     /* Setting the default value of the `$_reconnectTimer` variable to null. */
     protected $_reconnectTimer = null;
 
     /* Setting the default values for the variables. */
+    /**
+     * @throws Exception
+     */
     public function __construct($remote_address, array $context_option = [])
     {
         /* Parsing the URL. */
@@ -83,7 +87,7 @@ class asyncTcpConnection extends tcpConnection
             /* Setting the remote URI to the path and query that is in the address info. */
             $this->_remoteURI = "{$address_info['path']}{$address_info['query']}";
             /* Setting the scheme to the scheme that is in the address info, if it is not set, then it will set it to TCP. */
-            $scheme = isset($address_info['scheme']) ? $address_info['scheme'] : 'tcp';
+            $scheme = $address_info['scheme'] ?? 'tcp';
             /* Setting the remote address to the address without the scheme if the scheme is unix. */
             $this->_remoteAddress = 'unix' === strtolower($scheme) ? substr($remote_address, strpos($remote_address, '/') + 2) : $this->_remoteHost . ':' . $this->_remotePort;
         }
@@ -109,8 +113,8 @@ class asyncTcpConnection extends tcpConnection
                 /* Checking if the class exists, and if it does not exist, then it will throw an exception. */
                 if (!class_exists($this->protocol)) throw new Exception("class \\protocols\\$scheme not exist");
             }
-        /* Setting the `$this->transport` variable to the value of the `$scheme` variable in the
-        `self::$_builtinTransports` array. */
+            /* Setting the `$this->transport` variable to the value of the `$scheme` variable in the
+            `self::$_builtinTransports` array. */
         } else  $this->transport = self::$_builtinTransports[$scheme];
         /* Incrementing the `connection_count` variable in the `self::$statistics` array by one. */
         ++self::$statistics['connection_count'];
@@ -171,7 +175,7 @@ class asyncTcpConnection extends tcpConnection
                 /* Creating a socket connection to the remote host and port. */
                 $this->_socket = stream_socket_client("tcp://{$this->_remoteHost}:{$this->_remotePort}", $errno, $errstr, 0, STREAM_CLIENT_ASYNC_CONNECT);
             }
-        /* Creating a socket connection to the remote address. */
+            /* Creating a socket connection to the remote address. */
         } else $this->_socket = stream_socket_client("{$this->transport}://{$this->_remoteAddress}", $errno, $errstr, 0, STREAM_CLIENT_ASYNC_CONNECT);
         /* Checking if the socket is not set or if it is not a resource. */
         if (!$this->_socket || !is_resource($this->_socket)) {
@@ -200,7 +204,7 @@ class asyncTcpConnection extends tcpConnection
         if ($this->onError) try {
             /* Calling the onError function with the parameters $this, $code, $msg. */
             ($this->onError)($this, $code, $msg);
-        /* The above code is trying to catch an error. */
+            /* The above code is trying to catch an error. */
         } catch (Throwable $e) {
             /* Stopping all workers after 250ms. */
             Worker::stopAll(250, $e);
@@ -222,7 +226,7 @@ class asyncTcpConnection extends tcpConnection
     }
 
     /* A function that returns the remote URI. */
-    public function getRemoteURI()
+    public function getRemoteURI(): string
     {
         /* Returning the value of the private variable _remoteURI. */
         return $this->_remoteURI;
@@ -259,7 +263,7 @@ class asyncTcpConnection extends tcpConnection
                 $this->_sslHandshakeCompleted = $this->doSslHandshake($this->_socket);
                 /* Checking if the SSL handshake has been completed. */
                 if ($this->_sslHandshakeCompleted === false) return;
-            /* Checking to see if the file is being run from the command line. */
+                /* Checking to see if the file is being run from the command line. */
             } else {
                 /* *|CURSOR_MARCADOR|* */
                 if ($this->_sendBuffer) Worker::$globalEvent->onWritable($this->_socket, [$this, 'baseWrite']);
@@ -275,7 +279,7 @@ class asyncTcpConnection extends tcpConnection
             if ($this->onConnect) try {
                 /* Calling the onConnect function. */
                 ($this->onConnect)($this);
-            /* The above code is trying to catch an error. */
+                /* The above code is trying to catch an error. */
             } catch (Throwable $e) {
                 /* Stopping all workers after 250ms. */
                 Worker::stopAll(250, $e);
@@ -285,7 +289,7 @@ class asyncTcpConnection extends tcpConnection
             if ($this->protocol && method_exists($this->protocol, 'onConnect')) try {
                 /* Calling the onConnect method of the protocol class. */
                 [$this->protocol, 'onConnect']($this);
-            /* The above code is trying to catch an error. */
+                /* The above code is trying to catch an error. */
             } catch (Throwable $e) {
                 /* Stopping all workers after 250ms. */
                 Worker::stopAll(250, $e);

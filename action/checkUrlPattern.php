@@ -16,7 +16,7 @@ class checkUrlPattern extends wrapper
 
         /* Used to filter the events. */
         if ($this->url_pattern) if (generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1)
-            return; else if (stripos($url, $this->url_pattern) === false) return;
+        else if (stripos($url, $this->url_pattern) === false)
 
         //Todo: Final event
 

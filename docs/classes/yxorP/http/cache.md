@@ -28,21 +28,6 @@ private static array $instance
 
 ***
 
-### options
-
-
-
-```php
-private array $options
-```
-
-
-
-
-
-
-***
-
 ## Methods
 
 
@@ -112,12 +97,12 @@ public super(): void
 
 ***
 
-### isExists
+### isValid
 
 
 
 ```php
-private isExists(): bool
+public isValid(): bool
 ```
 
 
@@ -138,26 +123,6 @@ private isExists(): bool
 
 ```php
 public get(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### isValid
-
-
-
-```php
-public isValid(): bool
 ```
 
 
@@ -197,7 +162,7 @@ public static cache(): mixed
 
 
 ```php
-public set(mixed $val): \yxorP\http\cache
+public set(mixed $val): void
 ```
 
 
@@ -220,4 +185,4 @@ public set(mixed $val): \yxorP\http\cache
 
 
 ***
-> yxorP Documentation
+> Automatically generated from source code comments on 2022-07-03 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

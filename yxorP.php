@@ -173,7 +173,6 @@ class yxorP
         closedir($dir);
     }
 
-
     /**
      * "If there are any listeners for the event, call them."
      *

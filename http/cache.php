@@ -31,7 +31,6 @@ class cache
         foreach ($files as $file) if (is_file($file)) unlink($file);
     }
 
-
     public function super(): void
     {
         $attr_instance = new self(false);
