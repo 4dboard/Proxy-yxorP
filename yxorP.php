@@ -135,7 +135,6 @@ class yxorP
                 throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
-        self::install();
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
             self::install();
         /* It's returning an array of events. */
@@ -152,11 +151,29 @@ class yxorP
         /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
         define(YXORP_COCKPIT_INSTALL, true);
         /* It's copying all the files from the `local` directory to the `cockpit` directory. */
-        //self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
         /* It's creating an array of user data. */
         $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
         /* It's inserting a new user into the `cockpit_accounts` collection. */
         constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
+    }
+
+    /**
+     * It takes a source directory, a destination directory, and a file extension, and copies all files with that extension
+     * from the source directory to the destination directory
+     *
+     * @param from The directory to migrate from.
+     * @param to The destination directory.
+     * @param ext The extension of the files to be migrated.
+     */
+    private static function migrate($from, $to): void
+    {
+        /* It's checking if the destination directory exists, and if it doesn't, it creates it. */
+        if (!is_dir($to)) mkdir($to);
+        /* It's copying all the files from the `local` directory to the `cockpit` directory. */
+        while (($ff = readdir(($dir = opendir($from)))) !== false) if ($ff != CHAR_PERIOD && $ff != CHAR_PERIOD . CHAR_PERIOD) if (is_dir("$from$ff")) self::migrate("$from$ff" . DIRECTORY_SEPARATOR, "$to$ff" . DIRECTORY_SEPARATOR); else   copy("$from$ff", "$to$ff");
+        /* It's closing the directory. */
+        closedir($dir);
     }
 
     /**
@@ -187,24 +204,6 @@ class yxorP
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
         return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
-    }
-
-    /**
-     * It takes a source directory, a destination directory, and a file extension, and copies all files with that extension
-     * from the source directory to the destination directory
-     *
-     * @param from The directory to migrate from.
-     * @param to The destination directory.
-     * @param ext The extension of the files to be migrated.
-     */
-    private static function migrate($from, $to): void
-    {
-        /* It's checking if the destination directory exists, and if it doesn't, it creates it. */
-        if (!is_dir($to)) mkdir($to);
-        /* It's copying all the files from the `local` directory to the `cockpit` directory. */
-        while (($ff = readdir(($dir = opendir($from)))) !== false) if ($ff != CHAR_PERIOD && $ff != CHAR_PERIOD . CHAR_PERIOD) if (is_dir("$from$ff")) self::migrate("$from$ff" . DIRECTORY_SEPARATOR, "$to$ff" . DIRECTORY_SEPARATOR); else   copy("$from$ff", "$to$ff");
-        /* It's closing the directory. */
-        closedir($dir);
     }
 
     /**
