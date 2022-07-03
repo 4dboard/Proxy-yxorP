@@ -2016,7 +2016,7 @@ if (typeof gameNAMES === 'undefined') {
         TITLE: "Gravity Frog",
         URL: "https://xn--ply-onb.com/logic/gravity-frog"
     }, {TITLE: "Gravity Snake", URL: "https://xn--ply-onb.com/logic/gravity-snake"}, {
-        TITLE: "Halloween Connection",
+        TITLE: "Halloween connection",
         URL: "https://xn--ply-onb.com/logic/halloween-connection"
     }, {
         TITLE: "Halloween Differences",

@@ -16,9 +16,9 @@ namespace yxorP\http;
 
 use Exception;
 use Throwable;
-use yxorP\Connection\ConnectionInterface;
-use yxorP\Connection\TcpConnection;
-use yxorP\Connection\UdpConnection;
+use yxorP\connection\ConnectionInterface;
+use yxorP\connection\TcpConnection;
+use yxorP\connection\UdpConnection;
 use yxorP\Events\Event;
 use yxorP\Events\Select;
 use yxorP\Protocols\ProtocolInterface;
