@@ -261,10 +261,7 @@ class websocket implements protocolInterface
         $len = strlen($buffer);
         if (empty($connection->websocketType)) $connection->websocketType = static::BINARY_TYPE_BLOB;
         $first_byte = $connection->websocketType;
-        if ($len <= 125) $encode_buffer = $first_byte . chr($len) . $buffer; else {
-            if ($len <= 65535) $encode_buffer = $first_byte . chr(126) . pack("n", $len) . $buffer; else $encode_buffer = $first_byte . chr(127) . pack("xxxxN", $len) . $buffer;
-
-        }
+        if ($len <= 125) $encode_buffer = $first_byte . chr($len) . $buffer; else if ($len <= 65535) $encode_buffer = $first_byte . chr(126) . pack("n", $len) . $buffer; else $encode_buffer = $first_byte . chr(127) . pack("xxxxN", $len) . $buffer;
         if (empty($connection->websocketHandshake)) {
             if (empty($connection->tmpWebsocketData)) {
                 $connection->tmpWebsocketData = '';
