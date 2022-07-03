@@ -7,6 +7,7 @@ namespace yxorP;
 use MongoDB\Driver\Monitoring\Subscriber;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
+use function copy;
 
 /* Loading the required files. */
 require './inc/generalHelper.php';
@@ -165,7 +166,7 @@ class yxorP
     {
         $dir = opendir($src);
         @mkdir($dst);
-        foreach (scandir($src) as $file) if (($file != CHAR_PERIOD) && ($file != CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) copy_folder($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
+        foreach (scandir($src) as $file) if (($file != CHAR_PERIOD) && ($file != CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
         closedir($dir);
     }
 
