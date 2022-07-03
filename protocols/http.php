@@ -183,9 +183,7 @@ class http
     protected static function sendStream(tcpConnection $connection, $handler, $offset = 0, $length = 0)
     {
         $connection->bufferFull = false;
-        if ($offset !== 0) {
-            fseek($handler, $offset);
-        }
+        if ($offset !== 0) fseek($handler, $offset);
         $offset_end = $offset + $length;
         $do_write = function () use ($connection, $handler, $length, $offset_end) {
             while ($connection->bufferFull === false) {
@@ -221,16 +219,8 @@ class http
 
     public static function uploadTmpDir($dir = null): string
     {
-        if (null !== $dir) {
-            static::$_uploadTmpDir = $dir;
-        }
-        if (static::$_uploadTmpDir === '') {
-            if ($upload_tmp_dir = ini_get('upload_tmp_dir')) {
-                static::$_uploadTmpDir = $upload_tmp_dir;
-            } else if ($upload_tmp_dir = sys_get_temp_dir()) {
-                static::$_uploadTmpDir = $upload_tmp_dir;
-            }
-        }
+        if (null !== $dir) static::$_uploadTmpDir = $dir;
+        if (static::$_uploadTmpDir === '') if ($upload_tmp_dir = ini_get('upload_tmp_dir')) static::$_uploadTmpDir = $upload_tmp_dir; else if ($upload_tmp_dir = sys_get_temp_dir()) static::$_uploadTmpDir = $upload_tmp_dir;
         return static::$_uploadTmpDir;
     }
 }
