@@ -187,30 +187,24 @@ class websocket implements protocolInterface
             $connection->consumeRecvBuffer($header_length);
             if (empty($connection->websocketType)) $connection->websocketType = static::BINARY_TYPE_BLOB;
             $has_server_header = false;
-            if (isset($connection->headers)) {
-                if (is_array($connection->headers)) {
-                    foreach ($connection->headers as $header) {
-                        if (stripos($header, 'Server:') === 0) $has_server_header = true;
-                        $handshake_message .= "$header\r\n";
-                    }
-                } else {
-                    if (stripos($connection->headers, 'Server:') !== false) $has_server_header = true;
-                    $handshake_message .= "$connection->headers\r\n";
+            if (isset($connection->headers)) if (is_array($connection->headers)) {
+                foreach ($connection->headers as $header) {
+                    if (stripos($header, 'Server:') === 0) $has_server_header = true;
+                    $handshake_message .= "$header\r\n";
                 }
+            } else {
+                if (stripos($connection->headers, 'Server:') !== false) $has_server_header = true;
+                $handshake_message .= "$connection->headers\r\n";
             }
-            if (!$has_server_header) {
-                $handshake_message .= "Server: yxorp/" . Worker::VERSION . "\r\n";
-            }
+            if (!$has_server_header) $handshake_message .= "Server: yxorp/" . Worker::VERSION . "\r\n";
             $handshake_message .= "\r\n";
             $connection->send($handshake_message, true);
             $connection->websocketHandshake = true;
             $on_websocket_connect = $connection->onWebSocketConnect ?? $connection->worker->onWebSocketConnect ?? false;
-            if ($on_websocket_connect) {
-                try {
-                    $on_websocket_connect($connection, new request($buffer));
-                } catch (Throwable $e) {
-                    Worker::stopAll(250, $e);
-                }
+            if ($on_websocket_connect)  try {
+                $on_websocket_connect($connection, new request($buffer));
+            } catch (Throwable $e) {
+                Worker::stopAll(250, $e);
             }
             if (!empty($connection->tmpWebsocketData)) {
                 $connection->send($connection->tmpWebsocketData, true);
