@@ -57,12 +57,11 @@ class yxorP
                 require PATH_COCKPIT_INDEX;
 
         /* Getting the `plugins` key from the `TARGET` array. If it is not set, it will set it to an empty array. */
-
-        $_plugins = constants::get(YXORP_TARGET)[YXORP_PLUGINS] ?: [];
+        $YXORP_TARGET_PLUGINS = constants::get(YXORP_TARGET_PLUGINS);
         /* Adding the default plugins to the `$_plugins` array. */
-        array_push($_plugins, 'blockListPluginAction', 'cookiePluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction');
+        array_push($YXORP_TARGET_PLUGINS, 'blockListPluginAction', 'cookiePluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        $this->subscribers(DIR_PLUGIN, $_plugins); //$this->subscribe(DIR_PLUGIN,(constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: []);
+        $this->subscribers(DIR_PLUGIN, $YXORP_TARGET_PLUGINS); //$this->subscribe(DIR_PLUGIN,(constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: []);
     }
 
     /**
