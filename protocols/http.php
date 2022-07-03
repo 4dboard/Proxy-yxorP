@@ -180,6 +180,7 @@ class http
         return (string)$response;
     }
 
+    /* Sending a stream. */
     protected static function sendStream(tcpConnection $connection, $handler, $offset = 0, $length = 0)
     {
         $connection->bufferFull = false;
@@ -217,6 +218,7 @@ class http
         $do_write();
     }
 
+    /* Setting the upload directory to the default. */
     public static function uploadTmpDir($dir = null): string
     {
         if (null !== $dir) static::$_uploadTmpDir = $dir;
