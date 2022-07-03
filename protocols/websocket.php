@@ -259,9 +259,9 @@ class websocket implements protocolInterface
     {
         if (!is_scalar($buffer)) throw new Exception("You can't send(" . gettype($buffer) . ") to client, you need to convert it to a string. ");
         $len = strlen($buffer);
-        if (empty($connection->websocketType))  $connection->websocketType = static::BINARY_TYPE_BLOB;
+        if (empty($connection->websocketType)) $connection->websocketType = static::BINARY_TYPE_BLOB;
         $first_byte = $connection->websocketType;
-        if ($len <= 125)   $encode_buffer = $first_byte . chr($len) . $buffer; else {
+        if ($len <= 125) $encode_buffer = $first_byte . chr($len) . $buffer; else {
             if ($len <= 65535) {
                 $encode_buffer = $first_byte . chr(126) . pack("n", $len) . $buffer;
             } else {
