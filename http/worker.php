@@ -1231,31 +1231,31 @@ class worker
         });
         $recv_buffer = stream_socket_recvfrom($socket, static::MAX_UDP_PACKAGE_SIZE, 0, $remote_address);
         restore_error_handler();
-        if (false === $recv_buffer || empty($remote_address))  return false;
+        if (false === $recv_buffer || empty($remote_address)) return false;
         $connection = new udpConnection($socket, $remote_address);
         $connection->protocol = $this->protocol;
         $message_cb = $this->onMessage;
-        if ($message_cb)  try {
-                if ($this->protocol !== null) {
-                    $parser = $this->protocol;
-                    if ($parser && method_exists($parser, 'input')) {
-                        while ($recv_buffer !== '') {
-                            $len = $parser::input($recv_buffer, $connection);
-                            if ($len === 0) return true;
-                            $package = substr($recv_buffer, 0, $len);
-                            $recv_buffer = substr($recv_buffer, $len);
-                            $data = $parser::decode($package, $connection);
-                            if ($data === false)   continue;
-                            $message_cb($connection, $data);
-                        }
-                    } else {
-                        $data = $parser::decode($recv_buffer, $connection);
-                        if ($data === false)  return true;
+        if ($message_cb) try {
+            if ($this->protocol !== null) {
+                $parser = $this->protocol;
+                if ($parser && method_exists($parser, 'input')) {
+                    while ($recv_buffer !== '') {
+                        $len = $parser::input($recv_buffer, $connection);
+                        if ($len === 0) return true;
+                        $package = substr($recv_buffer, 0, $len);
+                        $recv_buffer = substr($recv_buffer, $len);
+                        $data = $parser::decode($package, $connection);
+                        if ($data === false) continue;
                         $message_cb($connection, $data);
                     }
-                } else $message_cb($connection, $recv_buffer);
-                ++connectionInterface::$statistics['total_request'];
-            } catch (Throwable $e) x   static::stopAll(250, $e);
+                } else {
+                    $data = $parser::decode($recv_buffer, $connection);
+                    if ($data === false) return true;
+                    $message_cb($connection, $data);
+                }
+            } else $message_cb($connection, $recv_buffer);
+            ++connectionInterface::$statistics['total_request'];
+        } catch (Throwable $e)    static::stopAll(250, $e);
         return true;
     }
 }
