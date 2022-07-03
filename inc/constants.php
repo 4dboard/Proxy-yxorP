@@ -142,9 +142,9 @@ class constants
 
         // FILES
         /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
-        define('FILE_REWRITE_SEARCH', 'REWRITE_REPLACE');
+        define('FILE_REWRITE_SEARCH', 'replace_rewrtie');
         /* Defining a constant called `FILE_REWRITE_REPLACE` and setting it to the value of `REWRITE_SEARCH`. */
-        define('FILE_REWRITE_REPLACE', 'REWRITE_SEARCH');
+        define('FILE_REWRITE_REPLACE', 'search_rewrite');
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index');
         /* Defining a constant called FILE_BUGSNAG and setting it to the string 'bugsnag'. */
