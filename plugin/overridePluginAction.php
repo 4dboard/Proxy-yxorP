@@ -23,7 +23,7 @@ class overridePluginAction extends wrapper
         $preg_search = generalHelper::array_merge_ignore(array_keys((array)constants::get(YXORP_GLOBAL_PATTERN)), array_keys((array)constants::get(YXORP_TARGET_PATTERN)));
         $preg_replace = generalHelper::array_merge_ignore(array_values((array)constants::get(YXORP_GLOBAL_PATTERN)), array_values((array)constants::get(YXORP_TARGET_PATTERN)));
         $preg = preg_replace($preg_search, $preg_replace, constants::get(YXORP_RESPONSE)->getContent());
-        $str_search =generalHelper::array_merge_ignore([constants::get(YXORP_TARGET_DOMAIN)], array_keys((array)constants::get(YXORP_GLOBAL_REPLACE)), array_keys((array)constants::get(YXORP_TARGET_REPLACE)));
+        $str_search = generalHelper::array_merge_ignore([constants::get(YXORP_TARGET_DOMAIN)], array_keys((array)constants::get(YXORP_GLOBAL_REPLACE)), array_keys((array)constants::get(YXORP_TARGET_REPLACE)));
         $str_replace = generalHelper::array_merge_ignore([constants::get(YXORP_SITE_DOMAIN)], array_values((array)constants::get(YXORP_GLOBAL_REPLACE)), array_values((array)constants::get(YXORP_TARGET_REPLACE)));
         $str = str_replace($str_search, $str_replace, $preg);
         (constants::get(YXORP_RESPONSE)->setContent($this->REWRITE($str)));
