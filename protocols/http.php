@@ -143,15 +143,7 @@ class http
         if (!is_object($response)) {
             $ext_header = '';
             if (isset($connection->__header)) {
-                foreach ($connection->__header as $name => $value) {
-                    if (is_array($value)) {
-                        foreach ($value as $item) {
-                            $ext_header = "$name: $item\r\n";
-                        }
-                    } else {
-                        $ext_header = "$name: $value\r\n";
-                    }
-                }
+                foreach ($connection->__header as $name => $value) if (is_array($value)) foreach ($value as $item) $ext_header = "$name: $item\r\n"; else    $ext_header = "$name: $value\r\n";
                 unset($connection->__header);
             }
             $body_len = strlen((string)$response);
