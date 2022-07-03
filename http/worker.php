@@ -1044,20 +1044,15 @@ class worker
             foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
                 $worker = static::$_workers[$worker_id];
                 if (isset(static::$_globalStatistics['worker_exit_info'][$worker_id])) foreach (static::$_globalStatistics['worker_exit_info'][$worker_id] as $worker_exit_status => $worker_exit_count) file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad($worker_exit_status, 16) . " $worker_exit_count\n", FILE_APPEND); else file_put_contents(static::$_statisticsFile, str_pad($worker->name, static::$_maxWorkerNameLength) . " " . str_pad(0, 16) . " 0\n", FILE_APPEND);
-
             }
             file_put_contents(static::$_statisticsFile, "----------------------------------------------PROCESS STATUS---------------------------------------------------\n", FILE_APPEND);
             file_put_contents(static::$_statisticsFile, "pid\tmemory  " . str_pad('listening', static::$_maxSocketNameLength) . " " . str_pad('worker_name', static::$_maxWorkerNameLength) . " connections " . str_pad('send_fail', 9) . " " . str_pad('timers', 8) . str_pad('total_request', 13) . " qps    status\n", FILE_APPEND);
             chmod(static::$_statisticsFile, 0722);
-            foreach (static::getAllWorkerPids() as $worker_pid) {
-                posix_kill($worker_pid, SIGIOT);
-            }
+            foreach (static::getAllWorkerPids() as $worker_pid) posix_kill($worker_pid, SIGIOT);
             return;
         }
         gc_collect_cycles();
-        if (function_exists('gc_mem_caches')) {
-            gc_mem_caches();
-        }
+        if (function_exists('gc_mem_caches')) gc_mem_caches();
         reset(static::$_workers);
         $worker = current(static::$_workers);
         $worker_status_str = posix_getpid() . "\t" . str_pad(round(memory_get_usage() / (1024 * 1024), 2) . "M", 7) . " " . str_pad($worker->getSocketName(), static::$_maxSocketNameLength) . " " . str_pad(($worker->name === $worker->getSocketName() ? 'none' : $worker->name), static::$_maxWorkerNameLength) . " ";
@@ -1071,24 +1066,14 @@ class worker
             file_put_contents(static::$_statisticsFile, "--------------------------------------------------------------------- YXORP CONNECTION STATUS --------------------------------------------------------------------------------\n", FILE_APPEND);
             file_put_contents(static::$_statisticsFile, "PID      worker          CID       Trans   Protocol        ipv4   ipv6   Recv-Q       Send-Q       Bytes-R      Bytes-W       Status         Local Address          Foreign Address\n", FILE_APPEND);
             chmod(static::$_statisticsFile, 0722);
-            foreach (static::getAllWorkerPids() as $worker_pid) {
-                posix_kill($worker_pid, SIGIO);
-            }
+            foreach (static::getAllWorkerPids() as $worker_pid) posix_kill($worker_pid, SIGIO);
             return;
         }
         $bytes_format = function ($bytes) {
-            if ($bytes > 1024 * 1024 * 1024 * 1024) {
-                return round($bytes / (1024 * 1024 * 1024 * 1024), 1) . "TB";
-            }
-            if ($bytes > 1024 * 1024 * 1024) {
-                return round($bytes / (1024 * 1024 * 1024), 1) . "GB";
-            }
-            if ($bytes > 1024 * 1024) {
-                return round($bytes / (1024 * 1024), 1) . "MB";
-            }
-            if ($bytes > 1024) {
-                return round($bytes / (1024), 1) . "KB";
-            }
+            if ($bytes > 1024 * 1024 * 1024 * 1024) return round($bytes / (1024 * 1024 * 1024 * 1024), 1) . "TB";
+            if ($bytes > 1024 * 1024 * 1024) return round($bytes / (1024 * 1024 * 1024), 1) . "GB";
+            if ($bytes > 1024 * 1024) return round($bytes / (1024 * 1024), 1) . "MB";
+            if ($bytes > 1024) return round($bytes / (1024), 1) . "KB";
             return $bytes . "B";
         };
         $pid = posix_getpid();
@@ -1110,21 +1095,13 @@ class worker
             $id = $connection->id;
             $protocol = $connection->protocol ?: $connection->transport;
             $pos = strrpos($protocol, '\\');
-            if ($pos) {
-                $protocol = substr($protocol, $pos + 1);
-            }
-            if (strlen($protocol) > 15) {
-                $protocol = substr($protocol, 0, 13) . '..';
-            }
+            if ($pos) $protocol = substr($protocol, $pos + 1);
+            if (strlen($protocol) > 15) $protocol = substr($protocol, 0, 13) . '..';
             $worker_name = isset($connection->worker) ? $connection->worker->name : $default_worker_name;
-            if (strlen($worker_name) > 14) {
-                $worker_name = substr($worker_name, 0, 12) . '..';
-            }
+            if (strlen($worker_name) > 14) $worker_name = substr($worker_name, 0, 12) . '..';
             $str .= str_pad($pid, 9) . str_pad($worker_name, 16) . str_pad($id, 10) . str_pad($transport, 8) . str_pad($protocol, 16) . str_pad($ipv4, 7) . str_pad($ipv6, 7) . str_pad($recv_q, 13) . str_pad($send_q, 13) . str_pad($bytes_read, 13) . str_pad($bytes_written, 13) . ' ' . str_pad($state, 14) . ' ' . str_pad($local_address, 22) . ' ' . str_pad($remote_address, 22) . "\n";
         }
-        if ($str) {
-            file_put_contents(static::$_statisticsFile, $str, FILE_APPEND);
-        }
+        if ($str) file_put_contents(static::$_statisticsFile, $str, FILE_APPEND);
     }
 
     public static function checkWorkerStatusForWindows()
@@ -1133,15 +1110,11 @@ class worker
             $process = $process_data[0];
             $start_file = $process_data[1];
             $status = proc_get_status($process);
-            if (isset($status['running'])) {
-                if (!$status['running']) {
-                    static::safeEcho("process $start_file terminated and try to restart\n");
-                    proc_close($process);
-                    static::forkOneWorkerForWindows($start_file);
-                }
-            } else {
-                static::safeEcho("proc_get_status fail\n");
-            }
+            if (isset($status['running'])) if (!$status['running']) {
+                static::safeEcho("process $start_file terminated and try to restart\n");
+                proc_close($process);
+                static::forkOneWorkerForWindows($start_file);
+            } else   static::safeEcho("proc_get_status fail\n");
         }
     }
 
