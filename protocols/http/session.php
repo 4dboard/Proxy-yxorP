@@ -1,5 +1,6 @@
 <?php namespace yxorP\protocols\Http;
 
+use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\protocols\Http\Session\fileSessionHandler;
@@ -12,6 +13,8 @@ use function random_int;
 use function serialize;
 use function session_get_cookie_params;
 use function unserialize;
+
+/* It's a class that handles sessions. */
 
 class Session
 {
@@ -164,7 +167,7 @@ class Session
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function __destruct()
     {
