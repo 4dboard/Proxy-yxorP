@@ -15,6 +15,5 @@ class debugHandlerAction extends wrapper
         these conditions are met, the exception is printed. */
         if (ENV_DEBUG || !(int)str_contains((constants::get(YXORP_SERVER))[YXORP_SERVER_NAME], CHAR_PERIOD)) echo $e->__toString();
 
-        error_reporting(error_level: 0);
     }
 }
