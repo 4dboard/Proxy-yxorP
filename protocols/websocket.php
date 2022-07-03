@@ -277,12 +277,10 @@ class websocket implements protocolInterface
             }
             $connection->tmpWebsocketData .= $encode_buffer;
             if ($connection->maxSendBufferSize <= strlen($connection->tmpWebsocketData)) {
-                if ($connection->onBufferFull) {
-                    try {
-                        ($connection->onBufferFull)($connection);
-                    } catch (Throwable $e) {
-                        Worker::stopAll(250, $e);
-                    }
+                if ($connection->onBufferFull) try {
+                    ($connection->onBufferFull)($connection);
+                } catch (Throwable $e) {
+                    Worker::stopAll(250, $e);
                 }
             }
             return '';
