@@ -213,13 +213,9 @@ class request
         $file = [];
         $boundary = "\r\n$boundary";
         $section_end_offset = strpos($this->_buffer, $boundary, $section_start_offset);
-        if (!$section_end_offset) {
-            return 0;
-        }
+        if (!$section_end_offset) return 0;
         $content_lines_end_offset = strpos($this->_buffer, "\r\n\r\n", $section_start_offset);
-        if (!$content_lines_end_offset || $content_lines_end_offset + 4 > $section_end_offset) {
-            return 0;
-        }
+        if (!$content_lines_end_offset || $content_lines_end_offset + 4 > $section_end_offset) return 0;
         $content_lines_str = substr($this->_buffer, $section_start_offset, $content_lines_end_offset - $section_start_offset);
         $content_lines = explode("\r\n", trim($content_lines_str . "\r\n"));
         $boundary_value = substr($this->_buffer, $content_lines_end_offset + 4, $section_end_offset - $content_lines_end_offset - 4);
