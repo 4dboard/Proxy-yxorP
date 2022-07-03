@@ -6,13 +6,14 @@ use function strlen;
 use function substr;
 use function unpack;
 
+/* A protocol class. */
+
 class frame
 {
+    /* Checking if the buffer is less than 4 bytes. If it is, it returns 0. */
     public static function input($buffer, tcpConnection $connection)
     {
-        if (strlen($buffer) < 4) {
-            return 0;
-        }
+        if (strlen($buffer) < 4) return 0;
         $unpack_data = unpack('Ntotal_length', $buffer);
         return $unpack_data['total_length'];
     }
