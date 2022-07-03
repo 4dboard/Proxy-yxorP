@@ -240,13 +240,7 @@ class ws
         $user_header = $connection->headers ?? ($connection->wsHttpHeader ?? null);
         $user_header_str = '';
         if (!empty($user_header)) {
-            if (is_array($user_header)) {
-                foreach ($user_header as $k => $v) {
-                    $user_header_str .= "$k: $v\r\n";
-                }
-            } else {
-                $user_header_str .= $user_header;
-            }
+            if (is_array($user_header)) foreach ($user_header as $k => $v) x $user_header_str .= "$k: $v\r\n";else $user_header_str .= $user_header;x
             $user_header_str = "\r\n" . trim($user_header_str);
         }
         $header = 'GET ' . $connection->getRemoteURI() . " HTTP/1.1\r\n" . (!preg_match("/\nHost:/i", $user_header_str) ? "Host: $host\r\n" : '') . "connection: Upgrade\r\n" . "Upgrade: websocket\r\n" . (isset($connection->websocketOrigin) ? "Origin: " . $connection->websocketOrigin . "\r\n" : '') . (isset($connection->WSClientProtocol) ? "Sec-WebSocket-Protocol: " . $connection->WSClientProtocol . "\r\n" : '') . "Sec-WebSocket-Version: 13\r\n" . "Sec-WebSocket-Key: " . $connection->websocketSecKey . $user_header_str . "\r\n\r\n";
