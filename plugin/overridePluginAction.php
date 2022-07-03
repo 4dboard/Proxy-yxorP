@@ -32,6 +32,7 @@ class overridePluginAction extends wrapper
         $str_search = generalHelper::array_merge_ignore($YXORP_TARGET_DOMAIN, array_keys($YXORP_GLOBAL_REPLACE), array_keys($YXORP_TARGET_REPLACE));
         $str_replace = generalHelper::array_merge_ignore($YXORP_SITE_DOMAIN, array_values($YXORP_GLOBAL_REPLACE), array_values($YXORP_TARGET_REPLACE));
         $str = str_replace($str_search, $str_replace, $preg);
+        
         (constants::get(YXORP_RESPONSE)->setContent($this->REWRITE($str)));
     }
 
