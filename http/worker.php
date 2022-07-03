@@ -655,31 +655,19 @@ class worker
      */
     public function listen()
     {
-        if (!$this->_socketName) {
-            return;
-        }
+        if (!$this->_socketName) return;
         if (!$this->_mainSocket) {
             $local_socket = $this->parseSocketAddress();
             $flags = $this->transport === 'udp' ? STREAM_SERVER_BIND : STREAM_SERVER_BIND | STREAM_SERVER_LISTEN;
             $errno = 0;
             $errmsg = '';
-            if ($this->reusePort) {
-                stream_context_set_option($this->_context, 'socket', 'so_reuseport', 1);
-            }
+            if ($this->reusePort) stream_context_set_option($this->_context, 'socket', 'so_reuseport', 1);
             $this->_mainSocket = stream_socket_server($local_socket, $errno, $errmsg, $flags, $this->_context);
-            if (!$this->_mainSocket) {
-                throw new Exception($errmsg);
-            }
-            if ($this->transport === 'ssl') {
-                stream_socket_enable_crypto($this->_mainSocket, false);
-            } elseif ($this->transport === 'unix') {
+            if (!$this->_mainSocket) throw new Exception($errmsg);
+            if ($this->transport === 'ssl') stream_socket_enable_crypto($this->_mainSocket, false); elseif ($this->transport === 'unix') {
                 $socket_file = substr($local_socket, 7);
-                if ($this->user) {
-                    chown($socket_file, $this->user);
-                }
-                if ($this->group) {
-                    chgrp($socket_file, $this->group);
-                }
+                if ($this->user) chown($socket_file, $this->user);
+                if ($this->group) chgrp($socket_file, $this->group);
             }
             if (function_exists('socket_import_stream') && static::$_builtinTransports[$this->transport] === 'tcp') {
                 set_error_handler(function () {
