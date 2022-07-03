@@ -1207,9 +1207,7 @@ class worker
         });
         $new_socket = stream_socket_accept($socket, 0, $remote_address);
         restore_error_handler();
-        if (!$new_socket) {
-            return;
-        }
+        if (!$new_socket) return;
         $connection = new tcpConnection($new_socket, $remote_address);
         $this->connections[$connection->id] = $connection;
         $connection->worker = $this;
@@ -1220,12 +1218,10 @@ class worker
         $connection->onError = $this->onError;
         $connection->onBufferDrain = $this->onBufferDrain;
         $connection->onBufferFull = $this->onBufferFull;
-        if ($this->onConnect) {
-            try {
-                ($this->onConnect)($connection);
-            } catch (Throwable $e) {
-                static::stopAll(250, $e);
-            }
+        if ($this->onConnect) try {
+            ($this->onConnect)($connection);
+        } catch (Throwable $e) {
+            static::stopAll(250, $e);
         }
     }
 
