@@ -611,7 +611,7 @@ class worker
     protected static function getEventLoopName(): string
     {
         if (static::$eventLoopClass) return static::$eventLoopClass;
-        if (!class_exists(\Swoole\Event::class, false)) X  unset(static::$_availableEventLoops['swoole']);
+        if (!class_exists(\Swoole\Event::class, false)) unset(static::$_availableEventLoops['swoole']);
         $loop_name = '';
         foreach (static::$_availableEventLoops as $name => $class) if (extension_loaded($name)) {
             $loop_name = $name;
@@ -769,7 +769,6 @@ class worker
             });
             if ($STDOUT) fclose($STDOUT);
             if ($STDERR) fclose($STDERR);
-            x
             fclose(STDOUT);
             fclose(STDERR);
             $STDOUT = fopen(static::$stdoutFile, "a");
@@ -996,7 +995,7 @@ class worker
                 $one_worker_pid = current(static::$_pidsToRestart);
                 posix_kill($one_worker_pid, $sig);
                 if (!static::$_gracefulStop) {
-                    timer::add(static::$stopTimeout, '\posix_kill', [$one_worker_pid, SIGKILL], false)
+                    timer::add(static::$stopTimeout, '\posix_kill', [$one_worker_pid, SIGKILL], false);
                 } else {
                     reset(static::$_workers);
                     $worker = current(static::$_workers);
