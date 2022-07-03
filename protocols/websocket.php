@@ -172,7 +172,7 @@ class websocket implements protocolInterface
     {
         if (str_starts_with($buffer, 'GET')) {
             $header_end_pos = strpos($buffer, "\r\n\r\n");
-            if (!$header_end_pos)  return 0;
+            if (!$header_end_pos) return 0;
             $header_length = $header_end_pos + 4;
             $Sec_WebSocket_Key = '';
             if (preg_match("/Sec-WebSocket-Key: *(.*?)\r\n/i", $buffer, $match)) $Sec_WebSocket_Key = $match[1]; else {
