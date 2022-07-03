@@ -939,22 +939,23 @@ class worker
                 }
                 $one_worker_pid = current(static::$_pidsToRestart);
                 posix_kill($one_worker_pid, $sig);
-                if (!static::$_gracefulStop) timer::add(static::$stopTimeout, '\posix_kill', [$one_worker_pid, SIGKILL], false);
-            }
-        else {
-                reset(static::$_workers);
-                $worker = current(static::$_workers);
-                if ($worker->onWorkerReload) try {
-                    call_user_func($worker->onWorkerReload, $worker);
-                } catch (Throwable $e) {
-                    static::stopAll(250, $e);
+                if (!static::$_gracefulStop) {
+                    timer::add(static::$stopTimeout, '\posix_kill', [$one_worker_pid, SIGKILL], false)
+                } else {
+                    reset(static::$_workers);
+                    $worker = current(static::$_workers);
+                    if ($worker->onWorkerReload) try {
+                        call_user_func($worker->onWorkerReload, $worker);
+                    } catch (Throwable $e) {
+                        static::stopAll(250, $e);
+                    }
+                    if ($worker->reloadable) static::stopAll(); else   static::resetStd(false);
                 }
-                if ($worker->reloadable) static::stopAll(); else   static::resetStd(false);
             }
         }
-    }
 
-    #[NoReturn] protected static function exitAndClearAll()
+        #[
+        NoReturn] protected static function exitAndClearAll()
     {
         foreach (static::$_workers as $worker) {
             $socket_name = $worker->getSocketName();
