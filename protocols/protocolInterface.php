@@ -12,5 +12,6 @@ interface protocolInterface
     /* Decoding the data received from the client. */
     public static function decode($recv_buffer, connectionInterface $connection);
 
+    /* Encoding the data to be sent to the client. */
     public static function encode($data, connectionInterface $connection);
 }
