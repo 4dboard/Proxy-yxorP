@@ -16,9 +16,9 @@ use yxorP\events\select;
 
 class worker
 {
-    /* Defining a constant named VERSION with a value of '5.0.0'. */
+    /* Defining a constant named VERSION with a value of '1.0.0'. */
     /* Defining a constant named STATUS_STARTING with a value of 1. */
-    const VERSION = '5.0.0';
+    const VERSION = '1.0.0';
     const STATUS_STARTING = 1;
     /* Defining a constant named STATUS_RUNNING and assigning it the value of 2. */
     /* Defining a constant named STATUS_SHUTDOWN with a value of 4. */
