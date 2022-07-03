@@ -7,6 +7,7 @@ class chunk
 {
     private $_buffer = null;
 
+    /* A constructor. */
     public function __construct($buffer)
     {
         $this->_buffer = $buffer;
