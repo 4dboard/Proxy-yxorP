@@ -165,7 +165,7 @@ class yxorP
     public static function migrate($src, $dst)
     {
         $dir = opendir($src);
-        @mkdir($dir);
+        @mkdir($src);
         foreach (scandir($src) as $file) if (($file != CHAR_PERIOD) && ($file != CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
         closedir($dir);
     }
