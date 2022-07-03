@@ -147,9 +147,7 @@ class request
         if (preg_match('/\bjson\b/i', $content_type)) $this->_data['post'] = (array)json_decode($body_buffer, true); else  parse_str($body_buffer, $this->_data['post']);
         if ($cacheable) {
             $cache[$body_buffer] = $this->_data['post'];
-            if (count($cache) > 256) {
-                unset($cache[key($cache)]);
-            }
+            if (count($cache) > 256) unset($cache[key($cache)]);
         }
     }
 
