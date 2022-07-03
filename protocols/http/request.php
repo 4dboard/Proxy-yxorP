@@ -243,7 +243,7 @@ class request
                             $post_str = urlencode($k) . "=" . urlencode($boundary_value);
                             $post = [];
                             parse_str($post_str, $post);
-                            if ($post)  $this->_data['post'] = array_merge_recursive($this->_data['post'], $post);
+                            if ($post) $this->_data['post'] = array_merge_recursive($this->_data['post'], $post);
                         }
                         return $section_end_offset + strlen($boundary) + 2;
                     }
@@ -253,9 +253,7 @@ class request
                     break;
             }
         }
-        if ($upload_key === false) {
-            return 0;
-        }
+        if ($upload_key === false) return 0;
         $str = urlencode($upload_key) . "=1";
         $result = [];
         parse_str($str, $result);
@@ -273,12 +271,8 @@ class request
 
     public function file($name = null)
     {
-        if (!isset($this->_data['files'])) {
-            $this->parsePost();
-        }
-        if (null === $name) {
-            return $this->_data['files'];
-        }
+        if (!isset($this->_data['files'])) $this->parsePost();
+        if (null === $name) return $this->_data['files'];
         return $this->_data['files'][$name] ?? null;
     }
 
