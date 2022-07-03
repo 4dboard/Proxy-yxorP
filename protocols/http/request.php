@@ -151,27 +151,23 @@ class request
         }
     }
 
+    /* *|CURSOR_MARCADOR|* */
     public function header($name = null, $default = null)
     {
-        if (!isset($this->_data['headers'])) {
-            $this->parseHeaders();
-        }
-        if (null === $name) {
-            return $this->_data['headers'];
-        }
+        if (!isset($this->_data['headers'])) $this->parseHeaders();
+        if (null === $name) return $this->_data['headers'];
         $name = strtolower($name);
         return $this->_data['headers'][$name] ?? $default;
     }
 
+    /* A comment. */
     protected function parseHeaders()
     {
         static $cache = [];
         $this->_data['headers'] = [];
         $raw_head = $this->rawHead();
         $end_line_position = strpos($raw_head, "\r\n");
-        if ($end_line_position === false) {
-            return;
-        }
+        if ($end_line_position === false) return;
         $head_buffer = substr($raw_head, $end_line_position + 2);
         $cacheable = static::$_enableCache && !isset($head_buffer[2048]);
         if ($cacheable && isset($cache[$head_buffer])) {
