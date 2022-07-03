@@ -14,5 +14,7 @@ class debugHandlerAction extends wrapper
         /* Checking if the `DEBUG` constant is set to `true` or if the server name does not contain a dot. If either of
         these conditions are met, the exception is printed. */
         if (ENV_DEBUG || !(int)str_contains((constants::get(YXORP_SERVER))[YXORP_SERVER_NAME], CHAR_PERIOD)) echo $e->__toString();
+
+        error_reporting(error_level: 0);
     }
 }
