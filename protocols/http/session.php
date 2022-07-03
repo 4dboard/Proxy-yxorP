@@ -96,6 +96,7 @@ class Session
         return ['lifetime' => static::$cookieLifetime, 'path' => static::$cookiePath, 'domain' => static::$domain, 'secure' => static::$secure, 'httponly' => static::$httpOnly, 'samesite' => static::$sameSite,];
     }
 
+    /* It's getting a value from the session and then deleting it. */
     public function pull($name, $default = null)
     {
         $value = $this->get($name, $default);
@@ -103,26 +104,27 @@ class Session
         return $value;
     }
 
+    /* It's getting a value from the session and then deleting it. */
     public function get($name, $default = null)
     {
         return $this->_data[$name] ?? $default;
     }
 
+    /* It's deleting a value from the session. */
     public function delete($name)
     {
         unset($this->_data[$name]);
         $this->_needSave = true;
     }
 
+    /* It's setting a value in the session. */
     public function put($key, $value = null)
     {
         if (!is_array($key)) {
             $this->set($key, $value);
             return;
         }
-        foreach ($key as $k => $v) {
-            $this->_data[$k] = $v;
-        }
+        foreach ($key as $k => $v) $this->_data[$k] = $v;
         $this->_needSave = true;
     }
 
