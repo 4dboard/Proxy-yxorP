@@ -1255,7 +1255,9 @@ class worker
                 }
             } else $message_cb($connection, $recv_buffer);
             ++connectionInterface::$statistics['total_request'];
-        } catch (Throwable $e)    static::stopAll(250, $e);
+        } catch (Throwable $e) {
+            static::stopAll(250, $e);
+        }
         return true;
     }
 }
