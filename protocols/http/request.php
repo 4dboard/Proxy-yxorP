@@ -30,10 +30,11 @@ use function unlink;
 use function urlencode;
 
 /* Creating a class called request. */
+
 class request
 {
-  /* Defining a constant. */
-      public static int $maxFileUploads = 1024;
+    /* Defining a constant. */
+    public static int $maxFileUploads = 1024;
     /* Declaring a private static variable called $_enableCache and setting it to true. */
     private static bool $_enableCache = true;
     /* Creating a variable called connection and setting it to null. */
@@ -97,7 +98,7 @@ class request
     /* A function that returns the query string of the current URL. */
     public function queryString()
     {
-        if (!isset($this->_data['query_string']))    $this->_data['query_string'] = (string)parse_url($this->uri(), PHP_URL_QUERY);
+        if (!isset($this->_data['query_string'])) $this->_data['query_string'] = (string)parse_url($this->uri(), PHP_URL_QUERY);
         return $this->_data['query_string'];
     }
 
