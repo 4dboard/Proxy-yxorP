@@ -102,14 +102,14 @@ class request
         return $this->_data['query_string'];
     }
 
+    /* A function that returns the URI of the current page. */
     public function uri()
     {
-        if (!isset($this->_data['uri'])) {
-            $this->parseHeadFirstLine();
-        }
+        if (!isset($this->_data['uri']))   $this->parseHeadFirstLine();
         return $this->_data['uri'];
     }
 
+    /* A method that is parsing the first line of the head. */
     protected function parseHeadFirstLine()
     {
         $first_line = strstr($this->_buffer, "\r\n", true);
@@ -118,17 +118,15 @@ class request
         $this->_data['uri'] = $tmp[1] ?? '/';
     }
 
+    /* A function that is being called post. It is taking in two parameters, name and default. */
     public function post($name = null, $default = null)
     {
-        if (!isset($this->_data['post'])) {
-            $this->parsePost();
-        }
-        if (null === $name) {
-            return $this->_data['post'];
-        }
+        if (!isset($this->_data['post']))   $this->parsePost();
+        if (null === $name)  return $this->_data['post'];
         return $this->_data['post'][$name] ?? $default;
     }
 
+    /* A function that is parsing the post. */
     protected function parsePost()
     {
         static $cache = [];
