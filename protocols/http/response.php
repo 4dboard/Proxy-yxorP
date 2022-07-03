@@ -188,39 +188,21 @@ class response
         $reason = $this->_reason ?: static::$_phrases[$this->_status];
         $head = "HTTP/{$this->_version} {$this->_status} $reason\r\n";
         $headers = $this->_header;
-        if (!isset($headers['Server'])) {
-            $head .= "Server: yxorP\r\n";
-        }
+        if (!isset($headers['Server'])) $head .= "Server: yxorP\r\n";
         foreach ($headers as $name => $value) {
             if (is_array($value)) {
-                foreach ($value as $item) {
-                    $head .= "$name: $item\r\n";
-                }
+                foreach ($value as $item) $head .= "$name: $item\r\n";
                 continue;
             }
             $head .= "$name: $value\r\n";
         }
-        if (!isset($headers['connection'])) {
-            $head .= "connection: keep-alive\r\n";
-        }
+        if (!isset($headers['connection'])) $head .= "connection: keep-alive\r\n";
         $file_info = pathinfo($file);
         $extension = $file_info['extension'] ?? '';
         $base_name = $file_info['basename'] ?? 'unknown';
-        if (!isset($headers['Content-Type'])) {
-            if (isset(self::$_mimeTypeMap[$extension])) {
-                $head .= "Content-Type: " . self::$_mimeTypeMap[$extension] . "\r\n";
-            } else {
-                $head .= "Content-Type: application/octet-stream\r\n";
-            }
-        }
-        if (!isset($headers['Content-Disposition']) && !isset(self::$_mimeTypeMap[$extension])) {
-            $head .= "Content-Disposition: attachment; filename=\"$base_name\"\r\n";
-        }
-        if (!isset($headers['Last-Modified'])) {
-            if ($mtime = filemtime($file)) {
-                $head .= 'Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT' . "\r\n";
-            }
-        }
+        if (!isset($headers['Content-Type'])) if (isset(self::$_mimeTypeMap[$extension])) $head .= "Content-Type: " . self::$_mimeTypeMap[$extension] . "\r\n"; else                $head .= "Content-Type: application/octet-stream\r\n";
+        if (!isset($headers['Content-Disposition']) && !isset(self::$_mimeTypeMap[$extension])) $head .= "Content-Disposition: attachment; filename=\"$base_name\"\r\n";
+        if (!isset($headers['Last-Modified'])) if ($mtime = filemtime($file)) $head .= 'Last-Modified: ' . gmdate('D, d M Y H:i:s', $mtime) . ' GMT' . "\r\n";
         return "{$head}\r\n";
     }
 }
