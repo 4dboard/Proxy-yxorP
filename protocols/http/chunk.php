@@ -13,6 +13,7 @@ class chunk
         $this->_buffer = $buffer;
     }
 
+    /* A magic method that is called when the object is used as a string. */
     public function __toString()
     {
         return dechex(strlen($this->_buffer)) . "\r\n$this->_buffer\r\n";
