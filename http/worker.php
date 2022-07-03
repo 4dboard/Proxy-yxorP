@@ -944,18 +944,12 @@ class worker
         else {
                 reset(static::$_workers);
                 $worker = current(static::$_workers);
-                if ($worker->onWorkerReload) {
-                    try {
-                        call_user_func($worker->onWorkerReload, $worker);
-                    } catch (Throwable $e) {
-                        static::stopAll(250, $e);
-                    }
+                if ($worker->onWorkerReload) try {
+                    call_user_func($worker->onWorkerReload, $worker);
+                } catch (Throwable $e) {
+                    static::stopAll(250, $e);
                 }
-                if ($worker->reloadable) {
-                    static::stopAll();
-                } else {
-                    static::resetStd(false);
-                }
+                if ($worker->reloadable) static::stopAll(); else   static::resetStd(false);
             }
         }
 
