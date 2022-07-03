@@ -51,8 +51,8 @@ class worker
     public static $onMasterStop = null;
     /* Defining a constant. */
     public static string $eventLoopClass = '';
-    /* Setting the process title of the current process to "WorkerMan". */
-    public static string $processTitle = 'WorkerMan';
+    /* Setting the process title of the current process to "YXORP". */
+    public static string $processTitle = 'YXORP';
     /* Defining a constant variable called stopTimeout and setting it to 2. */
     /* *|CURSOR_MARCADOR|* */
     public static int $stopTimeout = 2;
@@ -233,7 +233,7 @@ class worker
         /* Replacing the forward slash with an underscore. */
         $unique_prefix = str_replace('/', '_', static::$_startFile);
         if (empty(static::$pidFile)) static::$pidFile = __DIR__ . "/../$unique_prefix.pid";
-        if (empty(static::$logFile)) static::$logFile = __DIR__ . '/../../workerman.log';
+        if (empty(static::$logFile)) static::$logFile = __DIR__ . '/../../yxorp.log';
         if (!is_file(static::$logFile)) {
             if (!is_dir(dirname(static::$logFile))) @mkdir(dirname(static::$logFile), 0777, true);
             touch(static::$logFile);
@@ -307,16 +307,16 @@ class worker
         if (!$command) exit($usage);
         $mode_str = '';
         if ($command === 'start') if ($mode === '-d' || static::$daemonize) $mode_str = 'in DAEMON mode'; else    $mode_str = 'in DEBUG mode';
-        static::log("Workerman[$start_file] $command $mode_str");
+        static::log("Yxorp[$start_file] $command $mode_str");
         $master_pid = is_file(static::$pidFile) ? (int)file_get_contents(static::$pidFile) : 0;
         if (static::checkMasterIsAlive($master_pid)) if ($command === 'start') {
-            static::log("Workerman[$start_file] already running");
+            static::log("Yxorp[$start_file] already running");
             exit;
         } elseif ($command !== 'start' && $command !== 'restart') {
-            static::log("Workerman[$start_file] not run");
+            static::log("Yxorp[$start_file] not run");
             exit;
         }
-        $statistics_file = static::$statusFile ?: __DIR__ . "/../workerman-$master_pid.status";
+        $statistics_file = static::$statusFile ?: __DIR__ . "/../yxorp-$master_pid.status";
         switch ($command) {
             case 'start':
                 if ($mode === '-d') static::$daemonize = true;
@@ -343,11 +343,11 @@ class worker
                 if ($mode === '-g') {
                     static::$_gracefulStop = true;
                     $sig = SIGQUIT;
-                    static::log("Workerman[$start_file] is gracefully stopping ...");
+                    static::log("Yxorp[$start_file] is gracefully stopping ...");
                 } else {
                     static::$_gracefulStop = false;
                     $sig = SIGINT;
-                    static::log("Workerman[$start_file] is stopping ...");
+                    static::log("Yxorp[$start_file] is stopping ...");
                 }
                 $master_pid && posix_kill($master_pid, $sig);
                 $timeout = static::$stopTimeout + 3;
@@ -356,13 +356,13 @@ class worker
                     $master_is_alive = $master_pid && posix_kill($master_pid, 0);
                     if ($master_is_alive) {
                         if (!static::$_gracefulStop && time() - $start_time >= $timeout) {
-                            static::log("Workerman[$start_file] stop fail");
+                            static::log("Yxorp[$start_file] stop fail");
                             exit;
                         }
                         usleep(10000);
                         continue;
                     }
-                    static::log("Workerman[$start_file] stop success");
+                    static::log("Yxorp[$start_file] stop success");
                     if ($command === 'stop') exit(0);
                     if ($mode === '-d') static::$daemonize = true;
                     break;
@@ -480,7 +480,7 @@ class worker
     protected static function initWorkers()
     {
         if (DIRECTORY_SEPARATOR !== '/') return;
-        static::$_statisticsFile = static::$statusFile ?: __DIR__ . '/../workerman-' . posix_getpid() . '.status';
+        static::$_statisticsFile = static::$statusFile ?: __DIR__ . '/../yxorp-' . posix_getpid() . '.status';
         foreach (static::$_workers as $worker) {
             if (empty($worker->name)) $worker->name = 'none';
             if (empty($worker->user)) $worker->user = static::getCurrentUser(); else if (posix_getuid() !== 0 && $worker->user !== static::getCurrentUser()) static::log('Warning: You must have the root privileges to change uid and gid.');
@@ -528,20 +528,18 @@ class worker
     protected static function displayUI()
     {
         $tmp_argv = static::getArgv();
-        if (in_array('-q', $tmp_argv)) {
-            return;
-        }
+        if (in_array('-q', $tmp_argv)) return;
         if (DIRECTORY_SEPARATOR !== '/') {
-            static::safeEcho("----------------------- WORKERMAN -----------------------------\r\n");
-            static::safeEcho('Workerman version:' . static::VERSION . '          PHP version:' . PHP_VERSION . "\r\n");
+            static::safeEcho("----------------------- YXORP -----------------------------\r\n");
+            static::safeEcho('Yxorp version:' . static::VERSION . '          PHP version:' . PHP_VERSION . "\r\n");
             static::safeEcho("------------------------ WORKERS -------------------------------\r\n");
             static::safeEcho("worker               listen                              processes status\r\n");
             return;
         }
-        $line_version = 'Workerman version:' . static::VERSION . str_pad('PHP version:', 16, ' ', STR_PAD_LEFT) . PHP_VERSION . str_pad('event-loop:', 16, ' ', STR_PAD_LEFT) . static::getEventLoopName() . PHP_EOL;
+        $line_version = 'Yxorp version:' . static::VERSION . str_pad('PHP version:', 16, ' ', STR_PAD_LEFT) . PHP_VERSION . str_pad('event-loop:', 16, ' ', STR_PAD_LEFT) . static::getEventLoopName() . PHP_EOL;
         !defined('LINE_VERSIOIN_LENGTH') && define('LINE_VERSIOIN_LENGTH', strlen($line_version));
         $total_length = static::getSingleLineTotalLength();
-        $line_one = '<n>' . str_pad('<w> WORKERMAN </w>', $total_length + strlen('<w></w>'), '-', STR_PAD_BOTH) . '</n>' . PHP_EOL;
+        $line_one = '<n>' . str_pad('<w> YXORP </w>', $total_length + strlen('<w></w>'), '-', STR_PAD_BOTH) . '</n>' . PHP_EOL;
         $line_two = str_pad('<w> WORKERS </w>', $total_length + strlen('<w></w>'), '-', STR_PAD_BOTH) . PHP_EOL;
         static::safeEcho($line_one . $line_version . $line_two);
         $title = '';
@@ -879,7 +877,7 @@ class worker
         }
         static::$_status = static::STATUS_SHUTDOWN;
         if (DIRECTORY_SEPARATOR === '/' && static::$_masterPid === posix_getpid()) {
-            static::log("Workerman[" . basename(static::$_startFile) . "] stopping ...");
+            static::log("Yxorp[" . basename(static::$_startFile) . "] stopping ...");
             $worker_pid_array = static::getAllWorkerPids();
             $sig = static::$_gracefulStop ? SIGQUIT : SIGINT;
             foreach ($worker_pid_array as $worker_pid) {
@@ -927,7 +925,7 @@ class worker
         if (in_array('-q', static::getArgv()) || count($files) === 1) {
             if (count(static::$_workers) > 1) {
                 static::safeEcho("@@@ Error: multi workers init in one php file are not support @@@\r\n");
-                static::safeEcho("@@@ See https://www.workerman.net/doc/workerman/faq/multi-woker-for-windows.html @@@\r\n");
+                static::safeEcho("@@@ See https://www.yxorp.net/doc/yxorp/faq/multi-woker-for-windows.html @@@\r\n");
             } elseif (count(static::$_workers) <= 0) {
                 exit("@@@no worker inited@@@\r\n\r\n");
             }
@@ -1025,7 +1023,7 @@ class worker
     {
         if (static::$_masterPid === posix_getpid()) {
             if (static::$_status !== static::STATUS_RELOADING && static::$_status !== static::STATUS_SHUTDOWN) {
-                static::log("Workerman[" . basename(static::$_startFile) . "] reloading");
+                static::log("Yxorp[" . basename(static::$_startFile) . "] reloading");
                 static::$_status = static::STATUS_RELOADING;
                 static::resetStd(false);
                 if (static::$onMasterReload) {
@@ -1092,7 +1090,7 @@ class worker
             }
         }
         @unlink(static::$pidFile);
-        static::log("Workerman[" . basename(static::$_startFile) . "] has been stopped");
+        static::log("Yxorp[" . basename(static::$_startFile) . "] has been stopped");
         if (static::$onMasterStop) {
             call_user_func(static::$onMasterStop);
         }
@@ -1165,7 +1163,7 @@ class worker
             file_put_contents(static::$_statisticsFile, serialize($all_worker_info) . "\n", FILE_APPEND);
             $loadavg = function_exists('sys_getloadavg') ? array_map('round', sys_getloadavg(), [2, 2, 2]) : ['-', '-', '-'];
             file_put_contents(static::$_statisticsFile, "----------------------------------------------GLOBAL STATUS----------------------------------------------------\n", FILE_APPEND);
-            file_put_contents(static::$_statisticsFile, 'Workerman version:' . static::VERSION . "          PHP version:" . PHP_VERSION . "\n", FILE_APPEND);
+            file_put_contents(static::$_statisticsFile, 'Yxorp version:' . static::VERSION . "          PHP version:" . PHP_VERSION . "\n", FILE_APPEND);
             file_put_contents(static::$_statisticsFile, 'start time:' . date('Y-m-d H:i:s', static::$_globalStatistics['start_timestamp']) . '   run ' . floor((time() - static::$_globalStatistics['start_timestamp']) / (24 * 60 * 60)) . ' days ' . floor(((time() - static::$_globalStatistics['start_timestamp']) % (24 * 60 * 60)) / (60 * 60)) . " hours   \n", FILE_APPEND);
             $load_str = 'load average: ' . implode(", ", $loadavg);
             file_put_contents(static::$_statisticsFile, str_pad($load_str, 33) . 'event-loop:' . static::getEventLoopName() . "\n", FILE_APPEND);
@@ -1203,7 +1201,7 @@ class worker
     protected static function writeConnectionsStatisticsToStatusFile()
     {
         if (static::$_masterPid === posix_getpid()) {
-            file_put_contents(static::$_statisticsFile, "--------------------------------------------------------------------- WORKERMAN CONNECTION STATUS --------------------------------------------------------------------------------\n", FILE_APPEND);
+            file_put_contents(static::$_statisticsFile, "--------------------------------------------------------------------- YXORP CONNECTION STATUS --------------------------------------------------------------------------------\n", FILE_APPEND);
             file_put_contents(static::$_statisticsFile, "PID      worker          CID       Trans   Protocol        ipv4   ipv6   Recv-Q       Send-Q       Bytes-R      Bytes-W       Status         Local Address          Foreign Address\n", FILE_APPEND);
             chmod(static::$_statisticsFile, 0722);
             foreach (static::getAllWorkerPids() as $worker_pid) {
@@ -1325,7 +1323,7 @@ class worker
     {
         $fd = fopen(static::$_startFile, 'r');
         if ($fd && !flock($fd, LOCK_EX)) {
-            static::log('Workerman[' . static::$_startFile . '] already running.');
+            static::log('Yxorp[' . static::$_startFile . '] already running.');
             exit;
         }
     }
