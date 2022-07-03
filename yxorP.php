@@ -1,5 +1,6 @@
 <?php
-error_reporting(0);
+
+error_reporting(error_level: 0);
 
 namespace yxorP;
 
