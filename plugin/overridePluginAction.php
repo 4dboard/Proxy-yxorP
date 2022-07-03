@@ -20,7 +20,9 @@ class overridePluginAction extends wrapper
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
         if (constants::get('MIME') !== VAR_TEXT_HTML && constants::get('MIME') !== 'application/javascript' && constants::get('MIME') !== 'text/css' && constants::get('MIME') !== 'application/xml' && !str_contains(constants::get('MIME'), VAR_TEXT) && !str_contains(constants::get('MIME'), VAR_HTML)) return;
         /* Replacing the content of the response with the content of the `REWRITE` method. */
-        $preg_replace = preg_replace(generalHelper::array_merge_ignore(array_keys((array)constants::get(YXORP_GLOBAL_PATTERN)), array_keys((array)constants::get(YXORP_TARGET_PATTERN)), generalHelper::array_merge_ignore(array_values((array)constants::get(YXORP_GLOBAL_PATTERN)), array_values((array)constants::get(YXORP_TARGET_PATTERN))), constants::get(YXORP_RESPONSE)->getContent()));
+        $preg_search = generalHelper::array_merge_ignore(array_keys((array)constants::get(YXORP_GLOBAL_PATTERN)), array_keys((array)constants::get(YXORP_TARGET_PATTERN)));
+        $preg_replace = generalHelper::array_merge_ignore(array_values((array)constants::get(YXORP_GLOBAL_PATTERN)), array_values((array)constants::get(YXORP_TARGET_PATTERN)));
+        $preg_replace = preg_replace($preg_search, $preg_replace, constants::get(YXORP_RESPONSE)->getContent());
         $str_replace = str_replace(generalHelper::array_merge_ignore([constants::get(YXORP_TARGET_DOMAIN)], array_keys((array)constants::get(YXORP_GLOBAL_REPLACE)), array_keys((array)constants::get(YXORP_TARGET_REPLACE))), generalHelper::array_merge_ignore([constants::get(YXORP_SITE_DOMAIN)], array_values((array)constants::get(YXORP_GLOBAL_REPLACE)), array_values((array)constants::get(YXORP_TARGET_REPLACE))), $preg_replace);
         (constants::get(YXORP_RESPONSE)->setContent($this->REWRITE($str_replace)));
     }
