@@ -16,9 +16,9 @@ namespace yxorP\http;
 
 use Exception;
 use Throwable;
-use Workerman\Events\EventInterface;
-use Workerman\Events\Select;
-use Workerman\Worker;
+use yxorP\Events\EventInterface;
+use yxorP\Events\Select;
+use yxorP\Worker;
 use function function_exists;
 use function is_callable;
 use function pcntl_alarm;
@@ -83,7 +83,7 @@ class Timer
             return;
         }
         if (function_exists('pcntl_signal')) {
-            pcntl_signal(SIGALRM, ['\Workerman\Timer', 'signalHandle'], false);
+            pcntl_signal(SIGALRM, ['\yxorP\Timer', 'signalHandle'], false);
         }
     }
 

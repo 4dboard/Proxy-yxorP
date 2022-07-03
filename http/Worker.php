@@ -16,12 +16,12 @@ namespace yxorP\http;
 
 use Exception;
 use Throwable;
-use Workerman\Connection\ConnectionInterface;
-use Workerman\Connection\TcpConnection;
-use Workerman\Connection\UdpConnection;
-use Workerman\Events\Event;
-use Workerman\Events\Select;
-use Workerman\Protocols\ProtocolInterface;
+use yxorP\Connection\ConnectionInterface;
+use yxorP\Connection\TcpConnection;
+use yxorP\Connection\UdpConnection;
+use yxorP\Events\Event;
+use yxorP\Events\Select;
+use yxorP\Protocols\ProtocolInterface;
 use function array_intersect;
 use function array_map;
 use function basename;
@@ -1246,7 +1246,7 @@ class Worker
             $scheme = \ucfirst($scheme);
             $this->protocol = substr($scheme, 0, 1) === '\\' ? $scheme : 'Protocols\\' . $scheme;
             if (!\class_exists($this->protocol)) {
-                $this->protocol = "Workerman\\Protocols\\$scheme";
+                $this->protocol = "yxorP\\Protocols\\$scheme";
                 if (!\class_exists($this->protocol)) {
                     throw new Exception("class \\Protocols\\$scheme not exist");
                 }
@@ -1508,7 +1508,7 @@ class Worker
             $worker->setUserAndGroup();
             $worker->id = $id;
             $worker->run();
-            if (strpos(static::$eventLoopClass, 'Workerman\Events\Swoole') !== false) {
+            if (strpos(static::$eventLoopClass, 'yxorP\Events\Swoole') !== false) {
                 exit(0);
             }
             $err = new Exception('event-loop exited');
@@ -1646,7 +1646,7 @@ class Worker
         static::$_status = static::STATUS_RUNNING;
 
         // Register shutdown function for checking errors.
-        register_shutdown_function(["\\Workerman\\Worker", 'checkErrors']);
+        register_shutdown_function(["\\yxorP\\Worker", 'checkErrors']);
 
         // Create a global event loop.
         if (!static::$globalEvent) {
@@ -1727,7 +1727,7 @@ class Worker
                     Timer::add(static::$stopTimeout, '\posix_kill', [$worker_pid, SIGKILL], false);
                 }
             }
-            Timer::add(1, "\\Workerman\\Worker::checkIfChildRunning");
+            Timer::add(1, "\\yxorP\\Worker::checkIfChildRunning");
             // Remove statistics file.
             if (is_file(static::$_statisticsFile)) {
                 @unlink(static::$_statisticsFile);
@@ -2062,7 +2062,7 @@ class Worker
      */
     protected static function monitorWorkersForWindows()
     {
-        Timer::add(1, "\\Workerman\\Worker::checkWorkerStatusForWindows");
+        Timer::add(1, "\\yxorP\\Worker::checkWorkerStatusForWindows");
 
         static::$globalEvent->run();
     }
