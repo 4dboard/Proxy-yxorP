@@ -1,5 +1,7 @@
 <?php namespace yxorP\http;
 
+/* Defining the namespace of the file. */
+
 use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\NoReturn;
