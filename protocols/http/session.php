@@ -18,12 +18,19 @@ use function unserialize;
 
 class Session
 {
+    /* It's a class variable. */
     public static string $name = 'PHPSID';
+    /* It's a class variable. */
     public static bool $autoUpdateTimestamp = false;
+    /* It's a class variable. */
+    /* It's a class variable. */
     public static int $lifetime = 1440;
     public static int $cookieLifetime = 1440;
+    /* It's a class variable. */
     public static string $cookiePath = '/';
+    /* It's a class variable. */
     public static string $domain = '';
+    /* It's a class variable. */
     public static bool $secure = false;
     public static bool $httpOnly = true;
     public static string $sameSite = '';
