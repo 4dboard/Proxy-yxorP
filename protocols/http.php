@@ -20,12 +20,18 @@ use function strstr;
 use function substr;
 use function sys_get_temp_dir;
 
+/* A protocol class. */
+
 class http
 {
+    /* Setting the class name for the request class. */
     private static string $_requestClass = request::class;
+    /* A variable that is used to enable or disable caching. */
+    /* Setting the upload directory to the default. */
     private static string $_uploadTmpDir = '';
     private static bool $_enableCache = true;
 
+    /* Setting the class name for the request class. */
     public static function requestClass($class_name = null): string
     {
         if ($class_name) {
@@ -34,11 +40,16 @@ class http
         return static::$_requestClass;
     }
 
+    /* Setting the value of `$_enableCache` to the value of `$value`. */
     public static function enableCache($value)
     {
         static::$_enableCache = (bool)$value;
     }
 
+    /* Checking if the request is a GET, OPTIONS, HEAD, or DELETE request. If it is, it returns the length of the header.
+    If it is not, it checks if it is a POST, PUT, or PATCH request. If it is, it checks if the request has a
+    content-length header. If it does, it returns the length of the header plus the content-length. If it does not, it
+    closes the connection. */
     public static function input($recv_buffer, tcpConnection $connection)
     {
         static $input = [];
@@ -91,6 +102,10 @@ class http
         return 0;
     }
 
+    /* Checking if the request is a GET, OPTIONS, HEAD, or DELETE request. If it is, it returns the length of the header.
+    If it is not, it checks if it is a POST, PUT, or PATCH request. If it is, it checks if the request has a
+    content-length header. If it does, it returns the length of the header plus the content-length. If it does not, it
+    closes the connection. */
     public static function decode($recv_buffer, tcpConnection $connection)
     {
         static $requests = [];
@@ -114,6 +129,10 @@ class http
         return $request;
     }
 
+    /* Checking if the request is a GET, OPTIONS, HEAD, or DELETE request. If it is, it returns the length of the header.
+     If it is not, it checks if it is a POST, PUT, or PATCH request. If it is, it checks if the request has a
+     content-length header. If it does, it returns the length of the header plus the content-length. If it does not, it
+     closes the connection. */
     public static function encode($response, tcpConnection $connection): string
     {
         if (isset($connection->__request)) {
@@ -169,21 +188,6 @@ class http
         return (string)$response;
     }
 
-    public static function uploadTmpDir($dir = null): string
-    {
-        if (null !== $dir) {
-            static::$_uploadTmpDir = $dir;
-        }
-        if (static::$_uploadTmpDir === '') {
-            if ($upload_tmp_dir = ini_get('upload_tmp_dir')) {
-                static::$_uploadTmpDir = $upload_tmp_dir;
-            } else if ($upload_tmp_dir = sys_get_temp_dir()) {
-                static::$_uploadTmpDir = $upload_tmp_dir;
-            }
-        }
-        return static::$_uploadTmpDir;
-    }
-
     protected static function sendStream(tcpConnection $connection, $handler, $offset = 0, $length = 0)
     {
         $connection->bufferFull = false;
@@ -221,5 +225,20 @@ class http
             $do_write();
         };
         $do_write();
+    }
+
+    public static function uploadTmpDir($dir = null): string
+    {
+        if (null !== $dir) {
+            static::$_uploadTmpDir = $dir;
+        }
+        if (static::$_uploadTmpDir === '') {
+            if ($upload_tmp_dir = ini_get('upload_tmp_dir')) {
+                static::$_uploadTmpDir = $upload_tmp_dir;
+            } else if ($upload_tmp_dir = sys_get_temp_dir()) {
+                static::$_uploadTmpDir = $upload_tmp_dir;
+            }
+        }
+        return static::$_uploadTmpDir;
     }
 }

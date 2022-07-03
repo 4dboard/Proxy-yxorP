@@ -18,11 +18,13 @@ class frame
         return $unpack_data['total_length'];
     }
 
+    /* Decoding the buffer. */
     public static function decode($buffer): string
     {
         return substr($buffer, 4);
     }
 
+    /* Encoding the buffer. */
     public static function encode($buffer): string
     {
         $total_length = 4 + strlen($buffer);
