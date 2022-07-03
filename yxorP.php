@@ -169,12 +169,9 @@ class yxorP
      */
     private static function migrate($from, $to): void
     {
-        /* It's checking if the destination directory exists, and if it doesn't, it creates it. */
-        if (!is_dir($to)) mkdir($to);
-        /* It's copying all the files from the `local` directory to the `cockpit` directory. */
-        while (($ff = readdir(($dir = opendir($from)))) !== false) if ($ff != CHAR_PERIOD && $ff != CHAR_PERIOD . CHAR_PERIOD) if (is_dir("$from$ff")) self::migrate("$from$ff" . DIRECTORY_SEPARATOR, "$to$ff" . DIRECTORY_SEPARATOR); else   copy("$from$ff", "$to$ff");
-        /* It's closing the directory. */
-        closedir($dir);
+        foreach (glob(`$from/*.*`) as $file) {
+            copy($from . $file, $to . $file);
+        }
     }
 
     /**
