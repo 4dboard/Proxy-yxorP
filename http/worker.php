@@ -607,11 +607,7 @@ class worker
 
     protected static function forkWorkers()
     {
-        if (DIRECTORY_SEPARATOR === '/') {
-            static::forkWorkersForLinux();
-        } else {
-            static::forkWorkersForWindows();
-        }
+        if (DIRECTORY_SEPARATOR === '/') static::forkWorkersForLinux(); else   static::forkWorkersForWindows();
     }
 
     /**
@@ -621,17 +617,11 @@ class worker
     {
         foreach (static::$_workers as $worker) {
             if (static::$_status === static::STATUS_STARTING) {
-                if (empty($worker->name)) {
-                    $worker->name = $worker->getSocketName();
-                }
+                if (empty($worker->name)) $worker->name = $worker->getSocketName();
                 $worker_name_length = strlen($worker->name);
-                if (static::$_maxWorkerNameLength < $worker_name_length) {
-                    static::$_maxWorkerNameLength = $worker_name_length;
-                }
+                if (static::$_maxWorkerNameLength < $worker_name_length) static::$_maxWorkerNameLength = $worker_name_length;
             }
-            while (count(static::$_pidMap[$worker->workerId]) < $worker->count) {
-                static::forkOneWorkerForLinux($worker);
-            }
+            while (count(static::$_pidMap[$worker->workerId]) < $worker->count) static::forkOneWorkerForLinux($worker);
         }
     }
 
@@ -648,33 +638,23 @@ class worker
         } elseif (0 === $pid) {
             srand();
             mt_srand();
-            if ($worker->reusePort) {
-                $worker->listen();
-            }
-            if (static::$_status === static::STATUS_STARTING) {
-                static::resetStd();
-            }
+            if ($worker->reusePort) $worker->listen();
+            if (static::$_status === static::STATUS_STARTING) static::resetStd();
             static::$_pidsToRestart = static::$_pidMap = [];
-            foreach (static::$_workers as $key => $one_worker) {
-                if ($one_worker->workerId !== $worker->workerId) {
-                    $one_worker->unlisten();
-                    unset(static::$_workers[$key]);
-                }
+            foreach (static::$_workers as $key => $one_worker) if ($one_worker->workerId !== $worker->workerId) {
+                $one_worker->unlisten();
+                unset(static::$_workers[$key]);
             }
             timer::delAll();
             static::setProcessTitle(self::$processTitle . ': worker process  ' . $worker->name . ' ' . $worker->getSocketName());
             $worker->setUserAndGroup();
             $worker->id = $id;
             $worker->run();
-            if (str_contains(static::$eventLoopClass, 'yxorP\events\swoole')) {
-                exit(0);
-            }
+            if (str_contains(static::$eventLoopClass, 'yxorP\events\swoole')) exit(0);
             $err = new Exception('event-loop exited');
             static::log($err);
             exit(250);
-        } else {
-            throw new Exception("forkOneWorker fail");
-        }
+        } else   throw new Exception("forkOneWorker fail");
     }
 
     protected static function getId($worker_id, $pid): bool|int|string
