@@ -135,6 +135,7 @@ class yxorP
                 throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
+        self::install();
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
             self::install();
         /* It's returning an array of events. */
