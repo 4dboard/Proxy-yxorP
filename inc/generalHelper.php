@@ -6,13 +6,7 @@ use function array_map;
 use function array_merge;
 use function file;
 
-/* Importing the `array_map` function from the global namespace. */
-
-/* Importing the `array_merge` function from the global namespace. */
-
-/* Importing the `file` function from the global namespace. */
-
-/* A class that contains a bunch of functions that are used throughout the application. */
+/* Importing the `array_map` function from the global namespace. Importing the `array_merge` function from the global namespace.  Importing the `file` function from the global namespace. A class that contains a bunch of functions that are used throughout the application. */
 
 class generalHelper
 {
