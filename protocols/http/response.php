@@ -182,6 +182,7 @@ class response
         return $head . $this->_body;
     }
 
+    /* Used to create the header for a file. */
     protected function createHeadForFile($file_info): string
     {
         $file = $file_info['file'];
@@ -207,4 +208,5 @@ class response
     }
 }
 
+/* Initializing the mime type map. */
 response::init();
