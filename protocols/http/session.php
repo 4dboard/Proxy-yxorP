@@ -128,42 +128,44 @@ class Session
         $this->_needSave = true;
     }
 
+    /* It's setting a value in the session. */
     public function set($name, $value)
     {
         $this->_data[$name] = $value;
         $this->_needSave = true;
     }
 
+    /* It's deleting a value from the session. */
     public function forget($name)
     {
         if (is_scalar($name)) {
             $this->delete($name);
             return;
         }
-        if (is_array($name)) {
-            foreach ($name as $key) {
-                unset($this->_data[$key]);
-            }
-        }
+        if (is_array($name)) foreach ($name as $key) unset($this->_data[$key]);
         $this->_needSave = true;
     }
 
+    /* It's returning the session data. */
     public function all()
     {
         return $this->_data;
     }
 
+    /* It's setting the session data to an empty array. */
     public function flush()
     {
         $this->_needSave = true;
         $this->_data = [];
     }
 
+    /* It's checking if a value exists in the session. */
     public function has($name): bool
     {
         return isset($this->_data[$name]);
     }
 
+    /* It's checking if a value exists in the session. */
     public function exists($name): bool
     {
         return array_key_exists($name, $this->_data);
@@ -175,22 +177,12 @@ class Session
     public function __destruct()
     {
         $this->save();
-        if (random_int(1, static::$gcProbability[1]) <= static::$gcProbability[0]) {
-            $this->gc();
-        }
+        if (random_int(1, static::$gcProbability[1]) <= static::$gcProbability[0]) $this->gc();
     }
 
     public function save()
     {
-        if ($this->_needSave) {
-            if (empty($this->_data)) {
-                static::$_handler->destroy($this->_sessionId);
-            } else {
-                static::$_handler->write($this->_sessionId, serialize($this->_data));
-            }
-        } elseif (static::$autoUpdateTimestamp) {
-            static::refresh();
-        }
+        if ($this->_needSave) if (empty($this->_data)) static::$_handler->destroy($this->_sessionId); else  static::$_handler->write($this->_sessionId, serialize($this->_data)); elseif (static::$autoUpdateTimestamp) static::refresh();
         $this->_needSave = false;
     }
 
