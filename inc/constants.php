@@ -598,8 +598,8 @@ class constants
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
         constants::set(constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null)
-        constants::set(YXORP_(constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null)
-        constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . (constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null) . constants::get(YXORP_TARGET_DOMAIN));
+        constants::set(YXORP_SUB_DOMAIN,(constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null));
+        constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
         
         
             /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
