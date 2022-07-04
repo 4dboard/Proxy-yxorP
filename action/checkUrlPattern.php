@@ -15,9 +15,7 @@ class checkUrlPattern extends wrapper
         $url = constants::get(YXORP_REQUEST)->getUri();
 
         /* Used to filter the events. */
-        if ($this->url_pattern)
-         if (generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1)
-         if (stripos($url, $this->url_pattern) === false);
+        if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1 && stripos($url, $this->url_pattern) === false);
 
         //Todo: Final event
 
