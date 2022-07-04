@@ -192,7 +192,7 @@ class constants
         /* Defining a constant called `VAR_URL_HOST` and setting it to the value of `url_host`. */
         define('VAR_URL_HOST', 'url_host');
         /* Defining a constant called `VAR_HTTPS` and setting it to the value of `https`. */
-        define('VAR_HTTPS', 'https:');
+        define('VAR_HTTPS', 'https:'.CHAR_SLASH . CHAR_SLASH);
         define('VAR_HTTPS_ONLY', 'https');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_ALLOW_REDIRECTS', 'allow_redirects');
