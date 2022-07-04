@@ -353,6 +353,7 @@ class constants
         define('YXORP_SITE_URL', YXORP_SITE . CHAR_UNDER . YXORP_URL);
         /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
         define('YXORP_SITE_DOMAIN', YXORP_SITE . CHAR_UNDER . YXORP_DOMAIN);
+        YXORP_SITE_SUB_DOMAIN
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
         define('YXORP_SITE_SUB_DOMAIN', YXORP_SITE . CHAR_UNDER . YXORP_SUB . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
