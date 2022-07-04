@@ -600,7 +600,9 @@ class constants
         constants::set(YXORP_FETCH, VAR_HTTPS . CHAR_SLASH . CHAR_SLASH . (constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null) . constants::get(YXORP_TARGET_DOMAIN));
         
         
-        
+            /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
+        variable appended to it. */
+        constants::set(YXORP_REQUEST_URL, constants::get(YXORP_FETCH) . constants::get(YXORP_REQUEST_URI));
         
         
         
