@@ -4,6 +4,7 @@
 namespace yxorP;
 
 /* Including the file `yxorP.php` in the current file. */
+
 require 'yxorP.php';
 
 /**
