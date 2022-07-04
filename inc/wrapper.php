@@ -17,7 +17,6 @@ abstract class wrapper
 
     if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1 && stripos($url, $this->url_pattern) === false);if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1 && stripos($url, $this->url_pattern) === false);if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1 && stripos($url, $this->url_pattern) === false);if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1 && stripos($url, $this->url_pattern) === false);if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1 && stripos($url, $this->url_pattern) === false);if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) && preg_match($this->url_pattern, $url) !== 1 && stripos($url, $this->url_pattern) === false);
     
-
     /* Subscribing to all the events. */
     final public function subscribe($dispatcher): void
     {
