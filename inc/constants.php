@@ -602,7 +602,7 @@ class constants
         
             /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
-        constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_FETCH) . constants::get(YXORP_REQUEST_URI));
+        constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_SITE_URL) . constants::get(YXORP_REQUEST_URI));
         
         
         
