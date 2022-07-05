@@ -165,7 +165,7 @@ class generalHelper
             $base_url = self::add_http($base_url);
             $url = self::rel2abs($url, $base_url);
         }
-        return str_replace(constants::get(YXORP_FETCH), CHAR_EMPTY_STRING, $url);
+        return str_replace(constants::get(VAR_FETCH), CHAR_EMPTY_STRING, $url);
     }
 
     /* It's proxifying the `$url` with the `$base_url`. */
