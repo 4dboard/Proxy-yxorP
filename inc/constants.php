@@ -631,12 +631,12 @@ class constants
      */
 
 
-    public static function get($_name, $return = nul): mixed
+    public static function get($_name, $return = null): mixed
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
-        if ($array)
-            return $GLOBALS[$_name] ?: ($array) ? [] ;
+
+        return $GLOBALS[$_name] ?: $return;
     }
 
 }
