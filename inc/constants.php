@@ -611,7 +611,7 @@ class constants
         constants::set(YXORP_REQUEST_URI_FULL, strval(constants::get(YXORP_SITE_URL)) . strval(constants::get(YXORP_REQUEST_URI)));
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
-        constants::set(YXORP_PROXY_URL, constants::get(VAR_FETCH) . constants::get(YXORP_REQUEST_URI));
+        constants::set(YXORP_PROXY_URL, strval(constants::get(VAR_FETCH)) . strval(constants::get(YXORP_REQUEST_URI)));
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
