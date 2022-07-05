@@ -21,6 +21,8 @@
 /inc/phpdoc.xml
 /override
 /override/*
+!/override/example
+!/override/global
 mkdocs.yml
 phpdoc.xml
 composer.lock
