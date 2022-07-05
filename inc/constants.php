@@ -521,9 +521,9 @@ class constants
 
         // Reporting
         /* Setting the token to the bugsnag key. */
-        self::set(YXORP_BUGSNAG, BClient::make(ENV_BUG_SNAG_KEY));
+        self::set(YXORP_BUGSNAG, Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
-        self::set(YXORP_GUZZLE, new GClient([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::set(YXORP_GUZZLE, new Guzzle\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
 
