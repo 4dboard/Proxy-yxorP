@@ -146,7 +146,7 @@ abstract class wrapper
             }
         } catch (Exception $e) {
             /* Calling the `onBuildException` method. */
-            $this->build_exception($e);
+            $this->onBuildException($e);
         }
     }
 
