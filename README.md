@@ -1,14 +1,13 @@
-> ❤️**DONATIONS**: [\[GITHUB\]](https://github.com/donspablo) | [\[ PATREON \]](https://patreon.com/donpablonow) | [\[ PAYPAL \]](https://www.paypal.me/donpanlonow) | [\[ ETHEREUM \]](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1)
->
-> _`Any contributions you can make toward this endeavour would be much appreciated.`_
+> ⛔️ **PENDING** : _Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed._
+> _`NB: Any contributions you can make toward this endeavour would be much appreciated.`_
 
-> ⛔️ **PENDING**: _Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed._
+> ❤️**SUPPORT** : Donations always welcome via [GITHUB](https://github.com/donspablo) (Subscriptions & Credit Cards),  [PATREON](https://patreon.com/donpablonow) (Subscriptions & Credit Cards), [PAYPAL](https://www.paypal.me/donpanlonow) (Once-off, Credit Cards & E-wallet) & [ETHEREUM](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1) (Once-off, Crypto Currency)
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
-[ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ] [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ][ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/)]
+[ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]   [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]  [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ] [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ] [ [WEBSITE](https://4dboard.github.io/) ]
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
