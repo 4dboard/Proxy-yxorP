@@ -20,71 +20,14 @@ abstract class wrapper
     /* Subscribing to all the events. */
     final public function subscribe(yxorP $dispatcher): void
     {
-
-        foreach ([EVENT_BUILD_CACHE] as $event) {
+        foreach ([EVENT_BUILD_CACHE, EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_EXCEPTION, EVENT_FINAL] as $event) {
             $dispatcher->addListener($event, function () use ($event) {
                 $this->route($event);
             });
         }
-        /* Subscribing to the event `EVENT_BUILD_CACHE`. */
-        $dispatcher->addListener(EVENT_BUILD_CACHE, function () {
-            /* Calling the `route` method with the `EVENT_BUILD_CACHE` parameter. */
-            $this->route(EVENT_BUILD_CACHE);
-        });
-        /* Subscribing to the event `EVENT_BUILD_CONTEXT`. */
-        $dispatcher->addListener(EVENT_BUILD_CONTEXT, function () {
-            /* Calling the `route` method with the `EVENT_BUILD_CONTEXT` parameter. */
-            $this->route(EVENT_BUILD_CONTEXT);
-        });
-        /* Subscribing to the event `EVENT_BUILD_INCLUDES`. */
-        $dispatcher->addListener(EVENT_BUILD_INCLUDES, function () {
-            /* Calling the `route` method with the `EVENT_BUILD_INCLUDES` parameter. */
-            $this->route(EVENT_BUILD_INCLUDES);
-        });
-        /* Subscribing to the event `EVENT_BUILD_HEADERS`. */
-        $dispatcher->addListener(EVENT_BUILD_HEADERS, function () {
-            /* Calling the `route` method with the `EVENT_BUILD_HEADERS` parameter. */
-            $this->route(EVENT_BUILD_HEADERS);
-        });
-        /* Subscribing to the event `EVENT_BUILD_REQUEST`. */
-        $dispatcher->addListener(EVENT_BUILD_REQUEST, function () {
-            /* Calling the `route` method with the `EVENT_BUILD_REQUEST` parameter. */
-            $this->route(EVENT_BUILD_REQUEST);
-        });
-        /* Subscribing to the event `EVENT_BEFORE_SEND`. */
-        $dispatcher->addListener(EVENT_BEFORE_SEND, function () {
-            /* Calling the `route` method with the `EVENT_BEFORE_SEND` parameter. */
-            $this->route(EVENT_BEFORE_SEND);
-        });
-        /* Subscribing to the event `EVENT_SENT`. */
-        $dispatcher->addListener(EVENT_SENT, function () {
-            /* Calling the `route` method with the `EVENT_SENT` parameter. */
-            $this->route(EVENT_SENT);
-        });
-        /* Subscribing to the event `EVENT_WRITE`. */
-        $dispatcher->addListener(EVENT_WRITE, function () {
-            /* Calling the `route` method with the `EVENT_WRITE` parameter. */
-            $this->route(EVENT_WRITE);
-        });
-        /* Subscribing to the event `EVENT_COMPLETE`. */
-        $dispatcher->addListener(EVENT_COMPLETE, function () {
-            /* Calling the `route` method with the `EVENT_COMPLETE` parameter. */
-            $this->route(EVENT_COMPLETE);
-        });
-        /* Subscribing to the event `EVENT_EXCEPTION`. */
-        $dispatcher->addListener(EVENT_EXCEPTION, function () {
-            /* Calling the `route` method with the `EVENT_EXCEPTION` parameter. */
-            $this->route(EVENT_EXCEPTION);
-        });
-        /* Subscribing to the event `EVENT_FINAL`. */
-        $dispatcher->addListener(EVENT_FINAL, function () {
-            /* Calling the `route` method with the `EVENT_FINAL` parameter. */
-            $this->route(EVENT_FINAL);
-        });
     }
 
     /* A method that is used to route the events to the appropriate methods. */
-
     private function route(string $event_name): void
     {
         /* Used to catch exceptions. */
