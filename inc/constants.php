@@ -4,8 +4,8 @@ namespace yxorP\inc;
 
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
 
-use Guzzle\Client as Guzzle;
 use Bugsnag\Client as Bugsnag;
+use Guzzle\Client as Guzzle;
 use RuntimeException;
 
 class constants
@@ -193,7 +193,7 @@ class constants
         /* Defining a constant called `VAR_URL_HOST` and setting it to the value of `url_host`. */
         define('VAR_URL_HOST', 'url_host');
         /* Defining a constant called `VAR_HTTPS` and setting it to the value of `https`. */
-        define('VAR_HTTPS', 'https:'.CHAR_SLASH . CHAR_SLASH);
+        define('VAR_HTTPS', 'https:' . CHAR_SLASH . CHAR_SLASH);
         define('VAR_HTTPS_ONLY', 'https');
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_ALLOW_REDIRECTS', 'allow_redirects');
@@ -598,19 +598,16 @@ class constants
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_TARGET_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_TARGET_URL)));
+        /* Setting the subdomain for the site. */
+        constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        constants::set(YXORP_SUB_DOMAIN,(constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null));
         constants::set(YXORP_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
-        
-        
-            /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
-        variable appended to it. */
+        /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
+        value of the constant YXORP_REQUEST_URI. */
         constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_SITE_URL) . constants::get(YXORP_REQUEST_URI));
-        
-        
-        
-        
+
+
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
         constants::set(YXORP_PROXY_URL, constants::get(YXORP_FETCH) . constants::get(YXORP_REQUEST_URI));
