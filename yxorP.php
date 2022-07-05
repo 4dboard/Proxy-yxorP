@@ -119,8 +119,9 @@ class yxorP
 
     /**
      * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
+     * * @return array
      */
-    private static function init(): void
+    private static function init(): array
     {
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
