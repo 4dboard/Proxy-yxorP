@@ -533,6 +533,9 @@ class constants
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
 
+        // EVENTS
+        constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
         seconds in a year. */
