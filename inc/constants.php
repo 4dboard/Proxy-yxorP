@@ -244,81 +244,81 @@ class constants
         define('VAR_PATTERN', 'pattern');
         /* Defining a constant called `VAR_REPLACE` and setting it to the value of `replace`. */
         define('VAR_REPLACE', 'replace');
-        /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
+        /* Defining a constant called `VAR_SERVER` and setting it to the value of `SERVER`. */
         define('VAR_SERVER', 'SERVER');
-        /* Defining a constant called YXORP_BUGSNAG and setting it to the string BUGSNAG. */
+        /* Defining a constant called VAR_BUGSNAG and setting it to the string BUGSNAG. */
         define('VAR_BUGSNAG', 'BUGSNAG');
-        /* Defining a constant called YXORP_GUZZLE and setting it to the string 'GUZZLE'. */
+        /* Defining a constant called VAR_GUZZLE and setting it to the string 'GUZZLE'. */
         define('VAR_GUZZLE', 'GUZZLE');
-        /* Defining a constant called YXORP_RESPONSE and setting it to the string YXORP_RESPONSE. */
+        /* Defining a constant called VAR_RESPONSE and setting it to the string VAR_RESPONSE. */
         define('VAR_RESPONSE', 'RESPONSE');
-        /* Defining a constant called YXORP_REQUEST and setting it to the string YXORP_REQUEST. */
+        /* Defining a constant called VAR_REQUEST and setting it to the string VAR_REQUEST. */
         define('VAR_REQUEST', 'REQUEST');
-        /* Defining a constant called YXORP_COCKPIT_ACCOUNTS and setting it to the string accounts. */
+        /* Defining a constant called VAR_COCKPIT_ACCOUNTS and setting it to the string accounts. */
         define('VAR_COCKPIT_ACCOUNTS', 'accounts');
-        /* Defining a constant called YXORP_PLUGINS and setting it to the string plugins. */
+        /* Defining a constant called VAR_PLUGINS and setting it to the string plugins. */
         define('VAR_PLUGINS', 'plugins');
-        /* Defining a constant called YXORP_TARGET and setting it to the string TARGET. */
+        /* Defining a constant called VAR_TARGET and setting it to the string TARGET. */
         define('VAR_TARGET', 'TARGET');
-        /* Defining a constant called YXORP_TARGET_PATTERN and setting it to the string TARGET. */
+        /* Defining a constant called VAR_TARGET_PATTERN and setting it to the string TARGET. */
         define('VAR_TARGET_PATTERN', 'TARGET_PATTERN');
-        /* Defining a constant called YXORP_TARGET_REPLACE and setting it to the string TARGET_REPLACE. */
+        /* Defining a constant called VAR_TARGET_REPLACE and setting it to the string TARGET_REPLACE. */
         define('VAR_TARGET_REPLACE', 'TARGET_REPLACE');
-        /* Defining a constant called YXORP_SITE and setting it to the string SITE. */
+        /* Defining a constant called VAR_SITE and setting it to the string SITE. */
         define('VAR_SITE', 'SITE');
-        /* Defining a constant called YXORP_HOST and setting it to the string HOST. */
+        /* Defining a constant called VAR_HOST and setting it to the string HOST. */
         define('VAR_HOST', 'HOST');
         /* Defining a constant called COCKPIT and setting it to the string COCKPIT. */
         define('VAR_COCKPIT', 'COCKPIT');
-        /* Defining a constant called YXORP_INSTALL and setting it to the string INSTALL. */
+        /* Defining a constant called VAR_INSTALL and setting it to the string INSTALL. */
         define('VAR_INSTALL', 'INSTALL');
-        /* Defining a constant called YXORP_INC and setting it to the string INC. */
+        /* Defining a constant called VAR_INC and setting it to the string INC. */
         define('VAR_INC', 'INC');
-        /* Defining a constant called YXORP_REPLACE and setting it to the string REPLACE. */
+        /* Defining a constant called VAR_REPLACE and setting it to the string REPLACE. */
         define('VAR_REPLACE_UP', 'REPLACE');
-        /* Defining a constant called YXORP_REWRITE and setting it to the string REWRITE. */
+        /* Defining a constant called VAR_REWRITE and setting it to the string REWRITE. */
         define('VAR_REWRITE', 'REWRITE');
-        /* Defining a constant called YXORP_SEARCH and setting it to the string SEARCH. */
+        /* Defining a constant called VAR_SEARCH and setting it to the string SEARCH. */
         define('VAR_SEARCH', 'SEARCH');
-        /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
+        /* Defining a constant called VAR_FETCH and setting it to the string FETCH. */
         define('VAR_FETCH', 'FETCH');
-        /* Defining a constant called YXORP_FILES and setting it to the string files. */
+        /* Defining a constant called VAR_FILES and setting it to the string files. */
         define('VAR_FILES', 'files');
-        /* Defining a constant called YXORP_PHP and setting it to the string PHP. */
+        /* Defining a constant called VAR_PHP and setting it to the string PHP. */
         define('VAR_PHP', 'PHP');
-        /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
+        /* Defining a constant called VAR_SELF and setting it to the string SELF. */
         define('VAR_SELF', 'SELF');
-        /* Defining a constant called YXORP_APP and setting it to the string APP. */
+        /* Defining a constant called VAR_APP and setting it to the string APP. */
         define('VAR_APP', 'APP');
-        /* Defining a constant called YXORP_PROXY and setting it to the string PROXY. */
+        /* Defining a constant called VAR_PROXY and setting it to the string PROXY. */
         define('VAR_PROXY', 'PROXY');
-        /* Defining a constant called YXORP_NAME and setting it to the string NAME. */
+        /* Defining a constant called VAR_NAME and setting it to the string NAME. */
         define('VAR_NAME_UP', 'NAME');
-        /* Defining a constant called YXORP_URL and setting it to the string URL. */
+        /* Defining a constant called VAR_URL and setting it to the string URL. */
         define('VAR_URL_UP', 'URL');
-        /* Defining a constant called YXORP_URI and setting it to the string URI. */
+        /* Defining a constant called VAR_URI and setting it to the string URI. */
         define('VAR_URI', 'URI');
-        /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
+        /* Defining a constant called VAR_SUB and setting it to the string SUB. */
         define('VAR_SUB', 'SUB');
-        /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
+        /* Defining a constant called VAR_DOMAIN and setting it to the string DOMAIN. */
         define('VAR_DOMAIN_UP', 'DOMAIN');
-        /* Defining a constant called YXORP_DIR and setting it to the string DIR. */
+        /* Defining a constant called VAR_DIR and setting it to the string DIR. */
         define('VAR_DIR', 'DIR');
-        /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
+        /* Defining a constant called VAR_FULL and setting it to the string FULL. */
         define('VAR_FULL', 'FULL');
-        /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
+        /* Defining a constant called VAR_HTTPS and setting it to the string HTTPS. */
         define('VAR_HTTPS_UP', 'HTTPS');
-        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
+        /* Defining a constant called VAR_HTTP and setting it to the string HTTP. */
         define('VAR_HTTP_UP', 'HTTP');
-        /* Defining a constant called YXORP_METHOD and setting it to the string METHOD. */
+        /* Defining a constant called VAR_METHOD and setting it to the string METHOD. */
         define('VAR_METHOD', 'METHOD');
-        /* Defining a constant called YXORP_REMOTE and setting it to the string REMOTE. */
+        /* Defining a constant called VAR_REMOTE and setting it to the string REMOTE. */
         define('VAR_REMOTE', 'REMOTE');
-        /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
+        /* Defining a constant called VAR_ADDR and setting it to the string ADDR. */
         define('VAR_ADDR', 'ADDR');
         define('VAR_EVENT', 'EVENT');
         define('VAR_LIST', 'LIST');
-        /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string GLOBAL_REPLACE. */
+        /* Defining a constant called VAR_GLOBAL_PATTERN and setting it to the string GLOBAL_REPLACE. */
         define('VAR_GLOBAL', 'VAR_GLOBAL');
 
         //VARIBLES MULTIPLE
