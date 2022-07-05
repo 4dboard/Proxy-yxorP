@@ -316,6 +316,8 @@ class constants
         define('VAR_REMOTE', 'REMOTE');
         /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
         define('VAR_ADDR', 'ADDR');
+        define('VAR_EVENT', 'EVENT');
+        define('VAR_LIST', 'LIST');
         /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string GLOBAL_REPLACE. */
         define('VAR_GLOBAL', 'VAR_GLOBAL');
 
@@ -335,6 +337,7 @@ class constants
 
 
         // YXORP
+        define('YXORP_EVENT_LIST', VAR_EVENT . CHAR_UNDER . VAR_LIST);
         /* Defining a constant. */
         define('YXORP_REWRITE_SEARCH', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_SEARCH);
         /* Defining a constant. */
@@ -624,6 +627,8 @@ class constants
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
         constants::set('YXORP_GLOBAL_PATTERN', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . 'global', [VAR_TYPE => 'pattern']) ?
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . 'global', [VAR_TYPE => 'pattern']))['value'] : null);
+
+        constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
     }
 
     /* A static method that returns the value of the $_name variable. */
