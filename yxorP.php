@@ -36,12 +36,12 @@ class yxorP
     /**
      * It's a constructor that sets up the plugin
      *
-     * @param _req The request URI
+     * @param $request The request URI
      */
-    public function __construct($req)
+    public function __construct($request): void
     {
         /* It's setting the constants that are used in the plugin. */
-        constants::localise($req);
+        constants::localise($request);
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
         $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
