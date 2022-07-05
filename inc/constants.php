@@ -309,6 +309,8 @@ class constants
         define('YXORP_NAME', 'NAME');
         /* Defining a constant called YXORP_URL and setting it to the string URL. */
         define('YXORP_URL', 'URL');
+        /* Defining a constant called YXORP_URL and setting it to the string URL. */
+        define('YXORP_URL', 'URI');
         /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
         define('YXORP_SUB', 'SUB');
         /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
@@ -339,10 +341,10 @@ class constants
         define('YXORP_REWRITE_REPLACE', YXORP_INC . CHAR_UNDER . YXORP_REWRITE . YXORP_REPLACE);
         /* Defining a constant. */
         define('YXORP_COCKPIT_INSTALL', YXORP_COCKPIT . CHAR_UNDER . YXORP_INSTALL);
-        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL`. */
-        define('YXORP_REQUEST_URI', YXORP_REQUEST . CHAR_UNDER . YXORP_URL);
-        /* Defining a constant. */
-        define('YXORP_REQUEST_URI_FULL', YXORP_REQUEST . CHAR_UNDER . YXORP_URL . CHAR_UNDER . YXORP_FULL);
+        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
+        define('YXORP_REQUEST_URI', YXORP_REQUEST . CHAR_UNDER . YXORP_URI);
+        /* Defining a constant called `YXORP_REQUEST_URI_FULL` and setting it to the value of `REQUEST_URI_FULL`. */
+        define('YXORP_REQUEST_URI_FULL', YXORP_REQUEST . CHAR_UNDER . YXORP_URI . CHAR_UNDER . YXORP_FULL);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', YXORP_HTTP . CHAR_UNDER . YXORP_HOST);
         /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
