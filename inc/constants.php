@@ -569,13 +569,13 @@ class constants
     /* A function that is being called to localise constants. */
 
     /**
-     * @param $_req
+     * @param $req
      * @return void
      */
-    public static function localise($_req): void
+    public static function localise(array $req): void
     {
-        /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $_req. */
-        self::set(YXORP_SERVER, $_req);
+        /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
+        self::set(YXORP_SERVER, $req);
 
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
         constants::set(YXORP_SITE_URL, ((constants::get(YXORP_SERVER))[YXORP_SERVER_NAME]));
