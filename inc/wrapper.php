@@ -3,6 +3,7 @@
 /* Importing the namespace `yxorP` into the current namespace. */
 
 
+use Exception;
 use yxorP;
 
 /* Importing the class `request` from the namespace `yxorP\http`. */
