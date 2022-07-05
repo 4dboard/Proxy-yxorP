@@ -151,84 +151,73 @@ abstract class wrapper
 
     /* Used to check if the event should be executed. */
 
-    final onCheck()
+    final public function onCheck()
     {
     }
 
-/* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
+    /* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
 
-public
-function onBuildCache()
-{
-}
+    final public function onBuildCache()
+    {
+    }
 
-/* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
+    /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
 
-public
-function onBuildContext()
-{
-}
+    final public function onBuildContext()
+    {
+    }
 
-/* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
+    /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
 
-public
-function onBuildIncludes()
-{
-}
+    final public function onBuildIncludes()
+    {
+    }
 
-/* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
+    /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
 
-public
-function onBuildHeaders()
-{
-}
+    final public function onBuildHeaders()
+    {
+    }
 
-/* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
+    /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
 
-public
-function onBuildRequest()
-{
-}
+    final public function onBuildRequest()
+    {
+    }
 
-/* Used to build the result. */
+    /* Used to build the result. */
 
-public
-function onBeforeSend()
-{
-}
+    final public function onBeforeSend()
+    {
+    }
 
-/* Used to execute code before the request is sent. */
+    /* Used to execute code before the request is sent. */
 
-public
-function onEventSent()
-{
-}
+    final public function onEventSent()
+    {
+    }
 
-/* Used to execute code when the headers are received. */
+    /* Used to execute code when the headers are received. */
 
-public
-function onEventWrite()
-{
-}
+    final public function onEventWrite()
+    {
+    }
 
-/* Used to execute code when the headers are received. */
+    /* Used to execute code when the headers are received. */
 
-public
-function onEventComplete()
-{
-}
+    final public function onEventComplete()
+    {
+    }
 
-/* Used to execute code when the request is completed. */
+    /* Used to execute code when the request is completed. */
 
-public
-function onEventFinal()
-{
-}
+    final public function onEventFinal()
+    {
+    }
 
-/* Used to execute code when an exception is thrown. */
+    /* Used to execute code when an exception is thrown. */
 
-public
-function onBuildException($e)
-{
-}
+    final public function onBuildException($e)
+    {
+    }
 }
