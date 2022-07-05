@@ -339,10 +339,10 @@ class constants
         define('YXORP_REWRITE_REPLACE', YXORP_INC . CHAR_UNDER . YXORP_REWRITE . YXORP_REPLACE);
         /* Defining a constant. */
         define('YXORP_COCKPIT_INSTALL', YXORP_COCKPIT . CHAR_UNDER . YXORP_INSTALL);
-        /* Defining a constant called `YXORP_REQUEST_URL` and setting it to the value of `REQUEST_URL`. */
-        define('YXORP_REQUEST_URL', YXORP_REQUEST . CHAR_UNDER . YXORP_URL);
+        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL`. */
+        define('YXORP_REQUEST_URI', YXORP_REQUEST . CHAR_UNDER . YXORP_URL);
         /* Defining a constant. */
-        define('YXORP_REQUEST_URL_FULL', YXORP_REQUEST . CHAR_UNDER . YXORP_URL . CHAR_UNDER . YXORP_FULL);
+        define('YXORP_REQUEST_URI_FULL', YXORP_REQUEST . CHAR_UNDER . YXORP_URL . CHAR_UNDER . YXORP_FULL);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', YXORP_HTTP . CHAR_UNDER . YXORP_HOST);
         /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
@@ -580,7 +580,7 @@ class constants
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
         constants::set(YXORP_SITE_URL, ((constants::get(YXORP_SERVER))[YXORP_SERVER_NAME]));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        constants::set(YXORP_REQUEST_URL, (constants::get(YXORP_SERVER))[YXORP_REQUEST_URL]);
+        constants::set(YXORP_REQUEST_URI, (constants::get(YXORP_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
@@ -604,12 +604,12 @@ class constants
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
         constants::set(YXORP_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
-        /* Setting the value of the constant YXORP_REQUEST_URL_FULL to the value of the constant YXORP_SITE_URL plus the
-        value of the constant YXORP_REQUEST_URL. */
-        constants::set(YXORP_REQUEST_URL_FULL, constants::get(YXORP_SITE_URL) . constants::get(YXORP_REQUEST_URL));
-        /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URL`
+        /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
+        value of the constant YXORP_REQUEST_URI. */
+        constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_SITE_URL) . constants::get(YXORP_REQUEST_URI));
+        /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
-        constants::set(YXORP_PROXY_URL, constants::get(YXORP_FETCH) . constants::get(YXORP_REQUEST_URL));
+        constants::set(YXORP_PROXY_URL, constants::get(YXORP_FETCH) . constants::get(YXORP_REQUEST_URI));
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
