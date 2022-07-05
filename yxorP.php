@@ -152,10 +152,8 @@ class yxorP
      *
      * @return array An array of events.
      */
-    private static function init(): array
+    private static function init(): void
     {
-        /* It's checking if the `$events` variable is set, and if it is, it returns it. */
-        if (self::$events) return self::$events;
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
