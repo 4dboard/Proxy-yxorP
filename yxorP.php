@@ -110,7 +110,7 @@ class yxorP
     public static function proxy(array|null $request = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::init($request ?: $_SERVER) as $event) self::yxorP()->dispatch($event);
+        foreach (self::init() as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
 
     /**
@@ -179,7 +179,7 @@ class yxorP
     {
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
-        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $listeners) foreach ((array)$listeners as $listener)
+        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
             if (is_callable($listener)) $listener();
     }
 
