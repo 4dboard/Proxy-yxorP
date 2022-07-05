@@ -108,13 +108,13 @@ class yxorP
 
     /**
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
-     * @param $req
+     * @param $request
      * @return void
      */
-    public static function proxy($req = null): void
+    public static function proxy($request = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (constants::get(YXORP_EVENT_LIST) as $event) self::yxorP($req ?: $_SERVER)->dispatch($event);
+        foreach (constants::get(YXORP_EVENT_LIST) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
 
     /**
