@@ -83,7 +83,7 @@ class yxorP
         if (strlen($action) < 3) return;
         /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
         if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        if (file_exists(DIR_ROOT . $dir . $action . EXT_PHP)) require(DIR_ROOT . $dir . $action . EXT_PHP); elseif ('\\yxorP\\' . $action) $plugin = '\\yxorP\\' . $action;
+        if (file_exists(DIR_ROOT . $dir . $action . EXT_PHP)) require(DIR_ROOT . $dir . $action . EXT_PHP); elseif ('\\yxorP\\' . $action) ;
         /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
         function. */
         $this->addSubscriber(new $action());
@@ -179,7 +179,7 @@ class yxorP
     {
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
-        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
+        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $listeners) foreach ((array)$listeners as $listener)
             if (is_callable($listener)) $listener();
     }
 
