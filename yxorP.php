@@ -194,7 +194,7 @@ class yxorP
      * @param array|null $request
      * @return self The yxorP object.
      */
-    public static function yxorP($request = null): self
+    public static function yxorP(array|null $request = null): self
     {
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
