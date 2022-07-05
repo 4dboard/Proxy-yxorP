@@ -28,6 +28,7 @@ class blockListPluginAction extends wrapper
         /* Checking if the `BLOCKLIST` constant is set and if it is, it sets the `$ip_match` variable to the value of the
         `BLOCKLIST` constant. */
         if (constants::get('BLOCKLIST')) $ip_match = constants::get('BLOCKLIST');
+        print_r($ip_match);
         /* Checking if the `$ip_match` variable is set and if it is, it checks if the `$user_ip` variable matches the
         `$ip_match` variable. If it does not match, it throws an exception. */
         if ($ip_match) if ((!generalHelper::re_match($ip_match, $user_ip))) constants::get(VAR_BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
