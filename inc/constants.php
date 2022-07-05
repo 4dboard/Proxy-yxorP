@@ -12,15 +12,15 @@ class constants
 {
     /* Defining constants.Creating a new directory.  */
     /**
-     * @param $_dir
+     * @param $dir
      * @return void
      */
-    public static function create($_dir): void
+    public static function create(string $dir): void
     {
 
-        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$_dir` with a `DIRECTORY_SEPARATOR`
+        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$dir` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_ROOT', $_dir . DIRECTORY_SEPARATOR);
+        define('DIR_ROOT', $dir . DIRECTORY_SEPARATOR);
 
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
@@ -441,7 +441,7 @@ class constants
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
         /* Defining the path to the bugsnag.phar file. */
         define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
-        /* Defining the path to the Guzzle phar file. */
+        /* Defining the path to Guzzle phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
