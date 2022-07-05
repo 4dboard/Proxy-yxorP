@@ -114,7 +114,37 @@ class yxorP
     public static function proxy($_req = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::init() as $_event) self::yxorP($_req ?: $_SERVER)->dispatch($_event);
+        foreach (constants::get(YXORP_EVENT_LIST) as $_event) self::yxorP($_req ?: $_SERVER)->dispatch($_event);
+    }
+
+    /**
+     * "If there are any listeners for the event, call them."
+     *
+     * The first thing the function does is check if there are any listeners for the event. If there are, it loops through
+     * them and calls them
+     *
+     * @param event_name The name of the event to dispatch.
+     */
+    private function dispatch($event_name): void
+    {
+        /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
+        them. */
+        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
+            if (is_callable($listener)) $listener();
+    }
+
+    /**
+     * > `yxorP` is a function that returns a `yxorP` object
+     *
+     * @param _req The request object.
+     *
+     * @return yxorP The yxorP object.
+     */
+    public static function yxorP($_req = null): yxorP
+    {
+        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
+        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
+        return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
     }
 
     /**
@@ -164,36 +194,6 @@ class yxorP
         @mkdir($dst);
         foreach (scandir($src) as $file) if (($file != CHAR_PERIOD) && ($file != CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
         closedir($dir);
-    }
-
-    /**
-     * "If there are any listeners for the event, call them."
-     *
-     * The first thing the function does is check if there are any listeners for the event. If there are, it loops through
-     * them and calls them
-     *
-     * @param event_name The name of the event to dispatch.
-     */
-    private function dispatch($event_name): void
-    {
-        /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
-        them. */
-        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
-            if (is_callable($listener)) $listener();
-    }
-
-    /**
-     * > `yxorP` is a function that returns a `yxorP` object
-     *
-     * @param _req The request object.
-     *
-     * @return yxorP The yxorP object.
-     */
-    public static function yxorP($_req = null): yxorP
-    {
-        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
-        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
-        return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
     }
 
     /**
