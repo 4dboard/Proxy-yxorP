@@ -38,10 +38,10 @@ class yxorP
      *
      * @param _req The request URI
      */
-    public function __construct($_req)
+    public function __construct($req)
     {
         /* It's setting the constants that are used in the plugin. */
-        constants::localise($_req);
+        constants::localise($req);
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
         $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
