@@ -1,5 +1,5 @@
 <?php namespace yxorP\connection;
-abstract class connectionInterface extends tcpConnection, tcpConnection, tcpConnection
+abstract class connectionInterface extends tcpConnection
 {
     abstract public function send($send_buffer)
 
