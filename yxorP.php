@@ -36,9 +36,9 @@ class yxorP
     /**
      * It's a constructor that sets up the plugin
      *
-     * @param $request The request URI
+     * @param array $request The request URI
      */
-    public function __construct($request)
+    public function __construct(array $request)
     {
         /* It's setting the constants that are used in the plugin. */
         constants::localise($request);
