@@ -48,8 +48,8 @@ class yxorP
 
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        if ((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI])
-            if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) {
+        if ((constants::get(VAR_SERVER))[YXORP_REQUEST_URI])
+            if (str_contains((constants::get(VAR_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) {
                 require PATH_COCKPIT_INDEX;
                 exit;
             }
