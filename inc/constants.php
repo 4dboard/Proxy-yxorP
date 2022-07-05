@@ -600,7 +600,7 @@ class constants
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_TARGET_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_TARGET_URL)));
         /* Setting the subdomain for the site. */
-        constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_SITE_SUB_DOMAIN) ? constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null));
+        constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_SITE_SUB_DOMAIN) ? (string)constants::get(YXORP_SITE_SUB_DOMAIN) . "." : null));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
         constants::set(YXORP_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
