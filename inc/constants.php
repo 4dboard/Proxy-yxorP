@@ -557,8 +557,8 @@ class constants
     /* Setting the value of the variable $_name to the value of the variable $_value. */
 
     /**
-     * @param $_name
-     * @param $_value
+     * @param string $_name
+     * @param string|array $_value
      * @return mixed
      */
     public static function set(string $_name, string|array $_value): mixed
@@ -571,7 +571,7 @@ class constants
     /* A function that is being called to localise constants. */
 
     /**
-     * @param $req
+     * @param array $req
      * @return void
      */
     public static function localise(array $req): void
