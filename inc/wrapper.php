@@ -18,7 +18,7 @@ abstract class wrapper
 
 
     /* Subscribing to all the events. */
-    final public function subscribe(yxorP $dispatcher): void
+    final public function subscribe(yxorP\yxorP $dispatcher): void
     {
         /* Adding a listener to all the events. */
         foreach ([EVENT_BUILD_CACHE, EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_EXCEPTION, EVENT_FINAL] as $event) {
