@@ -97,7 +97,7 @@ class yxorP
     /**
      * > If the subscriber has a subscribe method, call it and pass the event manager to it
      *
-     * @param subscriber The subscriber to add to the event dispatcher.
+     * @param object subscriber The subscriber to add to the event dispatcher.
      */
     private function addSubscriber(object $subscriber): void
     {
