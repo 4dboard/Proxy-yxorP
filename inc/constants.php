@@ -244,6 +244,83 @@ class constants
         define('VAR_PATTERN', 'pattern');
         /* Defining a constant called `VAR_REPLACE` and setting it to the value of `replace`. */
         define('VAR_REPLACE', 'replace');
+        /* Defining a constant called `YXORP_SERVER` and setting it to the value of `SERVER`. */
+        define('VAR_SERVER', 'SERVER');
+        /* Defining a constant called YXORP_BUGSNAG and setting it to the string BUGSNAG. */
+        define('VAR_BUGSNAG', 'BUGSNAG');
+        /* Defining a constant called YXORP_GUZZLE and setting it to the string 'GUZZLE'. */
+        define('VAR_GUZZLE', 'GUZZLE');
+        /* Defining a constant called YXORP_RESPONSE and setting it to the string YXORP_RESPONSE. */
+        define('VAR_RESPONSE', 'RESPONSE');
+        /* Defining a constant called YXORP_REQUEST and setting it to the string YXORP_REQUEST. */
+        define('VAR_REQUEST', 'REQUEST');
+        /* Defining a constant called YXORP_COCKPIT_ACCOUNTS and setting it to the string accounts. */
+        define('VAR_COCKPIT_ACCOUNTS', 'accounts');
+        /* Defining a constant called YXORP_PLUGINS and setting it to the string plugins. */
+        define('VAR_PLUGINS', 'plugins');
+        /* Defining a constant called YXORP_TARGET and setting it to the string TARGET. */
+        define('VAR_TARGET', 'TARGET');
+        /* Defining a constant called YXORP_TARGET_PATTERN and setting it to the string TARGET. */
+        define('YXORP_TARGET_PATTERN', 'TARGET_PATTERN');
+        /* Defining a constant called YXORP_TARGET_REPLACE and setting it to the string TARGET_REPLACE. */
+        define('YXORP_TARGET_REPLACE', 'TARGET_REPLACE');
+        /* Defining a constant called YXORP_SITE and setting it to the string SITE. */
+        define('YXORP_SITE', 'SITE');
+        /* Defining a constant called YXORP_HOST and setting it to the string HOST. */
+        define('YXORP_HOST', 'HOST');
+        /* Defining a constant called COCKPIT and setting it to the string COCKPIT. */
+        define('YXORP_COCKPIT', 'COCKPIT');
+        /* Defining a constant called YXORP_INSTALL and setting it to the string INSTALL. */
+        define('YXORP_INSTALL', 'INSTALL');
+        /* Defining a constant called YXORP_INC and setting it to the string INC. */
+        define('YXORP_INC', 'INC');
+        /* Defining a constant called YXORP_REPLACE and setting it to the string REPLACE. */
+        define('YXORP_REPLACE', 'REPLACE');
+        /* Defining a constant called YXORP_REWRITE and setting it to the string REWRITE. */
+        define('YXORP_REWRITE', 'REWRITE');
+        /* Defining a constant called YXORP_SEARCH and setting it to the string SEARCH. */
+        define('YXORP_SEARCH', 'SEARCH');
+        /* Defining a constant called YXORP_FETCH and setting it to the string FETCH. */
+        define('YXORP_FETCH', 'FETCH');
+        /* Defining a constant called YXORP_FILES and setting it to the string files. */
+        define('YXORP_FILES', 'files');
+        /* Defining a constant called YXORP_PHP and setting it to the string PHP. */
+        define('YXORP_PHP', 'PHP');
+        /* Defining a constant called YXORP_SELF and setting it to the string SELF. */
+        define('YXORP_SELF', 'SELF');
+        /* Defining a constant called YXORP_APP and setting it to the string APP. */
+        define('YXORP_APP', 'APP');
+        /* Defining a constant called YXORP_PROXY and setting it to the string PROXY. */
+        define('YXORP_PROXY', 'PROXY');
+        /* Defining a constant called YXORP_NAME and setting it to the string NAME. */
+        define('YXORP_NAME', 'NAME');
+        /* Defining a constant called YXORP_URL and setting it to the string URL. */
+        define('YXORP_URL', 'URL');
+        /* Defining a constant called YXORP_URI and setting it to the string URI. */
+        define('YXORP_URI', 'URI');
+        /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
+        define('YXORP_SUB', 'SUB');
+        /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
+        define('YXORP_DOMAIN', 'DOMAIN');
+        /* Defining a constant called YXORP_DIR and setting it to the string DIR. */
+        define('YXORP_DIR', 'DIR');
+        /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
+        define('YXORP_FULL', 'FULL');
+        /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
+        define('YXORP_HTTPS', 'HTTPS');
+        /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
+        define('YXORP_HTTP', 'HTTP');
+        /* Defining a constant called YXORP_METHOD and setting it to the string METHOD. */
+        define('YXORP_METHOD', 'METHOD');
+        /* Defining a constant called YXORP_REMOTE and setting it to the string REMOTE. */
+        define('YXORP_REMOTE', 'REMOTE');
+        /* Defining a constant called YXORP_ADDR and setting it to the string ADDR. */
+        define('YXORP_ADDR', 'ADDR');
+        /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string GLOBAL_REPLACE. */
+        define('YXORP_GLOBAL_PATTERN', 'GLOBAL_REPLACE');
+        /* Defining a constant called YXORP_GLOBAL_REPLACE and setting it to the string GLOBAL_PATTERN. */
+        define('YXORP_GLOBAL_REPLACE', 'GLOBAL_PATTERN');
+
 
         //VARIBLES MULTIPLE
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
@@ -264,9 +341,9 @@ class constants
         /* Defining a constant. */
         define('YXORP_COCKPIT_INSTALL', YXORP_COCKPIT . CHAR_UNDER . YXORP_INSTALL);
         /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
-        define('YXORP_REQUEST_URI', YXORP_REQUEST . CHAR_UNDER . YXORP_URI);
+        define('YXORP_REQUEST_URI', VAR_REQUEST . CHAR_UNDER . YXORP_URI);
         /* Defining a constant called `YXORP_REQUEST_URI_FULL` and setting it to the value of `REQUEST_URI_FULL`. */
-        define('YXORP_REQUEST_URI_FULL', YXORP_REQUEST . CHAR_UNDER . YXORP_URI . CHAR_UNDER . YXORP_FULL);
+        define('YXORP_REQUEST_URI_FULL', VAR_REQUEST . CHAR_UNDER . YXORP_URI . CHAR_UNDER . YXORP_FULL);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', YXORP_HTTP . CHAR_UNDER . YXORP_HOST);
         /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
@@ -284,11 +361,11 @@ class constants
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
         define('YXORP_SITE_SUB_DOMAIN', YXORP_SITE . CHAR_UNDER . YXORP_SUB . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
-        define('YXORP_TARGET_URL', YXORP_TARGET . CHAR_UNDER . YXORP_URL);
+        define('YXORP_TARGET_URL', VAR_TARGET . CHAR_UNDER . YXORP_URL);
         /* Defining a constant called YXORP_TARGET_SUB_DOMAIN and setting it to the string TARGET_SUB_DOMAIN. */
-        define('YXORP_TARGET_SUB_DOMAIN', YXORP_TARGET . CHAR_UNDER . YXORP_SUB . CHAR_UNDER . YXORP_DOMAIN);
+        define('YXORP_TARGET_SUB_DOMAIN', VAR_TARGET . CHAR_UNDER . YXORP_SUB . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
-        define('YXORP_TARGET_DOMAIN', YXORP_TARGET . CHAR_UNDER . YXORP_DOMAIN);
+        define('YXORP_TARGET_DOMAIN', VAR_TARGET . CHAR_UNDER . YXORP_DOMAIN);
         /* Defining a constant called YXORP_DIR_FULL and setting it to the string DIR_FULL. */
         define('YXORP_DIR_FULL', YXORP_DIR . CHAR_UNDER . YXORP_FULL);
         /* Defining a constant called YXORP_SITE_HOST and setting it to the string SITE_HOST. */
@@ -296,7 +373,7 @@ class constants
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', YXORP_PHP . CHAR_UNDER . YXORP_SELF);
         /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
-        define('YXORP_REQUEST_METHOD', YXORP_REQUEST . CHAR_UNDER . YXORP_METHOD);
+        define('YXORP_REQUEST_METHOD', VAR_REQUEST . CHAR_UNDER . YXORP_METHOD);
         /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
         define('YXORP_HTTP_', YXORP_HTTPS . CHAR_UNDER);
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
@@ -417,7 +494,7 @@ class constants
         // COCKPIT
         /* Defining a constant. */
         define('COCKPIT_COCKPIT', 'cockpit');
-        define('COCKPIT_ACCOUNTS', COCKPIT_COCKPIT . CHAR_SLASH . YXORP_COCKPIT_ACCOUNTS);
+        define('COCKPIT_ACCOUNTS', COCKPIT_COCKPIT . CHAR_SLASH . VAR_COCKPIT_ACCOUNTS);
         define('COCKPIT_COLLECTIONS', 'collections');
         define('COCKPIT_SITES', 'sites');
         define('COCKPIT_HOST', 'host');
@@ -446,9 +523,9 @@ class constants
 
         // Reporting
         /* Setting the token to the bugsnag key. */
-        self::set(YXORP_BUGSNAG, Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        self::set(VAR_BUGSNAG, Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
-        self::set(YXORP_GUZZLE, new Guzzle\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::set(VAR_GUZZLE, new Guzzle\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
 
@@ -508,17 +585,17 @@ class constants
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        constants::set(YXORP_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
+        constants::set(VAR_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
-        constants::set(YXORP_TARGET_PATTERN, constants::get(YXORP_TARGET)[VAR_PATTERN]);
+        constants::set(YXORP_TARGET_PATTERN, constants::get(VAR_TARGET)[VAR_PATTERN]);
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
-        constants::set(YXORP_TARGET_REPLACE, constants::get(YXORP_TARGET)[VAR_REPLACE]);
+        constants::set(YXORP_TARGET_REPLACE, constants::get(VAR_TARGET)[VAR_REPLACE]);
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        constants::set(YXORP_TARGET_PLUGINS, constants::get(YXORP_TARGET)[YXORP_PLUGINS]);
+        constants::set(YXORP_TARGET_PLUGINS, constants::get(VAR_TARGET)[VAR_PLUGINS]);
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
-        constants::set(YXORP_TARGET_URL, (constants::get(YXORP_TARGET))[COCKPIT_TARGET]);
+        constants::set(YXORP_TARGET_URL, (constants::get(VAR_TARGET))[COCKPIT_TARGET]);
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
@@ -537,7 +614,7 @@ class constants
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
-        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(YXORP_TARGET))[YXORP_FILES]);
+        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(VAR_TARGET))[YXORP_FILES]);
         /* Setting the cache key to the base64 encoded version of the proxy URL. */
         constants::set(CACHE_KEY, generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
         /* Setting the `REPLACE` context variable to the value of the `replace` type in the `global` collection. */

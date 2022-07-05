@@ -18,7 +18,7 @@ class blockListPluginAction extends wrapper
         /* It converts the IP address to an unsigned integer. */
         $user_ip_long = sprintf('%u', ip2long($user_ip));
         /* Getting the URL of the request. */
-        $url = constants::get(YXORP_REQUEST)->getUrl();
+        $url = constants::get(VAR_REQUEST)->getUrl();
         /* Getting the value of the `BLOCKLIST` constant. */
         $fnc_custom = constants::get('BLOCKLIST');
         /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */

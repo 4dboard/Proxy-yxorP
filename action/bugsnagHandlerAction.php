@@ -13,6 +13,6 @@ class bugsnagHandlerAction extends wrapper
     public function onBuildException($e): void
     {
         /* Calling the notifyException method on the Bugsnag instance. */
-        constants::get(YXORP_BUGSNAG)?->notifyException($e);
+        constants::get(VAR_BUGSNAG)?->notifyException($e);
     }
 }

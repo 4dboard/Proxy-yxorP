@@ -17,7 +17,7 @@ class twitterPluginAction extends wrapper
     public function onEventComplete(): void
     {
         /* Getting the response object from the constants class. */
-        $response = constants::get(YXORP_RESPONSE);
+        $response = constants::get(VAR_RESPONSE);
         /* Getting the content of the response. */
         /* Removing all the scripts from the HTML. */
         $content = $response->getContent();

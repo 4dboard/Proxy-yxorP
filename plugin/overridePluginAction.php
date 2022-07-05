@@ -29,7 +29,7 @@ class overridePluginAction extends wrapper
         /* It's merging the values of the `$YXORP_GLOBAL_PATTERN` and `$YXORP_TARGET_PATTERN` arrays. */
         $preg_replace = generalHelper::array_merge_ignore(array_values($YXORP_GLOBAL_PATTERN), array_values($YXORP_TARGET_PATTERN));
         /* It's replacing the content of the response with the content of the `REWRITE` method. */
-        $preg = preg_replace($preg_search, $preg_replace, constants::get(YXORP_RESPONSE)->getContent());
+        $preg = preg_replace($preg_search, $preg_replace, constants::get(VAR_RESPONSE)->getContent());
         /* It's setting the `$YXORP_TARGET_DOMAIN` variable to the value of the `YXORP_TARGET_DOMAIN` constant. */
         $YXORP_TARGET_DOMAIN = array(constants::get(YXORP_TARGET_DOMAIN));
         /* It's setting the `$YXORP_SITE_DOMAIN` variable to the value of the `YXORP_SITE_DOMAIN` constant. */
@@ -45,7 +45,7 @@ class overridePluginAction extends wrapper
         /* It's replacing the content of the response with the content of the `REWRITE` method. */
         $str = str_replace($str_search, $str_replace, $preg);
         /* It's setting the content of the response to the content of the `REWRITE` method. */
-        (constants::get(YXORP_RESPONSE)->setContent($this->REWRITE($str)));
+        (constants::get(VAR_RESPONSE)->setContent($this->REWRITE($str)));
     }
 
     /* Minifying the content of the response. */

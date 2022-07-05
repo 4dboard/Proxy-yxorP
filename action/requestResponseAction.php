@@ -14,8 +14,8 @@ class requestResponseAction extends wrapper
     public function onBuildContext(): void
     {
         /* Setting the response object to the key RESPONSE. */
-        constants::set(YXORP_RESPONSE, new Response());
+        constants::set(VAR_RESPONSE, new Response());
         /* Setting the request object to the key REQUEST. */
-        constants::set(YXORP_REQUEST, Request::createFromGlobals());
+        constants::set(VAR_REQUEST, Request::createFromGlobals());
     }
 }
