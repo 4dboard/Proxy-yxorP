@@ -561,7 +561,7 @@ class constants
      * @param string|array|object $_value
      * @return mixed
      */
-    public static function set(string $_name, string|array|object $_value): mixed
+    public static function set(string $_name, string|array|object|null $_value): mixed
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
@@ -629,9 +629,9 @@ class constants
     /* A static method that returns the value of the $_name variable. */
     /**
      * @param string $_name
-     * @return string|array|object
+     * @return string|array|object|null
      */
-    public static function get(string $_name): string|array|object
+    public static function get(string $_name): string|array|object|null
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
