@@ -630,7 +630,7 @@ class constants
     /**
      * @param string $_name
      * @param string|array $return
-     * @return  string|array
+     * @return string|array
      */
     public static function get(string $_name, string|array $return = null): string|array
     {
