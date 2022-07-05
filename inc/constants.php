@@ -511,7 +511,7 @@ class constants
         // REQUIRED
         /* Loading the Bugsnag PHP library. */
         require PATH_BUGSNAG_PHAR;
-        /* Requiring the Guzzle library. */
+        /* Requiring Guzzle library. */
         require PATH_GUZZLE_PHAR;
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
