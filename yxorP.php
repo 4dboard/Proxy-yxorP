@@ -115,6 +115,7 @@ class yxorP
 
     /**
      * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
+     * $request ?: $_SERVER
      * * @return array
      */
     private static function init(array|null $request = null): array
