@@ -170,7 +170,7 @@ abstract class wrapper
 
     /* Used to execute code when an exception is thrown. */
 
-    public function onBuildException($e): void
+    public function onBuildException(Exception $e): void
     {
     }
 }
