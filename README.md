@@ -10,17 +10,20 @@
 🎇 [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ]
 ☀️[ [WEBSITE](https://4dboard.github.io/) ] 🎆
 
+[![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
+
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
+
+---
 
 > ⛔️ **PENDING** : _Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed._
 > _`NB: Any contributions you can make toward this endeavour would be much appreciated.`_
 
-> ❤️**SUPPORT** : Donations always welcome via [GITHUB](https://github.com/donspablo) (Subscriptions & Credit Cards),  [PATREON](https://patreon.com/donpablonow) (Subscriptions & Credit Cards), [PAYPAL](https://www.paypal.me/donpanlonow) (Once-off, Credit Cards & E-wallet) & [ETHEREUM](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1) (Once-off, Crypto Currency)
-
-
 > 🏆️ **DEMO LIVE**: _We have just launched the first working live demo / sneak preview via **Gitpod**_ **[\[ LIVE DEMO \]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)**
 
 > 🎥️ **MAKING OF**: _We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so_ **[\[ MAKING OF VIDEO \]](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4)**
+
+> ❤️**SUPPORT** : Donations always welcome via [GITHUB](https://github.com/donspablo) (Subscriptions & Credit Cards),  [PATREON](https://patreon.com/donpablonow) (Subscriptions & Credit Cards), [PAYPAL](https://www.paypal.me/donpanlonow) (Once-off, Credit Cards & E-wallet) & [ETHEREUM](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1) (Once-off, Crypto Currency)
 
 ---
 
@@ -28,8 +31,6 @@ yxorP is a plug-and-play, flat-file application that *does not need Composer, PH
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
 of *multiple websites* using a PHAR (PHP archive) binary version of *Guzzle*, and managed via a user-friendly *
 Cockpit backend (GUI)*.
-
-[![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
 It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web
 proxy systems now available on the market. This is owing to its event-driven architecture and emphasis on its
