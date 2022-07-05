@@ -26,11 +26,6 @@ class yxorP
     /**
      * @var array
      */
-    private static array $events = [];
-    /* It's an array of events that will be triggered. */
-    /**
-     * @var array
-     */
     private array $listeners = [];
 
     /**
