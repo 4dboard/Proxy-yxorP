@@ -629,7 +629,7 @@ class constants
     /* A static method that returns the value of the $_name variable. */
     /**
      * @param string $_name
-     * @param string|array $return = null
+     * @param string|array|null $return = null
      * @return string|array
      */
     public static function get(string $_name, string|array $return = null): string|array
