@@ -157,6 +157,12 @@ class yxorP
         constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
     }
 
+    /**
+     * "It's copying the files from the `local` directory to the `cockpit` directory."
+     * @param string $src
+     * @param string $dst
+     * @return void
+     */
     public static function migrate(string $src, string $dst): void
     {
         $dir = opendir($src);
