@@ -74,7 +74,7 @@ class generalHelper
 
     /* Checking if the `$needle` is in the `$haystack` array. */
 
-    public static function re_match($pattern, $string): bool
+    public static function re_match(string $pattern, $string): bool
     {
         $quoted = preg_quote($pattern, CHAR_HASH);
         $translated = strtr($quoted, array(CHAR_SLASH_BACK => REG_FIVE, REG_SIX => CHAR_PERIOD));
