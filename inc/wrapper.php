@@ -64,7 +64,7 @@ abstract class wrapper
                     $this->onBeforeSend();
                     break;
                 case EVENT_SEND:
-                    $this->onBeforeSend();
+                    $this->onSend();
                     break;
                 case EVENT_SENT:
                     $this->onEventSent();
