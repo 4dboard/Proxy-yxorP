@@ -16,9 +16,7 @@
 
 > 🏆️ **DEMO LIVE**: _We have just launched the first working live demo / sneak preview via **Gitpod**_ **[\[ LIVE DEMO \]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)**
 
-
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png) 
-
+![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
