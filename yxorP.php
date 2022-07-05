@@ -150,7 +150,6 @@ class yxorP
     /**
      * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
      *
-     * @return array An array of events.
      */
     private static function init(): void
     {
