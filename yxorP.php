@@ -4,8 +4,8 @@ namespace yxorP;
 
 /* Importing the constants class from the inc folder. */
 
-use yxorP\inc\constants;
 use RuntimeException;
+use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 
 /* Loading the required files. */
@@ -48,8 +48,8 @@ class yxorP
 
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        if ((constants::get(YXORP_SERVER))[YXORP_REQUEST_URL])
-            if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URL], CHAR_SLASH . DIR_COCKPIT)) {
+        if ((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI])
+            if (str_contains((constants::get(YXORP_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) {
                 require PATH_COCKPIT_INDEX;
                 exit;
             }
@@ -60,96 +60,6 @@ class yxorP
         array_push($YXORP_TARGET_PLUGINS, 'blockListPluginAction', 'cookiePluginAction', 'headerRewritePluginAction', 'logPluginAction', 'overridePluginAction', 'proxifyPluginAction');
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
         $this->subscribers(DIR_PLUGIN, $YXORP_TARGET_PLUGINS); //$this->subscribe(DIR_PLUGIN,(constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: []);
-    }
-
-    /**
-     * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
-     * @param $_req
-     * @return void
-     */
-    public static function proxy($_req = null): void
-    {
-        /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::init() as $_event) self::yxorP($_req ?: $_SERVER)->dispatch($_event);
-    }
-
-    public static function migrate($src, $dst)
-    {
-        $dir = opendir($src);
-        @mkdir($dst);
-        foreach (scandir($src) as $file) if (($file != CHAR_PERIOD) && ($file != CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
-        closedir($dir);
-    }
-
-    /**
-     * > `yxorP` is a function that returns a `yxorP` object
-     *
-     * @param _req The request object.
-     *
-     * @return yxorP The yxorP object.
-     */
-    public static function yxorP($_req = null): yxorP
-    {
-        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
-        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
-        return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
-    }
-
-    /**
-     * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
-     *
-     * @return array An array of events.
-     */
-    private static function init(): array
-    {
-        /* It's checking if the `$events` variable is set, and if it is, it returns it. */
-        if (self::$events) return self::$events;
-        /* It's creating the constants that are used in the plugin. */
-        constants::create(__DIR__);
-        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
-        creates them. */
-        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
-        /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
-        foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
-            if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
-                throw new \RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
-        /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
-        `install()` function. */
-        if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
-            self::install();
-        /* It's returning an array of events. */
-        return self::$events = [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
-            EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL];
-
-    }
-
-    /**
-     * It creates a new user with the credentials defined in the `.env` file
-     */
-    private static function install(): void
-    {
-        /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
-        define(YXORP_COCKPIT_INSTALL, true);
-
-        /* It's copying the files from the `local` directory to the `cockpit` directory. */
-        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
-
-        /* It's creating an array of user data. */
-        $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
-        /* It's inserting a new user into the `cockpit_accounts` collection. */
-        constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
-    }
-
-    /**
-     * > This function adds a listener to the listeners array
-     *
-     * @param event The name of the event to listen for.
-     * @param callback The callback function to be executed when the event is triggered.
-     * @param priority The priority of the listener. Higher priority listeners are called before lower priority listeners.
-     */
-    public function addListener($event, $callback): void
-    {/* It's adding a listener to the listeners array. */
-        $this->listeners[$event][0][] = $callback;
     }
 
     /**
@@ -197,6 +107,70 @@ class yxorP
     }
 
     /**
+     * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
+     * @param $_req
+     * @return void
+     */
+    public static function proxy($_req = null): void
+    {
+        /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
+        foreach (self::init() as $_event) self::yxorP($_req ?: $_SERVER)->dispatch($_event);
+    }
+
+    /**
+     * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
+     *
+     * @return array An array of events.
+     */
+    private static function init(): array
+    {
+        /* It's checking if the `$events` variable is set, and if it is, it returns it. */
+        if (self::$events) return self::$events;
+        /* It's creating the constants that are used in the plugin. */
+        constants::create(__DIR__);
+        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
+        creates them. */
+        foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+        /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
+        foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
+            if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
+                throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
+        /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
+        `install()` function. */
+        if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
+            self::install();
+        /* It's returning an array of events. */
+        return self::$events = [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND,
+            EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL];
+
+    }
+
+    /**
+     * It creates a new user with the credentials defined in the `.env` file
+     */
+    private static function install(): void
+    {
+        /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
+        define(YXORP_COCKPIT_INSTALL, true);
+
+        /* It's copying the files from the `local` directory to the `cockpit` directory. */
+        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+
+        /* It's creating an array of user data. */
+        $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
+        /* It's inserting a new user into the `cockpit_accounts` collection. */
+        constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
+    }
+
+    public static function migrate($src, $dst)
+    {
+        $dir = opendir($src);
+        @mkdir($dst);
+        foreach (scandir($src) as $file) if (($file != CHAR_PERIOD) && ($file != CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
+        closedir($dir);
+    }
+
+    /**
      * "If there are any listeners for the event, call them."
      *
      * The first thing the function does is check if there are any listeners for the event. If there are, it loops through
@@ -210,5 +184,31 @@ class yxorP
         them. */
         if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
             if (is_callable($listener)) $listener();
+    }
+
+    /**
+     * > `yxorP` is a function that returns a `yxorP` object
+     *
+     * @param _req The request object.
+     *
+     * @return yxorP The yxorP object.
+     */
+    public static function yxorP($_req = null): yxorP
+    {
+        /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
+        instance of the `yxorP` class and sets the `$yxorP` variable to it. */
+        return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
+    }
+
+    /**
+     * > This function adds a listener to the listeners array
+     *
+     * @param event The name of the event to listen for.
+     * @param callback The callback function to be executed when the event is triggered.
+     * @param priority The priority of the listener. Higher priority listeners are called before lower priority listeners.
+     */
+    public function addListener($event, $callback): void
+    {/* It's adding a listener to the listeners array. */
+        $this->listeners[$event][0][] = $callback;
     }
 }
