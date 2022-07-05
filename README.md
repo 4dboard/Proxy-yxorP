@@ -22,8 +22,8 @@
 > 🎥️ [ ::  MAKING OF VIDEO  :: ](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) `We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so_ `
 
 > ❤️[ ::  PATREON  :: ](https://patreon.com/donpablonow) `Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)`
->
-> [ ::  PAYPAL  :: ](https://www.paypal.me/donpanlonow) `Any contributions you can make toward this endeavour would be much appreciated.`
+
+> ✔️[ ::  PAYPAL  :: ](https://www.paypal.me/donpanlonow) `Any contributions you can make toward this endeavour would be much appreciated.`
 ---
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
