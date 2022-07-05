@@ -632,7 +632,7 @@ class constants
      * @param string|array|null $return = null
      * @return string|array
      */
-    public static function get(string $_name, string|array $return = null): string|array
+    public static function get(string $_name, string|array|null $return = null): string|array
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
