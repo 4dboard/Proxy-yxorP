@@ -5,7 +5,7 @@
 
 > 🏆️ ***DEMO LIVE***: We have just launched the first working live demo / sneak preview via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
-> 🎥️ ***MAKING OF***: We have published a short "Making of the yxorP Proxy" video for those interested in the development process [\[Video\]](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4)
+> 🎥️ ***MAKING OF***: We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so [\[Video\]](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4)
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
