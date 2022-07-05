@@ -151,73 +151,73 @@ abstract class wrapper
 
     /* Used to check if the event should be executed. */
 
-    final public function onCheck()
+    final public function onCheck(): void
     {
     }
 
     /* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
 
-    final public function onBuildCache()
+    final public function onBuildCache(): void
     {
     }
 
     /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
 
-    final public function onBuildContext()
+    final public function onBuildContext(): void
     {
     }
 
     /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
 
-    final public function onBuildIncludes()
+    final public function onBuildIncludes(): void
     {
     }
 
     /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
 
-    final public function onBuildHeaders()
+    final public function onBuildHeaders(): void
     {
     }
 
     /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
 
-    final public function onBuildRequest()
+    final public function onBuildRequest(): void
     {
     }
 
     /* Used to build the result. */
 
-    final public function onBeforeSend()
+    final public function onBeforeSend(): void
     {
     }
 
     /* Used to execute code before the request is sent. */
 
-    final public function onEventSent()
+    final public function onEventSent(): void
     {
     }
 
     /* Used to execute code when the headers are received. */
 
-    final public function onEventWrite()
+    final public function onEventWrite(): void
     {
     }
 
     /* Used to execute code when the headers are received. */
 
-    final public function onEventComplete()
+    final public function onEventComplete(): void
     {
     }
 
     /* Used to execute code when the request is completed. */
 
-    final public function onEventFinal()
+    final public function onEventFinal(): void
     {
     }
 
     /* Used to execute code when an exception is thrown. */
 
-    final public function onBuildException($e)
+    final public function onBuildException($e): void
     {
     }
 }
