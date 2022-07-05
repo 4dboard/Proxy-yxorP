@@ -1,14 +1,6 @@
 > ⛔️ *ARCHIVE PENDING*: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
-> > *YOUR SUPPORT IS GREATLY APPRECIATED/* [PATREON.COM/DONPABLONOW](https://www.patreon.com/donPabloNow)/ *BTC*
-3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ *ETH* 0X3D288C7A673501294C9289C6FC42480A2EA61417 🙏
-
-[GITHUB](https://github.com/donspablo) [PATREON](https://patreon.com/donpablonow)
-[PAYPAL](https://www.paypal.me/donpanlonow)
-[ETHERIUM](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1)
-
-https://github.com/donspablo
-https://patreon.com/donpablonow
-https://www.paypal.me/donpanlonow
+> > DONATIONS: [GITHUB](https://github.com/donspablo) | [PATREON](https://patreon.com/donpablonow) | [PAYPAL](https://www.paypal.me/donpanlonow) | [ETHEREUM](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1) 🙏
+> > > Please consider making a financial donation to this project, your support is both needed and greatly appreciated.
 
 
 > ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
