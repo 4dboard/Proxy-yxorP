@@ -1,11 +1,12 @@
-> ⛔️ ***ARCHIVE PENDING***: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
+> ⛔️ ***ARCHIVE PENDING***: Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
 
-> ❤️***DONATIONS***: [GITHUB](https://github.com/donspablo) | [PATREON](https://patreon.com/donpablonow) | [PAYPAL](https://www.paypal.me/donpanlonow) | [ETHEREUM](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1) 🙏
-> Any contribution you may make toward this endeavour would be much appreciated.
+> ❤️***DONATIONS***: [\[GITHUB\]](https://github.com/donspablo) | [\[ PATREON \]](https://patreon.com/donpablonow) | [\[ PAYPAL \]](https://www.paypal.me/donpanlonow) | [\[ ETHEREUM \]](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1)
+>
+> _`Any contributions you can make toward this endeavour would be much appreciated.`_
 
-> 🏆️ ***DEMO LIVE***: We have just launched the first working live demo / sneak preview via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
+> 🏆️ ***DEMO LIVE***: We have just launched the first working live demo / sneak preview via gitpod [\[ LIVE DEMO \]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
-> 🎥️ ***MAKING OF***: We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so [\[Video\]](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4)
+> 🎥️ ***MAKING OF***: We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so [\[ MAKING OF VIDEO \]](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4)
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
