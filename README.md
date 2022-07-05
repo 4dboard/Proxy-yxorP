@@ -1,12 +1,8 @@
-> ⛔️ **ARCHIVE PENDING**: _Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed._
-
 > ❤️**DONATIONS**: [\[GITHUB\]](https://github.com/donspablo) | [\[ PATREON \]](https://patreon.com/donpablonow) | [\[ PAYPAL \]](https://www.paypal.me/donpanlonow) | [\[ ETHEREUM \]](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1)
 >
 > _`Any contributions you can make toward this endeavour would be much appreciated.`_
 
-> 🏆️ **DEMO LIVE**: _We have just launched the first working live demo / sneak preview via **Gitpod**_ **[\[ LIVE DEMO \]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)**
-
-> 🎥️ **MAKING OF**: _We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so_ **[\[ MAKING OF VIDEO \]](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4)**
+> ⛔️ **PENDING**: _Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed._
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
@@ -14,15 +10,17 @@
 
 [ [ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ] [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ][ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/)]
 
-> ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
-
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
+
+
+> 🏆️ **DEMO LIVE**: _We have just launched the first working live demo / sneak preview via **Gitpod**_ **[\[ LIVE DEMO \]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)**
+
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
 
 # 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
-> ⛔️ *ARCHIVE PENDING*: This endeavour is likely to fail owing to a lack of support. If you find this project interesting, please support it by smashing the "star" button. If the project receives at some interest work on the project will continue.
+> 🎥️ **MAKING OF**: _We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so_ **[\[ MAKING OF VIDEO \]](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4)**
 
 ---
 
