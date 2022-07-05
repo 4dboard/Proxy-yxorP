@@ -1212,7 +1212,7 @@ class worker
     }
 
     /* A method that returns a mixed type. */
-    protected static function getErrorType($type): mixed
+    protected static function getErrorType($type): string|array|object|null
     {
         if (isset(self::$_errorType[$type])) return self::$_errorType[$type];
         return '';

@@ -57,7 +57,7 @@ interface eventInterface
      * @param $stream
      * @return mixed
      */
-    public function offWritable($stream): mixed;
+    public function offWritable($stream): string|array|object|null;
 
     /**
      * Execute a callback when a signal is received.

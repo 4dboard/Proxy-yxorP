@@ -80,7 +80,7 @@ class udpConnection extends connectionInterface implements JsonSerializable
         return ['transport' => $this->transport, 'getRemoteIp' => $this->getRemoteIp(), 'remotePort' => $this->getRemotePort(), 'getRemoteAddress' => $this->getRemoteAddress(), 'getLocalIp' => $this->getLocalIp(), 'getLocalPort' => $this->getLocalPort(), 'getLocalAddress' => $this->getLocalAddress(), 'isIpV4' => $this->isIpV4(), 'isIpV6' => $this->isIpV6(),];
     }
 
-    public function getRemoteAddress(): mixed
+    public function getRemoteAddress(): string|array|object|null
     {
         return $this->_remoteAddress;
     }

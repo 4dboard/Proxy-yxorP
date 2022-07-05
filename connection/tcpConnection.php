@@ -509,7 +509,7 @@ class tcpConnection extends connectionInterface implements JsonSerializable
         return ['id' => $this->id, 'status' => $this->getStatus(), 'transport' => $this->transport, 'getRemoteIp' => $this->getRemoteIp(), 'remotePort' => $this->getRemotePort(), 'getRemoteAddress' => $this->getRemoteAddress(), 'getLocalIp' => $this->getLocalIp(), 'getLocalPort' => $this->getLocalPort(), 'getLocalAddress' => $this->getLocalAddress(), 'isIpV4' => $this->isIpV4(), 'isIpV6' => $this->isIpV6(),];
     }
 
-    public function getStatus($raw_output = true): mixed
+    public function getStatus($raw_output = true): string|array|object|null
     {
         if ($raw_output) {
             return $this->_status;
