@@ -191,8 +191,7 @@ class yxorP
     /**
      * > `yxorP` is a function that returns a `yxorP` object
      *
-     * @param  $request The request object.
-     *
+     * @param array|null $request
      * @return yxorP The yxorP object.
      */
     public static function yxorP($request = null): yxorP
