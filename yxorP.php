@@ -66,7 +66,8 @@ class yxorP
      * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
      * class exists in the yxorP namespace, if it does, it creates an instance of it
      *
-     * @param action The name of the action to be executed.
+     * @param $dir
+     * @param $array
      */
     private function subscribers($dir, $array): void
     {
