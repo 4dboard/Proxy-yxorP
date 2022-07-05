@@ -350,23 +350,23 @@ class constants
         /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
         define('YXORP_COCKPIT_APP', VAR_COCKPIT . CHAR_UNDER . VAR_APP);
         /* Defining a constant called YXORP_PROXY_URL and setting it to the string PROXY_URL. */
-        define('YXORP_PROXY_URL', VAR_PROXY . CHAR_UNDER . VAR_URL);
+        define('YXORP_PROXY_URL', VAR_PROXY . CHAR_UNDER . VAR_URL_UP);
         /* Defining a constant called YXORP_SERVER_NAME and setting it to the string SERVER_NAME. */
-        define('YXORP_SERVER_NAME', VAR_SERVER . CHAR_UNDER . VAR_NAME);
+        define('YXORP_SERVER_NAME', VAR_SERVER . CHAR_UNDER . VAR_NAME_UP);
         /* Defining a constant called YXORP_SITE_URL and setting it to the string SITE_URL. */
-        define('YXORP_SITE_URL', VAR_SITE . CHAR_UNDER . VAR_URL);
+        define('YXORP_SITE_URL', VAR_SITE . CHAR_UNDER . VAR_URL_UP);
         /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
-        define('YXORP_SITE_DOMAIN', VAR_SITE . CHAR_UNDER . VAR_DOMAIN);
+        define('YXORP_SITE_DOMAIN', VAR_SITE . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_SUB_DOMAIN and setting it to the string SUB_DOMAIN. */
-        define('YXORP_SUB_DOMAIN', VAR_SUB . CHAR_UNDER . VAR_DOMAIN);
+        define('YXORP_SUB_DOMAIN', VAR_SUB . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
-        define('YXORP_SITE_SUB_DOMAIN', VAR_SITE . CHAR_UNDER . VAR_SUB . CHAR_UNDER . VAR_DOMAIN);
+        define('YXORP_SITE_SUB_DOMAIN', VAR_SITE . CHAR_UNDER . VAR_SUB . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
-        define('YXORP_TARGET_URL', VAR_TARGET . CHAR_UNDER . VAR_URL);
+        define('YXORP_TARGET_URL', VAR_TARGET . CHAR_UNDER . VAR_URL_UP);
         /* Defining a constant called YXORP_TARGET_SUB_DOMAIN and setting it to the string TARGET_SUB_DOMAIN. */
-        define('YXORP_TARGET_SUB_DOMAIN', VAR_TARGET . CHAR_UNDER . VAR_SUB . CHAR_UNDER . VAR_DOMAIN);
+        define('YXORP_TARGET_SUB_DOMAIN', VAR_TARGET . CHAR_UNDER . VAR_SUB . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
-        define('YXORP_TARGET_DOMAIN', VAR_TARGET . CHAR_UNDER . VAR_DOMAIN);
+        define('YXORP_TARGET_DOMAIN', VAR_TARGET . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_DIR_FULL and setting it to the string DIR_FULL. */
         define('YXORP_DIR_FULL', VAR_DIR . CHAR_UNDER . VAR_FULL);
         /* Defining a constant called YXORP_SITE_HOST and setting it to the string SITE_HOST. */
@@ -376,7 +376,7 @@ class constants
         /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
         define('YXORP_REQUEST_METHOD', VAR_REQUEST . CHAR_UNDER . VAR_METHOD);
         /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
-        define('YXORP_HTTP_', VAR_HTTPS . CHAR_UNDER);
+        define('YXORP_HTTP_', VAR_HTTPS_UP . CHAR_UNDER);
         /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
         define('YXORP_REMOTE_ADDR', VAR_REMOTE . CHAR_UNDER . VAR_ADDR);
         /* Defining a constant called YXORP_TARGET_PLUGINS and setting it to the string TARGET_PLUGINS. */
