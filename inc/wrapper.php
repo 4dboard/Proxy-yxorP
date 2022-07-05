@@ -83,7 +83,9 @@ abstract class wrapper
         /* Used to catch exceptions. */
         try {
 
-            if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH) return;
+            if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH)
+                && preg_match($this->url_pattern, Constants::get(YXORP_REQUEST_URL_FULL)) !== 1
+                && stripos($url, $this->url_pattern) === false) return;
 
             /* Used to check if the event should be executed. */
             $this->onCheck();
