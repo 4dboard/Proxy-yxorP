@@ -45,6 +45,16 @@ abstract class wrapper
             /* Calling the `route` method with the `EVENT_BUILD_REQUEST` parameter. */
             $this->route(EVENT_BUILD_REQUEST);
         });
+        /* Subscribing to the event `EVENT_FINAL`. */
+        $dispatcher->addListener(EVENT_FINAL, function () {
+            /* Calling the `route` method with the `EVENT_FINAL` parameter. */
+            $this->route(EVENT_FINAL);
+        });
+        /* Subscribing to the event `EVENT_EXCEPTION`. */
+        $dispatcher->addListener(EVENT_EXCEPTION, function () {
+            /* Calling the `route` method with the `EVENT_EXCEPTION` parameter. */
+            $this->route(EVENT_EXCEPTION);
+        });
         /* Subscribing to the event `EVENT_BEFORE_SEND`. */
         $dispatcher->addListener(EVENT_BEFORE_SEND, function () {
             /* Calling the `route` method with the `EVENT_BEFORE_SEND` parameter. */
