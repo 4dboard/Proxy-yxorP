@@ -20,6 +20,14 @@ abstract class wrapper
     /* Subscribing to all the events. */
     final public function subscribe(yxorP $dispatcher): void
     {
+
+        foreach ([EVENT_BUILD_CACHE] as $event) {
+
+            $dispatcher->addListener($event, function () {
+                $this->route($event);
+            });
+
+        }
         /* Subscribing to the event `EVENT_BUILD_CACHE`. */
         $dispatcher->addListener(EVENT_BUILD_CACHE, function () {
             /* Calling the `route` method with the `EVENT_BUILD_CACHE` parameter. */
