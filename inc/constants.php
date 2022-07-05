@@ -309,8 +309,8 @@ class constants
         define('YXORP_NAME', 'NAME');
         /* Defining a constant called YXORP_URL and setting it to the string URL. */
         define('YXORP_URL', 'URL');
-        /* Defining a constant called YXORP_URL and setting it to the string URL. */
-        define('YXORP_URL', 'URI');
+        /* Defining a constant called YXORP_URI and setting it to the string URI. */
+        define('YXORP_URI', 'URI');
         /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
         define('YXORP_SUB', 'SUB');
         /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
