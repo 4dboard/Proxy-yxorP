@@ -7,7 +7,9 @@
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
-[ [ 🎈 ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]   [ [DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]  [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ] [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ] [ [WEBSITE](https://4dboard.github.io/) ]
+[ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
+🔥 [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
+🎈 [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ] [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ] [ [WEBSITE](https://4dboard.github.io/) ]
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
