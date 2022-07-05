@@ -629,9 +629,9 @@ class constants
     /* A static method that returns the value of the $_name variable. */
     /**
      * @param string $_name
-     * @return mixed
+     * @return string|array|object
      */
-    public static function get(string $_name): mixed
+    public static function get(string $_name): string|array|object
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
