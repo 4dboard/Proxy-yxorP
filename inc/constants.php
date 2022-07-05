@@ -629,14 +629,13 @@ class constants
     /* A static method that returns the value of the $_name variable. */
     /**
      * @param string $_name
-     * @param string|array|null $return = null
-     * @return string|array
+     * @return string|object|array|null
      */
-    public static function get(string $_name, string|array|null $return = null): string|array
+    public static function get(string $_name): string|object|array|null
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
-        return $GLOBALS[$_name] ?: $return;
+        return $GLOBALS[$_name];
     }
 
 }
