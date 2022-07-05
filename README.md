@@ -26,7 +26,7 @@
 > ❤️`SUPPORT : Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)` [ ::  PATREON  :: ](https://patreon.com/donpablonow)
 > > | | [ ::  PAYPAL  :: ](https://www.paypal.me/donpanlonow) | [ ::  ETHEREUM  :: ](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1)
 
-> [:: PAYPAL ::](https://www.paypal.me/donpanlonow) `Any contributions you can make toward this endeavour would be much appreciated.` 🎉
+> `Any contributions you can make toward this endeavour would be much appreciated.` 🎉
 ---
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
