@@ -77,8 +77,8 @@ class yxorP
      * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
      * class exists in the yxorP namespace, if it does, it creates an instance of it
      *
-     * @param action
-     * @param action
+     * @param string dir
+     * @param string action
      */
     private function subscribe(string $dir, string $action): void
     {
@@ -99,7 +99,7 @@ class yxorP
      *
      * @param subscriber The subscriber to add to the event dispatcher.
      */
-    private function addSubscriber($subscriber): void
+    private function addSubscriber(object $subscriber): void
     {
         /* It's checking if the `subscribe()` method exists in the `$subscriber` object, and if it does, it's calling it,
         and
