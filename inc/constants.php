@@ -275,7 +275,7 @@ class constants
         /* Defining a constant called YXORP_INC and setting it to the string INC. */
         define('VAR_INC', 'INC');
         /* Defining a constant called YXORP_REPLACE and setting it to the string REPLACE. */
-        define('VAR_REPLACE', 'REPLACE');
+        define('VAR_REPLACE_UP', 'REPLACE');
         /* Defining a constant called YXORP_REWRITE and setting it to the string REWRITE. */
         define('VAR_REWRITE', 'REWRITE');
         /* Defining a constant called YXORP_SEARCH and setting it to the string SEARCH. */
@@ -293,7 +293,7 @@ class constants
         /* Defining a constant called YXORP_PROXY and setting it to the string PROXY. */
         define('VAR_PROXY', 'PROXY');
         /* Defining a constant called YXORP_NAME and setting it to the string NAME. */
-        define('VAR_NAME', 'NAME');
+        define('VAR_NAME_UP', 'NAME');
         /* Defining a constant called YXORP_URL and setting it to the string URL. */
         define('VAR_URL', 'URL');
         /* Defining a constant called YXORP_URI and setting it to the string URI. */
