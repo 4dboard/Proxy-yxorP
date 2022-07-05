@@ -4,7 +4,6 @@ namespace yxorP;
 
 /* Importing the constants class from the inc folder. */
 
-use MongoDB\Driver\Monitoring\Subscriber;
 use yxorP\inc\constants;
 use RuntimeException;
 use yxorP\inc\generalHelper;
