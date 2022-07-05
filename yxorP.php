@@ -108,13 +108,13 @@ class yxorP
 
     /**
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
-     * @param $_req
+     * @param $req
      * @return void
      */
-    public static function proxy($_req = null): void
+    public static function proxy($req = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (constants::get(YXORP_EVENT_LIST) as $_event) self::yxorP($_req ?: $_SERVER)->dispatch($_event);
+        foreach (constants::get(YXORP_EVENT_LIST) as $_event) self::yxorP($req ?: $_SERVER)->dispatch($_event);
     }
 
     /**
@@ -140,11 +140,11 @@ class yxorP
      *
      * @return yxorP The yxorP object.
      */
-    public static function yxorP($_req = null): yxorP
+    public static function yxorP($req = null): yxorP
     {
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
-        return (self::$yxorP) ?: self::$yxorP = new self($_req ?: $_SERVER);
+        return (self::$yxorP) ?: self::$yxorP = new self($req ?: $_SERVER);
     }
 
     /**
