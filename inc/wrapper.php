@@ -128,7 +128,7 @@ abstract class wrapper
     }
 
     /* Used to execute code when the request is sent. */
-    
+
     public function onSend(): void
     {
     }
