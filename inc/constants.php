@@ -558,7 +558,7 @@ class constants
 
     /**
      * @param string $_name
-     * @param string|array|object $_value
+     * @param string|array|object|null $_value
      * @return mixed
      */
     public static function set(string $_name, string|array|object|null $_value): mixed
