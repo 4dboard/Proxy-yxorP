@@ -177,10 +177,10 @@ class yxorP
      * The first thing the function does is check if there are any listeners for the event. If there are, it loops through
      * them and calls them
      *
-     * @param event_name The name of the event to dispatch.
+     * @param string event_name The name of the event to dispatch.
      * @return void
      */
-    private function dispatch($event_name): void
+    private function dispatch(string $event_name): void
     {
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
