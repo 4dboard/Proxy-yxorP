@@ -542,7 +542,7 @@ class constants
      * @param $line
      * @return void
      */
-    public static function env($line): void
+    public static function env(string $line): void
     {
         /* Checking if the line starts with a hash. If it does, it returns. */
         if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
