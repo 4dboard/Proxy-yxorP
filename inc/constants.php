@@ -559,7 +559,7 @@ class constants
      * @param $_value
      * @return mixed
      */
-    public static function set($_name, $_value): mixed
+    public static function set(string $_name, string $_value): mixed
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
