@@ -572,7 +572,7 @@ class constants
      * @param $_req
      * @return void
      */
-    public static function localise($_req)
+    public static function localise($_req): void
     {
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $_req. */
         self::set(YXORP_SERVER, $_req);
