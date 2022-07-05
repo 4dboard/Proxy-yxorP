@@ -136,15 +136,15 @@ class yxorP
     /**
      * > `yxorP` is a function that returns a `yxorP` object
      *
-     * @param _req The request object.
+     * @param  $request The request object.
      *
      * @return yxorP The yxorP object.
      */
-    public static function yxorP($req = null): yxorP
+    public static function yxorP($request = null): yxorP
     {
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
-        return (self::$yxorP) ?: self::$yxorP = new self($req ?: $_SERVER);
+        return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
     }
 
     /**
