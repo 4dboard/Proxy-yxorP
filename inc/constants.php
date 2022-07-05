@@ -280,8 +280,6 @@ class constants
         define('YXORP_SITE', 'SITE');
         /* Defining a constant called YXORP_HOST and setting it to the string HOST. */
         define('YXORP_HOST', 'HOST');
-        /* Defining a constant called YXORP_URL and setting it to the string URI. */
-        define('YXORP_URL', 'URI');
         /* Defining a constant called COCKPIT and setting it to the string COCKPIT. */
         define('YXORP_COCKPIT', 'COCKPIT');
         /* Defining a constant called YXORP_INSTALL and setting it to the string INSTALL. */
