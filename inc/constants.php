@@ -320,9 +320,9 @@ class constants
         define('VAR_GLOBAL', 'VAR_GLOBAL');
 
         //VARIBLES MULTIPLE
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
+        /* Defining a constant called `VAR_GLOBAL_REPLACE` and setting it to the value of VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_REPLACE */
         define('VAR_GLOBAL_REPLACE', VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_REPLACE);
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
+        /* Defining a constant called `VAR_GLOBAL_PATTERN` and setting it to the value of VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_PATTERN */
         define('VAR_GLOBAL_PATTERN', VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_PATTERN);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
         define('VAR_PLUS_SLASH', CHAR_PLUS . DIRECTORY_SEPARATOR);
