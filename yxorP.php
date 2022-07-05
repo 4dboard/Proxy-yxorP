@@ -114,7 +114,7 @@ class yxorP
     public static function proxy($req = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (constants::get(YXORP_EVENT_LIST) as $_event) self::yxorP($req ?: $_SERVER)->dispatch($_event);
+        foreach (constants::get(YXORP_EVENT_LIST) as $event) self::yxorP($req ?: $_SERVER)->dispatch($event);
     }
 
     /**
