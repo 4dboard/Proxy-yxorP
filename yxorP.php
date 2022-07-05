@@ -7,7 +7,6 @@ namespace yxorP;
 use MongoDB\Driver\Monitoring\Subscriber;
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
-use function copy;
 
 /* Loading the required files. */
 require './inc/generalHelper.php';
@@ -113,7 +112,7 @@ class yxorP
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
-                throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
+                throw new \RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
