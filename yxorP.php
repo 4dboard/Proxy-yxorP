@@ -149,7 +149,6 @@ class yxorP
 
     /**
      * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
-     *
      */
     private static function init(): void
     {
