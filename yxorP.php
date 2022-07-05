@@ -178,6 +178,7 @@ class yxorP
      * them and calls them
      *
      * @param event_name The name of the event to dispatch.
+     * @return void
      */
     private function dispatch($event_name): void
     {
