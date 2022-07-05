@@ -22,11 +22,9 @@ abstract class wrapper
     {
 
         foreach ([EVENT_BUILD_CACHE] as $event) {
-
-            $dispatcher->addListener($event, function () {
+            $dispatcher->addListener($event, function () use ($event) {
                 $this->route($event);
             });
-
         }
         /* Subscribing to the event `EVENT_BUILD_CACHE`. */
         $dispatcher->addListener(EVENT_BUILD_CACHE, function () {
