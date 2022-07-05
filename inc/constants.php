@@ -295,21 +295,21 @@ class constants
         /* Defining a constant called YXORP_NAME and setting it to the string NAME. */
         define('VAR_NAME_UP', 'NAME');
         /* Defining a constant called YXORP_URL and setting it to the string URL. */
-        define('VAR_URL', 'URL');
+        define('VAR_URL_UP', 'URL');
         /* Defining a constant called YXORP_URI and setting it to the string URI. */
         define('VAR_URI', 'URI');
         /* Defining a constant called YXORP_SUB and setting it to the string SUB. */
         define('VAR_SUB', 'SUB');
         /* Defining a constant called YXORP_DOMAIN and setting it to the string DOMAIN. */
-        define('VAR_DOMAIN', 'DOMAIN');
+        define('VAR_DOMAIN_UP', 'DOMAIN');
         /* Defining a constant called YXORP_DIR and setting it to the string DIR. */
         define('VAR_DIR', 'DIR');
         /* Defining a constant called YXORP_FULL and setting it to the string FULL. */
         define('VAR_FULL', 'FULL');
         /* Defining a constant called YXORP_HTTPS and setting it to the string HTTPS. */
-        define('VAR_HTTPS', 'HTTPS');
+        define('VAR_HTTPS_UP', 'HTTPS');
         /* Defining a constant called YXORP_HTTP and setting it to the string HTTP. */
-        define('VAR_HTTP', 'HTTP');
+        define('VAR_HTTP_UP', 'HTTP');
         /* Defining a constant called YXORP_METHOD and setting it to the string METHOD. */
         define('VAR_METHOD', 'METHOD');
         /* Defining a constant called YXORP_REMOTE and setting it to the string REMOTE. */
