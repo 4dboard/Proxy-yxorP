@@ -19,10 +19,9 @@
 > ⛔️`PENDING : Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.` [ ::  GITHUB  :: ](https://github.com/donspablo)
 > > [ ::  GITHUB  :: ](https://github.com/donspablo)
 
-> 🏆️ `DEMO LIVE : We have just launched the first working live demo / sneak preview via Gitpod` [ ::  LIVE DEMO  :: ]
+> 🏆️ `DEMO LIVE : We have just launched the first working live demo / sneak preview via Gitpod` [ ::  LIVE DEMO  :: ](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
 > 🎥️ `MAKING OF : We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so_ ` [ ::  MAKING OF VIDEO  :: ]
-> >
 
 > ❤️`SUPPORT : Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)` [ ::  PATREON  :: ](https://patreon.com/donpablonow)
 > > | | [ ::  PAYPAL  :: ](https://www.paypal.me/donpanlonow) | [ ::  ETHEREUM  :: ](https://pay.buildship.dev/to/0X3D288C7A673501294C9289C6FC42480A2EA61417?value=0.1)
