@@ -7,6 +7,7 @@ namespace yxorP\inc;
 use Bugsnag\Client as BClient;
 use Guzzle\Client as GClient;
 use RuntimeException;
+use function cockpit\cockpit;
 
 class constants
 {
