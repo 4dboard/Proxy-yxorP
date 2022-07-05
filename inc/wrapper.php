@@ -21,7 +21,7 @@ abstract class wrapper
     final public function subscribe(yxorP\yxorP $dispatcher): void
     {
         /* Adding a listener to all the events. */
-        foreach ([EVENT_BUILD_CACHE, EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_EXCEPTION, EVENT_FINAL] as $event) {
+        foreach ([EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL, EVENT_EXCEPTION] as $event) {
             /* Adding a listener to the event. */
             $dispatcher->addListener($event, function () use ($event) {
                 /* Calling the `route` method. */
