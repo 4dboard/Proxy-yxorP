@@ -157,7 +157,7 @@ class yxorP
         constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
     }
 
-    public static function migrate($src, $dst)
+    public static function migrate($src, $dst): void
     {
         $dir = opendir($src);
         @mkdir($dst);
