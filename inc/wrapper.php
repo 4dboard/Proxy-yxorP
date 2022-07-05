@@ -45,16 +45,6 @@ abstract class wrapper
             /* Calling the `route` method with the `EVENT_BUILD_REQUEST` parameter. */
             $this->route(EVENT_BUILD_REQUEST);
         });
-        /* Subscribing to the event `EVENT_BEFORE_SEND`. */
-        $dispatcher->addListener(EVENT_BEFORE_SEND, function () {
-            /* Calling the `route` method with the `EVENT_BEFORE_SEND` parameter. */
-            $this->route(EVENT_BEFORE_SEND);
-        });
-        /* Subscribing to the event `EVENT_SENT`. */
-        $dispatcher->addListener(EVENT_SENT, function () {
-            /* Calling the `route` method with the `EVENT_SENT` parameter. */
-            $this->route(EVENT_SENT);
-        });
         /* Subscribing to the event `EVENT_WRITE`. */
         $dispatcher->addListener(EVENT_WRITE, function () {
             /* Calling the `route` method with the `EVENT_WRITE` parameter. */
@@ -69,6 +59,16 @@ abstract class wrapper
         $dispatcher->addListener(EVENT_EXCEPTION, function () {
             /* Calling the `route` method with the `EVENT_EXCEPTION` parameter. */
             $this->route(EVENT_EXCEPTION);
+        });
+        /* Subscribing to the event `EVENT_BEFORE_SEND`. */
+        $dispatcher->addListener(EVENT_BEFORE_SEND, function () {
+            /* Calling the `route` method with the `EVENT_BEFORE_SEND` parameter. */
+            $this->route(EVENT_BEFORE_SEND);
+        });
+        /* Subscribing to the event `EVENT_SENT`. */
+        $dispatcher->addListener(EVENT_SENT, function () {
+            /* Calling the `route` method with the `EVENT_SENT` parameter. */
+            $this->route(EVENT_SENT);
         });
         /* Subscribing to the event `EVENT_FINAL`. */
         $dispatcher->addListener(EVENT_FINAL, function () {
