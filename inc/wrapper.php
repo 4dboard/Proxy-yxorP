@@ -17,7 +17,7 @@ abstract class wrapper
 
 
     /* Subscribing to all the events. */
-    final public function subscribe(object $dispatcher): void
+    final public function subscribe(yxorP $dispatcher): void
     {
         /* Subscribing to the event `EVENT_BUILD_CACHE`. */
         $dispatcher->addListener(EVENT_BUILD_CACHE, function () {
@@ -78,7 +78,7 @@ abstract class wrapper
 
     /* A method that is used to route the events to the appropriate methods. */
 
-    private function route($event_name): void
+    private function route(string $event_name): void
     {
         /* Used to catch exceptions. */
         try {
