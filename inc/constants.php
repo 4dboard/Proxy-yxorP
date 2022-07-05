@@ -340,6 +340,7 @@ class constants
         define('YXORP_COCKPIT_INSTALL', YXORP_COCKPIT . CHAR_UNDER . YXORP_INSTALL);
         /* Defining a constant called `YXORP_REQUEST_URL` and setting it to the value of `REQUEST_URL`. */
         define('YXORP_REQUEST_URL', YXORP_REQUEST . CHAR_UNDER . YXORP_URL);
+        /* Defining a constant. */
         define('YXORP_REQUEST_URL_FULL', YXORP_REQUEST . CHAR_UNDER . YXORP_URL . CHAR_UNDER . YXORP_FULL);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', YXORP_HTTP . CHAR_UNDER . YXORP_HOST);
@@ -440,7 +441,7 @@ class constants
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
         /* Defining the path to the bugsnag.phar file. */
         define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
-        /* Defining the path to the guzzle phar file. */
+        /* Defining the path to the Guzzle phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
