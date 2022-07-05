@@ -2,6 +2,11 @@
 > > *YOUR SUPPORT IS GREATLY APPRECIATED/* [PATREON.COM/DONPABLONOW](https://www.patreon.com/donPabloNow)/ *BTC*
 3HVNOVVMLHVEWQLSCCQX9DUA26P5PRCTNQ *ETH* 0X3D288C7A673501294C9289C6FC42480A2EA61417 🙏
 
+https://github.com/donspablo
+https://patreon.com/donpablonow
+https://www.paypal.me/donpanlonow
+
+
 > ⭐️*DEMO LIVE*: We have just launched the first working live demo / sneak preview via gitpod [\[Live Demo\]](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp)
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
