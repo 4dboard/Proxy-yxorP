@@ -208,7 +208,7 @@ class yxorP
      * @param object callback The callback function to be executed when the event is triggered.
      * @return void The priority of the listener. Higher priority listeners are called before lower priority listeners.
      */
-    public function addListener(string $event, object $callback): void
+    final public function addListener(string $event, object $callback): void
     {/* It's adding a listener to the listeners array. */
         $this->listeners[$event][0][] = $callback;
     }
