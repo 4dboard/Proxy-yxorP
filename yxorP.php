@@ -68,9 +68,9 @@ class yxorP
      * @param string $dir
      * @param array $array
      */
-    private function subscribers(string $dir, array $list): void
+    private function subscribers(string $dir, array $actions): void
     {
-        foreach ($list as $action) $this->subscribe($dir, $action);
+        foreach ($actions as $action) $this->subscribe($dir, $action);
     }
 
     /**
