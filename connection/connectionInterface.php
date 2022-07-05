@@ -1,35 +1,4 @@
 <?php namespace yxorP\connection;
-/**
- * @property string $tmpWebsocketData
- * @property string $tmpWebsocketData
- * @property string $tmpWebsocketData
- * @property string $websocketDataBuffer
- * @property string $websocketDataBuffer
- * @property string $websocketDataBuffer
- * @property string $websocketDataBuffer
- * @property int $websocketCurrentFrameLength
- * @property int $websocketCurrentFrameLength
- * @property int $websocketCurrentFrameLength
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property string $websocketType
- * @property string $websocketType
- * @property string $websocketDataBuffer
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property string $websocketDataBuffer
- * @property string $websocketDataBuffer
- * @property string $websocketDataBuffer
- * @property string $websocketDataBuffer
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property string $websocketType
- * @property string $websocketType
- * @property string $websocketDataBuffer
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- * @property float|int|string|array|object|null $websocketCurrentFrameLength
- */
 abstract class connectionInterface extends tcpConnection, tcpConnection, tcpConnection
 {
     const CONNECT_FAIL = 1;
