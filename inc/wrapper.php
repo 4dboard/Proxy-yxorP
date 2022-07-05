@@ -17,7 +17,7 @@ abstract class wrapper
 
 
     /* Subscribing to all the events. */
-    final public function subscribe($dispatcher): void
+    final public function subscribe(string $dispatcher): void
     {
         /* Subscribing to the event `EVENT_BUILD_CACHE`. */
         $dispatcher->addListener(EVENT_BUILD_CACHE, function () {
