@@ -13,7 +13,7 @@ class constants
 {
     /* Defining constants.Creating a new directory.  */
     /**
-     * @param $dir
+     * @param string $dir
      * @return void
      */
     public static function create(string $dir): void
@@ -48,17 +48,17 @@ class constants
         define('CHAR_AT', '@');
         /* Defining a constant called `CHAR_CURVE` and setting it to the value of `{?}`. */
         define('CHAR_CURVE', '{');
-        /* Defining a constant called `CHAR_CURVE_CLOSE` and setting it to the value of `}`. */
+        /* Defining a constant called `CHAR_CURVE_CLOSE` and setting it to the value of `\}`. */
         define('CHAR_CURVE_CLOSE', '}');
-        /* Defining a constant called `CHAR_BRACKET` and setting it to the value of `(`. */
+        /* Defining a constant called `CHAR_BRACKET` and setting it to the value of `\(`. */
         define('CHAR_BRACKET', '(');
-        /* Defining a constant called `CHAR_BRACKET_CLOSE` and setting it to the value of `)`. */
+        /* Defining a constant called `CHAR_BRACKET_CLOSE` and setting it to the value of `\)`. */
         define('CHAR_BRACKET_CLOSE', ')');
         /* Defining a constant called `CHAR_S` and setting it to the value of `s`. */
         define('CHAR_S', 's');
         /* Defining a constant called `CHAR_SQUARE` and setting it to the value of `[?]`. */
         define('CHAR_SQUARE', '[');
-        /* Defining a constant called `CHAR_SQUARE_CLOSE` and setting it to the value of `]`. */
+        /* Defining a constant called `CHAR_SQUARE_CLOSE` and setting it to the value of `\]`. */
         define('CHAR_SQUARE_CLOSE', ']');
         /* Defining a constant called `CHAR_A` and setting it to the value of `A`. */
         define('CHAR_A', 'a');
@@ -541,7 +541,7 @@ class constants
     /* A function that is being called to fetch .env values. */
 
     /**
-     * @param $line
+     * @param string $line
      * @return void
      */
     public static function env(string $line): void
