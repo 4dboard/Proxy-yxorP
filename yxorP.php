@@ -204,11 +204,11 @@ class yxorP
     /**
      * > This function adds a listener to the listeners array
      *
-     * @param event The name of the event to listen for.
+     * @param string event The name of the event to listen for.
      * @param callback The callback function to be executed when the event is triggered.
      * @param priority The priority of the listener. Higher priority listeners are called before lower priority listeners.
      */
-    public function addListener($event, $callback): void
+    public function addListener(string $event, $callback): void
     {/* It's adding a listener to the listeners array. */
         $this->listeners[$event][0][] = $callback;
     }
