@@ -43,7 +43,7 @@ class Session
     private static $_handlerConfig = null;
     /* It's a class variable. */
     private static $_handler = null;
-    private mixed $_data = [];
+    private string|array|object|null $_data = [];
     /* It's a class variable. */
     private bool $_needSave = false;
     /* It's a class variable. */

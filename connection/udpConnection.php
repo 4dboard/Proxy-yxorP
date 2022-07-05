@@ -17,7 +17,7 @@ class udpConnection extends connectionInterface implements JsonSerializable
     public $protocol = null;
     public string $transport = 'udp';
     protected $_socket = null;
-    protected mixed $_remoteAddress = '';
+    protected string|array|object|null $_remoteAddress = '';
 
     public function __construct($socket, $remote_address)
     {

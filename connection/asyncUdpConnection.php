@@ -24,7 +24,7 @@ class asyncUdpConnection extends udpConnection
     public $onConnect = null;
     public $onClose = null;
     protected bool $connected = false;
-    protected mixed $_contextOption = null;
+    protected string|array|object|null $_contextOption = null;
 
     /**
      * @throws Exception

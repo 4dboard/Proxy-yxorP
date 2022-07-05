@@ -10,27 +10,27 @@
  * @property int $websocketCurrentFrameLength
  * @property int $websocketCurrentFrameLength
  * @property int $websocketCurrentFrameLength
- * @property float|int|mixed $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
  * @property string $websocketType
  * @property string $websocketType
  * @property string $websocketDataBuffer
- * @property float|int|mixed $websocketCurrentFrameLength
- * @property float|int|mixed $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
  * @property string $websocketDataBuffer
  * @property string $websocketDataBuffer
  * @property string $websocketDataBuffer
  * @property string $websocketDataBuffer
- * @property float|int|mixed $websocketCurrentFrameLength
- * @property float|int|mixed $websocketCurrentFrameLength
- * @property float|int|mixed $websocketCurrentFrameLength
- * @property float|int|mixed $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
  * @property string $websocketType
  * @property string $websocketType
  * @property string $websocketDataBuffer
- * @property float|int|mixed $websocketCurrentFrameLength
- * @property float|int|mixed $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
+ * @property float|int|string|array|object|null $websocketCurrentFrameLength
  */
-abstract class connectionInterface extends \yxorP\connection\tcpConnection, \yxorP\connection\tcpConnection, \yxorP\connection\tcpConnection
+abstract class connectionInterface extends tcpConnection, tcpConnection, tcpConnection
 {
     const CONNECT_FAIL = 1;
     const SEND_FAIL = 2;
@@ -45,23 +45,23 @@ abstract class connectionInterface extends \yxorP\connection\tcpConnection, \yxo
     public
     $protocolContext = [];
 
-    abstract public function send($send_buffer);
+    abstract public function send($send_buffer)
 
-    abstract public function getRemoteIp();
+    abstract public function getRemoteIp()
 
-    abstract public function getRemotePort();
+    abstract public function getRemotePort()
 
-    abstract public function getRemoteAddress();
+    abstract public function getRemoteAddress()
 
-    abstract public function getLocalIp();
+    abstract public function getLocalIp()
 
-    abstract public function getLocalPort();
+    abstract public function getLocalPort()
 
-    abstract public function getLocalAddress();
+    abstract public function getLocalAddress()
 
-    abstract public function isIPv4();
+    abstract public function isIPv4()
 
-    abstract public function isIPv6();
+    abstract public function isIPv6()
 
-    abstract public function close($data = null);
+    abstract public function close($data = null)
 }

@@ -89,7 +89,7 @@ class tcpConnection extends connectionInterface implements JsonSerializable
     protected string $_recvBuffer = '';
     protected int $_currentPackageLength = 0;
     protected int $_status = self::STATUS_ESTABLISHED;
-    protected mixed $_remoteAddress = '';
+    protected string|array|object|null $_remoteAddress = '';
     protected bool $_isPaused = false;
     protected bool $_sslHandshakeCompleted = false;
 

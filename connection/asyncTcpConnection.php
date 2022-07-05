@@ -42,9 +42,9 @@ class asyncTcpConnection extends tcpConnection
     /* Setting the status of the connection to initial. */
     protected int $_status = self::STATUS_INITIAL;
     /* Setting the default value of the `$_remoteHost` variable to an empty string. */
-    protected mixed $_remoteHost = '';
+    protected string|array|object|null $_remoteHost = '';
     /* Setting the default port to 80. */
-    protected mixed $_remotePort = 80;
+    protected string|array|object|null $_remotePort = 80;
     /* Setting the default value of the `$_connectStartTime` variable to 0. */
     protected int $_connectStartTime = 0;
     /* Setting the default value of the `$_remoteURI` variable to an empty string. */
