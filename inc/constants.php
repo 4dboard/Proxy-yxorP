@@ -631,7 +631,7 @@ class constants
      */
 
 
-    public static function get(string $_name, $return = null): mixed
+    public static function get(string $_name, string|array $return = null): mixed
     {
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
