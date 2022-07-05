@@ -110,14 +110,14 @@ class yxorP
     public static function proxy(array|null $request = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::init() as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
+        foreach (self::init($request ?: $_SERVER) as $event) self::yxorP()->dispatch($event);
     }
 
     /**
      * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
      * * @return array
      */
-    private static function init(): array
+    private static function init(array|null $request = null): array
     {
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
@@ -186,14 +186,13 @@ class yxorP
     /**
      * > `yxorP` is a function that returns a `yxorP` object
      *
-     * @param array|null $request
      * @return self The yxorP object.
      */
-    public static function yxorP(array|null $request = null): self
+    public static function yxorP(): self
     {
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
-        return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
+        return (self::$yxorP) ?: self::$yxorP = new self();
     }
 
     /**
