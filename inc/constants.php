@@ -559,9 +559,9 @@ class constants
     /**
      * @param string $_name
      * @param string|array|object|null $_value
-     * @return mixed
+     * @return string|array|object|null
      */
-    public static function set(string $_name, string|array|object|null $_value): mixed
+    public static function set(string $_name, string|array|object|null $_value): string|array|object|null
     {
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
