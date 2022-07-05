@@ -605,7 +605,7 @@ class constants
         constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_SITE_SUB_DOMAIN) ? strval(constants::get(YXORP_SITE_SUB_DOMAIN)) . "." : null));
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        constants::set(VAR_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
+        constants::set(VAR_FETCH, VAR_HTTPS . strval(constants::get(YXORP_SUB_DOMAIN)) . strval(constants::get(YXORP_TARGET_DOMAIN)));
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
         value of the constant YXORP_REQUEST_URI. */
         constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_SITE_URL) . constants::get(YXORP_REQUEST_URI));
