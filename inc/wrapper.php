@@ -45,54 +45,34 @@ abstract class wrapper
 
             /* Used to route the events to the appropriate methods. */
             switch ($event_name) {
-                /* Calling the `onBuildCache` method. */
                 case EVENT_BUILD_CACHE:
-                    /* Calling the `onBuildCache` method. */
                     $this->onBuildCache();
                     break;
-                /* Calling the `onBuildContext` method. */
                 case EVENT_BUILD_CONTEXT:
-                    /* Calling the `onBuildContext` method. */
                     $this->onBuildContext();
                     break;
-                /* Calling the `onBuildIncludes` method. */
                 case EVENT_BUILD_INCLUDES:
-                    /* Calling the `onBuildIncludes` method. */
                     $this->onBuildIncludes();
                     break;
-                /* Calling the `onBuildHeaders` method. */
                 case EVENT_BUILD_HEADERS:
-                    /* Calling the `onBuildHeaders` method. */
                     $this->onBuildHeaders();
                     break;
-                /* Calling the `onBuildRequest` method. */
                 case EVENT_BUILD_REQUEST:
-                    /* Calling the `onBuildRequest` method. */
                     $this->onBuildRequest();
                     break;
-                /* Calling the `onBeforeSend` method. */
                 case EVENT_BEFORE_SEND:
-                    /* Calling the `onBeforeSend` method. */
                     $this->onBeforeSend();
                     break;
-                /* Calling the `onEventSent` method. */
                 case EVENT_SENT:
-                    /* Calling the `onEventSent` method. */
                     $this->onEventSent();
                     break;
-                /* Calling the `onEventWrite` method. */
                 case EVENT_WRITE:
-                    /* Calling the `onEventWrite` method. */
                     $this->onEventWrite();
                     break;
-                /* Calling the `onEventComplete` method. */
                 case EVENT_COMPLETE:
-                    /* Calling the `onEventComplete` method. */
                     $this->onEventComplete();
                     break;
-                /* Calling the `onEventFinal` method. */
                 case EVENT_FINAL:
-                    /* Calling the `onEventFinal` method. */
                     $this->onEventFinal();
                     break;
             }
