@@ -4,11 +4,11 @@
 
 ## 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
-🚀 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
+📢 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
 ⚡ [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
 🌈 [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ]
 🔥 [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ]
-🌟 [ [WEBSITE](https://4dboard.github.io/) ] ⛄️
+🌟 [ [WEBSITE](https://4dboard.github.io/) ] 🚀️
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
@@ -25,6 +25,8 @@
 
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
 ---
+
+# .yxorP User-Friendly Web Proxy
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
