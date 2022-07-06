@@ -5,7 +5,7 @@
 ## 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
 👋 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
-👌 [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
+✊ [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
 🤙 [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ]
 🤘 [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ]
 👊 [ [WEBSITE](https://4dboard.github.io/) ] 👍
