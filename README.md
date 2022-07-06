@@ -15,6 +15,9 @@
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
 ---
+
+## PROJECT NOTICEBOARD:
+
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
 
 > 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp) We have just launched the first working live demo / sneak preview via Gitpod`
@@ -24,9 +27,10 @@
 > ❤️[ PATREON  : ](https://patreon.com/donpablonow) Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)
 
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
+
 ---
 
-# .yxorP User-Friendly Web Proxy
+# .yxorP User-friendly, Plug & Play Web Proxy
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
