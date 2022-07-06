@@ -633,10 +633,10 @@ class constants
         constants::set(CACHE_KEY, generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
         /* Setting the `REPLACE` context variable to the value of the `replace` type in the `global` collection. */
         constants::set('YXORP_GLOBAL_REPLACE', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL_UP, [VAR_TYPE => VAR_REPLACE]) ?
-            (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . 'global', [VAR_TYPE => 'replace']))['value'] : null);
+            (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))['value'] : null);
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
-        constants::set('YXORP_GLOBAL_PATTERN', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
-            (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . 'global', [VAR_TYPE => 'pattern']))['value'] : null);
+        constants::set('YXORP_GLOBAL_PATTERN', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL_UP, [VAR_TYPE => VAR_PATTERN]) ?
+            (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))['value'] : null);
     }
 
     /* A static method that returns the value of the $_name variable. */
