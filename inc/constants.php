@@ -242,6 +242,8 @@ class constants
         define('VAR_DOMAIN', 'domain');
         /* Defining a constant called `VAR_PATTERN` and setting it to the value of `pattern`. */
         define('VAR_PATTERN', 'pattern');
+        /* Defining a constant called `VAR_PATTERN_UP` and setting it to the value of `pattern`. */
+        define('VAR_PATTERN_UP', 'PATTERN');
         /* Defining a constant called `VAR_REPLACE` and setting it to the value of `replace`. */
         define('VAR_REPLACE', 'replace');
         /* Defining a constant called `VAR_SERVER` and setting it to the value of `SERVER`. */
