@@ -7,8 +7,8 @@
 👋 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
 👌 [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
 🤙 [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ]
-🎇 [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ]
-☀️[ [WEBSITE](https://4dboard.github.io/) ] 🎆
+🤘 [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ]
+🤟 [ [WEBSITE](https://4dboard.github.io/) ] 🎆
 
 [![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
 
