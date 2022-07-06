@@ -341,7 +341,9 @@ class constants
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
         define('VAR_TEXT_HTML', VAR_TEXT . DIRECTORY_SEPARATOR . VAR_HTML);
+        /* Defining a constant called `VAR_VAR_UNDER` and setting it to the value of `CHAR_UNDER . VAR_VAR`. */
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
+        /* Defining a constant called `VAR_VAR_UNDER_END` and setting it to the value of `CHAR_UNDER . VAR_VAR . CHAR_UNDER`. */
         define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
 
 
