@@ -322,8 +322,11 @@ class constants
         define('VAR_EVENT', 'EVENT');
         /* Defining a constant called VAR_LIST and assigning it the value of LIST. */
         define('VAR_LIST', 'LIST');
-        /* Defining a constant called VAR_GLOBAL_PATTERN and setting it to the string GLOBAL_REPLACE. */
+        /* Defining a constant called VAR_GLOBAL_UP and setting it to the string GLOBAL. */
         define('VAR_GLOBAL_UP', 'GLOBAL');
+        /* Defining a constant called VAR_GLOBAL and setting it to the string global. */
+        define('VAR_GLOBAL', 'global');
+
 
         //VARIBLES MULTIPLE
         /* Defining a constant called `VAR_GLOBAL_REPLACE` and setting it to the value of VAR_VAR . CHAR_UNDER . VAR_GLOBAL_UP . CHAR_UNDER . VAR_REPLACE */
