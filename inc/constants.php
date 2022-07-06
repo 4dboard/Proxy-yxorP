@@ -399,8 +399,6 @@ class constants
         define('YXORP_GLOBAL_PATTERN', 'YXORP_GLOBAL_PATTERN');
 
 
-
-
         // DIRECTORIES
         /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
         appended to it. */
