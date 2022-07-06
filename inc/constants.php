@@ -318,16 +318,18 @@ class constants
         define('VAR_REMOTE', 'REMOTE');
         /* Defining a constant called VAR_ADDR and setting it to the string ADDR. */
         define('VAR_ADDR', 'ADDR');
+        /* Defining a constant called VAR_EVENT and setting it to the string 'EVENT'. */
         define('VAR_EVENT', 'EVENT');
+        /* Defining a constant called VAR_LIST and assigning it the value of LIST. */
         define('VAR_LIST', 'LIST');
         /* Defining a constant called VAR_GLOBAL_PATTERN and setting it to the string GLOBAL_REPLACE. */
-        define('VAR_GLOBAL', 'GLOBAL');
+        define('VAR_GLOBAL_UP', 'GLOBAL');
 
         //VARIBLES MULTIPLE
-        /* Defining a constant called `VAR_GLOBAL_REPLACE` and setting it to the value of VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_REPLACE */
-        define('VAR_GLOBAL_REPLACE', VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_REPLACE);
-        /* Defining a constant called `VAR_GLOBAL_PATTERN` and setting it to the value of VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_PATTERN */
-        define('VAR_GLOBAL_PATTERN', VAR_VAR . CHAR_UNDER . VAR_GLOBAL . CHAR_UNDER . VAR_PATTERN_UP);
+        /* Defining a constant called `VAR_GLOBAL_REPLACE` and setting it to the value of VAR_VAR . CHAR_UNDER . VAR_GLOBAL_UP . CHAR_UNDER . VAR_REPLACE */
+        define('VAR_GLOBAL_REPLACE', VAR_VAR . CHAR_UNDER . VAR_GLOBAL_UP . CHAR_UNDER . VAR_REPLACE);
+        /* Defining a constant called `VAR_GLOBAL_PATTERN` and setting it to the value of VAR_VAR . CHAR_UNDER . VAR_GLOBAL_UP . CHAR_UNDER . VAR_PATTERN */
+        define('VAR_GLOBAL_PATTERN', VAR_VAR . CHAR_UNDER . VAR_GLOBAL_UP . CHAR_UNDER . VAR_PATTERN_UP);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
         define('VAR_PLUS_SLASH', CHAR_PLUS . DIRECTORY_SEPARATOR);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
@@ -627,7 +629,7 @@ class constants
         /* Setting the cache key to the base64 encoded version of the proxy URL. */
         constants::set(CACHE_KEY, generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
         /* Setting the `REPLACE` context variable to the value of the `replace` type in the `global` collection. */
-        constants::set('YXORP_GLOBAL_REPLACE', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . 'global', [VAR_TYPE => 'replace']) ?
+        constants::set('YXORP_GLOBAL_REPLACE', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL_UP, [VAR_TYPE => 'replace']) ?
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . 'global', [VAR_TYPE => 'replace']))['value'] : null);
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
         constants::set('YXORP_GLOBAL_PATTERN', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . 'global', [VAR_TYPE => 'pattern']) ?
