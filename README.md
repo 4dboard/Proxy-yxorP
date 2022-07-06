@@ -6,7 +6,7 @@
 
 👋 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
 👌 [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
-🎈 [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ]
+🤙 [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ]
 🎇 [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ]
 ☀️[ [WEBSITE](https://4dboard.github.io/) ] 🎆
 
