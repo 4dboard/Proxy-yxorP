@@ -231,8 +231,8 @@ class constants
         /* Defining a constant called `VAR_TEXT` and setting it to the value of `text`. */
         define('VAR_TEXT', 'text');
         /* Defining a constant called `VAR_VAR` and setting it to the value of `var`. */
-        define('VAR_VAR', 'var');
-        /* Defining a constant called `VAR_VAR` and setting it to the value of `var`. */
+        define('VAR_VAR', 'VAR');
+        /* Defining a constant called `VAR_HTTP` and setting it to the value of `var`. */
         define('VAR_HTTP', 'http:');
         /* Defining a constant called `VAR_INTERFACE` and setting it to the value of `interface`. */
         define('VAR_INTERFACE', 'interface');
