@@ -326,6 +326,8 @@ class constants
         define('VAR_GLOBAL_UP', 'GLOBAL');
         /* Defining a constant called VAR_GLOBAL and setting it to the string global. */
         define('VAR_GLOBAL', 'global');
+        /* Defining a constant called VAR_VALUE and setting it to the string value. */
+        define('VAR_VALUE', 'value');
 
 
         //VARIBLES MULTIPLE
