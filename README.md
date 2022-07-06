@@ -16,8 +16,6 @@
 
 ---
 
-![img.png](img.png)
-
 ## PROJECT NOTICEBOARD:
 
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
