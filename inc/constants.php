@@ -396,9 +396,9 @@ class constants
         /* Defining a constant called YXORP_TARGET_PLUGINS and setting it to the string TARGET_PLUGINS. */
         define('YXORP_TARGET_PLUGINS', 'TARGET_PLUGINS');
         /* Defining a constant called YXORP_GLOBAL_REPLACE and setting it to the string VAR_REPLACE. */
-        define('YXORP_GLOBAL_REPLACE', VAR_GLOBAL_UP . VAR_REPLACE);
+        define('YXORP_GLOBAL_REPLACE', VAR_GLOBAL_UP . CHAR_UNDER . VAR_REPLACE);
         /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string VAR_PATTERN. */
-        define('YXORP_GLOBAL_PATTERN', VAR_GLOBAL_UP . VAR_PATTERN);
+        define('YXORP_GLOBAL_PATTERN', VAR_GLOBAL_UP . CHAR_UNDER . VAR_PATTERN);
 
 
         // DIRECTORIES
