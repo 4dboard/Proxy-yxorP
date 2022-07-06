@@ -645,7 +645,7 @@ class constants
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
         constants::set(YXORP_GLOBAL_PATTERN, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
-        print_r(constants::set(YXORP_GLOBAL_REPLACE));
+        print_r(constants::get(YXORP_GLOBAL_REPLACE));
     }
 
     /* A static method that returns the value of the $_name variable. */
