@@ -395,10 +395,10 @@ class constants
         define('YXORP_REMOTE_ADDR', VAR_REMOTE . CHAR_UNDER . VAR_ADDR);
         /* Defining a constant called YXORP_TARGET_PLUGINS and setting it to the string TARGET_PLUGINS. */
         define('YXORP_TARGET_PLUGINS', 'TARGET_PLUGINS');
-        /* Defining a constant called YXORP_GLOBAL_REPLACE and setting it to the string GLOBAL_REPLACE. */
-        define('YXORP_GLOBAL_REPLACE', 'GLOBAL_REPLACE');
-        /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string GLOBAL_REPLACE. */
-        define('YXORP_GLOBAL_PATTERN', 'GLOBAL_REPLACE');
+        /* Defining a constant called YXORP_GLOBAL_REPLACE and setting it to the string VAR_REPLACE. */
+        define('YXORP_GLOBAL_REPLACE', VAR_GLOBAL_UP . VAR_REPLACE);
+        /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string VAR_PATTERN. */
+        define('YXORP_GLOBAL_PATTERN', VAR_GLOBAL_UP . VAR_PATTERN);
 
 
         // DIRECTORIES
