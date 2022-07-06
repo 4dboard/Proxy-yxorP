@@ -15,6 +15,7 @@
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
 ---
+![img_1.png](img_1.png)
 
 ## PROJECT NOTICEBOARD:
 
