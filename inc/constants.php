@@ -640,7 +640,7 @@ class constants
         constants::set('YXORP_GLOBAL_PATTERN', constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
 
-        print_r((array)constants::get(VAR_GLOBAL_REPLACE));
+        print_r((array)constants::get(YXORP_GLOBAL_REPLACE));
         exit;
     }
 
