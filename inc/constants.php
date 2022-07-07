@@ -442,7 +442,7 @@ class constants
         define('DIR_TMP', 'tmp' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_HTTP', VAR_HTTP . DIRECTORY_SEPARATOR);
+        define('DIR_HTTP', 'http' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_MINIFY', 'minify' . DIRECTORY_SEPARATOR);
