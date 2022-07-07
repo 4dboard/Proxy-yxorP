@@ -15,9 +15,6 @@ use function preg_replace_callback;
 use function sprintf;
 use function urldecode;
 use function urlencode;
-use const yxorP\domain\urlParser;
-use const yxorP\domain\XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
-use const yxorP\parser\parser;
 
 class constants
 {
@@ -659,9 +656,6 @@ class constants
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         $YXORP_SITE_URL = constants::get(YXORP_SITE_URL);
         $parser = self::pdp_parse_url($YXORP_SITE_URL);
-
-        d(constants::get($parser));
-        d(constants::get(YXORP_SITE_URL_PARSE));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
