@@ -9,6 +9,7 @@ use GuzzleHttp;
 use RuntimeException;
 use yxorP\parser\parseUrl;
 use function cockpit;
+use const yxorP\parser\parser;
 
 class constants
 {
@@ -648,8 +649,9 @@ class constants
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        $parser = parser->parseUrl(constants::get(YXORP_SITE_URL));
-        constants::set(YXORP_SITE_URL_PARSE,);
+        $YXORP_SITE_URL = constants::get(YXORP_SITE_URL);
+        $parser = parser->parseUrl($YXORP_SITE_URL);
+        constants::set($parser,);
         d(constants::get(YXORP_SITE_URL_PARSE));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
