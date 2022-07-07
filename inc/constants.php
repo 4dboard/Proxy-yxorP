@@ -656,6 +656,7 @@ class constants
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         $YXORP_SITE_URL = constants::get(YXORP_SITE_URL);
         $parser = self::pdp_parse_url($YXORP_SITE_URL);
+        print_r($parser);
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
