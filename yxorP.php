@@ -48,9 +48,9 @@ class yxorP
                 require PATH_COCKPIT_INDEX;
                 exit;
             }
-
+        
         /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        $this->subscribers(DIR_PLUGIN, constants::get(YXORP_TARGET_PLUGINS)); //$this->subscribe(DIR_PLUGIN,(constants::get(YXORP_TARGET))[YXORP_PLUGINS] ?: []);
+        $this->subscribers(DIR_PLUGIN, constants::get(YXORP_TARGET_PLUGINS) ?: []);
     }
 
     /**
