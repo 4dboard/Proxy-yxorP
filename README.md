@@ -64,7 +64,10 @@ both rapid and scalable.
 
 ![image](https://user-images.githubusercontent.com/6468571/177669133-19ff6171-8f32-45ed-9dbb-af6d0cc46583.png)
 
-PHP, unlike other programming languages, does not have its own state. Each and every query is unique. In this way, the protocol is relatively similar to the HyperText Transfer Protocol's roots (HTTP). On top of that, state may be implemented via sessions, databases, shared memory, files, or anything else that retains state in some way. There may be alternatives, such as shared memory.
+PHP, unlike other programming languages, does not have its own state. Each and every query is unique. In this way, the
+protocol is relatively similar to the HyperText Transfer Protocol's roots (HTTP). On top of that, state may be
+implemented via sessions, databases, shared memory, files, or anything else that retains state in some way. There may be
+alternatives, such as shared memory.
 
 ``` 
 
@@ -77,7 +80,12 @@ ServerAlias server
 
 ![image](https://user-images.githubusercontent.com/6468571/177670311-52d8a69f-a116-4709-b666-5a88f1d25c7b.png)
 
-Both the Swoole and RoadRunner servers, which are renowned for their speed and durability, are able to support the execution of PHP applications with persistent data. After installation, the Swoole PHP extension provides users with access to a number of useful and intriguing functions. Among these features are coroutines, fibers, web sockets, and caching. In contrast, RoadRunner is a robust application server, load balancer, and process manager written in GoLang. Octane may use one of these two ways, depending on the program author. Due to the PHP Swoole extension, Octane has access to a significantly greater variety of functionalities than RoadRunner.
+Both the Swoole and RoadRunner servers, which are renowned for their speed and durability, are able to support the
+execution of PHP applications with persistent data. After installation, the Swoole PHP extension provides users with
+access to a number of useful and intriguing functions. Among these features are coroutines, fibers, web sockets, and
+caching. In contrast, RoadRunner is a robust application server, load balancer, and process manager written in GoLang.
+Octane may use one of these two ways, depending on the program author. Due to the PHP Swoole extension, Octane has
+access to a significantly greater variety of functionalities than RoadRunner.
 
 ``` 
 
@@ -87,7 +95,8 @@ php ./server.php
 
 ![image](https://user-images.githubusercontent.com/6468571/177670564-a993d2d1-50f0-48f3-a6ea-90fc81a2e1d9.png)
 
-Docker Compose is a tool that simplifies the design and distribution of multi-container applications. With Compose, we can specify our services in a YAML file and then deploy, scale, and destruct our infrastructure with a single command.
+Docker Compose is a tool that simplifies the design and distribution of multi-container applications. With Compose, we
+can specify our services in a YAML file and then deploy, scale, and destruct our infrastructure with a single command.
 
 ``` 
 
@@ -97,7 +106,9 @@ cd inc docker-composer up -d
 
 ![image](https://user-images.githubusercontent.com/6468571/177670650-69065bc9-5081-446d-afde-ab1c58c43f26.png)
 
-Docker enables its users to manage containers in a manner comparable to managing very lightweight and modular virtual machines. This streamlines a number of duties, including the design and building of containers and the transportation of photographs, among others.
+Docker enables its users to manage containers in a manner comparable to managing very lightweight and modular virtual
+machines. This streamlines a number of duties, including the design and building of containers and the transportation of
+photographs, among others.
 
 ```
 cd inc docker run
@@ -130,7 +141,10 @@ CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb, Mongodb, Memcache(d),Predis
 Zend Disk Cache. The combined might of two of the most successful web proxy initiatives is harnessed for maximum effect.
 This self-service proxy engine has zero performance loss and supports numerous tenants by combining a flat-file
 beautiful web interface with a custom multi-threaded caching layer and an extremely powerful 10,000+ word thesaurus
-article spinner. In addition to having a built-in "cache" management system as well as a web-based "cache" management system, the proxy is "modular" or "plugin-based." Web-based reporting and analytics using a graphical user interface (GUI) (GUI). By leveraging a custom-built content spinning engine, the system allows material to be "augmented" (or "spun") with little performance degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
+article spinner. In addition to having a built-in "cache" management system as well as a web-based "cache" management
+system, the proxy is "modular" or "plugin-based." Web-based reporting and analytics using a graphical user interface (
+GUI) (GUI). By leveraging a custom-built content spinning engine, the system allows material to be "augmented" (or "
+spun") with little performance degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
 
@@ -155,10 +169,9 @@ Manage flexible content models. There are no pre-defined content models. Define 
 UI. Cockpit offers you a modern and simple user interface. One system, consume it the way you want. Receive your content
 via a simple API. #### The Advantages Of Going Headless - No presentation limitations – build the best design ever. -
 Content for multiple channels – create content once, consume anywhere. - Highly scalable content – for all your devices
-and microsites. - Minimum training required – get started, immediately. - Easy integrations – connect with
-everything.![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671919-1584593a-cfcc-476a-93ce-c1a65e81de92.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
+and microsites. - Minimum training required – get started, immediately. - Easy integrations – connect with everything.
 
-![image]('https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image(3).gif')
+![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671919-1584593a-cfcc-476a-93ce-c1a65e81de92.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
 ## Use case
 
@@ -208,19 +221,28 @@ diagnostic information.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177672109-b49bb56d-abfe-411f-87b6-b506e47820b8.png) ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
 
-Gitpod gives Theia developers an integrated development environment (IDE) built on top of VS Code for editing and organizing code. It provides a comprehensive OS environment so that applications developed for the platform may leverage the OS environment to run.
-
+Gitpod gives Theia developers an integrated development environment (IDE) built on top of VS Code for editing and
+organizing code. It provides a comprehensive OS environment so that applications developed for the platform may leverage
+the OS environment to run.
 
 [![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
 
-Visit their website to discover more about Gitpod and how its features evolve over time. Nevertheless, a Gitpod is really an Ubuntu 20.04 Focal Fossa container running in Docker. The installation procedure is hampered by the absence of the user gitpod from the list of sudoers. The Dockerfile associated with a Docker instance may be modified by installation components that need root access. Whether operations performed inside the Dockerfile, at the command line, or within the code are preferable depends on the circumstance. For many jobs, Dockerfiles do not need to be very elaborate.
+Visit their website to discover more about Gitpod and how its features evolve over time. Nevertheless, a Gitpod is
+really an Ubuntu 20.04 Focal Fossa container running in Docker. The installation procedure is hampered by the absence of
+the user gitpod from the list of sudoers. The Dockerfile associated with a Docker instance may be modified by
+installation components that need root access. Whether operations performed inside the Dockerfile, at the command line,
+or within the code are preferable depends on the circumstance. For many jobs, Dockerfiles do not need to be very
+elaborate.
 
-Gitpod has a user account called gitpod and a home directory located at /home/gitpod, but the only data kept in the shared and sharable workspace is the first Docker container. Only modifications performed in a Gitpod's workspace are maintained during a clone or rollback. Under the path /workspace/your-workspace-name, all files and folders are deemed to be part of the workspace.
+Gitpod has a user account called gitpod and a home directory located at /home/gitpod, but the only data kept in the
+shared and sharable workspace is the first Docker container. Only modifications performed in a Gitpod's workspace are
+maintained during a clone or rollback. Under the path /workspace/your-workspace-name, all files and folders are deemed
+to be part of the workspace.
 
 ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
- ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
- ![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
+![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
 
 # Background Information Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to
 
@@ -250,9 +272,10 @@ use local development and DevOps technologies on a daily basis, with the United 
 of such technologies. In spite of the fact that there are insufficient instruments to assist in the development process,
 it is possible to transcend the conceptual limitations imposed by this situation. Concentrating your attention on the
 most important activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on
-the most important tasks may help to alleviate some of the stress. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
+the most important tasks may help to alleviate some of the
+stress. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
 
-Clone this repo 
+Clone this repo
 
 ``` 
 
@@ -260,7 +283,7 @@ git clone https://github.com/4dboard/proxy-yxorp
 
 ``` 
 
-Clone the "sample.env" to ".env" and update with the correct details. 
+Clone the "sample.env" to ".env" and update with the correct details.
 
 ```
 
@@ -276,7 +299,7 @@ cd ./inc # Start it up lando start # List information about this app. lando info
 
 ```
 
-or 
+or
 
 ``` 
 
@@ -286,7 +309,8 @@ init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/a
 
 ```
 
-For more information please see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
+For more information please
+see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image(10).gif)
 
