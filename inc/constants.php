@@ -314,6 +314,8 @@ class constants
         define('VAR_HTTPS_UP', 'HTTPS');
         /* Defining a constant called VAR_HTTP and setting it to the string HTTP. */
         define('VAR_HTTP_UP', 'HTTP');
+        /* Defining a constant called VAR_HTTP and setting it to the string http. */
+        define('VAR_HTTP', 'http');
         /* Defining a constant called VAR_METHOD and setting it to the string METHOD. */
         define('VAR_METHOD', 'METHOD');
         /* Defining a constant called VAR_REMOTE and setting it to the string REMOTE. */
@@ -432,7 +434,7 @@ class constants
         define('DIR_TMP', 'tmp' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_HTTP', VAR_HTTP_UP . DIRECTORY_SEPARATOR);
+        define('DIR_HTTP', VAR_HTTP . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_MINIFY', 'minify' . DIRECTORY_SEPARATOR);
