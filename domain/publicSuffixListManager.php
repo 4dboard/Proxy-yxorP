@@ -6,6 +6,7 @@ use Exception;
 use InvalidArgumentException;
 use SplFileObject;
 use yxorp\domain\HttpAdapter\httpAdapterInterface;
+use yxorP\inc\constants;
 use function array_filter;
 use function array_keys;
 use function array_pop;
@@ -39,12 +40,12 @@ use const PHP_EOL;
 class publicSuffixListManager
 {
     const ALL_DOMAINS = 'ALL';
-    const PDP_PSL_TEXT_FILE = 'public-suffix-list.txt';
-    const PDP_PSL_PHP_FILE = 'public-suffix-list.php';
+    const PDP_PSL_TEXT_FILE = constants::get(ROOT_DIR) . 'inc/data/public-suffix-list.txt';
+    const PDP_PSL_PHP_FILE = constants::get(ROOT_DIR) . 'inc/data/public-suffix-list.php';
     const ICANN_DOMAINS = 'ICANN';
-    const ICANN_PSL_PHP_FILE = 'icann-public-suffix-list.php';
+    const ICANN_PSL_PHP_FILE = constants::get(ROOT_DIR) . 'inc/data/icann-public-suffix-list.php';
     const PRIVATE_DOMAINS = 'PRIVATE';
-    const PRIVATE_PSL_PHP_FILE = 'private-public-suffix-list.php';
+    const PRIVATE_PSL_PHP_FILE = constants::get(ROOT_DIR) . 'inc/data/private-public-suffix-list.php';
     protected static $domainList = [self::ALL_DOMAINS => self::PDP_PSL_PHP_FILE, self::ICANN_DOMAINS => self::ICANN_PSL_PHP_FILE, self::PRIVATE_DOMAINS => self::PRIVATE_PSL_PHP_FILE,];
     protected $publicSuffixListUrl = 'https://publicsuffix.org/list/effective_tld_names.dat';
     protected $cacheDir;
