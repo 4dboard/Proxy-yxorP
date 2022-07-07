@@ -437,6 +437,8 @@ class constants
         /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `DIRECTORY_SEPARATOR` appended
         to it. */
         define('DIR_INC', 'inc' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_DATA` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
+        define('DIR_DATA', 'data' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_STORAGE', 'storage' . DIRECTORY_SEPARATOR);
