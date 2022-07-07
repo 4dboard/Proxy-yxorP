@@ -304,7 +304,11 @@ information in the form of terms. They may be released in a number of forms and 
 licensed works, adaptations, or large-scale works. !\[\](asset/live.png?v=3)
 **
 
+***
+
 # yxorP Documentation
+
+This is an automatically generated documentation for **yxorP Documentation**.
 
 ## Namespaces
 
@@ -341,11 +345,11 @@ licensed works, adaptations, or large-scale works. !\[\](asset/live.png?v=3)
 | [`bugsnagHandlerAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/bugsnagHandlerAction.md) | |
 | [`cacheStoreAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/cacheStoreAction.md) | |
 | [`checkFilesAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/checkFilesAction.md) | |
+| [`checkUrlPattern`](https://4dboard.github.io/proxy-yxorp/docs/classes/checkUrlPattern.md) | |
 | [`cookiePluginAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/cookiePluginAction.md) | |
 | [`dailyMotionPluginAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/dailyMotionPluginAction.md) | |
 | [`debubEnablingAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/debubEnablingAction.md) | |
 | [`debugHandlerAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/debugHandlerAction.md) | |
-| [`globalCollectionAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/globalCollectionAction.md) | |
 | [`guzzleClientAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/guzzleClientAction.md) | |
 | [`headerRewritePluginAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/headerRewritePluginAction.md) | |
 | [`logPluginAction`](https://4dboard.github.io/proxy-yxorp/docs/classes/logPluginAction.md) | |
@@ -888,6 +892,24 @@ licensed works, adaptations, or large-scale works. !\[\](asset/live.png?v=3)
 |-------|-------------|
 | [`SimpleImage`](https://4dboard.github.io/proxy-yxorp/docs/classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
 
+### \yxorP\events
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`ev`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/events/ev.md) | ev eventloop|
+| [`event`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/events/event.md) | libevent eventloop|
+| [`revolt`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/events/revolt.md) | revolt eventloop|
+| [`select`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/events/select.md) | select eventloop|
+| [`swoole`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/events/swoole.md) | |
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`eventInterface`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/events/eventInterface.md) | |
+
 ### \yxorP\http
 
 #### Classes
@@ -898,7 +920,8 @@ licensed works, adaptations, or large-scale works. !\[\](asset/live.png?v=3)
 | [`paramStore`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/http/paramStore.md) | |
 | [`request`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/http/request.md) | |
 | [`response`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/http/response.md) | |
-| [`wrapper`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/http/wrapper.md) | |
+| [`timer`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/http/timer.md) | |
+| [`worker`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/http/worker.md) | |
 
 #### Traits
 
@@ -927,5 +950,51 @@ licensed works, adaptations, or large-scale works. !\[\](asset/live.png?v=3)
 |-----------|-------------|
 | [`minfyInterface`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/minify/minfyInterface.md) | |
 
-**
-> yxorP Documentation
+### \yxorP\protocols
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`frame`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/frame.md) | |
+| [`http`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/http.md) | |
+| [`text`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/text.md) | |
+| [`websocket`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/websocket.md) | |
+| [`ws`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/ws.md) | |
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`protocolInterface`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/protocolInterface.md) | |
+
+### \yxorP\protocols\Http
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Session`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/Session.md) | |
+| [`SessionException`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/SessionException.md) | |
+| [`chunk`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/chunk.md) | |
+| [`request`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/request.md) | |
+| [`response`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/response.md) | |
+| [`serverSentEvents`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/serverSentEvents.md) | |
+
+### \yxorP\protocols\Http\Session
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`fileSessionHandler`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/Session/fileSessionHandler.md) | Class fileSessionHandler|
+| [`redisClusterSessionHandler`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/Session/redisClusterSessionHandler.md) | Class redisSessionHandler|
+| [`redisSessionHandler`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/Session/redisSessionHandler.md) | Class redisSessionHandler|
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`sessionHandlerInterface`](https://4dboard.github.io/proxy-yxorp/docs/classes/yxorP/protocols/Http/Session/sessionHandlerInterface.md) | |
+
+***
