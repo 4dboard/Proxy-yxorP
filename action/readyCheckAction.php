@@ -12,6 +12,6 @@ class readyCheckAction extends wrapper
     public function onCheck(): void
     {
         /* Checking if the cache is valid, and if it is, it returns the cached data. */
-        if (cache::cache()->isValid()) cache::cache()->get(); //Todo: Call final event
+        if (cache::cache()->isValid()) cache::cache()->get();
     }
 }
