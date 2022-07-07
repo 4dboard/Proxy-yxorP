@@ -1,1 +1,4 @@
-<?php namespace Pdp\Exception;class CurlHttpAdapterException extends HttpAdapterException{}
+<?php namespace Pdp\Exception;
+class CurlHttpAdapterException extends HttpAdapterException
+{
+}

@@ -1,1 +1,4 @@
-<?php namespace Pdp\Exception;interface PdpException{}
+<?php namespace Pdp\Exception;
+interface PdpException
+{
+}

@@ -1,1 +1,6 @@
-<?php namespace Pdp\Exception;class HttpAdapterException extends \Exception{}
+<?php namespace Pdp\Exception;
+use Exception;
+
+class HttpAdapterException extends Exception
+{
+}

@@ -10,7 +10,11 @@ declare(strict_types=1);
  * @copyright Copyright (c) 2014 Jeremy Kendall (http://about.me/jeremykendall)
  * @license   http://github.com/jeremykendall/php-domain-parser/blob/master/LICENSE MIT License
  */
+
 namespace Pdp\Uri\Url;
+
+use function array_filter;
+use function implode;
 
 /**
  * Represents the host portion of a Url.
@@ -40,10 +44,10 @@ class Host
     /**
      * Public constructor.
      *
-     * @param string|null $subdomain         Subdomain portion of host
+     * @param string|null $subdomain Subdomain portion of host
      * @param string|null $registrableDomain Registrable domain portion of host
-     * @param string|null $publicSuffix      Public suffix portion of host
-     * @param string      $host              OPTIONAL Entire host part
+     * @param string|null $publicSuffix Public suffix portion of host
+     * @param string $host OPTIONAL Entire host part
      */
     public function __construct($subdomain, $registrableDomain, $publicSuffix, $host = '')
     {
@@ -65,12 +69,27 @@ class Host
         }
 
         // retain only the elements that are not empty
-        $str = \array_filter(
+        $str = array_filter(
             [$this->subdomain, $this->registrableDomain],
             '\strlen'
         );
 
-        return \implode('.', $str);
+        return implode('.', $str);
+    }
+
+    /**
+     * Get array representation of host.
+     *
+     * @return array Array representation of host
+     */
+    public function toArray(): array
+    {
+        return [
+            'subdomain' => $this->getSubdomain(),
+            'registrableDomain' => $this->getRegistrableDomain(),
+            'publicSuffix' => $this->getPublicSuffix(),
+            'host' => $this->getHost(),
+        ];
     }
 
     /**
@@ -109,20 +128,5 @@ class Host
     public function getHost()
     {
         return $this->host;
-    }
-
-    /**
-     * Get array representation of host.
-     *
-     * @return array Array representation of host
-     */
-    public function toArray(): array
-    {
-        return [
-            'subdomain'         => $this->getSubdomain(),
-            'registrableDomain' => $this->getRegistrableDomain(),
-            'publicSuffix'      => $this->getPublicSuffix(),
-            'host'              => $this->getHost(),
-        ];
     }
 }

@@ -1,1 +1,6 @@
-<?php namespace Pdp\HttpAdapter;use Pdp\Exception\HttpAdapterException;interface HttpAdapterInterface{public function getContent($url,$timeout=5);}
+<?php namespace Pdp\HttpAdapter;
+
+interface HttpAdapterInterface
+{
+    public function getContent($url, $timeout = 5);
+}
