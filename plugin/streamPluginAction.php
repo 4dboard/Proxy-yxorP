@@ -7,7 +7,6 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class, which is a class that allows you to listen to events. */
 
-//Todo: fix plugin
 class streamPluginAction extends wrapper
 {
     /* An array of content types that will be streamed. */
