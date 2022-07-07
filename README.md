@@ -173,7 +173,7 @@ and microsites. - Minimum training required – get started, immediately. - Easy
 
 ![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671919-1584593a-cfcc-476a-93ce-c1a65e81de92.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
-## Use case
+![image](https://user-images.githubusercontent.com/6468571/177676041-1ab00f30-53a4-40a4-83c2-29c65d766fa5.png)
 
 Applications Create static flat file variants of your original webpages by using yxorP to mirror your websites and offer
 the mirrored/cloned copies as static flat file variations of the original webpages.
@@ -244,7 +244,9 @@ to be part of the workspace.
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
 ![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
 
-# Background Information Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to
+![image](https://user-images.githubusercontent.com/6468571/177675967-d206de87-fb28-4ccb-a3e3-14294a90df31.png)
+
+Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to
 
 create a single web proxy that outperforms the two when their combined performance is considered. Please keep in mind
 that this is a brand-new project that may undergo changes in the future. With the php-proxy library, a component of the
@@ -253,16 +255,15 @@ application for your web server. If you are able to contribute to or support thi
 as it would enable me to devote more development time to it, therefore expediting its
 progress. ![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png) ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
 
-## Web-Proxy vs Proxy Server Bear in mind that this proxy script may not function properly on websites or pages that are
+![image](https://user-images.githubusercontent.com/6468571/177675918-d0dcee6e-dc9e-4ed5-b859-85d5debb0bbb.png)
 
-very script-heavy or include an excessive number of "dynamic components," as indicated above. Web proxies' inability to
-encrypt data is a well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate
-proxy server to redirect your browser's HTTP requests via the following
-domains: ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
+Server Bear in mind that this proxy script may not function properly on websites or pages that are very script-heavy or include an excessive number of "dynamic components," as indicated above. Web proxies' inability to encrypt data is a well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate proxy server to redirect your browser's HTTP requests via the following domains: ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png)
 
-## Development Environment A Liberating Dev Tool For All Your Projects LAMP recipe, which may be purchased from the link
+![image](https://user-images.githubusercontent.com/6468571/177675825-3e76629b-33f3-45fb-8358-b5a7a0eea0db.png)
+
+Liberating Dev Tool For All Your Projects LAMP recipe, which may be purchased from the link
 
 above, are required in order to complete the Lando - A Liberating Dev Tool For All Your Projects project. You may use
 the Lando - A Liberating Dev Tool For All Your Projects project for all of your projects since it enables you to
@@ -273,7 +274,9 @@ of such technologies. In spite of the fact that there are insufficient instrumen
 it is possible to transcend the conceptual limitations imposed by this situation. Concentrating your attention on the
 most important activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on
 the most important tasks may help to alleviate some of the
-stress. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
+stress. 
+
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
 
 Clone this repo
 
@@ -314,33 +317,46 @@ see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.github
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image(10).gif)
 
-\## Keep it up-to-date When it comes to software updates, it is more often than not that they will be made to the
+![image](https://user-images.githubusercontent.com/6468571/177675740-33ed816f-4206-4ea3-b1e3-abdc45e04db3.png)
+
+When it comes to software updates, it is more often than not that they will be made to the
 application's dependant packages rather than the program itself; for example, most of the adjustments will be made to
-the php-proxy package rather than to the application itself. #### .env This file will be loaded into the Config /\*\* \*
+the php-proxy package rather than to the application itself. 
+
+#### .env 
+
+This file will be loaded into the Config /\*\* \*
 {@inlinetag} \* this is @not a standardtag - must begin a line. \* this is a valid {@inlinetag} also \* @standardtag \*/
-class at the global level. #### /plugins/ Users are encouraged to create their own unique plugins in this subdirectory,
+class at the global level. 
+
+#### /plugins/ 
+
+Users are encouraged to create their own unique plugins in this subdirectory,
 which will then be loaded automatically from the main directory. The proxy, which comes with a number of built-in
 plugins, is not without its limitations, and users are urged to create their own custom plugins in order to broaden the
 range of options available. Think of a simple example like the file /plugins/TestPlugin.php in the plugins directory as
-an
-illustration. ![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png) ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png) ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
+an illustration.
 
-## Usage & How to Guide Navigate to the root of the project with your browser, register an account and then
+![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png) ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png) ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
+
+![image](https://user-images.githubusercontent.com/6468571/177675573-c9df68a1-75e6-445a-9432-c0627b0e98a5.png)
+
+Navigate to the root of the project with your browser, register an account and then
 
 login. ![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png) ![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
 
-## Contributing to the Project Before pull requests may be implemented in the production environment, they must be
+![image](https://user-images.githubusercontent.com/6468571/177675529-46d43bff-1721-4371-9634-0a6c9c12f230.png)
 
-evaluated and authorized by the development team. Please open a new issue with the appropriate subject title to discuss
-the modifications you want to make to the document. Please make every effort to keep tests current in order to minimize
-the chance of wrong interpretation of results. We appreciate all of your assistance and support.
+Before pull requests may be implemented in the production environment, they must be evaluated and authorized by the development team. Please open a new issue with the appropriate subject title to discuss the modifications you want to make to the document. Please make every effort to keep tests current in order to minimize the chance of wrong interpretation of results. We appreciate all of your assistance and support.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (14).gif)
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)  
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png) ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
 
-## Road Map - \[x\] Front-end - \[x\] Combine Proxy Engines - \[x\] Allow Multi-tent rendering - \[x\] Build Caching
+![image](https://user-images.githubusercontent.com/6468571/177675430-db10d3c6-ca87-47e6-8327-8f9723a2d2ab.png)
+
+- \[x\] Front-end - \[x\] Combine Proxy Engines - \[x\] Allow Multi-tent rendering - \[x\] Build Caching
 
 Layer - \[x\] Develop Multi-threading support (PHP Vanilla/Independent) + More (To be listed soon) - \[x\] Foundation -
 \[x\] API Service - \[x\] TxT DB - \[x\] Login - \[x\] Registration - \[x\] Dashboard - \[x\] Who is Online - \[x\]
@@ -351,10 +367,9 @@ Functions - \[ \] UI - \[ \] Chat - \[ \] Data Scheme - \[x\] API Endpoints - \[
 - \[x\] Versions - \[x\] Owners - \[ \] Crate
   details ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
 
-## Licensing \[MIT Software License for .yxorP The PHP Web-Proxy by don
+![image](https://user-images.githubusercontent.com/6468571/177675374-f3d170e8-fd9a-4e76-a9bf-5805bc2ce504.png)
 
-Pablo\](https://choosealicense.com/licenses/mit/) The Massachusetts Institute of Technology (MIT) License, sometimes
-referred to as the "MIT License," is a permissive free software license developed in the late 1980s and still in use at
+[MIT Software License for .yxorP The PHP Web-Proxy by don Pablo](https://choosealicense.com/licenses/mit/) The Massachusetts Institute of Technology (MIT) License, sometimes referred to as the "MIT License," is a permissive free software license developed in the late 1980s and still in use at
 the Massachusetts Institute of Technology today. Repurposing is confined to a limited number of scenarios due to the
 permissive nature of the program, which assures compliance with licensing agreements. This license is straightforward
 and concise; it is a permissive license that just requires copyright protection and prominent display of licensing
