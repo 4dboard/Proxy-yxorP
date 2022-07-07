@@ -314,8 +314,6 @@ init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/a
 For more information please
 see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image(10).gif)
-
 ![image](https://user-images.githubusercontent.com/6468571/177675740-33ed816f-4206-4ea3-b1e3-abdc45e04db3.png)
 
 When it comes to software updates, it is more often than not that they will be made to the application's dependant
@@ -339,33 +337,65 @@ example like the file /plugins/TestPlugin.php in the plugins directory as an ill
 ![image](https://user-images.githubusercontent.com/6468571/177675573-c9df68a1-75e6-445a-9432-c0627b0e98a5.png)
 
 Navigate to the root of the project with your browser, register an account and then
-
 login. ![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png) ![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675529-46d43bff-1721-4371-9634-0a6c9c12f230.png)
 
 Before pull requests may be implemented in the production environment, they must be evaluated and authorized by the
 development team. Please open a new issue with the appropriate subject title to discuss the modifications you want to
-make to the document. Please make every effort to keep tests current in order to minimize the chance of wrong
-interpretation of results. We appreciate all of your assistance and support.
+make to the document.
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (14).gif)
+Please make every effort to keep tests current in order to minimize the chance of wrong interpretation of results. We
+appreciate all of your assistance and support.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)  
 ![image](https://user-images.githubusercontent.com/6468571/157206554-6f07c153-cca7-4679-a5c7-441f88580bd4.png) ![image](https://user-images.githubusercontent.com/6468571/157189069-baae9f9f-3576-4eea-9427-58a236210541.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675430-db10d3c6-ca87-47e6-8327-8f9723a2d2ab.png)
 
-\[x\] Front-end - \[x\] Combine Proxy Engines - \[x\] Allow Multi-tent rendering - \[x\] Build Caching
+- [x] Front-end
+- [x] Combine Proxy Engines
+- [x] Allow Multi-tent rendering
+- [x] Build Caching
 
-Layer - \[x\] Develop Multi-threading support (PHP Vanilla/Independent) + More (To be listed soon) - \[x\] Foundation -
-\[x\] API Service - \[x\] TxT DB - \[x\] Login - \[x\] Registration - \[x\] Dashboard - \[x\] Who is Online - \[x\]
-Documentation - \[ \] Tables - \[x\] Users - \[x\] Notes - \[x\] Tasks - \[ \] Chat - \[ \] Notes - \[x\] Data Scheme -
-\[x\] API Endpoints - \[x\] Functions - \[ \] UI - \[ \] Tasks - \[x\] Data Scheme - \[x\] API Endpoints - \[x\]
-Functions - \[ \] UI - \[ \] Chat - \[ \] Data Scheme - \[x\] API Endpoints - \[x\] Functions - \[ \] UI - \[ \] Testing
+Layer
 
-- \[x\] Versions - \[x\] Owners - \[ \] Crate
-  details ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
+- [x] Develop Multi-threading support (PHP Vanilla/Independent) + More (To be listed soon)
+- [x] Foundation
+- [x] API Service
+- [x] TxT DB
+- [x] Login
+- [x] Registration
+- [x] Dashboard
+- [x] Who is Online
+- [x] Documentation
+- [ ] Tables
+- [x] Users
+- [x] Notes
+- [x] Tasks
+- [ ] Chat
+- [ ] Notes
+- [x] Data Scheme
+- [x] API Endpoints
+- [x] Functions
+- [ ] UI
+- [ ] Tasks
+- [x] Data Scheme
+- [x] API Endpoints
+- [x] Functions
+- [ ] UI
+- [ ] Chat
+- [ ] Data Scheme
+- [x] API Endpoints
+- [x] Functions
+- [ ] UI
+- [ ] Testing
+
+- [x] Versions
+- [x] Owners
+- [ ] Crate details
+
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206640-0ecdb227-cc7f-46a3-8b26-b0c76ac030a5.png) ![image](https://user-images.githubusercontent.com/6468571/157189108-1914f60d-d58e-400a-9ced-a5d09a5d81ad.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675374-f3d170e8-fd9a-4e76-a9bf-5805bc2ce504.png)
 
