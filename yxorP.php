@@ -47,8 +47,7 @@ class yxorP
             require PATH_COCKPIT_INDEX;
             exit;
         }
-        foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $files)
-            $this->subscribers(files)
+        foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) $this->subscribers($key, $vale);
     }
 
     /**
