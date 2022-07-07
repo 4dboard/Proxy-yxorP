@@ -21,7 +21,7 @@ abstract class wrapper
     final public function subscribe(yxorP\yxorP $dispatcher): void
     {
         /* Adding a listener to all the events. */
-        foreach (Constants::get(YXORP_EVENT_LIST) as $event) {
+        foreach (constants::get(YXORP_EVENT_LIST) as $event) {
             /* Adding a listener to the event. */
             $dispatcher->addListener($event, function () use ($event) {
                 /* Calling the `route` method. */
@@ -37,8 +37,8 @@ abstract class wrapper
         try {
 
             if ($this->url_pattern && generalHelper::starts_with($this->url_pattern, CHAR_SLASH)
-                && preg_match($this->url_pattern, Constants::get(YXORP_REQUEST_URI_FULL)) !== 1
-                && stripos(Constants::get(YXORP_REQUEST_URI_FULL), $this->url_pattern) === false) return;
+                && preg_match($this->url_pattern, constants::get(YXORP_REQUEST_URI_FULL)) !== 1
+                && stripos(constants::get(YXORP_REQUEST_URI_FULL), $this->url_pattern) === false) return;
 
             /* Used to check if the event should be executed. */
             $this->onCheck();
