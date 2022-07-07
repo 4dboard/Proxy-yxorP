@@ -41,7 +41,7 @@ class publicSuffixListManager
     const ALL_DOMAINS = 'ALL';
     const ICANN_DOMAINS = 'ICANN';
     const PRIVATE_DOMAINS = 'PRIVATE';
-    protected static $domainList = [self::ALL_DOMAINS => self::PDP_PSL_PHP_FILE, self::ICANN_DOMAINS => self::ICANN_PSL_PHP_FILE, self::PRIVATE_DOMAINS => self::PRIVATE_PSL_PHP_FILE,];
+    protected static $domainList = [self::ALL_DOMAINS => PDP_PSL_PHP_FILE, self::ICANN_DOMAINS => ICANN_PSL_PHP_FILE, self::PRIVATE_DOMAINS => PRIVATE_PSL_PHP_FILE,];
     protected $publicSuffixListUrl = 'https://publicsuffix.org/list/effective_tld_names.dat';
     protected $cacheDir;
     protected $httpAdapter;
@@ -105,7 +105,7 @@ class publicSuffixListManager
     public function writePhpCache(array $publicSuffixList): int
     {
         $data = '<?php' . PHP_EOL . ' return ' . var_export($publicSuffixList, true) . ';';
-        return $this->write(self::PDP_PSL_PHP_FILE, $data);
+        return $this->write(PDP_PSL_PHP_FILE, $data);
     }
 
     protected function write($filename, $data): int
@@ -131,7 +131,7 @@ class publicSuffixListManager
     public function getList($list = self::ALL_DOMAINS, bool $withStaticCache = true): publicSuffixList
     {
         static $LIST_STATIC = [];
-        $basename = self::$domainList[$list] ?? self::PDP_PSL_PHP_FILE;
+        $basename = self::$domainList[$list] ?? PDP_PSL_PHP_FILE;
         $file = $this->cacheDir . '/' . $basename;
         if ($withStaticCache === false) {
             if (!file_exists($file)) {
@@ -155,7 +155,7 @@ class publicSuffixListManager
     public function refreshPublicSuffixList()
     {
         $this->fetchListFromSource();
-        $cacheFile = $this->cacheDir . '/' . self::PDP_PSL_TEXT_FILE;
+        $cacheFile = $this->cacheDir . '/' . PDP_PSL_TEXT_FILE;
         $publicSuffixListArray = $this->convertListToArray($cacheFile);
         foreach ($publicSuffixListArray as $domain => $data) {
             if (is_array($data) && !empty($data)) {
@@ -170,7 +170,7 @@ class publicSuffixListManager
         if ($publicSuffixList === false) {
             return 0;
         }
-        return $this->write(self::PDP_PSL_TEXT_FILE, $publicSuffixList);
+        return $this->write(PDP_PSL_TEXT_FILE, $publicSuffixList);
     }
 
     public function getHttpAdapter(): httpAdapterInterface
