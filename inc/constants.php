@@ -10,6 +10,7 @@ use RuntimeException;
 use yxorP\parser\parseUrl;
 use function cockpit;
 use const yxorP\domain\urlParser;
+use const yxorP\domain\XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
 use const yxorP\parser\parser;
 
 class constants

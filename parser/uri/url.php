@@ -4,7 +4,7 @@ namespace yxorP\parser\Uri;
 
 use voku\helper\UTF8;
 use yxorP\parser\Uri\Url\host;
-use yxorP\parser\urlParser;
+use yxorP\parser\XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX;
 use function preg_replace;
 use function urlencode;
 
@@ -65,7 +65,7 @@ class url
 
     public function getSchemeless(): string
     {
-        return (string)preg_replace(urlParser::SCHEME_PATTERN, '//', (string)$this, 1);
+        return (string)preg_replace(XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX::SCHEME_PATTERN, '//', (string)$this, 1);
     }
 
     public function toArray(): array
