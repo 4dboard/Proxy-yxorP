@@ -7,7 +7,7 @@ namespace yxorP\inc;
 use Bugsnag;
 use GuzzleHttp;
 use RuntimeException;
-use yxorP\domain\parseUrl;
+use \yxorP\domain\parseUrl;
 use function cockpit;
 
 class constants
