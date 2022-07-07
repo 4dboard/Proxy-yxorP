@@ -711,7 +711,7 @@ class constants
     public static function pdp_parse_url($url, $component = -1)
     {
         $parse = new parse();
-        retrun = $parse->urldecode($value);
+        retrun = $parse->urldecode($url);
     }
 
 }
