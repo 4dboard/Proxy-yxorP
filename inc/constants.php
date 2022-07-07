@@ -528,7 +528,7 @@ class constants
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
 
 
-        if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) require PATH_COCKPIT_INDEX;
+        if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
 
         // REQUIRED
         /* Loading the Bugsnag PHP library. */
@@ -565,6 +565,30 @@ class constants
     }
     /* A function that is being called to fetch .env values. */
 
+
+    /**
+     * @return void
+     */
+    public static function env(string $line): void
+    {
+        require PATH_COCKPIT_INDEX;
+        exit();
+    }
+
+    /**
+     * @param string $_name
+     * @param string|array|object|null $_value
+     * @return string|array|object|null
+     */
+    public static function set(string $_name, string|array|object|null $_value): string|array|object|null
+    {
+        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
+    }
+
+    /* Setting the value of the variable $_name to the value of the variable $_value. */
+
     /**
      * @param string $line
      * @return void
@@ -577,20 +601,6 @@ class constants
         [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
         /* Replacing all the new lines with null. */
         self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
-    }
-
-    /* Setting the value of the variable $_name to the value of the variable $_value. */
-
-    /**
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
-     */
-    public static function set(string $_name, string|array|object|null $_value): string|array|object|null
-    {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
     }
 
     /* A function that is being called to localise constants. */
