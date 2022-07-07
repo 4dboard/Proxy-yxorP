@@ -2,6 +2,9 @@
 
 namespace yxorP\domain;
 
+echo 123;
+exit(123);
+
 use Arrayy\Arrayy;
 use voku\helper\UTF8;
 use yxorP\domain\Exception\seriouslyMalformedUrlException;
