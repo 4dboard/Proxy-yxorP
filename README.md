@@ -190,7 +190,7 @@ such as DDOS attacks and other types of attacks.
 
 #### 🔳 iFrame
 
-It is possible to circumvent CORS for the iframing services that you need – \*\*not recommended, but feasible\*\*.
+It is possible to circumvent CORS for the iframing services that you need – ***not recommended, but feasible***.
 
 #### 🔱 Load-balancing
 
@@ -241,7 +241,7 @@ to be part of the workspace.
 
 ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 
-![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
 ![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
 
 # Background Information Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to
