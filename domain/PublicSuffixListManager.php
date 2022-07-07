@@ -4,8 +4,8 @@ namespace yxorp\domain;
 
 use Exception;
 use InvalidArgumentException;
-use Pdp\HttpAdapter\HttpAdapterInterface;
 use SplFileObject;
+use yxorp\domain\HttpAdapter\HttpAdapterInterface;
 use function array_filter;
 use function array_keys;
 use function array_pop;

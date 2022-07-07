@@ -1,4 +1,4 @@
-<?php namespace Pdp\Exception;
+<?php namespace yxorp\domain\Exception;
 
 use InvalidArgumentException;
 use function sprintf;

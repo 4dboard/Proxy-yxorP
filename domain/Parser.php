@@ -3,10 +3,10 @@
 namespace yxorp\domain;
 
 use Arrayy\Arrayy;
-use Pdp\Exception\SeriouslyMalformedUrlException;
-use Pdp\Uri\Url;
-use Pdp\Uri\Url\Host;
 use voku\helper\UTF8;
+use yxorp\domain\Exception\SeriouslyMalformedUrlException;
+use yxorp\domain\Uri\Url;
+use yxorp\domain\Uri\Url\Host;
 use function array_reverse;
 use function array_shift;
 use function array_slice;
