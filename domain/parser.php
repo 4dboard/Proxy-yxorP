@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace yxorp\domain;
+namespace yxorP\domain;
 
 use Arrayy\Arrayy;
 use voku\helper\UTF8;
-use yxorp\domain\Exception\seriouslyMalformedUrlException;
-use yxorp\domain\Uri\url;
-use yxorp\domain\Uri\Url\host;
+use yxorP\domain\Exception\seriouslyMalformedUrlException;
+use yxorP\domain\Uri\url;
+use yxorP\domain\Uri\Url\host;
 use function array_reverse;
 use function array_shift;
 use function array_slice;

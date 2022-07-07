@@ -1,4 +1,4 @@
-<?php namespace yxorp\domain;
+<?php namespace yxorP\domain;
 /*
  * class Pdp\Uri\Url#6 (8) {
     private $scheme =>

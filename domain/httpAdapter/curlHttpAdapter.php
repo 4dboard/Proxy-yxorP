@@ -1,9 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace yxorp\domain\HttpAdapter;
+namespace yxorP\domain\HttpAdapter;
 
 use Exception;
-use yxorp\domain\Exception\curlAdapterException;
+use yxorP\domain\Exception\curlAdapterException;
 use function assert;
 use function curl_close;
 use function curl_errno;

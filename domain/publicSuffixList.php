@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace yxorp\domain;
+namespace yxorP\domain;
 
 use Arrayy\Arrayy;
 use function is_string;

@@ -1,4 +1,4 @@
-<?php namespace yxorp\domain\Exception;
+<?php namespace yxorP\domain\Exception;
 interface pdpException
 {
 }
