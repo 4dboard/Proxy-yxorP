@@ -88,7 +88,7 @@ ServerAlias server
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177684223-790bd4aa-7e8a-4dbd-a5e0-87ce8f0c5a8e.png)
-![image](https://user-images.githubusercontent.com/6468571/177686175-eefc7b09-9467-41b6-ac9c-73a8303c7d3f.png)
+![image](https://user-images.githubusercontent.com/6468571/177686596-c72fadb4-1f88-4eb9-95d6-e83e1cbfc5f7.png)
 
 Both the Swoole and RoadRunner servers, which are renowned for their speed and durability, are able to support the
 execution of PHP applications with persistent data. After installation, the Swoole PHP extension provides users with
