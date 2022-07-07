@@ -400,6 +400,14 @@ class constants
         /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string VAR_PATTERN. */
         define('YXORP_GLOBAL_PATTERN', VAR_GLOBAL_UP . CHAR_UNDER . VAR_PATTERN);
 
+        // COCKPIT
+        /* Defining a constant. */
+        define('COCKPIT_COCKPIT', 'cockpit');
+        define('COCKPIT_ACCOUNTS', COCKPIT_COCKPIT . CHAR_SLASH . VAR_COCKPIT_ACCOUNTS);
+        define('COCKPIT_COLLECTIONS', 'collections');
+        define('COCKPIT_SITES', 'sites');
+        define('COCKPIT_HOST', 'host');
+        define('COCKPIT_TARGET', 'target');
 
         // DIRECTORIES
         /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
@@ -511,15 +519,6 @@ class constants
         define('ENV_BUG_SNAG_KEY', 'BUG_SNAG_KEY' . EXT_ENV);
         /* Defining a constant called ENV_DEBUG and setting it to the value of 'DEBUG' . EXT_ENV. */
         define('ENV_DEBUG', 'DEBUG' . EXT_ENV);
-
-        // COCKPIT
-        /* Defining a constant. */
-        define('COCKPIT_COCKPIT', 'cockpit');
-        define('COCKPIT_ACCOUNTS', COCKPIT_COCKPIT . CHAR_SLASH . VAR_COCKPIT_ACCOUNTS);
-        define('COCKPIT_COLLECTIONS', 'collections');
-        define('COCKPIT_SITES', 'sites');
-        define('COCKPIT_HOST', 'host');
-        define('COCKPIT_TARGET', 'target');
 
 
         //EXCEPTIONS
