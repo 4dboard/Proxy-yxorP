@@ -1,10 +1,1 @@
-<?php
-
-namespace Pdp\Exception;
-
-/**
- * Class HttpAdapterException
- */
-class HttpAdapterException extends \Exception
-{
-}
+<?php namespace Pdp\Exception;class HttpAdapterException extends \Exception{}
