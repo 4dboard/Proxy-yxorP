@@ -1,4 +1,31 @@
 <?php namespace yxorp\domain;
+/*
+ * class Pdp\Uri\Url#6 (8) {
+    private $scheme =>
+    string(4) "http"
+    private $host =>
+    class Pdp\Uri\Url\Host#5 (3) {
+        private $subdomain =>
+        string(3) "www"
+        private $registrableDomain =>
+        string(15) "pref.okinawa.jp"
+        private $publicSuffix =>
+        string(10) "okinawa.jp"
+    }
+    private $port =>
+    int(8080)
+    private $user =>
+    string(4) "user"
+    private $pass =>
+    string(4) "pass"
+    private $path =>
+    string(18) "/path/to/page.html"
+    private $query =>
+    string(12) "query=string"
+    private $fragment =>
+    string(8) "fragment"
+}
+ */
 
 class parseUrl
 {
