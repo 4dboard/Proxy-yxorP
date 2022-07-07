@@ -12,6 +12,4 @@ f1() {
 }
 
 
-f1 './connection/'
-f1 './event/'
-f1 './protocols/'
+f1 './domain/'
