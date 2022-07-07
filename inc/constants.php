@@ -160,6 +160,15 @@ class constants
         /* Defining a constant. */
         define('FILE_KINT', 'kint');
 
+        /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
+        define('FILE_PDP_PSL_TEXT', 'public-suffix-list.txt');
+        /* Defining the PATH_PDP_PSL_PHP_FILE path to the action public-suffix-list file. */
+        define('FILE_PDP_PSL_PHP', 'public-suffix-list.php');
+        /* Defining the PATH_PRIVATE_PSL_PHP_FILE path to the action private-public-suffix-list file. */
+        define('FILE_PRIVATE_PSL_PHP', 'private-public-suffix-list.php');
+        /* Defining the PATH_ICANN_PSL_PHP_FILE path to the action icann-public-suffix-list file. */
+        define('FILE_ICANN_PSL_PHP', 'icann-public-suffix-list.php');
+
 
         //METHODS
         /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
@@ -485,11 +494,14 @@ class constants
         /* Defining the path to the action kint file. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_KINT . EXT_PHP);
 
-
-        define('PATH_PDP_PSL_TEXT_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.txt');
-        define('PATH_PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.php');
-        define('PATH_PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'private-public-suffix-list.php');
-        define('PATH_ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'icann-public-suffix-list.php');
+        /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
+        define('PATH_PDP_PSL_TEXT', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PDP_PSL_TEXT);
+        /* Defining the PATH_PDP_PSL_PHP_FILE path to the action public-suffix-list file. */
+        define('PATH_PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PDP_PSL_PHP);
+        /* Defining the PATH_PRIVATE_PSL_PHP_FILE path to the action private-public-suffix-list file. */
+        define('PATH_PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PRIVATE_PSL_PHP);
+        /* Defining the PATH_ICANN_PSL_PHP_FILE path to the action icann-public-suffix-list file. */
+        define('PATH_ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_ICANN_PSL_PHP);
 
 
         //REGEX
