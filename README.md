@@ -168,9 +168,19 @@ goal is to provide structured content across different channels via a simpleAPI.
 
 Manage flexible content models. There are no pre-defined content models. Define the content model yourself. Uncluttered
 UI. Cockpit offers you a modern and simple user interface. One system, consume it the way you want. Receive your content
-via a simple API. #### The Advantages Of Going Headless - No presentation limitations – build the best design ever. -
-Content for multiple channels – create content once, consume anywhere. - Highly scalable content – for all your devices
-and microsites. - Minimum training required – get started, immediately. - Easy integrations – connect with everything.
+via a simple API.
+
+#### The Advantages Of Going Headless
+
+- No presentation limitations
+- build the best design ever.
+- Content for multiple channels – create content once, consume anywhere.
+- Highly scalable content
+- For all your devices and microsites.
+- Minimum training required
+- Get started, immediately.
+- Easy integrations
+- Connect with everything.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671919-1584593a-cfcc-476a-93ce-c1a65e81de92.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
