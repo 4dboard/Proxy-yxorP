@@ -309,6 +309,8 @@ class constants
         define('VAR_NAME_UP', 'NAME');
         /* Defining a constant called VAR_URL and setting it to the string URL. */
         define('VAR_URL_UP', 'URL');
+        /* Defining a constant called VAR_PARSE_UP and setting it to the string PARSE. */
+        define('VAR_PARSE_UP', 'PARSE');
         /* Defining a constant called VAR_URI and setting it to the string URI. */
         define('VAR_URI', 'URI');
         /* Defining a constant called VAR_SUB and setting it to the string SUB. */
@@ -380,6 +382,8 @@ class constants
         define('YXORP_SITE_URL', VAR_SITE . CHAR_UNDER . VAR_URL_UP);
         /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
         define('YXORP_SITE_DOMAIN', VAR_SITE . CHAR_UNDER . VAR_DOMAIN_UP);
+        /* Defining a constant called YXORP_SITE_URL_PARSE and setting it to the string SITE_DOMAIN. */
+        define('YXORP_SITE_URL_PARSE', VAR_SITE . CHAR_UNDER . VAR_URL_UP . VAR_PARSE_UP);
         /* Defining a constant called YXORP_SUB_DOMAIN and setting it to the string SUB_DOMAIN. */
         define('YXORP_SUB_DOMAIN', VAR_SUB . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
@@ -643,7 +647,7 @@ class constants
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        (parseUrl::parse(constants::get(YXORP_SITE_URL)))
+        constants::set(YXORP_SITE_URL_PARSE, parseUrl::parse(constants::get(YXORP_SITE_URL)));
         constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(VAR_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
