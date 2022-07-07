@@ -1,6 +1,6 @@
 <?php namespace yxorP\domain;
 
-class urlParse
+class parseUrl
 {
     public static function go($url, $component = -1)
     {
