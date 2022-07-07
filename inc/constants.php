@@ -489,7 +489,7 @@ class constants
         define('PATH_PDP_PSL_TEXT_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.txt');
         define('PATH_PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.php');
         define('PATH_PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'private-public-suffix-list.php');
-        define('ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'icann-public-suffix-list.php');
+        define('PATH_ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'icann-public-suffix-list.php');
 
 
         //REGEX
