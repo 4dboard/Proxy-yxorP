@@ -43,10 +43,7 @@ class yxorP
 
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        if ((constants::get(VAR_SERVER))[YXORP_REQUEST_URI]) if (str_contains((constants::get(VAR_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) {
-            require PATH_COCKPIT_INDEX;
-            exit;
-        }
+        if ((constants::get(VAR_SERVER))[YXORP_REQUEST_URI]) if (str_contains((constants::get(VAR_SERVER))[YXORP_REQUEST_URI], CHAR_SLASH . DIR_COCKPIT)) require PATH_COCKPIT_INDEX;
         foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) $this->subscribers($key, $value);
     }
 
