@@ -6,7 +6,6 @@ use Exception;
 use InvalidArgumentException;
 use SplFileObject;
 use yxorp\domain\HttpAdapter\httpAdapterInterface;
-use yxorP\inc\constants;
 use function array_filter;
 use function array_keys;
 use function array_pop;
