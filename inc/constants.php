@@ -162,7 +162,7 @@ class constants
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
         define('FILE_PDP_PSL_TEXT', 'public-suffix-list.txt');
-        /* Defining the PATH_PDP_PSL_PHP_FILE path to the action public-suffix-list file. */
+        /* Defining the PATH_PDP_PSL_PHP path to the action public-suffix-list file. */
         define('FILE_PDP_PSL_PHP', 'public-suffix-list.php');
         /* Defining the PATH_PRIVATE_PSL_PHP_FILE path to the action private-public-suffix-list file. */
         define('FILE_PRIVATE_PSL_PHP', 'private-public-suffix-list.php');
@@ -496,8 +496,8 @@ class constants
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
         define('PATH_PDP_PSL_TEXT', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PDP_PSL_TEXT);
-        /* Defining the PATH_PDP_PSL_PHP_FILE path to the action public-suffix-list file. */
-        define('PATH_PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PDP_PSL_PHP);
+        /* Defining the PATH_PDP_PSL_PHP path to the action public-suffix-list file. */
+        define('PATH_PDP_PSL_PHP', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PDP_PSL_PHP);
         /* Defining the PATH_PRIVATE_PSL_PHP_FILE path to the action private-public-suffix-list file. */
         define('PATH_PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PRIVATE_PSL_PHP);
         /* Defining the PATH_ICANN_PSL_PHP_FILE path to the action icann-public-suffix-list file. */
