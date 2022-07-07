@@ -2,6 +2,12 @@
 
 class parseUrl
 {
+
+    private function __construct()
+    {
+
+    }
+
     public static function url($url, $component = -1)
     {
         $enc_url = preg_replace_callback('%([a-zA-Z][a-zA-Z0-9+\-.]*)?(:?//)?([^:/@?&=#\[\]]+)%u', static function ($matches) {
