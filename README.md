@@ -16,7 +16,7 @@
 
 ---
 
-## PROJECT NOTICEBOARD:
+![image](https://user-images.githubusercontent.com/6468571/177668426-3548dbf3-03ff-4ea0-a1be-08436a3751bd.png)
 
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
 
@@ -30,7 +30,7 @@
 
 ---
 
-# .yxorP User-friendly, Plug & Play Web Proxy
+![image](https://user-images.githubusercontent.com/6468571/177670081-392fa979-aceb-4368-8a81-ff12bcb80448.png)
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
@@ -50,6 +50,11 @@ a predefined time inside a custom-built, *flat-file cache* system architectured 
 cache* systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization
 processes, which resulted a significantly faster cache.
 
+The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
+was done to assure Bugsnag's compatibility with the modification. Changes to the *default logging* system may be done in
+as little as two minutes due to the program's compatibility with the great majority of the *industry's primary error
+tracking systems*.
+
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
 yxorP was designed to operate with either a stateless server (Apache) or a *stateful server* (Swoole) which are *
@@ -57,32 +62,51 @@ high-performance* networking frameworks with an *event-driven, asynchronous, and
 with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services ( *Parrelelle*) that are
 both rapid and scalable.
 
-## Stateless Server:
+![image](https://user-images.githubusercontent.com/6468571/177669133-19ff6171-8f32-45ed-9dbb-af6d0cc46583.png)
+
+PHP, unlike other programming languages, does not have its own state. Each and every query is unique. In this way, the protocol is relatively similar to the HyperText Transfer Protocol's roots (HTTP). On top of that, state may be implemented via sessions, databases, shared memory, files, or anything else that retains state in some way. There may be alternatives, such as shared memory.
 
 ``` 
+
+# NGINX EXAMPLE
 DocumentRoot "/.yxorP/index.php" 
 ServerName www.demo.com
 ServerAlias server 
+
 ``` 
 
-## Statefull Server:
+![image](https://user-images.githubusercontent.com/6468571/177670311-52d8a69f-a116-4709-b666-5a88f1d25c7b.png)
 
-``` php ./server.php ```
+Both the Swoole and RoadRunner servers, which are renowned for their speed and durability, are able to support the execution of PHP applications with persistent data. After installation, the Swoole PHP extension provides users with access to a number of useful and intriguing functions. Among these features are coroutines, fibers, web sockets, and caching. In contrast, RoadRunner is a robust application server, load balancer, and process manager written in GoLang. Octane may use one of these two ways, depending on the program author. Due to the PHP Swoole extension, Octane has access to a significantly greater variety of functionalities than RoadRunner.
 
-The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
-was done to assure Bugsnag's compatibility with the modification. Changes to the *default logging* system may be done in
-as little as two minutes due to the program's compatibility with the great majority of the *industry's primary error
-tracking systems*.
+``` 
 
-## Docker Composer:
+php ./server.php
 
-``` cd inc docker-composer up -d ```
+```
 
-## Docker: ``` cd inc docker run
+![image](https://user-images.githubusercontent.com/6468571/177670564-a993d2d1-50f0-48f3-a6ea-90fc81a2e1d9.png)
 
--p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp ```
+Docker Compose is a tool that simplifies the design and distribution of multi-container applications. With Compose, we can specify our services in a YAML file and then deploy, scale, and destruct our infrastructure with a single command.
 
-![image](https://user-images.githubusercontent.com/6468571/174686718-8501af5f-3fd3-4df9-8854-3319f7837e51.png)
+``` 
+
+cd inc docker-composer up -d 
+
+```
+
+![image](https://user-images.githubusercontent.com/6468571/177670650-69065bc9-5081-446d-afde-ab1c58c43f26.png)
+
+Docker enables its users to manage containers in a manner comparable to managing very lightweight and modular virtual machines. This streamlines a number of duties, including the design and building of containers and the transportation of photographs, among others.
+
+```
+cd inc docker run
+
+-p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp 
+
+```
+
+![image](https://user-images.githubusercontent.com/6468571/177671609-309febf0-f0b1-4726-8bbf-a466ebb31e98.png)
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
 
@@ -96,7 +120,7 @@ and password are only used on the first run). The application can also always be
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
 
-![image](https://user-images.githubusercontent.com/6468571/174686903-294074b2-2129-4084-a42d-33d6387a8851.png)
+![image](https://user-images.githubusercontent.com/6468571/177671682-6cfa5775-0479-48cb-b54a-8091ccc34458.png)
 
 ### 🔋 Batteries Included: Plug & Play \[CURL + Composer Optional\], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.
 
@@ -106,20 +130,11 @@ CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb, Mongodb, Memcache(d),Predis
 Zend Disk Cache. The combined might of two of the most successful web proxy initiatives is harnessed for maximum effect.
 This self-service proxy engine has zero performance loss and supports numerous tenants by combining a flat-file
 beautiful web interface with a custom multi-threaded caching layer and an extremely powerful 10,000+ word thesaurus
-article spinner. Vanilla Dashboard is a no-cost, no-commitment self-service proxy engine that supports numerous tenants.
-Specifically, the project is looking for funding to help tie off some loose ends, particularly with the backed GUI; the
-front-end is complete and functional, but code cleanup and unit testing are required. yxorP (proxy.) is a one-of-a-kind,
-plug-and-play (no installation required), multi-threaded, website mirroring and content augmentation, fast cache, and
-multi-web proxy server that performs website mirroring and content augmentation, website mirroring and content
-augmentation, fast cache, and multi-web proxy server (reverse proxy). In addition to having a built-in "cache"
-management system as well as a web-based "cache" management system, the proxy is "modular" or "plugin-based." Web-based
-reporting and analytics using a graphical user interface (GUI) (GUI). By leveraging a custom-built content spinning
-engine, the system allows material to be "augmented" (or "spun") with little performance degradation (10,000+
-thesaurus/dictionary entries) while maintaining high quality.
+article spinner. In addition to having a built-in "cache" management system as well as a web-based "cache" management system, the proxy is "modular" or "plugin-based." Web-based reporting and analytics using a graphical user interface (GUI) (GUI). By leveraging a custom-built content spinning engine, the system allows material to be "augmented" (or "spun") with little performance degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
 
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205365-af23c9a1-98a7-40fd-8b74-0b9b0918a259.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671798-1d8a9fc9-64d4-43d8-82e1-3d2a056ada90.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
 ### Cockpit Back-End Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to
 
@@ -141,9 +156,9 @@ UI. Cockpit offers you a modern and simple user interface. One system, consume i
 via a simple API. #### The Advantages Of Going Headless - No presentation limitations – build the best design ever. -
 Content for multiple channels – create content once, consume anywhere. - Highly scalable content – for all your devices
 and microsites. - Minimum training required – get started, immediately. - Easy integrations – connect with
-everything.![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205537-31de601d-4b8b-4c6b-af36-4c1e7e3f184f.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
+everything.![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671919-1584593a-cfcc-476a-93ce-c1a65e81de92.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
-![image]('https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (3).gif')
+![image]('https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image(3).gif')
 
 ## Use case
 
@@ -191,12 +206,21 @@ reproduce and fix issues as soon as they begin to have an impact on system stabi
 arranged by root cause and may also be classified by business impact. In addition, they are supplied with extensive
 diagnostic information.
 
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/157205793-efeaaa6c-eae6-4070-8838-50637876156b.png) ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
+![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177672109-b49bb56d-abfe-411f-87b6-b506e47820b8.png) ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (4).gif)
+Gitpod gives Theia developers an integrated development environment (IDE) built on top of VS Code for editing and organizing code. It provides a comprehensive OS environment so that applications developed for the platform may leverage the OS environment to run.
 
-\## Instant Setup Instant Development Enviroment stup with your prefered service
-provider: [![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157205943-7e735dd6-4d7f-401b-97b7-a25ecc2b9c3b.png) ![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
+
+[![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
+
+Visit their website to discover more about Gitpod and how its features evolve over time. Nevertheless, a Gitpod is really an Ubuntu 20.04 Focal Fossa container running in Docker. The installation procedure is hampered by the absence of the user gitpod from the list of sudoers. The Dockerfile associated with a Docker instance may be modified by installation components that need root access. Whether operations performed inside the Dockerfile, at the command line, or within the code are preferable depends on the circumstance. For many jobs, Dockerfiles do not need to be very elaborate.
+
+Gitpod has a user account called gitpod and a home directory located at /home/gitpod, but the only data kept in the shared and sharable workspace is the first Docker container. Only modifications performed in a Gitpod's workspace are maintained during a clone or rollback. Under the path /workspace/your-workspace-name, all files and folders are deemed to be part of the workspace.
+
+![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png)
+
+ ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
+ ![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
 
 # Background Information Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to
 
@@ -212,18 +236,9 @@ progress. ![image](https://user-images.githubusercontent.com/6468571/153799459-4
 very script-heavy or include an excessive number of "dynamic components," as indicated above. Web proxies' inability to
 encrypt data is a well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate
 proxy server to redirect your browser's HTTP requests via the following
-domains: ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206147-738b606d-6a02-411e-ac17-b5a364601b62.png)
+domains: ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
 
-## Installation It is critical to keep in mind that this is a \*\*project\*\* and not a library. It is not recommended
-
-to install this package via \* require\*. This type of project should be immediately uploaded to your web server's
-public directory. Download a pre-installed version of this application as a ZIP archive from the downloads area. \[\*\*
-Releases\*\*\](https://github.com/4dboard/yxorP/releases/). # The Dashboard 🍦 The Dashboard component provides an
-application-specific JavaScript dashboard that connects with a PHP-written on-disk database adapted to the application's
-needs. Vanilla Dashboard, a free and open source program, may be downloaded from the internet. Numerous "Easter Eggs"
-are scattered around the Dashboard. The "Who Is Online," "Live Chat," and "Who Is Online" services, as well as a variety
-of other features, are all wrapped up in an easy-to-use CSS-based user interface that is available for download for
-free. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png)
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png)
 
 ## Development Environment A Liberating Dev Tool For All Your Projects LAMP recipe, which may be purchased from the link
 
@@ -235,16 +250,45 @@ use local development and DevOps technologies on a daily basis, with the United 
 of such technologies. In spite of the fact that there are insufficient instruments to assist in the development process,
 it is possible to transcend the conceptual limitations imposed by this situation. Concentrating your attention on the
 most important activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on
-the most important tasks may help to alleviate some of the
-stress. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
-Clone this repo ``` git clone https://github.com/4dboard/proxy-yxorp ``` Clone the "sample.env" to ".env" and update
-with the correct details. ``` cp ./sample.env ./.env ``` Host the files on a PHP
-server ``` cd ./inc # Start it up lando start # List information about this app. lando info ```
-or ``` # Initialize a lamp recipe using the latest codeigniter version lando init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/archive/3.1.10.tar.gz \\ --remote-options="--strip-components 1" \\ --recipe lamp \\ --webroot . \\ --name my-first-lamp-app ```
-For more information please
-see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
+the most important tasks may help to alleviate some of the stress. ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image (10).gif)
+Clone this repo 
+
+``` 
+
+git clone https://github.com/4dboard/proxy-yxorp 
+
+``` 
+
+Clone the "sample.env" to ".env" and update with the correct details. 
+
+```
+
+cp ./sample.env ./.env 
+
+``` 
+
+Host the files on a PHP server
+
+``` 
+
+cd ./inc # Start it up lando start # List information about this app. lando info 
+
+```
+
+or 
+
+``` 
+
+# Initialize a lamp recipe using the latest codeigniter version lando 
+
+init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/archive/3.1.10.tar.gz \\ --remote-options="--strip-components 1" \\ --recipe lamp \\ --webroot . \\ --name my-first-lamp-app
+
+```
+
+For more information please see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
+
+![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/image(10).gif)
 
 \## Keep it up-to-date When it comes to software updates, it is more often than not that they will be made to the
 application's dependant packages rather than the program itself; for example, most of the adjustments will be made to
@@ -255,17 +299,7 @@ which will then be loaded automatically from the main directory. The proxy, whic
 plugins, is not without its limitations, and users are urged to create their own custom plugins in order to broaden the
 range of options available. Think of a simple example like the file /plugins/TestPlugin.php in the plugins directory as
 an
-illustration. ![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png) ![image](https://user-images.githubusercontent.com/6468571/157206367-1c11d91a-87e6-4724-8501-14d9860d78de.png) ![image](https://user-images.githubusercontent.com/6468571/157188915-5ad7cad1-af0a-4e0a-8807-c9fe4708e06b.png)
-
-# Gitpod Gitpod, a free and open-source Kubernetes program that is freely accessible on the internet, allows developers
-
-to quickly and efficiently set up code-ready development environments on their workstations. With the use of cloud-based
-technology, every piece of work accomplished leads in the production of new, automated development environments in the
-cloud, which are then accessible to other developers. It is only via the use of cloud computing that this is made
-feasible. The option to start immediate, remote, and cloud-based development environments regardless of whether your
-development environment is defined in code is available if you have a browser or desktop integrated development
-environment open on your
-computer. ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png) ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
+illustration. ![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png) ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png) ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
 
 ## Usage & How to Guide Navigate to the root of the project with your browser, register an account and then
 
