@@ -109,8 +109,6 @@ class yxorP
         constants::create(__DIR__);
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-        echo DIR_HTTP;
-        exit;
         foreach (array(DIR_HTTP, DIR_MINIFY) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
