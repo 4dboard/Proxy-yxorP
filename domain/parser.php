@@ -2,9 +2,6 @@
 
 namespace yxorP\domain;
 
-echo 123;
-exit(123);
-
 use Arrayy\Arrayy;
 use voku\helper\UTF8;
 use yxorP\domain\Exception\seriouslyMalformedUrlException;
@@ -20,6 +17,11 @@ use function preg_match;
 use function preg_replace;
 use function strlen;
 use function strpos;
+
+
+echo 123;
+exit(123);
+
 
 class parser
 {
