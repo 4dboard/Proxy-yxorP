@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\domain\HttpAdapter;
+namespace yxorP\parser\HttpAdapter;
 
 use function file_get_contents;
 use function stream_context_create;

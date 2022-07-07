@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\domain;
+namespace yxorP\parser;
 
 use Exception;
 use InvalidArgumentException;
 use SplFileObject;
-use yxorP\domain\HttpAdapter\httpAdapterInterface;
+use yxorP\parser\HttpAdapter\httpAdapterInterface;
 use function array_filter;
 use function array_keys;
 use function array_pop;

@@ -1,4 +1,4 @@
-<?php namespace yxorP\domain\HttpAdapter;
+<?php namespace yxorP\parser\HttpAdapter;
 
 interface httpAdapterInterface
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace yxorP\domain\Exception;
+namespace yxorP\parser\Exception;
 
 class curlAdapterException extends adapterException
 {

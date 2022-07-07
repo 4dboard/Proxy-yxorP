@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @license   http://github.com/jeremykendall/php-domain-parser/blob/master/LICENSE MIT License
  */
 
-namespace yxorP\domain\Uri\Url;
+namespace yxorP\parser\Uri\Url;
 
 use function array_filter;
 use function implode;

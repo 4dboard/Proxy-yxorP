@@ -1,4 +1,4 @@
-<?php namespace yxorP\domain\Exception;
+<?php namespace yxorP\parser\Exception;
 
 use InvalidArgumentException;
 use function sprintf;

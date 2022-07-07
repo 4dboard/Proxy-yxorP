@@ -1,10 +1,10 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\domain\Uri;
+namespace yxorP\parser\Uri;
 
 use voku\helper\UTF8;
-use yxorP\domain\parser;
-use yxorP\domain\Uri\Url\host;
+use yxorP\parser\parser;
+use yxorP\parser\Uri\Url\host;
 use function preg_replace;
 use function urlencode;
 

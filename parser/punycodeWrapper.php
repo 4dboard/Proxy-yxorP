@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace yxorP\domain;
+namespace yxorP\parser;
 
 use TrueBV\Punycode;
 use function constant;

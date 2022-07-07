@@ -1,4 +1,4 @@
-<?php namespace yxorP\domain\Exception;
+<?php namespace yxorP\parser\Exception;
 
 require DIR_ROOT . "domain/exception/pdpException.php";
 require DIR_ROOT . "domain/httpAdapter/httpAdapterInterface.php";
