@@ -486,6 +486,12 @@ class constants
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_KINT . EXT_PHP);
 
 
+        define('PATH_PDP_PSL_TEXT_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.txt');
+        define('PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.php');
+        define('PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'private-public-suffix-list.php');
+        define('ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'icann-public-suffix-list.php');
+
+
         //REGEX
         /* Defining a constant called ENV_ADMIN_USER and setting it to the value of ADMIN_USER. */
         /* Defining a constant called REG_ONE. */
@@ -532,12 +538,6 @@ class constants
         define('RUNTIME_EXCEPTION', 'Directory "%s" was not created');
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
-
-
-        define('PDP_PSL_TEXT_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.txt');
-        define('PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'public-suffix-list.php');
-        define('PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'private-public-suffix-list.php');
-        define('ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'icann-public-suffix-list.php');
 
 
         if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
