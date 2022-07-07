@@ -157,6 +157,8 @@ class constants
         define('FILE_BOOTSTRAP', 'bootstrap');
         /* Defining a constant. */
         define('FILE_WRAPPER', 'wrapper');
+        /* Defining a constant. */
+        define('FILE_KINT', 'kint');
 
 
         //METHODS
@@ -464,6 +466,8 @@ class constants
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
         /* Defining the path to the action wrapper file. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER . EXT_PHP);
+        /* Defining the path to the action kint file. */
+        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_KINT . EXT_PHP);
 
 
         //REGEX
