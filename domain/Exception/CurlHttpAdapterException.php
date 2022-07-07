@@ -4,8 +4,8 @@
 namespace yxorp\domain\Exception;
 
 
-require ROOT_DIR . "domain/exception/pdpException.php";
-require ROOT_DIR . "domain/httpAdapter/httpAdapterInterface.php";
+require DIR_ROOT . "domain/exception/pdpException.php";
+require DIR_ROOT . "domain/httpAdapter/httpAdapterInterface.php";
 
 class curlHttpAdapterException extends httpAdapterException
 {
