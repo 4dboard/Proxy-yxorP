@@ -241,23 +241,23 @@ to be part of the workspace.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177675967-d206de87-fb28-4ccb-a3e3-14294a90df31.png)
-
 Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to create a single web
 proxy that outperforms the two when their combined performance is considered. Please keep in mind that this is a
 brand-new project that may undergo changes in the future. With the php-proxy library, a component of the PHP programming
 language that is available for free download, you may quickly and easily configure a web proxy application for your web
 server. If you are able to contribute to or support this project, it would be much appreciated as it would enable me to
-devote more development time to it, therefore expediting its
-progress. ![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png) ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
+devote more development time to it, therefore expediting its progress.
+
+![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png) ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675918-d0dcee6e-dc9e-4ed5-b859-85d5debb0bbb.png)
 
 Server Bear in mind that this proxy script may not function properly on websites or pages that are very script-heavy or
 include an excessive number of "dynamic components," as indicated above. Web proxies' inability to encrypt data is a
 well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate proxy server to
-redirect your browser's HTTP requests via the following
-domains: ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
+redirect your browser's HTTP requests via the following domains:
+
+![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157188876-61dc86c4-508f-4169-a1f2-a9582c035c2a.png)
 
@@ -311,8 +311,9 @@ init \\ --source remote \\ --remote-url https://github.com/bcit-ci/CodeIgniter/a
 
 ```
 
-For more information please
-see: https://docs.lando.dev/config/lamp.html ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
+For more information please see: https://docs.lando.dev/config/lamp.html
+
+![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157189458-e55e96dd-1faf-4fdf-8c63-f98fc5eab426.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675740-33ed816f-4206-4ea3-b1e3-abdc45e04db3.png)
 
@@ -336,8 +337,19 @@ example like the file /plugins/TestPlugin.php in the plugins directory as an ill
 
 ![image](https://user-images.githubusercontent.com/6468571/177675573-c9df68a1-75e6-445a-9432-c0627b0e98a5.png)
 
-Navigate to the root of the project with your browser, register an account and then
-login. ![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png) ![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
+Navigate to the root of the project with your browser, register an account and then login.
+
+yxorP is database, PHP CURL, and Composer compatible. As proxy, yxorP has permission to edit. Cockpit manages a PHAR (
+PHP archive) binary version of Guzzle that is used by a number of websites. The yxorP customizable web proxy.
+Market-ready proxy systems Not built-in functionality, but event-driven architecture and plugin-based design are
+crucial. Expandable, configurable. YxorP's graphical back-end CMS interface is unique. The hostname of the request
+fetches site-specific information from the backend. modified. Web page content may be rewritten by custom-built engines.
+Any page modifications are preserved. 500 instances quicker than flat-file memory-based cache Memcache and Redis are
+caches. Lack of serialization accelerates cache processing. Bugsnag will support yxorP after a software update. This
+problem has been made compatible with mods. Changing *default logging* in Due to the interoperability of the application
+with error tracking
+
+![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png) ![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675529-46d43bff-1721-4371-9634-0a6c9c12f230.png)
 
