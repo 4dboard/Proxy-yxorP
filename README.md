@@ -2,7 +2,9 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
-## 🦄 .yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
+![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
+
+## yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
 
 📢 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
 ⚡ [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
@@ -14,10 +16,9 @@
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
-![New Project (4)](https://user-images.githubusercontent.com/6468571/177683070-4ccfffee-7acc-41f1-82f1-40521e874a25.png)
-
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
+![image](https://user-images.githubusercontent.com/6468571/177683866-3d1b3a43-1b5b-4653-a3b4-469a3ac24585.png)
 ![image](https://user-images.githubusercontent.com/6468571/177668426-3548dbf3-03ff-4ea0-a1be-08436a3751bd.png)
 
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
@@ -32,7 +33,8 @@
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177670081-392fa979-aceb-4368-8a81-ff12bcb80448.png)
+![image](https://user-images.githubusercontent.com/6468571/177683962-8426f6e0-9626-4484-a1a0-1c03c952e8e4.png)
+![image](https://user-images.githubusercontent.com/6468571/177686029-28027b8e-fadd-4aed-973b-d79bbe8edfdc.png)
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
@@ -66,7 +68,8 @@ both rapid and scalable.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177669133-19ff6171-8f32-45ed-9dbb-af6d0cc46583.png)
+![image](https://user-images.githubusercontent.com/6468571/177684166-899d37ee-1433-473b-8744-44a5e96d3031.png)
+![image](https://user-images.githubusercontent.com/6468571/177686281-5c726469-125c-4075-a14d-8dfc086d1b54.png)
 
 PHP, unlike other programming languages, does not have its own state. Each and every query is unique. In this way, the
 protocol is relatively similar to the HyperText Transfer Protocol's roots (HTTP). On top of that, state may be
@@ -84,7 +87,8 @@ ServerAlias server
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177670311-52d8a69f-a116-4709-b666-5a88f1d25c7b.png)
+![image](https://user-images.githubusercontent.com/6468571/177684223-790bd4aa-7e8a-4dbd-a5e0-87ce8f0c5a8e.png)
+![image](https://user-images.githubusercontent.com/6468571/177686175-eefc7b09-9467-41b6-ac9c-73a8303c7d3f.png)
 
 Both the Swoole and RoadRunner servers, which are renowned for their speed and durability, are able to support the
 execution of PHP applications with persistent data. After installation, the Swoole PHP extension provides users with
@@ -101,7 +105,10 @@ php ./server.php
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177670564-a993d2d1-50f0-48f3-a6ea-90fc81a2e1d9.png)
+![image](https://user-images.githubusercontent.com/6468571/177684393-7f2589c1-e512-4540-96f4-835bf0f60386.png)
+
+
+![image](https://user-images.githubusercontent.com/6468571/177686387-dc457561-f3ad-404b-97c4-1b73b7f37e4d.png)
 
 Docker Compose is a tool that simplifies the design and distribution of multi-container applications. With Compose, we
 can specify our services in a YAML file and then deploy, scale, and destruct our infrastructure with a single command.
@@ -114,7 +121,8 @@ cd inc docker-composer up -d
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177670650-69065bc9-5081-446d-afde-ab1c58c43f26.png)
+![image](https://user-images.githubusercontent.com/6468571/177684476-58524026-dacc-426a-ac26-5597836683b9.png)
+![image](https://user-images.githubusercontent.com/6468571/177686426-5ba11476-7007-45e2-82ae-82a4879176e0.png)
 
 Docker enables its users to manage containers in a manner comparable to managing very lightweight and modular virtual
 machines. This streamlines a number of duties, including the design and building of containers and the transportation of
@@ -128,8 +136,8 @@ cd inc docker run
 ```
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
-![image](https://user-images.githubusercontent.com/6468571/177671609-309febf0-f0b1-4726-8bbf-a466ebb31e98.png)
+![image](https://user-images.githubusercontent.com/6468571/177684571-0c703469-9f5f-4992-b9cb-72f2353ceb76.png)
+![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
 
@@ -145,7 +153,9 @@ and password are only used on the first run). The application can also always be
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177671682-6cfa5775-0479-48cb-b54a-8091ccc34458.png)
+
+![image](https://user-images.githubusercontent.com/6468571/177684819-fbdd79b3-93ad-4012-aa41-7661fd9638ec.png)
+![image](https://user-images.githubusercontent.com/6468571/177685870-385a203b-9654-4c7b-b3e7-00c725d3fa51.png)
 
 ### 🔋 Batteries Included: Plug & Play \[CURL + Composer Optional\], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.
 
@@ -161,7 +171,6 @@ GUI) (GUI). By leveraging a custom-built content spinning engine, the system all
 spun") with little performance degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
-
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671798-1d8a9fc9-64d4-43d8-82e1-3d2a056ada90.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
 ### Cockpit Back-End Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to
