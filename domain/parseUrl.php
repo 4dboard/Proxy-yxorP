@@ -2,7 +2,7 @@
 
 class parseUrl
 {
-    public static function pdp_parse_url($url, $component = -1)
+    public static function parse($url, $component = -1)
     {
         $enc_url = preg_replace_callback('%([a-zA-Z][a-zA-Z0-9+\-.]*)?(:?//)?([^:/@?&=#\[\]]+)%u', static function ($matches) {
             $encoded = urlencode($matches[3]);
