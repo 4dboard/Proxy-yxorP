@@ -1,1 +1,10 @@
-<?php declare(strict_types=1);namespace Pdp\Storage;use Pdp\PublicSuffixList;use Pdp\UnableToLoadPublicSuffixList;interface PublicSuffixListClient{public function get(string $uri):PublicSuffixList;}
+<?php declare(strict_types=1);
+
+namespace Pdp\Storage;
+
+use Pdp\publicSuffixList;
+
+interface publicSuffixListClient
+{
+    public function get(string $uri): publicSuffixList;
+}

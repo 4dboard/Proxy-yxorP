@@ -1,1 +1,10 @@
-<?php declare(strict_types=1);namespace Pdp\Storage;use Pdp\TopLevelDomainList;use Pdp\UnableToLoadTopLevelDomainList;interface TopLevelDomainListClient{public function get(string $uri):TopLevelDomainList;}
+<?php declare(strict_types=1);
+
+namespace Pdp\Storage;
+
+use Pdp\topLevelDomainList;
+
+interface topLevelDomainListClient
+{
+    public function get(string $uri): topLevelDomainList;
+}

@@ -1,1 +1,7 @@
-<?php declare(strict_types=1);namespace Pdp;interface DomainNameProvider{public function domain():DomainName;}
+<?php declare(strict_types=1);
+
+namespace Pdp;
+interface domainNameProvider
+{
+    public function domain(): domainName;
+}

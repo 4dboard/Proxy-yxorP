@@ -1,1 +1,14 @@
-<?php declare(strict_types=1);namespace Pdp\Storage;use Pdp\PublicSuffixList;interface PublicSuffixListCache{public function fetch(string $uri):?PublicSuffixList;public function remember(string $uri,PublicSuffixList $publicSuffixList):bool;public function forget(string $uri):bool;}
+<?php declare(strict_types=1);
+
+namespace Pdp\Storage;
+
+use Pdp\publicSuffixList;
+
+interface publicSuffixListCache
+{
+    public function fetch(string $uri): ?publicSuffixList;
+
+    public function remember(string $uri, publicSuffixList $publicSuffixList): bool;
+
+    public function forget(string $uri): bool;
+}

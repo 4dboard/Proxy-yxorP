@@ -1,1 +1,8 @@
-<?php declare(strict_types=1);namespace Pdp\Storage;use DateInterval;use DateTimeInterface;interface PublicSuffixListStorageFactory{public function createPublicSuffixListStorage(string $cachePrefix='',$cacheTtl=null):PublicSuffixListStorage;}
+<?php declare(strict_types=1);
+
+namespace Pdp\Storage;
+
+interface publicSuffixListStorageFactory
+{
+    public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): publicSuffixListStorage;
+}

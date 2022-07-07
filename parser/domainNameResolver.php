@@ -1,1 +1,7 @@
-<?php declare(strict_types=1);namespace Pdp;interface DomainNameResolver{public function resolve(Host $host):ResolvedDomainName;}
+<?php declare(strict_types=1);
+
+namespace Pdp;
+interface domainNameResolver
+{
+    public function resolve(host $host): resolvedDomainName;
+}
