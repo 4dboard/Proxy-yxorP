@@ -33,25 +33,6 @@ final class suffix implements effectiveTopLevelDomain
         return new self($domain, self::ICANN);
     }
 
-    private static function setDomainName($domain): domainName
-    {
-        if ($domain instanceof domainNameProvider) {
-            $domain = $domain->domain();
-        }
-        if (!$domain instanceof domainName) {
-            $domain = domain::fromIDNA2008($domain);
-        }
-        if ('' === $domain->label(0)) {
-            throw syntaxError::dueToInvalidSuffix($domain);
-        }
-        return $domain;
-    }
-
-    public function domain(): domainName
-    {
-        return $this->domain;
-    }
-
     public static function fromPrivate($domain): self
     {
         $domain = self::setDomainName($domain);
@@ -73,6 +54,25 @@ final class suffix implements effectiveTopLevelDomain
     public static function fromUnknown($domain): self
     {
         return new self(self::setDomainName($domain), '');
+    }
+
+    private static function setDomainName($domain): domainName
+    {
+        if ($domain instanceof domainNameProvider) {
+            $domain = $domain->domain();
+        }
+        if (!$domain instanceof domainName) {
+            $domain = domain::fromIDNA2008($domain);
+        }
+        if ('' === $domain->label(0)) {
+            throw syntaxError::dueToInvalidSuffix($domain);
+        }
+        return $domain;
+    }
+
+    public function domain(): domainName
+    {
+        return $this->domain;
     }
 
     public function isKnown(): bool
