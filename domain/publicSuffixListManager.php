@@ -155,7 +155,7 @@ class publicSuffixListManager
     public function refreshPublicSuffixList()
     {
         $this->fetchListFromSource();
-        $cacheFile = $this->cacheDir . '/' . PDP_PSL_TEXT_FILE;
+        $cacheFile = $this->cacheDir . '/' . PATH_PDP_PSL_TEXT_FILE;
         $publicSuffixListArray = $this->convertListToArray($cacheFile);
         foreach ($publicSuffixListArray as $domain => $data) {
             if (is_array($data) && !empty($data)) {
@@ -170,7 +170,7 @@ class publicSuffixListManager
         if ($publicSuffixList === false) {
             return 0;
         }
-        return $this->write(PDP_PSL_TEXT_FILE, $publicSuffixList);
+        return $this->write(PATH_PDP_PSL_TEXT_FILE, $publicSuffixList);
     }
 
     public function getHttpAdapter(): httpAdapterInterface
