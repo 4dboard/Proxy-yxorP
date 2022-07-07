@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+yxorP\parser
 
 /**
  * PHP Domain Parser: Public Suffix List based URL parsing.
