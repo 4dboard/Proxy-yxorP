@@ -1,8 +1,5 @@
 <?php namespace yxorp\domain;
 
-require "./exception/pdpException.php";
-require "./httpAdapter/httpAdapterInterface.php";
-
 class parseUrl
 {
     public static function pdp_parse_url($url, $component = -1)
