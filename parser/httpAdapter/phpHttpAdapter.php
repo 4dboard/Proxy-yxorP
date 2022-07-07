@@ -1,4 +1,4 @@
-<?php yxorP\parser
+<?php
 
 namespace yxorP\parser\HttpAdapter;
 
