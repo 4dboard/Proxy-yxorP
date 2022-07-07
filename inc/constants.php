@@ -413,7 +413,7 @@ class constants
         define('DIR_OVERRIDE', 'override' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_GLOBAL', 'global' . DIRECTORY_SEPARATOR);
+        define('DIR_GLOBAL', VAR_GLOBAL . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_INCLUDES', 'includes' . DIRECTORY_SEPARATOR);
