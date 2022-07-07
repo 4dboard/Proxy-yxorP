@@ -7,7 +7,6 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
-///TODO: Fix PLugin
 class youtubePluginAction extends wrapper
 {
     /* A regex pattern that will be used to match the url of the request. */
