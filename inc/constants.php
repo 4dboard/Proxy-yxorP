@@ -658,7 +658,7 @@ class constants
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         $YXORP_SITE_URL = constants::get(YXORP_SITE_URL);
-        $parser = Parser->parseUrl($YXORP_SITE_URL);
+        $parser = self::pdp_parse_url($YXORP_SITE_URL);
         constants::set($parser, $parser);
         d(constants::get(YXORP_SITE_URL_PARSE));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
