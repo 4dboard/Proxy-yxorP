@@ -438,6 +438,7 @@ class constants
         to it. */
         define('DIR_INC', 'inc' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_DATA` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
+        to it. */
         define('DIR_DATA', 'data' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
         appended to it. */
@@ -533,7 +534,7 @@ class constants
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
 
 
-        define('PDP_PSL_TEXT_FILE', DIR_ROOT . DIR_INC . 'data/public-suffix-list.txt');
+        define('PDP_PSL_TEXT_FILE', DIR_ROOT . DIR_INC . DIR_DATA . 'data/public-suffix-list.txt');
         define('PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . 'data/public-suffix-list.php');
         define('PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . 'data/private-public-suffix-list.php');
         define('ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . 'data/icann-public-suffix-list.php');
