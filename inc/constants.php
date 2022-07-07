@@ -528,7 +528,7 @@ class constants
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
 
 
-        if (str_contains($_SERVER['REQUEST_URI'], VAR_SLASH . COCKPIT_COCKPIT)) require PATH_COCKPIT_INDEX;
+        if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) require PATH_COCKPIT_INDEX;
 
         // REQUIRED
         /* Loading the Bugsnag PHP library. */
