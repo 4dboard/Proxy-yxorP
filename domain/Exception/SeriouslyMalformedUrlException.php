@@ -1,4 +1,5 @@
 <?php namespace Pdp\Exception;
+
 use InvalidArgumentException;
 use function sprintf;
 
