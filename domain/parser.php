@@ -19,10 +19,6 @@ use function strlen;
 use function strpos;
 
 
-echo 123;
-exit(123);
-
-
 class parser
 {
     const SCHEME_PATTERN = '#^([a-zA-Z][a-zA-Z0-9+\-.]*)://#';
