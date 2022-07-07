@@ -3,12 +3,12 @@
 namespace yxorp\domain\Uri;
 
 use voku\helper\UTF8;
-use yxorp\domain\Parser;
-use yxorp\domain\Uri\Url\Host;
+use yxorp\domain\parser;
+use yxorp\domain\Uri\Url\host;
 use function preg_replace;
 use function urlencode;
 
-class Url
+class url
 {
     protected $scheme;
     protected $host;
@@ -19,7 +19,7 @@ class Url
     protected $query;
     protected $fragment;
 
-    public function __construct($scheme, $user, $pass, Host $host, $port, $path, $query, $fragment)
+    public function __construct($scheme, $user, $pass, host $host, $port, $path, $query, $fragment)
     {
         $this->scheme = $scheme ? UTF8::strtolower($scheme) : null;
         $this->user = $user;
@@ -65,7 +65,7 @@ class Url
 
     public function getSchemeless(): string
     {
-        return (string)preg_replace(Parser::SCHEME_PATTERN, '//', (string)$this, 1);
+        return (string)preg_replace(parser::SCHEME_PATTERN, '//', (string)$this, 1);
     }
 
     public function toArray(): array
@@ -88,7 +88,7 @@ class Url
         return $this->pass;
     }
 
-    public function getHost(): Host
+    public function getHost(): host
     {
         return $this->host;
     }

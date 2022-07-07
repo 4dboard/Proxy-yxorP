@@ -5,7 +5,7 @@ namespace yxorp\domain;
 use Exception;
 use InvalidArgumentException;
 use SplFileObject;
-use yxorp\domain\HttpAdapter\HttpAdapterInterface;
+use yxorp\domain\HttpAdapter\httpAdapterInterface;
 use function array_filter;
 use function array_keys;
 use function array_pop;
@@ -36,7 +36,7 @@ use const LOCK_SH;
 use const LOCK_UN;
 use const PHP_EOL;
 
-class PublicSuffixListManager
+class publicSuffixListManager
 {
     const ALL_DOMAINS = 'ALL';
     const PDP_PSL_TEXT_FILE = 'public-suffix-list.txt';
@@ -88,7 +88,7 @@ class PublicSuffixListManager
     {
         $isDomain = true;
         $part = array_pop($ruleParts);
-        $punycode = new PunycodeWrapper();
+        $punycode = new punycodeWrapper();
         $part = $punycode->encode($part);
         if (strpos($part, '!') === 0) {
             $part = substr($part, 1);
@@ -132,7 +132,7 @@ class PublicSuffixListManager
         return (int)$result;
     }
 
-    public function getList($list = self::ALL_DOMAINS, bool $withStaticCache = true): PublicSuffixList
+    public function getList($list = self::ALL_DOMAINS, bool $withStaticCache = true): publicSuffixList
     {
         static $LIST_STATIC = [];
         $basename = self::$domainList[$list] ?? self::PDP_PSL_PHP_FILE;
@@ -141,7 +141,7 @@ class PublicSuffixListManager
             if (!file_exists($file)) {
                 $this->refreshPublicSuffixList();
             }
-            return new PublicSuffixList($file);
+            return new publicSuffixList($file);
         }
         $cacheKey = md5($file);
         if (isset($LIST_STATIC[$cacheKey])) {
@@ -151,7 +151,7 @@ class PublicSuffixListManager
             $this->refreshPublicSuffixList();
         }
         if (!isset($LIST_STATIC[$cacheKey])) {
-            $LIST_STATIC[$cacheKey] = new PublicSuffixList($file);
+            $LIST_STATIC[$cacheKey] = new publicSuffixList($file);
         }
         return $LIST_STATIC[$cacheKey];
     }
@@ -177,19 +177,19 @@ class PublicSuffixListManager
         return $this->write(self::PDP_PSL_TEXT_FILE, $publicSuffixList);
     }
 
-    public function getHttpAdapter(): HttpAdapterInterface
+    public function getHttpAdapter(): httpAdapterInterface
     {
-        if (!$this->httpAdapter instanceof HttpAdapterInterface) {
+        if (!$this->httpAdapter instanceof httpAdapterInterface) {
             if (extension_loaded('curl')) {
-                $this->httpAdapter = new HttpAdapter\CurlHttpAdapter();
+                $this->httpAdapter = new HttpAdapter\curlHttpAdapter();
             } else {
-                $this->httpAdapter = new HttpAdapter\PhpHttpAdapter();
+                $this->httpAdapter = new HttpAdapter\phpHttpAdapter();
             }
         }
         return $this->httpAdapter;
     }
 
-    public function setHttpAdapter(HttpAdapter\HttpAdapterInterface $httpAdapter)
+    public function setHttpAdapter(HttpAdapter\httpAdapterInterface $httpAdapter)
     {
         $this->httpAdapter = $httpAdapter;
     }
@@ -246,13 +246,13 @@ class PublicSuffixListManager
         return $this->write($basename, $data);
     }
 
-    public function getListFromFile($phpFile): PublicSuffixList
+    public function getListFromFile($phpFile): publicSuffixList
     {
         $fp = @fopen($phpFile, 'rb');
         if (!$fp || !flock($fp, LOCK_SH)) {
             throw new Exception("Cannot read '${phpFile}'");
         }
-        $list = new PublicSuffixList(require $phpFile);
+        $list = new publicSuffixList(require $phpFile);
         flock($fp, LOCK_UN);
         fclose($fp);
         return $list;

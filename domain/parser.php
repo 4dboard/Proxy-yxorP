@@ -4,9 +4,9 @@ namespace yxorp\domain;
 
 use Arrayy\Arrayy;
 use voku\helper\UTF8;
-use yxorp\domain\Exception\SeriouslyMalformedUrlException;
-use yxorp\domain\Uri\Url;
-use yxorp\domain\Uri\Url\Host;
+use yxorp\domain\Exception\seriouslyMalformedUrlException;
+use yxorp\domain\Uri\url;
+use yxorp\domain\Uri\Url\host;
 use function array_reverse;
 use function array_shift;
 use function array_slice;
@@ -18,7 +18,7 @@ use function preg_replace;
 use function strlen;
 use function strpos;
 
-class Parser
+class parser
 {
     const SCHEME_PATTERN = '#^([a-zA-Z][a-zA-Z0-9+\-.]*)://#';
     const IP_ADDRESS_PATTERN = '/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/';
@@ -26,13 +26,13 @@ class Parser
     protected $isNormalized = false;
     private $punycodeWrapper;
 
-    public function __construct(PublicSuffixList $publicSuffixList)
+    public function __construct(publicSuffixList $publicSuffixList)
     {
         $this->publicSuffixList = $publicSuffixList;
-        $this->punycodeWrapper = new PunycodeWrapper();
+        $this->punycodeWrapper = new punycodeWrapper();
     }
 
-    public function parseUrl($url): Url
+    public function parseUrl($url): url
     {
         $rawUrl = $url;
         $elem = ['scheme' => null, 'user' => null, 'pass' => null, 'host' => null, 'port' => null, 'path' => null, 'query' => null, 'fragment' => null,];
@@ -41,20 +41,20 @@ class Parser
         }
         $parts = pdp_parse_url($url);
         if ($parts === false || !isset($parts['host'])) {
-            throw new SeriouslyMalformedUrlException($rawUrl);
+            throw new seriouslyMalformedUrlException($rawUrl);
         }
         if ($parts['scheme'] === 'php-hack') {
             $parts['scheme'] = null;
         }
         $elem = (array)$parts + $elem;
         $host = $this->parseHost($parts['host']);
-        return new Url($elem['scheme'], $elem['user'], $elem['pass'], $host, $elem['port'], $elem['path'], $elem['query'], $elem['fragment']);
+        return new url($elem['scheme'], $elem['user'], $elem['pass'], $host, $elem['port'], $elem['path'], $elem['query'], $elem['fragment']);
     }
 
-    public function parseHost(string $host): Host
+    public function parseHost(string $host): host
     {
         $host = UTF8::strtolower($host);
-        return new Host($this->getSubdomain($host), $this->getRegistrableDomain($host), $this->getPublicSuffix($host), $host);
+        return new host($this->getSubdomain($host), $this->getRegistrableDomain($host), $this->getPublicSuffix($host), $host);
     }
 
     public function getSubdomain(string $host)

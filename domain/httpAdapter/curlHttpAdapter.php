@@ -3,7 +3,7 @@
 namespace yxorp\domain\HttpAdapter;
 
 use Exception;
-use yxorp\domain\Exception\CurlHttpAdapterException;
+use yxorp\domain\Exception\curlHttpAdapterException;
 use function assert;
 use function curl_close;
 use function curl_errno;
@@ -24,7 +24,7 @@ use const CURLOPT_TIMEOUT;
 use const CURLOPT_URL;
 use const CURLOPT_USERAGENT;
 
-class CurlHttpAdapter implements HttpAdapterInterface
+class curlHttpAdapter implements httpAdapterInterface
 {
     public function getContent($url, $timeout = 5)
     {
@@ -44,11 +44,11 @@ class CurlHttpAdapter implements HttpAdapterInterface
         $content = curl_exec($ch);
         $errNo = curl_errno($ch);
         if ($errNo) {
-            throw new CurlHttpAdapterException("CURL error [{$errNo}]: " . curl_error($ch), $errNo);
+            throw new curlHttpAdapterException("CURL error [{$errNo}]: " . curl_error($ch), $errNo);
         }
         $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($responseCode !== 200) {
-            throw new CurlHttpAdapterException('Wrong HTTP response code: ' . $responseCode, $responseCode);
+            throw new curlHttpAdapterException('Wrong HTTP response code: ' . $responseCode, $responseCode);
         }
         curl_close($ch);
         assert($content === false || is_string($content));

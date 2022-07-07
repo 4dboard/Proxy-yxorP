@@ -1,6 +1,6 @@
 <?php namespace yxorp\domain\HttpAdapter;
 
-interface HttpAdapterInterface
+interface httpAdapterInterface
 {
     public function getContent($url, $timeout = 5);
 }

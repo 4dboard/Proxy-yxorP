@@ -5,7 +5,7 @@ namespace yxorp\domain;
 use Arrayy\Arrayy;
 use function is_string;
 
-class PublicSuffixList extends Arrayy
+class publicSuffixList extends Arrayy
 {
     public function __construct($list)
     {

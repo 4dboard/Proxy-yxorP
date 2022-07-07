@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use function sprintf;
 
-class SeriouslyMalformedUrlException extends InvalidArgumentException implements PdpException
+class seriouslyMalformedUrlException extends InvalidArgumentException implements pdpException
 {
     public function __construct($malformedUrl = '', $code = 0, $previous = null)
     {

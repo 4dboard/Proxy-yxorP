@@ -19,7 +19,7 @@ use function implode;
 /**
  * Represents the host portion of a Url.
  */
-class Host
+class host
 {
     /**
      * @var string|null Subdomain

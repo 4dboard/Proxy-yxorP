@@ -2,6 +2,6 @@
 
 use Exception;
 
-class HttpAdapterException extends Exception
+class httpAdapterException extends Exception
 {
 }

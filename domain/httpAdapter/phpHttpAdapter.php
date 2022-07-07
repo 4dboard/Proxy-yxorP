@@ -5,7 +5,7 @@ namespace yxorp\domain\HttpAdapter;
 use function file_get_contents;
 use function stream_context_create;
 
-class PhpHttpAdapter implements HttpAdapterInterface
+class phpHttpAdapter implements httpAdapterInterface
 {
     public function getContent($url, $timeout = 5)
     {

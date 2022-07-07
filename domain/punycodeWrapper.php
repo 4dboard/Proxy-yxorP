@@ -12,7 +12,7 @@ use const IDNA_NONTRANSITIONAL_TO_ASCII;
 use const IDNA_NONTRANSITIONAL_TO_UNICODE;
 use const INTL_IDNA_VARIANT_UTS46;
 
-class PunycodeWrapper
+class punycodeWrapper
 {
     private static $punycode;
     private $idnSupport = false;

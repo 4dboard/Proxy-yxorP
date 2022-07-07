@@ -1,4 +1,4 @@
 <?php namespace yxorp\domain\Exception;
-class CurlHttpAdapterException extends HttpAdapterException
+class curlHttpAdapterException extends httpAdapterException
 {
 }
