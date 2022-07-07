@@ -141,6 +141,8 @@ and password are only used on the first run). The application can also always be
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
 
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/177671682-6cfa5775-0479-48cb-b54a-8091ccc34458.png)
 
 ### 🔋 Batteries Included: Plug & Play \[CURL + Composer Optional\], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.
