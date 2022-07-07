@@ -41,7 +41,7 @@ class publicSuffixListManager
     const ALL_DOMAINS = 'ALL';
     const ICANN_DOMAINS = 'ICANN';
     const PRIVATE_DOMAINS = 'PRIVATE';
-    protected static $domainList = [self::ALL_DOMAINS => PATH_PDP_PSL_PHP, self::ICANN_DOMAINS => PATH_ICANN_PSL_PHP_FILE, self::PRIVATE_DOMAINS => PATH_PRIVATE_PSL_PHP,];
+    protected static $domainList = [self::ALL_DOMAINS => PATH_PDP_PSL_PHP, self::ICANN_DOMAINS => PATH_ICANN_PSL_PHP, self::PRIVATE_DOMAINS => PATH_PRIVATE_PSL_PHP,];
     protected $publicSuffixListUrl = 'https://publicsuffix.org/list/effective_tld_names.dat';
     protected $cacheDir;
     protected $httpAdapter;
