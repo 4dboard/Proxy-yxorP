@@ -39,7 +39,7 @@ class yxorP
         constants::localise($request);
         /* It's looping through all the files in the `action` directory, and if the file name is longer than 3 characters,
         it's calling the `subscribe()` function. */
-        $this->subscribers(DIR_ACTION, scandir(DIR_ROOT . DIR_ACTION));
+        $this->subscribers();
 
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
@@ -47,9 +47,8 @@ class yxorP
             require PATH_COCKPIT_INDEX;
             exit;
         }
-
-        /* It's looping through all the plugins in the `$_plugins` array, and calling the `subscribe()` function. */
-        $this->subscribers(DIR_PLUGIN, constants::get(YXORP_TARGET_PLUGINS) ?: []);
+        foreach([DIR_ACTION=> scandir(DIR_ROOT . DIR_ACTION),DIR_PLUGIN=> constants::get(YXORP_TARGET_PLUGINS) ?: []] as $files)
+            $this->subscribers(files)
     }
 
     /**
