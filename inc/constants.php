@@ -384,7 +384,7 @@ class constants
         /* Defining a constant called YXORP_SITE_DOMAIN and setting it to the string SITE_DOMAIN. */
         define('YXORP_SITE_DOMAIN', VAR_SITE . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_SITE_URL_PARSE and setting it to the string SITE_DOMAIN. */
-        define('YXORP_SITE_URL_PARSE', VAR_SITE . CHAR_UNDER . VAR_URL_UP . VAR_PARSE_UP);
+        define('YXORP_SITE_URL_PARSE', VAR_SITE . CHAR_UNDER . VAR_URL_UP . CHAR_UNDER . VAR_PARSE_UP);
         /* Defining a constant called YXORP_SUB_DOMAIN and setting it to the string SUB_DOMAIN. */
         define('YXORP_SUB_DOMAIN', VAR_SUB . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_SITE_SUB_DOMAIN and setting it to the string SITE_SUB_DOMAIN. */
