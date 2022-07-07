@@ -3,7 +3,7 @@
 namespace yxorp\domain\HttpAdapter;
 
 use Exception;
-use yxorp\domain\Exception\curlHttpAdapterException;
+use yxorp\domain\Exception\curlAdapterException;
 use function assert;
 use function curl_close;
 use function curl_errno;
@@ -44,11 +44,11 @@ class curlHttpAdapter implements httpAdapterInterface
         $content = curl_exec($ch);
         $errNo = curl_errno($ch);
         if ($errNo) {
-            throw new curlHttpAdapterException("CURL error [{$errNo}]: " . curl_error($ch), $errNo);
+            throw new curlAdapterException("CURL error [{$errNo}]: " . curl_error($ch), $errNo);
         }
         $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         if ($responseCode !== 200) {
-            throw new curlHttpAdapterException('Wrong HTTP response code: ' . $responseCode, $responseCode);
+            throw new curlAdapterException('Wrong HTTP response code: ' . $responseCode, $responseCode);
         }
         curl_close($ch);
         assert($content === false || is_string($content));
