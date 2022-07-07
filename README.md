@@ -14,7 +14,7 @@
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
-![img.png]()---
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177668426-3548dbf3-03ff-4ea0-a1be-08436a3751bd.png)
 
@@ -28,7 +28,7 @@
 
 > ✔️[ PAYPAL  : ](https://www.paypal.me/donpanlonow) Any contributions you can make toward this endeavour would be much appreciated.
 
----
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177670081-392fa979-aceb-4368-8a81-ff12bcb80448.png)
 
@@ -62,6 +62,8 @@ high-performance* networking frameworks with an *event-driven, asynchronous, and
 with TCP, UDP, Unix socket, HTTP, and Websocket and allows the creation of concurrent services ( *Parrelelle*) that are
 both rapid and scalable.
 
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/177669133-19ff6171-8f32-45ed-9dbb-af6d0cc46583.png)
 
 PHP, unlike other programming languages, does not have its own state. Each and every query is unique. In this way, the
@@ -78,6 +80,8 @@ ServerAlias server
 
 ``` 
 
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/177670311-52d8a69f-a116-4709-b666-5a88f1d25c7b.png)
 
 Both the Swoole and RoadRunner servers, which are renowned for their speed and durability, are able to support the
@@ -93,6 +97,8 @@ php ./server.php
 
 ```
 
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
+
 ![image](https://user-images.githubusercontent.com/6468571/177670564-a993d2d1-50f0-48f3-a6ea-90fc81a2e1d9.png)
 
 Docker Compose is a tool that simplifies the design and distribution of multi-container applications. With Compose, we
@@ -103,6 +109,8 @@ can specify our services in a YAML file and then deploy, scale, and destruct our
 cd inc docker-composer up -d 
 
 ```
+
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177670650-69065bc9-5081-446d-afde-ab1c58c43f26.png)
 
@@ -116,6 +124,8 @@ cd inc docker run
 -p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp 
 
 ```
+
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177671609-309febf0-f0b1-4726-8bbf-a466ebb31e98.png)
 
@@ -381,7 +391,7 @@ appreciate all of your assistance and support.
 - [x] Allow Multi-tent rendering
 - [x] Build Caching
 
-Layer
+## Layer
 
 - [x] Develop Multi-threading support (PHP Vanilla/Independent) + More (To be listed soon)
 - [x] Foundation
@@ -428,11 +438,9 @@ software license developed in the late 1980s and still in use at the Massachuset
 Repurposing is confined to a limited number of scenarios due to the permissive nature of the program, which assures
 compliance with licensing agreements. This license is straightforward and concise; it is a permissive license that just
 requires copyright protection and prominent display of licensing information in the form of terms. They may be released
-in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works. !
-\[\](asset/live.png?v=3)
-**
+in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works.
 
-***
+![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
 # yxorP Documentation
 
