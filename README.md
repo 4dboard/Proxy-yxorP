@@ -242,18 +242,11 @@ to be part of the workspace.
 ![image](https://user-images.githubusercontent.com/6468571/152177615-421c1286-33cd-4c38-9f7b-3c486901ba81.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
-![image](https://user-images.githubusercontent.com/6468571/157188746-0eb4f847-b0de-464a-9719-acf5bb39e8c4.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675967-d206de87-fb28-4ccb-a3e3-14294a90df31.png)
 
-Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to
-
-create a single web proxy that outperforms the two when their combined performance is considered. Please keep in mind
-that this is a brand-new project that may undergo changes in the future. With the php-proxy library, a component of the
-PHP programming language that is available for free download, you may quickly and easily configure a web proxy
-application for your web server. If you are able to contribute to or support this project, it would be much appreciated
-as it would enable me to devote more development time to it, therefore expediting its
-progress. ![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png) ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
+Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to create a single web proxy that outperforms the two when their combined performance is considered. Please keep in mind that this is a brand-new project that may undergo changes in the future. With the php-proxy library, a component of the
+PHP programming language that is available for free download, you may quickly and easily configure a web proxy application for your web server. If you are able to contribute to or support this project, it would be much appreciated as it would enable me to devote more development time to it, therefore expediting its progress. ![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png) ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/177675918-d0dcee6e-dc9e-4ed5-b859-85d5debb0bbb.png)
 
