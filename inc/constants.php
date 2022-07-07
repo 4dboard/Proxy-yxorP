@@ -419,10 +419,10 @@ class constants
         define('DIR_INCLUDES', 'includes' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_COCKPIT', 'cockpit' . DIRECTORY_SEPARATOR);
+        define('DIR_COCKPIT', COCKPIT_COCKPIT . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_ACCOUNTS', 'accounts' . DIRECTORY_SEPARATOR);
+        define('DIR_ACCOUNTS', VAR_COCKPIT_ACCOUNTS . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `DIRECTORY_SEPARATOR` appended
         to it. */
         define('DIR_INC', 'inc' . DIRECTORY_SEPARATOR);
