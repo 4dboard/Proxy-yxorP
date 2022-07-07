@@ -3,8 +3,6 @@
 namespace yxorP\parser;
 
 
-use Arrayy\Arrayy;
-use voku\helper\UTF8;
 use yxorP\parser\Exception\seriouslyMalformedUrlException;
 use yxorP\parser\Uri\url;
 use yxorP\parser\Uri\Url\host;
