@@ -415,6 +415,9 @@ class constants
         define('DIR_ACTION', 'action' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
         appended to it. */
+        define('DIR_DOMAIN', 'domain' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
+        appended to it. */
         define('DIR_PLUGIN', 'plugin' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `DIRECTORY_SEPARATOR`
         appended to it. */
