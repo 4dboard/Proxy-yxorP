@@ -692,4 +692,3 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | [`sessionHandlerInterface`](./classes/yxorP/protocols/Http/Session/sessionHandlerInterface.md) | |
 
 ***
-> Automatically generated from source code comments on 2022-07-03 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
