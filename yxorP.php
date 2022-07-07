@@ -39,7 +39,7 @@ class yxorP
         constants::localise($request);
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) $this->subscribers($key, $value);
+        foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_ACTION => scandir(DIR_ROOT . DIR_DOMAIN), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) $this->subscribers($key, $value);
     }
 
     /**
