@@ -531,10 +531,10 @@ class constants
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
 
 
-        define('PDP_PSL_TEXT_FILE', constants::get(ROOT_DIR) . 'inc/data/public-suffix-list.txt');
-        define('PDP_PSL_PHP_FILE', constants::get(ROOT_DIR) . 'inc/data/public-suffix-list.php');
-        define('PRIVATE_PSL_PHP_FILE', constants::get(ROOT_DIR) . 'inc/data/private-public-suffix-list.php');
-        define('ICANN_PSL_PHP_FILE', constants::get(ROOT_DIR) . 'inc/data/icann-public-suffix-list.php');
+        define('PDP_PSL_TEXT_FILE', DIR_ROOT . DIR_INC . 'data/public-suffix-list.txt');
+        define('PDP_PSL_PHP_FILE', DIR_ROOT . DIR_INC . 'data/public-suffix-list.php');
+        define('PRIVATE_PSL_PHP_FILE', DIR_ROOT . DIR_INC . 'data/private-public-suffix-list.php');
+        define('ICANN_PSL_PHP_FILE', DIR_ROOT . DIR_INC . 'data/icann-public-suffix-list.php');
 
 
         if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
@@ -576,17 +576,6 @@ class constants
     /* A function that is being called to fetch .env values. */
 
     /**
-     * @param string $_name
-     * @return string|array|object|null
-     */
-    public static function get(string $_name): string|array|object|null
-    {
-        /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
-        returns false . */
-        return $GLOBALS[$_name];
-    }
-
-    /**
      * @return void
      */
     public static function cockpit(): void
@@ -594,8 +583,6 @@ class constants
         require PATH_COCKPIT_INDEX;
         exit();
     }
-
-    /* Setting the value of the variable $_name to the value of the variable $_value. */
 
     /**
      * @param string $line
@@ -611,7 +598,7 @@ class constants
         self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
     }
 
-    /* A function that is being called to localise constants. */
+    /* Setting the value of the variable $_name to the value of the variable $_value. */
 
     /**
      * @param string $_name
@@ -625,7 +612,7 @@ class constants
         return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
     }
 
-    /* A static method that returns the value of the $_name variable. */
+    /* A function that is being called to localise constants. */
 
     /**
      * @param array $req
@@ -681,6 +668,19 @@ class constants
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
         constants::set(YXORP_GLOBAL_PATTERN, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
+    }
+
+    /* A static method that returns the value of the $_name variable. */
+
+    /**
+     * @param string $_name
+     * @return string|array|object|null
+     */
+    public static function get(string $_name): string|array|object|null
+    {
+        /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
+        returns false . */
+        return $GLOBALS[$_name];
     }
 
 }
