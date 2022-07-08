@@ -2,12 +2,15 @@
 
 namespace yxorP\proxy\Promise;
 
+use JsonSerializable;
+use RuntimeException;
+
 /**
  * A special exception that is thrown when waiting on a rejected promise.
  *
  * The reason value is available via the getReason() method.
  */
-class RejectionException extends \RuntimeException
+class AARejectionException extends RuntimeException
 {
     /** @var mixed Rejection reason. */
     private $reason;
@@ -28,7 +31,7 @@ class RejectionException extends \RuntimeException
             || (is_object($reason) && method_exists($reason, '__toString'))
         ) {
             $message .= ' with reason: ' . $this->reason;
-        } elseif ($reason instanceof \JsonSerializable) {
+        } elseif ($reason instanceof JsonSerializable) {
             $message .= ' with reason: '
                 . json_encode($this->reason, JSON_PRETTY_PRINT);
         }

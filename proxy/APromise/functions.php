@@ -110,7 +110,7 @@ function exception_for($reason)
 {
     return $reason instanceof Exception || $reason instanceof Throwable
         ? $reason
-        : new RejectionException($reason);
+        : new AARejectionException($reason);
 }
 
 /**
@@ -152,7 +152,7 @@ function inspect(PromiseInterface $promise)
             'state' => PromiseInterface::FULFILLED,
             'value' => $promise->wait()
         ];
-    } catch (RejectionException $e) {
+    } catch (AARejectionException $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
     } catch (Throwable $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
@@ -242,7 +242,7 @@ function all($promises)
  * fulfilled with an array that contains the fulfillment values of the winners
  * in order of resolution.
  *
- * This prommise is rejected with a {@see \yxorP\proxy\Promise\AggregateException}
+ * This prommise is rejected with a {@see \yxorP\proxy\Promise\AggregateExceptionAA}
  * if the number of fulfilled promises is less than the desired $count.
  *
  * @param int $count Total number of promises.
@@ -272,7 +272,7 @@ function some($count, $promises)
     )->then(
         function () use (&$results, &$rejections, $count) {
             if (count($results) !== $count) {
-                throw new AggregateException(
+                throw new AggregateExceptionAA(
                     'Not enough promises to fulfill count',
                     $rejections
                 );
