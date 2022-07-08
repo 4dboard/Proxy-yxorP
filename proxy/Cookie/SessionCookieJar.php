@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Cookie;
+namespace \yxorP\proxy\Cookie;
 
 /**
  * Persists cookies in the client session

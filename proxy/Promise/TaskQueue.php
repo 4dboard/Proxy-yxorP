@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Promise;
+namespace \yxorP\proxy\Promise;
 
 /**
  * A task queue that executes tasks in a FIFO order.
@@ -8,7 +8,7 @@ namespace \yxorP\guzzle\Promise;
  * maintains a constant stack size. You can use the task queue asynchronously
  * by calling the `run()` function of the global task queue in an event loop.
  *
- *     \yxorP\guzzle\Promise\queue()->run();
+ *     \yxorP\proxy\Promise\queue()->run();
  */
 class TaskQueue implements TaskQueueInterface
 {

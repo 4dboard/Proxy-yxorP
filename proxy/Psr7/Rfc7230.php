@@ -1,6 +1,6 @@
 <?php
 
-namespace \yxorP\guzzle\Psr7;
+namespace \yxorP\proxy\Psr7;
 
 final class Rfc7230
 {

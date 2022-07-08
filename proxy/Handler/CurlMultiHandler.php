@@ -1,9 +1,9 @@
 <?php
-namespace \yxorP\guzzle\Handler;
+namespace \yxorP\proxy\Handler;
 
-use \yxorP\guzzle\Promise as P;
-use \yxorP\guzzle\Promise\Promise;
-use \yxorP\guzzle\Utils;
+use \yxorP\proxy\Promise as P;
+use \yxorP\proxy\Promise\Promise;
+use \yxorP\proxy\Utils;
 use Psr\Http\Message\RequestInterface;
 
 /**

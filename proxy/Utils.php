@@ -1,7 +1,7 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
-use \yxorP\guzzle\Exception\InvalidArgumentException;
+use \yxorP\proxy\Exception\InvalidArgumentException;
 use Psr\Http\Message\UriInterface;
 use Symfony\Polyfill\Intl\Idn\Idn;
 

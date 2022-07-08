@@ -2,7 +2,7 @@
 
 namespace yxorP\snag\Internal;
 
-use \yxorP\guzzle;
+use \yxorP\proxy;
 
 /**
  * @internal
@@ -14,8 +14,8 @@ final class GuzzleCompat
      */
     public static function isUsingGuzzle5()
     {
-        if (defined(\yxorP\guzzle\ClientInterface::class . '::VERSION')) {
-            $version = constant(\yxorP\guzzle\ClientInterface::class . '::VERSION');
+        if (defined(\yxorP\proxy\ClientInterface::class . '::VERSION')) {
+            $version = constant(\yxorP\proxy\ClientInterface::class . '::VERSION');
 
             return version_compare($version, '5.0.0', '>=')
                 && version_compare($version, '6.0.0', '<');
@@ -37,11 +37,11 @@ final class GuzzleCompat
     /**
      * Get the base URL/URI, which depends on the Guzzle version.
      *
-     * @param \yxorP\guzzle\ClientInterface $guzzle
+     * @param \yxorP\proxy\ClientInterface $guzzle
      *
      * @return mixed
      */
-    public static function getBaseUri(\yxorP\guzzle\ClientInterface $guzzle)
+    public static function getBaseUri(\yxorP\proxy\ClientInterface $guzzle)
     {
         // TODO: validate this by running PHPStan with Guzzle 5
         return self::isUsingGuzzle5()

@@ -4,7 +4,7 @@ namespace yxorP\snag;
 
 use Exception;
 use RuntimeException;
-use yxorP\guzzle\ClientInterface;
+use yxorP\proxy\ClientInterface;
 use yxorP\snag\DateTime\Date;
 use yxorP\snag\Internal\GuzzleCompat;
 
