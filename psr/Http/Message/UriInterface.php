@@ -264,7 +264,7 @@ interface UriInterface
      * @return static A new instance with the specified path.
      * @throws InvalidArgumentException for invalid paths.
      */
-    public function withPath($path): static;
+    public function withPath($path): mixed;
 
     /**
      * Return an instance with the specified query string.
