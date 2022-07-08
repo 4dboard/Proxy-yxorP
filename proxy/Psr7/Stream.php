@@ -112,9 +112,6 @@ class Stream implements StreamInterface
 
     public function getSize(): mixed
     {
-        if ($this->size !== null) {
-            return $this->size;
-        }
         if (!isset($this->stream)) {
             return null;
         }
