@@ -632,9 +632,6 @@ class constants
 
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_SITE_DOMAIN', $siteDomain->registrableDomain()->toString() ?: $siteDomain->domain()->toString());
-        /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
-        define('YXORP_SITE_SUB_DOMAIN', $siteDomain->subDomain()->toString());
-
         // SITE DETAILS
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
