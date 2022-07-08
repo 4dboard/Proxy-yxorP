@@ -95,12 +95,12 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_isSeekable);
     }
 
-    public function rewind(): mixed
+    public function rewind()
     {
         call_user_func($this->_fn_rewind);
     }
 
-    public function seek(int $offset, int $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         call_user_func($this->_fn_seek, $offset, $whence);
     }
