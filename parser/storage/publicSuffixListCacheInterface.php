@@ -4,6 +4,8 @@ namespace yxorP\parser\Storage;
 
 use yxorP\parser\publicSuffixListInterface;
 
+echo 1;
+
 interface publicSuffixListCacheInterface
 {
     public function fetch(string $uri): ?publicSuffixListInterface;
