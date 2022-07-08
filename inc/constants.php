@@ -325,7 +325,6 @@ class constants
         /* Defining a constant called VAR_HTTP and setting it to the string HTTP. */
         define('VAR_HTTP_UP', 'HTTP');
         /* Defining a constant called VAR_HTTP and setting it to the string http. */
-        define('VAR_HTTP', 'http');
         /* Defining a constant called VAR_METHOD and setting it to the string METHOD. */
         define('VAR_METHOD', 'METHOD');
         /* Defining a constant called VAR_REMOTE and setting it to the string REMOTE. */
@@ -675,13 +674,13 @@ class constants
         constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->subDomain()->toString());
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        constants::set(VAR_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
+        constants::set(VAR_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN)->__toString() . constants::get(YXORP_TARGET_DOMAIN)->__toString());
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
         value of the constant YXORP_REQUEST_URI. */
-        constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_SITE_URL) . constants::get(YXORP_REQUEST_URI));
+        constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_SITE_URL)->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
-        constants::set(YXORP_PROXY_URL, constants::get(VAR_FETCH) . constants::get(YXORP_REQUEST_URI));
+        constants::set(YXORP_PROXY_URL, constants::get(VAR_FETCH)->__toString() . constants::get(YXORP_REQUEST_URI)->__toString());
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
