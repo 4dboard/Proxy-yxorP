@@ -7,7 +7,7 @@ use yxorP\inc\wrapper;
 
 /* A class that extends the wrapper class. */
 
-class bugsnagHandlerAction extends wrapper
+class snagHandlerAction extends wrapper
 {
     /* A method that is called when an exception is thrown. */
     public function onBuildException($e): void
