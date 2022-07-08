@@ -330,7 +330,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withHost($host): Uri|static
+    public function withHost($host): mixed
     {
         $host = $this->filterHost($host);
         if ($this->host === $host) {
@@ -342,7 +342,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPort($port): Uri|static
+    public function withPort($port): mixed
     {
         $port = $this->filterPort($port);
         if ($this->port === $port) {
