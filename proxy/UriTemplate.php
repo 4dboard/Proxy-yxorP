@@ -8,16 +8,10 @@ namespace \yxorP\proxy;
  */
 class UriTemplate
 {
-    /** @var string URI template */
-    private $template;
-
-    /** @var array Variables to use in the template expansion */
-    private $variables;
-
     /** @var array Hash for quick operator lookups */
     private static $operatorHash = [
-        ''  => ['prefix' => '',  'joiner' => ',', 'query' => false],
-        '+' => ['prefix' => '',  'joiner' => ',', 'query' => false],
+        '' => ['prefix' => '', 'joiner' => ',', 'query' => false],
+        '+' => ['prefix' => '', 'joiner' => ',', 'query' => false],
         '#' => ['prefix' => '#', 'joiner' => ',', 'query' => false],
         '.' => ['prefix' => '.', 'joiner' => '.', 'query' => false],
         '/' => ['prefix' => '/', 'joiner' => '/', 'query' => false],
@@ -25,15 +19,17 @@ class UriTemplate
         '?' => ['prefix' => '?', 'joiner' => '&', 'query' => true],
         '&' => ['prefix' => '&', 'joiner' => '&', 'query' => true]
     ];
-
     /** @var array Delimiters */
     private static $delims = [':', '/', '?', '#', '[', ']', '@', '!', '$',
         '&', '\'', '(', ')', '*', '+', ',', ';', '='];
-
     /** @var array Percent encoded delimiters */
     private static $delimsPct = ['%3A', '%2F', '%3F', '%23', '%5B', '%5D',
         '%40', '%21', '%24', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C',
         '%3B', '%3D'];
+    /** @var string URI template */
+    private $template;
+    /** @var array Variables to use in the template expansion */
+    private $variables;
 
     public function expand($template, array $variables)
     {
@@ -75,12 +71,12 @@ class UriTemplate
             if ($colonPos = strpos($value, ':')) {
                 $varspec['value'] = substr($value, 0, $colonPos);
                 $varspec['modifier'] = ':';
-                $varspec['position'] = (int) substr($value, $colonPos + 1);
+                $varspec['position'] = (int)substr($value, $colonPos + 1);
             } elseif (substr($value, -1) === '*') {
                 $varspec['modifier'] = '*';
                 $varspec['value'] = substr($value, 0, -1);
             } else {
-                $varspec['value'] = (string) $value;
+                $varspec['value'] = (string)$value;
                 $varspec['modifier'] = '';
             }
             $result['values'][] = $varspec;

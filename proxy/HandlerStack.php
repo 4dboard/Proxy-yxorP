@@ -135,28 +135,6 @@ class HandlerStack
     }
 
     /**
-     * Provides a debug string for a given callable.
-     *
-     * @param array|callable $fn Function to write as a string.
-     *
-     * @return string
-     */
-    private function debugCallable($fn)
-    {
-        if (is_string($fn)) {
-            return "callable({$fn})";
-        }
-
-        if (is_array($fn)) {
-            return is_string($fn[0])
-                ? "callable({$fn[0]}::{$fn[1]})"
-                : "callable(['" . get_class($fn[0]) . "', '{$fn[1]}'])";
-        }
-
-        return 'callable(' . spl_object_hash($fn) . ')';
-    }
-
-    /**
      * Set the HTTP handler that actually returns a promise.
      *
      * @param callable $handler Accepts a request and array of options and
@@ -203,6 +181,57 @@ class HandlerStack
     }
 
     /**
+     * Add a middleware after another middleware by name.
+     *
+     * @param string $findName Middleware to find
+     * @param callable $middleware Middleware function
+     * @param string $withName Name to register for this middleware.
+     */
+    public function after($findName, callable $middleware, $withName = '')
+    {
+        $this->splice($findName, $withName, $middleware, false);
+    }
+
+    /**
+     * Remove a middleware by instance or name from the stack.
+     *
+     * @param callable|string $remove Middleware to remove by instance or name.
+     */
+    public function remove($remove)
+    {
+        $this->cached = null;
+        $idx = is_callable($remove) ? 0 : 1;
+        $this->stack = array_values(array_filter(
+            $this->stack,
+            function ($tuple) use ($idx, $remove) {
+                return $tuple[$idx] !== $remove;
+            }
+        ));
+    }
+
+    /**
+     * Provides a debug string for a given callable.
+     *
+     * @param array|callable $fn Function to write as a string.
+     *
+     * @return string
+     */
+    private function debugCallable($fn)
+    {
+        if (is_string($fn)) {
+            return "callable({$fn})";
+        }
+
+        if (is_array($fn)) {
+            return is_string($fn[0])
+                ? "callable({$fn[0]}::{$fn[1]})"
+                : "callable(['" . get_class($fn[0]) . "', '{$fn[1]}'])";
+        }
+
+        return 'callable(' . spl_object_hash($fn) . ')';
+    }
+
+    /**
      * Splices a function into the middleware list at a specific position.
      *
      * @param string $findName
@@ -244,34 +273,5 @@ class HandlerStack
         }
 
         throw new InvalidArgumentException("Middleware not found: $name");
-    }
-
-    /**
-     * Add a middleware after another middleware by name.
-     *
-     * @param string $findName Middleware to find
-     * @param callable $middleware Middleware function
-     * @param string $withName Name to register for this middleware.
-     */
-    public function after($findName, callable $middleware, $withName = '')
-    {
-        $this->splice($findName, $withName, $middleware, false);
-    }
-
-    /**
-     * Remove a middleware by instance or name from the stack.
-     *
-     * @param callable|string $remove Middleware to remove by instance or name.
-     */
-    public function remove($remove)
-    {
-        $this->cached = null;
-        $idx = is_callable($remove) ? 0 : 1;
-        $this->stack = array_values(array_filter(
-            $this->stack,
-            function ($tuple) use ($idx, $remove) {
-                return $tuple[$idx] !== $remove;
-            }
-        ));
     }
 }

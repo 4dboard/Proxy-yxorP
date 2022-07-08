@@ -94,25 +94,6 @@ class HttpClient
     }
 
     /**
-     * Send a POST request to Snag.
-     *
-     * @param string $uri the uri to hit
-     * @param array $options the request options
-     *
-     * @return void
-     */
-    protected function post($uri, array $options = [])
-    {
-        if (GuzzleCompat::isUsingGuzzle5()) {
-            // TODO: validate this by running PHPStan with Guzzle 5
-            // @phpstan-ignore-next-line
-            $this->guzzle->post($uri, $options);
-        } else {
-            $this->guzzle->request('POST', $uri, $options);
-        }
-    }
-
-    /**
      * Notify Snag of a build.
      *
      * @param array $buildInfo the build information
@@ -196,6 +177,43 @@ class HttpClient
         );
 
         $this->queue = [];
+    }
+
+    /**
+     * Send a session data payload to Snag.
+     *
+     * @param array $payload
+     *
+     * @return void
+     */
+    public function sendSessions(array $payload)
+    {
+        $this->post(
+            $this->config->getSessionEndpoint(),
+            [
+                'json' => $payload,
+                'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),
+            ]
+        );
+    }
+
+    /**
+     * Send a POST request to Snag.
+     *
+     * @param string $uri the uri to hit
+     * @param array $options the request options
+     *
+     * @return void
+     */
+    protected function post($uri, array $options = [])
+    {
+        if (GuzzleCompat::isUsingGuzzle5()) {
+            // TODO: validate this by running PHPStan with Guzzle 5
+            // @phpstan-ignore-next-line
+            $this->guzzle->post($uri, $options);
+        } else {
+            $this->guzzle->request('POST', $uri, $options);
+        }
     }
 
     /**
@@ -323,24 +341,6 @@ class HttpClient
             'notifier' => $this->config->getNotifier(),
             'events' => $events,
         ];
-    }
-
-    /**
-     * Send a session data payload to Snag.
-     *
-     * @param array $payload
-     *
-     * @return void
-     */
-    public function sendSessions(array $payload)
-    {
-        $this->post(
-            $this->config->getSessionEndpoint(),
-            [
-                'json' => $payload,
-                'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),
-            ]
-        );
     }
 
     /**

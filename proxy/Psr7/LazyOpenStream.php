@@ -19,7 +19,7 @@ class LazyOpenStream implements StreamInterface
 
     /**
      * @param string $filename File to lazily open
-     * @param string $mode     fopen mode to use when opening the stream
+     * @param string $mode fopen mode to use when opening the stream
      */
     public function __construct($filename, $mode)
     {

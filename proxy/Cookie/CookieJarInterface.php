@@ -31,11 +31,11 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
     /**
      * Extract cookies from an HTTP response and store them in the CookieJar.
      *
-     * @param RequestInterface  $request  Request that was sent
+     * @param RequestInterface $request Request that was sent
      * @param ResponseInterface $response Response that was received
      */
     public function extractCookies(
-        RequestInterface $request,
+        RequestInterface  $request,
         ResponseInterface $response
     );
 
@@ -59,8 +59,8 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
      * removed.
      *
      * @param string|null $domain Clears cookies matching a domain
-     * @param string|null $path   Clears cookies matching a domain and path
-     * @param string|null $name   Clears cookies matching a domain, path, and name
+     * @param string|null $path Clears cookies matching a domain and path
+     * @param string|null $name Clears cookies matching a domain, path, and name
      *
      * @return CookieJarInterface
      */

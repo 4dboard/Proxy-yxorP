@@ -15,7 +15,8 @@ class ConnectException extends RequestException
         RequestInterface $request,
         \Exception $previous = null,
         array $handlerContext = []
-    ) {
+    )
+    {
         parent::__construct($message, $request, null, $previous, $handlerContext);
     }
 
