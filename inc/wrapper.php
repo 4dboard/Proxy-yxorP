@@ -31,6 +31,7 @@ abstract class wrapper
     }
 
     /* A method that is used to route the events to the appropriate methods. */
+
     private function route(string $event_name): void
     {
         /* Used to catch exceptions. */
