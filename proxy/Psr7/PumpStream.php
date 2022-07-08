@@ -29,18 +29,18 @@ class PumpStream implements StreamInterface
         }
     }
 
-    public function close()
+    public function close(): mixed
     {
         $this->detach();
     }
 
-    public function detach()
+    public function detach(): mixed
     {
         $this->tellPos = false;
         $this->source = null;
     }
 
-    public function getSize()
+    public function getSize(): mixed
     {
         return $this->size;
     }
@@ -55,12 +55,12 @@ class PumpStream implements StreamInterface
         return false;
     }
 
-    public function rewind()
+    public function rewind(): mixed
     {
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET): mixed
     {
         throw new RuntimeException('Cannot seek a PumpStream');
     }
