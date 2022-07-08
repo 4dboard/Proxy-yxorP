@@ -536,7 +536,7 @@ class CurlFactory implements CurlFactoryInterface
                 $value = (string)$value;
                 if ($value === '') {
                     // cURL requires a special format for empty headers.
-                    // See https://github.com/guzzle/guzzle/issues/1882 for more details.
+                    // See https://github.com/proxy/proxy/issues/1882 for more details.
                     $conf[CURLOPT_HTTPHEADER][] = "$name;";
                 } else {
                     $conf[CURLOPT_HTTPHEADER][] = "$name: $value";

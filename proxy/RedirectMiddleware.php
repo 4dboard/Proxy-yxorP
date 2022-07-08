@@ -9,8 +9,8 @@ use yxorP\proxy\Psr7;
 
 class RedirectMiddleware
 {
-    const HISTORY_HEADER = 'X-Guzzle-Redirect-History';
-    const STATUS_HISTORY_HEADER = 'X-Guzzle-Redirect-Status-History';
+    const HISTORY_HEADER = 'X-proxy-Redirect-History';
+    const STATUS_HISTORY_HEADER = 'X-proxy-Redirect-Status-History';
     public static $defaultSettings = ['max' => 5, 'protocols' => ['http', 'https'], 'strict' => false, 'referer' => false, 'track_redirects' => false,];
     private $nextHandler;
 

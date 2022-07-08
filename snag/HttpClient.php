@@ -4,7 +4,7 @@ use Exception;
 use RuntimeException;
 use yxorP\proxy\ClientInterface;
 use yxorP\snag\DateTime\Date;
-use yxorP\snag\Internal\GuzzleCompat;
+use yxorP\snag\Internal\proxyCompat;
 
 class HttpClient
 {
@@ -13,13 +13,13 @@ class HttpClient
     const SESSION_PAYLOAD_VERSION = '1.0';
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
     protected $config;
-    protected $guzzle;
+    protected $proxy;
     protected $queue = [];
 
-    public function __construct(Configuration $config, ClientInterface $guzzle)
+    public function __construct(Configuration $config, ClientInterface $proxy)
     {
         $this->config = $config;
-        $this->guzzle = $guzzle;
+        $this->proxy = $proxy;
     }
 
     public function queue(Report $report)
@@ -41,10 +41,10 @@ class HttpClient
 
     protected function post($uri, array $options = [])
     {
-        if (GuzzleCompat::isUsingGuzzle5()) {
-            $this->guzzle->post($uri, $options);
+        if (proxyCompat::isUsingproxy5()) {
+            $this->proxy->post($uri, $options);
         } else {
-            $this->guzzle->request('POST', $uri, $options);
+            $this->proxy->request('POST', $uri, $options);
         }
     }
 

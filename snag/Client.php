@@ -9,7 +9,7 @@ use yxorP\snag\Callbacks\RequestContext;
 use yxorP\snag\Callbacks\RequestMetaData;
 use yxorP\snag\Callbacks\RequestSession;
 use yxorP\snag\Callbacks\RequestUser;
-use yxorP\snag\Internal\GuzzleCompat;
+use yxorP\snag\Internal\proxyCompat;
 use yxorP\snag\Middleware\BreadcrumbData;
 use yxorP\snag\Middleware\CallbackBridge;
 use yxorP\snag\Middleware\DiscardClasses;
@@ -31,15 +31,15 @@ class Client
     protected $http;
     protected $sessionTracker;
 
-    public function __construct(Configuration $config, ResolverInterface $resolver = null, ClientInterface $guzzle = null, ShutdownStrategyInterface $shutdownStrategy = null)
+    public function __construct(Configuration $config, ResolverInterface $resolver = null, ClientInterface $proxy = null, ShutdownStrategyInterface $shutdownStrategy = null)
     {
-        $guzzle = $guzzle ?: self::makeGuzzle();
-        $this->syncNotifyEndpointWithGuzzleBaseUri($config, $guzzle);
+        $proxy = $proxy ?: self::makeproxy();
+        $this->syncNotifyEndpointWithproxyBaseUri($config, $proxy);
         $this->config = $config;
         $this->resolver = $resolver ?: new BasicResolver();
         $this->recorder = new Recorder();
         $this->pipeline = new Pipeline();
-        $this->http = new HttpClient($config, $guzzle);
+        $this->http = new HttpClient($config, $proxy);
         $this->sessionTracker = new SessionTracker($config, $this->http);
         $this->registerMiddleware(new NotificationSkipper($config));
         $this->registerMiddleware(new DiscardClasses($config));
@@ -49,21 +49,21 @@ class Client
         $shutdownStrategy->registerShutdownStrategy($this);
     }
 
-    public static function makeGuzzle($base = null, array $options = [])
+    public static function makeproxy($base = null, array $options = [])
     {
-        $options = self::resolveGuzzleOptions($base, $options);
+        $options = self::resolveproxyOptions($base, $options);
         return new \yxorP\proxy\Client($options);
     }
 
-    private static function resolveGuzzleOptions($base, array $options)
+    private static function resolveproxyOptions($base, array $options)
     {
-        $key = GuzzleCompat::getBaseUriOptionName();
+        $key = proxyCompat::getBaseUriOptionName();
         $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
         $path = static::getCaBundlePath();
         if ($path) {
             $options['verify'] = $path;
         }
-        return GuzzleCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
+        return proxyCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
     }
 
     protected static function getCaBundlePath()
@@ -74,12 +74,12 @@ class Client
         return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
-    private function syncNotifyEndpointWithGuzzleBaseUri(Configuration $configuration, ClientInterface $guzzle)
+    private function syncNotifyEndpointWithproxyBaseUri(Configuration $configuration, ClientInterface $proxy)
     {
         if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
             return;
         }
-        $base = GuzzleCompat::getBaseUri($guzzle);
+        $base = proxyCompat::getBaseUri($proxy);
         if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
             $configuration->setNotifyEndpoint((string)$base);
         }
@@ -95,8 +95,8 @@ class Client
     {
         $env = new Env();
         $config = new Configuration($apiKey ?: $env->get('SNAG_API_KEY'));
-        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
-        $client = new static($config, null, $guzzle);
+        $proxy = static::makeproxy($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
+        $client = new static($config, null, $proxy);
         if ($defaults) {
             $client->registerDefaultCallbacks();
         }

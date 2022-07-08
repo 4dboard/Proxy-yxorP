@@ -5,27 +5,27 @@ namespace yxorP\snag\Internal;
 /**
  * @internal
  */
-final class GuzzleCompat
+final class proxyCompat
 {
     /**
-     * Get the base URL/URI, which depends on the Guzzle version.
+     * Get the base URL/URI, which depends on the proxy version.
      *
-     * @param \yxorP\proxy\ClientInterface $guzzle
+     * @param \yxorP\proxy\ClientInterface $proxy
      *
      * @return mixed
      */
-    public static function getBaseUri(\yxorP\proxy\ClientInterface $guzzle)
+    public static function getBaseUri(\yxorP\proxy\ClientInterface $proxy)
     {
-        // TODO: validate this by running PHPStan with Guzzle 5
-        return self::isUsingGuzzle5()
-            ? $guzzle->getBaseUrl() // @phpstan-ignore-line
-            : $guzzle->getConfig(self::getBaseUriOptionName());
+        // TODO: validate this by running PHPStan with proxy 5
+        return self::isUsingproxy5()
+            ? $proxy->getBaseUrl() // @phpstan-ignore-line
+            : $proxy->getConfig(self::getBaseUriOptionName());
     }
 
     /**
      * @return bool
      */
-    public static function isUsingGuzzle5()
+    public static function isUsingproxy5()
     {
         if (defined(\yxorP\proxy\ClientInterface::class . '::VERSION')) {
             $version = constant(\yxorP\proxy\ClientInterface::class . '::VERSION');
@@ -38,20 +38,20 @@ final class GuzzleCompat
     }
 
     /**
-     * Get the base URL/URI option name, which depends on the Guzzle version.
+     * Get the base URL/URI option name, which depends on the proxy version.
      *
      * @return string
      */
     public static function getBaseUriOptionName()
     {
-        return self::isUsingGuzzle5() ? 'base_url' : 'base_uri';
+        return self::isUsingproxy5() ? 'base_url' : 'base_uri';
     }
 
     /**
-     * Apply the given $requestOptions to the Guzzle $options array, if they are
+     * Apply the given $requestOptions to the proxy $options array, if they are
      * not already set.
      *
-     * The layout of request options differs in Guzzle 5 to 6/7; in Guzzle 5
+     * The layout of request options differs in proxy 5 to 6/7; in proxy 5
      * request options live in a 'defaults' array, but in 6/7 they are in the
      * top level
      *
@@ -62,7 +62,7 @@ final class GuzzleCompat
      */
     public static function applyRequestOptions(array $options, array $requestOptions)
     {
-        if (self::isUsingGuzzle5()) {
+        if (self::isUsingproxy5()) {
             if (!isset($options['defaults'])) {
                 $options['defaults'] = [];
             }

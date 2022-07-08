@@ -300,7 +300,7 @@ class Configuration
     public function getSessionClient()
     {
         if (is_null($this->sessionClient)) {
-            $this->sessionClient = Client::makeGuzzle($this->sessionEndpoint);
+            $this->sessionClient = Client::makeproxy($this->sessionEndpoint);
         }
         return $this->sessionClient;
     }

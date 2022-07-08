@@ -4,7 +4,7 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/177683559-6000c882-dfb4-4f7c-8b1d-a0f0e775d1d0.png)
 
-## yxorP Stateful SAAS(y), Multi-tenancy Proxy Guzzler + Backend (GUI) included, PHP CURL+Composer are Optional
+## yxorP Stateful SAAS(y), Multi-tenancy Proxy proxyr + Backend (GUI) included, PHP CURL+Composer are Optional
 
 📢 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
 ⚡ [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
@@ -36,7 +36,7 @@
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
-of *multiple websites* using a PHAR (PHP archive) binary version of *Guzzle*, and managed via a user-friendly *
+of *multiple websites* using a PHAR (PHP archive) binary version of *proxy*, and managed via a user-friendly *
 Cockpit backend (GUI)*.
 
 It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web
@@ -385,7 +385,7 @@ example like the file /plugins/TestPlugin.php in the plugins directory as an ill
 Navigate to the root of the project with your browser, register an account and then login.
 
 yxorP is database, PHP CURL, and Composer compatible. As proxy, yxorP has permission to edit. Cockpit manages a PHAR (
-PHP archive) binary version of Guzzle that is used by a number of websites. The yxorP customizable web proxy.
+PHP archive) binary version of proxy that is used by a number of websites. The yxorP customizable web proxy.
 Market-ready proxy systems Not built-in functionality, but event-driven architecture and plugin-based design are
 crucial. Expandable, configurable. YxorP's graphical back-end CMS interface is unique. The hostname of the request
 fetches site-specific information from the backend. modified. Web page content may be rewritten by custom-built engines.
