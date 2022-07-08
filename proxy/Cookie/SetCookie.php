@@ -8,14 +8,14 @@ class SetCookie
 {
     /** @var array */
     private static $defaults = [
-        'Name'     => null,
-        'Value'    => null,
-        'Domain'   => null,
-        'Path'     => '/',
-        'Max-Age'  => null,
-        'Expires'  => null,
-        'Secure'   => false,
-        'Discard'  => false,
+        'Name' => null,
+        'Value' => null,
+        'Domain' => null,
+        'Path' => '/',
+        'Max-Age' => null,
+        'Expires' => null,
+        'Secure' => false,
+        'Discard' => false,
         'HttpOnly' => false
     ];
 
@@ -220,7 +220,7 @@ class SetCookie
     public function setExpires($timestamp)
     {
         $this->data['Expires'] = is_numeric($timestamp)
-            ? (int) $timestamp
+            ? (int)$timestamp
             : strtotime($timestamp);
     }
 
@@ -348,7 +348,7 @@ class SetCookie
             return false;
         }
 
-        return (bool) preg_match('/\.' . preg_quote($cookieDomain, '/') . '$/', $domain);
+        return (bool)preg_match('/\.' . preg_quote($cookieDomain, '/') . '$/', $domain);
     }
 
     /**

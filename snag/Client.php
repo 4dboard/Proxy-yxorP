@@ -84,10 +84,10 @@ class Client
      * @param \yxorP\snag\Shutdown\ShutdownStrategyInterface|null $shutdownStrategy
      */
     public function __construct(
-        Configuration              $config,
-        ResolverInterface          $resolver = null,
+        Configuration                 $config,
+        ResolverInterface             $resolver = null,
         \yxorP\guzzle\ClientInterface $guzzle = null,
-        ShutdownStrategyInterface  $shutdownStrategy = null
+        ShutdownStrategyInterface     $shutdownStrategy = null
     )
     {
         $guzzle = $guzzle ?: self::makeGuzzle();
@@ -997,7 +997,7 @@ class Client
      * @return void
      */
     private function syncNotifyEndpointWithGuzzleBaseUri(
-        Configuration              $configuration,
+        Configuration                 $configuration,
         \yxorP\guzzle\ClientInterface $guzzle
     )
     {

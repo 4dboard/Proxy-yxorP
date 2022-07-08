@@ -63,7 +63,7 @@ final class EasyHandle
                 $headers['x-encoded-content-length']
                     = $headers[$normalizedKeys['content-length']];
 
-                $bodyLength = (int) $this->sink->getSize();
+                $bodyLength = (int)$this->sink->getSize();
                 if ($bodyLength) {
                     $headers[$normalizedKeys['content-length']] = $bodyLength;
                 } else {
@@ -78,7 +78,7 @@ final class EasyHandle
             $headers,
             $this->sink,
             substr($startLine[0], 5),
-            isset($startLine[2]) ? (string) $startLine[2] : null
+            isset($startLine[2]) ? (string)$startLine[2] : null
         );
     }
 

@@ -21,6 +21,14 @@ class HandlerStack
     private $cached;
 
     /**
+     * @param callable $handler Underlying HTTP handler.
+     */
+    public function __construct(callable $handler = null)
+    {
+        $this->handler = $handler;
+    }
+
+    /**
      * Creates a default handler stack that can be used by clients.
      *
      * The returned handler will wrap the provided handler or use the most
@@ -49,18 +57,10 @@ class HandlerStack
     }
 
     /**
-     * @param callable $handler Underlying HTTP handler.
-     */
-    public function __construct(callable $handler = null)
-    {
-        $this->handler = $handler;
-    }
-
-    /**
      * Invokes the handler stack as a composed handler
      *
      * @param RequestInterface $request
-     * @param array            $options
+     * @param array $options
      *
      * @return ResponseInterface|PromiseInterface
      */
@@ -119,14 +119,14 @@ class HandlerStack
      */
     public function hasHandler()
     {
-        return (bool) $this->handler;
+        return (bool)$this->handler;
     }
 
     /**
      * Unshift a middleware to the bottom of the stack.
      *
      * @param callable $middleware Middleware function
-     * @param string   $name       Name to register for this middleware.
+     * @param string $name Name to register for this middleware.
      */
     public function unshift(callable $middleware, $name = null)
     {
@@ -138,7 +138,7 @@ class HandlerStack
      * Push a middleware to the top of the stack.
      *
      * @param callable $middleware Middleware function
-     * @param string   $name       Name to register for this middleware.
+     * @param string $name Name to register for this middleware.
      */
     public function push(callable $middleware, $name = '')
     {
@@ -149,9 +149,9 @@ class HandlerStack
     /**
      * Add a middleware before another middleware by name.
      *
-     * @param string   $findName   Middleware to find
+     * @param string $findName Middleware to find
      * @param callable $middleware Middleware function
-     * @param string   $withName   Name to register for this middleware.
+     * @param string $withName Name to register for this middleware.
      */
     public function before($findName, callable $middleware, $withName = '')
     {
@@ -161,9 +161,9 @@ class HandlerStack
     /**
      * Add a middleware after another middleware by name.
      *
-     * @param string   $findName   Middleware to find
+     * @param string $findName Middleware to find
      * @param callable $middleware Middleware function
-     * @param string   $withName   Name to register for this middleware.
+     * @param string $withName Name to register for this middleware.
      */
     public function after($findName, callable $middleware, $withName = '')
     {
@@ -227,10 +227,10 @@ class HandlerStack
     /**
      * Splices a function into the middleware list at a specific position.
      *
-     * @param string   $findName
-     * @param string   $withName
+     * @param string $findName
+     * @param string $withName
      * @param callable $middleware
-     * @param bool     $before
+     * @param bool $before
      */
     private function splice($findName, $withName, callable $middleware, $before)
     {

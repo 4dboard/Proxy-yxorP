@@ -21,7 +21,7 @@ class Uri implements UriInterface
     const HTTP_DEFAULT_HOST = 'localhost';
 
     private static $defaultPorts = [
-        'http'  => 80,
+        'http' => 80,
         'https' => 443,
         'ftp' => 21,
         'gopher' => 70,
@@ -74,17 +74,6 @@ class Uri implements UriInterface
         }
     }
 
-    public function __toString()
-    {
-        return self::composeComponents(
-            $this->scheme,
-            $this->getAuthority(),
-            $this->path,
-            $this->query,
-            $this->fragment
-        );
-    }
-
     /**
      * Composes a URI reference string from its various components.
      *
@@ -120,7 +109,7 @@ class Uri implements UriInterface
             $uri .= $scheme . ':';
         }
 
-        if ($authority != ''|| $scheme === 'file') {
+        if ($authority != '' || $scheme === 'file') {
             $uri .= '//' . $authority;
         }
 
@@ -233,7 +222,7 @@ class Uri implements UriInterface
      * component, identical to the base URI. When no base URI is given, only an empty
      * URI reference (apart from its fragment) is considered a same-document reference.
      *
-     * @param UriInterface      $uri  The URI to check
+     * @param UriInterface $uri The URI to check
      * @param UriInterface|null $base An optional base URI to compare against
      *
      * @return bool
@@ -271,8 +260,8 @@ class Uri implements UriInterface
     /**
      * Converts the relative URI into a new URI that is resolved against the base URI.
      *
-     * @param UriInterface        $base Base URI
-     * @param string|UriInterface $rel  Relative URI
+     * @param UriInterface $base Base URI
+     * @param string|UriInterface $rel Relative URI
      *
      * @return UriInterface
      *
@@ -295,7 +284,7 @@ class Uri implements UriInterface
      * removed.
      *
      * @param UriInterface $uri URI to use as a base.
-     * @param string       $key Query string key to remove.
+     * @param string $key Query string key to remove.
      *
      * @return UriInterface
      */
@@ -315,9 +304,9 @@ class Uri implements UriInterface
      * A value of null will set the query string key without a value, e.g. "key"
      * instead of "key=value".
      *
-     * @param UriInterface $uri   URI to use as a base.
-     * @param string       $key   Key to set.
-     * @param string|null  $value Value to set
+     * @param UriInterface $uri URI to use as a base.
+     * @param string $key Key to set.
+     * @param string|null $value Value to set
      *
      * @return UriInterface
      */
@@ -335,8 +324,8 @@ class Uri implements UriInterface
      *
      * It has the same behavior as withQueryValue() but for an associative array of key => value.
      *
-     * @param UriInterface $uri           URI to use as a base.
-     * @param array        $keyValueArray Associative array of key and values
+     * @param UriInterface $uri URI to use as a base.
+     * @param array $keyValueArray Associative array of key and values
      *
      * @return UriInterface
      */
@@ -357,9 +346,9 @@ class Uri implements UriInterface
      * @param array $parts
      *
      * @return UriInterface
+     * @throws \InvalidArgumentException If the components do not form a valid URI.
      * @link http://php.net/manual/en/function.parse-url.php
      *
-     * @throws \InvalidArgumentException If the components do not form a valid URI.
      */
     public static function fromParts(array $parts)
     {
@@ -368,6 +357,58 @@ class Uri implements UriInterface
         $uri->validateState();
 
         return $uri;
+    }
+
+    /**
+     * @param UriInterface $uri
+     * @param array $keys
+     *
+     * @return array
+     */
+    private static function getFilteredQueryString(UriInterface $uri, array $keys)
+    {
+        $current = $uri->getQuery();
+
+        if ($current === '') {
+            return [];
+        }
+
+        $decodedKeys = array_map('rawurldecode', $keys);
+
+        return array_filter(explode('&', $current), function ($part) use ($decodedKeys) {
+            return !in_array(rawurldecode(explode('=', $part)[0]), $decodedKeys, true);
+        });
+    }
+
+    /**
+     * @param string $key
+     * @param string|null $value
+     *
+     * @return string
+     */
+    private static function generateQueryString($key, $value)
+    {
+        // Query string separators ("=", "&") within the key or value need to be encoded
+        // (while preventing double-encoding) before setting the query string. All other
+        // chars that need percent-encoding will be encoded by withQuery().
+        $queryString = strtr($key, self::$replaceQuery);
+
+        if ($value !== null) {
+            $queryString .= '=' . strtr($value, self::$replaceQuery);
+        }
+
+        return $queryString;
+    }
+
+    public function __toString()
+    {
+        return self::composeComponents(
+            $this->scheme,
+            $this->getAuthority(),
+            $this->path,
+            $this->query,
+            $this->fragment
+        );
     }
 
     public function getScheme()
@@ -627,7 +668,7 @@ class Uri implements UriInterface
             return null;
         }
 
-        $port = (int) $port;
+        $port = (int)$port;
         if (0 > $port || 0xffff < $port) {
             throw new \InvalidArgumentException(
                 sprintf('Invalid port: %d. Must be between 0 and 65535', $port)
@@ -635,47 +676,6 @@ class Uri implements UriInterface
         }
 
         return $port;
-    }
-
-    /**
-     * @param UriInterface $uri
-     * @param array        $keys
-     * 
-     * @return array
-     */
-    private static function getFilteredQueryString(UriInterface $uri, array $keys)
-    {
-        $current = $uri->getQuery();
-
-        if ($current === '') {
-            return [];
-        }
-
-        $decodedKeys = array_map('rawurldecode', $keys);
-
-        return array_filter(explode('&', $current), function ($part) use ($decodedKeys) {
-            return !in_array(rawurldecode(explode('=', $part)[0]), $decodedKeys, true);
-        });
-    }
-
-    /**
-     * @param string      $key
-     * @param string|null $value
-     * 
-     * @return string
-     */
-    private static function generateQueryString($key, $value)
-    {
-        // Query string separators ("=", "&") within the key or value need to be encoded
-        // (while preventing double-encoding) before setting the query string. All other
-        // chars that need percent-encoding will be encoded by withQuery().
-        $queryString = strtr($key, self::$replaceQuery);
-
-        if ($value !== null) {
-            $queryString .= '=' . strtr($value, self::$replaceQuery);
-        }
-
-        return $queryString;
     }
 
     private function removeDefaultPort()
@@ -753,7 +753,7 @@ class Uri implements UriInterface
                 'by adding a leading slash to the path is deprecated since version 1.4 and will throw an exception instead.',
                 E_USER_DEPRECATED
             );
-            $this->path = '/'. $this->path;
+            $this->path = '/' . $this->path;
             //throw new \InvalidArgumentException('The path of a URI with an authority must start with a slash "/" or be empty');
         }
     }
