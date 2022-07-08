@@ -72,7 +72,7 @@ class ArequestExceptionAA extends AATransferException
         return $this->request;
     }
 
-    public function getResponse(): ?ResponseInterface
+    public function getResponse(): mixed
     {
         return $this->response;
     }
