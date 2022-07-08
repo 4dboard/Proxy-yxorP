@@ -232,6 +232,7 @@ class generalHelper
 
     public static function fileInc($dir, $x, $inc)
     {
+        echo $dir;
         if (is_dir($_loc = $dir . DIRECTORY_SEPARATOR . $x)) return self::fileCheck($_loc, $inc);
         if (!$inc && str_contains(constants::get(YXORP_PROXY_URL), $x)) return cache::cache()->set(file_get_contents($_loc));
         if ($inc) require_once($_loc);
