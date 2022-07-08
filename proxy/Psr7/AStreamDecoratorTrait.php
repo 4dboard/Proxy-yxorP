@@ -44,7 +44,7 @@ trait AStreamDecoratorTrait
         return $this->stream->isSeekable();
     }
 
-    public function seek($offset, $whence = SEEK_SET):mixed
+    public function seek($offset, $whence = SEEK_SET): mixed
     {
         $this->stream->seek($offset, $whence);
     }
@@ -100,7 +100,7 @@ trait AStreamDecoratorTrait
         return $this->stream->isWritable();
     }
 
-    public function rewind()
+    public function rewind(): mixed
     {
         $this->seek(0);
     }
