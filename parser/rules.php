@@ -118,12 +118,12 @@ final class rules implements publicSuffixListInterface
         return resolvedDomain::fromUnknown($domain, $suffixLength);
     }
 
-    private function validateDomain($domain): aDomainNameInterface
+    private function validateDomain($domain): domainNameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof aDomainNameInterface) {
+        if (!$domain instanceof domainNameInterface) {
             $domain = domain::fromIDNA2008($domain);
         }
         if ('' === $domain->label(0)) {
@@ -132,7 +132,7 @@ final class rules implements publicSuffixListInterface
         return $domain;
     }
 
-    private function resolveSuffix(aDomainNameInterface $domain, string $section): array
+    private function resolveSuffix(domainNameInterface $domain, string $section): array
     {
         $icannSuffixLength = $this->getPublicSuffixLengthFromSection($domain, self::ICANN_DOMAINS);
         if (1 > $icannSuffixLength) {
@@ -148,7 +148,7 @@ final class rules implements publicSuffixListInterface
         return [$icannSuffixLength, self::ICANN_DOMAINS];
     }
 
-    private function getPublicSuffixLengthFromSection(aDomainNameInterface $domain, string $section): int
+    private function getPublicSuffixLengthFromSection(domainNameInterface $domain, string $section): int
     {
         $rules = $this->rules[$section];
         $labelCount = 0;

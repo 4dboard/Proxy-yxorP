@@ -11,10 +11,10 @@ final class suffix implements effectiveTopLevelDomainInterface
     private const ICANN = 'ICANN';
     private const PRIVATE = 'PRIVATE';
     private const IANA = 'IANA';
-    private aDomainNameInterface $domain;
+    private domainNameInterface $domain;
     private string $section;
 
-    private function __construct(aDomainNameInterface $domain, string $section)
+    private function __construct(domainNameInterface $domain, string $section)
     {
         $this->domain = $domain;
         $this->section = $section;
@@ -34,12 +34,12 @@ final class suffix implements effectiveTopLevelDomainInterface
         return new self($domain, self::ICANN);
     }
 
-    private static function setDomainName($domain): aDomainNameInterface
+    private static function setDomainName($domain): domainNameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof aDomainNameInterface) {
+        if (!$domain instanceof domainNameInterface) {
             $domain = domain::fromIDNA2008($domain);
         }
         if ('' === $domain->label(0)) {
@@ -48,7 +48,7 @@ final class suffix implements effectiveTopLevelDomainInterface
         return $domain;
     }
 
-    public function domain(): aDomainNameInterface
+    public function domain(): domainNameInterface
     {
         return $this->domain;
     }
@@ -121,7 +121,7 @@ final class suffix implements effectiveTopLevelDomainInterface
         return $this->domain->toString();
     }
 
-    public function normalize(aDomainNameInterface $domain): self
+    public function normalize(domainNameInterface $domain): self
     {
         $newDomain = $domain->clear()->append($this->toUnicode());
         if ($domain->isAscii()) {

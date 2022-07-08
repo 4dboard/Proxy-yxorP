@@ -6,13 +6,13 @@ use function count;
 
 final class resolvedDomain implements resolvedInterfaceDomainNameInterface
 {
-    private aDomainNameInterface $domain;
+    private domainNameInterface $domain;
     private effectiveTopLevelDomainInterface $suffix;
-    private aDomainNameInterface $secondLevelDomain;
-    private aDomainNameInterface $registrableDomain;
-    private aDomainNameInterface $subDomain;
+    private domainNameInterface $secondLevelDomain;
+    private domainNameInterface $registrableDomain;
+    private domainNameInterface $subDomain;
 
-    private function __construct(aDomainNameInterface $domain, effectiveTopLevelDomainInterface $suffix)
+    private function __construct(domainNameInterface $domain, effectiveTopLevelDomainInterface $suffix)
     {
         $this->domain = $domain;
         $this->suffix = $suffix;
@@ -52,18 +52,18 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
         return new self($domain, suffix::fromICANN($domain->slice(0, $suffixLength)));
     }
 
-    private static function setDomainName($domain): aDomainNameInterface
+    private static function setDomainName($domain): domainNameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             return $domain->domain();
         }
-        if ($domain instanceof aDomainNameInterface) {
+        if ($domain instanceof domainNameInterface) {
             return $domain;
         }
         return domain::fromIDNA2008($domain);
     }
 
-    public function domain(): aDomainNameInterface
+    public function domain(): domainNameInterface
     {
         return $this->domain;
     }
@@ -106,17 +106,17 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
         return $this->domain->toString();
     }
 
-    public function registrableDomain(): aDomainNameInterface
+    public function registrableDomain(): domainNameInterface
     {
         return $this->registrableDomain;
     }
 
-    public function secondLevelDomain(): aDomainNameInterface
+    public function secondLevelDomain(): domainNameInterface
     {
         return $this->secondLevelDomain;
     }
 
-    public function subDomain(): aDomainNameInterface
+    public function subDomain(): domainNameInterface
     {
         return $this->subDomain;
     }

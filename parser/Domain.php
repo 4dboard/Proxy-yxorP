@@ -25,7 +25,7 @@ use function strtolower;
 use const FILTER_FLAG_IPV4;
 use const FILTER_VALIDATE_IP;
 
-final class domain implements aDomainNameInterface
+final class domain implements domainNameInterface
 {
     private const IDNA_2003 = 'IDNA_2003';
     private const IDNA_2008 = 'IDNA_2008';

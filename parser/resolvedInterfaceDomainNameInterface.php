@@ -5,15 +5,15 @@ interface resolvedInterfaceDomainNameInterface extends aHostInterface, domainNam
 {
     public function suffix(): effectiveTopLevelDomainInterface;
 
-    public function secondLevelDomain(): aDomainNameInterface;
+    public function secondLevelDomain(): domainNameInterface;
 
-    public function registrableDomain(): aDomainNameInterface;
+    public function registrableDomain(): domainNameInterface;
 
-    public function subDomain(): aDomainNameInterface;
+    public function subDomain(): domainNameInterface;
 
-    public function withSubDomain(aDomainNameInterface $subDomain): self;
+    public function withSubDomain(domainNameInterface $subDomain): self;
 
-    public function withSecondLevelDomain(aDomainNameInterface $label): self;
+    public function withSecondLevelDomain(domainNameInterface $label): self;
 
     public function withSuffix(effectiveTopLevelDomainInterface $suffix): self;
 }
