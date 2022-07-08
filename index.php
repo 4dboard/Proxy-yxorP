@@ -8,7 +8,7 @@ namespace yxorP;
 require 'yxorP.php';
 
 /**
- * Proxy to the yxorP::proxy() method. 
+ * Proxy to the yxorP::proxy() method.
  *  A function that is called to start the proxy. // Returns true if the request was successful.
  */
 yxorP::proxy();

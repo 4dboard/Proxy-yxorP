@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
@@ -6,11 +6,11 @@ use DateInterval;
 use Psr\SimpleCache\CacheException;
 use Psr\SimpleCache\CacheInterface;
 use Throwable;
-use yxorP\parser\publicSuffixList;
+use yxorP\parser\publicSuffixListInterface;
 use function md5;
 use function strtolower;
 
-final class publicSuffixListPsr16Cache implements publicSuffixListCache
+final class publicSuffixListPsr16Cache implements publicSuffixListCacheInterface
 {
     private CacheInterface $cache;
     private string $cachePrefix;
@@ -23,14 +23,14 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCache
         $this->cacheTtl = timeToLive::convert($cacheTtl);
     }
 
-    public function fetch(string $uri): ?publicSuffixList
+    public function fetch(string $uri): ?publicSuffixListInterface
     {
         $cacheKey = $this->cacheKey($uri);
         $publicSuffixList = $this->cache->get($cacheKey);
         if (null === $publicSuffixList) {
             return null;
         }
-        if (!$publicSuffixList instanceof publicSuffixList) {
+        if (!$publicSuffixList instanceof publicSuffixListInterface) {
             $this->cache->delete($cacheKey);
             return null;
         }
@@ -42,7 +42,7 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCache
         return $this->cachePrefix . md5(strtolower($str));
     }
 
-    public function remember(string $uri, publicSuffixList $publicSuffixList): bool
+    public function remember(string $uri, publicSuffixListInterface $publicSuffixList): bool
     {
         try {
             return $this->cache->set($this->cacheKey($uri), $publicSuffixList, $this->cacheTtl);

@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
-interface effectiveTopLevelDomain extends host, domainNameProvider
+interface effectiveTopLevelDomainInterface extends aHostInterface, domainNameProviderInterface
 {
     public function isKnown(): bool;
 
@@ -13,5 +13,5 @@ interface effectiveTopLevelDomain extends host, domainNameProvider
 
     public function isPrivate(): bool;
 
-    public function normalize(domainName $domain): self;
+    public function normalize(domainNameInterface $domain): self;
 }

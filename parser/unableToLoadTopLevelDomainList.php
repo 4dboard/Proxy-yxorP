@@ -1,11 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use InvalidArgumentException;
 use Throwable;
 
-final class unableToLoadTopLevelDomainList extends InvalidArgumentException implements cannotProcessHost
+final class unableToLoadTopLevelDomainList extends InvalidArgumentException implements cannotProcessHostInterface
 {
     public static function dueToInvalidTopLevelDomain(string $content, Throwable $exception = null): self
     {

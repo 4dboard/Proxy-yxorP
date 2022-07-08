@@ -1,8 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
-interface publicSuffixListStorageFactory
+interface publicSuffixListStorageFactoryInterface
 {
-    public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): publicSuffixListStorage;
+    public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): publicSuffixListStorageInterface;
 }

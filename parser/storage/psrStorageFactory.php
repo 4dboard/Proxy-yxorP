@@ -1,13 +1,13 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\SimpleCache\CacheInterface;
-use yxorP\parser\resourceUri;
+use yxorP\parser\resourceUriInterface;
 
-final class psrStorageFactory implements resourceUri, publicSuffixListStorageFactory, topLevelDomainListStorageFactory
+final class psrStorageFactory implements resourceUriInterface, publicSuffixListStorageFactoryInterface, topLevelDomainListStorageFactoryInterface
 {
     private CacheInterface $cache;
     private ClientInterface $client;
@@ -20,12 +20,12 @@ final class psrStorageFactory implements resourceUri, publicSuffixListStorageFac
         $this->requestFactory = $requestFactory;
     }
 
-    public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): publicSuffixListStorage
+    public function createPublicSuffixListStorage(string $cachePrefix = '', $cacheTtl = null): publicSuffixListStorageInterface
     {
         return new rulesStorage(new publicSuffixListPsr16Cache($this->cache, $cachePrefix, $cacheTtl), new publicSuffixListPsr18Client($this->client, $this->requestFactory));
     }
 
-    public function createTopLevelDomainListStorage(string $cachePrefix = '', $cacheTtl = null): topLevelDomainListStorage
+    public function createTopLevelDomainListStorage(string $cachePrefix = '', $cacheTtl = null): topLevelDomainListStorageInterface
     {
         return new topLevelDomainsStorage(new topLevelDomainListPsr16Cache($this->cache, $cachePrefix, $cacheTtl), new topLevelDomainListPsr18Client($this->client, $this->requestFactory));
     }

@@ -1,8 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
-interface topLevelDomainListStorageFactory
+interface topLevelDomainListStorageFactoryInterface
 {
-    public function createTopLevelDomainListStorage(string $cachePrefix = '', $cacheTtl = null): topLevelDomainListStorage;
+    public function createTopLevelDomainListStorage(string $cachePrefix = '', $cacheTtl = null): topLevelDomainListStorageInterface;
 }

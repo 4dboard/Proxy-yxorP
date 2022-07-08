@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
-interface domainNameResolver
+interface domainNameResolverInterface
 {
-    public function resolve(host $host): resolvedDomainName;
+    public function resolve(aHostInterface $host): resolvedInterfaceDomainNameInterface;
 }

@@ -1,15 +1,15 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
-use yxorP\parser\publicSuffixList;
+use yxorP\parser\publicSuffixListInterface;
 use yxorP\parser\rules;
 use yxorP\parser\unableToLoadResource;
 
-final class publicSuffixListPsr18Client implements publicSuffixListClient
+final class publicSuffixListPsr18Client implements publicSuffixListClientInterface
 {
     private ClientInterface $client;
     private RequestFactoryInterface $requestFactory;
@@ -20,7 +20,7 @@ final class publicSuffixListPsr18Client implements publicSuffixListClient
         $this->requestFactory = $requestFactory;
     }
 
-    public function get(string $uri): publicSuffixList
+    public function get(string $uri): publicSuffixListInterface
     {
         $request = $this->requestFactory->createRequest('GET', $uri);
         try {

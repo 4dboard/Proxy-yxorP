@@ -1,10 +1,10 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
-use yxorP\parser\topLevelDomainList;
+use yxorP\parser\topInterfaceLevelDomainListInterface;
 
-interface topLevelDomainListClient
+interface topLevelDomainListClientInterface
 {
-    public function get(string $uri): topLevelDomainList;
+    public function get(string $uri): topInterfaceLevelDomainListInterface;
 }

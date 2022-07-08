@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
-interface domainNameProvider
+interface domainNameProviderInterface
 {
-    public function domain(): domainName;
+    public function domain(): domainNameInterface;
 }

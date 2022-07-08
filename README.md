@@ -75,10 +75,31 @@ alternatives, such as shared memory.
 
 ``` 
 
-# NGINX EXAMPLE
-DocumentRoot "/.yxorP/index.php" 
-ServerName www.demo.com
-ServerAlias server 
+server {
+
+        listen 80 default_server;
+        listen [::]:80 default_server;
+       
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+        
+        error_log /var/www/yxorP/logs;
+        
+        root /var/www/yxorP;
+
+        index index.php;
+
+        server_name _;
+
+        location ~ / {
+                if (!-e $request_filename){
+                        rewrite ^.* /index.php break;
+                }
+                include snippets/fastcgi-php.conf; fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        }
+
+}
+
 
 ``` 
 
@@ -143,7 +164,6 @@ and password are only used on the first run). The application can also always be
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-
 
 ![image](https://user-images.githubusercontent.com/6468571/177684819-fbdd79b3-93ad-4012-aa41-7661fd9638ec.png)
 ![image](https://user-images.githubusercontent.com/6468571/177685870-385a203b-9654-4c7b-b3e7-00c725d3fa51.png)

@@ -1,11 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use RuntimeException;
 use Throwable;
 
-final class unableToLoadResource extends RuntimeException implements cannotProcessHost
+final class unableToLoadResource extends RuntimeException implements cannotProcessHostInterface
 {
     public static function dueToInvalidUri(string $uri): self
     {

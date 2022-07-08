@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
-interface topLevelDomainListStorage extends topLevelDomainListClient
+interface topLevelDomainListStorageInterface extends topLevelDomainListClientInterface
 {
     public function delete(string $uri): bool;
 }

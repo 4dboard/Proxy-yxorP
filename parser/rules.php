@@ -1,6 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use SplTempFileObject;
 use TypeError;
@@ -14,7 +14,7 @@ use function preg_match;
 use function strpos;
 use function substr;
 
-final class rules implements publicSuffixList
+final class rules implements publicSuffixListInterface
 {
     private const ICANN_DOMAINS = 'ICANN_DOMAINS';
     private const PRIVATE_DOMAINS = 'PRIVATE_DOMAINS';
@@ -41,11 +41,6 @@ final class rules implements publicSuffixList
             throw new TypeError('The content to be converted should be a string or a Stringable object, `' . gettype($content) . '` given.');
         }
         return new self(self::parse($content));
-    }
-
-    public static function __set_state(array $properties): self
-    {
-        return new self($properties['rules']);
     }
 
     private static function parse(string $content): array
@@ -77,7 +72,7 @@ final class rules implements publicSuffixList
         try {
             $line = array_pop($ruleParts);
             $rule = idna::toAscii($line, idna::IDNA2008_ASCII)->result();
-        } catch (cannotProcessHost $exception) {
+        } catch (cannotProcessHostInterface $exception) {
             throw unableToLoadPublicSuffixList::dueToInvalidRule($line ?? null, $exception);
         }
         $isDomain = true;
@@ -93,7 +88,12 @@ final class rules implements publicSuffixList
         return $list;
     }
 
-    public function resolve($host): resolvedDomainName
+    public static function __set_state(array $properties): self
+    {
+        return new self($properties['rules']);
+    }
+
+    public function resolve($host): resolvedInterfaceDomainNameInterface
     {
         try {
             return $this->getCookieDomain($host);
@@ -104,7 +104,7 @@ final class rules implements publicSuffixList
         }
     }
 
-    public function getCookieDomain($host): resolvedDomainName
+    public function getCookieDomain($host): resolvedInterfaceDomainNameInterface
     {
         $domain = $this->validateDomain($host);
         [$suffixLength, $section] = $this->resolveSuffix($domain, '');
@@ -117,32 +117,12 @@ final class rules implements publicSuffixList
         return resolvedDomain::fromUnknown($domain, $suffixLength);
     }
 
-    public function getICANNDomain($host): resolvedDomainName
+    private function validateDomain($domain): domainNameInterface
     {
-        $domain = $this->validateDomain($host);
-        [$suffixLength, $section] = $this->resolveSuffix($domain, self::ICANN_DOMAINS);
-        if (self::ICANN_DOMAINS !== $section) {
-            throw unableToResolveDomain::dueToMissingSuffix($domain, 'ICANN');
-        }
-        return resolvedDomain::fromICANN($domain, $suffixLength);
-    }
-
-    public function getPrivateDomain($host): resolvedDomainName
-    {
-        $domain = $this->validateDomain($host);
-        [$suffixLength, $section] = $this->resolveSuffix($domain, self::PRIVATE_DOMAINS);
-        if (self::PRIVATE_DOMAINS !== $section) {
-            throw unableToResolveDomain::dueToMissingSuffix($domain, 'private');
-        }
-        return resolvedDomain::fromPrivate($domain, $suffixLength);
-    }
-
-    private function validateDomain($domain): domainName
-    {
-        if ($domain instanceof domainNameProvider) {
+        if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof domainName) {
+        if (!$domain instanceof domainNameInterface) {
             $domain = domain::fromIDNA2008($domain);
         }
         if ('' === $domain->label(0)) {
@@ -151,7 +131,7 @@ final class rules implements publicSuffixList
         return $domain;
     }
 
-    private function resolveSuffix(domainName $domain, string $section): array
+    private function resolveSuffix(domainNameInterface $domain, string $section): array
     {
         $icannSuffixLength = $this->getPublicSuffixLengthFromSection($domain, self::ICANN_DOMAINS);
         if (1 > $icannSuffixLength) {
@@ -167,7 +147,7 @@ final class rules implements publicSuffixList
         return [$icannSuffixLength, self::ICANN_DOMAINS];
     }
 
-    private function getPublicSuffixLengthFromSection(domainName $domain, string $section): int
+    private function getPublicSuffixLengthFromSection(domainNameInterface $domain, string $section): int
     {
         $rules = $this->rules[$section];
         $labelCount = 0;
@@ -189,5 +169,25 @@ final class rules implements publicSuffixList
             $rules = $rules[$label];
         }
         return $labelCount;
+    }
+
+    public function getICANNDomain($host): resolvedInterfaceDomainNameInterface
+    {
+        $domain = $this->validateDomain($host);
+        [$suffixLength, $section] = $this->resolveSuffix($domain, self::ICANN_DOMAINS);
+        if (self::ICANN_DOMAINS !== $section) {
+            throw unableToResolveDomain::dueToMissingSuffix($domain, 'ICANN');
+        }
+        return resolvedDomain::fromICANN($domain, $suffixLength);
+    }
+
+    public function getPrivateDomain($host): resolvedInterfaceDomainNameInterface
+    {
+        $domain = $this->validateDomain($host);
+        [$suffixLength, $section] = $this->resolveSuffix($domain, self::PRIVATE_DOMAINS);
+        if (self::PRIVATE_DOMAINS !== $section) {
+            throw unableToResolveDomain::dueToMissingSuffix($domain, 'private');
+        }
+        return resolvedDomain::fromPrivate($domain, $suffixLength);
     }
 }

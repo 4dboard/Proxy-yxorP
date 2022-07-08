@@ -1,11 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use InvalidArgumentException;
 use Throwable;
 
-final class unableToLoadPublicSuffixList extends InvalidArgumentException implements cannotProcessHost
+final class unableToLoadPublicSuffixList extends InvalidArgumentException implements cannotProcessHostInterface
 {
     public static function dueToInvalidRule(?string $line, Throwable $exception): self
     {

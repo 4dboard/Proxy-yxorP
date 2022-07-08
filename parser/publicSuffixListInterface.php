@@ -1,11 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
-interface publicSuffixList extends domainNameResolver
+interface publicSuffixListInterface extends domainNameResolverInterface
 {
-    public function getCookieDomain(host $host): resolvedDomainName;
+    public function getCookieDomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
 
-    public function getICANNDomain(host $host): resolvedDomainName;
+    public function getICANNDomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
 
-    public function getPrivateDomain(host $host): resolvedDomainName;
+    public function getPrivateDomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
 }

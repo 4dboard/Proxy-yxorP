@@ -1,7 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
-interface publicSuffixListStorage extends publicSuffixListClient
+interface publicSuffixListStorageInterface extends publicSuffixListClientInterface
 {
     public function delete(string $uri): bool;
 }

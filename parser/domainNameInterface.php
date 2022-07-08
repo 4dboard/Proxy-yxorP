@@ -1,11 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
 
 use Iterator;
 use IteratorAggregate;
 
-interface domainName extends host, IteratorAggregate
+interface domainNameInterface extends aHostInterface, IteratorAggregate
 {
     public function isAscii(): bool;
 

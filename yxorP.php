@@ -1,7 +1,6 @@
 <?php
 
 namespace yxorP;
-
 /* Importing the constants class from the inc folder. */
 
 use RuntimeException;
@@ -39,7 +38,9 @@ class yxorP
         constants::localise($request);
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) $this->subscribers($key, $value);
+        $plugins = (constants::get(YXORP_TARGET_PLUGINS) ?: []);
+        ($plugins[] = 'overridePluginAction');
+        foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => (array)$plugins = 'overridePluginAction'] as $key => $value) $this->subscribers($key, $value);
     }
 
     /**
@@ -108,7 +109,7 @@ class yxorP
         constants::create(__DIR__);
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-        foreach (array(DIR_HTTP, DIR_MINIFY, DIR_DOMAIN) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+        foreach (array(DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))

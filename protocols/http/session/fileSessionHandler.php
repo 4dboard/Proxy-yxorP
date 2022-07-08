@@ -73,17 +73,6 @@ class fileSessionHandler implements sessionHandlerInterface
     }
 
     /**
-     * Get session file path.
-     *
-     * @param string $session_id
-     * @return string
-     */
-    protected static function sessionFile(string $session_id): string
-    {
-        return static::$_sessionSavePath . static::$_sessionFilePrefix . $session_id;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function open(string $save_path, string $name): bool
@@ -107,6 +96,17 @@ class fileSessionHandler implements sessionHandlerInterface
             return $data ?: '';
         }
         return '';
+    }
+
+    /**
+     * Get session file path.
+     *
+     * @param string $session_id
+     * @return string
+     */
+    protected static function sessionFile(string $session_id): string
+    {
+        return static::$_sessionSavePath . static::$_sessionFilePrefix . $session_id;
     }
 
     /**

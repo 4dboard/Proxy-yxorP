@@ -1,21 +1,21 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
-use Pdp\topLevelDomainList;
+use yxorP\parser\topInterfaceLevelDomainListInterface;
 
-final class topLevelDomainsStorage implements topLevelDomainListStorage
+final class topLevelDomainsStorage implements topLevelDomainListStorageInterface
 {
-    private topLevelDomainListCache $cache;
-    private topLevelDomainListClient $client;
+    private topLevelDomainListCacheInterface $cache;
+    private topLevelDomainListClientInterface $client;
 
-    public function __construct(topLevelDomainListCache $cache, topLevelDomainListClient $client)
+    public function __construct(topLevelDomainListCacheInterface $cache, topLevelDomainListClientInterface $client)
     {
         $this->cache = $cache;
         $this->client = $client;
     }
 
-    public function get(string $uri): topLevelDomainList
+    public function get(string $uri): topInterfaceLevelDomainListInterface
     {
         $topLevelDomains = $this->cache->fetch($uri);
         if (null !== $topLevelDomains) {

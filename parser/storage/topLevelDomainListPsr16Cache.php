@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
@@ -6,11 +6,11 @@ use DateInterval;
 use Psr\SimpleCache\CacheException;
 use Psr\SimpleCache\CacheInterface;
 use Throwable;
-use yxorP\parser\topLevelDomainList;
+use yxorP\parser\topInterfaceLevelDomainListInterface;
 use function md5;
 use function strtolower;
 
-final class topLevelDomainListPsr16Cache implements topLevelDomainListCache
+final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInterface
 {
     private CacheInterface $cache;
     private string $cachePrefix;
@@ -23,14 +23,14 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCache
         $this->cacheTtl = timeToLive::convert($cacheTtl);
     }
 
-    public function fetch(string $uri): ?topLevelDomainList
+    public function fetch(string $uri): ?topInterfaceLevelDomainListInterface
     {
         $cacheKey = $this->cacheKey($uri);
         $topLevelDomainList = $this->cache->get($cacheKey);
         if (null === $topLevelDomainList) {
             return null;
         }
-        if (!$topLevelDomainList instanceof topLevelDomainList) {
+        if (!$topLevelDomainList instanceof topInterfaceLevelDomainListInterface) {
             $this->cache->delete($cacheKey);
             return null;
         }
@@ -42,7 +42,7 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCache
         return $this->cachePrefix . md5(strtolower($str));
     }
 
-    public function remember(string $uri, topLevelDomainList $topLevelDomainList): bool
+    public function remember(string $uri, topInterfaceLevelDomainListInterface $topLevelDomainList): bool
     {
         try {
             return $this->cache->set($this->cacheKey($uri), $topLevelDomainList, $this->cacheTtl);

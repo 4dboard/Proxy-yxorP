@@ -1,10 +1,10 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
-use yxorP\parser\publicSuffixList;
+use yxorP\parser\publicSuffixListInterface;
 
-interface publicSuffixListClient
+interface publicSuffixListClientInterface
 {
-    public function get(string $uri): publicSuffixList;
+    public function get(string $uri): publicSuffixListInterface;
 }

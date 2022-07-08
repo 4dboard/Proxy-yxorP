@@ -1,19 +1,19 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
-interface resolvedDomainName extends host, domainNameProvider
+interface resolvedInterfaceDomainNameInterface extends aHostInterface, domainNameProviderInterface
 {
-    public function suffix(): effectiveTopLevelDomain;
+    public function suffix(): effectiveTopLevelDomainInterface;
 
-    public function secondLevelDomain(): domainName;
+    public function secondLevelDomain(): domainNameInterface;
 
-    public function registrableDomain(): domainName;
+    public function registrableDomain(): domainNameInterface;
 
-    public function subDomain(): domainName;
+    public function subDomain(): domainNameInterface;
 
-    public function withSubDomain(domainName $subDomain): self;
+    public function withSubDomain(domainNameInterface $subDomain): self;
 
-    public function withSecondLevelDomain(domainName $label): self;
+    public function withSecondLevelDomain(domainNameInterface $label): self;
 
-    public function withSuffix(effectiveTopLevelDomain $suffix): self;
+    public function withSuffix(effectiveTopLevelDomainInterface $suffix): self;
 }

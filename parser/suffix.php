@@ -1,19 +1,19 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use function count;
 use function in_array;
 
-final class suffix implements effectiveTopLevelDomain
+final class suffix implements effectiveTopLevelDomainInterface
 {
     private const ICANN = 'ICANN';
     private const PRIVATE = 'PRIVATE';
     private const IANA = 'IANA';
-    private domainName $domain;
+    private domainNameInterface $domain;
     private string $section;
 
-    private function __construct(domainName $domain, string $section)
+    private function __construct(domainNameInterface $domain, string $section)
     {
         $this->domain = $domain;
         $this->section = $section;
@@ -31,6 +31,25 @@ final class suffix implements effectiveTopLevelDomain
             throw syntaxError::dueToInvalidSuffix($domain, self::ICANN);
         }
         return new self($domain, self::ICANN);
+    }
+
+    private static function setDomainName($domain): domainNameInterface
+    {
+        if ($domain instanceof domainNameProviderInterface) {
+            $domain = $domain->domain();
+        }
+        if (!$domain instanceof domainNameInterface) {
+            $domain = domain::fromIDNA2008($domain);
+        }
+        if ('' === $domain->label(0)) {
+            throw syntaxError::dueToInvalidSuffix($domain);
+        }
+        return $domain;
+    }
+
+    public function domain(): domainNameInterface
+    {
+        return $this->domain;
     }
 
     public static function fromPrivate($domain): self
@@ -54,25 +73,6 @@ final class suffix implements effectiveTopLevelDomain
     public static function fromUnknown($domain): self
     {
         return new self(self::setDomainName($domain), '');
-    }
-
-    private static function setDomainName($domain): domainName
-    {
-        if ($domain instanceof domainNameProvider) {
-            $domain = $domain->domain();
-        }
-        if (!$domain instanceof domainName) {
-            $domain = domain::fromIDNA2008($domain);
-        }
-        if ('' === $domain->label(0)) {
-            throw syntaxError::dueToInvalidSuffix($domain);
-        }
-        return $domain;
-    }
-
-    public function domain(): domainName
-    {
-        return $this->domain;
     }
 
     public function isKnown(): bool
@@ -120,7 +120,7 @@ final class suffix implements effectiveTopLevelDomain
         return $this->domain->toString();
     }
 
-    public function normalize(domainName $domain): self
+    public function normalize(domainNameInterface $domain): self
     {
         $newDomain = $domain->clear()->append($this->toUnicode());
         if ($domain->isAscii()) {

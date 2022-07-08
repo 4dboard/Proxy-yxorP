@@ -5,8 +5,6 @@ use function array_values;
 use function preg_replace;
 use function strlen;
 
-require DIR_ROOT . 'minify/minfyInterface.php';
-
 abstract class areplacer
 {
     public function process(string $buffer): string

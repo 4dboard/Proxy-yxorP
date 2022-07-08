@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
 
@@ -16,7 +16,7 @@ use function preg_match;
 use function strpos;
 use function trim;
 
-final class topLevelDomains implements topLevelDomainList
+final class topLevelDomains implements topInterfaceLevelDomainListInterface
 {
     private const IANA_DATE_FORMAT = 'D M d H:i:s Y e';
     private const REGEXP_HEADER_LINE = '/^\# Version (?<version>\d+), Last Updated (?<date>.*?)$/';
@@ -73,11 +73,6 @@ final class topLevelDomains implements topLevelDomainList
         throw unableToLoadTopLevelDomainList::dueToFailedConversion();
     }
 
-    public static function __set_state(array $properties): self
-    {
-        return new self($properties['records'], $properties['version'], $properties['lastUpdated']);
-    }
-
     private static function extractHeader(string $content): array
     {
         if (1 !== preg_match(self::REGEXP_HEADER_LINE, $content, $matches)) {
@@ -91,10 +86,15 @@ final class topLevelDomains implements topLevelDomainList
     {
         try {
             $tld = suffix::fromIANA($content);
-        } catch (cannotProcessHost $exception) {
+        } catch (cannotProcessHostInterface $exception) {
             throw unableToLoadTopLevelDomainList::dueToInvalidTopLevelDomain($content, $exception);
         }
         return $tld->toAscii()->toString();
+    }
+
+    public static function __set_state(array $properties): self
+    {
+        return new self($properties['records'], $properties['version'], $properties['lastUpdated']);
     }
 
     public function version(): string
@@ -124,7 +124,7 @@ final class topLevelDomains implements topLevelDomainList
         }
     }
 
-    public function resolve($host): resolvedDomainName
+    public function resolve($host): resolvedInterfaceDomainNameInterface
     {
         try {
             $domain = $this->validateDomain($host);
@@ -139,21 +139,12 @@ final class topLevelDomains implements topLevelDomainList
         }
     }
 
-    public function getIANADomain($host): resolvedDomainName
+    private function validateDomain($domain): domainNameInterface
     {
-        $domain = $this->validateDomain($host);
-        if (!$this->containsTopLevelDomain($domain)) {
-            throw unableToResolveDomain::dueToMissingSuffix($domain, 'IANA');
-        }
-        return resolvedDomain::fromIANA($domain);
-    }
-
-    private function validateDomain($domain): domainName
-    {
-        if ($domain instanceof domainNameProvider) {
+        if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof domainName) {
+        if (!$domain instanceof domainNameInterface) {
             $domain = domain::fromIDNA2008($domain);
         }
         $label = $domain->label(0);
@@ -163,8 +154,17 @@ final class topLevelDomains implements topLevelDomainList
         return $domain;
     }
 
-    private function containsTopLevelDomain(domainName $domain): bool
+    private function containsTopLevelDomain(domainNameInterface $domain): bool
     {
         return isset($this->records[$domain->toAscii()->label(0)]);
+    }
+
+    public function getIANADomain($host): resolvedInterfaceDomainNameInterface
+    {
+        $domain = $this->validateDomain($host);
+        if (!$this->containsTopLevelDomain($domain)) {
+            throw unableToResolveDomain::dueToMissingSuffix($domain, 'IANA');
+        }
+        return resolvedDomain::fromIANA($domain);
     }
 }

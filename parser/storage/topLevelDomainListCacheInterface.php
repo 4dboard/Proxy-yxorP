@@ -1,14 +1,14 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
-use yxorP\parser\topLevelDomainList;
+use yxorP\parser\topInterfaceLevelDomainListInterface;
 
-interface topLevelDomainListCache
+interface topLevelDomainListCacheInterface
 {
-    public function fetch(string $uri): ?topLevelDomainList;
+    public function fetch(string $uri): ?topInterfaceLevelDomainListInterface;
 
-    public function remember(string $uri, topLevelDomainList $topLevelDomainList): bool;
+    public function remember(string $uri, topInterfaceLevelDomainListInterface $topLevelDomainList): bool;
 
     public function forget(string $uri): bool;
 }

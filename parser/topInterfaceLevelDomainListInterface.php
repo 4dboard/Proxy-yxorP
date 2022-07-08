@@ -1,4 +1,4 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
 
@@ -7,7 +7,7 @@ use DateTimeImmutable;
 use Iterator;
 use IteratorAggregate;
 
-interface topLevelDomainList extends Countable, domainNameResolver, IteratorAggregate
+interface topInterfaceLevelDomainListInterface extends Countable, domainNameResolverInterface, IteratorAggregate
 {
     public function version(): string;
 
@@ -19,5 +19,5 @@ interface topLevelDomainList extends Countable, domainNameResolver, IteratorAggr
 
     public function getIterator(): Iterator;
 
-    public function getIANADomain(host $host): resolvedDomainName;
+    public function getIANADomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
 }

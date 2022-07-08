@@ -1,6 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
 use DateInterval;
 use DateTimeImmutable;

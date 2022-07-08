@@ -1,10 +1,10 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use InvalidArgumentException;
 
-final class syntaxError extends InvalidArgumentException implements cannotProcessHost
+final class syntaxError extends InvalidArgumentException implements cannotProcessHostInterface
 {
     private ?idnaInfo $idnaInfo;
 
@@ -29,7 +29,7 @@ final class syntaxError extends InvalidArgumentException implements cannotProces
         return new self('The host `' . $domain . '` is invalid for IDN conversion.', $idnaInfo);
     }
 
-    public static function dueToInvalidSuffix(host $publicSuffix, string $type = ''): self
+    public static function dueToInvalidSuffix(aHostInterface $publicSuffix, string $type = ''): self
     {
         if ('' === $type) {
             return new self('The suffix `"' . ($publicSuffix->value() ?? 'NULL') . '"` is invalid.');
@@ -42,7 +42,7 @@ final class syntaxError extends InvalidArgumentException implements cannotProces
         return new self('The domain `' . $domain . '` is invalid: this is an IPv4 host.');
     }
 
-    public static function dueToInvalidLabelKey(host $domain, int $key): self
+    public static function dueToInvalidLabelKey(aHostInterface $domain, int $key): self
     {
         return new self('the given key `' . $key . '` is invalid for the domain `' . ($domain->value() ?? 'NULL') . '`.');
     }

@@ -1,15 +1,15 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
-use yxorP\parser\topLevelDomainList;
+use yxorP\parser\topInterfaceLevelDomainListInterface;
 use yxorP\parser\topLevelDomains;
 use yxorP\parser\unableToLoadResource;
 
-final class topLevelDomainListPsr18Client implements topLevelDomainListClient
+final class topLevelDomainListPsr18Client implements topLevelDomainListClientInterface
 {
     private ClientInterface $client;
     private RequestFactoryInterface $requestFactory;
@@ -20,7 +20,7 @@ final class topLevelDomainListPsr18Client implements topLevelDomainListClient
         $this->requestFactory = $requestFactory;
     }
 
-    public function get(string $uri): topLevelDomainList
+    public function get(string $uri): topInterfaceLevelDomainListInterface
     {
         $request = $this->requestFactory->createRequest('GET', $uri);
         try {

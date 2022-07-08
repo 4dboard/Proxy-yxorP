@@ -1,14 +1,14 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser\Storage;
 
-use yxorP\parser\publicSuffixList;
+use yxorP\parser\publicSuffixListInterface;
 
-interface publicSuffixListCache
+interface publicSuffixListCacheInterface
 {
-    public function fetch(string $uri): ?publicSuffixList;
+    public function fetch(string $uri): ?publicSuffixListInterface;
 
-    public function remember(string $uri, publicSuffixList $publicSuffixList): bool;
+    public function remember(string $uri, publicSuffixListInterface $publicSuffixList): bool;
 
     public function forget(string $uri): bool;
 }

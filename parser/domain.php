@@ -1,26 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
-
-include DIR_ROOT . DIR_PARSER . FILE_CANNOT_PROCESS_HOST;
-include DIR_ROOT . DIR_PARSER . FILE_DOMAIN_NAME;
-include DIR_ROOT . DIR_PARSER . FILE_DOMAIN_NAME_PROVIDER;
-include DIR_ROOT . DIR_PARSER . FILE_DOMAIN_NAME_RESOLVER;
-include DIR_ROOT . DIR_PARSER . FILE_EFFECTIVE_TOP_LEVEL_DOMAIN;
-include DIR_ROOT . DIR_PARSER . FILE_HOST;
-include DIR_ROOT . DIR_PARSER . FILE_PUBLIC_SUFFIX_LIST;
-include DIR_ROOT . DIR_PARSER . FILE_RESOLVED_DOMAIN_NAME;
-
-include DIR_ROOT . DIR_PARSER . FILE_RESOURCE_URI;
-include DIR_ROOT . DIR_PARSER . FILE_TOP_LEVEL_DOMAIN_LIST;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_SUFFIX_LIST_CACHE;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_SUFFIX_LIST_CLIENT;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_SUFFIX_LIST_STORAGE;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_SUFFIX_LIST_STORAGE_FACTORY;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_LEVEL_DOMAIN_LIST_CACHE;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_LEVEL_DOMAIN_LIST_CLIENT;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_LEVEL_DOMAIN_LIST_STORAGE;
-include DIR_ROOT . DIR_PARSER . DIR_STORAGE . FILE_LEVEL_DOMAIN_LIST_DOMAIN_LIST_STORAGE_FACTORY;
 
 use Iterator;
 use TypeError;
@@ -45,7 +25,7 @@ use function strtolower;
 use const FILTER_FLAG_IPV4;
 use const FILTER_VALIDATE_IP;
 
-final class domain implements domainName
+final class domain implements domainNameInterface
 {
     private const IDNA_2003 = 'IDNA_2003';
     private const IDNA_2008 = 'IDNA_2008';
@@ -71,10 +51,10 @@ final class domain implements domainName
 
     private function parseDomain($domain): ?string
     {
-        if ($domain instanceof domainNameProvider) {
+        if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if ($domain instanceof host) {
+        if ($domain instanceof aHostInterface) {
             return $this->parseValue($domain->toUnicode()->value());
         }
         return $this->parseValue($domain);
@@ -237,17 +217,17 @@ final class domain implements domainName
 
     private function normalize($domain): ?string
     {
-        if ($domain instanceof domainNameProvider) {
+        if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if ($domain instanceof host) {
+        if ($domain instanceof aHostInterface) {
             $domain = $domain->value();
         }
         if (null === $domain) {
             return $domain;
         }
         if ((!is_string($domain) && !method_exists($domain, '__toString'))) {
-            throw new TypeError('The label must be a ' . host::class . ', a stringable object or a string, `' . gettype($domain) . '` given.');
+            throw new TypeError('The label must be a ' . aHostInterface::class . ', a stringable object or a string, `' . gettype($domain) . '` given.');
         }
         $domain = (string)$domain;
         if (null === $this->domain) {

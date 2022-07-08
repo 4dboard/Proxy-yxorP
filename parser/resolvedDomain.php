@@ -1,28 +1,71 @@
-<?php declare(strict_types=1);
+<?php
 
 namespace yxorP\parser;
 
 use function count;
 
-final class resolvedDomain implements resolvedDomainName
+final class resolvedDomain implements resolvedInterfaceDomainNameInterface
 {
-    private domainName $domain;
-    private effectiveTopLevelDomain $suffix;
-    private domainName $secondLevelDomain;
-    private domainName $registrableDomain;
-    private domainName $subDomain;
+    private domainNameInterface $domain;
+    private effectiveTopLevelDomainInterface $suffix;
+    private domainNameInterface $secondLevelDomain;
+    private domainNameInterface $registrableDomain;
+    private domainNameInterface $subDomain;
 
-    private function __construct(domainName $domain, effectiveTopLevelDomain $suffix)
+    private function __construct(domainNameInterface $domain, effectiveTopLevelDomainInterface $suffix)
     {
         $this->domain = $domain;
         $this->suffix = $suffix;
         $this->validateState();
     }
 
+    private function validateState(): void
+    {
+        $suffixValue = $this->suffix->value();
+        if (null === $suffixValue) {
+            $nullDomain = $this->domain->clear();
+            $this->registrableDomain = $nullDomain;
+            $this->secondLevelDomain = $nullDomain;
+            $this->subDomain = $nullDomain;
+            return;
+        }
+        if (2 > count($this->domain)) {
+            throw unableToResolveDomain::dueToUnresolvableDomain($this->domain);
+        }
+        if ($this->domain->value() === $suffixValue) {
+            throw unableToResolveDomain::dueToIdenticalValue($this->domain);
+        }
+        $length = count($this->suffix);
+        $this->registrableDomain = $this->domain->slice(0, $length + 1);
+        $this->secondLevelDomain = $this->domain->slice($length, 1);
+        $this->subDomain = $this->domain->slice($length + 1);
+    }
+
+    public function value(): ?string
+    {
+        return $this->domain->value();
+    }
+
     public static function fromICANN($domain, int $suffixLength): self
     {
         $domain = self::setDomainName($domain);
         return new self($domain, suffix::fromICANN($domain->slice(0, $suffixLength)));
+    }
+
+    private static function setDomainName($domain): domainNameInterface
+    {
+        if ($domain instanceof domainNameProviderInterface) {
+            return $domain->domain();
+        }
+        if ($domain instanceof domainNameInterface) {
+            return $domain;
+        }
+        return domain::fromIDNA2008($domain);
+    }
+
+    public function domain(): domainNameInterface
+    {
+        return $this->domain;
     }
 
     public static function fromPrivate($domain, int $suffixLength): self
@@ -48,27 +91,6 @@ final class resolvedDomain implements resolvedDomainName
         return new self($properties['domain'], $properties['suffix']);
     }
 
-    private static function setDomainName($domain): domainName
-    {
-        if ($domain instanceof domainNameProvider) {
-            return $domain->domain();
-        }
-        if ($domain instanceof domainName) {
-            return $domain;
-        }
-        return domain::fromIDNA2008($domain);
-    }
-
-    public function value(): ?string
-    {
-        return $this->domain->value();
-    }
-
-    public function domain(): domainName
-    {
-        return $this->domain;
-    }
-
     public function count(): int
     {
         return count($this->domain);
@@ -84,22 +106,22 @@ final class resolvedDomain implements resolvedDomainName
         return $this->domain->toString();
     }
 
-    public function registrableDomain(): domainName
+    public function registrableDomain(): domainNameInterface
     {
         return $this->registrableDomain;
     }
 
-    public function secondLevelDomain(): domainName
+    public function secondLevelDomain(): domainNameInterface
     {
         return $this->secondLevelDomain;
     }
 
-    public function subDomain(): domainName
+    public function subDomain(): domainNameInterface
     {
         return $this->subDomain;
     }
 
-    public function suffix(): effectiveTopLevelDomain
+    public function suffix(): effectiveTopLevelDomainInterface
     {
         return $this->suffix;
     }
@@ -116,7 +138,7 @@ final class resolvedDomain implements resolvedDomainName
 
     public function withSuffix($suffix): self
     {
-        if (!$suffix instanceof effectiveTopLevelDomain) {
+        if (!$suffix instanceof effectiveTopLevelDomainInterface) {
             $suffix = suffix::fromUnknown($suffix);
         }
         return new self($this->domain->slice(count($this->suffix))->append($suffix), $suffix->normalize($this->domain));
@@ -148,27 +170,5 @@ final class resolvedDomain implements resolvedDomainName
             return $this;
         }
         return new self($newRegistrableDomain->prepend($this->subDomain), $this->suffix);
-    }
-
-    private function validateState(): void
-    {
-        $suffixValue = $this->suffix->value();
-        if (null === $suffixValue) {
-            $nullDomain = $this->domain->clear();
-            $this->registrableDomain = $nullDomain;
-            $this->secondLevelDomain = $nullDomain;
-            $this->subDomain = $nullDomain;
-            return;
-        }
-        if (2 > count($this->domain)) {
-            throw unableToResolveDomain::dueToUnresolvableDomain($this->domain);
-        }
-        if ($this->domain->value() === $suffixValue) {
-            throw unableToResolveDomain::dueToIdenticalValue($this->domain);
-        }
-        $length = count($this->suffix);
-        $this->registrableDomain = $this->domain->slice(0, $length + 1);
-        $this->secondLevelDomain = $this->domain->slice($length, 1);
-        $this->subDomain = $this->domain->slice($length + 1);
     }
 }

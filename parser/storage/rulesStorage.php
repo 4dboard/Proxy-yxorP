@@ -1,21 +1,21 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
-use Pdp\publicSuffixList;
+use yxorP\parser\publicSuffixListInterface;
 
-final class rulesStorage implements publicSuffixListStorage
+final class rulesStorage implements publicSuffixListStorageInterface
 {
-    private publicSuffixListCache $cache;
-    private publicSuffixListClient $client;
+    private publicSuffixListCacheInterface $cache;
+    private publicSuffixListClientInterface $client;
 
-    public function __construct(publicSuffixListCache $cache, publicSuffixListClient $client)
+    public function __construct(publicSuffixListCacheInterface $cache, publicSuffixListClientInterface $client)
     {
         $this->cache = $cache;
         $this->client = $client;
     }
 
-    public function get(string $uri): publicSuffixList
+    public function get(string $uri): publicSuffixListInterface
     {
         $publicSuffixList = $this->cache->fetch($uri);
         if (null !== $publicSuffixList) {

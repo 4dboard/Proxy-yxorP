@@ -1,6 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use function array_filter;
 use const ARRAY_FILTER_USE_KEY;
