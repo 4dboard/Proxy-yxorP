@@ -1,11 +1,11 @@
 <?php namespace yxorP\guzzle\Handler;
 
 use Exception;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Promise\FulfilledPromise;
-use GuzzleHttp\Psr7\LazyOpenStream;
-use GuzzleHttp\TransferStats;
+use yxorP\guzzle\Exception\ConnectException;
+use yxorP\guzzle\Exception\RequestException;
+use yxorP\guzzle\Promise\FulfilledPromise;
+use yxorP\guzzle\Psr7\LazyOpenStream;
+use yxorP\guzzle\TransferStats;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use Psr\Http\Message\RequestInterface;

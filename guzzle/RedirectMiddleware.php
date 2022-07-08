@@ -1,9 +1,9 @@
 <?php namespace yxorP\guzzle;
 
-use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Exception\TooManyRedirectsException;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Psr7;
+use yxorP\guzzle\Exception\BadResponseException;
+use yxorP\guzzle\Exception\TooManyRedirectsException;
+use yxorP\guzzle\Promise\PromiseInterface;
+use yxorP\guzzle\Psr7;
 use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;

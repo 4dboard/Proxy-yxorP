@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle;
 
-use GuzzleHttp\Promise\EachPromise;
-use GuzzleHttp\Promise\PromisorInterface;
+use yxorP\guzzle\Promise\EachPromise;
+use yxorP\guzzle\Promise\PromisorInterface;
 use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
 use function GuzzleHttp\Promise\iter_for;

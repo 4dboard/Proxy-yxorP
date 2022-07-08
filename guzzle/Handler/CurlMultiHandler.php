@@ -1,9 +1,9 @@
 <?php namespace yxorP\guzzle\Handler;
 
 use BadMethodCallException;
-use GuzzleHttp\Promise as P;
-use GuzzleHttp\Promise\Promise;
-use GuzzleHttp\Utils;
+use yxorP\guzzle\Promise as P;
+use yxorP\guzzle\Promise\Promise;
+use yxorP\guzzle\Utils;
 use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\RequestInterface;
 

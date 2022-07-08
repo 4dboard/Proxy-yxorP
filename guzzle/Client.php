@@ -1,9 +1,9 @@
 <?php namespace yxorP\guzzle;
 
 use Exception;
-use GuzzleHttp\Cookie\CookieJar;
-use GuzzleHttp\Promise;
-use GuzzleHttp\Psr7;
+use yxorP\guzzle\Cookie\CookieJar;
+use yxorP\guzzle\Promise;
+use yxorP\guzzle\Psr7;
 use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
 

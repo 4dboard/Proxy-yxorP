@@ -1,10 +1,10 @@
 <?php namespace yxorP\guzzle;
 
 use Closure;
-use GuzzleHttp\Handler\CurlHandler;
-use GuzzleHttp\Handler\CurlMultiHandler;
-use GuzzleHttp\Handler\Proxy;
-use GuzzleHttp\Handler\StreamHandler;
+use yxorP\guzzle\Handler\CurlHandler;
+use yxorP\guzzle\Handler\CurlMultiHandler;
+use yxorP\guzzle\Handler\Proxy;
+use yxorP\guzzle\Handler\StreamHandler;
 use InvalidArgumentException;
 use RuntimeException;
 use function curl_version;

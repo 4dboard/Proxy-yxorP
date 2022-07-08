@@ -2,10 +2,10 @@
 
 use Countable;
 use Exception;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\TransferStats;
+use yxorP\guzzle\Exception\RequestException;
+use yxorP\guzzle\HandlerStack;
+use yxorP\guzzle\Promise\PromiseInterface;
+use yxorP\guzzle\TransferStats;
 use InvalidArgumentException;
 use OutOfBoundsException;
 use Psr\Http\Message\RequestInterface;

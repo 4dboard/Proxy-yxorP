@@ -2,7 +2,7 @@
 
 namespace yxorP\parser\Storage;
 
-use GuzzleHttp\ClientInterface;
+use yxorP\guzzle\ClientInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\SimpleCache\CacheInterface;

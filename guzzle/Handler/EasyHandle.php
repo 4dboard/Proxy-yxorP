@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Handler;
 
 use BadMethodCallException;
-use GuzzleHttp\Psr7\Response;
+use yxorP\guzzle\Psr7\Response;
 use RuntimeException;
 use function GuzzleHttp\headers_from_lines;
 use function GuzzleHttp\normalize_header_keys;

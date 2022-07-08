@@ -1,8 +1,8 @@
 <?php namespace yxorP\guzzle;
 
 use ArrayAccess;
-use GuzzleHttp\Cookie\CookieJarInterface;
-use GuzzleHttp\Exception\RequestException;
+use yxorP\guzzle\Cookie\CookieJarInterface;
+use yxorP\guzzle\Exception\RequestException;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;

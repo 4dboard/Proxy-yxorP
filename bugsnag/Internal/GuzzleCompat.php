@@ -1,6 +1,6 @@
 <?php namespace yxorP\bugsnag\Internal;
 
-use GuzzleHttp;
+use yxorP\guzzle;
 
 final class GuzzleCompat
 {
