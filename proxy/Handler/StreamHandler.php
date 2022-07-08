@@ -6,23 +6,23 @@ use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use Psr\Http\Message\UriInterface;
 use RuntimeException;
+use yxorP\proxy\Apromise\PromiseInterface;
+use yxorP\proxy\Apromise\RejectedPromise;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\Exception\ConnectException;
-use yxorP\proxy\Promise\PromiseInterface;
-use yxorP\proxy\Promise\RejectedPromise;
 use yxorP\proxy\Psr7;
 use yxorP\proxy\TransferStats;
 use yxorP\proxy\Utils;
-use yxorP\proxyApromise\FulfilledPromise;
+use yxorP\proxyAApromise\FulfilledPromise;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;
+use function yxorP\proxy\Apromise\rejection_for;
 use function yxorP\proxy\debug_resource;
 use function yxorP\proxy\default_ca_bundle;
 use function yxorP\proxy\headers_from_lines;
 use function yxorP\proxy\is_host_in_noproxy;
 use function yxorP\proxy\normalize_header_keys;
-use function yxorP\proxy\Promise\rejection_for;
 
 class StreamHandler
 {

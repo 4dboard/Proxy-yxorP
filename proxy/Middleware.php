@@ -7,7 +7,7 @@ use yxorP\proxy\Cookie\CookieJarInterface;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Log\LoggerInterface;
-use function yxorP\proxy\Promise\rejection_for;
+use function yxorP\proxy\Apromise\rejection_for;
 
 final class Middleware
 {

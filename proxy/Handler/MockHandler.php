@@ -5,19 +5,19 @@ use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
 use ReturnTypeWillChange;
+use yxorP\proxy\Apromise\FulfilledPromise;
+use yxorP\proxy\Apromise\Promise;
+use yxorP\proxy\Apromise\RejectedPromise;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\HandlerStack;
-use yxorP\proxy\Promise\FulfilledPromise;
-use yxorP\proxy\Promise\Promise;
-use yxorP\proxy\Promise\RejectedPromise;
 use yxorP\proxy\TransferStats;
-use yxorP\proxyApromise\PromiseInterface;
+use yxorP\proxyAApromise\PromiseInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;
+use function yxorP\proxy\Apromise\promise_for;
+use function yxorP\proxy\Apromise\rejection_for;
 use function yxorP\proxy\describe_type;
-use function yxorP\proxy\Promise\promise_for;
-use function yxorP\proxy\Promise\rejection_for;
 
 class MockHandler implements Countable
 {
