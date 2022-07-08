@@ -52,13 +52,6 @@ class CachingStream implements StreamInterface
         return max($this->stream->getSize(), $this->remoteStream->getSize());
     }
 
-    private function cacheEntireStream(): int
-    {
-        $target = new FnStream(['write' => 'strlen']);
-        copy_to_stream($this, $target);
-        return $this->tell();
-    }
-
     public function eof(): bool
     {
         return $this->stream->eof() && $this->remoteStream->eof();
@@ -93,5 +86,12 @@ class CachingStream implements StreamInterface
     public function close(): mixed
     {
         $this->remoteStream->close() && $this->stream->close();
+    }
+
+    private function cacheEntireStream(): int
+    {
+        $target = new FnStream(['write' => 'strlen']);
+        copy_to_stream($this, $target);
+        return $this->tell();
     }
 }
