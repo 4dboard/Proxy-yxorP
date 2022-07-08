@@ -3,9 +3,8 @@
 namespace yxorP\parser;
 
 use Iterator;
-use IteratorAggregate;
 
-interface domainNameInterface extends aHostInterface, IteratorAggregate
+interface aaDomainNameInterface extends aHostInterface
 {
     public function isAscii(): bool;
 

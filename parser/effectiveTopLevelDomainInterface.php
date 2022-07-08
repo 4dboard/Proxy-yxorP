@@ -13,5 +13,5 @@ interface effectiveTopLevelDomainInterface extends aHostInterface, domainNamePro
 
     public function isPrivate(): bool;
 
-    public function normalize(domainNameInterface $domain): self;
+    public function normalize(aaDomainNameInterface $domain): self;
 }
