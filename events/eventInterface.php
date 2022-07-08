@@ -4,7 +4,7 @@ namespace yxorP\events;
 
 interface eventInterface
 {
-    const EV_READ = ;
+    const SEND_FAILED = -1;
 
     /**
      * Delay the execution of a callback.
