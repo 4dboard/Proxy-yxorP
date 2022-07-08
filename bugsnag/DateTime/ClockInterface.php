@@ -1,13 +1,1 @@
-<?php
-
-namespace Bugsnag\DateTime;
-
-use DateTimeImmutable;
-
-interface ClockInterface
-{
-    /**
-     * @return DateTimeImmutable
-     */
-    public function now();
-}
+<?php namespace Bugsnag\DateTime;use DateTimeImmutable;interface ClockInterface{public function now();}
