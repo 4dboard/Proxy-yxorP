@@ -647,9 +647,14 @@ class constants
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
         $targetDomain = self::publicSuffix(YXORP_TARGET_URL);
+
+        // --
+
+        /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
+        define('YXORP_TARGET_SUB_DOMAIN', generalHelper::extractSubdomains(YXORP_TARGET_URL));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_TARGET_DOMAIN', $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
-
+        
         // PROXY DETAILS
 
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
