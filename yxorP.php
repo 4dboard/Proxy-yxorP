@@ -119,7 +119,6 @@ class yxorP
             self::install();
 
 
-        echo 4;
         return constants::get(YXORP_EVENT_LIST);
     }
 
