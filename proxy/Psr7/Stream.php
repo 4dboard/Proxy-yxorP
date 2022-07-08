@@ -34,7 +34,7 @@ class Stream implements StreamInterface
         $this->uri = $this->getMetadata('uri');
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata($key = null): mixed
     {
         if (!isset($this->stream)) {
             return $key ? null : [];
@@ -84,7 +84,7 @@ class Stream implements StreamInterface
         }
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET): mixed
     {
         $whence = (int)$whence;
         if (!isset($this->stream)) {
@@ -164,7 +164,7 @@ class Stream implements StreamInterface
         return $result;
     }
 
-    public function rewind()
+    public function rewind(): mixed
     {
         $this->seek(0);
     }
