@@ -2,10 +2,13 @@
 
 use Countable;
 use Exception;
+use GuzzleHttp\Promise\FulfilledPromise;
+use GuzzleHttp\Promise\Promise;
+use GuzzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use OutOfBoundsException;
 use ReturnTypeWillChange;
-use yxorP\guzzle\Exception\RequestException;
+use yxorP\guzzle\Exception\ArequestException;
 use yxorP\guzzle\HandlerStack;
 use yxorP\guzzle\Promise\PromiseInterface;
 use yxorP\guzzle\TransferStats;
@@ -38,7 +41,7 @@ class MockHandler implements Countable
         return HandlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
-    public function __invoke(RequestInterface $request, array $options): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\FulfilledPromise|\GuzzleHttp\Promise\Promise|PromiseInterface
+    public function __invoke(RequestInterface $request, array $options): RejectedPromise|FulfilledPromise|Promise|PromiseInterface
     {
         if (!$this->queue) {
             throw new OutOfBoundsException('Mock queue is empty');
@@ -57,7 +60,7 @@ class MockHandler implements Countable
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $response = new RequestException($msg, $request, $response, $e);
+                $response = new ArequestException($msg, $request, $response, $e);
             }
         }
         if (is_callable($response)) {

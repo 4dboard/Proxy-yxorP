@@ -1,11 +1,14 @@
 <?php namespace yxorP\guzzle\Handler;
 
+use Closure;
 use Exception;
+use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
+use yxorP\guzzle\Exception\ArequestException;
 use yxorP\guzzle\Exception\ConnectException;
-use yxorP\guzzle\Exception\RequestException;
 use yxorP\guzzle\Promise\FulfilledPromise;
 use yxorP\guzzle\Psr7\LazyOpenStream;
 use yxorP\guzzle\TransferStats;
@@ -27,7 +30,7 @@ class CurlFactory implements CurlFactoryInterface
         $this->maxHandles = $maxHandles;
     }
 
-    public static function finish(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory): FulfilledPromise|\GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
+    public static function finish(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory): FulfilledPromise|RejectedPromise|PromiseInterface
     {
         if (isset($easy->options['on_stats'])) {
             self::invokeStats($easy);
@@ -51,7 +54,7 @@ class CurlFactory implements CurlFactoryInterface
         call_user_func($easy->options['on_stats'], $stats);
     }
 
-    private static function finishError(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
+    private static function finishError(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory): RejectedPromise|PromiseInterface
     {
         $ctx = ['errno' => $easy->errno, 'error' => curl_error($easy->handle), 'appconnect_time' => curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME),] + curl_getinfo($easy->handle);
         $ctx[self::CURL_VERSION_STR] = curl_version()['version'];
@@ -78,7 +81,7 @@ class CurlFactory implements CurlFactoryInterface
         }
     }
 
-    private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
+    private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx): RejectedPromise|PromiseInterface
     {
         try {
             $body = $easy->request->getBody();
@@ -100,18 +103,18 @@ class CurlFactory implements CurlFactoryInterface
         return $handler($easy->request, $easy->options);
     }
 
-    private static function createRejection(EasyHandle $easy, array $ctx): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
+    private static function createRejection(EasyHandle $easy, array $ctx): RejectedPromise|PromiseInterface
     {
         static $connectionErrors = [CURLE_OPERATION_TIMEOUTED => true, CURLE_COULDNT_RESOLVE_HOST => true, CURLE_COULDNT_CONNECT => true, CURLE_SSL_CONNECT_ERROR => true, CURLE_GOT_NOTHING => true,];
         if ($easy->onHeadersException) {
-            return rejection_for(new RequestException('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
+            return rejection_for(new ArequestException('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
         }
         if (version_compare($ctx[self::CURL_VERSION_STR], self::LOW_CURL_VERSION_NUMBER)) {
             $message = sprintf('cURL error %s: %s (%s)', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html');
         } else {
             $message = sprintf('cURL error %s: %s (%s) for %s', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html', $easy->request->getUri());
         }
-        $error = isset($connectionErrors[$easy->errno]) ? new ConnectException($message, $easy->request, null, $ctx) : new RequestException($message, $easy->request, $easy->response, null, $ctx);
+        $error = isset($connectionErrors[$easy->errno]) ? new ConnectException($message, $easy->request, null, $ctx) : new ArequestException($message, $easy->request, $easy->response, null, $ctx);
         return rejection_for($error);
     }
 
@@ -356,7 +359,7 @@ class CurlFactory implements CurlFactoryInterface
         }
     }
 
-    private function createHeaderFn(EasyHandle $easy): \Closure
+    private function createHeaderFn(EasyHandle $easy): Closure
     {
         if (isset($easy->options['on_headers'])) {
             $onHeaders = $easy->options['on_headers'];

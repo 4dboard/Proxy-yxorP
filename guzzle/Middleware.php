@@ -1,16 +1,17 @@
 <?php namespace yxorP\guzzle;
 
 use ArrayAccess;
+use Closure;
 use InvalidArgumentException;
 use yxorP\guzzle\Cookie\CookieJarInterface;
-use yxorP\guzzle\Exception\RequestException;
+use yxorP\guzzle\Exception\ArequestException;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Log\LoggerInterface;
 use function GuzzleHttp\Promise\rejection_for;
 
 final class Middleware
 {
-    public static function cookies(): \Closure
+    public static function cookies(): Closure
     {
         return function (callable $handler) {
             return function ($request, array $options) use ($handler) {
@@ -29,7 +30,7 @@ final class Middleware
         };
     }
 
-    public static function httpErrors(): \Closure
+    public static function httpErrors(): Closure
     {
         return function (callable $handler) {
             return function ($request, array $options) use ($handler) {
@@ -41,13 +42,13 @@ final class Middleware
                     if ($code < 400) {
                         return $response;
                     }
-                    throw RequestException::create($request, $response);
+                    throw ArequestException::create($request, $response);
                 });
             };
         };
     }
 
-    public static function history(&$container): \Closure
+    public static function history(&$container): Closure
     {
         if (!is_array($container) && !$container instanceof ArrayAccess) {
             throw new InvalidArgumentException('history container must be an array or object implementing ArrayAccess');
@@ -65,7 +66,7 @@ final class Middleware
         };
     }
 
-    public static function tap(callable $before = null, callable $after = null): \Closure
+    public static function tap(callable $before = null, callable $after = null): Closure
     {
         return function (callable $handler) use ($before, $after) {
             return function ($request, array $options) use ($handler, $before, $after) {
@@ -81,21 +82,21 @@ final class Middleware
         };
     }
 
-    public static function redirect(): \Closure
+    public static function redirect(): Closure
     {
         return function (callable $handler) {
             return new RedirectMiddleware($handler);
         };
     }
 
-    public static function retry(callable $decider, callable $delay = null): \Closure
+    public static function retry(callable $decider, callable $delay = null): Closure
     {
         return function (callable $handler) use ($decider, $delay) {
             return new RetryMiddleware($decider, $handler, $delay);
         };
     }
 
-    public static function log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = 'info'): \Closure
+    public static function log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = 'info'): Closure
     {
         return function (callable $handler) use ($logger, $formatter, $logLevel) {
             return function ($request, array $options) use ($handler, $logger, $formatter, $logLevel) {
@@ -104,7 +105,7 @@ final class Middleware
                     $logger->log($logLevel, $message);
                     return $response;
                 }, function ($reason) use ($logger, $request, $formatter) {
-                    $response = $reason instanceof RequestException ? $reason->getResponse() : null;
+                    $response = $reason instanceof ArequestException ? $reason->getResponse() : null;
                     $message = $formatter->format($request, $response, $reason);
                     $logger->notice($message);
                     return rejection_for($reason);
@@ -113,14 +114,14 @@ final class Middleware
         };
     }
 
-    public static function prepareBody(): \Closure
+    public static function prepareBody(): Closure
     {
         return function (callable $handler) {
             return new PrepareBodyMiddleware($handler);
         };
     }
 
-    public static function mapRequest(callable $fn): \Closure
+    public static function mapRequest(callable $fn): Closure
     {
         return function (callable $handler) use ($fn) {
             return function ($request, array $options) use ($handler, $fn) {
@@ -129,7 +130,7 @@ final class Middleware
         };
     }
 
-    public static function mapResponse(callable $fn): \Closure
+    public static function mapResponse(callable $fn): Closure
     {
         return function (callable $handler) use ($fn) {
             return function ($request, array $options) use ($handler, $fn) {

@@ -1,11 +1,15 @@
 <?php namespace yxorP\guzzle\Handler;
 
+use Closure;
 use Exception;
+use GuzzleHttp\Promise\PromiseInterface;
+use GuzzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
+use Psr\Http\Message\UriInterface;
 use RuntimeException;
+use yxorP\guzzle\Exception\ArequestException;
 use yxorP\guzzle\Exception\ConnectException;
-use yxorP\guzzle\Exception\RequestException;
 use yxorP\guzzle\Promise\FulfilledPromise;
 use yxorP\guzzle\Psr7;
 use yxorP\guzzle\TransferStats;
@@ -24,7 +28,7 @@ class StreamHandler
 {
     private array $lastHeaders = [];
 
-    public function __invoke(RequestInterface $request, array $options): FulfilledPromise|\GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
+    public function __invoke(RequestInterface $request, array $options): FulfilledPromise|RejectedPromise|PromiseInterface
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);
@@ -43,13 +47,13 @@ class StreamHandler
             if (strpos($message, 'getaddrinfo') || strpos($message, 'Connection refused') || strpos($message, "couldn't connect to host") || strpos($message, "connection attempt failed")) {
                 $e = new ConnectException($e->getMessage(), $request, $e);
             }
-            $e = RequestException::wrapException($request, $e);
+            $e = ArequestException::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
             return rejection_for($e);
         }
     }
 
-    private function createResponse(RequestInterface $request, array $options, $stream, $startTime): FulfilledPromise|\GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
+    private function createResponse(RequestInterface $request, array $options, $stream, $startTime): FulfilledPromise|RejectedPromise|PromiseInterface
     {
         $hdrs = $this->lastHeaders;
         $this->lastHeaders = [];
@@ -70,7 +74,7 @@ class StreamHandler
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $ex = new RequestException($msg, $request, $response, $e);
+                $ex = new ArequestException($msg, $request, $response, $e);
                 return rejection_for($ex);
             }
         }
@@ -201,7 +205,7 @@ class StreamHandler
         return $context;
     }
 
-    private function resolveHost(RequestInterface $request, array $options): \Psr\Http\Message\UriInterface
+    private function resolveHost(RequestInterface $request, array $options): UriInterface
     {
         $uri = $request->getUri();
         if (isset($options['force_ip_resolve']) && !filter_var($uri->getHost(), FILTER_VALIDATE_IP)) {
@@ -317,7 +321,7 @@ class StreamHandler
         }
     }
 
-    private function callArray(array $functions): \Closure
+    private function callArray(array $functions): Closure
     {
         return function () use ($functions) {
             $args = func_get_args();
