@@ -50,7 +50,7 @@ trait MessageTrait
         return $this->headers[$header];
     }
 
-    public function withHeader($header, $value): Response|Request
+    public function withHeader($header, $value): mixed
     {
         $this->assertHeader($header);
         $value = $this->normalizeHeaderValue($value);
