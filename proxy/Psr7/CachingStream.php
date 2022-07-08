@@ -47,7 +47,7 @@ class CachingStream implements StreamInterface
         }
     }
 
-    public function getSize()
+    public function getSize(): mixed
     {
         return max($this->stream->getSize(), $this->remoteStream->getSize());
     }
