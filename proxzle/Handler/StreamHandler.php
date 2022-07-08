@@ -1,28 +1,28 @@
-<?php namespace yxorP\guzzle\Handler;
+<?php namespace yxorP\proxzle\Handler;
 
 use Closure;
 use Exception;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Promise\RejectedPromise;
+use ProxzleHttp\Promise\PromiseInterface;
+use ProxzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use Psr\Http\Message\UriInterface;
 use RuntimeException;
-use yxorP\guzzle\Exception\ArequestExceptionAA;
-use yxorP\guzzle\Exception\ConnectException;
-use yxorP\guzzle\Promise\FulfilledPromise;
-use yxorP\guzzle\Psr7;
-use yxorP\guzzle\TransferStats;
-use yxorP\guzzle\Utils;
+use yxorP\proxzle\Exception\ArequestExceptionAA;
+use yxorP\proxzle\Exception\ConnectException;
+use yxorP\proxzle\Promise\FulfilledPromise;
+use yxorP\proxzle\Psr7;
+use yxorP\proxzle\TransferStats;
+use yxorP\proxzle\Utils;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;
-use function GuzzleHttp\debug_resource;
-use function GuzzleHttp\default_ca_bundle;
-use function GuzzleHttp\headers_from_lines;
-use function GuzzleHttp\is_host_in_noproxy;
-use function GuzzleHttp\normalize_header_keys;
-use function GuzzleHttp\Promise\rejection_for;
+use function ProxzleHttp\debug_resource;
+use function ProxzleHttp\default_ca_bundle;
+use function ProxzleHttp\headers_from_lines;
+use function ProxzleHttp\is_host_in_noproxy;
+use function ProxzleHttp\normalize_header_keys;
+use function ProxzleHttp\Promise\rejection_for;
 
 class StreamHandler
 {

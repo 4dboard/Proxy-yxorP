@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle\Exception;
+<?php namespace yxorP\proxzle\Exception;
 
 use Exception;
 use yxorP\psr\Http\Message\RequestInterface;

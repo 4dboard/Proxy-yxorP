@@ -1,22 +1,22 @@
-<?php namespace yxorP\guzzle\Handler;
+<?php namespace yxorP\proxzle\Handler;
 
 use Closure;
 use Exception;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Promise\RejectedPromise;
+use ProxzleHttp\Promise\PromiseInterface;
+use ProxzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
-use yxorP\guzzle\Exception\ArequestExceptionAA;
-use yxorP\guzzle\Exception\ConnectException;
-use yxorP\guzzle\Promise\FulfilledPromise;
-use yxorP\guzzle\Psr7\LazyOpenStream;
-use yxorP\guzzle\TransferStats;
+use yxorP\proxzle\Exception\ArequestExceptionAA;
+use yxorP\proxzle\Exception\ConnectException;
+use yxorP\proxzle\Promise\FulfilledPromise;
+use yxorP\proxzle\Psr7\LazyOpenStream;
+use yxorP\proxzle\TransferStats;
 use yxorP\psr\Http\Message\RequestInterface;
-use function GuzzleHttp\debug_resource;
-use function GuzzleHttp\is_host_in_noproxy;
-use function GuzzleHttp\Promise\rejection_for;
-use function GuzzleHttp\Psr7\stream_for;
+use function ProxzleHttp\debug_resource;
+use function ProxzleHttp\is_host_in_noproxy;
+use function ProxzleHttp\Promise\rejection_for;
+use function ProxzleHttp\Psr7\stream_for;
 
 class CurlFactory implements CurlFactoryInterface
 {
@@ -141,7 +141,7 @@ class CurlFactory implements CurlFactoryInterface
         return $easy;
     }
 
-    #[ArrayShape(['_headers' => "\string[][]", \GuzzleHttp\Handler\CURLOPT_CUSTOMREQUEST => "string", \GuzzleHttp\Handler\CURLOPT_URL => "string", \GuzzleHttp\Handler\CURLOPT_RETURNTRANSFER => "false", \GuzzleHttp\Handler\CURLOPT_HEADER => "false", \GuzzleHttp\Handler\CURLOPT_CONNECTTIMEOUT => "int", \GuzzleHttp\Handler\CURLOPT_HTTP_VERSION => "int", \GuzzleHttp\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array
+    #[ArrayShape(['_headers' => "\string[][]", \ProxzleHttp\Handler\CURLOPT_CUSTOMREQUEST => "string", \ProxzleHttp\Handler\CURLOPT_URL => "string", \ProxzleHttp\Handler\CURLOPT_RETURNTRANSFER => "false", \ProxzleHttp\Handler\CURLOPT_HEADER => "false", \ProxzleHttp\Handler\CURLOPT_CONNECTTIMEOUT => "int", \ProxzleHttp\Handler\CURLOPT_HTTP_VERSION => "int", \ProxzleHttp\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array
     {
         $conf = ['_headers' => $easy->request->getHeaders(), CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(), CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''), CURLOPT_RETURNTRANSFER => false, CURLOPT_HEADER => false, CURLOPT_CONNECTTIMEOUT => 150,];
         if (defined('CURLOPT_PROTOCOLS')) {

@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle\Exception;
+<?php namespace yxorP\proxzle\Exception;
 class ClientException extends BadResponseException
 {
 }

@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle\Psr7;
+<?php namespace yxorP\proxzle\Psr7;
 
 use InvalidArgumentException;
 use yxorP\psr\Http\Message\StreamInterface;
@@ -19,29 +19,29 @@ class StreamWrapper
         } else {
             throw new InvalidArgumentException('The stream must be readable, ' . 'writable, or both.');
         }
-        return fopen('guzzle://stream', $mode, null, self::createStreamContext($stream));
+        return fopen('proxzle://stream', $mode, null, self::createStreamContext($stream));
     }
 
     public static function register()
     {
-        if (!in_array('guzzle', stream_get_wrappers())) {
-            stream_wrapper_register('guzzle', __CLASS__);
+        if (!in_array('proxzle', stream_get_wrappers())) {
+            stream_wrapper_register('proxzle', __CLASS__);
         }
     }
 
     public static function createStreamContext(StreamInterface $stream)
     {
-        return stream_context_create(['guzzle' => ['stream' => $stream]]);
+        return stream_context_create(['proxzle' => ['stream' => $stream]]);
     }
 
     public function stream_open($path, $mode, $options, &$opened_path): bool
     {
         $options = stream_context_get_options($this->context);
-        if (!isset($options['guzzle']['stream'])) {
+        if (!isset($options['proxzle']['stream'])) {
             return false;
         }
         $this->mode = $mode;
-        $this->stream = $options['guzzle']['stream'];
+        $this->stream = $options['proxzle']['stream'];
         return true;
     }
 

@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle\Cookie;
+<?php namespace yxorP\proxzle\Cookie;
 class SetCookie
 {
     private static array $defaults = ['Name' => null, 'Value' => null, 'Domain' => null, 'Path' => '/', 'Max-Age' => null, 'Expires' => null, 'Secure' => false, 'Discard' => false, 'HttpOnly' => false];
