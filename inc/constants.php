@@ -639,7 +639,7 @@ class constants
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
         constants::set(VAR_TARGET_REPLACE, $siteDetails[VAR_REPLACE]);
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        define('YXORP_TARGET_PLUGINS', $siteDetails[VAR_PLUGINS]);
+        constants::set(YXORP_TARGET_PLUGINS, $siteDetails[VAR_PLUGINS]);
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         define('YXORP_TARGET_URL', ($siteDetails)[COCKPIT_TARGET]);
 
