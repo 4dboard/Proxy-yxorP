@@ -350,7 +350,7 @@ class constants
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
         /* Defining a constant called `VAR_VAR_UNDER_END` and setting it to the value of `CHAR_UNDER . VAR_VAR . CHAR_UNDER`. */
         define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
-        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
+        /* Defining a constant called `VAR_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
         define('VAR_REQUEST_URI', VAR_REQUEST . CHAR_UNDER . VAR_URI);
 
 
@@ -619,7 +619,7 @@ class constants
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
         define('YXORP_SITE_URL', (constants::get(VAR_SERVER)[YXORP_HTTP_HOST]));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        define('YXORP_REQUEST_URI', (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
+        define('YXORP_REQUEST_URI', (constants::get(VAR_SERVER))[VAR_REQUEST_URI]);
 
         // SITE DOMAIN DETAILS
 
