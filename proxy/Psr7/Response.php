@@ -21,7 +21,7 @@ class Response implements ResponseInterface
             $this->stream = stream_for($body);
         }
         $this->setHeaders($headers);
-        if ($reason == '' && isset(self::$phrases[$this->statusCode])) {
+        if ($reason === '' && isset(self::$phrases[$this->statusCode])) {
             $this->reasonPhrase = self::$phrases[$this->statusCode];
         } else {
             $this->reasonPhrase = (string)$reason;
@@ -60,7 +60,7 @@ class Response implements ResponseInterface
         $this->assertStatusCodeRange($code);
         $new = clone $this;
         $new->statusCode = $code;
-        if ($reasonPhrase == '' && isset(self::$phrases[$new->statusCode])) {
+        if ($reasonPhrase === '' && isset(self::$phrases[$new->statusCode])) {
             $reasonPhrase = self::$phrases[$new->statusCode];
         }
         $new->reasonPhrase = $reasonPhrase;

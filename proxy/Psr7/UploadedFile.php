@@ -34,7 +34,7 @@ class UploadedFile implements UploadedFileInterface
             throw new InvalidArgumentException('Invalid path provided for move operation; must be a non-empty string');
         }
         if ($this->file) {
-            $this->moved = php_sapi_name() == 'cli' ? rename($this->file, $targetPath) : move_uploaded_file($this->file, $targetPath);
+            $this->moved = php_sapi_name() === 'cli' ? rename($this->file, $targetPath) : move_uploaded_file($this->file, $targetPath);
         } else {
             copy_to_stream($this->getStream(), new LazyOpenStream($targetPath, 'w'));
             $this->moved = true;

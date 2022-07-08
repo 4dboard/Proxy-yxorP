@@ -98,7 +98,7 @@ class CookieJar implements CookieJarInterface
             });
         } else {
             $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($path, $domain, $name) {
-                return !($cookie->getName() == $name && $cookie->matchesPath($path) && $cookie->matchesDomain($domain));
+                return !($cookie->getName() === $name && $cookie->matchesPath($path) && $cookie->matchesDomain($domain));
             });
         }
     }

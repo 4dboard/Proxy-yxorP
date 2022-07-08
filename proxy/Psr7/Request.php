@@ -40,7 +40,7 @@ class Request implements RequestInterface
     private function updateHostFromUri()
     {
         $host = $this->uri->getHost();
-        if ($host == '') {
+        if ($host === '') {
             return;
         }
         if (($port = $this->uri->getPort()) !== null) {
@@ -61,7 +61,7 @@ class Request implements RequestInterface
             return $this->requestTarget;
         }
         $target = $this->uri->getPath();
-        if ($target == '') {
+        if ($target === '') {
             $target = '/';
         }
         if ($this->uri->getQuery() != '') {

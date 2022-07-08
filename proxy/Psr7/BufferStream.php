@@ -99,7 +99,7 @@ class BufferStream implements StreamInterface
 
     public function getMetadata($key = null): mixed
     {
-        if ($key == 'hwm') {
+        if ($key === 'hwm') {
             return $this->hwm;
         }
         return $key ? null : [];

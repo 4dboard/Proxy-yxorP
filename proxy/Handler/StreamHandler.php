@@ -140,7 +140,7 @@ class StreamHandler
         if (!$methods) {
             $methods = array_flip(get_class_methods(__CLASS__));
         }
-        if ($request->getProtocolVersion() == '1.1' && !$request->hasHeader('Connection')) {
+        if ($request->getProtocolVersion() === '1.1' && !$request->hasHeader('Connection')) {
             $request = $request->withHeader('Connection', 'close');
         }
         if (!isset($options['verify'])) {
@@ -165,7 +165,7 @@ class StreamHandler
             }
             $context = array_replace_recursive($context, $options['stream_context']);
         }
-        if (isset($options['auth']) && is_array($options['auth']) && isset($options['auth'][2]) && 'ntlm' == $options['auth'][2]) {
+        if (isset($options['auth']) && is_array($options['auth']) && isset($options['auth'][2]) && 'ntlm' === $options['auth'][2]) {
             throw new InvalidArgumentException('Microsoft NTLM authentication only supported with curl handler');
         }
         $uri = $this->resolveHost($request, $options);
@@ -306,7 +306,7 @@ class StreamHandler
     private function add_progress(RequestInterface $request, &$options, $value, &$params)
     {
         $this->addNotification($params, function ($code, $a, $b, $c, $transferred, $total) use ($value) {
-            if ($code == STREAM_NOTIFY_PROGRESS) {
+            if ($code === STREAM_NOTIFY_PROGRESS) {
                 $value($total, $transferred, null, null);
             }
         });

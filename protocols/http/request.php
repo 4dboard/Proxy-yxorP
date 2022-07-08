@@ -427,7 +427,7 @@ class request
                         $tmp_upload_dir = http::uploadTmpDir();
                         if (!$tmp_upload_dir) $error = UPLOAD_ERR_NO_TMP_DIR; else if ($boundary_value === '') $error = UPLOAD_ERR_NO_FILE; else {
                             $tmp_file = tempnam($tmp_upload_dir, 'yxorp.upload.');
-                            if ($tmp_file === false || false == file_put_contents($tmp_file, $boundary_value)) $error = UPLOAD_ERR_CANT_WRITE;
+                            if ($tmp_file === false || false === file_put_contents($tmp_file, $boundary_value)) $error = UPLOAD_ERR_CANT_WRITE;
                         }
                         $upload_key = $match[1];
                         $file = ['name' => $match[2], 'tmp_name' => $tmp_file, 'size' => $size, 'error' => $error, 'type' => null,];

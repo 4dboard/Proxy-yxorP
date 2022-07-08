@@ -134,7 +134,7 @@ class SetCookie
     public function matchesPath($requestPath): bool
     {
         $cookiePath = $this->getPath();
-        if ($cookiePath === '/' || $cookiePath == $requestPath) {
+        if ($cookiePath === '/' || $cookiePath === $requestPath) {
             return true;
         }
         if (!str_starts_with($requestPath, $cookiePath)) {

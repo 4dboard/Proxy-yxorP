@@ -23,11 +23,11 @@ class CachingStream implements StreamInterface
 
     public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
-        if ($whence == SEEK_SET) {
+        if ($whence === SEEK_SET) {
             $byte = $offset;
-        } elseif ($whence == SEEK_CUR) {
+        } elseif ($whence === SEEK_CUR) {
             $byte = $offset + $this->tell();
-        } elseif ($whence == SEEK_END) {
+        } elseif ($whence === SEEK_END) {
             $size = $this->remoteStream->getSize();
             if ($size === null) {
                 $size = $this->cacheEntireStream();

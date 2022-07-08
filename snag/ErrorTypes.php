@@ -28,7 +28,7 @@ class ErrorTypes
     {
         $levels = 0;
         foreach (static::$ERROR_TYPES as $level => $info) {
-            if ($info['severity'] == $severity) {
+            if ($info['severity'] === $severity) {
                 $levels |= $level;
             }
         }

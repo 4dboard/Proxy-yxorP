@@ -87,7 +87,7 @@ class timer
         if (empty(self::$_tasks)) pcntl_alarm(1);
         $run_time = time() + $time_interval;
         if (!isset(self::$_tasks[$run_time])) self::$_tasks[$run_time] = [];
-        self::$_timerId = self::$_timerId == PHP_INT_MAX ? 1 : ++self::$_timerId;
+        self::$_timerId = self::$_timerId === PHP_INT_MAX ? 1 : ++self::$_timerId;
         self::$_status[self::$_timerId] = true;
         self::$_tasks[$run_time][self::$_timerId] = [$func, (array)$args, $persistent, $time_interval];
         return self::$_timerId;

@@ -11,7 +11,7 @@ class Utils
             $output = [];
             $success = 0;
             exec('whoami', $output, $success);
-            if ($success == 0) {
+            if ($success === 0) {
                 $builderName = $output[0];
             }
         }

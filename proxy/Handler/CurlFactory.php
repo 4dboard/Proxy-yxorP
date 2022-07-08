@@ -59,26 +59,10 @@ class CurlFactory implements CurlFactoryInterface
         $ctx = ['errno' => $easy->errno, 'error' => curl_error($easy->handle), 'appconnect_time' => curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME),] + curl_getinfo($easy->handle);
         $ctx[self::CURL_VERSION_STR] = curl_version()['version'];
         $factory->release($easy);
-        if (empty($easy->options['_err_message']) && (!$easy->errno || $easy->errno == 65)) {
+        if (empty($easy->options['_err_message']) && (!$easy->errno || $easy->errno === 65)) {
             return self::retryFailedRewind($handler, $easy, $ctx);
         }
         return self::createRejection($easy, $ctx);
-    }
-
-    public function release(EasyHandle $easy)
-    {
-        $resource = $easy->handle;
-        unset($easy->handle);
-        if (count($this->handles) >= $this->maxHandles) {
-            curl_close($resource);
-        } else {
-            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
-            curl_setopt($resource, CURLOPT_READFUNCTION, null);
-            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
-            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
-            curl_reset($resource);
-            $this->handles[] = $resource;
-        }
     }
 
     private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx): RejectedPromise|PromiseInterface
@@ -94,7 +78,7 @@ class CurlFactory implements CurlFactoryInterface
         }
         if (!isset($easy->options['_curl_retries'])) {
             $easy->options['_curl_retries'] = 1;
-        } elseif ($easy->options['_curl_retries'] == 2) {
+        } elseif ($easy->options['_curl_retries'] === 2) {
             $ctx['error'] = 'The cURL request was retried 3 times ' . 'and did not succeed. The most likely reason for the failure ' . 'is that cURL was unable to rewind the body of the request ' . 'and subsequent retries resulted in the same error. Turn on ' . 'the debug option to see what went wrong. See ' . 'https://bugs.php.net/bug.php?id=47204 for more information.';
             return self::createRejection($easy, $ctx);
         } else {
@@ -116,6 +100,22 @@ class CurlFactory implements CurlFactoryInterface
         }
         $error = isset($connectionErrors[$easy->errno]) ? new ConnectException($message, $easy->request, null, $ctx) : new ArequestExceptionAA($message, $easy->request, $easy->response, null, $ctx);
         return rejection_for($error);
+    }
+
+    public function release(EasyHandle $easy)
+    {
+        $resource = $easy->handle;
+        unset($easy->handle);
+        if (count($this->handles) >= $this->maxHandles) {
+            curl_close($resource);
+        } else {
+            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
+            curl_setopt($resource, CURLOPT_READFUNCTION, null);
+            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
+            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
+            curl_reset($resource);
+            $this->handles[] = $resource;
+        }
     }
 
     public function create(RequestInterface $request, array $options): EasyHandle
@@ -148,9 +148,9 @@ class CurlFactory implements CurlFactoryInterface
             $conf[CURLOPT_PROTOCOLS] = CURLPROTO_HTTP | CURLPROTO_HTTPS;
         }
         $version = $easy->request->getProtocolVersion();
-        if ($version == 1.1) {
+        if ($version === 1.1) {
             $conf[CURLOPT_HTTP_VERSION] = CURL_HTTP_VERSION_1_1;
-        } elseif ($version == 2.0) {
+        } elseif ($version === 2.0) {
             $conf[CURLOPT_HTTP_VERSION] = CURL_HTTP_VERSION_2_0;
         } else {
             $conf[CURLOPT_HTTP_VERSION] = CURL_HTTP_VERSION_1_0;
