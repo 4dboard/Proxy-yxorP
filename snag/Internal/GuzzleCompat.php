@@ -2,13 +2,26 @@
 
 namespace yxorP\snag\Internal;
 
-use \yxorP\proxy;
-
 /**
  * @internal
  */
 final class GuzzleCompat
 {
+    /**
+     * Get the base URL/URI, which depends on the Guzzle version.
+     *
+     * @param \yxorP\proxy\ClientInterface $guzzle
+     *
+     * @return mixed
+     */
+    public static function getBaseUri(\yxorP\proxy\ClientInterface $guzzle)
+    {
+        // TODO: validate this by running PHPStan with Guzzle 5
+        return self::isUsingGuzzle5()
+            ? $guzzle->getBaseUrl() // @phpstan-ignore-line
+            : $guzzle->getConfig(self::getBaseUriOptionName());
+    }
+
     /**
      * @return bool
      */
@@ -32,21 +45,6 @@ final class GuzzleCompat
     public static function getBaseUriOptionName()
     {
         return self::isUsingGuzzle5() ? 'base_url' : 'base_uri';
-    }
-
-    /**
-     * Get the base URL/URI, which depends on the Guzzle version.
-     *
-     * @param \yxorP\proxy\ClientInterface $guzzle
-     *
-     * @return mixed
-     */
-    public static function getBaseUri(\yxorP\proxy\ClientInterface $guzzle)
-    {
-        // TODO: validate this by running PHPStan with Guzzle 5
-        return self::isUsingGuzzle5()
-            ? $guzzle->getBaseUrl() // @phpstan-ignore-line
-            : $guzzle->getConfig(self::getBaseUriOptionName());
     }
 
     /**

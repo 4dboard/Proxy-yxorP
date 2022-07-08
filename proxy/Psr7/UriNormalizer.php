@@ -106,6 +106,26 @@ final class UriNormalizer
     }
 
     /**
+     * Whether two URIs can be considered equivalent.
+     *
+     * Both URIs are normalized automatically before comparison with the given $normalizations bitmask. The method also
+     * accepts relative URI references and returns true when they are equivalent. This of course assumes they will be
+     * resolved against the same base URI. If this is not the case, determination of equivalence or difference of
+     * relative references does not mean anything.
+     *
+     * @param UriInterface $uri1 An URI to compare
+     * @param UriInterface $uri2 An URI to compare
+     * @param int $normalizations A bitmask of normalizations to apply, see constants
+     *
+     * @return bool
+     * @link https://tools.ietf.org/html/rfc3986#section-6.1
+     */
+    public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS)
+    {
+        return (string)self::normalize($uri1, $normalizations) === (string)self::normalize($uri2, $normalizations);
+    }
+
+    /**
      * Returns a normalized URI.
      *
      * The scheme and host component are already normalized to lowercase per PSR-7 UriInterface.
@@ -161,26 +181,6 @@ final class UriNormalizer
         }
 
         return $uri;
-    }
-
-    /**
-     * Whether two URIs can be considered equivalent.
-     *
-     * Both URIs are normalized automatically before comparison with the given $normalizations bitmask. The method also
-     * accepts relative URI references and returns true when they are equivalent. This of course assumes they will be
-     * resolved against the same base URI. If this is not the case, determination of equivalence or difference of
-     * relative references does not mean anything.
-     *
-     * @param UriInterface $uri1 An URI to compare
-     * @param UriInterface $uri2 An URI to compare
-     * @param int $normalizations A bitmask of normalizations to apply, see constants
-     *
-     * @return bool
-     * @link https://tools.ietf.org/html/rfc3986#section-6.1
-     */
-    public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS)
-    {
-        return (string)self::normalize($uri1, $normalizations) === (string)self::normalize($uri2, $normalizations);
     }
 
     private static function capitalizePercentEncoding(UriInterface $uri)

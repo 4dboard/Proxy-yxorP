@@ -2,10 +2,10 @@
 
 namespace yxorP\proxy\Handler;
 
-use \yxorP\proxy\Promise as P;
-use \yxorP\proxy\Promise\Promise;
-use \yxorP\proxy\Utils;
 use Psr\Http\Message\RequestInterface;
+use yxorP\proxy\Promise as P;
+use yxorP\proxy\Promise\Promise;
+use yxorP\proxy\Utils;
 
 /**
  * Returns an asynchronous response using curl_multi_* functions.
@@ -97,6 +97,69 @@ class CurlMultiHandler
     }
 
     /**
+     * Cancels a handle from sending and removes references to it.
+     *
+     * @param int $id Handle ID to cancel and remove.
+     *
+     * @return bool True on success, false on failure.
+     */
+    private function cancel($id)
+    {
+        // Cannot cancel if it has been processed.
+        if (!isset($this->handles[$id])) {
+            return false;
+        }
+
+        $handle = $this->handles[$id]['easy']->handle;
+        unset($this->delays[$id], $this->handles[$id]);
+        curl_multi_remove_handle($this->_mh, $handle);
+        curl_close($handle);
+
+        return true;
+    }
+
+    private function addRequest(array $entry)
+    {
+        $easy = $entry['easy'];
+        $id = (int)$easy->handle;
+        $this->handles[$id] = $entry;
+        if (empty($easy->options['delay'])) {
+            curl_multi_add_handle($this->_mh, $easy->handle);
+        } else {
+            $this->delays[$id] = Utils::currentTime() + ($easy->options['delay'] / 1000);
+        }
+    }
+
+    /**
+     * Runs until all outstanding connections have completed.
+     */
+    public function execute()
+    {
+        $queue = P\queue();
+
+        while ($this->handles || !$queue->isEmpty()) {
+            // If there are no transfers, then sleep for the next delay
+            if (!$this->active && $this->delays) {
+                usleep($this->timeToNext());
+            }
+            $this->tick();
+        }
+    }
+
+    private function timeToNext()
+    {
+        $currentTime = Utils::currentTime();
+        $nextTime = PHP_INT_MAX;
+        foreach ($this->delays as $time) {
+            if ($time < $nextTime) {
+                $nextTime = $time;
+            }
+        }
+
+        return max(0, $nextTime - $currentTime) * 1000000;
+    }
+
+    /**
      * Ticks the curl event loop.
      */
     public function tick()
@@ -131,56 +194,6 @@ class CurlMultiHandler
         $this->processMessages();
     }
 
-    /**
-     * Runs until all outstanding connections have completed.
-     */
-    public function execute()
-    {
-        $queue = P\queue();
-
-        while ($this->handles || !$queue->isEmpty()) {
-            // If there are no transfers, then sleep for the next delay
-            if (!$this->active && $this->delays) {
-                usleep($this->timeToNext());
-            }
-            $this->tick();
-        }
-    }
-
-    private function addRequest(array $entry)
-    {
-        $easy = $entry['easy'];
-        $id = (int)$easy->handle;
-        $this->handles[$id] = $entry;
-        if (empty($easy->options['delay'])) {
-            curl_multi_add_handle($this->_mh, $easy->handle);
-        } else {
-            $this->delays[$id] = Utils::currentTime() + ($easy->options['delay'] / 1000);
-        }
-    }
-
-    /**
-     * Cancels a handle from sending and removes references to it.
-     *
-     * @param int $id Handle ID to cancel and remove.
-     *
-     * @return bool True on success, false on failure.
-     */
-    private function cancel($id)
-    {
-        // Cannot cancel if it has been processed.
-        if (!isset($this->handles[$id])) {
-            return false;
-        }
-
-        $handle = $this->handles[$id]['easy']->handle;
-        unset($this->delays[$id], $this->handles[$id]);
-        curl_multi_remove_handle($this->_mh, $handle);
-        curl_close($handle);
-
-        return true;
-    }
-
     private function processMessages()
     {
         while ($done = curl_multi_info_read($this->_mh)) {
@@ -203,18 +216,5 @@ class CurlMultiHandler
                 )
             );
         }
-    }
-
-    private function timeToNext()
-    {
-        $currentTime = Utils::currentTime();
-        $nextTime = PHP_INT_MAX;
-        foreach ($this->delays as $time) {
-            if ($time < $nextTime) {
-                $nextTime = $time;
-            }
-        }
-
-        return max(0, $nextTime - $currentTime) * 1000000;
     }
 }

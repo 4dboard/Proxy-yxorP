@@ -42,14 +42,14 @@ class BufferStream implements StreamInterface
         return $buffer;
     }
 
-    public function close()
-    {
-        $this->buffer = '';
-    }
-
     public function detach()
     {
         $this->close();
+    }
+
+    public function close()
+    {
+        $this->buffer = '';
     }
 
     public function getSize()

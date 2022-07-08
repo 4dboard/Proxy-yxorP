@@ -174,6 +174,24 @@ class EachPromise implements PromisorInterface
         return true;
     }
 
+    private function step($idx)
+    {
+        // If the promise was already resolved, then ignore this step.
+        if ($this->aggregate->getState() !== PromiseInterface::PENDING) {
+            return;
+        }
+
+        unset($this->pending[$idx]);
+
+        // Only refill pending promises if we are not locked, preventing the
+        // EachPromise to recursively invoke the provided iterator, which
+        // cause a fatal error: "Cannot resume an already running generator"
+        if ($this->advanceIterator() && !$this->checkIfFinished()) {
+            // Add more pending promises if possible.
+            $this->refillPending();
+        }
+    }
+
     private function advanceIterator()
     {
         // Place a lock on the iterator so that we ensure to not recurse,
@@ -196,24 +214,6 @@ class EachPromise implements PromisorInterface
             $this->aggregate->reject($e);
             $this->mutex = false;
             return false;
-        }
-    }
-
-    private function step($idx)
-    {
-        // If the promise was already resolved, then ignore this step.
-        if ($this->aggregate->getState() !== PromiseInterface::PENDING) {
-            return;
-        }
-
-        unset($this->pending[$idx]);
-
-        // Only refill pending promises if we are not locked, preventing the
-        // EachPromise to recursively invoke the provided iterator, which
-        // cause a fatal error: "Cannot resume an already running generator"
-        if ($this->advanceIterator() && !$this->checkIfFinished()) {
-            // Add more pending promises if possible.
-            $this->refillPending();
         }
     }
 

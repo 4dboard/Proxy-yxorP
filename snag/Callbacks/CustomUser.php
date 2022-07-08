@@ -2,8 +2,8 @@
 
 namespace yxorP\snag\Callbacks;
 
-use yxorP\snag\Report;
 use Exception;
+use yxorP\snag\Report;
 
 class CustomUser
 {

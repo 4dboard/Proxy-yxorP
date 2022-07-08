@@ -84,17 +84,6 @@ class Recorder implements Countable, Iterator
     }
 
     /**
-     * Get the number of stored breadcrumbs.
-     *
-     * @return int
-     */
-    #[\ReturnTypeWillChange]
-    public function count()
-    {
-        return count($this->breadcrumbs);
-    }
-
-    /**
      * Get the current item.
      *
      * @return \yxorP\snag\Breadcrumbs\Breadcrumb
@@ -147,5 +136,16 @@ class Recorder implements Countable, Iterator
     public function valid()
     {
         return $this->position < $this->count();
+    }
+
+    /**
+     * Get the number of stored breadcrumbs.
+     *
+     * @return int
+     */
+    #[\ReturnTypeWillChange]
+    public function count()
+    {
+        return count($this->breadcrumbs);
     }
 }

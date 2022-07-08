@@ -31,6 +31,14 @@ class TaskQueue implements TaskQueueInterface
         }
     }
 
+    public function run()
+    {
+        /** @var callable $task */
+        while ($task = array_shift($this->queue)) {
+            $task();
+        }
+    }
+
     public function isEmpty()
     {
         return !$this->queue;
@@ -39,14 +47,6 @@ class TaskQueue implements TaskQueueInterface
     public function add(callable $task)
     {
         $this->queue[] = $task;
-    }
-
-    public function run()
-    {
-        /** @var callable $task */
-        while ($task = array_shift($this->queue)) {
-            $task();
-        }
     }
 
     /**
