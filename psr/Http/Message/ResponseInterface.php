@@ -51,7 +51,7 @@ interface ResponseInterface extends MessageInterface
      * @return static
      * @throws InvalidArgumentException For invalid status code arguments.
      */
-    public function withStatus($code, $reasonPhrase = ''): static;
+    public function withStatus($code, $reasonPhrase = ''): mixed;
 
     /**
      * Gets the response reason phrase associated with the status code.
@@ -66,5 +66,5 @@ interface ResponseInterface extends MessageInterface
      * @link http://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml
      * @return string Reason phrase; must return an empty string if none present.
      */
-    public function getReasonPhrase(): string;
+    public function getReasonPhrase(): mixed;
 }
