@@ -50,7 +50,7 @@ interface StreamInterface
      *
      * @return int|null Returns the size in bytes if known, or null if unknown.
      */
-    public function getSize(): ?int;
+    public function getSize(): mixed;
 
     /**
      * Returns the current position of the file read/write pointer
