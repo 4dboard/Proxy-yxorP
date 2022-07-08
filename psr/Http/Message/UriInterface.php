@@ -221,7 +221,7 @@ interface UriInterface
      * @return static A new instance with the specified host.
      * @throws InvalidArgumentException for invalid hostnames.
      */
-    public function withHost($host): static;
+    public function withHost($host): mixed;
 
     /**
      * Return an instance with the specified port.
