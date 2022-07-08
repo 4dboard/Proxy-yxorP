@@ -37,7 +37,7 @@ use const TCP_NODELAY;
 class asyncTcpConnection extends tcpConnection
 {
     /* A list of protocols that are supported by the asyncTcpConnection class. */
-    const CONNECT_FAIL = ;
+    const CONNECT_FAIL = -1;
     protected static array $_builtinTransports = ['tcp' => 'tcp', 'udp' => 'udp', 'unix' => 'unix', 'ssl' => 'ssl', 'sslv2' => 'sslv2', 'sslv3' => 'sslv3', 'tls' => 'tls'];
     /* A callback function that is called when the connection is established. */
     public $onConnect = null;

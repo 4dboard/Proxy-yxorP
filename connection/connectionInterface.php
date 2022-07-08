@@ -10,7 +10,7 @@ use JetBrains\PhpStorm\Pure;
  */
 abstract class connectionInterface extends tcpConnection
 {
-    const SEND_FAIL = ;
+    const SEND_FAIL = -1;
 
     public function send($send_buffer)
     {
