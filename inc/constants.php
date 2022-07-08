@@ -10,6 +10,7 @@ use RuntimeException;
 use yxorP\parse\parse;
 use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
+use yxorP\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\parser\Rules;
 use function cockpit;
 
@@ -561,10 +562,6 @@ class constants
         if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
 
         // REQUIRED
-        /* Loading the Bugsnag PHP library. */
-        require PATH_BUGSNAG_PHAR;
-        /* Requiring Guzzle library. */
-        require PATH_GUZZLE_PHAR;
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
         /* Requiring the Wrapper. */
@@ -712,9 +709,9 @@ class constants
 
     /**
      * @param string $domain
-     * @return \yxorP\parser\resolvedInterfaceDomainNameInterface
+     * @return resolvedInterfaceDomainNameInterface
      */
-    public static function publicSuffix(string $domain): \yxorP\parser\resolvedInterfaceDomainNameInterface
+    public static function publicSuffix(string $domain): resolvedInterfaceDomainNameInterface
     {
 
         $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
