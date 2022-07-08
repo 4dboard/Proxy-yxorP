@@ -4,7 +4,6 @@ namespace yxorP\inc;
 
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
 
-use yxorP\snag\Client;
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 use yxorP\parse\parse;
@@ -12,6 +11,7 @@ use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\parser\Rules;
+use yxorP\snag\Client;
 use function cockpit;
 
 class constants
@@ -157,9 +157,7 @@ class constants
         /* Defining a constant called FILE_SNAG and setting it to the string 'snag'. */
         define('FILE_SNAG', 'snag' . EXT_PHAR);
         /* Defining a constant called FILE_PROXY and setting it to the string 'proxy'. */
-        define('FILE_GUZZLE', 'guzzle' . EXT_PHAR);
-        /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
-        define('FILE_BOOTSTRAP', 'bootstrap' . EXT_PHP);
+        define('FILE_PROXY', 'proxy' . EXT_PHAR);
         /* Defining a constant. */
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
 
