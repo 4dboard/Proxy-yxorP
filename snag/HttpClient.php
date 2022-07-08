@@ -3,7 +3,7 @@
 use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
-use yxorP\proxy\ClientInterface;
+use \yxorP\proxy\ClientInterface;
 use yxorP\snag\DateTime\Date;
 use yxorP\snag\Internal\ProxyCompat;
 

@@ -1,7 +1,7 @@
 <?php namespace yxorP\snag;
 
 use InvalidArgumentException;
-use yxorP\proxy\ClientInterface;
+use \yxorP\proxy\ClientInterface;
 
 class Configuration
 {
