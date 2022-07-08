@@ -466,7 +466,7 @@ class constants
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
-        define('PATH_SNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG);
+        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG);
         /* Defining the path to Proxy phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE);
         /* Defining the path to the cockpit bootstrap file. */
@@ -536,9 +536,9 @@ class constants
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
         /* Requiring the Wrapper. */
-        require PATH_INC_WRAPPER;
+        require PATH_GUZZLE_PHAR;
         /* Requiring the Wrapper. */
-        require PATH_INC_WRAPPER;
+        require PATH_BUGSNAG_PHAR;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
