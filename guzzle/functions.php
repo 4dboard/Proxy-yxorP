@@ -4,6 +4,9 @@ use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\Handler\CurlMultiHandler;
 use GuzzleHttp\Handler\Proxy;
 use GuzzleHttp\Handler\StreamHandler;
+use InvalidArgumentException;
+use RuntimeException;
+use function curl_version;
 
 function uri_template($template, array $variables)
 {
@@ -64,7 +67,7 @@ function choose_handler()
     if (ini_get('allow_url_fopen')) {
         $handler = $handler ? Proxy::wrapStreaming($handler, new StreamHandler()) : new StreamHandler();
     } elseif (!$handler) {
-        throw new \RuntimeException('GuzzleHttp requires cURL, the ' . 'allow_url_fopen ini setting, or a custom HTTP handler.');
+        throw new RuntimeException('GuzzleHttp requires cURL, the ' . 'allow_url_fopen ini setting, or a custom HTTP handler.');
     }
     return $handler;
 }
@@ -75,7 +78,7 @@ function default_user_agent()
     if (!$defaultAgent) {
         $defaultAgent = 'GuzzleHttp/' . Client::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
-            $defaultAgent .= ' curl/' . \curl_version()['version'];
+            $defaultAgent .= ' curl/' . curl_version()['version'];
         }
         $defaultAgent .= ' PHP/' . PHP_VERSION;
     }
@@ -100,7 +103,7 @@ function default_ca_bundle()
             return $cached = $filename;
         }
     }
-    throw new \RuntimeException(<<<S
+    throw new RuntimeException(<<<S
 No system CA bundle could be found in any of the the common system locations.
 PHP versions earlier than 5.6 are not properly configured to use the system's
 CA bundle by default. In order to verify peer certificates, you will need to
@@ -128,7 +131,7 @@ function normalize_header_keys(array $headers)
 function is_host_in_noproxy($host, array $noProxyArray)
 {
     if (strlen($host) === 0) {
-        throw new \InvalidArgumentException('Empty host provided');
+        throw new InvalidArgumentException('Empty host provided');
     }
     if (strpos($host, ':')) {
         $host = explode($host, ':', 2)[0];

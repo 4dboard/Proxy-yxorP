@@ -32,13 +32,6 @@ class Handler
         return $handler;
     }
 
-    protected function registerBugsnagHandlers($callPrevious)
-    {
-        $this->registerErrorHandler($callPrevious);
-        $this->registerExceptionHandler($callPrevious);
-        $this->registerShutdownHandler();
-    }
-
     public function registerErrorHandler($callPrevious)
     {
         $previous = set_error_handler([$this, 'errorHandler']);
@@ -86,15 +79,6 @@ class Handler
         $this->notifyThrowable($exceptionFromPreviousHandler);
     }
 
-    private function notifyThrowable($throwable)
-    {
-        $report = Report::fromPHPThrowable($this->client->getConfig(), $throwable);
-        $report->setSeverity('error');
-        $report->setUnhandled(true);
-        $report->setSeverityReason(['type' => 'unhandledException']);
-        $this->client->notify($report);
-    }
-
     public function errorHandler($errno, $errstr, $errfile = '', $errline = 0)
     {
         if (!$this->client->getConfig()->shouldIgnoreErrorCode($errno)) {
@@ -129,5 +113,21 @@ class Handler
             $this->client->notify($report);
         }
         $this->client->flush();
+    }
+
+    protected function registerBugsnagHandlers($callPrevious)
+    {
+        $this->registerErrorHandler($callPrevious);
+        $this->registerExceptionHandler($callPrevious);
+        $this->registerShutdownHandler();
+    }
+
+    private function notifyThrowable($throwable)
+    {
+        $report = Report::fromPHPThrowable($this->client->getConfig(), $throwable);
+        $report->setSeverity('error');
+        $report->setUnhandled(true);
+        $report->setSeverityReason(['type' => 'unhandledException']);
+        $this->client->notify($report);
     }
 }

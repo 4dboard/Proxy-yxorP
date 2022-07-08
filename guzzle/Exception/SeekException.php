@@ -1,8 +1,9 @@
 <?php namespace GuzzleHttp\Exception;
 
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
 
-class SeekException extends \RuntimeException implements GuzzleException
+class SeekException extends RuntimeException implements GuzzleException
 {
     private $stream;
 

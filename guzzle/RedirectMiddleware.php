@@ -4,6 +4,7 @@ use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\TooManyRedirectsException;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7;
+use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -28,7 +29,7 @@ class RedirectMiddleware
         if ($options['allow_redirects'] === true) {
             $options['allow_redirects'] = self::$defaultSettings;
         } elseif (!is_array($options['allow_redirects'])) {
-            throw new \InvalidArgumentException('allow_redirects must be true, false, or array');
+            throw new InvalidArgumentException('allow_redirects must be true, false, or array');
         } else {
             $options['allow_redirects'] += self::$defaultSettings;
         }
@@ -57,16 +58,6 @@ class RedirectMiddleware
         return $promise;
     }
 
-    private function guardMax(RequestInterface $request, array &$options)
-    {
-        $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
-        $options['__redirect_count'] = $current + 1;
-        $max = $options['allow_redirects']['max'];
-        if ($options['__redirect_count'] > $max) {
-            throw new TooManyRedirectsException("Will not follow more than {$max} redirects", $request);
-        }
-    }
-
     public function modifyRequest(RequestInterface $request, array $options, ResponseInterface $response)
     {
         $modify = [];
@@ -93,6 +84,16 @@ class RedirectMiddleware
             $modify['remove_headers'][] = 'Authorization';
         }
         return Psr7\modify_request($request, $modify);
+    }
+
+    private function guardMax(RequestInterface $request, array &$options)
+    {
+        $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
+        $options['__redirect_count'] = $current + 1;
+        $max = $options['allow_redirects']['max'];
+        if ($options['__redirect_count'] > $max) {
+            throw new TooManyRedirectsException("Will not follow more than {$max} redirects", $request);
+        }
     }
 
     private function redirectUri(RequestInterface $request, ResponseInterface $response, array $protocols)

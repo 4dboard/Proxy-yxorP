@@ -1,5 +1,6 @@
 <?php namespace GuzzleHttp;
 
+use Exception;
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -16,7 +17,7 @@ class MessageFormatter
         $this->template = $template ?: self::CLF;
     }
 
-    public function format(RequestInterface $request, ResponseInterface $response = null, \Exception $error = null)
+    public function format(RequestInterface $request, ResponseInterface $response = null, Exception $error = null)
     {
         $cache = [];
         return preg_replace_callback('/{\s*([A-Za-z_\-\.0-9]+)\s*}/', function (array $matches) use ($request, $response, $error, &$cache) {

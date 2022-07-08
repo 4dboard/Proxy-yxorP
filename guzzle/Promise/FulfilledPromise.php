@@ -1,4 +1,10 @@
 <?php namespace GuzzleHttp\Promise;
+
+use Exception;
+use InvalidArgumentException;
+use LogicException;
+use Throwable;
+
 class FulfilledPromise implements PromiseInterface
 {
     private $value;
@@ -6,7 +12,7 @@ class FulfilledPromise implements PromiseInterface
     public function __construct($value)
     {
         if (method_exists($value, 'then')) {
-            throw new \InvalidArgumentException('You cannot create a FulfilledPromise with a promise.');
+            throw new InvalidArgumentException('You cannot create a FulfilledPromise with a promise.');
         }
         $this->value = $value;
     }
@@ -28,9 +34,9 @@ class FulfilledPromise implements PromiseInterface
             if ($p->getState() === self::PENDING) {
                 try {
                     $p->resolve($onFulfilled($value));
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     $p->reject($e);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     $p->reject($e);
                 }
             }
@@ -51,13 +57,13 @@ class FulfilledPromise implements PromiseInterface
     public function resolve($value)
     {
         if ($value !== $this->value) {
-            throw new \LogicException("Cannot resolve a fulfilled promise");
+            throw new LogicException("Cannot resolve a fulfilled promise");
         }
     }
 
     public function reject($reason)
     {
-        throw new \LogicException("Cannot reject a fulfilled promise");
+        throw new LogicException("Cannot reject a fulfilled promise");
     }
 
     public function cancel()

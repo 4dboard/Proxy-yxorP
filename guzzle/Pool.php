@@ -2,7 +2,9 @@
 
 use GuzzleHttp\Promise\EachPromise;
 use GuzzleHttp\Promise\PromisorInterface;
+use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
+use function GuzzleHttp\Promise\iter_for;
 
 class Pool implements PromisorInterface
 {
@@ -21,7 +23,7 @@ class Pool implements PromisorInterface
         } else {
             $opts = [];
         }
-        $iterable = \GuzzleHttp\Promise\iter_for($requests);
+        $iterable = iter_for($requests);
         $requests = function () use ($iterable, $client, $opts) {
             foreach ($iterable as $key => $rfn) {
                 if ($rfn instanceof RequestInterface) {
@@ -29,7 +31,7 @@ class Pool implements PromisorInterface
                 } elseif (is_callable($rfn)) {
                     yield $key => $rfn($opts);
                 } else {
-                    throw new \InvalidArgumentException('Each value yielded by ' . 'the iterator must be a Psr7\Http\Message\RequestInterface ' . 'or a callable that returns a promise that fulfills ' . 'with a Psr7\Message\Http\ResponseInterface object.');
+                    throw new InvalidArgumentException('Each value yielded by ' . 'the iterator must be a Psr7\Http\Message\RequestInterface ' . 'or a callable that returns a promise that fulfills ' . 'with a Psr7\Message\Http\ResponseInterface object.');
                 }
             }
         };

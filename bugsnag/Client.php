@@ -49,15 +49,10 @@ class Client
         $shutdownStrategy->registerShutdownStrategy($this);
     }
 
-    private function syncNotifyEndpointWithGuzzleBaseUri(Configuration $configuration, GuzzleHttp\ClientInterface $guzzle)
+    public static function makeGuzzle($base = null, array $options = [])
     {
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-        $base = GuzzleCompat::getBaseUri($guzzle);
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string)$base);
-        }
+        $options = self::resolveGuzzleOptions($base, $options);
+        return new GuzzleHttp\Client($options);
     }
 
     public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true)
@@ -72,10 +67,12 @@ class Client
         return $client;
     }
 
-    public static function makeGuzzle($base = null, array $options = [])
+    protected static function getCaBundlePath()
     {
-        $options = self::resolveGuzzleOptions($base, $options);
-        return new GuzzleHttp\Client($options);
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+        return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
     private static function resolveGuzzleOptions($base, array $options)
@@ -89,12 +86,10 @@ class Client
         return GuzzleCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
     }
 
-    protected static function getCaBundlePath()
+    public function registerMiddleware(callable $middleware)
     {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-        return realpath(CaBundle::getSystemCaRootBundlePath());
+        $this->pipeline->pipe($middleware);
+        return $this;
     }
 
     public function registerDefaultCallbacks()
@@ -106,12 +101,6 @@ class Client
     public function registerCallback(callable $callback)
     {
         $this->registerMiddleware(new CallbackBridge($callback));
-        return $this;
-    }
-
-    public function registerMiddleware(callable $middleware)
-    {
-        $this->pipeline->pipe($middleware);
         return $this;
     }
 
@@ -440,5 +429,16 @@ class Client
     public function getRedactedKeys()
     {
         return $this->config->getRedactedKeys();
+    }
+
+    private function syncNotifyEndpointWithGuzzleBaseUri(Configuration $configuration, GuzzleHttp\ClientInterface $guzzle)
+    {
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+        $base = GuzzleCompat::getBaseUri($guzzle);
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
     }
 }

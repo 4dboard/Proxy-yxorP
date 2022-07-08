@@ -1,5 +1,9 @@
 <?php namespace GuzzleHttp\Promise;
-class RejectionException extends \RuntimeException
+
+use JsonSerializable;
+use RuntimeException;
+
+class RejectionException extends RuntimeException
 {
     private $reason;
 
@@ -11,7 +15,7 @@ class RejectionException extends \RuntimeException
             $message .= ' with reason: ' . $description;
         } elseif (is_string($reason) || (is_object($reason) && method_exists($reason, '__toString'))) {
             $message .= ' with reason: ' . $this->reason;
-        } elseif ($reason instanceof \JsonSerializable) {
+        } elseif ($reason instanceof JsonSerializable) {
             $message .= ' with reason: ' . json_encode($this->reason, JSON_PRETTY_PRINT);
         }
         parent::__construct($message);

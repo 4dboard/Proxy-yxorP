@@ -1,9 +1,11 @@
 <?php namespace GuzzleHttp\Exception;
 
+use Exception;
 use GuzzleHttp\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use function GuzzleHttp\Psr7\get_message_body_summary;
 
 class RequestException extends TransferException
 {
@@ -11,7 +13,7 @@ class RequestException extends TransferException
     private $response;
     private $handlerContext;
 
-    public function __construct($message, RequestInterface $request, ResponseInterface $response = null, \Exception $previous = null, array $handlerContext = [])
+    public function __construct($message, RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $handlerContext = [])
     {
         $code = $response && !($response instanceof PromiseInterface) ? $response->getStatusCode() : 0;
         parent::__construct($message, $code, $previous);
@@ -20,12 +22,12 @@ class RequestException extends TransferException
         $this->handlerContext = $handlerContext;
     }
 
-    public static function wrapException(RequestInterface $request, \Exception $e)
+    public static function wrapException(RequestInterface $request, Exception $e)
     {
         return $e instanceof RequestException ? $e : new RequestException($e->getMessage(), $request, null, $e);
     }
 
-    public static function create(RequestInterface $request, ResponseInterface $response = null, \Exception $previous = null, array $ctx = [])
+    public static function create(RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $ctx = [])
     {
         if (!$response) {
             return new self('Error completing request', $request, null, $previous, $ctx);
@@ -51,6 +53,11 @@ class RequestException extends TransferException
         return new $className($message, $request, $response, $previous, $ctx);
     }
 
+    public static function getResponseBodySummary(ResponseInterface $response)
+    {
+        return get_message_body_summary($response);
+    }
+
     private static function obfuscateUri(UriInterface $uri)
     {
         $userInfo = $uri->getUserInfo();
@@ -58,11 +65,6 @@ class RequestException extends TransferException
             return $uri->withUserInfo(substr($userInfo, 0, $pos), '***');
         }
         return $uri;
-    }
-
-    public static function getResponseBodySummary(ResponseInterface $response)
-    {
-        return \GuzzleHttp\Psr7\get_message_body_summary($response);
     }
 
     public function getRequest()

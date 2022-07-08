@@ -2,6 +2,7 @@
 
 use Countable;
 use Iterator;
+use ReturnTypeWillChange;
 
 class Recorder implements Countable, Iterator
 {
@@ -28,32 +29,32 @@ class Recorder implements Countable, Iterator
         $this->breadcrumbs = [];
     }
 
-    #[\ReturnTypeWillChange] public function current()
+    #[ReturnTypeWillChange] public function current()
     {
         return $this->breadcrumbs[($this->head + $this->position) % static::MAX_ITEMS];
     }
 
-    #[\ReturnTypeWillChange] public function key()
+    #[ReturnTypeWillChange] public function key()
     {
         return $this->position;
     }
 
-    #[\ReturnTypeWillChange] public function next()
+    #[ReturnTypeWillChange] public function next()
     {
         $this->position++;
     }
 
-    #[\ReturnTypeWillChange] public function rewind()
+    #[ReturnTypeWillChange] public function rewind()
     {
         $this->position = 0;
     }
 
-    #[\ReturnTypeWillChange] public function valid()
+    #[ReturnTypeWillChange] public function valid()
     {
         return $this->position < $this->count();
     }
 
-    #[\ReturnTypeWillChange] public function count()
+    #[ReturnTypeWillChange] public function count()
     {
         return count($this->breadcrumbs);
     }

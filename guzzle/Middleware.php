@@ -1,9 +1,12 @@
 <?php namespace GuzzleHttp;
 
+use ArrayAccess;
 use GuzzleHttp\Cookie\CookieJarInterface;
 use GuzzleHttp\Exception\RequestException;
+use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use function GuzzleHttp\Promise\rejection_for;
 
 final class Middleware
 {
@@ -14,7 +17,7 @@ final class Middleware
                 if (empty($options['cookies'])) {
                     return $handler($request, $options);
                 } elseif (!($options['cookies'] instanceof CookieJarInterface)) {
-                    throw new \InvalidArgumentException('cookies must be an instance of GuzzleHttp\Cookie\CookieJarInterface');
+                    throw new InvalidArgumentException('cookies must be an instance of GuzzleHttp\Cookie\CookieJarInterface');
                 }
                 $cookieJar = $options['cookies'];
                 $request = $cookieJar->withCookieHeader($request);
@@ -46,8 +49,8 @@ final class Middleware
 
     public static function history(&$container)
     {
-        if (!is_array($container) && !$container instanceof \ArrayAccess) {
-            throw new \InvalidArgumentException('history container must be an array or object implementing ArrayAccess');
+        if (!is_array($container) && !$container instanceof ArrayAccess) {
+            throw new InvalidArgumentException('history container must be an array or object implementing ArrayAccess');
         }
         return function (callable $handler) use (&$container) {
             return function ($request, array $options) use ($handler, &$container) {
@@ -56,7 +59,7 @@ final class Middleware
                     return $value;
                 }, function ($reason) use ($request, &$container, $options) {
                     $container[] = ['request' => $request, 'response' => null, 'error' => $reason, 'options' => $options];
-                    return \GuzzleHttp\Promise\rejection_for($reason);
+                    return rejection_for($reason);
                 });
             };
         };
@@ -104,7 +107,7 @@ final class Middleware
                     $response = $reason instanceof RequestException ? $reason->getResponse() : null;
                     $message = $formatter->format($request, $response, $reason);
                     $logger->notice($message);
-                    return \GuzzleHttp\Promise\rejection_for($reason);
+                    return rejection_for($reason);
                 });
             };
         };

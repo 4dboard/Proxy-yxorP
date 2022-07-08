@@ -73,6 +73,11 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         throw unableToLoadTopLevelDomainList::dueToFailedConversion();
     }
 
+    public static function __set_state(array $properties): self
+    {
+        return new self($properties['records'], $properties['version'], $properties['lastUpdated']);
+    }
+
     private static function extractHeader(string $content): array
     {
         if (1 !== preg_match(self::REGEXP_HEADER_LINE, $content, $matches)) {
@@ -90,11 +95,6 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
             throw unableToLoadTopLevelDomainList::dueToInvalidTopLevelDomain($content, $exception);
         }
         return $tld->toAscii()->toString();
-    }
-
-    public static function __set_state(array $properties): self
-    {
-        return new self($properties['records'], $properties['version'], $properties['lastUpdated']);
     }
 
     public function version(): string
@@ -139,6 +139,15 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         }
     }
 
+    public function getIANADomain($host): resolvedInterfaceDomainNameInterface
+    {
+        $domain = $this->validateDomain($host);
+        if (!$this->containsTopLevelDomain($domain)) {
+            throw unableToResolveDomain::dueToMissingSuffix($domain, 'IANA');
+        }
+        return resolvedDomain::fromIANA($domain);
+    }
+
     private function validateDomain($domain): domainNameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
@@ -157,14 +166,5 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
     private function containsTopLevelDomain(domainNameInterface $domain): bool
     {
         return isset($this->records[$domain->toAscii()->label(0)]);
-    }
-
-    public function getIANADomain($host): resolvedInterfaceDomainNameInterface
-    {
-        $domain = $this->validateDomain($host);
-        if (!$this->containsTopLevelDomain($domain)) {
-            throw unableToResolveDomain::dueToMissingSuffix($domain, 'IANA');
-        }
-        return resolvedDomain::fromIANA($domain);
     }
 }

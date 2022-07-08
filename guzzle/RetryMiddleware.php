@@ -2,6 +2,7 @@
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use function GuzzleHttp\Promise\rejection_for;
 
 class RetryMiddleware
 {
@@ -50,7 +51,7 @@ class RetryMiddleware
     {
         return function ($reason) use ($req, $options) {
             if (!call_user_func($this->decider, $options['retries'], $req, null, $reason)) {
-                return \GuzzleHttp\Promise\rejection_for($reason);
+                return rejection_for($reason);
             }
             return $this->doRetry($req, $options);
         };
