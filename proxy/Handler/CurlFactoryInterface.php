@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxzle\Handler;
+<?php namespace yxorP\proxy\Handler;
 
 use yxorP\psr\Http\Message\RequestInterface;
 

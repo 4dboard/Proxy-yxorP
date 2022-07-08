@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxzle\Promise;
+<?php namespace yxorP\proxy\Promise;
 interface PromisorInterface
 {
     public function promise();

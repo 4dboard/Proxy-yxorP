@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxzle;
+<?php namespace yxorP\proxy;
 
 use InvalidArgumentException;
 use JetBrains\PhpStorm\Pure;

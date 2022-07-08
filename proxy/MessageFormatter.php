@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxzle;
+<?php namespace yxorP\proxy;
 
 use Exception;
 use yxorP\psr\Http\Message\MessageInterface;

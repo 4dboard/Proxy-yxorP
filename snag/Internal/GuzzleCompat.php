@@ -1,16 +1,16 @@
 <?php namespace yxorP\snag\Internal;
 
-final class ProxzleCompat
+final class ProxyCompat
 {
-    public static function getBaseUri(ProxzleHttp\ClientInterface $proxzle)
+    public static function getBaseUri(ProxyHttp\ClientInterface $proxy)
     {
-        return self::isUsingProxzle5() ? $proxzle->getBaseUrl() : $proxzle->getConfig(self::getBaseUriOptionName());
+        return self::isUsingProxy5() ? $proxy->getBaseUrl() : $proxy->getConfig(self::getBaseUriOptionName());
     }
 
-    public static function isUsingProxzle5(): bool
+    public static function isUsingProxy5(): bool
     {
-        if (defined(ProxzleHttp\ClientInterface::class . '::VERSION')) {
-            $version = constant(ProxzleHttp\ClientInterface::class . '::VERSION');
+        if (defined(ProxyHttp\ClientInterface::class . '::VERSION')) {
+            $version = constant(ProxyHttp\ClientInterface::class . '::VERSION');
             return version_compare($version, '5.0.0', '>=') && version_compare($version, '6.0.0', '<');
         }
         return false;
@@ -18,12 +18,12 @@ final class ProxzleCompat
 
     public static function getBaseUriOptionName(): string
     {
-        return self::isUsingProxzle5() ? 'base_url' : 'base_uri';
+        return self::isUsingProxy5() ? 'base_url' : 'base_uri';
     }
 
     public static function applyRequestOptions(array $options, array $requestOptions): array
     {
-        if (self::isUsingProxzle5()) {
+        if (self::isUsingProxy5()) {
             if (!isset($options['defaults'])) {
                 $options['defaults'] = [];
             }

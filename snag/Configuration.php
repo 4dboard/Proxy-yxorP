@@ -21,7 +21,7 @@ class Configuration
     private array $metaData = [];
     private $errorReportingLevel;
     private bool $autoCaptureSessions = false;
-    private \ProxzleHttp\ClientInterface|\ProxzleHttp\Client $sessionClient;
+    private \ProxyHttp\ClientInterface|\ProxyHttp\Client $sessionClient;
     private string $notifyEndpoint = self::NOTIFY_ENDPOINT;
     private string $sessionEndpoint = self::SESSION_ENDPOINT;
     private string $buildEndpoint = self::BUILD_ENDPOINT;
@@ -297,10 +297,10 @@ class Configuration
         return $this->autoCaptureSessions;
     }
 
-    public function getSessionClient(): \ProxzleHttp\Client|\ProxzleHttp\ClientInterface
+    public function getSessionClient(): \ProxyHttp\Client|\ProxyHttp\ClientInterface
     {
         if (is_null($this->sessionClient)) {
-            $this->sessionClient = Client::makeProxzle($this->sessionEndpoint);
+            $this->sessionClient = Client::makeProxy($this->sessionEndpoint);
         }
         return $this->sessionClient;
     }
