@@ -4,11 +4,11 @@ namespace \yxorP\proxy\Handler;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use yxorP\proxy\Exception\RequestException;
-use yxorP\proxy\HandlerStack;
-use yxorP\proxy\Promise\PromiseInterface;
-use yxorP\proxy\Promise\RejectedPromise;
-use yxorP\proxy\TransferStats;
+use \yxorP\proxy\Exception\RequestException;
+use \yxorP\proxy\HandlerStack;
+use \yxorP\proxy\Promise\PromiseInterface;
+use \yxorP\proxy\Promise\RejectedPromise;
+use \yxorP\proxy\TransferStats;
 
 /**
  * Handler that returns responses or throw exceptions from a queue.

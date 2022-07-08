@@ -4,13 +4,13 @@ namespace \yxorP\proxy\Handler;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use yxorP\proxy\Exception\ConnectException;
-use yxorP\proxy\Exception\RequestException;
-use yxorP\proxy\Promise\FulfilledPromise;
-use yxorP\proxy\Promise\PromiseInterface;
-use yxorP\proxy\Psr7;
-use yxorP\proxy\TransferStats;
-use yxorP\proxy\Utils;
+use \yxorP\proxy\Exception\ConnectException;
+use \yxorP\proxy\Exception\RequestException;
+use \yxorP\proxy\Promise\FulfilledPromise;
+use \yxorP\proxy\Promise\PromiseInterface;
+use \yxorP\proxy\Psr7;
+use \yxorP\proxy\TransferStats;
+use \yxorP\proxy\Utils;
 
 /**
  * HTTP handler that uses PHP's HTTP stream wrapper.

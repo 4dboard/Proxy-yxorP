@@ -3,10 +3,10 @@ namespace \yxorP\proxy;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
-use yxorP\proxy\Cookie\CookieJarInterface;
-use yxorP\proxy\Exception\RequestException;
-use yxorP\proxy\Promise\RejectedPromise;
-use yxorP\proxy\Psr7;
+use \yxorP\proxy\Cookie\CookieJarInterface;
+use \yxorP\proxy\Exception\RequestException;
+use \yxorP\proxy\Promise\RejectedPromise;
+use \yxorP\proxy\Psr7;
 
 /**
  * Functions used to create and wrap handlers with handler middleware.

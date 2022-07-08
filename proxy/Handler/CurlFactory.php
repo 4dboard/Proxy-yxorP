@@ -2,12 +2,12 @@
 namespace \yxorP\proxy\Handler;
 
 use Psr\Http\Message\RequestInterface;
-use yxorP\proxy\Exception\ConnectException;
-use yxorP\proxy\Exception\RequestException;
-use yxorP\proxy\Promise\FulfilledPromise;
-use yxorP\proxy\Psr7;
-use yxorP\proxy\Psr7\LazyOpenStream;
-use yxorP\proxy\TransferStats;
+use \yxorP\proxy\Exception\ConnectException;
+use \yxorP\proxy\Exception\RequestException;
+use \yxorP\proxy\Promise\FulfilledPromise;
+use \yxorP\proxy\Psr7;
+use \yxorP\proxy\Psr7\LazyOpenStream;
+use \yxorP\proxy\TransferStats;
 
 /**
  * Creates curl resources from a request

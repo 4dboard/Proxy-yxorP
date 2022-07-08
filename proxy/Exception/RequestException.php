@@ -4,7 +4,7 @@ namespace \yxorP\proxy\Exception;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use yxorP\proxy\Promise\PromiseInterface;
+use \yxorP\proxy\Promise\PromiseInterface;
 
 /**
  * HTTP Request exception

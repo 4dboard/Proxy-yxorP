@@ -4,10 +4,10 @@ namespace \yxorP\proxy;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use yxorP\proxy\Exception\BadResponseException;
-use yxorP\proxy\Exception\TooManyRedirectsException;
-use yxorP\proxy\Promise\PromiseInterface;
-use yxorP\proxy\Psr7;
+use \yxorP\proxy\Exception\BadResponseException;
+use \yxorP\proxy\Exception\TooManyRedirectsException;
+use \yxorP\proxy\Promise\PromiseInterface;
+use \yxorP\proxy\Psr7;
 
 /**
  * Request redirect middleware.

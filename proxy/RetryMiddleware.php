@@ -3,9 +3,9 @@ namespace \yxorP\proxy;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use yxorP\proxy\Promise\PromiseInterface;
-use yxorP\proxy\Promise\RejectedPromise;
-use yxorP\proxy\Psr7;
+use \yxorP\proxy\Promise\PromiseInterface;
+use \yxorP\proxy\Promise\RejectedPromise;
+use \yxorP\proxy\Psr7;
 
 /**
  * Middleware that retries requests based on the boolean result of

@@ -4,10 +4,10 @@ namespace \yxorP\proxy;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use yxorP\proxy\Cookie\CookieJar;
-use yxorP\proxy\Exception\GuzzleException;
-use yxorP\proxy\Promise;
-use yxorP\proxy\Psr7;
+use \yxorP\proxy\Cookie\CookieJar;
+use \yxorP\proxy\Exception\GuzzleException;
+use \yxorP\proxy\Promise;
+use \yxorP\proxy\Psr7;
 
 /**
  * @method ResponseInterface get(string|UriInterface $uri, array $options = [])
