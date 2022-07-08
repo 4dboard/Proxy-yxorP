@@ -67,7 +67,7 @@ class ArequestExceptionAA extends AATransferException
         return get_message_body_summary($response);
     }
 
-    public function getRequest(): ?RequestInterface
+    public function getRequest(): mixed
     {
         return $this->request;
     }

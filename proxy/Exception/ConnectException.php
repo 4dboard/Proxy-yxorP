@@ -10,7 +10,7 @@ class ConnectException extends ArequestExceptionAA
         parent::__construct($message, $request, null, $previous, $handlerContext);
     }
 
-    public function getResponse(): ?RequestInterface
+    public function getResponse(): mixed
     {
         return null;
     }
