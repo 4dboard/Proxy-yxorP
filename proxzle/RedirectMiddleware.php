@@ -1,17 +1,17 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 
 use InvalidArgumentException;
-use yxorP\guzzle\Exception\BadResponseException;
-use yxorP\guzzle\Exception\TooManyRedirectsException;
-use yxorP\guzzle\Promise\PromiseInterface;
-use yxorP\guzzle\Psr7;
+use yxorP\proxzle\Exception\BadResponseException;
+use yxorP\proxzle\Exception\TooManyRedirectsException;
+use yxorP\proxzle\Promise\PromiseInterface;
+use yxorP\proxzle\Psr7;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 
 class RedirectMiddleware
 {
-    const HISTORY_HEADER = 'X-Guzzle-Redirect-History';
-    const STATUS_HISTORY_HEADER = 'X-Guzzle-Redirect-Status-History';
+    const HISTORY_HEADER = 'X-Proxzle-Redirect-History';
+    const STATUS_HISTORY_HEADER = 'X-Proxzle-Redirect-Status-History';
     public static array $defaultSettings = ['max' => 5, 'protocols' => ['http', 'https'], 'strict' => false, 'referer' => false, 'track_redirects' => false,];
     private $nextHandler;
 

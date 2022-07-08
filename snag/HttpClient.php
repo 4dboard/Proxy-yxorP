@@ -4,8 +4,8 @@ use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\snag\DateTime\Date;
-use yxorP\snag\Internal\GuzzleCompat;
-use yxorP\guzzle\ClientInterface;
+use yxorP\snag\Internal\ProxzleCompat;
+use yxorP\proxzle\ClientInterface;
 
 class HttpClient
 {
@@ -14,13 +14,13 @@ class HttpClient
     const SESSION_PAYLOAD_VERSION = '1.0';
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
     private Configuration $config;
-    private ClientInterface $guzzle;
+    private ClientInterface $proxzle;
     private array $queue = [];
 
-    public function __construct(Configuration $config, ClientInterface $guzzle)
+    public function __construct(Configuration $config, ClientInterface $proxzle)
     {
         $this->config = $config;
-        $this->guzzle = $guzzle;
+        $this->proxzle = $proxzle;
     }
 
     public function queue(Report $report)
@@ -97,10 +97,10 @@ class HttpClient
 
     protected function post($uri, array $options = [])
     {
-        if (GuzzleCompat::isUsingGuzzle5()) {
-            $this->guzzle->post($uri, $options);
+        if (ProxzleCompat::isUsingProxzle5()) {
+            $this->proxzle->post($uri, $options);
         } else {
-            $this->guzzle->request('POST', $uri, $options);
+            $this->proxzle->request('POST', $uri, $options);
         }
     }
 

@@ -1,11 +1,11 @@
-<?php namespace yxorP\guzzle\Exception;
+<?php namespace yxorP\proxzle\Exception;
 
 use Exception;
-use yxorP\guzzle\Promise\PromiseInterface;
+use yxorP\proxzle\Promise\PromiseInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\UriInterface;
-use function GuzzleHttp\Psr7\get_message_body_summary;
+use function ProxzleHttp\Psr7\get_message_body_summary;
 
 class ArequestExceptionAA extends AATransferException
 {

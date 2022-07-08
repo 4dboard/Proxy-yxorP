@@ -1,3 +1,3 @@
-<?php if (!function_exists('GuzzleHttp\uri_template')) {
+<?php if (!function_exists('ProxzleHttp\uri_template')) {
     require __DIR__ . '/functions.php';
 }

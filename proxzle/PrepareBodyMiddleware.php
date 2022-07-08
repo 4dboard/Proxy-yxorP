@@ -1,6 +1,6 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 
-use yxorP\guzzle\Psr7;
+use yxorP\proxzle\Psr7;
 use yxorP\psr\Http\Message\RequestInterface;
 
 class PrepareBodyMiddleware

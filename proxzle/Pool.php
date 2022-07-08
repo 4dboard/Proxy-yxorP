@@ -1,10 +1,10 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 
 use InvalidArgumentException;
-use yxorP\guzzle\Promise\EachPromise;
-use yxorP\guzzle\Promise\PromisorInterface;
+use yxorP\proxzle\Promise\EachPromise;
+use yxorP\proxzle\Promise\PromisorInterface;
 use yxorP\psr\Http\Message\RequestInterface;
-use function GuzzleHttp\Promise\iter_for;
+use function ProxzleHttp\Promise\iter_for;
 
 class Pool implements PromisorInterface
 {

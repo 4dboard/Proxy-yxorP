@@ -1,6 +1,6 @@
-<?php namespace yxorP\guzzle\Handler;
+<?php namespace yxorP\proxzle\Handler;
 
-use yxorP\guzzle\RequestOptions;
+use yxorP\proxzle\RequestOptions;
 use yxorP\psr\Http\Message\RequestInterface;
 
 class Proxy

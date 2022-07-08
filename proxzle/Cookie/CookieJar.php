@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle\Cookie;
+<?php namespace yxorP\proxzle\Cookie;
 
 use ArrayIterator;
 use ReturnTypeWillChange;

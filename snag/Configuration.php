@@ -21,7 +21,7 @@ class Configuration
     private array $metaData = [];
     private $errorReportingLevel;
     private bool $autoCaptureSessions = false;
-    private \GuzzleHttp\ClientInterface|\GuzzleHttp\Client $sessionClient;
+    private \ProxzleHttp\ClientInterface|\ProxzleHttp\Client $sessionClient;
     private string $notifyEndpoint = self::NOTIFY_ENDPOINT;
     private string $sessionEndpoint = self::SESSION_ENDPOINT;
     private string $buildEndpoint = self::BUILD_ENDPOINT;
@@ -297,10 +297,10 @@ class Configuration
         return $this->autoCaptureSessions;
     }
 
-    public function getSessionClient(): \GuzzleHttp\Client|\GuzzleHttp\ClientInterface
+    public function getSessionClient(): \ProxzleHttp\Client|\ProxzleHttp\ClientInterface
     {
         if (is_null($this->sessionClient)) {
-            $this->sessionClient = Client::makeGuzzle($this->sessionEndpoint);
+            $this->sessionClient = Client::makeProxzle($this->sessionEndpoint);
         }
         return $this->sessionClient;
     }

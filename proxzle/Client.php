@@ -1,10 +1,10 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 
 use Exception;
 use InvalidArgumentException;
-use yxorP\guzzle\Cookie\CookieJar;
-use yxorP\guzzle\Promise;
-use yxorP\guzzle\Psr7;
+use yxorP\proxzle\Cookie\CookieJar;
+use yxorP\proxzle\Promise;
+use yxorP\proxzle\Psr7;
 use yxorP\psr\Http\Message\RequestInterface;
 
 class Client implements ClientInterface

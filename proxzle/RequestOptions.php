@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 final class RequestOptions
 {
     const ALLOW_REDIRECTS = 'allow_redirects';

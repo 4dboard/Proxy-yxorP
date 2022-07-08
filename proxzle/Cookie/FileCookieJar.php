@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle\Cookie;
+<?php namespace yxorP\proxzle\Cookie;
 
 use RuntimeException;
 
@@ -25,7 +25,7 @@ class FileCookieJar extends CookieJar
         } elseif ($json === '') {
             return;
         }
-        $data = \GuzzleHttp\json_decode($json, true);
+        $data = \ProxzleHttp\json_decode($json, true);
         if (is_array($data)) {
             foreach (json_decode($json, true) as $cookie) {
                 $this->setCookie(new SetCookie($cookie));
@@ -48,7 +48,7 @@ class FileCookieJar extends CookieJar
                 $json[] = $cookie->toArray();
             }
         }
-        $jsonStr = \GuzzleHttp\json_encode($json);
+        $jsonStr = \ProxzleHttp\json_encode($json);
         if (false === file_put_contents($filename, $jsonStr, LOCK_EX)) {
             throw new RuntimeException("Unable to save file {$filename}");
         }

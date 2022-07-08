@@ -1,16 +1,16 @@
 <?php namespace yxorP\snag\Internal;
 
-final class GuzzleCompat
+final class ProxzleCompat
 {
-    public static function getBaseUri(GuzzleHttp\ClientInterface $guzzle)
+    public static function getBaseUri(ProxzleHttp\ClientInterface $proxzle)
     {
-        return self::isUsingGuzzle5() ? $guzzle->getBaseUrl() : $guzzle->getConfig(self::getBaseUriOptionName());
+        return self::isUsingProxzle5() ? $proxzle->getBaseUrl() : $proxzle->getConfig(self::getBaseUriOptionName());
     }
 
-    public static function isUsingGuzzle5(): bool
+    public static function isUsingProxzle5(): bool
     {
-        if (defined(GuzzleHttp\ClientInterface::class . '::VERSION')) {
-            $version = constant(GuzzleHttp\ClientInterface::class . '::VERSION');
+        if (defined(ProxzleHttp\ClientInterface::class . '::VERSION')) {
+            $version = constant(ProxzleHttp\ClientInterface::class . '::VERSION');
             return version_compare($version, '5.0.0', '>=') && version_compare($version, '6.0.0', '<');
         }
         return false;
@@ -18,12 +18,12 @@ final class GuzzleCompat
 
     public static function getBaseUriOptionName(): string
     {
-        return self::isUsingGuzzle5() ? 'base_url' : 'base_uri';
+        return self::isUsingProxzle5() ? 'base_url' : 'base_uri';
     }
 
     public static function applyRequestOptions(array $options, array $requestOptions): array
     {
-        if (self::isUsingGuzzle5()) {
+        if (self::isUsingProxzle5()) {
             if (!isset($options['defaults'])) {
                 $options['defaults'] = [];
             }

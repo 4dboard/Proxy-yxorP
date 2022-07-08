@@ -1,7 +1,7 @@
-<?php namespace yxorP\guzzle\Exception;
+<?php namespace yxorP\proxzle\Exception;
 
 use RuntimeException;
 
-class AATransferException extends RuntimeException implements GuzzleException
+class AATransferException extends RuntimeException implements ProxzleException
 {
 }

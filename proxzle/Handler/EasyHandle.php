@@ -1,10 +1,10 @@
-<?php namespace yxorP\guzzle\Handler;
+<?php namespace yxorP\proxzle\Handler;
 
 use BadMethodCallException;
 use RuntimeException;
-use yxorP\guzzle\Psr7\Response;
-use function GuzzleHttp\headers_from_lines;
-use function GuzzleHttp\normalize_header_keys;
+use yxorP\proxzle\Psr7\Response;
+use function ProxzleHttp\headers_from_lines;
+use function ProxzleHttp\normalize_header_keys;
 
 final class EasyHandle
 {

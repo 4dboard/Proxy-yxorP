@@ -1,12 +1,12 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 
 use Closure;
 use InvalidArgumentException;
 use RuntimeException;
-use yxorP\guzzle\Handler\CurlHandler;
-use yxorP\guzzle\Handler\CurlMultiHandler;
-use yxorP\guzzle\Handler\Proxy;
-use yxorP\guzzle\Handler\StreamHandler;
+use yxorP\proxzle\Handler\CurlHandler;
+use yxorP\proxzle\Handler\CurlMultiHandler;
+use yxorP\proxzle\Handler\Proxy;
+use yxorP\proxzle\Handler\StreamHandler;
 use function curl_version;
 
 function uri_template($template, array $variables)
@@ -68,7 +68,7 @@ function choose_handler(): callable|StreamHandler|Closure|CurlHandler|CurlMultiH
     if (ini_get('allow_url_fopen')) {
         $handler = $handler ? Proxy::wrapStreaming($handler, new StreamHandler()) : new StreamHandler();
     } elseif (!$handler) {
-        throw new RuntimeException('GuzzleHttp requires cURL, the ' . 'allow_url_fopen ini setting, or a custom HTTP handler.');
+        throw new RuntimeException('ProxzleHttp requires cURL, the ' . 'allow_url_fopen ini setting, or a custom HTTP handler.');
     }
     return $handler;
 }
@@ -77,7 +77,7 @@ function default_user_agent(): string
 {
     static $defaultAgent = '';
     if (!$defaultAgent) {
-        $defaultAgent = 'GuzzleHttp/' . ClientInterface::VERSION;
+        $defaultAgent = 'ProxzleHttp/' . ClientInterface::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . curl_version()['version'];
         }
@@ -109,7 +109,7 @@ No system CA bundle could be found in any of the the common system locations.
 PHP versions earlier than 5.6 are not properly configured to use the system's
 CA bundle by default. In order to verify peer certificates, you will need to
 supply the path on disk to a certificate bundle to the 'verify' request
-option: https://docs.guzzlephp.org/en/latest/clients.html#verify. If you do not
+option: https://docs.proxzlephp.org/en/latest/clients.html#verify. If you do not
 need a specific certificate bundle, then Mozilla provides a commonly used CA
 bundle which can be downloaded here (provided by the maintainer of cURL):
 https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt. Once

@@ -1,8 +1,8 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
-use function GuzzleHttp\Promise\rejection_for;
+use function ProxzleHttp\Promise\rejection_for;
 
 class RetryMiddleware
 {

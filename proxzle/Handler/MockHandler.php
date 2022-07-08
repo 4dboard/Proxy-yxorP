@@ -1,23 +1,23 @@
-<?php namespace yxorP\guzzle\Handler;
+<?php namespace yxorP\proxzle\Handler;
 
 use Countable;
 use Exception;
-use GuzzleHttp\Promise\FulfilledPromise;
-use GuzzleHttp\Promise\Promise;
-use GuzzleHttp\Promise\RejectedPromise;
+use ProxzleHttp\Promise\FulfilledPromise;
+use ProxzleHttp\Promise\Promise;
+use ProxzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use OutOfBoundsException;
 use ReturnTypeWillChange;
-use yxorP\guzzle\Exception\ArequestExceptionAA;
-use yxorP\guzzle\HandlerStack;
-use yxorP\guzzle\Promise\PromiseInterface;
-use yxorP\guzzle\TransferStats;
+use yxorP\proxzle\Exception\ArequestExceptionAA;
+use yxorP\proxzle\HandlerStack;
+use yxorP\proxzle\Promise\PromiseInterface;
+use yxorP\proxzle\TransferStats;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;
-use function GuzzleHttp\describe_type;
-use function GuzzleHttp\Promise\promise_for;
-use function GuzzleHttp\Promise\rejection_for;
+use function ProxzleHttp\describe_type;
+use function ProxzleHttp\Promise\promise_for;
+use function ProxzleHttp\Promise\rejection_for;
 
 class MockHandler implements Countable
 {

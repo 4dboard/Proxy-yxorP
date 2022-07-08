@@ -1,10 +1,10 @@
-<?php namespace yxorP\guzzle\Exception;
+<?php namespace yxorP\proxzle\Exception;
 
 use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use yxorP\psr\Http\Message\StreamInterface;
 
-class SeekException extends RuntimeException implements GuzzleException
+class SeekException extends RuntimeException implements ProxzleException
 {
     private StreamInterface $stream;
 

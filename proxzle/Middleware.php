@@ -1,13 +1,13 @@
-<?php namespace yxorP\guzzle;
+<?php namespace yxorP\proxzle;
 
 use ArrayAccess;
 use Closure;
 use InvalidArgumentException;
-use yxorP\guzzle\Cookie\CookieJarInterface;
-use yxorP\guzzle\Exception\ArequestExceptionAA;
+use yxorP\proxzle\Cookie\CookieJarInterface;
+use yxorP\proxzle\Exception\ArequestExceptionAA;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Log\LoggerInterface;
-use function GuzzleHttp\Promise\rejection_for;
+use function ProxzleHttp\Promise\rejection_for;
 
 final class Middleware
 {
@@ -18,7 +18,7 @@ final class Middleware
                 if (empty($options['cookies'])) {
                     return $handler($request, $options);
                 } elseif (!($options['cookies'] instanceof CookieJarInterface)) {
-                    throw new InvalidArgumentException('cookies must be an instance of GuzzleHttp\Cookie\CookieJarInterface');
+                    throw new InvalidArgumentException('cookies must be an instance of ProxzleHttp\Cookie\CookieJarInterface');
                 }
                 $cookieJar = $options['cookies'];
                 $request = $cookieJar->withCookieHeader($request);

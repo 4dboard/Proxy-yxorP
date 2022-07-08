@@ -1,4 +1,4 @@
-<?php namespace yxorP\guzzle\Psr7;
+<?php namespace yxorP\proxzle\Psr7;
 
 use InvalidArgumentException;
 use yxorP\psr\Http\Message\StreamInterface;

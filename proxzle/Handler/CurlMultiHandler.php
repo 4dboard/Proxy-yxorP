@@ -1,10 +1,10 @@
-<?php namespace yxorP\guzzle\Handler;
+<?php namespace yxorP\proxzle\Handler;
 
 use BadMethodCallException;
 use JetBrains\PhpStorm\Pure;
-use yxorP\guzzle\Promise as P;
-use yxorP\guzzle\Promise\Promise;
-use yxorP\guzzle\Utils;
+use yxorP\proxzle\Promise as P;
+use yxorP\proxzle\Promise\Promise;
+use yxorP\proxzle\Utils;
 use yxorP\psr\Http\Message\RequestInterface;
 
 class CurlMultiHandler
@@ -21,7 +21,7 @@ class CurlMultiHandler
         $this->factory = $options['handle_factory'] ?? new CurlFactory(50);
         if (isset($options['select_timeout'])) {
             $this->selectTimeout = $options['select_timeout'];
-        } elseif ($selectTimeout = getenv('GUZZLE_CURL_SELECT_TIMEOUT')) {
+        } elseif ($selectTimeout = getenv('PROXZLE_CURL_SELECT_TIMEOUT')) {
             $this->selectTimeout = $selectTimeout;
         } else {
             $this->selectTimeout = 1;
