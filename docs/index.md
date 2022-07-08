@@ -787,6 +787,77 @@ This is an automatically generated documentation for **yxorP Documentation**.
 
 
 
+### \yxorP\parser
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`domain`](./classes/yxorP/parser/domain.md) | |
+| [`idna`](./classes/yxorP/parser/idna.md) | |
+| [`idnaInfo`](./classes/yxorP/parser/idnaInfo.md) | |
+| [`resolvedDomain`](./classes/yxorP/parser/resolvedDomain.md) | |
+| [`rules`](./classes/yxorP/parser/rules.md) | |
+| [`stream`](./classes/yxorP/parser/stream.md) | |
+| [`suffix`](./classes/yxorP/parser/suffix.md) | |
+| [`syntaxError`](./classes/yxorP/parser/syntaxError.md) | |
+| [`topLevelDomains`](./classes/yxorP/parser/topLevelDomains.md) | |
+| [`unableToLoadPublicSuffixList`](./classes/yxorP/parser/unableToLoadPublicSuffixList.md) | |
+| [`unableToLoadResource`](./classes/yxorP/parser/unableToLoadResource.md) | |
+| [`unableToLoadTopLevelDomainList`](./classes/yxorP/parser/unableToLoadTopLevelDomainList.md) | |
+| [`unableToResolveDomain`](./classes/yxorP/parser/unableToResolveDomain.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`aHostInterface`](./classes/yxorP/parser/aHostInterface.md) | |
+| [`cannotProcessHostInterface`](./classes/yxorP/parser/cannotProcessHostInterface.md) | |
+| [`domainNameInterface`](./classes/yxorP/parser/domainNameInterface.md) | |
+| [`domainNameProviderInterface`](./classes/yxorP/parser/domainNameProviderInterface.md) | |
+| [`domainNameResolverInterface`](./classes/yxorP/parser/domainNameResolverInterface.md) | |
+| [`effectiveTopLevelDomainInterface`](./classes/yxorP/parser/effectiveTopLevelDomainInterface.md) | |
+| [`publicSuffixListInterface`](./classes/yxorP/parser/publicSuffixListInterface.md) | |
+| [`resolvedInterfaceDomainNameInterface`](./classes/yxorP/parser/resolvedInterfaceDomainNameInterface.md) | |
+| [`resourceUriInterface`](./classes/yxorP/parser/resourceUriInterface.md) | |
+| [`topInterfaceLevelDomainListInterface`](./classes/yxorP/parser/topInterfaceLevelDomainListInterface.md) | |
+
+
+
+### \yxorP\parser\Storage
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`psrStorageFactory`](./classes/yxorP/parser/Storage/psrStorageFactory.md) | |
+| [`publicSuffixListPsr16Cache`](./classes/yxorP/parser/Storage/publicSuffixListPsr16Cache.md) | |
+| [`publicSuffixListPsr18Client`](./classes/yxorP/parser/Storage/publicSuffixListPsr18Client.md) | |
+| [`rulesStorage`](./classes/yxorP/parser/Storage/rulesStorage.md) | |
+| [`timeToLive`](./classes/yxorP/parser/Storage/timeToLive.md) | |
+| [`topLevelDomainListPsr16Cache`](./classes/yxorP/parser/Storage/topLevelDomainListPsr16Cache.md) | |
+| [`topLevelDomainListPsr18Client`](./classes/yxorP/parser/Storage/topLevelDomainListPsr18Client.md) | |
+| [`topLevelDomainsStorage`](./classes/yxorP/parser/Storage/topLevelDomainsStorage.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`publicSuffixListCacheInterface`](./classes/yxorP/parser/Storage/publicSuffixListCacheInterface.md) | |
+| [`publicSuffixListClientInterface`](./classes/yxorP/parser/Storage/publicSuffixListClientInterface.md) | |
+| [`publicSuffixListStorageFactoryInterface`](./classes/yxorP/parser/Storage/publicSuffixListStorageFactoryInterface.md) | |
+| [`publicSuffixListStorageInterface`](./classes/yxorP/parser/Storage/publicSuffixListStorageInterface.md) | |
+| [`topLevelDomainListCacheInterface`](./classes/yxorP/parser/Storage/topLevelDomainListCacheInterface.md) | |
+| [`topLevelDomainListClientInterface`](./classes/yxorP/parser/Storage/topLevelDomainListClientInterface.md) | |
+| [`topLevelDomainListStorageFactoryInterface`](./classes/yxorP/parser/Storage/topLevelDomainListStorageFactoryInterface.md) | |
+| [`topLevelDomainListStorageInterface`](./classes/yxorP/parser/Storage/topLevelDomainListStorageInterface.md) | |
+
+
+
 ### \yxorP\protocols
 
 #### Classes
@@ -841,6 +912,328 @@ This is an automatically generated documentation for **yxorP Documentation**.
 | Interface | Description |
 |-----------|-------------|
 | [`sessionHandlerInterface`](./classes/yxorP/protocols/Http/Session/sessionHandlerInterface.md) | |
+
+
+
+### \yxorP\proxy
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Client`](./classes/yxorP/proxy/Client.md) | |
+| [`HandlerStack`](./classes/yxorP/proxy/HandlerStack.md) | |
+| [`MessageFormatter`](./classes/yxorP/proxy/MessageFormatter.md) | |
+| [`Middleware`](./classes/yxorP/proxy/Middleware.md) | |
+| [`Pool`](./classes/yxorP/proxy/Pool.md) | |
+| [`PrepareBodyMiddleware`](./classes/yxorP/proxy/PrepareBodyMiddleware.md) | |
+| [`RedirectMiddleware`](./classes/yxorP/proxy/RedirectMiddleware.md) | |
+| [`RequestOptions`](./classes/yxorP/proxy/RequestOptions.md) | |
+| [`RetryMiddleware`](./classes/yxorP/proxy/RetryMiddleware.md) | |
+| [`TransferStats`](./classes/yxorP/proxy/TransferStats.md) | |
+| [`UriTemplate`](./classes/yxorP/proxy/UriTemplate.md) | |
+| [`Utils`](./classes/yxorP/proxy/Utils.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`ClientInterface`](./classes/yxorP/proxy/ClientInterface.md) | |
+
+
+
+### \yxorP\proxy\Apromise
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`AARejectionException`](./classes/yxorP/proxy/Apromise/AARejectionException.md) | |
+| [`AggregateExceptionAA`](./classes/yxorP/proxy/Apromise/AggregateExceptionAA.md) | |
+| [`CancellationExceptionAA`](./classes/yxorP/proxy/Apromise/CancellationExceptionAA.md) | |
+| [`Coroutine`](./classes/yxorP/proxy/Apromise/Coroutine.md) | |
+| [`EachPromise`](./classes/yxorP/proxy/Apromise/EachPromise.md) | |
+| [`FulfilledPromise`](./classes/yxorP/proxy/Apromise/FulfilledPromise.md) | |
+| [`Promise`](./classes/yxorP/proxy/Apromise/Promise.md) | |
+| [`RejectedPromise`](./classes/yxorP/proxy/Apromise/RejectedPromise.md) | |
+| [`TaskQueue`](./classes/yxorP/proxy/Apromise/TaskQueue.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`PromiseInterface`](./classes/yxorP/proxy/Apromise/PromiseInterface.md) | |
+| [`PromisorInterface`](./classes/yxorP/proxy/Apromise/PromisorInterface.md) | |
+| [`TaskQueueInterface`](./classes/yxorP/proxy/Apromise/TaskQueueInterface.md) | |
+
+
+
+### \yxorP\proxy\Cookie
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`CookieJar`](./classes/yxorP/proxy/Cookie/CookieJar.md) | |
+| [`FileCookieJar`](./classes/yxorP/proxy/Cookie/FileCookieJar.md) | |
+| [`SessionCookieJar`](./classes/yxorP/proxy/Cookie/SessionCookieJar.md) | |
+| [`SetCookie`](./classes/yxorP/proxy/Cookie/SetCookie.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`CookieJarInterface`](./classes/yxorP/proxy/Cookie/CookieJarInterface.md) | |
+
+
+
+### \yxorP\proxy\Exception
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`AATransferException`](./classes/yxorP/proxy/Exception/AATransferException.md) | |
+| [`ArequestExceptionAA`](./classes/yxorP/proxy/Exception/ArequestExceptionAA.md) | |
+| [`BadResponseException`](./classes/yxorP/proxy/Exception/BadResponseException.md) | |
+| [`ClientException`](./classes/yxorP/proxy/Exception/ClientException.md) | |
+| [`ConnectException`](./classes/yxorP/proxy/Exception/ConnectException.md) | |
+| [`InvalidArgumentException`](./classes/yxorP/proxy/Exception/InvalidArgumentException.md) | |
+| [`SeekException`](./classes/yxorP/proxy/Exception/SeekException.md) | |
+| [`ServerException`](./classes/yxorP/proxy/Exception/ServerException.md) | |
+| [`TooManyRedirectsException`](./classes/yxorP/proxy/Exception/TooManyRedirectsException.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`ProxyException`](./classes/yxorP/proxy/Exception/ProxyException.md) | |
+
+
+
+### \yxorP\proxy\Handler
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`CurlFactory`](./classes/yxorP/proxy/Handler/CurlFactory.md) | |
+| [`CurlHandler`](./classes/yxorP/proxy/Handler/CurlHandler.md) | |
+| [`CurlMultiHandler`](./classes/yxorP/proxy/Handler/CurlMultiHandler.md) | |
+| [`EasyHandle`](./classes/yxorP/proxy/Handler/EasyHandle.md) | |
+| [`MockHandler`](./classes/yxorP/proxy/Handler/MockHandler.md) | |
+| [`Proxy`](./classes/yxorP/proxy/Handler/Proxy.md) | |
+| [`StreamHandler`](./classes/yxorP/proxy/Handler/StreamHandler.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`CurlFactoryInterface`](./classes/yxorP/proxy/Handler/CurlFactoryInterface.md) | |
+
+
+
+### \yxorP\proxy\Psr7
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`AppendStream`](./classes/yxorP/proxy/Psr7/AppendStream.md) | |
+| [`BufferStream`](./classes/yxorP/proxy/Psr7/BufferStream.md) | |
+| [`CachingStream`](./classes/yxorP/proxy/Psr7/CachingStream.md) | |
+| [`DroppingStream`](./classes/yxorP/proxy/Psr7/DroppingStream.md) | |
+| [`FnStream`](./classes/yxorP/proxy/Psr7/FnStream.md) | |
+| [`InflateStream`](./classes/yxorP/proxy/Psr7/InflateStream.md) | |
+| [`LazyOpenStream`](./classes/yxorP/proxy/Psr7/LazyOpenStream.md) | |
+| [`LimitStream`](./classes/yxorP/proxy/Psr7/LimitStream.md) | |
+| [`MultipartStream`](./classes/yxorP/proxy/Psr7/MultipartStream.md) | |
+| [`NoSeekStream`](./classes/yxorP/proxy/Psr7/NoSeekStream.md) | |
+| [`PumpStream`](./classes/yxorP/proxy/Psr7/PumpStream.md) | |
+| [`Request`](./classes/yxorP/proxy/Psr7/Request.md) | |
+| [`Response`](./classes/yxorP/proxy/Psr7/Response.md) | |
+| [`Rfc7230`](./classes/yxorP/proxy/Psr7/Rfc7230.md) | |
+| [`ServerRequest`](./classes/yxorP/proxy/Psr7/ServerRequest.md) | |
+| [`Stream`](./classes/yxorP/proxy/Psr7/Stream.md) | |
+| [`StreamWrapper`](./classes/yxorP/proxy/Psr7/StreamWrapper.md) | |
+| [`UploadedFile`](./classes/yxorP/proxy/Psr7/UploadedFile.md) | |
+| [`Uri`](./classes/yxorP/proxy/Psr7/Uri.md) | |
+| [`UriNormalizer`](./classes/yxorP/proxy/Psr7/UriNormalizer.md) | |
+| [`UriResolver`](./classes/yxorP/proxy/Psr7/UriResolver.md) | |
+
+
+#### Traits
+
+| Trait | Description |
+|-------|-------------|
+| [`AStreamDecoratorTrait`](./classes/yxorP/proxy/Psr7/AStreamDecoratorTrait.md) | |
+| [`MessageTrait`](./classes/yxorP/proxy/Psr7/MessageTrait.md) | |
+
+
+
+
+### \yxorP\psr\Http\Message
+
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`MessageInterface`](./classes/yxorP/psr/Http/Message/MessageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
+| [`RequestInterface`](./classes/yxorP/psr/Http/Message/RequestInterface.md) | Representation of an outgoing, client-side request.|
+| [`ResponseInterface`](./classes/yxorP/psr/Http/Message/ResponseInterface.md) | Representation of an outgoing, server-side response.|
+| [`ServerRequestInterface`](./classes/yxorP/psr/Http/Message/ServerRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
+| [`StreamInterface`](./classes/yxorP/psr/Http/Message/StreamInterface.md) | Describes a data stream.|
+| [`UploadedFileInterface`](./classes/yxorP/psr/Http/Message/UploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
+| [`UriInterface`](./classes/yxorP/psr/Http/Message/UriInterface.md) | Value object representing a URI.|
+
+
+
+### \yxorP\snag
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Client`](./classes/yxorP/snag/Client.md) | |
+| [`Configuration`](./classes/yxorP/snag/Configuration.md) | |
+| [`Env`](./classes/yxorP/snag/Env.md) | |
+| [`ErrorTypes`](./classes/yxorP/snag/ErrorTypes.md) | |
+| [`Handler`](./classes/yxorP/snag/Handler.md) | |
+| [`HttpClient`](./classes/yxorP/snag/HttpClient.md) | |
+| [`Pipeline`](./classes/yxorP/snag/Pipeline.md) | |
+| [`Report`](./classes/yxorP/snag/Report.md) | |
+| [`SessionTracker`](./classes/yxorP/snag/SessionTracker.md) | |
+| [`Stacktrace`](./classes/yxorP/snag/Stacktrace.md) | |
+| [`Utils`](./classes/yxorP/snag/Utils.md) | |
+
+
+
+
+### \yxorP\snag\Breadcrumbs
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Breadcrumb`](./classes/yxorP/snag/Breadcrumbs/Breadcrumb.md) | |
+| [`Recorder`](./classes/yxorP/snag/Breadcrumbs/Recorder.md) | |
+
+
+
+
+### \yxorP\snag\Callbacks
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`CustomUser`](./classes/yxorP/snag/Callbacks/CustomUser.md) | |
+| [`EnvironmentData`](./classes/yxorP/snag/Callbacks/EnvironmentData.md) | |
+| [`GlobalMetaData`](./classes/yxorP/snag/Callbacks/GlobalMetaData.md) | |
+| [`RequestContext`](./classes/yxorP/snag/Callbacks/RequestContext.md) | |
+| [`RequestCookies`](./classes/yxorP/snag/Callbacks/RequestCookies.md) | |
+| [`RequestMetaData`](./classes/yxorP/snag/Callbacks/RequestMetaData.md) | |
+| [`RequestSession`](./classes/yxorP/snag/Callbacks/RequestSession.md) | |
+| [`RequestUser`](./classes/yxorP/snag/Callbacks/RequestUser.md) | |
+
+
+
+
+### \yxorP\snag\DateTime
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`Clock`](./classes/yxorP/snag/DateTime/Clock.md) | |
+| [`Date`](./classes/yxorP/snag/DateTime/Date.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`ClockInterface`](./classes/yxorP/snag/DateTime/ClockInterface.md) | |
+
+
+
+### \yxorP\snag\Internal
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`ProxyCompat`](./classes/yxorP/snag/Internal/ProxyCompat.md) | |
+
+
+
+
+### \yxorP\snag\Middleware
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`BreadcrumbData`](./classes/yxorP/snag/Middleware/BreadcrumbData.md) | |
+| [`CallbackBridge`](./classes/yxorP/snag/Middleware/CallbackBridge.md) | |
+| [`DiscardClasses`](./classes/yxorP/snag/Middleware/DiscardClasses.md) | |
+| [`NotificationSkipper`](./classes/yxorP/snag/Middleware/NotificationSkipper.md) | |
+| [`SessionData`](./classes/yxorP/snag/Middleware/SessionData.md) | |
+
+
+
+
+### \yxorP\snag\Request
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`BasicResolver`](./classes/yxorP/snag/Request/BasicResolver.md) | |
+| [`ConsoleRequest`](./classes/yxorP/snag/Request/ConsoleRequest.md) | |
+| [`NullRequest`](./classes/yxorP/snag/Request/NullRequest.md) | |
+| [`PhpRequest`](./classes/yxorP/snag/Request/PhpRequest.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`RequestInterface`](./classes/yxorP/snag/Request/RequestInterface.md) | |
+| [`ResolverInterface`](./classes/yxorP/snag/Request/ResolverInterface.md) | |
+
+
+
+### \yxorP\snag\Shutdown
+
+#### Classes
+
+| Class | Description |
+|-------|-------------|
+| [`PhpShutdownStrategy`](./classes/yxorP/snag/Shutdown/PhpShutdownStrategy.md) | |
+
+
+
+#### Interfaces
+
+| Interface | Description |
+|-----------|-------------|
+| [`ShutdownStrategyInterface`](./classes/yxorP/snag/Shutdown/ShutdownStrategyInterface.md) | |
 
 
 
