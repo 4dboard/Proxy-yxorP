@@ -12,4 +12,6 @@ f1() {
 }
 
 
-f1 './parser/'
+f1 './bugsnag/'
+f1 './guzzle/'
+f1 './psr/'
