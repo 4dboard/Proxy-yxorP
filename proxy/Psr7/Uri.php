@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Psr7;
+namespace \yxorP\proxy\Psr7;
 
 use Psr\Http\Message\UriInterface;
 

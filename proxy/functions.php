@@ -1,10 +1,10 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
-use \yxorP\guzzle\Handler\CurlHandler;
-use \yxorP\guzzle\Handler\CurlMultiHandler;
-use \yxorP\guzzle\Handler\Proxy;
-use \yxorP\guzzle\Handler\StreamHandler;
+use \yxorP\proxy\Handler\CurlHandler;
+use \yxorP\proxy\Handler\CurlMultiHandler;
+use \yxorP\proxy\Handler\Proxy;
+use \yxorP\proxy\Handler\StreamHandler;
 
 /**
  * Expands a URI template
@@ -116,7 +116,7 @@ function choose_handler()
             ? Proxy::wrapStreaming($handler, new StreamHandler())
             : new StreamHandler();
     } elseif (!$handler) {
-        throw new \RuntimeException('\yxorP\guzzle requires cURL, the '
+        throw new \RuntimeException('\yxorP\proxy requires cURL, the '
             . 'allow_url_fopen ini setting, or a custom HTTP handler.');
     }
 
@@ -133,7 +133,7 @@ function default_user_agent()
     static $defaultAgent = '';
 
     if (!$defaultAgent) {
-        $defaultAgent = '\yxorP\guzzle/' . Client::VERSION;
+        $defaultAgent = '\yxorP\proxy/' . Client::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . \curl_version()['version'];
         }

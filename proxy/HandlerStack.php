@@ -1,9 +1,9 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use yxorP\guzzle\Promise\PromiseInterface;
+use yxorP\proxy\Promise\PromiseInterface;
 
 /**
  * Creates a composed Guzzle handler function by stacking middlewares on top of

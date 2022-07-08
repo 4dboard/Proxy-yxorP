@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;

@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Promise;
+namespace \yxorP\proxy\Promise;
 
 /**
  * Get the global task queue used for promise resolution.
@@ -10,7 +10,7 @@ namespace \yxorP\guzzle\Promise;
  *
  * <code>
  * while ($eventLoop->isRunning()) {
- *     \yxorP\guzzle\Promise\queue()->run();
+ *     \yxorP\proxy\Promise\queue()->run();
  * }
  * </code>
  *
@@ -169,7 +169,7 @@ function inspect(PromiseInterface $promise)
  * @param PromiseInterface[] $promises Traversable of promises to wait upon.
  *
  * @return array
- * @see \yxorP\guzzle\Promise\inspect for the inspection state array format.
+ * @see \yxorP\proxy\Promise\inspect for the inspection state array format.
  */
 function inspect_all($promises)
 {
@@ -241,7 +241,7 @@ function all($promises)
  * fulfilled with an array that contains the fulfillment values of the winners
  * in order of resolution.
  *
- * This prommise is rejected with a {@see \yxorP\guzzle\Promise\AggregateException}
+ * This prommise is rejected with a {@see \yxorP\proxy\Promise\AggregateException}
  * if the number of fulfilled promises is less than the desired $count.
  *
  * @param int $count Total number of promises.
@@ -306,7 +306,7 @@ function any($promises)
  * @param mixed $promises Promises or values.
  *
  * @return PromiseInterface
- * @see \yxorP\guzzle\Promise\inspect for the inspection state array format.
+ * @see \yxorP\proxy\Promise\inspect for the inspection state array format.
  */
 function settle($promises)
 {

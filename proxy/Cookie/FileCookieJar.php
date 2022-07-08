@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Cookie;
+namespace \yxorP\proxy\Cookie;
 
 /**
  * Persists non-session cookies using a JSON formatted file
@@ -49,7 +49,7 @@ class FileCookieJar extends CookieJar
             return;
         }
 
-        $data = \yxorP\guzzle\json_decode($json, true);
+        $data = \yxorP\proxy\json_decode($json, true);
         if (is_array($data)) {
             foreach (json_decode($json, true) as $cookie) {
                 $this->setCookie(new SetCookie($cookie));
@@ -83,7 +83,7 @@ class FileCookieJar extends CookieJar
             }
         }
 
-        $jsonStr = \yxorP\guzzle\json_encode($json);
+        $jsonStr = \yxorP\proxy\json_encode($json);
         if (false === file_put_contents($filename, $jsonStr, LOCK_EX)) {
             throw new RuntimeException("Unable to save file {$filename}");
         }

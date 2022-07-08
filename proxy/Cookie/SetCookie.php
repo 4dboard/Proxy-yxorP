@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Cookie;
+namespace \yxorP\proxy\Cookie;
 
 /**
  * Set-Cookie object

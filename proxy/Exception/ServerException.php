@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Exception;
+namespace \yxorP\proxy\Exception;
 
 /**
  * Exception when a server error is encountered (5xx codes)

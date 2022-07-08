@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Exception;
+namespace \yxorP\proxy\Exception;
 
 class TooManyRedirectsException extends RequestException
 {

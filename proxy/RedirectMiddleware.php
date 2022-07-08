@@ -1,19 +1,19 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use yxorP\guzzle\Exception\BadResponseException;
-use yxorP\guzzle\Exception\TooManyRedirectsException;
-use yxorP\guzzle\Promise\PromiseInterface;
-use yxorP\guzzle\Psr7;
+use yxorP\proxy\Exception\BadResponseException;
+use yxorP\proxy\Exception\TooManyRedirectsException;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Psr7;
 
 /**
  * Request redirect middleware.
  *
  * Apply this middleware like other middleware using
- * {@see \yxorP\guzzle\Middleware::redirect()}.
+ * {@see \yxorP\proxy\Middleware::redirect()}.
  */
 class RedirectMiddleware
 {

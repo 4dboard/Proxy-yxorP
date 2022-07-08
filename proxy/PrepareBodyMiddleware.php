@@ -1,8 +1,8 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
-use \yxorP\guzzle\Promise\PromiseInterface;
-use \yxorP\guzzle\Psr7;
+use \yxorP\proxy\Promise\PromiseInterface;
+use \yxorP\proxy\Psr7;
 use Psr\Http\Message\RequestInterface;
 
 /**

@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Promise;
+namespace \yxorP\proxy\Promise;
 
 /**
  * A promise that has been rejected.

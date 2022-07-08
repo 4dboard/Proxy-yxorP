@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Promise;
+namespace \yxorP\proxy\Promise;
 
 /**
  * A special exception that is thrown when waiting on a rejected promise.

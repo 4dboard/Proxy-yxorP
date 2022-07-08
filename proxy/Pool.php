@@ -1,10 +1,10 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
 use Psr\Http\Message\RequestInterface;
-use yxorP\guzzle\Promise\EachPromise;
-use yxorP\guzzle\Promise\PromiseInterface;
-use yxorP\guzzle\Promise\PromisorInterface;
+use yxorP\proxy\Promise\EachPromise;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\PromisorInterface;
 
 /**
  * Sends an iterator of requests concurrently using a capped pool size.
@@ -52,7 +52,7 @@ class Pool implements PromisorInterface
             $opts = [];
         }
 
-        $iterable = \yxorP\guzzle\Promise\iter_for($requests);
+        $iterable = \yxorP\proxy\Promise\iter_for($requests);
         $requests = function () use ($iterable, $client, $opts) {
             foreach ($iterable as $key => $rfn) {
                 if ($rfn instanceof RequestInterface) {
@@ -82,7 +82,7 @@ class Pool implements PromisorInterface
      * @param ClientInterface $client Client used to send the requests
      * @param array|Iterator $requests Requests to send concurrently.
      * @param array $options Passes through the options available in
-     *                                  {@see \yxorP\guzzle\Pool::__construct}
+     *                                  {@see \yxorP\proxy\Pool::__construct}
      *
      * @return array Returns an array containing the response or an exception
      *               in the same order that the requests were sent.

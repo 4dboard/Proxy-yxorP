@@ -1,10 +1,10 @@
 <?php
-namespace \yxorP\guzzle\Handler;
+namespace \yxorP\proxy\Handler;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use yxorP\guzzle\Psr7\Response;
+use yxorP\proxy\Psr7\Response;
 
 /**
  * Represents a cURL easy handle and the data it populates.
@@ -50,8 +50,8 @@ final class EasyHandle
 
         // HTTP-version SP status-code SP reason-phrase
         $startLine = explode(' ', array_shift($this->headers), 3);
-        $headers = \yxorP\guzzle\headers_from_lines($this->headers);
-        $normalizedKeys = \yxorP\guzzle\normalize_header_keys($headers);
+        $headers = \yxorP\proxy\headers_from_lines($this->headers);
+        $normalizedKeys = \yxorP\proxy\normalize_header_keys($headers);
 
         if (!empty($this->options['decode_content'])
             && isset($normalizedKeys['content-encoding'])

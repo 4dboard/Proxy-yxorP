@@ -1,6 +1,6 @@
 <?php
 
-namespace \yxorP\guzzle\Psr7;
+namespace \yxorP\proxy\Psr7;
 
 use InvalidArgumentException;
 use Psr\Http\Message\ServerRequestInterface;

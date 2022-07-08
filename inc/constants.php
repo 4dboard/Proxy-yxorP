@@ -541,8 +541,8 @@ class constants
         // Reporting
         /* Setting the token to the snag key. */
         self::set(VAR_SNAG, Client::make(ENV_BUG_SNAG_KEY));
-        /* Setting the token PROXY to a new instance of the \\yxorP\guzzle class. */
-        self::set(VAR_GUZZLE, new \yxorP\guzzle\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        /* Setting the token PROXY to a new instance of the \\yxorP\proxy class. */
+        self::set(VAR_GUZZLE, new \yxorP\proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
 

@@ -1,7 +1,7 @@
 <?php
-namespace \yxorP\guzzle\Handler;
+namespace \yxorP\proxy\Handler;
 
-use \yxorP\guzzle\Psr7;
+use \yxorP\proxy\Psr7;
 use Psr\Http\Message\RequestInterface;
 
 /**

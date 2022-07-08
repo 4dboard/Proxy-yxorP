@@ -1,11 +1,11 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use yxorP\guzzle\Promise\PromiseInterface;
-use yxorP\guzzle\Promise\RejectedPromise;
-use yxorP\guzzle\Psr7;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\RejectedPromise;
+use yxorP\proxy\Psr7;
 
 /**
  * Middleware that retries requests based on the boolean result of
@@ -121,7 +121,7 @@ class RetryMiddleware
                 null,
                 $reason
             )) {
-                return \yxorP\guzzle\Promise\rejection_for($reason);
+                return \yxorP\proxy\Promise\rejection_for($reason);
             }
             return $this->doRetry($req, $options);
         };

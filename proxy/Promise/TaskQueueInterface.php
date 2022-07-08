@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Promise;
+namespace \yxorP\proxy\Promise;
 
 interface TaskQueueInterface
 {

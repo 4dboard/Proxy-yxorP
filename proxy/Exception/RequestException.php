@@ -1,10 +1,10 @@
 <?php
-namespace \yxorP\guzzle\Exception;
+namespace \yxorP\proxy\Exception;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use yxorP\guzzle\Promise\PromiseInterface;
+use yxorP\proxy\Promise\PromiseInterface;
 
 /**
  * HTTP Request exception
@@ -144,7 +144,7 @@ class RequestException extends TransferException
      */
     public static function getResponseBodySummary(ResponseInterface $response)
     {
-        return \yxorP\guzzle\Psr7\get_message_body_summary($response);
+        return \yxorP\proxy\Psr7\get_message_body_summary($response);
     }
 
     /**

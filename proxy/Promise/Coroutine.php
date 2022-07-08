@@ -1,5 +1,5 @@
 <?php
-namespace \yxorP\guzzle\Promise;
+namespace \yxorP\proxy\Promise;
 
 /**
  * Creates a promise that is resolved using a generator that yields values or
@@ -12,7 +12,7 @@ namespace \yxorP\guzzle\Promise;
  * This can lead to less verbose code when doing lots of sequential async calls
  * with minimal processing in between.
  *
- *     use \yxorP\guzzle\Promise;
+ *     use \yxorP\proxy\Promise;
  *
  *     function createPromise($value) {
  *         return new Promise\FulfilledPromise($value);

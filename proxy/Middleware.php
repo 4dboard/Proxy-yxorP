@@ -1,12 +1,12 @@
 <?php
-namespace \yxorP\guzzle;
+namespace \yxorP\proxy;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
-use yxorP\guzzle\Cookie\CookieJarInterface;
-use yxorP\guzzle\Exception\RequestException;
-use yxorP\guzzle\Promise\RejectedPromise;
-use yxorP\guzzle\Psr7;
+use yxorP\proxy\Cookie\CookieJarInterface;
+use yxorP\proxy\Exception\RequestException;
+use yxorP\proxy\Promise\RejectedPromise;
+use yxorP\proxy\Psr7;
 
 /**
  * Functions used to create and wrap handlers with handler middleware.
@@ -28,7 +28,7 @@ final class Middleware
                 if (empty($options['cookies'])) {
                     return $handler($request, $options);
                 } elseif (!($options['cookies'] instanceof CookieJarInterface)) {
-                    throw new InvalidArgumentException('cookies must be an instance of \yxorP\guzzle\Cookie\CookieJarInterface');
+                    throw new InvalidArgumentException('cookies must be an instance of \yxorP\proxy\Cookie\CookieJarInterface');
                 }
                 $cookieJar = $options['cookies'];
                 $request = $cookieJar->withCookieHeader($request);
@@ -102,7 +102,7 @@ final class Middleware
                             'error' => $reason,
                             'options' => $options
                         ];
-                        return \yxorP\guzzle\Promise\rejection_for($reason);
+                        return \yxorP\proxy\Promise\rejection_for($reason);
                     }
                 );
             };
@@ -198,7 +198,7 @@ final class Middleware
                             : null;
                         $message = $formatter->format($request, $response, $reason);
                         $logger->notice($message);
-                        return \yxorP\guzzle\Promise\rejection_for($reason);
+                        return \yxorP\proxy\Promise\rejection_for($reason);
                     }
                 );
             };

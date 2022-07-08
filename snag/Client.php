@@ -4,8 +4,8 @@ namespace yxorP\snag;
 
 use Composer\CaBundle\CaBundle;
 use Throwable;
-use yxorP\guzzle;
-use yxorP\guzzle\ClientInterface;
+use yxorP\proxy;
+use yxorP\proxy\ClientInterface;
 use yxorP\snag\Breadcrumbs\Breadcrumb;
 use yxorP\snag\Breadcrumbs\Recorder;
 use yxorP\snag\Callbacks\GlobalMetaData;
@@ -82,7 +82,7 @@ class Client
     /**
      * @param Configuration $config
      * @param ResolverInterface|null $resolver
-     * @param \yxorP\guzzle\ClientInterface|null $guzzle
+     * @param \yxorP\proxy\ClientInterface|null $guzzle
      * @param ShutdownStrategyInterface|null $shutdownStrategy
      */
     public function __construct(
@@ -172,7 +172,7 @@ class Client
      * Ensure the notify endpoint is synchronised with Guzzle's base URL.
      *
      * @param Configuration $configuration
-     * @param \yxorP\guzzle\ClientInterface $guzzle
+     * @param \yxorP\proxy\ClientInterface $guzzle
      *
      * @return void
      */
@@ -932,7 +932,7 @@ class Client
     /**
      * Get the session client.
      *
-     * @return \yxorP\guzzle\ClientInterface
+     * @return \yxorP\proxy\ClientInterface
      *
      * @deprecated This will be removed in the next major version.
      */
