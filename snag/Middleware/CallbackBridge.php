@@ -19,7 +19,7 @@ class CallbackBridge
         $callback = $this->callback;
         if ($callback($report) !== false) {
             $report->setUnhandled($initialUnhandled);
-            if ($report->getSeverity() != $initialSeverity) {
+            if ($report->getSeverity() !== $initialSeverity) {
                 $report->setSeverityReason(['type' => 'userCallbackSetSeverity',]);
             } else {
                 $report->setSeverityReason($initialReason);

@@ -23,6 +23,70 @@ class CookieJar implements CookieJarInterface
         }
     }
 
+    public function setCookie(SetCookie $cookie): bool
+    {
+        $name = $cookie->getName();
+        if (!$name && $name !== '0') {
+            return false;
+        }
+        $result = $cookie->validate();
+        if ($result !== true) {
+            if ($this->strictMode) {
+                throw new RuntimeException('Invalid cookie: ' . $result);
+            } else {
+                $this->removeCookieIfEmpty($cookie);
+                return false;
+            }
+        }
+        foreach ($this->cookies as $i => $c) {
+            if ($c->getPath() !== $cookie->getPath() || $c->getDomain() !== $cookie->getDomain() || $c->getName() !== $cookie->getName()) {
+                continue;
+            }
+            if (!$cookie->getDiscard() && $c->getDiscard()) {
+                unset($this->cookies[$i]);
+                continue;
+            }
+            if ($cookie->getExpires() > $c->getExpires()) {
+                unset($this->cookies[$i]);
+                continue;
+            }
+            if ($cookie->getValue() !== $c->getValue()) {
+                unset($this->cookies[$i]);
+                continue;
+            }
+            return false;
+        }
+        $this->cookies[] = $cookie;
+        return true;
+    }
+
+    private function removeCookieIfEmpty(SetCookie $cookie)
+    {
+        $cookieValue = $cookie->getValue();
+        if ($cookieValue === null || $cookieValue === '') {
+            $this->clear($cookie->getDomain(), $cookie->getPath(), $cookie->getName());
+        }
+    }
+
+    public function clear($domain = null, $path = null, $name = null)
+    {
+        if (!$domain) {
+            $this->cookies = [];
+        } elseif (!$path) {
+            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($domain) {
+                return !$cookie->matchesDomain($domain);
+            });
+        } elseif (!$name) {
+            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($path, $domain) {
+                return !($cookie->matchesPath($path) && $cookie->matchesDomain($domain));
+            });
+        } else {
+            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($path, $domain, $name) {
+                return !($cookie->getName() === $name && $cookie->matchesPath($path) && $cookie->matchesDomain($domain));
+            });
+        }
+    }
+
     public static function fromArray(array $cookies, $domain): CookieJar
     {
         $cookieJar = new self();
@@ -45,62 +109,6 @@ class CookieJar implements CookieJarInterface
             }
         }
         return false;
-    }
-
-    public function setCookie(SetCookie $cookie): bool
-    {
-        $name = $cookie->getName();
-        if (!$name && $name !== '0') {
-            return false;
-        }
-        $result = $cookie->validate();
-        if ($result !== true) {
-            if ($this->strictMode) {
-                throw new RuntimeException('Invalid cookie: ' . $result);
-            } else {
-                $this->removeCookieIfEmpty($cookie);
-                return false;
-            }
-        }
-        foreach ($this->cookies as $i => $c) {
-            if ($c->getPath() != $cookie->getPath() || $c->getDomain() != $cookie->getDomain() || $c->getName() != $cookie->getName()) {
-                continue;
-            }
-            if (!$cookie->getDiscard() && $c->getDiscard()) {
-                unset($this->cookies[$i]);
-                continue;
-            }
-            if ($cookie->getExpires() > $c->getExpires()) {
-                unset($this->cookies[$i]);
-                continue;
-            }
-            if ($cookie->getValue() !== $c->getValue()) {
-                unset($this->cookies[$i]);
-                continue;
-            }
-            return false;
-        }
-        $this->cookies[] = $cookie;
-        return true;
-    }
-
-    public function clear($domain = null, $path = null, $name = null)
-    {
-        if (!$domain) {
-            $this->cookies = [];
-        } elseif (!$path) {
-            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($domain) {
-                return !$cookie->matchesDomain($domain);
-            });
-        } elseif (!$name) {
-            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($path, $domain) {
-                return !($cookie->matchesPath($path) && $cookie->matchesDomain($domain));
-            });
-        } else {
-            $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($path, $domain, $name) {
-                return !($cookie->getName() === $name && $cookie->matchesPath($path) && $cookie->matchesDomain($domain));
-            });
-        }
     }
 
     public function getCookieByName($name)
@@ -159,29 +167,6 @@ class CookieJar implements CookieJarInterface
         }
     }
 
-    public function withCookieHeader(RequestInterface $request): RequestInterface
-    {
-        $values = [];
-        $uri = $request->getUri();
-        $scheme = $uri->getScheme();
-        $host = $uri->getHost();
-        $path = $uri->getPath() ?: '/';
-        foreach ($this->cookies as $cookie) {
-            if ($cookie->matchesPath($path) && $cookie->matchesDomain($host) && !$cookie->isExpired() && (!$cookie->getSecure() || $scheme === 'https')) {
-                $values[] = $cookie->getName() . '=' . $cookie->getValue();
-            }
-        }
-        return $values ? $request->withHeader('Cookie', implode('; ', $values)) : $request;
-    }
-
-    private function removeCookieIfEmpty(SetCookie $cookie)
-    {
-        $cookieValue = $cookie->getValue();
-        if ($cookieValue === null || $cookieValue === '') {
-            $this->clear($cookie->getDomain(), $cookie->getPath(), $cookie->getName());
-        }
-    }
-
     private function getCookiePathFromRequest(RequestInterface $request): string
     {
         $uriPath = $request->getUri()->getPath();
@@ -198,5 +183,20 @@ class CookieJar implements CookieJarInterface
             return '/';
         }
         return substr($uriPath, 0, $lastSlashPos);
+    }
+
+    public function withCookieHeader(RequestInterface $request): RequestInterface
+    {
+        $values = [];
+        $uri = $request->getUri();
+        $scheme = $uri->getScheme();
+        $host = $uri->getHost();
+        $path = $uri->getPath() ?: '/';
+        foreach ($this->cookies as $cookie) {
+            if ($cookie->matchesPath($path) && $cookie->matchesDomain($host) && !$cookie->isExpired() && (!$cookie->getSecure() || $scheme === 'https')) {
+                $values[] = $cookie->getName() . '=' . $cookie->getValue();
+            }
+        }
+        return $values ? $request->withHeader('Cookie', implode('; ', $values)) : $request;
     }
 }

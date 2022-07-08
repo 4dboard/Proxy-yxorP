@@ -21,7 +21,7 @@ class Uri implements UriInterface
 
     public function __construct($uri = '')
     {
-        if ($uri != '') {
+        if ($uri !== '') {
             $parts = parse_url($uri);
             if ($parts === false) {
                 throw new InvalidArgumentException("Unable to parse URI: $uri");
@@ -271,17 +271,17 @@ class Uri implements UriInterface
     public static function composeComponents($scheme, $authority, $path, $query, $fragment): string
     {
         $uri = '';
-        if ($scheme != '') {
+        if ($scheme !== '') {
             $uri .= $scheme . ':';
         }
-        if ($authority != '' || $scheme === 'file') {
+        if ($authority !== '' || $scheme === 'file') {
             $uri .= '//' . $authority;
         }
         $uri .= $path;
-        if ($query != '') {
+        if ($query !== '') {
             $uri .= '?' . $query;
         }
-        if ($fragment != '') {
+        if ($fragment !== '') {
             $uri .= '#' . $fragment;
         }
         return $uri;

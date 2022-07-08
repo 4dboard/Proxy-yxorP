@@ -134,7 +134,7 @@ function modify_request(RequestInterface $request, array $changes): RequestInter
             if ($port = $changes['uri']->getPort()) {
                 $standardPorts = ['http' => 80, 'https' => 443];
                 $scheme = $changes['uri']->getScheme();
-                if (isset($standardPorts[$scheme]) && $port != $standardPorts[$scheme]) {
+                if (isset($standardPorts[$scheme]) && $port !== $standardPorts[$scheme]) {
                     $changes['set_headers']['Host'] .= ':' . $port;
                 }
             }
