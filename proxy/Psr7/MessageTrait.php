@@ -95,7 +95,7 @@ trait MessageTrait
         }, $values);
     }
 
-    public function withAddedHeader($header, $value): Response|Request
+    public function withAddedHeader($header, $value): mixed
     {
         $this->assertHeader($header);
         $value = $this->normalizeHeaderValue($value);

@@ -131,7 +131,7 @@ interface MessageInterface
      * @return static
      * @throws InvalidArgumentException for invalid header names or values.
      */
-    public function withHeader($name, $value): static;
+    public function withHeader($name, $value): mixed;
 
     /**
      * Return an instance with the specified header appended with the given value.
