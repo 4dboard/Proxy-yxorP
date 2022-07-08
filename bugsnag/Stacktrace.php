@@ -46,6 +46,24 @@ class Stacktrace
         return isset($frame['class']) && str_starts_with($frame['class'], 'Bugsnag\\') && substr_count($frame['class'], '\\') === 1;
     }
 
+    public static function fromFrame(Configuration $config, $file, $line): static
+    {
+        $stacktrace = new static($config);
+        $stacktrace->addFrame($file, $line, '[unknown]');
+        return $stacktrace;
+    }
+
+    protected static function getBounds($line, $num, $max): array
+    {
+        $start = max($line - floor($num / 2), 1);
+        $end = $start + ($num - 1);
+        if ($end > $max) {
+            $end = $max;
+            $start = max($end - ($num - 1), 1);
+        }
+        return [$start, $end];
+    }
+
     public function addFrame($file, $line, $method, $class = null)
     {
         $matches = [];
@@ -60,6 +78,24 @@ class Stacktrace
         $frame['inProject'] = $this->config->isInProject($file);
         $frame['file'] = $this->config->getStrippedFilePath($file);
         $this->frames[] = $frame;
+    }
+
+    public function &toArray(): array
+    {
+        return $this->frames;
+    }
+
+    public function &getFrames(): array
+    {
+        return $this->frames;
+    }
+
+    public function removeFrame($index)
+    {
+        if (!isset($this->frames[$index])) {
+            throw new InvalidArgumentException('Invalid frame index to remove.');
+        }
+        array_splice($this->frames, $index, 1);
     }
 
     protected function getCode($path, $line, $numLines): ?array
@@ -81,41 +117,5 @@ class Stacktrace
         } catch (RuntimeException $ex) {
             return null;
         }
-    }
-
-    protected static function getBounds($line, $num, $max): array
-    {
-        $start = max($line - floor($num / 2), 1);
-        $end = $start + ($num - 1);
-        if ($end > $max) {
-            $end = $max;
-            $start = max($end - ($num - 1), 1);
-        }
-        return [$start, $end];
-    }
-
-    public static function fromFrame(Configuration $config, $file, $line): static
-    {
-        $stacktrace = new static($config);
-        $stacktrace->addFrame($file, $line, '[unknown]');
-        return $stacktrace;
-    }
-
-    public function &toArray(): array
-    {
-        return $this->frames;
-    }
-
-    public function &getFrames(): array
-    {
-        return $this->frames;
-    }
-
-    public function removeFrame($index)
-    {
-        if (!isset($this->frames[$index])) {
-            throw new InvalidArgumentException('Invalid frame index to remove.');
-        }
-        array_splice($this->frames, $index, 1);
     }
 }

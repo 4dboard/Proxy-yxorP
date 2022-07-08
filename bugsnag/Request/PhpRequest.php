@@ -52,6 +52,19 @@ class PhpRequest implements RequestInterface
         return ['request' => $data];
     }
 
+    public function getContext(): ?string
+    {
+        if (isset($this->server['REQUEST_METHOD']) && isset($this->server['REQUEST_URI'])) {
+            return $this->server['REQUEST_METHOD'] . ' ' . strtok($this->server['REQUEST_URI'], '?');
+        }
+        return null;
+    }
+
+    public function getUserId()
+    {
+        return $this->getRequestIp();
+    }
+
     protected function getCurrentUrl(): string
     {
         $schema = ((!empty($this->server['HTTPS']) && $this->server['HTTPS'] !== 'off') || (!empty($this->server['SERVER_PORT']) && $this->server['SERVER_PORT'] == 443)) ? 'https://' : 'https://';
@@ -68,18 +81,5 @@ class PhpRequest implements RequestInterface
             return $this->server['REMOTE_ADDR'];
         }
         return null;
-    }
-
-    public function getContext(): ?string
-    {
-        if (isset($this->server['REQUEST_METHOD']) && isset($this->server['REQUEST_URI'])) {
-            return $this->server['REQUEST_METHOD'] . ' ' . strtok($this->server['REQUEST_URI'], '?');
-        }
-        return null;
-    }
-
-    public function getUserId()
-    {
-        return $this->getRequestIp();
     }
 }

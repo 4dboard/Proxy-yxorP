@@ -41,6 +41,76 @@ class SessionTracker
         $this->incrementSessions($currentTime);
     }
 
+    public function getCurrentSession(): bool|array
+    {
+        if (is_callable($this->sessionFunction)) {
+            $currentSession = call_user_func($this->sessionFunction);
+            if (is_array($currentSession)) {
+                return $currentSession;
+            }
+            return [];
+        }
+        return $this->currentSession;
+    }
+
+    public function setCurrentSession(array $session)
+    {
+        if (is_callable($this->sessionFunction)) {
+            call_user_func($this->sessionFunction, $session);
+        } else {
+            $this->currentSession = $session;
+        }
+    }
+
+    public function sendSessions()
+    {
+        $locked = false;
+        if (is_callable($this->lockFunction) && is_callable($this->unlockFunction)) {
+            call_user_func($this->lockFunction);
+            $locked = true;
+        }
+        try {
+            $this->deliverSessions();
+        } finally {
+            if ($locked) {
+                call_user_func($this->unlockFunction);
+            }
+        }
+    }
+
+    public function setLockFunctions($lock, $unlock)
+    {
+        if (!is_callable($lock) || !is_callable($unlock)) {
+            throw new InvalidArgumentException('Both lock and unlock functions must be callable');
+        }
+        $this->lockFunction = $lock;
+        $this->unlockFunction = $unlock;
+    }
+
+    public function setRetryFunction($function)
+    {
+        if (!is_callable($function)) {
+            throw new InvalidArgumentException('The retry function must be callable');
+        }
+        $this->retryFunction = $function;
+    }
+
+    public function setStorageFunction($function)
+    {
+        if (!is_callable($function)) {
+            throw new InvalidArgumentException('Storage function must be callable');
+        }
+        $this->storageFunction = $function;
+    }
+
+    public function setSessionFunction($function)
+    {
+        if (!is_callable($function)) {
+            throw new InvalidArgumentException('Session function must be callable');
+        }
+        $this->sessionFunction = $function;
+    }
+
     protected function incrementSessions($minute, $count = 1, $deliver = true)
     {
         $locked = false;
@@ -155,75 +225,5 @@ class SessionTracker
             $formattedSessions[] = ['startedAt' => $minute, 'sessionsStarted' => $count];
         }
         return ['notifier' => $this->config->getNotifier(), 'device' => $this->config->getDeviceData(), 'app' => $this->config->getAppData(), 'sessionCounts' => $formattedSessions,];
-    }
-
-    public function getCurrentSession(): bool|array
-    {
-        if (is_callable($this->sessionFunction)) {
-            $currentSession = call_user_func($this->sessionFunction);
-            if (is_array($currentSession)) {
-                return $currentSession;
-            }
-            return [];
-        }
-        return $this->currentSession;
-    }
-
-    public function setCurrentSession(array $session)
-    {
-        if (is_callable($this->sessionFunction)) {
-            call_user_func($this->sessionFunction, $session);
-        } else {
-            $this->currentSession = $session;
-        }
-    }
-
-    public function sendSessions()
-    {
-        $locked = false;
-        if (is_callable($this->lockFunction) && is_callable($this->unlockFunction)) {
-            call_user_func($this->lockFunction);
-            $locked = true;
-        }
-        try {
-            $this->deliverSessions();
-        } finally {
-            if ($locked) {
-                call_user_func($this->unlockFunction);
-            }
-        }
-    }
-
-    public function setLockFunctions($lock, $unlock)
-    {
-        if (!is_callable($lock) || !is_callable($unlock)) {
-            throw new InvalidArgumentException('Both lock and unlock functions must be callable');
-        }
-        $this->lockFunction = $lock;
-        $this->unlockFunction = $unlock;
-    }
-
-    public function setRetryFunction($function)
-    {
-        if (!is_callable($function)) {
-            throw new InvalidArgumentException('The retry function must be callable');
-        }
-        $this->retryFunction = $function;
-    }
-
-    public function setStorageFunction($function)
-    {
-        if (!is_callable($function)) {
-            throw new InvalidArgumentException('Storage function must be callable');
-        }
-        $this->storageFunction = $function;
-    }
-
-    public function setSessionFunction($function)
-    {
-        if (!is_callable($function)) {
-            throw new InvalidArgumentException('Session function must be callable');
-        }
-        $this->sessionFunction = $function;
     }
 }

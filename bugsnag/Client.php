@@ -55,6 +55,26 @@ class Client
         return new GuzzleHttp\Client($options);
     }
 
+    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
+    {
+        $env = new Env();
+        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
+        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
+        $client = new static($config, null, $guzzle);
+        if ($defaults) {
+            $client->registerDefaultCallbacks();
+        }
+        return $client;
+    }
+
+    protected static function getCaBundlePath(): bool|string
+    {
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+        return realpath(CaBundle::getSystemCaRootBundlePath());
+    }
+
     private static function resolveGuzzleOptions($base, array $options): array
     {
         $key = GuzzleCompat::getBaseUriOptionName();
@@ -66,41 +86,10 @@ class Client
         return GuzzleCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
     }
 
-    protected static function getCaBundlePath(): bool|string
-    {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-        return realpath(CaBundle::getSystemCaRootBundlePath());
-    }
-
-    private function syncNotifyEndpointWithGuzzleBaseUri(Configuration $configuration, GuzzleHttp\ClientInterface $guzzle)
-    {
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-        $base = GuzzleCompat::getBaseUri($guzzle);
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string)$base);
-        }
-    }
-
     public function registerMiddleware(callable $middleware): static
     {
         $this->pipeline->pipe($middleware);
         return $this;
-    }
-
-    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
-    {
-        $env = new Env();
-        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
-        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
-        $client = new static($config, null, $guzzle);
-        if ($defaults) {
-            $client->registerDefaultCallbacks();
-        }
-        return $client;
     }
 
     public function registerDefaultCallbacks(): static
@@ -440,5 +429,16 @@ class Client
     #[Pure] public function getRedactedKeys(): array
     {
         return $this->config->getRedactedKeys();
+    }
+
+    private function syncNotifyEndpointWithGuzzleBaseUri(Configuration $configuration, GuzzleHttp\ClientInterface $guzzle)
+    {
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+        $base = GuzzleCompat::getBaseUri($guzzle);
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
     }
 }

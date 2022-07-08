@@ -40,15 +40,6 @@ class HttpClient
         $this->post($uri, ['json' => $data]);
     }
 
-    protected function post($uri, array $options = [])
-    {
-        if (GuzzleCompat::isUsingGuzzle5()) {
-            $this->guzzle->post($uri, $options);
-        } else {
-            $this->guzzle->request('POST', $uri, $options);
-        }
-    }
-
     public function sendBuildReport(array $buildInfo)
     {
         $app = $this->config->getAppData();
@@ -97,6 +88,20 @@ class HttpClient
         }
         $this->deliverEvents($this->config->getNotifyEndpoint(), $this->getEventPayload());
         $this->queue = [];
+    }
+
+    public function sendSessions(array $payload)
+    {
+        $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
+    }
+
+    protected function post($uri, array $options = [])
+    {
+        if (GuzzleCompat::isUsingGuzzle5()) {
+            $this->guzzle->post($uri, $options);
+        } else {
+            $this->guzzle->request('POST', $uri, $options);
+        }
     }
 
     protected function deliverEvents($uri, array $data)
@@ -154,11 +159,6 @@ class HttpClient
             }
         }
         return ['apiKey' => $this->config->getApiKey(), 'notifier' => $this->config->getNotifier(), 'events' => $events,];
-    }
-
-    public function sendSessions(array $payload)
-    {
-        $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
     }
 
     protected function build(): array
