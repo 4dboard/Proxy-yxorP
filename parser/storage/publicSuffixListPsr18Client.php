@@ -3,9 +3,9 @@
 namespace yxorP\parser\Storage;
 
 use yxorP\guzzle\ClientInterface;
-use Psr\Http\Client\ClientExceptionInterface;
-use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
+use yxorP\psr\Http\Client\ClientExceptionInterface;
+use yxorP\psr\Http\Client\ClientInterface;
+use yxorP\psr\Http\Message\RequestFactoryInterface;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use yxorP\parser\publicSuffixListInterface;
 use yxorP\parser\rules;

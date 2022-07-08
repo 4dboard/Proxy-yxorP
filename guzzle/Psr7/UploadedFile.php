@@ -1,8 +1,8 @@
 <?php namespace yxorP\guzzle\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileInterface;
+use yxorP\psr\Http\Message\StreamInterface;
+use yxorP\psr\Http\Message\UploadedFileInterface;
 use RuntimeException;
 
 class UploadedFile implements UploadedFileInterface

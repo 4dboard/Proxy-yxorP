@@ -1,6 +1,6 @@
 <?php namespace yxorP\guzzle;
 
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 
 interface ClientInterface
 {

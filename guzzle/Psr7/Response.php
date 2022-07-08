@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
 
 class Response implements ResponseInterface
 {

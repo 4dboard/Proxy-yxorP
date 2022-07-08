@@ -3,7 +3,7 @@
 use BadMethodCallException;
 use JetBrains\PhpStorm\Pure;
 use LogicException;
-use Psr\Http\Message\StreamInterface;
+use yxorP\psr\Http\Message\StreamInterface;
 
 class FnStream implements StreamInterface
 {

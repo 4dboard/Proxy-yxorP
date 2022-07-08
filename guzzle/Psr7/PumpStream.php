@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Psr7;
 
 use Exception;
-use Psr\Http\Message\StreamInterface;
+use yxorP\psr\Http\Message\StreamInterface;
 use RuntimeException;
 
 class PumpStream implements StreamInterface

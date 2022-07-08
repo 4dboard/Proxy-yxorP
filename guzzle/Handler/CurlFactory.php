@@ -8,7 +8,7 @@ use yxorP\guzzle\Psr7\LazyOpenStream;
 use yxorP\guzzle\TransferStats;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 use RuntimeException;
 use function GuzzleHttp\debug_resource;
 use function GuzzleHttp\is_host_in_noproxy;

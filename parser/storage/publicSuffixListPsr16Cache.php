@@ -3,8 +3,8 @@
 namespace yxorP\parser\Storage;
 
 use DateInterval;
-use Psr\SimpleCache\CacheException;
-use Psr\SimpleCache\CacheInterface;
+use yxorP\psr\SimpleCache\CacheException;
+use yxorP\psr\SimpleCache\CacheInterface;
 use Throwable;
 use yxorP\parser\publicSuffixListInterface;
 use function md5;

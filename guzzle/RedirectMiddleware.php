@@ -5,8 +5,8 @@ use yxorP\guzzle\Exception\TooManyRedirectsException;
 use yxorP\guzzle\Promise\PromiseInterface;
 use yxorP\guzzle\Psr7;
 use InvalidArgumentException;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
 
 class RedirectMiddleware
 {

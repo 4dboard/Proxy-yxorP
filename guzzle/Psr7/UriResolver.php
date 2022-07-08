@@ -1,6 +1,6 @@
 <?php namespace yxorP\guzzle\Psr7;
 
-use Psr\Http\Message\UriInterface;
+use yxorP\psr\Http\Message\UriInterface;
 
 final class UriResolver
 {

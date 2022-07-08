@@ -1,8 +1,8 @@
 <?php namespace yxorP\guzzle\Cookie;
 
 use ArrayIterator;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
 use ReturnTypeWillChange;
 use RuntimeException;
 

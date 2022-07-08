@@ -1,6 +1,6 @@
 <?php namespace yxorP\guzzle\Psr7;
 
-use Psr\Http\Message\StreamInterface;
+use yxorP\psr\Http\Message\StreamInterface;
 use RuntimeException;
 
 class LimitStream implements StreamInterface

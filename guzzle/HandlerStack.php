@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use JetBrains\PhpStorm\Pure;
 use LogicException;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 
 class HandlerStack
 {

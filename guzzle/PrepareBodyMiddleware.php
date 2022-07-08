@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle;
 
 use yxorP\guzzle\Psr7;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 
 class PrepareBodyMiddleware
 {

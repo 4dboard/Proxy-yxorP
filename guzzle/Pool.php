@@ -3,7 +3,7 @@
 use yxorP\guzzle\Promise\EachPromise;
 use yxorP\guzzle\Promise\PromisorInterface;
 use InvalidArgumentException;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 use function GuzzleHttp\Promise\iter_for;
 
 class Pool implements PromisorInterface

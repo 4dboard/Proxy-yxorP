@@ -3,9 +3,9 @@
 namespace yxorP\parser\Storage;
 
 use yxorP\guzzle\ClientInterface;
-use Psr\Http\Client\ClientInterface;
-use Psr\Http\Message\RequestFactoryInterface;
-use Psr\SimpleCache\CacheInterface;
+use yxorP\psr\Http\Client\ClientInterface;
+use yxorP\psr\Http\Message\RequestFactoryInterface;
+use yxorP\psr\SimpleCache\CacheInterface;
 use yxorP\parser\resourceUriInterface;
 
 final class psrStorageFactory implements resourceUriInterface, publicSuffixListStorageFactoryInterface, topLevelDomainListStorageFactoryInterface

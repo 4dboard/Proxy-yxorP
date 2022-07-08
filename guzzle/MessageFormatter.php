@@ -1,9 +1,9 @@
 <?php namespace yxorP\guzzle;
 
 use Exception;
-use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\psr\Http\Message\MessageInterface;
+use yxorP\psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
 
 class MessageFormatter
 {

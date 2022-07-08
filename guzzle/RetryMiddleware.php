@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle;
 
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
+use yxorP\psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
 use function GuzzleHttp\Promise\rejection_for;
 
 class RetryMiddleware

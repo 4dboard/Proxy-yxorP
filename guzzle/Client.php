@@ -5,7 +5,7 @@ use yxorP\guzzle\Cookie\CookieJar;
 use yxorP\guzzle\Promise;
 use yxorP\guzzle\Psr7;
 use InvalidArgumentException;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 
 class Client implements ClientInterface
 {

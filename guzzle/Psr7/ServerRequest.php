@@ -1,8 +1,8 @@
 <?php namespace yxorP\guzzle\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\UploadedFileInterface;
+use yxorP\psr\Http\Message\ServerRequestInterface;
+use yxorP\psr\Http\Message\UploadedFileInterface;
 
 class ServerRequest extends Request implements ServerRequestInterface
 {

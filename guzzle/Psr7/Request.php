@@ -1,8 +1,8 @@
 <?php namespace yxorP\guzzle\Psr7;
 
 use InvalidArgumentException;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\UriInterface;
+use yxorP\psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\UriInterface;
 
 class Request implements RequestInterface
 {

@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Handler;
 
 use JetBrains\PhpStorm\Pure;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 
 class CurlHandler
 {

@@ -2,9 +2,9 @@
 
 use Exception;
 use yxorP\guzzle\Promise\PromiseInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
+use yxorP\psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
+use yxorP\psr\Http\Message\UriInterface;
 use function GuzzleHttp\Psr7\get_message_body_summary;
 
 class RequestException extends TransferException

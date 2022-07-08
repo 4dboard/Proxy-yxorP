@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle;
 
 use yxorP\guzzle\Exception\InvalidArgumentException;
-use Psr\Http\Message\UriInterface;
+use yxorP\psr\Http\Message\UriInterface;
 use Symfony\Polyfill\Intl\Idn\Idn;
 use function extension_loaded;
 use function idn_to_ascii;

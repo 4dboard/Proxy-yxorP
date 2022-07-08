@@ -4,8 +4,8 @@ use ArrayAccess;
 use yxorP\guzzle\Cookie\CookieJarInterface;
 use yxorP\guzzle\Exception\RequestException;
 use InvalidArgumentException;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Log\LoggerInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
+use yxorP\psr\Log\LoggerInterface;
 use function GuzzleHttp\Promise\rejection_for;
 
 final class Middleware

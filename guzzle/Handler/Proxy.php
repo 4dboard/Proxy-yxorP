@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Handler;
 
 use yxorP\guzzle\RequestOptions;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 
 class Proxy
 {

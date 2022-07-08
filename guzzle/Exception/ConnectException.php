@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Exception;
 
 use Exception;
-use Psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\RequestInterface;
 
 class ConnectException extends RequestException
 {

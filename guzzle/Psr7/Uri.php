@@ -2,7 +2,7 @@
 
 use InvalidArgumentException;
 use JetBrains\PhpStorm\Pure;
-use Psr\Http\Message\UriInterface;
+use yxorP\psr\Http\Message\UriInterface;
 
 class Uri implements UriInterface
 {

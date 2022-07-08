@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Exception;
 
 use JetBrains\PhpStorm\Pure;
-use Psr\Http\Message\StreamInterface;
+use yxorP\psr\Http\Message\StreamInterface;
 use RuntimeException;
 
 class SeekException extends RuntimeException implements GuzzleException

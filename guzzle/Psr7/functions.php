@@ -3,12 +3,12 @@
 use InvalidArgumentException;
 use Iterator;
 use JetBrains\PhpStorm\ArrayShape;
-use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UriInterface;
+use yxorP\psr\Http\Message\MessageInterface;
+use yxorP\psr\Http\Message\RequestInterface;
+use yxorP\psr\Http\Message\ResponseInterface;
+use yxorP\psr\Http\Message\ServerRequestInterface;
+use yxorP\psr\Http\Message\StreamInterface;
+use yxorP\psr\Http\Message\UriInterface;
 use RuntimeException;
 
 function str(MessageInterface $message): string
