@@ -50,8 +50,8 @@ final class EasyHandle
 
         // HTTP-version SP status-code SP reason-phrase
         $startLine = explode(' ', array_shift($this->headers), 3);
-        $headers = \\yxorP\guzzle\headers_from_lines($this->headers);
-        $normalizedKeys = \\yxorP\guzzle\normalize_header_keys($headers);
+        $headers = \yxorP\guzzle\headers_from_lines($this->headers);
+        $normalizedKeys = \yxorP\guzzle\normalize_header_keys($headers);
 
         if (!empty($this->options['decode_content'])
             && isset($normalizedKeys['content-encoding'])

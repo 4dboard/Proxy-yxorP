@@ -110,7 +110,7 @@ class RetryMiddleware
                 null,
                 $reason
             )) {
-                return \\yxorP\guzzle\Promise\rejection_for($reason);
+                return \yxorP\guzzle\Promise\rejection_for($reason);
             }
             return $this->doRetry($req, $options);
         };

@@ -113,7 +113,7 @@ class asyncTcpConnection extends tcpConnection
             `\yxorP\protocols\$scheme`. */
             if (!class_exists($this->protocol)) {
                 /* Setting the `$this->protocol` variable to `\yxorP\protocols\$scheme`. */
-                $this->protocol = "\\yxorP\\protocols\\$scheme";
+                $this->protocol = "\yxorP\\protocols\\$scheme";
                 /* Checking if the class exists, and if it does not exist, then it will throw an exception. */
                 if (!class_exists($this->protocol)) throw new Exception("class \\protocols\\$scheme not exist");
             }

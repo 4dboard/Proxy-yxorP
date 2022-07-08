@@ -102,7 +102,7 @@ final class Middleware
                             'error' => $reason,
                             'options' => $options
                         ];
-                        return \\yxorP\guzzle\Promise\rejection_for($reason);
+                        return \yxorP\guzzle\Promise\rejection_for($reason);
                     }
                 );
             };
@@ -198,7 +198,7 @@ final class Middleware
                             : null;
                         $message = $formatter->format($request, $response, $reason);
                         $logger->notice($message);
-                        return \\yxorP\guzzle\Promise\rejection_for($reason);
+                        return \yxorP\guzzle\Promise\rejection_for($reason);
                     }
                 );
             };

@@ -39,7 +39,7 @@ class CurlFactory implements CurlFactoryInterface
      * @param EasyHandle $easy
      * @param CurlFactoryInterface $factory Dictates how the handle is released
      *
-     * @return \\yxorP\guzzle\Promise\PromiseInterface
+     * @return \yxorP\guzzle\Promise\PromiseInterface
      */
     public static function finish(
         callable             $handler,
@@ -187,7 +187,7 @@ class CurlFactory implements CurlFactoryInterface
         // If an exception was encountered during the onHeaders event, then
         // return a rejected promise that wraps that exception.
         if ($easy->onHeadersException) {
-            return \\yxorP\guzzle\Promise\rejection_for(
+            return \yxorP\guzzle\Promise\rejection_for(
                 new RequestException(
                     'An error was encountered during the on_headers event',
                     $easy->request,
@@ -219,7 +219,7 @@ class CurlFactory implements CurlFactoryInterface
             ? new ConnectException($message, $easy->request, null, $ctx)
             : new RequestException($message, $easy->request, $easy->response, null, $ctx);
 
-        return \\yxorP\guzzle\Promise\rejection_for($error);
+        return \yxorP\guzzle\Promise\rejection_for($error);
     }
 
     public function create(RequestInterface $request, array $options)
@@ -407,7 +407,7 @@ class CurlFactory implements CurlFactoryInterface
         if (isset($options['sink'])) {
             $sink = $options['sink'];
             if (!is_string($sink)) {
-                $sink = \\yxorP\guzzle\Psr7\stream_for($sink);
+                $sink = \yxorP\guzzle\Psr7\stream_for($sink);
             } elseif (!is_dir(dirname($sink))) {
                 // Ensure that the directory exists before failing in curl.
                 throw new RuntimeException(sprintf(
@@ -459,7 +459,7 @@ class CurlFactory implements CurlFactoryInterface
                 if (isset($options['proxy'][$scheme])) {
                     $host = $easy->request->getUri()->getHost();
                     if (!isset($options['proxy']['no']) ||
-                        !\\yxorP\guzzle\is_host_in_noproxy($host, $options['proxy']['no'])
+                        !\yxorP\guzzle\is_host_in_noproxy($host, $options['proxy']['no'])
                     ) {
                         $conf[CURLOPT_PROXY] = $options['proxy'][$scheme];
                     }
@@ -519,7 +519,7 @@ class CurlFactory implements CurlFactoryInterface
         }
 
         if (!empty($options['debug'])) {
-            $conf[CURLOPT_STDERR] = \\yxorP\guzzle\debug_resource($options['debug']);
+            $conf[CURLOPT_STDERR] = \yxorP\guzzle\debug_resource($options['debug']);
             $conf[CURLOPT_VERBOSE] = true;
         }
     }

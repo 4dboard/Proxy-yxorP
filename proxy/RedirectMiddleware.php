@@ -13,7 +13,7 @@ use yxorP\guzzle\Psr7;
  * Request redirect middleware.
  *
  * Apply this middleware like other middleware using
- * {@see \\yxorP\guzzle\Middleware::redirect()}.
+ * {@see \yxorP\guzzle\Middleware::redirect()}.
  */
 class RedirectMiddleware
 {

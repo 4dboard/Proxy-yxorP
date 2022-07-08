@@ -814,7 +814,7 @@ class worker
     public function run()
     {
         static::$_status = static::STATUS_RUNNING;
-        register_shutdown_function(["\\yxorP\\worker", 'checkErrors']);
+        register_shutdown_function(["\yxorP\\worker", 'checkErrors']);
         if (!static::$globalEvent) {
             $event_loop_class = static::getEventLoopName();
             static::$globalEvent = new $event_loop_class;
@@ -858,7 +858,7 @@ class worker
                 posix_kill($worker_pid, $sig);
                 if (!static::$_gracefulStop) timer::add(static::$stopTimeout, '\posix_kill', [$worker_pid, SIGKILL], false);
             }
-            timer::add(1, "\\yxorP\\worker::checkIfChildRunning");
+            timer::add(1, "\yxorP\\worker::checkIfChildRunning");
             if (is_file(static::$_statisticsFile)) @unlink(static::$_statisticsFile);
         } else {
             foreach (static::$_workers as $worker) if (!$worker->stopping) {
@@ -1033,7 +1033,7 @@ class worker
     /* A method that is being called from the monitorWorkers() method. */
     protected static function monitorWorkersForWindows()
     {
-        timer::add(1, "\\yxorP\\worker::checkWorkerStatusForWindows");
+        timer::add(1, "\yxorP\\worker::checkWorkerStatusForWindows");
         static::$globalEvent->run();
     }
 

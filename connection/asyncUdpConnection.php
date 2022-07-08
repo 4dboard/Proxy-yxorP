@@ -36,7 +36,7 @@ class asyncUdpConnection extends udpConnection
             $scheme = ucfirst($scheme);
             $this->protocol = '\\protocols\\' . $scheme;
             if (!class_exists($this->protocol)) {
-                $this->protocol = "\\yxorP\\protocols\\$scheme";
+                $this->protocol = "\yxorP\\protocols\\$scheme";
                 if (!class_exists($this->protocol)) {
                     throw new Exception("class \\protocols\\$scheme not exist");
                 }

@@ -35,7 +35,7 @@ class HttpClient
      */
     protected $config;
     /**
-     * @var \\yxorP\guzzle\ClientInterface
+     * @var \yxorP\guzzle\ClientInterface
      */
     protected $guzzle;
     /**
@@ -47,7 +47,7 @@ class HttpClient
 
     /**
      * @param \yxorP\snag\Configuration $config
-     * @param \\yxorP\guzzle\ClientInterface $guzzle
+     * @param \yxorP\guzzle\ClientInterface $guzzle
      */
     public function __construct(Configuration $config, ClientInterface $guzzle)
     {
