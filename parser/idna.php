@@ -2,6 +2,8 @@
 
 namespace yxorP\parser;
 
+echo 1;
+
 use UnexpectedValueException;
 use function defined;
 use function function_exists;
@@ -58,6 +60,17 @@ final class idna
         return $info;
     }
 
+    private static function supportsIdna(): void
+    {
+        static $idnSupport;
+        if (null === $idnSupport) {
+            $idnSupport = function_exists('\idn_to_ascii') && defined('\INTL_IDNA_VARIANT_UTS46');
+        }
+        if (!$idnSupport) {
+            throw new UnexpectedValueException('IDN host can not be processed. Verify that ext/intl is installed for IDN support and that ICU is at least version 4.6.');
+        }
+    }
+
     public static function toUnicode(string $domain, int $options): idnaInfo
     {
         if (!str_contains($domain, 'xn--')) {
@@ -70,16 +83,5 @@ final class idna
             return idnaInfo::fromIntl(['result' => $domain, 'isTransitionalDifferent' => false, 'errors' => 0]);
         }
         return $info;
-    }
-
-    private static function supportsIdna(): void
-    {
-        static $idnSupport;
-        if (null === $idnSupport) {
-            $idnSupport = function_exists('\idn_to_ascii') && defined('\INTL_IDNA_VARIANT_UTS46');
-        }
-        if (!$idnSupport) {
-            throw new UnexpectedValueException('IDN host can not be processed. Verify that ext/intl is installed for IDN support and that ICU is at least version 4.6.');
-        }
     }
 }
