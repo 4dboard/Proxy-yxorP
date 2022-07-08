@@ -258,7 +258,7 @@ class constants
         /* Defining a constant called VAR_SNAG and setting it to the string SNAG. */
         define('VAR_SNAG', 'SNAG');
         /* Defining a constant called VAR_PROXY and setting it to the string 'PROXY'. */
-        define('VAR_GUZZLE', 'PROXY');
+        define('VAR_proxy', 'PROXY');
         /* Defining a constant called VAR_RESPONSE and setting it to the string VAR_RESPONSE. */
         define('VAR_RESPONSE', 'RESPONSE');
         /* Defining a constant called VAR_REQUEST and setting it to the string VAR_REQUEST. */
@@ -542,7 +542,7 @@ class constants
         /* Setting the token to the snag key. */
         self::set(VAR_SNAG, Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \\yxorP\proxy class. */
-        self::set(VAR_GUZZLE, new \yxorP\proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::set(VAR_proxy, new \yxorP\proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
 
