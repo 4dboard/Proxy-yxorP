@@ -649,7 +649,7 @@ class constants
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix(constants::get(YXORP_SITE_URL)));
+        constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix(YXORP_SITE_URL));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->registrableDomain()->toString() ?: (constants::get(YXORP_SITE_URL_PARSE))->domain()->toString());
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
@@ -677,7 +677,7 @@ class constants
         constants::set(VAR_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
         value of the constant YXORP_REQUEST_URI. */
-        constants::set(YXORP_REQUEST_URI_FULL, constants::get(YXORP_SITE_URL) . constants::get(YXORP_REQUEST_URI));
+        constants::set(YXORP_REQUEST_URI_FULL, YXORP_SITE_URL . constants::get(YXORP_REQUEST_URI));
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
         constants::set(YXORP_PROXY_URL, constants::get(VAR_FETCH) . constants::get(YXORP_REQUEST_URI));
