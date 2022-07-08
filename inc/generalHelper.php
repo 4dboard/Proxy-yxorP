@@ -241,6 +241,7 @@ class generalHelper
 
     public static function fileCheck($dir, $inc)
     {
+        echo 1;
         foreach (scandir($dir) as $x) if (strlen($x) > 3) if (str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
         foreach (scandir($dir) as $x) if (strlen($x) > 3) if (!str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
     }
