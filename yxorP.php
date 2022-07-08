@@ -42,6 +42,8 @@ class yxorP
         $plugins = (constants::get(YXORP_TARGET_PLUGINS) ?: []);
         ($plugins[] = 'overridePluginAction');
         foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => (array)$plugins = 'overridePluginAction'] as $key => $value) $this->subscribers($key, $value);
+
+        exit('123');
     }
 
     /**
