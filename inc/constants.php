@@ -155,7 +155,7 @@ class constants
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
         /* Defining a constant called FILE_SNAG and setting it to the string 'snag'. */
-        define('FILE_SNAG', 'snag' . EXT_PHAR);
+        define('FILE_BUGSNAG', 'bugsnag' . EXT_PHAR);
         /* Defining a constant called FILE_PROXY and setting it to the string 'proxy'. */
         define('FILE_GUZZLE', 'guzzle' . EXT_PHAR);
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
@@ -466,7 +466,7 @@ class constants
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
-        define('PATH_SNAG_PHAR', DIR_ROOT . DIR_INC . FILE_SNAG);
+        define('PATH_SNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG);
         /* Defining the path to Proxy phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE);
         /* Defining the path to the cockpit bootstrap file. */
