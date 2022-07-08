@@ -157,7 +157,7 @@ class constants
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
-        define('FILE_BOOTSTRAP', 'bootstrap' . EXT_PHP);
+        define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
