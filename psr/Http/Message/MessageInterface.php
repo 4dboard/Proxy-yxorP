@@ -77,7 +77,7 @@ interface MessageInterface
      *     name using a case-insensitive string comparison. Returns false if
      *     no matching header name is found in the message.
      */
-    public function hasHeader($name): bool;
+    public function hasHeader($name): mixed;
 
     /**
      * Retrieves a message header value by the given case-insensitive name.
