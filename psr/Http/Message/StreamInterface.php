@@ -114,7 +114,7 @@ interface StreamInterface
      * @return int Returns the number of bytes written to the stream.
      * @throws RuntimeException on failure.
      */
-    public function write($string): int;
+    public function write($string): mixed;
 
     /**
      * Returns whether or not the stream is readable.
