@@ -93,7 +93,7 @@ class Request implements RequestInterface
         return $new;
     }
 
-    public function getUri()
+    public function getUri(): mixed
     {
         return $this->uri;
     }

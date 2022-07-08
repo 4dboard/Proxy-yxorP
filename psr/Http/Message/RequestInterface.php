@@ -84,7 +84,7 @@ interface RequestInterface extends MessageInterface
      * @return static
      * @throws InvalidArgumentException for invalid HTTP methods.
      */
-    public function withMethod($method): static;
+    public function withMethod($method): mixed;
 
     /**
      * Retrieves the URI instance.
@@ -95,7 +95,7 @@ interface RequestInterface extends MessageInterface
      * @return UriInterface Returns a UriInterface instance
      *     representing the URI of the request.
      */
-    public function getUri(): UriInterface;
+    public function getUri(): mixed;
 
     /**
      * Returns an instance with the provided URI.
