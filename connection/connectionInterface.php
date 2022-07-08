@@ -5,14 +5,12 @@ use JetBrains\PhpStorm\Pure;
 /**
  * @property $statistics
  * @property string $websocketType
- * @property $statistics
- * @property string $websocketType
  */
 abstract class connectionInterface extends tcpConnection
 {
     const SEND_FAIL = -1;
 
-    public function send($send_buffer)
+    public function send($send_buffer): string
     {
         // TODO: Implement send() method.
     }
