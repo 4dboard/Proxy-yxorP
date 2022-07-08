@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pdp;
+namespace yxorP\parser;
 interface effectiveTopLevelDomain extends host, domainNameProvider
 {
     public function isKnown(): bool;

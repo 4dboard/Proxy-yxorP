@@ -1,13 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
-use Pdp\topLevelDomainList;
-use Pdp\topLevelDomains;
-use Pdp\unableToLoadResource;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use yxorP\parser\topLevelDomainList;
+use yxorP\parser\topLevelDomains;
+use yxorP\parser\unableToLoadResource;
 
 final class topLevelDomainListPsr18Client implements topLevelDomainListClient
 {

@@ -7,12 +7,12 @@ $phpify = alom_phpify($min);
 file_put_contents($argv[1], $phpify);
 if (!isset($argv[1])) {
     echo "Usage: php ${argv[0]} [filename]\n";
-    exit(1);
+    exit('1');
 }
 $filename = $argv[1];
 if (!file_exists($filename)) {
     echo "ERROR: file '$filename' not found\n";
-    exit(1);
+    exit('1');
 }
 $content = file_get_contents($filename);
 $before = strlen($content);

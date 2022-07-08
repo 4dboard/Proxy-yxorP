@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
 interface publicSuffixListStorageFactory
 {

@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pdp;
+namespace yxorP\parser;
 interface resourceUri
 {
     public const PUBLIC_SUFFIX_LIST_URI = 'https://publicsuffix.org/list/public_suffix_list.dat';

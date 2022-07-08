@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
 use DateInterval;
-use Pdp\publicSuffixList;
 use Psr\SimpleCache\CacheException;
 use Psr\SimpleCache\CacheInterface;
 use Throwable;
+use yxorP\parser\publicSuffixList;
 use function md5;
 use function strtolower;
 

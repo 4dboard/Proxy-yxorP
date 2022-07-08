@@ -1,11 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace Pdp;
+namespace yxorP\parser;
 
 use Countable;
 use JsonSerializable;
 
-interface host extends Countable, JsonSerializable
+interface hostInterface extends Countable, JsonSerializable
 {
     public function value(): ?string;
 

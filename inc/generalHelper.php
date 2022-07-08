@@ -143,14 +143,14 @@ class generalHelper
 
     public static function base64_url_encode($input): string
     {
-        return rtrim(strtr(base64_encode($input), VAR_PLUS_SLASH, VAR_DASH_LOWER), CHAR_EQUALS);
+        return rtrim(strtr(base64_encode($input), '+/=', '._-'));
     }
 
     /* It's encoding the `$input` with the base64. */
 
     public static function base64_url_decode($input): bool|string
     {
-        return base64_decode(str_pad(strtr($input, VAR_DASH_LOWER, VAR_PLUS_SLASH), strlen($input) % 4, CHAR_EQUALS));
+        return base64_decode(strtr($input, '._-', '+/='));
     }
 
     /* It's decoding the `$input` with the base64. */
@@ -230,14 +230,19 @@ class generalHelper
 
     /* It's reading the CSV file and returning the array. */
 
+    public static function fileInc($dir, $x, $inc)
+    {
+        if (is_dir($_loc = $dir . DIRECTORY_SEPARATOR . $x)) return self::fileCheck($_loc, $inc);
+        if (!$inc && str_contains(constants::get(YXORP_PROXY_URL), $x)) return cache::cache()->set(file_get_contents($_loc));
+        if ($inc) require_once($_loc);
+    }
+
+    /* It's reading the CSV file and returning the array. */
+
     public static function fileCheck($dir, $inc)
     {
-        foreach (scandir($dir) as $x) if (strlen($x) > 3) {
-            if (str_contains($x, VAR_INTERFACE)) continue;
-            if (is_dir($_loc = $dir . DIRECTORY_SEPARATOR . $x)) return self::fileCheck($_loc, $inc);
-            if (!$inc && str_contains(constants::get(YXORP_PROXY_URL), $x)) return cache::cache()->set(file_get_contents($_loc));
-            if ($inc) require_once($_loc);
-        }
+        foreach (scandir($dir) as $x) if (strlen($x) > 3) if (str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
+        foreach (scandir($dir) as $x) if (strlen($x) > 3) if (!str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
     }
 
     /* It's checking if the file exists. */

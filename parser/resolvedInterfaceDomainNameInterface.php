@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Pdp;
+namespace yxorP\parser;
 interface resolvedDomainName extends host, domainNameProvider
 {
     public function suffix(): effectiveTopLevelDomain;

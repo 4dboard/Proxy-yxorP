@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
-use Pdp\topLevelDomainList;
+use yxorP\parser\topLevelDomainList;
 
 interface topLevelDomainListClient
 {

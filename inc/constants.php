@@ -8,7 +8,10 @@ use Bugsnag;
 use GuzzleHttp;
 use RuntimeException;
 use yxorP\parse\parse;
+use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
+use yxorP\parser\Rules;
+use yxorP\parser\topLevelDomains;
 use function cockpit;
 
 class constants
@@ -146,30 +149,27 @@ class constants
 
         // FILES
         /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
-        define('FILE_REWRITE_SEARCH', 'replace_rewrite');
+        define('FILE_REWRITE_SEARCH', 'replace_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_REWRITE_REPLACE` and setting it to the value of `REWRITE_SEARCH`. */
-        define('FILE_REWRITE_REPLACE', 'search_rewrite');
+        define('FILE_REWRITE_REPLACE', 'search_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
-        define('FILE_INDEX', 'index');
+        define('FILE_INDEX', 'index' . EXT_PHP);
         /* Defining a constant called FILE_BUGSNAG and setting it to the string 'bugsnag'. */
-        define('FILE_BUGSNAG', 'bugsnag');
+        define('FILE_BUGSNAG', 'bugsnag' . EXT_PHAR);
         /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
-        define('FILE_GUZZLE', 'guzzle');
+        define('FILE_GUZZLE', 'guzzle' . EXT_PHAR);
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
-        define('FILE_BOOTSTRAP', 'bootstrap');
+        define('FILE_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
-        define('FILE_WRAPPER', 'wrapper');
+        define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
         /* Defining a constant. */
-        define('FILE_KINT', 'kint');
+        define('FILE_KINT', 'kint' . EXT_PHP);
+
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
-        define('FILE_PDP_PSL_TEXT', 'public-suffix-list.txt');
-        /* Defining the PATH_PDP_PSL_PHP path to the action public-suffix-list file. */
-        define('FILE_PDP_PSL_PHP', 'public-suffix-list.php');
-        /* Defining the PATH_PRIVATE_PSL_PHP path to the action private-public-suffix-list file. */
-        define('FILE_PRIVATE_PSL_PHP', 'private-public-suffix-list.php');
+        define('FILE_TLDS_ALPHA_BY_DOMAIN', 'tlds-alpha-by-domain.txt');
         /* Defining the PATH_ICANN_PSL_PHP path to the action icann-public-suffix-list file. */
-        define('FILE_ICANN_PSL_PHP', 'icann-public-suffix-list.php');
+        define('FILE_PUBLIC_SUFFIX_LIST', 'public_suffix_list.dat');
 
 
         //METHODS
@@ -248,7 +248,7 @@ class constants
         /* Defining a constant called `VAR_HTTP` and setting it to the value of `var`. */
         define('VAR_HTTP', 'http:');
         /* Defining a constant called `VAR_INTERFACE` and setting it to the value of `interface`. */
-        define('VAR_INTERFACE', 'interface');
+        define('VAR_INTERFACE', 'Interface');
         /* Defining a constant called `VAR_GETCSV` and setting it to the value of `str_getcsv`. */
         define('VAR_GETCSV', 'str_getcsv');
         /* Defining a constant called `VAR_DOMAIN` and setting it to the value of `domain`. */
@@ -348,8 +348,6 @@ class constants
 
 
         //VARIBLES MULTIPLE
-        /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of CHAR_PLUS . DIRECTORY_SEPARATOR. */
-        define('VAR_PLUS_SLASH', CHAR_PLUS . DIRECTORY_SEPARATOR);
         /* Defining a constant called `CHAR_EMPTY_STRING` and setting it to the value of ``. */
         define('VAR_DASH_LOWER', CHAR_DASH . CHAR_UNDER);
         /* Defining a constant called `VAR_TEXT_HTML` and setting it to the value of `text/html`. */
@@ -392,6 +390,8 @@ class constants
         define('YXORP_SITE_SUB_DOMAIN', VAR_SITE . CHAR_UNDER . VAR_SUB . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
         define('YXORP_TARGET_URL', VAR_TARGET . CHAR_UNDER . VAR_URL_UP);
+        /* Defining a constant called YXORP_TARGET_URL and setting it to the string TARGET_URL. */
+        define('YXORP_TARGET_URL_PARSE', VAR_TARGET . CHAR_UNDER . VAR_URL_UP . VAR_PARSE_UP);
         /* Defining a constant called YXORP_TARGET_SUB_DOMAIN and setting it to the string TARGET_SUB_DOMAIN. */
         define('YXORP_TARGET_SUB_DOMAIN', VAR_TARGET . CHAR_UNDER . VAR_SUB . CHAR_UNDER . VAR_DOMAIN_UP);
         /* Defining a constant called YXORP_TARGET_DOMAIN and setting it to the string TARGET_DOMAIN. */
@@ -430,7 +430,7 @@ class constants
         define('DIR_ACTION', 'action' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_DOMAIN', 'domain' . DIRECTORY_SEPARATOR);
+        define('DIR_PARSER', 'parser' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_PLUGIN', 'plugin' . DIRECTORY_SEPARATOR);
@@ -480,34 +480,30 @@ class constants
         define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INC . DIR_STORAGE);
         /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
-        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX . EXT_PHP);
+        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
         /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH . EXT_CSV);
+        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH);
         /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE . EXT_CSV);
+        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the bugsnag.phar file. */
-        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG . EXT_PHAR);
+        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG);
         /* Defining the path to Guzzle phar file. */
-        define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE . EXT_PHAR);
+        define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE);
         /* Defining the path to the cockpit bootstrap file. */
-        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
+        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP);
         /* Defining the path to the action wrapper file. */
-        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER . EXT_PHP);
+        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER);
         /* Defining the path to the action kint file. */
-        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_KINT . EXT_PHP);
+        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_KINT);
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
-        define('PATH_PDP_PSL_TEXT', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PDP_PSL_TEXT);
+        define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_INC . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
         /* Defining the PATH_PDP_PSL_PHP path to the action public-suffix-list file. */
-        define('PATH_PDP_PSL_PHP', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PDP_PSL_PHP);
-        /* Defining the PATH_PRIVATE_PSL_PHP path to the action private-public-suffix-list file. */
-        define('PATH_PRIVATE_PSL_PHP', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PRIVATE_PSL_PHP);
-        /* Defining the PATH_ICANN_PSL_PHP path to the action icann-public-suffix-list file. */
-        define('PATH_ICANN_PSL_PHP', DIR_ROOT . DIR_INC . DIR_DATA . FILE_ICANN_PSL_PHP);
+        define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
 
 
         //REGEX
@@ -649,11 +645,11 @@ class constants
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        $YXORP_SITE_URL = constants::get(YXORP_SITE_URL);
-        $parser = self::pdp_parse_url("https://www.example.com/");
-        print_r($parser);
+        constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix((constants::get(YXORP_SITE_URL))));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_SITE_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_SITE_URL)));
+        constants::set(YXORP_SITE_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->domain()->toString());
+        /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
+        constants::set(YXORP_SITE_SUB_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->subDomain()->toString());
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(VAR_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
@@ -662,16 +658,16 @@ class constants
         constants::set(VAR_TARGET_REPLACE, constants::get(VAR_TARGET)[VAR_REPLACE]);
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_TARGET_PLUGINS, constants::get(VAR_TARGET)[VAR_PLUGINS]);
-        /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
-        constants::set(YXORP_SITE_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_SITE_URL)));
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         constants::set(YXORP_TARGET_URL, (constants::get(VAR_TARGET))[COCKPIT_TARGET]);
+        /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
+        constants::set(YXORP_TARGET_URL_PARSE, self::publicSuffix((constants::get(YXORP_TARGET_URL))));
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_TARGET_DOMAIN, generalHelper::extractDomain(constants::get(YXORP_TARGET_URL)));
+        constants::set(YXORP_TARGET_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->domain()->toString());
         /* Setting the subdomain for the site. */
-        constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_TARGET_SUB_DOMAIN) ? constants::get(YXORP_TARGET_SUB_DOMAIN) . "." : null));
+        constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->subDomain()->toString());
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
         constants::set(VAR_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
@@ -708,10 +704,47 @@ class constants
         return $GLOBALS[$_name];
     }
 
-    public static function pdp_parse_url($url, $component = -1)
+    /**
+     * @param string $domain
+     * @return string|array|object|null
+     */
+    public static function publicSuffix($domain)
     {
-        $parse = new parse();
-        retrun = $parse->parseUrl($url);
+
+        $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
+        $domain = domain::fromIDNA2008($domain);
+
+
+        return $publicSuffixList->resolve($domain);
+        /*
+        echo $result->domain()->toString();            //display 'www.pref.okinawa.jp';
+        echo $result->subDomain()->toString();         //display 'www';
+        echo $result->secondLevelDomain()->toString(); //display 'pref';
+        echo $result->registrableDomain()->toString(); //display 'pref.okinawa.jp';
+        echo $result->suffix()->toString();            //display 'okinawa.jp';
+        $result->suffix()->isICANN();                  //return true;
+        */
+    }
+
+    /**
+     * @param string $domain
+     * @return string|array|object|null
+     */
+    public static function topLevelDomains($domain)
+    {
+        $topLevelDomains = topLevelDomains::fromPath($domain);
+        $domain = domain::fromIDNA2008($domain);
+
+
+        return $topLevelDomains->resolve($domain);
+        /*
+        echo $result->domain()->toString();            //display 'www.pref.okinawa.jp';
+        echo $result->suffix()->toString();            //display 'jp';
+        echo $result->secondLevelDomain()->toString(); //display 'okinawa';
+        echo $result->registrableDomain()->toString(); //display 'okinawa.jp';
+        echo $result->subDomain()->toString();         //display 'www.pref';
+        echo $result->suffix()->isIANA();              //return true
+        */
     }
 
 }

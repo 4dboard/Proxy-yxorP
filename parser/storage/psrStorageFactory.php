@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace Pdp\Storage;
+namespace yxorP\parser\Storage;
 
-use Pdp\resourceUri;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\SimpleCache\CacheInterface;
+use yxorP\parser\resourceUri;
 
 final class psrStorageFactory implements resourceUri, publicSuffixListStorageFactory, topLevelDomainListStorageFactory
 {
