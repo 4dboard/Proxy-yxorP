@@ -463,7 +463,7 @@ class constants
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
         /* Defining the path to the cockpit bootstrap file. */
-        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
+        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP . EXT_PHP);
         /* Defining the path to the action wrapper file. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER);
         /* Defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `bootstrap`. */
