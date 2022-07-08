@@ -664,7 +664,7 @@ class constants
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_TARGET_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->registrableDomain()->toString());
+        constants::set(YXORP_TARGET_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->registrableDomain()->toString() ?: (constants::get(YXORP_TARGET_URL_PARSE))->domain()->toString());
         /* Setting the subdomain for the site. */
         constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->subDomain()->toString());
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
