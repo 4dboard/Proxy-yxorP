@@ -10,7 +10,7 @@ use yxorP\proxy\Promise\PromiseInterface;
 /**
  * HTTP Request exception
  */
-class RequestException extends TransferException
+class ARequestException extends TransferException
 {
     /** @var RequestInterface */
     private $request;
@@ -45,13 +45,13 @@ class RequestException extends TransferException
      * @param RequestInterface $request
      * @param Exception $e
      *
-     * @return RequestException
+     * @return ARequestException
      */
     public static function wrapException(RequestInterface $request, Exception $e)
     {
-        return $e instanceof RequestException
+        return $e instanceof ARequestException
             ? $e
-            : new RequestException($e->getMessage(), $request, null, $e);
+            : new ARequestException($e->getMessage(), $request, null, $e);
     }
 
     /**

@@ -9,7 +9,7 @@ use Psr\Http\Message\RequestInterface;
  *
  * Note that no response is present for a ConnectException
  */
-class ConnectException extends RequestException
+class ConnectExceptionA extends ARequestException
 {
     public function __construct(
         $message,
