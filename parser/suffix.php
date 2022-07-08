@@ -11,10 +11,10 @@ final class suffix implements effectiveTopLevelDomainInterface
     private const ICANN = 'ICANN';
     private const PRIVATE = 'PRIVATE';
     private const IANA = 'IANA';
-    private aaDomainNameInterface $domain;
+    private aDomainNameInterface $domain;
     private string $section;
 
-    private function __construct(aaDomainNameInterface $domain, string $section)
+    private function __construct(aDomainNameInterface $domain, string $section)
     {
         $this->domain = $domain;
         $this->section = $section;
@@ -32,6 +32,25 @@ final class suffix implements effectiveTopLevelDomainInterface
             throw syntaxError::dueToInvalidSuffix($domain, self::ICANN);
         }
         return new self($domain, self::ICANN);
+    }
+
+    private static function setDomainName($domain): aDomainNameInterface
+    {
+        if ($domain instanceof domainNameProviderInterface) {
+            $domain = $domain->domain();
+        }
+        if (!$domain instanceof aDomainNameInterface) {
+            $domain = domain::fromIDNA2008($domain);
+        }
+        if ('' === $domain->label(0)) {
+            throw syntaxError::dueToInvalidSuffix($domain);
+        }
+        return $domain;
+    }
+
+    public function domain(): aDomainNameInterface
+    {
+        return $this->domain;
     }
 
     public static function fromPrivate($domain): self
@@ -55,25 +74,6 @@ final class suffix implements effectiveTopLevelDomainInterface
     public static function fromUnknown($domain): self
     {
         return new self(self::setDomainName($domain), '');
-    }
-
-    private static function setDomainName($domain): aaDomainNameInterface
-    {
-        if ($domain instanceof domainNameProviderInterface) {
-            $domain = $domain->domain();
-        }
-        if (!$domain instanceof aaDomainNameInterface) {
-            $domain = aaDomain::fromIDNA2008($domain);
-        }
-        if ('' === $domain->label(0)) {
-            throw syntaxError::dueToInvalidSuffix($domain);
-        }
-        return $domain;
-    }
-
-    public function domain(): aaDomainNameInterface
-    {
-        return $this->domain;
     }
 
     public function isKnown(): bool
@@ -121,7 +121,7 @@ final class suffix implements effectiveTopLevelDomainInterface
         return $this->domain->toString();
     }
 
-    public function normalize(aaDomainNameInterface $domain): self
+    public function normalize(aDomainNameInterface $domain): self
     {
         $newDomain = $domain->clear()->append($this->toUnicode());
         if ($domain->isAscii()) {

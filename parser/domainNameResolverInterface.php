@@ -3,5 +3,5 @@
 namespace yxorP\parser;
 interface domainNameResolverInterface
 {
-    public function resolve(bHostInterface $host): resolvedInterfaceDomainNameInterface;
+    public function resolve(aHostInterface $host): resolvedInterfaceDomainNameInterface;
 }

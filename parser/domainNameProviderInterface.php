@@ -3,5 +3,5 @@
 namespace yxorP\parser;
 interface domainNameProviderInterface
 {
-    public function domain(): aaDomainNameInterface;
+    public function domain(): aDomainNameInterface;
 }
