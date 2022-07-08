@@ -122,6 +122,22 @@ class CurlFactory implements CurlFactoryInterface
         return $easy;
     }
 
+    public function release(EasyHandle $easy)
+    {
+        $resource = $easy->handle;
+        unset($easy->handle);
+        if (count($this->handles) >= $this->maxHandles) {
+            curl_close($resource);
+        } else {
+            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
+            curl_setopt($resource, CURLOPT_READFUNCTION, null);
+            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
+            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
+            curl_reset($resource);
+            $this->handles[] = $resource;
+        }
+    }
+
     #[ArrayShape(['_headers' => "\string[][]", \GuzzleHttp\Handler\CURLOPT_CUSTOMREQUEST => "string", \GuzzleHttp\Handler\CURLOPT_URL => "string", \GuzzleHttp\Handler\CURLOPT_RETURNTRANSFER => "false", \GuzzleHttp\Handler\CURLOPT_HEADER => "false", \GuzzleHttp\Handler\CURLOPT_CONNECTTIMEOUT => "int", \GuzzleHttp\Handler\CURLOPT_HTTP_VERSION => "int", \GuzzleHttp\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array
     {
         $conf = ['_headers' => $easy->request->getHeaders(), CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(), CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''), CURLOPT_RETURNTRANSFER => false, CURLOPT_HEADER => false, CURLOPT_CONNECTTIMEOUT => 150,];
@@ -371,21 +387,5 @@ class CurlFactory implements CurlFactoryInterface
             }
             return strlen($h);
         };
-    }
-
-    public function release(EasyHandle $easy)
-    {
-        $resource = $easy->handle;
-        unset($easy->handle);
-        if (count($this->handles) >= $this->maxHandles) {
-            curl_close($resource);
-        } else {
-            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
-            curl_setopt($resource, CURLOPT_READFUNCTION, null);
-            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
-            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
-            curl_reset($resource);
-            $this->handles[] = $resource;
-        }
     }
 }
