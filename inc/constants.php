@@ -24,6 +24,7 @@ class constants
     public static function create(string $dir): void
     {
 
+        exit('51');
         /* Defining a constant called `DIR_ROOT` and setting it to the value of `$dir` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_ROOT', $dir . DIRECTORY_SEPARATOR);
