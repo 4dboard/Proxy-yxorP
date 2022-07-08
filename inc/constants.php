@@ -645,7 +645,7 @@ class constants
 
         exit(var_dump(constants::get(VAR_SERVER)));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
+        constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_HTTP_HOST]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix((constants::get(YXORP_SITE_URL))));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
