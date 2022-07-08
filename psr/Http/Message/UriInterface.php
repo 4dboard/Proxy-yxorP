@@ -207,7 +207,7 @@ interface UriInterface
      * @param null|string $password The password associated with $user.
      * @return static A new instance with the specified user information.
      */
-    public function withUserInfo($user, $password = null): static;
+    public function withUserInfo($user, $password = null): mixed;
 
     /**
      * Return an instance with the specified host.
