@@ -109,7 +109,6 @@ class yxorP
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
 
-        echo 4;
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
@@ -118,6 +117,9 @@ class yxorP
         `install()` function. */
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count())
             self::install();
+
+
+        echo 4;
         return constants::get(YXORP_EVENT_LIST);
     }
 
