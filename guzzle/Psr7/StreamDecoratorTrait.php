@@ -29,7 +29,7 @@ trait StreamDecoratorTrait
             }
             return $this->getContents();
         } catch (Exception $e) {
-            trigger_error('StreamDecorator::__toString exception: ' . (string)$e, E_USER_ERROR);
+            trigger_error('StreamDecorator::__toString exception: ' . (string)$e->__toString(), E_USER_ERROR);
             return '';
         }
     }

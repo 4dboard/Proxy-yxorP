@@ -5,7 +5,7 @@ use Exception;
 
 class CustomUser
 {
-    protected $resolver;
+    private $resolver;
 
     public function __construct(callable $resolver)
     {

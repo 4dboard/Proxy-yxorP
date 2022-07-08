@@ -1,7 +1,7 @@
 <?php namespace Bugsnag;
 class Pipeline
 {
-    protected $pipes;
+    private $pipes;
 
     public function __construct(array $pipes = [])
     {

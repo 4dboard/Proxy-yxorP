@@ -24,12 +24,12 @@ class Client
 {
     const ENDPOINT = Configuration::NOTIFY_ENDPOINT;
     const DEFAULT_TIMEOUT_S = 15.0;
-    protected $config;
-    protected $resolver;
-    protected $recorder;
-    protected $pipeline;
-    protected $http;
-    protected $sessionTracker;
+    private $config;
+    private $resolver;
+    private $recorder;
+    private $pipeline;
+    private $http;
+    private $sessionTracker;
 
     public function __construct(Configuration $config, ResolverInterface $resolver = null, GuzzleHttp\ClientInterface $guzzle = null, ShutdownStrategyInterface $shutdownStrategy = null)
     {

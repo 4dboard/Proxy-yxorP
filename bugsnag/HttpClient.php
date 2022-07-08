@@ -12,9 +12,9 @@ class HttpClient
     const NOTIFY_PAYLOAD_VERSION = '4.0';
     const SESSION_PAYLOAD_VERSION = '1.0';
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
-    protected $config;
-    protected $guzzle;
-    protected $queue = [];
+    private $config;
+    private $guzzle;
+    private $queue = [];
 
     public function __construct(Configuration $config, ClientInterface $guzzle)
     {

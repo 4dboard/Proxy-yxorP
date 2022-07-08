@@ -2,9 +2,11 @@
 
 namespace yxorP\parser\Storage;
 
+use GuzzleHttp\ClientInterface;
 use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use yxorP\parser\topInterfaceLevelDomainListInterface;
 use yxorP\parser\topLevelDomains;
 use yxorP\parser\unableToLoadResource;

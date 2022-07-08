@@ -4,7 +4,7 @@ use Bugsnag\Report;
 
 class CallbackBridge
 {
-    protected $callback;
+    private $callback;
 
     public function __construct(callable $callback)
     {

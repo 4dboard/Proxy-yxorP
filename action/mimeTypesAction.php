@@ -40,6 +40,6 @@ class mimeTypesAction extends wrapper
             constants::set('MIME', 'text' . CHAR_SLASH . 'html');
 
         /* Setting the content type of the response. */
-        header('Content-Type: ' . constants::get('MIME') . '; charset = UTF-8');
+        header('Content-Type: ' . constants::get('MIME')->__toString() . '; charset = UTF-8');
     }
 }

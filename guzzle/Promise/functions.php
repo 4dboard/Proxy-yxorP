@@ -25,8 +25,6 @@ function task(callable $task)
             $promise->resolve($task());
         } catch (Throwable $e) {
             $promise->reject($e);
-        } catch (Exception $e) {
-            $promise->reject($e);
         }
     });
     return $promise;
@@ -78,8 +76,6 @@ function inspect(PromiseInterface $promise)
     } catch (RejectionException $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
     } catch (Throwable $e) {
-        return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
-    } catch (Exception $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
     }
 }

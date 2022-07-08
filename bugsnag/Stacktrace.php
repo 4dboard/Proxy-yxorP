@@ -8,8 +8,8 @@ class Stacktrace
 {
     const NUM_LINES = 7;
     const MAX_LENGTH = 200;
-    protected $config;
-    protected $frames = [];
+    private $config;
+    private $frames = [];
 
     public function __construct(Configuration $config)
     {

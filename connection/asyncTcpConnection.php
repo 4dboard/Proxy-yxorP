@@ -31,6 +31,9 @@ use const TCP_NODELAY;
 
 /* Extending the tcpConnection class. */
 
+/**
+ * @property $statistics
+ */
 class asyncTcpConnection extends tcpConnection
 {
     /* A list of protocols that are supported by the asyncTcpConnection class. */

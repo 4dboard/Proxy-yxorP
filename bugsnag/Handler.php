@@ -6,9 +6,9 @@ use Throwable;
 class Handler
 {
     private static $enableShutdownHandler = true;
-    protected $client;
-    protected $previousErrorHandler;
-    protected $previousExceptionHandler;
+    private $client;
+    private $previousErrorHandler;
+    private $previousExceptionHandler;
     private $reservedMemory;
     private $oomRegex = '/^Allowed memory size of (\d+) bytes exhausted \(tried to allocate \d+ bytes\)/';
 
@@ -70,7 +70,6 @@ class Handler
             call_user_func($this->previousExceptionHandler, $throwable);
             return;
         } catch (Throwable $exceptionFromPreviousHandler) {
-        } catch (Exception $exceptionFromPreviousHandler) {
         }
         if ($throwable === $exceptionFromPreviousHandler) {
             self::$enableShutdownHandler = false;

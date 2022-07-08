@@ -5,21 +5,21 @@ use InvalidArgumentException;
 
 class SessionTracker
 {
-    protected static $SESSION_PAYLOAD_VERSION = HttpClient::SESSION_PAYLOAD_VERSION;
-    protected static $DELIVERY_INTERVAL = 30;
-    protected static $MAX_SESSION_COUNT = 50;
-    protected static $SESSION_COUNTS_KEY = 'bugsnag-session-counts';
-    protected static $SESSIONS_LAST_SENT_KEY = 'bugsnag-sessions-last-sent';
-    protected $config;
-    protected $http;
-    protected $sessionCounts = [];
-    protected $lockFunction = null;
-    protected $unlockFunction = null;
-    protected $retryFunction = null;
-    protected $storageFunction = null;
-    protected $sessionFunction = null;
-    protected $lastSent = 0;
-    protected $currentSession = [];
+    private static $SESSION_PAYLOAD_VERSION = HttpClient::SESSION_PAYLOAD_VERSION;
+    private static $DELIVERY_INTERVAL = 30;
+    private static $MAX_SESSION_COUNT = 50;
+    private static $SESSION_COUNTS_KEY = 'bugsnag-session-counts';
+    private static $SESSIONS_LAST_SENT_KEY = 'bugsnag-sessions-last-sent';
+    private $config;
+    private $http;
+    private $sessionCounts = [];
+    private $lockFunction = null;
+    private $unlockFunction = null;
+    private $retryFunction = null;
+    private $storageFunction = null;
+    private $sessionFunction = null;
+    private $lastSent = 0;
+    private $currentSession = [];
 
     public function __construct(Configuration $config, HttpClient $http = null)
     {

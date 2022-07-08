@@ -11,22 +11,22 @@ use UnitEnum;
 class Report
 {
     const PAYLOAD_VERSION = HttpClient::NOTIFY_PAYLOAD_VERSION;
-    protected $config;
-    protected $originalError;
-    protected $stacktrace;
-    protected $previous;
-    protected $name;
-    protected $message;
-    protected $severity;
-    protected $context;
-    protected $groupingHash;
-    protected $metaData = [];
-    protected $user = [];
-    protected $breadcrumbs = [];
-    protected $time;
-    protected $unhandled = false;
-    protected $severityReason = [];
-    protected $session;
+    private $config;
+    private $originalError;
+    private $stacktrace;
+    private $previous;
+    private $name;
+    private $message;
+    private $severity;
+    private $context;
+    private $groupingHash;
+    private $metaData = [];
+    private $user = [];
+    private $breadcrumbs = [];
+    private $time;
+    private $unhandled = false;
+    private $severityReason = [];
+    private $session;
 
     protected function __construct(Configuration $config)
     {

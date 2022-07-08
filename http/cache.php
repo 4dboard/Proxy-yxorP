@@ -31,32 +31,6 @@ class cache
         foreach ($files as $file) if (is_file($file)) unlink($file);
     }
 
-    public function super(): void
-    {
-        $attr_instance = new self(false);
-        if ($attr_instance->isValid()) $attr_instance->get();
-    }
-
-    /* Used to check if the cache file exists. */
-
-    #[Pure] public function isValid(): bool
-    {
-        /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY));
-    }
-
-    /* Used to get the data from the cache file. */
-
-    public function get(): void
-    {
-        /* Used to check if the cache file is valid. */
-        if (!$this->isValid()) return;
-        /* Used to include the cache file. */
-        @include PATH_DIR_TMP . constants::get(CACHE_KEY);
-    }
-
-    /* Used to get the instance of the class. */
-
     public static function cache()
     {
         /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
@@ -66,12 +40,38 @@ class cache
         return self::$instance[constants::get(CACHE_KEY)];
     }
 
+    /* Used to check if the cache file exists. */
+
+    public function super(): void
+    {
+        $attr_instance = new self(false);
+        if ($attr_instance->isValid()) $attr_instance->get();
+    }
+
+    /* Used to get the data from the cache file. */
+
+    #[Pure] public function isValid(): bool
+    {
+        /* Used to check if the cache file exists. */
+        return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString());
+    }
+
+    /* Used to get the instance of the class. */
+
+    public function get(): void
+    {
+        /* Used to check if the cache file is valid. */
+        if (!$this->isValid()) return;
+        /* Used to include the cache file. */
+        @include PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString();
+    }
+
     /* Used to set the data in the cache file. */
 
     public function set($val): void
     {
         /* Opening the file in write mode.  Used to write the data in the cache file.   Used to close the file.  Used to return the instance of the class. */
-        $fopen = fopen(PATH_DIR_TMP . constants::get(CACHE_KEY), 'w');
+        $fopen = fopen(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString(), 'w');
         fwrite($fopen, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;');
         fclose($fopen);
     }

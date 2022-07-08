@@ -7,10 +7,10 @@ use ReturnTypeWillChange;
 class Recorder implements Countable, Iterator
 {
     const MAX_ITEMS = 25;
-    protected $breadcrumbs = [];
-    protected $head = 0;
-    protected $pointer = 0;
-    protected $position = 0;
+    private $breadcrumbs = [];
+    private $head = 0;
+    private $pointer = 0;
+    private $position = 0;
 
     public function record(Breadcrumb $breadcrumb)
     {

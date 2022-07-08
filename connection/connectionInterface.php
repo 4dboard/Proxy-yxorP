@@ -1,5 +1,16 @@
 <?php namespace yxorP\connection;
 
+/**
+ * @property $statistics
+ * @property string $websocketType
+ * @property string $websocketType
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property string $websocketType
+ */
 abstract class connectionInterface extends tcpConnection
 {
     const SEND_FAIL = ;

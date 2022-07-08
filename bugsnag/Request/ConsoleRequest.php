@@ -1,7 +1,7 @@
 <?php namespace Bugsnag\Request;
 class ConsoleRequest implements RequestInterface
 {
-    protected $command;
+    private $command;
 
     public function __construct(array $command)
     {

@@ -14,10 +14,10 @@ class Breadcrumb
     const ERROR_TYPE = 'error';
     const MANUAL_TYPE = 'manual';
     const MAX_SIZE = 4096;
-    protected $timestamp;
-    protected $name;
-    protected $type;
-    protected $metaData;
+    private $timestamp;
+    private $name;
+    private $type;
+    private $metaData;
 
     public function __construct($name, $type, array $metaData = [])
     {

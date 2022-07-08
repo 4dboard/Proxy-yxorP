@@ -7,27 +7,27 @@ class Configuration
     const NOTIFY_ENDPOINT = 'https://notify.bugsnag.com';
     const SESSION_ENDPOINT = 'https://sessions.bugsnag.com';
     const BUILD_ENDPOINT = 'https://build.bugsnag.com';
-    protected $apiKey;
-    protected $batchSending = true;
-    protected $notifyReleaseStages;
-    protected $filters = ['password', 'cookie', 'authorization', 'php-auth-user', 'php-auth-pw', 'php-auth-digest',];
-    protected $projectRootRegex;
-    protected $stripPathRegex;
-    protected $sendCode = true;
-    protected $notifier = ['name' => 'Bugsnag PHP (Official)', 'version' => '3.27.0', 'url' => 'https://bugsnag.com',];
-    protected $fallbackType;
-    protected $appData = [];
-    protected $deviceData = [];
-    protected $metaData = [];
-    protected $errorReportingLevel;
-    protected $autoCaptureSessions = false;
-    protected $sessionClient;
-    protected $notifyEndpoint = self::NOTIFY_ENDPOINT;
-    protected $sessionEndpoint = self::SESSION_ENDPOINT;
-    protected $buildEndpoint = self::BUILD_ENDPOINT;
-    protected $memoryLimitIncrease = 5242880;
-    protected $discardClasses = [];
-    protected $redactedKeys = [];
+    private $apiKey;
+    private $batchSending = true;
+    private $notifyReleaseStages;
+    private $filters = ['password', 'cookie', 'authorization', 'php-auth-user', 'php-auth-pw', 'php-auth-digest',];
+    private $projectRootRegex;
+    private $stripPathRegex;
+    private $sendCode = true;
+    private $notifier = ['name' => 'Bugsnag PHP (Official)', 'version' => '3.27.0', 'url' => 'https://bugsnag.com',];
+    private $fallbackType;
+    private $appData = [];
+    private $deviceData = [];
+    private $metaData = [];
+    private $errorReportingLevel;
+    private $autoCaptureSessions = false;
+    private $sessionClient;
+    private $notifyEndpoint = self::NOTIFY_ENDPOINT;
+    private $sessionEndpoint = self::SESSION_ENDPOINT;
+    private $buildEndpoint = self::BUILD_ENDPOINT;
+    private $memoryLimitIncrease = 5242880;
+    private $discardClasses = [];
+    private $redactedKeys = [];
 
     public function __construct($apiKey)
     {

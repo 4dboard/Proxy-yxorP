@@ -433,7 +433,6 @@ class request
                         }
                         return $section_end_offset + strlen($boundary) + 2;
                     }
-                    break;
                 case "content-type":
                     $file['type'] = trim($value);
                     break;

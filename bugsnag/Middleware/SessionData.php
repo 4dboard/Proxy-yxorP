@@ -5,7 +5,7 @@ use Bugsnag\Report;
 
 class SessionData
 {
-    protected $client;
+    private $client;
     private $sessionTracker;
 
     public function __construct(Client $client)

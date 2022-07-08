@@ -1,6 +1,8 @@
 <?php namespace yxorP\http;
 
 
+use Throwable;
+
 class timer
 {
     /* Creating a private static array called $_tasks. */

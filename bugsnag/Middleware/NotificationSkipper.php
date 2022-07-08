@@ -5,7 +5,7 @@ use Bugsnag\Report;
 
 class NotificationSkipper
 {
-    protected $config;
+    private $config;
 
     public function __construct(Configuration $config)
     {

@@ -55,6 +55,19 @@ use const STREAM_CRYPTO_METHOD_SSLv2_SERVER;
  * @property false $bufferFull
  * @property mixed|request $__request
  * @property mixed|request $__request
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
  */
 class tcpConnection extends connectionInterface implements JsonSerializable
 {
