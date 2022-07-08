@@ -644,7 +644,7 @@ class constants
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_SITE_URL_PARSE, self::topLevelDomains((constants::get(YXORP_SITE_URL))));
+        constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix((constants::get(YXORP_SITE_URL))));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->domain()->toString());
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
@@ -660,7 +660,7 @@ class constants
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         constants::set(YXORP_TARGET_URL, (constants::get(VAR_TARGET))[COCKPIT_TARGET]);
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        constants::set(YXORP_TARGET_URL_PARSE, self::topLevelDomains((constants::get(YXORP_TARGET_URL))));
+        constants::set(YXORP_TARGET_URL_PARSE, self::publicSuffix((constants::get(YXORP_TARGET_URL))));
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
