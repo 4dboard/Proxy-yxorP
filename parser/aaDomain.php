@@ -54,7 +54,7 @@ final class aaDomain implements aaDomainNameInterface
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if ($domain instanceof aHostInterface) {
+        if ($domain instanceof bHostInterface) {
             return $this->parseValue($domain->toUnicode()->value());
         }
         return $this->parseValue($domain);
@@ -220,14 +220,14 @@ final class aaDomain implements aaDomainNameInterface
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if ($domain instanceof aHostInterface) {
+        if ($domain instanceof bHostInterface) {
             $domain = $domain->value();
         }
         if (null === $domain) {
             return null;
         }
         if ((!is_string($domain) && !method_exists($domain, '__toString'))) {
-            throw new TypeError('The label must be a ' . aHostInterface::class . ', a stringable object or a string, `' . gettype($domain) . '` given.');
+            throw new TypeError('The label must be a ' . bHostInterface::class . ', a stringable object or a string, `' . gettype($domain) . '` given.');
         }
         $domain = (string)$domain;
         if (null === $this->domain) {

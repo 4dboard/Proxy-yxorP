@@ -1,7 +1,7 @@
 <?php
 
 namespace yxorP\parser;
-interface effectiveTopLevelDomainInterface extends aHostInterface, domainNameProviderInterface
+interface effectiveTopLevelDomainInterface extends bHostInterface, domainNameProviderInterface
 {
     public function isKnown(): bool;
 

@@ -19,5 +19,5 @@ interface topInterfaceLevelDomainListInterface extends Countable, domainNameReso
 
     public function getIterator(): Iterator;
 
-    public function getIANADomain(aHostInterface $host): resolvedInterfaceDomainNameInterface;
+    public function getIANADomain(bHostInterface $host): resolvedInterfaceDomainNameInterface;
 }

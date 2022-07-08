@@ -1,7 +1,7 @@
 <?php
 
 namespace yxorP\parser;
-interface resolvedInterfaceDomainNameInterface extends aHostInterface, domainNameProviderInterface
+interface resolvedInterfaceDomainNameInterface extends bHostInterface, domainNameProviderInterface
 {
     public function suffix(): effectiveTopLevelDomainInterface;
 
