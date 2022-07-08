@@ -36,7 +36,7 @@
 
 yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
 optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
-of *multiple websites* using a PHAR (PHP archive) binary version of *proxy*, and managed via a user-friendly *
+of *multiple websites* and managed via a user-friendly *
 Cockpit backend (GUI)*.
 
 It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web
