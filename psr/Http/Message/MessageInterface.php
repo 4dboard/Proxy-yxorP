@@ -163,14 +163,14 @@ interface MessageInterface
      * @param string $name Case-insensitive header field name to remove.
      * @return static
      */
-    public function withoutHeader($name): static;
+    public function withoutHeader($name): mixed;
 
     /**
      * Gets the body of the message.
      *
      * @return StreamInterface Returns the body as a stream.
      */
-    public function getBody(): StreamInterface;
+    public function getBody(): mixed;
 
     /**
      * Return an instance with the specified message body.

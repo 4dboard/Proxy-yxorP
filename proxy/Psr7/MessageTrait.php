@@ -111,7 +111,7 @@ trait MessageTrait
         return $new;
     }
 
-    public function withoutHeader($header): Response|Request|static
+    public function withoutHeader($header): mixed
     {
         $normalized = strtolower($header);
         if (!isset($this->headerNames[$normalized])) {
@@ -123,7 +123,7 @@ trait MessageTrait
         return $new;
     }
 
-    public function getBody(): PumpStream|Stream|StreamInterface
+    public function getBody(): mixed
     {
         if (!$this->stream) {
             $this->stream = stream_for();
