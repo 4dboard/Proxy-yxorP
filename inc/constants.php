@@ -11,6 +11,7 @@ use yxorP\parse\parse;
 use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\Rules;
+use yxorP\parser\topLevelDomains;
 use function cockpit;
 
 class constants
@@ -638,16 +639,15 @@ class constants
     {
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
         self::set(VAR_SERVER, $req);
+
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
         constants::set(YXORP_SITE_URL, (strstr(constants::get(VAR_SERVER)[YXORP_HTTP_HOST], ':', true)));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix((constants::get(YXORP_SITE_URL))));
+        constants::set(YXORP_SITE_URL_PARSE, self::topLevelDomains((constants::get(YXORP_SITE_URL))));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->domain()->toString());
-        print_r(constants::get(YXORP_SITE_URL_PARSE));
-        exit;
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_SITE_SUB_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->subDomain()->toString());
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
@@ -661,7 +661,7 @@ class constants
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         constants::set(YXORP_TARGET_URL, (constants::get(VAR_TARGET))[COCKPIT_TARGET]);
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        constants::set(YXORP_TARGET_URL_PARSE, self::publicSuffix((constants::get(YXORP_TARGET_URL))));
+        constants::set(YXORP_TARGET_URL_PARSE, self::topLevelDomains((constants::get(YXORP_TARGET_URL))));
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
@@ -708,6 +708,27 @@ class constants
      * @param string $domain
      * @return string|array|object|null
      */
+    public static function topLevelDomains($domain)
+    {
+        $topLevelDomains = topLevelDomains::fromPath($domain);
+        $domain = domain::fromIDNA2008($domain);
+
+
+        return $topLevelDomains->resolve($domain);
+        /*
+        echo $result->domain()->toString();            //display 'www.pref.okinawa.jp';
+        echo $result->suffix()->toString();            //display 'jp';
+        echo $result->secondLevelDomain()->toString(); //display 'okinawa';
+        echo $result->registrableDomain()->toString(); //display 'okinawa.jp';
+        echo $result->subDomain()->toString();         //display 'www.pref';
+        echo $result->suffix()->isIANA();              //return true
+        */
+    }
+
+    /**
+     * @param string $domain
+     * @return string|array|object|null
+     */
     public static function publicSuffix($domain)
     {
 
@@ -716,6 +737,14 @@ class constants
 
 
         return $publicSuffixList->resolve($domain);
+        /*
+        echo $result->domain()->toString();            //display 'www.pref.okinawa.jp';
+        echo $result->subDomain()->toString();         //display 'www';
+        echo $result->secondLevelDomain()->toString(); //display 'pref';
+        echo $result->registrableDomain()->toString(); //display 'pref.okinawa.jp';
+        echo $result->suffix()->toString();            //display 'okinawa.jp';
+        $result->suffix()->isICANN();                  //return true;
+        */
     }
 
 }
