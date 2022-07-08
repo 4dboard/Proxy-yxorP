@@ -123,7 +123,7 @@ trait MessageTrait
         return $new;
     }
 
-    public function getBody(): \PumpStream|\StreamInterface|\Stream
+    public function getBody(): mixed
     {
         if (!$this->stream) {
             $this->stream = stream_for();
