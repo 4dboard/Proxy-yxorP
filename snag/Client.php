@@ -125,7 +125,88 @@ class Client
     {
         $options = self::resolveGuzzleOptions($base, $options);
 
-        return new guzzle\Client($options);
+        return new yxorP\proxy\Client($options);
+    }
+
+    /**
+     * @param string|null $base
+     * @param array $options
+     *
+     * @return array
+     */
+    private static function resolveGuzzleOptions($base, array $options)
+    {
+        $key = GuzzleCompat::getBaseUriOptionName();
+        $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
+
+        $path = static::getCaBundlePath();
+
+        if ($path) {
+            $options['verify'] = $path;
+        }
+
+        return GuzzleCompat::applyRequestOptions(
+            $options,
+            [
+                'timeout' => self::DEFAULT_TIMEOUT_S,
+                'connect_timeout' => self::DEFAULT_TIMEOUT_S,
+            ]
+        );
+    }
+
+    /**
+     * Get the ca bundle path if one exists.
+     *
+     * @return string|false
+     */
+    protected static function getCaBundlePath()
+    {
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+
+        return realpath(CaBundle::getSystemCaRootBundlePath());
+    }
+
+    /**
+     * Ensure the notify endpoint is synchronised with Guzzle's base URL.
+     *
+     * @param Configuration $configuration
+     * @param \yxorP\proxy\ClientInterface $guzzle
+     *
+     * @return void
+     */
+    private function syncNotifyEndpointWithGuzzleBaseUri(
+        Configuration   $configuration,
+        ClientInterface $guzzle
+    )
+    {
+        // Don't change the endpoint if one is already set, otherwise we could be
+        // resetting it back to the default as the Guzzle base URL will always
+        // be set by 'makeGuzzle'.
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+
+        $base = GuzzleCompat::getBaseUri($guzzle);
+
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
+    }
+
+    /**
+     * Register a middleware object to the pipeline.
+     *
+     * @param callable $middleware
+     *
+     * @return $this
+     */
+    public function registerMiddleware(callable $middleware)
+    {
+        $this->pipeline->pipe($middleware);
+
+        return $this;
     }
 
     /**
@@ -158,60 +239,6 @@ class Client
         }
 
         return $client;
-    }
-
-    /**
-     * Get the ca bundle path if one exists.
-     *
-     * @return string|false
-     */
-    protected static function getCaBundlePath()
-    {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-
-        return realpath(CaBundle::getSystemCaRootBundlePath());
-    }
-
-    /**
-     * @param string|null $base
-     * @param array $options
-     *
-     * @return array
-     */
-    private static function resolveGuzzleOptions($base, array $options)
-    {
-        $key = GuzzleCompat::getBaseUriOptionName();
-        $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
-
-        $path = static::getCaBundlePath();
-
-        if ($path) {
-            $options['verify'] = $path;
-        }
-
-        return GuzzleCompat::applyRequestOptions(
-            $options,
-            [
-                'timeout' => self::DEFAULT_TIMEOUT_S,
-                'connect_timeout' => self::DEFAULT_TIMEOUT_S,
-            ]
-        );
-    }
-
-    /**
-     * Register a middleware object to the pipeline.
-     *
-     * @param callable $middleware
-     *
-     * @return $this
-     */
-    public function registerMiddleware(callable $middleware)
-    {
-        $this->pipeline->pipe($middleware);
-
-        return $this;
     }
 
     /**
@@ -437,6 +464,8 @@ class Client
         return $this->sessionTracker;
     }
 
+    // Forward calls to Configuration:
+
     /**
      * Get the Snag API Key.
      *
@@ -446,8 +475,6 @@ class Client
     {
         return $this->config->getApiKey();
     }
-
-    // Forward calls to Configuration:
 
     /**
      * Sets whether errors should be batched together and send at the end of each request.
@@ -988,32 +1015,5 @@ class Client
     public function getRedactedKeys()
     {
         return $this->config->getRedactedKeys();
-    }
-
-    /**
-     * Ensure the notify endpoint is synchronised with Guzzle's base URL.
-     *
-     * @param Configuration $configuration
-     * @param \yxorP\proxy\ClientInterface $guzzle
-     *
-     * @return void
-     */
-    private function syncNotifyEndpointWithGuzzleBaseUri(
-        Configuration   $configuration,
-        ClientInterface $guzzle
-    )
-    {
-        // Don't change the endpoint if one is already set, otherwise we could be
-        // resetting it back to the default as the Guzzle base URL will always
-        // be set by 'makeGuzzle'.
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-
-        $base = GuzzleCompat::getBaseUri($guzzle);
-
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string)$base);
-        }
     }
 }
