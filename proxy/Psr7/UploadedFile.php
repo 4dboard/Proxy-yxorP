@@ -84,26 +84,109 @@ class UploadedFile implements UploadedFileInterface
     }
 
     /**
-     * @return boolean
+     * @param int $error
+     * @throws InvalidArgumentException
      */
-    public function isMoved()
+    private function setError($error)
     {
-        return $this->moved;
+        if (false === is_int($error)) {
+            throw new InvalidArgumentException(
+                'Upload file error status must be an integer'
+            );
+        }
+
+        if (false === in_array($error, UploadedFile::$errors)) {
+            throw new InvalidArgumentException(
+                'Invalid error status for UploadedFile'
+            );
+        }
+
+        $this->error = $error;
     }
 
     /**
-     * {@inheritdoc}
-     * @throws RuntimeException if the upload was not successful.
+     * @param int $size
+     * @throws InvalidArgumentException
      */
-    public function getStream()
+    private function setSize($size)
     {
-        $this->validateActive();
-
-        if ($this->stream instanceof StreamInterface) {
-            return $this->stream;
+        if (false === is_int($size)) {
+            throw new InvalidArgumentException(
+                'Upload file size must be an integer'
+            );
         }
 
-        return new LazyOpenStream($this->file, 'r+');
+        $this->size = $size;
+    }
+
+    /**
+     * @param string|null $clientFilename
+     * @throws InvalidArgumentException
+     */
+    private function setClientFilename($clientFilename)
+    {
+        if (false === $this->isStringOrNull($clientFilename)) {
+            throw new InvalidArgumentException(
+                'Upload file client filename must be a string or null'
+            );
+        }
+
+        $this->clientFilename = $clientFilename;
+    }
+
+    /**
+     * @param mixed $param
+     * @return boolean
+     */
+    private function isStringOrNull($param)
+    {
+        return in_array(gettype($param), ['string', 'NULL']);
+    }
+
+    /**
+     * @param string|null $clientMediaType
+     * @throws InvalidArgumentException
+     */
+    private function setClientMediaType($clientMediaType)
+    {
+        if (false === $this->isStringOrNull($clientMediaType)) {
+            throw new InvalidArgumentException(
+                'Upload file client media type must be a string or null'
+            );
+        }
+
+        $this->clientMediaType = $clientMediaType;
+    }
+
+    /**
+     * Return true if there is no upload error
+     *
+     * @return boolean
+     */
+    private function isOk()
+    {
+        return $this->error === UPLOAD_ERR_OK;
+    }
+
+    /**
+     * Depending on the value set file or stream variable
+     *
+     * @param mixed $streamOrFile
+     * @throws InvalidArgumentException
+     */
+    private function setStreamOrFile($streamOrFile)
+    {
+        if (is_string($streamOrFile)) {
+            $this->file = $streamOrFile;
+        } elseif (is_resource($streamOrFile)) {
+            $this->stream = new AAStream($streamOrFile);
+        } elseif ($streamOrFile instanceof StreamInterface) {
+            $this->stream = $streamOrFile;
+        } else {
+            throw new InvalidArgumentException(
+                'Invalid stream or file provided for UploadedFile'
+            );
+        }
     }
 
     /**
@@ -148,6 +231,52 @@ class UploadedFile implements UploadedFileInterface
     }
 
     /**
+     * @throws RuntimeException if is moved or not ok
+     */
+    private function validateActive()
+    {
+        if (false === $this->isOk()) {
+            throw new RuntimeException('Cannot retrieve stream due to upload error');
+        }
+
+        if ($this->isMoved()) {
+            throw new RuntimeException('Cannot retrieve stream after it has already been moved');
+        }
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isMoved()
+    {
+        return $this->moved;
+    }
+
+    /**
+     * @param mixed $param
+     * @return boolean
+     */
+    private function isStringNotEmpty($param)
+    {
+        return is_string($param) && false === empty($param);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @throws RuntimeException if the upload was not successful.
+     */
+    public function getStream()
+    {
+        $this->validateActive();
+
+        if ($this->stream instanceof StreamInterface) {
+            return $this->stream;
+        }
+
+        return new LazyOpenStream($this->file, 'r+');
+    }
+
+    /**
      * {@inheritdoc}
      *
      * @return int|null The file size in bytes or null if unknown.
@@ -185,134 +314,5 @@ class UploadedFile implements UploadedFileInterface
     public function getClientMediaType()
     {
         return $this->clientMediaType;
-    }
-
-    /**
-     * Depending on the value set file or stream variable
-     *
-     * @param mixed $streamOrFile
-     * @throws InvalidArgumentException
-     */
-    private function setStreamOrFile($streamOrFile)
-    {
-        if (is_string($streamOrFile)) {
-            $this->file = $streamOrFile;
-        } elseif (is_resource($streamOrFile)) {
-            $this->stream = new Stream($streamOrFile);
-        } elseif ($streamOrFile instanceof StreamInterface) {
-            $this->stream = $streamOrFile;
-        } else {
-            throw new InvalidArgumentException(
-                'Invalid stream or file provided for UploadedFile'
-            );
-        }
-    }
-
-    /**
-     * @param int $error
-     * @throws InvalidArgumentException
-     */
-    private function setError($error)
-    {
-        if (false === is_int($error)) {
-            throw new InvalidArgumentException(
-                'Upload file error status must be an integer'
-            );
-        }
-
-        if (false === in_array($error, UploadedFile::$errors)) {
-            throw new InvalidArgumentException(
-                'Invalid error status for UploadedFile'
-            );
-        }
-
-        $this->error = $error;
-    }
-
-    /**
-     * @param int $size
-     * @throws InvalidArgumentException
-     */
-    private function setSize($size)
-    {
-        if (false === is_int($size)) {
-            throw new InvalidArgumentException(
-                'Upload file size must be an integer'
-            );
-        }
-
-        $this->size = $size;
-    }
-
-    /**
-     * @param mixed $param
-     * @return boolean
-     */
-    private function isStringOrNull($param)
-    {
-        return in_array(gettype($param), ['string', 'NULL']);
-    }
-
-    /**
-     * @param mixed $param
-     * @return boolean
-     */
-    private function isStringNotEmpty($param)
-    {
-        return is_string($param) && false === empty($param);
-    }
-
-    /**
-     * @param string|null $clientFilename
-     * @throws InvalidArgumentException
-     */
-    private function setClientFilename($clientFilename)
-    {
-        if (false === $this->isStringOrNull($clientFilename)) {
-            throw new InvalidArgumentException(
-                'Upload file client filename must be a string or null'
-            );
-        }
-
-        $this->clientFilename = $clientFilename;
-    }
-
-    /**
-     * @param string|null $clientMediaType
-     * @throws InvalidArgumentException
-     */
-    private function setClientMediaType($clientMediaType)
-    {
-        if (false === $this->isStringOrNull($clientMediaType)) {
-            throw new InvalidArgumentException(
-                'Upload file client media type must be a string or null'
-            );
-        }
-
-        $this->clientMediaType = $clientMediaType;
-    }
-
-    /**
-     * Return true if there is no upload error
-     *
-     * @return boolean
-     */
-    private function isOk()
-    {
-        return $this->error === UPLOAD_ERR_OK;
-    }
-
-    /**
-     * @throws RuntimeException if is moved or not ok
-     */
-    private function validateActive()
-    {
-        if (false === $this->isOk()) {
-            throw new RuntimeException('Cannot retrieve stream due to upload error');
-        }
-
-        if ($this->isMoved()) {
-            throw new RuntimeException('Cannot retrieve stream after it has already been moved');
-        }
     }
 }
