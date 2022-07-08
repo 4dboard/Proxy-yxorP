@@ -11,7 +11,7 @@ use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\parser\Rules;
-use \yxorP\proxy\Client;
+use yxorP\proxy\Client;
 use function cockpit;
 
 class constants

@@ -2,7 +2,7 @@
 
 use Composer\CaBundle\CaBundle;
 use JetBrains\PhpStorm\Pure;
-use \yxorP\proxy\ClientInterface;
+use yxorP\proxy\ClientInterface;
 use yxorP\snag\Breadcrumbs\Breadcrumb;
 use yxorP\snag\Breadcrumbs\Recorder;
 use yxorP\snag\Callbacks\GlobalMetaData;
@@ -32,7 +32,7 @@ class Client
     private HttpClient $http;
     private SessionTracker $sessionTracker;
 
-    public function __construct(Configuration $config, ResolverInterface $resolver = null, \yxorP\proxy\ClientInterface $proxy = null, ShutdownStrategyInterface $shutdownStrategy = null)
+    public function __construct(Configuration $config, ResolverInterface $resolver = null, ClientInterface $proxy = null, ShutdownStrategyInterface $shutdownStrategy = null)
     {
         $proxy = $proxy ?: self::makeProxy();
         $this->syncNotifyEndpointWithProxyBaseUri($config, $proxy);
@@ -75,7 +75,7 @@ class Client
         return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
-    private function syncNotifyEndpointWithProxyBaseUri(Configuration $configuration, \yxorP\proxy\ClientInterface $proxy)
+    private function syncNotifyEndpointWithProxyBaseUri(Configuration $configuration, ClientInterface $proxy)
     {
         if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
             return;

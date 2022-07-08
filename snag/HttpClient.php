@@ -3,7 +3,7 @@
 use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
-use \yxorP\proxy\ClientInterface;
+use yxorP\proxy\ClientInterface;
 use yxorP\snag\DateTime\Date;
 use yxorP\snag\Internal\ProxyCompat;
 
@@ -38,6 +38,15 @@ class HttpClient
         $data['apiKey'] = $this->config->getApiKey();
         $uri = rtrim($this->config->getNotifyEndpoint(), '/') . '/deploy';
         $this->post($uri, ['json' => $data]);
+    }
+
+    protected function post($uri, array $options = [])
+    {
+        if (ProxyCompat::isUsingProxy5()) {
+            $this->proxy->post($uri, $options);
+        } else {
+            $this->proxy->request('POST', $uri, $options);
+        }
     }
 
     public function sendBuildReport(array $buildInfo)
@@ -88,20 +97,6 @@ class HttpClient
         }
         $this->deliverEvents($this->config->getNotifyEndpoint(), $this->getEventPayload());
         $this->queue = [];
-    }
-
-    public function sendSessions(array $payload)
-    {
-        $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
-    }
-
-    protected function post($uri, array $options = [])
-    {
-        if (ProxyCompat::isUsingProxy5()) {
-            $this->proxy->post($uri, $options);
-        } else {
-            $this->proxy->request('POST', $uri, $options);
-        }
     }
 
     protected function deliverEvents($uri, array $data)
@@ -159,6 +154,11 @@ class HttpClient
             }
         }
         return ['apiKey' => $this->config->getApiKey(), 'notifier' => $this->config->getNotifier(), 'events' => $events,];
+    }
+
+    public function sendSessions(array $payload)
+    {
+        $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
     }
 
     #[ArrayShape(['apiKey' => "string", 'notifier' => "string[]", 'events' => "array"])] protected function build(): array
