@@ -9,7 +9,7 @@ use yxorP\snag\Callbacks\RequestContext;
 use yxorP\snag\Callbacks\RequestMetaData;
 use yxorP\snag\Callbacks\RequestSession;
 use yxorP\snag\Callbacks\RequestUser;
-use yxorP\snag\Internal\ProxzleCompat;
+use yxorP\snag\Internal\ProxyCompat;
 use yxorP\snag\Middleware\BreadcrumbData;
 use yxorP\snag\Middleware\CallbackBridge;
 use yxorP\snag\Middleware\DiscardClasses;
@@ -31,15 +31,15 @@ class Client
     private HttpClient $http;
     private SessionTracker $sessionTracker;
 
-    public function __construct(Configuration $config, ResolverInterface $resolver = null, ProxzleHttp\ClientInterface $proxzle = null, ShutdownStrategyInterface $shutdownStrategy = null)
+    public function __construct(Configuration $config, ResolverInterface $resolver = null, ProxyHttp\ClientInterface $proxy = null, ShutdownStrategyInterface $shutdownStrategy = null)
     {
-        $proxzle = $proxzle ?: self::makeProxzle();
-        $this->syncNotifyEndpointWithProxzleBaseUri($config, $proxzle);
+        $proxy = $proxy ?: self::makeProxy();
+        $this->syncNotifyEndpointWithProxyBaseUri($config, $proxy);
         $this->config = $config;
         $this->resolver = $resolver ?: new BasicResolver();
         $this->recorder = new Recorder();
         $this->pipeline = new Pipeline();
-        $this->http = new HttpClient($config, $proxzle);
+        $this->http = new HttpClient($config, $proxy);
         $this->sessionTracker = new SessionTracker($config, $this->http);
         $this->registerMiddleware(new NotificationSkipper($config));
         $this->registerMiddleware(new DiscardClasses($config));
@@ -49,18 +49,18 @@ class Client
         $shutdownStrategy->registerShutdownStrategy($this);
     }
 
-    public static function makeProxzle($base = null, array $options = []): ProxzleHttp\Client
+    public static function makeProxy($base = null, array $options = []): ProxyHttp\Client
     {
-        $options = self::resolveProxzleOptions($base, $options);
-        return new ProxzleHttp\Client($options);
+        $options = self::resolveProxyOptions($base, $options);
+        return new ProxyHttp\Client($options);
     }
 
     public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
     {
         $env = new Env();
         $config = new Configuration($apiKey ?: $env->get('SNAG_API_KEY'));
-        $proxzle = static::makeProxzle($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
-        $client = new static($config, null, $proxzle);
+        $proxy = static::makeProxy($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
+        $client = new static($config, null, $proxy);
         if ($defaults) {
             $client->registerDefaultCallbacks();
         }
@@ -75,15 +75,15 @@ class Client
         return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
-    private static function resolveProxzleOptions($base, array $options): array
+    private static function resolveProxyOptions($base, array $options): array
     {
-        $key = ProxzleCompat::getBaseUriOptionName();
+        $key = ProxyCompat::getBaseUriOptionName();
         $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
         $path = static::getCaBundlePath();
         if ($path) {
             $options['verify'] = $path;
         }
-        return ProxzleCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
+        return ProxyCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
     }
 
     public function registerMiddleware(callable $middleware): static
@@ -394,7 +394,7 @@ class Client
         return $this->config->shouldCaptureSessions();
     }
 
-    public function getSessionClient(): ProxzleHttp\Client|ProxzleHttp\ClientInterface|null
+    public function getSessionClient(): ProxyHttp\Client|ProxyHttp\ClientInterface|null
     {
         return $this->config->getSessionClient();
     }
@@ -431,12 +431,12 @@ class Client
         return $this->config->getRedactedKeys();
     }
 
-    private function syncNotifyEndpointWithProxzleBaseUri(Configuration $configuration, ProxzleHttp\ClientInterface $proxzle)
+    private function syncNotifyEndpointWithProxyBaseUri(Configuration $configuration, ProxyHttp\ClientInterface $proxy)
     {
         if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
             return;
         }
-        $base = ProxzleCompat::getBaseUri($proxzle);
+        $base = ProxyCompat::getBaseUri($proxy);
         if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
             $configuration->setNotifyEndpoint((string)$base);
         }
