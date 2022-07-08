@@ -31,19 +31,19 @@ class FnStream implements StreamInterface
         throw new BadMethodCallException(str_replace('_fn_', '', $name) . '() is not implemented in the FnStream');
     }
 
-    public function __destruct(): mixed
+    public function __destruct()
     {
         if (isset($this->_fn_close)) {
             call_user_func($this->_fn_close);
         }
     }
 
-    public function __wakeup(): mixed
+    public function __wakeup()
     {
         throw new LogicException('FnStream should never be unserialized');
     }
 
-    public function __toString(): mixed
+    public function __toString()
     {
         return call_user_func($this->_fn___toString);
     }
