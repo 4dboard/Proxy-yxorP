@@ -55,26 +55,6 @@ class Client
         return new ProxyHttp\Client($options);
     }
 
-    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
-    {
-        $env = new Env();
-        $config = new Configuration($apiKey ?: $env->get('SNAG_API_KEY'));
-        $proxy = static::makeProxy($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
-        $client = new static($config, null, $proxy);
-        if ($defaults) {
-            $client->registerDefaultCallbacks();
-        }
-        return $client;
-    }
-
-    protected static function getCaBundlePath(): bool|string
-    {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-        return realpath(CaBundle::getSystemCaRootBundlePath());
-    }
-
     private static function resolveProxyOptions($base, array $options): array
     {
         $key = ProxyCompat::getBaseUriOptionName();
@@ -86,10 +66,41 @@ class Client
         return ProxyCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
     }
 
+    protected static function getCaBundlePath(): bool|string
+    {
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+        return realpath(CaBundle::getSystemCaRootBundlePath());
+    }
+
+    private function syncNotifyEndpointWithProxyBaseUri(Configuration $configuration, ProxyHttp\ClientInterface $proxy)
+    {
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+        $base = ProxyCompat::getBaseUri($proxy);
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
+    }
+
     public function registerMiddleware(callable $middleware): static
     {
         $this->pipeline->pipe($middleware);
         return $this;
+    }
+
+    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
+    {
+        $env = new Env();
+        $config = new Configuration($apiKey ?: $env->get('SNAG_API_KEY'));
+        $proxy = static::makeProxy($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
+        $client = new static($config, null, $proxy);
+        if ($defaults) {
+            $client->registerDefaultCallbacks();
+        }
+        return $client;
     }
 
     public function registerDefaultCallbacks(): static
@@ -429,16 +440,5 @@ class Client
     #[Pure] public function getRedactedKeys(): array
     {
         return $this->config->getRedactedKeys();
-    }
-
-    private function syncNotifyEndpointWithProxyBaseUri(Configuration $configuration, ProxyHttp\ClientInterface $proxy)
-    {
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-        $base = ProxyCompat::getBaseUri($proxy);
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string)$base);
-        }
     }
 }

@@ -2,18 +2,18 @@
 
 use Closure;
 use Exception;
-use ProxyHttp\Promise\PromiseInterface;
-use ProxyHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
+use ProxyHttp\Promise\PromiseInterface;
+use ProxyHttp\Promise\RejectedPromise;
 use Psr\Http\Message\UriInterface;
 use RuntimeException;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\Exception\ConnectException;
-use yxorP\proxyApromise\FulfilledPromise;
 use yxorP\proxy\Psr7;
 use yxorP\proxy\TransferStats;
 use yxorP\proxy\Utils;
+use yxorP\proxyApromise\FulfilledPromise;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;

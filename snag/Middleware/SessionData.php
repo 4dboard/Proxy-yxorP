@@ -1,7 +1,7 @@
 <?php namespace yxorP\snag\Middleware;
 
-use Snag\SessionTracker;
 use JetBrains\PhpStorm\Pure;
+use Snag\SessionTracker;
 use yxorP\snag\Client;
 use yxorP\snag\Report;
 
