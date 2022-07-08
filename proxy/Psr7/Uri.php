@@ -355,7 +355,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPath($path): Uri|static
+    public function withPath($path):mixed
     {
         $path = $this->filterPath($path);
         if ($this->path === $path) {
@@ -367,7 +367,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withFragment($fragment): Uri|static
+    public function withFragment($fragment):mixed
     {
         $fragment = $this->filterQueryAndFragment($fragment);
         if ($this->fragment === $fragment) {
