@@ -6,7 +6,6 @@ use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\Psr7;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
 
 class RedirectMiddleware
 {
@@ -58,17 +57,6 @@ class RedirectMiddleware
         return $promise;
     }
 
-    private function withTracking(PromiseInterface $promise, $uri, $statusCode)
-    {
-        return $promise->then(function (ResponseInterface $response) use ($uri, $statusCode) {
-            $historyHeader = $response->getHeader(self::HISTORY_HEADER);
-            $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
-            array_unshift($historyHeader, $uri);
-            array_unshift($statusHeader, $statusCode);
-            return $response->withHeader(self::HISTORY_HEADER, $historyHeader)->withHeader(self::STATUS_HISTORY_HEADER, $statusHeader);
-        });
-    }
-
     private function guardMax(RequestInterface $request, array &$options)
     {
         $current = isset($options['__redirect_count']) ? $options['__redirect_count'] : 0;
@@ -114,5 +102,16 @@ class RedirectMiddleware
             throw new BadResponseException(sprintf('Redirect URI, %s, does not use one of the allowed redirect protocols: %s', $location, implode(', ', $protocols)), $request, $response);
         }
         return $location;
+    }
+
+    private function withTracking(PromiseInterface $promise, $uri, $statusCode)
+    {
+        return $promise->then(function (ResponseInterface $response) use ($uri, $statusCode) {
+            $historyHeader = $response->getHeader(self::HISTORY_HEADER);
+            $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
+            array_unshift($historyHeader, $uri);
+            array_unshift($statusHeader, $statusCode);
+            return $response->withHeader(self::HISTORY_HEADER, $historyHeader)->withHeader(self::STATUS_HISTORY_HEADER, $statusHeader);
+        });
     }
 }

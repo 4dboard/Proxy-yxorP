@@ -1,1 +1,5 @@
-<?php namespace Bugsnag\Request;interface ResolverInterface{public function resolve();}
+<?php namespace Bugsnag\Request;
+interface ResolverInterface
+{
+    public function resolve();
+}
