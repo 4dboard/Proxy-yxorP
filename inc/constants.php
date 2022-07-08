@@ -540,7 +540,7 @@ class constants
         echo 4;
         /* Setting the token to the snag key. */
         self::set(VAR_SNAG, \yxorP\snag\Client::make(ENV_BUG_SNAG_KEY));
-        /* Setting the token PROXY to a new instance of the \\yxorP\proxy class. */
+        /* Setting the token PROXY to a new instance of the \yxorP\proxy class. */
 
         echo 5;
         self::set(VAR_proxy, new Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
