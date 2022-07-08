@@ -98,7 +98,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @return array
      */
-    public function getQueryParams(): array;
+    public function getQueryParams(): mixed;
 
     /**
      * Return an instance with the specified query string arguments.
@@ -122,7 +122,7 @@ interface ServerRequestInterface extends RequestInterface
      *     $_GET.
      * @return static
      */
-    public function withQueryParams(array $query): static;
+    public function withQueryParams(array $query): mixed;
 
     /**
      * Retrieve normalized file upload data.
@@ -166,7 +166,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return null|array|object The deserialized body parameters, if any.
      *     These will typically be an array or object.
      */
-    public function getParsedBody(): object|array|null;
+    public function getParsedBody(): mixed;
 
     /**
      * Return an instance with the specified body parameters.
