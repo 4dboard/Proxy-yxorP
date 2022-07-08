@@ -199,7 +199,7 @@ class request
 
     /* A getter method for the `$url` property. */
 
-    #[Pure] #[Pure] public function getUrl(): string
+    #[Pure] public function getUrl(): string
     {
         return YXORP_PROXY_URL;
     }

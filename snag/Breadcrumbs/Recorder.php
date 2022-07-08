@@ -50,7 +50,7 @@ class Recorder implements Countable, Iterator
         $this->position = 0;
     }
 
-    #[Pure] #[Pure] #[ReturnTypeWillChange] public function valid(): bool
+    #[Pure] #[ReturnTypeWillChange] public function valid(): bool
     {
         return $this->position < $this->count();
     }

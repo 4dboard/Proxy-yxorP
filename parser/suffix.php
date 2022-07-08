@@ -20,7 +20,7 @@ final class suffix implements effectiveTopLevelDomainInterface
         $this->section = $section;
     }
 
-    #[Pure] #[Pure] public static function __set_state(array $properties): self
+    #[Pure] public static function __set_state(array $properties): self
     {
         return new self($properties['domain'], $properties['section']);
     }

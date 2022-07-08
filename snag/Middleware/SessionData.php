@@ -10,7 +10,7 @@ class SessionData
     private Client $client;
     private SessionTracker $sessionTracker;
 
-    #[Pure] #[Pure] public function __construct(Client $client)
+    #[Pure] public function __construct(Client $client)
     {
         $this->client = $client;
         $this->sessionTracker = $client->getSessionTracker();
