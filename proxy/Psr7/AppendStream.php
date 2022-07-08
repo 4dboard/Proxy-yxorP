@@ -114,7 +114,7 @@ class AppendStream implements StreamInterface
         return copy_to_string($this);
     }
 
-    public function close()
+    public function close(): mixed
     {
         $this->pos = $this->current = 0;
         $this->seekable = true;
@@ -124,7 +124,7 @@ class AppendStream implements StreamInterface
         $this->streams = [];
     }
 
-    public function detach()
+    public function detach(): mixed
     {
         $this->pos = $this->current = 0;
         $this->seekable = true;
