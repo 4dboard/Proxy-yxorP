@@ -11,7 +11,6 @@ use yxorP\parse\parse;
 use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\Rules;
-use yxorP\parser\topLevelDomains;
 use function cockpit;
 
 class constants
@@ -707,26 +706,6 @@ class constants
         return $GLOBALS[$_name];
     }
 
-    /**
-     * @param string $domain
-     * @return string|array|object|null
-     */
-    public static function topLevelDomains($domain)
-    {
-        $topLevelDomains = topLevelDomains::fromPath($domain);
-        $domain = domain::fromIDNA2008($domain);
-
-
-        return $topLevelDomains->resolve($domain);
-        /*
-        echo $result->domain()->toString();            //display 'www.pref.okinawa.jp';
-        echo $result->suffix()->toString();            //display 'jp';
-        echo $result->secondLevelDomain()->toString(); //display 'okinawa';
-        echo $result->registrableDomain()->toString(); //display 'okinawa.jp';
-        echo $result->subDomain()->toString();         //display 'www.pref';
-        echo $result->suffix()->isIANA();              //return true
-        */
-    }
 
     /**
      * @param string $domain
