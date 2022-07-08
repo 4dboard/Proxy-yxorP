@@ -4,6 +4,7 @@ namespace yxorP\inc;
 
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
 
+use Bugsnag\Client;
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 use yxorP\parse\parse;
@@ -11,7 +12,6 @@ use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\parser\Rules;
-use \GuzzleHttp;
 use function cockpit;
 
 class constants
@@ -550,7 +550,7 @@ class constants
 
         // Reporting
         /* Setting the token to the snag key. */
-        self::set(VAR_BUGSNAG, \Bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        self::set(VAR_BUGSNAG, Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \\GuzzleHttp class. */
         self::set(VAR_GUZZLE, new Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
