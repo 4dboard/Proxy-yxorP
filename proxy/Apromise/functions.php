@@ -52,9 +52,9 @@ function rejection_for($reason): RejectedPromise|PromiseInterface
     return new RejectedPromise($reason);
 }
 
-function exception_for($reason): Throwable|RejectionException
+function exception_for($reason): Throwable|AARejectionException
 {
-    return $reason instanceof Throwable ? $reason : new RejectionException($reason);
+    return $reason instanceof Throwable ? $reason : new AARejectionException($reason);
 }
 
 function iter_for($value): Iterator|ArrayIterator
@@ -72,7 +72,7 @@ function inspect(PromiseInterface $promise): array
 {
     try {
         return ['state' => PromiseInterface::FULFILLED, 'value' => $promise->wait()];
-    } catch (RejectionException $e) {
+    } catch (AARejectionException $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
     } catch (Throwable $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
@@ -126,7 +126,7 @@ function some($count, $promises): RejectedPromise|FulfilledPromise|Promise|Promi
         $rejections[] = $reason;
     })->then(function () use (&$results, &$rejections, $count) {
         if (count($results) !== $count) {
-            throw new AggregateException('Not enough promises to fulfill count', $rejections);
+            throw new AggregateExceptionAA('Not enough promises to fulfill count', $rejections);
         }
         ksort($results);
         return array_values($results);
