@@ -2,6 +2,7 @@
 
 namespace yxorP\proxy\Psr7;
 
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 
 /**
@@ -10,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
  */
 class MultipartStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AAAStreamDecoratorTrait;
 
     private $boundary;
 
@@ -24,40 +25,12 @@ class MultipartStream implements StreamInterface
      *                         string to send as the filename in the part.
      * @param string $boundary You can optionally provide a specific boundary
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function __construct(array $elements = [], $boundary = null)
     {
         $this->boundary = $boundary ?: sha1(uniqid('', true));
         $this->stream = $this->createStream($elements);
-    }
-
-    /**
-     * Get the boundary
-     *
-     * @return string
-     */
-    public function getBoundary()
-    {
-        return $this->boundary;
-    }
-
-    public function isWritable()
-    {
-        return false;
-    }
-
-    /**
-     * Get the headers needed before transferring the content of a POST file
-     */
-    private function getHeaders(array $headers)
-    {
-        $str = '';
-        foreach ($headers as $key => $value) {
-            $str .= "{$key}: {$value}\r\n";
-        }
-
-        return "--{$this->boundary}\r\n" . trim($str) . "\r\n\r\n";
     }
 
     /**
@@ -81,7 +54,7 @@ class MultipartStream implements StreamInterface
     {
         foreach (['contents', 'name'] as $key) {
             if (!array_key_exists($key, $element)) {
-                throw new \InvalidArgumentException("A '{$key}' key is required");
+                throw new InvalidArgumentException("A '{$key}' key is required");
             }
         }
 
@@ -150,5 +123,33 @@ class MultipartStream implements StreamInterface
         }
 
         return null;
+    }
+
+    /**
+     * Get the headers needed before transferring the content of a POST file
+     */
+    private function getHeaders(array $headers)
+    {
+        $str = '';
+        foreach ($headers as $key => $value) {
+            $str .= "{$key}: {$value}\r\n";
+        }
+
+        return "--{$this->boundary}\r\n" . trim($str) . "\r\n\r\n";
+    }
+
+    /**
+     * Get the boundary
+     *
+     * @return string
+     */
+    public function getBoundary()
+    {
+        return $this->boundary;
+    }
+
+    public function isWritable()
+    {
+        return false;
     }
 }

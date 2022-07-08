@@ -11,7 +11,7 @@ use Psr\Http\Message\StreamInterface;
  */
 class CachingStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AAAStreamDecoratorTrait;
 
     /** @var StreamInterface Stream being wrapped */
     private $remoteStream;

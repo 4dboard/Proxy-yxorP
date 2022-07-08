@@ -2,13 +2,16 @@
 
 namespace yxorP\proxy\Psr7;
 
+use BadMethodCallException;
+use Exception;
 use Psr\Http\Message\StreamInterface;
+use UnexpectedValueException;
 
 /**
  * Stream decorator trait
  * @property StreamInterface stream
  */
-trait StreamDecoratorTrait
+trait AAAStreamDecoratorTrait
 {
     /**
      * @param StreamInterface $stream Stream to decorate
@@ -33,7 +36,18 @@ trait StreamDecoratorTrait
             return $this->stream;
         }
 
-        throw new \UnexpectedValueException("$name not found on class");
+        throw new UnexpectedValueException("$name not found on class");
+    }
+
+    /**
+     * Implement in subclasses to dynamically create streams when requested.
+     *
+     * @return StreamInterface
+     * @throws BadMethodCallException
+     */
+    protected function createStream()
+    {
+        throw new BadMethodCallException('Not implemented');
     }
 
     public function __toString()
@@ -43,12 +57,22 @@ trait StreamDecoratorTrait
                 $this->seek(0);
             }
             return $this->getContents();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Really, PHP? https://bugs.php.net/bug.php?id=53648
             trigger_error('StreamDecorator::__toString exception: '
                 . (string)$e, E_USER_ERROR);
             return '';
         }
+    }
+
+    public function isSeekable()
+    {
+        return $this->stream->isSeekable();
+    }
+
+    public function seek($offset, $whence = SEEK_SET)
+    {
+        $this->stream->seek($offset, $whence);
     }
 
     public function getContents()
@@ -112,19 +136,9 @@ trait StreamDecoratorTrait
         return $this->stream->isWritable();
     }
 
-    public function isSeekable()
-    {
-        return $this->stream->isSeekable();
-    }
-
     public function rewind()
     {
         $this->seek(0);
-    }
-
-    public function seek($offset, $whence = SEEK_SET)
-    {
-        $this->stream->seek($offset, $whence);
     }
 
     public function read($length)
@@ -135,16 +149,5 @@ trait StreamDecoratorTrait
     public function write($string)
     {
         return $this->stream->write($string);
-    }
-
-    /**
-     * Implement in subclasses to dynamically create streams when requested.
-     *
-     * @return StreamInterface
-     * @throws \BadMethodCallException
-     */
-    protected function createStream()
-    {
-        throw new \BadMethodCallException('Not implemented');
     }
 }

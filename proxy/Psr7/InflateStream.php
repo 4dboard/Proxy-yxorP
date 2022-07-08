@@ -17,7 +17,7 @@ use Psr\Http\Message\StreamInterface;
  */
 class InflateStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AAAStreamDecoratorTrait;
 
     public function __construct(StreamInterface $stream)
     {

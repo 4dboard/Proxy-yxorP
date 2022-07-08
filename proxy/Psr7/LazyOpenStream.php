@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
  */
 class LazyOpenStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AAAStreamDecoratorTrait;
 
     /** @var string File to open */
     private $filename;

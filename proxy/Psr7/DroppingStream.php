@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamInterface;
  */
 class DroppingStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AAAStreamDecoratorTrait;
 
     private $maxLength;
 
