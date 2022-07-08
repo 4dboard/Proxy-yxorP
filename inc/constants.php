@@ -24,7 +24,6 @@ class constants
     public static function create(string $dir): void
     {
 
-        exit('51');
         /* Defining a constant called `DIR_ROOT` and setting it to the value of `$dir` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_ROOT', $dir . DIRECTORY_SEPARATOR);
@@ -523,6 +522,7 @@ class constants
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
 
 
+        exit('51');
         if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
 
         // REQUIRED
