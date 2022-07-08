@@ -136,7 +136,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return array An array tree of UploadedFileInterface instances; an empty
      *     array MUST be returned if no data is present.
      */
-    public function getUploadedFiles(): array;
+    public function getUploadedFiles(): mixed;
 
     /**
      * Create a new instance with the specified uploaded files.
@@ -149,7 +149,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return static
      * @throws InvalidArgumentException if an invalid structure is provided.
      */
-    public function withUploadedFiles(array $uploadedFiles): static;
+    public function withUploadedFiles(array $uploadedFiles): mixed;
 
     /**
      * Retrieve any parameters provided in the request body.

@@ -121,14 +121,14 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $normalizedFiles;
     }
 
-    public function withUploadedFiles(array $uploadedFiles): ServerRequest
+    public function withUploadedFiles(array $uploadedFiles): mixed
     {
         $new = clone $this;
         $new->uploadedFiles = $uploadedFiles;
         return $new;
     }
 
-    public function withParsedBody($data): ServerRequest
+    public function withParsedBody($data): mixed
     {
         $new = clone $this;
         $new->parsedBody = $data;
