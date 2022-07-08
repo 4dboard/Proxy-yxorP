@@ -635,9 +635,9 @@ class constants
         // TARGET DOMAIN
 
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
-        define('VAR_TARGET_PATTERN', $siteDetails[VAR_PATTERN]);
+        constants::set(VAR_TARGET_PATTERN, $siteDetails[VAR_PATTERN]);
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
-        define('VAR_TARGET_REPLACE', $siteDetails[VAR_REPLACE]);
+        constants::set(VAR_TARGET_REPLACE, $siteDetails[VAR_REPLACE]);
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         define('YXORP_TARGET_PLUGINS', $siteDetails[VAR_PLUGINS]);
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
