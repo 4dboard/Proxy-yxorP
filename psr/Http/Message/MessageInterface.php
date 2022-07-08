@@ -40,7 +40,7 @@ interface MessageInterface
      * @param string $version HTTP protocol version
      * @return static
      */
-    public function withProtocolVersion($version): static;
+    public function withProtocolVersion($version): mixed;
 
     /**
      * Retrieves all message header values.

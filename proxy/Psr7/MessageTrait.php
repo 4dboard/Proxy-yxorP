@@ -40,7 +40,7 @@ trait MessageTrait
         return implode(', ', $this->getHeader($header));
     }
 
-    public function getHeader($header)
+    public function getHeader($header): mixed
     {
         $header = strtolower($header);
         if (!isset($this->headerNames[$header])) {
