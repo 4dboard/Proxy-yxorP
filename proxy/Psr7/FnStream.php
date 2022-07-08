@@ -80,7 +80,7 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn___toString);
     }
 
-    public function close()
+    public function close(): mixed
     {
         return call_user_func($this->_fn_close);
     }
