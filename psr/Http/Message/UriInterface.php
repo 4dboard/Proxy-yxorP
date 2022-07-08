@@ -281,7 +281,7 @@ interface UriInterface
      * @return static A new instance with the specified query string.
      * @throws InvalidArgumentException for invalid query strings.
      */
-    public function withQuery($query): static;
+    public function withQuery($query): mixed;
 
     /**
      * Return an instance with the specified URI fragment.
@@ -297,7 +297,7 @@ interface UriInterface
      * @param string $fragment The fragment to use with the new instance.
      * @return static A new instance with the specified fragment.
      */
-    public function withFragment($fragment): static;
+    public function withFragment($fragment): mixed;
 
     /**
      * Return the string representation as a URI reference.
