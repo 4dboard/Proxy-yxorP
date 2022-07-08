@@ -627,13 +627,8 @@ class constants
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         $siteDomain = self::publicSuffix(YXORP_SITE_URL);
-
-        // --
-
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_SITE_DOMAIN', $siteDomain->registrableDomain()->toString() ?: $siteDomain->domain()->toString());
-        // SITE DETAILS
-
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         $siteDetails = constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
 
