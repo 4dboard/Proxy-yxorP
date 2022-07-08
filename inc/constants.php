@@ -663,15 +663,15 @@ class constants
         $siteDetails = constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]);
 
         // Target Domain
-        
+
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
-        constants::set(VAR_TARGET_PATTERN, constants::get(VAR_TARGET)[VAR_PATTERN]);
+        constants::set(VAR_TARGET_PATTERN, $siteDetails[VAR_PATTERN]);
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
-        constants::set(VAR_TARGET_REPLACE, constants::get(VAR_TARGET)[VAR_REPLACE]);
+        constants::set(VAR_TARGET_REPLACE, $siteDetails[VAR_REPLACE]);
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        constants::set(YXORP_TARGET_PLUGINS, constants::get(VAR_TARGET)[VAR_PLUGINS]);
+        constants::set(YXORP_TARGET_PLUGINS, $siteDetails[VAR_PLUGINS]);
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
-        constants::set(YXORP_TARGET_URL, (constants::get(VAR_TARGET))[COCKPIT_TARGET]);
+        constants::set(YXORP_TARGET_URL, ($siteDetails)[COCKPIT_TARGET]);
 
         // --
 
@@ -698,7 +698,7 @@ class constants
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
-        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . (constants::get(VAR_TARGET))[VAR_FILES]);
+        constants::set(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . ($siteDetails)[VAR_FILES]);
         /* Setting the cache key to the base64 encoded version of the proxy URL. */
         constants::set(CACHE_KEY, generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
         /* Setting the `REPLACE` context variable to the value of the `replace` type in the `global` collection. */
