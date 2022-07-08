@@ -990,10 +990,6 @@ class worker
             $reloadable_pid_array = [];
             foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
                 $worker = static::$_workers[$worker_id];
-                $worker_pid_array
-
-                $pid
-
                 if ($worker->reloadable) foreach ( as ) $reloadable_pid_array[$pid] = $pid; else foreach ( as ) posix_kill($pid, $sig);
                 static::$_pidsToRestart = array_intersect(static::$_pidsToRestart, $reloadable_pid_array);
                 if (empty(static::$_pidsToRestart)) {
