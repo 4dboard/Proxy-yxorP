@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy\Promise;
+
+namespace yxorP\proxy\Promise;
 
 /**
  * A task queue that executes tasks in a FIFO order.

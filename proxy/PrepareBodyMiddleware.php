@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 use \yxorP\proxy\Promise\PromiseInterface;
 use \yxorP\proxy\Psr7;

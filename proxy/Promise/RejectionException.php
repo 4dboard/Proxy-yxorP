@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy\Promise;
+
+namespace yxorP\proxy\Promise;
 
 /**
  * A special exception that is thrown when waiting on a rejected promise.

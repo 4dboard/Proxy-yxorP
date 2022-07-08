@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy\Handler;
+
+namespace yxorP\proxy\Handler;
 
 use \yxorP\proxy\Promise as P;
 use \yxorP\proxy\Promise\Promise;

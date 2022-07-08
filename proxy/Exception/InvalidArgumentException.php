@@ -1,6 +1,6 @@
 <?php
 
-namespace \yxorP\proxy\Exception;
+namespace yxorP\proxy\Exception;
 
 final class InvalidArgumentException extends \InvalidArgumentException implements GuzzleException
 {

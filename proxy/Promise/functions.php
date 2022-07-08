@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy\Promise;
+
+namespace yxorP\proxy\Promise;
 
 /**
  * Get the global task queue used for promise resolution.

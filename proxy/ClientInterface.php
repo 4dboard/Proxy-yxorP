@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 use \yxorP\proxy\Exception\GuzzleException;
 use \yxorP\proxy\Promise\PromiseInterface;

@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;

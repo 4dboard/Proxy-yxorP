@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 /**
  * Expands URI templates. Userland implementation of PECL uri_template.

@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy\Exception;
+
+namespace yxorP\proxy\Exception;
 
 /**
  * Exception when a server error is encountered (5xx codes)

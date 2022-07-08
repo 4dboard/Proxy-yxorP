@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -76,6 +77,131 @@ class Client implements ClientInterface
     }
 
     /**
+     * @param string $method
+     * @param array $args
+     *
+     * @return Promise\PromiseInterface
+     */
+    public function __call($method, $args)
+    {
+        if (count($args) < 1) {
+            throw new InvalidArgumentException('Magic request methods require a URI and optional options array');
+        }
+
+        $uri = $args[0];
+        $opts = isset($args[1]) ? $args[1] : [];
+
+        return substr($method, -5) === 'Async'
+            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
+            : $this->request($method, $uri, $opts);
+    }
+
+    /**
+     * Create and send an asynchronous HTTP request.
+     *
+     * Use an absolute path to override the base path of the client, or a
+     * relative path to append to the base path of the client. The URL can
+     * contain the query string as well. Use an array to provide a URL
+     * template and additional variables to use in the URL template expansion.
+     *
+     * @param string $method HTTP method
+     * @param string|UriInterface $uri URI object or string.
+     * @param array $options Request options to apply. See \yxorP\proxy\RequestOptions.
+     *
+     * @return Promise\PromiseInterface
+     */
+    public function requestAsync($method, $uri = '', array $options = [])
+    {
+        $options = $this->prepareDefaults($options);
+        // Remove request modifying parameter because it can be done up-front.
+        $headers = isset($options['headers']) ? $options['headers'] : [];
+        $body = isset($options['body']) ? $options['body'] : null;
+        $version = isset($options['version']) ? $options['version'] : '1.1';
+        // Merge the URI into the base URI.
+        $uri = $this->buildUri($uri, $options);
+        if (is_array($body)) {
+            $this->invalidBody();
+        }
+        $request = new Psr7\Request($method, $uri, $headers, $body, $version);
+        // Remove the option so that they are not doubly-applied.
+        unset($options['headers'], $options['body'], $options['version']);
+
+        return $this->transfer($request, $options);
+    }
+
+    /**
+     * Create and send an HTTP request.
+     *
+     * Use an absolute path to override the base path of the client, or a
+     * relative path to append to the base path of the client. The URL can
+     * contain the query string as well.
+     *
+     * @param string $method HTTP method.
+     * @param string|UriInterface $uri URI object or string.
+     * @param array $options Request options to apply. See \yxorP\proxy\RequestOptions.
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function request($method, $uri = '', array $options = [])
+    {
+        $options[RequestOptions::SYNCHRONOUS] = true;
+        return $this->requestAsync($method, $uri, $options)->wait();
+    }
+
+    /**
+     * Send an HTTP request.
+     *
+     * @param array $options Request options to apply to the given
+     *                       request and to the transfer. See \yxorP\proxy\RequestOptions.
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function send(RequestInterface $request, array $options = [])
+    {
+        $options[RequestOptions::SYNCHRONOUS] = true;
+        return $this->sendAsync($request, $options)->wait();
+    }
+
+    /**
+     * Asynchronously send an HTTP request.
+     *
+     * @param array $options Request options to apply to the given
+     *                       request and to the transfer. See \yxorP\proxy\RequestOptions.
+     *
+     * @return Promise\PromiseInterface
+     */
+    public function sendAsync(RequestInterface $request, array $options = [])
+    {
+        // Merge the base URI into the request URI if needed.
+        $options = $this->prepareDefaults($options);
+
+        return $this->transfer(
+            $request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')),
+            $options
+        );
+    }
+
+    /**
+     * Get a client configuration option.
+     *
+     * These options include default request options of the client, a "handler"
+     * (if utilized by the concrete client), and a "base_uri" if utilized by
+     * the concrete client.
+     *
+     * @param string|null $option The config option to retrieve.
+     *
+     * @return mixed
+     */
+    public function getConfig($option = null)
+    {
+        return $option === null
+            ? $this->config
+            : (isset($this->config[$option]) ? $this->config[$option] : null);
+    }
+
+    /**
      * Configures the default options for a client.
      *
      * @param array $config
@@ -128,59 +254,6 @@ class Client implements ClientInterface
             }
             $this->config['headers']['User-Agent'] = default_user_agent();
         }
-    }
-
-    /**
-     * @param string $method
-     * @param array $args
-     *
-     * @return Promise\PromiseInterface
-     */
-    public function __call($method, $args)
-    {
-        if (count($args) < 1) {
-            throw new InvalidArgumentException('Magic request methods require a URI and optional options array');
-        }
-
-        $uri = $args[0];
-        $opts = isset($args[1]) ? $args[1] : [];
-
-        return substr($method, -5) === 'Async'
-            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
-            : $this->request($method, $uri, $opts);
-    }
-
-    /**
-     * Create and send an asynchronous HTTP request.
-     *
-     * Use an absolute path to override the base path of the client, or a
-     * relative path to append to the base path of the client. The URL can
-     * contain the query string as well. Use an array to provide a URL
-     * template and additional variables to use in the URL template expansion.
-     *
-     * @param string $method HTTP method
-     * @param string|UriInterface $uri URI object or string.
-     * @param array $options Request options to apply. See \yxorP\proxy\RequestOptions.
-     *
-     * @return Promise\PromiseInterface
-     */
-    public function requestAsync($method, $uri = '', array $options = [])
-    {
-        $options = $this->prepareDefaults($options);
-        // Remove request modifying parameter because it can be done up-front.
-        $headers = isset($options['headers']) ? $options['headers'] : [];
-        $body = isset($options['body']) ? $options['body'] : null;
-        $version = isset($options['version']) ? $options['version'] : '1.1';
-        // Merge the URI into the base URI.
-        $uri = $this->buildUri($uri, $options);
-        if (is_array($body)) {
-            $this->invalidBody();
-        }
-        $request = new Psr7\Request($method, $uri, $headers, $body, $version);
-        // Remove the option so that they are not doubly-applied.
-        unset($options['headers'], $options['body'], $options['version']);
-
-        return $this->transfer($request, $options);
     }
 
     /**
@@ -425,77 +498,5 @@ class Client implements ClientInterface
         }
 
         return $request;
-    }
-
-    /**
-     * Create and send an HTTP request.
-     *
-     * Use an absolute path to override the base path of the client, or a
-     * relative path to append to the base path of the client. The URL can
-     * contain the query string as well.
-     *
-     * @param string $method HTTP method.
-     * @param string|UriInterface $uri URI object or string.
-     * @param array $options Request options to apply. See \yxorP\proxy\RequestOptions.
-     *
-     * @return ResponseInterface
-     * @throws GuzzleException
-     */
-    public function request($method, $uri = '', array $options = [])
-    {
-        $options[RequestOptions::SYNCHRONOUS] = true;
-        return $this->requestAsync($method, $uri, $options)->wait();
-    }
-
-    /**
-     * Send an HTTP request.
-     *
-     * @param array $options Request options to apply to the given
-     *                       request and to the transfer. See \yxorP\proxy\RequestOptions.
-     *
-     * @return ResponseInterface
-     * @throws GuzzleException
-     */
-    public function send(RequestInterface $request, array $options = [])
-    {
-        $options[RequestOptions::SYNCHRONOUS] = true;
-        return $this->sendAsync($request, $options)->wait();
-    }
-
-    /**
-     * Asynchronously send an HTTP request.
-     *
-     * @param array $options Request options to apply to the given
-     *                       request and to the transfer. See \yxorP\proxy\RequestOptions.
-     *
-     * @return Promise\PromiseInterface
-     */
-    public function sendAsync(RequestInterface $request, array $options = [])
-    {
-        // Merge the base URI into the request URI if needed.
-        $options = $this->prepareDefaults($options);
-
-        return $this->transfer(
-            $request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')),
-            $options
-        );
-    }
-
-    /**
-     * Get a client configuration option.
-     *
-     * These options include default request options of the client, a "handler"
-     * (if utilized by the concrete client), and a "base_uri" if utilized by
-     * the concrete client.
-     *
-     * @param string|null $option The config option to retrieve.
-     *
-     * @return mixed
-     */
-    public function getConfig($option = null)
-    {
-        return $option === null
-            ? $this->config
-            : (isset($this->config[$option]) ? $this->config[$option] : null);
     }
 }

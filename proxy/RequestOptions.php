@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 /**
  * This class contains a list of built-in Guzzle request options.

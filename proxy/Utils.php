@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 use \yxorP\proxy\Exception\InvalidArgumentException;
 use Psr\Http\Message\UriInterface;

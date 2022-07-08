@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy;
+
+namespace yxorP\proxy;
 
 use \yxorP\proxy\Handler\CurlHandler;
 use \yxorP\proxy\Handler\CurlMultiHandler;

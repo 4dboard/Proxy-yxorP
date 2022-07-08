@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy\Handler;
+
+namespace yxorP\proxy\Handler;
 
 use \yxorP\proxy\Psr7;
 use Psr\Http\Message\RequestInterface;

@@ -1,5 +1,6 @@
 <?php
-namespace \yxorP\proxy\Cookie;
+
+namespace yxorP\proxy\Cookie;
 
 /**
  * Persists non-session cookies using a JSON formatted file
