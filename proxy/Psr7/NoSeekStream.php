@@ -5,7 +5,7 @@ use yxorP\psr\Http\Message\StreamInterface;
 
 class NoSeekStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     public function seek($offset, $whence = SEEK_SET)
     {

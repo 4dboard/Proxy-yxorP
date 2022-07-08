@@ -5,7 +5,7 @@ use yxorP\psr\Http\Message\StreamInterface;
 
 class MultipartStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     private mixed $boundary;
 

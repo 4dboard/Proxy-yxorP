@@ -4,7 +4,7 @@ use yxorP\psr\Http\Message\StreamInterface;
 
 class InflateStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     public function __construct(StreamInterface $stream)
     {

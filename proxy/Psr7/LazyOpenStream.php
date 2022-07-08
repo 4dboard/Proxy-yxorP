@@ -4,7 +4,7 @@ use yxorP\psr\Http\Message\StreamInterface;
 
 class LazyOpenStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     private $filename;
     private $mode;

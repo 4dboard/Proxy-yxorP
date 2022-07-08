@@ -5,7 +5,7 @@ use yxorP\psr\Http\Message\StreamInterface;
 
 class LimitStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     private $offset;
     private $limit;

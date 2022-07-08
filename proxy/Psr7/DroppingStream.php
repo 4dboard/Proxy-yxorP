@@ -4,7 +4,7 @@ use yxorP\psr\Http\Message\StreamInterface;
 
 class DroppingStream implements StreamInterface
 {
-    use StreamDecoratorTrait;
+    use AStreamDecoratorTrait;
 
     private $maxLength;
 
