@@ -2,24 +2,25 @@
 
 use Exception;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
 
 class SessionTracker
 {
-    private static $SESSION_PAYLOAD_VERSION = HttpClient::SESSION_PAYLOAD_VERSION;
-    private static $DELIVERY_INTERVAL = 30;
-    private static $MAX_SESSION_COUNT = 50;
-    private static $SESSION_COUNTS_KEY = 'bugsnag-session-counts';
-    private static $SESSIONS_LAST_SENT_KEY = 'bugsnag-sessions-last-sent';
-    private $config;
-    private $http;
-    private $sessionCounts = [];
+    private static string $SESSION_PAYLOAD_VERSION = HttpClient::SESSION_PAYLOAD_VERSION;
+    private static int $DELIVERY_INTERVAL = 30;
+    private static int $MAX_SESSION_COUNT = 50;
+    private static string $SESSION_COUNTS_KEY = 'bugsnag-session-counts';
+    private static string $SESSIONS_LAST_SENT_KEY = 'bugsnag-sessions-last-sent';
+    private Configuration $config;
+    private HttpClient $http;
+    private array $sessionCounts = [];
     private $lockFunction = null;
     private $unlockFunction = null;
     private $retryFunction = null;
     private $storageFunction = null;
     private $sessionFunction = null;
-    private $lastSent = 0;
-    private $currentSession = [];
+    private int $lastSent = 0;
+    private array $currentSession = [];
 
     public function __construct(Configuration $config, HttpClient $http = null)
     {
@@ -40,7 +41,7 @@ class SessionTracker
         $this->incrementSessions($currentTime);
     }
 
-    public function getCurrentSession()
+    public function getCurrentSession(): bool|array
     {
         if (is_callable($this->sessionFunction)) {
             $currentSession = call_user_func($this->sessionFunction);
@@ -139,7 +140,7 @@ class SessionTracker
         }
     }
 
-    protected function getSessionCounts()
+    protected function getSessionCounts(): bool|array
     {
         if (is_callable($this->storageFunction)) {
             $sessionCounts = call_user_func($this->storageFunction, self::$SESSION_COUNTS_KEY);
@@ -169,7 +170,7 @@ class SessionTracker
         $this->setSessionCounts($sessionCounts);
     }
 
-    protected function getLastSent()
+    protected function getLastSent(): int
     {
         if (is_callable($this->storageFunction)) {
             $lastSent = call_user_func($this->storageFunction, self::$SESSIONS_LAST_SENT_KEY);
@@ -217,7 +218,7 @@ class SessionTracker
         }
     }
 
-    protected function constructPayload(array $sessions)
+    #[ArrayShape(['notifier' => "string[]", 'device' => "array", 'app' => "array", 'sessionCounts' => "array"])] protected function constructPayload(array $sessions): array
     {
         $formattedSessions = [];
         foreach ($sessions as $minute => $count) {

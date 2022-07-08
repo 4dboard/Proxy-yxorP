@@ -10,17 +10,17 @@ class MessageFormatter
     const CLF = "{hostname} {req_header_User-Agent} - [{date_common_log}] \"{method} {target} HTTP/{version}\" {code} {res_header_Content-Length}";
     const DEBUG = ">>>>>>>>\n{request}\n<<<<<<<<\n{response}\n--------\n{error}";
     const SHORT = '[{ts}] "{method} {target} HTTP/{version}" {code}';
-    private $template;
+    private mixed $template;
 
     public function __construct($template = self::CLF)
     {
         $this->template = $template ?: self::CLF;
     }
 
-    public function format(RequestInterface $request, ResponseInterface $response = null, Exception $error = null)
+    public function format(RequestInterface $request, ResponseInterface $response = null, Exception $error = null): array|string|null
     {
         $cache = [];
-        return preg_replace_callback('/{\s*([A-Za-z_\-\.0-9]+)\s*}/', function (array $matches) use ($request, $response, $error, &$cache) {
+        return preg_replace_callback('/{\s*([A-Za-z_\-.0-9]+)\s*}/', function (array $matches) use ($request, $response, $error, &$cache) {
             if (isset($cache[$matches[1]])) {
                 return $cache[$matches[1]];
             }
@@ -54,6 +54,7 @@ class MessageFormatter
                 case 'method':
                     $result = $request->getMethod();
                     break;
+                case 'req_version':
                 case 'version':
                     $result = $request->getProtocolVersion();
                     break;
@@ -63,9 +64,6 @@ class MessageFormatter
                     break;
                 case 'target':
                     $result = $request->getRequestTarget();
-                    break;
-                case 'req_version':
-                    $result = $request->getProtocolVersion();
                     break;
                 case 'res_version':
                     $result = $response ? $response->getProtocolVersion() : 'NULL';
@@ -86,9 +84,9 @@ class MessageFormatter
                     $result = $error ? $error->getMessage() : 'NULL';
                     break;
                 default:
-                    if (strpos($matches[1], 'req_header_') === 0) {
+                    if (str_starts_with($matches[1], 'req_header_')) {
                         $result = $request->getHeaderLine(substr($matches[1], 11));
-                    } elseif (strpos($matches[1], 'res_header_') === 0) {
+                    } elseif (str_starts_with($matches[1], 'res_header_')) {
                         $result = $response ? $response->getHeaderLine(substr($matches[1], 11)) : 'NULL';
                     }
             }
@@ -97,7 +95,7 @@ class MessageFormatter
         }, $this->template);
     }
 
-    private function headers(MessageInterface $message)
+    private function headers(MessageInterface $message): string
     {
         $result = '';
         foreach ($message->getHeaders() as $name => $values) {

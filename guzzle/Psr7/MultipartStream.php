@@ -7,7 +7,7 @@ class MultipartStream implements StreamInterface
 {
     use StreamDecoratorTrait;
 
-    private $boundary;
+    private mixed $boundary;
 
     public function __construct(array $elements = [], $boundary = null)
     {
@@ -15,7 +15,7 @@ class MultipartStream implements StreamInterface
         $this->stream = $this->createStream($elements);
     }
 
-    protected function createStream(array $elements)
+    protected function createStream(array $elements): AppendStream
     {
         $stream = new AppendStream();
         foreach ($elements as $element) {
@@ -35,17 +35,17 @@ class MultipartStream implements StreamInterface
         $element['contents'] = stream_for($element['contents']);
         if (empty($element['filename'])) {
             $uri = $element['contents']->getMetadata('uri');
-            if (substr($uri, 0, 6) !== 'php://') {
+            if (!str_starts_with($uri, 'php://')) {
                 $element['filename'] = $uri;
             }
         }
-        list($body, $headers) = $this->createElement($element['name'], $element['contents'], isset($element['filename']) ? $element['filename'] : null, isset($element['headers']) ? $element['headers'] : []);
+        list($body, $headers) = $this->createElement($element['name'], $element['contents'], $element['filename'] ?? null, $element['headers'] ?? []);
         $stream->addStream(stream_for($this->getHeaders($headers)));
         $stream->addStream($body);
         $stream->addStream(stream_for("\r\n"));
     }
 
-    private function createElement($name, StreamInterface $stream, $filename, array $headers)
+    private function createElement($name, StreamInterface $stream, $filename, array $headers): array
     {
         $disposition = $this->getHeader($headers, 'content-disposition');
         if (!$disposition) {
@@ -77,7 +77,7 @@ class MultipartStream implements StreamInterface
         return null;
     }
 
-    private function getHeaders(array $headers)
+    private function getHeaders(array $headers): string
     {
         $str = '';
         foreach ($headers as $key => $value) {
@@ -91,7 +91,7 @@ class MultipartStream implements StreamInterface
         return $this->boundary;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return false;
     }

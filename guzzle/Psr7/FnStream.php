@@ -1,13 +1,14 @@
 <?php namespace GuzzleHttp\Psr7;
 
 use BadMethodCallException;
+use JetBrains\PhpStorm\Pure;
 use LogicException;
 use Psr\Http\Message\StreamInterface;
 
 class FnStream implements StreamInterface
 {
-    private static $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
-    private $methods;
+    private static array $slots = ['__toString', 'close', 'detach', 'rewind', 'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write', 'isReadable', 'read', 'getContents', 'getMetadata'];
+    private array $methods;
 
     public function __construct(array $methods)
     {
@@ -17,7 +18,7 @@ class FnStream implements StreamInterface
         }
     }
 
-    public static function decorate(StreamInterface $stream, array $methods)
+    #[Pure] public static function decorate(StreamInterface $stream, array $methods): FnStream
     {
         foreach (array_diff(self::$slots, array_keys($methods)) as $diff) {
             $methods[$diff] = [$stream, $diff];

@@ -1,11 +1,13 @@
 <?php namespace Bugsnag\Request;
+use JetBrains\PhpStorm\ArrayShape;
+
 class PhpRequest implements RequestInterface
 {
-    private $server;
-    private $session;
-    private $cookies;
-    private $headers;
-    private $input;
+    private array $server;
+    private array $session;
+    private array $cookies;
+    private array $headers;
+    private ?array $input;
 
     public function __construct(array $server, array $session, array $cookies, array $headers, array $input = null)
     {
@@ -16,22 +18,22 @@ class PhpRequest implements RequestInterface
         $this->input = $input;
     }
 
-    public function isRequest()
+    public function isRequest(): bool
     {
         return true;
     }
 
-    public function getSession()
+    public function getSession(): array
     {
         return $this->session;
     }
 
-    public function getCookies()
+    public function getCookies(): array
     {
         return $this->cookies;
     }
 
-    public function getMetaData()
+    #[ArrayShape(['request' => "array"])] public function getMetaData(): array
     {
         $data = [];
         $data['url'] = $this->getCurrentUrl();
@@ -49,7 +51,7 @@ class PhpRequest implements RequestInterface
         return ['request' => $data];
     }
 
-    public function getContext()
+    public function getContext(): ?string
     {
         if (isset($this->server['REQUEST_METHOD']) && isset($this->server['REQUEST_URI'])) {
             return $this->server['REQUEST_METHOD'] . ' ' . strtok($this->server['REQUEST_URI'], '?');
@@ -62,10 +64,10 @@ class PhpRequest implements RequestInterface
         return $this->getRequestIp();
     }
 
-    protected function getCurrentUrl()
+    protected function getCurrentUrl(): string
     {
         $schema = ((!empty($this->server['HTTPS']) && $this->server['HTTPS'] !== 'off') || (!empty($this->server['SERVER_PORT']) && $this->server['SERVER_PORT'] == 443)) ? 'https://' : 'http://';
-        $host = isset($this->server['HTTP_HOST']) ? $this->server['HTTP_HOST'] : 'localhost';
+        $host = $this->server['HTTP_HOST'] ?? 'localhost';
         return $schema . $host . $this->server['REQUEST_URI'];
     }
 

@@ -61,7 +61,7 @@ final class idna
 
     public static function toUnicode(string $domain, int $options): idnaInfo
     {
-        if (false === strpos($domain, 'xn--')) {
+        if (!str_contains($domain, 'xn--')) {
             return idnaInfo::fromIntl(['result' => $domain, 'isTransitionalDifferent' => false, 'errors' => 0]);
         }
         self::supportsIdna();

@@ -6,12 +6,12 @@ use Throwable;
 
 class Promise implements PromiseInterface
 {
-    private $state = self::PENDING;
+    private string $state = self::PENDING;
     private $result;
     private $cancelFn;
     private $waitFn;
     private $waitList;
-    private $handlers = [];
+    private array $handlers = [];
 
     public function __construct(callable $waitFn = null, callable $cancelFn = null)
     {
@@ -38,12 +38,12 @@ class Promise implements PromiseInterface
         }
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): FulfilledPromise|RejectedPromise|Promise|PromiseInterface
     {
         return $this->then(null, $onRejected);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(callable $onFulfilled = null, callable $onRejected = null): FulfilledPromise|RejectedPromise|Promise|PromiseInterface
     {
         if ($this->state === self::PENDING) {
             $p = new Promise(null, [$this, 'cancel']);
@@ -59,6 +59,9 @@ class Promise implements PromiseInterface
         return $onRejected ? $rejection->then(null, $onRejected) : $rejection;
     }
 
+    /**
+     * @throws Throwable
+     */
     public function wait($unwrap = true)
     {
         $this->waitIfPending();
@@ -77,7 +80,7 @@ class Promise implements PromiseInterface
         $this->settle(self::REJECTED, $reason);
     }
 
-    public function getState()
+    public function getState(): string
     {
         return $this->state;
     }
@@ -107,6 +110,9 @@ class Promise implements PromiseInterface
         $this->settle(self::FULFILLED, $value);
     }
 
+    /**
+     * @throws Exception
+     */
     private function waitIfPending()
     {
         if ($this->state !== self::PENDING) {
@@ -124,6 +130,9 @@ class Promise implements PromiseInterface
         }
     }
 
+    /**
+     * @throws Exception
+     */
     private function invokeWaitFn()
     {
         try {

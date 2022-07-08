@@ -9,7 +9,7 @@ final class GuzzleCompat
         return self::isUsingGuzzle5() ? $guzzle->getBaseUrl() : $guzzle->getConfig(self::getBaseUriOptionName());
     }
 
-    public static function isUsingGuzzle5()
+    public static function isUsingGuzzle5(): bool
     {
         if (defined(GuzzleHttp\ClientInterface::class . '::VERSION')) {
             $version = constant(GuzzleHttp\ClientInterface::class . '::VERSION');
@@ -18,12 +18,12 @@ final class GuzzleCompat
         return false;
     }
 
-    public static function getBaseUriOptionName()
+    public static function getBaseUriOptionName(): string
     {
         return self::isUsingGuzzle5() ? 'base_url' : 'base_uri';
     }
 
-    public static function applyRequestOptions(array $options, array $requestOptions)
+    public static function applyRequestOptions(array $options, array $requestOptions): array
     {
         if (self::isUsingGuzzle5()) {
             if (!isset($options['defaults'])) {

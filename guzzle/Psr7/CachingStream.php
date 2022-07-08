@@ -7,8 +7,8 @@ class CachingStream implements StreamInterface
 {
     use StreamDecoratorTrait;
 
-    private $remoteStream;
-    private $skipReadBytes = 0;
+    private StreamInterface $remoteStream;
+    private int $skipReadBytes = 0;
 
     public function __construct(StreamInterface $stream, StreamInterface $target = null)
     {
@@ -47,14 +47,14 @@ class CachingStream implements StreamInterface
         }
     }
 
-    private function cacheEntireStream()
+    private function cacheEntireStream(): int
     {
         $target = new FnStream(['write' => 'strlen']);
         copy_to_stream($this, $target);
         return $this->tell();
     }
 
-    public function read($length)
+    public function read($length): string
     {
         $data = $this->stream->read($length);
         $remaining = $length - strlen($data);
@@ -76,12 +76,12 @@ class CachingStream implements StreamInterface
         return max($this->stream->getSize(), $this->remoteStream->getSize());
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return $this->stream->eof() && $this->remoteStream->eof();
     }
 
-    public function write($string)
+    public function write($string): int
     {
         $overflow = (strlen($string) + $this->tell()) - $this->remoteStream->tell();
         if ($overflow > 0) {

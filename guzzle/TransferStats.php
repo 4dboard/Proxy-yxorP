@@ -5,11 +5,11 @@ use Psr\Http\Message\ResponseInterface;
 
 final class TransferStats
 {
-    private $request;
-    private $response;
-    private $transferTime;
-    private $handlerStats;
-    private $handlerErrorData;
+    private RequestInterface $request;
+    private ?ResponseInterface $response;
+    private mixed $transferTime;
+    private array $handlerStats;
+    private mixed $handlerErrorData;
 
     public function __construct(RequestInterface $request, ResponseInterface $response = null, $transferTime = null, $handlerErrorData = null, $handlerStats = [])
     {
@@ -20,17 +20,17 @@ final class TransferStats
         $this->handlerStats = $handlerStats;
     }
 
-    public function getRequest()
+    public function getRequest(): RequestInterface
     {
         return $this->request;
     }
 
-    public function getResponse()
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }
 
-    public function hasResponse()
+    public function hasResponse(): bool
     {
         return $this->response !== null;
     }
@@ -40,7 +40,7 @@ final class TransferStats
         return $this->handlerErrorData;
     }
 
-    public function getEffectiveUri()
+    public function getEffectiveUri(): \Psr\Http\Message\UriInterface
     {
         return $this->request->getUri();
     }
@@ -50,13 +50,13 @@ final class TransferStats
         return $this->transferTime;
     }
 
-    public function getHandlerStats()
+    public function getHandlerStats(): array
     {
         return $this->handlerStats;
     }
 
     public function getHandlerStat($stat)
     {
-        return isset($this->handlerStats[$stat]) ? $this->handlerStats[$stat] : null;
+        return $this->handlerStats[$stat] ?? null;
     }
 }

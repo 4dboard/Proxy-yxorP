@@ -19,6 +19,9 @@ final class timeToLive
         return self::until($date);
     }
 
+    /**
+     * @throws \Exception
+     */
     public static function until(DateTimeInterface $date): DateInterval
     {
         return (new DateTimeImmutable('NOW', $date->getTimezone()))->diff($date, false);

@@ -4,7 +4,7 @@ use DateTimeImmutable;
 
 final class Clock implements ClockInterface
 {
-    public function now()
+    public function now(): DateTimeImmutable
     {
         return new DateTimeImmutable();
     }

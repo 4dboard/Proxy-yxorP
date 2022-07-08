@@ -2,13 +2,14 @@
 
 use Bugsnag\Client;
 use Bugsnag\Report;
+use JetBrains\PhpStorm\Pure;
 
 class SessionData
 {
-    private $client;
-    private $sessionTracker;
+    private Client $client;
+    private \Bugsnag\SessionTracker $sessionTracker;
 
-    public function __construct(Client $client)
+    #[Pure] #[Pure] public function __construct(Client $client)
     {
         $this->client = $client;
         $this->sessionTracker = $client->getSessionTracker();

@@ -5,7 +5,7 @@ use RuntimeException;
 class SessionCookieJar extends CookieJar
 {
     private $sessionKey;
-    private $storeSessionCookies;
+    private mixed $storeSessionCookies;
 
     public function __construct($sessionKey, $storeSessionCookies = false)
     {

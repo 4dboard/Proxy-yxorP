@@ -19,17 +19,18 @@ use Bugsnag\Shutdown\PhpShutdownStrategy;
 use Bugsnag\Shutdown\ShutdownStrategyInterface;
 use Composer\CaBundle\CaBundle;
 use GuzzleHttp;
+use JetBrains\PhpStorm\Pure;
 
 class Client
 {
     const ENDPOINT = Configuration::NOTIFY_ENDPOINT;
     const DEFAULT_TIMEOUT_S = 15.0;
-    private $config;
-    private $resolver;
-    private $recorder;
-    private $pipeline;
-    private $http;
-    private $sessionTracker;
+    private Configuration $config;
+    private ResolverInterface|BasicResolver $resolver;
+    private Recorder $recorder;
+    private Pipeline $pipeline;
+    private HttpClient $http;
+    private SessionTracker $sessionTracker;
 
     public function __construct(Configuration $config, ResolverInterface $resolver = null, GuzzleHttp\ClientInterface $guzzle = null, ShutdownStrategyInterface $shutdownStrategy = null)
     {
@@ -49,13 +50,13 @@ class Client
         $shutdownStrategy->registerShutdownStrategy($this);
     }
 
-    public static function makeGuzzle($base = null, array $options = [])
+    public static function makeGuzzle($base = null, array $options = []): GuzzleHttp\Client
     {
         $options = self::resolveGuzzleOptions($base, $options);
         return new GuzzleHttp\Client($options);
     }
 
-    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true)
+    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
     {
         $env = new Env();
         $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
@@ -67,7 +68,7 @@ class Client
         return $client;
     }
 
-    protected static function getCaBundlePath()
+    protected static function getCaBundlePath(): bool|string
     {
         if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
             return false;
@@ -75,7 +76,7 @@ class Client
         return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
-    private static function resolveGuzzleOptions($base, array $options)
+    private static function resolveGuzzleOptions($base, array $options): array
     {
         $key = GuzzleCompat::getBaseUriOptionName();
         $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
@@ -86,30 +87,30 @@ class Client
         return GuzzleCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
     }
 
-    public function registerMiddleware(callable $middleware)
+    public function registerMiddleware(callable $middleware): static
     {
         $this->pipeline->pipe($middleware);
         return $this;
     }
 
-    public function registerDefaultCallbacks()
+    public function registerDefaultCallbacks(): static
     {
         $this->registerCallback(new GlobalMetaData($this->config))->registerCallback(new RequestMetaData($this->resolver))->registerCallback(new RequestSession($this->resolver))->registerCallback(new RequestUser($this->resolver))->registerCallback(new RequestContext($this->resolver));
         return $this;
     }
 
-    public function registerCallback(callable $callback)
+    public function registerCallback(callable $callback): static
     {
         $this->registerMiddleware(new CallbackBridge($callback));
         return $this;
     }
 
-    public function getConfig()
+    public function getConfig(): Configuration
     {
         return $this->config;
     }
 
-    public function getPipeline()
+    public function getPipeline(): Pipeline
     {
         return $this->pipeline;
     }
@@ -193,45 +194,45 @@ class Client
         $this->sessionTracker->startSession();
     }
 
-    public function getSessionTracker()
+    public function getSessionTracker(): SessionTracker
     {
         return $this->sessionTracker;
     }
 
-    public function getApiKey()
+    #[Pure] public function getApiKey(): string
     {
         return $this->config->getApiKey();
     }
 
-    public function setBatchSending($batchSending)
+    public function setBatchSending($batchSending): static
     {
         $this->config->setBatchSending($batchSending);
         return $this;
     }
 
-    public function isBatchSending()
+    #[Pure] public function isBatchSending(): bool
     {
         return $this->config->isBatchSending();
     }
 
-    public function setNotifyReleaseStages(array $notifyReleaseStages = null)
+    public function setNotifyReleaseStages(array $notifyReleaseStages = null): static
     {
         $this->config->setNotifyReleaseStages($notifyReleaseStages);
         return $this;
     }
 
-    public function shouldNotify()
+    public function shouldNotify(): bool
     {
         return $this->config->shouldNotify();
     }
 
-    public function setFilters(array $filters)
+    public function setFilters(array $filters): static
     {
         $this->config->setFilters($filters);
         return $this;
     }
 
-    public function getFilters()
+    #[Pure] public function getFilters(): array
     {
         return $this->config->getFilters();
     }
@@ -246,7 +247,7 @@ class Client
         $this->config->setProjectRootRegex($projectRootRegex);
     }
 
-    public function isInProject($file)
+    public function isInProject($file): bool
     {
         return $this->config->isInProject($file);
     }
@@ -266,167 +267,167 @@ class Client
         return $this->config->getStrippedFilePath($file);
     }
 
-    public function setSendCode($sendCode)
+    public function setSendCode($sendCode): static
     {
         $this->config->setSendCode($sendCode);
         return $this;
     }
 
-    public function shouldSendCode()
+    #[Pure] public function shouldSendCode(): bool
     {
         return $this->config->shouldSendCode();
     }
 
-    public function setNotifier(array $notifier)
+    public function setNotifier(array $notifier): static
     {
         $this->config->setNotifier($notifier);
         return $this;
     }
 
-    public function getNotifier()
+    #[Pure] public function getNotifier(): array
     {
         return $this->config->getNotifier();
     }
 
-    public function setAppVersion($appVersion)
+    public function setAppVersion($appVersion): static
     {
         $this->config->setAppVersion($appVersion);
         return $this;
     }
 
-    public function setReleaseStage($releaseStage)
+    public function setReleaseStage($releaseStage): static
     {
         $this->config->setReleaseStage($releaseStage);
         return $this;
     }
 
-    public function setAppType($type)
+    public function setAppType($type): static
     {
         $this->config->setAppType($type);
         return $this;
     }
 
-    public function setFallbackType($type)
+    public function setFallbackType($type): static
     {
         $this->config->setFallbackType($type);
         return $this;
     }
 
-    public function getAppData()
+    public function getAppData(): array
     {
         return $this->config->getAppData();
     }
 
-    public function setHostname($hostname)
+    public function setHostname($hostname): static
     {
         $this->config->setHostname($hostname);
         return $this;
     }
 
-    public function getDeviceData()
+    public function getDeviceData(): array
     {
         return $this->config->getDeviceData();
     }
 
-    public function setMetaData(array $metaData, $merge = true)
+    public function setMetaData(array $metaData, $merge = true): static
     {
         $this->config->setMetaData($metaData, $merge);
         return $this;
     }
 
-    public function getMetaData()
+    #[Pure] public function getMetaData(): array
     {
         return $this->config->getMetaData();
     }
 
-    public function setErrorReportingLevel($errorReportingLevel)
+    public function setErrorReportingLevel($errorReportingLevel): static
     {
         $this->config->setErrorReportingLevel($errorReportingLevel);
         return $this;
     }
 
-    public function shouldIgnoreErrorCode($code)
+    public function shouldIgnoreErrorCode($code): bool
     {
         return $this->config->shouldIgnoreErrorCode($code);
     }
 
-    public function setNotifyEndpoint($endpoint)
+    public function setNotifyEndpoint($endpoint): static
     {
         $this->config->setNotifyEndpoint($endpoint);
         return $this;
     }
 
-    public function getNotifyEndpoint()
+    #[Pure] public function getNotifyEndpoint(): string
     {
         return $this->config->getNotifyEndpoint();
     }
 
-    public function setSessionEndpoint($endpoint)
+    public function setSessionEndpoint($endpoint): static
     {
         $this->config->setSessionEndpoint($endpoint);
         return $this;
     }
 
-    public function getSessionEndpoint()
+    #[Pure] public function getSessionEndpoint(): string
     {
         return $this->config->getSessionEndpoint();
     }
 
-    public function setBuildEndpoint($endpoint)
+    public function setBuildEndpoint($endpoint): static
     {
         $this->config->setBuildEndpoint($endpoint);
         return $this;
     }
 
-    public function getBuildEndpoint()
+    #[Pure] public function getBuildEndpoint(): string
     {
         return $this->config->getBuildEndpoint();
     }
 
-    public function setAutoCaptureSessions($track)
+    public function setAutoCaptureSessions($track): static
     {
         $this->config->setAutoCaptureSessions($track);
         return $this;
     }
 
-    public function shouldCaptureSessions()
+    #[Pure] public function shouldCaptureSessions(): bool
     {
         return $this->config->shouldCaptureSessions();
     }
 
-    public function getSessionClient()
+    public function getSessionClient(): GuzzleHttp\Client|GuzzleHttp\ClientInterface|null
     {
         return $this->config->getSessionClient();
     }
 
-    public function setMemoryLimitIncrease($value)
+    public function setMemoryLimitIncrease($value): Configuration
     {
         return $this->config->setMemoryLimitIncrease($value);
     }
 
-    public function getMemoryLimitIncrease()
+    #[Pure] public function getMemoryLimitIncrease(): ?int
     {
         return $this->config->getMemoryLimitIncrease();
     }
 
-    public function setDiscardClasses(array $discardClasses)
+    public function setDiscardClasses(array $discardClasses): static
     {
         $this->config->setDiscardClasses($discardClasses);
         return $this;
     }
 
-    public function getDiscardClasses()
+    #[Pure] public function getDiscardClasses(): array
     {
         return $this->config->getDiscardClasses();
     }
 
-    public function setRedactedKeys(array $redactedKeys)
+    public function setRedactedKeys(array $redactedKeys): static
     {
         $this->config->setRedactedKeys($redactedKeys);
         return $this;
     }
 
-    public function getRedactedKeys()
+    #[Pure] public function getRedactedKeys(): array
     {
         return $this->config->getRedactedKeys();
     }

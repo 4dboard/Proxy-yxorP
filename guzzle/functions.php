@@ -20,7 +20,7 @@ function uri_template($template, array $variables)
     return $uriTemplate->expand($template, $variables);
 }
 
-function describe_type($input)
+function describe_type($input): array|string
 {
     switch (gettype($input)) {
         case 'object':
@@ -34,7 +34,7 @@ function describe_type($input)
     }
 }
 
-function headers_from_lines($lines)
+function headers_from_lines($lines): array
 {
     $headers = [];
     foreach ($lines as $line) {
@@ -44,7 +44,7 @@ function headers_from_lines($lines)
     return $headers;
 }
 
-function debug_resource($value = null)
+function debug_resource($value = null): bool
 {
     if (is_resource($value)) {
         return $value;
@@ -54,7 +54,7 @@ function debug_resource($value = null)
     return fopen('php://output', 'w');
 }
 
-function choose_handler()
+function choose_handler(): callable|StreamHandler|\Closure|CurlHandler|CurlMultiHandler
 {
     $handler = null;
     if (function_exists('curl_multi_exec') && function_exists('curl_exec')) {
@@ -72,11 +72,11 @@ function choose_handler()
     return $handler;
 }
 
-function default_user_agent()
+function default_user_agent(): string
 {
     static $defaultAgent = '';
     if (!$defaultAgent) {
-        $defaultAgent = 'GuzzleHttp/' . Client::VERSION;
+        $defaultAgent = 'GuzzleHttp/' . ClientInterface::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . curl_version()['version'];
         }
@@ -119,7 +119,7 @@ information.
 S;
 }
 
-function normalize_header_keys(array $headers)
+function normalize_header_keys(array $headers): array
 {
     $result = [];
     foreach (array_keys($headers) as $key) {
@@ -128,7 +128,7 @@ function normalize_header_keys(array $headers)
     return $result;
 }
 
-function is_host_in_noproxy($host, array $noProxyArray)
+function is_host_in_noproxy($host, array $noProxyArray): bool
 {
     if (strlen($host) === 0) {
         throw new InvalidArgumentException('Empty host provided');
@@ -162,7 +162,7 @@ function json_decode($json, $assoc = false, $depth = 512, $options = 0)
     return $data;
 }
 
-function json_encode($value, $options = 0, $depth = 512)
+function json_encode($value, $options = 0, $depth = 512): bool|string
 {
     $json = \json_encode($value, $options, $depth);
     if (JSON_ERROR_NONE !== json_last_error()) {

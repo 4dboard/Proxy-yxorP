@@ -10,7 +10,7 @@ use function count;
 class revolt implements eventInterface
 {
     /**
-     * @var Driver
+     * @var Driver|null
      */
     private ?Driver $_driver = null;
 

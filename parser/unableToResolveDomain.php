@@ -3,12 +3,13 @@
 namespace yxorP\parser;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 
 final class unableToResolveDomain extends InvalidArgumentException implements cannotProcessHostInterface
 {
     private ?domainNameInterface $domain;
 
-    private function __construct(string $message, ?domainNameInterface $domain = null)
+    #[Pure] private function __construct(string $message, ?domainNameInterface $domain = null)
     {
         parent::__construct($message);
         $this->domain = $domain;

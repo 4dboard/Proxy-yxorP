@@ -57,7 +57,7 @@ interface eventInterface
     /**
      * Cancel a callback of stream writable.
      * @param $stream
-     * @return mixed
+     * @return string|array|object|null
      */
     public function offWritable($stream): string|array|object|null;
 

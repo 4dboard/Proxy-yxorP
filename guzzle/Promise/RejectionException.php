@@ -5,7 +5,7 @@ use RuntimeException;
 
 class RejectionException extends RuntimeException
 {
-    private $reason;
+    private mixed $reason;
 
     public function __construct($reason, $description = null)
     {

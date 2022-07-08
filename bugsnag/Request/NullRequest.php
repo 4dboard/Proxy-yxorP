@@ -1,22 +1,22 @@
 <?php namespace Bugsnag\Request;
 class NullRequest implements RequestInterface
 {
-    public function isRequest()
+    public function isRequest(): bool
     {
         return false;
     }
 
-    public function getSession()
+    public function getSession(): array
     {
         return [];
     }
 
-    public function getCookies()
+    public function getCookies(): array
     {
         return [];
     }
 
-    public function getMetaData()
+    public function getMetaData(): array
     {
         return [];
     }

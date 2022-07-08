@@ -4,6 +4,9 @@ namespace yxorP\parser;
 
 use DateTimeImmutable;
 use Iterator;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
+use SplFileObject;
 use SplTempFileObject;
 use TypeError;
 use function count;
@@ -53,14 +56,14 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         $data = [];
         $file = new SplTempFileObject();
         $file->fwrite($content);
-        $file->setFlags(SplTempFileObject::DROP_NEW_LINE | SplTempFileObject::READ_AHEAD | SplTempFileObject::SKIP_EMPTY);
+        $file->setFlags(SplFileObject::DROP_NEW_LINE | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
         foreach ($file as $line) {
             $line = trim($line);
             if ([] === $data) {
                 $data = self::extractHeader($line);
                 continue;
             }
-            if (false === strpos($line, '#')) {
+            if (!str_contains($line, '#')) {
                 $data['records'] = $data['records'] ?? [];
                 $data['records'][self::extractRootZone($line)] = 1;
                 continue;
@@ -73,12 +76,12 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         throw unableToLoadTopLevelDomainList::dueToFailedConversion();
     }
 
-    public static function __set_state(array $properties): self
+    #[Pure] public static function __set_state(array $properties): self
     {
         return new self($properties['records'], $properties['version'], $properties['lastUpdated']);
     }
 
-    private static function extractHeader(string $content): array
+    #[ArrayShape(['version' => "mixed", 'lastUpdated' => "\DateTimeImmutable|false"])] private static function extractHeader(string $content): array
     {
         if (1 !== preg_match(self::REGEXP_HEADER_LINE, $content, $matches)) {
             throw unableToLoadTopLevelDomainList::dueToInvalidVersionLine($content);

@@ -567,7 +567,7 @@ class tcpConnection extends connectionInterface implements JsonSerializable
         return (int)substr(strrchr($address, ':'), 1);
     }
 
-    #[Pure] public function isIpV4(): bool
+    public function isIpV4(): bool
     {
         if ($this->transport === 'unix') {
             return false;
@@ -575,7 +575,7 @@ class tcpConnection extends connectionInterface implements JsonSerializable
         return !str_contains($this->getRemoteIp(), ':');
     }
 
-    #[Pure] public function isIpV6(): bool
+    public function isIpV6(): bool
     {
         if ($this->transport === 'unix') {
             return false;

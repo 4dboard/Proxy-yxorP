@@ -4,7 +4,7 @@ use DateTimeImmutable;
 
 final class Date
 {
-    public static function now(ClockInterface $clock = null)
+    public static function now(ClockInterface $clock = null): string
     {
         if ($clock === null) {
             $clock = new Clock();
@@ -13,7 +13,7 @@ final class Date
         return self::format($date);
     }
 
-    private static function format(DateTimeImmutable $date)
+    private static function format(DateTimeImmutable $date): string
     {
         $dateTime = $date->format('Y-m-d\TH:i:s');
         $microseconds = $date->format('u');

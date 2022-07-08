@@ -5,27 +5,29 @@ use Bugsnag\Breadcrumbs\Breadcrumb;
 use Bugsnag\DateTime\Date;
 use Exception;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use Throwable;
 use UnitEnum;
 
 class Report
 {
     const PAYLOAD_VERSION = HttpClient::NOTIFY_PAYLOAD_VERSION;
-    private $config;
-    private $originalError;
-    private $stacktrace;
+    private Configuration $config;
+    private array|null|Throwable $originalError;
+    private Stacktrace $stacktrace;
     private $previous;
-    private $name;
-    private $message;
-    private $severity;
-    private $context;
-    private $groupingHash;
-    private $metaData = [];
-    private $user = [];
-    private $breadcrumbs = [];
-    private $time;
-    private $unhandled = false;
-    private $severityReason = [];
+    private string $name;
+    private ?string $message;
+    private string $severity;
+    private ?string $context;
+    private ?string $groupingHash;
+    private array $metaData = [];
+    private array $user = [];
+    private array $breadcrumbs = [];
+    private string $time;
+    private bool $unhandled = false;
+    private array $severityReason = [];
     private $session;
 
     protected function __construct(Configuration $config)
@@ -34,28 +36,28 @@ class Report
         $this->time = Date::now();
     }
 
-    public static function fromPHPError(Configuration $config, $code, $message, $file, $line, $fatal = false)
+    public static function fromPHPError(Configuration $config, $code, $message, $file, $line, $fatal = false): static
     {
         $report = new static($config);
         $report->setPHPError($code, $message, $file, $line, $fatal)->setUnhandled(false)->setSeverityReason(['type' => 'handledError']);
         return $report;
     }
 
-    public static function fromPHPThrowable(Configuration $config, $throwable)
+    public static function fromPHPThrowable(Configuration $config, $throwable): static
     {
         $report = new static($config);
         $report->setPHPThrowable($throwable)->setUnhandled(false)->setSeverityReason(['type' => 'handledException']);
         return $report;
     }
 
-    public static function fromNamedError(Configuration $config, $name, $message = null)
+    public static function fromNamedError(Configuration $config, $name, $message = null): static
     {
         $report = new static($config);
         $report->setName($name)->setMessage($message)->setStacktrace(Stacktrace::generate($config))->setUnhandled(false)->setSeverityReason(['type' => 'handledError']);
         return $report;
     }
 
-    public function setPHPError($code, $message, $file, $line, $fatal = false)
+    public function setPHPError($code, $message, $file, $line, $fatal = false): static
     {
         $this->originalError = ['code' => $code, 'message' => $message, 'file' => $file, 'line' => $line, 'fatal' => $fatal,];
         if ($fatal) {
@@ -67,9 +69,9 @@ class Report
         return $this;
     }
 
-    public function setPHPThrowable($throwable)
+    public function setPHPThrowable($throwable): static
     {
-        if (!$throwable instanceof Throwable && !$throwable instanceof Exception) {
+        if (!$throwable instanceof Throwable) {
             throw new InvalidArgumentException('The throwable must implement Throwable or extend Exception.');
         }
         $this->originalError = $throwable;
@@ -80,23 +82,23 @@ class Report
         return $this;
     }
 
-    public function getOriginalError()
+    public function getOriginalError(): Throwable|array|null
     {
         return $this->originalError;
     }
 
-    public function getStacktrace()
+    public function getStacktrace(): Stacktrace
     {
         return $this->stacktrace;
     }
 
-    protected function setStacktrace(Stacktrace $stacktrace)
+    protected function setStacktrace(Stacktrace $stacktrace): static
     {
         $this->stacktrace = $stacktrace;
         return $this;
     }
 
-    public function addMetaData(array $metadata)
+    public function addMetaData(array $metadata): static
     {
         $this->metaData = array_replace_recursive($this->metaData, $metadata);
         $this->metaData = $this->removeNullElements($this->metaData);
@@ -115,7 +117,7 @@ class Report
         $this->breadcrumbs[] = $data;
     }
 
-    public function getSummary()
+    public function getSummary(): array
     {
         $summary = [];
         $name = $this->getName();
@@ -128,12 +130,12 @@ class Report
         return array_filter($summary);
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function setName($name)
+    public function setName($name): static
     {
         if (is_scalar($name) || (is_object($name) && method_exists($name, '__toString'))) {
             $this->name = (string)$name;
@@ -146,12 +148,12 @@ class Report
         return $this;
     }
 
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->message;
     }
 
-    public function setMessage($message)
+    public function setMessage($message): static
     {
         if ($message === null) {
             $this->message = null;
@@ -163,12 +165,12 @@ class Report
         return $this;
     }
 
-    public function getSeverity()
+    public function getSeverity(): string
     {
         return $this->severity ?: 'warning';
     }
 
-    public function setSeverity($severity)
+    public function setSeverity($severity): static
     {
         if (in_array($severity, ['error', 'warning', 'info', null], true)) {
             $this->severity = $severity;
@@ -183,7 +185,7 @@ class Report
         $this->session = $session;
     }
 
-    public function getErrors()
+    #[Pure] public function getErrors(): array
     {
         $errors = [$this->toError()];
         $previous = $this->previous;
@@ -194,7 +196,7 @@ class Report
         return $errors;
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         $event = ['app' => $this->config->getAppData(), 'device' => array_merge(['time' => $this->time], $this->config->getDeviceData()), 'user' => $this->getUser(), 'context' => $this->getContext(), 'payloadVersion' => HttpClient::NOTIFY_PAYLOAD_VERSION, 'severity' => $this->getSeverity(), 'exceptions' => $this->exceptionArray(), 'breadcrumbs' => $this->breadcrumbs, 'metaData' => $this->cleanupObj($this->getMetaData(), true), 'unhandled' => $this->getUnhandled(), 'severityReason' => $this->getSeverityReason(),];
         if ($hash = $this->getGroupingHash()) {
@@ -206,51 +208,51 @@ class Report
         return $event;
     }
 
-    public function getUser()
+    public function getUser(): array
     {
         return $this->user;
     }
 
-    public function setUser(array $user)
+    public function setUser(array $user): static
     {
         $this->user = $user;
         return $this;
     }
 
-    public function getContext()
+    public function getContext(): ?string
     {
         return $this->context;
     }
 
-    public function setContext($context)
+    public function setContext($context): static
     {
         $this->context = $context;
         return $this;
     }
 
-    public function getMetaData()
+    public function getMetaData(): array
     {
         return $this->metaData;
     }
 
-    public function setMetaData(array $metaData, $merge = true)
+    public function setMetaData(array $metaData, $merge = true): static
     {
         $this->metaData = $merge ? array_merge_recursive($this->metaData, $metaData) : $metaData;
         return $this;
     }
 
-    public function getUnhandled()
+    public function getUnhandled(): bool
     {
         return $this->unhandled;
     }
 
-    public function setUnhandled($unhandled)
+    public function setUnhandled($unhandled): static
     {
         $this->unhandled = $unhandled;
         return $this;
     }
 
-    public function getSeverityReason()
+    public function getSeverityReason(): array
     {
         if (!array_key_exists('type', $this->severityReason)) {
             syslog(LOG_WARNING, 'Severity reason should always have a "type" set');
@@ -259,24 +261,24 @@ class Report
         return $this->severityReason;
     }
 
-    public function setSeverityReason(array $severityReason)
+    public function setSeverityReason(array $severityReason): static
     {
         $this->severityReason = $severityReason;
         return $this;
     }
 
-    public function getGroupingHash()
+    public function getGroupingHash(): ?string
     {
         return $this->groupingHash;
     }
 
-    public function setGroupingHash($groupingHash)
+    public function setGroupingHash($groupingHash): static
     {
         $this->groupingHash = $groupingHash;
         return $this;
     }
 
-    protected function setPrevious($throwable)
+    protected function setPrevious($throwable): static
     {
         if ($throwable) {
             $this->previous = static::fromPHPThrowable($this->config, $throwable);
@@ -320,7 +322,7 @@ class Report
         return $obj;
     }
 
-    protected function shouldFilter($key, $isMetaData)
+    protected function shouldFilter($key, $isMetaData): bool
     {
         if (!$isMetaData) {
             return false;
@@ -351,12 +353,12 @@ class Report
         return $this->cleanupObj($exceptionArray, false);
     }
 
-    protected function exceptionObject()
+    #[Pure] #[ArrayShape(['errorClass' => "string", 'message' => "null|string", 'stacktrace' => "array|array[]"])] protected function exceptionObject(): array
     {
         return ['errorClass' => $this->name, 'message' => $this->message, 'stacktrace' => $this->stacktrace->toArray(),];
     }
 
-    private function enumToString(UnitEnum $enum)
+    private function enumToString(UnitEnum $enum): string
     {
         $string = sprintf('%s::%s', get_class($enum), $enum->name);
         if ($enum instanceof BackedEnum) {
@@ -365,7 +367,7 @@ class Report
         return $string;
     }
 
-    private function toError()
+    #[ArrayShape(['errorClass' => "string", 'errorMessage' => "null|string", 'type' => "string"])] private function toError(): array
     {
         return ['errorClass' => $this->name, 'errorMessage' => $this->message, 'type' => 'php',];
     }

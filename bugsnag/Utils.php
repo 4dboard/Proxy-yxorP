@@ -21,13 +21,13 @@ class Utils
         return $builderName;
     }
 
-    public static function functionAvailable($func)
+    public static function functionAvailable($func): bool
     {
         $disabled = explode(',', ini_get('disable_functions'));
         return function_exists($func) && !in_array($func, $disabled);
     }
 
-    public static function stringCaseEquals($a, $b)
+    public static function stringCaseEquals($a, $b): bool
     {
         if (strcasecmp($a, $b) === 0) {
             return true;

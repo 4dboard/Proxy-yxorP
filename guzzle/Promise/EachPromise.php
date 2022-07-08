@@ -5,11 +5,11 @@ use Throwable;
 
 class EachPromise implements PromisorInterface
 {
-    private $pending = [];
-    private $iterable;
-    private $concurrency;
-    private $onFulfilled;
-    private $onRejected;
+    private array $pending = [];
+    private \ArrayIterator|\Iterator $iterable;
+    private mixed $concurrency;
+    private mixed $onFulfilled;
+    private mixed $onRejected;
     private $aggregate;
     private $mutex;
 
@@ -27,7 +27,7 @@ class EachPromise implements PromisorInterface
         }
     }
 
-    public function promise()
+    public function promise(): Promise|PromiseInterface
     {
         if ($this->aggregate) {
             return $this->aggregate;
@@ -81,7 +81,7 @@ class EachPromise implements PromisorInterface
         while (--$concurrency && $this->advanceIterator() && $this->addPending()) ;
     }
 
-    private function addPending()
+    private function addPending(): bool
     {
         if (!$this->iterable || !$this->iterable->valid()) {
             return false;
@@ -113,7 +113,7 @@ class EachPromise implements PromisorInterface
         }
     }
 
-    private function advanceIterator()
+    private function advanceIterator(): bool
     {
         if ($this->mutex) {
             return false;
@@ -130,7 +130,7 @@ class EachPromise implements PromisorInterface
         }
     }
 
-    private function checkIfFinished()
+    private function checkIfFinished(): bool
     {
         if (!$this->pending && !$this->iterable->valid()) {
             $this->aggregate->resolve(null);

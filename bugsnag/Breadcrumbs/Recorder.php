@@ -2,15 +2,16 @@
 
 use Countable;
 use Iterator;
+use JetBrains\PhpStorm\Pure;
 use ReturnTypeWillChange;
 
 class Recorder implements Countable, Iterator
 {
     const MAX_ITEMS = 25;
-    private $breadcrumbs = [];
-    private $head = 0;
-    private $pointer = 0;
-    private $position = 0;
+    private array $breadcrumbs = [];
+    private int $head = 0;
+    private int $pointer = 0;
+    private int $position = 0;
 
     public function record(Breadcrumb $breadcrumb)
     {
@@ -49,12 +50,12 @@ class Recorder implements Countable, Iterator
         $this->position = 0;
     }
 
-    #[ReturnTypeWillChange] public function valid()
+    #[Pure] #[Pure] #[ReturnTypeWillChange] public function valid(): bool
     {
         return $this->position < $this->count();
     }
 
-    #[ReturnTypeWillChange] public function count()
+    #[ReturnTypeWillChange] public function count(): int
     {
         return count($this->breadcrumbs);
     }

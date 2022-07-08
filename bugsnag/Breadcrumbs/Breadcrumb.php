@@ -2,6 +2,7 @@
 
 use Bugsnag\DateTime\Date;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
 
 class Breadcrumb
 {
@@ -14,21 +15,20 @@ class Breadcrumb
     const ERROR_TYPE = 'error';
     const MANUAL_TYPE = 'manual';
     const MAX_SIZE = 4096;
-    private $timestamp;
-    private $name;
-    private $type;
-    private $metaData;
+    private string $timestamp;
+    private string $name;
+    private string $type;
+    private array $metaData;
 
     public function __construct($name, $type, array $metaData = [])
     {
         if (!is_string($name)) {
             if (is_null($name)) {
                 $metaData['BreadcrumbError'] = 'NULL provided as the breadcrumb name';
-                $name = '<no name>';
             } else {
                 $metaData['BreadcrumbError'] = 'Breadcrumb name must be a string - ' . gettype($name) . ' provided instead';
-                $name = '<no name>';
             }
+            $name = '<no name>';
         } elseif ($name === '') {
             $metaData['BreadcrumbError'] = 'Empty string provided as the breadcrumb name';
             $name = '<no name>';
@@ -43,17 +43,17 @@ class Breadcrumb
         $this->metaData = $metaData;
     }
 
-    public static function getTypes()
+    public static function getTypes(): array
     {
         return [static::NAVIGATION_TYPE, static::REQUEST_TYPE, static::PROCESS_TYPE, static::LOG_TYPE, static::USER_TYPE, static::STATE_TYPE, static::ERROR_TYPE, static::MANUAL_TYPE,];
     }
 
-    public function toArray()
+    #[ArrayShape(['timestamp' => "string", 'name' => "string", 'type' => "string"])] public function toArray(): array
     {
         return ['timestamp' => $this->timestamp, 'name' => $this->name, 'type' => $this->type,];
     }
 
-    public function getMetaData()
+    public function getMetaData(): array
     {
         return $this->metaData;
     }

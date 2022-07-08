@@ -176,6 +176,9 @@ class request
 
     /* A function that is returning the name of the file. */
 
+    /**
+     * @throws Exception
+     */
     public function sessionRegenerateId($delete_old_session = false)
     {
         $session = $this->session();
@@ -203,6 +206,9 @@ class request
 
     /* A method that returns the protocol version. */
 
+    /**
+     * @throws Exception
+     */
     public function sessionId($session_id = null)
     {
         if ($session_id) unset($this->sid);

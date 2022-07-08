@@ -8,7 +8,7 @@ use function GuzzleHttp\Promise\iter_for;
 
 class Pool implements PromisorInterface
 {
-    private $each;
+    private EachPromise $each;
 
     public function __construct(ClientInterface $client, $requests, array $config = [])
     {
@@ -38,7 +38,7 @@ class Pool implements PromisorInterface
         $this->each = new EachPromise($requests(), $config);
     }
 
-    public static function batch(ClientInterface $client, $requests, array $options = [])
+    public static function batch(ClientInterface $client, $requests, array $options = []): array
     {
         $res = [];
         self::cmpCallback($options, 'fulfilled', $res);
@@ -64,7 +64,7 @@ class Pool implements PromisorInterface
         }
     }
 
-    public function promise()
+    public function promise(): Promise\Promise|Promise\PromiseInterface
     {
         return $this->each->promise();
     }

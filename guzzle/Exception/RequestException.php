@@ -9,9 +9,9 @@ use function GuzzleHttp\Psr7\get_message_body_summary;
 
 class RequestException extends TransferException
 {
-    private $request;
-    private $response;
-    private $handlerContext;
+    private RequestInterface $request;
+    private ?ResponseInterface $response;
+    private array $handlerContext;
 
     public function __construct($message, RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $handlerContext = [])
     {
@@ -22,7 +22,7 @@ class RequestException extends TransferException
         $this->handlerContext = $handlerContext;
     }
 
-    public static function wrapException(RequestInterface $request, Exception $e)
+    public static function wrapException(RequestInterface $request, Exception $e): RequestException|Exception
     {
         return $e instanceof RequestException ? $e : new RequestException($e->getMessage(), $request, null, $e);
     }
@@ -53,12 +53,12 @@ class RequestException extends TransferException
         return new $className($message, $request, $response, $previous, $ctx);
     }
 
-    public static function getResponseBodySummary(ResponseInterface $response)
+    public static function getResponseBodySummary(ResponseInterface $response): ?string
     {
         return get_message_body_summary($response);
     }
 
-    private static function obfuscateUri(UriInterface $uri)
+    private static function obfuscateUri(UriInterface $uri): UriInterface
     {
         $userInfo = $uri->getUserInfo();
         if (false !== ($pos = strpos($userInfo, ':'))) {
@@ -67,22 +67,22 @@ class RequestException extends TransferException
         return $uri;
     }
 
-    public function getRequest()
+    public function getRequest(): RequestInterface
     {
         return $this->request;
     }
 
-    public function getResponse()
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }
 
-    public function hasResponse()
+    public function hasResponse(): bool
     {
         return $this->response !== null;
     }
 
-    public function getHandlerContext()
+    public function getHandlerContext(): array
     {
         return $this->handlerContext;
     }

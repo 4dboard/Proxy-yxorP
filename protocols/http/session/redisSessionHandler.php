@@ -71,7 +71,6 @@ class redisSessionHandler implements sessionHandlerInterface
 
     /**
      * {@inheritdoc}
-     * @throws RedisException
      */
     public function read(string $session_id)
     {

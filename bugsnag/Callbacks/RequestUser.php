@@ -5,7 +5,7 @@ use Bugsnag\Request\ResolverInterface;
 
 class RequestUser
 {
-    private $resolver;
+    private ResolverInterface $resolver;
 
     public function __construct(ResolverInterface $resolver)
     {

@@ -4,6 +4,7 @@ use Bugsnag\DateTime\Date;
 use Bugsnag\Internal\GuzzleCompat;
 use Exception;
 use GuzzleHttp\ClientInterface;
+use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 
 class HttpClient
@@ -12,9 +13,9 @@ class HttpClient
     const NOTIFY_PAYLOAD_VERSION = '4.0';
     const SESSION_PAYLOAD_VERSION = '1.0';
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
-    private $config;
-    private $guzzle;
-    private $queue = [];
+    private Configuration $config;
+    private ClientInterface $guzzle;
+    private array $queue = [];
 
     public function __construct(Configuration $config, ClientInterface $guzzle)
     {
@@ -94,6 +95,9 @@ class HttpClient
         $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
     }
 
+    /**
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     protected function post($uri, array $options = [])
     {
         if (GuzzleCompat::isUsingGuzzle5()) {
@@ -118,13 +122,13 @@ class HttpClient
             return;
         }
         try {
-            $this->post($uri, ['body' => $normalized, 'headers' => $this->getHeaders(self::NOTIFY_PAYLOAD_VERSION),]);
+            $this->post($uri, ['body' => $normalized, 'headers' => $this->getHeaders(),]);
         } catch (Exception $e) {
             error_log('Bugsnag Warning: Couldn\'t notify. ' . $e->getMessage());
         }
     }
 
-    protected function normalize(array $data)
+    protected function normalize(array $data): bool|string
     {
         $body = json_encode($data);
         if ($this->length($body) <= static::MAX_SIZE) {
@@ -138,17 +142,17 @@ class HttpClient
         return $body;
     }
 
-    protected function length($str)
+    protected function length($str): bool|int
     {
         return function_exists('mb_strlen') ? mb_strlen($str, '8bit') : strlen($str);
     }
 
-    protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION)
+    #[ArrayShape(['Bugsnag-Api-Key' => "string", 'Bugsnag-Sent-At' => "string", 'Bugsnag-Payload-Version' => "mixed|string", 'Content-Type' => "string"])] protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION): array
     {
         return ['Bugsnag-Api-Key' => $this->config->getApiKey(), 'Bugsnag-Sent-At' => Date::now(), 'Bugsnag-Payload-Version' => $version, 'Content-Type' => 'application/json',];
     }
 
-    protected function getEventPayload()
+    #[ArrayShape(['apiKey' => "string", 'notifier' => "string[]", 'events' => "array"])] protected function getEventPayload(): array
     {
         $events = [];
         foreach ($this->queue as $report) {
@@ -160,7 +164,7 @@ class HttpClient
         return ['apiKey' => $this->config->getApiKey(), 'notifier' => $this->config->getNotifier(), 'events' => $events,];
     }
 
-    protected function build()
+    protected function build(): array
     {
         return $this->getEventPayload();
     }

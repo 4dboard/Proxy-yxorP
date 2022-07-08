@@ -7,6 +7,7 @@ use GuzzleHttp\Promise\FulfilledPromise;
 use GuzzleHttp\Psr7\LazyOpenStream;
 use GuzzleHttp\TransferStats;
 use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
 use Psr\Http\Message\RequestInterface;
 use RuntimeException;
 use function GuzzleHttp\debug_resource;
@@ -18,7 +19,7 @@ class CurlFactory implements CurlFactoryInterface
 {
     const CURL_VERSION_STR = 'curl_version';
     const LOW_CURL_VERSION_NUMBER = '7.21.2';
-    private $handles = [];
+    private array $handles = [];
     private $maxHandles;
 
     public function __construct($maxHandles)
@@ -26,7 +27,7 @@ class CurlFactory implements CurlFactoryInterface
         $this->maxHandles = $maxHandles;
     }
 
-    public static function finish(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory)
+    public static function finish(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory): FulfilledPromise|\GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
     {
         if (isset($easy->options['on_stats'])) {
             self::invokeStats($easy);
@@ -50,7 +51,7 @@ class CurlFactory implements CurlFactoryInterface
         call_user_func($easy->options['on_stats'], $stats);
     }
 
-    private static function finishError(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory)
+    private static function finishError(callable $handler, EasyHandle $easy, CurlFactoryInterface $factory): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
     {
         $ctx = ['errno' => $easy->errno, 'error' => curl_error($easy->handle), 'appconnect_time' => curl_getinfo($easy->handle, CURLINFO_APPCONNECT_TIME),] + curl_getinfo($easy->handle);
         $ctx[self::CURL_VERSION_STR] = curl_version()['version'];
@@ -61,7 +62,7 @@ class CurlFactory implements CurlFactoryInterface
         return self::createRejection($easy, $ctx);
     }
 
-    private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx)
+    private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
     {
         try {
             $body = $easy->request->getBody();
@@ -83,7 +84,7 @@ class CurlFactory implements CurlFactoryInterface
         return $handler($easy->request, $easy->options);
     }
 
-    private static function createRejection(EasyHandle $easy, array $ctx)
+    private static function createRejection(EasyHandle $easy, array $ctx): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
     {
         static $connectionErrors = [CURLE_OPERATION_TIMEOUTED => true, CURLE_COULDNT_RESOLVE_HOST => true, CURLE_COULDNT_CONNECT => true, CURLE_SSL_CONNECT_ERROR => true, CURLE_GOT_NOTHING => true,];
         if ($easy->onHeadersException) {
@@ -98,7 +99,7 @@ class CurlFactory implements CurlFactoryInterface
         return rejection_for($error);
     }
 
-    public function create(RequestInterface $request, array $options)
+    public function create(RequestInterface $request, array $options): EasyHandle
     {
         if (isset($options['curl']['body_as_string'])) {
             $options['_body_as_string'] = $options['curl']['body_as_string'];
@@ -121,7 +122,7 @@ class CurlFactory implements CurlFactoryInterface
         return $easy;
     }
 
-    private function getDefaultConf(EasyHandle $easy)
+    #[ArrayShape(['_headers' => "\string[][]", \GuzzleHttp\Handler\CURLOPT_CUSTOMREQUEST => "string", \GuzzleHttp\Handler\CURLOPT_URL => "string", \GuzzleHttp\Handler\CURLOPT_RETURNTRANSFER => "false", \GuzzleHttp\Handler\CURLOPT_HEADER => "false", \GuzzleHttp\Handler\CURLOPT_CONNECTTIMEOUT => "int", \GuzzleHttp\Handler\CURLOPT_HTTP_VERSION => "int", \GuzzleHttp\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array
     {
         $conf = ['_headers' => $easy->request->getHeaders(), CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(), CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''), CURLOPT_RETURNTRANSFER => false, CURLOPT_HEADER => false, CURLOPT_CONNECTTIMEOUT => 150,];
         if (defined('CURLOPT_PROTOCOLS')) {
@@ -296,7 +297,7 @@ class CurlFactory implements CurlFactoryInterface
                     list($sslKey) = $options['ssl_key'];
                 }
             }
-            $sslKey = isset($sslKey) ? $sslKey : $options['ssl_key'];
+            $sslKey = $sslKey ?? $options['ssl_key'];
             if (!file_exists($sslKey)) {
                 throw new InvalidArgumentException("SSL private key not found: {$sslKey}");
             }
@@ -339,7 +340,7 @@ class CurlFactory implements CurlFactoryInterface
         }
     }
 
-    private function createHeaderFn(EasyHandle $easy)
+    private function createHeaderFn(EasyHandle $easy): \Closure
     {
         if (isset($easy->options['on_headers'])) {
             $onHeaders = $easy->options['on_headers'];

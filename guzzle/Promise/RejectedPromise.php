@@ -17,12 +17,12 @@ class RejectedPromise implements PromiseInterface
         $this->reason = $reason;
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): Promise|PromiseInterface|static
     {
         return $this->then(null, $onRejected);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(callable $onFulfilled = null, callable $onRejected = null): Promise|PromiseInterface|static
     {
         if (!$onRejected) {
             return $this;
@@ -42,6 +42,9 @@ class RejectedPromise implements PromiseInterface
         return $p;
     }
 
+    /**
+     * @throws Throwable
+     */
     public function wait($unwrap = true, $defaultDelivery = null)
     {
         if ($unwrap) {
@@ -49,7 +52,7 @@ class RejectedPromise implements PromiseInterface
         }
     }
 
-    public function getState()
+    public function getState(): string
     {
         return self::REJECTED;
     }

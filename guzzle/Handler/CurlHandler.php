@@ -1,17 +1,18 @@
 <?php namespace GuzzleHttp\Handler;
 
+use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\RequestInterface;
 
 class CurlHandler
 {
-    private $factory;
+    private mixed $factory;
 
-    public function __construct(array $options = [])
+    #[Pure] public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new CurlFactory(3);
+        $this->factory = $options['handle_factory'] ?? new CurlFactory(3);
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(RequestInterface $request, array $options): \GuzzleHttp\Promise\FulfilledPromise|\GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);

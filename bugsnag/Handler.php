@@ -5,24 +5,24 @@ use Throwable;
 
 class Handler
 {
-    private static $enableShutdownHandler = true;
-    private $client;
+    private static bool $enableShutdownHandler = true;
+    private Client $client;
     private $previousErrorHandler;
     private $previousExceptionHandler;
     private $reservedMemory;
-    private $oomRegex = '/^Allowed memory size of (\d+) bytes exhausted \(tried to allocate \d+ bytes\)/';
+    private string $oomRegex = '/^Allowed memory size of (\d+) bytes exhausted \(tried to allocate \d+ bytes\)/';
 
     public function __construct(Client $client)
     {
         $this->client = $client;
     }
 
-    public static function registerWithPrevious($client = null)
+    public static function registerWithPrevious($client = null): static
     {
         return self::register($client);
     }
 
-    public static function register($client = null)
+    public static function register($client = null): static
     {
         if (!$client instanceof Client) {
             $client = Client::make($client);
@@ -60,6 +60,9 @@ class Handler
         register_shutdown_function([$this, 'shutdownHandler']);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function exceptionHandler($throwable)
     {
         $this->notifyThrowable($throwable);
@@ -81,7 +84,7 @@ class Handler
     public function errorHandler($errno, $errstr, $errfile = '', $errline = 0)
     {
         if (!$this->client->getConfig()->shouldIgnoreErrorCode($errno)) {
-            $report = Report::fromPHPError($this->client->getConfig(), $errno, $errstr, $errfile, $errline, false);
+            $report = Report::fromPHPError($this->client->getConfig(), $errno, $errstr, $errfile, $errline);
             $report->setUnhandled(true);
             $report->setSeverityReason(['type' => 'unhandledError', 'attributes' => ['errorType' => ErrorTypes::getName($errno),],]);
             $this->client->notify($report);

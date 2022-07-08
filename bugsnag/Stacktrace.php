@@ -8,26 +8,26 @@ class Stacktrace
 {
     const NUM_LINES = 7;
     const MAX_LENGTH = 200;
-    private $config;
-    private $frames = [];
+    private Configuration $config;
+    private array $frames = [];
 
     public function __construct(Configuration $config)
     {
         $this->config = $config;
     }
 
-    public static function generate(Configuration $config)
+    public static function generate(Configuration $config): static
     {
         $backtrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS & ~DEBUG_BACKTRACE_PROVIDE_OBJECT);
         return static::fromBacktrace($config, $backtrace, '[generator]', 0);
     }
 
-    public static function fromBacktrace(Configuration $config, array $backtrace, $topFile, $topLine)
+    public static function fromBacktrace(Configuration $config, array $backtrace, $topFile, $topLine): static
     {
         $stacktrace = new static($config);
         foreach ($backtrace as $frame) {
             if (!static::frameInsideBugsnag($frame)) {
-                $stacktrace->addFrame($topFile, $topLine, isset($frame['function']) ? $frame['function'] : null, isset($frame['class']) ? $frame['class'] : null);
+                $stacktrace->addFrame($topFile, $topLine, $frame['function'] ?? null, $frame['class'] ?? null);
             }
             if (isset($frame['file']) && isset($frame['line'])) {
                 $topFile = $frame['file'];
@@ -41,19 +41,19 @@ class Stacktrace
         return $stacktrace;
     }
 
-    public static function frameInsideBugsnag(array $frame)
+    public static function frameInsideBugsnag(array $frame): bool
     {
-        return isset($frame['class']) && strpos($frame['class'], 'Bugsnag\\') === 0 && substr_count($frame['class'], '\\') === 1;
+        return isset($frame['class']) && str_starts_with($frame['class'], 'Bugsnag\\') && substr_count($frame['class'], '\\') === 1;
     }
 
-    public static function fromFrame(Configuration $config, $file, $line)
+    public static function fromFrame(Configuration $config, $file, $line): static
     {
         $stacktrace = new static($config);
         $stacktrace->addFrame($file, $line, '[unknown]');
         return $stacktrace;
     }
 
-    protected static function getBounds($line, $num, $max)
+    protected static function getBounds($line, $num, $max): array
     {
         $start = max($line - floor($num / 2), 1);
         $end = $start + ($num - 1);
@@ -80,12 +80,12 @@ class Stacktrace
         $this->frames[] = $frame;
     }
 
-    public function &toArray()
+    public function &toArray(): array
     {
         return $this->frames;
     }
 
-    public function &getFrames()
+    public function &getFrames(): array
     {
         return $this->frames;
     }
@@ -98,7 +98,7 @@ class Stacktrace
         array_splice($this->frames, $index, 1);
     }
 
-    protected function getCode($path, $line, $numLines)
+    protected function getCode($path, $line, $numLines): ?array
     {
         if (empty($path) || empty($line) || !file_exists($path)) {
             return null;

@@ -18,7 +18,7 @@ use function GuzzleHttp\Promise\rejection_for;
 
 class MockHandler implements Countable
 {
-    private $queue = [];
+    private array $queue = [];
     private $lastRequest;
     private $lastOptions;
     private $onFulfilled;
@@ -33,12 +33,12 @@ class MockHandler implements Countable
         }
     }
 
-    public static function createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null)
+    public static function createWithMiddleware(array $queue = null, callable $onFulfilled = null, callable $onRejected = null): HandlerStack
     {
         return HandlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(RequestInterface $request, array $options): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\FulfilledPromise|\GuzzleHttp\Promise\Promise|PromiseInterface
     {
         if (!$this->queue) {
             throw new OutOfBoundsException('Mock queue is empty');
@@ -93,7 +93,7 @@ class MockHandler implements Countable
     private function invokeStats(RequestInterface $request, array $options, ResponseInterface $response = null, $reason = null)
     {
         if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $transferTime = $options['transfer_time'] ?? 0;
             $stats = new TransferStats($request, $response, $transferTime, $reason);
             call_user_func($options['on_stats'], $stats);
         }
@@ -120,7 +120,7 @@ class MockHandler implements Countable
         return $this->lastOptions;
     }
 
-    #[ReturnTypeWillChange] public function count()
+    #[ReturnTypeWillChange] public function count(): int
     {
         return count($this->queue);
     }

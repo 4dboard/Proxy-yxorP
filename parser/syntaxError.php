@@ -3,12 +3,13 @@
 namespace yxorP\parser;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 
 final class syntaxError extends InvalidArgumentException implements cannotProcessHostInterface
 {
     private ?idnaInfo $idnaInfo;
 
-    private function __construct(string $message, idnaInfo $idnaInfo = null)
+    #[Pure] private function __construct(string $message, idnaInfo $idnaInfo = null)
     {
         parent::__construct($message);
         $this->idnaInfo = $idnaInfo;

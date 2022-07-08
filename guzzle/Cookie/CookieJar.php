@@ -8,8 +8,8 @@ use RuntimeException;
 
 class CookieJar implements CookieJarInterface
 {
-    private $cookies = [];
-    private $strictMode;
+    private array $cookies = [];
+    private mixed $strictMode;
 
     public function __construct($strictMode = false, $cookieArray = [])
     {
@@ -22,7 +22,7 @@ class CookieJar implements CookieJarInterface
         }
     }
 
-    public function setCookie(SetCookie $cookie)
+    public function setCookie(SetCookie $cookie): bool
     {
         $name = $cookie->getName();
         if (!$name && $name !== '0') {
@@ -71,7 +71,6 @@ class CookieJar implements CookieJarInterface
     {
         if (!$domain) {
             $this->cookies = [];
-            return;
         } elseif (!$path) {
             $this->cookies = array_filter($this->cookies, function (SetCookie $cookie) use ($domain) {
                 return !$cookie->matchesDomain($domain);
@@ -87,7 +86,7 @@ class CookieJar implements CookieJarInterface
         }
     }
 
-    public static function fromArray(array $cookies, $domain)
+    public static function fromArray(array $cookies, $domain): CookieJar
     {
         $cookieJar = new self();
         foreach ($cookies as $name => $value) {
@@ -101,7 +100,7 @@ class CookieJar implements CookieJarInterface
         return $value;
     }
 
-    public static function shouldPersist(SetCookie $cookie, $allowSessionCookies = false)
+    public static function shouldPersist(SetCookie $cookie, $allowSessionCookies = false): bool
     {
         if ($cookie->getExpires() || $allowSessionCookies) {
             if (!$cookie->getDiscard()) {
@@ -113,7 +112,7 @@ class CookieJar implements CookieJarInterface
 
     public function getCookieByName($name)
     {
-        if ($name === null || !is_scalar($name)) {
+        if (!is_scalar($name)) {
             return null;
         }
         foreach ($this->cookies as $cookie) {
@@ -124,14 +123,17 @@ class CookieJar implements CookieJarInterface
         return null;
     }
 
-    public function toArray()
+    /**
+     * @throws \Exception
+     */
+    public function toArray(): array
     {
         return array_map(function (SetCookie $cookie) {
             return $cookie->toArray();
         }, $this->getIterator()->getArrayCopy());
     }
 
-    #[ReturnTypeWillChange] public function getIterator()
+    #[ReturnTypeWillChange] public function getIterator(): ArrayIterator
     {
         return new ArrayIterator(array_values($this->cookies));
     }
@@ -143,7 +145,7 @@ class CookieJar implements CookieJarInterface
         });
     }
 
-    #[ReturnTypeWillChange] public function count()
+    #[ReturnTypeWillChange] public function count(): int
     {
         return count($this->cookies);
     }
@@ -156,7 +158,7 @@ class CookieJar implements CookieJarInterface
                 if (!$sc->getDomain()) {
                     $sc->setDomain($request->getUri()->getHost());
                 }
-                if (0 !== strpos($sc->getPath(), '/')) {
+                if (!str_starts_with($sc->getPath(), '/')) {
                     $sc->setPath($this->getCookiePathFromRequest($request));
                 }
                 $this->setCookie($sc);
@@ -164,13 +166,13 @@ class CookieJar implements CookieJarInterface
         }
     }
 
-    private function getCookiePathFromRequest(RequestInterface $request)
+    private function getCookiePathFromRequest(RequestInterface $request): string
     {
         $uriPath = $request->getUri()->getPath();
         if ('' === $uriPath) {
             return '/';
         }
-        if (0 !== strpos($uriPath, '/')) {
+        if (!str_starts_with($uriPath, '/')) {
             return '/';
         }
         if ('/' === $uriPath) {
@@ -182,7 +184,7 @@ class CookieJar implements CookieJarInterface
         return substr($uriPath, 0, $lastSlashPos);
     }
 
-    public function withCookieHeader(RequestInterface $request)
+    public function withCookieHeader(RequestInterface $request): RequestInterface
     {
         $values = [];
         $uri = $request->getUri();

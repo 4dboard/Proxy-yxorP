@@ -6,6 +6,7 @@ namespace yxorP\inc;
 
 use Bugsnag;
 use GuzzleHttp;
+use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 use yxorP\parse\parse;
 use yxorP\parser\domain;
@@ -599,7 +600,7 @@ class constants
     /**
      * @return void
      */
-    public static function cockpit(): void
+    #[NoReturn] public static function cockpit(): void
     {
         require PATH_COCKPIT_INDEX;
         exit();
@@ -712,9 +713,9 @@ class constants
 
     /**
      * @param string $domain
-     * @return string|array|object|null
+     * @return \yxorP\parser\resolvedInterfaceDomainNameInterface
      */
-    public static function publicSuffix($domain)
+    public static function publicSuffix(string $domain): \yxorP\parser\resolvedInterfaceDomainNameInterface
     {
 
         $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);

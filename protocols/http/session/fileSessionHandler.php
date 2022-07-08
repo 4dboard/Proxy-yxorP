@@ -26,7 +26,7 @@ class fileSessionHandler implements sessionHandlerInterface
     /**
      * session save path.
      *
-     * @var string
+     * @var string|null
      */
     private static ?string $_sessionSavePath = null;
 

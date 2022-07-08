@@ -1,13 +1,14 @@
 <?php namespace GuzzleHttp\Promise;
 
 use Exception;
+use JetBrains\PhpStorm\Pure;
 use Throwable;
 
 final class Coroutine implements PromiseInterface
 {
     private $currentPromise;
     private $generator;
-    private $result;
+    private Promise $result;
 
     public function __construct(callable $generatorFn)
     {
@@ -30,17 +31,17 @@ final class Coroutine implements PromiseInterface
         return $this->result->wait($unwrap);
     }
 
-    public function then(callable $onFulfilled = null, callable $onRejected = null)
+    public function then(callable $onFulfilled = null, callable $onRejected = null): FulfilledPromise|RejectedPromise|Promise|PromiseInterface
     {
         return $this->result->then($onFulfilled, $onRejected);
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): FulfilledPromise|RejectedPromise|Promise|PromiseInterface
     {
         return $this->result->otherwise($onRejected);
     }
 
-    public function getState()
+    #[Pure] public function getState(): string
     {
         return $this->result->getState();
     }

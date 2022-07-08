@@ -64,7 +64,7 @@ class select implements eventInterface
      * timer scheduler.
      * {['data':timer_id, 'priority':run_timestamp], ..}
      *
-     * @var SplPriorityQueue
+     * @var SplPriorityQueue|null
      */
     private ?SplPriorityQueue $_scheduler = null;
 

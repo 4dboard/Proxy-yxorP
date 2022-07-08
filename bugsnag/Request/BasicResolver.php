@@ -1,11 +1,11 @@
 <?php namespace Bugsnag\Request;
 class BasicResolver implements ResolverInterface
 {
-    public function resolve()
+    public function resolve(): NullRequest|ConsoleRequest|PhpRequest
     {
         if (isset($_SERVER['REQUEST_METHOD'])) {
             if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {
-                $params = static::getInputParams($_SERVER, $_GET, false);
+                $params = static::getInputParams($_SERVER, $_GET);
             } else {
                 $params = static::getInputParams($_SERVER, $_POST, true);
             }
@@ -30,7 +30,7 @@ class BasicResolver implements ResolverInterface
         return $result ?: null;
     }
 
-    protected static function parseInput(array $server, $input)
+    protected static function parseInput(array $server, $input): ?array
     {
         if (!$input) {
             return null;
@@ -45,7 +45,7 @@ class BasicResolver implements ResolverInterface
         return null;
     }
 
-    protected static function readInput()
+    protected static function readInput(): bool|string
     {
         return file_get_contents('php://input') ?: false;
     }
@@ -61,7 +61,7 @@ class BasicResolver implements ResolverInterface
         }
         $headers = [];
         foreach ($server as $name => $value) {
-            if (substr($name, 0, 5) == 'HTTP_') {
+            if (str_starts_with($name, 'HTTP_')) {
                 $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
             } elseif ($name === 'CONTENT_TYPE') {
                 $headers['Content-Type'] = $value;

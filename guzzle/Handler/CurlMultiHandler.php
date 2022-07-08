@@ -4,20 +4,21 @@ use BadMethodCallException;
 use GuzzleHttp\Promise as P;
 use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Utils;
+use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\RequestInterface;
 
 class CurlMultiHandler
 {
-    private $factory;
-    private $selectTimeout;
+    private mixed $factory;
+    private mixed $selectTimeout;
     private $active;
-    private $handles = [];
-    private $delays = [];
-    private $options = [];
+    private array $handles = [];
+    private array $delays = [];
+    private mixed $options = [];
 
-    public function __construct(array $options = [])
+    #[Pure] public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory']) ? $options['handle_factory'] : new CurlFactory(50);
+        $this->factory = $options['handle_factory'] ?? new CurlFactory(50);
         if (isset($options['select_timeout'])) {
             $this->selectTimeout = $options['select_timeout'];
         } elseif ($selectTimeout = getenv('GUZZLE_CURL_SELECT_TIMEOUT')) {
@@ -25,7 +26,7 @@ class CurlMultiHandler
         } else {
             $this->selectTimeout = 1;
         }
-        $this->options = isset($options['options']) ? $options['options'] : [];
+        $this->options = $options['options'] ?? [];
     }
 
     public function __get($name)
@@ -48,7 +49,7 @@ class CurlMultiHandler
         }
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(RequestInterface $request, array $options): Promise
     {
         $easy = $this->factory->create($request, $options);
         $id = (int)$easy->handle;
@@ -59,7 +60,7 @@ class CurlMultiHandler
         return $promise;
     }
 
-    private function cancel($id)
+    private function cancel($id): bool
     {
         if (!isset($this->handles[$id])) {
             return false;
@@ -94,7 +95,7 @@ class CurlMultiHandler
         }
     }
 
-    private function timeToNext()
+    #[Pure] private function timeToNext(): float|int
     {
         $currentTime = Utils::currentTime();
         $nextTime = PHP_INT_MAX;

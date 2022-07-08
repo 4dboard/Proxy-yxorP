@@ -23,6 +23,9 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
         $this->cacheTtl = timeToLive::convert($cacheTtl);
     }
 
+    /**
+     * @throws \Psr\SimpleCache\InvalidArgumentException
+     */
     public function fetch(string $uri): ?topInterfaceLevelDomainListInterface
     {
         $cacheKey = $this->cacheKey($uri);
@@ -42,6 +45,10 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
         return $this->cachePrefix . md5(strtolower($str));
     }
 
+    /**
+     * @throws Throwable
+     * @throws \Psr\SimpleCache\InvalidArgumentException
+     */
     public function remember(string $uri, topInterfaceLevelDomainListInterface $topLevelDomainList): bool
     {
         try {
@@ -54,6 +61,9 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
         }
     }
 
+    /**
+     * @throws \Psr\SimpleCache\InvalidArgumentException
+     */
     public function forget(string $uri): bool
     {
         return $this->cache->delete($this->cacheKey($uri));

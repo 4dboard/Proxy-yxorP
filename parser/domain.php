@@ -224,7 +224,7 @@ final class domain implements domainNameInterface
             $domain = $domain->value();
         }
         if (null === $domain) {
-            return $domain;
+            return null;
         }
         if ((!is_string($domain) && !method_exists($domain, '__toString'))) {
             throw new TypeError('The label must be a ' . aHostInterface::class . ', a stringable object or a string, `' . gettype($domain) . '` given.');

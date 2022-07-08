@@ -5,7 +5,7 @@ use Bugsnag\Report;
 
 class GlobalMetaData
 {
-    private $config;
+    private Configuration $config;
 
     public function __construct(Configuration $config)
     {

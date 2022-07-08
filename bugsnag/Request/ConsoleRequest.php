@@ -1,29 +1,29 @@
 <?php namespace Bugsnag\Request;
 class ConsoleRequest implements RequestInterface
 {
-    private $command;
+    private array $command;
 
     public function __construct(array $command)
     {
         $this->command = $command;
     }
 
-    public function isRequest()
+    public function isRequest(): bool
     {
         return false;
     }
 
-    public function getSession()
+    public function getSession(): array
     {
         return [];
     }
 
-    public function getCookies()
+    public function getCookies(): array
     {
         return [];
     }
 
-    public function getMetaData()
+    public function getMetaData(): array
     {
         if (count($this->command) == 0) {
             return ['console' => ['Command' => 'Command could not be retrieved',],];
@@ -43,7 +43,7 @@ class ConsoleRequest implements RequestInterface
         return ['console' => $data];
     }
 
-    public function getContext()
+    public function getContext(): ?string
     {
         return implode(' ', array_slice($this->command, 0, 4));
     }

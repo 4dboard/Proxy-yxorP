@@ -7,10 +7,10 @@ use RuntimeException;
 
 class AppendStream implements StreamInterface
 {
-    private $streams = [];
-    private $seekable = true;
-    private $current = 0;
-    private $pos = 0;
+    private array $streams = [];
+    private bool $seekable = true;
+    private int $current = 0;
+    private int $pos = 0;
 
     public function __construct(array $streams = [])
     {
@@ -30,12 +30,12 @@ class AppendStream implements StreamInterface
         $this->streams[] = $stream;
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return true;
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return $this->seekable;
     }
@@ -78,12 +78,12 @@ class AppendStream implements StreamInterface
         }
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return !$this->streams || ($this->current >= count($this->streams) - 1 && $this->streams[$this->current]->eof());
     }
 
-    public function read($length)
+    public function read($length): string
     {
         $buffer = '';
         $total = count($this->streams) - 1;
@@ -109,7 +109,7 @@ class AppendStream implements StreamInterface
         return $buffer;
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return copy_to_string($this);
     }
@@ -134,12 +134,12 @@ class AppendStream implements StreamInterface
         $this->streams = [];
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->pos;
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         $size = 0;
         foreach ($this->streams as $stream) {
@@ -152,17 +152,17 @@ class AppendStream implements StreamInterface
         return $size;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return false;
     }
 
-    public function write($string)
+    public function write($string): int
     {
         throw new RuntimeException('Cannot write to an AppendStream');
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata($key = null): ?array
     {
         return $key ? null : [];
     }

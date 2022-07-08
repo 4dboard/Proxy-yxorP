@@ -5,17 +5,17 @@ use Psr\Http\Message\StreamInterface;
 
 trait MessageTrait
 {
-    private $headers = [];
-    private $headerNames = [];
-    private $protocol = '1.1';
+    private array $headers = [];
+    private array $headerNames = [];
+    private string $protocol = '1.1';
     private $stream;
 
-    public function getProtocolVersion()
+    public function getProtocolVersion(): string
     {
         return $this->protocol;
     }
 
-    public function withProtocolVersion($version)
+    public function withProtocolVersion($version): Response|Request|static
     {
         if ($this->protocol === $version) {
             return $this;
@@ -25,17 +25,17 @@ trait MessageTrait
         return $new;
     }
 
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->headers;
     }
 
-    public function hasHeader($header)
+    public function hasHeader($header): bool
     {
         return isset($this->headerNames[strtolower($header)]);
     }
 
-    public function getHeaderLine($header)
+    public function getHeaderLine($header): string
     {
         return implode(', ', $this->getHeader($header));
     }
@@ -50,7 +50,7 @@ trait MessageTrait
         return $this->headers[$header];
     }
 
-    public function withHeader($header, $value)
+    public function withHeader($header, $value): Response|Request
     {
         $this->assertHeader($header);
         $value = $this->normalizeHeaderValue($value);
@@ -64,7 +64,7 @@ trait MessageTrait
         return $new;
     }
 
-    public function withAddedHeader($header, $value)
+    public function withAddedHeader($header, $value): Response|Request
     {
         $this->assertHeader($header);
         $value = $this->normalizeHeaderValue($value);
@@ -80,7 +80,7 @@ trait MessageTrait
         return $new;
     }
 
-    public function withoutHeader($header)
+    public function withoutHeader($header): Response|Request|static
     {
         $normalized = strtolower($header);
         if (!isset($this->headerNames[$normalized])) {
@@ -92,15 +92,15 @@ trait MessageTrait
         return $new;
     }
 
-    public function getBody()
+    public function getBody(): PumpStream|Stream|StreamInterface
     {
         if (!$this->stream) {
-            $this->stream = stream_for('');
+            $this->stream = stream_for();
         }
         return $this->stream;
     }
 
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): Response|Request|static
     {
         if ($body === $this->stream) {
             return $this;
@@ -120,7 +120,7 @@ trait MessageTrait
         }
     }
 
-    private function normalizeHeaderValue($value)
+    private function normalizeHeaderValue($value): array
     {
         if (!is_array($value)) {
             return $this->trimHeaderValues([$value]);
@@ -131,7 +131,7 @@ trait MessageTrait
         return $this->trimHeaderValues($value);
     }
 
-    private function trimHeaderValues(array $values)
+    private function trimHeaderValues(array $values): array
     {
         return array_map(function ($value) {
             if (!is_scalar($value) && null !== $value) {

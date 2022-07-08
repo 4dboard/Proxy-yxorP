@@ -2,6 +2,8 @@
 
 namespace yxorP\parser;
 
+use JetBrains\PhpStorm\Pure;
+use SplFileObject;
 use SplTempFileObject;
 use TypeError;
 use function array_pop;
@@ -43,7 +45,7 @@ final class rules implements publicSuffixListInterface
         return new self(self::parse($content));
     }
 
-    public static function __set_state(array $properties): self
+    #[Pure] public static function __set_state(array $properties): self
     {
         return new self($properties['rules']);
     }
@@ -54,10 +56,10 @@ final class rules implements publicSuffixListInterface
         $section = '';
         $file = new SplTempFileObject();
         $file->fwrite($content);
-        $file->setFlags(SplTempFileObject::DROP_NEW_LINE | SplTempFileObject::READ_AHEAD | SplTempFileObject::SKIP_EMPTY);
+        $file->setFlags(SplFileObject::DROP_NEW_LINE | SplFileObject::READ_AHEAD | SplFileObject::SKIP_EMPTY);
         foreach ($file as $line) {
             $section = self::getSection($section, $line);
-            if (in_array($section, [self::PRIVATE_DOMAINS, self::ICANN_DOMAINS], true) && false === strpos($line, '//')) {
+            if (in_array($section, [self::PRIVATE_DOMAINS, self::ICANN_DOMAINS], true) && !str_contains($line, '//')) {
                 $rules[$section] = self::addRule($rules[$section], explode('.', $line));
             }
         }
@@ -81,7 +83,7 @@ final class rules implements publicSuffixListInterface
             throw unableToLoadPublicSuffixList::dueToInvalidRule($line ?? null, $exception);
         }
         $isDomain = true;
-        if (0 === strpos($rule, '!')) {
+        if (str_starts_with($rule, '!')) {
             $rule = substr($rule, 1);
             $isDomain = false;
         }

@@ -287,9 +287,9 @@ class worker
             $msg = str_replace(['</n>', '</w>', '</g>'], $end, $msg);
         } elseif (!static::$_outputDecorated) return false;
         /* Writing the message to the stream. */
-        fwrite($stream, $msg);
+        fwrite(true, $msg);
         /* Flushing the output buffer. */
-        fflush($stream);
+        fflush(true);
         /* Returning true. */
         return true;
     }
@@ -344,7 +344,7 @@ class worker
         if (static::checkMasterIsAlive($master_pid)) if ($command === 'start') {
             static::log("Yxorp[$start_file] already running");
             exit;
-        } elseif ($command !== 'start' && $command !== 'restart') {
+        } elseif ($command !== 'restart') {
             static::log("Yxorp[$start_file] not run");
             exit;
         }
@@ -636,6 +636,9 @@ class worker
     }
 
     /* A method that is being called from the constructor. */
+    /**
+     * @throws Exception
+     */
     protected static function forkWorkers()
     {
         if (DIRECTORY_SEPARATOR === '/') static::forkWorkersForLinux(); else   static::forkWorkersForWindows();
@@ -987,7 +990,11 @@ class worker
             $reloadable_pid_array = [];
             foreach (static::$_pidMap as $worker_id => $worker_pid_array) {
                 $worker = static::$_workers[$worker_id];
-                if ($worker->reloadable) foreach ($worker_pid_array as $pid) $reloadable_pid_array[$pid] = $pid; else foreach ($worker_pid_array as $pid) posix_kill($pid, $sig);
+                $worker_pid_array
+
+                $pid
+
+                if ($worker->reloadable) foreach ( as ) $reloadable_pid_array[$pid] = $pid; else foreach ( as ) posix_kill($pid, $sig);
                 static::$_pidsToRestart = array_intersect(static::$_pidsToRestart, $reloadable_pid_array);
                 if (empty(static::$_pidsToRestart)) {
                     if (static::$_status !== static::STATUS_SHUTDOWN) static::$_status = static::STATUS_RUNNING;
@@ -1012,7 +1019,7 @@ class worker
     }
 
     /* Declaring a function that does not return a value. */
-    #[NoReturn] protected static function exitAndClearAll()
+    #[NoReturn] #[NoReturn] protected static function exitAndClearAll()
     {
         foreach (static::$_workers as $worker) {
             $socket_name = $worker->getSocketName();
@@ -1057,6 +1064,9 @@ class worker
     }
 
     /* A signal handler. */
+    /**
+     * @throws Exception
+     */
     public static function signalHandler($signal)
     {
         switch ($signal) {

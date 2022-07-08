@@ -7,14 +7,14 @@ use RuntimeException;
 
 class UploadedFile implements UploadedFileInterface
 {
-    private static $errors = [UPLOAD_ERR_OK, UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE, UPLOAD_ERR_PARTIAL, UPLOAD_ERR_NO_FILE, UPLOAD_ERR_NO_TMP_DIR, UPLOAD_ERR_CANT_WRITE, UPLOAD_ERR_EXTENSION,];
-    private $clientFilename;
-    private $clientMediaType;
-    private $error;
+    private static array $errors = [UPLOAD_ERR_OK, UPLOAD_ERR_INI_SIZE, UPLOAD_ERR_FORM_SIZE, UPLOAD_ERR_PARTIAL, UPLOAD_ERR_NO_FILE, UPLOAD_ERR_NO_TMP_DIR, UPLOAD_ERR_CANT_WRITE, UPLOAD_ERR_EXTENSION,];
+    private ?string $clientFilename;
+    private ?string $clientMediaType;
+    private int $error;
     private $file;
-    private $moved = false;
-    private $size;
-    private $stream;
+    private bool $moved = false;
+    private ?int $size;
+    private null|StreamInterface|LazyOpenStream $stream;
 
     public function __construct($streamOrFile, $size, $errorStatus, $clientFilename = null, $clientMediaType = null)
     {
@@ -54,7 +54,7 @@ class UploadedFile implements UploadedFileInterface
         $this->clientFilename = $clientFilename;
     }
 
-    private function isStringOrNull($param)
+    private function isStringOrNull($param): bool
     {
         return in_array(gettype($param), ['string', 'NULL']);
     }
@@ -67,7 +67,7 @@ class UploadedFile implements UploadedFileInterface
         $this->clientMediaType = $clientMediaType;
     }
 
-    private function isOk()
+    private function isOk(): bool
     {
         return $this->error === UPLOAD_ERR_OK;
     }
@@ -112,17 +112,17 @@ class UploadedFile implements UploadedFileInterface
         }
     }
 
-    public function isMoved()
+    public function isMoved(): bool
     {
         return $this->moved;
     }
 
-    private function isStringNotEmpty($param)
+    private function isStringNotEmpty($param): bool
     {
         return is_string($param) && false === empty($param);
     }
 
-    public function getStream()
+    public function getStream(): LazyOpenStream|StreamInterface|null
     {
         $this->validateActive();
         if ($this->stream instanceof StreamInterface) {
@@ -131,22 +131,22 @@ class UploadedFile implements UploadedFileInterface
         return new LazyOpenStream($this->file, 'r+');
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->size;
     }
 
-    public function getError()
+    public function getError(): int
     {
         return $this->error;
     }
 
-    public function getClientFilename()
+    public function getClientFilename(): ?string
     {
         return $this->clientFilename;
     }
 
-    public function getClientMediaType()
+    public function getClientMediaType(): ?string
     {
         return $this->clientMediaType;
     }

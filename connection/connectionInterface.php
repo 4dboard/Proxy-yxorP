@@ -1,5 +1,7 @@
 <?php namespace yxorP\connection;
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * @property $statistics
  * @property string $websocketType
@@ -15,12 +17,12 @@ abstract class connectionInterface extends tcpConnection
         // TODO: Implement send() method.
     }
 
-    public function getRemoteIp()
+    public function getRemoteIp(): string
     {
         // TODO: Implement getRemoteIp() method.
     }
 
-    public function getRemotePort()
+    public function getRemotePort(): int
     {
         // TODO: Implement getRemotePort() method.
     }
@@ -30,27 +32,27 @@ abstract class connectionInterface extends tcpConnection
         // TODO: Implement getRemoteAddress() method.
     }
 
-    public function getLocalIp()
+    public function getLocalIp(): string
     {
         // TODO: Implement getLocalIp() method.
     }
 
-    public function getLocalPort()
+    public function getLocalPort(): int
     {
         // TODO: Implement getLocalPort() method.
     }
 
-    public function getLocalAddress()
+    public function getLocalAddress(): string
     {
         // TODO: Implement getLocalAddress() method.
     }
 
-    public function isIPv4()
+    #[Pure] public function isIPv4(): bool
     {
         // TODO: Implement isIPv4() method.
     }
 
-    public function isIPv6()
+    #[Pure] public function isIPv6(): bool
     {
         // TODO: Implement isIPv6() method.
     }

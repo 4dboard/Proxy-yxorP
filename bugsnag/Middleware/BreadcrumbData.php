@@ -5,7 +5,7 @@ use Bugsnag\Report;
 
 class BreadcrumbData
 {
-    private $recorder;
+    private Recorder $recorder;
 
     public function __construct(Recorder $recorder)
     {

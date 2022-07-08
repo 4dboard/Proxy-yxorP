@@ -2,6 +2,7 @@
 
 namespace yxorP\parser;
 
+use JetBrains\PhpStorm\Pure;
 use function count;
 use function in_array;
 
@@ -19,7 +20,7 @@ final class suffix implements effectiveTopLevelDomainInterface
         $this->section = $section;
     }
 
-    public static function __set_state(array $properties): self
+    #[Pure] #[Pure] public static function __set_state(array $properties): self
     {
         return new self($properties['domain'], $properties['section']);
     }

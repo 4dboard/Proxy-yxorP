@@ -7,27 +7,27 @@ class Configuration
     const NOTIFY_ENDPOINT = 'https://notify.bugsnag.com';
     const SESSION_ENDPOINT = 'https://sessions.bugsnag.com';
     const BUILD_ENDPOINT = 'https://build.bugsnag.com';
-    private $apiKey;
-    private $batchSending = true;
+    private string $apiKey;
+    private bool $batchSending = true;
     private $notifyReleaseStages;
-    private $filters = ['password', 'cookie', 'authorization', 'php-auth-user', 'php-auth-pw', 'php-auth-digest',];
+    private array $filters = ['password', 'cookie', 'authorization', 'php-auth-user', 'php-auth-pw', 'php-auth-digest',];
     private $projectRootRegex;
     private $stripPathRegex;
-    private $sendCode = true;
-    private $notifier = ['name' => 'Bugsnag PHP (Official)', 'version' => '3.27.0', 'url' => 'https://bugsnag.com',];
-    private $fallbackType;
-    private $appData = [];
-    private $deviceData = [];
-    private $metaData = [];
+    private bool $sendCode = true;
+    private array $notifier = ['name' => 'Bugsnag PHP (Official)', 'version' => '3.27.0', 'url' => 'https://bugsnag.com',];
+    private string|false $fallbackType;
+    private array $appData = [];
+    private array $deviceData = [];
+    private array $metaData = [];
     private $errorReportingLevel;
-    private $autoCaptureSessions = false;
-    private $sessionClient;
-    private $notifyEndpoint = self::NOTIFY_ENDPOINT;
-    private $sessionEndpoint = self::SESSION_ENDPOINT;
-    private $buildEndpoint = self::BUILD_ENDPOINT;
-    private $memoryLimitIncrease = 5242880;
-    private $discardClasses = [];
-    private $redactedKeys = [];
+    private bool $autoCaptureSessions = false;
+    private \GuzzleHttp\ClientInterface|\GuzzleHttp\Client $sessionClient;
+    private string $notifyEndpoint = self::NOTIFY_ENDPOINT;
+    private string $sessionEndpoint = self::SESSION_ENDPOINT;
+    private string $buildEndpoint = self::BUILD_ENDPOINT;
+    private int $memoryLimitIncrease = 5242880;
+    private array $discardClasses = [];
+    private array $redactedKeys = [];
 
     public function __construct($apiKey)
     {
@@ -39,35 +39,35 @@ class Configuration
         $this->mergeDeviceData(['runtimeVersions' => ['php' => phpversion()]]);
     }
 
-    public function mergeDeviceData($data)
+    public function mergeDeviceData($data): static
     {
         $this->deviceData = array_merge_recursive($this->deviceData, $data);
         return $this;
     }
 
-    public function getApiKey()
+    public function getApiKey(): string
     {
         return $this->apiKey;
     }
 
-    public function isBatchSending()
+    public function isBatchSending(): bool
     {
         return $this->batchSending;
     }
 
-    public function setBatchSending($batchSending)
+    public function setBatchSending($batchSending): static
     {
         $this->batchSending = $batchSending;
         return $this;
     }
 
-    public function setNotifyReleaseStages(array $notifyReleaseStages = null)
+    public function setNotifyReleaseStages(array $notifyReleaseStages = null): static
     {
         $this->notifyReleaseStages = $notifyReleaseStages;
         return $this;
     }
 
-    public function shouldNotify()
+    public function shouldNotify(): bool
     {
         if (!$this->notifyReleaseStages) {
             return true;
@@ -75,17 +75,17 @@ class Configuration
         return in_array($this->getAppData()['releaseStage'], $this->notifyReleaseStages, true);
     }
 
-    public function getAppData()
+    public function getAppData(): array
     {
         return array_merge(array_filter(['type' => $this->fallbackType, 'releaseStage' => 'production']), array_filter($this->appData));
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return $this->filters;
     }
 
-    public function setFilters(array $filters)
+    public function setFilters(array $filters): static
     {
         $this->filters = $filters;
         return $this;
@@ -114,7 +114,7 @@ class Configuration
         $this->stripPathRegex = $stripPathRegex;
     }
 
-    public function isInProject($file)
+    public function isInProject($file): bool
     {
         return $this->projectRootRegex && preg_match($this->projectRootRegex, $file);
     }
@@ -130,64 +130,64 @@ class Configuration
         return $this->stripPathRegex ? preg_replace($this->stripPathRegex, '', $file) : $file;
     }
 
-    public function setSendCode($sendCode)
+    public function setSendCode($sendCode): static
     {
         $this->sendCode = $sendCode;
         return $this;
     }
 
-    public function shouldSendCode()
+    public function shouldSendCode(): bool
     {
         return $this->sendCode;
     }
 
-    public function getNotifier()
+    public function getNotifier(): array
     {
         return $this->notifier;
     }
 
-    public function setNotifier(array $notifier)
+    public function setNotifier(array $notifier): static
     {
         $this->notifier = $notifier;
         return $this;
     }
 
-    public function setAppVersion($appVersion)
+    public function setAppVersion($appVersion): static
     {
         $this->appData['version'] = $appVersion;
         return $this;
     }
 
-    public function setReleaseStage($releaseStage)
+    public function setReleaseStage($releaseStage): static
     {
         $this->appData['releaseStage'] = $releaseStage;
         return $this;
     }
 
-    public function setAppType($type)
+    public function setAppType($type): static
     {
         $this->appData['type'] = $type;
         return $this;
     }
 
-    public function setFallbackType($type)
+    public function setFallbackType($type): static
     {
         $this->fallbackType = $type;
         return $this;
     }
 
-    public function setHostname($hostname)
+    public function setHostname($hostname): static
     {
         $this->deviceData['hostname'] = $hostname;
         return $this;
     }
 
-    public function getDeviceData()
+    public function getDeviceData(): array
     {
         return array_merge($this->getHostname(), array_filter($this->deviceData));
     }
 
-    protected function getHostname()
+    protected function getHostname(): array
     {
         $disabled = explode(',', ini_get('disable_functions'));
         if (function_exists('php_uname') && !in_array('php_uname', $disabled, true)) {
@@ -199,18 +199,18 @@ class Configuration
         return [];
     }
 
-    public function getMetaData()
+    public function getMetaData(): array
     {
         return $this->metaData;
     }
 
-    public function setMetaData(array $metaData, $merge = true)
+    public function setMetaData(array $metaData, $merge = true): static
     {
         $this->metaData = $merge ? array_merge_recursive($this->metaData, $metaData) : $metaData;
         return $this;
     }
 
-    public function setErrorReportingLevel($errorReportingLevel)
+    public function setErrorReportingLevel($errorReportingLevel): static
     {
         if (!$this->isSubsetOfErrorReporting($errorReportingLevel)) {
             $missingLevels = implode(', ', $this->getMissingErrorLevelNames($errorReportingLevel));
@@ -221,7 +221,7 @@ class Configuration
         return $this;
     }
 
-    private function isSubsetOfErrorReporting($level)
+    private function isSubsetOfErrorReporting($level): bool
     {
         if (!is_int($level)) {
             return true;
@@ -230,7 +230,7 @@ class Configuration
         return ($errorReporting | $level) === $errorReporting;
     }
 
-    private function getMissingErrorLevelNames($level)
+    private function getMissingErrorLevelNames($level): array
     {
         $missingLevels = [];
         $errorReporting = error_reporting();
@@ -242,7 +242,7 @@ class Configuration
         return $missingLevels;
     }
 
-    public function shouldIgnoreErrorCode($code)
+    public function shouldIgnoreErrorCode($code): bool
     {
         if (!(error_reporting() & $code)) {
             return true;
@@ -253,51 +253,51 @@ class Configuration
         return false;
     }
 
-    public function getNotifyEndpoint()
+    public function getNotifyEndpoint(): string
     {
         return $this->notifyEndpoint;
     }
 
-    public function setNotifyEndpoint($endpoint)
+    public function setNotifyEndpoint($endpoint): static
     {
         $this->notifyEndpoint = $endpoint;
         return $this;
     }
 
-    public function getSessionEndpoint()
+    public function getSessionEndpoint(): string
     {
         return $this->sessionEndpoint;
     }
 
-    public function setSessionEndpoint($endpoint)
+    public function setSessionEndpoint($endpoint): static
     {
         $this->sessionEndpoint = $endpoint;
         return $this;
     }
 
-    public function getBuildEndpoint()
+    public function getBuildEndpoint(): string
     {
         return $this->buildEndpoint;
     }
 
-    public function setBuildEndpoint($endpoint)
+    public function setBuildEndpoint($endpoint): static
     {
         $this->buildEndpoint = $endpoint;
         return $this;
     }
 
-    public function setAutoCaptureSessions($track)
+    public function setAutoCaptureSessions($track): static
     {
         $this->autoCaptureSessions = $track;
         return $this;
     }
 
-    public function shouldCaptureSessions()
+    public function shouldCaptureSessions(): bool
     {
         return $this->autoCaptureSessions;
     }
 
-    public function getSessionClient()
+    public function getSessionClient(): \GuzzleHttp\Client|\GuzzleHttp\ClientInterface
     {
         if (is_null($this->sessionClient)) {
             $this->sessionClient = Client::makeGuzzle($this->sessionEndpoint);
@@ -305,34 +305,34 @@ class Configuration
         return $this->sessionClient;
     }
 
-    public function getMemoryLimitIncrease()
+    public function getMemoryLimitIncrease(): int
     {
         return $this->memoryLimitIncrease;
     }
 
-    public function setMemoryLimitIncrease($value)
+    public function setMemoryLimitIncrease($value): static
     {
         $this->memoryLimitIncrease = $value;
         return $this;
     }
 
-    public function getDiscardClasses()
+    public function getDiscardClasses(): array
     {
         return $this->discardClasses;
     }
 
-    public function setDiscardClasses(array $discardClasses)
+    public function setDiscardClasses(array $discardClasses): static
     {
         $this->discardClasses = $discardClasses;
         return $this;
     }
 
-    public function getRedactedKeys()
+    public function getRedactedKeys(): array
     {
         return $this->redactedKeys;
     }
 
-    public function setRedactedKeys(array $redactedKeys)
+    public function setRedactedKeys(array $redactedKeys): static
     {
         $this->redactedKeys = $redactedKeys;
         return $this;

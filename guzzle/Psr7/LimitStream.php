@@ -37,7 +37,7 @@ class LimitStream implements StreamInterface
         $this->offset = $offset;
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->stream->tell() - $this->offset;
     }
@@ -56,7 +56,7 @@ class LimitStream implements StreamInterface
         $this->stream->seek($offset);
     }
 
-    public function read($length)
+    public function read($length): string
     {
         if ($this->limit == -1) {
             return $this->stream->read($length);
@@ -68,7 +68,7 @@ class LimitStream implements StreamInterface
         return '';
     }
 
-    public function eof()
+    public function eof(): bool
     {
         if ($this->stream->eof()) {
             return true;

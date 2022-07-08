@@ -29,12 +29,12 @@ trait StreamDecoratorTrait
             }
             return $this->getContents();
         } catch (Exception $e) {
-            trigger_error('StreamDecorator::__toString exception: ' . (string)$e->__toString(), E_USER_ERROR);
+            trigger_error('StreamDecorator::__toString exception: ' . $e->__toString(), E_USER_ERROR);
             return '';
         }
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return copy_to_string($this);
     }
@@ -60,32 +60,32 @@ trait StreamDecoratorTrait
         return $this->stream->detach();
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->stream->getSize();
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return $this->stream->eof();
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->stream->tell();
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return $this->stream->isReadable();
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return $this->stream->isWritable();
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return $this->stream->isSeekable();
     }
@@ -100,12 +100,12 @@ trait StreamDecoratorTrait
         $this->stream->seek($offset, $whence);
     }
 
-    public function read($length)
+    public function read($length): string
     {
         return $this->stream->read($length);
     }
 
-    public function write($string)
+    public function write($string): int
     {
         return $this->stream->write($string);
     }

@@ -190,6 +190,9 @@ class ws
     }
 
     /* A static method that takes a payload and a connectionInterface as parameters and returns a string. */
+    /**
+     * @throws Exception
+     */
     public static function encode($payload, connectionInterface $connection): string
     {
         if (empty($connection->websocketType)) $connection->websocketType = self::BINARY_TYPE_BLOB;
@@ -257,6 +260,9 @@ class ws
     }
 
     /* A function that is called when a client connects to the server. */
+    /**
+     * @throws Exception
+     */
     public static function onConnect($connection)
     {
         static::sendHandshake($connection);
