@@ -1,13 +1,13 @@
 <?php
 namespace \yxorP\guzzle;
 
-use \yxorP\guzzle\Cookie\CookieJar;
-use \yxorP\guzzle\Exception\GuzzleException;
-use \yxorP\guzzle\Promise;
-use \yxorP\guzzle\Psr7;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use yxorP\guzzle\Cookie\CookieJar;
+use yxorP\guzzle\Exception\GuzzleException;
+use yxorP\guzzle\Promise;
+use yxorP\guzzle\Psr7;
 
 /**
  * @method ResponseInterface get(string|UriInterface $uri, array $options = [])
@@ -64,7 +64,7 @@ class Client implements ClientInterface
         if (!isset($config['handler'])) {
             $config['handler'] = HandlerStack::create();
         } elseif (!is_callable($config['handler'])) {
-            throw new \InvalidArgumentException('handler must be a callable');
+            throw new InvalidArgumentException('handler must be a callable');
         }
 
         // Convert the base_uri to a UriInterface
@@ -73,153 +73,6 @@ class Client implements ClientInterface
         }
 
         $this->configureDefaults($config);
-    }
-
-    /**
-     * @param string $method
-     * @param array  $args
-     *
-     * @return Promise\PromiseInterface
-     */
-    public function __call($method, $args)
-    {
-        if (count($args) < 1) {
-            throw new \InvalidArgumentException('Magic request methods require a URI and optional options array');
-        }
-
-        $uri = $args[0];
-        $opts = isset($args[1]) ? $args[1] : [];
-
-        return substr($method, -5) === 'Async'
-            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
-            : $this->request($method, $uri, $opts);
-    }
-
-    /**
-     * Asynchronously send an HTTP request.
-     *
-     * @param array $options Request options to apply to the given
-     *                       request and to the transfer. See \yxorP\guzzle\RequestOptions.
-     *
-     * @return Promise\PromiseInterface
-     */
-    public function sendAsync(RequestInterface $request, array $options = [])
-    {
-        // Merge the base URI into the request URI if needed.
-        $options = $this->prepareDefaults($options);
-
-        return $this->transfer(
-            $request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')),
-            $options
-        );
-    }
-
-    /**
-     * Send an HTTP request.
-     *
-     * @param array $options Request options to apply to the given
-     *                       request and to the transfer. See \yxorP\guzzle\RequestOptions.
-     *
-     * @return ResponseInterface
-     * @throws GuzzleException
-     */
-    public function send(RequestInterface $request, array $options = [])
-    {
-        $options[RequestOptions::SYNCHRONOUS] = true;
-        return $this->sendAsync($request, $options)->wait();
-    }
-
-    /**
-     * Create and send an asynchronous HTTP request.
-     *
-     * Use an absolute path to override the base path of the client, or a
-     * relative path to append to the base path of the client. The URL can
-     * contain the query string as well. Use an array to provide a URL
-     * template and additional variables to use in the URL template expansion.
-     *
-     * @param string              $method  HTTP method
-     * @param string|UriInterface $uri     URI object or string.
-     * @param array               $options Request options to apply. See \yxorP\guzzle\RequestOptions.
-     *
-     * @return Promise\PromiseInterface
-     */
-    public function requestAsync($method, $uri = '', array $options = [])
-    {
-        $options = $this->prepareDefaults($options);
-        // Remove request modifying parameter because it can be done up-front.
-        $headers = isset($options['headers']) ? $options['headers'] : [];
-        $body = isset($options['body']) ? $options['body'] : null;
-        $version = isset($options['version']) ? $options['version'] : '1.1';
-        // Merge the URI into the base URI.
-        $uri = $this->buildUri($uri, $options);
-        if (is_array($body)) {
-            $this->invalidBody();
-        }
-        $request = new Psr7\Request($method, $uri, $headers, $body, $version);
-        // Remove the option so that they are not doubly-applied.
-        unset($options['headers'], $options['body'], $options['version']);
-
-        return $this->transfer($request, $options);
-    }
-
-    /**
-     * Create and send an HTTP request.
-     *
-     * Use an absolute path to override the base path of the client, or a
-     * relative path to append to the base path of the client. The URL can
-     * contain the query string as well.
-     *
-     * @param string              $method  HTTP method.
-     * @param string|UriInterface $uri     URI object or string.
-     * @param array               $options Request options to apply. See \yxorP\guzzle\RequestOptions.
-     *
-     * @return ResponseInterface
-     * @throws GuzzleException
-     */
-    public function request($method, $uri = '', array $options = [])
-    {
-        $options[RequestOptions::SYNCHRONOUS] = true;
-        return $this->requestAsync($method, $uri, $options)->wait();
-    }
-
-    /**
-     * Get a client configuration option.
-     *
-     * These options include default request options of the client, a "handler"
-     * (if utilized by the concrete client), and a "base_uri" if utilized by
-     * the concrete client.
-     *
-     * @param string|null $option The config option to retrieve.
-     *
-     * @return mixed
-     */
-    public function getConfig($option = null)
-    {
-        return $option === null
-            ? $this->config
-            : (isset($this->config[$option]) ? $this->config[$option] : null);
-    }
-
-    /**
-     * @param  string|null $uri
-     *
-     * @return UriInterface
-     */
-    private function buildUri($uri, array $config)
-    {
-        // for BC we accept null which would otherwise fail in uri_for
-        $uri = Psr7\uri_for($uri === null ? '' : $uri);
-
-        if (isset($config['base_uri'])) {
-            $uri = Psr7\UriResolver::resolve(Psr7\uri_for($config['base_uri']), $uri);
-        }
-
-        if (isset($config['idn_conversion']) && ($config['idn_conversion'] !== false)) {
-            $idnOptions = ($config['idn_conversion'] === true) ? IDNA_DEFAULT : $config['idn_conversion'];
-            $uri = Utils::idnUriConvert($uri, $idnOptions);
-        }
-
-        return $uri->getScheme() === '' && $uri->getHost() !== '' ? $uri->withScheme('http') : $uri;
     }
 
     /**
@@ -232,11 +85,11 @@ class Client implements ClientInterface
     {
         $defaults = [
             'allow_redirects' => RedirectMiddleware::$defaultSettings,
-            'http_errors'     => true,
-            'decode_content'  => true,
-            'verify'          => true,
-            'cookies'         => false,
-            'idn_conversion'  => true,
+            'http_errors' => true,
+            'decode_content' => true,
+            'verify' => true,
+            'cookies' => false,
+            'idn_conversion' => true,
         ];
 
         // Use the standard Linux HTTP_PROXY and HTTPS_PROXY if set.
@@ -278,6 +131,59 @@ class Client implements ClientInterface
     }
 
     /**
+     * @param string $method
+     * @param array $args
+     *
+     * @return Promise\PromiseInterface
+     */
+    public function __call($method, $args)
+    {
+        if (count($args) < 1) {
+            throw new InvalidArgumentException('Magic request methods require a URI and optional options array');
+        }
+
+        $uri = $args[0];
+        $opts = isset($args[1]) ? $args[1] : [];
+
+        return substr($method, -5) === 'Async'
+            ? $this->requestAsync(substr($method, 0, -5), $uri, $opts)
+            : $this->request($method, $uri, $opts);
+    }
+
+    /**
+     * Create and send an asynchronous HTTP request.
+     *
+     * Use an absolute path to override the base path of the client, or a
+     * relative path to append to the base path of the client. The URL can
+     * contain the query string as well. Use an array to provide a URL
+     * template and additional variables to use in the URL template expansion.
+     *
+     * @param string $method HTTP method
+     * @param string|UriInterface $uri URI object or string.
+     * @param array $options Request options to apply. See \yxorP\guzzle\RequestOptions.
+     *
+     * @return Promise\PromiseInterface
+     */
+    public function requestAsync($method, $uri = '', array $options = [])
+    {
+        $options = $this->prepareDefaults($options);
+        // Remove request modifying parameter because it can be done up-front.
+        $headers = isset($options['headers']) ? $options['headers'] : [];
+        $body = isset($options['body']) ? $options['body'] : null;
+        $version = isset($options['version']) ? $options['version'] : '1.1';
+        // Merge the URI into the base URI.
+        $uri = $this->buildUri($uri, $options);
+        if (is_array($body)) {
+            $this->invalidBody();
+        }
+        $request = new Psr7\Request($method, $uri, $headers, $body, $version);
+        // Remove the option so that they are not doubly-applied.
+        unset($options['headers'], $options['body'], $options['version']);
+
+        return $this->transfer($request, $options);
+    }
+
+    /**
      * Merges default options into the array.
      *
      * @param array $options Options to modify by reference
@@ -302,7 +208,7 @@ class Client implements ClientInterface
                 $defaults['_conditional'] = [];
                 unset($options['headers']);
             } elseif (!is_array($options['headers'])) {
-                throw new \InvalidArgumentException('headers must be an array');
+                throw new InvalidArgumentException('headers must be an array');
             }
         }
 
@@ -317,6 +223,42 @@ class Client implements ClientInterface
         }
 
         return $result;
+    }
+
+    /**
+     * @param string|null $uri
+     *
+     * @return UriInterface
+     */
+    private function buildUri($uri, array $config)
+    {
+        // for BC we accept null which would otherwise fail in uri_for
+        $uri = Psr7\uri_for($uri === null ? '' : $uri);
+
+        if (isset($config['base_uri'])) {
+            $uri = Psr7\UriResolver::resolve(Psr7\uri_for($config['base_uri']), $uri);
+        }
+
+        if (isset($config['idn_conversion']) && ($config['idn_conversion'] !== false)) {
+            $idnOptions = ($config['idn_conversion'] === true) ? IDNA_DEFAULT : $config['idn_conversion'];
+            $uri = Utils::idnUriConvert($uri, $idnOptions);
+        }
+
+        return $uri->getScheme() === '' && $uri->getHost() !== '' ? $uri->withScheme('http') : $uri;
+    }
+
+    /**
+     * Throw Exception with pre-set message.
+     * @return void
+     * @throws InvalidArgumentException Invalid body.
+     */
+    private function invalidBody()
+    {
+        throw new InvalidArgumentException('Passing in the "body" request '
+            . 'option as an array to send a POST request has been deprecated. '
+            . 'Please use the "form_params" request option to send a '
+            . 'application/x-www-form-urlencoded request, or the "multipart" '
+            . 'request option to send a multipart/form-data request.');
     }
 
     /**
@@ -349,7 +291,7 @@ class Client implements ClientInterface
 
         try {
             return Promise\promise_for($handler($request, $options));
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return Promise\rejection_for($e);
         }
     }
@@ -358,7 +300,7 @@ class Client implements ClientInterface
      * Applies the array of request options to a request.
      *
      * @param RequestInterface $request
-     * @param array            $options
+     * @param array $options
      *
      * @return RequestInterface
      */
@@ -375,7 +317,7 @@ class Client implements ClientInterface
 
         if (isset($options['form_params'])) {
             if (isset($options['multipart'])) {
-                throw new \InvalidArgumentException('You cannot use '
+                throw new InvalidArgumentException('You cannot use '
                     . 'form_params and multipart at the same time. Use the '
                     . 'form_params option if you want to send application/'
                     . 'x-www-form-urlencoded requests, and the multipart '
@@ -445,7 +387,7 @@ class Client implements ClientInterface
                 $value = http_build_query($value, null, '&', PHP_QUERY_RFC3986);
             }
             if (!is_string($value)) {
-                throw new \InvalidArgumentException('query must be a string or array');
+                throw new InvalidArgumentException('query must be a string or array');
             }
             $modify['query'] = $value;
             unset($options['query']);
@@ -455,7 +397,7 @@ class Client implements ClientInterface
         if (isset($options['sink'])) {
             // TODO: Add more sink validation?
             if (is_bool($options['sink'])) {
-                throw new \InvalidArgumentException('sink must not be a boolean');
+                throw new InvalidArgumentException('sink must not be a boolean');
             }
         }
 
@@ -486,16 +428,74 @@ class Client implements ClientInterface
     }
 
     /**
-     * Throw Exception with pre-set message.
-     * @return void
-     * @throws \InvalidArgumentException Invalid body.
+     * Create and send an HTTP request.
+     *
+     * Use an absolute path to override the base path of the client, or a
+     * relative path to append to the base path of the client. The URL can
+     * contain the query string as well.
+     *
+     * @param string $method HTTP method.
+     * @param string|UriInterface $uri URI object or string.
+     * @param array $options Request options to apply. See \yxorP\guzzle\RequestOptions.
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
      */
-    private function invalidBody()
+    public function request($method, $uri = '', array $options = [])
     {
-        throw new \InvalidArgumentException('Passing in the "body" request '
-            . 'option as an array to send a POST request has been deprecated. '
-            . 'Please use the "form_params" request option to send a '
-            . 'application/x-www-form-urlencoded request, or the "multipart" '
-            . 'request option to send a multipart/form-data request.');
+        $options[RequestOptions::SYNCHRONOUS] = true;
+        return $this->requestAsync($method, $uri, $options)->wait();
+    }
+
+    /**
+     * Send an HTTP request.
+     *
+     * @param array $options Request options to apply to the given
+     *                       request and to the transfer. See \yxorP\guzzle\RequestOptions.
+     *
+     * @return ResponseInterface
+     * @throws GuzzleException
+     */
+    public function send(RequestInterface $request, array $options = [])
+    {
+        $options[RequestOptions::SYNCHRONOUS] = true;
+        return $this->sendAsync($request, $options)->wait();
+    }
+
+    /**
+     * Asynchronously send an HTTP request.
+     *
+     * @param array $options Request options to apply to the given
+     *                       request and to the transfer. See \yxorP\guzzle\RequestOptions.
+     *
+     * @return Promise\PromiseInterface
+     */
+    public function sendAsync(RequestInterface $request, array $options = [])
+    {
+        // Merge the base URI into the request URI if needed.
+        $options = $this->prepareDefaults($options);
+
+        return $this->transfer(
+            $request->withUri($this->buildUri($request->getUri(), $options), $request->hasHeader('Host')),
+            $options
+        );
+    }
+
+    /**
+     * Get a client configuration option.
+     *
+     * These options include default request options of the client, a "handler"
+     * (if utilized by the concrete client), and a "base_uri" if utilized by
+     * the concrete client.
+     *
+     * @param string|null $option The config option to retrieve.
+     *
+     * @return mixed
+     */
+    public function getConfig($option = null)
+    {
+        return $option === null
+            ? $this->config
+            : (isset($this->config[$option]) ? $this->config[$option] : null);
     }
 }

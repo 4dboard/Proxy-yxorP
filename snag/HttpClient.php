@@ -2,11 +2,11 @@
 
 namespace yxorP\snag;
 
+use Exception;
+use RuntimeException;
+use yxorP\guzzle\ClientInterface;
 use yxorP\snag\DateTime\Date;
 use yxorP\snag\Internal\GuzzleCompat;
-use Exception;
-use \yxorP\guzzle\ClientInterface;
-use RuntimeException;
 
 class HttpClient
 {
@@ -91,6 +91,25 @@ class HttpClient
         $uri = rtrim($this->config->getNotifyEndpoint(), '/') . '/deploy';
 
         $this->post($uri, ['json' => $data]);
+    }
+
+    /**
+     * Send a POST request to Snag.
+     *
+     * @param string $uri the uri to hit
+     * @param array $options the request options
+     *
+     * @return void
+     */
+    protected function post($uri, array $options = [])
+    {
+        if (GuzzleCompat::isUsingGuzzle5()) {
+            // TODO: validate this by running PHPStan with Guzzle 5
+            // @phpstan-ignore-next-line
+            $this->guzzle->post($uri, $options);
+        } else {
+            $this->guzzle->request('POST', $uri, $options);
+        }
     }
 
     /**
@@ -180,114 +199,6 @@ class HttpClient
     }
 
     /**
-     * Send a session data payload to Snag.
-     *
-     * @param array $payload
-     *
-     * @return void
-     */
-    public function sendSessions(array $payload)
-    {
-        $this->post(
-            $this->config->getSessionEndpoint(),
-            [
-                'json' => $payload,
-                'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),
-            ]
-        );
-    }
-
-    /**
-     * Build the request data to send.
-     *
-     * @return array
-     *
-     * @deprecated Use {@see HttpClient::getEventPayload} instead.
-     */
-    protected function build()
-    {
-        return $this->getEventPayload();
-    }
-
-    /**
-     * Get the event payload to send.
-     *
-     * @return array
-     */
-    protected function getEventPayload()
-    {
-        $events = [];
-
-        foreach ($this->queue as $report) {
-            $event = $report->toArray();
-
-            if ($event) {
-                $events[] = $event;
-            }
-        }
-
-        return [
-            'apiKey' => $this->config->getApiKey(),
-            'notifier' => $this->config->getNotifier(),
-            'events' => $events,
-        ];
-    }
-
-    /**
-     * Builds the array of headers to send.
-     *
-     * @param string $version The payload version to use. This defaults to the
-     *                        notify payload version if not given. The default
-     *                        value should not be relied upon and will be removed
-     *                        in the next major release.
-     *
-     * @return array
-     */
-    protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION)
-    {
-        return [
-            'Snag-Api-Key' => $this->config->getApiKey(),
-            'Snag-Sent-At' => Date::now(),
-            'Snag-Payload-Version' => $version,
-            'Content-Type' => 'application/json',
-        ];
-    }
-
-    /**
-     * Send a POST request to Snag.
-     *
-     * @param string $uri the uri to hit
-     * @param array $options the request options
-     *
-     * @return void
-     */
-    protected function post($uri, array $options = [])
-    {
-        if (GuzzleCompat::isUsingGuzzle5()) {
-            // TODO: validate this by running PHPStan with Guzzle 5
-            // @phpstan-ignore-next-line
-            $this->guzzle->post($uri, $options);
-        } else {
-            $this->guzzle->request('POST', $uri, $options);
-        }
-    }
-
-    /**
-     * Deliver the given events to the notification API.
-     *
-     * @param string $uri the uri to hit
-     * @param array $data the data send
-     *
-     * @return void
-     *
-     * @deprecated Use {HttpClient::deliverEvents} instead
-     */
-    protected function postJson($uri, array $data)
-    {
-        $this->deliverEvents($uri, $data);
-    }
-
-    /**
      * Deliver the given events to the notification API.
      *
      * @param string $uri the uri to hit
@@ -368,5 +279,94 @@ class HttpClient
     protected function length($str)
     {
         return function_exists('mb_strlen') ? mb_strlen($str, '8bit') : strlen($str);
+    }
+
+    /**
+     * Builds the array of headers to send.
+     *
+     * @param string $version The payload version to use. This defaults to the
+     *                        notify payload version if not given. The default
+     *                        value should not be relied upon and will be removed
+     *                        in the next major release.
+     *
+     * @return array
+     */
+    protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION)
+    {
+        return [
+            'Snag-Api-Key' => $this->config->getApiKey(),
+            'Snag-Sent-At' => Date::now(),
+            'Snag-Payload-Version' => $version,
+            'Content-Type' => 'application/json',
+        ];
+    }
+
+    /**
+     * Get the event payload to send.
+     *
+     * @return array
+     */
+    protected function getEventPayload()
+    {
+        $events = [];
+
+        foreach ($this->queue as $report) {
+            $event = $report->toArray();
+
+            if ($event) {
+                $events[] = $event;
+            }
+        }
+
+        return [
+            'apiKey' => $this->config->getApiKey(),
+            'notifier' => $this->config->getNotifier(),
+            'events' => $events,
+        ];
+    }
+
+    /**
+     * Send a session data payload to Snag.
+     *
+     * @param array $payload
+     *
+     * @return void
+     */
+    public function sendSessions(array $payload)
+    {
+        $this->post(
+            $this->config->getSessionEndpoint(),
+            [
+                'json' => $payload,
+                'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),
+            ]
+        );
+    }
+
+    /**
+     * Build the request data to send.
+     *
+     * @return array
+     *
+     * @deprecated Use {@see HttpClient::getEventPayload} instead.
+     */
+    protected function build()
+    {
+        return $this->getEventPayload();
+    }
+
+    /**
+     * Deliver the given events to the notification API.
+     *
+     * @param string $uri the uri to hit
+     * @param array $data the data send
+     *
+     * @return void
+     *
+     * @deprecated Use {HttpClient::deliverEvents} instead
+     */
+    protected function postJson($uri, array $data)
+    {
+        $this->deliverEvents($uri, $data);
     }
 }

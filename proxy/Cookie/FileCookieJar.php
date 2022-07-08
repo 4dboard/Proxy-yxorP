@@ -15,11 +15,11 @@ class FileCookieJar extends CookieJar
     /**
      * Create a new FileCookieJar object
      *
-     * @param string $cookieFile        File to store the cookie data
+     * @param string $cookieFile File to store the cookie data
      * @param bool $storeSessionCookies Set to true to store session cookies
      *                                  in the cookie jar.
      *
-     * @throws \RuntimeException if the file cannot be found or created
+     * @throws RuntimeException if the file cannot be found or created
      */
     public function __construct($cookieFile, $storeSessionCookies = false)
     {
@@ -29,6 +29,33 @@ class FileCookieJar extends CookieJar
 
         if (file_exists($cookieFile)) {
             $this->load($cookieFile);
+        }
+    }
+
+    /**
+     * Load cookies from a JSON formatted file.
+     *
+     * Old cookies are kept unless overwritten by newly loaded ones.
+     *
+     * @param string $filename Cookie file to load.
+     * @throws RuntimeException if the file cannot be loaded.
+     */
+    public function load($filename)
+    {
+        $json = file_get_contents($filename);
+        if (false === $json) {
+            throw new RuntimeException("Unable to load file {$filename}");
+        } elseif ($json === '') {
+            return;
+        }
+
+        $data = \yxorP\guzzle\json_decode($json, true);
+        if (is_array($data)) {
+            foreach (json_decode($json, true) as $cookie) {
+                $this->setCookie(new SetCookie($cookie));
+            }
+        } elseif (strlen($data)) {
+            throw new RuntimeException("Invalid cookie file: {$filename}");
         }
     }
 
@@ -44,7 +71,7 @@ class FileCookieJar extends CookieJar
      * Saves the cookies to a file.
      *
      * @param string $filename File to save
-     * @throws \RuntimeException if the file cannot be found or created
+     * @throws RuntimeException if the file cannot be found or created
      */
     public function save($filename)
     {
@@ -58,34 +85,7 @@ class FileCookieJar extends CookieJar
 
         $jsonStr = \yxorP\guzzle\json_encode($json);
         if (false === file_put_contents($filename, $jsonStr, LOCK_EX)) {
-            throw new \RuntimeException("Unable to save file {$filename}");
-        }
-    }
-
-    /**
-     * Load cookies from a JSON formatted file.
-     *
-     * Old cookies are kept unless overwritten by newly loaded ones.
-     *
-     * @param string $filename Cookie file to load.
-     * @throws \RuntimeException if the file cannot be loaded.
-     */
-    public function load($filename)
-    {
-        $json = file_get_contents($filename);
-        if (false === $json) {
-            throw new \RuntimeException("Unable to load file {$filename}");
-        } elseif ($json === '') {
-            return;
-        }
-
-        $data = \yxorP\guzzle\json_decode($json, true);
-        if (is_array($data)) {
-            foreach (json_decode($json, true) as $cookie) {
-                $this->setCookie(new SetCookie($cookie));
-            }
-        } elseif (strlen($data)) {
-            throw new \RuntimeException("Invalid cookie file: {$filename}");
+            throw new RuntimeException("Unable to save file {$filename}");
         }
     }
 }

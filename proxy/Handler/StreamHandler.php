@@ -1,16 +1,16 @@
 <?php
 namespace \yxorP\guzzle\Handler;
 
-use \yxorP\guzzle\Exception\ConnectException;
-use \yxorP\guzzle\Exception\RequestException;
-use \yxorP\guzzle\Promise\FulfilledPromise;
-use \yxorP\guzzle\Promise\PromiseInterface;
-use \yxorP\guzzle\Psr7;
-use \yxorP\guzzle\TransferStats;
-use \yxorP\guzzle\Utils;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use yxorP\guzzle\Exception\ConnectException;
+use yxorP\guzzle\Exception\RequestException;
+use yxorP\guzzle\Promise\FulfilledPromise;
+use yxorP\guzzle\Promise\PromiseInterface;
+use yxorP\guzzle\Psr7;
+use yxorP\guzzle\TransferStats;
+use yxorP\guzzle\Utils;
 
 /**
  * HTTP handler that uses PHP's HTTP stream wrapper.
@@ -23,7 +23,7 @@ class StreamHandler
      * Sends an HTTP request.
      *
      * @param RequestInterface $request Request to send.
-     * @param array            $options Request transfer options.
+     * @param array $options Request transfer options.
      *
      * @return PromiseInterface
      */
@@ -52,9 +52,9 @@ class StreamHandler
                 $this->createStream($request, $options),
                 $startTime
             );
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             throw $e;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Determine if the error was a networking error.
             $message = $e->getMessage();
             // This list can probably get more comprehensive.
@@ -72,31 +72,13 @@ class StreamHandler
         }
     }
 
-    private function invokeStats(
-        array $options,
-        RequestInterface $request,
-        $startTime,
-        ResponseInterface $response = null,
-        $error = null
-    ) {
-        if (isset($options['on_stats'])) {
-            $stats = new TransferStats(
-                $request,
-                $response,
-                Utils::currentTime() - $startTime,
-                $error,
-                []
-            );
-            call_user_func($options['on_stats'], $stats);
-        }
-    }
-
     private function createResponse(
         RequestInterface $request,
-        array $options,
-        $stream,
-        $startTime
-    ) {
+        array            $options,
+                         $stream,
+                         $startTime
+    )
+    {
         $hdrs = $this->lastHeaders;
         $this->lastHeaders = [];
         $parts = explode(' ', array_shift($hdrs), 3);
@@ -117,7 +99,7 @@ class StreamHandler
         if (isset($options['on_headers'])) {
             try {
                 $options['on_headers']($response);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
                 $ex = new RequestException($msg, $request, $response, $e);
                 return \yxorP\guzzle\Promise\rejection_for($ex);
@@ -137,21 +119,6 @@ class StreamHandler
         $this->invokeStats($options, $request, $startTime, $response, null);
 
         return new FulfilledPromise($response);
-    }
-
-    private function createSink(StreamInterface $stream, array $options)
-    {
-        if (!empty($options['stream'])) {
-            return $stream;
-        }
-
-        $sink = isset($options['sink'])
-            ? $options['sink']
-            : fopen('php://temp', 'r+');
-
-        return is_string($sink)
-            ? new Psr7\LazyOpenStream($sink, 'w+')
-            : Psr7\stream_for($sink);
     }
 
     private function checkDecode(array $options, array $headers, $stream)
@@ -174,7 +141,7 @@ class StreamHandler
                         $headers['x-encoded-content-length']
                             = $headers[$normalizedKeys['content-length']];
 
-                        $length = (int) $stream->getSize();
+                        $length = (int)$stream->getSize();
                         if ($length === 0) {
                             unset($headers[$normalizedKeys['content-length']]);
                         } else {
@@ -188,22 +155,38 @@ class StreamHandler
         return [$stream, $headers];
     }
 
+    private function createSink(StreamInterface $stream, array $options)
+    {
+        if (!empty($options['stream'])) {
+            return $stream;
+        }
+
+        $sink = isset($options['sink'])
+            ? $options['sink']
+            : fopen('php://temp', 'r+');
+
+        return is_string($sink)
+            ? new Psr7\LazyOpenStream($sink, 'w+')
+            : Psr7\stream_for($sink);
+    }
+
     /**
      * Drains the source stream into the "sink" client option.
      *
      * @param StreamInterface $source
      * @param StreamInterface $sink
-     * @param string          $contentLength Header specifying the amount of
+     * @param string $contentLength Header specifying the amount of
      *                                       data to read.
      *
      * @return StreamInterface
-     * @throws \RuntimeException when the sink option is invalid.
+     * @throws RuntimeException when the sink option is invalid.
      */
     private function drain(
         StreamInterface $source,
         StreamInterface $sink,
-        $contentLength
-    ) {
+                        $contentLength
+    )
+    {
         // If a content-length header is provided, then stop reading once
         // that number of bytes has been read. This can prevent infinitely
         // reading from a stream when dealing with servers that do not honor
@@ -211,7 +194,7 @@ class StreamHandler
         Psr7\copy_to_stream(
             $source,
             $sink,
-            (strlen($contentLength) > 0 && (int) $contentLength > 0) ? (int) $contentLength : -1
+            (strlen($contentLength) > 0 && (int)$contentLength > 0) ? (int)$contentLength : -1
         );
 
         $sink->seek(0);
@@ -220,40 +203,24 @@ class StreamHandler
         return $sink;
     }
 
-    /**
-     * Create a resource and check to ensure it was created successfully
-     *
-     * @param callable $callback Callable that returns stream resource
-     *
-     * @return resource
-     * @throws \RuntimeException on error
-     */
-    private function createResource(callable $callback)
+    private function invokeStats(
+        array             $options,
+        RequestInterface  $request,
+                          $startTime,
+        ResponseInterface $response = null,
+                          $error = null
+    )
     {
-        $errors = null;
-        set_error_handler(function ($_, $msg, $file, $line) use (&$errors) {
-            $errors[] = [
-                'message' => $msg,
-                'file'    => $file,
-                'line'    => $line
-            ];
-            return true;
-        });
-
-        $resource = $callback();
-        restore_error_handler();
-
-        if (!$resource) {
-            $message = 'Error creating resource: ';
-            foreach ($errors as $err) {
-                foreach ($err as $key => $value) {
-                    $message .= "[$key] $value" . PHP_EOL;
-                }
-            }
-            throw new \RuntimeException(trim($message));
+        if (isset($options['on_stats'])) {
+            $stats = new TransferStats(
+                $request,
+                $response,
+                Utils::currentTime() - $startTime,
+                $error,
+                []
+            );
+            call_user_func($options['on_stats'], $stats);
         }
-
-        return $resource;
     }
 
     private function createStream(RequestInterface $request, array $options)
@@ -280,7 +247,7 @@ class StreamHandler
         $context = $this->getDefaultContext($request);
 
         if (isset($options['on_headers']) && !is_callable($options['on_headers'])) {
-            throw new \InvalidArgumentException('on_headers must be callable');
+            throw new InvalidArgumentException('on_headers must be callable');
         }
 
         if (!empty($options)) {
@@ -294,7 +261,7 @@ class StreamHandler
 
         if (isset($options['stream_context'])) {
             if (!is_array($options['stream_context'])) {
-                throw new \InvalidArgumentException('stream_context must be an array');
+                throw new InvalidArgumentException('stream_context must be an array');
             }
             $context = array_replace_recursive(
                 $context,
@@ -308,7 +275,7 @@ class StreamHandler
             && isset($options['auth'][2])
             && 'ntlm' == $options['auth'][2]
         ) {
-            throw new \InvalidArgumentException('Microsoft NTLM authentication only supported with curl handler');
+            throw new InvalidArgumentException('Microsoft NTLM authentication only supported with curl handler');
         }
 
         $uri = $this->resolveHost($request, $options);
@@ -321,12 +288,12 @@ class StreamHandler
 
         return $this->createResource(
             function () use ($uri, &$http_response_header, $context, $options) {
-                $resource = fopen((string) $uri, 'r', null, $context);
+                $resource = fopen((string)$uri, 'r', null, $context);
                 $this->lastHeaders = $http_response_header;
 
                 if (isset($options['read_timeout'])) {
                     $readTimeout = $options['read_timeout'];
-                    $sec = (int) $readTimeout;
+                    $sec = (int)$readTimeout;
                     $usec = ($readTimeout - $sec) * 100000;
                     stream_set_timeout($resource, $sec, $usec);
                 }
@@ -334,6 +301,40 @@ class StreamHandler
                 return $resource;
             }
         );
+    }
+
+    private function getDefaultContext(RequestInterface $request)
+    {
+        $headers = '';
+        foreach ($request->getHeaders() as $name => $value) {
+            foreach ($value as $val) {
+                $headers .= "$name: $val\r\n";
+            }
+        }
+
+        $context = [
+            'http' => [
+                'method' => $request->getMethod(),
+                'header' => $headers,
+                'protocol_version' => $request->getProtocolVersion(),
+                'ignore_errors' => true,
+                'follow_location' => 0,
+            ],
+        ];
+
+        $body = (string)$request->getBody();
+
+        if (!empty($body)) {
+            $context['http']['content'] = $body;
+            // Prevent the HTTP handler from adding a Content-Type header.
+            if (!$request->hasHeader('Content-Type')) {
+                $context['http']['header'] .= "Content-Type:\r\n";
+            }
+        }
+
+        $context['http']['header'] = rtrim($context['http']['header']);
+
+        return $context;
     }
 
     private function resolveHost(RequestInterface $request, array $options)
@@ -371,38 +372,40 @@ class StreamHandler
         return $uri;
     }
 
-    private function getDefaultContext(RequestInterface $request)
+    /**
+     * Create a resource and check to ensure it was created successfully
+     *
+     * @param callable $callback Callable that returns stream resource
+     *
+     * @return resource
+     * @throws RuntimeException on error
+     */
+    private function createResource(callable $callback)
     {
-        $headers = '';
-        foreach ($request->getHeaders() as $name => $value) {
-            foreach ($value as $val) {
-                $headers .= "$name: $val\r\n";
+        $errors = null;
+        set_error_handler(function ($_, $msg, $file, $line) use (&$errors) {
+            $errors[] = [
+                'message' => $msg,
+                'file' => $file,
+                'line' => $line
+            ];
+            return true;
+        });
+
+        $resource = $callback();
+        restore_error_handler();
+
+        if (!$resource) {
+            $message = 'Error creating resource: ';
+            foreach ($errors as $err) {
+                foreach ($err as $key => $value) {
+                    $message .= "[$key] $value" . PHP_EOL;
+                }
             }
+            throw new RuntimeException(trim($message));
         }
 
-        $context = [
-            'http' => [
-                'method'           => $request->getMethod(),
-                'header'           => $headers,
-                'protocol_version' => $request->getProtocolVersion(),
-                'ignore_errors'    => true,
-                'follow_location'  => 0,
-            ],
-        ];
-
-        $body = (string) $request->getBody();
-
-        if (!empty($body)) {
-            $context['http']['content'] = $body;
-            // Prevent the HTTP handler from adding a Content-Type header.
-            if (!$request->hasHeader('Content-Type')) {
-                $context['http']['header'] .= "Content-Type:\r\n";
-            }
-        }
-
-        $context['http']['header'] = rtrim($context['http']['header']);
-
-        return $context;
+        return $resource;
     }
 
     private function add_proxy(RequestInterface $request, &$options, $value, &$params)
@@ -442,14 +445,14 @@ class StreamHandler
         } elseif (is_string($value)) {
             $options['ssl']['cafile'] = $value;
             if (!file_exists($value)) {
-                throw new \RuntimeException("SSL CA bundle not found: $value");
+                throw new RuntimeException("SSL CA bundle not found: $value");
             }
         } elseif ($value === false) {
             $options['ssl']['verify_peer'] = false;
             $options['ssl']['verify_peer_name'] = false;
             return;
         } else {
-            throw new \InvalidArgumentException('Invalid verify request option');
+            throw new InvalidArgumentException('Invalid verify request option');
         }
 
         $options['ssl']['verify_peer'] = true;
@@ -465,7 +468,7 @@ class StreamHandler
         }
 
         if (!file_exists($value)) {
-            throw new \RuntimeException("SSL certificate not found: {$value}");
+            throw new RuntimeException("SSL certificate not found: {$value}");
         }
 
         $options['ssl']['local_cert'] = $value;
@@ -479,43 +482,6 @@ class StreamHandler
                 if ($code == STREAM_NOTIFY_PROGRESS) {
                     $value($total, $transferred, null, null);
                 }
-            }
-        );
-    }
-
-    private function add_debug(RequestInterface $request, &$options, $value, &$params)
-    {
-        if ($value === false) {
-            return;
-        }
-
-        static $map = [
-            STREAM_NOTIFY_CONNECT       => 'CONNECT',
-            STREAM_NOTIFY_AUTH_REQUIRED => 'AUTH_REQUIRED',
-            STREAM_NOTIFY_AUTH_RESULT   => 'AUTH_RESULT',
-            STREAM_NOTIFY_MIME_TYPE_IS  => 'MIME_TYPE_IS',
-            STREAM_NOTIFY_FILE_SIZE_IS  => 'FILE_SIZE_IS',
-            STREAM_NOTIFY_REDIRECTED    => 'REDIRECTED',
-            STREAM_NOTIFY_PROGRESS      => 'PROGRESS',
-            STREAM_NOTIFY_FAILURE       => 'FAILURE',
-            STREAM_NOTIFY_COMPLETED     => 'COMPLETED',
-            STREAM_NOTIFY_RESOLVE       => 'RESOLVE',
-        ];
-        static $args = ['severity', 'message', 'message_code',
-            'bytes_transferred', 'bytes_max'];
-
-        $value = \yxorP\guzzle\debug_resource($value);
-        $ident = $request->getMethod() . ' ' . $request->getUri()->withFragment('');
-        $this->addNotification(
-            $params,
-            function () use ($ident, $value, $map, $args) {
-                $passed = func_get_args();
-                $code = array_shift($passed);
-                fprintf($value, '<%s> [%s] ', $ident, $map[$code]);
-                foreach (array_filter($passed) as $i => $v) {
-                    fwrite($value, $args[$i] . ': "' . $v . '" ');
-                }
-                fwrite($value, "\n");
             }
         );
     }
@@ -541,5 +507,42 @@ class StreamHandler
                 call_user_func_array($fn, $args);
             }
         };
+    }
+
+    private function add_debug(RequestInterface $request, &$options, $value, &$params)
+    {
+        if ($value === false) {
+            return;
+        }
+
+        static $map = [
+            STREAM_NOTIFY_CONNECT => 'CONNECT',
+            STREAM_NOTIFY_AUTH_REQUIRED => 'AUTH_REQUIRED',
+            STREAM_NOTIFY_AUTH_RESULT => 'AUTH_RESULT',
+            STREAM_NOTIFY_MIME_TYPE_IS => 'MIME_TYPE_IS',
+            STREAM_NOTIFY_FILE_SIZE_IS => 'FILE_SIZE_IS',
+            STREAM_NOTIFY_REDIRECTED => 'REDIRECTED',
+            STREAM_NOTIFY_PROGRESS => 'PROGRESS',
+            STREAM_NOTIFY_FAILURE => 'FAILURE',
+            STREAM_NOTIFY_COMPLETED => 'COMPLETED',
+            STREAM_NOTIFY_RESOLVE => 'RESOLVE',
+        ];
+        static $args = ['severity', 'message', 'message_code',
+            'bytes_transferred', 'bytes_max'];
+
+        $value = \yxorP\guzzle\debug_resource($value);
+        $ident = $request->getMethod() . ' ' . $request->getUri()->withFragment('');
+        $this->addNotification(
+            $params,
+            function () use ($ident, $value, $map, $args) {
+                $passed = func_get_args();
+                $code = array_shift($passed);
+                fprintf($value, '<%s> [%s] ', $ident, $map[$code]);
+                foreach (array_filter($passed) as $i => $v) {
+                    fwrite($value, $args[$i] . ': "' . $v . '" ');
+                }
+                fwrite($value, "\n");
+            }
+        );
     }
 }
