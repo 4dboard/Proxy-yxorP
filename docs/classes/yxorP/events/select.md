@@ -370,7 +370,7 @@ public onWritable(mixed $stream, mixed $func): void
 Cancel a callback of stream writable.
 
 ```php
-public offWritable(mixed $stream): mixed
+public offWritable(mixed $stream): string|array|object|null
 ```
 
 
@@ -517,26 +517,6 @@ public run(): void
 
 ***
 
-### tick
-
-Tick for timer.
-
-```php
-protected tick(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### stop
 
 Stop event loop.
@@ -623,6 +603,26 @@ public getTimerCount(): int
 
 ***
 
+### tick
+
+Tick for timer.
+
+```php
+protected tick(): void
+```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
+
+***
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

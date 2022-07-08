@@ -173,6 +173,26 @@ public static enableCache(mixed $value): mixed
 
 ***
 
+### createSessionId
+
+
+
+```php
+public static createSessionId(): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
 ### get
 
 
@@ -194,26 +214,6 @@ public get(mixed $name = null, mixed $default = null): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
-
-***
-
-### parseGet
-
-
-
-```php
-protected parseGet(): mixed
-```
-
-
-
-
-
-
-
 
 
 
@@ -260,26 +260,6 @@ public uri(): mixed
 
 ***
 
-### parseHeadFirstLine
-
-
-
-```php
-protected parseHeadFirstLine(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### post
 
 
@@ -301,26 +281,6 @@ public post(mixed $name = null, mixed $default = null): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
-
-***
-
-### parsePost
-
-
-
-```php
-protected parsePost(): mixed
-```
-
-
-
-
-
-
-
 
 
 
@@ -354,26 +314,6 @@ public header(mixed $name = null, mixed $default = null): mixed
 
 ***
 
-### parseHeaders
-
-
-
-```php
-protected parseHeaders(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### rawHead
 
 
@@ -388,59 +328,6 @@ public rawHead(): mixed
 
 
 
-
-
-
-
-***
-
-### parseUploadFiles
-
-
-
-```php
-protected parseUploadFiles(mixed $http_post_boundary): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$http_post_boundary` | **mixed** |  |
-
-
-
-
-***
-
-### parseUploadFile
-
-
-
-```php
-protected parseUploadFile(mixed $boundary, mixed $section_start_offset): int
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$boundary` | **mixed** |  |
-| `$section_start_offset` | **mixed** |  |
 
 
 
@@ -519,26 +406,6 @@ public method(): mixed
 
 ```php
 public protocolVersion(): mixed
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### parseProtocolVersion
-
-
-
-```php
-protected parseProtocolVersion(): mixed
 ```
 
 
@@ -692,54 +559,6 @@ public cookie(mixed $name = null, mixed $default = null): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 | `$default` | **mixed** |  |
-
-
-
-
-***
-
-### createSessionId
-
-
-
-```php
-public static createSessionId(): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-
-
-
-***
-
-### setSidCookie
-
-
-
-```php
-protected setSidCookie(string $session_name, string $sid, array $cookie_params): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$session_name` | **string** |  |
-| `$sid` | **string** |  |
-| `$cookie_params` | **array** |  |
 
 
 
@@ -911,6 +730,187 @@ public __destruct(): mixed
 
 ***
 
+### parseGet
+
+
+
+```php
+protected parseGet(): mixed
+```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
+### parseHeadFirstLine
+
+
+
+```php
+protected parseHeadFirstLine(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### parsePost
+
+
+
+```php
+protected parsePost(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### parseHeaders
+
+
+
+```php
+protected parseHeaders(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### parseUploadFiles
+
+
+
+```php
+protected parseUploadFiles(mixed $http_post_boundary): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$http_post_boundary` | **mixed** |  |
+
+
+
+
+***
+
+### parseUploadFile
+
+
+
+```php
+protected parseUploadFile(mixed $boundary, mixed $section_start_offset): int
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$boundary` | **mixed** |  |
+| `$section_start_offset` | **mixed** |  |
+
+
+
+
+***
+
+### parseProtocolVersion
+
+
+
+```php
+protected parseProtocolVersion(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setSidCookie
+
+
+
+```php
+protected setSidCookie(string $session_name, string $sid, array $cookie_params): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$session_name` | **string** |  |
+| `$sid` | **string** |  |
+| `$cookie_params` | **array** |  |
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

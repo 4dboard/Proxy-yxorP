@@ -194,6 +194,32 @@ public static encode(mixed $response, \yxorP\connection\tcpConnection $connectio
 
 ***
 
+### uploadTmpDir
+
+
+
+```php
+public static uploadTmpDir(mixed $dir = null): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$dir` | **mixed** |  |
+
+
+
+
+***
+
 ### sendStream
 
 
@@ -223,32 +249,6 @@ protected static sendStream(\yxorP\connection\tcpConnection $connection, mixed $
 
 ***
 
-### uploadTmpDir
-
-
-
-```php
-public static uploadTmpDir(mixed $dir = null): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$dir` | **mixed** |  |
-
-
-
 
 ***
-
-
-***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

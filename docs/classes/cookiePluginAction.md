@@ -20,26 +20,6 @@
 ## Methods
 
 
-### onBeforeSend
-
-
-
-```php
-public onBeforeSend(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### beforeRequest
 
 
@@ -60,26 +40,6 @@ public static beforeRequest(mixed $match): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$match` | **mixed** |  |
-
-
-
-
-***
-
-### onEventSent
-
-
-
-```php
-public onEventSent(): void
-```
-
-
-
-
-
-
-
 
 
 
@@ -166,6 +126,46 @@ private static parse_cookie(mixed $line, mixed $url): array
 
 ***
 
+### onBeforeSend
+
+
+
+```php
+public onBeforeSend(): void
+```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
+### onEventSent
+
+
+
+```php
+public onEventSent(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -120,6 +120,32 @@ public static init(): mixed
 
 ***
 
+### sessionFile
+
+Get session file path.
+
+```php
+protected static sessionFile(string $session_id): string
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$session_id` | **string** |  |
+
+
+
+
+***
+
 ### open
 
 Initialize session
@@ -183,32 +209,6 @@ Returns an encoded string of the read data.
 If nothing was read, it must return an empty string.
 Note this value is returned internally to PHP for processing.
 </p>
-
-
-
-***
-
-### sessionFile
-
-Get session file path.
-
-```php
-protected static sessionFile(string $session_id): string
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$session_id` | **string** |  |
-
 
 
 

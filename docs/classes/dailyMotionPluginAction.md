@@ -32,26 +32,6 @@ protected ?string $url_pattern
 ## Methods
 
 
-### onEventComplete
-
-
-
-```php
-public onEventComplete(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### completed
 
 
@@ -79,6 +59,26 @@ public static completed(mixed $matches, mixed $content): void
 
 ***
 
+### onEventComplete
+
+
+
+```php
+public onEventComplete(): void
+```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
+
+***
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
