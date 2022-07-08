@@ -67,6 +67,25 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $uri;
     }
 
+    private static function extractHostAndPortFromAuthority($authority): array
+    {
+        $uri = 'https://' . $authority;
+        $parts = parse_url($uri);
+        if (false === $parts) {
+            return [null, null];
+        }
+        $host = $parts['host'] ?? null;
+        $port = $parts['port'] ?? null;
+        return [$host, $port];
+    }
+
+    public function withCookieParams(array $cookies): \ServerRequest
+    {
+        $new = clone $this;
+        $new->cookieParams = $cookies;
+        return $new;
+    }
+
     public static function normalizeFiles(array $files): array
     {
         $normalized = [];
@@ -82,18 +101,6 @@ class ServerRequest extends Request implements ServerRequestInterface
             }
         }
         return $normalized;
-    }
-
-    private static function extractHostAndPortFromAuthority($authority): array
-    {
-        $uri = 'https://' . $authority;
-        $parts = parse_url($uri);
-        if (false === $parts) {
-            return [null, null];
-        }
-        $host = $parts['host'] ?? null;
-        $port = $parts['port'] ?? null;
-        return [$host, $port];
     }
 
     private static function createUploadedFileFromSpec(array $value): UploadedFile|array
@@ -112,13 +119,6 @@ class ServerRequest extends Request implements ServerRequestInterface
             $normalizedFiles[$key] = self::createUploadedFileFromSpec($spec);
         }
         return $normalizedFiles;
-    }
-
-    public function withCookieParams(array $cookies): \ServerRequest
-    {
-        $new = clone $this;
-        $new->cookieParams = $cookies;
-        return $new;
     }
 
     public function withUploadedFiles(array $uploadedFiles): \ServerRequest
@@ -187,7 +187,7 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $new;
     }
 
-    public function withoutAttribute(string $name): \static|\ServerRequest
+    public function withoutAttribute(string $name): mixed
     {
         if (false === array_key_exists($name, $this->attributes)) {
             return $this;
