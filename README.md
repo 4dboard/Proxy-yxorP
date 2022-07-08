@@ -1484,3 +1484,9 @@ in a number of forms and without the source code because they are licensed works
 | [`ShutdownStrategyInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Shutdown/ShutdownStrategyInterface.md) | |
 
 ***
+
+| Interface | Description |
+|-----------|-------------|
+| [`ShutdownStrategyInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Shutdown/ShutdownStrategyInterface.md) | |
+
+***
