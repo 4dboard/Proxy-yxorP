@@ -84,7 +84,7 @@ class Stream implements StreamInterface
         }
     }
 
-    public function seek(int $offset, int $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         $whence = (int)$whence;
         if (!isset($this->stream)) {
@@ -161,7 +161,7 @@ class Stream implements StreamInterface
         return $result;
     }
 
-    public function rewind(): mixed
+    public function rewind()
     {
         $this->seek(0);
     }
