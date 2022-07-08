@@ -571,6 +571,10 @@ class constants
         /* Reading the file and then calling the env function on each line. */
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
 
+        /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
+        creates them. */
+        foreach (array(DIR_GUZZLE, DIR_PSR, DIR_BUGSNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+
         // Reporting
         /* Setting the token to the bugsnag key. */
         self::set(VAR_BUGSNAG, \yxorP\bugsnag\Client::make(ENV_BUG_SNAG_KEY));
