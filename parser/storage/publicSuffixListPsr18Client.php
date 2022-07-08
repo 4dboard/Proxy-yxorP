@@ -7,8 +7,6 @@ use yxorP\parser\publicSuffixListInterface;
 use yxorP\parser\rules;
 use yxorP\parser\unableToLoadResource;
 use yxorP\proxy\ClientInterface;
-use yxorP\psr\Http\Client\ClientExceptionInterface;
-use yxorP\psr\Http\Client\ClientInterface;
 use yxorP\psr\Http\Message\RequestFactoryInterface;
 
 final class publicSuffixListPsr18Client implements publicSuffixListClientInterface
