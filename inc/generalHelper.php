@@ -245,7 +245,10 @@ class generalHelper
         foreach (scandir($dir) as $x) if (strlen($x) > 3) if (str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
 
         echo 2;
-        foreach (scandir($dir) as $x) if (strlen($x) > 3) if (!str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
+        foreach (scandir($dir) as $x) if (strlen($x) > 3) if (!str_contains($x, VAR_INTERFACE)) {
+            echo $dir . $x;
+            self::fileInc($dir, $x, $inc);
+        }
 
         echo 3;
     }
