@@ -42,7 +42,6 @@ use const STREAM_CRYPTO_METHOD_SSLv2_SERVER;
  * @property string $websocketSecKey
  * @property null $websocketPingTimer
  * @property null $websocketPingTimer
- * @property null $websocketPingTimer
  * @property int $handshakeStep
  * @property string $WSServerProtocol
  * @property string $websocketSecKey
@@ -54,19 +53,6 @@ use const STREAM_CRYPTO_METHOD_SSLv2_SERVER;
  * @property $bufferFull
  * @property false $bufferFull
  * @property mixed|request $__request
- * @property mixed|request $__request
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
  * @property $statistics
  */
 class tcpConnection extends connectionInterface implements JsonSerializable

@@ -3,11 +3,6 @@
 /**
  * @property $statistics
  * @property string $websocketType
- * @property string $websocketType
- * @property $statistics
- * @property $statistics
- * @property $statistics
- * @property $statistics
  * @property $statistics
  * @property string $websocketType
  */
