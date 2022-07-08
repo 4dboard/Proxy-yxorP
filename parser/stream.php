@@ -14,8 +14,8 @@ final class stream
         if (false === $stream) {
             throw unableToLoadResource::dueToInvalidUri($path);
         }
-        $content = stream_get_contents(true);
-        fclose(true);
+        $content = stream_get_contents($stream);
+        fclose($stream);
         return $content;
     }
 
