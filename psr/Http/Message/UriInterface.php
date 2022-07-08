@@ -191,7 +191,7 @@ interface UriInterface
      * @return static A new instance with the specified scheme.
      * @throws InvalidArgumentException for invalid or unsupported schemes.
      */
-    public function withScheme($scheme): static;
+    public function withScheme($scheme): mixed;
 
     /**
      * Return an instance with the specified user information.
