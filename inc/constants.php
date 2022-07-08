@@ -465,6 +465,16 @@ class constants
         appended to it. */
         define('DIR_MINIFY', 'minify' . DIRECTORY_SEPARATOR);
 
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        appended to it. */
+        define('DIR_BUGSNAG', 'bugsnag' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        appended to it. */
+        define('DIR_GUZZLE', 'guzzle' . DIRECTORY_SEPARATOR);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        appended to it. */
+        define('DIR_PSR', 'psr' . DIRECTORY_SEPARATOR);
+
         // PATHS
         /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
         to it. */
