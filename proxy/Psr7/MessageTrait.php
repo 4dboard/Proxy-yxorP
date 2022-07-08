@@ -15,7 +15,7 @@ trait MessageTrait
         return $this->protocol;
     }
 
-    public function withProtocolVersion(string $version): \static|\Request|\Response
+    public function withProtocolVersion(string $version): mixed
     {
         if ($this->protocol === $version) {
             return $this;
@@ -64,52 +64,6 @@ trait MessageTrait
         return $new;
     }
 
-    public function withAddedHeader(string $name, array|string $value): \Request|\Response
-    {
-        $this->assertHeader($name);
-        $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($name);
-        $new = clone $this;
-        if (isset($new->headerNames[$normalized])) {
-            $name = $this->headerNames[$normalized];
-            $new->headers[$name] = array_merge($this->headers[$name], $value);
-        } else {
-            $new->headerNames[$normalized] = $name;
-            $new->headers[$name] = $value;
-        }
-        return $new;
-    }
-
-    public function withoutHeader(string $name): \static|\Request|\Response
-    {
-        $normalized = strtolower($name);
-        if (!isset($this->headerNames[$normalized])) {
-            return $this;
-        }
-        $name = $this->headerNames[$normalized];
-        $new = clone $this;
-        unset($new->headers[$name], $new->headerNames[$normalized]);
-        return $new;
-    }
-
-    public function getBody(): \PumpStream|\StreamInterface|\Stream
-    {
-        if (!$this->stream) {
-            $this->stream = stream_for();
-        }
-        return $this->stream;
-    }
-
-    public function withBody(StreamInterface $body): \static|\Request|\Response
-    {
-        if ($body === $this->stream) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->stream = $body;
-        return $new;
-    }
-
     private function assertHeader($header)
     {
         if (!is_string($header)) {
@@ -139,6 +93,52 @@ trait MessageTrait
             }
             return trim((string)$value, " \t");
         }, $values);
+    }
+
+    public function withAddedHeader(string $name, array|string $value): \Request|\Response
+    {
+        $this->assertHeader($name);
+        $value = $this->normalizeHeaderValue($value);
+        $normalized = strtolower($name);
+        $new = clone $this;
+        if (isset($new->headerNames[$normalized])) {
+            $name = $this->headerNames[$normalized];
+            $new->headers[$name] = array_merge($this->headers[$name], $value);
+        } else {
+            $new->headerNames[$normalized] = $name;
+            $new->headers[$name] = $value;
+        }
+        return $new;
+    }
+
+    public function withoutHeader(string $name): mixed
+    {
+        $normalized = strtolower($name);
+        if (!isset($this->headerNames[$normalized])) {
+            return $this;
+        }
+        $name = $this->headerNames[$normalized];
+        $new = clone $this;
+        unset($new->headers[$name], $new->headerNames[$normalized]);
+        return $new;
+    }
+
+    public function getBody(): \PumpStream|\StreamInterface|\Stream
+    {
+        if (!$this->stream) {
+            $this->stream = stream_for();
+        }
+        return $this->stream;
+    }
+
+    public function withBody(StreamInterface $body): \static|\Request|\Response
+    {
+        if ($body === $this->stream) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->stream = $body;
+        return $new;
     }
 
     private function setHeaders(array $headers)
