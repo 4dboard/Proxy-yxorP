@@ -67,7 +67,7 @@ interface MessageInterface
      *     key MUST be a header name, and each value MUST be an array of strings
      *     for that header.
      */
-    public function getHeaders(): array;
+    public function getHeaders(): mixed;
 
     /**
      * Checks if a header exists by the given case-insensitive name.
