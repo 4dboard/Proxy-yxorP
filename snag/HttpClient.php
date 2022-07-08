@@ -31,23 +31,23 @@ class HttpClient
      */
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
     /**
-     * @var \yxorP\snag\Configuration
+     * @var Configuration
      */
     protected $config;
     /**
-     * @var \yxorP\guzzle\ClientInterface
+     * @var ClientInterface
      */
     protected $guzzle;
     /**
      * The queue of reports to send.
      *
-     * @var \yxorP\snag\Report[]
+     * @var Report[]
      */
     protected $queue = [];
 
     /**
-     * @param \yxorP\snag\Configuration $config
-     * @param \yxorP\guzzle\ClientInterface $guzzle
+     * @param Configuration $config
+     * @param ClientInterface $guzzle
      */
     public function __construct(Configuration $config, ClientInterface $guzzle)
     {
@@ -58,7 +58,7 @@ class HttpClient
     /**
      * Add a report to the queue.
      *
-     * @param \yxorP\snag\Report $report
+     * @param Report $report
      *
      * @return void
      */

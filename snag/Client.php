@@ -2,7 +2,6 @@
 
 namespace yxorP\snag;
 
-use;
 use Composer\CaBundle\CaBundle;
 use Throwable;
 use yxorP\guzzle;
@@ -87,10 +86,10 @@ class Client
      * @param ShutdownStrategyInterface|null $shutdownStrategy
      */
     public function __construct(
-        Configuration                 $config,
-        ResolverInterface             $resolver = null,
-        ClientInterface $guzzle = null,
-        ShutdownStrategyInterface     $shutdownStrategy = null
+        Configuration             $config,
+        ResolverInterface         $resolver = null,
+        ClientInterface           $guzzle = null,
+        ShutdownStrategyInterface $shutdownStrategy = null
     )
     {
         $guzzle = $guzzle ?: self::makeGuzzle();
@@ -178,7 +177,7 @@ class Client
      * @return void
      */
     private function syncNotifyEndpointWithGuzzleBaseUri(
-        Configuration                 $configuration,
+        Configuration   $configuration,
         ClientInterface $guzzle
     )
     {
