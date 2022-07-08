@@ -2,6 +2,7 @@
 
 namespace yxorP\snag;
 
+use GuzzleHttp\ClientInterface;
 use InvalidArgumentException;
 
 class Configuration
@@ -9,17 +10,17 @@ class Configuration
     /**
      * The default endpoint for event notifications.
      */
-    const NOTIFY_ENDPOINT = 'https://notify.snag.com';
+    const NOTIFY_ENDPOINT = 'https://notify.bugsnag.com';
 
     /**
      * The default endpoint for session tracking.
      */
-    const SESSION_ENDPOINT = 'https://sessions.snag.com';
+    const SESSION_ENDPOINT = 'https://sessions.bugsnag.com';
 
     /**
      * The default endpoint for build notifications.
      */
-    const BUILD_ENDPOINT = 'https://build.snag.com';
+    const BUILD_ENDPOINT = 'https://build.bugsnag.com';
 
     /**
      * @var string
@@ -85,7 +86,7 @@ class Configuration
     protected $notifier = [
         'name' => 'Snag PHP (Official)',
         'version' => '3.27.0',
-        'url' => 'https://snag.com',
+        'url' => 'https://bugsnag.com',
     ];
 
     /**
@@ -133,7 +134,7 @@ class Configuration
     /**
      * A client to use to send sessions.
      *
-     * @var \GuzzleHttp\ClientInterface|null
+     * @var ClientInterface|null
      *
      * @deprecated This will be removed in the next major version.
      */
@@ -185,7 +186,7 @@ class Configuration
      * @param string $apiKey your snag api key
      *
      * @return void
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      *
      */
     public function __construct($apiKey)
@@ -202,6 +203,20 @@ class Configuration
     }
 
     /**
+     * Adds new data fields to the device data collection.
+     *
+     * @param array $data an associative array containing the new data to be added
+     *
+     * @return $this
+     */
+    public function mergeDeviceData($data)
+    {
+        $this->deviceData = array_merge_recursive($this->deviceData, $data);
+
+        return $this;
+    }
+
+    /**
      * Get the Snag API Key.
      *
      * @return string
@@ -209,6 +224,16 @@ class Configuration
     public function getApiKey()
     {
         return $this->apiKey;
+    }
+
+    /**
+     * Is batch sending is enabled?
+     *
+     * @return bool
+     */
+    public function isBatchSending()
+    {
+        return $this->batchSending;
     }
 
     /**
@@ -223,16 +248,6 @@ class Configuration
         $this->batchSending = $batchSending;
 
         return $this;
-    }
-
-    /**
-     * Is batch sending is enabled?
-     *
-     * @return bool
-     */
-    public function isBatchSending()
-    {
-        return $this->batchSending;
     }
 
     /**
@@ -266,6 +281,28 @@ class Configuration
     }
 
     /**
+     * Get the application data.
+     *
+     * @return array
+     */
+    public function getAppData()
+    {
+        return array_merge(array_filter(['type' => $this->fallbackType, 'releaseStage' => 'production']), array_filter($this->appData));
+    }
+
+    /**
+     * Get the array of metaData filters.
+     *
+     * @return string[]
+     * @deprecated Use redactedKeys instead
+     *
+     */
+    public function getFilters()
+    {
+        return $this->filters;
+    }
+
+    /**
      * Set the strings to filter out from metaData arrays before sending then.
      *
      * Eg. ['password', 'credit_card'].
@@ -281,18 +318,6 @@ class Configuration
         $this->filters = $filters;
 
         return $this;
-    }
-
-    /**
-     * Get the array of metaData filters.
-     *
-     * @return string[]
-     * @deprecated Use redactedKeys instead
-     *
-     */
-    public function getFilters()
-    {
-        return $this->filters;
     }
 
     /**
@@ -326,6 +351,22 @@ class Configuration
     }
 
     /**
+     * Set the regular expression used to strip paths from stacktraces.
+     *
+     * @param string|null $stripPathRegex
+     *
+     * @return void
+     */
+    public function setStripPathRegex($stripPathRegex)
+    {
+        if ($stripPathRegex && @preg_match($stripPathRegex, '') === false) {
+            throw new InvalidArgumentException('Invalid strip path regex: ' . $stripPathRegex);
+        }
+
+        $this->stripPathRegex = $stripPathRegex;
+    }
+
+    /**
      * Is the given file in the project?
      *
      * @param string $file
@@ -348,22 +389,6 @@ class Configuration
     {
         $stripPathRegex = $stripPath ? '/^' . preg_quote($stripPath, '/') . '[\\/]?/i' : null;
         $this->setStripPathRegex($stripPathRegex);
-    }
-
-    /**
-     * Set the regular expression used to strip paths from stacktraces.
-     *
-     * @param string|null $stripPathRegex
-     *
-     * @return void
-     */
-    public function setStripPathRegex($stripPathRegex)
-    {
-        if ($stripPathRegex && @preg_match($stripPathRegex, '') === false) {
-            throw new InvalidArgumentException('Invalid strip path regex: ' . $stripPathRegex);
-        }
-
-        $this->stripPathRegex = $stripPathRegex;
     }
 
     /**
@@ -405,6 +430,16 @@ class Configuration
     }
 
     /**
+     * Get the notifier to report as to Snag.
+     *
+     * @return string[]
+     */
+    public function getNotifier()
+    {
+        return $this->notifier;
+    }
+
+    /**
      * Sets the notifier to report as to Snag.
      *
      * This should only be set by other notifier libraries.
@@ -418,16 +453,6 @@ class Configuration
         $this->notifier = $notifier;
 
         return $this;
-    }
-
-    /**
-     * Get the notifier to report as to Snag.
-     *
-     * @return string[]
-     */
-    public function getNotifier()
-    {
-        return $this->notifier;
     }
 
     /**
@@ -493,16 +518,6 @@ class Configuration
     }
 
     /**
-     * Get the application data.
-     *
-     * @return array
-     */
-    public function getAppData()
-    {
-        return array_merge(array_filter(['type' => $this->fallbackType, 'releaseStage' => 'production']), array_filter($this->appData));
-    }
-
-    /**
      * Set the hostname.
      *
      * @param string|null $hostname the hostname
@@ -512,20 +527,6 @@ class Configuration
     public function setHostname($hostname)
     {
         $this->deviceData['hostname'] = $hostname;
-
-        return $this;
-    }
-
-    /**
-     * Adds new data fields to the device data collection.
-     *
-     * @param array $data an associative array containing the new data to be added
-     *
-     * @return $this
-     */
-    public function mergeDeviceData($data)
-    {
-        $this->deviceData = array_merge_recursive($this->deviceData, $data);
 
         return $this;
     }
@@ -561,6 +562,16 @@ class Configuration
     }
 
     /**
+     * Get the custom metadata to send to Snag.
+     *
+     * @return array[]
+     */
+    public function getMetaData()
+    {
+        return $this->metaData;
+    }
+
+    /**
      * Set custom metadata to send to Snag.
      *
      * You can use this to add custom tabs of data to each error on your
@@ -576,16 +587,6 @@ class Configuration
         $this->metaData = $merge ? array_merge_recursive($this->metaData, $metaData) : $metaData;
 
         return $this;
-    }
-
-    /**
-     * Get the custom metadata to send to Snag.
-     *
-     * @return array[]
-     */
-    public function getMetaData()
-    {
-        return $this->metaData;
     }
 
     /**
@@ -687,6 +688,16 @@ class Configuration
     }
 
     /**
+     * Get event notification endpoint.
+     *
+     * @return string
+     */
+    public function getNotifyEndpoint()
+    {
+        return $this->notifyEndpoint;
+    }
+
+    /**
      * Set event notification endpoint.
      *
      * @param string $endpoint
@@ -701,13 +712,13 @@ class Configuration
     }
 
     /**
-     * Get event notification endpoint.
+     * Get session delivery endpoint.
      *
      * @return string
      */
-    public function getNotifyEndpoint()
+    public function getSessionEndpoint()
     {
-        return $this->notifyEndpoint;
+        return $this->sessionEndpoint;
     }
 
     /**
@@ -725,13 +736,13 @@ class Configuration
     }
 
     /**
-     * Get session delivery endpoint.
+     * Get the build endpoint.
      *
      * @return string
      */
-    public function getSessionEndpoint()
+    public function getBuildEndpoint()
     {
-        return $this->sessionEndpoint;
+        return $this->buildEndpoint;
     }
 
     /**
@@ -746,16 +757,6 @@ class Configuration
         $this->buildEndpoint = $endpoint;
 
         return $this;
-    }
-
-    /**
-     * Get the build endpoint.
-     *
-     * @return string
-     */
-    public function getBuildEndpoint()
-    {
-        return $this->buildEndpoint;
     }
 
     /**
@@ -785,7 +786,7 @@ class Configuration
     /**
      * Get the session client.
      *
-     * @return \GuzzleHttp\ClientInterface
+     * @return ClientInterface
      *
      * @deprecated This will be removed in the next major version.
      */
@@ -796,6 +797,18 @@ class Configuration
         }
 
         return $this->sessionClient;
+    }
+
+    /**
+     * Get the amount to increase the memory_limit when an OOM is triggered.
+     *
+     * This will return 'null' if this feature is disabled.
+     *
+     * @return int|null
+     */
+    public function getMemoryLimitIncrease()
+    {
+        return $this->memoryLimitIncrease;
     }
 
     /**
@@ -815,15 +828,15 @@ class Configuration
     }
 
     /**
-     * Get the amount to increase the memory_limit when an OOM is triggered.
+     * Get the array of classes that should not be sent to Snag.
      *
-     * This will return 'null' if this feature is disabled.
+     * This can contain both fully qualified class names and regular expressions.
      *
-     * @return int|null
+     * @return array
      */
-    public function getMemoryLimitIncrease()
+    public function getDiscardClasses()
     {
-        return $this->memoryLimitIncrease;
+        return $this->discardClasses;
     }
 
     /**
@@ -841,15 +854,13 @@ class Configuration
     }
 
     /**
-     * Get the array of classes that should not be sent to Snag.
+     * Get the array of metadata keys that should be redacted.
      *
-     * This can contain both fully qualified class names and regular expressions.
-     *
-     * @return array
+     * @return string[]
      */
-    public function getDiscardClasses()
+    public function getRedactedKeys()
     {
-        return $this->discardClasses;
+        return $this->redactedKeys;
     }
 
     /**
@@ -864,15 +875,5 @@ class Configuration
         $this->redactedKeys = $redactedKeys;
 
         return $this;
-    }
-
-    /**
-     * Get the array of metadata keys that should be redacted.
-     *
-     * @return string[]
-     */
-    public function getRedactedKeys()
-    {
-        return $this->redactedKeys;
     }
 }
