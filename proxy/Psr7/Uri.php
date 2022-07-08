@@ -30,262 +30,6 @@ class Uri implements UriInterface
         }
     }
 
-    public static function isDefaultPort(UriInterface $uri): bool
-    {
-        return $uri->getPort() === null || (isset(self::$defaultPorts[$uri->getScheme()]) && $uri->getPort() === self::$defaultPorts[$uri->getScheme()]);
-    }
-
-    public static function isAbsolute(UriInterface $uri): bool
-    {
-        return $uri->getScheme() !== '';
-    }
-
-    public static function isNetworkPathReference(UriInterface $uri): bool
-    {
-        return $uri->getScheme() === '' && $uri->getAuthority() !== '';
-    }
-
-    public static function isAbsolutePathReference(UriInterface $uri): bool
-    {
-        return $uri->getScheme() === '' && $uri->getAuthority() === '' && isset($uri->getPath()[0]) && $uri->getPath()[0] === '/';
-    }
-
-    public static function isRelativePathReference(UriInterface $uri): bool
-    {
-        return $uri->getScheme() === '' && $uri->getAuthority() === '' && (!isset($uri->getPath()[0]) || $uri->getPath()[0] !== '/');
-    }
-
-    public static function isSameDocumentReference(UriInterface $uri, UriInterface $base = null): bool
-    {
-        if ($base !== null) {
-            $uri = UriResolver::resolve($base, $uri);
-            return ($uri->getScheme() === $base->getScheme()) && ($uri->getAuthority() === $base->getAuthority()) && ($uri->getPath() === $base->getPath()) && ($uri->getQuery() === $base->getQuery());
-        }
-        return $uri->getScheme() === '' && $uri->getAuthority() === '' && $uri->getPath() === '' && $uri->getQuery() === '';
-    }
-
-    public static function removeDotSegments($path): ?string
-    {
-        return UriResolver::removeDotSegments($path);
-    }
-
-    public static function resolve(UriInterface $base, $rel): UriInterface|Uri
-    {
-        if (!($rel instanceof UriInterface)) {
-            $rel = new self($rel);
-        }
-        return UriResolver::resolve($base, $rel);
-    }
-
-    public static function withoutQueryValue(UriInterface $uri, $key): UriInterface
-    {
-        $result = self::getFilteredQueryString($uri, [$key]);
-        return $uri->withQuery(implode('&', $result));
-    }
-
-    public static function withQueryValue(UriInterface $uri, $key, $value): UriInterface
-    {
-        $result = self::getFilteredQueryString($uri, [$key]);
-        $result[] = self::generateQueryString($key, $value);
-        return $uri->withQuery(implode('&', $result));
-    }
-
-    public static function withQueryValues(UriInterface $uri, array $keyValueArray): UriInterface
-    {
-        $result = self::getFilteredQueryString($uri, array_keys($keyValueArray));
-        foreach ($keyValueArray as $key => $value) {
-            $result[] = self::generateQueryString($key, $value);
-        }
-        return $uri->withQuery(implode('&', $result));
-    }
-
-    public static function fromParts(array $parts): Uri
-    {
-        $uri = new self();
-        $uri->applyParts($parts);
-        $uri->validateState();
-        return $uri;
-    }
-
-    public static function composeComponents($scheme, $authority, $path, $query, $fragment): string
-    {
-        $uri = '';
-        if ($scheme != '') {
-            $uri .= $scheme . ':';
-        }
-        if ($authority != '' || $scheme === 'file') {
-            $uri .= '//' . $authority;
-        }
-        $uri .= $path;
-        if ($query != '') {
-            $uri .= '?' . $query;
-        }
-        if ($fragment != '') {
-            $uri .= '#' . $fragment;
-        }
-        return $uri;
-    }
-
-    private static function getFilteredQueryString(UriInterface $uri, array $keys): array
-    {
-        $current = $uri->getQuery();
-        if ($current === '') {
-            return [];
-        }
-        $decodedKeys = array_map('rawurldecode', $keys);
-        return array_filter(explode('&', $current), function ($part) use ($decodedKeys) {
-            return !in_array(rawurldecode(explode('=', $part)[0]), $decodedKeys, true);
-        });
-    }
-
-    private static function generateQueryString($key, $value): string
-    {
-        $queryString = strtr($key, self::$replaceQuery);
-        if ($value !== null) {
-            $queryString .= '=' . strtr($value, self::$replaceQuery);
-        }
-        return $queryString;
-    }
-
-    public function getPort(): ?int
-    {
-        return $this->port;
-    }
-
-    public function getScheme(): string
-    {
-        return $this->scheme;
-    }
-
-    public function getAuthority(): string
-    {
-        $authority = $this->host;
-        if ($this->userInfo !== '') {
-            $authority = $this->userInfo . '@' . $authority;
-        }
-        if ($this->port !== null) {
-            $authority .= ':' . $this->port;
-        }
-        return $authority;
-    }
-
-    public function getPath(): string
-    {
-        return $this->path;
-    }
-
-    public function getQuery(): string
-    {
-        return $this->query;
-    }
-
-    public function withQuery($query): Uri|static
-    {
-        $query = $this->filterQueryAndFragment($query);
-        if ($this->query === $query) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->query = $query;
-        return $new;
-    }
-
-    #[Pure] public function __toString()
-    {
-        return self::composeComponents($this->scheme, $this->getAuthority(), $this->path, $this->query, $this->fragment);
-    }
-
-    public function getUserInfo(): string
-    {
-        return $this->userInfo;
-    }
-
-    public function getHost(): string
-    {
-        return $this->host;
-    }
-
-    public function getFragment(): string
-    {
-        return $this->fragment;
-    }
-
-    public function withScheme($scheme): Uri|static
-    {
-        $scheme = $this->filterScheme($scheme);
-        if ($this->scheme === $scheme) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->scheme = $scheme;
-        $new->removeDefaultPort();
-        $new->validateState();
-        return $new;
-    }
-
-    public function withUserInfo($user, $password = null): Uri|static
-    {
-        $info = $this->filterUserInfoComponent($user);
-        if ($password !== null) {
-            $info .= ':' . $this->filterUserInfoComponent($password);
-        }
-        if ($this->userInfo === $info) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->userInfo = $info;
-        $new->validateState();
-        return $new;
-    }
-
-    public function withHost($host): Uri|static
-    {
-        $host = $this->filterHost($host);
-        if ($this->host === $host) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->host = $host;
-        $new->validateState();
-        return $new;
-    }
-
-    public function withPort($port): Uri|static
-    {
-        $port = $this->filterPort($port);
-        if ($this->port === $port) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->port = $port;
-        $new->removeDefaultPort();
-        $new->validateState();
-        return $new;
-    }
-
-    public function withPath($path): Uri|static
-    {
-        $path = $this->filterPath($path);
-        if ($this->path === $path) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->path = $path;
-        $new->validateState();
-        return $new;
-    }
-
-    public function withFragment($fragment): Uri|static
-    {
-        $fragment = $this->filterQueryAndFragment($fragment);
-        if ($this->fragment === $fragment) {
-            return $this;
-        }
-        $new = clone $this;
-        $new->fragment = $fragment;
-        return $new;
-    }
-
     private function applyParts(array $parts)
     {
         $this->scheme = isset($parts['scheme']) ? $this->filterScheme($parts['scheme']) : '';
@@ -360,6 +104,147 @@ class Uri implements UriInterface
         }
     }
 
+    public static function isDefaultPort(UriInterface $uri): bool
+    {
+        return $uri->getPort() === null || (isset(self::$defaultPorts[$uri->getScheme()]) && $uri->getPort() === self::$defaultPorts[$uri->getScheme()]);
+    }
+
+    public function getPort(): ?int
+    {
+        return $this->port;
+    }
+
+    public function getScheme(): string
+    {
+        return $this->scheme;
+    }
+
+    public static function isAbsolute(UriInterface $uri): bool
+    {
+        return $uri->getScheme() !== '';
+    }
+
+    public static function isNetworkPathReference(UriInterface $uri): bool
+    {
+        return $uri->getScheme() === '' && $uri->getAuthority() !== '';
+    }
+
+    public function getAuthority(): string
+    {
+        $authority = $this->host;
+        if ($this->userInfo !== '') {
+            $authority = $this->userInfo . '@' . $authority;
+        }
+        if ($this->port !== null) {
+            $authority .= ':' . $this->port;
+        }
+        return $authority;
+    }
+
+    public static function isAbsolutePathReference(UriInterface $uri): bool
+    {
+        return $uri->getScheme() === '' && $uri->getAuthority() === '' && isset($uri->getPath()[0]) && $uri->getPath()[0] === '/';
+    }
+
+    public function getPath(): string
+    {
+        return $this->path;
+    }
+
+    public static function isRelativePathReference(UriInterface $uri): bool
+    {
+        return $uri->getScheme() === '' && $uri->getAuthority() === '' && (!isset($uri->getPath()[0]) || $uri->getPath()[0] !== '/');
+    }
+
+    public static function isSameDocumentReference(UriInterface $uri, UriInterface $base = null): bool
+    {
+        if ($base !== null) {
+            $uri = UriResolver::resolve($base, $uri);
+            return ($uri->getScheme() === $base->getScheme()) && ($uri->getAuthority() === $base->getAuthority()) && ($uri->getPath() === $base->getPath()) && ($uri->getQuery() === $base->getQuery());
+        }
+        return $uri->getScheme() === '' && $uri->getAuthority() === '' && $uri->getPath() === '' && $uri->getQuery() === '';
+    }
+
+    public function getQuery(): string
+    {
+        return $this->query;
+    }
+
+    public static function removeDotSegments($path): ?string
+    {
+        return UriResolver::removeDotSegments($path);
+    }
+
+    public static function resolve(UriInterface $base, $rel): UriInterface|Uri
+    {
+        if (!($rel instanceof UriInterface)) {
+            $rel = new self($rel);
+        }
+        return UriResolver::resolve($base, $rel);
+    }
+
+    public static function withoutQueryValue(UriInterface $uri, $key): UriInterface
+    {
+        $result = self::getFilteredQueryString($uri, [$key]);
+        return $uri->withQuery(implode('&', $result));
+    }
+
+    private static function getFilteredQueryString(UriInterface $uri, array $keys): array
+    {
+        $current = $uri->getQuery();
+        if ($current === '') {
+            return [];
+        }
+        $decodedKeys = array_map('rawurldecode', $keys);
+        return array_filter(explode('&', $current), function ($part) use ($decodedKeys) {
+            return !in_array(rawurldecode(explode('=', $part)[0]), $decodedKeys, true);
+        });
+    }
+
+    public function withQuery($query): Uri|static
+    {
+        $query = $this->filterQueryAndFragment($query);
+        if ($this->query === $query) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->query = $query;
+        return $new;
+    }
+
+    public static function withQueryValue(UriInterface $uri, $key, $value): UriInterface
+    {
+        $result = self::getFilteredQueryString($uri, [$key]);
+        $result[] = self::generateQueryString($key, $value);
+        return $uri->withQuery(implode('&', $result));
+    }
+
+    private static function generateQueryString($key, $value): string
+    {
+        $queryString = strtr($key, self::$replaceQuery);
+        if ($value !== null) {
+            $queryString .= '=' . strtr($value, self::$replaceQuery);
+        }
+        return $queryString;
+    }
+
+    public static function withQueryValues(UriInterface $uri, array $keyValueArray): UriInterface
+    {
+        $result = self::getFilteredQueryString($uri, array_keys($keyValueArray));
+        foreach ($keyValueArray as $key => $value) {
+            $result[] = self::generateQueryString($key, $value);
+        }
+        return $uri->withQuery(implode('&', $result));
+    }
+
+    public static function fromParts(array $parts): Uri
+    {
+        $uri = new self();
+        $uri->applyParts($parts);
+        $uri->validateState();
+        return $uri;
+    }
+
     private function validateState()
     {
         if ($this->host === '' && ($this->scheme === 'http' || $this->scheme === 'https')) {
@@ -376,6 +261,121 @@ class Uri implements UriInterface
             @trigger_error('The path of a URI with an authority must start with a slash "/" or be empty. Automagically fixing the URI ' . 'by adding a leading slash to the path is deprecated since version 1.4 and will throw an exception instead.', E_USER_DEPRECATED);
             $this->path = '/' . $this->path;
         }
+    }
+
+    #[Pure] public function __toString()
+    {
+        return self::composeComponents($this->scheme, $this->getAuthority(), $this->path, $this->query, $this->fragment);
+    }
+
+    public static function composeComponents($scheme, $authority, $path, $query, $fragment): string
+    {
+        $uri = '';
+        if ($scheme != '') {
+            $uri .= $scheme . ':';
+        }
+        if ($authority != '' || $scheme === 'file') {
+            $uri .= '//' . $authority;
+        }
+        $uri .= $path;
+        if ($query != '') {
+            $uri .= '?' . $query;
+        }
+        if ($fragment != '') {
+            $uri .= '#' . $fragment;
+        }
+        return $uri;
+    }
+
+    public function getUserInfo(): string
+    {
+        return $this->userInfo;
+    }
+
+    public function getHost(): string
+    {
+        return $this->host;
+    }
+
+    public function getFragment(): string
+    {
+        return $this->fragment;
+    }
+
+    public function withScheme($scheme): mixed
+    {
+        $scheme = $this->filterScheme($scheme);
+        if ($this->scheme === $scheme) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->scheme = $scheme;
+        $new->removeDefaultPort();
+        $new->validateState();
+        return $new;
+    }
+
+    public function withUserInfo($user, $password = null): Uri|static
+    {
+        $info = $this->filterUserInfoComponent($user);
+        if ($password !== null) {
+            $info .= ':' . $this->filterUserInfoComponent($password);
+        }
+        if ($this->userInfo === $info) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->userInfo = $info;
+        $new->validateState();
+        return $new;
+    }
+
+    public function withHost($host): Uri|static
+    {
+        $host = $this->filterHost($host);
+        if ($this->host === $host) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->host = $host;
+        $new->validateState();
+        return $new;
+    }
+
+    public function withPort($port): Uri|static
+    {
+        $port = $this->filterPort($port);
+        if ($this->port === $port) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->port = $port;
+        $new->removeDefaultPort();
+        $new->validateState();
+        return $new;
+    }
+
+    public function withPath($path): Uri|static
+    {
+        $path = $this->filterPath($path);
+        if ($this->path === $path) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->path = $path;
+        $new->validateState();
+        return $new;
+    }
+
+    public function withFragment($fragment): Uri|static
+    {
+        $fragment = $this->filterQueryAndFragment($fragment);
+        if ($this->fragment === $fragment) {
+            return $this;
+        }
+        $new = clone $this;
+        $new->fragment = $fragment;
+        return $new;
     }
 
     private function rawurlencodeMatchZero(array $match): string
