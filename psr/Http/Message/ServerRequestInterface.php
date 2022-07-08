@@ -196,7 +196,7 @@ interface ServerRequestInterface extends RequestInterface
      * @throws InvalidArgumentException if an unsupported argument type is
      *     provided.
      */
-    public function withParsedBody($data): static;
+    public function withParsedBody($data): mixed;
 
     /**
      * Retrieve attributes derived from the request.
@@ -209,7 +209,7 @@ interface ServerRequestInterface extends RequestInterface
      *
      * @return array Attributes derived from the request.
      */
-    public function getAttributes(): array;
+    public function getAttributes(): mixed;
 
     /**
      * Retrieve a single derived request attribute.
