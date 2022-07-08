@@ -34,12 +34,12 @@ class yxorP
      */
     public function __construct(array $request)
     {
+        exit(123);
         /* It's setting the constants that are used in the plugin. */
         constants::localise($request);
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
 
-        exit(123);
         $plugins = (constants::get(YXORP_TARGET_PLUGINS) ?: []);
         ($plugins[] = 'overridePluginAction');
         foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => (array)$plugins = 'overridePluginAction'] as $key => $value) $this->subscribers($key, $value);
