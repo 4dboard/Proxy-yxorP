@@ -84,7 +84,7 @@ interface ServerRequestInterface extends RequestInterface
      * @param array $cookies Array of key/value pairs representing cookies.
      * @return static
      */
-    public function withCookieParams(array $cookies): static;
+    public function withCookieParams(array $cookies): mixed;
 
     /**
      * Retrieve query string arguments.
