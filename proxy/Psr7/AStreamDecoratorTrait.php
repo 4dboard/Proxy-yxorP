@@ -60,7 +60,7 @@ trait AStreamDecoratorTrait
         return $result === $this->stream ? $this : $result;
     }
 
-    public function close()
+    public function close(): mixed
     {
         $this->stream->close();
     }
