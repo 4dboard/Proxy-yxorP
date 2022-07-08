@@ -88,7 +88,7 @@ class BufferStream implements StreamInterface
         return $result;
     }
 
-    public function write($string): bool|int
+    public function write($string): mixed
     {
         $this->buffer .= $string;
         if (strlen($this->buffer) >= $this->hwm) {
@@ -97,7 +97,7 @@ class BufferStream implements StreamInterface
         return strlen($string);
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata($key = null): mixed
     {
         if ($key == 'hwm') {
             return $this->hwm;
