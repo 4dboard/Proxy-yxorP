@@ -1,6 +1,6 @@
 <?php
 
-namespace Psr\Http\Message;
+namespace yxorP\psr\Http\Message;
 
 use RuntimeException;
 
