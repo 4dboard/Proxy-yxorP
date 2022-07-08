@@ -649,12 +649,13 @@ class constants
         $targetDomain = self::publicSuffix(YXORP_TARGET_URL);
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_TARGET_DOMAIN', $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
+        define('YXORP_TARGET_SUB_DOMAIN', $targetDomain->subDomain()->toString());
 
         // PROXY DETAILS
 
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        define('VAR_FETCH', VAR_HTTPS . YXORP_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
+        define('VAR_FETCH', VAR_HTTPS . YXORP_TARGET_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
         value of the constant YXORP_REQUEST_URI. */
         define('YXORP_REQUEST_URI_FULL', YXORP_SITE_URL . YXORP_REQUEST_URI);
