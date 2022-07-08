@@ -243,7 +243,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return static
      * @see getAttributes()
      */
-    public function withAttribute($name, $value): static;
+    public function withAttribute($name, $value): mixed;
 
     /**
      * Return an instance that removes the specified derived request attribute.
@@ -259,5 +259,5 @@ interface ServerRequestInterface extends RequestInterface
      * @return static
      * @see getAttributes()
      */
-    public function withoutAttribute($name): static;
+    public function withoutAttribute($name): mixed;
 }

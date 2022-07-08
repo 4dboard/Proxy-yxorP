@@ -52,7 +52,7 @@ class Stream implements StreamInterface
         $this->close();
     }
 
-    public function close()
+    public function close(): mixed
     {
         if (isset($this->stream)) {
             if (is_resource($this->stream)) {
@@ -62,7 +62,7 @@ class Stream implements StreamInterface
         }
     }
 
-    public function detach()
+    public function detach(): mixed
     {
         if (!isset($this->stream)) {
             return null;

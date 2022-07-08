@@ -180,14 +180,14 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $this->attributes[$attribute];
     }
 
-    public function withAttribute($attribute, $value): ServerRequest
+    public function withAttribute($attribute, $value): mixed
     {
         $new = clone $this;
         $new->attributes[$attribute] = $value;
         return $new;
     }
 
-    public function withoutAttribute($attribute): ServerRequest|static
+    public function withoutAttribute($attribute): mixed
     {
         if (false === array_key_exists($attribute, $this->attributes)) {
             return $this;
