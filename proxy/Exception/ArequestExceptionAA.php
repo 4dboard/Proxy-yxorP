@@ -1,7 +1,7 @@
 <?php namespace yxorP\proxy\Exception;
 
 use Exception;
-use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxyApromise\PromiseInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\UriInterface;

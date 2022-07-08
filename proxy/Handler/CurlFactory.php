@@ -9,7 +9,7 @@ use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\Exception\ConnectException;
-use yxorP\proxy\Promise\FulfilledPromise;
+use yxorP\proxyApromise\FulfilledPromise;
 use yxorP\proxy\Psr7\LazyOpenStream;
 use yxorP\proxy\TransferStats;
 use yxorP\psr\Http\Message\RequestInterface;

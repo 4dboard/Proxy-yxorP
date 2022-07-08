@@ -3,7 +3,7 @@
 use Exception;
 use InvalidArgumentException;
 use yxorP\proxy\Cookie\CookieJar;
-use yxorP\proxy\Promise;
+use yxorP\proxyApromise;
 use yxorP\proxy\Psr7;
 use yxorP\psr\Http\Message\RequestInterface;
 

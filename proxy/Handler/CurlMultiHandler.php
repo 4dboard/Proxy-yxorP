@@ -2,8 +2,8 @@
 
 use BadMethodCallException;
 use JetBrains\PhpStorm\Pure;
-use yxorP\proxy\Promise as P;
-use yxorP\proxy\Promise\Promise;
+use yxorP\proxyApromise as P;
+use yxorP\proxyApromise\Promise;
 use yxorP\proxy\Utils;
 use yxorP\psr\Http\Message\RequestInterface;
 

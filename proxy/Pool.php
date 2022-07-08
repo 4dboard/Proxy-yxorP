@@ -1,8 +1,8 @@
 <?php namespace yxorP\proxy;
 
 use InvalidArgumentException;
-use yxorP\proxy\Promise\EachPromise;
-use yxorP\proxy\Promise\PromisorInterface;
+use yxorP\proxyApromise\EachPromise;
+use yxorP\proxyApromise\PromisorInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use function ProxyHttp\Promise\iter_for;
 

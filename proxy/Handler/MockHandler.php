@@ -10,7 +10,7 @@ use OutOfBoundsException;
 use ReturnTypeWillChange;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\HandlerStack;
-use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxyApromise\PromiseInterface;
 use yxorP\proxy\TransferStats;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;

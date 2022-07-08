@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxy\Promise;
+<?php namespace yxorP\proxyApromise;
 class CancellationExceptionAA extends AARejectionException
 {
 }

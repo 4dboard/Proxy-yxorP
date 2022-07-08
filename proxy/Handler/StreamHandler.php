@@ -10,7 +10,7 @@ use Psr\Http\Message\UriInterface;
 use RuntimeException;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\Exception\ConnectException;
-use yxorP\proxy\Promise\FulfilledPromise;
+use yxorP\proxyApromise\FulfilledPromise;
 use yxorP\proxy\Psr7;
 use yxorP\proxy\TransferStats;
 use yxorP\proxy\Utils;

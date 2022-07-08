@@ -3,7 +3,7 @@
 use InvalidArgumentException;
 use yxorP\proxy\Exception\BadResponseException;
 use yxorP\proxy\Exception\TooManyRedirectsException;
-use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxyApromise\PromiseInterface;
 use yxorP\proxy\Psr7;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
