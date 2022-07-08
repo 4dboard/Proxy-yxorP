@@ -524,21 +524,17 @@ class constants
 
         if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
 
-        echo 31;
         // REQUIRED
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
-        echo 32;
         // ENV
         /* Reading the file and then calling the env function on each line. */
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
-        echo 34;
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
         foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
-        echo 35;
         // Reporting
         /* Setting the token to the snag key. */
         self::set(VAR_SNAG, Client::make(ENV_BUG_SNAG_KEY));
