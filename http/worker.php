@@ -295,7 +295,7 @@ class worker
     }
 
     /* A private static function that returns a boolean. */
-    private static function outputStream($stream = null): resource
+    private static function outputStream($stream = null): bool
     {
         if (!$stream) $stream = static::$_outputStream ?: STDOUT;
         if (!$stream || !is_resource($stream) || 'stream' !== get_resource_type($stream)) return false;

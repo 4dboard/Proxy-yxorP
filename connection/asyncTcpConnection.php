@@ -33,6 +33,7 @@ use const TCP_NODELAY;
 
 /**
  * @property $statistics
+ * @property $statistics
  */
 class asyncTcpConnection extends tcpConnection
 {

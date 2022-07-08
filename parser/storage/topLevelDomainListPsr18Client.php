@@ -2,6 +2,7 @@
 
 namespace yxorP\parser\Storage;
 
+use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use yxorP\parser\topInterfaceLevelDomainListInterface;
 use yxorP\parser\topLevelDomains;
 use yxorP\parser\unableToLoadResource;

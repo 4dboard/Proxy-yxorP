@@ -7,6 +7,7 @@ use Swoole\Event;
 use Swoole\Process;
 use Swoole\Timer;
 use Throwable;
+use yxorP\http\timer;
 use yxorP\http\worker;
 
 /**

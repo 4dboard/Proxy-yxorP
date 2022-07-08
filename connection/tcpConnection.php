@@ -47,6 +47,19 @@ use const STREAM_CRYPTO_METHOD_SSLv2_SERVER;
  * @property string $websocketCurrentFrameBuffer
  * @property $bufferFull
  * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
  */
 class tcpConnection extends connectionInterface implements JsonSerializable
 {

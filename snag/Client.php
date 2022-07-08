@@ -2,6 +2,7 @@
 
 use Composer\CaBundle\CaBundle;
 use JetBrains\PhpStorm\Pure;
+use ProxyHttp\ClientInterface;
 use yxorP\snag\Breadcrumbs\Breadcrumb;
 use yxorP\snag\Breadcrumbs\Recorder;
 use yxorP\snag\Callbacks\GlobalMetaData;
@@ -405,7 +406,7 @@ class Client
         return $this->config->shouldCaptureSessions();
     }
 
-    public function getSessionClient(): ProxyHttp\Client|ProxyHttp\ClientInterface|null
+    public function getSessionClient(): \ProxyHttp\Client|ClientInterface
     {
         return $this->config->getSessionClient();
     }

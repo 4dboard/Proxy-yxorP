@@ -45,7 +45,7 @@ function headers_from_lines($lines): array
     return $headers;
 }
 
-function debug_resource($value = null): bool
+function debug_resource($value = null): resource
 {
     if (is_resource($value)) {
         return $value;

@@ -5,7 +5,7 @@ namespace yxorP\parser;
 use Countable;
 use JsonSerializable;
 
-interface aHostInterface extends Countable, JsonSerializable, aaDomainNameInterface
+interface aHostInterface extends Countable, JsonSerializable, aaDomainNameInterface, effectiveTopLevelDomainInterface, effectiveTopLevelDomainInterface
 {
     public function value(): ?string;
 

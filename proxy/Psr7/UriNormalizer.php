@@ -20,7 +20,7 @@ final class UriNormalizer
 
     public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS): bool
     {
-        return (string)self::normalize($uri1, $normalizations) === (string)self::normalize($uri2, $normalizations);
+        return (string)self::normalize($uri1, $normalizations)->__toString() === (string)self::normalize($uri2, $normalizations)->__toString();
     }
 
     public static function normalize(UriInterface $uri, $flags = self::PRESERVING_NORMALIZATIONS): UriInterface

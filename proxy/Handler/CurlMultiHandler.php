@@ -7,6 +7,9 @@ use yxorP\proxyApromise as P;
 use yxorP\proxyApromise\Promise;
 use yxorP\psr\Http\Message\RequestInterface;
 
+/**
+ * @property CurlMultiHandle|CurlMultiHandle $_mh
+ */
 class CurlMultiHandler
 {
     private mixed $factory;

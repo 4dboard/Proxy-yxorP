@@ -5,6 +5,12 @@ use JetBrains\PhpStorm\Pure;
 /**
  * @property $statistics
  * @property string $websocketType
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
+ * @property $statistics
  */
 abstract class connectionInterface extends tcpConnection
 {
