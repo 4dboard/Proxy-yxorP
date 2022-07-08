@@ -7,8 +7,6 @@ use yxorP\psr\Http\Client\ClientInterface;
 use yxorP\psr\Http\Message\RequestFactoryInterface;
 use yxorP\psr\SimpleCache\CacheInterface;
 
-echo 2;
-
 final class psrStorageFactory implements resourceUriInterface, publicSuffixListStorageFactoryInterface, topLevelDomainListStorageFactoryInterface
 {
     private CacheInterface $cache;

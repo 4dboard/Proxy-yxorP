@@ -1,7 +1,6 @@
 <?php
 
 namespace yxorP\parser;
-echo 2;
 
 use Iterator;
 use TypeError;
