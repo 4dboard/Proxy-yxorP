@@ -105,6 +105,8 @@ class yxorP
      */
     private static function init(): array
     {
+
+        exit('41');
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
