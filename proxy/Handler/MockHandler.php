@@ -5,7 +5,7 @@ namespace yxorP\proxy\Handler;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use yxorP\proxy\Exception\ARequestExceptionA;
+use yxorP\proxy\Exception\ARequestException;
 use yxorP\proxy\HandlerStack;
 use yxorP\proxy\Promise\PromiseInterface;
 use yxorP\proxy\TransferStats;
@@ -88,7 +88,7 @@ class MockHandler implements Countable
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $response = new ARequestExceptionA($msg, $request, $response, $e);
+                $response = new ARequestException($msg, $request, $response, $e);
             }
         }
 

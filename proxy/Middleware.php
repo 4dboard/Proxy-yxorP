@@ -5,7 +5,7 @@ namespace yxorP\proxy;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use yxorP\proxy\Cookie\CookieJarInterface;
-use yxorP\proxy\Exception\ARequestExceptionA;
+use yxorP\proxy\Exception\ARequestException;
 use function yxorP\proxy\Promise\rejection_for;
 
 /**
@@ -62,7 +62,7 @@ final class Middleware
                         if ($code < 400) {
                             return $response;
                         }
-                        throw ARequestExceptionA::create($request, $response);
+                        throw ARequestException::create($request, $response);
                     }
                 );
             };
@@ -193,7 +193,7 @@ final class Middleware
                         return $response;
                     },
                     function ($reason) use ($logger, $request, $formatter) {
-                        $response = $reason instanceof ARequestExceptionA
+                        $response = $reason instanceof ARequestException
                             ? $reason->getResponse()
                             : null;
                         $message = $formatter->format($request, $response, $reason);

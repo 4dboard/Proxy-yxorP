@@ -5,8 +5,8 @@ namespace yxorP\proxy;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use yxorP\proxy\Exception\BadResponseExceptionA;
-use yxorP\proxy\Exception\TooManyRedirectsExceptionA;
+use yxorP\proxy\Exception\BadResponseException;
+use yxorP\proxy\Exception\TooManyRedirectsException;
 use yxorP\proxy\Promise\PromiseInterface;
 use yxorP\proxy\Psr7;
 
@@ -125,7 +125,7 @@ class RedirectMiddleware
      *
      * @return void
      *
-     * @throws TooManyRedirectsExceptionA Too many redirects.
+     * @throws TooManyRedirectsException Too many redirects.
      */
     private function guardMax(RequestInterface $request, array &$options)
     {
@@ -136,7 +136,7 @@ class RedirectMiddleware
         $max = $options['allow_redirects']['max'];
 
         if ($options['__redirect_count'] > $max) {
-            throw new TooManyRedirectsExceptionA(
+            throw new TooManyRedirectsException(
                 "Will not follow more than {$max} redirects",
                 $request
             );
@@ -221,7 +221,7 @@ class RedirectMiddleware
 
         // Ensure that the redirect URI is allowed based on the protocols.
         if (!in_array($location->getScheme(), $protocols)) {
-            throw new BadResponseExceptionA(
+            throw new BadResponseException(
                 sprintf(
                     'Redirect URI, %s, does not use one of the allowed redirect protocols: %s',
                     $location,

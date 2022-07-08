@@ -9,7 +9,7 @@ use Psr\Http\Message\ResponseInterface;
 /**
  * Exception when an HTTP error occurs (4xx or 5xx error)
  */
-class BadResponseExceptionA extends ARequestExceptionA
+class BadResponseException extends ARequestException
 {
     public function __construct(
         $message,

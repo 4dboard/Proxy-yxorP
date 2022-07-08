@@ -11,7 +11,7 @@ use function yxorP\proxy\Psr7\get_message_body_summary;
 /**
  * HTTP Request exception
  */
-class ARequestExceptionA extends ATransferException
+class ARequestException extends ATransferException
 {
     /** @var RequestInterface */
     private $request;
@@ -46,13 +46,13 @@ class ARequestExceptionA extends ATransferException
      * @param RequestInterface $request
      * @param Exception $e
      *
-     * @return ARequestExceptionA
+     * @return ARequestException
      */
     public static function wrapException(RequestInterface $request, Exception $e)
     {
-        return $e instanceof ARequestExceptionA
+        return $e instanceof ARequestException
             ? $e
-            : new ARequestExceptionA($e->getMessage(), $request, null, $e);
+            : new ARequestException($e->getMessage(), $request, null, $e);
     }
 
     /**
