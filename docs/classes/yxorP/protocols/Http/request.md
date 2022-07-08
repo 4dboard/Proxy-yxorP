@@ -913,4 +913,4 @@ protected setSidCookie(string $session_name, string $sid, array $cookie_params):
 
 
 ***
-> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
