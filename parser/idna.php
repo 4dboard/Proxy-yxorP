@@ -2,7 +2,6 @@
 
 namespace yxorP\parser;
 
-echo 1;
 
 use UnexpectedValueException;
 use function defined;
