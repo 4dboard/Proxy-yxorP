@@ -65,22 +65,6 @@ class CurlFactory implements CurlFactoryInterface
         return self::createRejection($easy, $ctx);
     }
 
-    public function release(EasyHandle $easy)
-    {
-        $resource = $easy->handle;
-        unset($easy->handle);
-        if (count($this->handles) >= $this->maxHandles) {
-            curl_close($resource);
-        } else {
-            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
-            curl_setopt($resource, CURLOPT_READFUNCTION, null);
-            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
-            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
-            curl_reset($resource);
-            $this->handles[] = $resource;
-        }
-    }
-
     private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx): RejectedPromise|PromiseInterface
     {
         try {
@@ -116,6 +100,22 @@ class CurlFactory implements CurlFactoryInterface
         }
         $error = isset($connectionErrors[$easy->errno]) ? new ConnectException($message, $easy->request, null, $ctx) : new ArequestExceptionAA($message, $easy->request, $easy->response, null, $ctx);
         return rejection_for($error);
+    }
+
+    public function release(EasyHandle $easy)
+    {
+        $resource = $easy->handle;
+        unset($easy->handle);
+        if (count($this->handles) >= $this->maxHandles) {
+            curl_close($resource);
+        } else {
+            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
+            curl_setopt($resource, CURLOPT_READFUNCTION, null);
+            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
+            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
+            curl_reset($resource);
+            $this->handles[] = $resource;
+        }
     }
 
     public function create(RequestInterface $request, array $options): EasyHandle
