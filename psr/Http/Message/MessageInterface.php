@@ -185,5 +185,5 @@ interface MessageInterface
      * @return static
      * @throws InvalidArgumentException When the body is not valid.
      */
-    public function withBody(StreamInterface $body): static;
+    public function withBody(StreamInterface $body): mixed;
 }
