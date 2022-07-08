@@ -12,12 +12,4 @@ f1() {
 }
 
 
-f1 './bugsnag'
-f1 './bugsnag'
-f1 './guzzle'
-f1 './guzzle'
-f1 './psr'
-f1 './psr'
-f1 './bugsnag'
-f1 './guzzle'
-f1 './psr'
+f1 './*'
