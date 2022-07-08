@@ -1,16 +1,18 @@
 <?php namespace yxorP\snag\Internal;
 
+use yxorP\proxy\ClientInterface;
+
 final class ProxyCompat
 {
-    public static function getBaseUri(yxorP\proxy\ClientInterface $proxy)
+    public static function getBaseUri(ClientInterface $proxy)
     {
         return self::isUsingProxy5() ? $proxy->getBaseUrl() : $proxy->getConfig(self::getBaseUriOptionName());
     }
 
     public static function isUsingProxy5(): bool
     {
-        if (defined(yxorP\proxy\ClientInterface::class . '::VERSION')) {
-            $version = constant(yxorP\proxy\ClientInterface::class . '::VERSION');
+        if (defined(ClientInterface::class . '::VERSION')) {
+            $version = constant(ClientInterface::class . '::VERSION');
             return version_compare($version, '5.0.0', '>=') && version_compare($version, '6.0.0', '<');
         }
         return false;
