@@ -44,7 +44,7 @@ trait AStreamDecoratorTrait
         return $this->stream->isSeekable();
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET):mixed
     {
         $this->stream->seek($offset, $whence);
     }
