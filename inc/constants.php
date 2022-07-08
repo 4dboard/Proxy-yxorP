@@ -638,8 +638,6 @@ class constants
     {
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
         self::set(VAR_SERVER, $req);
-        print_r(constants::get(VAR_SERVER));
-        exit;
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
         constants::set(YXORP_SITE_URL, (strstr(constants::get(VAR_SERVER)[YXORP_HTTP_HOST], ':', true)));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
@@ -652,8 +650,6 @@ class constants
         constants::set(YXORP_SITE_SUB_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->subDomain()->toString());
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(VAR_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
-        print_r(constants::get(VAR_TARGET));
-        exit;
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
         constants::set(VAR_TARGET_PATTERN, constants::get(VAR_TARGET)[VAR_PATTERN]);
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
