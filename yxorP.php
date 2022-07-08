@@ -108,6 +108,7 @@ class yxorP
     {
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
+        exit('123');
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
         foreach (array(DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
