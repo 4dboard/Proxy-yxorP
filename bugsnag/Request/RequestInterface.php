@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Request;
+<?php namespace yxorP\bugsnag\Request;
 interface RequestInterface
 {
     public function isRequest();

@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Request;
+<?php namespace yxorP\bugsnag\Request;
 class ConsoleRequest implements RequestInterface
 {
     private array $command;

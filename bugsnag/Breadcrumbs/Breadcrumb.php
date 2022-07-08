@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Breadcrumbs;
+<?php namespace yxorP\bugsnag\Breadcrumbs;
 
 use Bugsnag\DateTime\Date;
 use InvalidArgumentException;

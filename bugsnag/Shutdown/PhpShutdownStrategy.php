@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Shutdown;
+<?php namespace yxorP\bugsnag\Shutdown;
 
 use Bugsnag\Client;
 

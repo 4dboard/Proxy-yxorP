@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Middleware;
+<?php namespace yxorP\bugsnag\Middleware;
 
 use Bugsnag\Client;
 use Bugsnag\Report;

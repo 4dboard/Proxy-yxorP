@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Middleware;
+<?php namespace yxorP\bugsnag\Middleware;
 
 use Bugsnag\Breadcrumbs\Recorder;
 use Bugsnag\Report;

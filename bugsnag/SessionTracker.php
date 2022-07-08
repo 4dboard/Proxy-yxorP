@@ -1,4 +1,4 @@
-<?php namespace Bugsnag;
+<?php namespace yxorP\bugsnag;
 
 use Exception;
 use InvalidArgumentException;

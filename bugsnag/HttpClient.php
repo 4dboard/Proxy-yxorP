@@ -1,4 +1,4 @@
-<?php namespace Bugsnag;
+<?php namespace yxorP\bugsnag;
 
 use Bugsnag\DateTime\Date;
 use Bugsnag\Internal\GuzzleCompat;

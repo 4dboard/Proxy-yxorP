@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Callbacks;
+<?php namespace yxorP\bugsnag\Callbacks;
 
 use Bugsnag\Report;
 

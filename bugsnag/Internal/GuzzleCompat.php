@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Internal;
+<?php namespace yxorP\bugsnag\Internal;
 
 use GuzzleHttp;
 

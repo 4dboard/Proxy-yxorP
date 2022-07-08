@@ -1,4 +1,4 @@
-<?php namespace Bugsnag\Request;
+<?php namespace yxorP\bugsnag\Request;
 class NullRequest implements RequestInterface
 {
     public function isRequest(): bool
