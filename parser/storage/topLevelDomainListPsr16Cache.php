@@ -3,10 +3,10 @@
 namespace yxorP\parser\Storage;
 
 use DateInterval;
-use yxorP\psr\SimpleCache\CacheException;
-use yxorP\psr\SimpleCache\CacheInterface;
 use Throwable;
 use yxorP\parser\topInterfaceLevelDomainListInterface;
+use yxorP\psr\SimpleCache\CacheException;
+use yxorP\psr\SimpleCache\CacheInterface;
 use function md5;
 use function strtolower;
 

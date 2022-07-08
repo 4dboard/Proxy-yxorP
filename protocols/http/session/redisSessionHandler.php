@@ -4,7 +4,6 @@
 namespace yxorP\protocols\Http\Session;
 
 use Redis;
-use RedisException;
 use RuntimeException;
 use yxorP\http\timer;
 use yxorP\protocols\Http\Session;

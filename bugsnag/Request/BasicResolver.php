@@ -1,6 +1,22 @@
 <?php namespace yxorP\bugsnag\Request;
 class BasicResolver implements ResolverInterface
 {
+    public function resolve(): NullRequest|ConsoleRequest|PhpRequest
+    {
+        if (isset($_SERVER['REQUEST_METHOD'])) {
+            if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {
+                $params = static::getInputParams($_SERVER, $_GET);
+            } else {
+                $params = static::getInputParams($_SERVER, $_POST, true);
+            }
+            return new PhpRequest($_SERVER, empty($_SESSION) ? [] : $_SESSION, empty($_COOKIE) ? [] : $_COOKIE, static::getRequestHeaders($_SERVER), $params);
+        }
+        if (PHP_SAPI === 'cli' && isset($_SERVER['argv'])) {
+            return new ConsoleRequest($_SERVER['argv']);
+        }
+        return new NullRequest();
+    }
+
     protected static function getInputParams(array $server, array $params, $fallbackToInput = false)
     {
         static $result;
@@ -54,21 +70,5 @@ class BasicResolver implements ResolverInterface
             }
         }
         return $headers;
-    }
-
-    public function resolve(): NullRequest|ConsoleRequest|PhpRequest
-    {
-        if (isset($_SERVER['REQUEST_METHOD'])) {
-            if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {
-                $params = static::getInputParams($_SERVER, $_GET);
-            } else {
-                $params = static::getInputParams($_SERVER, $_POST, true);
-            }
-            return new PhpRequest($_SERVER, empty($_SESSION) ? [] : $_SESSION, empty($_COOKIE) ? [] : $_COOKIE, static::getRequestHeaders($_SERVER), $params);
-        }
-        if (PHP_SAPI === 'cli' && isset($_SERVER['argv'])) {
-            return new ConsoleRequest($_SERVER['argv']);
-        }
-        return new NullRequest();
     }
 }

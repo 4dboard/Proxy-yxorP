@@ -1,7 +1,5 @@
 <?php namespace yxorP\bugsnag\Internal;
 
-use yxorP\guzzle;
-
 final class GuzzleCompat
 {
     public static function getBaseUri(GuzzleHttp\ClientInterface $guzzle)

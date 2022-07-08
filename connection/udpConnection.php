@@ -1,7 +1,6 @@
 <?php namespace yxorP\connection;
 
 use JetBrains\PhpStorm\ArrayShape;
-use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 use ReturnTypeWillChange;
 use function stream_socket_get_name;
