@@ -651,7 +651,7 @@ class constants
         constants::set(YXORP_SITE_SUB_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->subDomain()->toString());
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(VAR_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
-        print_r(VAR_TARGET);
+        print_r(constants::get(VAR_TARGET));
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
         constants::set(VAR_TARGET_PATTERN, constants::get(VAR_TARGET)[VAR_PATTERN]);
         /* Setting the `YXORP_TARGET_REPLACE` variable to the result of the `VAR_REPLACE` method. */
