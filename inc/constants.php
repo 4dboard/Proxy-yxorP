@@ -645,15 +645,18 @@ class constants
         self::set(VAR_SERVER, $req);
 
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
-        constants::set(YXORP_SITE_URL, (constants::get(VAR_SERVER)[YXORP_HTTP_HOST]));
+        define(YXORP_SITE_URL, (constants::get(VAR_SERVER)[YXORP_HTTP_HOST]));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
-        constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
+        define(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
+
+        // Site domain
+
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix(YXORP_SITE_URL));
+        $siteDomain = self::publicSuffix(YXORP_SITE_URL);
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_SITE_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->registrableDomain()->toString() ?: (constants::get(YXORP_SITE_URL_PARSE))->domain()->toString());
+        define(YXORP_SITE_DOMAIN, $siteDomain->registrableDomain()->toString() ?: $siteDomain->domain()->toString());
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
-        constants::set(YXORP_SITE_SUB_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->subDomain()->toString());
+        define(YXORP_SITE_SUB_DOMAIN, $siteDomain->subDomain()->toString());
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         constants::set(VAR_TARGET, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]));
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
@@ -664,14 +667,17 @@ class constants
         constants::set(YXORP_TARGET_PLUGINS, constants::get(VAR_TARGET)[VAR_PLUGINS]);
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         constants::set(YXORP_TARGET_URL, (constants::get(VAR_TARGET))[COCKPIT_TARGET]);
+
+        // Target
+
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        constants::set(YXORP_TARGET_URL_PARSE, self::publicSuffix(constants::get(YXORP_TARGET_URL)));
+        $targetDomain = self::publicSuffix(constants::get(YXORP_TARGET_URL));
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
         constants::set(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
-        constants::set(YXORP_TARGET_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->registrableDomain()->toString() ?: (constants::get(YXORP_TARGET_URL_PARSE))->domain()->toString());
+        constants::set(YXORP_TARGET_DOMAIN, $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
         /* Setting the subdomain for the site. */
-        constants::set(YXORP_SUB_DOMAIN, (constants::get(YXORP_TARGET_URL_PARSE))->subDomain()->toString());
+        constants::set(YXORP_SUB_DOMAIN, $targetDomain->subDomain()->toString());
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
         constants::set(VAR_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
