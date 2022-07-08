@@ -60,7 +60,7 @@ interface RequestInterface extends MessageInterface
      * @param mixed $requestTarget
      * @return static
      */
-    public function withRequestTarget($requestTarget): static;
+    public function withRequestTarget($requestTarget): mixed;
 
     /**
      * Retrieves the HTTP method of the request.
