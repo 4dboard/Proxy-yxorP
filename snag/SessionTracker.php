@@ -35,14 +35,14 @@ class SessionTracker
      *
      * @var string
      */
-    protected static $SESSION_COUNTS_KEY = 'bugsnag-session-counts';
+    protected static $SESSION_COUNTS_KEY = 'snag-session-counts';
 
     /**
      * The key for storing last sent data.
      *
      * @var string
      */
-    protected static $SESSIONS_LAST_SENT_KEY = 'bugsnag-sessions-last-sent';
+    protected static $SESSIONS_LAST_SENT_KEY = 'snag-sessions-last-sent';
 
     /**
      * @var Configuration
@@ -403,7 +403,7 @@ class SessionTracker
         try {
             $this->http->sendSessions($payload);
         } catch (Exception $e) {
-            error_log('Bugsnag Warning: Couldn\'t notify. ' . $e->getMessage());
+            error_log('Snag Warning: Couldn\'t notify. ' . $e->getMessage());
 
             if (is_callable($this->retryFunction)) {
                 call_user_func($this->retryFunction, $sessions);

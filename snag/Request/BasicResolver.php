@@ -12,7 +12,7 @@ class BasicResolver implements ResolverInterface
      * This is because PHP is natively only designed to process one request,
      * then shutdown. Some applications can be designed to handle multiple
      * requests using their own request objects, thus will need to implement
-     * their own bugsnag request resolver.
+     * their own snag request resolver.
      *
      * @param array $server the server variables
      *
@@ -53,7 +53,7 @@ class BasicResolver implements ResolverInterface
      * This is because the input stream can only be read once on PHP 5.5, and
      * PHP is natively only designed to process one request, then shutdown.
      * Some applications can be designed to handle multiple requests using
-     * their own request objects, thus will need to implement their own bugsnag
+     * their own request objects, thus will need to implement their own snag
      * request resolver.
      *
      * @param array $server the server variables

@@ -52,9 +52,9 @@ a predefined time inside a custom-built, *flat-file cache* system architectured 
 cache* systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization
 processes, which resulted a significantly faster cache.
 
-The Bugsnag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
-was done to assure Bugsnag's compatibility with the modification. Changes to the *default logging* system may be done in
-as little as two minutes due to the program's compatibility with the great majority of the *industry's primary error
+The Snag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was
+done to assure Snag's compatibility with the modification. Changes to the *default logging* system may be done in as
+little as two minutes due to the program's compatibility with the great majority of the *industry's primary error
 tracking systems*.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
@@ -251,11 +251,11 @@ There are several additional uses that may be explored, and these are only a few
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png)
 
-Bugsnag provides a solution for error monitoring and application stability management that is easy to use and implement.
+Snag provides a solution for error monitoring and application stability management that is easy to use and implement.
 The ability to make data-driven decisions about whether to develop software or address problems is contingent on the
 ability to maintain stability.
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Bugsnag.gif)
+![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Snag.gif)
 
 Diagnostic data from our mobile assistance, which has been regarded as the best-in the industry, enables teams to
 reproduce and fix issues as soon as they begin to have an impact on system stability. Reports on error situations are
@@ -390,7 +390,7 @@ Market-ready proxy systems Not built-in functionality, but event-driven architec
 crucial. Expandable, configurable. YxorP's graphical back-end CMS interface is unique. The hostname of the request
 fetches site-specific information from the backend. modified. Web page content may be rewritten by custom-built engines.
 Any page modifications are preserved. 500 instances quicker than flat-file memory-based cache Memcache and Redis are
-caches. Lack of serialization accelerates cache processing. Bugsnag will support yxorP after a software update. This
+caches. Lack of serialization accelerates cache processing. Snag will support yxorP after a software update. This
 problem has been made compatible with mods. Changing *default logging* in Due to the interoperability of the application
 with error tracking
 

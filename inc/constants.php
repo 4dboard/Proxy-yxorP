@@ -155,7 +155,7 @@ class constants
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
         /* Defining a constant called FILE_SNAG and setting it to the string 'snag'. */
-        define('FILE_BUGSNAG', 'bugsnag' . EXT_PHAR);
+        define('FILE_SNAG', 'snag' . EXT_PHAR);
         /* Defining a constant called FILE_PROXY and setting it to the string 'proxy'. */
         define('FILE_GUZZLE', 'guzzle' . EXT_PHAR);
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
@@ -260,7 +260,7 @@ class constants
         /* Defining a constant called `VAR_SERVER` and setting it to the value of `SERVER`. */
         define('VAR_SERVER', 'SERVER');
         /* Defining a constant called VAR_SNAG and setting it to the string SNAG. */
-        define('VAR_BUGSNAG', 'SNAG');
+        define('VAR_SNAG', 'SNAG');
         /* Defining a constant called VAR_PROXY and setting it to the string 'PROXY'. */
         define('VAR_GUZZLE', 'PROXY');
         /* Defining a constant called VAR_RESPONSE and setting it to the string VAR_RESPONSE. */
@@ -466,7 +466,7 @@ class constants
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
-        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG);
+        define('PATH_SNAG_PHAR', DIR_ROOT . DIR_INC . FILE_SNAG);
         /* Defining the path to Proxy phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE);
         /* Defining the path to the cockpit bootstrap file. */
@@ -538,7 +538,7 @@ class constants
         /* Requiring the Wrapper. */
         require PATH_GUZZLE_PHAR;
         /* Requiring the Wrapper. */
-        //require PATH_BUGSNAG_PHAR;
+        //require PATH_SNAG_PHAR;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
@@ -550,7 +550,7 @@ class constants
 
         // Reporting
         /* Setting the token to the snag key. */
-        self::set(VAR_BUGSNAG, Client::make(ENV_BUG_SNAG_KEY));
+        self::set(VAR_SNAG, Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \\GuzzleHttp class. */
         self::set(VAR_GUZZLE, new \GuzzleHttp\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */

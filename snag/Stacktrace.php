@@ -98,7 +98,7 @@ class Stacktrace
 
         // PHP backtrace's are misaligned, we need to shift the file/line down a frame
         foreach ($backtrace as $frame) {
-            if (!static::frameInsideBugsnag($frame)) {
+            if (!static::frameInsideSnag($frame)) {
                 $stacktrace->addFrame(
                     $topFile,
                     $topLine,
@@ -123,13 +123,13 @@ class Stacktrace
     }
 
     /**
-     * Does the given frame internally belong to bugsnag.
+     * Does the given frame internally belong to snag.
      *
      * @param array $frame the given frame to check
      *
      * @return bool
      */
-    public static function frameInsideBugsnag(array $frame)
+    public static function frameInsideSnag(array $frame)
     {
         return isset($frame['class']) && strpos($frame['class'], 'yxorP\snag\\') === 0 && substr_count($frame['class'], '\\') === 1;
     }

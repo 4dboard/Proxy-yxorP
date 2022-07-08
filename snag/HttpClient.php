@@ -68,7 +68,7 @@ class HttpClient
     }
 
     /**
-     * Notify Bugsnag of a deployment.
+     * Notify Snag of a deployment.
      *
      * @param array $data the deployment information
      *
@@ -94,7 +94,7 @@ class HttpClient
     }
 
     /**
-     * Notify Bugsnag of a build.
+     * Notify Snag of a build.
      *
      * @param array $buildInfo the build information
      *
@@ -105,7 +105,7 @@ class HttpClient
         $app = $this->config->getAppData();
 
         if (!isset($app['version'])) {
-            error_log('Bugsnag Warning: App version is not set. Unable to send build report.');
+            error_log('Snag Warning: App version is not set. Unable to send build report.');
 
             return;
         }
@@ -139,7 +139,7 @@ class HttpClient
         if (isset($buildInfo['buildTool'])) {
             $data['buildTool'] = $buildInfo['buildTool'];
         } else {
-            $data['buildTool'] = 'bugsnag-php';
+            $data['buildTool'] = 'snag-php';
         }
 
         $data['releaseStage'] = $app['releaseStage'];
@@ -149,7 +149,7 @@ class HttpClient
     }
 
     /**
-     * Deliver everything on the queue to Bugsnag.
+     * Deliver everything on the queue to Snag.
      *
      * @return void
      *
@@ -161,7 +161,7 @@ class HttpClient
     }
 
     /**
-     * Deliver everything on the queue to Bugsnag.
+     * Deliver everything on the queue to Snag.
      *
      * @return void
      */
@@ -180,7 +180,7 @@ class HttpClient
     }
 
     /**
-     * Send a session data payload to Bugsnag.
+     * Send a session data payload to Snag.
      *
      * @param array $payload
      *
@@ -246,15 +246,15 @@ class HttpClient
     protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION)
     {
         return [
-            'Bugsnag-Api-Key' => $this->config->getApiKey(),
-            'Bugsnag-Sent-At' => Date::now(),
-            'Bugsnag-Payload-Version' => $version,
+            'Snag-Api-Key' => $this->config->getApiKey(),
+            'Snag-Sent-At' => Date::now(),
+            'Snag-Payload-Version' => $version,
             'Content-Type' => 'application/json',
         ];
     }
 
     /**
-     * Send a POST request to Bugsnag.
+     * Send a POST request to Snag.
      *
      * @param string $uri the uri to hit
      * @param array $options the request options
@@ -311,7 +311,7 @@ class HttpClient
                 $this->deliverEvents($uri, array_merge($data, ['events' => [$event]]));
                 $this->deliverEvents($uri, $data);
             } else {
-                error_log('Bugsnag Warning: ' . $e->getMessage());
+                error_log('Snag Warning: ' . $e->getMessage());
             }
 
             return;
@@ -326,7 +326,7 @@ class HttpClient
                 ]
             );
         } catch (Exception $e) {
-            error_log('Bugsnag Warning: Couldn\'t notify. ' . $e->getMessage());
+            error_log('Snag Warning: Couldn\'t notify. ' . $e->getMessage());
         }
     }
 

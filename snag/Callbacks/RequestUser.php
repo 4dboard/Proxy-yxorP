@@ -29,7 +29,7 @@ class RequestUser
     /**
      * Execute the request user callback.
      *
-     * @param \yxorP\snag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the snag report instance
      *
      * @return void
      */

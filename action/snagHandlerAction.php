@@ -14,6 +14,6 @@ class snagHandlerAction extends wrapper
     {
         /* Calling the notifyException method on the Snag instance. */
         if (ENV_DEBUG || !(int)str_contains(constants::get(VAR_SERVER)[YXORP_SERVER_NAME], CHAR_PERIOD)) print_r($e);
-        constants::get(VAR_BUGSNAG)?->notifyException($e);
+        constants::get(VAR_SNAG)?->notifyException($e);
     }
 }

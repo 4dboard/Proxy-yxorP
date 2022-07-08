@@ -29,7 +29,7 @@ class NotificationSkipper
     /**
      * Execute the notification skipper middleware.
      *
-     * @param \yxorP\snag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the snag report instance
      * @param callable $next the next stage callback
      *
      * @return void

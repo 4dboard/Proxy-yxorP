@@ -9,17 +9,17 @@ class Configuration
     /**
      * The default endpoint for event notifications.
      */
-    const NOTIFY_ENDPOINT = 'https://notify.bugsnag.com';
+    const NOTIFY_ENDPOINT = 'https://notify.snag.com';
 
     /**
      * The default endpoint for session tracking.
      */
-    const SESSION_ENDPOINT = 'https://sessions.bugsnag.com';
+    const SESSION_ENDPOINT = 'https://sessions.snag.com';
 
     /**
      * The default endpoint for build notifications.
      */
-    const BUILD_ENDPOINT = 'https://build.bugsnag.com';
+    const BUILD_ENDPOINT = 'https://build.snag.com';
 
     /**
      * @var string
@@ -83,9 +83,9 @@ class Configuration
      * @var string[]
      */
     protected $notifier = [
-        'name' => 'Bugsnag PHP (Official)',
+        'name' => 'Snag PHP (Official)',
         'version' => '3.27.0',
-        'url' => 'https://bugsnag.com',
+        'url' => 'https://snag.com',
     ];
 
     /**
@@ -164,7 +164,7 @@ class Configuration
     protected $memoryLimitIncrease = 5242880;
 
     /**
-     * An array of classes that should not be sent to Bugsnag.
+     * An array of classes that should not be sent to Snag.
      *
      * This can contain both fully qualified class names and regular expressions.
      *
@@ -182,7 +182,7 @@ class Configuration
     /**
      * Create a new config instance.
      *
-     * @param string $apiKey your bugsnag api key
+     * @param string $apiKey your snag api key
      *
      * @return void
      * @throws \InvalidArgumentException
@@ -202,7 +202,7 @@ class Configuration
     }
 
     /**
-     * Get the Bugsnag API Key.
+     * Get the Snag API Key.
      *
      * @return string
      */
@@ -236,7 +236,7 @@ class Configuration
     }
 
     /**
-     * Set which release stages should be allowed to notify Bugsnag.
+     * Set which release stages should be allowed to notify Snag.
      *
      * Eg ['production', 'development'].
      *
@@ -252,7 +252,7 @@ class Configuration
     }
 
     /**
-     * Should we notify Bugsnag based on the current release stage?
+     * Should we notify Snag based on the current release stage?
      *
      * @return bool
      */
@@ -383,7 +383,7 @@ class Configuration
      *
      * This can help you diagnose even faster from within your dashboard.
      *
-     * @param bool $sendCode whether to send code to Bugsnag
+     * @param bool $sendCode whether to send code to Snag
      *
      * @return $this
      */
@@ -405,7 +405,7 @@ class Configuration
     }
 
     /**
-     * Sets the notifier to report as to Bugsnag.
+     * Sets the notifier to report as to Snag.
      *
      * This should only be set by other notifier libraries.
      *
@@ -421,7 +421,7 @@ class Configuration
     }
 
     /**
-     * Get the notifier to report as to Bugsnag.
+     * Get the notifier to report as to Snag.
      *
      * @return string[]
      */
@@ -561,10 +561,10 @@ class Configuration
     }
 
     /**
-     * Set custom metadata to send to Bugsnag.
+     * Set custom metadata to send to Snag.
      *
      * You can use this to add custom tabs of data to each error on your
-     * Bugsnag dashboard.
+     * Snag dashboard.
      *
      * @param array[] $metaData an array of arrays of custom data
      * @param bool $merge should we merge the meta data
@@ -579,7 +579,7 @@ class Configuration
     }
 
     /**
-     * Get the custom metadata to send to Bugsnag.
+     * Get the custom metadata to send to Snag.
      *
      * @return array[]
      */
@@ -589,7 +589,7 @@ class Configuration
     }
 
     /**
-     * Set Bugsnag's error reporting level.
+     * Set Snag's error reporting level.
      *
      * If this is not set, we'll use your current PHP error_reporting value
      * from your ini file or error_reporting(...) calls.
@@ -603,7 +603,7 @@ class Configuration
         if (!$this->isSubsetOfErrorReporting($errorReportingLevel)) {
             $missingLevels = implode(', ', $this->getMissingErrorLevelNames($errorReportingLevel));
             $message =
-                'Bugsnag Warning: errorReportingLevel cannot contain values that are not in error_reporting. ' .
+                'Snag Warning: errorReportingLevel cannot contain values that are not in error_reporting. ' .
                 "Any errors of these levels will be ignored: {$missingLevels}.";
 
             error_log($message);
@@ -827,7 +827,7 @@ class Configuration
     }
 
     /**
-     * Set the array of classes that should not be sent to Bugsnag.
+     * Set the array of classes that should not be sent to Snag.
      *
      * @param array $discardClasses
      *
@@ -841,7 +841,7 @@ class Configuration
     }
 
     /**
-     * Get the array of classes that should not be sent to Bugsnag.
+     * Get the array of classes that should not be sent to Snag.
      *
      * This can contain both fully qualified class names and regular expressions.
      *

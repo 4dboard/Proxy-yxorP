@@ -347,7 +347,7 @@ class Report
     }
 
     /**
-     * Get the bugsnag stacktrace.
+     * Get the snag stacktrace.
      *
      * @return \yxorP\snag\Stacktrace
      */
@@ -357,7 +357,7 @@ class Report
     }
 
     /**
-     * Set the bugsnag stacktrace.
+     * Set the snag stacktrace.
      *
      * @param \yxorP\snag\Stacktrace $stacktrace the stacktrace instance
      *

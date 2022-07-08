@@ -116,8 +116,8 @@ class Client
      *
      * If you don't pass in a key, we'll try to read it from the env variables.
      *
-     * @param string|null $apiKey your bugsnag api key
-     * @param string|null $notifyEndpoint your bugsnag notify endpoint
+     * @param string|null $apiKey your snag api key
+     * @param string|null $notifyEndpoint your snag notify endpoint
      * @param bool $defaults if we should register our default callbacks
      *
      * @return static
@@ -130,8 +130,8 @@ class Client
     {
         $env = new Env();
 
-        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
-        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
+        $config = new Configuration($apiKey ?: $env->get('SNAG_API_KEY'));
+        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
 
         // @phpstan-ignore-next-line
         $client = new static($config, null, $guzzle);
@@ -289,9 +289,9 @@ class Client
     }
 
     /**
-     * Notify Bugsnag of a non-fatal/handled throwable.
+     * Notify Snag of a non-fatal/handled throwable.
      *
-     * @param \Throwable $throwable the throwable to notify Bugsnag about
+     * @param \Throwable $throwable the throwable to notify Snag about
      * @param callable|null $callback the customization callback
      *
      * @return void
@@ -304,7 +304,7 @@ class Client
     }
 
     /**
-     * Notify Bugsnag of a non-fatal/handled error.
+     * Notify Snag of a non-fatal/handled error.
      *
      * @param string $name the name of the error, a short (1 word) string
      * @param string $message the error message
@@ -320,7 +320,7 @@ class Client
     }
 
     /**
-     * Notify Bugsnag of the given error report.
+     * Notify Snag of the given error report.
      *
      * This may simply involve queuing it for later if we're batching.
      *
@@ -357,7 +357,7 @@ class Client
     }
 
     /**
-     * Notify Bugsnag of a deployment.
+     * Notify Snag of a deployment.
      *
      * @param string|null $repository the repository from which you are deploying the code
      * @param string|null $branch the source control branch from which you are deploying
@@ -373,7 +373,7 @@ class Client
     }
 
     /**
-     * Notify Bugsnag of a build.
+     * Notify Snag of a build.
      *
      * @param string|null $repository the repository from which you are deploying the code
      * @param string|null $revision the source control revision you are currently deploying
@@ -436,7 +436,7 @@ class Client
     }
 
     /**
-     * Get the Bugsnag API Key.
+     * Get the Snag API Key.
      *
      * @return string
      */
@@ -472,7 +472,7 @@ class Client
     }
 
     /**
-     * Set which release stages should be allowed to notify Bugsnag.
+     * Set which release stages should be allowed to notify Snag.
      *
      * Eg ['production', 'development'].
      *
@@ -488,7 +488,7 @@ class Client
     }
 
     /**
-     * Should we notify Bugsnag based on the current release stage?
+     * Should we notify Snag based on the current release stage?
      *
      * @return bool
      */
@@ -604,7 +604,7 @@ class Client
      *
      * This can help you diagnose even faster from within your dashboard.
      *
-     * @param bool $sendCode whether to send code to Bugsnag
+     * @param bool $sendCode whether to send code to Snag
      *
      * @return $this
      */
@@ -626,7 +626,7 @@ class Client
     }
 
     /**
-     * Sets the notifier to report as to Bugsnag.
+     * Sets the notifier to report as to Snag.
      *
      * This should only be set by other notifier libraries.
      *
@@ -642,7 +642,7 @@ class Client
     }
 
     /**
-     * Get the notifier to report as to Bugsnag.
+     * Get the notifier to report as to Snag.
      *
      * @return string[]
      */
@@ -748,10 +748,10 @@ class Client
     }
 
     /**
-     * Set custom metadata to send to Bugsnag.
+     * Set custom metadata to send to Snag.
      *
      * You can use this to add custom tabs of data to each error on your
-     * Bugsnag dashboard.
+     * Snag dashboard.
      *
      * @param array[] $metaData an array of arrays of custom data
      * @param bool $merge should we merge the meta data
@@ -766,7 +766,7 @@ class Client
     }
 
     /**
-     * Get the custom metadata to send to Bugsnag.
+     * Get the custom metadata to send to Snag.
      *
      * @return array[]
      */
@@ -776,7 +776,7 @@ class Client
     }
 
     /**
-     * Set Bugsnag's error reporting level.
+     * Set Snag's error reporting level.
      *
      * If this is not set, we'll use your current PHP error_reporting value
      * from your ini file or error_reporting(...) calls.
@@ -939,7 +939,7 @@ class Client
     }
 
     /**
-     * Set the array of classes that should not be sent to Bugsnag.
+     * Set the array of classes that should not be sent to Snag.
      *
      * @param array $discardClasses
      *
@@ -953,7 +953,7 @@ class Client
     }
 
     /**
-     * Get the array of classes that should not be sent to Bugsnag.
+     * Get the array of classes that should not be sent to Snag.
      *
      * This can contain both fully qualified class names and regular expressions.
      *

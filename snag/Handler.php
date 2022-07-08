@@ -79,7 +79,7 @@ class Handler
 
         // @phpstan-ignore-next-line
         $handler = new static($client);
-        $handler->registerBugsnagHandlers(true);
+        $handler->registerSnagHandlers(true);
 
         return $handler;
     }
@@ -99,7 +99,7 @@ class Handler
     }
 
     /**
-     * Register the bugsnag error handler and save the returned value.
+     * Register the snag error handler and save the returned value.
      *
      * @param bool $callPrevious whether or not to call the previous handler
      *
@@ -115,7 +115,7 @@ class Handler
     }
 
     /**
-     * Register the bugsnag exception handler and save the returned value.
+     * Register the snag exception handler and save the returned value.
      *
      * @param bool $callPrevious whether or not to call the previous handler
      *
@@ -307,7 +307,7 @@ class Handler
      *
      * @return void
      */
-    protected function registerBugsnagHandlers($callPrevious)
+    protected function registerSnagHandlers($callPrevious)
     {
         $this->registerErrorHandler($callPrevious);
         $this->registerExceptionHandler($callPrevious);
