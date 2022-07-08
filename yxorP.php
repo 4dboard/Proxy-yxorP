@@ -174,7 +174,6 @@ class yxorP
      */
     public static function yxorP(array|null $request = null): self
     {
-        exit('12');
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
         return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
