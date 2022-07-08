@@ -2,23 +2,55 @@
 
 abstract class connectionInterface extends tcpConnection
 {
-    abstract public function send($send_buffer);
+    const SEND_FAIL = ;
 
-    abstract public function getRemoteIp();
+    public function send($send_buffer)
+    {
+        // TODO: Implement send() method.
+    }
 
-    abstract public function getRemotePort();
+    public function getRemoteIp()
+    {
+        // TODO: Implement getRemoteIp() method.
+    }
 
-    abstract public function getRemoteAddress();
+    public function getRemotePort()
+    {
+        // TODO: Implement getRemotePort() method.
+    }
 
-    abstract public function getLocalIp();
+    public function getRemoteAddress()
+    {
+        // TODO: Implement getRemoteAddress() method.
+    }
 
-    abstract public function getLocalPort();
+    public function getLocalIp()
+    {
+        // TODO: Implement getLocalIp() method.
+    }
 
-    abstract public function getLocalAddress();
+    public function getLocalPort()
+    {
+        // TODO: Implement getLocalPort() method.
+    }
 
-    abstract public function isIPv4();
+    public function getLocalAddress()
+    {
+        // TODO: Implement getLocalAddress() method.
+    }
 
-    abstract public function isIPv6();
+    public function isIPv4()
+    {
+        // TODO: Implement isIPv4() method.
+    }
 
-    abstract public function close($data = null);
+    public function isIPv6()
+    {
+        // TODO: Implement isIPv6() method.
+    }
+
+    public function close($data = null)
+    {
+        // TODO: Implement close() method.
+    }
 }

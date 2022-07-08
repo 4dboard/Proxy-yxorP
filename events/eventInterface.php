@@ -4,6 +4,8 @@ namespace yxorP\events;
 
 interface eventInterface
 {
+    const EV_READ = ;
+
     /**
      * Delay the execution of a callback.
      * @param float $delay

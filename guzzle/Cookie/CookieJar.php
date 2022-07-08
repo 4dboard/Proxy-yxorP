@@ -3,6 +3,7 @@
 use ArrayIterator;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use ReturnTypeWillChange;
 use RuntimeException;
 
 class CookieJar implements CookieJarInterface
@@ -130,7 +131,7 @@ class CookieJar implements CookieJarInterface
         }, $this->getIterator()->getArrayCopy());
     }
 
-    public function getIterator()
+    #[ReturnTypeWillChange] public function getIterator()
     {
         return new ArrayIterator(array_values($this->cookies));
     }
@@ -142,7 +143,7 @@ class CookieJar implements CookieJarInterface
         });
     }
 
-    public function count()
+    #[ReturnTypeWillChange] public function count()
     {
         return count($this->cookies);
     }

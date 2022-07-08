@@ -34,11 +34,13 @@ use const TCP_NODELAY;
 class asyncTcpConnection extends tcpConnection
 {
     /* A list of protocols that are supported by the asyncTcpConnection class. */
+    const CONNECT_FAIL = ;
+    const CONNECT_FAIL = ;
     protected static array $_builtinTransports = ['tcp' => 'tcp', 'udp' => 'udp', 'unix' => 'unix', 'ssl' => 'ssl', 'sslv2' => 'sslv2', 'sslv3' => 'sslv3', 'tls' => 'tls'];
     /* A callback function that is called when the connection is established. */
     public $onConnect = null;
     /* Setting the default transport to TCP. */
-    public $transport = 'tcp';
+    public string $transport = 'tcp';
     /* Setting the status of the connection to initial. */
     protected int $_status = self::STATUS_INITIAL;
     /* Setting the default value of the `$_remoteHost` variable to an empty string. */

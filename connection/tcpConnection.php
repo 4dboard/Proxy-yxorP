@@ -64,6 +64,8 @@ class tcpConnection extends connectionInterface implements JsonSerializable
     const STATUS_ESTABLISHED = 2;
     const STATUS_CLOSING = 4;
     const STATUS_CLOSED = 8;
+    const SEND_FAIL = ;
+    const SEND_FAIL = ;
     public static int $defaultMaxSendBufferSize = 1048576;
     public static int $defaultMaxPackageSize = 10485760;
     public static array $connections = [];

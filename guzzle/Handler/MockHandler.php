@@ -11,6 +11,7 @@ use OutOfBoundsException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use ReturnTypeWillChange;
 use function GuzzleHttp\describe_type;
 use function GuzzleHttp\Promise\promise_for;
 use function GuzzleHttp\Promise\rejection_for;
@@ -119,7 +120,7 @@ class MockHandler implements Countable
         return $this->lastOptions;
     }
 
-    public function count()
+    #[ReturnTypeWillChange] public function count()
     {
         return count($this->queue);
     }
