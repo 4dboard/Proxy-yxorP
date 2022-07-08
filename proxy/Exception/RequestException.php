@@ -4,7 +4,7 @@ namespace \yxorP\proxy\Exception;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use \yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\PromiseInterface;
 
 /**
  * HTTP Request exception
@@ -116,20 +116,6 @@ class RequestException extends TransferException
     }
 
     /**
-     * Get a short summary of the response
-     *
-     * Will return `null` if the response is not printable.
-     *
-     * @param ResponseInterface $response
-     *
-     * @return string|null
-     */
-    public static function getResponseBodySummary(ResponseInterface $response)
-    {
-        return \yxorP\proxy\Psr7\get_message_body_summary($response);
-    }
-
-    /**
      * Obfuscates URI if there is a username and a password present
      *
      * @param UriInterface $uri
@@ -145,6 +131,20 @@ class RequestException extends TransferException
         }
 
         return $uri;
+    }
+
+    /**
+     * Get a short summary of the response
+     *
+     * Will return `null` if the response is not printable.
+     *
+     * @param ResponseInterface $response
+     *
+     * @return string|null
+     */
+    public static function getResponseBodySummary(ResponseInterface $response)
+    {
+        return \yxorP\proxy\Psr7\get_message_body_summary($response);
     }
 
     /**

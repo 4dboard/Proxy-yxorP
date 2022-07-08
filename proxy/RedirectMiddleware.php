@@ -4,10 +4,10 @@ namespace \yxorP\proxy;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use \yxorP\proxy\Exception\BadResponseException;
-use \yxorP\proxy\Exception\TooManyRedirectsException;
-use \yxorP\proxy\Promise\PromiseInterface;
-use \yxorP\proxy\Psr7;
+use yxorP\proxy\Exception\BadResponseException;
+use yxorP\proxy\Exception\TooManyRedirectsException;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Psr7;
 
 /**
  * Request redirect middleware.
@@ -120,6 +120,29 @@ class RedirectMiddleware
     }
 
     /**
+     * Check for too many redirects
+     *
+     * @return void
+     *
+     * @throws TooManyRedirectsException Too many redirects.
+     */
+    private function guardMax(RequestInterface $request, array &$options)
+    {
+        $current = isset($options['__redirect_count'])
+            ? $options['__redirect_count']
+            : 0;
+        $options['__redirect_count'] = $current + 1;
+        $max = $options['allow_redirects']['max'];
+
+        if ($options['__redirect_count'] > $max) {
+            throw new TooManyRedirectsException(
+                "Will not follow more than {$max} redirects",
+                $request
+            );
+        }
+    }
+
+    /**
      * @param RequestInterface $request
      * @param array $options
      * @param ResponseInterface $response
@@ -173,29 +196,6 @@ class RedirectMiddleware
         }
 
         return Psr7\modify_request($request, $modify);
-    }
-
-    /**
-     * Check for too many redirects
-     *
-     * @return void
-     *
-     * @throws TooManyRedirectsException Too many redirects.
-     */
-    private function guardMax(RequestInterface $request, array &$options)
-    {
-        $current = isset($options['__redirect_count'])
-            ? $options['__redirect_count']
-            : 0;
-        $options['__redirect_count'] = $current + 1;
-        $max = $options['allow_redirects']['max'];
-
-        if ($options['__redirect_count'] > $max) {
-            throw new TooManyRedirectsException(
-                "Will not follow more than {$max} redirects",
-                $request
-            );
-        }
     }
 
     /**

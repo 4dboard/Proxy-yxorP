@@ -2,12 +2,12 @@
 namespace \yxorP\proxy\Handler;
 
 use Psr\Http\Message\RequestInterface;
-use \yxorP\proxy\Exception\ConnectException;
-use \yxorP\proxy\Exception\RequestException;
-use \yxorP\proxy\Promise\FulfilledPromise;
-use \yxorP\proxy\Psr7;
-use \yxorP\proxy\Psr7\LazyOpenStream;
-use \yxorP\proxy\TransferStats;
+use yxorP\proxy\Exception\ConnectException;
+use yxorP\proxy\Exception\RequestException;
+use yxorP\proxy\Promise\FulfilledPromise;
+use yxorP\proxy\Psr7;
+use yxorP\proxy\Psr7\LazyOpenStream;
+use yxorP\proxy\TransferStats;
 
 /**
  * Creates curl resources from a request
@@ -106,6 +106,27 @@ class CurlFactory implements CurlFactoryInterface
         return self::createRejection($easy, $ctx);
     }
 
+    public function release(EasyHandle $easy)
+    {
+        $resource = $easy->handle;
+        unset($easy->handle);
+
+        if (count($this->handles) >= $this->maxHandles) {
+            curl_close($resource);
+        } else {
+            // Remove all callback functions as they can hold onto references
+            // and are not cleaned up by curl_reset. Using curl_setopt_array
+            // does not work for some reason, so removing each one
+            // individually.
+            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
+            curl_setopt($resource, CURLOPT_READFUNCTION, null);
+            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
+            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
+            curl_reset($resource);
+            $this->handles[] = $resource;
+        }
+    }
+
     /**
      * This function ensures that a response was set on a transaction. If one
      * was not set, then the request is retried if possible. This error
@@ -199,27 +220,6 @@ class CurlFactory implements CurlFactoryInterface
             : new RequestException($message, $easy->request, $easy->response, null, $ctx);
 
         return \yxorP\proxy\Promise\rejection_for($error);
-    }
-
-    public function release(EasyHandle $easy)
-    {
-        $resource = $easy->handle;
-        unset($easy->handle);
-
-        if (count($this->handles) >= $this->maxHandles) {
-            curl_close($resource);
-        } else {
-            // Remove all callback functions as they can hold onto references
-            // and are not cleaned up by curl_reset. Using curl_setopt_array
-            // does not work for some reason, so removing each one
-            // individually.
-            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
-            curl_setopt($resource, CURLOPT_READFUNCTION, null);
-            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
-            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
-            curl_reset($resource);
-            $this->handles[] = $resource;
-        }
     }
 
     public function create(RequestInterface $request, array $options)

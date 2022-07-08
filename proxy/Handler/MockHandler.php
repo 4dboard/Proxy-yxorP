@@ -4,11 +4,11 @@ namespace \yxorP\proxy\Handler;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use \yxorP\proxy\Exception\RequestException;
-use \yxorP\proxy\HandlerStack;
-use \yxorP\proxy\Promise\PromiseInterface;
-use \yxorP\proxy\Promise\RejectedPromise;
-use \yxorP\proxy\TransferStats;
+use yxorP\proxy\Exception\RequestException;
+use yxorP\proxy\HandlerStack;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\RejectedPromise;
+use yxorP\proxy\TransferStats;
 
 /**
  * Handler that returns responses or throw exceptions from a queue.
@@ -128,6 +128,20 @@ class MockHandler implements Countable
         );
     }
 
+    private function invokeStats(
+        RequestInterface  $request,
+        array             $options,
+        ResponseInterface $response = null,
+                          $reason = null
+    )
+    {
+        if (isset($options['on_stats'])) {
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $stats = new TransferStats($request, $response, $transferTime, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
+    }
+
     /**
      * Adds one or more variadic requests, exceptions, callables, or promises
      * to the queue.
@@ -181,19 +195,5 @@ class MockHandler implements Countable
     public function reset()
     {
         $this->queue = [];
-    }
-
-    private function invokeStats(
-        RequestInterface  $request,
-        array             $options,
-        ResponseInterface $response = null,
-                          $reason = null
-    )
-    {
-        if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new TransferStats($request, $response, $transferTime, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
     }
 }
