@@ -654,9 +654,7 @@ class constants
         define('YXORP_TARGET_SUB_DOMAIN', generalHelper::extractSubdomains(YXORP_TARGET_URL));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_TARGET_DOMAIN', $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
-        /* Setting the subdomain for the site. */
-        define('YXORP_SUB_DOMAIN', $targetDomain->subDomain()->toString());
-
+        
         // PROXY DETAILS
 
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
