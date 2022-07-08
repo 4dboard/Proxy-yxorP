@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxyApromise;
+<?php namespace yxorP\proxy\Apromise;
 class AggregateExceptionAA extends AARejectionException
 {
     public function __construct($msg, array $reasons)

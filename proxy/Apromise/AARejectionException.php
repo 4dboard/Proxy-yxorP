@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxyApromise;
+<?php namespace yxorP\proxy\Apromise;
 
 use JsonSerializable;
 use RuntimeException;

@@ -1,4 +1,4 @@
-<?php namespace yxorP\proxyApromise;
+<?php namespace yxorP\proxy\Apromise;
 
 use Exception;
 use JetBrains\PhpStorm\Pure;
@@ -19,6 +19,11 @@ final class Coroutine implements PromiseInterface
             }
         });
         $this->nextCoroutine($this->generator->current());
+    }
+
+    private function nextCoroutine($yielded)
+    {
+        $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
     }
 
     /**
@@ -88,10 +93,5 @@ final class Coroutine implements PromiseInterface
         } catch (Throwable $throwable) {
             $this->result->reject($throwable);
         }
-    }
-
-    private function nextCoroutine($yielded)
-    {
-        $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
     }
 }
