@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Exception;
+namespace \yxorP\guzzle\Exception;
 
 /**
  * Exception when a client error is encountered (4xx codes)

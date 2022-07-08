@@ -2,7 +2,7 @@
 
 namespace yxorP\snag;
 
-use GuzzleHttp\ClientInterface;
+use \yxorP\guzzle\ClientInterface;
 use InvalidArgumentException;
 
 class Configuration

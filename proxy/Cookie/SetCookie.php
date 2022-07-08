@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Cookie;
+namespace \yxorP\guzzle\Cookie;
 
 /**
  * Set-Cookie object

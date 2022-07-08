@@ -5,7 +5,7 @@ namespace yxorP\snag;
 use yxorP\snag\DateTime\Date;
 use yxorP\snag\Internal\GuzzleCompat;
 use Exception;
-use GuzzleHttp\ClientInterface;
+use \yxorP\guzzle\ClientInterface;
 use RuntimeException;
 
 class HttpClient
@@ -35,7 +35,7 @@ class HttpClient
      */
     protected $config;
     /**
-     * @var \GuzzleHttp\ClientInterface
+     * @var \\yxorP\guzzle\ClientInterface
      */
     protected $guzzle;
     /**
@@ -47,7 +47,7 @@ class HttpClient
 
     /**
      * @param \yxorP\snag\Configuration $config
-     * @param \GuzzleHttp\ClientInterface $guzzle
+     * @param \\yxorP\guzzle\ClientInterface $guzzle
      */
     public function __construct(Configuration $config, ClientInterface $guzzle)
     {

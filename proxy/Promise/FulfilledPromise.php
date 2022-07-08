@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Promise;
+namespace \yxorP\guzzle\Promise;
 
 /**
  * A promise that has been fulfilled.

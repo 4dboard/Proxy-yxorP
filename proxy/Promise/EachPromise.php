@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Promise;
+namespace \yxorP\guzzle\Promise;
 
 /**
  * Represents a promise that iterates over many promises and invokes

@@ -1,11 +1,11 @@
 <?php
-namespace GuzzleHttp\Handler;
+namespace \yxorP\guzzle\Handler;
 
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Promise\RejectedPromise;
-use GuzzleHttp\TransferStats;
+use \yxorP\guzzle\Exception\RequestException;
+use \yxorP\guzzle\HandlerStack;
+use \yxorP\guzzle\Promise\PromiseInterface;
+use \yxorP\guzzle\Promise\RejectedPromise;
+use \yxorP\guzzle\TransferStats;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -91,8 +91,8 @@ class MockHandler implements \Countable
         }
 
         $response = $response instanceof \Exception
-            ? \GuzzleHttp\Promise\rejection_for($response)
-            : \GuzzleHttp\Promise\promise_for($response);
+            ? \\yxorP\guzzle\Promise\rejection_for($response)
+            : \\yxorP\guzzle\Promise\promise_for($response);
 
         return $response->then(
             function ($value) use ($request, $options) {
@@ -120,7 +120,7 @@ class MockHandler implements \Countable
                 if ($this->onRejected) {
                     call_user_func($this->onRejected, $reason);
                 }
-                return \GuzzleHttp\Promise\rejection_for($reason);
+                return \\yxorP\guzzle\Promise\rejection_for($reason);
             }
         );
     }
@@ -140,7 +140,7 @@ class MockHandler implements \Countable
                 $this->queue[] = $value;
             } else {
                 throw new \InvalidArgumentException('Expected a response or '
-                    . 'exception. Found ' . \GuzzleHttp\describe_type($value));
+                    . 'exception. Found ' . \\yxorP\guzzle\describe_type($value));
             }
         }
     }

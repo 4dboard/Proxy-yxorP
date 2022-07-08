@@ -20,7 +20,7 @@ use yxorP\snag\Request\ResolverInterface;
 use yxorP\snag\Shutdown\PhpShutdownStrategy;
 use yxorP\snag\Shutdown\ShutdownStrategyInterface;
 use Composer\CaBundle\CaBundle;
-use GuzzleHttp;
+use \yxorP\guzzle;
 
 class Client
 {
@@ -80,13 +80,13 @@ class Client
     /**
      * @param \yxorP\snag\Configuration $config
      * @param \yxorP\snag\Request\ResolverInterface|null $resolver
-     * @param \GuzzleHttp\ClientInterface|null $guzzle
+     * @param \\yxorP\guzzle\ClientInterface|null $guzzle
      * @param \yxorP\snag\Shutdown\ShutdownStrategyInterface|null $shutdownStrategy
      */
     public function __construct(
         Configuration              $config,
         ResolverInterface          $resolver = null,
-        GuzzleHttp\ClientInterface $guzzle = null,
+        \yxorP\guzzle\ClientInterface $guzzle = null,
         ShutdownStrategyInterface  $shutdownStrategy = null
     )
     {
@@ -149,13 +149,13 @@ class Client
      * @param string|null $base
      * @param array $options
      *
-     * @return GuzzleHttp\ClientInterface
+     * @return \yxorP\guzzle\ClientInterface
      */
     public static function makeGuzzle($base = null, array $options = [])
     {
         $options = self::resolveGuzzleOptions($base, $options);
 
-        return new GuzzleHttp\Client($options);
+        return new \yxorP\guzzle\Client($options);
     }
 
     /**
@@ -903,7 +903,7 @@ class Client
     /**
      * Get the session client.
      *
-     * @return \GuzzleHttp\ClientInterface
+     * @return \\yxorP\guzzle\ClientInterface
      *
      * @deprecated This will be removed in the next major version.
      */
@@ -992,13 +992,13 @@ class Client
      * Ensure the notify endpoint is synchronised with Guzzle's base URL.
      *
      * @param \yxorP\snag\Configuration $configuration
-     * @param \GuzzleHttp\ClientInterface $guzzle
+     * @param \\yxorP\guzzle\ClientInterface $guzzle
      *
      * @return void
      */
     private function syncNotifyEndpointWithGuzzleBaseUri(
         Configuration              $configuration,
-        GuzzleHttp\ClientInterface $guzzle
+        \yxorP\guzzle\ClientInterface $guzzle
     )
     {
         // Don't change the endpoint if one is already set, otherwise we could be

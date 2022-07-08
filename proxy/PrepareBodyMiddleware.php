@@ -1,8 +1,8 @@
 <?php
-namespace GuzzleHttp;
+namespace \yxorP\guzzle;
 
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Psr7;
+use \yxorP\guzzle\Promise\PromiseInterface;
+use \yxorP\guzzle\Psr7;
 use Psr\Http\Message\RequestInterface;
 
 /**

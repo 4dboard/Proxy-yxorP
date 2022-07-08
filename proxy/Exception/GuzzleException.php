@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Exception;
+namespace \yxorP\guzzle\Exception;
 
 use Throwable;
 

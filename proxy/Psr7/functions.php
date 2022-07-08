@@ -1,5 +1,5 @@
 <?php
-namespace GuzzleHttp\Psr7;
+namespace \yxorP\guzzle\Psr7;
 
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;
