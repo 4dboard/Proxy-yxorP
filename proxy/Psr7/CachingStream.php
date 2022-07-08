@@ -16,12 +16,12 @@ class CachingStream implements StreamInterface
         $this->stream = $target ?: new Stream(fopen('php://temp', 'r+'));
     }
 
-    public function rewind()
+    public function rewind(): mixed
     {
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET): mixed
     {
         if ($whence == SEEK_SET) {
             $byte = $offset;
@@ -90,7 +90,7 @@ class CachingStream implements StreamInterface
         return $this->stream->write($string);
     }
 
-    public function close()
+    public function close(): mixed
     {
         $this->remoteStream->close() && $this->stream->close();
     }

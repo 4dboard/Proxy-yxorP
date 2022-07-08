@@ -70,7 +70,7 @@ trait AStreamDecoratorTrait
         return $this->stream->getMetadata($key);
     }
 
-    public function detach()
+    public function detach(): mixed
     {
         return $this->stream->detach();
     }
