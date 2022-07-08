@@ -1,1 +1,5 @@
-<?php namespace GuzzleHttp\Promise;interface PromisorInterface{public function promise();}
+<?php namespace GuzzleHttp\Promise;
+interface PromisorInterface
+{
+    public function promise();
+}

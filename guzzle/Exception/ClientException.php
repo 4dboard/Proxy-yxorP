@@ -1,1 +1,4 @@
-<?php namespace GuzzleHttp\Exception;class ClientException extends BadResponseException{}
+<?php namespace GuzzleHttp\Exception;
+class ClientException extends BadResponseException
+{
+}
