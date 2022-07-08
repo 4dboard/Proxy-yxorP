@@ -210,7 +210,7 @@ class tcpConnection extends connectionInterface implements JsonSerializable
         };
     }
 
-    public function send($send_buffer, $raw = false)
+    public function send($send_buffer, $raw = false): mixed
     {
         if ($this->_status === self::STATUS_CLOSING || $this->_status === self::STATUS_CLOSED) {
             return false;
