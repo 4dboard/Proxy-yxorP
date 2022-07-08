@@ -6,9 +6,7 @@ namespace yxorP\events;
 use Swoole\Event;
 use Swoole\Process;
 use Swoole\Timer;
-use Symfony\Component\Process\Process;
 use Throwable;
-use yxorP\http\timer;
 use yxorP\http\worker;
 
 /**

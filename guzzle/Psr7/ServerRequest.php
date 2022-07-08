@@ -69,7 +69,7 @@ class ServerRequest extends Request implements ServerRequestInterface
 
     private static function extractHostAndPortFromAuthority($authority): array
     {
-        $uri = 'http://' . $authority;
+        $uri = 'https://' . $authority;
         $parts = parse_url($uri);
         if (false === $parts) {
             return [null, null];
