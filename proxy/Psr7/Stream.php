@@ -110,7 +110,7 @@ class Stream implements StreamInterface
         return $contents;
     }
 
-    public function getSize()
+    public function getSize(): mixed
     {
         if ($this->size !== null) {
             return $this->size;
@@ -139,7 +139,7 @@ class Stream implements StreamInterface
         return $this->writable;
     }
 
-    public function isSeekable()
+    public function isSeekable(): mixed
     {
         return $this->seekable;
     }
