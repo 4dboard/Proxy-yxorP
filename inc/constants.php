@@ -682,12 +682,12 @@ class constants
         // TARGET DOMAIN DETAILS
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        $targetDomain = self::publicSuffix(constants::get(YXORP_TARGET_URL));
+        $targetDomain = self::publicSuffix(YXORP_TARGET_URL);
 
         // --
 
         /* Setting the `TARGET_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
-        define(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(constants::get(YXORP_TARGET_URL)));
+        define(YXORP_TARGET_SUB_DOMAIN, generalHelper::extractSubdomains(YXORP_TARGET_URL));
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         define(YXORP_TARGET_DOMAIN, $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
         /* Setting the subdomain for the site. */
@@ -697,19 +697,19 @@ class constants
 
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        define(VAR_FETCH, VAR_HTTPS . constants::get(YXORP_SUB_DOMAIN) . constants::get(YXORP_TARGET_DOMAIN));
+        define(VAR_FETCH, VAR_HTTPS . YXORP_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
         value of the constant YXORP_REQUEST_URI. */
-        define(YXORP_REQUEST_URI_FULL, YXORP_SITE_URL . constants::get(YXORP_REQUEST_URI));
+        define(YXORP_REQUEST_URI_FULL, YXORP_SITE_URL . YXORP_REQUEST_URI);
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
-        define(YXORP_PROXY_URL, constants::get(VAR_FETCH) . constants::get(YXORP_REQUEST_URI));
+        define(YXORP_PROXY_URL, VAR_FETCH . YXORP_REQUEST_URI);
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
         define(YXORP_DIR_FULL, DIR_ROOT . DIR_OVERRIDE . ($siteDetails)[VAR_FILES]);
         /* Setting the cache key to the base64 encoded version of the proxy URL. */
-        define(CACHE_KEY, generalHelper::base64_url_encode(constants::get(YXORP_PROXY_URL)) . EXT_TMP);
+        define(CACHE_KEY, generalHelper::base64_url_encode(YXORP_PROXY_URL) . EXT_TMP);
 
         // GLBAL COLLECTIONS
 
