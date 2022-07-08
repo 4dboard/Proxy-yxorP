@@ -79,7 +79,7 @@ class ServerRequest extends Request implements ServerRequestInterface
         return [$host, $port];
     }
 
-    public function withCookieParams(array $cookies): mixed
+    public function withCookieParams(array $cookies): \ServerRequest
     {
         $new = clone $this;
         $new->cookieParams = $cookies;
@@ -121,21 +121,21 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $normalizedFiles;
     }
 
-    public function withUploadedFiles(array $uploadedFiles): mixed
+    public function withUploadedFiles(array $uploadedFiles): \ServerRequest
     {
         $new = clone $this;
         $new->uploadedFiles = $uploadedFiles;
         return $new;
     }
 
-    public function withParsedBody($data): mixed
+    public function withParsedBody(object|array|null $data): \ServerRequest
     {
         $new = clone $this;
         $new->parsedBody = $data;
         return $new;
     }
 
-    public function withQueryParams(array $query): mixed
+    public function withQueryParams(array $query): \ServerRequest
     {
         $new = clone $this;
         $new->queryParams = $query;
@@ -172,28 +172,28 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $this->attributes;
     }
 
-    public function getAttribute($attribute, $default = null): mixed
+    public function getAttribute(string $name, mixed $default = null): mixed
     {
-        if (false === array_key_exists($attribute, $this->attributes)) {
+        if (false === array_key_exists($name, $this->attributes)) {
             return $default;
         }
-        return $this->attributes[$attribute];
+        return $this->attributes[$name];
     }
 
-    public function withAttribute($attribute, $value): mixed
+    public function withAttribute(string $name, mixed $value): \ServerRequest
     {
         $new = clone $this;
-        $new->attributes[$attribute] = $value;
+        $new->attributes[$name] = $value;
         return $new;
     }
 
-    public function withoutAttribute($attribute): mixed
+    public function withoutAttribute(string $name): \static|\ServerRequest
     {
-        if (false === array_key_exists($attribute, $this->attributes)) {
+        if (false === array_key_exists($name, $this->attributes)) {
             return $this;
         }
         $new = clone $this;
-        unset($new->attributes[$attribute]);
+        unset($new->attributes[$name]);
         return $new;
     }
 }

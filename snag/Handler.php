@@ -66,6 +66,9 @@ class Handler
         register_shutdown_function([$this, 'shutdownHandler']);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function exceptionHandler($throwable)
     {
         $this->notifyThrowable($throwable);

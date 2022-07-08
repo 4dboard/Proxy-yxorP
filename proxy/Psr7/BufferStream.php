@@ -60,7 +60,7 @@ class BufferStream implements StreamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
         throw new RuntimeException('Cannot seek a BufferStream');
     }
@@ -75,7 +75,7 @@ class BufferStream implements StreamInterface
         throw new RuntimeException('Cannot determine the position of a BufferStream');
     }
 
-    public function read($length): string
+    public function read(int $length): string
     {
         $currentLength = strlen($this->buffer);
         if ($length >= $currentLength) {
@@ -88,7 +88,7 @@ class BufferStream implements StreamInterface
         return $result;
     }
 
-    public function write($string): mixed
+    public function write(string $string): int|bool
     {
         $this->buffer .= $string;
         if (strlen($this->buffer) >= $this->hwm) {

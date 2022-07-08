@@ -1,5 +1,6 @@
 <?php namespace yxorP\connection;
 
+use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 use ReturnTypeWillChange;
 use Throwable;
@@ -573,7 +574,7 @@ class tcpConnection extends connectionInterface implements JsonSerializable
         return (int)substr(strrchr($address, ':'), 1);
     }
 
-    public function isIpV4(): bool
+    #[Pure] public function isIpV4(): bool
     {
         if ($this->transport === 'unix') {
             return false;
@@ -581,7 +582,7 @@ class tcpConnection extends connectionInterface implements JsonSerializable
         return !str_contains($this->getRemoteIp(), ':');
     }
 
-    public function isIpV6(): bool
+    #[Pure] public function isIpV6(): bool
     {
         if ($this->transport === 'unix') {
             return false;

@@ -194,6 +194,9 @@ class request
 
     /* A method declaration. */
 
+    /**
+     * @throws Exception
+     */
     public function session(): bool|Session
     {
         if ($this->session === null) {

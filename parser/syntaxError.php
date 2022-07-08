@@ -15,17 +15,17 @@ final class syntaxError extends InvalidArgumentException implements cannotProces
         $this->idnaInfo = $idnaInfo;
     }
 
-    public static function dueToInvalidCharacters(string $domain): self
+    #[Pure] public static function dueToInvalidCharacters(string $domain): self
     {
         return new self('The host `' . $domain . '` is invalid: it contains invalid characters.');
     }
 
-    public static function dueToMalformedValue(string $domain): self
+    #[Pure] public static function dueToMalformedValue(string $domain): self
     {
         return new self('The host `' . $domain . '` is malformed; Verify its length and/or characters.');
     }
 
-    public static function dueToIDNAError(string $domain, idnaInfo $idnaInfo): self
+    #[Pure] public static function dueToIDNAError(string $domain, idnaInfo $idnaInfo): self
     {
         return new self('The host `' . $domain . '` is invalid for IDN conversion.', $idnaInfo);
     }
@@ -38,7 +38,7 @@ final class syntaxError extends InvalidArgumentException implements cannotProces
         return new self('The suffix `"' . ($publicSuffix->value() ?? 'NULL') . '"` is an invalid `' . $type . '` suffix.');
     }
 
-    public static function dueToUnsupportedType(string $domain): self
+    #[Pure] public static function dueToUnsupportedType(string $domain): self
     {
         return new self('The domain `' . $domain . '` is invalid: this is an IPv4 host.');
     }

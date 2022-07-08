@@ -84,7 +84,7 @@ class Stream implements StreamInterface
         }
     }
 
-    public function seek($offset, $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
         $whence = (int)$whence;
         if (!isset($this->stream)) {
@@ -169,7 +169,7 @@ class Stream implements StreamInterface
         $this->seek(0);
     }
 
-    public function read($length): string
+    public function read(int $length): string
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -190,7 +190,7 @@ class Stream implements StreamInterface
         return $string;
     }
 
-    public function write($string): int
+    public function write(string $string): int
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');

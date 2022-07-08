@@ -85,7 +85,7 @@ class UploadedFile implements UploadedFileInterface
         }
     }
 
-    public function moveTo($targetPath)
+    public function moveTo(string $targetPath)
     {
         $this->validateActive();
         if (false === $this->isStringNotEmpty($targetPath)) {
@@ -122,7 +122,7 @@ class UploadedFile implements UploadedFileInterface
         return is_string($param) && false === empty($param);
     }
 
-    public function getStream(): mixed
+    public function getStream(): \StreamInterface|null|\LazyOpenStream
     {
         $this->validateActive();
         if ($this->stream instanceof StreamInterface) {

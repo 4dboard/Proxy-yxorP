@@ -84,7 +84,7 @@ class EachPromise implements PromisorInterface
 
     private function addPending(): bool
     {
-        if (!$this->iterable || !$this->iterable->valid()) {
+        if (!$this->iterable->valid()) {
             return false;
         }
         $promise = promise_for($this->iterable->current());

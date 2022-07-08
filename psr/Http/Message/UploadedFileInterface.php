@@ -65,7 +65,7 @@ interface UploadedFileInterface
      * @throws RuntimeException on any error during the move operation, or on
      *     the second or subsequent call to the method.
      */
-    public function moveTo($targetPath);
+    public function moveTo(string $targetPath);
 
     /**
      * Retrieve the file size.

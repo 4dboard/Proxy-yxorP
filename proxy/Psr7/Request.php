@@ -70,7 +70,7 @@ class Request implements RequestInterface
         return $target;
     }
 
-    public function withRequestTarget($requestTarget): mixed
+    public function withRequestTarget(mixed $requestTarget): \Request
     {
         if (preg_match('#\s#', $requestTarget)) {
             throw new InvalidArgumentException('Invalid request target provided; cannot contain whitespace');
@@ -85,7 +85,7 @@ class Request implements RequestInterface
         return $this->method;
     }
 
-    public function withMethod($method): mixed
+    public function withMethod(string $method): \Request
     {
         $this->assertMethod($method);
         $new = clone $this;
@@ -98,7 +98,7 @@ class Request implements RequestInterface
         return $this->uri;
     }
 
-    public function withUri(UriInterface $uri, $preserveHost = false): mixed
+    public function withUri(UriInterface $uri, bool $preserveHost = false): \static|\Request
     {
         if ($uri === $this->uri) {
             return $this;

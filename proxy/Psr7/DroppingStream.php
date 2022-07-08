@@ -14,7 +14,7 @@ class DroppingStream implements StreamInterface
         $this->maxLength = $maxLength;
     }
 
-    public function write($string): int
+    public function write(string $string): int
     {
         $diff = $this->maxLength - $this->stream->getSize();
         if ($diff <= 0) {

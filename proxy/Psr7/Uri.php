@@ -58,7 +58,7 @@ class Uri implements UriInterface
         if (!is_string($component)) {
             throw new InvalidArgumentException('User info must be a string');
         }
-        return preg_replace_callback('/[^%na' . self::$charUnreserved . self::$charSubDelims . 'me]+|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $component);
+        return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ']+|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $component);
     }
 
     private function filterHost($host): string
@@ -86,7 +86,7 @@ class Uri implements UriInterface
         if (!is_string($path)) {
             throw new InvalidArgumentException('Path must be a string');
         }
-        return preg_replace_callback('/[^%na' . self::$charUnreserved . self::$charSubDelims . 'me:@\/]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $path);
+        return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ':@\/]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $path);
     }
 
     private function filterQueryAndFragment($str): array|string|null
@@ -94,7 +94,7 @@ class Uri implements UriInterface
         if (!is_string($str)) {
             throw new InvalidArgumentException('Query and fragment must be a string');
         }
-        return preg_replace_callback('/[^%na' . self::$charUnreserved . self::$charSubDelims . 'me:@\/?]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $str);
+        return preg_replace_callback('/[^' . self::$charUnreserved . self::$charSubDelims . ':@\/?]++|%(?![A-Fa-f0-9]{2})/', [$this, 'rawurlencodeMatchZero'], $str);
     }
 
     private function removeDefaultPort()
@@ -201,7 +201,7 @@ class Uri implements UriInterface
         });
     }
 
-    public function withQuery($query): Uri|static
+    public function withQuery(string $query): Uri|static
     {
         $query = $this->filterQueryAndFragment($query);
         if ($this->query === $query) {
@@ -302,7 +302,7 @@ class Uri implements UriInterface
         return $this->fragment;
     }
 
-    public function withScheme($scheme): mixed
+    public function withScheme(string $scheme): \Uri|\static
     {
         $scheme = $this->filterScheme($scheme);
         if ($this->scheme === $scheme) {
@@ -315,7 +315,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withUserInfo($user, $password = null): mixed
+    public function withUserInfo(string $user, string $password = null): \Uri|\static
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
@@ -330,7 +330,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withHost($host): mixed
+    public function withHost(string $host): \Uri|\static
     {
         $host = $this->filterHost($host);
         if ($this->host === $host) {
@@ -342,7 +342,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPort($port): mixed
+    public function withPort(?int $port): \Uri|\static
     {
         $port = $this->filterPort($port);
         if ($this->port === $port) {
@@ -355,7 +355,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPath($path): mixed
+    public function withPath(string $path): \Uri|\static
     {
         $path = $this->filterPath($path);
         if ($this->path === $path) {
@@ -367,7 +367,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withFragment($fragment): mixed
+    public function withFragment(string $fragment): \Uri|\static
     {
         $fragment = $this->filterQueryAndFragment($fragment);
         if ($this->fragment === $fragment) {

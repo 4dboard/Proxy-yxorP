@@ -41,14 +41,14 @@ interface StreamInterface
      *
      * After the stream has been detached, the stream is in an unusable state.
      *
-     * @return resource|null Underlying PHP stream, if any
+     * @return mixed Underlying PHP stream, if any
      */
     public function detach(): mixed;
 
     /**
      * Get the size of the stream if known.
      *
-     * @return int|null Returns the size in bytes if known, or null if unknown.
+     * @return mixed Returns the size in bytes if known, or null if unknown.
      */
     public function getSize(): mixed;
 
@@ -86,7 +86,7 @@ interface StreamInterface
      *     SEEK_END: Set position to end-of-stream plus offset.
      * @throws RuntimeException on failure.
      */
-    public function seek($offset, $whence = SEEK_SET): mixed;
+    public function seek(int $offset, int $whence = SEEK_SET): mixed;
 
     /**
      * Seek to the beginning of the stream.
@@ -114,7 +114,7 @@ interface StreamInterface
      * @return int Returns the number of bytes written to the stream.
      * @throws RuntimeException on failure.
      */
-    public function write($string): mixed;
+    public function write(string $string): mixed;
 
     /**
      * Returns whether or not the stream is readable.
@@ -133,7 +133,7 @@ interface StreamInterface
      *     if no bytes are available.
      * @throws RuntimeException if an error occurs.
      */
-    public function read($length): mixed;
+    public function read(int $length): mixed;
 
     /**
      * Returns the remaining contents in a string
@@ -151,8 +151,8 @@ interface StreamInterface
      * stream_get_meta_data() function.
      *
      * @link http://php.net/manual/en/function.stream-get-meta-data.php
-     * @param string $key Specific metadata to retrieve.
-     * @return array|mixed|null Returns an associative array if no key is
+     * @param null $key Specific metadata to retrieve.
+     * @return mixed Returns an associative array if no key is
      *     provided. Returns a specific key value if a key is provided and the
      *     value is found, or null if the key is not found.
      */

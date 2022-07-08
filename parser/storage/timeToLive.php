@@ -15,6 +15,9 @@ use const FILTER_VALIDATE_INT;
 
 final class timeToLive
 {
+    /**
+     * @throws Exception
+     */
     public static function fromDateTimeInterface(DateTimeInterface $date): DateInterval
     {
         return self::until($date);
@@ -48,6 +51,9 @@ final class timeToLive
         return $interval;
     }
 
+    /**
+     * @throws Exception
+     */
     public static function convert($ttl): ?DateInterval
     {
         if ($ttl instanceof DateInterval || null === $ttl) {

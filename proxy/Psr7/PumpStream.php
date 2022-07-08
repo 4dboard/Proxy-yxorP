@@ -60,7 +60,7 @@ class PumpStream implements StreamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
         throw new RuntimeException('Cannot seek a PumpStream');
     }
@@ -70,7 +70,7 @@ class PumpStream implements StreamInterface
         return false;
     }
 
-    public function write($string): int
+    public function write(string $string): int
     {
         throw new RuntimeException('Cannot write to a PumpStream');
     }
@@ -94,7 +94,7 @@ class PumpStream implements StreamInterface
         return !$this->source;
     }
 
-    public function read($length): string
+    public function read(int $length): string
     {
         $data = $this->buffer->read($length);
         $readLen = strlen($data);

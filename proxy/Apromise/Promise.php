@@ -165,6 +165,9 @@ class Promise implements PromiseInterface
         return $this->state;
     }
 
+    /**
+     * @throws Exception
+     */
     private function invokeWaitList()
     {
         $waitList = $this->waitList;

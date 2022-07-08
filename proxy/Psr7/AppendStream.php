@@ -55,7 +55,7 @@ class AppendStream implements StreamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
         if (!$this->seekable) {
             throw new RuntimeException('This AppendStream is not seekable');
@@ -83,7 +83,7 @@ class AppendStream implements StreamInterface
         return !$this->streams || ($this->current >= count($this->streams) - 1 && $this->streams[$this->current]->eof());
     }
 
-    public function read($length): string
+    public function read(int $length): string
     {
         $buffer = '';
         $total = count($this->streams) - 1;
@@ -157,7 +157,7 @@ class AppendStream implements StreamInterface
         return false;
     }
 
-    public function write($string): int
+    public function write(string $string): int
     {
         throw new RuntimeException('Cannot write to an AppendStream');
     }

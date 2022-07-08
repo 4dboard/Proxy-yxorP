@@ -115,7 +115,7 @@ class FnStream implements StreamInterface
         call_user_func($this->_fn_rewind);
     }
 
-    public function seek($offset, $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
         call_user_func($this->_fn_seek, $offset, $whence);
     }
@@ -125,7 +125,7 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_isWritable);
     }
 
-    public function write($string): mixed
+    public function write(string $string): mixed
     {
         return call_user_func($this->_fn_write, $string);
     }
@@ -135,7 +135,7 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_isReadable);
     }
 
-    public function read($length): mixed
+    public function read(int $length): mixed
     {
         return call_user_func($this->_fn_read, $length);
     }

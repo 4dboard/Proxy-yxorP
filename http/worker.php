@@ -264,7 +264,6 @@ class worker
         /* Creating a new stream object. */
         $stream = static::outputStream();
         /* Checking if the stream is open. */
-        if (!$stream) return false;
         /* Checking to see if the $decorated variable is set to true. If it is, it will not display the following code. */
         if (!$decorated) {
             /*  */
@@ -936,7 +935,7 @@ class worker
     }
 
     /* A method that is being called from the monitorWorkers() method. */
-    protected static function monitorWorkersForLinux()
+    #[NoReturn] protected static function monitorWorkersForLinux()
     {
         static::$_status = static::STATUS_RUNNING;
         while (1) {

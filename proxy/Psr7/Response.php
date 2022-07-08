@@ -53,7 +53,7 @@ class Response implements ResponseInterface
         return $this->reasonPhrase;
     }
 
-    public function withStatus($code, $reasonPhrase = ''): mixed
+    public function withStatus(int $code, string $reasonPhrase = ''): \Response
     {
         $this->assertStatusCodeIsInteger($code);
         $code = (int)$code;

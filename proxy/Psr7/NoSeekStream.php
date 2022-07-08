@@ -7,7 +7,7 @@ class NoSeekStream implements StreamInterface
 {
     use AStreamDecoratorTrait;
 
-    public function seek($offset, $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
         throw new RuntimeException('Cannot seek a NoSeekStream');
     }

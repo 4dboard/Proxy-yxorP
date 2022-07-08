@@ -26,6 +26,9 @@ final class Coroutine implements PromiseInterface
         $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
     }
 
+    /**
+     * @throws Throwable
+     */
     public function wait($unwrap = true)
     {
         return $this->result->wait($unwrap);

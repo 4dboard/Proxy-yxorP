@@ -15,7 +15,7 @@ trait MessageTrait
         return $this->protocol;
     }
 
-    public function withProtocolVersion($version): mixed
+    public function withProtocolVersion(string $version): \static|\Request|\Response
     {
         if ($this->protocol === $version) {
             return $this;
@@ -30,37 +30,37 @@ trait MessageTrait
         return $this->headers;
     }
 
-    public function hasHeader($header): bool
+    public function hasHeader(string $name): bool
     {
-        return isset($this->headerNames[strtolower($header)]);
+        return isset($this->headerNames[strtolower($name)]);
     }
 
-    public function getHeaderLine($header): string
+    public function getHeaderLine(string $name): string
     {
-        return implode(', ', $this->getHeader($header));
+        return implode(', ', $this->getHeader($name));
     }
 
-    public function getHeader($header): mixed
+    public function getHeader(string $name): mixed
     {
-        $header = strtolower($header);
-        if (!isset($this->headerNames[$header])) {
+        $name = strtolower($name);
+        if (!isset($this->headerNames[$name])) {
             return [];
         }
-        $header = $this->headerNames[$header];
-        return $this->headers[$header];
+        $name = $this->headerNames[$name];
+        return $this->headers[$name];
     }
 
-    public function withHeader($header, $value): mixed
+    public function withHeader(string $name, array|string $value): \Request|\Response
     {
-        $this->assertHeader($header);
+        $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($header);
+        $normalized = strtolower($name);
         $new = clone $this;
         if (isset($new->headerNames[$normalized])) {
             unset($new->headers[$new->headerNames[$normalized]]);
         }
-        $new->headerNames[$normalized] = $header;
-        $new->headers[$header] = $value;
+        $new->headerNames[$normalized] = $name;
+        $new->headers[$name] = $value;
         return $new;
     }
 
@@ -95,35 +95,35 @@ trait MessageTrait
         }, $values);
     }
 
-    public function withAddedHeader($header, $value): mixed
+    public function withAddedHeader(string $name, array|string $value): \Request|\Response
     {
-        $this->assertHeader($header);
+        $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($header);
+        $normalized = strtolower($name);
         $new = clone $this;
         if (isset($new->headerNames[$normalized])) {
-            $header = $this->headerNames[$normalized];
-            $new->headers[$header] = array_merge($this->headers[$header], $value);
+            $name = $this->headerNames[$normalized];
+            $new->headers[$name] = array_merge($this->headers[$name], $value);
         } else {
-            $new->headerNames[$normalized] = $header;
-            $new->headers[$header] = $value;
+            $new->headerNames[$normalized] = $name;
+            $new->headers[$name] = $value;
         }
         return $new;
     }
 
-    public function withoutHeader($header): mixed
+    public function withoutHeader(string $name): \static|\Request|\Response
     {
-        $normalized = strtolower($header);
+        $normalized = strtolower($name);
         if (!isset($this->headerNames[$normalized])) {
             return $this;
         }
-        $header = $this->headerNames[$normalized];
+        $name = $this->headerNames[$normalized];
         $new = clone $this;
-        unset($new->headers[$header], $new->headerNames[$normalized]);
+        unset($new->headers[$name], $new->headerNames[$normalized]);
         return $new;
     }
 
-    public function getBody(): mixed
+    public function getBody(): \PumpStream|\StreamInterface|\Stream
     {
         if (!$this->stream) {
             $this->stream = stream_for();
@@ -131,7 +131,7 @@ trait MessageTrait
         return $this->stream;
     }
 
-    public function withBody(StreamInterface $body): mixed
+    public function withBody(StreamInterface $body): \static|\Request|\Response
     {
         if ($body === $this->stream) {
             return $this;

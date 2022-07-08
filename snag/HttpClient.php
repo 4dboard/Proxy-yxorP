@@ -161,7 +161,7 @@ class HttpClient
         $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
     }
 
-    protected function build(): array
+    #[ArrayShape(['apiKey' => "string", 'notifier' => "string[]", 'events' => "array"])] protected function build(): array
     {
         return $this->getEventPayload();
     }

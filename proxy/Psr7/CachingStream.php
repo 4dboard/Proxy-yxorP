@@ -21,7 +21,7 @@ class CachingStream implements StreamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET): mixed
+    public function seek(int $offset, int $whence = SEEK_SET): mixed
     {
         if ($whence == SEEK_SET) {
             $byte = $offset;
@@ -64,7 +64,7 @@ class CachingStream implements StreamInterface
         return $this->stream->eof() && $this->remoteStream->eof();
     }
 
-    public function read($length): string
+    public function read(int $length): string
     {
         $data = $this->stream->read($length);
         $remaining = $length - strlen($data);
@@ -81,7 +81,7 @@ class CachingStream implements StreamInterface
         return $data;
     }
 
-    public function write($string): int
+    public function write(string $string): int
     {
         $overflow = (strlen($string) + $this->tell()) - $this->remoteStream->tell();
         if ($overflow > 0) {

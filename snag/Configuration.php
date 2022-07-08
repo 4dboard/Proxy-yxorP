@@ -300,9 +300,6 @@ class Configuration
 
     public function getSessionClient(): \ProxyHttp\Client|ClientInterface
     {
-        if (is_null($this->sessionClient)) {
-            $this->sessionClient = Client::makeProxy($this->sessionEndpoint);
-        }
         return $this->sessionClient;
     }
 

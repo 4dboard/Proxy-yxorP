@@ -163,7 +163,7 @@ interface ServerRequestInterface extends RequestInterface
      * potential types MUST be arrays or objects only. A null value indicates
      * the absence of body content.
      *
-     * @return null|array|object The deserialized body parameters, if any.
+     * @return mixed The deserialized body parameters, if any.
      *     These will typically be an array or object.
      */
     public function getParsedBody(): mixed;
@@ -190,13 +190,13 @@ interface ServerRequestInterface extends RequestInterface
      * immutability of the message, and MUST return an instance that has the
      * updated body parameters.
      *
-     * @param null|array|object $data The deserialized body data. This will
+     * @param object|array|null $data The deserialized body data. This will
      *     typically be in an array or object.
      * @return static
      * @throws InvalidArgumentException if an unsupported argument type is
      *     provided.
      */
-    public function withParsedBody($data): mixed;
+    public function withParsedBody(object|array|null $data): mixed;
 
     /**
      * Retrieve attributes derived from the request.
@@ -222,11 +222,11 @@ interface ServerRequestInterface extends RequestInterface
      * specifying a default value to return if the attribute is not found.
      *
      * @param string $name The attribute name.
-     * @param mixed $default Default value to return if the attribute does not exist.
+     * @param mixed|null $default Default value to return if the attribute does not exist.
      * @return mixed
      * @see getAttributes()
      */
-    public function getAttribute($name, $default = null): mixed;
+    public function getAttribute(string $name, mixed $default = null): mixed;
 
     /**
      * Return an instance with the specified derived request attribute.
@@ -243,7 +243,7 @@ interface ServerRequestInterface extends RequestInterface
      * @return static
      * @see getAttributes()
      */
-    public function withAttribute($name, $value): mixed;
+    public function withAttribute(string $name, mixed $value): mixed;
 
     /**
      * Return an instance that removes the specified derived request attribute.
@@ -259,5 +259,5 @@ interface ServerRequestInterface extends RequestInterface
      * @return static
      * @see getAttributes()
      */
-    public function withoutAttribute($name): mixed;
+    public function withoutAttribute(string $name): mixed;
 }

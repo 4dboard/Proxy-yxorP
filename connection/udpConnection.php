@@ -1,6 +1,7 @@
 <?php namespace yxorP\connection;
 
 use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 use ReturnTypeWillChange;
 use function stream_socket_get_name;
@@ -44,7 +45,7 @@ class udpConnection extends connectionInterface implements JsonSerializable
         return strlen($send_buffer) === stream_socket_sendto($this->_socket, $send_buffer, 0, $this->isIpV6() ? '[' . $this->getRemoteIp() . ']:' . $this->getRemotePort() : $this->_remoteAddress);
     }
 
-    public function isIpV6(): bool
+    #[Pure] public function isIpV6(): bool
     {
         if ($this->transport === 'unix') {
             return false;
@@ -109,7 +110,7 @@ class udpConnection extends connectionInterface implements JsonSerializable
         return (int)substr(strrchr($address, ':'), 1);
     }
 
-    public function isIpV4(): bool
+    #[Pure] public function isIpV4(): bool
     {
         if ($this->transport === 'unix') {
             return false;
