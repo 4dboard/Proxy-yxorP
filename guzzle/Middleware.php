@@ -4,7 +4,7 @@ use ArrayAccess;
 use Closure;
 use InvalidArgumentException;
 use yxorP\guzzle\Cookie\CookieJarInterface;
-use yxorP\guzzle\Exception\ArequestException;
+use yxorP\guzzle\Exception\ArequestExceptionAA;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Log\LoggerInterface;
 use function GuzzleHttp\Promise\rejection_for;
@@ -42,7 +42,7 @@ final class Middleware
                     if ($code < 400) {
                         return $response;
                     }
-                    throw ArequestException::create($request, $response);
+                    throw ArequestExceptionAA::create($request, $response);
                 });
             };
         };
@@ -105,7 +105,7 @@ final class Middleware
                     $logger->log($logLevel, $message);
                     return $response;
                 }, function ($reason) use ($logger, $request, $formatter) {
-                    $response = $reason instanceof ArequestException ? $reason->getResponse() : null;
+                    $response = $reason instanceof ArequestExceptionAA ? $reason->getResponse() : null;
                     $message = $formatter->format($request, $response, $reason);
                     $logger->notice($message);
                     return rejection_for($reason);

@@ -8,7 +8,7 @@ use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use Psr\Http\Message\UriInterface;
 use RuntimeException;
-use yxorP\guzzle\Exception\ArequestException;
+use yxorP\guzzle\Exception\ArequestExceptionAA;
 use yxorP\guzzle\Exception\ConnectException;
 use yxorP\guzzle\Promise\FulfilledPromise;
 use yxorP\guzzle\Psr7;
@@ -47,7 +47,7 @@ class StreamHandler
             if (strpos($message, 'getaddrinfo') || strpos($message, 'Connection refused') || strpos($message, "couldn't connect to host") || strpos($message, "connection attempt failed")) {
                 $e = new ConnectException($e->getMessage(), $request, $e);
             }
-            $e = ArequestException::wrapException($request, $e);
+            $e = ArequestExceptionAA::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
             return rejection_for($e);
         }
@@ -74,7 +74,7 @@ class StreamHandler
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $ex = new ArequestException($msg, $request, $response, $e);
+                $ex = new ArequestExceptionAA($msg, $request, $response, $e);
                 return rejection_for($ex);
             }
         }

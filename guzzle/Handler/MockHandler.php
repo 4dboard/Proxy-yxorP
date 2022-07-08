@@ -8,7 +8,7 @@ use GuzzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use OutOfBoundsException;
 use ReturnTypeWillChange;
-use yxorP\guzzle\Exception\ArequestException;
+use yxorP\guzzle\Exception\ArequestExceptionAA;
 use yxorP\guzzle\HandlerStack;
 use yxorP\guzzle\Promise\PromiseInterface;
 use yxorP\guzzle\TransferStats;
@@ -60,7 +60,7 @@ class MockHandler implements Countable
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $response = new ArequestException($msg, $request, $response, $e);
+                $response = new ArequestExceptionAA($msg, $request, $response, $e);
             }
         }
         if (is_callable($response)) {

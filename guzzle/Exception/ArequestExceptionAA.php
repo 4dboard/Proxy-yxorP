@@ -7,7 +7,7 @@ use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\UriInterface;
 use function GuzzleHttp\Psr7\get_message_body_summary;
 
-class ArequestException extends TransferException
+class ArequestExceptionAA extends AATransferException
 {
     private RequestInterface $request;
     private ?ResponseInterface $response;
@@ -22,9 +22,9 @@ class ArequestException extends TransferException
         $this->handlerContext = $handlerContext;
     }
 
-    public static function wrapException(RequestInterface $request, Exception $e): ArequestException|Exception
+    public static function wrapException(RequestInterface $request, Exception $e): ArequestExceptionAA|Exception
     {
-        return $e instanceof ArequestException ? $e : new ArequestException($e->getMessage(), $request, null, $e);
+        return $e instanceof ArequestExceptionAA ? $e : new ArequestExceptionAA($e->getMessage(), $request, null, $e);
     }
 
     public static function create(RequestInterface $request, ResponseInterface $response = null, Exception $previous = null, array $ctx = [])

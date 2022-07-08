@@ -7,7 +7,7 @@ use GuzzleHttp\Promise\RejectedPromise;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
-use yxorP\guzzle\Exception\ArequestException;
+use yxorP\guzzle\Exception\ArequestExceptionAA;
 use yxorP\guzzle\Exception\ConnectException;
 use yxorP\guzzle\Promise\FulfilledPromise;
 use yxorP\guzzle\Psr7\LazyOpenStream;
@@ -107,14 +107,14 @@ class CurlFactory implements CurlFactoryInterface
     {
         static $connectionErrors = [CURLE_OPERATION_TIMEOUTED => true, CURLE_COULDNT_RESOLVE_HOST => true, CURLE_COULDNT_CONNECT => true, CURLE_SSL_CONNECT_ERROR => true, CURLE_GOT_NOTHING => true,];
         if ($easy->onHeadersException) {
-            return rejection_for(new ArequestException('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
+            return rejection_for(new ArequestExceptionAA('An error was encountered during the on_headers event', $easy->request, $easy->response, $easy->onHeadersException, $ctx));
         }
         if (version_compare($ctx[self::CURL_VERSION_STR], self::LOW_CURL_VERSION_NUMBER)) {
             $message = sprintf('cURL error %s: %s (%s)', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html');
         } else {
             $message = sprintf('cURL error %s: %s (%s) for %s', $ctx['errno'], $ctx['error'], 'see https://curl.haxx.se/libcurl/c/libcurl-errors.html', $easy->request->getUri());
         }
-        $error = isset($connectionErrors[$easy->errno]) ? new ConnectException($message, $easy->request, null, $ctx) : new ArequestException($message, $easy->request, $easy->response, null, $ctx);
+        $error = isset($connectionErrors[$easy->errno]) ? new ConnectException($message, $easy->request, null, $ctx) : new ArequestExceptionAA($message, $easy->request, $easy->response, null, $ctx);
         return rejection_for($error);
     }
 

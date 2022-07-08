@@ -1,4 +1,4 @@
 <?php namespace yxorP\guzzle\Exception;
-class TooManyRedirectsException extends ArequestException
+class TooManyRedirectsException extends ArequestExceptionAA
 {
 }
