@@ -11,7 +11,7 @@ use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\parser\Rules;
-use yxorP\snag\Client;
+use yxorP\proxy\Client;
 use function cockpit;
 
 class constants
@@ -539,11 +539,11 @@ class constants
 
         echo 4;
         /* Setting the token to the snag key. */
-        self::set(VAR_SNAG, Client::make(ENV_BUG_SNAG_KEY));
+        self::set(VAR_SNAG, \yxorP\snag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \\yxorP\proxy class. */
 
         echo 5;
-        self::set(VAR_proxy, new \yxorP\proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::set(VAR_proxy, new Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
         echo 6;
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
