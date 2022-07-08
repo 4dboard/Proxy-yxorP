@@ -4,7 +4,6 @@ namespace yxorP\snag;
 
 use Composer\CaBundle\CaBundle;
 use Throwable;
-use yxorP\proxy;
 use yxorP\proxy\ClientInterface;
 use yxorP\snag\Breadcrumbs\Breadcrumb;
 use yxorP\snag\Breadcrumbs\Recorder;
@@ -125,7 +124,7 @@ class Client
     {
         $options = self::resolveGuzzleOptions($base, $options);
 
-        return new proxy\Client($options);
+        return new \yxorP\proxy\Client($options);
     }
 
     /**
