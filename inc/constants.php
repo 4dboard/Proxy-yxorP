@@ -638,7 +638,7 @@ class constants
         // SITE DETAILS
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        $siteDetails = constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => constants::get(YXORP_SITE_DOMAIN)]);
+        $siteDetails = constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
 
         // TARGET DOMAIN
 
