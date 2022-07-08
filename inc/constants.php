@@ -536,6 +536,8 @@ class constants
         creates them. */
         foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
         // Reporting
+
+        echo 4;
         /* Setting the token to the snag key. */
         self::set(VAR_SNAG, Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \\yxorP\proxy class. */

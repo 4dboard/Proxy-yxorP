@@ -109,6 +109,7 @@ class yxorP
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
 
+        echo 4;
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
@@ -176,7 +177,6 @@ class yxorP
      */
     public static function yxorP(array|null $request = null): self
     {
-        echo 4;
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
         return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
