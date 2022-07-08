@@ -11,7 +11,7 @@ use function yxorP\proxy\Psr7\get_message_body_summary;
 /**
  * HTTP Request exception
  */
-class ARequestException extends ATransferException
+class ARequestException extends AATransferException
 {
     /** @var RequestInterface */
     private $request;
