@@ -2,9 +2,9 @@
 namespace \yxorP\proxy;
 
 use Psr\Http\Message\RequestInterface;
-use \yxorP\proxy\Promise\EachPromise;
-use \yxorP\proxy\Promise\PromiseInterface;
-use \yxorP\proxy\Promise\PromisorInterface;
+use yxorP\proxy\Promise\EachPromise;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\PromisorInterface;
 
 /**
  * Sends an iterator of requests concurrently using a capped pool size.

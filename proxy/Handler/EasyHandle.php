@@ -4,7 +4,7 @@ namespace \yxorP\proxy\Handler;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use \yxorP\proxy\Psr7\Response;
+use yxorP\proxy\Psr7\Response;
 
 /**
  * Represents a cURL easy handle and the data it populates.
