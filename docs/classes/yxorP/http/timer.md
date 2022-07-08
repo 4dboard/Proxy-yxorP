@@ -18,7 +18,7 @@
 
 
 ```php
-protected static $_tasks
+private static array $_tasks
 ```
 
 
@@ -33,7 +33,7 @@ protected static $_tasks
 
 
 ```php
-protected static $_event
+private static $_event
 ```
 
 
@@ -48,7 +48,7 @@ protected static $_event
 
 
 ```php
-protected static $_timerId
+private static int $_timerId
 ```
 
 
@@ -63,7 +63,7 @@ protected static $_timerId
 
 
 ```php
-protected static $_status
+private static array $_status
 ```
 
 
@@ -204,7 +204,7 @@ public static add(float $time_interval, mixed $func, mixed $args = [], mixed $pe
 
 
 ```php
-public static del(mixed $timer_id): mixed
+public static del(mixed $timer_id): bool
 ```
 
 
@@ -247,4 +247,4 @@ public static delAll(): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

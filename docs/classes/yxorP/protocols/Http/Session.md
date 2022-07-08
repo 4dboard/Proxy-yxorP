@@ -18,7 +18,7 @@
 
 
 ```php
-public static $name
+public static string $name
 ```
 
 
@@ -33,7 +33,7 @@ public static $name
 
 
 ```php
-public static $autoUpdateTimestamp
+public static bool $autoUpdateTimestamp
 ```
 
 
@@ -48,7 +48,7 @@ public static $autoUpdateTimestamp
 
 
 ```php
-public static $lifetime
+public static int $lifetime
 ```
 
 
@@ -63,7 +63,7 @@ public static $lifetime
 
 
 ```php
-public static $cookieLifetime
+public static int $cookieLifetime
 ```
 
 
@@ -78,7 +78,7 @@ public static $cookieLifetime
 
 
 ```php
-public static $cookiePath
+public static string $cookiePath
 ```
 
 
@@ -93,7 +93,7 @@ public static $cookiePath
 
 
 ```php
-public static $domain
+public static string $domain
 ```
 
 
@@ -108,7 +108,7 @@ public static $domain
 
 
 ```php
-public static $secure
+public static bool $secure
 ```
 
 
@@ -123,7 +123,7 @@ public static $secure
 
 
 ```php
-public static $httpOnly
+public static bool $httpOnly
 ```
 
 
@@ -138,7 +138,7 @@ public static $httpOnly
 
 
 ```php
-public static $sameSite
+public static string $sameSite
 ```
 
 
@@ -153,7 +153,7 @@ public static $sameSite
 
 
 ```php
-public static $gcProbability
+public static array $gcProbability
 ```
 
 
@@ -168,7 +168,7 @@ public static $gcProbability
 
 
 ```php
-protected static $_handlerClass
+private static string $_handlerClass
 ```
 
 
@@ -183,7 +183,7 @@ protected static $_handlerClass
 
 
 ```php
-protected static $_handlerConfig
+private static $_handlerConfig
 ```
 
 
@@ -198,7 +198,7 @@ protected static $_handlerConfig
 
 
 ```php
-protected static $_handler
+private static $_handler
 ```
 
 
@@ -213,7 +213,7 @@ protected static $_handler
 
 
 ```php
-protected $_data
+private string|array|object|null $_data
 ```
 
 
@@ -228,7 +228,7 @@ protected $_data
 
 
 ```php
-protected $_needSave
+private bool $_needSave
 ```
 
 
@@ -243,7 +243,7 @@ protected $_needSave
 
 
 ```php
-protected $_sessionId
+private $_sessionId
 ```
 
 
@@ -353,7 +353,7 @@ public static init(): mixed
 
 
 ```php
-public static handlerClass(mixed $class_name = null, mixed $config = null): mixed
+public static handlerClass(mixed $class_name = null, mixed $config = null): string
 ```
 
 
@@ -380,7 +380,7 @@ public static handlerClass(mixed $class_name = null, mixed $config = null): mixe
 
 
 ```php
-public static getCookieParams(): mixed
+public static getCookieParams(): array
 ```
 
 
@@ -600,7 +600,7 @@ public flush(): mixed
 
 
 ```php
-public has(mixed $name): mixed
+public has(mixed $name): bool
 ```
 
 
@@ -626,7 +626,7 @@ public has(mixed $name): mixed
 
 
 ```php
-public exists(mixed $name): mixed
+public exists(mixed $name): bool
 ```
 
 
@@ -749,4 +749,4 @@ public gc(): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

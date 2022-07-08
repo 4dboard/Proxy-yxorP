@@ -20,7 +20,7 @@
 All listeners for read timer
 
 ```php
-protected array $_eventTimer
+private array $_eventTimer
 ```
 
 
@@ -35,7 +35,7 @@ protected array $_eventTimer
 All listeners for read event.
 
 ```php
-protected array $_readEvents
+private array $_readEvents
 ```
 
 
@@ -50,7 +50,7 @@ protected array $_readEvents
 All listeners for write event.
 
 ```php
-protected array $_writeEvents
+private array $_writeEvents
 ```
 
 
@@ -386,4 +386,4 @@ public getTimerCount(): int
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

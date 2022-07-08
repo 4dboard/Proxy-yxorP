@@ -2,7 +2,7 @@
 
 # revolt
 
-revolt eventloop
+
 
 
 
@@ -20,7 +20,7 @@ revolt eventloop
 
 
 ```php
-protected \Revolt\EventLoop\Driver $_driver
+private ?\Revolt\EventLoop\Driver $_driver
 ```
 
 
@@ -35,7 +35,7 @@ protected \Revolt\EventLoop\Driver $_driver
 All listeners for read event.
 
 ```php
-protected array $_readEvents
+private array $_readEvents
 ```
 
 
@@ -50,7 +50,7 @@ protected array $_readEvents
 All listeners for write event.
 
 ```php
-protected array $_writeEvents
+private array $_writeEvents
 ```
 
 
@@ -65,7 +65,7 @@ protected array $_writeEvents
 event listeners of signal.
 
 ```php
-protected array $_eventSignal
+private array $_eventSignal
 ```
 
 
@@ -80,7 +80,7 @@ protected array $_eventSignal
 event listeners of timer.
 
 ```php
-protected array $_eventTimer
+private array $_eventTimer
 ```
 
 
@@ -95,7 +95,7 @@ protected array $_eventTimer
 timer id.
 
 ```php
-protected int $_timerId
+private int $_timerId
 ```
 
 
@@ -130,10 +130,10 @@ public __construct(): mixed
 
 ### driver
 
-{@inheritdoc}
+{}
 
 ```php
-public driver(): mixed
+public driver(): ?\Revolt\EventLoop\Driver
 ```
 
 
@@ -471,4 +471,4 @@ public getTimerCount(): int
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

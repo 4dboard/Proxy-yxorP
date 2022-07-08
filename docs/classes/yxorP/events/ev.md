@@ -20,7 +20,7 @@ ev eventloop
 timer id.
 
 ```php
-protected static int $_timerId
+private static int $_timerId
 ```
 
 
@@ -35,7 +35,7 @@ protected static int $_timerId
 All listeners for read event.
 
 ```php
-protected array $_readEvents
+private array $_readEvents
 ```
 
 
@@ -50,7 +50,7 @@ protected array $_readEvents
 All listeners for write event.
 
 ```php
-protected array $_writeEvents
+private array $_writeEvents
 ```
 
 
@@ -65,7 +65,7 @@ protected array $_writeEvents
 event listeners of signal.
 
 ```php
-protected array $_eventSignal
+private array $_eventSignal
 ```
 
 
@@ -80,7 +80,7 @@ protected array $_eventSignal
 All timer event listeners.
 
 ```php
-protected array $_eventTimer
+private array $_eventTimer
 ```
 
 
@@ -416,4 +416,4 @@ public getTimerCount(): int
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

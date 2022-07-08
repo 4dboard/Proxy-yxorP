@@ -2,7 +2,7 @@
 
 # select
 
-select eventloop
+
 
 
 
@@ -20,7 +20,7 @@ select eventloop
 All listeners for read/write event.
 
 ```php
-protected array $_readEvents
+private array $_readEvents
 ```
 
 
@@ -35,7 +35,7 @@ protected array $_readEvents
 All listeners for read/write event.
 
 ```php
-protected array $_writeEvents
+private array $_writeEvents
 ```
 
 
@@ -50,7 +50,7 @@ protected array $_writeEvents
 
 
 ```php
-protected array $_exceptEvents
+private array $_exceptEvents
 ```
 
 
@@ -65,7 +65,7 @@ protected array $_exceptEvents
 event listeners of signal.
 
 ```php
-protected array $_signalEvents
+private array $_signalEvents
 ```
 
 
@@ -80,7 +80,7 @@ protected array $_signalEvents
 Fds waiting for read event.
 
 ```php
-protected array $_readFds
+private array $_readFds
 ```
 
 
@@ -95,7 +95,7 @@ protected array $_readFds
 Fds waiting for write event.
 
 ```php
-protected array $_writeFds
+private array $_writeFds
 ```
 
 
@@ -110,7 +110,7 @@ protected array $_writeFds
 Fds waiting for except event.
 
 ```php
-protected array $_exceptFds
+private array $_exceptFds
 ```
 
 
@@ -125,7 +125,7 @@ protected array $_exceptFds
 timer scheduler.
 
 ```php
-protected \SplPriorityQueue $_scheduler
+private ?\SplPriorityQueue $_scheduler
 ```
 
 {['data':timer_id, 'priority':run_timestamp], ..}
@@ -140,7 +140,7 @@ protected \SplPriorityQueue $_scheduler
 All timer event listeners.
 
 ```php
-protected array $_eventTimer
+private array $_eventTimer
 ```
 
 [[func, args, flag, timer_interval], ..]
@@ -155,7 +155,7 @@ protected array $_eventTimer
 timer id.
 
 ```php
-protected int $_timerId
+private int $_timerId
 ```
 
 
@@ -170,7 +170,7 @@ protected int $_timerId
 select timeout.
 
 ```php
-protected int $_selectTimeout
+private int $_selectTimeout
 ```
 
 
@@ -393,7 +393,7 @@ public offWritable(mixed $stream): mixed
 
 ### onExcept
 
-{@inheritdoc}
+{}
 
 ```php
 public onExcept(mixed $stream, mixed $func): mixed
@@ -420,7 +420,7 @@ public onExcept(mixed $stream, mixed $func): mixed
 
 ### offExcept
 
-{@inheritdoc}
+{}
 
 ```php
 public offExcept(mixed $stream): mixed
@@ -625,4 +625,4 @@ public getTimerCount(): int
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

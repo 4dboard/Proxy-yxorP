@@ -13,7 +13,7 @@
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`VERSION`|public| |&#039;5.0.0&#039;|
+|`VERSION`|public| |&#039;1.0.0&#039;|
 |`STATUS_STARTING`|public| |1|
 |`STATUS_RUNNING`|public| |2|
 |`STATUS_SHUTDOWN`|public| |4|
@@ -30,7 +30,7 @@
 
 
 ```php
-public static $daemonize
+public static bool $daemonize
 ```
 
 
@@ -45,7 +45,7 @@ public static $daemonize
 
 
 ```php
-public static $stdoutFile
+public static string $stdoutFile
 ```
 
 
@@ -60,7 +60,7 @@ public static $stdoutFile
 
 
 ```php
-public static $pidFile
+public static string $pidFile
 ```
 
 
@@ -75,7 +75,7 @@ public static $pidFile
 
 
 ```php
-public static $statusFile
+public static string $statusFile
 ```
 
 
@@ -90,7 +90,7 @@ public static $statusFile
 
 
 ```php
-public static $logFile
+public static string $logFile
 ```
 
 
@@ -150,7 +150,7 @@ public static $onMasterStop
 
 
 ```php
-public static $eventLoopClass
+public static string $eventLoopClass
 ```
 
 
@@ -165,7 +165,7 @@ public static $eventLoopClass
 
 
 ```php
-public static $processTitle
+public static string $processTitle
 ```
 
 
@@ -180,7 +180,7 @@ public static $processTitle
 
 
 ```php
-public static $stopTimeout
+public static int $stopTimeout
 ```
 
 
@@ -195,7 +195,7 @@ public static $stopTimeout
 
 
 ```php
-public static $command
+public static string $command
 ```
 
 
@@ -210,7 +210,7 @@ public static $command
 
 
 ```php
-protected static $_masterPid
+private static int $_masterPid
 ```
 
 
@@ -225,7 +225,7 @@ protected static $_masterPid
 
 
 ```php
-protected static $_workers
+private static array $_workers
 ```
 
 
@@ -240,7 +240,7 @@ protected static $_workers
 
 
 ```php
-protected static $_pidMap
+private static array $_pidMap
 ```
 
 
@@ -255,7 +255,7 @@ protected static $_pidMap
 
 
 ```php
-protected static $_pidsToRestart
+private static array $_pidsToRestart
 ```
 
 
@@ -270,7 +270,7 @@ protected static $_pidsToRestart
 
 
 ```php
-protected static $_idMap
+private static array $_idMap
 ```
 
 
@@ -285,7 +285,7 @@ protected static $_idMap
 
 
 ```php
-protected static $_status
+private static int $_status
 ```
 
 
@@ -300,7 +300,7 @@ protected static $_status
 
 
 ```php
-protected static $_maxWorkerNameLength
+private static int $_maxWorkerNameLength
 ```
 
 
@@ -315,7 +315,7 @@ protected static $_maxWorkerNameLength
 
 
 ```php
-protected static $_maxSocketNameLength
+private static int $_maxSocketNameLength
 ```
 
 
@@ -330,7 +330,7 @@ protected static $_maxSocketNameLength
 
 
 ```php
-protected static $_maxUserNameLength
+private static int $_maxUserNameLength
 ```
 
 
@@ -345,7 +345,7 @@ protected static $_maxUserNameLength
 
 
 ```php
-protected static $_maxProtoNameLength
+private static int $_maxProtoNameLength
 ```
 
 
@@ -360,7 +360,7 @@ protected static $_maxProtoNameLength
 
 
 ```php
-protected static $_maxProcessesNameLength
+private static int $_maxProcessesNameLength
 ```
 
 
@@ -375,7 +375,7 @@ protected static $_maxProcessesNameLength
 
 
 ```php
-protected static $_maxStatusNameLength
+private static int $_maxStatusNameLength
 ```
 
 
@@ -390,7 +390,7 @@ protected static $_maxStatusNameLength
 
 
 ```php
-protected static $_statisticsFile
+private static string $_statisticsFile
 ```
 
 
@@ -405,7 +405,7 @@ protected static $_statisticsFile
 
 
 ```php
-protected static $_startFile
+private static string $_startFile
 ```
 
 
@@ -420,7 +420,7 @@ protected static $_startFile
 
 
 ```php
-protected static $_processForWindows
+private static array $_processForWindows
 ```
 
 
@@ -435,7 +435,7 @@ protected static $_processForWindows
 
 
 ```php
-protected static $_globalStatistics
+private static array $_globalStatistics
 ```
 
 
@@ -450,7 +450,7 @@ protected static $_globalStatistics
 
 
 ```php
-protected static $_availableEventLoops
+private static array $_availableEventLoops
 ```
 
 
@@ -465,7 +465,7 @@ protected static $_availableEventLoops
 
 
 ```php
-protected static $_builtinTransports
+private static array $_builtinTransports
 ```
 
 
@@ -480,7 +480,7 @@ protected static $_builtinTransports
 
 
 ```php
-protected static $_errorType
+private static array $_errorType
 ```
 
 
@@ -495,7 +495,7 @@ protected static $_errorType
 
 
 ```php
-protected static $_gracefulStop
+private static bool $_gracefulStop
 ```
 
 
@@ -510,7 +510,7 @@ protected static $_gracefulStop
 
 
 ```php
-protected static $_outputStream
+private static $_outputStream
 ```
 
 
@@ -525,7 +525,7 @@ protected static $_outputStream
 
 
 ```php
-protected static $_outputDecorated
+private static $_outputDecorated
 ```
 
 
@@ -540,7 +540,7 @@ protected static $_outputDecorated
 
 
 ```php
-public $id
+public int $id
 ```
 
 
@@ -555,7 +555,7 @@ public $id
 
 
 ```php
-public $name
+public string $name
 ```
 
 
@@ -570,7 +570,7 @@ public $name
 
 
 ```php
-public $count
+public int $count
 ```
 
 
@@ -585,7 +585,7 @@ public $count
 
 
 ```php
-public $user
+public string $user
 ```
 
 
@@ -600,7 +600,7 @@ public $user
 
 
 ```php
-public $group
+public string $group
 ```
 
 
@@ -615,7 +615,7 @@ public $group
 
 
 ```php
-public $reloadable
+public bool $reloadable
 ```
 
 
@@ -630,7 +630,7 @@ public $reloadable
 
 
 ```php
-public $reusePort
+public bool $reusePort
 ```
 
 
@@ -780,7 +780,7 @@ public $onWorkerReload
 
 
 ```php
-public $transport
+public string $transport
 ```
 
 
@@ -795,7 +795,7 @@ public $transport
 
 
 ```php
-public $connections
+public array $connections
 ```
 
 
@@ -825,7 +825,7 @@ public $protocol
 
 
 ```php
-public $stopping
+public bool $stopping
 ```
 
 
@@ -840,7 +840,7 @@ public $stopping
 
 
 ```php
-protected $_pauseAccept
+private bool $_pauseAccept
 ```
 
 
@@ -855,7 +855,7 @@ protected $_pauseAccept
 
 
 ```php
-protected $_mainSocket
+private $_mainSocket
 ```
 
 
@@ -870,7 +870,7 @@ protected $_mainSocket
 
 
 ```php
-protected $_socketName
+private string $_socketName
 ```
 
 
@@ -885,7 +885,7 @@ protected $_socketName
 
 
 ```php
-protected $_localSocket
+private $_localSocket
 ```
 
 
@@ -900,7 +900,7 @@ protected $_localSocket
 
 
 ```php
-protected $_context
+private $_context
 ```
 
 
@@ -915,7 +915,7 @@ protected $_context
 
 
 ```php
-protected $workerId
+private ?string $workerId
 ```
 
 
@@ -1047,7 +1047,7 @@ public static safeEcho(string $msg, bool $decorated = false): bool
 
 
 ```php
-private static outputStream(mixed $stream = null): mixed
+private static outputStream(mixed $stream = null): bool
 ```
 
 
@@ -1139,7 +1139,7 @@ protected static parseCommand(): mixed
 
 
 ```php
-public static getArgv(): mixed
+public static getArgv(): array
 ```
 
 
@@ -1185,7 +1185,7 @@ public static log(mixed $msg): mixed
 
 
 ```php
-protected static checkMasterIsAlive(mixed $master_pid): mixed
+protected static checkMasterIsAlive(mixed $master_pid): bool
 ```
 
 
@@ -1211,7 +1211,7 @@ protected static checkMasterIsAlive(mixed $master_pid): mixed
 
 
 ```php
-protected static formatStatusData(mixed $statistics_file): mixed
+protected static formatStatusData(mixed $statistics_file): string
 ```
 
 
@@ -1297,7 +1297,7 @@ protected static getCurrentUser(): mixed
 
 
 ```php
-public static getUiColumns(): mixed
+public static getUiColumns(): array
 ```
 
 
@@ -1397,7 +1397,7 @@ protected static getEventLoopName(): string
 
 
 ```php
-public static getSingleLineTotalLength(): mixed
+public static getSingleLineTotalLength(): int
 ```
 
 
@@ -1483,7 +1483,7 @@ protected static forkOneWorkerForLinux(self $worker): mixed
 
 
 ```php
-protected static getId(mixed $worker_id, mixed $pid): mixed
+protected static getId(mixed $worker_id, mixed $pid): bool|int|string
 ```
 
 
@@ -1596,7 +1596,7 @@ public static resetStd(bool $throw_exception = true): mixed
 
 
 ```php
-public getSocketName(): mixed
+public getSocketName(): string
 ```
 
 
@@ -1703,7 +1703,7 @@ public static stopAll(mixed $code, mixed $log = &#039;&#039;): mixed
 
 
 ```php
-protected static getAllWorkerPids(): mixed
+protected static getAllWorkerPids(): array
 ```
 
 
@@ -1743,7 +1743,7 @@ protected static forkWorkersForWindows(): mixed
 
 
 ```php
-public static getStartFilesForWindows(): mixed
+public static getStartFilesForWindows(): array
 ```
 
 
@@ -1909,7 +1909,7 @@ public static reloadAllWorkers(): mixed
 
 
 ```php
-public static getAllWorkers(): mixed
+public static getAllWorkers(): array
 ```
 
 
@@ -2055,7 +2055,7 @@ public static checkIfChildRunning(): mixed
 
 
 ```php
-public static getStatus(): mixed
+public static getStatus(): int
 ```
 
 
@@ -2075,7 +2075,7 @@ public static getStatus(): mixed
 
 
 ```php
-public static getGracefulStop(): mixed
+public static getGracefulStop(): bool
 ```
 
 
@@ -2115,7 +2115,7 @@ public static checkErrors(): mixed
 
 
 ```php
-protected static getErrorType(mixed $type): mixed
+protected static getErrorType(mixed $type): string|array|object|null
 ```
 
 
@@ -2287,7 +2287,7 @@ public acceptTcpConnection(mixed $socket): mixed
 
 
 ```php
-public acceptUdpConnection(mixed $socket): mixed
+public acceptUdpConnection(mixed $socket): bool
 ```
 
 
@@ -2310,4 +2310,4 @@ public acceptUdpConnection(mixed $socket): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

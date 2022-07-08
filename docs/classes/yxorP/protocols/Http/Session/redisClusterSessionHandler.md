@@ -2,7 +2,7 @@
 
 # redisClusterSessionHandler
 
-Class redisSessionHandler
+
 
 
 
@@ -46,7 +46,7 @@ public __construct(mixed $config): mixed
 Read session data
 
 ```php
-public read(mixed $session_id): string
+public read(string $session_id): string
 ```
 
 
@@ -60,7 +60,7 @@ public read(mixed $session_id): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$session_id` | **mixed** | The session id to read data for. |
+| `$session_id` | **string** | The session id to read data for. |
 
 
 **Return Value:**
@@ -130,7 +130,7 @@ public connect(): mixed
 Initialize session
 
 ```php
-public open(mixed $save_path, mixed $name): bool
+public open(string $save_path, string $name): bool
 ```
 
 
@@ -144,8 +144,8 @@ public open(mixed $save_path, mixed $name): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$save_path` | **mixed** | The path where to store/retrieve the session. |
-| `$name` | **mixed** | The session name. |
+| `$save_path` | **string** | The path where to store/retrieve the session. |
+| `$name` | **string** | The session name. |
 
 
 **Return Value:**
@@ -164,7 +164,7 @@ Note this value is returned internally to PHP for processing.
 Read session data
 
 ```php
-public read(mixed $session_id): string
+public read(string $session_id): string
 ```
 
 
@@ -178,7 +178,7 @@ public read(mixed $session_id): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$session_id` | **mixed** | The session id to read data for. |
+| `$session_id` | **string** | The session id to read data for. |
 
 
 **Return Value:**
@@ -198,7 +198,7 @@ Note this value is returned internally to PHP for processing.
 Write session data
 
 ```php
-public write(mixed $session_id, mixed $session_data): bool
+public write(string $session_id, string $session_data): bool
 ```
 
 
@@ -212,8 +212,8 @@ public write(mixed $session_id, mixed $session_data): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$session_id` | **mixed** | The session id. |
-| `$session_data` | **mixed** | &lt;p&gt;<br />The encoded session data. This data is the<br />result of the PHP internally encoding<br />the $_SESSION superglobal to a serialized<br />string and passing it as this parameter.<br />Please note sessions use an alternative serialization method.<br />&lt;/p&gt; |
+| `$session_id` | **string** | The session id. |
+| `$session_data` | **string** | &lt;p&gt;<br />The encoded session data. This data is the<br />result of the PHP internally encoding<br />the $_SESSION superglobal to a serialized<br />string and passing it as this parameter.<br />Please note sessions use an alternative serialization method.<br />&lt;/p&gt; |
 
 
 **Return Value:**
@@ -232,7 +232,7 @@ Note this value is returned internally to PHP for processing.
 Update sesstion modify time.
 
 ```php
-public updateTimestamp(mixed $id, mixed $data = &quot;&quot;): bool
+public updateTimestamp(string $id, string $data = &quot;&quot;): bool
 ```
 
 
@@ -246,8 +246,8 @@ public updateTimestamp(mixed $id, mixed $data = &quot;&quot;): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$id` | **mixed** | session id. |
-| `$data` | **mixed** | session Data. |
+| `$id` | **string** | session id. |
+| `$data` | **string** | session Data. |
 
 
 
@@ -259,7 +259,7 @@ public updateTimestamp(mixed $id, mixed $data = &quot;&quot;): bool
 Destroy a session
 
 ```php
-public destroy(mixed $session_id): bool
+public destroy(string $session_id): bool
 ```
 
 
@@ -273,7 +273,7 @@ public destroy(mixed $session_id): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$session_id` | **mixed** | The session ID being destroyed. |
+| `$session_id` | **string** | The session ID being destroyed. |
 
 
 **Return Value:**
@@ -319,7 +319,7 @@ Note this value is returned internally to PHP for processing.
 Cleanup old sessions
 
 ```php
-public gc(mixed $maxlifetime): bool
+public gc(int $maxlifetime): bool
 ```
 
 
@@ -333,7 +333,7 @@ public gc(mixed $maxlifetime): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$maxlifetime` | **mixed** | &lt;p&gt;<br />Sessions that have not updated for<br />the last maxlifetime seconds will be removed.<br />&lt;/p&gt; |
+| `$maxlifetime` | **int** | &lt;p&gt;<br />Sessions that have not updated for<br />the last maxlifetime seconds will be removed.<br />&lt;/p&gt; |
 
 
 **Return Value:**
@@ -349,4 +349,4 @@ Note this value is returned internally to PHP for processing.
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

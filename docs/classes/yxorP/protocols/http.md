@@ -18,7 +18,7 @@
 
 
 ```php
-protected static $_requestClass
+private static string $_requestClass
 ```
 
 
@@ -33,7 +33,7 @@ protected static $_requestClass
 
 
 ```php
-protected static $_uploadTmpDir
+private static string $_uploadTmpDir
 ```
 
 
@@ -48,7 +48,7 @@ protected static $_uploadTmpDir
 
 
 ```php
-protected static $_enableCache
+private static bool $_enableCache
 ```
 
 
@@ -66,7 +66,7 @@ protected static $_enableCache
 
 
 ```php
-public static requestClass(mixed $class_name = null): mixed
+public static requestClass(mixed $class_name = null): string
 ```
 
 
@@ -172,7 +172,7 @@ public static decode(mixed $recv_buffer, \yxorP\connection\tcpConnection $connec
 
 
 ```php
-public static encode(mixed $response, \yxorP\connection\tcpConnection $connection): mixed
+public static encode(mixed $response, \yxorP\connection\tcpConnection $connection): string
 ```
 
 
@@ -228,7 +228,7 @@ protected static sendStream(\yxorP\connection\tcpConnection $connection, mixed $
 
 
 ```php
-public static uploadTmpDir(mixed $dir = null): mixed
+public static uploadTmpDir(mixed $dir = null): string
 ```
 
 
@@ -251,4 +251,4 @@ public static uploadTmpDir(mixed $dir = null): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

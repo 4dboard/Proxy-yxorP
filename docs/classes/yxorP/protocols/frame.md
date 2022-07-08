@@ -46,7 +46,7 @@ public static input(mixed $buffer, \yxorP\connection\tcpConnection $connection):
 
 
 ```php
-public static decode(mixed $buffer): mixed
+public static decode(mixed $buffer): string
 ```
 
 
@@ -72,7 +72,7 @@ public static decode(mixed $buffer): mixed
 
 
 ```php
-public static encode(mixed $buffer): mixed
+public static encode(mixed $buffer): string
 ```
 
 
@@ -95,4 +95,4 @@ public static encode(mixed $buffer): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -81,7 +81,7 @@ public static dealHandshake(mixed $buffer, \yxorP\connection\tcpConnection $conn
 
 
 ```php
-public static decode(mixed $buffer, \yxorP\connection\connectionInterface $connection): mixed
+public static decode(mixed $buffer, \yxorP\connection\connectionInterface $connection): string
 ```
 
 
@@ -108,7 +108,7 @@ public static decode(mixed $buffer, \yxorP\connection\connectionInterface $conne
 
 
 ```php
-public static encode(mixed $buffer, \yxorP\connection\connectionInterface $connection): mixed
+public static encode(mixed $buffer, \yxorP\connection\connectionInterface $connection): string
 ```
 
 
@@ -132,4 +132,4 @@ public static encode(mixed $buffer, \yxorP\connection\connectionInterface $conne
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -18,7 +18,7 @@
 
 
 ```php
-protected static $_mimeTypeMap
+private static $_mimeTypeMap
 ```
 
 
@@ -33,7 +33,7 @@ protected static $_mimeTypeMap
 
 
 ```php
-protected static $_phrases
+private static array $_phrases
 ```
 
 
@@ -63,7 +63,7 @@ public $file
 
 
 ```php
-protected $_header
+private ?array $_header
 ```
 
 
@@ -78,7 +78,7 @@ protected $_header
 
 
 ```php
-protected $_status
+private string|array|object|null $_status
 ```
 
 
@@ -93,7 +93,7 @@ protected $_status
 
 
 ```php
-protected $_reason
+private $_reason
 ```
 
 
@@ -108,7 +108,7 @@ protected $_reason
 
 
 ```php
-protected $_version
+private string $_version
 ```
 
 
@@ -123,7 +123,7 @@ protected $_version
 
 
 ```php
-protected $_body
+private ?string $_body
 ```
 
 
@@ -209,7 +209,7 @@ public static initMimeTypeMap(): mixed
 
 
 ```php
-public withHeader(mixed $name, mixed $value): mixed
+public withHeader(mixed $name, mixed $value): static
 ```
 
 
@@ -236,7 +236,7 @@ public withHeader(mixed $name, mixed $value): mixed
 
 
 ```php
-public header(mixed $name, mixed $value): mixed
+public header(mixed $name, mixed $value): static
 ```
 
 
@@ -263,7 +263,7 @@ public header(mixed $name, mixed $value): mixed
 
 
 ```php
-public withHeaders(mixed $headers): mixed
+public withHeaders(mixed $headers): static
 ```
 
 
@@ -289,7 +289,7 @@ public withHeaders(mixed $headers): mixed
 
 
 ```php
-public withoutHeader(mixed $name): mixed
+public withoutHeader(mixed $name): static
 ```
 
 
@@ -341,7 +341,7 @@ public getHeader(mixed $name): mixed
 
 
 ```php
-public getHeaders(): mixed
+public getHeaders(): ?array
 ```
 
 
@@ -401,7 +401,7 @@ public getReasonPhrase(): mixed
 
 
 ```php
-public withProtocolVersion(mixed $version): mixed
+public withProtocolVersion(mixed $version): static
 ```
 
 
@@ -427,7 +427,7 @@ public withProtocolVersion(mixed $version): mixed
 
 
 ```php
-public rawBody(): mixed
+public rawBody(): ?string
 ```
 
 
@@ -447,7 +447,7 @@ public rawBody(): mixed
 
 
 ```php
-public withFile(mixed $file, mixed $offset, mixed $length): mixed
+public withFile(mixed $file, mixed $offset, mixed $length): \yxorP\protocols\Http\response|static
 ```
 
 
@@ -475,7 +475,7 @@ public withFile(mixed $file, mixed $offset, mixed $length): mixed
 
 
 ```php
-public withBody(mixed $body): mixed
+public withBody(mixed $body): static
 ```
 
 
@@ -501,7 +501,7 @@ public withBody(mixed $body): mixed
 
 
 ```php
-public withStatus(mixed $code, mixed $reason_phrase = null): mixed
+public withStatus(mixed $code, mixed $reason_phrase = null): static
 ```
 
 
@@ -528,7 +528,7 @@ public withStatus(mixed $code, mixed $reason_phrase = null): mixed
 
 
 ```php
-public cookie(mixed $name, mixed $value = &#039;&#039;, mixed $max_age = null, mixed $path = &#039;&#039;, mixed $domain = &#039;&#039;, mixed $secure = false, mixed $http_only = false, mixed $same_site = false): mixed
+public cookie(mixed $name, mixed $value = &#039;&#039;, mixed $max_age = null, mixed $path = &#039;&#039;, mixed $domain = &#039;&#039;, mixed $secure = false, mixed $http_only = false, mixed $same_site = false): static
 ```
 
 
@@ -581,7 +581,7 @@ public __toString(): mixed
 
 
 ```php
-protected createHeadForFile(mixed $file_info): mixed
+protected createHeadForFile(mixed $file_info): string
 ```
 
 
@@ -604,4 +604,4 @@ protected createHeadForFile(mixed $file_info): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

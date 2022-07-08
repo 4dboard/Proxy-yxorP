@@ -18,7 +18,7 @@
 
 
 ```php
-public static $maxFileUploads
+public static int $maxFileUploads
 ```
 
 
@@ -33,7 +33,7 @@ public static $maxFileUploads
 
 
 ```php
-protected static $_enableCache
+private static bool $_enableCache
 ```
 
 
@@ -78,7 +78,7 @@ public $session
 
 
 ```php
-public $properties
+public array $properties
 ```
 
 
@@ -93,7 +93,7 @@ public $properties
 
 
 ```php
-protected $_buffer
+private $_buffer
 ```
 
 
@@ -108,7 +108,7 @@ protected $_buffer
 
 
 ```php
-protected $_data
+private $_data
 ```
 
 
@@ -425,7 +425,7 @@ protected parseUploadFiles(mixed $http_post_boundary): mixed
 
 
 ```php
-protected parseUploadFile(mixed $boundary, mixed $section_start_offset): mixed
+protected parseUploadFile(mixed $boundary, mixed $section_start_offset): int
 ```
 
 
@@ -452,7 +452,7 @@ protected parseUploadFile(mixed $boundary, mixed $section_start_offset): mixed
 
 
 ```php
-public rawBody(): mixed
+public rawBody(): string
 ```
 
 
@@ -630,7 +630,7 @@ public sessionRegenerateId(mixed $delete_old_session = false): mixed
 
 
 ```php
-public session(): mixed
+public session(): bool|\yxorP\protocols\Http\Session
 ```
 
 
@@ -703,7 +703,7 @@ public cookie(mixed $name = null, mixed $default = null): mixed
 
 
 ```php
-public static createSessionId(): mixed
+public static createSessionId(): string
 ```
 
 
@@ -913,4 +913,4 @@ public __destruct(): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-08 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
