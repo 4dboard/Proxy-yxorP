@@ -2,7 +2,7 @@
 
 namespace yxorP\snag\Callbacks;
 
-use Bugsnag\Report;
+use yxorP\snag\Report;
 use Exception;
 
 class CustomUser
@@ -29,7 +29,7 @@ class CustomUser
     /**
      * Execute the user data callback.
      *
-     * @param \Bugsnag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the bugsnag report instance
      *
      * @return void
      */

@@ -2,14 +2,14 @@
 
 namespace yxorP\snag\Callbacks;
 
-use Bugsnag\Report;
+use yxorP\snag\Report;
 
 class EnvironmentData
 {
     /**
      * Execute the environment data callback.
      *
-     * @param \Bugsnag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the bugsnag report instance
      *
      * @return void
      */

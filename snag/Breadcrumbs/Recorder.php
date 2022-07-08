@@ -20,7 +20,7 @@ class Recorder implements Countable, Iterator
     /**
      * The recorded breadcrumbs.
      *
-     * @var \Bugsnag\Breadcrumbs\Breadcrumb[]
+     * @var \yxorP\snag\Breadcrumbs\Breadcrumb[]
      */
     protected $breadcrumbs = [];
 
@@ -52,7 +52,7 @@ class Recorder implements Countable, Iterator
      * start wrapping back around and replacing the earlier ones. In order to
      * indicate the start of the list, we advance a head pointer.
      *
-     * @param \Bugsnag\Breadcrumbs\Breadcrumb $breadcrumb
+     * @param \yxorP\snag\Breadcrumbs\Breadcrumb $breadcrumb
      *
      * @return void
      */
@@ -97,7 +97,7 @@ class Recorder implements Countable, Iterator
     /**
      * Get the current item.
      *
-     * @return \Bugsnag\Breadcrumbs\Breadcrumb
+     * @return \yxorP\snag\Breadcrumbs\Breadcrumb
      */
     #[\ReturnTypeWillChange]
     public function current()

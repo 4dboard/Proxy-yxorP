@@ -2,7 +2,7 @@
 
 namespace yxorP\snag\Breadcrumbs;
 
-use Bugsnag\DateTime\Date;
+use yxorP\snag\DateTime\Date;
 use InvalidArgumentException;
 
 class Breadcrumb

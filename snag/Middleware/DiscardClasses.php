@@ -2,18 +2,18 @@
 
 namespace yxorP\snag\Middleware;
 
-use Bugsnag\Configuration;
-use Bugsnag\Report;
+use yxorP\snag\Configuration;
+use yxorP\snag\Report;
 
 class DiscardClasses
 {
     /**
-     * @var \Bugsnag\Configuration
+     * @var \yxorP\snag\Configuration
      */
     protected $config;
 
     /**
-     * @param \Bugsnag\Configuration $config
+     * @param \yxorP\snag\Configuration $config
      */
     public function __construct(Configuration $config)
     {
@@ -21,7 +21,7 @@ class DiscardClasses
     }
 
     /**
-     * @param \Bugsnag\Report $report
+     * @param \yxorP\snag\Report $report
      * @param callable $next
      *
      * @return void

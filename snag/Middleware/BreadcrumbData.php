@@ -2,22 +2,22 @@
 
 namespace yxorP\snag\Middleware;
 
-use Bugsnag\Breadcrumbs\Recorder;
-use Bugsnag\Report;
+use yxorP\snag\Breadcrumbs\Recorder;
+use yxorP\snag\Report;
 
 class BreadcrumbData
 {
     /**
      * The recorder instance.
      *
-     * @var \Bugsnag\Breadcrumbs\Recorder
+     * @var \yxorP\snag\Breadcrumbs\Recorder
      */
     protected $recorder;
 
     /**
      * Create a new breadcrumb data middleware instance.
      *
-     * @param \Bugsnag\Breadcrumbs\Recorder $recorder the recorder instance
+     * @param \yxorP\snag\Breadcrumbs\Recorder $recorder the recorder instance
      *
      * @return void
      */
@@ -29,7 +29,7 @@ class BreadcrumbData
     /**
      * Execute the breadcrumb data middleware.
      *
-     * @param \Bugsnag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the bugsnag report instance
      * @param callable $next the next stage callback
      *
      * @return void

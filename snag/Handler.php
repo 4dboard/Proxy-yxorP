@@ -19,7 +19,7 @@ class Handler
     /**
      * The client instance.
      *
-     * @var \Bugsnag\Client
+     * @var \yxorP\snag\Client
      */
     protected $client;
     /**
@@ -55,7 +55,7 @@ class Handler
     /**
      * Create a new exception handler instance.
      *
-     * @param \Bugsnag\Client $client
+     * @param \yxorP\snag\Client $client
      *
      * @return void
      */
@@ -67,7 +67,7 @@ class Handler
     /**
      * Register our handlers.
      *
-     * @param \Bugsnag\Client|string|null $client client instance or api key
+     * @param \yxorP\snag\Client|string|null $client client instance or api key
      *
      * @return static
      */
@@ -87,7 +87,7 @@ class Handler
     /**
      * Register our handlers and preserve those previously registered.
      *
-     * @param \Bugsnag\Client|string|null $client client instance or api key
+     * @param \yxorP\snag\Client|string|null $client client instance or api key
      *
      * @return static
      *

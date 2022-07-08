@@ -2,22 +2,22 @@
 
 namespace yxorP\snag\Callbacks;
 
-use Bugsnag\Report;
-use Bugsnag\Request\ResolverInterface;
+use yxorP\snag\Report;
+use yxorP\snag\Request\ResolverInterface;
 
 class RequestContext
 {
     /**
      * The request resolver instance.
      *
-     * @var \Bugsnag\Request\ResolverInterface
+     * @var \yxorP\snag\Request\ResolverInterface
      */
     protected $resolver;
 
     /**
      * Create a new request context callback instance.
      *
-     * @param \Bugsnag\Request\ResolverInterface $resolver the request resolver instance
+     * @param \yxorP\snag\Request\ResolverInterface $resolver the request resolver instance
      *
      * @return void
      */
@@ -29,7 +29,7 @@ class RequestContext
     /**
      * Execute the request context callback.
      *
-     * @param \Bugsnag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the bugsnag report instance
      *
      * @return void
      */

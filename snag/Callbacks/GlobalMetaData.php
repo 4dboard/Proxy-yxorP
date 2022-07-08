@@ -2,22 +2,22 @@
 
 namespace yxorP\snag\Callbacks;
 
-use Bugsnag\Configuration;
-use Bugsnag\Report;
+use yxorP\snag\Configuration;
+use yxorP\snag\Report;
 
 class GlobalMetaData
 {
     /**
      * The config instance.
      *
-     * @var \Bugsnag\Configuration
+     * @var \yxorP\snag\Configuration
      */
     protected $config;
 
     /**
      * Create a new global meta data callback instance.
      *
-     * @param \Bugsnag\Configuration $config the configuration instance
+     * @param \yxorP\snag\Configuration $config the configuration instance
      *
      * @return void
      */
@@ -29,7 +29,7 @@ class GlobalMetaData
     /**
      * Execute the global meta data callback.
      *
-     * @param \Bugsnag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the bugsnag report instance
      *
      * @return void
      */

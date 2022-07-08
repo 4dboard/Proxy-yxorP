@@ -7,7 +7,7 @@ interface ResolverInterface
     /**
      * Resolve the current request.
      *
-     * @return \Bugsnag\Request\RequestInterface
+     * @return \yxorP\snag\Request\RequestInterface
      */
     public function resolve();
 }

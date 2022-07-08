@@ -3,8 +3,8 @@
 namespace yxorP\snag;
 
 use BackedEnum;
-use Bugsnag\Breadcrumbs\Breadcrumb;
-use Bugsnag\DateTime\Date;
+use yxorP\snag\Breadcrumbs\Breadcrumb;
+use yxorP\snag\DateTime\Date;
 use Exception;
 use InvalidArgumentException;
 use Throwable;
@@ -22,7 +22,7 @@ class Report
     /**
      * The config object.
      *
-     * @var \Bugsnag\Configuration
+     * @var \yxorP\snag\Configuration
      */
     protected $config;
 
@@ -36,14 +36,14 @@ class Report
     /**
      * The associated stacktrace.
      *
-     * @var \Bugsnag\Stacktrace
+     * @var \yxorP\snag\Stacktrace
      */
     protected $stacktrace;
 
     /**
      * The previous report.
      *
-     * @var \Bugsnag\Report|null
+     * @var \yxorP\snag\Report|null
      */
     protected $previous;
 
@@ -136,7 +136,7 @@ class Report
      *
      * This is only for for use only by the static methods above.
      *
-     * @param \Bugsnag\Configuration $config the config instance
+     * @param \yxorP\snag\Configuration $config the config instance
      *
      * @return void
      */
@@ -149,7 +149,7 @@ class Report
     /**
      * Create a new report from a PHP error.
      *
-     * @param \Bugsnag\Configuration $config the config instance
+     * @param \yxorP\snag\Configuration $config the config instance
      * @param int $code the error code
      * @param string|null $message the error message
      * @param string $file the error file
@@ -173,7 +173,7 @@ class Report
     /**
      * Create a new report from a PHP throwable.
      *
-     * @param \Bugsnag\Configuration $config the config instance
+     * @param \yxorP\snag\Configuration $config the config instance
      * @param \Throwable $throwable the throwable instance
      *
      * @return static
@@ -193,7 +193,7 @@ class Report
     /**
      * Create a new report from a named error.
      *
-     * @param \Bugsnag\Configuration $config the config instance
+     * @param \yxorP\snag\Configuration $config the config instance
      * @param string $name the error name
      * @param string|null $message the error message
      *
@@ -349,7 +349,7 @@ class Report
     /**
      * Get the bugsnag stacktrace.
      *
-     * @return \Bugsnag\Stacktrace
+     * @return \yxorP\snag\Stacktrace
      */
     public function getStacktrace()
     {
@@ -359,7 +359,7 @@ class Report
     /**
      * Set the bugsnag stacktrace.
      *
-     * @param \Bugsnag\Stacktrace $stacktrace the stacktrace instance
+     * @param \yxorP\snag\Stacktrace $stacktrace the stacktrace instance
      *
      * @return $this
      */
@@ -586,7 +586,7 @@ class Report
     /**
      * Add a breadcrumb to the report.
      *
-     * @param \Bugsnag\Breadcrumbs\Breadcrumb $breadcrumb
+     * @param \yxorP\snag\Breadcrumbs\Breadcrumb $breadcrumb
      *
      * @return void
      */

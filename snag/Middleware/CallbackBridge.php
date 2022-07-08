@@ -2,7 +2,7 @@
 
 namespace yxorP\snag\Middleware;
 
-use Bugsnag\Report;
+use yxorP\snag\Report;
 
 class CallbackBridge
 {
@@ -28,7 +28,7 @@ class CallbackBridge
     /**
      * Execute the add callback bridge middleware.
      *
-     * @param \Bugsnag\Report $report the bugsnag report instance
+     * @param \yxorP\snag\Report $report the bugsnag report instance
      * @param callable $next the next stage callback
      *
      * @return void

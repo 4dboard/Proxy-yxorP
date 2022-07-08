@@ -2,14 +2,14 @@
 
 namespace yxorP\snag\Middleware;
 
-use Bugsnag\Client;
-use Bugsnag\Report;
-use Bugsnag\SessionTracker;
+use yxorP\snag\Client;
+use yxorP\snag\Report;
+use yxorP\snag\SessionTracker;
 
 class SessionData
 {
     /**
-     * @var \Bugsnag\Client
+     * @var \yxorP\snag\Client
      *
      * @deprecated This will be removed in the next major version.
      *             The constructor parameter will also change to {@see SessionTracker}
@@ -17,12 +17,12 @@ class SessionData
     protected $client;
 
     /**
-     * @var \Bugsnag\SessionTracker
+     * @var \yxorP\snag\SessionTracker
      */
     private $sessionTracker;
 
     /**
-     * @param \Bugsnag\Client $client
+     * @param \yxorP\snag\Client $client
      */
     public function __construct(Client $client)
     {
@@ -38,7 +38,7 @@ class SessionData
      * If the SessionTracker does not have a current session, the report will
      * not be changed.
      *
-     * @param \Bugsnag\Report $report
+     * @param \yxorP\snag\Report $report
      * @param callable $next
      *
      * @return void

@@ -4,7 +4,7 @@ namespace yxorP\inc;
 
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
 
-use Bugsnag\Client;
+use yxorP\snag\Client;
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 use yxorP\parse\parse;

@@ -2,8 +2,8 @@
 
 namespace yxorP\snag;
 
-use Bugsnag\DateTime\Date;
-use Bugsnag\Internal\GuzzleCompat;
+use yxorP\snag\DateTime\Date;
+use yxorP\snag\Internal\GuzzleCompat;
 use Exception;
 use GuzzleHttp\ClientInterface;
 use RuntimeException;
@@ -31,7 +31,7 @@ class HttpClient
      */
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
     /**
-     * @var \Bugsnag\Configuration
+     * @var \yxorP\snag\Configuration
      */
     protected $config;
     /**
@@ -41,12 +41,12 @@ class HttpClient
     /**
      * The queue of reports to send.
      *
-     * @var \Bugsnag\Report[]
+     * @var \yxorP\snag\Report[]
      */
     protected $queue = [];
 
     /**
-     * @param \Bugsnag\Configuration $config
+     * @param \yxorP\snag\Configuration $config
      * @param \GuzzleHttp\ClientInterface $guzzle
      */
     public function __construct(Configuration $config, ClientInterface $guzzle)
@@ -58,7 +58,7 @@ class HttpClient
     /**
      * Add a report to the queue.
      *
-     * @param \Bugsnag\Report $report
+     * @param \yxorP\snag\Report $report
      *
      * @return void
      */

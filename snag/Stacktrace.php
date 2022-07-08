@@ -25,7 +25,7 @@ class Stacktrace
     /**
      * The config instance.
      *
-     * @var \Bugsnag\Configuration
+     * @var \yxorP\snag\Configuration
      */
     protected $config;
 
@@ -39,7 +39,7 @@ class Stacktrace
     /**
      * Create a new stacktrace instance.
      *
-     * @param \Bugsnag\Configuration $config the configuration instance
+     * @param \yxorP\snag\Configuration $config the configuration instance
      *
      * @return void
      */
@@ -51,7 +51,7 @@ class Stacktrace
     /**
      * Generate a new stacktrace using the given config.
      *
-     * @param \Bugsnag\Configuration $config the configuration instance
+     * @param \yxorP\snag\Configuration $config the configuration instance
      *
      * @return static
      */
@@ -66,7 +66,7 @@ class Stacktrace
     /**
      * Create a new stacktrace instance from a frame.
      *
-     * @param \Bugsnag\Configuration $config the configuration instance
+     * @param \yxorP\snag\Configuration $config the configuration instance
      * @param string $file the associated file
      * @param int $line the line number
      *
@@ -84,7 +84,7 @@ class Stacktrace
     /**
      * Create a new stacktrace instance from a backtrace.
      *
-     * @param \Bugsnag\Configuration $config the configuration instance
+     * @param \yxorP\snag\Configuration $config the configuration instance
      * @param array $backtrace the associated backtrace
      * @param string $topFile the top file to use
      * @param int $topLine the top line to use
@@ -131,7 +131,7 @@ class Stacktrace
      */
     public static function frameInsideBugsnag(array $frame)
     {
-        return isset($frame['class']) && strpos($frame['class'], 'Bugsnag\\') === 0 && substr_count($frame['class'], '\\') === 1;
+        return isset($frame['class']) && strpos($frame['class'], 'yxorP\snag\\') === 0 && substr_count($frame['class'], '\\') === 1;
     }
 
     /**

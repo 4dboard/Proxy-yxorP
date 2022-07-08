@@ -2,23 +2,23 @@
 
 namespace yxorP\snag;
 
-use Bugsnag\Breadcrumbs\Breadcrumb;
-use Bugsnag\Breadcrumbs\Recorder;
-use Bugsnag\Callbacks\GlobalMetaData;
-use Bugsnag\Callbacks\RequestContext;
-use Bugsnag\Callbacks\RequestMetaData;
-use Bugsnag\Callbacks\RequestSession;
-use Bugsnag\Callbacks\RequestUser;
-use Bugsnag\Internal\GuzzleCompat;
-use Bugsnag\Middleware\BreadcrumbData;
-use Bugsnag\Middleware\CallbackBridge;
-use Bugsnag\Middleware\DiscardClasses;
-use Bugsnag\Middleware\NotificationSkipper;
-use Bugsnag\Middleware\SessionData;
-use Bugsnag\Request\BasicResolver;
-use Bugsnag\Request\ResolverInterface;
-use Bugsnag\Shutdown\PhpShutdownStrategy;
-use Bugsnag\Shutdown\ShutdownStrategyInterface;
+use yxorP\snag\Breadcrumbs\Breadcrumb;
+use yxorP\snag\Breadcrumbs\Recorder;
+use yxorP\snag\Callbacks\GlobalMetaData;
+use yxorP\snag\Callbacks\RequestContext;
+use yxorP\snag\Callbacks\RequestMetaData;
+use yxorP\snag\Callbacks\RequestSession;
+use yxorP\snag\Callbacks\RequestUser;
+use yxorP\snag\Internal\GuzzleCompat;
+use yxorP\snag\Middleware\BreadcrumbData;
+use yxorP\snag\Middleware\CallbackBridge;
+use yxorP\snag\Middleware\DiscardClasses;
+use yxorP\snag\Middleware\NotificationSkipper;
+use yxorP\snag\Middleware\SessionData;
+use yxorP\snag\Request\BasicResolver;
+use yxorP\snag\Request\ResolverInterface;
+use yxorP\snag\Shutdown\PhpShutdownStrategy;
+use yxorP\snag\Shutdown\ShutdownStrategyInterface;
 use Composer\CaBundle\CaBundle;
 use GuzzleHttp;
 
@@ -43,45 +43,45 @@ class Client
     /**
      * The config instance.
      *
-     * @var \Bugsnag\Configuration
+     * @var \yxorP\snag\Configuration
      */
     protected $config;
     /**
      * The request resolver instance.
      *
-     * @var \Bugsnag\Request\ResolverInterface
+     * @var \yxorP\snag\Request\ResolverInterface
      */
     protected $resolver;
     /**
      * The breadcrumb recorder instance.
      *
-     * @var \Bugsnag\Breadcrumbs\Recorder
+     * @var \yxorP\snag\Breadcrumbs\Recorder
      */
     protected $recorder;
     /**
      * The notification pipeline instance.
      *
-     * @var \Bugsnag\Pipeline
+     * @var \yxorP\snag\Pipeline
      */
     protected $pipeline;
     /**
      * The http client instance.
      *
-     * @var \Bugsnag\HttpClient
+     * @var \yxorP\snag\HttpClient
      */
     protected $http;
     /**
      * The session tracker instance.
      *
-     * @var \Bugsnag\SessionTracker
+     * @var \yxorP\snag\SessionTracker
      */
     protected $sessionTracker;
 
     /**
-     * @param \Bugsnag\Configuration $config
-     * @param \Bugsnag\Request\ResolverInterface|null $resolver
+     * @param \yxorP\snag\Configuration $config
+     * @param \yxorP\snag\Request\ResolverInterface|null $resolver
      * @param \GuzzleHttp\ClientInterface|null $guzzle
-     * @param \Bugsnag\Shutdown\ShutdownStrategyInterface|null $shutdownStrategy
+     * @param \yxorP\snag\Shutdown\ShutdownStrategyInterface|null $shutdownStrategy
      */
     public function __construct(
         Configuration              $config,
@@ -201,7 +201,7 @@ class Client
     /**
      * Get the config instance.
      *
-     * @return \Bugsnag\Configuration
+     * @return \yxorP\snag\Configuration
      */
     public function getConfig()
     {
@@ -211,7 +211,7 @@ class Client
     /**
      * Get the pipeline instance.
      *
-     * @return \Bugsnag\Pipeline
+     * @return \yxorP\snag\Pipeline
      */
     public function getPipeline()
     {
@@ -324,7 +324,7 @@ class Client
      *
      * This may simply involve queuing it for later if we're batching.
      *
-     * @param \Bugsnag\Report $report the error report to send
+     * @param \yxorP\snag\Report $report the error report to send
      * @param callable|null $callback the customization callback
      *
      * @return void
@@ -428,7 +428,7 @@ class Client
     /**
      * Returns the session tracker.
      *
-     * @return \Bugsnag\SessionTracker
+     * @return \yxorP\snag\SessionTracker
      */
     public function getSessionTracker()
     {
@@ -991,7 +991,7 @@ class Client
     /**
      * Ensure the notify endpoint is synchronised with Guzzle's base URL.
      *
-     * @param \Bugsnag\Configuration $configuration
+     * @param \yxorP\snag\Configuration $configuration
      * @param \GuzzleHttp\ClientInterface $guzzle
      *
      * @return void

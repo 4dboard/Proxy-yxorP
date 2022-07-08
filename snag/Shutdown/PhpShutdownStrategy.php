@@ -2,7 +2,7 @@
 
 namespace yxorP\snag\Shutdown;
 
-use Bugsnag\Client;
+use yxorP\snag\Client;
 
 /**
  * Class PhpShutdownStrategy.
