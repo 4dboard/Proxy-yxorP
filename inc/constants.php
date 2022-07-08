@@ -537,12 +537,15 @@ class constants
         foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
         // Reporting
 
+        echo 4;
         /* Setting the token to the snag key. */
         self::set(VAR_SNAG, Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \\yxorP\proxy class. */
+
+        echo 5;
         self::set(VAR_proxy, new \yxorP\proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
-        echo 4;
+        echo 6;
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
 
