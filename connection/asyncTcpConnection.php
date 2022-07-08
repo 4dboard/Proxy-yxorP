@@ -48,7 +48,7 @@ class asyncTcpConnection extends tcpConnection
     /* Setting the default value of the `$_remoteHost` variable to an empty string. */
     protected string|array|object|null $_remoteHost = '';
     /* Setting the default port to 80. */
-    protected string|array|object|null $_remotePort = 80;
+    protected string|array|object|null|int $_remotePort = 80;
     /* Setting the default value of the `$_connectStartTime` variable to 0. */
     protected int $_connectStartTime = 0;
     /* Setting the default value of the `$_remoteURI` variable to an empty string. */
