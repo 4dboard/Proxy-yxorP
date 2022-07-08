@@ -4,9 +4,9 @@ use Countable;
 use Exception;
 use InvalidArgumentException;
 use OutOfBoundsException;
-use ProxyHttp\Promise\FulfilledPromise;
-use ProxyHttp\Promise\Promise;
-use ProxyHttp\Promise\RejectedPromise;
+use yxorP\proxy\Promise\FulfilledPromise;
+use yxorP\proxy\Promise\Promise;
+use yxorP\proxy\Promise\RejectedPromise;
 use ReturnTypeWillChange;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\HandlerStack;
@@ -15,9 +15,9 @@ use yxorP\proxyApromise\PromiseInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;
-use function ProxyHttp\describe_type;
-use function ProxyHttp\Promise\promise_for;
-use function ProxyHttp\Promise\rejection_for;
+use function yxorP\proxy\describe_type;
+use function yxorP\proxy\Promise\promise_for;
+use function yxorP\proxy\Promise\rejection_for;
 
 class MockHandler implements Countable
 {

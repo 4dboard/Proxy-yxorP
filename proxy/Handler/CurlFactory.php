@@ -4,8 +4,8 @@ use Closure;
 use Exception;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
-use ProxyHttp\Promise\PromiseInterface;
-use ProxyHttp\Promise\RejectedPromise;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\RejectedPromise;
 use RuntimeException;
 use yxorP\proxy\Exception\ArequestExceptionAA;
 use yxorP\proxy\Exception\ConnectException;
@@ -13,10 +13,10 @@ use yxorP\proxy\Psr7\LazyOpenStream;
 use yxorP\proxy\TransferStats;
 use yxorP\proxyApromise\FulfilledPromise;
 use yxorP\psr\Http\Message\RequestInterface;
-use function ProxyHttp\debug_resource;
-use function ProxyHttp\is_host_in_noproxy;
-use function ProxyHttp\Promise\rejection_for;
-use function ProxyHttp\Psr7\stream_for;
+use function yxorP\proxy\debug_resource;
+use function yxorP\proxy\is_host_in_noproxy;
+use function yxorP\proxy\Promise\rejection_for;
+use function yxorP\proxy\Psr7\stream_for;
 
 class CurlFactory implements CurlFactoryInterface
 {
@@ -141,7 +141,7 @@ class CurlFactory implements CurlFactoryInterface
         return $easy;
     }
 
-    #[ArrayShape(['_headers' => "\string[][]", \ProxyHttp\Handler\CURLOPT_CUSTOMREQUEST => "string", \ProxyHttp\Handler\CURLOPT_URL => "string", \ProxyHttp\Handler\CURLOPT_RETURNTRANSFER => "false", \ProxyHttp\Handler\CURLOPT_HEADER => "false", \ProxyHttp\Handler\CURLOPT_CONNECTTIMEOUT => "int", \ProxyHttp\Handler\CURLOPT_HTTP_VERSION => "int", \ProxyHttp\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array
+    #[ArrayShape(['_headers' => "\string[][]", \yxorP\proxy\Handler\CURLOPT_CUSTOMREQUEST => "string", \yxorP\proxy\Handler\CURLOPT_URL => "string", \yxorP\proxy\Handler\CURLOPT_RETURNTRANSFER => "false", \yxorP\proxy\Handler\CURLOPT_HEADER => "false", \yxorP\proxy\Handler\CURLOPT_CONNECTTIMEOUT => "int", \yxorP\proxy\Handler\CURLOPT_HTTP_VERSION => "int", \yxorP\proxy\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array
     {
         $conf = ['_headers' => $easy->request->getHeaders(), CURLOPT_CUSTOMREQUEST => $easy->request->getMethod(), CURLOPT_URL => (string)$easy->request->getUri()->withFragment(''), CURLOPT_RETURNTRANSFER => false, CURLOPT_HEADER => false, CURLOPT_CONNECTTIMEOUT => 150,];
         if (defined('CURLOPT_PROTOCOLS')) {

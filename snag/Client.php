@@ -2,7 +2,7 @@
 
 use Composer\CaBundle\CaBundle;
 use JetBrains\PhpStorm\Pure;
-use ProxyHttp\ClientInterface;
+use yxorP\proxy\ClientInterface;
 use yxorP\snag\Breadcrumbs\Breadcrumb;
 use yxorP\snag\Breadcrumbs\Recorder;
 use yxorP\snag\Callbacks\GlobalMetaData;
@@ -32,7 +32,7 @@ class Client
     private HttpClient $http;
     private SessionTracker $sessionTracker;
 
-    public function __construct(Configuration $config, ResolverInterface $resolver = null, ProxyHttp\ClientInterface $proxy = null, ShutdownStrategyInterface $shutdownStrategy = null)
+    public function __construct(Configuration $config, ResolverInterface $resolver = null, yxorP\proxy\ClientInterface $proxy = null, ShutdownStrategyInterface $shutdownStrategy = null)
     {
         $proxy = $proxy ?: self::makeProxy();
         $this->syncNotifyEndpointWithProxyBaseUri($config, $proxy);
@@ -50,10 +50,10 @@ class Client
         $shutdownStrategy->registerShutdownStrategy($this);
     }
 
-    public static function makeProxy($base = null, array $options = []): ProxyHttp\Client
+    public static function makeProxy($base = null, array $options = []): yxorP\proxy\Client
     {
         $options = self::resolveProxyOptions($base, $options);
-        return new ProxyHttp\Client($options);
+        return new yxorP\proxy\Client($options);
     }
 
     private static function resolveProxyOptions($base, array $options): array
@@ -75,7 +75,7 @@ class Client
         return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
-    private function syncNotifyEndpointWithProxyBaseUri(Configuration $configuration, ProxyHttp\ClientInterface $proxy)
+    private function syncNotifyEndpointWithProxyBaseUri(Configuration $configuration, yxorP\proxy\ClientInterface $proxy)
     {
         if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
             return;
@@ -406,7 +406,7 @@ class Client
         return $this->config->shouldCaptureSessions();
     }
 
-    public function getSessionClient(): \ProxyHttp\Client|ClientInterface
+    public function getSessionClient(): \yxorP\proxy\Client|ClientInterface
     {
         return $this->config->getSessionClient();
     }

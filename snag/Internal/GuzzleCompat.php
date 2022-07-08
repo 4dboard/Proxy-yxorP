@@ -2,15 +2,15 @@
 
 final class ProxyCompat
 {
-    public static function getBaseUri(ProxyHttp\ClientInterface $proxy)
+    public static function getBaseUri(yxorP\proxy\ClientInterface $proxy)
     {
         return self::isUsingProxy5() ? $proxy->getBaseUrl() : $proxy->getConfig(self::getBaseUriOptionName());
     }
 
     public static function isUsingProxy5(): bool
     {
-        if (defined(ProxyHttp\ClientInterface::class . '::VERSION')) {
-            $version = constant(ProxyHttp\ClientInterface::class . '::VERSION');
+        if (defined(yxorP\proxy\ClientInterface::class . '::VERSION')) {
+            $version = constant(yxorP\proxy\ClientInterface::class . '::VERSION');
             return version_compare($version, '5.0.0', '>=') && version_compare($version, '6.0.0', '<');
         }
         return false;

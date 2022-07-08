@@ -4,8 +4,8 @@ use Closure;
 use Exception;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
-use ProxyHttp\Promise\PromiseInterface;
-use ProxyHttp\Promise\RejectedPromise;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\RejectedPromise;
 use Psr\Http\Message\UriInterface;
 use RuntimeException;
 use yxorP\proxy\Exception\ArequestExceptionAA;
@@ -17,12 +17,12 @@ use yxorP\proxyApromise\FulfilledPromise;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;
-use function ProxyHttp\debug_resource;
-use function ProxyHttp\default_ca_bundle;
-use function ProxyHttp\headers_from_lines;
-use function ProxyHttp\is_host_in_noproxy;
-use function ProxyHttp\normalize_header_keys;
-use function ProxyHttp\Promise\rejection_for;
+use function yxorP\proxy\debug_resource;
+use function yxorP\proxy\default_ca_bundle;
+use function yxorP\proxy\headers_from_lines;
+use function yxorP\proxy\is_host_in_noproxy;
+use function yxorP\proxy\normalize_header_keys;
+use function yxorP\proxy\Promise\rejection_for;
 
 class StreamHandler
 {

@@ -6,7 +6,7 @@ use yxorP\proxyApromise\Promise;
 use yxorP\proxyApromise\PromiseInterface;
 use yxorP\proxyApromise\PromisorInterface;
 use yxorP\psr\Http\Message\RequestInterface;
-use function ProxyHttp\Promise\iter_for;
+use function yxorP\proxy\Promise\iter_for;
 
 class Pool implements PromisorInterface
 {

@@ -1,9 +1,9 @@
 <?php namespace yxorP\proxy\Handler;
 
 use JetBrains\PhpStorm\Pure;
-use ProxyHttp\Promise\FulfilledPromise;
-use ProxyHttp\Promise\PromiseInterface;
-use ProxyHttp\Promise\RejectedPromise;
+use yxorP\proxy\Promise\FulfilledPromise;
+use yxorP\proxy\Promise\PromiseInterface;
+use yxorP\proxy\Promise\RejectedPromise;
 use yxorP\psr\Http\Message\RequestInterface;
 
 class CurlHandler

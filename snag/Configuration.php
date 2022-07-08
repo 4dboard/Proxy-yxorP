@@ -1,7 +1,7 @@
 <?php namespace yxorP\snag;
 
 use InvalidArgumentException;
-use ProxyHttp\ClientInterface;
+use yxorP\proxy\ClientInterface;
 
 class Configuration
 {
@@ -22,7 +22,7 @@ class Configuration
     private array $metaData = [];
     private $errorReportingLevel;
     private bool $autoCaptureSessions = false;
-    private ClientInterface|\ProxyHttp\Client $sessionClient;
+    private ClientInterface|\yxorP\proxy\Client $sessionClient;
     private string $notifyEndpoint = self::NOTIFY_ENDPOINT;
     private string $sessionEndpoint = self::SESSION_ENDPOINT;
     private string $buildEndpoint = self::BUILD_ENDPOINT;
@@ -298,7 +298,7 @@ class Configuration
         return $this->autoCaptureSessions;
     }
 
-    public function getSessionClient(): \ProxyHttp\Client|ClientInterface
+    public function getSessionClient(): \yxorP\proxy\Client|ClientInterface
     {
         return $this->sessionClient;
     }

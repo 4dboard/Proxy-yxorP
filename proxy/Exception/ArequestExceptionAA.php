@@ -5,7 +5,7 @@ use yxorP\proxyApromise\PromiseInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\UriInterface;
-use function ProxyHttp\Psr7\get_message_body_summary;
+use function yxorP\proxy\Psr7\get_message_body_summary;
 
 class ArequestExceptionAA extends AATransferException
 {

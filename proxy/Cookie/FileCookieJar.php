@@ -25,7 +25,7 @@ class FileCookieJar extends CookieJar
         } elseif ($json === '') {
             return;
         }
-        $data = \ProxyHttp\json_decode($json, true);
+        $data = \yxorP\proxy\json_decode($json, true);
         if (is_array($data)) {
             foreach (json_decode($json, true) as $cookie) {
                 $this->setCookie(new SetCookie($cookie));
@@ -48,7 +48,7 @@ class FileCookieJar extends CookieJar
                 $json[] = $cookie->toArray();
             }
         }
-        $jsonStr = \ProxyHttp\json_encode($json);
+        $jsonStr = \yxorP\proxy\json_encode($json);
         if (false === file_put_contents($filename, $jsonStr, LOCK_EX)) {
             throw new RuntimeException("Unable to save file {$filename}");
         }

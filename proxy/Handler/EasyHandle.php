@@ -3,8 +3,8 @@
 use BadMethodCallException;
 use RuntimeException;
 use yxorP\proxy\Psr7\Response;
-use function ProxyHttp\headers_from_lines;
-use function ProxyHttp\normalize_header_keys;
+use function yxorP\proxy\headers_from_lines;
+use function yxorP\proxy\normalize_header_keys;
 
 final class EasyHandle
 {
