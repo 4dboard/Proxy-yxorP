@@ -86,7 +86,7 @@ interface StreamInterface
      *     SEEK_END: Set position to end-of-stream plus offset.
      * @throws RuntimeException on failure.
      */
-    public function seek(int $offset, int $whence = SEEK_SET): mixed;
+    public function seek(int $offset, int $whence = SEEK_SET);
 
     /**
      * Seek to the beginning of the stream.
@@ -98,7 +98,7 @@ interface StreamInterface
      * @link http://www.php.net/manual/en/function.fseek.php
      * @see seek()
      */
-    public function rewind(): mixed;
+    public function rewind();
 
     /**
      * Returns whether or not the stream is writable.
