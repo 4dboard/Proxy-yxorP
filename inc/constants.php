@@ -161,8 +161,6 @@ class constants
         define('FILE_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
-        /* Defining a constant. */
-        define('FILE_KINT', 'kint' . EXT_PHP);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
@@ -496,8 +494,6 @@ class constants
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP);
         /* Defining the path to the action wrapper file. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER);
-        /* Defining the path to the action kint file. */
-        define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_KINT);
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
         define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_INC . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
