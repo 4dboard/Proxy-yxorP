@@ -109,7 +109,6 @@ class yxorP
         /* It's creating the constants that are used in the plugin. */
         constants::create(__DIR__);
 
-        exit('51');
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
