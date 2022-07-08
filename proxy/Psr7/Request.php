@@ -85,7 +85,7 @@ class Request implements RequestInterface
         return $this->method;
     }
 
-    public function withMethod($method): Request
+    public function withMethod($method): mixed
     {
         $this->assertMethod($method);
         $new = clone $this;
