@@ -1,14 +1,13 @@
 <?php namespace yxorP\bugsnag;
 
 use BackedEnum;
-use Bugsnag\Breadcrumbs\Breadcrumb;
-use Bugsnag\DateTime\Date;
-use Exception;
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 use Throwable;
 use UnitEnum;
+use yxorP\bugsnag\Breadcrumbs\Breadcrumb;
+use yxorP\bugsnag\DateTime\Date;
 
 class Report
 {
@@ -43,20 +42,6 @@ class Report
         return $report;
     }
 
-    public static function fromPHPThrowable(Configuration $config, $throwable): static
-    {
-        $report = new static($config);
-        $report->setPHPThrowable($throwable)->setUnhandled(false)->setSeverityReason(['type' => 'handledException']);
-        return $report;
-    }
-
-    public static function fromNamedError(Configuration $config, $name, $message = null): static
-    {
-        $report = new static($config);
-        $report->setName($name)->setMessage($message)->setStacktrace(Stacktrace::generate($config))->setUnhandled(false)->setSeverityReason(['type' => 'handledError']);
-        return $report;
-    }
-
     public function setPHPError($code, $message, $file, $line, $fatal = false): static
     {
         $this->originalError = ['code' => $code, 'message' => $message, 'file' => $file, 'line' => $line, 'fatal' => $fatal,];
@@ -67,6 +52,13 @@ class Report
         }
         $this->setName(ErrorTypes::getName($code))->setMessage($message)->setSeverity(ErrorTypes::getSeverity($code))->setStacktrace($stacktrace);
         return $this;
+    }
+
+    public static function fromPHPThrowable(Configuration $config, $throwable): static
+    {
+        $report = new static($config);
+        $report->setPHPThrowable($throwable)->setUnhandled(false)->setSeverityReason(['type' => 'handledException']);
+        return $report;
     }
 
     public function setPHPThrowable($throwable): static
@@ -80,6 +72,21 @@ class Report
             $this->setPrevious($throwable->getPrevious());
         }
         return $this;
+    }
+
+    protected function setPrevious($throwable): static
+    {
+        if ($throwable) {
+            $this->previous = static::fromPHPThrowable($this->config, $throwable);
+        }
+        return $this;
+    }
+
+    public static function fromNamedError(Configuration $config, $name, $message = null): static
+    {
+        $report = new static($config);
+        $report->setName($name)->setMessage($message)->setStacktrace(Stacktrace::generate($config))->setUnhandled(false)->setSeverityReason(['type' => 'handledError']);
+        return $report;
     }
 
     public function getOriginalError(): Throwable|array|null
@@ -105,6 +112,18 @@ class Report
         return $this;
     }
 
+    protected function removeNullElements($array)
+    {
+        foreach ($array as $key => $val) {
+            if (is_array($val)) {
+                $array[$key] = $this->removeNullElements($val);
+            } elseif (is_null($val)) {
+                unset($array[$key]);
+            }
+        }
+        return $array;
+    }
+
     public function addBreadcrumb(Breadcrumb $breadcrumb)
     {
         $data = $breadcrumb->toArray();
@@ -115,6 +134,59 @@ class Report
             }
         }
         $this->breadcrumbs[] = $data;
+    }
+
+    protected function cleanupObj($obj, $isMetaData)
+    {
+        if (is_null($obj)) {
+            return null;
+        }
+        if (is_array($obj)) {
+            $clean = [];
+            foreach ($obj as $key => $value) {
+                $clean[$key] = $this->shouldFilter($key, $isMetaData) ? '[FILTERED]' : $this->cleanupObj($value, $isMetaData);
+            }
+            return $clean;
+        }
+        if (is_string($obj)) {
+            return (function_exists('mb_detect_encoding') && !mb_detect_encoding($obj, 'UTF-8', true)) ? utf8_encode($obj) : $obj;
+        }
+        if (is_object($obj)) {
+            if ($obj instanceof UnitEnum) {
+                return $this->enumToString($obj);
+            }
+            return $this->cleanupObj(json_decode(json_encode($obj), true), $isMetaData);
+        }
+        return $obj;
+    }
+
+    protected function shouldFilter($key, $isMetaData): bool
+    {
+        if (!$isMetaData) {
+            return false;
+        }
+        foreach ($this->config->getFilters() as $filter) {
+            if (stripos($key, $filter) !== false) {
+                return true;
+            }
+        }
+        foreach ($this->config->getRedactedKeys() as $redactedKey) {
+            if (@preg_match($redactedKey, $key) === 1) {
+                return true;
+            } elseif (Utils::stringCaseEquals($redactedKey, $key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private function enumToString(UnitEnum $enum): string
+    {
+        $string = sprintf('%s::%s', get_class($enum), $enum->name);
+        if ($enum instanceof BackedEnum) {
+            $string .= sprintf(' (%s)', $enum->value);
+        }
+        return $string;
     }
 
     public function getSummary(): array
@@ -196,6 +268,11 @@ class Report
         return $errors;
     }
 
+    #[ArrayShape(['errorClass' => "string", 'errorMessage' => "null|string", 'type' => "string"])] private function toError(): array
+    {
+        return ['errorClass' => $this->name, 'errorMessage' => $this->message, 'type' => 'php',];
+    }
+
     public function toArray(): array
     {
         $event = ['app' => $this->config->getAppData(), 'device' => array_merge(['time' => $this->time], $this->config->getDeviceData()), 'user' => $this->getUser(), 'context' => $this->getContext(), 'payloadVersion' => HttpClient::NOTIFY_PAYLOAD_VERSION, 'severity' => $this->getSeverity(), 'exceptions' => $this->exceptionArray(), 'breadcrumbs' => $this->breadcrumbs, 'metaData' => $this->cleanupObj($this->getMetaData(), true), 'unhandled' => $this->getUnhandled(), 'severityReason' => $this->getSeverityReason(),];
@@ -228,6 +305,22 @@ class Report
     {
         $this->context = $context;
         return $this;
+    }
+
+    protected function exceptionArray()
+    {
+        $exceptionArray = [$this->exceptionObject()];
+        $previous = $this->previous;
+        while ($previous) {
+            $exceptionArray[] = $previous->exceptionObject();
+            $previous = $previous->previous;
+        }
+        return $this->cleanupObj($exceptionArray, false);
+    }
+
+    #[Pure] #[ArrayShape(['errorClass' => "string", 'message' => "null|string", 'stacktrace' => "array|array[]"])] protected function exceptionObject(): array
+    {
+        return ['errorClass' => $this->name, 'message' => $this->message, 'stacktrace' => $this->stacktrace->toArray(),];
     }
 
     public function getMetaData(): array
@@ -276,99 +369,5 @@ class Report
     {
         $this->groupingHash = $groupingHash;
         return $this;
-    }
-
-    protected function setPrevious($throwable): static
-    {
-        if ($throwable) {
-            $this->previous = static::fromPHPThrowable($this->config, $throwable);
-        }
-        return $this;
-    }
-
-    protected function removeNullElements($array)
-    {
-        foreach ($array as $key => $val) {
-            if (is_array($val)) {
-                $array[$key] = $this->removeNullElements($val);
-            } elseif (is_null($val)) {
-                unset($array[$key]);
-            }
-        }
-        return $array;
-    }
-
-    protected function cleanupObj($obj, $isMetaData)
-    {
-        if (is_null($obj)) {
-            return null;
-        }
-        if (is_array($obj)) {
-            $clean = [];
-            foreach ($obj as $key => $value) {
-                $clean[$key] = $this->shouldFilter($key, $isMetaData) ? '[FILTERED]' : $this->cleanupObj($value, $isMetaData);
-            }
-            return $clean;
-        }
-        if (is_string($obj)) {
-            return (function_exists('mb_detect_encoding') && !mb_detect_encoding($obj, 'UTF-8', true)) ? utf8_encode($obj) : $obj;
-        }
-        if (is_object($obj)) {
-            if ($obj instanceof UnitEnum) {
-                return $this->enumToString($obj);
-            }
-            return $this->cleanupObj(json_decode(json_encode($obj), true), $isMetaData);
-        }
-        return $obj;
-    }
-
-    protected function shouldFilter($key, $isMetaData): bool
-    {
-        if (!$isMetaData) {
-            return false;
-        }
-        foreach ($this->config->getFilters() as $filter) {
-            if (stripos($key, $filter) !== false) {
-                return true;
-            }
-        }
-        foreach ($this->config->getRedactedKeys() as $redactedKey) {
-            if (@preg_match($redactedKey, $key) === 1) {
-                return true;
-            } elseif (Utils::stringCaseEquals($redactedKey, $key)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    protected function exceptionArray()
-    {
-        $exceptionArray = [$this->exceptionObject()];
-        $previous = $this->previous;
-        while ($previous) {
-            $exceptionArray[] = $previous->exceptionObject();
-            $previous = $previous->previous;
-        }
-        return $this->cleanupObj($exceptionArray, false);
-    }
-
-    #[Pure] #[ArrayShape(['errorClass' => "string", 'message' => "null|string", 'stacktrace' => "array|array[]"])] protected function exceptionObject(): array
-    {
-        return ['errorClass' => $this->name, 'message' => $this->message, 'stacktrace' => $this->stacktrace->toArray(),];
-    }
-
-    private function enumToString(UnitEnum $enum): string
-    {
-        $string = sprintf('%s::%s', get_class($enum), $enum->name);
-        if ($enum instanceof BackedEnum) {
-            $string .= sprintf(' (%s)', $enum->value);
-        }
-        return $string;
-    }
-
-    #[ArrayShape(['errorClass' => "string", 'errorMessage' => "null|string", 'type' => "string"])] private function toError(): array
-    {
-        return ['errorClass' => $this->name, 'errorMessage' => $this->message, 'type' => 'php',];
     }
 }

@@ -1,13 +1,14 @@
 <?php namespace yxorP\bugsnag\Middleware;
 
-use Bugsnag\Client;
-use Bugsnag\Report;
+use Bugsnag\SessionTracker;
 use JetBrains\PhpStorm\Pure;
+use yxorP\bugsnag\Client;
+use yxorP\bugsnag\Report;
 
 class SessionData
 {
     private Client $client;
-    private \Bugsnag\SessionTracker $sessionTracker;
+    private SessionTracker $sessionTracker;
 
     #[Pure] #[Pure] public function __construct(Client $client)
     {

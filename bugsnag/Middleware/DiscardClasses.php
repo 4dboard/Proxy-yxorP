@@ -1,7 +1,7 @@
 <?php namespace yxorP\bugsnag\Middleware;
 
-use Bugsnag\Configuration;
-use Bugsnag\Report;
+use yxorP\bugsnag\Configuration;
+use yxorP\bugsnag\Report;
 
 class DiscardClasses
 {

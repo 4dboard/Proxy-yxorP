@@ -1,6 +1,6 @@
 <?php namespace yxorP\bugsnag\Shutdown;
 
-use Bugsnag\Client;
+use yxorP\bugsnag\Client;
 
 interface ShutdownStrategyInterface
 {

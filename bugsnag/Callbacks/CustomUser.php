@@ -1,7 +1,7 @@
 <?php namespace yxorP\bugsnag\Callbacks;
 
-use Bugsnag\Report;
 use Exception;
+use yxorP\bugsnag\Report;
 
 class CustomUser
 {

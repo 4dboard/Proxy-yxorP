@@ -1,7 +1,7 @@
 <?php namespace yxorP\bugsnag\Middleware;
 
-use Bugsnag\Breadcrumbs\Recorder;
-use Bugsnag\Report;
+use yxorP\bugsnag\Breadcrumbs\Recorder;
+use yxorP\bugsnag\Report;
 
 class BreadcrumbData
 {

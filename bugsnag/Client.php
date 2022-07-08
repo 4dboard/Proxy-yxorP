@@ -1,25 +1,25 @@
 <?php namespace yxorP\bugsnag;
 
-use Bugsnag\Breadcrumbs\Breadcrumb;
-use Bugsnag\Breadcrumbs\Recorder;
-use Bugsnag\Callbacks\GlobalMetaData;
-use Bugsnag\Callbacks\RequestContext;
-use Bugsnag\Callbacks\RequestMetaData;
-use Bugsnag\Callbacks\RequestSession;
-use Bugsnag\Callbacks\RequestUser;
-use Bugsnag\Internal\GuzzleCompat;
-use Bugsnag\Middleware\BreadcrumbData;
-use Bugsnag\Middleware\CallbackBridge;
-use Bugsnag\Middleware\DiscardClasses;
-use Bugsnag\Middleware\NotificationSkipper;
-use Bugsnag\Middleware\SessionData;
-use Bugsnag\Request\BasicResolver;
-use Bugsnag\Request\ResolverInterface;
-use Bugsnag\Shutdown\PhpShutdownStrategy;
-use Bugsnag\Shutdown\ShutdownStrategyInterface;
 use Composer\CaBundle\CaBundle;
 use GuzzleHttp;
 use JetBrains\PhpStorm\Pure;
+use yxorP\bugsnag\Breadcrumbs\Breadcrumb;
+use yxorP\bugsnag\Breadcrumbs\Recorder;
+use yxorP\bugsnag\Callbacks\GlobalMetaData;
+use yxorP\bugsnag\Callbacks\RequestContext;
+use yxorP\bugsnag\Callbacks\RequestMetaData;
+use yxorP\bugsnag\Callbacks\RequestSession;
+use yxorP\bugsnag\Callbacks\RequestUser;
+use yxorP\bugsnag\Internal\GuzzleCompat;
+use yxorP\bugsnag\Middleware\BreadcrumbData;
+use yxorP\bugsnag\Middleware\CallbackBridge;
+use yxorP\bugsnag\Middleware\DiscardClasses;
+use yxorP\bugsnag\Middleware\NotificationSkipper;
+use yxorP\bugsnag\Middleware\SessionData;
+use yxorP\bugsnag\Request\BasicResolver;
+use yxorP\bugsnag\Request\ResolverInterface;
+use yxorP\bugsnag\Shutdown\PhpShutdownStrategy;
+use yxorP\bugsnag\Shutdown\ShutdownStrategyInterface;
 
 class Client
 {
@@ -56,26 +56,6 @@ class Client
         return new GuzzleHttp\Client($options);
     }
 
-    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
-    {
-        $env = new Env();
-        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
-        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
-        $client = new static($config, null, $guzzle);
-        if ($defaults) {
-            $client->registerDefaultCallbacks();
-        }
-        return $client;
-    }
-
-    protected static function getCaBundlePath(): bool|string
-    {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-        return realpath(CaBundle::getSystemCaRootBundlePath());
-    }
-
     private static function resolveGuzzleOptions($base, array $options): array
     {
         $key = GuzzleCompat::getBaseUriOptionName();
@@ -87,10 +67,41 @@ class Client
         return GuzzleCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
     }
 
+    protected static function getCaBundlePath(): bool|string
+    {
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+        return realpath(CaBundle::getSystemCaRootBundlePath());
+    }
+
+    private function syncNotifyEndpointWithGuzzleBaseUri(Configuration $configuration, GuzzleHttp\ClientInterface $guzzle)
+    {
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+        $base = GuzzleCompat::getBaseUri($guzzle);
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
+    }
+
     public function registerMiddleware(callable $middleware): static
     {
         $this->pipeline->pipe($middleware);
         return $this;
+    }
+
+    public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
+    {
+        $env = new Env();
+        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
+        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
+        $client = new static($config, null, $guzzle);
+        if ($defaults) {
+            $client->registerDefaultCallbacks();
+        }
+        return $client;
     }
 
     public function registerDefaultCallbacks(): static
@@ -430,16 +441,5 @@ class Client
     #[Pure] public function getRedactedKeys(): array
     {
         return $this->config->getRedactedKeys();
-    }
-
-    private function syncNotifyEndpointWithGuzzleBaseUri(Configuration $configuration, GuzzleHttp\ClientInterface $guzzle)
-    {
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-        $base = GuzzleCompat::getBaseUri($guzzle);
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string)$base);
-        }
     }
 }

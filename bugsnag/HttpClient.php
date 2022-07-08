@@ -1,11 +1,12 @@
 <?php namespace yxorP\bugsnag;
 
-use Bugsnag\DateTime\Date;
-use Bugsnag\Internal\GuzzleCompat;
 use Exception;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\GuzzleException;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
+use yxorP\bugsnag\DateTime\Date;
+use yxorP\bugsnag\Internal\GuzzleCompat;
 
 class HttpClient
 {
@@ -38,6 +39,18 @@ class HttpClient
         $data['apiKey'] = $this->config->getApiKey();
         $uri = rtrim($this->config->getNotifyEndpoint(), '/') . '/deploy';
         $this->post($uri, ['json' => $data]);
+    }
+
+    /**
+     * @throws GuzzleException
+     */
+    protected function post($uri, array $options = [])
+    {
+        if (GuzzleCompat::isUsingGuzzle5()) {
+            $this->guzzle->post($uri, $options);
+        } else {
+            $this->guzzle->request('POST', $uri, $options);
+        }
     }
 
     public function sendBuildReport(array $buildInfo)
@@ -88,23 +101,6 @@ class HttpClient
         }
         $this->deliverEvents($this->config->getNotifyEndpoint(), $this->getEventPayload());
         $this->queue = [];
-    }
-
-    public function sendSessions(array $payload)
-    {
-        $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
-    }
-
-    /**
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     */
-    protected function post($uri, array $options = [])
-    {
-        if (GuzzleCompat::isUsingGuzzle5()) {
-            $this->guzzle->post($uri, $options);
-        } else {
-            $this->guzzle->request('POST', $uri, $options);
-        }
     }
 
     protected function deliverEvents($uri, array $data)
@@ -162,6 +158,11 @@ class HttpClient
             }
         }
         return ['apiKey' => $this->config->getApiKey(), 'notifier' => $this->config->getNotifier(), 'events' => $events,];
+    }
+
+    public function sendSessions(array $payload)
+    {
+        $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
     }
 
     protected function build(): array
