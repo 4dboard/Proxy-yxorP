@@ -121,6 +121,29 @@ class RedirectMiddleware
     }
 
     /**
+     * Check for too many redirects
+     *
+     * @return void
+     *
+     * @throws TooManyRedirectsExceptionA Too many redirects.
+     */
+    private function guardMax(RequestInterface $request, array &$options)
+    {
+        $current = isset($options['__redirect_count'])
+            ? $options['__redirect_count']
+            : 0;
+        $options['__redirect_count'] = $current + 1;
+        $max = $options['allow_redirects']['max'];
+
+        if ($options['__redirect_count'] > $max) {
+            throw new TooManyRedirectsExceptionA(
+                "Will not follow more than {$max} redirects",
+                $request
+            );
+        }
+    }
+
+    /**
      * @param RequestInterface $request
      * @param array $options
      * @param ResponseInterface $response
@@ -174,29 +197,6 @@ class RedirectMiddleware
         }
 
         return Psr7\modify_request($request, $modify);
-    }
-
-    /**
-     * Check for too many redirects
-     *
-     * @return void
-     *
-     * @throws TooManyRedirectsExceptionA Too many redirects.
-     */
-    private function guardMax(RequestInterface $request, array &$options)
-    {
-        $current = isset($options['__redirect_count'])
-            ? $options['__redirect_count']
-            : 0;
-        $options['__redirect_count'] = $current + 1;
-        $max = $options['allow_redirects']['max'];
-
-        if ($options['__redirect_count'] > $max) {
-            throw new TooManyRedirectsExceptionA(
-                "Will not follow more than {$max} redirects",
-                $request
-            );
-        }
     }
 
     /**

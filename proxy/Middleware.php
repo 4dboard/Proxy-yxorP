@@ -5,9 +5,8 @@ namespace yxorP\proxy;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use yxorP\proxy\Cookie\CookieJarInterface;
-use yxorP\proxy\Exception\ARequestException;
-use yxorP\proxy\Promise\RejectedPromise;
-use yxorP\proxy\Psr7;
+use yxorP\proxy\Exception\ARequestExceptionA;
+use function yxorP\proxy\Promise\rejection_for;
 
 /**
  * Functions used to create and wrap handlers with handler middleware.
@@ -63,7 +62,7 @@ final class Middleware
                         if ($code < 400) {
                             return $response;
                         }
-                        throw ARequestException::create($request, $response);
+                        throw ARequestExceptionA::create($request, $response);
                     }
                 );
             };
@@ -103,7 +102,7 @@ final class Middleware
                             'error' => $reason,
                             'options' => $options
                         ];
-                        return \yxorP\proxy\Promise\rejection_for($reason);
+                        return rejection_for($reason);
                     }
                 );
             };
@@ -194,12 +193,12 @@ final class Middleware
                         return $response;
                     },
                     function ($reason) use ($logger, $request, $formatter) {
-                        $response = $reason instanceof ARequestException
+                        $response = $reason instanceof ARequestExceptionA
                             ? $reason->getResponse()
                             : null;
                         $message = $formatter->format($request, $response, $reason);
                         $logger->notice($message);
-                        return \yxorP\proxy\Promise\rejection_for($reason);
+                        return rejection_for($reason);
                     }
                 );
             };

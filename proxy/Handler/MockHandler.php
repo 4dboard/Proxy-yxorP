@@ -5,11 +5,13 @@ namespace yxorP\proxy\Handler;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
-use yxorP\proxy\Exception\ARequestException;
+use yxorP\proxy\Exception\ARequestExceptionA;
 use yxorP\proxy\HandlerStack;
 use yxorP\proxy\Promise\PromiseInterface;
-use yxorP\proxy\Promise\RejectedPromise;
 use yxorP\proxy\TransferStats;
+use function yxorP\proxy\describe_type;
+use function yxorP\proxy\Promise\promise_for;
+use function yxorP\proxy\Promise\rejection_for;
 
 /**
  * Handler that returns responses or throw exceptions from a queue.
@@ -86,7 +88,7 @@ class MockHandler implements Countable
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $response = new ARequestException($msg, $request, $response, $e);
+                $response = new ARequestExceptionA($msg, $request, $response, $e);
             }
         }
 
@@ -95,8 +97,8 @@ class MockHandler implements Countable
         }
 
         $response = $response instanceof Exception
-            ? \yxorP\proxy\Promise\rejection_for($response)
-            : \yxorP\proxy\Promise\promise_for($response);
+            ? rejection_for($response)
+            : promise_for($response);
 
         return $response->then(
             function ($value) use ($request, $options) {
@@ -124,9 +126,23 @@ class MockHandler implements Countable
                 if ($this->onRejected) {
                     call_user_func($this->onRejected, $reason);
                 }
-                return \yxorP\proxy\Promise\rejection_for($reason);
+                return rejection_for($reason);
             }
         );
+    }
+
+    private function invokeStats(
+        RequestInterface  $request,
+        array             $options,
+        ResponseInterface $response = null,
+                          $reason = null
+    )
+    {
+        if (isset($options['on_stats'])) {
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $stats = new TransferStats($request, $response, $transferTime, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
     }
 
     /**
@@ -144,7 +160,7 @@ class MockHandler implements Countable
                 $this->queue[] = $value;
             } else {
                 throw new InvalidArgumentException('Expected a response or '
-                    . 'exception. Found ' . \yxorP\proxy\describe_type($value));
+                    . 'exception. Found ' . describe_type($value));
             }
         }
     }
@@ -182,19 +198,5 @@ class MockHandler implements Countable
     public function reset()
     {
         $this->queue = [];
-    }
-
-    private function invokeStats(
-        RequestInterface  $request,
-        array             $options,
-        ResponseInterface $response = null,
-                          $reason = null
-    )
-    {
-        if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new TransferStats($request, $response, $transferTime, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
     }
 }

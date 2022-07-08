@@ -2,6 +2,7 @@
 
 namespace yxorP\proxy\Exception;
 
+use Exception;
 use Psr\Http\Message\RequestInterface;
 
 /**
@@ -9,12 +10,12 @@ use Psr\Http\Message\RequestInterface;
  *
  * Note that no response is present for a ConnectException
  */
-class ConnectExceptionA extends ARequestException
+class ConnectExceptionA extends ARequestExceptionA
 {
     public function __construct(
         $message,
         RequestInterface $request,
-        \Exception $previous = null,
+        Exception $previous = null,
         array $handlerContext = []
     )
     {

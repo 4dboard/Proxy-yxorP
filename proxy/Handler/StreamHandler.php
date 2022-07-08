@@ -5,13 +5,19 @@ namespace yxorP\proxy\Handler;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use yxorP\proxy\Exception\ARequestExceptionA;
 use yxorP\proxy\Exception\ConnectExceptionA;
-use yxorP\proxy\Exception\ARequestException;
 use yxorP\proxy\Promise\FulfilledPromise;
 use yxorP\proxy\Promise\PromiseInterface;
 use yxorP\proxy\Psr7;
 use yxorP\proxy\TransferStats;
 use yxorP\proxy\Utils;
+use function yxorP\proxy\debug_resource;
+use function yxorP\proxy\default_ca_bundle;
+use function yxorP\proxy\headers_from_lines;
+use function yxorP\proxy\is_host_in_noproxy;
+use function yxorP\proxy\normalize_header_keys;
+use function yxorP\proxy\Promise\rejection_for;
 
 /**
  * HTTP handler that uses PHP's HTTP stream wrapper.
@@ -66,10 +72,10 @@ class StreamHandler
             ) {
                 $e = new ConnectExceptionA($e->getMessage(), $request, $e);
             }
-            $e = ARequestException::wrapException($request, $e);
+            $e = ARequestExceptionA::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
 
-            return \yxorP\proxy\Promise\rejection_for($e);
+            return rejection_for($e);
         }
     }
 
@@ -86,7 +92,7 @@ class StreamHandler
         $ver = explode('/', $parts[0])[1];
         $status = $parts[1];
         $reason = isset($parts[2]) ? $parts[2] : null;
-        $headers = \yxorP\proxy\headers_from_lines($hdrs);
+        $headers = headers_from_lines($hdrs);
         list($stream, $headers) = $this->checkDecode($options, $headers, $stream);
         $stream = Psr7\stream_for($stream);
         $sink = $stream;
@@ -102,8 +108,8 @@ class StreamHandler
                 $options['on_headers']($response);
             } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
-                $ex = new ARequestException($msg, $request, $response, $e);
-                return \yxorP\proxy\Promise\rejection_for($ex);
+                $ex = new ARequestExceptionA($msg, $request, $response, $e);
+                return rejection_for($ex);
             }
         }
 
@@ -126,7 +132,7 @@ class StreamHandler
     {
         // Automatically decode responses when instructed.
         if (!empty($options['decode_content'])) {
-            $normalizedKeys = \yxorP\proxy\normalize_header_keys($headers);
+            $normalizedKeys = normalize_header_keys($headers);
             if (isset($normalizedKeys['content-encoding'])) {
                 $encoding = $headers[$normalizedKeys['content-encoding']];
                 if ($encoding[0] === 'gzip' || $encoding[0] === 'deflate') {
@@ -417,7 +423,7 @@ class StreamHandler
             $scheme = $request->getUri()->getScheme();
             if (isset($value[$scheme])) {
                 if (!isset($value['no'])
-                    || !\yxorP\proxy\is_host_in_noproxy(
+                    || !is_host_in_noproxy(
                         $request->getUri()->getHost(),
                         $value['no']
                     )
@@ -441,7 +447,7 @@ class StreamHandler
             // PHP 5.6 or greater will find the system cert by default. When
             // < 5.6, use the Guzzle bundled cacert.
             if (PHP_VERSION_ID < 50600) {
-                $options['ssl']['cafile'] = \yxorP\proxy\default_ca_bundle();
+                $options['ssl']['cafile'] = default_ca_bundle();
             }
         } elseif (is_string($value)) {
             $options['ssl']['cafile'] = $value;
@@ -531,7 +537,7 @@ class StreamHandler
         static $args = ['severity', 'message', 'message_code',
             'bytes_transferred', 'bytes_max'];
 
-        $value = \yxorP\proxy\debug_resource($value);
+        $value = debug_resource($value);
         $ident = $request->getMethod() . ' ' . $request->getUri()->withFragment('');
         $this->addNotification(
             $params,

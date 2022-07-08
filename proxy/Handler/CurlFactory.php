@@ -3,12 +3,17 @@
 namespace yxorP\proxy\Handler;
 
 use Psr\Http\Message\RequestInterface;
+use yxorP\proxy\Exception\ARequestExceptionA;
 use yxorP\proxy\Exception\ConnectExceptionA;
-use yxorP\proxy\Exception\ARequestException;
 use yxorP\proxy\Promise\FulfilledPromise;
+use yxorP\proxy\Promise\PromiseInterface;
 use yxorP\proxy\Psr7;
 use yxorP\proxy\Psr7\LazyOpenStream;
 use yxorP\proxy\TransferStats;
+use function yxorP\proxy\debug_resource;
+use function yxorP\proxy\is_host_in_noproxy;
+use function yxorP\proxy\Promise\rejection_for;
+use function yxorP\proxy\Psr7\stream_for;
 
 /**
  * Creates curl resources from a request
@@ -40,7 +45,7 @@ class CurlFactory implements CurlFactoryInterface
      * @param EasyHandle $easy
      * @param CurlFactoryInterface $factory Dictates how the handle is released
      *
-     * @return \yxorP\proxy\Promise\PromiseInterface
+     * @return PromiseInterface
      */
     public static function finish(
         callable             $handler,
@@ -107,6 +112,27 @@ class CurlFactory implements CurlFactoryInterface
         return self::createRejection($easy, $ctx);
     }
 
+    public function release(EasyHandle $easy)
+    {
+        $resource = $easy->handle;
+        unset($easy->handle);
+
+        if (count($this->handles) >= $this->maxHandles) {
+            curl_close($resource);
+        } else {
+            // Remove all callback functions as they can hold onto references
+            // and are not cleaned up by curl_reset. Using curl_setopt_array
+            // does not work for some reason, so removing each one
+            // individually.
+            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
+            curl_setopt($resource, CURLOPT_READFUNCTION, null);
+            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
+            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
+            curl_reset($resource);
+            $this->handles[] = $resource;
+        }
+    }
+
     /**
      * This function ensures that a response was set on a transaction. If one
      * was not set, then the request is retried if possible. This error
@@ -167,8 +193,8 @@ class CurlFactory implements CurlFactoryInterface
         // If an exception was encountered during the onHeaders event, then
         // return a rejected promise that wraps that exception.
         if ($easy->onHeadersException) {
-            return \yxorP\proxy\Promise\rejection_for(
-                new ARequestException(
+            return rejection_for(
+                new ARequestExceptionA(
                     'An error was encountered during the on_headers event',
                     $easy->request,
                     $easy->response,
@@ -197,30 +223,9 @@ class CurlFactory implements CurlFactoryInterface
         // Create a connection exception if it was a specific error code.
         $error = isset($connectionErrors[$easy->errno])
             ? new ConnectExceptionA($message, $easy->request, null, $ctx)
-            : new ARequestException($message, $easy->request, $easy->response, null, $ctx);
+            : new ARequestExceptionA($message, $easy->request, $easy->response, null, $ctx);
 
-        return \yxorP\proxy\Promise\rejection_for($error);
-    }
-
-    public function release(EasyHandle $easy)
-    {
-        $resource = $easy->handle;
-        unset($easy->handle);
-
-        if (count($this->handles) >= $this->maxHandles) {
-            curl_close($resource);
-        } else {
-            // Remove all callback functions as they can hold onto references
-            // and are not cleaned up by curl_reset. Using curl_setopt_array
-            // does not work for some reason, so removing each one
-            // individually.
-            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
-            curl_setopt($resource, CURLOPT_READFUNCTION, null);
-            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
-            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
-            curl_reset($resource);
-            $this->handles[] = $resource;
-        }
+        return rejection_for($error);
     }
 
     public function create(RequestInterface $request, array $options)
@@ -408,7 +413,7 @@ class CurlFactory implements CurlFactoryInterface
         if (isset($options['sink'])) {
             $sink = $options['sink'];
             if (!is_string($sink)) {
-                $sink = \yxorP\proxy\Psr7\stream_for($sink);
+                $sink = stream_for($sink);
             } elseif (!is_dir(dirname($sink))) {
                 // Ensure that the directory exists before failing in curl.
                 throw new RuntimeException(sprintf(
@@ -426,7 +431,7 @@ class CurlFactory implements CurlFactoryInterface
         } else {
             // Use a default temp stream if no sink was set.
             $conf[CURLOPT_FILE] = fopen('php://temp', 'w+');
-            $easy->sink = Psr7\stream_for($conf[CURLOPT_FILE]);
+            $easy->sink = stream_for($conf[CURLOPT_FILE]);
         }
         $timeoutRequiresNoSignal = false;
         if (isset($options['timeout'])) {
@@ -460,7 +465,7 @@ class CurlFactory implements CurlFactoryInterface
                 if (isset($options['proxy'][$scheme])) {
                     $host = $easy->request->getUri()->getHost();
                     if (!isset($options['proxy']['no']) ||
-                        !\yxorP\proxy\is_host_in_noproxy($host, $options['proxy']['no'])
+                        !is_host_in_noproxy($host, $options['proxy']['no'])
                     ) {
                         $conf[CURLOPT_PROXY] = $options['proxy'][$scheme];
                     }
@@ -520,7 +525,7 @@ class CurlFactory implements CurlFactoryInterface
         }
 
         if (!empty($options['debug'])) {
-            $conf[CURLOPT_STDERR] = \yxorP\proxy\debug_resource($options['debug']);
+            $conf[CURLOPT_STDERR] = debug_resource($options['debug']);
             $conf[CURLOPT_VERBOSE] = true;
         }
     }

@@ -2,19 +2,20 @@
 
 namespace yxorP\proxy\Exception;
 
+use Exception;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
 /**
  * Exception when an HTTP error occurs (4xx or 5xx error)
  */
-class BadResponseExceptionA extends ARequestException
+class BadResponseExceptionA extends ARequestExceptionA
 {
     public function __construct(
         $message,
         RequestInterface $request,
         ResponseInterface $response = null,
-        \Exception $previous = null,
+        Exception $previous = null,
         array $handlerContext = []
     )
     {
