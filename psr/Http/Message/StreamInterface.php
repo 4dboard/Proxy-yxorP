@@ -34,7 +34,7 @@ interface StreamInterface
      *
      * @return void
      */
-    public function close(): mixed;
+    public function close();
 
     /**
      * Separates any underlying resources from the stream.
