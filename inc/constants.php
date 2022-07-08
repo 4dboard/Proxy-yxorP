@@ -529,10 +529,6 @@ class constants
         require PATH_COCKPIT_BOOTSTRAP;
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
-        /* Requiring the Wrapper. */
-        require PATH_GUZZLE_PHAR;
-        /* Requiring the Wrapper. */
-        //require PATH_SNAG_PHAR;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
