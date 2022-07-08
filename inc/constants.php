@@ -564,7 +564,6 @@ class constants
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
         seconds in a year. */
         define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
-        define('CACHE_KEY', 'CACHE_KEY');
 
 
     }
