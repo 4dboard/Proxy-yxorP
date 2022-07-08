@@ -50,12 +50,12 @@ class AppendStream implements StreamInterface
         }
     }
 
-    public function rewind()
+    public function rewind(): mixed
     {
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek($offset, $whence = SEEK_SET): mixed
     {
         if (!$this->seekable) {
             throw new RuntimeException('This AppendStream is not seekable');

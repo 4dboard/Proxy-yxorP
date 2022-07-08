@@ -25,12 +25,12 @@ class BufferStream implements StreamInterface
         return $buffer;
     }
 
-    public function detach()
+    public function detach(): mixed
     {
         $this->close();
     }
 
-    public function close()
+    public function close(): mixed
     {
         $this->buffer = '';
     }
