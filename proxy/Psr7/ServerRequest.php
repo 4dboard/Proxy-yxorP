@@ -67,6 +67,25 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $uri;
     }
 
+    private static function extractHostAndPortFromAuthority($authority): array
+    {
+        $uri = 'https://' . $authority;
+        $parts = parse_url($uri);
+        if (false === $parts) {
+            return [null, null];
+        }
+        $host = $parts['host'] ?? null;
+        $port = $parts['port'] ?? null;
+        return [$host, $port];
+    }
+
+    public function withCookieParams(array $cookies): mixed
+    {
+        $new = clone $this;
+        $new->cookieParams = $cookies;
+        return $new;
+    }
+
     public static function normalizeFiles(array $files): array
     {
         $normalized = [];
@@ -82,18 +101,6 @@ class ServerRequest extends Request implements ServerRequestInterface
             }
         }
         return $normalized;
-    }
-
-    private static function extractHostAndPortFromAuthority($authority): array
-    {
-        $uri = 'https://' . $authority;
-        $parts = parse_url($uri);
-        if (false === $parts) {
-            return [null, null];
-        }
-        $host = $parts['host'] ?? null;
-        $port = $parts['port'] ?? null;
-        return [$host, $port];
     }
 
     private static function createUploadedFileFromSpec(array $value): UploadedFile|array
@@ -128,17 +135,10 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $new;
     }
 
-    public function withQueryParams(array $query): ServerRequest
+    public function withQueryParams(array $query): mixed
     {
         $new = clone $this;
         $new->queryParams = $query;
-        return $new;
-    }
-
-    public function withCookieParams(array $cookies): ServerRequest
-    {
-        $new = clone $this;
-        $new->cookieParams = $cookies;
         return $new;
     }
 
