@@ -7,7 +7,6 @@ use yxorP\proxy\Exception\ARequestExceptionA;
 use yxorP\proxy\Exception\ConnectExceptionA;
 use yxorP\proxy\Promise\FulfilledPromise;
 use yxorP\proxy\Promise\PromiseInterface;
-use yxorP\proxy\Psr7;
 use yxorP\proxy\Psr7\LazyOpenStream;
 use yxorP\proxy\TransferStats;
 use function yxorP\proxy\debug_resource;

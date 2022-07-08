@@ -2,6 +2,8 @@
 
 namespace yxorP\proxy\Exception;
 
-class ATransferException extends \RuntimeException implements GuzzleException
+use RuntimeException;
+
+class ATransferException extends RuntimeException implements GuzzleException
 {
 }
