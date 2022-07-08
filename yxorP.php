@@ -95,8 +95,6 @@ class yxorP
      */
     public static function proxy(array|null $request = null): void
     {
-
-        exit('31');
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init() as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
@@ -176,6 +174,8 @@ class yxorP
      */
     public static function yxorP(array|null $request = null): self
     {
+
+        exit('31');
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
         return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
