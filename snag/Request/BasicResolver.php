@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag\Request;
+<?php namespace yxorP\snag\Request;
 class BasicResolver implements ResolverInterface
 {
     protected static function getInputParams(array $server, array $params, $fallbackToInput = false)

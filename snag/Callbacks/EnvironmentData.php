@@ -1,6 +1,6 @@
-<?php namespace yxorP\bugsnag\Callbacks;
+<?php namespace yxorP\snag\Callbacks;
 
-use yxorP\bugsnag\Report;
+use yxorP\snag\Report;
 
 class EnvironmentData
 {

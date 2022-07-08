@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag\Internal;
+<?php namespace yxorP\snag\Internal;
 
 final class GuzzleCompat
 {

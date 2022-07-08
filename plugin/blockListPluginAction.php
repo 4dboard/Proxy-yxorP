@@ -14,10 +14,10 @@ class blockListPluginAction extends wrapper
     public static function callable($fnc_custom, $url)
     {
         /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
-        if (!$fnc_custom(compact(VAR_USER_IP, VAR_USER_IP_LONG, VAR_URL, VAR_URL_HOST))) constants::get(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access Denied!"));
+        if (!$fnc_custom(compact(VAR_USER_IP, VAR_USER_IP_LONG, VAR_URL, VAR_URL_HOST))) constants::get(VAR_SNAG)->notifyException(new RuntimeException("Error: Access Denied!"));
         /* Checking if the `$url` variable contains any of the values of the `BLOCKLIST` constant. If it does, it throws an
         exception. */
-        foreach ((array)constants::get('BLOCKLIST') as $ub) if (str_contains($url, $ub)) constants::get(VAR_BUGSNAG)->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
+        foreach ((array)constants::get('BLOCKLIST') as $ub) if (str_contains($url, $ub)) constants::get(VAR_SNAG)->notifyException(new RuntimeException("Error: Access to $url has been blocked!"));
     }
 
     /* Checking if the `$fnc_custom` variable is callable and if it is, it calls the `callable` method. */
@@ -41,7 +41,7 @@ class blockListPluginAction extends wrapper
         if (constants::get('BLOCKLIST')) $ip_match = constants::get('BLOCKLIST');
         /* Checking if the `$ip_match` variable is set and if it is, it checks if the `$user_ip` variable matches the
         `$ip_match` variable. If it does not match, it throws an exception. */
-        if ($ip_match) if ((!generalHelper::re_match($ip_match, $user_ip))) constants::get(VAR_BUGSNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
+        if ($ip_match) if ((!generalHelper::re_match($ip_match, $user_ip))) constants::get(VAR_SNAG)->notifyException(new RuntimeException(ACCESS_DENIED_EXCEPTION));
     }
 }
 

@@ -1,12 +1,12 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use InvalidArgumentException;
 
 class Configuration
 {
-    const NOTIFY_ENDPOINT = 'https://notify.bugsnag.com';
-    const SESSION_ENDPOINT = 'https://sessions.bugsnag.com';
-    const BUILD_ENDPOINT = 'https://build.bugsnag.com';
+    const NOTIFY_ENDPOINT = 'https://notify.snag.com';
+    const SESSION_ENDPOINT = 'https://sessions.snag.com';
+    const BUILD_ENDPOINT = 'https://build.snag.com';
     private string $apiKey;
     private bool $batchSending = true;
     private $notifyReleaseStages;
@@ -14,7 +14,7 @@ class Configuration
     private $projectRootRegex;
     private $stripPathRegex;
     private bool $sendCode = true;
-    private array $notifier = ['name' => 'Bugsnag PHP (Official)', 'version' => '3.27.0', 'url' => 'https://bugsnag.com',];
+    private array $notifier = ['name' => 'Snag PHP (Official)', 'version' => '3.27.0', 'url' => 'https://snag.com',];
     private string|false $fallbackType;
     private array $appData = [];
     private array $deviceData = [];
@@ -214,7 +214,7 @@ class Configuration
     {
         if (!$this->isSubsetOfErrorReporting($errorReportingLevel)) {
             $missingLevels = implode(', ', $this->getMissingErrorLevelNames($errorReportingLevel));
-            $message = 'Bugsnag Warning: errorReportingLevel cannot contain values that are not in error_reporting. ' . "Any errors of these levels will be ignored: {$missingLevels}.";
+            $message = 'Snag Warning: errorReportingLevel cannot contain values that are not in error_reporting. ' . "Any errors of these levels will be ignored: {$missingLevels}.";
             error_log($message);
         }
         $this->errorReportingLevel = $errorReportingLevel;

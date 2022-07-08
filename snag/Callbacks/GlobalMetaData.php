@@ -1,7 +1,7 @@
-<?php namespace yxorP\bugsnag\Callbacks;
+<?php namespace yxorP\snag\Callbacks;
 
-use yxorP\bugsnag\Configuration;
-use yxorP\bugsnag\Report;
+use yxorP\snag\Configuration;
+use yxorP\snag\Report;
 
 class GlobalMetaData
 {

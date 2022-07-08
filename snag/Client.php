@@ -1,24 +1,24 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use Composer\CaBundle\CaBundle;
 use JetBrains\PhpStorm\Pure;
-use yxorP\bugsnag\Breadcrumbs\Breadcrumb;
-use yxorP\bugsnag\Breadcrumbs\Recorder;
-use yxorP\bugsnag\Callbacks\GlobalMetaData;
-use yxorP\bugsnag\Callbacks\RequestContext;
-use yxorP\bugsnag\Callbacks\RequestMetaData;
-use yxorP\bugsnag\Callbacks\RequestSession;
-use yxorP\bugsnag\Callbacks\RequestUser;
-use yxorP\bugsnag\Internal\GuzzleCompat;
-use yxorP\bugsnag\Middleware\BreadcrumbData;
-use yxorP\bugsnag\Middleware\CallbackBridge;
-use yxorP\bugsnag\Middleware\DiscardClasses;
-use yxorP\bugsnag\Middleware\NotificationSkipper;
-use yxorP\bugsnag\Middleware\SessionData;
-use yxorP\bugsnag\Request\BasicResolver;
-use yxorP\bugsnag\Request\ResolverInterface;
-use yxorP\bugsnag\Shutdown\PhpShutdownStrategy;
-use yxorP\bugsnag\Shutdown\ShutdownStrategyInterface;
+use yxorP\snag\Breadcrumbs\Breadcrumb;
+use yxorP\snag\Breadcrumbs\Recorder;
+use yxorP\snag\Callbacks\GlobalMetaData;
+use yxorP\snag\Callbacks\RequestContext;
+use yxorP\snag\Callbacks\RequestMetaData;
+use yxorP\snag\Callbacks\RequestSession;
+use yxorP\snag\Callbacks\RequestUser;
+use yxorP\snag\Internal\GuzzleCompat;
+use yxorP\snag\Middleware\BreadcrumbData;
+use yxorP\snag\Middleware\CallbackBridge;
+use yxorP\snag\Middleware\DiscardClasses;
+use yxorP\snag\Middleware\NotificationSkipper;
+use yxorP\snag\Middleware\SessionData;
+use yxorP\snag\Request\BasicResolver;
+use yxorP\snag\Request\ResolverInterface;
+use yxorP\snag\Shutdown\PhpShutdownStrategy;
+use yxorP\snag\Shutdown\ShutdownStrategyInterface;
 
 class Client
 {
@@ -58,8 +58,8 @@ class Client
     public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true): static
     {
         $env = new Env();
-        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
-        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
+        $config = new Configuration($apiKey ?: $env->get('SNAG_API_KEY'));
+        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
         $client = new static($config, null, $guzzle);
         if ($defaults) {
             $client->registerDefaultCallbacks();

@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use Exception;
 use InvalidArgumentException;
@@ -9,8 +9,8 @@ class SessionTracker
     private static string $SESSION_PAYLOAD_VERSION = HttpClient::SESSION_PAYLOAD_VERSION;
     private static int $DELIVERY_INTERVAL = 30;
     private static int $MAX_SESSION_COUNT = 50;
-    private static string $SESSION_COUNTS_KEY = 'bugsnag-session-counts';
-    private static string $SESSIONS_LAST_SENT_KEY = 'bugsnag-sessions-last-sent';
+    private static string $SESSION_COUNTS_KEY = 'snag-session-counts';
+    private static string $SESSIONS_LAST_SENT_KEY = 'snag-sessions-last-sent';
     private Configuration $config;
     private HttpClient $http;
     private array $sessionCounts = [];
@@ -207,7 +207,7 @@ class SessionTracker
         try {
             $this->http->sendSessions($payload);
         } catch (Exception $e) {
-            error_log('Bugsnag Warning: Couldn\'t notify. ' . $e->getMessage());
+            error_log('Snag Warning: Couldn\'t notify. ' . $e->getMessage());
             if (is_callable($this->retryFunction)) {
                 call_user_func($this->retryFunction, $sessions);
             } else {

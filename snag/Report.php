@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use BackedEnum;
 use InvalidArgumentException;
@@ -6,8 +6,8 @@ use JetBrains\PhpStorm\ArrayShape;
 use JetBrains\PhpStorm\Pure;
 use Throwable;
 use UnitEnum;
-use yxorP\bugsnag\Breadcrumbs\Breadcrumb;
-use yxorP\bugsnag\DateTime\Date;
+use yxorP\snag\Breadcrumbs\Breadcrumb;
+use yxorP\snag\DateTime\Date;
 
 class Report
 {

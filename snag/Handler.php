@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use Throwable;
 
@@ -27,7 +27,7 @@ class Handler
             $client = Client::make($client);
         }
         $handler = new static($client);
-        $handler->registerBugsnagHandlers(true);
+        $handler->registerSnagHandlers(true);
         return $handler;
     }
 
@@ -113,7 +113,7 @@ class Handler
         $this->client->flush();
     }
 
-    protected function registerBugsnagHandlers($callPrevious)
+    protected function registerSnagHandlers($callPrevious)
     {
         $this->registerErrorHandler($callPrevious);
         $this->registerExceptionHandler($callPrevious);

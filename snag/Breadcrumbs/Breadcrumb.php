@@ -1,8 +1,8 @@
-<?php namespace yxorP\bugsnag\Breadcrumbs;
+<?php namespace yxorP\snag\Breadcrumbs;
 
 use InvalidArgumentException;
 use JetBrains\PhpStorm\ArrayShape;
-use yxorP\bugsnag\DateTime\Date;
+use yxorP\snag\DateTime\Date;
 
 class Breadcrumb
 {

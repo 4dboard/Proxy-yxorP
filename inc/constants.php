@@ -154,8 +154,8 @@ class constants
         define('FILE_REWRITE_REPLACE', 'search_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
-        /* Defining a constant called FILE_BUGSNAG and setting it to the string 'bugsnag'. */
-        define('FILE_BUGSNAG', 'bugsnag' . EXT_PHAR);
+        /* Defining a constant called FILE_SNAG and setting it to the string 'snag'. */
+        define('FILE_SNAG', 'snag' . EXT_PHAR);
         /* Defining a constant called FILE_GUZZLE and setting it to the string 'guzzle'. */
         define('FILE_GUZZLE', 'guzzle' . EXT_PHAR);
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
@@ -259,8 +259,8 @@ class constants
         define('VAR_REPLACE', 'replace');
         /* Defining a constant called `VAR_SERVER` and setting it to the value of `SERVER`. */
         define('VAR_SERVER', 'SERVER');
-        /* Defining a constant called VAR_BUGSNAG and setting it to the string BUGSNAG. */
-        define('VAR_BUGSNAG', 'BUGSNAG');
+        /* Defining a constant called VAR_SNAG and setting it to the string SNAG. */
+        define('VAR_SNAG', 'SNAG');
         /* Defining a constant called VAR_GUZZLE and setting it to the string 'GUZZLE'. */
         define('VAR_GUZZLE', 'GUZZLE');
         /* Defining a constant called VAR_RESPONSE and setting it to the string VAR_RESPONSE. */
@@ -467,7 +467,7 @@ class constants
 
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_BUGSNAG', 'bugsnag' . DIRECTORY_SEPARATOR);
+        define('DIR_SNAG', 'snag' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_GUZZLE', 'guzzle' . DIRECTORY_SEPARATOR);
@@ -496,8 +496,8 @@ class constants
         /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
-        /* Defining the path to the bugsnag.phar file. */
-        define('PATH_BUGSNAG_PHAR', DIR_ROOT . DIR_INC . FILE_BUGSNAG);
+        /* Defining the path to the snag.phar file. */
+        define('PATH_SNAG_PHAR', DIR_ROOT . DIR_INC . FILE_SNAG);
         /* Defining the path to Guzzle phar file. */
         define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE);
         /* Defining the path to the cockpit bootstrap file. */
@@ -573,11 +573,11 @@ class constants
 
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-        foreach (array(DIR_GUZZLE, DIR_PSR, DIR_BUGSNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+        foreach (array(DIR_GUZZLE, DIR_PSR, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
 
         // Reporting
-        /* Setting the token to the bugsnag key. */
-        self::set(VAR_BUGSNAG, \yxorP\bugsnag\Client::make(ENV_BUG_SNAG_KEY));
+        /* Setting the token to the snag key. */
+        self::set(VAR_SNAG, \yxorP\snag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token GUZZLE to a new instance of the GuzzleHttp\Client class. */
         self::set(VAR_GUZZLE, new Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */

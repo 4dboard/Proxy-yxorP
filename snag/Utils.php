@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use Normalizer;
 

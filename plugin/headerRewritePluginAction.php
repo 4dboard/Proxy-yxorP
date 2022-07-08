@@ -39,8 +39,8 @@ class headerRewritePluginAction extends wrapper
         if ($response->headers->has('location')) self::headersReceived($response, $request_url);
         $code = $response->getStatusCode();
         /* It's checking if the status code of the response is between 400 and 600 and if it is, it's sending an error to
-        constants::get(VAR_BUGSNAG). */
-        if ($code >= 400 && $code <= 600) constants::get(VAR_BUGSNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
+        constants::get(VAR_SNAG). */
+        if ($code >= 400 && $code <= 600) constants::get(VAR_SNAG)->notifyException(new RuntimeException("Error accessing resource: $code - $response->getStatusText()"));
         /* It's an array of headers that should be forwarded to the client. */
         $forward_headers = array(VAR_CONTENT_TYPE, 'zzzcontent-length', 'accept-ranges', 'content-range', 'content-disposition', 'location', 'set-cookie');
         /* It's removing all headers that aren't in the `$forward_headers` array. */

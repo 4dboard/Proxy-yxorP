@@ -1,10 +1,10 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use Exception;
 use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
-use yxorP\bugsnag\DateTime\Date;
-use yxorP\bugsnag\Internal\GuzzleCompat;
+use yxorP\snag\DateTime\Date;
+use yxorP\snag\Internal\GuzzleCompat;
 use yxorP\guzzle\ClientInterface;
 
 class HttpClient
@@ -44,7 +44,7 @@ class HttpClient
     {
         $app = $this->config->getAppData();
         if (!isset($app['version'])) {
-            error_log('Bugsnag Warning: App version is not set. Unable to send build report.');
+            error_log('Snag Warning: App version is not set. Unable to send build report.');
             return;
         }
         $data = ['appVersion' => $app['version']];
@@ -69,7 +69,7 @@ class HttpClient
         if (isset($buildInfo['buildTool'])) {
             $data['buildTool'] = $buildInfo['buildTool'];
         } else {
-            $data['buildTool'] = 'bugsnag-php';
+            $data['buildTool'] = 'snag-php';
         }
         $data['releaseStage'] = $app['releaseStage'];
         $data['apiKey'] = $this->config->getApiKey();
@@ -114,14 +114,14 @@ class HttpClient
                 $this->deliverEvents($uri, array_merge($data, ['events' => [$event]]));
                 $this->deliverEvents($uri, $data);
             } else {
-                error_log('Bugsnag Warning: ' . $e->getMessage());
+                error_log('Snag Warning: ' . $e->getMessage());
             }
             return;
         }
         try {
             $this->post($uri, ['body' => $normalized, 'headers' => $this->getHeaders(),]);
         } catch (Exception $e) {
-            error_log('Bugsnag Warning: Couldn\'t notify. ' . $e->getMessage());
+            error_log('Snag Warning: Couldn\'t notify. ' . $e->getMessage());
         }
     }
 
@@ -144,9 +144,9 @@ class HttpClient
         return function_exists('mb_strlen') ? mb_strlen($str, '8bit') : strlen($str);
     }
 
-    #[ArrayShape(['Bugsnag-Api-Key' => "string", 'Bugsnag-Sent-At' => "string", 'Bugsnag-Payload-Version' => "mixed|string", 'Content-Type' => "string"])] protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION): array
+    #[ArrayShape(['Snag-Api-Key' => "string", 'Snag-Sent-At' => "string", 'Snag-Payload-Version' => "mixed|string", 'Content-Type' => "string"])] protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION): array
     {
-        return ['Bugsnag-Api-Key' => $this->config->getApiKey(), 'Bugsnag-Sent-At' => Date::now(), 'Bugsnag-Payload-Version' => $version, 'Content-Type' => 'application/json',];
+        return ['Snag-Api-Key' => $this->config->getApiKey(), 'Snag-Sent-At' => Date::now(), 'Snag-Payload-Version' => $version, 'Content-Type' => 'application/json',];
     }
 
     #[ArrayShape(['apiKey' => "string", 'notifier' => "string[]", 'events' => "array"])] protected function getEventPayload(): array

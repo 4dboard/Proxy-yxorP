@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 class Pipeline
 {
     private array $pipes;

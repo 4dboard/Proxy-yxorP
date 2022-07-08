@@ -1,6 +1,6 @@
-<?php namespace yxorP\bugsnag\Middleware;
+<?php namespace yxorP\snag\Middleware;
 
-use yxorP\bugsnag\Report;
+use yxorP\snag\Report;
 
 class CallbackBridge
 {

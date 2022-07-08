@@ -1,9 +1,9 @@
-<?php namespace yxorP\bugsnag\Middleware;
+<?php namespace yxorP\snag\Middleware;
 
-use Bugsnag\SessionTracker;
+use Snag\SessionTracker;
 use JetBrains\PhpStorm\Pure;
-use yxorP\bugsnag\Client;
-use yxorP\bugsnag\Report;
+use yxorP\snag\Client;
+use yxorP\snag\Report;
 
 class SessionData
 {

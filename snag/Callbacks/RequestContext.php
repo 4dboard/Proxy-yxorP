@@ -1,7 +1,7 @@
-<?php namespace yxorP\bugsnag\Callbacks;
+<?php namespace yxorP\snag\Callbacks;
 
-use yxorP\bugsnag\Report;
-use yxorP\bugsnag\Request\ResolverInterface;
+use yxorP\snag\Report;
+use yxorP\snag\Request\ResolverInterface;
 
 class RequestContext
 {

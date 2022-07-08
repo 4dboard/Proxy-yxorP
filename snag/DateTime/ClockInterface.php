@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag\DateTime;
+<?php namespace yxorP\snag\DateTime;
 
 interface ClockInterface
 {

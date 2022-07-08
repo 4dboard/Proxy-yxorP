@@ -1,4 +1,4 @@
-<?php namespace yxorP\bugsnag;
+<?php namespace yxorP\snag;
 
 use InvalidArgumentException;
 use RuntimeException;
@@ -26,7 +26,7 @@ class Stacktrace
     {
         $stacktrace = new static($config);
         foreach ($backtrace as $frame) {
-            if (!static::frameInsideBugsnag($frame)) {
+            if (!static::frameInsideSnag($frame)) {
                 $stacktrace->addFrame($topFile, $topLine, $frame['function'] ?? null, $frame['class'] ?? null);
             }
             if (isset($frame['file']) && isset($frame['line'])) {
@@ -41,9 +41,9 @@ class Stacktrace
         return $stacktrace;
     }
 
-    public static function frameInsideBugsnag(array $frame): bool
+    public static function frameInsideSnag(array $frame): bool
     {
-        return isset($frame['class']) && str_starts_with($frame['class'], 'Bugsnag\\') && substr_count($frame['class'], '\\') === 1;
+        return isset($frame['class']) && str_starts_with($frame['class'], 'Snag\\') && substr_count($frame['class'], '\\') === 1;
     }
 
     public static function fromFrame(Configuration $config, $file, $line): static
