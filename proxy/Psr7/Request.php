@@ -70,7 +70,7 @@ class Request implements RequestInterface
         return $target;
     }
 
-    public function withRequestTarget($requestTarget): mixed
+    public function withRequestTarget($requestTarget): string
     {
         if (preg_match('#\s#', $requestTarget)) {
             throw new InvalidArgumentException('Invalid request target provided; cannot contain whitespace');
