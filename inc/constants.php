@@ -7,7 +7,7 @@ namespace yxorP\inc;
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 use yxorP\parse\parse;
-use yxorP\parser\aaDomain;
+use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\parser\Rules;
@@ -718,7 +718,7 @@ class constants
     {
 
         $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
-        $domain = aaDomain::fromIDNA2008($domain);
+        $domain = domain::fromIDNA2008($domain);
 
 
         return $publicSuffixList->resolve($domain);
