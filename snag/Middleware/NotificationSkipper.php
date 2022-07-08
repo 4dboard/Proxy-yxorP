@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Middleware;
+namespace yxorP\snag\Middleware;
 
 use Bugsnag\Configuration;
 use Bugsnag\Report;
@@ -30,7 +30,7 @@ class NotificationSkipper
      * Execute the notification skipper middleware.
      *
      * @param \Bugsnag\Report $report the bugsnag report instance
-     * @param callable        $next   the next stage callback
+     * @param callable $next the next stage callback
      *
      * @return void
      */

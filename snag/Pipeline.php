@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 class Pipeline
 {
@@ -67,7 +67,7 @@ class Pipeline
     /**
      * Run the pipeline.
      *
-     * @param mixed    $passable    the item to send through the pipeline
+     * @param mixed $passable the item to send through the pipeline
      * @param callable $destination the final distination callback
      *
      * @return mixed

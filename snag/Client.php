@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 use Bugsnag\Breadcrumbs\Breadcrumb;
 use Bugsnag\Breadcrumbs\Recorder;
@@ -32,49 +32,6 @@ class Client
      * @deprecated Use {@see Configuration::NOTIFY_ENDPOINT} instead.
      */
     const ENDPOINT = Configuration::NOTIFY_ENDPOINT;
-
-    /**
-     * The config instance.
-     *
-     * @var \Bugsnag\Configuration
-     */
-    protected $config;
-
-    /**
-     * The request resolver instance.
-     *
-     * @var \Bugsnag\Request\ResolverInterface
-     */
-    protected $resolver;
-
-    /**
-     * The breadcrumb recorder instance.
-     *
-     * @var \Bugsnag\Breadcrumbs\Recorder
-     */
-    protected $recorder;
-
-    /**
-     * The notification pipeline instance.
-     *
-     * @var \Bugsnag\Pipeline
-     */
-    protected $pipeline;
-
-    /**
-     * The http client instance.
-     *
-     * @var \Bugsnag\HttpClient
-     */
-    protected $http;
-
-    /**
-     * The session tracker instance.
-     *
-     * @var \Bugsnag\SessionTracker
-     */
-    protected $sessionTracker;
-
     /**
      * Default HTTP timeout, in seconds.
      *
@@ -83,37 +40,42 @@ class Client
      * @var float
      */
     const DEFAULT_TIMEOUT_S = 15.0;
-
     /**
-     * Make a new client instance.
+     * The config instance.
      *
-     * If you don't pass in a key, we'll try to read it from the env variables.
-     *
-     * @param string|null $apiKey         your bugsnag api key
-     * @param string|null $notifyEndpoint your bugsnag notify endpoint
-     * @param bool        $defaults       if we should register our default callbacks
-     *
-     * @return static
+     * @var \Bugsnag\Configuration
      */
-    public static function make(
-        $apiKey = null,
-        $notifyEndpoint = null,
-        $defaults = true
-    ) {
-        $env = new Env();
-
-        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
-        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
-
-        // @phpstan-ignore-next-line
-        $client = new static($config, null, $guzzle);
-
-        if ($defaults) {
-            $client->registerDefaultCallbacks();
-        }
-
-        return $client;
-    }
+    protected $config;
+    /**
+     * The request resolver instance.
+     *
+     * @var \Bugsnag\Request\ResolverInterface
+     */
+    protected $resolver;
+    /**
+     * The breadcrumb recorder instance.
+     *
+     * @var \Bugsnag\Breadcrumbs\Recorder
+     */
+    protected $recorder;
+    /**
+     * The notification pipeline instance.
+     *
+     * @var \Bugsnag\Pipeline
+     */
+    protected $pipeline;
+    /**
+     * The http client instance.
+     *
+     * @var \Bugsnag\HttpClient
+     */
+    protected $http;
+    /**
+     * The session tracker instance.
+     *
+     * @var \Bugsnag\SessionTracker
+     */
+    protected $sessionTracker;
 
     /**
      * @param \Bugsnag\Configuration $config
@@ -122,11 +84,12 @@ class Client
      * @param \Bugsnag\Shutdown\ShutdownStrategyInterface|null $shutdownStrategy
      */
     public function __construct(
-        Configuration $config,
-        ResolverInterface $resolver = null,
+        Configuration              $config,
+        ResolverInterface          $resolver = null,
         GuzzleHttp\ClientInterface $guzzle = null,
-        ShutdownStrategyInterface $shutdownStrategy = null
-    ) {
+        ShutdownStrategyInterface  $shutdownStrategy = null
+    )
+    {
         $guzzle = $guzzle ?: self::makeGuzzle();
 
         $this->syncNotifyEndpointWithGuzzleBaseUri($config, $guzzle);
@@ -149,10 +112,42 @@ class Client
     }
 
     /**
+     * Make a new client instance.
+     *
+     * If you don't pass in a key, we'll try to read it from the env variables.
+     *
+     * @param string|null $apiKey your bugsnag api key
+     * @param string|null $notifyEndpoint your bugsnag notify endpoint
+     * @param bool $defaults if we should register our default callbacks
+     *
+     * @return static
+     */
+    public static function make(
+        $apiKey = null,
+        $notifyEndpoint = null,
+        $defaults = true
+    )
+    {
+        $env = new Env();
+
+        $config = new Configuration($apiKey ?: $env->get('BUGSNAG_API_KEY'));
+        $guzzle = static::makeGuzzle($notifyEndpoint ?: $env->get('BUGSNAG_ENDPOINT'));
+
+        // @phpstan-ignore-next-line
+        $client = new static($config, null, $guzzle);
+
+        if ($defaults) {
+            $client->registerDefaultCallbacks();
+        }
+
+        return $client;
+    }
+
+    /**
      * Make a new guzzle client instance.
      *
      * @param string|null $base
-     * @param array       $options
+     * @param array $options
      *
      * @return GuzzleHttp\ClientInterface
      */
@@ -161,6 +156,20 @@ class Client
         $options = self::resolveGuzzleOptions($base, $options);
 
         return new GuzzleHttp\Client($options);
+    }
+
+    /**
+     * Get the ca bundle path if one exists.
+     *
+     * @return string|false
+     */
+    protected static function getCaBundlePath()
+    {
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+
+        return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
     /**
@@ -187,46 +196,6 @@ class Client
                 'connect_timeout' => self::DEFAULT_TIMEOUT_S,
             ]
         );
-    }
-
-    /**
-     * Ensure the notify endpoint is synchronised with Guzzle's base URL.
-     *
-     * @param \Bugsnag\Configuration $configuration
-     * @param \GuzzleHttp\ClientInterface $guzzle
-     *
-     * @return void
-     */
-    private function syncNotifyEndpointWithGuzzleBaseUri(
-        Configuration $configuration,
-        GuzzleHttp\ClientInterface $guzzle
-    ) {
-        // Don't change the endpoint if one is already set, otherwise we could be
-        // resetting it back to the default as the Guzzle base URL will always
-        // be set by 'makeGuzzle'.
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-
-        $base = GuzzleCompat::getBaseUri($guzzle);
-
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string) $base);
-        }
-    }
-
-    /**
-     * Get the ca bundle path if one exists.
-     *
-     * @return string|false
-     */
-    protected static function getCaBundlePath()
-    {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-
-        return realpath(CaBundle::getSystemCaRootBundlePath());
     }
 
     /**
@@ -271,10 +240,10 @@ class Client
     public function registerDefaultCallbacks()
     {
         $this->registerCallback(new GlobalMetaData($this->config))
-             ->registerCallback(new RequestMetaData($this->resolver))
-             ->registerCallback(new RequestSession($this->resolver))
-             ->registerCallback(new RequestUser($this->resolver))
-             ->registerCallback(new RequestContext($this->resolver));
+            ->registerCallback(new RequestMetaData($this->resolver))
+            ->registerCallback(new RequestSession($this->resolver))
+            ->registerCallback(new RequestUser($this->resolver))
+            ->registerCallback(new RequestContext($this->resolver));
 
         return $this;
     }
@@ -296,9 +265,9 @@ class Client
     /**
      * Record the given breadcrumb.
      *
-     * @param string      $name     the name of the breadcrumb
-     * @param string|null $type     the type of breadcrumb
-     * @param array       $metaData additional information about the breadcrumb
+     * @param string $name the name of the breadcrumb
+     * @param string|null $type the type of breadcrumb
+     * @param array $metaData additional information about the breadcrumb
      *
      * @return void
      */
@@ -322,8 +291,8 @@ class Client
     /**
      * Notify Bugsnag of a non-fatal/handled throwable.
      *
-     * @param \Throwable    $throwable the throwable to notify Bugsnag about
-     * @param callable|null $callback  the customization callback
+     * @param \Throwable $throwable the throwable to notify Bugsnag about
+     * @param callable|null $callback the customization callback
      *
      * @return void
      */
@@ -337,8 +306,8 @@ class Client
     /**
      * Notify Bugsnag of a non-fatal/handled error.
      *
-     * @param string        $name     the name of the error, a short (1 word) string
-     * @param string        $message  the error message
+     * @param string $name the name of the error, a short (1 word) string
+     * @param string $message the error message
      * @param callable|null $callback the customization callback
      *
      * @return void
@@ -355,8 +324,8 @@ class Client
      *
      * This may simply involve queuing it for later if we're batching.
      *
-     * @param \Bugsnag\Report $report   the error report to send
-     * @param callable|null   $callback the customization callback
+     * @param \Bugsnag\Report $report the error report to send
+     * @param callable|null $callback the customization callback
      *
      * @return void
      */
@@ -391,8 +360,8 @@ class Client
      * Notify Bugsnag of a deployment.
      *
      * @param string|null $repository the repository from which you are deploying the code
-     * @param string|null $branch     the source control branch from which you are deploying
-     * @param string|null $revision   the source control revision you are currently deploying
+     * @param string|null $branch the source control branch from which you are deploying
+     * @param string|null $revision the source control revision you are currently deploying
      *
      * @return void
      *
@@ -406,9 +375,9 @@ class Client
     /**
      * Notify Bugsnag of a build.
      *
-     * @param string|null $repository  the repository from which you are deploying the code
-     * @param string|null $revision    the source control revision you are currently deploying
-     * @param string|null $provider    the provider of the source control for the build
+     * @param string|null $repository the repository from which you are deploying the code
+     * @param string|null $revision the source control revision you are currently deploying
+     * @param string|null $provider the provider of the source control for the build
      * @param string|null $builderName the name of who or what is making the build
      *
      * @return void
@@ -466,8 +435,6 @@ class Client
         return $this->sessionTracker;
     }
 
-    // Forward calls to Configuration:
-
     /**
      * Get the Bugsnag API Key.
      *
@@ -477,6 +444,8 @@ class Client
     {
         return $this->config->getApiKey();
     }
+
+    // Forward calls to Configuration:
 
     /**
      * Sets whether errors should be batched together and send at the end of each request.
@@ -533,11 +502,11 @@ class Client
      *
      * Eg. ['password', 'credit_card'].
      *
-     * @deprecated Use redactedKeys instead
-     *
      * @param string[] $filters an array of metaData filters
      *
      * @return $this
+     * @deprecated Use redactedKeys instead
+     *
      */
     public function setFilters(array $filters)
     {
@@ -549,9 +518,9 @@ class Client
     /**
      * Get the array of metaData filters.
      *
+     * @return string[]
      * @deprecated Use redactedKeys instead
      *
-     * @return string[]
      */
     public function getFilters()
     {
@@ -785,7 +754,7 @@ class Client
      * Bugsnag dashboard.
      *
      * @param array[] $metaData an array of arrays of custom data
-     * @param bool    $merge    should we merge the meta data
+     * @param bool $merge should we merge the meta data
      *
      * @return $this
      */
@@ -1017,5 +986,32 @@ class Client
     public function getRedactedKeys()
     {
         return $this->config->getRedactedKeys();
+    }
+
+    /**
+     * Ensure the notify endpoint is synchronised with Guzzle's base URL.
+     *
+     * @param \Bugsnag\Configuration $configuration
+     * @param \GuzzleHttp\ClientInterface $guzzle
+     *
+     * @return void
+     */
+    private function syncNotifyEndpointWithGuzzleBaseUri(
+        Configuration              $configuration,
+        GuzzleHttp\ClientInterface $guzzle
+    )
+    {
+        // Don't change the endpoint if one is already set, otherwise we could be
+        // resetting it back to the default as the Guzzle base URL will always
+        // be set by 'makeGuzzle'.
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+
+        $base = GuzzleCompat::getBaseUri($guzzle);
+
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
     }
 }

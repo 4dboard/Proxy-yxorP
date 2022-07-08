@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Breadcrumbs;
+namespace yxorP\snag\Breadcrumbs;
 
 use Bugsnag\DateTime\Date;
 use InvalidArgumentException;
@@ -101,13 +101,13 @@ class Breadcrumb
     /**
      * Create a new breadcrumb instance.
      *
-     * @param string $name     the name of the breadcrumb
-     * @param string $type     the type of breadcrumb
-     * @param array  $metaData additional information about the breadcrumb
-     *
-     * @throws \InvalidArgumentException
+     * @param string $name the name of the breadcrumb
+     * @param string $type the type of breadcrumb
+     * @param array $metaData additional information about the breadcrumb
      *
      * @return void
+     * @throws \InvalidArgumentException
+     *
      */
     public function __construct($name, $type, array $metaData = [])
     {
@@ -116,7 +116,7 @@ class Breadcrumb
                 $metaData['BreadcrumbError'] = 'NULL provided as the breadcrumb name';
                 $name = '<no name>';
             } else {
-                $metaData['BreadcrumbError'] = 'Breadcrumb name must be a string - '.gettype($name).' provided instead';
+                $metaData['BreadcrumbError'] = 'Breadcrumb name must be a string - ' . gettype($name) . ' provided instead';
                 $name = '<no name>';
             }
         } elseif ($name === '') {
@@ -134,6 +134,25 @@ class Breadcrumb
         $this->name = $name;
         $this->type = $type;
         $this->metaData = $metaData;
+    }
+
+    /**
+     * Get the set of valid breadrum types.
+     *
+     * @return array
+     */
+    public static function getTypes()
+    {
+        return [
+            static::NAVIGATION_TYPE,
+            static::REQUEST_TYPE,
+            static::PROCESS_TYPE,
+            static::LOG_TYPE,
+            static::USER_TYPE,
+            static::STATE_TYPE,
+            static::ERROR_TYPE,
+            static::MANUAL_TYPE,
+        ];
     }
 
     /**
@@ -162,24 +181,5 @@ class Breadcrumb
     public function getMetaData()
     {
         return $this->metaData;
-    }
-
-    /**
-     * Get the set of valid breadrum types.
-     *
-     * @return array
-     */
-    public static function getTypes()
-    {
-        return [
-            static::NAVIGATION_TYPE,
-            static::REQUEST_TYPE,
-            static::PROCESS_TYPE,
-            static::LOG_TYPE,
-            static::USER_TYPE,
-            static::STATE_TYPE,
-            static::ERROR_TYPE,
-            static::MANUAL_TYPE,
-        ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 use InvalidArgumentException;
 use RuntimeException;
@@ -37,6 +37,18 @@ class Stacktrace
     protected $frames = [];
 
     /**
+     * Create a new stacktrace instance.
+     *
+     * @param \Bugsnag\Configuration $config the configuration instance
+     *
+     * @return void
+     */
+    public function __construct(Configuration $config)
+    {
+        $this->config = $config;
+    }
+
+    /**
      * Generate a new stacktrace using the given config.
      *
      * @param \Bugsnag\Configuration $config the configuration instance
@@ -55,8 +67,8 @@ class Stacktrace
      * Create a new stacktrace instance from a frame.
      *
      * @param \Bugsnag\Configuration $config the configuration instance
-     * @param string                 $file   the associated file
-     * @param int                    $line   the line number
+     * @param string $file the associated file
+     * @param int $line the line number
      *
      * @return static
      */
@@ -72,10 +84,10 @@ class Stacktrace
     /**
      * Create a new stacktrace instance from a backtrace.
      *
-     * @param \Bugsnag\Configuration $config    the configuration instance
-     * @param array                  $backtrace the associated backtrace
-     * @param string                 $topFile   the top file to use
-     * @param int                    $topLine   the top line to use
+     * @param \Bugsnag\Configuration $config the configuration instance
+     * @param array $backtrace the associated backtrace
+     * @param string $topFile the top file to use
+     * @param int $topLine the top line to use
      *
      * @return static
      */
@@ -123,15 +135,26 @@ class Stacktrace
     }
 
     /**
-     * Create a new stacktrace instance.
+     * Get the start and end positions for the given line.
      *
-     * @param \Bugsnag\Configuration $config the configuration instance
+     * @param int $line the line to centre about
+     * @param int $num the number of lines to fetch
+     * @param int $max the maximum line number
      *
-     * @return void
+     * @return int[]
      */
-    public function __construct(Configuration $config)
+    protected static function getBounds($line, $num, $max)
     {
-        $this->config = $config;
+        $start = max($line - floor($num / 2), 1);
+
+        $end = $start + ($num - 1);
+
+        if ($end > $max) {
+            $end = $max;
+            $start = max($end - ($num - 1), 1);
+        }
+
+        return [$start, $end];
     }
 
     /**
@@ -159,10 +182,10 @@ class Stacktrace
     /**
      * Add the given frame to the stacktrace.
      *
-     * @param string      $file   the associated file
-     * @param int         $line   the line number
-     * @param string      $method the method called
-     * @param string|null $class  the associated class
+     * @param string $file the associated file
+     * @param int $line the line number
+     * @param string $method the method called
+     * @param string|null $class the associated class
      *
      * @return void
      */
@@ -177,7 +200,7 @@ class Stacktrace
 
         // Construct the frame
         $frame = [
-            'lineNumber' => (int) $line,
+            'lineNumber' => (int)$line,
             'method' => $class ? "$class::$method" : $method,
         ];
 
@@ -200,9 +223,9 @@ class Stacktrace
      *
      * @param int $index
      *
+     * @return void
      * @throws \InvalidArgumentException
      *
-     * @return void
      */
     public function removeFrame($index)
     {
@@ -246,28 +269,5 @@ class Stacktrace
         } catch (RuntimeException $ex) {
             return null;
         }
-    }
-
-    /**
-     * Get the start and end positions for the given line.
-     *
-     * @param int $line the line to centre about
-     * @param int $num the number of lines to fetch
-     * @param int $max the maximum line number
-     *
-     * @return int[]
-     */
-    protected static function getBounds($line, $num, $max)
-    {
-        $start = max($line - floor($num / 2), 1);
-
-        $end = $start + ($num - 1);
-
-        if ($end > $max) {
-            $end = $max;
-            $start = max($end - ($num - 1), 1);
-        }
-
-        return [$start, $end];
     }
 }

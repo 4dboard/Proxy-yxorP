@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 use Exception;
 use InvalidArgumentException;
@@ -111,8 +111,8 @@ class SessionTracker
     protected $currentSession = [];
 
     /**
-     * @param Configuration   $config
-     * @param HttpClient|null $http   A HttpClient instance to use. Passing null
+     * @param Configuration $config
+     * @param HttpClient|null $http A HttpClient instance to use. Passing null
      *                                is deprecated and $http will be required
      *                                in the next major version.
      */
@@ -157,20 +157,6 @@ class SessionTracker
     }
 
     /**
-     * @param array $session
-     *
-     * @return void
-     */
-    public function setCurrentSession(array $session)
-    {
-        if (is_callable($this->sessionFunction)) {
-            call_user_func($this->sessionFunction, $session);
-        } else {
-            $this->currentSession = $session;
-        }
-    }
-
-    /**
      * @return array
      */
     public function getCurrentSession()
@@ -186,6 +172,20 @@ class SessionTracker
         }
 
         return $this->currentSession;
+    }
+
+    /**
+     * @param array $session
+     *
+     * @return void
+     */
+    public function setCurrentSession(array $session)
+    {
+        if (is_callable($this->sessionFunction)) {
+            call_user_func($this->sessionFunction, $session);
+        } else {
+            $this->currentSession = $session;
+        }
     }
 
     /**
@@ -403,7 +403,7 @@ class SessionTracker
         try {
             $this->http->sendSessions($payload);
         } catch (Exception $e) {
-            error_log('Bugsnag Warning: Couldn\'t notify. '.$e->getMessage());
+            error_log('Bugsnag Warning: Couldn\'t notify. ' . $e->getMessage());
 
             if (is_callable($this->retryFunction)) {
                 call_user_func($this->retryFunction, $sessions);
@@ -412,20 +412,6 @@ class SessionTracker
                     $this->incrementSessions($minute, $count, false);
                 }
             }
-        }
-    }
-
-    /**
-     * @return void
-     */
-    protected function setLastSent()
-    {
-        $time = time();
-
-        if (is_callable($this->storageFunction)) {
-            call_user_func($this->storageFunction, self::$SESSIONS_LAST_SENT_KEY, $time);
-        } else {
-            $this->lastSent = $time;
         }
     }
 
@@ -442,12 +428,26 @@ class SessionTracker
             // note: some invalid integers pass 'is_numeric' (e.g. bigger than
             // PHP_INT_MAX) but these get cast to '0', which is the default anyway
             if (is_numeric($lastSent)) {
-                return (int) $lastSent;
+                return (int)$lastSent;
             }
 
             return 0;
         }
 
         return $this->lastSent;
+    }
+
+    /**
+     * @return void
+     */
+    protected function setLastSent()
+    {
+        $time = time();
+
+        if (is_callable($this->storageFunction)) {
+            call_user_func($this->storageFunction, self::$SESSIONS_LAST_SENT_KEY, $time);
+        } else {
+            $this->lastSent = $time;
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Middleware;
+namespace yxorP\snag\Middleware;
 
 use Bugsnag\Breadcrumbs\Recorder;
 use Bugsnag\Report;
@@ -30,7 +30,7 @@ class BreadcrumbData
      * Execute the breadcrumb data middleware.
      *
      * @param \Bugsnag\Report $report the bugsnag report instance
-     * @param callable        $next   the next stage callback
+     * @param callable $next the next stage callback
      *
      * @return void
      */

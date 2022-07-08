@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\DateTime;
+namespace yxorP\snag\DateTime;
 
 use DateTimeImmutable;
 

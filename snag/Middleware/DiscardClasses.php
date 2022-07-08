@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Middleware;
+namespace yxorP\snag\Middleware;
 
 use Bugsnag\Configuration;
 use Bugsnag\Report;
@@ -22,7 +22,7 @@ class DiscardClasses
 
     /**
      * @param \Bugsnag\Report $report
-     * @param callable        $next
+     * @param callable $next
      *
      * @return void
      */

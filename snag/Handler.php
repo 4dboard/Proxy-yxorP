@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 use Exception;
 use Throwable;
@@ -8,26 +8,32 @@ use Throwable;
 class Handler
 {
     /**
+     * Whether the shutdown handler will run.
+     *
+     * This is used to disable the shutdown handler in order to avoid double
+     * reporting exceptions when trying to run the native PHP exception handler.
+     *
+     * @var bool
+     */
+    private static $enableShutdownHandler = true;
+    /**
      * The client instance.
      *
      * @var \Bugsnag\Client
      */
     protected $client;
-
     /**
      * The previously registered error handler.
      *
      * @var callable|null
      */
     protected $previousErrorHandler;
-
     /**
      * The previously registered exception handler.
      *
      * @var callable|null
      */
     protected $previousExceptionHandler;
-
     /**
      * A bit of reserved memory to ensure we are able to increase the memory
      * limit on an OOM.
@@ -39,7 +45,6 @@ class Handler
      * @var string|null
      */
     private $reservedMemory;
-
     /**
      * A regex that matches PHP OOM errors.
      *
@@ -48,14 +53,16 @@ class Handler
     private $oomRegex = '/^Allowed memory size of (\d+) bytes exhausted \(tried to allocate \d+ bytes\)/';
 
     /**
-     * Whether the shutdown handler will run.
+     * Create a new exception handler instance.
      *
-     * This is used to disable the shutdown handler in order to avoid double
-     * reporting exceptions when trying to run the native PHP exception handler.
+     * @param \Bugsnag\Client $client
      *
-     * @var bool
+     * @return void
      */
-    private static $enableShutdownHandler = true;
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
 
     /**
      * Register our handlers.
@@ -89,20 +96,6 @@ class Handler
     public static function registerWithPrevious($client = null)
     {
         return self::register($client);
-    }
-
-    /**
-     * Register our handlers, optionally saving those previously registered.
-     *
-     * @param bool $callPrevious whether or not to call the previous handlers
-     *
-     * @return void
-     */
-    protected function registerBugsnagHandlers($callPrevious)
-    {
-        $this->registerErrorHandler($callPrevious);
-        $this->registerExceptionHandler($callPrevious);
-        $this->registerShutdownHandler();
     }
 
     /**
@@ -163,18 +156,6 @@ class Handler
     }
 
     /**
-     * Create a new exception handler instance.
-     *
-     * @param \Bugsnag\Client $client
-     *
-     * @return void
-     */
-    public function __construct(Client $client)
-    {
-        $this->client = $client;
-    }
-
-    /**
      * Exception handler callback.
      *
      * @param Throwable $throwable the exception was was thrown
@@ -220,33 +201,12 @@ class Handler
     }
 
     /**
-     * Send a notification for the given throwable.
-     *
-     * @param Throwable $throwable
-     *
-     * @return void
-     */
-    private function notifyThrowable($throwable)
-    {
-        $report = Report::fromPHPThrowable(
-            $this->client->getConfig(),
-            $throwable
-        );
-
-        $report->setSeverity('error');
-        $report->setUnhandled(true);
-        $report->setSeverityReason(['type' => 'unhandledException']);
-
-        $this->client->notify($report);
-    }
-
-    /**
      * Error handler callback.
      *
-     * @param int    $errno   the level of the error raised
-     * @param string $errstr  the error message
+     * @param int $errno the level of the error raised
+     * @param string $errstr the error message
      * @param string $errfile the filename that the error was raised in
-     * @param int    $errline the line number the error was raised at
+     * @param int $errline the line number the error was raised at
      *
      * @return bool
      */
@@ -310,10 +270,10 @@ class Handler
             && $this->client->getMemoryLimitIncrease() !== null
             && preg_match($this->oomRegex, $lastError['message'], $matches) === 1
         ) {
-            $currentMemoryLimit = (int) $matches[1];
+            $currentMemoryLimit = (int)$matches[1];
             $newMemoryLimit = $currentMemoryLimit + $this->client->getMemoryLimitIncrease();
 
-            ini_set('memory_limit', (string) $newMemoryLimit);
+            ini_set('memory_limit', (string)$newMemoryLimit);
         }
 
         // Check if a fatal error caused this shutdown
@@ -338,5 +298,40 @@ class Handler
 
         // Flush any buffered errors
         $this->client->flush();
+    }
+
+    /**
+     * Register our handlers, optionally saving those previously registered.
+     *
+     * @param bool $callPrevious whether or not to call the previous handlers
+     *
+     * @return void
+     */
+    protected function registerBugsnagHandlers($callPrevious)
+    {
+        $this->registerErrorHandler($callPrevious);
+        $this->registerExceptionHandler($callPrevious);
+        $this->registerShutdownHandler();
+    }
+
+    /**
+     * Send a notification for the given throwable.
+     *
+     * @param Throwable $throwable
+     *
+     * @return void
+     */
+    private function notifyThrowable($throwable)
+    {
+        $report = Report::fromPHPThrowable(
+            $this->client->getConfig(),
+            $throwable
+        );
+
+        $report->setSeverity('error');
+        $report->setUnhandled(true);
+        $report->setSeverityReason(['type' => 'unhandledException']);
+
+        $this->client->notify($report);
     }
 }

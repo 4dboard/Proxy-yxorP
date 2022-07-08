@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Request;
+namespace yxorP\snag\Request;
 
 class ConsoleRequest implements RequestInterface
 {
@@ -62,7 +62,7 @@ class ConsoleRequest implements RequestInterface
     {
         if (count($this->command) == 0) {
             return ['console' => [
-                'Command' => 'Command could not be retrieved', ],
+                'Command' => 'Command could not be retrieved',],
             ];
         }
         $commandString = implode(' ', $this->command);

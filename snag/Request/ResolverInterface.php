@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Request;
+namespace yxorP\snag\Request;
 
 interface ResolverInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Breadcrumbs;
+namespace yxorP\snag\Breadcrumbs;
 
 use Countable;
 use Iterator;

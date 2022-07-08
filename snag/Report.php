@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 use BackedEnum;
 use Bugsnag\Breadcrumbs\Breadcrumb;
@@ -132,73 +132,6 @@ class Report
     protected $session;
 
     /**
-     * Create a new report from a PHP error.
-     *
-     * @param \Bugsnag\Configuration $config         the config instance
-     * @param int                    $code           the error code
-     * @param string|null            $message        the error message
-     * @param string                 $file           the error file
-     * @param int                    $line           the error line
-     * @param bool                   $fatal          if the error was fatal
-     *
-     * @return static
-     */
-    public static function fromPHPError(Configuration $config, $code, $message, $file, $line, $fatal = false)
-    {
-        // @phpstan-ignore-next-line
-        $report = new static($config);
-
-        $report->setPHPError($code, $message, $file, $line, $fatal)
-               ->setUnhandled(false)
-               ->setSeverityReason(['type' => 'handledError']);
-
-        return $report;
-    }
-
-    /**
-     * Create a new report from a PHP throwable.
-     *
-     * @param \Bugsnag\Configuration $config         the config instance
-     * @param \Throwable             $throwable      the throwable instance
-     *
-     * @return static
-     */
-    public static function fromPHPThrowable(Configuration $config, $throwable)
-    {
-        // @phpstan-ignore-next-line
-        $report = new static($config);
-
-        $report->setPHPThrowable($throwable)
-               ->setUnhandled(false)
-               ->setSeverityReason(['type' => 'handledException']);
-
-        return $report;
-    }
-
-    /**
-     * Create a new report from a named error.
-     *
-     * @param \Bugsnag\Configuration $config  the config instance
-     * @param string                 $name    the error name
-     * @param string|null            $message the error message
-     *
-     * @return static
-     */
-    public static function fromNamedError(Configuration $config, $name, $message = null)
-    {
-        // @phpstan-ignore-next-line
-        $report = new static($config);
-
-        $report->setName($name)
-              ->setMessage($message)
-              ->setStacktrace(Stacktrace::generate($config))
-              ->setUnhandled(false)
-              ->setSeverityReason(['type' => 'handledError']);
-
-        return $report;
-    }
-
-    /**
      * Create a new report instance.
      *
      * This is only for for use only by the static methods above.
@@ -211,6 +144,73 @@ class Report
     {
         $this->config = $config;
         $this->time = Date::now();
+    }
+
+    /**
+     * Create a new report from a PHP error.
+     *
+     * @param \Bugsnag\Configuration $config the config instance
+     * @param int $code the error code
+     * @param string|null $message the error message
+     * @param string $file the error file
+     * @param int $line the error line
+     * @param bool $fatal if the error was fatal
+     *
+     * @return static
+     */
+    public static function fromPHPError(Configuration $config, $code, $message, $file, $line, $fatal = false)
+    {
+        // @phpstan-ignore-next-line
+        $report = new static($config);
+
+        $report->setPHPError($code, $message, $file, $line, $fatal)
+            ->setUnhandled(false)
+            ->setSeverityReason(['type' => 'handledError']);
+
+        return $report;
+    }
+
+    /**
+     * Create a new report from a PHP throwable.
+     *
+     * @param \Bugsnag\Configuration $config the config instance
+     * @param \Throwable $throwable the throwable instance
+     *
+     * @return static
+     */
+    public static function fromPHPThrowable(Configuration $config, $throwable)
+    {
+        // @phpstan-ignore-next-line
+        $report = new static($config);
+
+        $report->setPHPThrowable($throwable)
+            ->setUnhandled(false)
+            ->setSeverityReason(['type' => 'handledException']);
+
+        return $report;
+    }
+
+    /**
+     * Create a new report from a named error.
+     *
+     * @param \Bugsnag\Configuration $config the config instance
+     * @param string $name the error name
+     * @param string|null $message the error message
+     *
+     * @return static
+     */
+    public static function fromNamedError(Configuration $config, $name, $message = null)
+    {
+        // @phpstan-ignore-next-line
+        $report = new static($config);
+
+        $report->setName($name)
+            ->setMessage($message)
+            ->setStacktrace(Stacktrace::generate($config))
+            ->setUnhandled(false)
+            ->setSeverityReason(['type' => 'handledError']);
+
+        return $report;
     }
 
     /**
@@ -228,9 +228,9 @@ class Report
      *
      * @param \Throwable $throwable the throwable instance
      *
+     * @return $this
      * @throws \InvalidArgumentException
      *
-     * @return $this
      */
     public function setPHPThrowable($throwable)
     {
@@ -244,8 +244,8 @@ class Report
         $this->originalError = $throwable;
 
         $this->setName(get_class($throwable))
-             ->setMessage($throwable->getMessage())
-             ->setStacktrace(Stacktrace::fromBacktrace($this->config, $throwable->getTrace(), $throwable->getFile(), $throwable->getLine()));
+            ->setMessage($throwable->getMessage())
+            ->setStacktrace(Stacktrace::fromBacktrace($this->config, $throwable->getTrace(), $throwable->getFile(), $throwable->getLine()));
 
         if (method_exists($throwable, 'getPrevious')) {
             $this->setPrevious($throwable->getPrevious());
@@ -257,11 +257,11 @@ class Report
     /**
      * Set the PHP error.
      *
-     * @param int         $code    the error code
+     * @param int $code the error code
      * @param string|null $message the error message
-     * @param string      $file    the error file
-     * @param int         $line    the error line
-     * @param bool        $fatal   if the error was fatal
+     * @param string $file the error file
+     * @param int $line the error line
+     * @param bool $fatal if the error was fatal
      *
      * @return $this
      */
@@ -288,23 +288,9 @@ class Report
         }
 
         $this->setName(ErrorTypes::getName($code))
-             ->setMessage($message)
-             ->setSeverity(ErrorTypes::getSeverity($code))
-             ->setStacktrace($stacktrace);
-
-        return $this;
-    }
-
-    /**
-     * Set the bugsnag stacktrace.
-     *
-     * @param \Bugsnag\Stacktrace $stacktrace the stacktrace instance
-     *
-     * @return $this
-     */
-    protected function setStacktrace(Stacktrace $stacktrace)
-    {
-        $this->stacktrace = $stacktrace;
+            ->setMessage($message)
+            ->setSeverity(ErrorTypes::getSeverity($code))
+            ->setStacktrace($stacktrace);
 
         return $this;
     }
@@ -337,6 +323,16 @@ class Report
     }
 
     /**
+     * Returns the unhandled flag.
+     *
+     * @return bool
+     */
+    public function getUnhandled()
+    {
+        return $this->unhandled;
+    }
+
+    /**
      * Sets the unhandled flag.
      *
      * @param bool $unhandled
@@ -351,16 +347,6 @@ class Report
     }
 
     /**
-     * Returns the unhandled flag.
-     *
-     * @return bool
-     */
-    public function getUnhandled()
-    {
-        return $this->unhandled;
-    }
-
-    /**
      * Get the bugsnag stacktrace.
      *
      * @return \Bugsnag\Stacktrace
@@ -371,41 +357,15 @@ class Report
     }
 
     /**
-     * Set the previous throwable.
+     * Set the bugsnag stacktrace.
      *
-     * @param \Throwable $throwable the previous throwable
-     *
-     * @return $this
-     */
-    protected function setPrevious($throwable)
-    {
-        if ($throwable) {
-            $this->previous = static::fromPHPThrowable($this->config, $throwable);
-        }
-
-        return $this;
-    }
-
-    /**
-     * Set the error name.
-     *
-     * @param string $name the error name
-     *
-     * @throws \InvalidArgumentException
+     * @param \Bugsnag\Stacktrace $stacktrace the stacktrace instance
      *
      * @return $this
      */
-    public function setName($name)
+    protected function setStacktrace(Stacktrace $stacktrace)
     {
-        if (is_scalar($name) || (is_object($name) && method_exists($name, '__toString'))) {
-            $this->name = (string) $name;
-        } else {
-            throw new InvalidArgumentException('The name must be a string.');
-        }
-
-        if ($this->name === '') {
-            $this->name = 'Error';
-        }
+        $this->stacktrace = $stacktrace;
 
         return $this;
     }
@@ -421,25 +381,24 @@ class Report
     }
 
     /**
-     * Set the error message.
+     * Set the error name.
      *
-     * @param string|null $message the error message
-     *
-     * @throws \InvalidArgumentException
+     * @param string $name the error name
      *
      * @return $this
+     * @throws \InvalidArgumentException
+     *
      */
-    public function setMessage($message)
+    public function setName($name)
     {
-        if ($message === null) {
-            $this->message = null;
-        } elseif (
-            is_scalar($message)
-            || (is_object($message) && method_exists($message, '__toString'))
-        ) {
-            $this->message = (string) $message;
+        if (is_scalar($name) || (is_object($name) && method_exists($name, '__toString'))) {
+            $this->name = (string)$name;
         } else {
-            throw new InvalidArgumentException('The message must be a string.');
+            throw new InvalidArgumentException('The name must be a string.');
+        }
+
+        if ($this->name === '') {
+            $this->name = 'Error';
         }
 
         return $this;
@@ -456,20 +415,25 @@ class Report
     }
 
     /**
-     * Set the error severity.
+     * Set the error message.
      *
-     * @param string|null $severity the error severity
-     *
-     * @throws \InvalidArgumentException
+     * @param string|null $message the error message
      *
      * @return $this
+     * @throws \InvalidArgumentException
+     *
      */
-    public function setSeverity($severity)
+    public function setMessage($message)
     {
-        if (in_array($severity, ['error', 'warning', 'info', null], true)) {
-            $this->severity = $severity;
+        if ($message === null) {
+            $this->message = null;
+        } elseif (
+            is_scalar($message)
+            || (is_object($message) && method_exists($message, '__toString'))
+        ) {
+            $this->message = (string)$message;
         } else {
-            throw new InvalidArgumentException('The severity must be either "error", "warning", or "info".');
+            throw new InvalidArgumentException('The message must be a string.');
         }
 
         return $this;
@@ -483,6 +447,36 @@ class Report
     public function getSeverity()
     {
         return $this->severity ?: 'warning';
+    }
+
+    /**
+     * Set the error severity.
+     *
+     * @param string|null $severity the error severity
+     *
+     * @return $this
+     * @throws \InvalidArgumentException
+     *
+     */
+    public function setSeverity($severity)
+    {
+        if (in_array($severity, ['error', 'warning', 'info', null], true)) {
+            $this->severity = $severity;
+        } else {
+            throw new InvalidArgumentException('The severity must be either "error", "warning", or "info".');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Get the error context.
+     *
+     * @return string|null
+     */
+    public function getContext()
+    {
+        return $this->context;
     }
 
     /**
@@ -500,13 +494,13 @@ class Report
     }
 
     /**
-     * Get the error context.
+     * Get the grouping hash.
      *
      * @return string|null
      */
-    public function getContext()
+    public function getGroupingHash()
     {
-        return $this->context;
+        return $this->groupingHash;
     }
 
     /**
@@ -519,31 +513,6 @@ class Report
     public function setGroupingHash($groupingHash)
     {
         $this->groupingHash = $groupingHash;
-
-        return $this;
-    }
-
-    /**
-     * Get the grouping hash.
-     *
-     * @return string|null
-     */
-    public function getGroupingHash()
-    {
-        return $this->groupingHash;
-    }
-
-    /**
-     * Set the error meta data.
-     *
-     * @param array[] $metaData an array of arrays of custom data
-     * @param bool    $merge    should we merge the meta data
-     *
-     * @return $this
-     */
-    public function setMetaData(array $metaData, $merge = true)
-    {
-        $this->metaData = $merge ? array_merge_recursive($this->metaData, $metaData) : $metaData;
 
         return $this;
     }
@@ -576,15 +545,16 @@ class Report
     }
 
     /**
-     * Set the current user.
+     * Set the error meta data.
      *
-     * @param array $user the current user
+     * @param array[] $metaData an array of arrays of custom data
+     * @param bool $merge should we merge the meta data
      *
      * @return $this
      */
-    public function setUser(array $user)
+    public function setMetaData(array $metaData, $merge = true)
     {
-        $this->user = $user;
+        $this->metaData = $merge ? array_merge_recursive($this->metaData, $metaData) : $metaData;
 
         return $this;
     }
@@ -597,6 +567,20 @@ class Report
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set the current user.
+     *
+     * @param array $user the current user
+     *
+     * @return $this
+     */
+    public function setUser(array $user)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 
     /**
@@ -676,18 +660,6 @@ class Report
     }
 
     /**
-     * @return array
-     */
-    private function toError()
-    {
-        return [
-            'errorClass' => $this->name,
-            'errorMessage' => $this->message,
-            'type' => 'php',
-        ];
-    }
-
-    /**
      * Get the array representation.
      *
      * @return array
@@ -717,6 +689,22 @@ class Report
         }
 
         return $event;
+    }
+
+    /**
+     * Set the previous throwable.
+     *
+     * @param \Throwable $throwable the previous throwable
+     *
+     * @return $this
+     */
+    protected function setPrevious($throwable)
+    {
+        if ($throwable) {
+            $this->previous = static::fromPHPThrowable($this->config, $throwable);
+        }
+
+        return $this;
     }
 
     /**
@@ -753,8 +741,8 @@ class Report
     /**
      * Cleanup the given object.
      *
-     * @param mixed $obj        the data to cleanup
-     * @param bool  $isMetaData if it is meta data
+     * @param mixed $obj the data to cleanup
+     * @param bool $isMetaData if it is meta data
      *
      * @return mixed
      */
@@ -792,8 +780,8 @@ class Report
     /**
      * Should we filter the given element.
      *
-     * @param string $key        the associated key
-     * @param bool   $isMetaData if it is meta data
+     * @param string $key the associated key
+     * @param bool $isMetaData if it is meta data
      *
      * @return bool
      */
@@ -823,7 +811,7 @@ class Report
     /**
      * Recursively remove null elements.
      *
-     * @param array $array  the array to remove null elements from
+     * @param array $array the array to remove null elements from
      *
      * @return array
      */
@@ -838,6 +826,18 @@ class Report
         }
 
         return $array;
+    }
+
+    /**
+     * @return array
+     */
+    private function toError()
+    {
+        return [
+            'errorClass' => $this->name,
+            'errorMessage' => $this->message,
+            'type' => 'php',
+        ];
     }
 
     /**

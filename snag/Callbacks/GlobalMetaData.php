@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Callbacks;
+namespace yxorP\snag\Callbacks;
 
 use Bugsnag\Configuration;
 use Bugsnag\Report;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 use Bugsnag\DateTime\Date;
 use Bugsnag\Internal\GuzzleCompat;
@@ -11,45 +11,39 @@ use RuntimeException;
 class HttpClient
 {
     /**
-     * @var \Bugsnag\Configuration
-     */
-    protected $config;
-
-    /**
-     * @var \GuzzleHttp\ClientInterface
-     */
-    protected $guzzle;
-
-    /**
-     * The queue of reports to send.
-     *
-     * @var \Bugsnag\Report[]
-     */
-    protected $queue = [];
-
-    /**
      * The maximum payload size. A whole megabyte (1024 * 1024).
      *
      * @var int
      */
     const MAX_SIZE = 1048576;
-
     /**
      * The payload version for the error notification API.
      */
     const NOTIFY_PAYLOAD_VERSION = '4.0';
-
     /**
      * The payload version for the session API.
      */
     const SESSION_PAYLOAD_VERSION = '1.0';
-
     /**
      * The payload version for the error notification API.
      *
      * @deprecated Use {self::NOTIFY_PAYLOAD_VERSION} instead.
      */
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
+    /**
+     * @var \Bugsnag\Configuration
+     */
+    protected $config;
+    /**
+     * @var \GuzzleHttp\ClientInterface
+     */
+    protected $guzzle;
+    /**
+     * The queue of reports to send.
+     *
+     * @var \Bugsnag\Report[]
+     */
+    protected $queue = [];
 
     /**
      * @param \Bugsnag\Configuration $config
@@ -94,7 +88,7 @@ class HttpClient
 
         $data['apiKey'] = $this->config->getApiKey();
 
-        $uri = rtrim($this->config->getNotifyEndpoint(), '/').'/deploy';
+        $uri = rtrim($this->config->getNotifyEndpoint(), '/') . '/deploy';
 
         $this->post($uri, ['json' => $data]);
     }
@@ -186,6 +180,24 @@ class HttpClient
     }
 
     /**
+     * Send a session data payload to Bugsnag.
+     *
+     * @param array $payload
+     *
+     * @return void
+     */
+    public function sendSessions(array $payload)
+    {
+        $this->post(
+            $this->config->getSessionEndpoint(),
+            [
+                'json' => $payload,
+                'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),
+            ]
+        );
+    }
+
+    /**
      * Build the request data to send.
      *
      * @return array
@@ -219,24 +231,6 @@ class HttpClient
             'notifier' => $this->config->getNotifier(),
             'events' => $events,
         ];
-    }
-
-    /**
-     * Send a session data payload to Bugsnag.
-     *
-     * @param array $payload
-     *
-     * @return void
-     */
-    public function sendSessions(array $payload)
-    {
-        $this->post(
-            $this->config->getSessionEndpoint(),
-            [
-                'json' => $payload,
-                'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),
-            ]
-        );
     }
 
     /**
@@ -281,8 +275,8 @@ class HttpClient
     /**
      * Deliver the given events to the notification API.
      *
-     * @param string $uri  the uri to hit
-     * @param array  $data the data send
+     * @param string $uri the uri to hit
+     * @param array $data the data send
      *
      * @return void
      *
@@ -296,8 +290,8 @@ class HttpClient
     /**
      * Deliver the given events to the notification API.
      *
-     * @param string $uri  the uri to hit
-     * @param array  $data the data send
+     * @param string $uri the uri to hit
+     * @param array $data the data send
      *
      * @return void
      */
@@ -317,7 +311,7 @@ class HttpClient
                 $this->deliverEvents($uri, array_merge($data, ['events' => [$event]]));
                 $this->deliverEvents($uri, $data);
             } else {
-                error_log('Bugsnag Warning: '.$e->getMessage());
+                error_log('Bugsnag Warning: ' . $e->getMessage());
             }
 
             return;
@@ -332,7 +326,7 @@ class HttpClient
                 ]
             );
         } catch (Exception $e) {
-            error_log('Bugsnag Warning: Couldn\'t notify. '.$e->getMessage());
+            error_log('Bugsnag Warning: Couldn\'t notify. ' . $e->getMessage());
         }
     }
 
@@ -341,9 +335,9 @@ class HttpClient
      *
      * @param array $data the data to normalize
      *
+     * @return string the JSON encoded data after normalization
      * @throws RuntimeException
      *
-     * @return string the JSON encoded data after normalization
      */
     protected function normalize(array $data)
     {

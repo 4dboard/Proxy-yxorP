@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag;
+namespace yxorP\snag;
 
 use InvalidArgumentException;
 
@@ -184,9 +184,9 @@ class Configuration
      *
      * @param string $apiKey your bugsnag api key
      *
+     * @return void
      * @throws \InvalidArgumentException
      *
-     * @return void
      */
     public function __construct($apiKey)
     {
@@ -270,11 +270,11 @@ class Configuration
      *
      * Eg. ['password', 'credit_card'].
      *
-     * @deprecated Use redactedKeys instead
-     *
      * @param string[] $filters an array of metaData filters
      *
      * @return $this
+     * @deprecated Use redactedKeys instead
+     *
      */
     public function setFilters(array $filters)
     {
@@ -286,9 +286,9 @@ class Configuration
     /**
      * Get the array of metaData filters.
      *
+     * @return string[]
      * @deprecated Use redactedKeys instead
      *
-     * @return string[]
      */
     public function getFilters()
     {
@@ -304,7 +304,7 @@ class Configuration
      */
     public function setProjectRoot($projectRoot)
     {
-        $projectRootRegex = $projectRoot ? '/^'.preg_quote($projectRoot, '/').'[\\/]?/i' : null;
+        $projectRootRegex = $projectRoot ? '/^' . preg_quote($projectRoot, '/') . '[\\/]?/i' : null;
         $this->setProjectRootRegex($projectRootRegex);
     }
 
@@ -318,7 +318,7 @@ class Configuration
     public function setProjectRootRegex($projectRootRegex)
     {
         if ($projectRootRegex && @preg_match($projectRootRegex, '') === false) {
-            throw new InvalidArgumentException('Invalid project root regex: '.$projectRootRegex);
+            throw new InvalidArgumentException('Invalid project root regex: ' . $projectRootRegex);
         }
 
         $this->projectRootRegex = $projectRootRegex;
@@ -346,7 +346,7 @@ class Configuration
      */
     public function setStripPath($stripPath)
     {
-        $stripPathRegex = $stripPath ? '/^'.preg_quote($stripPath, '/').'[\\/]?/i' : null;
+        $stripPathRegex = $stripPath ? '/^' . preg_quote($stripPath, '/') . '[\\/]?/i' : null;
         $this->setStripPathRegex($stripPathRegex);
     }
 
@@ -360,7 +360,7 @@ class Configuration
     public function setStripPathRegex($stripPathRegex)
     {
         if ($stripPathRegex && @preg_match($stripPathRegex, '') === false) {
-            throw new InvalidArgumentException('Invalid strip path regex: '.$stripPathRegex);
+            throw new InvalidArgumentException('Invalid strip path regex: ' . $stripPathRegex);
         }
 
         $this->stripPathRegex = $stripPathRegex;
@@ -567,7 +567,7 @@ class Configuration
      * Bugsnag dashboard.
      *
      * @param array[] $metaData an array of arrays of custom data
-     * @param bool    $merge    should we merge the meta data
+     * @param bool $merge should we merge the meta data
      *
      * @return $this
      */
@@ -603,7 +603,7 @@ class Configuration
         if (!$this->isSubsetOfErrorReporting($errorReportingLevel)) {
             $missingLevels = implode(', ', $this->getMissingErrorLevelNames($errorReportingLevel));
             $message =
-                'Bugsnag Warning: errorReportingLevel cannot contain values that are not in error_reporting. '.
+                'Bugsnag Warning: errorReportingLevel cannot contain values that are not in error_reporting. ' .
                 "Any errors of these levels will be ignored: {$missingLevels}.";
 
             error_log($message);

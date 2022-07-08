@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Middleware;
+namespace yxorP\snag\Middleware;
 
 use Bugsnag\Client;
 use Bugsnag\Report;

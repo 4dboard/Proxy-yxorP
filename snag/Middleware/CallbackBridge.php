@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Middleware;
+namespace yxorP\snag\Middleware;
 
 use Bugsnag\Report;
 
@@ -29,7 +29,7 @@ class CallbackBridge
      * Execute the add callback bridge middleware.
      *
      * @param \Bugsnag\Report $report the bugsnag report instance
-     * @param callable        $next   the next stage callback
+     * @param callable $next the next stage callback
      *
      * @return void
      */

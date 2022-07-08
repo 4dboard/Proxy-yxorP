@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Request;
+namespace yxorP\snag\Request;
 
 class PhpRequest implements RequestInterface
 {
@@ -42,11 +42,11 @@ class PhpRequest implements RequestInterface
     /**
      * Create a new php request instance.
      *
-     * @param array      $server  the server variables
-     * @param array      $session the session variables
-     * @param array      $cookies the cookie variables
-     * @param array      $headers the http headers
-     * @param array|null $input   the input params
+     * @param array $server the server variables
+     * @param array $session the session variables
+     * @param array $cookies the cookie variables
+     * @param array $headers the http headers
+     * @param array|null $input the input params
      *
      * @return void
      */
@@ -127,7 +127,7 @@ class PhpRequest implements RequestInterface
     public function getContext()
     {
         if (isset($this->server['REQUEST_METHOD']) && isset($this->server['REQUEST_URI'])) {
-            return $this->server['REQUEST_METHOD'].' '.strtok($this->server['REQUEST_URI'], '?');
+            return $this->server['REQUEST_METHOD'] . ' ' . strtok($this->server['REQUEST_URI'], '?');
         }
 
         return null;
@@ -154,7 +154,7 @@ class PhpRequest implements RequestInterface
 
         $host = isset($this->server['HTTP_HOST']) ? $this->server['HTTP_HOST'] : 'localhost';
 
-        return $schema.$host.$this->server['REQUEST_URI'];
+        return $schema . $host . $this->server['REQUEST_URI'];
     }
 
     /**

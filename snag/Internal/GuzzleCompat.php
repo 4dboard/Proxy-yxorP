@@ -1,6 +1,6 @@
 <?php
 
-namespace Bugsnag\Internal;
+namespace yxorP\snag\Internal;
 
 use GuzzleHttp;
 
@@ -14,8 +14,8 @@ final class GuzzleCompat
      */
     public static function isUsingGuzzle5()
     {
-        if (defined(GuzzleHttp\ClientInterface::class.'::VERSION')) {
-            $version = constant(GuzzleHttp\ClientInterface::class.'::VERSION');
+        if (defined(GuzzleHttp\ClientInterface::class . '::VERSION')) {
+            $version = constant(GuzzleHttp\ClientInterface::class . '::VERSION');
 
             return version_compare($version, '5.0.0', '>=')
                 && version_compare($version, '6.0.0', '<');
