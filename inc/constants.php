@@ -157,7 +157,7 @@ class constants
         /* Defining a constant called FILE_SNAG and setting it to the string 'snag'. */
         define('FILE_SNAG', 'snag' . EXT_PHAR);
         /* Defining a constant called FILE_PROXY and setting it to the string 'proxy'. */
-        define('FILE_PROXY', 'proxy' . EXT_PHAR);
+        define('FILE_GUZZLE', 'guzzle' . EXT_PHAR);
         /* Defining a constant called FILE_BOOTSTRAP and setting it to the string 'bootstrap'. */
         define('FILE_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
@@ -468,7 +468,7 @@ class constants
         /* Defining the path to the snag.phar file. */
         define('PATH_SNAG_PHAR', DIR_ROOT . DIR_INC . FILE_SNAG);
         /* Defining the path to Proxy phar file. */
-        define('PATH_PROXY_PHAR', DIR_ROOT . DIR_INC . FILE_PROXY);
+        define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE);
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP);
         /* Defining the path to the action wrapper file. */
@@ -535,6 +535,10 @@ class constants
         require PATH_COCKPIT_BOOTSTRAP;
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
+        /* Requiring the Wrapper. */
+        require PATH_INC_WRAPPER;
+        /* Requiring the Wrapper. */
+        require PATH_INC_WRAPPER;
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
@@ -542,7 +546,7 @@ class constants
 
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+        foreach (array(DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
 
         // Reporting
         /* Setting the token to the snag key. */
