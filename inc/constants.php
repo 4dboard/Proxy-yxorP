@@ -11,7 +11,6 @@ use yxorP\parse\parse;
 use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\Rules;
-use yxorP\parser\topLevelDomains;
 use function cockpit;
 
 class constants
