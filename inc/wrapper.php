@@ -81,7 +81,6 @@ abstract class wrapper
             }
         } catch (Exception $e) {
             /* Calling the `onBuildException` method. */
-            if (ENV_DEBUG || !(int)str_contains(constants::get(VAR_SERVER)[YXORP_SERVER_NAME], CHAR_PERIOD)) print($e);
             $this->onBuildException($e);
         }
     }
