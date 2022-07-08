@@ -131,7 +131,7 @@ trait MessageTrait
         return $this->stream;
     }
 
-    public function withBody(StreamInterface $body): Response|Request|static
+    public function withBody(StreamInterface $body): mixed
     {
         if ($body === $this->stream) {
             return $this;
