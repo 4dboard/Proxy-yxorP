@@ -1330,8 +1330,8 @@ class worker
                         $package = substr($recv_buffer, 0, $len);
                         $recv_buffer = substr($recv_buffer, $len);
                         $data = $parser::decode($package, $connection);
-                        if ($data === false) continue;
-                        $message_cb($connection, $data);
+                        if ($data !== false) $message_cb($connection, $data);
+
                     }
                 } else {
                     $data = $parser::decode($recv_buffer, $connection);
