@@ -6,12 +6,12 @@ namespace yxorP\inc;
 
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
-use yxorP\proxy\Client;
 use yxorP\parse\parse;
 use yxorP\parser\domain;
 use yxorP\parser\parseUrl;
 use yxorP\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\parser\Rules;
+use yxorP\proxy\Client;
 use function cockpit;
 
 class constants
@@ -573,7 +573,7 @@ class constants
 
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-        foreach (array(DIR_PSR,DIR_PROXY,DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
+        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
 
         // Reporting
         /* Setting the token to the snag key. */
