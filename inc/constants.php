@@ -154,12 +154,10 @@ class constants
         define('FILE_REWRITE_REPLACE', 'search_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
-        /* Defining a constant called FILE_SNAG and setting it to the string 'snag'. */
-        define('FILE_SNAG', 'snag' . EXT_PHAR);
-        /* Defining a constant called FILE_PROXY and setting it to the string 'proxy'. */
-        define('FILE_PROXY', 'proxy' . EXT_PHAR);
         /* Defining a constant. */
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
+        /* Defining a constant. */
+        define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
@@ -464,9 +462,6 @@ class constants
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
-        define('PATH_SNAG_PHAR', DIR_ROOT . DIR_INC . FILE_SNAG);
-        /* Defining the path to Proxy phar file. */
-        define('PATH_GUZZLE_PHAR', DIR_ROOT . DIR_INC . FILE_GUZZLE);
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP);
         /* Defining the path to the action wrapper file. */
