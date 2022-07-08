@@ -638,7 +638,8 @@ class constants
     {
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
         self::set(VAR_SERVER, $req);
-
+        print_r(constants::get(VAR_SERVER));
+        exit;
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
         constants::set(YXORP_SITE_URL, (strstr(constants::get(VAR_SERVER)[YXORP_HTTP_HOST], ':', true)));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
