@@ -127,5 +127,5 @@ interface RequestInterface extends MessageInterface
      * @param bool $preserveHost Preserve the original state of the Host header.
      * @return static
      */
-    public function withUri(UriInterface $uri, $preserveHost = false): static;
+    public function withUri(UriInterface $uri, $preserveHost = false): mixed;
 }
