@@ -2,10 +2,10 @@
 
 use InvalidArgumentException;
 use Psr\Http\Message\UriInterface;
+use yxorP\proxy\Apromise\PromiseInterface;
 use yxorP\proxy\Exception\BadResponseException;
 use yxorP\proxy\Exception\TooManyRedirectsException;
 use yxorP\proxy\Psr7;
-use yxorP\proxyAApromise\PromiseInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 

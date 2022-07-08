@@ -1,10 +1,10 @@
 <?php namespace yxorP\proxy;
 
 use InvalidArgumentException;
-use yxorP\proxyAApromise\EachPromise;
-use yxorP\proxyAApromise\Promise;
-use yxorP\proxyAApromise\PromiseInterface;
-use yxorP\proxyAApromise\PromisorInterface;
+use yxorP\proxy\Apromise\EachPromise;
+use yxorP\proxy\Apromise\Promise;
+use yxorP\proxy\Apromise\PromiseInterface;
+use yxorP\proxy\Apromise\PromisorInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use function yxorP\proxy\Apromise\iter_for;
 
