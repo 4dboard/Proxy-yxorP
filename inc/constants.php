@@ -293,8 +293,6 @@ class constants
         define('VAR_REWRITE', 'REWRITE');
         /* Defining a constant called VAR_SEARCH and setting it to the string SEARCH. */
         define('VAR_SEARCH', 'SEARCH');
-        /* Defining a constant called VAR_FETCH and setting it to the string FETCH. */
-        define('VAR_FETCH', 'FETCH');
         /* Defining a constant called VAR_FILES and setting it to the string files. */
         define('VAR_FILES', 'files');
         /* Defining a constant called VAR_PHP and setting it to the string PHP. */
