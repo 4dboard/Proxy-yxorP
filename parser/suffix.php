@@ -34,25 +34,6 @@ final class suffix implements effectiveTopLevelDomainInterface
         return new self($domain, self::ICANN);
     }
 
-    private static function setDomainName($domain): aaDomainNameInterface
-    {
-        if ($domain instanceof domainNameProviderInterface) {
-            $domain = $domain->domain();
-        }
-        if (!$domain instanceof aaDomainNameInterface) {
-            $domain = aaDomain::fromIDNA2008($domain);
-        }
-        if ('' === $domain->label(0)) {
-            throw syntaxError::dueToInvalidSuffix($domain);
-        }
-        return $domain;
-    }
-
-    public function domain(): aaDomainNameInterface
-    {
-        return $this->domain;
-    }
-
     public static function fromPrivate($domain): self
     {
         $domain = self::setDomainName($domain);
@@ -74,6 +55,25 @@ final class suffix implements effectiveTopLevelDomainInterface
     public static function fromUnknown($domain): self
     {
         return new self(self::setDomainName($domain), '');
+    }
+
+    private static function setDomainName($domain): aaDomainNameInterface
+    {
+        if ($domain instanceof domainNameProviderInterface) {
+            $domain = $domain->domain();
+        }
+        if (!$domain instanceof aaDomainNameInterface) {
+            $domain = aaDomain::fromIDNA2008($domain);
+        }
+        if ('' === $domain->label(0)) {
+            throw syntaxError::dueToInvalidSuffix($domain);
+        }
+        return $domain;
+    }
+
+    public function domain(): aaDomainNameInterface
+    {
+        return $this->domain;
     }
 
     public function isKnown(): bool

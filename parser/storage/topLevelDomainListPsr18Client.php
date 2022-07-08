@@ -2,7 +2,6 @@
 
 namespace yxorP\parser\Storage;
 
-use yxorP\proxy\ClientInterface;
 use yxorP\parser\topInterfaceLevelDomainListInterface;
 use yxorP\parser\topLevelDomains;
 use yxorP\parser\unableToLoadResource;

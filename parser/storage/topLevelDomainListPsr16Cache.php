@@ -3,6 +3,7 @@
 namespace yxorP\parser\Storage;
 
 use DateInterval;
+use Psr\SimpleCache\InvalidArgumentException;
 use Throwable;
 use yxorP\parser\topInterfaceLevelDomainListInterface;
 use yxorP\psr\SimpleCache\CacheException;
@@ -24,7 +25,7 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
     }
 
     /**
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function fetch(string $uri): ?topInterfaceLevelDomainListInterface
     {
@@ -47,7 +48,7 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
 
     /**
      * @throws Throwable
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function remember(string $uri, topInterfaceLevelDomainListInterface $topLevelDomainList): bool
     {
@@ -62,7 +63,7 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
     }
 
     /**
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function forget(string $uri): bool
     {

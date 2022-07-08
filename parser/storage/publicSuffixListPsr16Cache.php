@@ -3,6 +3,7 @@
 namespace yxorP\parser\Storage;
 
 use DateInterval;
+use Psr\SimpleCache\InvalidArgumentException;
 use Throwable;
 use yxorP\parser\publicSuffixListInterface;
 use yxorP\psr\SimpleCache\CacheException;
@@ -24,7 +25,7 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCacheInterface
     }
 
     /**
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function fetch(string $uri): ?publicSuffixListInterface
     {
@@ -47,7 +48,7 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCacheInterface
 
     /**
      * @throws Throwable
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function remember(string $uri, publicSuffixListInterface $publicSuffixList): bool
     {
@@ -62,7 +63,7 @@ final class publicSuffixListPsr16Cache implements publicSuffixListCacheInterface
     }
 
     /**
-     * @throws \Psr\SimpleCache\InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function forget(string $uri): bool
     {

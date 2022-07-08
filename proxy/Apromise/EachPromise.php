@@ -1,11 +1,13 @@
 <?php namespace yxorP\proxyApromise;
 
+use ArrayIterator;
+use Iterator;
 use Throwable;
 
 class EachPromise implements PromisorInterface
 {
     private array $pending = [];
-    private \ArrayIterator|\Iterator $iterable;
+    private ArrayIterator|Iterator $iterable;
     private mixed $concurrency;
     private mixed $onFulfilled;
     private mixed $onRejected;

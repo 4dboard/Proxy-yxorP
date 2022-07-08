@@ -5,6 +5,7 @@ namespace yxorP\parser\Storage;
 use DateInterval;
 use DateTimeImmutable;
 use DateTimeInterface;
+use Exception;
 use InvalidArgumentException;
 use TypeError;
 use function filter_var;
@@ -20,7 +21,7 @@ final class timeToLive
     }
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public static function until(DateTimeInterface $date): DateInterval
     {

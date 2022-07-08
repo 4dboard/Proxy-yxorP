@@ -1,4 +1,7 @@
 <?php namespace yxorP\snag;
+
+use Closure;
+
 class Pipeline
 {
     private array $pipes;
@@ -41,7 +44,7 @@ class Pipeline
         return call_user_func(array_reduce($pipes, $this->getSlice(), $first), $passable);
     }
 
-    protected function getSlice(): \Closure
+    protected function getSlice(): Closure
     {
         return function ($stack, $pipe) {
             return function ($passable) use ($stack, $pipe) {

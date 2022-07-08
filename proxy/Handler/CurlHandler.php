@@ -1,6 +1,9 @@
 <?php namespace yxorP\proxy\Handler;
 
 use JetBrains\PhpStorm\Pure;
+use ProxyHttp\Promise\FulfilledPromise;
+use ProxyHttp\Promise\PromiseInterface;
+use ProxyHttp\Promise\RejectedPromise;
 use yxorP\psr\Http\Message\RequestInterface;
 
 class CurlHandler
@@ -12,7 +15,7 @@ class CurlHandler
         $this->factory = $options['handle_factory'] ?? new CurlFactory(3);
     }
 
-    public function __invoke(RequestInterface $request, array $options): \ProxyHttp\Promise\FulfilledPromise|\ProxyHttp\Promise\RejectedPromise|\ProxyHttp\Promise\PromiseInterface
+    public function __invoke(RequestInterface $request, array $options): FulfilledPromise|RejectedPromise|PromiseInterface
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);

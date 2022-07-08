@@ -3,10 +3,10 @@
 namespace yxorP\parser\Storage;
 
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
-use yxorP\proxy\ClientInterface;
 use yxorP\parser\publicSuffixListInterface;
 use yxorP\parser\rules;
 use yxorP\parser\unableToLoadResource;
+use yxorP\proxy\ClientInterface;
 use yxorP\psr\Http\Client\ClientExceptionInterface;
 use yxorP\psr\Http\Client\ClientInterface;
 use yxorP\psr\Http\Message\RequestFactoryInterface;

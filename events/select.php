@@ -263,38 +263,6 @@ class select implements eventInterface
     }
 
     /**
-     * Tick for timer.
-     *
-     * @return void
-     */
-    protected function tick()
-    {
-        while (!$this->_scheduler->isEmpty()) {
-            $scheduler_data = $this->_scheduler->top();
-            $timer_id = $scheduler_data['data'];
-            $next_run_time = -$scheduler_data['priority'];
-            $time_now = microtime(true);
-            $this->_selectTimeout = (int)(($next_run_time - $time_now) * 1000000);
-            if ($this->_selectTimeout <= 0) {
-                $this->_scheduler->extract();
-
-                if (!isset($this->_eventTimer[$timer_id])) continue;
-
-                // [func, args, timer_interval]
-                $task_data = $this->_eventTimer[$timer_id];
-                if (isset($task_data[2])) {
-                    $next_run_time = $time_now + $task_data[2];
-                    $this->_scheduler->insert($timer_id, -$next_run_time);
-                } else unset($this->_eventTimer[$timer_id]);
-                $task_data[0]($task_data[1]);
-                continue;
-            }
-            return;
-        }
-        $this->_selectTimeout = 100000000;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function stop()
@@ -329,6 +297,38 @@ class select implements eventInterface
     public function getTimerCount(): int
     {
         return count($this->_eventTimer);
+    }
+
+    /**
+     * Tick for timer.
+     *
+     * @return void
+     */
+    protected function tick()
+    {
+        while (!$this->_scheduler->isEmpty()) {
+            $scheduler_data = $this->_scheduler->top();
+            $timer_id = $scheduler_data['data'];
+            $next_run_time = -$scheduler_data['priority'];
+            $time_now = microtime(true);
+            $this->_selectTimeout = (int)(($next_run_time - $time_now) * 1000000);
+            if ($this->_selectTimeout <= 0) {
+                $this->_scheduler->extract();
+
+                if (!isset($this->_eventTimer[$timer_id])) continue;
+
+                // [func, args, timer_interval]
+                $task_data = $this->_eventTimer[$timer_id];
+                if (isset($task_data[2])) {
+                    $next_run_time = $time_now + $task_data[2];
+                    $this->_scheduler->insert($timer_id, -$next_run_time);
+                } else unset($this->_eventTimer[$timer_id]);
+                $task_data[0]($task_data[1]);
+                continue;
+            }
+            return;
+        }
+        $this->_selectTimeout = 100000000;
     }
 
 }

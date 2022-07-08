@@ -1,10 +1,11 @@
 <?php namespace yxorP\proxy;
 
 use InvalidArgumentException;
+use Psr\Http\Message\UriInterface;
 use yxorP\proxy\Exception\BadResponseException;
 use yxorP\proxy\Exception\TooManyRedirectsException;
-use yxorP\proxyApromise\PromiseInterface;
 use yxorP\proxy\Psr7;
+use yxorP\proxyApromise\PromiseInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 
@@ -96,7 +97,7 @@ class RedirectMiddleware
         }
     }
 
-    private function redirectUri(RequestInterface $request, ResponseInterface $response, array $protocols): \Psr\Http\Message\UriInterface|Psr7\Uri
+    private function redirectUri(RequestInterface $request, ResponseInterface $response, array $protocols): UriInterface|Psr7\Uri
     {
         $location = Psr7\UriResolver::resolve($request->getUri(), new Psr7\Uri($response->getHeaderLine('Location')));
         if (!in_array($location->getScheme(), $protocols)) {

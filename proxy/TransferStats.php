@@ -1,5 +1,6 @@
 <?php namespace yxorP\proxy;
 
+use Psr\Http\Message\UriInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 
@@ -40,7 +41,7 @@ final class TransferStats
         return $this->handlerErrorData;
     }
 
-    public function getEffectiveUri(): \Psr\Http\Message\UriInterface
+    public function getEffectiveUri(): UriInterface
     {
         return $this->request->getUri();
     }
