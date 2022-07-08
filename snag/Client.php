@@ -94,7 +94,6 @@ class Client
     public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true)
     {
 
-        echo 6;
         $env = new Env();
         $config = new Configuration($apiKey ?: $env->get('SNAG_API_KEY'));
         $proxy = static::makeproxy($notifyEndpoint ?: $env->get('SNAG_ENDPOINT'));
