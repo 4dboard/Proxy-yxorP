@@ -4,7 +4,7 @@ use ArrayIterator;
 use Iterator;
 use Throwable;
 
-function queue(TaskQueueInterface $assign = null)
+function queues(TaskQueueInterface $assign = null)
 {
     static $queue;
     if ($assign) {
@@ -17,7 +17,7 @@ function queue(TaskQueueInterface $assign = null)
 
 function task(callable $task): Promise
 {
-    $queue = queue();
+    $queue = queues();
     $promise = new Promise([$queue, 'run']);
     $queue->add(function () use ($task, $promise) {
         try {

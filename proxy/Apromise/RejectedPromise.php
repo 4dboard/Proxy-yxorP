@@ -26,7 +26,7 @@ class RejectedPromise implements PromiseInterface
         if (!$onRejected) {
             return $this;
         }
-        $queue = queue();
+        $queue = queues();
         $reason = $this->reason;
         $p = new Promise([$queue, 'run']);
         $queue->add(static function () use ($p, $reason, $onRejected) {

@@ -26,7 +26,7 @@ class FulfilledPromise implements PromiseInterface
         if (!$onFulfilled) {
             return $this;
         }
-        $queue = queue();
+        $queue = queues();
         $p = new Promise([$queue, 'run']);
         $value = $this->value;
         $queue->add(static function () use ($p, $value, $onFulfilled) {

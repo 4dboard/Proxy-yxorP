@@ -2,9 +2,9 @@
 
 use BadMethodCallException;
 use JetBrains\PhpStorm\Pure;
+use yxorP\proxy\Utils;
 use yxorP\proxyApromise as P;
 use yxorP\proxyApromise\Promise;
-use yxorP\proxy\Utils;
 use yxorP\psr\Http\Message\RequestInterface;
 
 class CurlMultiHandler
@@ -86,7 +86,7 @@ class CurlMultiHandler
 
     public function execute()
     {
-        $queue = P\queue();
+        $queue = P\queues();
         while ($this->handles || !$queue->isEmpty()) {
             if (!$this->active && $this->delays) {
                 usleep($this->timeToNext());
@@ -118,7 +118,7 @@ class CurlMultiHandler
                 }
             }
         }
-        P\queue()->run();
+        P\queues()->run();
         if ($this->active && curl_multi_select($this->_mh, $this->selectTimeout) === -1) {
             usleep(250);
         }
