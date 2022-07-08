@@ -117,7 +117,8 @@ you have a CA bundle available on disk, you can set the 'openssl.cafile' PHP
 ini setting to point to the path to the file, allowing you to omit the 'verify'
 request option. See https://curl.haxx.se/docs/sslcerts.html for more
 information.
-S;
+S
+    );
 }
 
 function normalize_header_keys(array $headers): array
