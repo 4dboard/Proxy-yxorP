@@ -55,7 +55,7 @@ class Request implements RequestInterface
         $this->headers = [$header => [$host]] + $this->headers;
     }
 
-    public function getRequestTarget(): ?string
+    public function getRequestTarget(): mixed
     {
         if ($this->requestTarget !== null) {
             return $this->requestTarget;
