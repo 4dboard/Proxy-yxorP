@@ -1,10 +1,10 @@
 <?php
 namespace \yxorP\guzzle\Exception;
 
-use \yxorP\guzzle\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use yxorP\guzzle\Promise\PromiseInterface;
 
 /**
  * HTTP Request exception
@@ -24,7 +24,7 @@ class RequestException extends TransferException
         $message,
         RequestInterface $request,
         ResponseInterface $response = null,
-        \Exception $previous = null,
+        Exception $previous = null,
         array $handlerContext = []
     )
     {
@@ -42,11 +42,11 @@ class RequestException extends TransferException
      * Wrap non-RequestExceptions with a RequestException
      *
      * @param RequestInterface $request
-     * @param \Exception $e
+     * @param Exception $e
      *
      * @return RequestException
      */
-    public static function wrapException(RequestInterface $request, \Exception $e)
+    public static function wrapException(RequestInterface $request, Exception $e)
     {
         return $e instanceof RequestException
             ? $e
@@ -58,7 +58,7 @@ class RequestException extends TransferException
      *
      * @param RequestInterface $request Request
      * @param ResponseInterface $response Response received
-     * @param \Exception $previous Previous exception
+     * @param Exception $previous Previous exception
      * @param array $ctx Optional handler context.
      *
      * @return self
@@ -66,7 +66,7 @@ class RequestException extends TransferException
     public static function create(
         RequestInterface  $request,
         ResponseInterface $response = null,
-        \Exception        $previous = null,
+        Exception         $previous = null,
         array             $ctx = []
     )
     {
@@ -116,20 +116,6 @@ class RequestException extends TransferException
     }
 
     /**
-     * Get a short summary of the response
-     *
-     * Will return `null` if the response is not printable.
-     *
-     * @param ResponseInterface $response
-     *
-     * @return string|null
-     */
-    public static function getResponseBodySummary(ResponseInterface $response)
-    {
-        return \\yxorP\guzzle\Psr7\get_message_body_summary($response);
-    }
-
-    /**
      * Obfuscates URI if there is a username and a password present
      *
      * @param UriInterface $uri
@@ -145,6 +131,20 @@ class RequestException extends TransferException
         }
 
         return $uri;
+    }
+
+    /**
+     * Get a short summary of the response
+     *
+     * Will return `null` if the response is not printable.
+     *
+     * @param ResponseInterface $response
+     *
+     * @return string|null
+     */
+    public static function getResponseBodySummary(ResponseInterface $response)
+    {
+        return \\yxorP\guzzle\Psr7\get_message_body_summary($response);
     }
 
     /**

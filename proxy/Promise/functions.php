@@ -46,9 +46,9 @@ function task(callable $task)
     $queue->add(function () use ($task, $promise) {
         try {
             $promise->resolve($task());
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $promise->reject($e);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $promise->reject($e);
         }
     });
@@ -103,11 +103,11 @@ function rejection_for($reason)
  *
  * @param mixed $reason
  *
- * @return \Exception|\Throwable
+ * @return Exception|Throwable
  */
 function exception_for($reason)
 {
-    return $reason instanceof \Exception || $reason instanceof \Throwable
+    return $reason instanceof Exception || $reason instanceof Throwable
         ? $reason
         : new RejectionException($reason);
 }
@@ -117,16 +117,16 @@ function exception_for($reason)
  *
  * @param mixed $value
  *
- * @return \Iterator
+ * @return Iterator
  */
 function iter_for($value)
 {
-    if ($value instanceof \Iterator) {
+    if ($value instanceof Iterator) {
         return $value;
     } elseif (is_array($value)) {
-        return new \ArrayIterator($value);
+        return new ArrayIterator($value);
     } else {
-        return new \ArrayIterator([$value]);
+        return new ArrayIterator([$value]);
     }
 }
 
@@ -153,9 +153,9 @@ function inspect(PromiseInterface $promise)
         ];
     } catch (RejectionException $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
-    } catch (\Throwable $e) {
+    } catch (Throwable $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
     }
 }
@@ -191,8 +191,8 @@ function inspect_all($promises)
  * @param mixed $promises Iterable of PromiseInterface objects to wait on.
  *
  * @return array
- * @throws \Exception on error
- * @throws \Throwable on error in PHP >=7
+ * @throws Exception on error
+ * @throws Throwable on error in PHP >=7
  */
 function unwrap($promises)
 {

@@ -1,10 +1,6 @@
 <?php
 namespace \yxorP\guzzle\Promise;
 
-use Exception;
-use Generator;
-use Throwable;
-
 /**
  * Creates a promise that is resolved using a generator that yields values or
  * promises (somewhat similar to C#'s async keyword).
@@ -68,6 +64,17 @@ final class Coroutine implements PromiseInterface
         $this->nextCoroutine($this->generator->current());
     }
 
+    public function wait($unwrap = true)
+    {
+        return $this->result->wait($unwrap);
+    }
+
+    private function nextCoroutine($yielded)
+    {
+        $this->currentPromise = promise_for($yielded)
+            ->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
+    }
+
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
@@ -79,11 +86,6 @@ final class Coroutine implements PromiseInterface
     public function otherwise(callable $onRejected)
     {
         return $this->result->otherwise($onRejected);
-    }
-
-    public function wait($unwrap = true)
-    {
-        return $this->result->wait($unwrap);
     }
 
     public function getState()
@@ -105,12 +107,6 @@ final class Coroutine implements PromiseInterface
     {
         $this->currentPromise->cancel();
         $this->result->cancel();
-    }
-
-    private function nextCoroutine($yielded)
-    {
-        $this->currentPromise = promise_for($yielded)
-            ->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
     }
 
     /**

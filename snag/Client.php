@@ -2,6 +2,11 @@
 
 namespace yxorP\snag;
 
+use;
+use Composer\CaBundle\CaBundle;
+use Throwable;
+use yxorP\guzzle;
+use yxorP\guzzle\ClientInterface;
 use yxorP\snag\Breadcrumbs\Breadcrumb;
 use yxorP\snag\Breadcrumbs\Recorder;
 use yxorP\snag\Callbacks\GlobalMetaData;
@@ -19,8 +24,6 @@ use yxorP\snag\Request\BasicResolver;
 use yxorP\snag\Request\ResolverInterface;
 use yxorP\snag\Shutdown\PhpShutdownStrategy;
 use yxorP\snag\Shutdown\ShutdownStrategyInterface;
-use Composer\CaBundle\CaBundle;
-use \yxorP\guzzle;
 
 class Client
 {
@@ -43,50 +46,50 @@ class Client
     /**
      * The config instance.
      *
-     * @var \yxorP\snag\Configuration
+     * @var Configuration
      */
     protected $config;
     /**
      * The request resolver instance.
      *
-     * @var \yxorP\snag\Request\ResolverInterface
+     * @var ResolverInterface
      */
     protected $resolver;
     /**
      * The breadcrumb recorder instance.
      *
-     * @var \yxorP\snag\Breadcrumbs\Recorder
+     * @var Recorder
      */
     protected $recorder;
     /**
      * The notification pipeline instance.
      *
-     * @var \yxorP\snag\Pipeline
+     * @var Pipeline
      */
     protected $pipeline;
     /**
      * The http client instance.
      *
-     * @var \yxorP\snag\HttpClient
+     * @var HttpClient
      */
     protected $http;
     /**
      * The session tracker instance.
      *
-     * @var \yxorP\snag\SessionTracker
+     * @var SessionTracker
      */
     protected $sessionTracker;
 
     /**
-     * @param \yxorP\snag\Configuration $config
-     * @param \yxorP\snag\Request\ResolverInterface|null $resolver
-     * @param \\yxorP\guzzle\ClientInterface|null $guzzle
-     * @param \yxorP\snag\Shutdown\ShutdownStrategyInterface|null $shutdownStrategy
+     * @param Configuration $config
+     * @param ResolverInterface|null $resolver
+     * @param \yxorP\guzzle\ClientInterface|null $guzzle
+     * @param ShutdownStrategyInterface|null $shutdownStrategy
      */
     public function __construct(
         Configuration                 $config,
         ResolverInterface             $resolver = null,
-        \yxorP\guzzle\ClientInterface $guzzle = null,
+        ClientInterface $guzzle = null,
         ShutdownStrategyInterface     $shutdownStrategy = null
     )
     {
@@ -109,6 +112,102 @@ class Client
         // Shutdown strategy is used to trigger flush() calls when batch sending is enabled
         $shutdownStrategy = $shutdownStrategy ?: new PhpShutdownStrategy();
         $shutdownStrategy->registerShutdownStrategy($this);
+    }
+
+    /**
+     * Make a new guzzle client instance.
+     *
+     * @param string|null $base
+     * @param array $options
+     *
+     * @return ClientInterface
+     */
+    public static function makeGuzzle($base = null, array $options = [])
+    {
+        $options = self::resolveGuzzleOptions($base, $options);
+
+        return new guzzle\Client($options);
+    }
+
+    /**
+     * @param string|null $base
+     * @param array $options
+     *
+     * @return array
+     */
+    private static function resolveGuzzleOptions($base, array $options)
+    {
+        $key = GuzzleCompat::getBaseUriOptionName();
+        $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
+
+        $path = static::getCaBundlePath();
+
+        if ($path) {
+            $options['verify'] = $path;
+        }
+
+        return GuzzleCompat::applyRequestOptions(
+            $options,
+            [
+                'timeout' => self::DEFAULT_TIMEOUT_S,
+                'connect_timeout' => self::DEFAULT_TIMEOUT_S,
+            ]
+        );
+    }
+
+    /**
+     * Get the ca bundle path if one exists.
+     *
+     * @return string|false
+     */
+    protected static function getCaBundlePath()
+    {
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+
+        return realpath(CaBundle::getSystemCaRootBundlePath());
+    }
+
+    /**
+     * Ensure the notify endpoint is synchronised with Guzzle's base URL.
+     *
+     * @param Configuration $configuration
+     * @param \yxorP\guzzle\ClientInterface $guzzle
+     *
+     * @return void
+     */
+    private function syncNotifyEndpointWithGuzzleBaseUri(
+        Configuration                 $configuration,
+        ClientInterface $guzzle
+    )
+    {
+        // Don't change the endpoint if one is already set, otherwise we could be
+        // resetting it back to the default as the Guzzle base URL will always
+        // be set by 'makeGuzzle'.
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+
+        $base = GuzzleCompat::getBaseUri($guzzle);
+
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
+    }
+
+    /**
+     * Register a middleware object to the pipeline.
+     *
+     * @param callable $middleware
+     *
+     * @return $this
+     */
+    public function registerMiddleware(callable $middleware)
+    {
+        $this->pipeline->pipe($middleware);
+
+        return $this;
     }
 
     /**
@@ -144,78 +243,19 @@ class Client
     }
 
     /**
-     * Make a new guzzle client instance.
+     * Regsier all our default callbacks.
      *
-     * @param string|null $base
-     * @param array $options
-     *
-     * @return \yxorP\guzzle\ClientInterface
+     * @return $this
      */
-    public static function makeGuzzle($base = null, array $options = [])
+    public function registerDefaultCallbacks()
     {
-        $options = self::resolveGuzzleOptions($base, $options);
+        $this->registerCallback(new GlobalMetaData($this->config))
+            ->registerCallback(new RequestMetaData($this->resolver))
+            ->registerCallback(new RequestSession($this->resolver))
+            ->registerCallback(new RequestUser($this->resolver))
+            ->registerCallback(new RequestContext($this->resolver));
 
-        return new \yxorP\guzzle\Client($options);
-    }
-
-    /**
-     * Get the ca bundle path if one exists.
-     *
-     * @return string|false
-     */
-    protected static function getCaBundlePath()
-    {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-
-        return realpath(CaBundle::getSystemCaRootBundlePath());
-    }
-
-    /**
-     * @param string|null $base
-     * @param array $options
-     *
-     * @return array
-     */
-    private static function resolveGuzzleOptions($base, array $options)
-    {
-        $key = GuzzleCompat::getBaseUriOptionName();
-        $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
-
-        $path = static::getCaBundlePath();
-
-        if ($path) {
-            $options['verify'] = $path;
-        }
-
-        return GuzzleCompat::applyRequestOptions(
-            $options,
-            [
-                'timeout' => self::DEFAULT_TIMEOUT_S,
-                'connect_timeout' => self::DEFAULT_TIMEOUT_S,
-            ]
-        );
-    }
-
-    /**
-     * Get the config instance.
-     *
-     * @return \yxorP\snag\Configuration
-     */
-    public function getConfig()
-    {
-        return $this->config;
-    }
-
-    /**
-     * Get the pipeline instance.
-     *
-     * @return \yxorP\snag\Pipeline
-     */
-    public function getPipeline()
-    {
-        return $this->pipeline;
+        return $this;
     }
 
     /**
@@ -233,49 +273,23 @@ class Client
     }
 
     /**
-     * Regsier all our default callbacks.
+     * Get the config instance.
      *
-     * @return $this
+     * @return Configuration
      */
-    public function registerDefaultCallbacks()
+    public function getConfig()
     {
-        $this->registerCallback(new GlobalMetaData($this->config))
-            ->registerCallback(new RequestMetaData($this->resolver))
-            ->registerCallback(new RequestSession($this->resolver))
-            ->registerCallback(new RequestUser($this->resolver))
-            ->registerCallback(new RequestContext($this->resolver));
-
-        return $this;
+        return $this->config;
     }
 
     /**
-     * Register a middleware object to the pipeline.
+     * Get the pipeline instance.
      *
-     * @param callable $middleware
-     *
-     * @return $this
+     * @return Pipeline
      */
-    public function registerMiddleware(callable $middleware)
+    public function getPipeline()
     {
-        $this->pipeline->pipe($middleware);
-
-        return $this;
-    }
-
-    /**
-     * Record the given breadcrumb.
-     *
-     * @param string $name the name of the breadcrumb
-     * @param string|null $type the type of breadcrumb
-     * @param array $metaData additional information about the breadcrumb
-     *
-     * @return void
-     */
-    public function leaveBreadcrumb($name, $type = null, array $metaData = [])
-    {
-        $type = in_array($type, Breadcrumb::getTypes(), true) ? $type : Breadcrumb::MANUAL_TYPE;
-
-        $this->recorder->record(new Breadcrumb($name, $type, $metaData));
+        return $this->pipeline;
     }
 
     /**
@@ -291,7 +305,7 @@ class Client
     /**
      * Notify Snag of a non-fatal/handled throwable.
      *
-     * @param \Throwable $throwable the throwable to notify Snag about
+     * @param Throwable $throwable the throwable to notify Snag about
      * @param callable|null $callback the customization callback
      *
      * @return void
@@ -304,27 +318,11 @@ class Client
     }
 
     /**
-     * Notify Snag of a non-fatal/handled error.
-     *
-     * @param string $name the name of the error, a short (1 word) string
-     * @param string $message the error message
-     * @param callable|null $callback the customization callback
-     *
-     * @return void
-     */
-    public function notifyError($name, $message, callable $callback = null)
-    {
-        $report = Report::fromNamedError($this->config, $name, $message);
-
-        $this->notify($report, $callback);
-    }
-
-    /**
      * Notify Snag of the given error report.
      *
      * This may simply involve queuing it for later if we're batching.
      *
-     * @param \yxorP\snag\Report $report the error report to send
+     * @param Report $report the error report to send
      * @param callable|null $callback the customization callback
      *
      * @return void
@@ -354,6 +352,48 @@ class Client
         if (!$this->config->isBatchSending()) {
             $this->flush();
         }
+    }
+
+    /**
+     * Record the given breadcrumb.
+     *
+     * @param string $name the name of the breadcrumb
+     * @param string|null $type the type of breadcrumb
+     * @param array $metaData additional information about the breadcrumb
+     *
+     * @return void
+     */
+    public function leaveBreadcrumb($name, $type = null, array $metaData = [])
+    {
+        $type = in_array($type, Breadcrumb::getTypes(), true) ? $type : Breadcrumb::MANUAL_TYPE;
+
+        $this->recorder->record(new Breadcrumb($name, $type, $metaData));
+    }
+
+    /**
+     * Flush any buffered reports.
+     *
+     * @return void
+     */
+    public function flush()
+    {
+        $this->http->sendEvents();
+    }
+
+    /**
+     * Notify Snag of a non-fatal/handled error.
+     *
+     * @param string $name the name of the error, a short (1 word) string
+     * @param string $message the error message
+     * @param callable|null $callback the customization callback
+     *
+     * @return void
+     */
+    public function notifyError($name, $message, callable $callback = null)
+    {
+        $report = Report::fromNamedError($this->config, $name, $message);
+
+        $this->notify($report, $callback);
     }
 
     /**
@@ -406,16 +446,6 @@ class Client
     }
 
     /**
-     * Flush any buffered reports.
-     *
-     * @return void
-     */
-    public function flush()
-    {
-        $this->http->sendEvents();
-    }
-
-    /**
      * Start tracking a session.
      *
      * @return void
@@ -428,12 +458,14 @@ class Client
     /**
      * Returns the session tracker.
      *
-     * @return \yxorP\snag\SessionTracker
+     * @return SessionTracker
      */
     public function getSessionTracker()
     {
         return $this->sessionTracker;
     }
+
+    // Forward calls to Configuration:
 
     /**
      * Get the Snag API Key.
@@ -444,8 +476,6 @@ class Client
     {
         return $this->config->getApiKey();
     }
-
-    // Forward calls to Configuration:
 
     /**
      * Sets whether errors should be batched together and send at the end of each request.
@@ -903,7 +933,7 @@ class Client
     /**
      * Get the session client.
      *
-     * @return \\yxorP\guzzle\ClientInterface
+     * @return \yxorP\guzzle\ClientInterface
      *
      * @deprecated This will be removed in the next major version.
      */
@@ -986,32 +1016,5 @@ class Client
     public function getRedactedKeys()
     {
         return $this->config->getRedactedKeys();
-    }
-
-    /**
-     * Ensure the notify endpoint is synchronised with Guzzle's base URL.
-     *
-     * @param \yxorP\snag\Configuration $configuration
-     * @param \\yxorP\guzzle\ClientInterface $guzzle
-     *
-     * @return void
-     */
-    private function syncNotifyEndpointWithGuzzleBaseUri(
-        Configuration                 $configuration,
-        \yxorP\guzzle\ClientInterface $guzzle
-    )
-    {
-        // Don't change the endpoint if one is already set, otherwise we could be
-        // resetting it back to the default as the Guzzle base URL will always
-        // be set by 'makeGuzzle'.
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-
-        $base = GuzzleCompat::getBaseUri($guzzle);
-
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string)$base);
-        }
     }
 }

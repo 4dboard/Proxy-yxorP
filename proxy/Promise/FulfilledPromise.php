@@ -14,11 +14,16 @@ class FulfilledPromise implements PromiseInterface
     public function __construct($value)
     {
         if (method_exists($value, 'then')) {
-            throw new \InvalidArgumentException(
+            throw new InvalidArgumentException(
                 'You cannot create a FulfilledPromise with a promise.');
         }
 
         $this->value = $value;
+    }
+
+    public function otherwise(callable $onRejected)
+    {
+        return $this->then(null, $onRejected);
     }
 
     public function then(
@@ -38,20 +43,15 @@ class FulfilledPromise implements PromiseInterface
             if ($p->getState() === self::PENDING) {
                 try {
                     $p->resolve($onFulfilled($value));
-                } catch (\Throwable $e) {
+                } catch (Throwable $e) {
                     $p->reject($e);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                     $p->reject($e);
                 }
             }
         });
 
         return $p;
-    }
-
-    public function otherwise(callable $onRejected)
-    {
-        return $this->then(null, $onRejected);
     }
 
     public function wait($unwrap = true, $defaultDelivery = null)
@@ -67,13 +67,13 @@ class FulfilledPromise implements PromiseInterface
     public function resolve($value)
     {
         if ($value !== $this->value) {
-            throw new \LogicException("Cannot resolve a fulfilled promise");
+            throw new LogicException("Cannot resolve a fulfilled promise");
         }
     }
 
     public function reject($reason)
     {
-        throw new \LogicException("Cannot reject a fulfilled promise");
+        throw new LogicException("Cannot reject a fulfilled promise");
     }
 
     public function cancel()

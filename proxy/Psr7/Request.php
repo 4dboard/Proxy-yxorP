@@ -1,7 +1,6 @@
 <?php
 namespace \yxorP\guzzle\Psr7;
 
-use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
@@ -54,6 +53,36 @@ class Request implements RequestInterface
         if ($body !== '' && $body !== null) {
             $this->stream = stream_for($body);
         }
+    }
+
+    private function assertMethod($method)
+    {
+        if (!is_string($method) || $method === '') {
+            throw new InvalidArgumentException('Method must be a non-empty string.');
+        }
+    }
+
+    private function updateHostFromUri()
+    {
+        $host = $this->uri->getHost();
+
+        if ($host == '') {
+            return;
+        }
+
+        if (($port = $this->uri->getPort()) !== null) {
+            $host .= ':' . $port;
+        }
+
+        if (isset($this->headerNames['host'])) {
+            $header = $this->headerNames['host'];
+        } else {
+            $header = 'Host';
+            $this->headerNames['host'] = 'Host';
+        }
+        // Ensure Host is the first header.
+        // See: http://tools.ietf.org/html/rfc7230#section-5.4
+        $this->headers = [$header => [$host]] + $this->headers;
     }
 
     public function getRequestTarget()
@@ -118,35 +147,5 @@ class Request implements RequestInterface
         }
 
         return $new;
-    }
-
-    private function updateHostFromUri()
-    {
-        $host = $this->uri->getHost();
-
-        if ($host == '') {
-            return;
-        }
-
-        if (($port = $this->uri->getPort()) !== null) {
-            $host .= ':' . $port;
-        }
-
-        if (isset($this->headerNames['host'])) {
-            $header = $this->headerNames['host'];
-        } else {
-            $header = 'Host';
-            $this->headerNames['host'] = 'Host';
-        }
-        // Ensure Host is the first header.
-        // See: http://tools.ietf.org/html/rfc7230#section-5.4
-        $this->headers = [$header => [$host]] + $this->headers;
-    }
-
-    private function assertMethod($method)
-    {
-        if (!is_string($method) || $method === '') {
-            throw new \InvalidArgumentException('Method must be a non-empty string.');
-        }
     }
 }

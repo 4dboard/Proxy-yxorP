@@ -1,12 +1,12 @@
 <?php
 namespace \yxorP\guzzle;
 
-use \yxorP\guzzle\Cookie\CookieJarInterface;
-use \yxorP\guzzle\Exception\RequestException;
-use \yxorP\guzzle\Promise\RejectedPromise;
-use \yxorP\guzzle\Psr7;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use yxorP\guzzle\Cookie\CookieJarInterface;
+use yxorP\guzzle\Exception\RequestException;
+use yxorP\guzzle\Promise\RejectedPromise;
+use yxorP\guzzle\Psr7;
 
 /**
  * Functions used to create and wrap handlers with handler middleware.
@@ -28,7 +28,7 @@ final class Middleware
                 if (empty($options['cookies'])) {
                     return $handler($request, $options);
                 } elseif (!($options['cookies'] instanceof CookieJarInterface)) {
-                    throw new \InvalidArgumentException('cookies must be an instance of \yxorP\guzzle\Cookie\CookieJarInterface');
+                    throw new InvalidArgumentException('cookies must be an instance of \yxorP\guzzle\Cookie\CookieJarInterface');
                 }
                 $cookieJar = $options['cookies'];
                 $request = $cookieJar->withCookieHeader($request);
@@ -72,15 +72,15 @@ final class Middleware
     /**
      * Middleware that pushes history data to an ArrayAccess container.
      *
-     * @param array|\ArrayAccess $container Container to hold the history (by reference).
+     * @param array|ArrayAccess $container Container to hold the history (by reference).
      *
      * @return callable Returns a function that accepts the next handler.
-     * @throws \InvalidArgumentException if container is not an array or ArrayAccess.
+     * @throws InvalidArgumentException if container is not an array or ArrayAccess.
      */
     public static function history(&$container)
     {
-        if (!is_array($container) && !$container instanceof \ArrayAccess) {
-            throw new \InvalidArgumentException('history container must be an array or object implementing ArrayAccess');
+        if (!is_array($container) && !$container instanceof ArrayAccess) {
+            throw new InvalidArgumentException('history container must be an array or object implementing ArrayAccess');
         }
 
         return function (callable $handler) use (&$container) {

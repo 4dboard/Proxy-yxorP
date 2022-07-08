@@ -1,10 +1,10 @@
 <?php
 namespace \yxorP\guzzle\Handler;
 
-use \yxorP\guzzle\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use yxorP\guzzle\Psr7\Response;
 
 /**
  * Represents a cURL easy handle and the data it populates.
@@ -34,18 +34,18 @@ final class EasyHandle
     /** @var int cURL error number (if any) */
     public $errno = 0;
 
-    /** @var \Exception Exception during on_headers (if any) */
+    /** @var Exception Exception during on_headers (if any) */
     public $onHeadersException;
 
     /**
      * Attach a response to the easy handle based on the received headers.
      *
-     * @throws \RuntimeException if no headers have been received.
+     * @throws RuntimeException if no headers have been received.
      */
     public function createResponse()
     {
         if (empty($this->headers)) {
-            throw new \RuntimeException('No headers have been received');
+            throw new RuntimeException('No headers have been received');
         }
 
         // HTTP-version SP status-code SP reason-phrase
@@ -87,6 +87,6 @@ final class EasyHandle
         $msg = $name === 'handle'
             ? 'The EasyHandle has been released'
             : 'Invalid property: ' . $name;
-        throw new \BadMethodCallException($msg);
+        throw new BadMethodCallException($msg);
     }
 }

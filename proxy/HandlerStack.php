@@ -1,9 +1,9 @@
 <?php
 namespace \yxorP\guzzle;
 
-use \yxorP\guzzle\Promise\PromiseInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use yxorP\guzzle\Promise\PromiseInterface;
 
 /**
  * Creates a composed Guzzle handler function by stacking middlewares on top of
@@ -57,6 +57,18 @@ class HandlerStack
     }
 
     /**
+     * Push a middleware to the top of the stack.
+     *
+     * @param callable $middleware Middleware function
+     * @param string $name Name to register for this middleware.
+     */
+    public function push(callable $middleware, $name = '')
+    {
+        $this->stack[] = [$middleware, $name];
+        $this->cached = null;
+    }
+
+    /**
      * Invokes the handler stack as a composed handler
      *
      * @param RequestInterface $request
@@ -69,6 +81,28 @@ class HandlerStack
         $handler = $this->resolve();
 
         return $handler($request, $options);
+    }
+
+    /**
+     * Compose the middleware and handler into a single callable function.
+     *
+     * @return callable
+     */
+    public function resolve()
+    {
+        if (!$this->cached) {
+            if (!($prev = $this->handler)) {
+                throw new LogicException('No handler has been specified');
+            }
+
+            foreach (array_reverse($this->stack) as $fn) {
+                $prev = $fn[0]($prev);
+            }
+
+            $this->cached = $prev;
+        }
+
+        return $this->cached;
     }
 
     /**
@@ -98,6 +132,28 @@ class HandlerStack
         }
 
         return $result;
+    }
+
+    /**
+     * Provides a debug string for a given callable.
+     *
+     * @param array|callable $fn Function to write as a string.
+     *
+     * @return string
+     */
+    private function debugCallable($fn)
+    {
+        if (is_string($fn)) {
+            return "callable({$fn})";
+        }
+
+        if (is_array($fn)) {
+            return is_string($fn[0])
+                ? "callable({$fn[0]}::{$fn[1]})"
+                : "callable(['" . get_class($fn[0]) . "', '{$fn[1]}'])";
+        }
+
+        return 'callable(' . spl_object_hash($fn) . ')';
     }
 
     /**
@@ -135,18 +191,6 @@ class HandlerStack
     }
 
     /**
-     * Push a middleware to the top of the stack.
-     *
-     * @param callable $middleware Middleware function
-     * @param string $name Name to register for this middleware.
-     */
-    public function push(callable $middleware, $name = '')
-    {
-        $this->stack[] = [$middleware, $name];
-        $this->cached = null;
-    }
-
-    /**
      * Add a middleware before another middleware by name.
      *
      * @param string $findName Middleware to find
@@ -156,72 +200,6 @@ class HandlerStack
     public function before($findName, callable $middleware, $withName = '')
     {
         $this->splice($findName, $withName, $middleware, true);
-    }
-
-    /**
-     * Add a middleware after another middleware by name.
-     *
-     * @param string $findName Middleware to find
-     * @param callable $middleware Middleware function
-     * @param string $withName Name to register for this middleware.
-     */
-    public function after($findName, callable $middleware, $withName = '')
-    {
-        $this->splice($findName, $withName, $middleware, false);
-    }
-
-    /**
-     * Remove a middleware by instance or name from the stack.
-     *
-     * @param callable|string $remove Middleware to remove by instance or name.
-     */
-    public function remove($remove)
-    {
-        $this->cached = null;
-        $idx = is_callable($remove) ? 0 : 1;
-        $this->stack = array_values(array_filter(
-            $this->stack,
-            function ($tuple) use ($idx, $remove) {
-                return $tuple[$idx] !== $remove;
-            }
-        ));
-    }
-
-    /**
-     * Compose the middleware and handler into a single callable function.
-     *
-     * @return callable
-     */
-    public function resolve()
-    {
-        if (!$this->cached) {
-            if (!($prev = $this->handler)) {
-                throw new \LogicException('No handler has been specified');
-            }
-
-            foreach (array_reverse($this->stack) as $fn) {
-                $prev = $fn[0]($prev);
-            }
-
-            $this->cached = $prev;
-        }
-
-        return $this->cached;
-    }
-
-    /**
-     * @param string $name
-     * @return int
-     */
-    private function findByName($name)
-    {
-        foreach ($this->stack as $k => $v) {
-            if ($v[1] === $name) {
-                return $k;
-            }
-        }
-
-        throw new \InvalidArgumentException("Middleware not found: $name");
     }
 
     /**
@@ -254,24 +232,46 @@ class HandlerStack
     }
 
     /**
-     * Provides a debug string for a given callable.
-     *
-     * @param array|callable $fn Function to write as a string.
-     *
-     * @return string
+     * @param string $name
+     * @return int
      */
-    private function debugCallable($fn)
+    private function findByName($name)
     {
-        if (is_string($fn)) {
-            return "callable({$fn})";
+        foreach ($this->stack as $k => $v) {
+            if ($v[1] === $name) {
+                return $k;
+            }
         }
 
-        if (is_array($fn)) {
-            return is_string($fn[0])
-                ? "callable({$fn[0]}::{$fn[1]})"
-                : "callable(['" . get_class($fn[0]) . "', '{$fn[1]}'])";
-        }
+        throw new InvalidArgumentException("Middleware not found: $name");
+    }
 
-        return 'callable(' . spl_object_hash($fn) . ')';
+    /**
+     * Add a middleware after another middleware by name.
+     *
+     * @param string $findName Middleware to find
+     * @param callable $middleware Middleware function
+     * @param string $withName Name to register for this middleware.
+     */
+    public function after($findName, callable $middleware, $withName = '')
+    {
+        $this->splice($findName, $withName, $middleware, false);
+    }
+
+    /**
+     * Remove a middleware by instance or name from the stack.
+     *
+     * @param callable|string $remove Middleware to remove by instance or name.
+     */
+    public function remove($remove)
+    {
+        $this->cached = null;
+        $idx = is_callable($remove) ? 0 : 1;
+        $this->stack = array_values(array_filter(
+            $this->stack,
+            function ($tuple) use ($idx, $remove) {
+                return $tuple[$idx] !== $remove;
+            }
+        ));
     }
 }

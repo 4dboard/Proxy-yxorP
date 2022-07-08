@@ -1,13 +1,13 @@
 <?php
 namespace \yxorP\guzzle;
 
-use \yxorP\guzzle\Exception\BadResponseException;
-use \yxorP\guzzle\Exception\TooManyRedirectsException;
-use \yxorP\guzzle\Promise\PromiseInterface;
-use \yxorP\guzzle\Psr7;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use yxorP\guzzle\Exception\BadResponseException;
+use yxorP\guzzle\Exception\TooManyRedirectsException;
+use yxorP\guzzle\Promise\PromiseInterface;
+use yxorP\guzzle\Psr7;
 
 /**
  * Request redirect middleware.
@@ -57,7 +57,7 @@ class RedirectMiddleware
         if ($options['allow_redirects'] === true) {
             $options['allow_redirects'] = self::$defaultSettings;
         } elseif (!is_array($options['allow_redirects'])) {
-            throw new \InvalidArgumentException('allow_redirects must be true, false, or array');
+            throw new InvalidArgumentException('allow_redirects must be true, false, or array');
         } else {
             // Merge the default settings with the provided settings
             $options['allow_redirects'] += self::$defaultSettings;
@@ -120,6 +120,29 @@ class RedirectMiddleware
     }
 
     /**
+     * Check for too many redirects
+     *
+     * @return void
+     *
+     * @throws TooManyRedirectsException Too many redirects.
+     */
+    private function guardMax(RequestInterface $request, array &$options)
+    {
+        $current = isset($options['__redirect_count'])
+            ? $options['__redirect_count']
+            : 0;
+        $options['__redirect_count'] = $current + 1;
+        $max = $options['allow_redirects']['max'];
+
+        if ($options['__redirect_count'] > $max) {
+            throw new TooManyRedirectsException(
+                "Will not follow more than {$max} redirects",
+                $request
+            );
+        }
+    }
+
+    /**
      * @param RequestInterface $request
      * @param array $options
      * @param ResponseInterface $response
@@ -176,51 +199,6 @@ class RedirectMiddleware
     }
 
     /**
-     * Enable tracking on promise.
-     *
-     * @return PromiseInterface
-     */
-    private function withTracking(PromiseInterface $promise, $uri, $statusCode)
-    {
-        return $promise->then(
-            function (ResponseInterface $response) use ($uri, $statusCode) {
-                // Note that we are pushing to the front of the list as this
-                // would be an earlier response than what is currently present
-                // in the history header.
-                $historyHeader = $response->getHeader(self::HISTORY_HEADER);
-                $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
-                array_unshift($historyHeader, $uri);
-                array_unshift($statusHeader, $statusCode);
-                return $response->withHeader(self::HISTORY_HEADER, $historyHeader)
-                    ->withHeader(self::STATUS_HISTORY_HEADER, $statusHeader);
-            }
-        );
-    }
-
-    /**
-     * Check for too many redirects
-     *
-     * @return void
-     *
-     * @throws TooManyRedirectsException Too many redirects.
-     */
-    private function guardMax(RequestInterface $request, array &$options)
-    {
-        $current = isset($options['__redirect_count'])
-            ? $options['__redirect_count']
-            : 0;
-        $options['__redirect_count'] = $current + 1;
-        $max = $options['allow_redirects']['max'];
-
-        if ($options['__redirect_count'] > $max) {
-            throw new TooManyRedirectsException(
-                "Will not follow more than {$max} redirects",
-                $request
-            );
-        }
-    }
-
-    /**
      * Set the appropriate URL on the request based on the location header
      *
      * @param RequestInterface $request
@@ -254,5 +232,27 @@ class RedirectMiddleware
         }
 
         return $location;
+    }
+
+    /**
+     * Enable tracking on promise.
+     *
+     * @return PromiseInterface
+     */
+    private function withTracking(PromiseInterface $promise, $uri, $statusCode)
+    {
+        return $promise->then(
+            function (ResponseInterface $response) use ($uri, $statusCode) {
+                // Note that we are pushing to the front of the list as this
+                // would be an earlier response than what is currently present
+                // in the history header.
+                $historyHeader = $response->getHeader(self::HISTORY_HEADER);
+                $statusHeader = $response->getHeader(self::STATUS_HISTORY_HEADER);
+                array_unshift($historyHeader, $uri);
+                array_unshift($statusHeader, $statusCode);
+                return $response->withHeader(self::HISTORY_HEADER, $historyHeader)
+                    ->withHeader(self::STATUS_HISTORY_HEADER, $statusHeader);
+            }
+        );
     }
 }
