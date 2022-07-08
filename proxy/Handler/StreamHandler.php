@@ -339,7 +339,7 @@ class StreamHandler
         static $map = [STREAM_NOTIFY_CONNECT => 'CONNECT', STREAM_NOTIFY_AUTH_REQUIRED => 'AUTH_REQUIRED', STREAM_NOTIFY_AUTH_RESULT => 'AUTH_RESULT', STREAM_NOTIFY_MIME_TYPE_IS => 'MIME_TYPE_IS', STREAM_NOTIFY_FILE_SIZE_IS => 'FILE_SIZE_IS', STREAM_NOTIFY_REDIRECTED => 'REDIRECTED', STREAM_NOTIFY_PROGRESS => 'PROGRESS', STREAM_NOTIFY_FAILURE => 'FAILURE', STREAM_NOTIFY_COMPLETED => 'COMPLETED', STREAM_NOTIFY_RESOLVE => 'RESOLVE',];
         static $args = ['severity', 'message', 'message_code', 'bytes_transferred', 'bytes_max'];
         $value = debug_resource($value);
-        $ident = $request->getMethod() . ' ' . $request->getUri()->withFragment('')->__toString();
+        $ident = $request->getMethod() . ' ' . $request->getUri()->withFragment('');
         $this->addNotification($params, function () use ($ident, $value, $map, $args) {
             $passed = func_get_args();
             $code = array_shift($passed);

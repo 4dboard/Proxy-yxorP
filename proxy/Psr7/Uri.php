@@ -40,7 +40,7 @@ class Uri implements UriInterface
         $this->query = isset($parts['query']) ? $this->filterQueryAndFragment($parts['query']) : '';
         $this->fragment = isset($parts['fragment']) ? $this->filterQueryAndFragment($parts['fragment']) : '';
         if (isset($parts['pass'])) {
-            $this->userInfo .= ':' . $this->filterUserInfoComponent($parts['pass'])->__toString();
+            $this->userInfo .= ':' . $this->filterUserInfoComponent($parts['pass']);
         }
         $this->removeDefaultPort();
     }
@@ -319,7 +319,7 @@ class Uri implements UriInterface
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
-            $info .= ':' . $this->filterUserInfoComponent($password)->__toString();
+            $info .= ':' . $this->filterUserInfoComponent($password);
         }
         if ($this->userInfo === $info) {
             return $this;

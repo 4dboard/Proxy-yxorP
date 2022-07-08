@@ -19,7 +19,7 @@ function str(MessageInterface $message): string
             $msg .= "\r\nHost: " . $message->getUri()->getHost();
         }
     } elseif ($message instanceof ResponseInterface) {
-        $msg = 'HTTP/' . $message->getProtocolVersion() . ' ' . $message->getStatusCode() . ' ' . $message->getReasonPhrase()->__toString();
+        $msg = 'HTTP/' . $message->getProtocolVersion() . ' ' . $message->getStatusCode() . ' ' . $message->getReasonPhrase();
     } else {
         throw new InvalidArgumentException('Unknown message type');
     }

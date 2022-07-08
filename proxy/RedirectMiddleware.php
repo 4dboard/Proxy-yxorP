@@ -54,7 +54,7 @@ class RedirectMiddleware
         }
         $promise = $this($nextRequest, $options);
         if (!empty($options['allow_redirects']['track_redirects'])) {
-            return $this->withTracking($promise, (string)$nextRequest->getUri()->__toString(), $response->getStatusCode());
+            return $this->withTracking($promise, (string)$nextRequest->getUri(), $response->getStatusCode());
         }
         return $promise;
     }

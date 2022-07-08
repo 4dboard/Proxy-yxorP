@@ -1212,7 +1212,7 @@ class worker
         if (static::STATUS_SHUTDOWN !== static::$_status) {
             $error_msg = DIRECTORY_SEPARATOR === '/' ? 'worker[' . posix_getpid() . '] process terminated' : 'worker process terminated';
             $errors = error_get_last();
-            if ($errors && ($errors['type'] === E_ERROR || $errors['type'] === E_PARSE || $errors['type'] === E_CORE_ERROR || $errors['type'] === E_COMPILE_ERROR || $errors['type'] === E_RECOVERABLE_ERROR)) $error_msg .= ' with ERROR: ' . static::getErrorType($errors['type'])->__toString() . " \"{$errors['message']} in {$errors['file']} on line {$errors['line']}\"";
+            if ($errors && ($errors['type'] === E_ERROR || $errors['type'] === E_PARSE || $errors['type'] === E_CORE_ERROR || $errors['type'] === E_COMPILE_ERROR || $errors['type'] === E_RECOVERABLE_ERROR)) $error_msg .= ' with ERROR: ' . static::getErrorType($errors['type']) . " \"{$errors['message']} in {$errors['file']} on line {$errors['line']}\"";
             static::log($error_msg);
         }
     }
