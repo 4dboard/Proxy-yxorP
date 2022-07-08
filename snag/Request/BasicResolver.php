@@ -7,7 +7,7 @@ class BasicResolver implements ResolverInterface
     /**
      * Resolve the current request.
      *
-     * @return \yxorP\snag\Request\RequestInterface
+     * @return RequestInterface
      */
     public function resolve()
     {

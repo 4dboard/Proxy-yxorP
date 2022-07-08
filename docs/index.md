@@ -13,51 +13,51 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Attribute`](./classes/Attribute.md) | |
-| [`CLI`](./classes/CLI.md) | This file is part of the Cockpit project.|
-| [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](./classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
-| [`ContainerArray`](./classes/ContainerArray.md) | This file is part of the Cockpit project.|
-| [`DataCollection`](./classes/DataCollection.md) | This file is part of the Cockpit project.|
-| [`DotEnv`](./classes/DotEnv.md) | This file is part of the Cockpit project.|
-| [`FileStorage`](./classes/FileStorage.md) | |
-| [`JsonException`](./classes/JsonException.md) | |
-| [`Lexy`](./classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
-| [`LiteDB`](./classes/LiteDB.md) | This file is part of the Cockpit project.|
-| [`LiteDBQuery`](./classes/LiteDBQuery.md) | |
-| [`Mailer`](./classes/Mailer.md) | |
-| [`Mailer_Message`](./classes/Mailer_Message.md) | |
-| [`Pagination`](./classes/Pagination.md) | This file is part of the Cockpit project.|
-| [`Parsedown`](./classes/Parsedown.md) | |
-| [`ParsedownExtra`](./classes/ParsedownExtra.md) | |
-| [`ParsedownExtraTest`](./classes/ParsedownExtraTest.md) | |
-| [`PriorityQueue`](./classes/PriorityQueue.md) | This file is part of the Cockpit project.|
-| [`RedisLite`](./classes/RedisLite.md) | RedisLite class.|
-| [`SVGSanitizer`](./classes/SVGSanitizer.md) | Class SVGSanitizer|
-| [`Spyc`](./classes/Spyc.md) | The Simple PHP YAML Class.|
-| [`UnhandledMatchError`](./classes/UnhandledMatchError.md) | |
-| [`ValueError`](./classes/ValueError.md) | |
-| [`blockListPluginAction`](./classes/blockListPluginAction.md) | |
-| [`cacheStoreAction`](./classes/cacheStoreAction.md) | |
-| [`checkFilesAction`](./classes/checkFilesAction.md) | |
-| [`cookiePluginAction`](./classes/cookiePluginAction.md) | |
-| [`dailyMotionPluginAction`](./classes/dailyMotionPluginAction.md) | |
-| [`debubEnablingAction`](./classes/debubEnablingAction.md) | |
-| [`debugHandlerAction`](./classes/debugHandlerAction.md) | |
-| [`headerRewritePluginAction`](./classes/headerRewritePluginAction.md) | |
-| [`logPluginAction`](./classes/logPluginAction.md) | |
-| [`mimeTypesAction`](./classes/mimeTypesAction.md) | |
-| [`overridePluginAction`](./classes/overridePluginAction.md) | |
-| [`proxifyPluginAction`](./classes/proxifyPluginAction.md) | |
-| [`proxyClientAction`](./classes/proxyClientAction.md) | |
-| [`readyCheckAction`](./classes/readyCheckAction.md) | |
-| [`requestBodyAction`](./classes/requestBodyAction.md) | |
-| [`requestResponseAction`](./classes/requestResponseAction.md) | |
-| [`resourceHandlerAction`](./classes/resourceHandlerAction.md) | |
-| [`setHeadersAction`](./classes/setHeadersAction.md) | |
-| [`snagHandlerAction`](./classes/snagHandlerAction.md) | |
-| [`streamPluginAction`](./classes/streamPluginAction.md) | |
-| [`twitterPluginAction`](./classes/twitterPluginAction.md) | |
-| [`youtubePluginAction`](./classes/youtubePluginAction.md) | |
+| [`Attribute`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Attribute.md) | |
+| [`CLI`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/CLI.md) | This file is part of the Cockpit project.|
+| [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
+| [`ContainerArray`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ContainerArray.md) | This file is part of the Cockpit project.|
+| [`DataCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/DataCollection.md) | This file is part of the Cockpit project.|
+| [`DotEnv`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/DotEnv.md) | This file is part of the Cockpit project.|
+| [`FileStorage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/FileStorage.md) | |
+| [`JsonException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/JsonException.md) | |
+| [`Lexy`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
+| [`LiteDB`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LiteDB.md) | This file is part of the Cockpit project.|
+| [`LiteDBQuery`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LiteDBQuery.md) | |
+| [`Mailer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Mailer.md) | |
+| [`Mailer_Message`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Mailer_Message.md) | |
+| [`Pagination`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Pagination.md) | This file is part of the Cockpit project.|
+| [`Parsedown`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Parsedown.md) | |
+| [`ParsedownExtra`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ParsedownExtra.md) | |
+| [`ParsedownExtraTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ParsedownExtraTest.md) | |
+| [`PriorityQueue`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PriorityQueue.md) | This file is part of the Cockpit project.|
+| [`RedisLite`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/RedisLite.md) | RedisLite class.|
+| [`SVGSanitizer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
+| [`Spyc`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|
+| [`UnhandledMatchError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/UnhandledMatchError.md) | |
+| [`ValueError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ValueError.md) | |
+| [`blockListPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/blockListPluginAction.md) | |
+| [`cacheStoreAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/cacheStoreAction.md) | |
+| [`checkFilesAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/checkFilesAction.md) | |
+| [`cookiePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/cookiePluginAction.md) | |
+| [`dailyMotionPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/dailyMotionPluginAction.md) | |
+| [`debubEnablingAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/debubEnablingAction.md) | |
+| [`debugHandlerAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/debugHandlerAction.md) | |
+| [`headerRewritePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/headerRewritePluginAction.md) | |
+| [`logPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/logPluginAction.md) | |
+| [`mimeTypesAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/mimeTypesAction.md) | |
+| [`overridePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/overridePluginAction.md) | |
+| [`proxifyPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/proxifyPluginAction.md) | |
+| [`proxyClientAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/proxyClientAction.md) | |
+| [`readyCheckAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/readyCheckAction.md) | |
+| [`requestBodyAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/requestBodyAction.md) | |
+| [`requestResponseAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/requestResponseAction.md) | |
+| [`resourceHandlerAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/resourceHandlerAction.md) | |
+| [`setHeadersAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/setHeadersAction.md) | |
+| [`snagHandlerAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/snagHandlerAction.md) | |
+| [`streamPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/streamPluginAction.md) | |
+| [`twitterPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/twitterPluginAction.md) | |
+| [`youtubePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/youtubePluginAction.md) | |
 
 
 
@@ -65,7 +65,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`Stringable`](./classes/Stringable.md) | |
+| [`Stringable`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Stringable.md) | |
 
 
 
@@ -75,7 +75,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`AuthController`](./classes/Cockpit/AuthController.md) | Class Controller|
+| [`AuthController`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/AuthController.md) | Class Controller|
 
 
 
@@ -86,15 +86,15 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Accounts`](./classes/Cockpit/Controller/Accounts.md) | Class Controller|
-| [`Auth`](./classes/Cockpit/Controller/Auth.md) | Class Controller|
-| [`Base`](./classes/Cockpit/Controller/Base.md) | Class Controller|
-| [`Media`](./classes/Cockpit/Controller/Media.md) | Class Controller|
-| [`RestAdmin`](./classes/Cockpit/Controller/RestAdmin.md) | Class Controller|
-| [`RestApi`](./classes/Cockpit/Controller/RestApi.md) | Class Controller|
-| [`Settings`](./classes/Cockpit/Controller/Settings.md) | Class Controller|
-| [`Utils`](./classes/Cockpit/Controller/Utils.md) | Class Controller|
-| [`Webhooks`](./classes/Cockpit/Controller/Webhooks.md) | Class Controller|
+| [`Accounts`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Accounts.md) | Class Controller|
+| [`Auth`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Auth.md) | Class Controller|
+| [`Base`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Base.md) | Class Controller|
+| [`Media`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Media.md) | Class Controller|
+| [`RestAdmin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/RestAdmin.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/RestApi.md) | Class Controller|
+| [`Settings`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Settings.md) | Class Controller|
+| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Utils.md) | Class Controller|
+| [`Webhooks`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Webhooks.md) | Class Controller|
 
 
 
@@ -105,12 +105,12 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Cockpit/Helper/Admin.md) | Admin Helper class.|
-| [`Async`](./classes/Cockpit/Helper/Async.md) | Async Helper class.|
-| [`Csrf`](./classes/Cockpit/Helper/Csrf.md) | |
-| [`Jobs`](./classes/Cockpit/Helper/Jobs.md) | |
-| [`Revisions`](./classes/Cockpit/Helper/Revisions.md) | |
-| [`Updater`](./classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
+| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Admin.md) | Admin Helper class.|
+| [`Async`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Async.md) | Async Helper class.|
+| [`Csrf`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Csrf.md) | |
+| [`Jobs`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Jobs.md) | |
+| [`Revisions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Revisions.md) | |
+| [`Updater`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
 
 
 
@@ -121,8 +121,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Json5Decoder`](./classes/ColinODell/Json5/Json5Decoder.md) | |
-| [`SyntaxError`](./classes/ColinODell/Json5/SyntaxError.md) | |
+| [`Json5Decoder`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColinODell/Json5/Json5Decoder.md) | |
+| [`SyntaxError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColinODell/Json5/SyntaxError.md) | |
 
 
 
@@ -133,11 +133,11 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Collections/Controller/Admin.md) | Class Controller|
-| [`Import`](./classes/Collections/Controller/Import.md) | Class Controller|
-| [`RestApi`](./classes/Collections/Controller/RestApi.md) | Class Controller|
-| [`Trash`](./classes/Collections/Controller/Trash.md) | Class Controller|
-| [`Utils`](./classes/Collections/Controller/Utils.md) | Class Controller|
+| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Admin.md) | Class Controller|
+| [`Import`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Import.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/RestApi.md) | Class Controller|
+| [`Trash`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Trash.md) | Class Controller|
+| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Utils.md) | Class Controller|
 
 
 
@@ -148,10 +148,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`CMap`](./classes/ColorThief/CMap.md) | |
-| [`ColorThief`](./classes/ColorThief/ColorThief.md) | |
-| [`PQueue`](./classes/ColorThief/PQueue.md) | |
-| [`VBox`](./classes/ColorThief/VBox.md) | |
+| [`CMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/CMap.md) | |
+| [`ColorThief`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/ColorThief.md) | |
+| [`PQueue`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/PQueue.md) | |
+| [`VBox`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/VBox.md) | |
 
 
 
@@ -162,7 +162,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`ImageLoader`](./classes/ColorThief/Image/ImageLoader.md) | |
+| [`ImageLoader`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/ImageLoader.md) | |
 
 
 
@@ -173,10 +173,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`GDImageAdapter`](./classes/ColorThief/Image/Adapter/GDImageAdapter.md) | Base adapter implementation to handle image manipulation.|
-| [`GmagickImageAdapter`](./classes/ColorThief/Image/Adapter/GmagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
-| [`ImageAdapter`](./classes/ColorThief/Image/Adapter/ImageAdapter.md) | Base adapter implementation to handle image manipulation.|
-| [`ImagickImageAdapter`](./classes/ColorThief/Image/Adapter/ImagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`GDImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/GDImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`GmagickImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/GmagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`ImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/ImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`ImagickImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/ImagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
 
 
 
@@ -184,7 +184,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`IImageAdapter`](./classes/ColorThief/Image/Adapter/IImageAdapter.md) | Basic interface for all image adapters.|
+| [`IImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/IImageAdapter.md) | Basic interface for all image adapters.|
 
 
 
@@ -194,7 +194,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`InstalledVersions`](./classes/Composer/InstalledVersions.md) | |
+| [`InstalledVersions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/InstalledVersions.md) | |
 
 
 
@@ -205,8 +205,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`ClassLoader`](./classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
-| [`ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1`](./classes/Composer/Autoload/ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
+| [`ClassLoader`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
+| [`ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/Autoload/ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
 
 
 
@@ -217,11 +217,11 @@
 
 | Class | Description |
 |-------|-------------|
-| [`BeforeValidException`](./classes/Firebase/JWT/BeforeValidException.md) | |
-| [`ExpiredException`](./classes/Firebase/JWT/ExpiredException.md) | |
-| [`JWK`](./classes/Firebase/JWT/JWK.md) | JSON Web Key implementation, based on this spec:<br />https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41|
-| [`JWT`](./classes/Firebase/JWT/JWT.md) | JSON Web Token implementation, based on this spec:<br />https://tools.ietf.org/html/rfc7519|
-| [`SignatureInvalidException`](./classes/Firebase/JWT/SignatureInvalidException.md) | |
+| [`BeforeValidException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/BeforeValidException.md) | |
+| [`ExpiredException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/ExpiredException.md) | |
+| [`JWK`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/JWK.md) | JSON Web Key implementation, based on this spec:<br />https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41|
+| [`JWT`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/JWT.md) | JSON Web Token implementation, based on this spec:<br />https://tools.ietf.org/html/rfc7519|
+| [`SignatureInvalidException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/SignatureInvalidException.md) | |
 
 
 
@@ -232,8 +232,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Forms/Controller/Admin.md) | Class Controller|
-| [`RestApi`](./classes/Forms/Controller/RestApi.md) | Class Controller|
+| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Forms/Controller/Admin.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Forms/Controller/RestApi.md) | Class Controller|
 
 
 
@@ -244,8 +244,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`PrettyVersions`](./classes/Jean85/PrettyVersions.md) | |
-| [`Version`](./classes/Jean85/Version.md) | |
+| [`PrettyVersions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/PrettyVersions.md) | |
+| [`Version`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Version.md) | |
 
 
 
@@ -256,9 +256,9 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Color`](./classes/League/ColorExtractor/Color.md) | |
-| [`ColorExtractor`](./classes/League/ColorExtractor/ColorExtractor.md) | |
-| [`Palette`](./classes/League/ColorExtractor/Palette.md) | |
+| [`Color`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/Color.md) | |
+| [`ColorExtractor`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/ColorExtractor.md) | |
+| [`Palette`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/Palette.md) | |
 
 
 
@@ -269,25 +269,25 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Config`](./classes/League/Flysystem/Config.md) | |
-| [`ConnectionErrorException`](./classes/League/Flysystem/ConnectionErrorException.md) | |
-| [`ConnectionRuntimeException`](./classes/League/Flysystem/ConnectionRuntimeException.md) | |
-| [`CorruptedPathDetected`](./classes/League/Flysystem/CorruptedPathDetected.md) | |
-| [`Directory`](./classes/League/Flysystem/Directory.md) | |
-| [`Exception`](./classes/League/Flysystem/Exception.md) | |
-| [`File`](./classes/League/Flysystem/File.md) | |
-| [`FileExistsException`](./classes/League/Flysystem/FileExistsException.md) | |
-| [`FileNotFoundException`](./classes/League/Flysystem/FileNotFoundException.md) | |
-| [`Filesystem`](./classes/League/Flysystem/Filesystem.md) | |
-| [`FilesystemNotFoundException`](./classes/League/Flysystem/FilesystemNotFoundException.md) | Thrown when the MountManager cannot find a filesystem.|
-| [`Handler`](./classes/League/Flysystem/Handler.md) | |
-| [`InvalidRootException`](./classes/League/Flysystem/InvalidRootException.md) | |
-| [`MountManager`](./classes/League/Flysystem/MountManager.md) | Class MountManager.|
-| [`NotSupportedException`](./classes/League/Flysystem/NotSupportedException.md) | |
-| [`RootViolationException`](./classes/League/Flysystem/RootViolationException.md) | |
-| [`SafeStorage`](./classes/League/Flysystem/SafeStorage.md) | |
-| [`UnreadableFileException`](./classes/League/Flysystem/UnreadableFileException.md) | |
-| [`Util`](./classes/League/Flysystem/Util.md) | |
+| [`Config`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Config.md) | |
+| [`ConnectionErrorException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/ConnectionErrorException.md) | |
+| [`ConnectionRuntimeException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/ConnectionRuntimeException.md) | |
+| [`CorruptedPathDetected`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/CorruptedPathDetected.md) | |
+| [`Directory`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Directory.md) | |
+| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Exception.md) | |
+| [`File`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/File.md) | |
+| [`FileExistsException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FileExistsException.md) | |
+| [`FileNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FileNotFoundException.md) | |
+| [`Filesystem`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Filesystem.md) | |
+| [`FilesystemNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FilesystemNotFoundException.md) | Thrown when the MountManager cannot find a filesystem.|
+| [`Handler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Handler.md) | |
+| [`InvalidRootException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/InvalidRootException.md) | |
+| [`MountManager`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/MountManager.md) | Class MountManager.|
+| [`NotSupportedException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/NotSupportedException.md) | |
+| [`RootViolationException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/RootViolationException.md) | |
+| [`SafeStorage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/SafeStorage.md) | |
+| [`UnreadableFileException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/UnreadableFileException.md) | |
+| [`Util`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Util.md) | |
 
 
 
@@ -295,11 +295,11 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`AdapterInterface`](./classes/League/Flysystem/AdapterInterface.md) | |
-| [`FilesystemException`](./classes/League/Flysystem/FilesystemException.md) | |
-| [`FilesystemInterface`](./classes/League/Flysystem/FilesystemInterface.md) | |
-| [`PluginInterface`](./classes/League/Flysystem/PluginInterface.md) | |
-| [`ReadInterface`](./classes/League/Flysystem/ReadInterface.md) | |
+| [`AdapterInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/AdapterInterface.md) | |
+| [`FilesystemException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FilesystemException.md) | |
+| [`FilesystemInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FilesystemInterface.md) | |
+| [`PluginInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/PluginInterface.md) | |
+| [`ReadInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/ReadInterface.md) | |
 
 
 
@@ -309,13 +309,13 @@
 
 | Class | Description |
 |-------|-------------|
-| [`AbstractAdapter`](./classes/League/Flysystem/Adapter/AbstractAdapter.md) | |
-| [`AbstractFtpAdapter`](./classes/League/Flysystem/Adapter/AbstractFtpAdapter.md) | |
-| [`Ftp`](./classes/League/Flysystem/Adapter/Ftp.md) | |
-| [`Ftpd`](./classes/League/Flysystem/Adapter/Ftpd.md) | |
-| [`Local`](./classes/League/Flysystem/Adapter/Local.md) | |
-| [`NullAdapter`](./classes/League/Flysystem/Adapter/NullAdapter.md) | |
-| [`SynologyFtp`](./classes/League/Flysystem/Adapter/SynologyFtp.md) | |
+| [`AbstractAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/AbstractAdapter.md) | |
+| [`AbstractFtpAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/AbstractFtpAdapter.md) | |
+| [`Ftp`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Ftp.md) | |
+| [`Ftpd`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Ftpd.md) | |
+| [`Local`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Local.md) | |
+| [`NullAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/NullAdapter.md) | |
+| [`SynologyFtp`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/SynologyFtp.md) | |
 
 
 
@@ -323,7 +323,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`CanOverwriteFiles`](./classes/League/Flysystem/Adapter/CanOverwriteFiles.md) | Adapters that implement this interface let the Filesystem know that files can be overwritten using the write<br />functions and don&#039;t need the update function to be called. This can help improve performance when asserts are disabled.|
+| [`CanOverwriteFiles`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/CanOverwriteFiles.md) | Adapters that implement this interface let the Filesystem know that files can be overwritten using the write<br />functions and don&#039;t need the update function to be called. This can help improve performance when asserts are disabled.|
 
 
 
@@ -335,11 +335,11 @@
 
 | Trait | Description |
 |-------|-------------|
-| [`NotSupportingVisibilityTrait`](./classes/League/Flysystem/Adapter/Polyfill/NotSupportingVisibilityTrait.md) | |
-| [`StreamedCopyTrait`](./classes/League/Flysystem/Adapter/Polyfill/StreamedCopyTrait.md) | |
-| [`StreamedReadingTrait`](./classes/League/Flysystem/Adapter/Polyfill/StreamedReadingTrait.md) | A helper for adapters that only handle strings to provide read streams.|
-| [`StreamedTrait`](./classes/League/Flysystem/Adapter/Polyfill/StreamedTrait.md) | |
-| [`StreamedWritingTrait`](./classes/League/Flysystem/Adapter/Polyfill/StreamedWritingTrait.md) | |
+| [`NotSupportingVisibilityTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/NotSupportingVisibilityTrait.md) | |
+| [`StreamedCopyTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedCopyTrait.md) | |
+| [`StreamedReadingTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedReadingTrait.md) | A helper for adapters that only handle strings to provide read streams.|
+| [`StreamedTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedTrait.md) | |
+| [`StreamedWritingTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedWritingTrait.md) | |
 
 
 
@@ -350,22 +350,22 @@
 
 | Class | Description |
 |-------|-------------|
-| [`AbstractPlugin`](./classes/League/Flysystem/Plugin/AbstractPlugin.md) | |
-| [`EmptyDir`](./classes/League/Flysystem/Plugin/EmptyDir.md) | |
-| [`ForcedCopy`](./classes/League/Flysystem/Plugin/ForcedCopy.md) | |
-| [`ForcedRename`](./classes/League/Flysystem/Plugin/ForcedRename.md) | |
-| [`GetWithMetadata`](./classes/League/Flysystem/Plugin/GetWithMetadata.md) | |
-| [`ListFiles`](./classes/League/Flysystem/Plugin/ListFiles.md) | |
-| [`ListPaths`](./classes/League/Flysystem/Plugin/ListPaths.md) | |
-| [`ListWith`](./classes/League/Flysystem/Plugin/ListWith.md) | |
-| [`PluginNotFoundException`](./classes/League/Flysystem/Plugin/PluginNotFoundException.md) | |
+| [`AbstractPlugin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/AbstractPlugin.md) | |
+| [`EmptyDir`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/EmptyDir.md) | |
+| [`ForcedCopy`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ForcedCopy.md) | |
+| [`ForcedRename`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ForcedRename.md) | |
+| [`GetWithMetadata`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/GetWithMetadata.md) | |
+| [`ListFiles`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ListFiles.md) | |
+| [`ListPaths`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ListPaths.md) | |
+| [`ListWith`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ListWith.md) | |
+| [`PluginNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/PluginNotFoundException.md) | |
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`PluggableTrait`](./classes/League/Flysystem/Plugin/PluggableTrait.md) | |
+| [`PluggableTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/PluggableTrait.md) | |
 
 
 
@@ -376,7 +376,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`StreamHasher`](./classes/League/Flysystem/Util/StreamHasher.md) | |
+| [`StreamHasher`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Util/StreamHasher.md) | |
 
 
 
@@ -387,10 +387,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`EmptyExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/EmptyExtensionToMimeTypeMap.md) | |
-| [`ExtensionMimeTypeDetector`](./classes/League/MimeTypeDetection/ExtensionMimeTypeDetector.md) | |
-| [`FinfoMimeTypeDetector`](./classes/League/MimeTypeDetection/FinfoMimeTypeDetector.md) | |
-| [`GeneratedExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
+| [`EmptyExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/EmptyExtensionToMimeTypeMap.md) | |
+| [`ExtensionMimeTypeDetector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/ExtensionMimeTypeDetector.md) | |
+| [`FinfoMimeTypeDetector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/FinfoMimeTypeDetector.md) | |
+| [`GeneratedExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
 
 
 
@@ -398,8 +398,8 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`ExtensionToMimeTypeMap`](./classes/League/MimeTypeDetection/ExtensionToMimeTypeMap.md) | |
-| [`MimeTypeDetector`](./classes/League/MimeTypeDetection/MimeTypeDetector.md) | |
+| [`ExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/ExtensionToMimeTypeMap.md) | |
+| [`MimeTypeDetector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/MimeTypeDetector.md) | |
 
 
 
@@ -409,12 +409,12 @@
 
 | Class | Description |
 |-------|-------------|
-| [`App`](./classes/Lime/App.md) | |
-| [`AppAware`](./classes/Lime/AppAware.md) | |
-| [`Helper`](./classes/Lime/Helper.md) | |
-| [`Module`](./classes/Lime/Module.md) | |
-| [`Request`](./classes/Lime/Request.md) | |
-| [`Response`](./classes/Lime/Response.md) | |
+| [`App`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/App.md) | |
+| [`AppAware`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/AppAware.md) | |
+| [`Helper`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper.md) | |
+| [`Module`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Module.md) | |
+| [`Request`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Request.md) | |
+| [`Response`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Response.md) | |
 
 
 
@@ -425,8 +425,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`App`](./classes/LimeExtra/App.md) | Class App|
-| [`Controller`](./classes/LimeExtra/Controller.md) | Class Controller|
+| [`App`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/App.md) | Class App|
+| [`Controller`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Controller.md) | Class Controller|
 
 
 
@@ -437,17 +437,17 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Assets`](./classes/LimeExtra/Helper/Assets.md) | Assets class.|
-| [`Cookie`](./classes/LimeExtra/Helper/Cookie.md) | |
-| [`FileObject`](./classes/LimeExtra/Helper/FileObject.md) | Use custom FileObject to prevent &quot;too many files open&quot; error|
-| [`Filesystem`](./classes/LimeExtra/Helper/Filesystem.md) | |
-| [`I18n`](./classes/LimeExtra/Helper/I18n.md) | I18n class. Manage translations|
-| [`Image`](./classes/LimeExtra/Helper/Image.md) | |
-| [`Img`](./classes/LimeExtra/Helper/Img.md) | |
-| [`Markdown`](./classes/LimeExtra/Helper/Markdown.md) | Class Markdown|
-| [`SimpleAcl`](./classes/LimeExtra/Helper/SimpleAcl.md) | Class SimpleAcl|
-| [`Utils`](./classes/LimeExtra/Helper/Utils.md) | Class Utils|
-| [`YAML`](./classes/LimeExtra/Helper/YAML.md) | Class YAML|
+| [`Assets`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Assets.md) | Assets class.|
+| [`Cookie`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Cookie.md) | |
+| [`FileObject`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/FileObject.md) | Use custom FileObject to prevent &quot;too many files open&quot; error|
+| [`Filesystem`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Filesystem.md) | |
+| [`I18n`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/I18n.md) | I18n class. Manage translations|
+| [`Image`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Image.md) | |
+| [`Img`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Img.md) | |
+| [`Markdown`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Markdown.md) | Class Markdown|
+| [`SimpleAcl`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/SimpleAcl.md) | Class SimpleAcl|
+| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Utils.md) | Class Utils|
+| [`YAML`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/YAML.md) | Class YAML|
 
 
 
@@ -458,8 +458,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Cache`](./classes/Lime/Helper/Cache.md) | |
-| [`Session`](./classes/Lime/Helper/Session.md) | |
+| [`Cache`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper/Cache.md) | |
+| [`Session`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper/Session.md) | |
 
 
 
@@ -470,16 +470,16 @@
 
 | Class | Description |
 |-------|-------------|
-| [`BulkWriteResult`](./classes/MongoDB/BulkWriteResult.md) | Result class for a bulk write operation.|
-| [`ChangeStream`](./classes/MongoDB/ChangeStream.md) | Iterator for a change stream.|
-| [`Client`](./classes/MongoDB/Client.md) | |
-| [`Collection`](./classes/MongoDB/Collection.md) | |
-| [`Database`](./classes/MongoDB/Database.md) | |
-| [`DeleteResult`](./classes/MongoDB/DeleteResult.md) | Result class for a delete operation.|
-| [`InsertManyResult`](./classes/MongoDB/InsertManyResult.md) | Result class for a multi-document insert operation.|
-| [`InsertOneResult`](./classes/MongoDB/InsertOneResult.md) | Result class for a single-document insert operation.|
-| [`MapReduceResult`](./classes/MongoDB/MapReduceResult.md) | Result class for mapReduce command results.|
-| [`UpdateResult`](./classes/MongoDB/UpdateResult.md) | Result class for an update operation.|
+| [`BulkWriteResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/BulkWriteResult.md) | Result class for a bulk write operation.|
+| [`ChangeStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/ChangeStream.md) | Iterator for a change stream.|
+| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Client.md) | |
+| [`Collection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Collection.md) | |
+| [`Database`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Database.md) | |
+| [`DeleteResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/DeleteResult.md) | Result class for a delete operation.|
+| [`InsertManyResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/InsertManyResult.md) | Result class for a multi-document insert operation.|
+| [`InsertOneResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/InsertOneResult.md) | Result class for a single-document insert operation.|
+| [`MapReduceResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/MapReduceResult.md) | Result class for mapReduce command results.|
+| [`UpdateResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/UpdateResult.md) | Result class for an update operation.|
 
 
 
@@ -490,12 +490,12 @@
 
 | Class | Description |
 |-------|-------------|
-| [`BadMethodCallException`](./classes/MongoDB/Exception/BadMethodCallException.md) | |
-| [`InvalidArgumentException`](./classes/MongoDB/Exception/InvalidArgumentException.md) | |
-| [`ResumeTokenException`](./classes/MongoDB/Exception/ResumeTokenException.md) | |
-| [`RuntimeException`](./classes/MongoDB/Exception/RuntimeException.md) | |
-| [`UnexpectedValueException`](./classes/MongoDB/Exception/UnexpectedValueException.md) | |
-| [`UnsupportedException`](./classes/MongoDB/Exception/UnsupportedException.md) | |
+| [`BadMethodCallException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/BadMethodCallException.md) | |
+| [`InvalidArgumentException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/InvalidArgumentException.md) | |
+| [`ResumeTokenException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/ResumeTokenException.md) | |
+| [`RuntimeException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/RuntimeException.md) | |
+| [`UnexpectedValueException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/UnexpectedValueException.md) | |
+| [`UnsupportedException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/UnsupportedException.md) | |
 
 
 
@@ -503,7 +503,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`Exception`](./classes/MongoDB/Exception/Exception.md) | |
+| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/Exception.md) | |
 
 
 
@@ -513,7 +513,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Bucket`](./classes/MongoDB/GridFS/Bucket.md) | Bucket provides a public API for interacting with the GridFS files and chunks<br />collections.|
+| [`Bucket`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Bucket.md) | Bucket provides a public API for interacting with the GridFS files and chunks<br />collections.|
 
 
 
@@ -524,9 +524,9 @@
 
 | Class | Description |
 |-------|-------------|
-| [`CorruptFileException`](./classes/MongoDB/GridFS/Exception/CorruptFileException.md) | |
-| [`FileNotFoundException`](./classes/MongoDB/GridFS/Exception/FileNotFoundException.md) | |
-| [`StreamException`](./classes/MongoDB/GridFS/Exception/StreamException.md) | |
+| [`CorruptFileException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/CorruptFileException.md) | |
+| [`FileNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/FileNotFoundException.md) | |
+| [`StreamException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/StreamException.md) | |
 
 
 
@@ -537,12 +537,12 @@
 
 | Class | Description |
 |-------|-------------|
-| [`BSONArray`](./classes/MongoDB/Model/BSONArray.md) | Model class for a BSON array.|
-| [`BSONDocument`](./classes/MongoDB/Model/BSONDocument.md) | Model class for a BSON document.|
-| [`BSONIterator`](./classes/MongoDB/Model/BSONIterator.md) | Iterator for BSON documents.|
-| [`CollectionInfo`](./classes/MongoDB/Model/CollectionInfo.md) | Collection information model class.|
-| [`DatabaseInfo`](./classes/MongoDB/Model/DatabaseInfo.md) | Database information model class.|
-| [`IndexInfo`](./classes/MongoDB/Model/IndexInfo.md) | Index information model class.|
+| [`BSONArray`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/BSONArray.md) | Model class for a BSON array.|
+| [`BSONDocument`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/BSONDocument.md) | Model class for a BSON document.|
+| [`BSONIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/BSONIterator.md) | Iterator for BSON documents.|
+| [`CollectionInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/CollectionInfo.md) | Collection information model class.|
+| [`DatabaseInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/DatabaseInfo.md) | Database information model class.|
+| [`IndexInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/IndexInfo.md) | Index information model class.|
 
 
 
@@ -550,9 +550,9 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`CollectionInfoIterator`](./classes/MongoDB/Model/CollectionInfoIterator.md) | CollectionInfoIterator interface.|
-| [`DatabaseInfoIterator`](./classes/MongoDB/Model/DatabaseInfoIterator.md) | DatabaseInfoIterator interface.|
-| [`IndexInfoIterator`](./classes/MongoDB/Model/IndexInfoIterator.md) | IndexInfoIterator interface.|
+| [`CollectionInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/CollectionInfoIterator.md) | CollectionInfoIterator interface.|
+| [`DatabaseInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/DatabaseInfoIterator.md) | DatabaseInfoIterator interface.|
+| [`IndexInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/IndexInfoIterator.md) | IndexInfoIterator interface.|
 
 
 
@@ -562,39 +562,39 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Aggregate`](./classes/MongoDB/Operation/Aggregate.md) | Operation for the aggregate command.|
-| [`BulkWrite`](./classes/MongoDB/Operation/BulkWrite.md) | Operation for executing multiple write operations.|
-| [`Count`](./classes/MongoDB/Operation/Count.md) | Operation for the count command.|
-| [`CountDocuments`](./classes/MongoDB/Operation/CountDocuments.md) | Operation for obtaining an exact count of documents in a collection|
-| [`CreateCollection`](./classes/MongoDB/Operation/CreateCollection.md) | Operation for the create command.|
-| [`CreateIndexes`](./classes/MongoDB/Operation/CreateIndexes.md) | Operation for the createIndexes command.|
-| [`DatabaseCommand`](./classes/MongoDB/Operation/DatabaseCommand.md) | Operation for executing a database command.|
-| [`DeleteMany`](./classes/MongoDB/Operation/DeleteMany.md) | Operation for deleting multiple document with the delete command.|
-| [`DeleteOne`](./classes/MongoDB/Operation/DeleteOne.md) | Operation for deleting a single document with the delete command.|
-| [`Distinct`](./classes/MongoDB/Operation/Distinct.md) | Operation for the distinct command.|
-| [`DropCollection`](./classes/MongoDB/Operation/DropCollection.md) | Operation for the drop command.|
-| [`DropDatabase`](./classes/MongoDB/Operation/DropDatabase.md) | Operation for the dropDatabase command.|
-| [`DropIndexes`](./classes/MongoDB/Operation/DropIndexes.md) | Operation for the dropIndexes command.|
-| [`EstimatedDocumentCount`](./classes/MongoDB/Operation/EstimatedDocumentCount.md) | Operation for obtaining an estimated count of documents in a collection|
-| [`Explain`](./classes/MongoDB/Operation/Explain.md) | Operation for the explain command.|
-| [`Find`](./classes/MongoDB/Operation/Find.md) | Operation for the find command.|
-| [`FindOne`](./classes/MongoDB/Operation/FindOne.md) | Operation for finding a single document with the find command.|
-| [`FindOneAndDelete`](./classes/MongoDB/Operation/FindOneAndDelete.md) | Operation for deleting a document with the findAndModify command.|
-| [`FindOneAndReplace`](./classes/MongoDB/Operation/FindOneAndReplace.md) | Operation for replacing a document with the findAndModify command.|
-| [`FindOneAndUpdate`](./classes/MongoDB/Operation/FindOneAndUpdate.md) | Operation for updating a document with the findAndModify command.|
-| [`InsertMany`](./classes/MongoDB/Operation/InsertMany.md) | Operation for inserting multiple documents with the insert command.|
-| [`InsertOne`](./classes/MongoDB/Operation/InsertOne.md) | Operation for inserting a single document with the insert command.|
-| [`ListCollectionNames`](./classes/MongoDB/Operation/ListCollectionNames.md) | Operation for the listCollectionNames helper.|
-| [`ListCollections`](./classes/MongoDB/Operation/ListCollections.md) | Operation for the listCollections command.|
-| [`ListDatabaseNames`](./classes/MongoDB/Operation/ListDatabaseNames.md) | Operation for the ListDatabases command, returning only database names.|
-| [`ListDatabases`](./classes/MongoDB/Operation/ListDatabases.md) | Operation for the ListDatabases command.|
-| [`ListIndexes`](./classes/MongoDB/Operation/ListIndexes.md) | Operation for the listIndexes command.|
-| [`MapReduce`](./classes/MongoDB/Operation/MapReduce.md) | Operation for the mapReduce command.|
-| [`ModifyCollection`](./classes/MongoDB/Operation/ModifyCollection.md) | Operation for the collMod command.|
-| [`ReplaceOne`](./classes/MongoDB/Operation/ReplaceOne.md) | Operation for replacing a single document with the update command.|
-| [`UpdateMany`](./classes/MongoDB/Operation/UpdateMany.md) | Operation for updating multiple documents with the update command.|
-| [`UpdateOne`](./classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
-| [`Watch`](./classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
+| [`Aggregate`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Aggregate.md) | Operation for the aggregate command.|
+| [`BulkWrite`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/BulkWrite.md) | Operation for executing multiple write operations.|
+| [`Count`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Count.md) | Operation for the count command.|
+| [`CountDocuments`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/CountDocuments.md) | Operation for obtaining an exact count of documents in a collection|
+| [`CreateCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/CreateCollection.md) | Operation for the create command.|
+| [`CreateIndexes`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/CreateIndexes.md) | Operation for the createIndexes command.|
+| [`DatabaseCommand`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DatabaseCommand.md) | Operation for executing a database command.|
+| [`DeleteMany`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DeleteMany.md) | Operation for deleting multiple document with the delete command.|
+| [`DeleteOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DeleteOne.md) | Operation for deleting a single document with the delete command.|
+| [`Distinct`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Distinct.md) | Operation for the distinct command.|
+| [`DropCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DropCollection.md) | Operation for the drop command.|
+| [`DropDatabase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DropDatabase.md) | Operation for the dropDatabase command.|
+| [`DropIndexes`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DropIndexes.md) | Operation for the dropIndexes command.|
+| [`EstimatedDocumentCount`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/EstimatedDocumentCount.md) | Operation for obtaining an estimated count of documents in a collection|
+| [`Explain`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Explain.md) | Operation for the explain command.|
+| [`Find`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Find.md) | Operation for the find command.|
+| [`FindOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOne.md) | Operation for finding a single document with the find command.|
+| [`FindOneAndDelete`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOneAndDelete.md) | Operation for deleting a document with the findAndModify command.|
+| [`FindOneAndReplace`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOneAndReplace.md) | Operation for replacing a document with the findAndModify command.|
+| [`FindOneAndUpdate`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOneAndUpdate.md) | Operation for updating a document with the findAndModify command.|
+| [`InsertMany`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/InsertMany.md) | Operation for inserting multiple documents with the insert command.|
+| [`InsertOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/InsertOne.md) | Operation for inserting a single document with the insert command.|
+| [`ListCollectionNames`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListCollectionNames.md) | Operation for the listCollectionNames helper.|
+| [`ListCollections`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListCollections.md) | Operation for the listCollections command.|
+| [`ListDatabaseNames`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListDatabaseNames.md) | Operation for the ListDatabases command, returning only database names.|
+| [`ListDatabases`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListDatabases.md) | Operation for the ListDatabases command.|
+| [`ListIndexes`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListIndexes.md) | Operation for the listIndexes command.|
+| [`MapReduce`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/MapReduce.md) | Operation for the mapReduce command.|
+| [`ModifyCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ModifyCollection.md) | Operation for the collMod command.|
+| [`ReplaceOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ReplaceOne.md) | Operation for replacing a single document with the update command.|
+| [`UpdateMany`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/UpdateMany.md) | Operation for updating multiple documents with the update command.|
+| [`UpdateOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
+| [`Watch`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
 
 
 
@@ -605,10 +605,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/MongoHybrid/Client.md) | |
-| [`Mongo`](./classes/MongoHybrid/Mongo.md) | |
-| [`MongoLite`](./classes/MongoHybrid/MongoLite.md) | |
-| [`ResultSet`](./classes/MongoHybrid/ResultSet.md) | |
+| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/Client.md) | |
+| [`Mongo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/Mongo.md) | |
+| [`MongoLite`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/MongoLite.md) | |
+| [`ResultSet`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/ResultSet.md) | |
 
 
 
@@ -619,11 +619,11 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/MongoLite/Client.md) | Client object.|
-| [`Collection`](./classes/MongoLite/Collection.md) | Collection object.|
-| [`Cursor`](./classes/MongoLite/Cursor.md) | Cursor object.|
-| [`Database`](./classes/MongoLite/Database.md) | Database object.|
-| [`UtilArrayQuery`](./classes/MongoLite/UtilArrayQuery.md) | |
+| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Client.md) | Client object.|
+| [`Collection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Collection.md) | Collection object.|
+| [`Cursor`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Cursor.md) | Cursor object.|
+| [`Database`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Database.md) | Database object.|
+| [`UtilArrayQuery`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/UtilArrayQuery.md) | |
 
 
 
@@ -634,11 +634,11 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Exception`](./classes/PHPMailer/PHPMailer/Exception.md) | PHPMailer exception handler.|
-| [`OAuth`](./classes/PHPMailer/PHPMailer/OAuth.md) | OAuth - OAuth2 authentication wrapper class.|
-| [`PHPMailer`](./classes/PHPMailer/PHPMailer/PHPMailer.md) | PHPMailer - PHP email creation and transport class.|
-| [`POP3`](./classes/PHPMailer/PHPMailer/POP3.md) | PHPMailer POP-Before-SMTP Authentication Class.|
-| [`SMTP`](./classes/PHPMailer/PHPMailer/SMTP.md) | PHPMailer RFC821 SMTP email transport class.|
+| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/Exception.md) | PHPMailer exception handler.|
+| [`OAuth`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/OAuth.md) | OAuth - OAuth2 authentication wrapper class.|
+| [`PHPMailer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/PHPMailer.md) | PHPMailer - PHP email creation and transport class.|
+| [`POP3`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/POP3.md) | PHPMailer POP-Before-SMTP Authentication Class.|
+| [`SMTP`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/SMTP.md) | PHPMailer RFC821 SMTP email transport class.|
 
 
 
@@ -649,8 +649,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Installer`](./classes/PackageVersions/Installer.md) | |
-| [`Versions`](./classes/PackageVersions/Versions.md) | This class is generated by composer/package-versions-deprecated, specifically by|
+| [`Installer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PackageVersions/Installer.md) | |
+| [`Versions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PackageVersions/Versions.md) | This class is generated by composer/package-versions-deprecated, specifically by|
 
 
 
@@ -661,7 +661,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/SimpleStorage/Client.md) | |
+| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/SimpleStorage/Client.md) | |
 
 
 
@@ -672,8 +672,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](./classes/Singletons/Controller/Admin.md) | Class Controller|
-| [`RestApi`](./classes/Singletons/Controller/RestApi.md) | Class Controller|
+| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Singletons/Controller/Admin.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Singletons/Controller/RestApi.md) | Class Controller|
 
 
 
@@ -684,8 +684,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Exception`](./classes/ZipStream/Exception.md) | This class is only for inheriting|
-| [`ZipStream`](./classes/ZipStream/ZipStream.md) | ZipStream|
+| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception.md) | This class is only for inheriting|
+| [`ZipStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/ZipStream.md) | ZipStream|
 
 
 
@@ -696,10 +696,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`FileNotFoundException`](./classes/ZipStream/Exception/FileNotFoundException.md) | This Exception gets invoked if a file wasn&#039;t found|
-| [`FileNotReadableException`](./classes/ZipStream/Exception/FileNotReadableException.md) | This Exception gets invoked if a file wasn&#039;t found|
-| [`InvalidOptionException`](./classes/ZipStream/Exception/InvalidOptionException.md) | This Exception gets invoked if an invalid parameter gets passed on as option|
-| [`StreamNotReadableException`](./classes/ZipStream/Exception/StreamNotReadableException.md) | This Exception gets invoked if fread() fails on a stream.|
+| [`FileNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/FileNotFoundException.md) | This Exception gets invoked if a file wasn&#039;t found|
+| [`FileNotReadableException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/FileNotReadableException.md) | This Exception gets invoked if a file wasn&#039;t found|
+| [`InvalidOptionException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/InvalidOptionException.md) | This Exception gets invoked if an invalid parameter gets passed on as option|
+| [`StreamNotReadableException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/StreamNotReadableException.md) | This Exception gets invoked if fread() fails on a stream.|
 
 
 
@@ -710,7 +710,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`SimpleImage`](./classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
+| [`SimpleImage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
 
 
 
@@ -721,9 +721,9 @@
 
 | Class | Description |
 |-------|-------------|
-| [`ev`](./classes/yxorP/events/ev.md) | ev eventloop|
-| [`revolt`](./classes/yxorP/events/revolt.md) | |
-| [`select`](./classes/yxorP/events/select.md) | |
+| [`ev`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/events/ev.md) | ev eventloop|
+| [`revolt`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/events/revolt.md) | |
+| [`select`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/events/select.md) | |
 
 
 
@@ -731,7 +731,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`eventInterface`](./classes/yxorP/events/eventInterface.md) | |
+| [`eventInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/events/eventInterface.md) | |
 
 
 
@@ -741,19 +741,19 @@
 
 | Class | Description |
 |-------|-------------|
-| [`cache`](./classes/yxorP/http/cache.md) | |
-| [`paramStore`](./classes/yxorP/http/paramStore.md) | |
-| [`request`](./classes/yxorP/http/request.md) | |
-| [`response`](./classes/yxorP/http/response.md) | |
-| [`timer`](./classes/yxorP/http/timer.md) | |
-| [`worker`](./classes/yxorP/http/worker.md) | |
+| [`cache`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/cache.md) | |
+| [`paramStore`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/paramStore.md) | |
+| [`request`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/request.md) | |
+| [`response`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/response.md) | |
+| [`timer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/timer.md) | |
+| [`worker`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/worker.md) | |
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`actionState`](./classes/yxorP/http/actionState.md) | |
+| [`actionState`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/actionState.md) | |
 
 
 
@@ -764,14 +764,14 @@
 
 | Class | Description |
 |-------|-------------|
-| [`areplacer`](./classes/yxorP/minify/areplacer.md) | |
-| [`attributesSimplifier`](./classes/yxorP/minify/attributesSimplifier.md) | |
-| [`htmlCommentsRemover`](./classes/yxorP/minify/htmlCommentsRemover.md) | |
-| [`inlineCssMinifier`](./classes/yxorP/minify/inlineCssMinifier.md) | |
-| [`inlineJavascriptMinifier`](./classes/yxorP/minify/inlineJavascriptMinifier.md) | |
-| [`minify`](./classes/yxorP/minify/minify.md) | |
-| [`quotesRemover`](./classes/yxorP/minify/quotesRemover.md) | |
-| [`whitespacesRemover`](./classes/yxorP/minify/whitespacesRemover.md) | |
+| [`areplacer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/areplacer.md) | |
+| [`attributesSimplifier`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/attributesSimplifier.md) | |
+| [`htmlCommentsRemover`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/htmlCommentsRemover.md) | |
+| [`inlineCssMinifier`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/inlineCssMinifier.md) | |
+| [`inlineJavascriptMinifier`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/inlineJavascriptMinifier.md) | |
+| [`minify`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/minify.md) | |
+| [`quotesRemover`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/quotesRemover.md) | |
+| [`whitespacesRemover`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/whitespacesRemover.md) | |
 
 
 
@@ -779,7 +779,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`minfyInterface`](./classes/yxorP/minify/minfyInterface.md) | |
+| [`minfyInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/minfyInterface.md) | |
 
 
 
@@ -789,19 +789,19 @@
 
 | Class | Description |
 |-------|-------------|
-| [`domain`](./classes/yxorP/parser/domain.md) | |
-| [`idna`](./classes/yxorP/parser/idna.md) | |
-| [`idnaInfo`](./classes/yxorP/parser/idnaInfo.md) | |
-| [`resolvedDomain`](./classes/yxorP/parser/resolvedDomain.md) | |
-| [`rules`](./classes/yxorP/parser/rules.md) | |
-| [`stream`](./classes/yxorP/parser/stream.md) | |
-| [`suffix`](./classes/yxorP/parser/suffix.md) | |
-| [`syntaxError`](./classes/yxorP/parser/syntaxError.md) | |
-| [`topLevelDomains`](./classes/yxorP/parser/topLevelDomains.md) | |
-| [`unableToLoadPublicSuffixList`](./classes/yxorP/parser/unableToLoadPublicSuffixList.md) | |
-| [`unableToLoadResource`](./classes/yxorP/parser/unableToLoadResource.md) | |
-| [`unableToLoadTopLevelDomainList`](./classes/yxorP/parser/unableToLoadTopLevelDomainList.md) | |
-| [`unableToResolveDomain`](./classes/yxorP/parser/unableToResolveDomain.md) | |
+| [`domain`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/domain.md) | |
+| [`idna`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/idna.md) | |
+| [`idnaInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/idnaInfo.md) | |
+| [`resolvedDomain`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/resolvedDomain.md) | |
+| [`rules`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/rules.md) | |
+| [`stream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/stream.md) | |
+| [`suffix`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/suffix.md) | |
+| [`syntaxError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/syntaxError.md) | |
+| [`topLevelDomains`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/topLevelDomains.md) | |
+| [`unableToLoadPublicSuffixList`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/unableToLoadPublicSuffixList.md) | |
+| [`unableToLoadResource`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/unableToLoadResource.md) | |
+| [`unableToLoadTopLevelDomainList`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/unableToLoadTopLevelDomainList.md) | |
+| [`unableToResolveDomain`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/unableToResolveDomain.md) | |
 
 
 
@@ -809,16 +809,16 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`aHostInterface`](./classes/yxorP/parser/aHostInterface.md) | |
-| [`cannotProcessHostInterface`](./classes/yxorP/parser/cannotProcessHostInterface.md) | |
-| [`domainNameInterface`](./classes/yxorP/parser/domainNameInterface.md) | |
-| [`domainNameProviderInterface`](./classes/yxorP/parser/domainNameProviderInterface.md) | |
-| [`domainNameResolverInterface`](./classes/yxorP/parser/domainNameResolverInterface.md) | |
-| [`effectiveTopLevelDomainInterface`](./classes/yxorP/parser/effectiveTopLevelDomainInterface.md) | |
-| [`publicSuffixListInterface`](./classes/yxorP/parser/publicSuffixListInterface.md) | |
-| [`resolvedInterfaceDomainNameInterface`](./classes/yxorP/parser/resolvedInterfaceDomainNameInterface.md) | |
-| [`resourceUriInterface`](./classes/yxorP/parser/resourceUriInterface.md) | |
-| [`topInterfaceLevelDomainListInterface`](./classes/yxorP/parser/topInterfaceLevelDomainListInterface.md) | |
+| [`aHostInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/aHostInterface.md) | |
+| [`cannotProcessHostInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/cannotProcessHostInterface.md) | |
+| [`domainNameInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/domainNameInterface.md) | |
+| [`domainNameProviderInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/domainNameProviderInterface.md) | |
+| [`domainNameResolverInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/domainNameResolverInterface.md) | |
+| [`effectiveTopLevelDomainInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/effectiveTopLevelDomainInterface.md) | |
+| [`publicSuffixListInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/publicSuffixListInterface.md) | |
+| [`resolvedInterfaceDomainNameInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/resolvedInterfaceDomainNameInterface.md) | |
+| [`resourceUriInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/resourceUriInterface.md) | |
+| [`topInterfaceLevelDomainListInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/topInterfaceLevelDomainListInterface.md) | |
 
 
 
@@ -828,14 +828,14 @@
 
 | Class | Description |
 |-------|-------------|
-| [`psrStorageFactory`](./classes/yxorP/parser/Storage/psrStorageFactory.md) | |
-| [`publicSuffixListPsr16Cache`](./classes/yxorP/parser/Storage/publicSuffixListPsr16Cache.md) | |
-| [`publicSuffixListPsr18Client`](./classes/yxorP/parser/Storage/publicSuffixListPsr18Client.md) | |
-| [`rulesStorage`](./classes/yxorP/parser/Storage/rulesStorage.md) | |
-| [`timeToLive`](./classes/yxorP/parser/Storage/timeToLive.md) | |
-| [`topLevelDomainListPsr16Cache`](./classes/yxorP/parser/Storage/topLevelDomainListPsr16Cache.md) | |
-| [`topLevelDomainListPsr18Client`](./classes/yxorP/parser/Storage/topLevelDomainListPsr18Client.md) | |
-| [`topLevelDomainsStorage`](./classes/yxorP/parser/Storage/topLevelDomainsStorage.md) | |
+| [`psrStorageFactory`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/psrStorageFactory.md) | |
+| [`publicSuffixListPsr16Cache`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/publicSuffixListPsr16Cache.md) | |
+| [`publicSuffixListPsr18Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/publicSuffixListPsr18Client.md) | |
+| [`rulesStorage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/rulesStorage.md) | |
+| [`timeToLive`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/timeToLive.md) | |
+| [`topLevelDomainListPsr16Cache`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListPsr16Cache.md) | |
+| [`topLevelDomainListPsr18Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListPsr18Client.md) | |
+| [`topLevelDomainsStorage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainsStorage.md) | |
 
 
 
@@ -843,14 +843,14 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`publicSuffixListCacheInterface`](./classes/yxorP/parser/Storage/publicSuffixListCacheInterface.md) | |
-| [`publicSuffixListClientInterface`](./classes/yxorP/parser/Storage/publicSuffixListClientInterface.md) | |
-| [`publicSuffixListStorageFactoryInterface`](./classes/yxorP/parser/Storage/publicSuffixListStorageFactoryInterface.md) | |
-| [`publicSuffixListStorageInterface`](./classes/yxorP/parser/Storage/publicSuffixListStorageInterface.md) | |
-| [`topLevelDomainListCacheInterface`](./classes/yxorP/parser/Storage/topLevelDomainListCacheInterface.md) | |
-| [`topLevelDomainListClientInterface`](./classes/yxorP/parser/Storage/topLevelDomainListClientInterface.md) | |
-| [`topLevelDomainListStorageFactoryInterface`](./classes/yxorP/parser/Storage/topLevelDomainListStorageFactoryInterface.md) | |
-| [`topLevelDomainListStorageInterface`](./classes/yxorP/parser/Storage/topLevelDomainListStorageInterface.md) | |
+| [`publicSuffixListCacheInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/publicSuffixListCacheInterface.md) | |
+| [`publicSuffixListClientInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/publicSuffixListClientInterface.md) | |
+| [`publicSuffixListStorageFactoryInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/publicSuffixListStorageFactoryInterface.md) | |
+| [`publicSuffixListStorageInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/publicSuffixListStorageInterface.md) | |
+| [`topLevelDomainListCacheInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListCacheInterface.md) | |
+| [`topLevelDomainListClientInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListClientInterface.md) | |
+| [`topLevelDomainListStorageFactoryInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListStorageFactoryInterface.md) | |
+| [`topLevelDomainListStorageInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListStorageInterface.md) | |
 
 
 
@@ -860,10 +860,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`frame`](./classes/yxorP/protocols/frame.md) | |
-| [`http`](./classes/yxorP/protocols/http.md) | |
-| [`text`](./classes/yxorP/protocols/text.md) | |
-| [`websocket`](./classes/yxorP/protocols/websocket.md) | |
+| [`frame`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/frame.md) | |
+| [`http`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/http.md) | |
+| [`text`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/text.md) | |
+| [`websocket`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/websocket.md) | |
 
 
 
@@ -871,7 +871,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`protocolInterface`](./classes/yxorP/protocols/protocolInterface.md) | |
+| [`protocolInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/protocolInterface.md) | |
 
 
 
@@ -881,12 +881,12 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Session`](./classes/yxorP/protocols/Http/Session.md) | |
-| [`SessionException`](./classes/yxorP/protocols/Http/SessionException.md) | |
-| [`chunk`](./classes/yxorP/protocols/Http/chunk.md) | |
-| [`request`](./classes/yxorP/protocols/Http/request.md) | |
-| [`response`](./classes/yxorP/protocols/Http/response.md) | |
-| [`serverSentEvents`](./classes/yxorP/protocols/Http/serverSentEvents.md) | |
+| [`Session`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/Session.md) | |
+| [`SessionException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/SessionException.md) | |
+| [`chunk`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/chunk.md) | |
+| [`request`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/request.md) | |
+| [`response`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/response.md) | |
+| [`serverSentEvents`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/serverSentEvents.md) | |
 
 
 
@@ -897,9 +897,9 @@
 
 | Class | Description |
 |-------|-------------|
-| [`fileSessionHandler`](./classes/yxorP/protocols/Http/Session/fileSessionHandler.md) | |
-| [`redisClusterSessionHandler`](./classes/yxorP/protocols/Http/Session/redisClusterSessionHandler.md) | |
-| [`redisSessionHandler`](./classes/yxorP/protocols/Http/Session/redisSessionHandler.md) | |
+| [`fileSessionHandler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/Session/fileSessionHandler.md) | |
+| [`redisClusterSessionHandler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/Session/redisClusterSessionHandler.md) | |
+| [`redisSessionHandler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/Session/redisSessionHandler.md) | |
 
 
 
@@ -907,7 +907,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`sessionHandlerInterface`](./classes/yxorP/protocols/Http/Session/sessionHandlerInterface.md) | |
+| [`sessionHandlerInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/Session/sessionHandlerInterface.md) | |
 
 
 
@@ -917,18 +917,18 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/yxorP/proxy/Client.md) | |
-| [`HandlerStack`](./classes/yxorP/proxy/HandlerStack.md) | |
-| [`MessageFormatter`](./classes/yxorP/proxy/MessageFormatter.md) | |
-| [`Middleware`](./classes/yxorP/proxy/Middleware.md) | |
-| [`Pool`](./classes/yxorP/proxy/Pool.md) | |
-| [`PrepareBodyMiddleware`](./classes/yxorP/proxy/PrepareBodyMiddleware.md) | |
-| [`RedirectMiddleware`](./classes/yxorP/proxy/RedirectMiddleware.md) | |
-| [`RequestOptions`](./classes/yxorP/proxy/RequestOptions.md) | |
-| [`RetryMiddleware`](./classes/yxorP/proxy/RetryMiddleware.md) | |
-| [`TransferStats`](./classes/yxorP/proxy/TransferStats.md) | |
-| [`UriTemplate`](./classes/yxorP/proxy/UriTemplate.md) | |
-| [`Utils`](./classes/yxorP/proxy/Utils.md) | |
+| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Client.md) | |
+| [`HandlerStack`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/HandlerStack.md) | |
+| [`MessageFormatter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/MessageFormatter.md) | |
+| [`Middleware`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Middleware.md) | |
+| [`Pool`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Pool.md) | |
+| [`PrepareBodyMiddleware`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/PrepareBodyMiddleware.md) | |
+| [`RedirectMiddleware`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/RedirectMiddleware.md) | |
+| [`RequestOptions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/RequestOptions.md) | |
+| [`RetryMiddleware`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/RetryMiddleware.md) | |
+| [`TransferStats`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/TransferStats.md) | |
+| [`UriTemplate`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/UriTemplate.md) | |
+| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Utils.md) | |
 
 
 
@@ -936,7 +936,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`ClientInterface`](./classes/yxorP/proxy/ClientInterface.md) | |
+| [`ClientInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/ClientInterface.md) | |
 
 
 
@@ -946,15 +946,15 @@
 
 | Class | Description |
 |-------|-------------|
-| [`AARejectionException`](./classes/yxorP/proxy/Apromise/AARejectionException.md) | |
-| [`AggregateExceptionAA`](./classes/yxorP/proxy/Apromise/AggregateExceptionAA.md) | |
-| [`CancellationExceptionAA`](./classes/yxorP/proxy/Apromise/CancellationExceptionAA.md) | |
-| [`Coroutine`](./classes/yxorP/proxy/Apromise/Coroutine.md) | |
-| [`EachPromise`](./classes/yxorP/proxy/Apromise/EachPromise.md) | |
-| [`FulfilledPromise`](./classes/yxorP/proxy/Apromise/FulfilledPromise.md) | |
-| [`Promise`](./classes/yxorP/proxy/Apromise/Promise.md) | |
-| [`RejectedPromise`](./classes/yxorP/proxy/Apromise/RejectedPromise.md) | |
-| [`TaskQueue`](./classes/yxorP/proxy/Apromise/TaskQueue.md) | |
+| [`AARejectionException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/AARejectionException.md) | |
+| [`AggregateExceptionAA`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/AggregateExceptionAA.md) | |
+| [`CancellationExceptionAA`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/CancellationExceptionAA.md) | |
+| [`Coroutine`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/Coroutine.md) | |
+| [`EachPromise`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/EachPromise.md) | |
+| [`FulfilledPromise`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/FulfilledPromise.md) | |
+| [`Promise`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/Promise.md) | |
+| [`RejectedPromise`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/RejectedPromise.md) | |
+| [`TaskQueue`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/TaskQueue.md) | |
 
 
 
@@ -962,9 +962,9 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`PromiseInterface`](./classes/yxorP/proxy/Apromise/PromiseInterface.md) | |
-| [`PromisorInterface`](./classes/yxorP/proxy/Apromise/PromisorInterface.md) | |
-| [`TaskQueueInterface`](./classes/yxorP/proxy/Apromise/TaskQueueInterface.md) | |
+| [`PromiseInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/PromiseInterface.md) | |
+| [`PromisorInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/PromisorInterface.md) | |
+| [`TaskQueueInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/TaskQueueInterface.md) | |
 
 
 
@@ -974,10 +974,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`CookieJar`](./classes/yxorP/proxy/Cookie/CookieJar.md) | |
-| [`FileCookieJar`](./classes/yxorP/proxy/Cookie/FileCookieJar.md) | |
-| [`SessionCookieJar`](./classes/yxorP/proxy/Cookie/SessionCookieJar.md) | |
-| [`SetCookie`](./classes/yxorP/proxy/Cookie/SetCookie.md) | |
+| [`CookieJar`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Cookie/CookieJar.md) | |
+| [`FileCookieJar`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Cookie/FileCookieJar.md) | |
+| [`SessionCookieJar`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Cookie/SessionCookieJar.md) | |
+| [`SetCookie`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Cookie/SetCookie.md) | |
 
 
 
@@ -985,7 +985,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`CookieJarInterface`](./classes/yxorP/proxy/Cookie/CookieJarInterface.md) | |
+| [`CookieJarInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Cookie/CookieJarInterface.md) | |
 
 
 
@@ -995,15 +995,15 @@
 
 | Class | Description |
 |-------|-------------|
-| [`AATransferException`](./classes/yxorP/proxy/Exception/AATransferException.md) | |
-| [`ArequestExceptionAA`](./classes/yxorP/proxy/Exception/ArequestExceptionAA.md) | |
-| [`BadResponseException`](./classes/yxorP/proxy/Exception/BadResponseException.md) | |
-| [`ClientException`](./classes/yxorP/proxy/Exception/ClientException.md) | |
-| [`ConnectException`](./classes/yxorP/proxy/Exception/ConnectException.md) | |
-| [`InvalidArgumentException`](./classes/yxorP/proxy/Exception/InvalidArgumentException.md) | |
-| [`SeekException`](./classes/yxorP/proxy/Exception/SeekException.md) | |
-| [`ServerException`](./classes/yxorP/proxy/Exception/ServerException.md) | |
-| [`TooManyRedirectsException`](./classes/yxorP/proxy/Exception/TooManyRedirectsException.md) | |
+| [`AATransferException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/AATransferException.md) | |
+| [`ArequestExceptionAA`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/ArequestExceptionAA.md) | |
+| [`BadResponseException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/BadResponseException.md) | |
+| [`ClientException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/ClientException.md) | |
+| [`ConnectException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/ConnectException.md) | |
+| [`InvalidArgumentException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/InvalidArgumentException.md) | |
+| [`SeekException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/SeekException.md) | |
+| [`ServerException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/ServerException.md) | |
+| [`TooManyRedirectsException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/TooManyRedirectsException.md) | |
 
 
 
@@ -1011,7 +1011,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`ProxyException`](./classes/yxorP/proxy/Exception/ProxyException.md) | |
+| [`ProxyException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/ProxyException.md) | |
 
 
 
@@ -1021,13 +1021,13 @@
 
 | Class | Description |
 |-------|-------------|
-| [`CurlFactory`](./classes/yxorP/proxy/Handler/CurlFactory.md) | |
-| [`CurlHandler`](./classes/yxorP/proxy/Handler/CurlHandler.md) | |
-| [`CurlMultiHandler`](./classes/yxorP/proxy/Handler/CurlMultiHandler.md) | |
-| [`EasyHandle`](./classes/yxorP/proxy/Handler/EasyHandle.md) | |
-| [`MockHandler`](./classes/yxorP/proxy/Handler/MockHandler.md) | |
-| [`Proxy`](./classes/yxorP/proxy/Handler/Proxy.md) | |
-| [`StreamHandler`](./classes/yxorP/proxy/Handler/StreamHandler.md) | |
+| [`CurlFactory`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/CurlFactory.md) | |
+| [`CurlHandler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/CurlHandler.md) | |
+| [`CurlMultiHandler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/CurlMultiHandler.md) | |
+| [`EasyHandle`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/EasyHandle.md) | |
+| [`MockHandler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/MockHandler.md) | |
+| [`Proxy`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/Proxy.md) | |
+| [`StreamHandler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/StreamHandler.md) | |
 
 
 
@@ -1035,7 +1035,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`CurlFactoryInterface`](./classes/yxorP/proxy/Handler/CurlFactoryInterface.md) | |
+| [`CurlFactoryInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/CurlFactoryInterface.md) | |
 
 
 
@@ -1045,35 +1045,35 @@
 
 | Class | Description |
 |-------|-------------|
-| [`AppendStream`](./classes/yxorP/proxy/Psr7/AppendStream.md) | |
-| [`BufferStream`](./classes/yxorP/proxy/Psr7/BufferStream.md) | |
-| [`CachingStream`](./classes/yxorP/proxy/Psr7/CachingStream.md) | |
-| [`DroppingStream`](./classes/yxorP/proxy/Psr7/DroppingStream.md) | |
-| [`FnStream`](./classes/yxorP/proxy/Psr7/FnStream.md) | |
-| [`InflateStream`](./classes/yxorP/proxy/Psr7/InflateStream.md) | |
-| [`LazyOpenStream`](./classes/yxorP/proxy/Psr7/LazyOpenStream.md) | |
-| [`LimitStream`](./classes/yxorP/proxy/Psr7/LimitStream.md) | |
-| [`MultipartStream`](./classes/yxorP/proxy/Psr7/MultipartStream.md) | |
-| [`NoSeekStream`](./classes/yxorP/proxy/Psr7/NoSeekStream.md) | |
-| [`PumpStream`](./classes/yxorP/proxy/Psr7/PumpStream.md) | |
-| [`Request`](./classes/yxorP/proxy/Psr7/Request.md) | |
-| [`Response`](./classes/yxorP/proxy/Psr7/Response.md) | |
-| [`Rfc7230`](./classes/yxorP/proxy/Psr7/Rfc7230.md) | |
-| [`ServerRequest`](./classes/yxorP/proxy/Psr7/ServerRequest.md) | |
-| [`Stream`](./classes/yxorP/proxy/Psr7/Stream.md) | |
-| [`StreamWrapper`](./classes/yxorP/proxy/Psr7/StreamWrapper.md) | |
-| [`UploadedFile`](./classes/yxorP/proxy/Psr7/UploadedFile.md) | |
-| [`Uri`](./classes/yxorP/proxy/Psr7/Uri.md) | |
-| [`UriNormalizer`](./classes/yxorP/proxy/Psr7/UriNormalizer.md) | |
-| [`UriResolver`](./classes/yxorP/proxy/Psr7/UriResolver.md) | |
+| [`AppendStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/AppendStream.md) | |
+| [`BufferStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/BufferStream.md) | |
+| [`CachingStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/CachingStream.md) | |
+| [`DroppingStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/DroppingStream.md) | |
+| [`FnStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/FnStream.md) | |
+| [`InflateStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/InflateStream.md) | |
+| [`LazyOpenStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/LazyOpenStream.md) | |
+| [`LimitStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/LimitStream.md) | |
+| [`MultipartStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/MultipartStream.md) | |
+| [`NoSeekStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/NoSeekStream.md) | |
+| [`PumpStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/PumpStream.md) | |
+| [`Request`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/Request.md) | |
+| [`Response`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/Response.md) | |
+| [`Rfc7230`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/Rfc7230.md) | |
+| [`ServerRequest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/ServerRequest.md) | |
+| [`Stream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/Stream.md) | |
+| [`StreamWrapper`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/StreamWrapper.md) | |
+| [`UploadedFile`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/UploadedFile.md) | |
+| [`Uri`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/Uri.md) | |
+| [`UriNormalizer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/UriNormalizer.md) | |
+| [`UriResolver`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/UriResolver.md) | |
 
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`AStreamDecoratorTrait`](./classes/yxorP/proxy/Psr7/AStreamDecoratorTrait.md) | |
-| [`MessageTrait`](./classes/yxorP/proxy/Psr7/MessageTrait.md) | |
+| [`AStreamDecoratorTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/AStreamDecoratorTrait.md) | |
+| [`MessageTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Psr7/MessageTrait.md) | |
 
 
 
@@ -1087,13 +1087,13 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`MessageInterface`](./classes/yxorP/psr/Http/Message/MessageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
-| [`RequestInterface`](./classes/yxorP/psr/Http/Message/RequestInterface.md) | Representation of an outgoing, client-side request.|
-| [`ResponseInterface`](./classes/yxorP/psr/Http/Message/ResponseInterface.md) | Representation of an outgoing, server-side response.|
-| [`ServerRequestInterface`](./classes/yxorP/psr/Http/Message/ServerRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
-| [`StreamInterface`](./classes/yxorP/psr/Http/Message/StreamInterface.md) | Describes a data stream.|
-| [`UploadedFileInterface`](./classes/yxorP/psr/Http/Message/UploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
-| [`UriInterface`](./classes/yxorP/psr/Http/Message/UriInterface.md) | Value object representing a URI.|
+| [`MessageInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/MessageInterface.md) | HTTP messages consist of requests from a client to a server and responses<br />from a server to a client. This interface defines the methods common to<br />each.|
+| [`RequestInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/RequestInterface.md) | Representation of an outgoing, client-side request.|
+| [`ResponseInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/ResponseInterface.md) | Representation of an outgoing, server-side response.|
+| [`ServerRequestInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/ServerRequestInterface.md) | Representation of an incoming, server-side HTTP request.|
+| [`StreamInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/StreamInterface.md) | Describes a data stream.|
+| [`UploadedFileInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/UploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
+| [`UriInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/UriInterface.md) | Value object representing a URI.|
 
 
 
@@ -1103,17 +1103,17 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](./classes/yxorP/snag/Client.md) | |
-| [`Configuration`](./classes/yxorP/snag/Configuration.md) | |
-| [`Env`](./classes/yxorP/snag/Env.md) | |
-| [`ErrorTypes`](./classes/yxorP/snag/ErrorTypes.md) | |
-| [`Handler`](./classes/yxorP/snag/Handler.md) | |
-| [`HttpClient`](./classes/yxorP/snag/HttpClient.md) | |
-| [`Pipeline`](./classes/yxorP/snag/Pipeline.md) | |
-| [`Report`](./classes/yxorP/snag/Report.md) | |
-| [`SessionTracker`](./classes/yxorP/snag/SessionTracker.md) | |
-| [`Stacktrace`](./classes/yxorP/snag/Stacktrace.md) | |
-| [`Utils`](./classes/yxorP/snag/Utils.md) | |
+| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Client.md) | |
+| [`Configuration`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Configuration.md) | |
+| [`Env`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Env.md) | |
+| [`ErrorTypes`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/ErrorTypes.md) | |
+| [`Handler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Handler.md) | |
+| [`HttpClient`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/HttpClient.md) | |
+| [`Pipeline`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Pipeline.md) | |
+| [`Report`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Report.md) | |
+| [`SessionTracker`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/SessionTracker.md) | |
+| [`Stacktrace`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Stacktrace.md) | |
+| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Utils.md) | |
 
 
 
@@ -1124,8 +1124,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Breadcrumb`](./classes/yxorP/snag/Breadcrumbs/Breadcrumb.md) | |
-| [`Recorder`](./classes/yxorP/snag/Breadcrumbs/Recorder.md) | |
+| [`Breadcrumb`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Breadcrumbs/Breadcrumb.md) | |
+| [`Recorder`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Breadcrumbs/Recorder.md) | |
 
 
 
@@ -1136,14 +1136,14 @@
 
 | Class | Description |
 |-------|-------------|
-| [`CustomUser`](./classes/yxorP/snag/Callbacks/CustomUser.md) | |
-| [`EnvironmentData`](./classes/yxorP/snag/Callbacks/EnvironmentData.md) | |
-| [`GlobalMetaData`](./classes/yxorP/snag/Callbacks/GlobalMetaData.md) | |
-| [`RequestContext`](./classes/yxorP/snag/Callbacks/RequestContext.md) | |
-| [`RequestCookies`](./classes/yxorP/snag/Callbacks/RequestCookies.md) | |
-| [`RequestMetaData`](./classes/yxorP/snag/Callbacks/RequestMetaData.md) | |
-| [`RequestSession`](./classes/yxorP/snag/Callbacks/RequestSession.md) | |
-| [`RequestUser`](./classes/yxorP/snag/Callbacks/RequestUser.md) | |
+| [`CustomUser`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/CustomUser.md) | |
+| [`EnvironmentData`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/EnvironmentData.md) | |
+| [`GlobalMetaData`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/GlobalMetaData.md) | |
+| [`RequestContext`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/RequestContext.md) | |
+| [`RequestCookies`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/RequestCookies.md) | |
+| [`RequestMetaData`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/RequestMetaData.md) | |
+| [`RequestSession`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/RequestSession.md) | |
+| [`RequestUser`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/RequestUser.md) | |
 
 
 
@@ -1154,8 +1154,8 @@
 
 | Class | Description |
 |-------|-------------|
-| [`Clock`](./classes/yxorP/snag/DateTime/Clock.md) | |
-| [`Date`](./classes/yxorP/snag/DateTime/Date.md) | |
+| [`Clock`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/DateTime/Clock.md) | |
+| [`Date`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/DateTime/Date.md) | |
 
 
 
@@ -1163,7 +1163,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`ClockInterface`](./classes/yxorP/snag/DateTime/ClockInterface.md) | |
+| [`ClockInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/DateTime/ClockInterface.md) | |
 
 
 
@@ -1173,7 +1173,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`ProxyCompat`](./classes/yxorP/snag/Internal/ProxyCompat.md) | |
+| [`ProxyCompat`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Internal/ProxyCompat.md) | |
 
 
 
@@ -1184,11 +1184,11 @@
 
 | Class | Description |
 |-------|-------------|
-| [`BreadcrumbData`](./classes/yxorP/snag/Middleware/BreadcrumbData.md) | |
-| [`CallbackBridge`](./classes/yxorP/snag/Middleware/CallbackBridge.md) | |
-| [`DiscardClasses`](./classes/yxorP/snag/Middleware/DiscardClasses.md) | |
-| [`NotificationSkipper`](./classes/yxorP/snag/Middleware/NotificationSkipper.md) | |
-| [`SessionData`](./classes/yxorP/snag/Middleware/SessionData.md) | |
+| [`BreadcrumbData`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Middleware/BreadcrumbData.md) | |
+| [`CallbackBridge`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Middleware/CallbackBridge.md) | |
+| [`DiscardClasses`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Middleware/DiscardClasses.md) | |
+| [`NotificationSkipper`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Middleware/NotificationSkipper.md) | |
+| [`SessionData`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Middleware/SessionData.md) | |
 
 
 
@@ -1199,10 +1199,10 @@
 
 | Class | Description |
 |-------|-------------|
-| [`BasicResolver`](./classes/yxorP/snag/Request/BasicResolver.md) | |
-| [`ConsoleRequest`](./classes/yxorP/snag/Request/ConsoleRequest.md) | |
-| [`NullRequest`](./classes/yxorP/snag/Request/NullRequest.md) | |
-| [`PhpRequest`](./classes/yxorP/snag/Request/PhpRequest.md) | |
+| [`BasicResolver`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/BasicResolver.md) | |
+| [`ConsoleRequest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/ConsoleRequest.md) | |
+| [`NullRequest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/NullRequest.md) | |
+| [`PhpRequest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/PhpRequest.md) | |
 
 
 
@@ -1210,8 +1210,8 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`RequestInterface`](./classes/yxorP/snag/Request/RequestInterface.md) | |
-| [`ResolverInterface`](./classes/yxorP/snag/Request/ResolverInterface.md) | |
+| [`RequestInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/RequestInterface.md) | |
+| [`ResolverInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/ResolverInterface.md) | |
 
 
 
@@ -1221,7 +1221,7 @@
 
 | Class | Description |
 |-------|-------------|
-| [`PhpShutdownStrategy`](./classes/yxorP/snag/Shutdown/PhpShutdownStrategy.md) | |
+| [`PhpShutdownStrategy`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Shutdown/PhpShutdownStrategy.md) | |
 
 
 
@@ -1229,7 +1229,7 @@
 
 | Interface | Description |
 |-----------|-------------|
-| [`ShutdownStrategyInterface`](./classes/yxorP/snag/Shutdown/ShutdownStrategyInterface.md) | |
+| [`ShutdownStrategyInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Shutdown/ShutdownStrategyInterface.md) | |
 
 
 
