@@ -58,7 +58,7 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_detach);
     }
 
-    public function getSize()
+    public function getSize(): mixed
     {
         return call_user_func($this->_fn_getSize);
     }
