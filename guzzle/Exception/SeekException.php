@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp\Exception;
+<?php namespace yxorP\guzzle\Exception;
 
 use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\StreamInterface;

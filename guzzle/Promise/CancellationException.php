@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp\Promise;
+<?php namespace yxorP\guzzle\Promise;
 class CancellationException extends RejectionException
 {
 }

@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp;
+<?php namespace yxorP\guzzle;
 
 use ArrayAccess;
 use GuzzleHttp\Cookie\CookieJarInterface;

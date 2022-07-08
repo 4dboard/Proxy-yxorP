@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp\Exception;
+<?php namespace yxorP\guzzle\Exception;
 
 use RuntimeException;
 

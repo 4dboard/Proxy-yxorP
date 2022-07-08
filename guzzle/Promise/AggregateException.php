@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp\Promise;
+<?php namespace yxorP\guzzle\Promise;
 class AggregateException extends RejectionException
 {
     public function __construct($msg, array $reasons)

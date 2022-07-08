@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp;
+<?php namespace yxorP\guzzle;
 
 use Exception;
 use GuzzleHttp\Cookie\CookieJar;

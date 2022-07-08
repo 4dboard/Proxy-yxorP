@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp;
+<?php namespace yxorP\guzzle;
 final class RequestOptions
 {
     const ALLOW_REDIRECTS = 'allow_redirects';

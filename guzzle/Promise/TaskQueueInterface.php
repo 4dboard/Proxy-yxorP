@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp\Promise;
+<?php namespace yxorP\guzzle\Promise;
 interface TaskQueueInterface
 {
     public function isEmpty();

@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp\Handler;
+<?php namespace yxorP\guzzle\Handler;
 
 use JetBrains\PhpStorm\Pure;
 use Psr\Http\Message\RequestInterface;

@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp;
+<?php namespace yxorP\guzzle;
 
 use Closure;
 use GuzzleHttp\Handler\CurlHandler;

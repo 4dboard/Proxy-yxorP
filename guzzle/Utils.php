@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp;
+<?php namespace yxorP\guzzle;
 
 use GuzzleHttp\Exception\InvalidArgumentException;
 use Psr\Http\Message\UriInterface;

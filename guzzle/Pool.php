@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp;
+<?php namespace yxorP\guzzle;
 
 use GuzzleHttp\Promise\EachPromise;
 use GuzzleHttp\Promise\PromisorInterface;

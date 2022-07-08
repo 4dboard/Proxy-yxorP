@@ -1,4 +1,4 @@
-<?php namespace GuzzleHttp\Cookie;
+<?php namespace yxorP\guzzle\Cookie;
 
 use RuntimeException;
 
