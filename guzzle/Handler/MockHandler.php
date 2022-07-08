@@ -1,13 +1,21 @@
 <?php namespace GuzzleHttp\Handler;
 
+use Countable;
+use Exception;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Promise\PromiseInterface;
 use GuzzleHttp\TransferStats;
+use InvalidArgumentException;
+use OutOfBoundsException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+use function GuzzleHttp\describe_type;
+use function GuzzleHttp\Promise\promise_for;
+use function GuzzleHttp\Promise\rejection_for;
 
-class MockHandler implements \Countable
+class MockHandler implements Countable
 {
     private $queue = [];
     private $lastRequest;
@@ -32,7 +40,7 @@ class MockHandler implements \Countable
     public function __invoke(RequestInterface $request, array $options)
     {
         if (!$this->queue) {
-            throw new \OutOfBoundsException('Mock queue is empty');
+            throw new OutOfBoundsException('Mock queue is empty');
         }
         if (isset($options['delay']) && is_numeric($options['delay'])) {
             usleep($options['delay'] * 1000);
@@ -42,11 +50,11 @@ class MockHandler implements \Countable
         $response = array_shift($this->queue);
         if (isset($options['on_headers'])) {
             if (!is_callable($options['on_headers'])) {
-                throw new \InvalidArgumentException('on_headers must be callable');
+                throw new InvalidArgumentException('on_headers must be callable');
             }
             try {
                 $options['on_headers']($response);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
                 $response = new RequestException($msg, $request, $response, $e);
             }
@@ -54,7 +62,7 @@ class MockHandler implements \Countable
         if (is_callable($response)) {
             $response = call_user_func($response, $request, $options);
         }
-        $response = $response instanceof \Exception ? \GuzzleHttp\Promise\rejection_for($response) : \GuzzleHttp\Promise\promise_for($response);
+        $response = $response instanceof Exception ? rejection_for($response) : promise_for($response);
         return $response->then(function ($value) use ($request, $options) {
             $this->invokeStats($request, $options, $value);
             if ($this->onFulfilled) {
@@ -67,7 +75,7 @@ class MockHandler implements \Countable
                     fwrite($sink, $contents);
                 } elseif (is_string($sink)) {
                     file_put_contents($sink, $contents);
-                } elseif ($sink instanceof \Psr\Http\Message\StreamInterface) {
+                } elseif ($sink instanceof StreamInterface) {
                     $sink->write($contents);
                 }
             }
@@ -77,7 +85,7 @@ class MockHandler implements \Countable
             if ($this->onRejected) {
                 call_user_func($this->onRejected, $reason);
             }
-            return \GuzzleHttp\Promise\rejection_for($reason);
+            return rejection_for($reason);
         });
     }
 
@@ -93,10 +101,10 @@ class MockHandler implements \Countable
     public function append()
     {
         foreach (func_get_args() as $value) {
-            if ($value instanceof ResponseInterface || $value instanceof \Exception || $value instanceof PromiseInterface || is_callable($value)) {
+            if ($value instanceof ResponseInterface || $value instanceof Exception || $value instanceof PromiseInterface || is_callable($value)) {
                 $this->queue[] = $value;
             } else {
-                throw new \InvalidArgumentException('Expected a response or ' . 'exception. Found ' . \GuzzleHttp\describe_type($value));
+                throw new InvalidArgumentException('Expected a response or ' . 'exception. Found ' . describe_type($value));
             }
         }
     }

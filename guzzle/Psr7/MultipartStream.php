@@ -1,5 +1,6 @@
 <?php namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 
 class MultipartStream implements StreamInterface
@@ -28,7 +29,7 @@ class MultipartStream implements StreamInterface
     {
         foreach (['contents', 'name'] as $key) {
             if (!array_key_exists($key, $element)) {
-                throw new \InvalidArgumentException("A '{$key}' key is required");
+                throw new InvalidArgumentException("A '{$key}' key is required");
             }
         }
         $element['contents'] = stream_for($element['contents']);

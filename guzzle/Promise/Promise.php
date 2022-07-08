@@ -1,4 +1,9 @@
 <?php namespace GuzzleHttp\Promise;
+
+use Exception;
+use LogicException;
+use Throwable;
+
 class Promise implements PromiseInterface
 {
     private $state = self::PENDING;
@@ -71,7 +76,7 @@ class Promise implements PromiseInterface
             $wfn = $this->waitFn;
             $this->waitFn = null;
             $wfn(true);
-        } catch (\Exception $reason) {
+        } catch (Exception $reason) {
             if ($this->state === self::PENDING) {
                 $this->reject($reason);
             } else {
@@ -91,10 +96,10 @@ class Promise implements PromiseInterface
             if ($state === $this->state && $value === $this->result) {
                 return;
             }
-            throw $this->state === $state ? new \LogicException("The promise is already {$state}.") : new \LogicException("Cannot change a {$this->state} promise to {$state}");
+            throw $this->state === $state ? new LogicException("The promise is already {$state}.") : new LogicException("Cannot change a {$this->state} promise to {$state}");
         }
         if ($value === $this) {
-            throw new \LogicException('Cannot fulfill or reject a promise with itself');
+            throw new LogicException('Cannot fulfill or reject a promise with itself');
         }
         $this->state = $state;
         $this->result = $value;
@@ -141,9 +146,9 @@ class Promise implements PromiseInterface
             } else {
                 $promise->reject($value);
             }
-        } catch (\Throwable $reason) {
+        } catch (Throwable $reason) {
             $promise->reject($reason);
-        } catch (\Exception $reason) {
+        } catch (Exception $reason) {
             $promise->reject($reason);
         }
     }
@@ -183,9 +188,9 @@ class Promise implements PromiseInterface
             $this->cancelFn = null;
             try {
                 $fn();
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
                 $this->reject($e);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $this->reject($e);
             }
         }

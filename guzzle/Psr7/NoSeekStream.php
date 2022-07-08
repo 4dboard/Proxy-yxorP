@@ -1,6 +1,7 @@
 <?php namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
 
 class NoSeekStream implements StreamInterface
 {
@@ -8,7 +9,7 @@ class NoSeekStream implements StreamInterface
 
     public function seek($offset, $whence = SEEK_SET)
     {
-        throw new \RuntimeException('Cannot seek a NoSeekStream');
+        throw new RuntimeException('Cannot seek a NoSeekStream');
     }
 
     public function isSeekable()

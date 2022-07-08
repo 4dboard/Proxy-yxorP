@@ -1,14 +1,23 @@
 <?php namespace GuzzleHttp\Handler;
 
+use Exception;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Promise\FulfilledPromise;
 use GuzzleHttp\Psr7;
 use GuzzleHttp\TransferStats;
 use GuzzleHttp\Utils;
+use InvalidArgumentException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
+use function GuzzleHttp\debug_resource;
+use function GuzzleHttp\default_ca_bundle;
+use function GuzzleHttp\headers_from_lines;
+use function GuzzleHttp\is_host_in_noproxy;
+use function GuzzleHttp\normalize_header_keys;
+use function GuzzleHttp\Promise\rejection_for;
 
 class StreamHandler
 {
@@ -26,16 +35,16 @@ class StreamHandler
                 $request = $request->withHeader('Content-Length', '0');
             }
             return $this->createResponse($request, $options, $this->createStream($request, $options), $startTime);
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             throw $e;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $message = $e->getMessage();
             if (strpos($message, 'getaddrinfo') || strpos($message, 'Connection refused') || strpos($message, "couldn't connect to host") || strpos($message, "connection attempt failed")) {
                 $e = new ConnectException($e->getMessage(), $request, $e);
             }
             $e = RequestException::wrapException($request, $e);
             $this->invokeStats($options, $request, $startTime, null, $e);
-            return \GuzzleHttp\Promise\rejection_for($e);
+            return rejection_for($e);
         }
     }
 
@@ -47,7 +56,7 @@ class StreamHandler
         $ver = explode('/', $parts[0])[1];
         $status = $parts[1];
         $reason = isset($parts[2]) ? $parts[2] : null;
-        $headers = \GuzzleHttp\headers_from_lines($hdrs);
+        $headers = headers_from_lines($hdrs);
         list($stream, $headers) = $this->checkDecode($options, $headers, $stream);
         $stream = Psr7\stream_for($stream);
         $sink = $stream;
@@ -58,10 +67,10 @@ class StreamHandler
         if (isset($options['on_headers'])) {
             try {
                 $options['on_headers']($response);
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $msg = 'An error was encountered during the on_headers event';
                 $ex = new RequestException($msg, $request, $response, $e);
-                return \GuzzleHttp\Promise\rejection_for($ex);
+                return rejection_for($ex);
             }
         }
         if ($sink !== $stream) {
@@ -74,7 +83,7 @@ class StreamHandler
     private function checkDecode(array $options, array $headers, $stream)
     {
         if (!empty($options['decode_content'])) {
-            $normalizedKeys = \GuzzleHttp\normalize_header_keys($headers);
+            $normalizedKeys = normalize_header_keys($headers);
             if (isset($normalizedKeys['content-encoding'])) {
                 $encoding = $headers[$normalizedKeys['content-encoding']];
                 if ($encoding[0] === 'gzip' || $encoding[0] === 'deflate') {
@@ -136,7 +145,7 @@ class StreamHandler
         $params = [];
         $context = $this->getDefaultContext($request);
         if (isset($options['on_headers']) && !is_callable($options['on_headers'])) {
-            throw new \InvalidArgumentException('on_headers must be callable');
+            throw new InvalidArgumentException('on_headers must be callable');
         }
         if (!empty($options)) {
             foreach ($options as $key => $value) {
@@ -148,12 +157,12 @@ class StreamHandler
         }
         if (isset($options['stream_context'])) {
             if (!is_array($options['stream_context'])) {
-                throw new \InvalidArgumentException('stream_context must be an array');
+                throw new InvalidArgumentException('stream_context must be an array');
             }
             $context = array_replace_recursive($context, $options['stream_context']);
         }
         if (isset($options['auth']) && is_array($options['auth']) && isset($options['auth'][2]) && 'ntlm' == $options['auth'][2]) {
-            throw new \InvalidArgumentException('Microsoft NTLM authentication only supported with curl handler');
+            throw new InvalidArgumentException('Microsoft NTLM authentication only supported with curl handler');
         }
         $uri = $this->resolveHost($request, $options);
         $context = $this->createResource(function () use ($context, $params) {
@@ -229,7 +238,7 @@ class StreamHandler
                     $message .= "[$key] $value" . PHP_EOL;
                 }
             }
-            throw new \RuntimeException(trim($message));
+            throw new RuntimeException(trim($message));
         }
         return $resource;
     }
@@ -241,7 +250,7 @@ class StreamHandler
         } else {
             $scheme = $request->getUri()->getScheme();
             if (isset($value[$scheme])) {
-                if (!isset($value['no']) || !\GuzzleHttp\is_host_in_noproxy($request->getUri()->getHost(), $value['no'])) {
+                if (!isset($value['no']) || !is_host_in_noproxy($request->getUri()->getHost(), $value['no'])) {
                     $options['http']['proxy'] = $value[$scheme];
                 }
             }
@@ -259,19 +268,19 @@ class StreamHandler
     {
         if ($value === true) {
             if (PHP_VERSION_ID < 50600) {
-                $options['ssl']['cafile'] = \GuzzleHttp\default_ca_bundle();
+                $options['ssl']['cafile'] = default_ca_bundle();
             }
         } elseif (is_string($value)) {
             $options['ssl']['cafile'] = $value;
             if (!file_exists($value)) {
-                throw new \RuntimeException("SSL CA bundle not found: $value");
+                throw new RuntimeException("SSL CA bundle not found: $value");
             }
         } elseif ($value === false) {
             $options['ssl']['verify_peer'] = false;
             $options['ssl']['verify_peer_name'] = false;
             return;
         } else {
-            throw new \InvalidArgumentException('Invalid verify request option');
+            throw new InvalidArgumentException('Invalid verify request option');
         }
         $options['ssl']['verify_peer'] = true;
         $options['ssl']['verify_peer_name'] = true;
@@ -285,7 +294,7 @@ class StreamHandler
             $value = $value[0];
         }
         if (!file_exists($value)) {
-            throw new \RuntimeException("SSL certificate not found: {$value}");
+            throw new RuntimeException("SSL certificate not found: {$value}");
         }
         $options['ssl']['local_cert'] = $value;
     }
@@ -325,7 +334,7 @@ class StreamHandler
         }
         static $map = [STREAM_NOTIFY_CONNECT => 'CONNECT', STREAM_NOTIFY_AUTH_REQUIRED => 'AUTH_REQUIRED', STREAM_NOTIFY_AUTH_RESULT => 'AUTH_RESULT', STREAM_NOTIFY_MIME_TYPE_IS => 'MIME_TYPE_IS', STREAM_NOTIFY_FILE_SIZE_IS => 'FILE_SIZE_IS', STREAM_NOTIFY_REDIRECTED => 'REDIRECTED', STREAM_NOTIFY_PROGRESS => 'PROGRESS', STREAM_NOTIFY_FAILURE => 'FAILURE', STREAM_NOTIFY_COMPLETED => 'COMPLETED', STREAM_NOTIFY_RESOLVE => 'RESOLVE',];
         static $args = ['severity', 'message', 'message_code', 'bytes_transferred', 'bytes_max'];
-        $value = \GuzzleHttp\debug_resource($value);
+        $value = debug_resource($value);
         $ident = $request->getMethod() . ' ' . $request->getUri()->withFragment('');
         $this->addNotification($params, function () use ($ident, $value, $map, $args) {
             $passed = func_get_args();

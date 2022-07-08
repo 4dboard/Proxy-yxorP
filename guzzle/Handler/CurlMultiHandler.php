@@ -1,5 +1,6 @@
 <?php namespace GuzzleHttp\Handler;
 
+use BadMethodCallException;
 use GuzzleHttp\Promise as P;
 use GuzzleHttp\Promise\Promise;
 use GuzzleHttp\Utils;
@@ -36,7 +37,7 @@ class CurlMultiHandler
             }
             return $this->_mh;
         }
-        throw new \BadMethodCallException();
+        throw new BadMethodCallException();
     }
 
     public function __destruct()

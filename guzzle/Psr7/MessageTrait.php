@@ -1,5 +1,6 @@
 <?php namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 
 trait MessageTrait
@@ -63,37 +64,6 @@ trait MessageTrait
         return $new;
     }
 
-    private function assertHeader($header)
-    {
-        if (!is_string($header)) {
-            throw new \InvalidArgumentException(sprintf('Header name must be a string but %s provided.', is_object($header) ? get_class($header) : gettype($header)));
-        }
-        if ($header === '') {
-            throw new \InvalidArgumentException('Header name can not be empty.');
-        }
-    }
-
-    private function normalizeHeaderValue($value)
-    {
-        if (!is_array($value)) {
-            return $this->trimHeaderValues([$value]);
-        }
-        if (count($value) === 0) {
-            throw new \InvalidArgumentException('Header value can not be an empty array.');
-        }
-        return $this->trimHeaderValues($value);
-    }
-
-    private function trimHeaderValues(array $values)
-    {
-        return array_map(function ($value) {
-            if (!is_scalar($value) && null !== $value) {
-                throw new \InvalidArgumentException(sprintf('Header value must be scalar or null but %s provided.', is_object($value) ? get_class($value) : gettype($value)));
-            }
-            return trim((string)$value, " \t");
-        }, $values);
-    }
-
     public function withAddedHeader($header, $value)
     {
         $this->assertHeader($header);
@@ -138,6 +108,37 @@ trait MessageTrait
         $new = clone $this;
         $new->stream = $body;
         return $new;
+    }
+
+    private function assertHeader($header)
+    {
+        if (!is_string($header)) {
+            throw new InvalidArgumentException(sprintf('Header name must be a string but %s provided.', is_object($header) ? get_class($header) : gettype($header)));
+        }
+        if ($header === '') {
+            throw new InvalidArgumentException('Header name can not be empty.');
+        }
+    }
+
+    private function normalizeHeaderValue($value)
+    {
+        if (!is_array($value)) {
+            return $this->trimHeaderValues([$value]);
+        }
+        if (count($value) === 0) {
+            throw new InvalidArgumentException('Header value can not be an empty array.');
+        }
+        return $this->trimHeaderValues($value);
+    }
+
+    private function trimHeaderValues(array $values)
+    {
+        return array_map(function ($value) {
+            if (!is_scalar($value) && null !== $value) {
+                throw new InvalidArgumentException(sprintf('Header value must be scalar or null but %s provided.', is_object($value) ? get_class($value) : gettype($value)));
+            }
+            return trim((string)$value, " \t");
+        }, $values);
     }
 
     private function setHeaders(array $headers)

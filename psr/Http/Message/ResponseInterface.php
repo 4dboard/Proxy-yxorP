@@ -2,6 +2,8 @@
 
 namespace Psr\Http\Message;
 
+use InvalidArgumentException;
+
 /**
  * Representation of an outgoing, server-side response.
  *
@@ -47,7 +49,7 @@ interface ResponseInterface extends MessageInterface
      *     provided status code; if none is provided, implementations MAY
      *     use the defaults as suggested in the HTTP specification.
      * @return static
-     * @throws \InvalidArgumentException For invalid status code arguments.
+     * @throws InvalidArgumentException For invalid status code arguments.
      */
     public function withStatus($code, $reasonPhrase = '');
 

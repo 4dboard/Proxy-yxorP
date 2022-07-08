@@ -1,6 +1,9 @@
 <?php namespace GuzzleHttp\Psr7;
 
+use Exception;
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
 
 class AppendStream implements StreamInterface
 {
@@ -19,7 +22,7 @@ class AppendStream implements StreamInterface
     public function addStream(StreamInterface $stream)
     {
         if (!$stream->isReadable()) {
-            throw new \InvalidArgumentException('Each stream must be readable');
+            throw new InvalidArgumentException('Each stream must be readable');
         }
         if (!$stream->isSeekable()) {
             $this->seekable = false;
@@ -42,7 +45,7 @@ class AppendStream implements StreamInterface
         try {
             $this->rewind();
             return $this->getContents();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return '';
         }
     }
@@ -55,16 +58,16 @@ class AppendStream implements StreamInterface
     public function seek($offset, $whence = SEEK_SET)
     {
         if (!$this->seekable) {
-            throw new \RuntimeException('This AppendStream is not seekable');
+            throw new RuntimeException('This AppendStream is not seekable');
         } elseif ($whence !== SEEK_SET) {
-            throw new \RuntimeException('The AppendStream can only seek with SEEK_SET');
+            throw new RuntimeException('The AppendStream can only seek with SEEK_SET');
         }
         $this->pos = $this->current = 0;
         foreach ($this->streams as $i => $stream) {
             try {
                 $stream->rewind();
-            } catch (\Exception $e) {
-                throw new \RuntimeException('Unable to seek stream ' . $i . ' of the AppendStream', 0, $e);
+            } catch (Exception $e) {
+                throw new RuntimeException('Unable to seek stream ' . $i . ' of the AppendStream', 0, $e);
             }
         }
         while ($this->pos < $offset && !$this->eof()) {
@@ -156,7 +159,7 @@ class AppendStream implements StreamInterface
 
     public function write($string)
     {
-        throw new \RuntimeException('Cannot write to an AppendStream');
+        throw new RuntimeException('Cannot write to an AppendStream');
     }
 
     public function getMetadata($key = null)

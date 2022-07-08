@@ -1,6 +1,9 @@
 <?php namespace GuzzleHttp\Psr7;
 
+use BadMethodCallException;
+use Exception;
 use Psr\Http\Message\StreamInterface;
+use UnexpectedValueException;
 
 trait StreamDecoratorTrait
 {
@@ -15,7 +18,7 @@ trait StreamDecoratorTrait
             $this->stream = $this->createStream();
             return $this->stream;
         }
-        throw new \UnexpectedValueException("$name not found on class");
+        throw new UnexpectedValueException("$name not found on class");
     }
 
     public function __toString()
@@ -25,7 +28,7 @@ trait StreamDecoratorTrait
                 $this->seek(0);
             }
             return $this->getContents();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             trigger_error('StreamDecorator::__toString exception: ' . (string)$e, E_USER_ERROR);
             return '';
         }
@@ -109,6 +112,6 @@ trait StreamDecoratorTrait
 
     protected function createStream()
     {
-        throw new \BadMethodCallException('Not implemented');
+        throw new BadMethodCallException('Not implemented');
     }
 }

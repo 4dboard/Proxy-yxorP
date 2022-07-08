@@ -1,5 +1,6 @@
 <?php namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
 use Psr\Http\Message\StreamInterface;
 
 class CachingStream implements StreamInterface
@@ -33,7 +34,7 @@ class CachingStream implements StreamInterface
             }
             $byte = $size + $offset;
         } else {
-            throw new \InvalidArgumentException('Invalid whence');
+            throw new InvalidArgumentException('Invalid whence');
         }
         $diff = $byte - $this->stream->getSize();
         if ($diff > 0) {
@@ -46,21 +47,11 @@ class CachingStream implements StreamInterface
         }
     }
 
-    public function getSize()
-    {
-        return max($this->stream->getSize(), $this->remoteStream->getSize());
-    }
-
     private function cacheEntireStream()
     {
         $target = new FnStream(['write' => 'strlen']);
         copy_to_stream($this, $target);
         return $this->tell();
-    }
-
-    public function eof()
-    {
-        return $this->stream->eof() && $this->remoteStream->eof();
     }
 
     public function read($length)
@@ -78,6 +69,16 @@ class CachingStream implements StreamInterface
             $this->stream->write($remoteData);
         }
         return $data;
+    }
+
+    public function getSize()
+    {
+        return max($this->stream->getSize(), $this->remoteStream->getSize());
+    }
+
+    public function eof()
+    {
+        return $this->stream->eof() && $this->remoteStream->eof();
     }
 
     public function write($string)

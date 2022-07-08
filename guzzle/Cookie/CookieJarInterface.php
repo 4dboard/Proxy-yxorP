@@ -1,9 +1,11 @@
 <?php namespace GuzzleHttp\Cookie;
 
+use Countable;
+use IteratorAggregate;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
-interface CookieJarInterface extends \Countable, \IteratorAggregate
+interface CookieJarInterface extends Countable, IteratorAggregate
 {
     public function withCookieHeader(RequestInterface $request);
 

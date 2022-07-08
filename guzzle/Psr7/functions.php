@@ -1,11 +1,14 @@
 <?php namespace GuzzleHttp\Psr7;
 
+use InvalidArgumentException;
+use Iterator;
 use Psr\Http\Message\MessageInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UriInterface;
+use RuntimeException;
 
 function str(MessageInterface $message)
 {
@@ -17,7 +20,7 @@ function str(MessageInterface $message)
     } elseif ($message instanceof ResponseInterface) {
         $msg = 'HTTP/' . $message->getProtocolVersion() . ' ' . $message->getStatusCode() . ' ' . $message->getReasonPhrase();
     } else {
-        throw new \InvalidArgumentException('Unknown message type');
+        throw new InvalidArgumentException('Unknown message type');
     }
     foreach ($message->getHeaders() as $name => $values) {
         $msg .= "\r\n{$name}: " . implode(', ', $values);
@@ -32,7 +35,7 @@ function uri_for($uri)
     } elseif (is_string($uri)) {
         return new Uri($uri);
     }
-    throw new \InvalidArgumentException('URI must be a string or UriInterface');
+    throw new InvalidArgumentException('URI must be a string or UriInterface');
 }
 
 function stream_for($resource = '', array $options = [])
@@ -51,7 +54,7 @@ function stream_for($resource = '', array $options = [])
         case 'object':
             if ($resource instanceof StreamInterface) {
                 return $resource;
-            } elseif ($resource instanceof \Iterator) {
+            } elseif ($resource instanceof Iterator) {
                 return new PumpStream(function () use ($resource) {
                     if (!$resource->valid()) {
                         return false;
@@ -70,7 +73,7 @@ function stream_for($resource = '', array $options = [])
     if (is_callable($resource)) {
         return new PumpStream($resource, $options);
     }
-    throw new \InvalidArgumentException('Invalid resource type: ' . gettype($resource));
+    throw new InvalidArgumentException('Invalid resource type: ' . gettype($resource));
 }
 
 function parse_header($header)
@@ -165,7 +168,7 @@ function try_fopen($filename, $mode)
 {
     $ex = null;
     set_error_handler(function () use ($filename, $mode, &$ex) {
-        $ex = new \RuntimeException(sprintf('Unable to open %s using mode %s: %s', $filename, $mode, func_get_args()[1]));
+        $ex = new RuntimeException(sprintf('Unable to open %s using mode %s: %s', $filename, $mode, func_get_args()[1]));
     });
     $handle = fopen($filename, $mode);
     restore_error_handler();
@@ -259,7 +262,7 @@ function parse_request($message)
     $data = _parse_message($message);
     $matches = [];
     if (!preg_match('/^[\S]+\s+([a-zA-Z]+:\/\/|\/).*/', $data['start-line'], $matches)) {
-        throw new \InvalidArgumentException('Invalid request string');
+        throw new InvalidArgumentException('Invalid request string');
     }
     $parts = explode(' ', $data['start-line'], 3);
     $version = isset($parts[2]) ? explode('/', $parts[2])[1] : '1.1';
@@ -271,7 +274,7 @@ function parse_response($message)
 {
     $data = _parse_message($message);
     if (!preg_match('/^HTTP\/.* [0-9]{3}( .*|$)/', $data['start-line'])) {
-        throw new \InvalidArgumentException('Invalid response string: ' . $data['start-line']);
+        throw new InvalidArgumentException('Invalid response string: ' . $data['start-line']);
     }
     $parts = explode(' ', $data['start-line'], 3);
     return new Response($parts[1], $data['headers'], $data['body'], explode('/', $parts[0])[1], isset($parts[2]) ? $parts[2] : null);
@@ -326,7 +329,7 @@ function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
     } elseif ($encoding === PHP_QUERY_RFC1738) {
         $encoder = 'urlencode';
     } else {
-        throw new \InvalidArgumentException('Invalid type');
+        throw new InvalidArgumentException('Invalid type');
     }
     $qs = '';
     foreach ($params as $k => $v) {
@@ -365,18 +368,18 @@ function mimetype_from_extension($extension)
 function _parse_message($message)
 {
     if (!$message) {
-        throw new \InvalidArgumentException('Invalid message');
+        throw new InvalidArgumentException('Invalid message');
     }
     $message = ltrim($message, "\r\n");
     $messageParts = preg_split("/\r?\n\r?\n/", $message, 2);
     if ($messageParts === false || count($messageParts) !== 2) {
-        throw new \InvalidArgumentException('Invalid message: Missing header delimiter');
+        throw new InvalidArgumentException('Invalid message: Missing header delimiter');
     }
     list($rawHeaders, $body) = $messageParts;
     $rawHeaders .= "\r\n";
     $headerParts = preg_split("/\r?\n/", $rawHeaders, 2);
     if ($headerParts === false || count($headerParts) !== 2) {
-        throw new \InvalidArgumentException('Invalid message: Missing status line');
+        throw new InvalidArgumentException('Invalid message: Missing status line');
     }
     list($startLine, $rawHeaders) = $headerParts;
     if (preg_match("/(?:^HTTP\/|^[A-Z]+ \S+ HTTP\/)(\d+(?:\.\d+)?)/i", $startLine, $matches) && $matches[1] === '1.0') {
@@ -385,9 +388,9 @@ function _parse_message($message)
     $count = preg_match_all(Rfc7230::HEADER_REGEX, $rawHeaders, $headerLines, PREG_SET_ORDER);
     if ($count !== substr_count($rawHeaders, "\n")) {
         if (preg_match(Rfc7230::HEADER_FOLD_REGEX, $rawHeaders)) {
-            throw new \InvalidArgumentException('Invalid header syntax: Obsolete line folding');
+            throw new InvalidArgumentException('Invalid header syntax: Obsolete line folding');
         }
-        throw new \InvalidArgumentException('Invalid header syntax');
+        throw new InvalidArgumentException('Invalid header syntax');
     }
     $headers = [];
     foreach ($headerLines as $headerLine) {

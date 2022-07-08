@@ -1,6 +1,8 @@
 <?php namespace GuzzleHttp\Psr7;
 
+use Exception;
 use Psr\Http\Message\StreamInterface;
+use RuntimeException;
 
 class PumpStream implements StreamInterface
 {
@@ -22,7 +24,7 @@ class PumpStream implements StreamInterface
     {
         try {
             return copy_to_string($this);
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return '';
         }
     }
@@ -60,7 +62,7 @@ class PumpStream implements StreamInterface
 
     public function seek($offset, $whence = SEEK_SET)
     {
-        throw new \RuntimeException('Cannot seek a PumpStream');
+        throw new RuntimeException('Cannot seek a PumpStream');
     }
 
     public function isWritable()
@@ -70,7 +72,7 @@ class PumpStream implements StreamInterface
 
     public function write($string)
     {
-        throw new \RuntimeException('Cannot write to a PumpStream');
+        throw new RuntimeException('Cannot write to a PumpStream');
     }
 
     public function isReadable()

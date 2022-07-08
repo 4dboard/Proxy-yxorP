@@ -20,14 +20,14 @@ final class Coroutine implements PromiseInterface
         $this->nextCoroutine($this->generator->current());
     }
 
-    public function wait($unwrap = true)
-    {
-        return $this->result->wait($unwrap);
-    }
-
     private function nextCoroutine($yielded)
     {
         $this->currentPromise = promise_for($yielded)->then([$this, '_handleSuccess'], [$this, '_handleFailure']);
+    }
+
+    public function wait($unwrap = true)
+    {
+        return $this->result->wait($unwrap);
     }
 
     public function then(callable $onFulfilled = null, callable $onRejected = null)
