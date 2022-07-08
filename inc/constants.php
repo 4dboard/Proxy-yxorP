@@ -647,7 +647,7 @@ class constants
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix((constants::get(YXORP_SITE_URL))));
         $x = self::publicSuffix('www.xn--ply-onb.com');
-        exho $x->domain()->toString();
+        echo $x->domain()->toString();
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->domain()->toString());
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
