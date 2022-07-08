@@ -6,7 +6,6 @@ use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use yxorP\parser\topInterfaceLevelDomainListInterface;
 use yxorP\parser\topLevelDomains;
 use yxorP\parser\unableToLoadResource;
-use yxorP\psr\Http\Client\ClientExceptionInterface;
 use yxorP\psr\Http\Client\ClientInterface;
 use yxorP\psr\Http\Message\RequestFactoryInterface;
 
