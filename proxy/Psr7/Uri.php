@@ -315,7 +315,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withUserInfo($user, $password = null): Uri|static
+    public function withUserInfo($user, $password = null): mixed
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
