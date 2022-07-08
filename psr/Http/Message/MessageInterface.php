@@ -93,7 +93,7 @@ interface MessageInterface
      *    header. If the header does not appear in the message, this method MUST
      *    return an empty array.
      */
-    public function getHeader($name): array;
+    public function getHeader($name): mixed;
 
     /**
      * Retrieves a comma-separated string of the values for a single header.
