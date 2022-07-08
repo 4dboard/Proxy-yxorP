@@ -154,10 +154,10 @@ class constants
         define('FILE_REWRITE_REPLACE', 'search_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
-        /* Defining a constant. */
+        /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
-        /* Defining a constant. */
-        define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
+        /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
+        define('FILE_BOOTSTRAP', 'bootstrap' . EXT_PHP);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
@@ -463,9 +463,10 @@ class constants
         define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
         /* Defining the path to the cockpit bootstrap file. */
-        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP);
+        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_BOOTSTRAP . EXT_PHP);
         /* Defining the path to the action wrapper file. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER);
+        /* Defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `bootstrap`. */
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
         define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_INC . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
