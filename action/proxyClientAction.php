@@ -14,6 +14,7 @@ class proxyClientAction extends wrapper
      */
     public function onSend(): void
     {
+        exit('123');
         /* Creating a new `yxorP\proxy\Client` object, and then it is sending a request to the `constants::get(YXORP_FETCH)` URL,
         with the `constants::get(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body. */
         $getMethod = constants::get(VAR_REQUEST)->getMethod();
