@@ -98,7 +98,7 @@ class Request implements RequestInterface
         return $this->uri;
     }
 
-    public function withUri(UriInterface $uri, $preserveHost = false): Request|static
+    public function withUri(UriInterface $uri, $preserveHost = false): mixed
     {
         if ($uri === $this->uri) {
             return $this;
