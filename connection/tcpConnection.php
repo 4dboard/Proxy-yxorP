@@ -1,6 +1,5 @@
 <?php namespace yxorP\connection;
 
-use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 use ReturnTypeWillChange;
 use Throwable;
@@ -41,18 +40,12 @@ use const STREAM_CRYPTO_METHOD_SSLv2_SERVER;
  * @property int $websocketCurrentFrameLength
  * @property string $websocketSecKey
  * @property null $websocketPingTimer
- * @property null $websocketPingTimer
  * @property int $handshakeStep
  * @property string $WSServerProtocol
- * @property string $websocketSecKey
  * @property request $__request
  * @property bool $websocketHandshake
  * @property string $websocketCurrentFrameBuffer
- * @property int $websocketCurrentFrameLength
- * @property string $websocketDataBuffer
  * @property $bufferFull
- * @property false $bufferFull
- * @property mixed|request $__request
  * @property $statistics
  */
 class tcpConnection extends connectionInterface implements JsonSerializable
