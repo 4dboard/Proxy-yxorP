@@ -646,6 +646,7 @@ class constants
         constants::set(YXORP_REQUEST_URI, (constants::get(VAR_SERVER))[YXORP_REQUEST_URI]);
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_URL_PARSE, self::publicSuffix((constants::get(YXORP_SITE_URL))));
+        print_r(self::publicSuffix('www.plȧy.com'));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         constants::set(YXORP_SITE_DOMAIN, (constants::get(YXORP_SITE_URL_PARSE))->domain()->toString());
         /* Setting the `SITE_SUB_DOMAIN` variable to the result of the `extractSubdomains` method. */
