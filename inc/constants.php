@@ -350,6 +350,8 @@ class constants
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
         /* Defining a constant called `VAR_VAR_UNDER_END` and setting it to the value of `CHAR_UNDER . VAR_VAR . CHAR_UNDER`. */
         define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
+        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
+        define('VAR_REQUEST_URI', VAR_REQUEST . CHAR_UNDER . VAR_URI);
 
 
         // YXORP
@@ -362,8 +364,6 @@ class constants
         define('YXORP_COCKPIT_INSTALL', VAR_COCKPIT . CHAR_UNDER . VAR_INSTALL);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', VAR_HTTP_UP . CHAR_UNDER . VAR_HOST);
-        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
-        define('YXORP_REQUEST_URI', VAR_REQUEST . CHAR_UNDER . VAR_URI);
         /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
         define('YXORP_COCKPIT_APP', VAR_COCKPIT . CHAR_UNDER . VAR_APP);
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
