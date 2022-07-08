@@ -304,7 +304,6 @@ class constants
         /* Defining a constant called VAR_APP and setting it to the string APP. */
         define('VAR_APP', 'APP');
         /* Defining a constant called VAR_PROXY and setting it to the string PROXY. */
-        define('VAR_PROXY', 'PROXY');
         /* Defining a constant called VAR_NAME and setting it to the string NAME. */
         define('VAR_NAME_UP', 'NAME');
         /* Defining a constant called VAR_URL and setting it to the string URL. */
