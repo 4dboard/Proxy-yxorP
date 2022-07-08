@@ -2,8 +2,8 @@
 
 use Exception;
 use InvalidArgumentException;
-use yxorP\psr\Http\Message\StreamInterface;
 use RuntimeException;
+use yxorP\psr\Http\Message\StreamInterface;
 
 class AppendStream implements StreamInterface
 {

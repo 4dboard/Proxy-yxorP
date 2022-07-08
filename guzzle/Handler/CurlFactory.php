@@ -1,15 +1,15 @@
 <?php namespace yxorP\guzzle\Handler;
 
 use Exception;
+use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
+use RuntimeException;
 use yxorP\guzzle\Exception\ConnectException;
 use yxorP\guzzle\Exception\RequestException;
 use yxorP\guzzle\Promise\FulfilledPromise;
 use yxorP\guzzle\Psr7\LazyOpenStream;
 use yxorP\guzzle\TransferStats;
-use InvalidArgumentException;
-use JetBrains\PhpStorm\ArrayShape;
 use yxorP\psr\Http\Message\RequestInterface;
-use RuntimeException;
 use function GuzzleHttp\debug_resource;
 use function GuzzleHttp\is_host_in_noproxy;
 use function GuzzleHttp\Promise\rejection_for;
@@ -60,6 +60,22 @@ class CurlFactory implements CurlFactoryInterface
             return self::retryFailedRewind($handler, $easy, $ctx);
         }
         return self::createRejection($easy, $ctx);
+    }
+
+    public function release(EasyHandle $easy)
+    {
+        $resource = $easy->handle;
+        unset($easy->handle);
+        if (count($this->handles) >= $this->maxHandles) {
+            curl_close($resource);
+        } else {
+            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
+            curl_setopt($resource, CURLOPT_READFUNCTION, null);
+            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
+            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
+            curl_reset($resource);
+            $this->handles[] = $resource;
+        }
     }
 
     private static function retryFailedRewind(callable $handler, EasyHandle $easy, array $ctx): \GuzzleHttp\Promise\RejectedPromise|\GuzzleHttp\Promise\PromiseInterface
@@ -120,22 +136,6 @@ class CurlFactory implements CurlFactoryInterface
         $easy->handle = $this->handles ? array_pop($this->handles) : curl_init();
         curl_setopt_array($easy->handle, $conf);
         return $easy;
-    }
-
-    public function release(EasyHandle $easy)
-    {
-        $resource = $easy->handle;
-        unset($easy->handle);
-        if (count($this->handles) >= $this->maxHandles) {
-            curl_close($resource);
-        } else {
-            curl_setopt($resource, CURLOPT_HEADERFUNCTION, null);
-            curl_setopt($resource, CURLOPT_READFUNCTION, null);
-            curl_setopt($resource, CURLOPT_WRITEFUNCTION, null);
-            curl_setopt($resource, CURLOPT_PROGRESSFUNCTION, null);
-            curl_reset($resource);
-            $this->handles[] = $resource;
-        }
     }
 
     #[ArrayShape(['_headers' => "\string[][]", \GuzzleHttp\Handler\CURLOPT_CUSTOMREQUEST => "string", \GuzzleHttp\Handler\CURLOPT_URL => "string", \GuzzleHttp\Handler\CURLOPT_RETURNTRANSFER => "false", \GuzzleHttp\Handler\CURLOPT_HEADER => "false", \GuzzleHttp\Handler\CURLOPT_CONNECTTIMEOUT => "int", \GuzzleHttp\Handler\CURLOPT_HTTP_VERSION => "int", \GuzzleHttp\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array

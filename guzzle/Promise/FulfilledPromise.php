@@ -1,6 +1,5 @@
 <?php namespace yxorP\guzzle\Promise;
 
-use Exception;
 use InvalidArgumentException;
 use LogicException;
 use Throwable;

@@ -47,6 +47,23 @@ class CachingStream implements StreamInterface
         }
     }
 
+    public function getSize()
+    {
+        return max($this->stream->getSize(), $this->remoteStream->getSize());
+    }
+
+    private function cacheEntireStream(): int
+    {
+        $target = new FnStream(['write' => 'strlen']);
+        copy_to_stream($this, $target);
+        return $this->tell();
+    }
+
+    public function eof(): bool
+    {
+        return $this->stream->eof() && $this->remoteStream->eof();
+    }
+
     public function read($length): string
     {
         $data = $this->stream->read($length);
@@ -64,16 +81,6 @@ class CachingStream implements StreamInterface
         return $data;
     }
 
-    public function getSize()
-    {
-        return max($this->stream->getSize(), $this->remoteStream->getSize());
-    }
-
-    public function eof(): bool
-    {
-        return $this->stream->eof() && $this->remoteStream->eof();
-    }
-
     public function write($string): int
     {
         $overflow = (strlen($string) + $this->tell()) - $this->remoteStream->tell();
@@ -86,12 +93,5 @@ class CachingStream implements StreamInterface
     public function close()
     {
         $this->remoteStream->close() && $this->stream->close();
-    }
-
-    private function cacheEntireStream(): int
-    {
-        $target = new FnStream(['write' => 'strlen']);
-        copy_to_stream($this, $target);
-        return $this->tell();
     }
 }

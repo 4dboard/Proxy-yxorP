@@ -1,7 +1,6 @@
 <?php namespace yxorP\guzzle\Promise;
 
 use ArrayIterator;
-use Exception;
 use Iterator;
 use Throwable;
 

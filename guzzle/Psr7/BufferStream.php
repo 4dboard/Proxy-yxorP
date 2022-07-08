@@ -1,7 +1,7 @@
 <?php namespace yxorP\guzzle\Psr7;
 
-use yxorP\psr\Http\Message\StreamInterface;
 use RuntimeException;
+use yxorP\psr\Http\Message\StreamInterface;
 
 class BufferStream implements StreamInterface
 {

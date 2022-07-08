@@ -31,24 +31,13 @@ class cache
         foreach ($files as $file) if (is_file($file)) unlink($file);
     }
 
-    public static function cache()
-    {
-        /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
-        class. */
-        if (!isset(self::$instance[constants::get(CACHE_KEY)])) self::$instance[constants::get(CACHE_KEY)] = new self();
-        /* Returning the instance of the class. */
-        return self::$instance[constants::get(CACHE_KEY)];
-    }
-
-    /* Used to check if the cache file exists. */
-
     public function super(): void
     {
         $attr_instance = new self(false);
         if ($attr_instance->isValid()) $attr_instance->get();
     }
 
-    /* Used to get the data from the cache file. */
+    /* Used to check if the cache file exists. */
 
     #[Pure] public function isValid(): bool
     {
@@ -56,7 +45,7 @@ class cache
         return file_exists(PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString());
     }
 
-    /* Used to get the instance of the class. */
+    /* Used to get the data from the cache file. */
 
     public function get(): void
     {
@@ -64,6 +53,17 @@ class cache
         if (!$this->isValid()) return;
         /* Used to include the cache file. */
         @include PATH_DIR_TMP . constants::get(CACHE_KEY)->__toString();
+    }
+
+    /* Used to get the instance of the class. */
+
+    public static function cache()
+    {
+        /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
+        class. */
+        if (!isset(self::$instance[constants::get(CACHE_KEY)])) self::$instance[constants::get(CACHE_KEY)] = new self();
+        /* Returning the instance of the class. */
+        return self::$instance[constants::get(CACHE_KEY)];
     }
 
     /* Used to set the data in the cache file. */

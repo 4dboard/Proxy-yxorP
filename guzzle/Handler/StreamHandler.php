@@ -1,18 +1,18 @@
 <?php namespace yxorP\guzzle\Handler;
 
 use Exception;
+use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
+use RuntimeException;
 use yxorP\guzzle\Exception\ConnectException;
 use yxorP\guzzle\Exception\RequestException;
 use yxorP\guzzle\Promise\FulfilledPromise;
 use yxorP\guzzle\Psr7;
 use yxorP\guzzle\TransferStats;
 use yxorP\guzzle\Utils;
-use InvalidArgumentException;
-use JetBrains\PhpStorm\ArrayShape;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\StreamInterface;
-use RuntimeException;
 use function GuzzleHttp\debug_resource;
 use function GuzzleHttp\default_ca_bundle;
 use function GuzzleHttp\headers_from_lines;

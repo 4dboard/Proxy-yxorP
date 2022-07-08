@@ -2,8 +2,8 @@
 
 use BadMethodCallException;
 use Exception;
-use yxorP\psr\Http\Message\StreamInterface;
 use UnexpectedValueException;
+use yxorP\psr\Http\Message\StreamInterface;
 
 trait StreamDecoratorTrait
 {
@@ -21,6 +21,11 @@ trait StreamDecoratorTrait
         throw new UnexpectedValueException("$name not found on class");
     }
 
+    protected function createStream()
+    {
+        throw new BadMethodCallException('Not implemented');
+    }
+
     public function __toString()
     {
         try {
@@ -32,6 +37,16 @@ trait StreamDecoratorTrait
             trigger_error('StreamDecorator::__toString exception: ' . $e->__toString(), E_USER_ERROR);
             return '';
         }
+    }
+
+    public function isSeekable(): bool
+    {
+        return $this->stream->isSeekable();
+    }
+
+    public function seek($offset, $whence = SEEK_SET)
+    {
+        $this->stream->seek($offset, $whence);
     }
 
     public function getContents(): string
@@ -85,19 +100,9 @@ trait StreamDecoratorTrait
         return $this->stream->isWritable();
     }
 
-    public function isSeekable(): bool
-    {
-        return $this->stream->isSeekable();
-    }
-
     public function rewind()
     {
         $this->seek(0);
-    }
-
-    public function seek($offset, $whence = SEEK_SET)
-    {
-        $this->stream->seek($offset, $whence);
     }
 
     public function read($length): string
@@ -108,10 +113,5 @@ trait StreamDecoratorTrait
     public function write($string): int
     {
         return $this->stream->write($string);
-    }
-
-    protected function createStream()
-    {
-        throw new BadMethodCallException('Not implemented');
     }
 }

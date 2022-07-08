@@ -3,13 +3,13 @@
 use InvalidArgumentException;
 use Iterator;
 use JetBrains\PhpStorm\ArrayShape;
+use RuntimeException;
 use yxorP\psr\Http\Message\MessageInterface;
 use yxorP\psr\Http\Message\RequestInterface;
 use yxorP\psr\Http\Message\ResponseInterface;
 use yxorP\psr\Http\Message\ServerRequestInterface;
 use yxorP\psr\Http\Message\StreamInterface;
 use yxorP\psr\Http\Message\UriInterface;
-use RuntimeException;
 
 function str(MessageInterface $message): string
 {

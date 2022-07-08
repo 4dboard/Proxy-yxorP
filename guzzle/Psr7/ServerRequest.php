@@ -67,23 +67,6 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $uri;
     }
 
-    public static function normalizeFiles(array $files): array
-    {
-        $normalized = [];
-        foreach ($files as $key => $value) {
-            if ($value instanceof UploadedFileInterface) {
-                $normalized[$key] = $value;
-            } elseif (is_array($value) && isset($value['tmp_name'])) {
-                $normalized[$key] = self::createUploadedFileFromSpec($value);
-            } elseif (is_array($value)) {
-                $normalized[$key] = self::normalizeFiles($value);
-            } else {
-                throw new InvalidArgumentException('Invalid value in files specification');
-            }
-        }
-        return $normalized;
-    }
-
     private static function extractHostAndPortFromAuthority($authority): array
     {
         $uri = 'https://' . $authority;
@@ -94,24 +77,6 @@ class ServerRequest extends Request implements ServerRequestInterface
         $host = $parts['host'] ?? null;
         $port = $parts['port'] ?? null;
         return [$host, $port];
-    }
-
-    private static function createUploadedFileFromSpec(array $value): UploadedFile|array
-    {
-        if (is_array($value['tmp_name'])) {
-            return self::normalizeNestedFileSpec($value);
-        }
-        return new UploadedFile($value['tmp_name'], (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
-    }
-
-    private static function normalizeNestedFileSpec(array $files = []): array
-    {
-        $normalizedFiles = [];
-        foreach (array_keys($files['tmp_name']) as $key) {
-            $spec = ['tmp_name' => $files['tmp_name'][$key], 'size' => $files['size'][$key], 'error' => $files['error'][$key], 'name' => $files['name'][$key], 'type' => $files['type'][$key],];
-            $normalizedFiles[$key] = self::createUploadedFileFromSpec($spec);
-        }
-        return $normalizedFiles;
     }
 
     public function withUploadedFiles(array $uploadedFiles): ServerRequest
@@ -140,6 +105,41 @@ class ServerRequest extends Request implements ServerRequestInterface
         $new = clone $this;
         $new->cookieParams = $cookies;
         return $new;
+    }
+
+    public static function normalizeFiles(array $files): array
+    {
+        $normalized = [];
+        foreach ($files as $key => $value) {
+            if ($value instanceof UploadedFileInterface) {
+                $normalized[$key] = $value;
+            } elseif (is_array($value) && isset($value['tmp_name'])) {
+                $normalized[$key] = self::createUploadedFileFromSpec($value);
+            } elseif (is_array($value)) {
+                $normalized[$key] = self::normalizeFiles($value);
+            } else {
+                throw new InvalidArgumentException('Invalid value in files specification');
+            }
+        }
+        return $normalized;
+    }
+
+    private static function createUploadedFileFromSpec(array $value): UploadedFile|array
+    {
+        if (is_array($value['tmp_name'])) {
+            return self::normalizeNestedFileSpec($value);
+        }
+        return new UploadedFile($value['tmp_name'], (int)$value['size'], (int)$value['error'], $value['name'], $value['type']);
+    }
+
+    private static function normalizeNestedFileSpec(array $files = []): array
+    {
+        $normalizedFiles = [];
+        foreach (array_keys($files['tmp_name']) as $key) {
+            $spec = ['tmp_name' => $files['tmp_name'][$key], 'size' => $files['size'][$key], 'error' => $files['error'][$key], 'name' => $files['name'][$key], 'type' => $files['type'][$key],];
+            $normalizedFiles[$key] = self::createUploadedFileFromSpec($spec);
+        }
+        return $normalizedFiles;
     }
 
     public function getServerParams(): array
