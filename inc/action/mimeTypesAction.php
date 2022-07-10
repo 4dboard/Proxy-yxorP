@@ -17,6 +17,7 @@ class mimeTypesAction extends wrapper
         /* Getting the mime types from the mime.types file. */
         /* Parsing the mime.types file and creating an associative array of mime types. */
         preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', file_get_contents(PATH_FILE_MIME_TYPES), $matches, PREG_SET_ORDER);
+        /* Parsing the mime.types file and creating an associative array of mime types. */
         foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
         /* Checking if the requested file exists. */
         if (/* Checking if the file extension of the requested file is set. */
@@ -52,23 +53,7 @@ class mimeTypesAction extends wrapper
 
         /* Setting the content type of the response to `application/wasm` if the requested file is `bundle.js` and to
         `application/xml` if the requested file is `sitemap`. */
-        if (str_contains(YXORP_PROXY_URL, 'bundle.js')) constants::set('MIME', 'application' . CHAR_SLASH . 'wasm'); else if (str_contains(YXORP_PROXY_URL, 'sitemap'))
-            /* Setting the content type of the response to `application/xml` if the requested file is `sitemap`. */
-            constants::set('MIME', 'application' . CHAR_SLASH . 'xml'); else if (str_contains(YXORP_PROXY_URL, 'crop'))
-            /* Setting the content type of the response to `image/png` if the requested file is `crop` and to `video/mp4`
-            if the requested file is `.mp4`. */
-            constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, 'format'))
-            /* Setting the content type of the response to `image/png` if the requested file is `crop` and to `video/mp4`
-            if the requested file is `.mp4`. */
-            constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, '.mp4'))
-            /* Setting the content type of the response to `video/mp4` if the requested file is `.mp4` and to `br` if the
-            requested file is `.js.br`. */
-            constants::set('MIME', 'video' . CHAR_SLASH . 'mp4'); else if (str_contains(YXORP_PROXY_URL, '.js.br'))
-            /* Setting the content type of the response to `br` if the requested file is `.js.br` and to the mime type of
-            the requested file if the file extension of the requested file is set. */
-            constants::set('MIME', 'br'); else if (array_key_exists($_ext, $mimes)) constants::set('MIME', $mimes[$_ext]); else
-            /* Setting the content type of the response to `text/html`. */
-            constants::set('MIME', 'text' . CHAR_SLASH . 'html');
+        if (str_contains(YXORP_PROXY_URL, 'bundle.js')) constants::set('MIME', 'application' . CHAR_SLASH . 'wasm'); else if (str_contains(YXORP_PROXY_URL, 'sitemap')) constants::set('MIME', 'application' . CHAR_SLASH . 'xml'); else if (str_contains(YXORP_PROXY_URL, 'crop')) constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, 'format')) constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, '.mp4')) constants::set('MIME', 'video' . CHAR_SLASH . 'mp4'); else if (str_contains(YXORP_PROXY_URL, '.js.br')) constants::set('MIME', 'br'); else if (array_key_exists($_ext, $mimes)) constants::set('MIME', $mimes[$_ext]); else  constants::set('MIME', 'text' . CHAR_SLASH . 'html');
 
         /* Setting the content type of the response. */
         header('Content-Type: ' . constants::get('MIME') . '; charset = UTF-8');
