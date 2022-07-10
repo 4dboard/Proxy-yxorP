@@ -10,7 +10,6 @@ use yxorP\inc\parser\domain;
 use yxorP\inc\parser\parseUrl;
 use yxorP\inc\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\inc\parser\Rules;
-use yxorP\inc\proxy\Client;
 use yxorP\parse\parse;
 use function cockpit;
 
@@ -419,6 +418,7 @@ class constants
 
         // YXORP
         define('YXORP_EVENT_LIST', VAR_EVENT . CHAR_UNDER . VAR_LIST);
+        define('YXORP_MIME_TYPES', 'define('');
         /* Defining a constant. */
         define('YXORP_REWRITE_SEARCH', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_SEARCH);
         /* Defining a constant. */
@@ -561,6 +561,9 @@ class constants
         // EVENTS
         constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
+        preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', file_get_contents(PATH_FILE_MIME_TYPES), $matches, PREG_SET_ORDER);
+        constants::set(YXORP_MIME_TYPES, $matches);
+
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
         seconds in a year. */
@@ -570,6 +573,18 @@ class constants
     /* A function that is being called to fetch .env values. */
 
     /**
+     * @param string $_name
+     * @param string|array|object|null $_value
+     * @return string|array|object|null
+     */
+    public static function set(string $_name, string|array|object|null $_value): string|array|object|null
+    {
+        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
+    }
+
+    /**
      * @return void
      */
     #[NoReturn] public static function cockpit(): void
@@ -577,6 +592,8 @@ class constants
         require PATH_COCKPIT_INDEX;
         exit();
     }
+
+    /* Setting the value of the variable $_name to the value of the variable $_value. */
 
     /**
      * @param string $line
@@ -590,20 +607,6 @@ class constants
         [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
         /* Replacing all the new lines with null. */
         self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
-    }
-
-    /* Setting the value of the variable $_name to the value of the variable $_value. */
-
-    /**
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
-     */
-    public static function set(string $_name, string|array|object|null $_value): string|array|object|null
-    {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
     }
 
     /* A function that is being called to localise constants. */
