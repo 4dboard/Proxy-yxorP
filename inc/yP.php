@@ -41,6 +41,8 @@ class yP
         file. */
 
         foreach ([DIR_INC . DIR_ACTION => scandir(DIR_ROOT . DIR_INC . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS)] as $key => $value) foreach ($value as $action) $this->subscribe($key, $action);
+
+        exit('123');
     }
 
     /**
