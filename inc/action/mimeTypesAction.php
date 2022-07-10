@@ -13,17 +13,38 @@ class mimeTypesAction extends wrapper
     public function onBuildContext(): void
     {
         /* An array of mime types. */
+        /* Getting the mime types from the mime.types file. */
+        /* Parsing the mime.types file and creating an associative array of mime types. */
         preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', file_get_contents(PATH_FILE_MIME_TYPES), $matches, PREG_SET_ORDER);
         foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
-        if (is_file(YXORP_PROXY_URL)) {
-            if (isset(pathinfo(YXORP_PROXY_URL) ['extension'])) {
+        /* Checking if the requested file exists. */
+        if (/* Checking if the file extension of the requested file is set. */
+        is_file(YXORP_PROXY_URL)) {
+            if (/* Getting the file extension of the requested file. */
+            isset(pathinfo(YXORP_PROXY_URL) ['extension'])) {
+                /* Checking if the file extension of the requested file is set. */
                 $content_ext = pathinfo(YXORP_PROXY_URL) ['extension'];
                 if (isset($mimes[$content_ext])) constants::set('MIME', $mimes[$content_ext]); else {
+                    /* Checking if the requested file is readable and executable. */
                     if (is_readable(YXORP_PROXY_URL) && is_executable(YXORP_PROXY_URL)) {
+                        /* Getting the mime type of the requested file. */
+                        /* Opening a fileinfo resource. */
+                        /* Getting the mime type of the requested file. */
                         $finfo = finfo_open(FILEINFO_MIME_TYPE);
+                        /* Checking if the mime type of the requested file is null or empty and if it is, it sets the mime
+                        type of the response to `application/octet-stream` and if it is not, it sets the mime type of
+                        the response to the mime type of the requested file. */
+                        /* Setting the content type of the response to `application/octet-stream` if the requested file is not
+                        readable and executable. */
                         $content_mime = finfo_file($finfo, YXORP_PROXY_URL);
+                        /* Checking if the mime type of the requested file is null or empty and if it is, it sets the mime
+                        type of the response to `application/octet-stream` and if it is not, it sets the mime type of
+                        the response to the mime type of the requested file. */
                         if ($content_mime === null | $content_mime === "") constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream'); else constants::set('MIME', $content_mime);
+                        /* Closing the fileinfo resource. */
                         finfo_close($finfo);
+                        /* Setting the content type of the response to `application/octet-stream` if the requested file is not
+                        readable and executable. */
                     } else constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream');
                 }
             }
