@@ -23,18 +23,13 @@ class response
 
     public function getContent(): string
     {
+        $this->sendHeaders();
         return $this->content;
     }
 
     public function setContent($content): ?string
     {
         return ($this->content = $content) ?: null;
-    }
-
-    public function printContent(): void
-    {
-        $this->sendHeaders();
-        print($this->content);
     }
 
     public function sendHeaders(): void
@@ -55,5 +50,11 @@ class response
     public function getStatusCode()
     {
         return $this->status;
+    }
+
+    public function printContent(): void
+    {
+        $this->sendHeaders();
+        print($this->content);
     }
 }
