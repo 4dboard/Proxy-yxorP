@@ -11,7 +11,7 @@ use yxorP\inc\psr\Http\Message\UriInterface;
  */
 class AAAARequest implements RequestInterface
 {
-    use MessageTrait;
+    use AAAAAMessageTrait;
 
     /** @var string */
     private $method;

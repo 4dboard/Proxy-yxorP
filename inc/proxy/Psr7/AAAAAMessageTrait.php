@@ -8,7 +8,7 @@ use yxorP\inc\psr\Http\Message\StreamInterface;
 /**
  * Trait implementing functionality common to requests and responses.
  */
-trait MessageTrait
+trait AAAAAMessageTrait
 {
     /** @var array Map of all registered headers, as original name => array of values */
     private $headers = [];
@@ -82,60 +82,6 @@ trait MessageTrait
         return $new;
     }
 
-    public function withAddedHeader($header, $value)
-    {
-        $this->assertHeader($header);
-        $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($header);
-
-        $new = clone $this;
-        if (isset($new->headerNames[$normalized])) {
-            $header = $this->headerNames[$normalized];
-            $new->headers[$header] = array_merge($this->headers[$header], $value);
-        } else {
-            $new->headerNames[$normalized] = $header;
-            $new->headers[$header] = $value;
-        }
-
-        return $new;
-    }
-
-    public function withoutHeader($header)
-    {
-        $normalized = strtolower($header);
-
-        if (!isset($this->headerNames[$normalized])) {
-            return $this;
-        }
-
-        $header = $this->headerNames[$normalized];
-
-        $new = clone $this;
-        unset($new->headers[$header], $new->headerNames[$normalized]);
-
-        return $new;
-    }
-
-    public function getBody()
-    {
-        if (!$this->stream) {
-            $this->stream = stream_for('');
-        }
-
-        return $this->stream;
-    }
-
-    public function withBody(StreamInterface $body)
-    {
-        if ($body === $this->stream) {
-            return $this;
-        }
-
-        $new = clone $this;
-        $new->stream = $body;
-        return $new;
-    }
-
     private function assertHeader($header)
     {
         if (!is_string($header)) {
@@ -189,6 +135,60 @@ trait MessageTrait
 
             return trim((string)$value, " \t");
         }, $values);
+    }
+
+    public function withAddedHeader($header, $value)
+    {
+        $this->assertHeader($header);
+        $value = $this->normalizeHeaderValue($value);
+        $normalized = strtolower($header);
+
+        $new = clone $this;
+        if (isset($new->headerNames[$normalized])) {
+            $header = $this->headerNames[$normalized];
+            $new->headers[$header] = array_merge($this->headers[$header], $value);
+        } else {
+            $new->headerNames[$normalized] = $header;
+            $new->headers[$header] = $value;
+        }
+
+        return $new;
+    }
+
+    public function withoutHeader($header)
+    {
+        $normalized = strtolower($header);
+
+        if (!isset($this->headerNames[$normalized])) {
+            return $this;
+        }
+
+        $header = $this->headerNames[$normalized];
+
+        $new = clone $this;
+        unset($new->headers[$header], $new->headerNames[$normalized]);
+
+        return $new;
+    }
+
+    public function getBody()
+    {
+        if (!$this->stream) {
+            $this->stream = stream_for('');
+        }
+
+        return $this->stream;
+    }
+
+    public function withBody(StreamInterface $body)
+    {
+        if ($body === $this->stream) {
+            return $this;
+        }
+
+        $new = clone $this;
+        $new->stream = $body;
+        return $new;
     }
 
     private function setHeaders(array $headers)

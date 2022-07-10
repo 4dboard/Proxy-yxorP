@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Psr7;
 
+use InvalidArgumentException;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
 use yxorP\inc\psr\Http\Message\StreamInterface;
 
@@ -10,7 +11,7 @@ use yxorP\inc\psr\Http\Message\StreamInterface;
  */
 class Response implements ResponseInterface
 {
-    use MessageTrait;
+    use AAAAAMessageTrait;
 
     /** @var array Map of standard HTTP status code/reason phrases */
     private static $phrases = [
@@ -118,14 +119,14 @@ class Response implements ResponseInterface
     private function assertStatusCodeIsInteger($statusCode)
     {
         if (filter_var($statusCode, FILTER_VALIDATE_INT) === false) {
-            throw new \InvalidArgumentException('Status code must be an integer value.');
+            throw new InvalidArgumentException('Status code must be an integer value.');
         }
     }
 
     private function assertStatusCodeRange($statusCode)
     {
         if ($statusCode < 100 || $statusCode >= 600) {
-            throw new \InvalidArgumentException('Status code must be an integer value between 1xx and 5xx.');
+            throw new InvalidArgumentException('Status code must be an integer value between 1xx and 5xx.');
         }
     }
 
