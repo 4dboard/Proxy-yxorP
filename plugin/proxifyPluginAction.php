@@ -41,7 +41,6 @@ class proxifyPluginAction extends wrapper
         $this->base_url = constants::get(VAR_REQUEST)->getUri();
         /* It's getting the response object from the constants class. */
         $response = constants::get(VAR_RESPONSE);
-        /* It's getting the content type of the response. */
         /* It's getting the response content. */
         $content_type = $this->clean_content_type($response->headers->get(VAR_CONTENT_TYPE));
         $str = $response->getContent();
