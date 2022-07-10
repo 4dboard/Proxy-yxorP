@@ -16,19 +16,6 @@ class dailyMotionPluginAction extends wrapper
 
     /* A method that is called when the request is completed. */
 
-    public static function completed($matches, $content): void
-    {
-        /* The `stripslashes` function removes backslashes from a string. */
-        $video = stripslashes($matches[1]);
-        /* Creating a video player with the video URL and the width and height of the player. */
-        $player = generalHelper::vid_player($video, 1240, 478);
-        /* Replacing the content of the element with the id `player` with the `$player` variable. */
-        $content = Html::replace_inner("#player", $player, $content);
-
-    }
-
-    /* A method that is called when the request is completed. */
-
     public function onEventComplete(): void
     {
         echo '22';
@@ -44,5 +31,18 @@ class dailyMotionPluginAction extends wrapper
         /* It sets the content of the response object to the `$content` variable. */
         $response->setContent($content);
         echo 'bb';
+    }
+
+    /* A method that is called when the request is completed. */
+
+    public static function completed($matches, $content): void
+    {
+        /* The `stripslashes` function removes backslashes from a string. */
+        $video = stripslashes($matches[1]);
+        /* Creating a video player with the video URL and the width and height of the player. */
+        $player = generalHelper::vid_player($video, 1240, 478);
+        /* Replacing the content of the element with the id `player` with the `$player` variable. */
+        $content = Html::replace_inner("#player", $player, $content);
+
     }
 }

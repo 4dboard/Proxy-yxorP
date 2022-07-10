@@ -32,84 +32,6 @@ abstract class wrapper
 
     /* A method that is used to route the events to the appropriate methods. */
 
-    public function onCheck(): void
-    {
-    }
-
-    /* Used to check if the event should be executed. */
-
-    public function onBuildCache(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
-
-    public function onBuildContext(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
-
-    public function onBuildIncludes(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
-
-    public function onBuildHeaders(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
-
-    public function onBuildRequest(): void
-    {
-    }
-
-    /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
-
-    public function onBeforeSend(): void
-    {
-    }
-
-    /* Used to build the result. */
-
-    public function onSend(): void
-    {
-    }
-
-    /* Used to execute code when the request is sent. */
-
-    public function onEventSent(): void
-    {
-    }
-
-    /* Used to execute code before the request is sent. */
-
-    public function onEventWrite(): void
-    {
-    }
-
-    /* Used to execute code when the headers are received. */
-
-    public function onEventComplete(): void
-    {
-    }
-
-    /* Used to execute code when the headers are received. */
-
-    public function onEventFinal(): void
-    {
-    }
-
-    /* Used to execute code when the request is completed. */
-
-    public function onBuildException(Exception $e): void
-    {
-    }
-
-    /* Used to execute code when an exception is thrown. */
-
     private function route(string $event_name): void
     {
         /* Used to catch exceptions. */
@@ -162,5 +84,83 @@ abstract class wrapper
             /* Calling the `onBuildException` method. */
             $this->onBuildException($e);
         }
+    }
+
+    /* Used to check if the event should be executed. */
+
+    public function onCheck(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_CACHE` is triggered. */
+
+    public function onBuildCache(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_CONTEXT` is triggered. */
+
+    public function onBuildContext(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_INCLUDES` is triggered. */
+
+    public function onBuildIncludes(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_HEADERS` is triggered. */
+
+    public function onBuildHeaders(): void
+    {
+    }
+
+    /* A method that is called when the event `EVENT_BUILD_REQUEST` is triggered. */
+
+    public function onBuildRequest(): void
+    {
+    }
+
+    /* Used to build the result. */
+
+    public function onBeforeSend(): void
+    {
+    }
+
+    /* Used to execute code when the request is sent. */
+
+    public function onSend(): void
+    {
+    }
+
+    /* Used to execute code before the request is sent. */
+
+    public function onEventSent(): void
+    {
+    }
+
+    /* Used to execute code when the headers are received. */
+
+    public function onEventWrite(): void
+    {
+    }
+
+    /* Used to execute code when the headers are received. */
+
+    public function onEventComplete(): void
+    {
+    }
+
+    /* Used to execute code when the request is completed. */
+
+    public function onEventFinal(): void
+    {
+    }
+
+    /* Used to execute code when an exception is thrown. */
+
+    public function onBuildException(Exception $e): void
+    {
     }
 }
