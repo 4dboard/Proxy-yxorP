@@ -15,6 +15,5 @@ class cacheStoreAction extends wrapper
     {
         /* Checking if the cache is valid, and if it is not, it is setting the cache to the response content. */
         if (!cache::cache()->isValid()) cache::cache()->set(constants::get(VAR_RESPONSE)->getContent());
-        exit('123');
     }
 }
