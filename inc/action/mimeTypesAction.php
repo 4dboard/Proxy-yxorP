@@ -31,9 +31,6 @@ class mimeTypesAction extends wrapper
                         /* Opening a fileinfo resource. */
                         /* Getting the mime type of the requested file. */
                         $finfo = finfo_open(FILEINFO_MIME_TYPE);
-                        /* Checking if the mime type of the requested file is null or empty and if it is, it sets the mime
-                        type of the response to `application/octet-stream` and if it is not, it sets the mime type of
-                        the response to the mime type of the requested file. */
                         /* Setting the content type of the response to `application/octet-stream` if the requested file is not
                         readable and executable. */
                         $content_mime = finfo_file($finfo, YXORP_PROXY_URL);
