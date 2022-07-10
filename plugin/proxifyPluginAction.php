@@ -78,9 +78,7 @@ class proxifyPluginAction extends wrapper
             /* It's returning the `srcset` attribute with the proxified url. */
             return 'srcset="' . $src . '"';
         }, $str);
-        /* It's setting the content of the response. */
         $response->setContent(preg_replace_callback('@<form[^>]*action=(["\'])(.*?)\1[^>]*>@i', array($this, 'form_action'), $str));
-        echo 'cc';
     }
 
     /* It's getting the content type of the response. */
