@@ -153,6 +153,7 @@ class yP
      */
     private function dispatch(string $event_name): void
     {
+        exit('123');
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
