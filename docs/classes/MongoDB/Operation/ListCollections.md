@@ -63,14 +63,17 @@ public __construct(string $databaseName, array $options = []): mixed
 
 Supported options:
 
+* authorizedCollections (boolean): Determines which collections are
+  returned based on the user privileges.
+
+  For servers < 4.0, this option is ignored.
+
 * filter (document): Query by which to filter collections.
 
 * maxTimeMS (integer): The maximum amount of time to allow the query to
   run.
 
 * session (MongoDB\Driver\Session): Client session.
-
-  Sessions are not supported for server versions < 3.6.
 
 
 
@@ -120,4 +123,4 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\Model\CollectionInfoIte
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

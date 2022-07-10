@@ -65,17 +65,32 @@ private array $options
 
 ***
 
-### count
+### errorCodeCollectionNotFound
 
 
 
 ```php
-private \MongoDB\Operation\Count $count
+private static int $errorCodeCollectionNotFound
 ```
 
 
 
+* This property is **static**.
 
+
+***
+
+### wireVersionForCollStats
+
+
+
+```php
+private static int $wireVersionForCollStats
+```
+
+
+
+* This property is **static**.
 
 
 ***
@@ -85,7 +100,8 @@ private \MongoDB\Operation\Count $count
 
 ### __construct
 
-Constructs a count command.
+Constructs a command to get the estimated number of documents in a
+collection.
 
 ```php
 public __construct(string $databaseName, string $collectionName, array $options = []): mixed
@@ -98,14 +114,9 @@ Supported options:
 
 * readConcern (MongoDB\Driver\ReadConcern): Read concern.
 
-  This is not supported for server versions < 3.2 and will result in an
-  exception at execution time if used.
-
 * readPreference (MongoDB\Driver\ReadPreference): Read preference.
 
 * session (MongoDB\Driver\Session): Client session.
-
-  Sessions are not supported for server versions < 3.6.
 
 
 
@@ -156,10 +167,59 @@ public execute(\MongoDB\Driver\Server $server): int
 
 ### getCommandDocument
 
+Returns the command document for this operation.
+
+```php
+public getCommandDocument(\MongoDB\Driver\Server $server): array
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$server` | **\MongoDB\Driver\Server** |  |
+
+
+
+**See Also:**
+
+* \MongoDB\Operation\Explainable::getCommandDocument() - 
+
+***
+
+### createAggregate
+
 
 
 ```php
-public getCommandDocument(\MongoDB\Driver\Server $server): mixed
+private createAggregate(): \MongoDB\Operation\Aggregate
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### createCommand
+
+
+
+```php
+private createCommand(\MongoDB\Driver\Server $server): \MongoDB\Operation\Aggregate|\MongoDB\Operation\Count
 ```
 
 
@@ -202,4 +262,4 @@ private createCount(): \MongoDB\Operation\Count
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

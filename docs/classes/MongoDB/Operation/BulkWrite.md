@@ -29,51 +29,6 @@ Operation for executing multiple write operations.
 ## Properties
 
 
-### wireVersionForArrayFilters
-
-
-
-```php
-private static int $wireVersionForArrayFilters
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### wireVersionForCollation
-
-
-
-```php
-private static int $wireVersionForCollation
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### wireVersionForDocumentLevelValidation
-
-
-
-```php
-private static int $wireVersionForDocumentLevelValidation
-```
-
-
-
-* This property is **static**.
-
-
-***
-
 ### databaseName
 
 
@@ -134,36 +89,6 @@ private array $options
 
 ***
 
-### isArrayFiltersUsed
-
-
-
-```php
-private bool $isArrayFiltersUsed
-```
-
-
-
-
-
-
-***
-
-### isCollationUsed
-
-
-
-```php
-private bool $isCollationUsed
-```
-
-
-
-
-
-
-***
-
 ## Methods
 
 
@@ -194,15 +119,9 @@ Supported options for deleteMany and deleteOne operations:
 
  * collation (document): Collation specification.
 
-   This is not supported for server versions < 3.4 and will result in an
-   exception at execution time if used.
-
 Supported options for replaceOne, updateMany, and updateOne operations:
 
  * collation (document): Collation specification.
-
-   This is not supported for server versions < 3.4 and will result in an
-   exception at execution time if used.
 
  * upsert (boolean): When true, a new document is created if no document
    matches the query. The default is false.
@@ -212,24 +131,16 @@ Supported options for updateMany and updateOne operations:
  * arrayFilters (document array): A set of filters specifying to which
    array elements an update should apply.
 
-   This is not supported for server versions < 3.6 and will result in an
-   exception at execution time if used.
-
 Supported options for the bulk write operation:
 
  * bypassDocumentValidation (boolean): If true, allows the write to
    circumvent document level validation. The default is false.
-
-   For servers < 3.2, this option is ignored as document level validation
-   is not available.
 
  * ordered (boolean): If true, when an insert fails, return without
    performing the remaining writes. If false, when a write fails,
    continue with the remaining writes, if any. The default is true.
 
  * session (MongoDB\Driver\Session): Client session.
-
-   Sessions are not supported for server versions < 3.6.
 
  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
@@ -281,12 +192,35 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\BulkWriteResult
 
 ***
 
-### createOptions
+### createBulkWriteOptions
+
+Create options for constructing the bulk write.
+
+```php
+private createBulkWriteOptions(): array
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php - 
+
+***
+
+### createExecuteOptions
 
 Create options for executing the bulk write.
 
 ```php
-private createOptions(): array
+private createExecuteOptions(): array
 ```
 
 
@@ -306,4 +240,4 @@ private createOptions(): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

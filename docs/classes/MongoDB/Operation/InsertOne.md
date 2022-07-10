@@ -20,21 +20,6 @@ Operation for inserting a single document with the insert command.
 ## Properties
 
 
-### wireVersionForDocumentLevelValidation
-
-
-
-```php
-private static int $wireVersionForDocumentLevelValidation
-```
-
-
-
-* This property is **static**.
-
-
-***
-
 ### databaseName
 
 
@@ -111,12 +96,7 @@ Supported options:
 * bypassDocumentValidation (boolean): If true, allows the write to
   circumvent document level validation.
 
-  For servers < 3.2, this option is ignored as document level validation
-  is not available.
-
 * session (MongoDB\Driver\Session): Client session.
-
-  Sessions are not supported for server versions < 3.6.
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
 
@@ -168,12 +148,35 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\InsertOneResult
 
 ***
 
-### createOptions
+### createBulkWriteOptions
+
+Create options for constructing the bulk write.
+
+```php
+private createBulkWriteOptions(): array
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php - 
+
+***
+
+### createExecuteOptions
 
 Create options for executing the bulk write.
 
 ```php
-private createOptions(): array
+private createExecuteOptions(): array
 ```
 
 
@@ -193,4 +196,4 @@ private createOptions(): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

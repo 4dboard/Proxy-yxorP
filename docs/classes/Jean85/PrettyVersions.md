@@ -9,11 +9,6 @@
 * Full name: `\Jean85\PrettyVersions`
 
 
-## Constants
-
-| Constant | Visibility | Type | Value |
-|:---------|:-----------|:-----|:------|
-|`SHORT_COMMIT_LENGTH`|public| |7|
 
 
 ## Methods
@@ -85,6 +80,58 @@ public static getRootPackageVersion(): \Jean85\Version
 
 ***
 
+### checkProvidedPackages
+
+
+
+```php
+protected static checkProvidedPackages(string $packageName): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$packageName` | **string** |  |
+
+
+
 
 ***
 
+### checkReplacedPackages
+
+
+
+```php
+protected static checkReplacedPackages(string $packageName): void
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$packageName` | **string** |  |
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

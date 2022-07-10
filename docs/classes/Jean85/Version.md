@@ -13,7 +13,9 @@
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`SHORT_COMMIT_LENGTH`|public| |\Jean85\PrettyVersions::SHORT_COMMIT_LENGTH|
+|`SHORT_COMMIT_LENGTH`|private| |7|
+|`NO_VERSION_TEXT`|public| |&#039;{no version}&#039;|
+|`NO_REFERENCE_TEXT`|public| |&#039;{no reference}&#039;|
 
 ## Properties
 
@@ -33,12 +35,12 @@ private string $packageName
 
 ***
 
-### shortVersion
+### prettyVersion
 
 
 
 ```php
-private string $shortVersion
+private string $prettyVersion
 ```
 
 
@@ -48,12 +50,12 @@ private string $shortVersion
 
 ***
 
-### commitHash
+### reference
 
 
 
 ```php
-private string $commitHash
+private string $reference
 ```
 
 
@@ -86,7 +88,7 @@ private bool $versionIsTagged
 
 
 ```php
-public __construct(string $packageName, string $version): mixed
+public __construct(string $packageName, ?string $prettyVersion = null, ?string $reference = null): mixed
 ```
 
 
@@ -101,7 +103,8 @@ public __construct(string $packageName, string $version): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$packageName` | **string** |  |
-| `$version` | **string** |  |
+| `$prettyVersion` | **?string** |  |
+| `$reference` | **?string** |  |
 
 
 
@@ -148,26 +151,6 @@ public getFullVersion(): string
 
 ***
 
-### getVersionWithShortReference
-
-
-
-```php
-public getVersionWithShortReference(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### getVersionWithShortCommit
 
 
@@ -182,6 +165,26 @@ public getVersionWithShortCommit(): string
 
 
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
+
+***
+
+### getVersionWithShortReference
+
+
+
+```php
+public getVersionWithShortReference(): string
+```
+
+
+
+
+
 
 
 
@@ -230,26 +233,6 @@ public getShortVersion(): string
 
 ***
 
-### getReference
-
-
-
-```php
-public getReference(): string
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
 ### getCommitHash
 
 
@@ -272,12 +255,12 @@ public getCommitHash(): string
 
 ***
 
-### getShortReference
+### getReference
 
 
 
 ```php
-public getShortReference(): string
+public getReference(): string
 ```
 
 
@@ -314,6 +297,26 @@ public getShortCommitHash(): string
 
 ***
 
+### getShortReference
+
+
+
+```php
+public getShortReference(): string
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### __toString
 
 
@@ -336,4 +339,4 @@ public __toString(): string
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

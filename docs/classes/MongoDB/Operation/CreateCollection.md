@@ -26,36 +26,6 @@ Operation for the create command.
 ## Properties
 
 
-### wireVersionForCollation
-
-
-
-```php
-private static int $wireVersionForCollation
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### wireVersionForWriteConcern
-
-
-
-```php
-private static int $wireVersionForWriteConcern
-```
-
-
-
-* This property is **static**.
-
-
-***
-
 ### databaseName
 
 
@@ -127,8 +97,9 @@ Supported options:
 
 * collation (document): Collation specification.
 
-  This is not supported for server versions < 3.4 and will result in an
-  exception at execution time if used.
+* expireAfterSeconds: The TTL for documents in time series collections.
+
+  This is not supported for servers versions < 5.0.
 
 * flags (integer): Options for the MMAPv1 storage engine only. Must be a
   bitwise combination CreateCollection::USE_POWER_OF_2_SIZES and
@@ -146,11 +117,13 @@ Supported options:
 
 * session (MongoDB\Driver\Session): Client session.
 
-  Sessions are not supported for server versions < 3.6.
-
 * size (integer): The maximum number of bytes for a capped collection.
 
 * storageEngine (document): Storage engine options.
+
+* timeseries (document): Options for time series collections.
+
+  This is not supported for servers versions < 5.0.
 
 * typeMap (array): Type map for BSON deserialization. This will only be
   used for the returned command result document.
@@ -162,9 +135,6 @@ Supported options:
 * validator (document): Validation rules or expressions.
 
 * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
-
-  This is not supported for server versions < 3.4 and will result in an
-  exception at execution time if used.
 
 
 
@@ -265,4 +235,4 @@ private createOptions(): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

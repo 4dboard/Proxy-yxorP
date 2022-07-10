@@ -36,12 +36,27 @@ This class is loosely based on the Symfony UniversalClassLoader.
 ## Properties
 
 
+### vendorDir
+
+
+
+```php
+private ?string $vendorDir
+```
+
+
+
+
+
+
+***
+
 ### prefixLengthsPsr4
 
 
 
 ```php
-private $prefixLengthsPsr4
+private array[] $prefixLengthsPsr4
 ```
 
 
@@ -56,7 +71,7 @@ private $prefixLengthsPsr4
 
 
 ```php
-private $prefixDirsPsr4
+private array[] $prefixDirsPsr4
 ```
 
 
@@ -71,7 +86,7 @@ private $prefixDirsPsr4
 
 
 ```php
-private $fallbackDirsPsr4
+private array[] $fallbackDirsPsr4
 ```
 
 
@@ -86,7 +101,7 @@ private $fallbackDirsPsr4
 
 
 ```php
-private $prefixesPsr0
+private array[] $prefixesPsr0
 ```
 
 
@@ -101,7 +116,7 @@ private $prefixesPsr0
 
 
 ```php
-private $fallbackDirsPsr0
+private array[] $fallbackDirsPsr0
 ```
 
 
@@ -116,7 +131,7 @@ private $fallbackDirsPsr0
 
 
 ```php
-private $useIncludePath
+private bool $useIncludePath
 ```
 
 
@@ -131,7 +146,7 @@ private $useIncludePath
 
 
 ```php
-private $classMap
+private string[] $classMap
 ```
 
 
@@ -146,7 +161,7 @@ private $classMap
 
 
 ```php
-private $classMapAuthoritative
+private bool $classMapAuthoritative
 ```
 
 
@@ -161,7 +176,7 @@ private $classMapAuthoritative
 
 
 ```php
-private $missingClasses
+private bool[] $missingClasses
 ```
 
 
@@ -176,7 +191,7 @@ private $missingClasses
 
 
 ```php
-private $apcuPrefix
+private ?string $apcuPrefix
 ```
 
 
@@ -186,15 +201,56 @@ private $apcuPrefix
 
 ***
 
+### registeredLoaders
+
+
+
+```php
+private static self[] $registeredLoaders
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ## Methods
 
+
+### __construct
+
+
+
+```php
+public __construct(?string $vendorDir = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$vendorDir` | **?string** |  |
+
+
+
+
+***
 
 ### getPrefixes
 
 
 
 ```php
-public getPrefixes(): mixed
+public getPrefixes(): string[]
 ```
 
 
@@ -214,7 +270,7 @@ public getPrefixes(): mixed
 
 
 ```php
-public getPrefixesPsr4(): mixed
+public getPrefixesPsr4(): array[]
 ```
 
 
@@ -234,7 +290,7 @@ public getPrefixesPsr4(): mixed
 
 
 ```php
-public getFallbackDirs(): mixed
+public getFallbackDirs(): array[]
 ```
 
 
@@ -254,7 +310,7 @@ public getFallbackDirs(): mixed
 
 
 ```php
-public getFallbackDirsPsr4(): mixed
+public getFallbackDirsPsr4(): array[]
 ```
 
 
@@ -274,7 +330,7 @@ public getFallbackDirsPsr4(): mixed
 
 
 ```php
-public getClassMap(): mixed
+public getClassMap(): string[]
 ```
 
 
@@ -285,6 +341,10 @@ public getClassMap(): mixed
 
 
 
+**Return Value:**
+
+Array of classname => path
+
 
 
 ***
@@ -294,7 +354,7 @@ public getClassMap(): mixed
 
 
 ```php
-public addClassMap(array $classMap): mixed
+public addClassMap(string[] $classMap): void
 ```
 
 
@@ -308,7 +368,7 @@ public addClassMap(array $classMap): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$classMap` | **array** | Class to filename map |
+| `$classMap` | **string[]** | Class to filename map |
 
 
 
@@ -321,7 +381,7 @@ Registers a set of PSR-0 directories for a given prefix, either
 appending or prepending to the ones previously set for this prefix.
 
 ```php
-public add(string $prefix, array|string $paths, bool $prepend = false): mixed
+public add(string $prefix, string[]|string $paths, bool $prepend = false): void
 ```
 
 
@@ -336,7 +396,7 @@ public add(string $prefix, array|string $paths, bool $prepend = false): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** | The prefix |
-| `$paths` | **array&#124;string** | The PSR-0 root directories |
+| `$paths` | **string[]&#124;string** | The PSR-0 root directories |
 | `$prepend` | **bool** | Whether to prepend the directories |
 
 
@@ -350,7 +410,7 @@ Registers a set of PSR-4 directories for a given namespace, either
 appending or prepending to the ones previously set for this namespace.
 
 ```php
-public addPsr4(string $prefix, array|string $paths, bool $prepend = false): mixed
+public addPsr4(string $prefix, string[]|string $paths, bool $prepend = false): void
 ```
 
 
@@ -365,7 +425,7 @@ public addPsr4(string $prefix, array|string $paths, bool $prepend = false): mixe
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** | The prefix/namespace, with trailing &#039;\\&#039; |
-| `$paths` | **array&#124;string** | The PSR-4 base directories |
+| `$paths` | **string[]&#124;string** | The PSR-4 base directories |
 | `$prepend` | **bool** | Whether to prepend the directories |
 
 
@@ -379,7 +439,7 @@ Registers a set of PSR-0 directories for a given prefix,
 replacing any others previously set for this prefix.
 
 ```php
-public set(string $prefix, array|string $paths): mixed
+public set(string $prefix, string[]|string $paths): void
 ```
 
 
@@ -394,7 +454,7 @@ public set(string $prefix, array|string $paths): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** | The prefix |
-| `$paths` | **array&#124;string** | The PSR-0 base directories |
+| `$paths` | **string[]&#124;string** | The PSR-0 base directories |
 
 
 
@@ -407,7 +467,7 @@ Registers a set of PSR-4 directories for a given namespace,
 replacing any others previously set for this namespace.
 
 ```php
-public setPsr4(string $prefix, array|string $paths): mixed
+public setPsr4(string $prefix, string[]|string $paths): void
 ```
 
 
@@ -422,7 +482,7 @@ public setPsr4(string $prefix, array|string $paths): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** | The prefix/namespace, with trailing &#039;\\&#039; |
-| `$paths` | **array&#124;string** | The PSR-4 base directories |
+| `$paths` | **string[]&#124;string** | The PSR-4 base directories |
 
 
 
@@ -434,7 +494,7 @@ public setPsr4(string $prefix, array|string $paths): mixed
 Turns on searching the include path for class files.
 
 ```php
-public setUseIncludePath(bool $useIncludePath): mixed
+public setUseIncludePath(bool $useIncludePath): void
 ```
 
 
@@ -482,7 +542,7 @@ Turns off searching the prefix and fallback directories for classes
 that have not been registered with the class map.
 
 ```php
-public setClassMapAuthoritative(bool $classMapAuthoritative): mixed
+public setClassMapAuthoritative(bool $classMapAuthoritative): void
 ```
 
 
@@ -528,7 +588,7 @@ public isClassMapAuthoritative(): bool
 APCu prefix to use to cache found/not-found classes, if the extension is enabled.
 
 ```php
-public setApcuPrefix(string|null $apcuPrefix): mixed
+public setApcuPrefix(string|null $apcuPrefix): void
 ```
 
 
@@ -574,7 +634,7 @@ public getApcuPrefix(): string|null
 Registers this instance as an autoloader.
 
 ```php
-public register(bool $prepend = false): mixed
+public register(bool $prepend = false): void
 ```
 
 
@@ -600,7 +660,7 @@ public register(bool $prepend = false): mixed
 Unregisters this instance as an autoloader.
 
 ```php
-public unregister(): mixed
+public unregister(): void
 ```
 
 
@@ -620,7 +680,7 @@ public unregister(): mixed
 Loads the given class or interface.
 
 ```php
-public loadClass(string $class): bool|null
+public loadClass(string $class): true|null
 ```
 
 
@@ -675,12 +735,32 @@ The path if found, false otherwise
 
 ***
 
+### getRegisteredLoaders
+
+Returns the currently registered loaders indexed by their corresponding vendor directories.
+
+```php
+public static getRegisteredLoaders(): self[]
+```
+
+
+
+* This method is **static**.
+
+
+
+
+
+
+
+***
+
 ### findFileWithExtension
 
 
 
 ```php
-private findFileWithExtension(mixed $class, mixed $ext): mixed
+private findFileWithExtension(string $class, string $ext): string|false
 ```
 
 
@@ -694,8 +774,8 @@ private findFileWithExtension(mixed $class, mixed $ext): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$class` | **mixed** |  |
-| `$ext` | **mixed** |  |
+| `$class` | **string** |  |
+| `$ext` | **string** |  |
 
 
 
@@ -704,4 +784,4 @@ private findFileWithExtension(mixed $class, mixed $ext): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

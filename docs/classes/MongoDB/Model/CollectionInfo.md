@@ -102,6 +102,8 @@ public getCappedMax(): int|null
 
 
 
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
 
 
 
@@ -122,10 +124,55 @@ public getCappedSize(): int|null
 
 
 
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
 
 
 
+
+
+***
+
+### getIdIndex
+
+Return information about the _id index for the collection.
+
+```php
+public getIdIndex(): array
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### getInfo
+
+Return the "info" property of the server response.
+
+```php
+public getInfo(): array
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
 
 ***
 
@@ -146,6 +193,9 @@ public getName(): string
 
 
 
+**See Also:**
+
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
 
 ***
 
@@ -166,6 +216,32 @@ public getOptions(): array
 
 
 
+**See Also:**
+
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
+
+***
+
+### getType
+
+Return the collection type.
+
+```php
+public getType(): string
+```
+
+
+
+
+
+
+
+
+
+
+**See Also:**
+
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
 
 ***
 
@@ -181,6 +257,8 @@ public isCapped(): bool
 
 
 
+
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
 
 
@@ -252,7 +330,7 @@ public offsetGet(mixed $key): mixed
 Not supported.
 
 ```php
-public offsetSet(mixed $key, mixed $value): mixed
+public offsetSet(mixed $key, mixed $value): void
 ```
 
 
@@ -282,7 +360,7 @@ public offsetSet(mixed $key, mixed $value): mixed
 Not supported.
 
 ```php
-public offsetUnset(mixed $key): mixed
+public offsetUnset(mixed $key): void
 ```
 
 
@@ -308,4 +386,4 @@ public offsetUnset(mixed $key): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

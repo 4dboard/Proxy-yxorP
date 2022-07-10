@@ -24,6 +24,7 @@ A PHP class that makes working with images as simple as possible.
 |`ERR_UNSUPPORTED_FORMAT`|public| |9|
 |`ERR_WEBP_NOT_ENABLED`|public| |10|
 |`ERR_WRITE`|public| |11|
+|`ERR_INVALID_FLAG`|public| |12|
 
 ## Properties
 
@@ -81,7 +82,7 @@ protected $exif
 Creates a new SimpleImage object.
 
 ```php
-public __construct(string $image = null): mixed
+public __construct(string $image = &#039;&#039;, array $flags = []): mixed
 ```
 
 
@@ -96,6 +97,7 @@ public __construct(string $image = null): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$image` | **string** | An image file or a data URI to load. |
+| `$flags` | **array** | Optional override of default flags. |
 
 
 
@@ -116,6 +118,59 @@ public __destruct(): mixed
 
 
 
+
+
+
+
+***
+
+### setFlag
+
+Set flag value.
+
+```php
+public setFlag(string $flag, bool $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$flag` | **string** | Name of the flag to set. |
+| `$value` | **bool** | State of the flag. |
+
+
+
+
+***
+
+### getFlag
+
+Get flag value.
+
+```php
+public getFlag(string $flag): bool|null
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$flag` | **string** | Name of the flag to get. |
 
 
 
@@ -1929,4 +1984,4 @@ public static normalizeColor(string|array $color): array
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

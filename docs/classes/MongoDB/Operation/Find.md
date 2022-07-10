@@ -28,51 +28,6 @@ Operation for the find command.
 ## Properties
 
 
-### wireVersionForCollation
-
-
-
-```php
-private static int $wireVersionForCollation
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### wireVersionForReadConcern
-
-
-
-```php
-private static int $wireVersionForReadConcern
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### wireVersionForAllowDiskUseServerSideError
-
-
-
-```php
-private static int $wireVersionForAllowDiskUseServerSideError
-```
-
-
-
-* This property is **static**.
-
-
-***
-
 ### databaseName
 
 
@@ -148,7 +103,7 @@ Supported options:
 
 * allowDiskUse (boolean): Enables writing to temporary files. When set
   to true, queries can write data to the _tmp sub-directory in the
-  dbPath directory. The default is false.
+  dbPath directory.
 
 * allowPartialResults (boolean): Get partial results from a mongos if
   some shards are inaccessible (instead of throwing an error).
@@ -156,9 +111,6 @@ Supported options:
 * batchSize (integer): The number of documents to return per batch.
 
 * collation (document): Collation specification.
-
-  This is not supported for server versions < 3.4 and will result in an
-  exception at execution time if used.
 
 * comment (string): Attaches a comment to the query. If "$comment" also
   exists in the modifiers document, this option will take precedence.
@@ -205,17 +157,12 @@ Supported options:
 
 * readConcern (MongoDB\Driver\ReadConcern): Read concern.
 
-  This is not supported for server versions < 3.2 and will result in an
-  exception at execution time if used.
-
 * readPreference (MongoDB\Driver\ReadPreference): Read preference.
 
 * returnKey (boolean): If true, returns only the index keys in the
   resulting documents.
 
 * session (MongoDB\Driver\Session): Client session.
-
-  Sessions are not supported for server versions < 3.6.
 
 * showRecordId (boolean): Determines whether to return the record
   identifier for each document. If true, adds a field $recordId to the
@@ -285,10 +232,10 @@ public execute(\MongoDB\Driver\Server $server): \MongoDB\Driver\Cursor
 
 ### getCommandDocument
 
-
+Returns the command document for this operation.
 
 ```php
-public getCommandDocument(\MongoDB\Driver\Server $server): mixed
+public getCommandDocument(\MongoDB\Driver\Server $server): array
 ```
 
 
@@ -306,6 +253,9 @@ public getCommandDocument(\MongoDB\Driver\Server $server): mixed
 
 
 
+**See Also:**
+
+* \MongoDB\Operation\Explainable::getCommandDocument() - 
 
 ***
 
@@ -314,7 +264,7 @@ public getCommandDocument(\MongoDB\Driver\Server $server): mixed
 Construct a command document for Find
 
 ```php
-private createCommandDocument(): mixed
+private createCommandDocument(): array
 ```
 
 
@@ -375,4 +325,4 @@ which are created in createExecuteOptions().
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

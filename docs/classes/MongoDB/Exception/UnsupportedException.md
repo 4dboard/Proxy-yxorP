@@ -48,6 +48,8 @@ public static arrayFiltersNotSupported(): self
 * This method is **static**.
 
 
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
 
 
 
@@ -67,6 +69,8 @@ public static collationNotSupported(): self
 
 * This method is **static**.
 
+
+* **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
 
 
 
@@ -218,4 +222,4 @@ public static writeConcernNotSupportedInTransaction(): self
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
