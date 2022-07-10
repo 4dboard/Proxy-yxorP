@@ -472,8 +472,6 @@ in a number of forms and without the source code because they are licensed works
 
 # yxorP Documentation
 
-This is an automatically generated documentation for **yxorP Documentation**.
-
 ## Namespaces
 
 ### \
