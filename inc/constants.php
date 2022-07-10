@@ -389,6 +389,7 @@ class constants
         /* Defining a constant called `EVENT_WRITE` and setting it to the value of `curl.callback.write`. */
         define('EVENT_WRITE', 'curl' . CHAR_PERIOD . 'callback' . CHAR_PERIOD . 'write');
 
+        define('EXT_TYPES', 'types');
 
         // FILES
         /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
@@ -401,6 +402,7 @@ class constants
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
+        define('FILE_COCKPIT_BOOTSTRAP', 'mime' . EXT_TYPES);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
