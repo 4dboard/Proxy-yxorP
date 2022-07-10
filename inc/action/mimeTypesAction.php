@@ -61,28 +61,22 @@ class mimeTypesAction extends wrapper
         $response = curl_exec($handle);
         $httpCode = curl_getinfo($handle, CURLINFO_EFFECTIVE_URL);
         $httpCode = curl_getinfo($handle, CURLINFO_HTTP_CODE);
-        if ($httpCode == 200)
-        {
+        if ($httpCode == 200) {
             $url_live = true;
         }
         $url_live = $url_live;
         curl_close($handle);
         $mimes = array();
-        if ($url_live)
-        {
+        if ($url_live) {
             $mimes_file = file_get_contents($url);
             preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', $mimes_file, $matches, PREG_SET_ORDER);
-            foreach ($matches as $match)
-            {
+            foreach ($matches as $match) {
                 $exts = explode(" ", $match[2]);
-                foreach ($exts as $ext)
-                {
+                foreach ($exts as $ext) {
                     $mimes[$ext] = $match[1];
                 }
             }
-        }
-        else
-        {
+        } else {
             $mimes = array(
                 'txt' => 'text/plain',
                 'htm' => 'text/html',
@@ -136,40 +130,27 @@ class mimeTypesAction extends wrapper
             );
         }
         $content_mime = 'unknown';
-        if (is_file($content))
-        {
-            if (isset(pathinfo($content) ['extension']))
-            {
+        if (is_file($content)) {
+            if (isset(pathinfo($content) ['extension'])) {
                 $content_ext = pathinfo($content) ['extension'];
-                if (isset($mimes[$content_ext]))
-                {
+                if (isset($mimes[$content_ext])) {
                     $content_mime = $mimes[$content_ext];
-                }
-                else
-                {
-                    if (is_readable($content) && is_executable($content))
-                    {
+                } else {
+                    if (is_readable($content) && is_executable($content)) {
                         $finfo = finfo_open(FILEINFO_MIME_TYPE);
                         $content_mime = finfo_file($finfo, $content);
-                        if ($content_mime === null | $content_mime === "")
-                        {
+                        if ($content_mime === null | $content_mime === "") {
                             $content_mime = "application/octet-stream";
-                        }
-                        else
-                        {
+                        } else {
                             $content_mime = $content_mime;
                         }
                         finfo_close($finfo);
-                    }
-                    else
-                    {
+                    } else {
                         $content_mime = "application/octet-stream";
                     }
                 }
             }
-        }
-        else
-        {
+        } else {
             // return whatever you want
             // $content_mime = 'unknown';
 
