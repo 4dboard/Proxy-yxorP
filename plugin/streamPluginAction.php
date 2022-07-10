@@ -20,7 +20,6 @@ class streamPluginAction extends wrapper
     `$stream` variable to true. */
     public function onEventSent(): void
     {
-        /* Getting the content type of the response. */
         $content_type = constants::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE);
         /* Getting the content length of the response. */
         $content_length = constants::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_LENGTH);

@@ -1,4 +1,3 @@
-/* Setting the content type of the response. */
 <?php
 /* Importing the wrapper class from the yxorP\inc\http namespace. */
 
