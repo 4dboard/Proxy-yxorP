@@ -2,9 +2,9 @@
 
 use Exception;
 use Throwable;
-use yxorP\inc\http\worker;
 use yxorP\inc\connection\connectionInterface;
 use yxorP\inc\connection\tcpConnection;
+use yxorP\inc\http\worker;
 use yxorP\inc\protocols\http\request;
 
 /* Creating a class called websocket that implements the protocolInterface. */
