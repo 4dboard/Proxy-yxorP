@@ -477,6 +477,8 @@ class constants
         define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_INC . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
         /* Defining the PATH_PDP_PSL_PHP path to the action public-suffix-list file. */
         define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
+        /* Defining a constant called PATH_FILE_MIME_TYPES. The value of the constant is the directory root, the directory
+        inc, the directory data, and the file mime types. */
         define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_INC . DIR_DATA . FILE_MIME_TYPES);
 
 
