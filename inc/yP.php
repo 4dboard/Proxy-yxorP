@@ -3,8 +3,6 @@
 namespace yxorP\inc;
 /* Importing the constants class from the inc folder. */
 
-use RuntimeException;
-
 /* Loading the required files. */
 require __DIR__ . '/generalHelper.php';
 require __DIR__ . '/constants.php';
@@ -100,7 +98,8 @@ class yP
         /* It's creating the constants that are used in the plugin. */
         constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
-        if (!mkdir(PATH_DIR_TMP, 0777, true) || !chmod(PATH_DIR_TMP, 0777) || !is_dir(PATH_DIR_TMP)) throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, PATH_DIR_TMP));
+        mkdir(PATH_DIR_TMP, 0777, true);
+        chmod(PATH_DIR_TMP, 0777);
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
