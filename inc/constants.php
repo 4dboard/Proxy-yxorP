@@ -274,7 +274,7 @@ class constants
         /* Defining a constant called VAR_EVENT and setting it to the string 'EVENT'. */
         define('VAR_EVENT', 'EVENT');
         /* Defining a constant named VAR_MIME with the value of MIME. */
-        define('VAR_MIME', 'MIME');
+        define('VAR_MIME', VAR_MIME);
         /* Defining a constant called VAR_TYPES with the value of TYPES. */
         define('VAR_TYPES', 'TYPES');
         /* Defining a constant called VAR_LIST and assigning it the value of LIST. */
@@ -406,7 +406,7 @@ class constants
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
-        define('FILE_MIME_TYPES', 'mime' . EXT_TYPES);
+        define('FILE_MIME_TYPES', VAR_MIME . EXT_TYPES);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */

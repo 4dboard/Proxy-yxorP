@@ -15,8 +15,6 @@ class mimeTypesAction extends wrapper
         /* An array of mime types. */
         /* Getting the mime types from the mime.types file. */
         /* Parsing the mime.types file and creating an associative array of mime types. */
-        foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
-        print_r($mimes);
         /* Checking if the requested file exists. */
         if (/* Checking if the file extension of the requested file is set. */
         is_file(YXORP_PROXY_URL)) {
@@ -24,7 +22,7 @@ class mimeTypesAction extends wrapper
             isset(pathinfo(YXORP_PROXY_URL) ['extension'])) {
                 /* Checking if the file extension of the requested file is set. */
                 $content_ext = pathinfo(YXORP_PROXY_URL) ['extension'];
-                if (isset($mimes[$content_ext])) constants::set('MIME', $mimes[$content_ext]); else {
+                if (isset(constants::get(YXORP_MIME_TYPES)[$content_ext])) constants::set(VAR_MIME, constants::get(YXORP_MIME_TYPES)[$content_ext]); else {
                     /* Checking if the requested file is readable and executable. */
                     if (is_readable(YXORP_PROXY_URL) && is_executable(YXORP_PROXY_URL)) {
                         /* Getting the mime type of the requested file. */
@@ -37,17 +35,17 @@ class mimeTypesAction extends wrapper
                         /* Checking if the mime type of the requested file is null or empty and if it is, it sets the mime
                         type of the response to `application/octet-stream` and if it is not, it sets the mime type of
                         the response to the mime type of the requested file. */
-                        if ($content_mime === null | $content_mime === "") constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream'); else constants::set('MIME', $content_mime);
+                        if ($content_mime === null | $content_mime === "") constants::set(VAR_MIME, 'application' . CHAR_SLASH . 'octet-stream'); else constants::set(VAR_MIME, $content_mime);
                         /* Closing the fileinfo resource. */
                         finfo_close($finfo);
-                    } else constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream');
+                    } else constants::set(VAR_MIME, 'application' . CHAR_SLASH . 'octet-stream');
                 }
             }
         }
         $_ext = pathinfo(strtok(YXORP_PROXY_URL, ' ? '), PATHINFO_EXTENSION);
 
-        if (str_contains(YXORP_PROXY_URL, 'bundle.js')) constants::set('MIME', 'application' . CHAR_SLASH . 'wasm'); else if (str_contains(YXORP_PROXY_URL, 'sitemap')) constants::set('MIME', 'application' . CHAR_SLASH . 'xml'); else if (str_contains(YXORP_PROXY_URL, 'crop')) constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, 'format')) constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, '.mp4')) constants::set('MIME', 'video' . CHAR_SLASH . 'mp4'); else if (str_contains(YXORP_PROXY_URL, '.js.br')) constants::set('MIME', 'br'); else if (array_key_exists($_ext, $mimes)) constants::set('MIME', $mimes[$_ext]); else  constants::set('MIME', 'text' . CHAR_SLASH . 'html');
+        if (str_contains(YXORP_PROXY_URL, 'bundle.js')) constants::set(VAR_MIME, 'application' . CHAR_SLASH . 'wasm'); else if (str_contains(YXORP_PROXY_URL, 'sitemap')) constants::set(VAR_MIME, 'application' . CHAR_SLASH . 'xml'); else if (str_contains(YXORP_PROXY_URL, 'crop')) constants::set(VAR_MIME, 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, 'format')) constants::set(VAR_MIME, 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, '.mp4')) constants::set(VAR_MIME, 'video' . CHAR_SLASH . 'mp4'); else if (str_contains(YXORP_PROXY_URL, '.js.br')) constants::set(VAR_MIME, 'br'); else if (array_key_exists($_ext, constants::get(YXORP_MIME_TYPES))) constants::set(VAR_MIME, constants::get(YXORP_MIME_TYPES)[$_ext]); else  constants::set(VAR_MIME, 'text' . CHAR_SLASH . 'html');
 
-        header('Content-Type: ' . constants::get('MIME') . '; charset = UTF-8');
+        header('Content-Type: ' . constants::get(VAR_MIME) . '; charset = UTF-8');
     }
 }

@@ -15,6 +15,6 @@ class resourceHandlerAction extends wrapper
     {
         /* Checking if the MIME type is text/html and if it is not a document, then it will redirect the user to the proxy
               URL. */
-        if (constants::get('MIME') === 'text' . DIRECTORY_SEPARATOR . 'html' && constants::get('MIME') !== "document") header("Location: " . YXORP_PROXY_URL);
+        if (constants::get(VAR_MIME) === 'text' . DIRECTORY_SEPARATOR . 'html' && constants::get(VAR_MIME) !== "document") header("Location: " . YXORP_PROXY_URL);
     }
 }
