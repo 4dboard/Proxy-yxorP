@@ -20,6 +20,7 @@ class proxyClientAction extends wrapper
         with the `constants::get(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request. */
         $getMethod = constants::get(VAR_REQUEST)->getMethod();
         var_dump($getMethod);
+        exit('123');
         $getUrl = constants::get(VAR_REQUEST)->getUrl();
         var_dump($getUrl);
         $json_decode = json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR);
