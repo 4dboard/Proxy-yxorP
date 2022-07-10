@@ -112,8 +112,10 @@ class constants
         define('EXT_TMP', CHAR_PERIOD . 'tmp');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
         define('EXT_ENV', CHAR_PERIOD . 'env');
-        /* Defining a constant. */
+        /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
         define('EXT_PHAR', CHAR_PERIOD . 'phar');
+        /* Defining a constant called EXT_TYPES and assigning it the value of 'types'. */
+        define('EXT_TYPES', 'types');
 
 
         //VARIBLES SINGLE
@@ -389,8 +391,6 @@ class constants
         /* Defining a constant called `EVENT_WRITE` and setting it to the value of `curl.callback.write`. */
         define('EVENT_WRITE', 'curl' . CHAR_PERIOD . 'callback' . CHAR_PERIOD . 'write');
 
-        define('EXT_TYPES', 'types');
-
         // FILES
         /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
         define('FILE_REWRITE_SEARCH', 'replace_rewrite' . EXT_CSV);
@@ -402,6 +402,7 @@ class constants
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
+        /* Defining a constant. */
         define('FILE_COCKPIT_BOOTSTRAP', 'mime' . EXT_TYPES);
 
 
