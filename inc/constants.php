@@ -115,7 +115,7 @@ class constants
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
         define('EXT_PHAR', CHAR_PERIOD . 'phar');
         /* Defining a constant called EXT_TYPES and assigning it the value of 'types'. */
-        define('EXT_TYPES', 'types');
+        define('EXT_TYPES', CHAR_PERIOD . 'types');
 
 
         //VARIBLES SINGLE
