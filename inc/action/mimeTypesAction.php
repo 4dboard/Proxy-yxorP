@@ -19,9 +19,9 @@ class mimeTypesAction extends wrapper
         if (/* Checking if the file extension of the requested file is set. */
         is_file(YXORP_PROXY_URL)) {
             if (/* Getting the file extension of the requested file. */
-            isset(pathinfo(YXORP_PROXY_URL) ['extension'])) {
+            isset(pathinfo(YXORP_PROXY_URL)['extension'])) {
                 /* Checking if the file extension of the requested file is set. */
-                $content_ext = pathinfo(YXORP_PROXY_URL) ['extension'];
+                $content_ext = pathinfo(YXORP_PROXY_URL)['extension'];
                 if (isset(constants::get(YXORP_MIME_TYPES)[$content_ext])) constants::set(VAR_MIME, constants::get(YXORP_MIME_TYPES)[$content_ext]); else {
                     /* Checking if the requested file is readable and executable. */
                     if (is_readable(YXORP_PROXY_URL) && is_executable(YXORP_PROXY_URL)) {
