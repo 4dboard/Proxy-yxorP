@@ -112,10 +112,6 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/packageversions.html" class="">PackageVersions</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/firebase.html" class="">Firebase</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -128,6 +124,12 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/jean85.html" class="">Jean85</a>
 </h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/jean85-exception.html" class="">Exception</a>
+                
+            </li>
+            </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/colorthief.html" class="">ColorThief</a>
@@ -189,6 +191,20 @@
             </li>
                     <li>
                 <a href="namespaces/mongodb-operation.html" class="">Operation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/mongodb-tests.html" class="">Tests</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/phpunit.html" class="">PHPUnit</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/phpunit-framework.html" class="">Framework</a>
                 
             </li>
             </ul>
@@ -260,40 +276,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/yxorp.html" class="">yxorP</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-events.html" class="">events</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-http.html" class="">http</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-minify.html" class="">minify</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-parser.html" class="">parser</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-protocols.html" class="">protocols</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-proxy.html" class="">proxy</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-psr.html" class="">psr</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-snag.html" class="">snag</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -396,7 +378,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -467,6 +449,20 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/MongoDB-Operation-Aggregate.html#property_isExplain">$isExplain</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/MongoDB-Operation-Aggregate.html#property_isWrite">$isWrite</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/MongoDB-Operation-Aggregate.html#property_options">$options</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
@@ -477,34 +473,6 @@
     <a href="classes/MongoDB-Operation-Aggregate.html#property_pipeline">$pipeline</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForCollation">$wireVersionForCollation</a>
-    <span>
-                        &nbsp;: int            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForDocumentLevelValidation">$wireVersionForDocumentLevelValidation</a>
-    <span>
-                        &nbsp;: int            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForReadConcern">$wireVersionForReadConcern</a>
-    <span>
-                        &nbsp;: int            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForWriteConcern">$wireVersionForWriteConcern</a>
-    <span>
-                        &nbsp;: int            </span>
 </dt>
 <dd></dd>
 
@@ -525,16 +493,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Operation-Aggregate.html#method_getCommandDocument">getCommandDocument()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Returns the command document for this operation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/MongoDB-Operation-Aggregate.html#method_createCommandDocument">createCommandDocument()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Create the aggregate command document.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/MongoDB-Operation-Aggregate.html#method_createCommandOptions">createCommandOptions()</a>
@@ -544,18 +512,11 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/MongoDB-Operation-Aggregate.html#method_createOptions">createOptions()</a>
+    <a href="classes/MongoDB-Operation-Aggregate.html#method_executeCommand">executeCommand()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: <abbr title="\MongoDB\Driver\Cursor">Cursor</abbr>    </span>
 </dt>
-<dd>Create options for executing the command.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -private">
-    <a href="classes/MongoDB-Operation-Aggregate.html#method_hasWriteStage">hasWriteStage()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd></dd>
+<dd>Execute the aggregate command using the appropriate Server method.</dd>
 
         </dl>
 
@@ -585,7 +546,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -617,7 +578,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -626,6 +587,70 @@
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$databaseName</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_isExplain">
+        $isExplain
+        <a href="classes/MongoDB-Operation-Aggregate.html#property_isExplain" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">67</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$isExplain</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_isWrite">
+        $isWrite
+        <a href="classes/MongoDB-Operation-Aggregate.html#property_isWrite" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">70</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$isWrite</span>
     </code>
 
     
@@ -649,7 +674,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -681,7 +706,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -691,134 +716,6 @@
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$pipeline</span>
     </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property_wireVersionForCollation">
-        $wireVersionForCollation
-        <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForCollation" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">54</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$wireVersionForCollation</span>
-     = <span class="phpdocumentor-signature__default-value">5</span></code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property_wireVersionForDocumentLevelValidation">
-        $wireVersionForDocumentLevelValidation
-        <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForDocumentLevelValidation" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">57</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$wireVersionForDocumentLevelValidation</span>
-     = <span class="phpdocumentor-signature__default-value">4</span></code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property_wireVersionForReadConcern">
-        $wireVersionForReadConcern
-        <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForReadConcern" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">60</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$wireVersionForReadConcern</span>
-     = <span class="phpdocumentor-signature__default-value">4</span></code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-            -static                                            "
->
-    <h4 class="phpdocumentor-element__name" id="property_wireVersionForWriteConcern">
-        $wireVersionForWriteConcern
-        <a href="classes/MongoDB-Operation-Aggregate.html#property_wireVersionForWriteConcern" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">63</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$wireVersionForWriteConcern</span>
-     = <span class="phpdocumentor-signature__default-value">5</span></code>
 
     
     
@@ -845,7 +742,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
     </aside>
 
@@ -860,7 +757,7 @@
 <li>
 <p>allowDiskUse (boolean): Enables writing to temporary files. When set
 to true, aggregation stages can write data to the _tmp sub-directory
-in the dbPath directory. The default is false.</p>
+in the dbPath directory.</p>
 </li>
 <li>
 <p>batchSize (integer): The number of documents to return per batch.</p>
@@ -869,13 +766,9 @@ in the dbPath directory. The default is false.</p>
 <p>bypassDocumentValidation (boolean): If true, allows the write to
 circumvent document level validation. This only applies when an $out
 or $merge stage is specified.</p>
-<p>For servers &lt; 3.2, this option is ignored as document level validation
-is not available.</p>
 </li>
 <li>
 <p>collation (document): Collation specification.</p>
-<p>This is not supported for server versions &lt; 3.4 and will result in an
-exception at execution time if used.</p>
 </li>
 <li>
 <p>comment (string): An arbitrary string to help trace the operation
@@ -891,13 +784,19 @@ name as a string or the index key pattern as a document. If specified,
 then the query system will only consider plans using the hinted index.</p>
 </li>
 <li>
+<p>let (document): Map of parameter names and values. Values must be
+constant or closed expressions that do not reference document fields.
+Parameters can then be accessed as variables in an aggregate
+expression context (e.g. &quot;$$var&quot;).</p>
+<p>This is not supported for server versions &lt; 5.0 and will result in an
+exception at execution time if used.</p>
+</li>
+<li>
 <p>maxTimeMS (integer): The maximum amount of time to allow the query to
 run.</p>
 </li>
 <li>
 <p>readConcern (MongoDB\Driver\ReadConcern): Read concern.</p>
-<p>This is not supported for server versions &lt; 3.2 and will result in an
-exception at execution time if used.</p>
 </li>
 <li>
 <p>readPreference (MongoDB\Driver\ReadPreference): Read preference.</p>
@@ -905,7 +804,6 @@ exception at execution time if used.</p>
 </li>
 <li>
 <p>session (MongoDB\Driver\Session): Client session.</p>
-<p>Sessions are not supported for server versions &lt; 3.6.</p>
 </li>
 <li>
 <p>typeMap (array): Type map for BSON deserialization. This will be
@@ -920,8 +818,6 @@ mongod/mongos upgrades.</p>
 <li>
 <p>writeConcern (MongoDB\Driver\WriteConcern): Write concern. This only
 applies when an $out or $merge stage is specified.</p>
-<p>This is not supported for server versions &lt; 3.4 and will result in an
-exception at execution time if used.</p>
 </li>
 </ul>
 <p>Note: Collection-agnostic commands (e.g. $currentOp) may be executed by
@@ -1005,7 +901,7 @@ specifying null for the collection name.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">268</span>
 
     </aside>
 
@@ -1057,7 +953,7 @@ specifying null for the collection name.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><a href="classes/MongoDB-Exception-UnsupportedException.html"><abbr title="\MongoDB\Exception\UnsupportedException">UnsupportedException</abbr></a></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>if collation, read concern, or write concern is used and unsupported</p>
+                                                 <section class="phpdocumentor-description"><p>if read concern or write concern is used and unsupported</p>
 </section>
 
                                     </dd>
@@ -1092,17 +988,17 @@ specifying null for the collection name.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">321</span>
+    <span class="phpdocumentor-element-found-in__line">316</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns the command document for this operation.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCommandDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getCommandDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1110,15 +1006,28 @@ specifying null for the collection name.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\MongoDB\Operation\Explainable::getCommandDocument()">Explainable::getCommandDocument()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
         
     
@@ -1140,33 +1049,14 @@ specifying null for the collection name.</p>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Create the aggregate command document.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">createCommandDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hasWriteStage</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">createCommandDocument</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$server</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$hasWriteStage</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
-            </dd>
-            </dl>
-
+    
+    
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1188,7 +1078,7 @@ specifying null for the collection name.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">367</span>
+    <span class="phpdocumentor-element-found-in__line">358</span>
 
     </aside>
 
@@ -1214,39 +1104,41 @@ specifying null for the collection name.</p>
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_createOptions">
-        createOptions()
-        <a href="classes/MongoDB-Operation-Aggregate.html#method_createOptions" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_executeCommand">
+        executeCommand()
+        <a href="classes/MongoDB-Operation-Aggregate.html#method_executeCommand" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">387</span>
+    <span class="phpdocumentor-element-found-in__line">376</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Create options for executing the command.</p>
+        <p class="phpdocumentor-summary">Execute the aggregate command using the appropriate Server method.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">createOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hasWriteStage</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hasExplain</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">executeCommand</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Command">Command</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$command</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\MongoDB\Driver\Cursor">Cursor</abbr></span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$hasWriteStage</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                <span class="phpdocumentor-signature__argument__name">$server</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$hasExplain</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                <span class="phpdocumentor-signature__argument__name">$command</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Command">Command</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"></section>
+
             </dd>
             </dl>
 
@@ -1257,6 +1149,14 @@ specifying null for the collection name.</p>
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="http://php.net/manual/en/mongodb-driver-server.executecommand.php"><abbr title="http://php.net/manual/en/mongodb-driver-server.executecommand.php">http://php.net/manual/en/mongodb-driver-server.executecommand.php</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -1275,40 +1175,7 @@ specifying null for the collection name.</p>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            &mdash;
-        
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_hasWriteStage">
-        hasWriteStage()
-        <a href="classes/MongoDB-Operation-Aggregate.html#method_hasWriteStage" class="headerlink"><i class="fas fa-link"></i></a>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-aggregate.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/Aggregate.php">Aggregate.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">410</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-                    <span class="phpdocumentor-signature__name">hasWriteStage</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-        <section class="phpdocumentor-description"></section>
-
-    
-    
-
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">bool</span>
+    <span class="phpdocumentor-signature__response_type"><abbr title="\MongoDB\Driver\Cursor">Cursor</abbr></span>
             &mdash;
         
     

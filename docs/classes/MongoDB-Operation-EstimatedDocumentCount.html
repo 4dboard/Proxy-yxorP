@@ -112,10 +112,6 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/packageversions.html" class="">PackageVersions</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/firebase.html" class="">Firebase</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -128,6 +124,12 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/jean85.html" class="">Jean85</a>
 </h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/jean85-exception.html" class="">Exception</a>
+                
+            </li>
+            </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/colorthief.html" class="">ColorThief</a>
@@ -189,6 +191,20 @@
             </li>
                     <li>
                 <a href="namespaces/mongodb-operation.html" class="">Operation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/mongodb-tests.html" class="">Tests</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/phpunit.html" class="">PHPUnit</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/phpunit-framework.html" class="">Framework</a>
                 
             </li>
             </ul>
@@ -260,40 +276,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/yxorp.html" class="">yxorP</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-events.html" class="">events</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-http.html" class="">http</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-minify.html" class="">minify</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-parser.html" class="">parser</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-protocols.html" class="">protocols</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-proxy.html" class="">proxy</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-psr.html" class="">psr</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-snag.html" class="">snag</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -396,7 +378,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -460,16 +442,16 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_count">$count</a>
+    <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_databaseName">$databaseName</a>
     <span>
-                        &nbsp;: <a href="classes/MongoDB-Operation-Count.html"><abbr title="\MongoDB\Operation\Count">Count</abbr></a>            </span>
+                        &nbsp;: string            </span>
 </dt>
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_databaseName">$databaseName</a>
+    <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_errorCodeCollectionNotFound">$errorCodeCollectionNotFound</a>
     <span>
-                        &nbsp;: string            </span>
+                        &nbsp;: int            </span>
 </dt>
 <dd></dd>
 
@@ -480,12 +462,20 @@
 </dt>
 <dd></dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_wireVersionForCollStats">$wireVersionForCollStats</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd></dd>
+
                 <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Constructs a count command.</dd>
+<dd>Constructs a command to get the estimated number of documents in a
+collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#method_execute">execute()</a>
@@ -497,7 +487,21 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#method_getCommandDocument">getCommandDocument()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Returns the command document for this operation.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createAggregate">createAggregate()</a>
+    <span>
+                                &nbsp;: <a href="classes/MongoDB-Operation-Aggregate.html"><abbr title="\MongoDB\Operation\Aggregate">Aggregate</abbr></a>    </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createCommand">createCommand()</a>
+    <span>
+                                &nbsp;: <a href="classes/MongoDB-Operation-Aggregate.html"><abbr title="\MongoDB\Operation\Aggregate">Aggregate</abbr></a>|<a href="classes/MongoDB-Operation-Count.html"><abbr title="\MongoDB\Operation\Count">Count</abbr></a>    </span>
 </dt>
 <dd></dd>
 
@@ -536,7 +540,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -545,38 +549,6 @@
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$collectionName</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_count">
-        $count
-        <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_count" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">46</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/MongoDB-Operation-Count.html"><abbr title="\MongoDB\Operation\Count">Count</abbr></a></span>
-    <span class="phpdocumentor-signature__name">$count</span>
     </code>
 
     
@@ -600,7 +572,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -610,6 +582,38 @@
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$databaseName</span>
     </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_errorCodeCollectionNotFound">
+        $errorCodeCollectionNotFound
+        <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_errorCodeCollectionNotFound" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">53</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$errorCodeCollectionNotFound</span>
+     = <span class="phpdocumentor-signature__default-value">26</span></code>
 
     
     
@@ -632,7 +636,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -642,6 +646,38 @@
         <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$options</span>
     </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+            -static                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="property_wireVersionForCollStats">
+        $wireVersionForCollStats
+        <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#property_wireVersionForCollStats" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+    <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$wireVersionForCollStats</span>
+     = <span class="phpdocumentor-signature__default-value">12</span></code>
 
     
     
@@ -668,11 +704,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Constructs a count command.</p>
+        <p class="phpdocumentor-summary">Constructs a command to get the estimated number of documents in a
+collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -686,15 +723,12 @@ run.</p>
 </li>
 <li>
 <p>readConcern (MongoDB\Driver\ReadConcern): Read concern.</p>
-<p>This is not supported for server versions &lt; 3.2 and will result in an
-exception at execution time if used.</p>
 </li>
 <li>
 <p>readPreference (MongoDB\Driver\ReadPreference): Read preference.</p>
 </li>
 <li>
 <p>session (MongoDB\Driver\Session): Client session.</p>
-<p>Sessions are not supported for server versions &lt; 3.6.</p>
 </li>
 </ul>
 </section>
@@ -767,7 +801,7 @@ exception at execution time if used.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
     </aside>
 
@@ -854,17 +888,106 @@ exception at execution time if used.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the command document for this operation.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCommandDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$server</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\MongoDB\Operation\Explainable::getCommandDocument()">Explainable::getCommandDocument()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_createAggregate">
+        createAggregate()
+        <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createAggregate" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">147</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCommandDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">createAggregate</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/MongoDB-Operation-Aggregate.html"><abbr title="\MongoDB\Operation\Aggregate">Aggregate</abbr></a></span></code>
 
         <section class="phpdocumentor-description"></section>
 
+    
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/MongoDB-Operation-Aggregate.html"><abbr title="\MongoDB\Operation\Aggregate">Aggregate</abbr></a></span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_createCommand">
+        createCommand()
+        <a href="classes/MongoDB-Operation-EstimatedDocumentCount.html#method_createCommand" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">161</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">createCommand</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/MongoDB-Operation-Aggregate.html"><abbr title="\MongoDB\Operation\Aggregate">Aggregate</abbr></a>|<a href="classes/MongoDB-Operation-Count.html"><abbr title="\MongoDB\Operation\Count">Count</abbr></a></span></code>
+
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -880,7 +1003,7 @@ exception at execution time if used.</p>
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/MongoDB-Operation-Aggregate.html"><abbr title="\MongoDB\Operation\Aggregate">Aggregate</abbr></a>|<a href="classes/MongoDB-Operation-Count.html"><abbr title="\MongoDB\Operation\Count">Count</abbr></a></span>
             &mdash;
         
     
@@ -898,7 +1021,7 @@ exception at execution time if used.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-estimateddocumentcount.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/EstimatedDocumentCount.php">EstimatedDocumentCount.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">168</span>
 
     </aside>
 
@@ -907,7 +1030,8 @@ exception at execution time if used.</p>
     <span class="phpdocumentor-signature__visibility">private</span>
                     <span class="phpdocumentor-signature__name">createCount</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/MongoDB-Operation-Count.html"><abbr title="\MongoDB\Operation\Count">Count</abbr></a></span></code>
 
-    
+        <section class="phpdocumentor-description"></section>
+
     
     
 

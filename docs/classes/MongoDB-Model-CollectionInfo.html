@@ -112,10 +112,6 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/packageversions.html" class="">PackageVersions</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/firebase.html" class="">Firebase</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -128,6 +124,12 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/jean85.html" class="">Jean85</a>
 </h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/jean85-exception.html" class="">Exception</a>
+                
+            </li>
+            </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/colorthief.html" class="">ColorThief</a>
@@ -189,6 +191,20 @@
             </li>
                     <li>
                 <a href="namespaces/mongodb-operation.html" class="">Operation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/mongodb-tests.html" class="">Tests</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/phpunit.html" class="">PHPUnit</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/phpunit-framework.html" class="">Framework</a>
                 
             </li>
             </ul>
@@ -260,40 +276,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/yxorp.html" class="">yxorP</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-events.html" class="">events</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-http.html" class="">http</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-minify.html" class="">minify</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-parser.html" class="">parser</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-protocols.html" class="">protocols</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-proxy.html" class="">proxy</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-psr.html" class="">psr</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-snag.html" class="">snag</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -396,7 +378,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -490,6 +472,20 @@ collection. It provides methods to access options for the collection.</p>
 <dd>Return the maximum size (in bytes) of the capped collection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/MongoDB-Model-CollectionInfo.html#method_getIdIndex">getIdIndex()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return information about the _id index for the collection.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/MongoDB-Model-CollectionInfo.html#method_getInfo">getInfo()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Return the &quot;info&quot; property of the server response.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Model-CollectionInfo.html#method_getName">getName()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -502,6 +498,13 @@ collection. It provides methods to access options for the collection.</p>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Return the collection options.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/MongoDB-Model-CollectionInfo.html#method_getType">getType()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Return the collection type.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Model-CollectionInfo.html#method_isCapped">isCapped()</a>
@@ -527,14 +530,14 @@ collection. It provides methods to access options for the collection.</p>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Model-CollectionInfo.html#method_offsetSet">offsetSet()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 <dd>Not supported.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Model-CollectionInfo.html#method_offsetUnset">offsetUnset()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: void    </span>
 </dt>
 <dd>Not supported.</dd>
 
@@ -566,7 +569,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -602,7 +605,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -646,7 +649,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -684,7 +687,7 @@ collection. It provides methods to access options for the collection.</p>
         class="phpdocumentor-element
             -method
             -public
-                                                        "
+            -deprecated                                            "
 >
     <h4 class="phpdocumentor-element__name" id="method_getCappedMax">
         getCappedMax()
@@ -693,19 +696,84 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Return the maximum number of documents to keep in the capped collection.</p>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getCappedMax</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
 
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">deprecated</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Deprecated in favor of using getOptions</p>
+</section>
+
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">int|null</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+            -deprecated                                            "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getCappedSize">
+        getCappedSize()
+        <a href="classes/MongoDB-Model-CollectionInfo.html#method_getCappedSize" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the maximum size (in bytes) of the capped collection.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCappedSize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">deprecated</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Deprecated in favor of using getOptions</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">int|null</span>
@@ -719,29 +787,76 @@ collection. It provides methods to access options for the collection.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getCappedSize">
-        getCappedSize()
-        <a href="classes/MongoDB-Model-CollectionInfo.html#method_getCappedSize" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getIdIndex">
+        getIdIndex()
+        <a href="classes/MongoDB-Model-CollectionInfo.html#method_getIdIndex" class="headerlink"><i class="fas fa-link"></i></a>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Return the maximum size (in bytes) of the capped collection.</p>
+        <p class="phpdocumentor-summary">Return information about the _id index for the collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCappedSize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
+                    <span class="phpdocumentor-signature__name">getIdIndex</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
     
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">int|null</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getInfo">
+        getInfo()
+        <a href="classes/MongoDB-Model-CollectionInfo.html#method_getInfo" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">103</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the &quot;info&quot; property of the server response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getInfo</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://docs.mongodb.com/manual/reference/command/listCollections/#output"><abbr title="https://docs.mongodb.com/manual/reference/command/listCollections/#output">https://docs.mongodb.com/manual/reference/command/listCollections/#output</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
         
     
@@ -759,7 +874,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -772,6 +887,20 @@ collection. It provides methods to access options for the collection.</p>
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://docs.mongodb.com/manual/reference/command/listCollections/#output"><abbr title="https://docs.mongodb.com/manual/reference/command/listCollections/#output">https://docs.mongodb.com/manual/reference/command/listCollections/#output</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">string</span>
@@ -792,7 +921,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
@@ -805,6 +934,20 @@ collection. It provides methods to access options for the collection.</p>
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://docs.mongodb.com/manual/reference/command/listCollections/#output"><abbr title="https://docs.mongodb.com/manual/reference/command/listCollections/#output">https://docs.mongodb.com/manual/reference/command/listCollections/#output</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -818,6 +961,53 @@ collection. It provides methods to access options for the collection.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getType">
+        getType()
+        <a href="classes/MongoDB-Model-CollectionInfo.html#method_getType" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">136</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Return the collection type.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getType</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://docs.mongodb.com/manual/reference/command/listCollections/#output"><abbr title="https://docs.mongodb.com/manual/reference/command/listCollections/#output">https://docs.mongodb.com/manual/reference/command/listCollections/#output</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+            -deprecated                                            "
+>
     <h4 class="phpdocumentor-element__name" id="method_isCapped">
         isCapped()
         <a href="classes/MongoDB-Model-CollectionInfo.html#method_isCapped" class="headerlink"><i class="fas fa-link"></i></a>
@@ -825,19 +1015,35 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Return whether the collection is a capped collection.</p>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <code class="phpdocumentor-code phpdocumentor-signature -deprecated">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">isCapped</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">deprecated</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Deprecated in favor of using getOptions</p>
+</section>
+
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">bool</span>
@@ -858,7 +1064,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
     </aside>
 
@@ -915,7 +1121,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">173</span>
 
     </aside>
 
@@ -972,7 +1178,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
@@ -980,7 +1186,7 @@ collection. It provides methods to access options for the collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">offsetSet</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">offsetSet</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -1026,7 +1232,7 @@ collection. It provides methods to access options for the collection.</p>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
     
@@ -1044,7 +1250,7 @@ collection. It provides methods to access options for the collection.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-model-collectioninfo.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Model/CollectionInfo.php">CollectionInfo.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
     </aside>
 
@@ -1052,7 +1258,7 @@ collection. It provides methods to access options for the collection.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">offsetUnset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">offsetUnset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -1091,7 +1297,7 @@ collection. It provides methods to access options for the collection.</p>
                         </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">void</span>
             &mdash;
         
     

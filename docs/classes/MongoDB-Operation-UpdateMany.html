@@ -112,10 +112,6 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/packageversions.html" class="">PackageVersions</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/firebase.html" class="">Firebase</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -128,6 +124,12 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/jean85.html" class="">Jean85</a>
 </h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/jean85-exception.html" class="">Exception</a>
+                
+            </li>
+            </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/colorthief.html" class="">ColorThief</a>
@@ -189,6 +191,20 @@
             </li>
                     <li>
                 <a href="namespaces/mongodb-operation.html" class="">Operation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/mongodb-tests.html" class="">Tests</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/phpunit.html" class="">PHPUnit</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/phpunit-framework.html" class="">Framework</a>
                 
             </li>
             </ul>
@@ -260,40 +276,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/yxorp.html" class="">yxorP</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-events.html" class="">events</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-http.html" class="">http</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-minify.html" class="">minify</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-parser.html" class="">parser</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-protocols.html" class="">protocols</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-proxy.html" class="">proxy</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-psr.html" class="">psr</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-snag.html" class="">snag</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -396,7 +378,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-updatemany.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php">UpdateMany.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -476,9 +458,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/MongoDB-Operation-UpdateMany.html#method_getCommandDocument">getCommandDocument()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd></dd>
+<dd>Returns the command document for this operation.</dd>
 
         </dl>
 
@@ -508,7 +490,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-updatemany.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php">UpdateMany.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -544,7 +526,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-updatemany.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php">UpdateMany.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
@@ -559,19 +541,13 @@
 <li>
 <p>arrayFilters (document array): A set of filters specifying to which
 array elements an update should apply.</p>
-<p>This is not supported for server versions &lt; 3.6 and will result in an$
-exception at execution time if used.</p>
 </li>
 <li>
 <p>bypassDocumentValidation (boolean): If true, allows the write to
 circumvent document level validation.</p>
-<p>For servers &lt; 3.2, this option is ignored as document level validation
-is not available.</p>
 </li>
 <li>
 <p>collation (document): Collation specification.</p>
-<p>This is not supported for server versions &lt; 3.4 and will result in an
-exception at execution time if used.</p>
 </li>
 <li>
 <p>hint (string|document): The index to use. Specify either the index
@@ -582,7 +558,6 @@ exception at execution time if used.</p>
 </li>
 <li>
 <p>session (MongoDB\Driver\Session): Client session.</p>
-<p>Sessions are not supported for server versions &lt; 3.6.</p>
 </li>
 <li>
 <p>upsert (boolean): When true, a new document is created if no document
@@ -680,7 +655,7 @@ matches the query. The default is false.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-updatemany.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php">UpdateMany.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
@@ -757,17 +732,17 @@ matches the query. The default is false.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php"><a href="files/cockpit-lib-vendor-mongodb-mongodb-src-operation-updatemany.html"><abbr title="cockpit/lib/vendor/mongodb/mongodb/src/Operation/UpdateMany.php">UpdateMany.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">120</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns the command document for this operation.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getCommandDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">getCommandDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$server</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
-        <section class="phpdocumentor-description"></section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -775,15 +750,28 @@ matches the query. The default is false.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\MongoDB\Driver\Server">Server</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
-
+                
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="#tags" class="headerlink"><i class="fas fa-link"></i></a>
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\MongoDB\Operation\Explainable::getCommandDocument()">Explainable::getCommandDocument()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type">mixed</span>
+    <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             &mdash;
         
     

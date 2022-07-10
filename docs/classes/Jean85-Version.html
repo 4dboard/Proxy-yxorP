@@ -112,10 +112,6 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/packageversions.html" class="">PackageVersions</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/firebase.html" class="">Firebase</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -128,6 +124,12 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/jean85.html" class="">Jean85</a>
 </h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/jean85-exception.html" class="">Exception</a>
+                
+            </li>
+            </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/colorthief.html" class="">ColorThief</a>
@@ -189,6 +191,20 @@
             </li>
                     <li>
                 <a href="namespaces/mongodb-operation.html" class="">Operation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/mongodb-tests.html" class="">Tests</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/phpunit.html" class="">PHPUnit</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/phpunit-framework.html" class="">Framework</a>
                 
             </li>
             </ul>
@@ -260,40 +276,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/yxorp.html" class="">yxorP</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-events.html" class="">events</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-http.html" class="">http</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-minify.html" class="">minify</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-parser.html" class="">parser</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-protocols.html" class="">protocols</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-proxy.html" class="">proxy</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-psr.html" class="">psr</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-snag.html" class="">snag</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -392,7 +374,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">7</span>
 
     </aside>
 
@@ -413,20 +395,27 @@
 
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Jean85-Version.html#constant_NO_REFERENCE_TEXT">NO_REFERENCE_TEXT</a>
+    <span>
+        &nbsp;= &#039;{no reference}&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/Jean85-Version.html#constant_NO_VERSION_TEXT">NO_VERSION_TEXT</a>
+    <span>
+        &nbsp;= &#039;{no version}&#039;                            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -private">
     <a href="classes/Jean85-Version.html#constant_SHORT_COMMIT_LENGTH">SHORT_COMMIT_LENGTH</a>
     <span>
-        &nbsp;= \Jean85\PrettyVersions::SHORT_COMMIT_LENGTH                            </span>
+        &nbsp;= 7                            </span>
 </dt>
 <dd></dd>
 
                     <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Jean85-Version.html#property_commitHash">$commitHash</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-<dd></dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a href="classes/Jean85-Version.html#property_packageName">$packageName</a>
     <span>
                         &nbsp;: string            </span>
@@ -434,7 +423,14 @@
 <dd></dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a href="classes/Jean85-Version.html#property_shortVersion">$shortVersion</a>
+    <a href="classes/Jean85-Version.html#property_prettyVersion">$prettyVersion</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd></dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a href="classes/Jean85-Version.html#property_reference">$reference</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -542,6 +538,64 @@
             <a href="classes/Jean85-Version.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NO_REFERENCE_TEXT">
+        NO_REFERENCE_TEXT
+        <a href="classes/Jean85-Version.html#constant_NO_REFERENCE_TEXT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NO_REFERENCE_TEXT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;{no reference}&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NO_VERSION_TEXT">
+        NO_VERSION_TEXT
+        <a href="classes/Jean85-Version.html#constant_NO_VERSION_TEXT" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">23</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NO_VERSION_TEXT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;{no version}&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"></section>
+
+        <section class="phpdocumentor-description"></section>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -private ">
     <h4 class="phpdocumentor-element__name" id="constant_SHORT_COMMIT_LENGTH">
         SHORT_COMMIT_LENGTH
         <a href="classes/Jean85-Version.html#constant_SHORT_COMMIT_LENGTH" class="headerlink"><i class="fas fa-link"></i></a>
@@ -550,16 +604,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">9</span>
 
     </aside>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
+    <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">SHORT_COMMIT_LENGTH</span>
-    = <span class="phpdocumentor-signature__default-value">\Jean85\PrettyVersions::SHORT_COMMIT_LENGTH</span>
+    = <span class="phpdocumentor-signature__default-value">7</span>
 </code>
 
 
@@ -585,38 +639,6 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_commitHash">
-        $commitHash
-        <a href="classes/Jean85-Version.html#property_commitHash" class="headerlink"><i class="fas fa-link"></i></a>
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">16</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">private</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$commitHash</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -private
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="property_packageName">
         $packageName
         <a href="classes/Jean85-Version.html#property_packageName" class="headerlink"><i class="fas fa-link"></i></a>
@@ -626,7 +648,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -649,16 +671,16 @@
             -private
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_shortVersion">
-        $shortVersion
-        <a href="classes/Jean85-Version.html#property_shortVersion" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_prettyVersion">
+        $prettyVersion
+        <a href="classes/Jean85-Version.html#property_prettyVersion" class="headerlink"><i class="fas fa-link"></i></a>
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">15</span>
 
     </aside>
 
@@ -666,7 +688,39 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
         <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$shortVersion</span>
+    <span class="phpdocumentor-signature__name">$prettyVersion</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_reference">
+        $reference
+        <a href="classes/Jean85-Version.html#property_reference" class="headerlink"><i class="fas fa-link"></i></a>
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$reference</span>
     </code>
 
     
@@ -690,7 +744,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -726,14 +780,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$version</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$packageName</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prettyVersion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$reference</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
         <section class="phpdocumentor-description"></section>
 
@@ -748,9 +802,17 @@
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$version</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                <span class="phpdocumentor-signature__argument__name">$prettyVersion</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"></section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$reference</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
 
@@ -778,7 +840,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -811,7 +873,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -833,9 +895,7 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>since 1.6, use getReference instead</p>
-</section>
-
+                                             
                                     </dd>
                         </dl>
 
@@ -858,7 +918,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -891,7 +951,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -924,7 +984,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -957,7 +1017,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
@@ -990,7 +1050,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -1012,9 +1072,7 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>since 1.6, use getShortReference instead</p>
-</section>
-
+                                             
                                     </dd>
                         </dl>
 
@@ -1037,7 +1095,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -1070,7 +1128,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -1103,7 +1161,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -1125,9 +1183,7 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>since 1.6, use getVersionWithShortReference instead</p>
-</section>
-
+                                             
                                     </dd>
                         </dl>
 
@@ -1150,7 +1206,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php"><a href="files/cockpit-lib-vendor-jean85-pretty-package-versions-src-version.html"><abbr title="cockpit/lib/vendor/jean85/pretty-package-versions/src/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
