@@ -26,11 +26,9 @@ class response
         return $this->content;
     }
 
-    public function setContent($content): void
+    public function setContent($content): ?string
     {
-        $content = (string)$content;
-        if (!$content) return;
-        $this->content = $content;
+        return ($this->content = $content) ?: null;
     }
 
     public function printContent(): void
