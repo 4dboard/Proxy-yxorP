@@ -95,8 +95,6 @@ class yP
      */
     private static function init(string $yxorp_root): array
     {
-
-        exit('123');
         /* It's creating the constants that are used in the plugin. */
         constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
