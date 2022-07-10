@@ -403,7 +403,7 @@ class constants
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
-        define('FILE_COCKPIT_BOOTSTRAP', 'mime' . EXT_TYPES);
+        define('FILE_MIME_TYPES', 'mime' . EXT_TYPES);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
@@ -477,6 +477,7 @@ class constants
         define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_INC . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
         /* Defining the PATH_PDP_PSL_PHP path to the action public-suffix-list file. */
         define('PATH_PUBLIC_SUFFIX_LIST', DIR_ROOT . DIR_INC . DIR_DATA . FILE_PUBLIC_SUFFIX_LIST);
+        define('PATH_FILE_MIME_TYPES', DIR_ROOT . DIR_INC . DIR_DATA . FILE_MIME_TYPES);
 
 
         //REGEX
