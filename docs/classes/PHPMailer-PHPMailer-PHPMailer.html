@@ -112,10 +112,6 @@
             </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
-    <a href="namespaces/packageversions.html" class="">PackageVersions</a>
-</h4>
-
-                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/firebase.html" class="">Firebase</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -128,6 +124,12 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/jean85.html" class="">Jean85</a>
 </h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/jean85-exception.html" class="">Exception</a>
+                
+            </li>
+            </ul>
 
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/colorthief.html" class="">ColorThief</a>
@@ -189,6 +191,20 @@
             </li>
                     <li>
                 <a href="namespaces/mongodb-operation.html" class="">Operation</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/mongodb-tests.html" class="">Tests</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/phpunit.html" class="">PHPUnit</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/phpunit-framework.html" class="">Framework</a>
                 
             </li>
             </ul>
@@ -260,40 +276,6 @@
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/yxorp.html" class="">yxorP</a>
 </h4>
-    <ul class="phpdocumentor-list">
-                    <li>
-                <a href="namespaces/yxorp-events.html" class="">events</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-http.html" class="">http</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-minify.html" class="">minify</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-parser.html" class="">parser</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-protocols.html" class="">protocols</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-proxy.html" class="">proxy</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-psr.html" class="">psr</a>
-                
-            </li>
-                    <li>
-                <a href="namespaces/yxorp-snag.html" class="">snag</a>
-                
-            </li>
-            </ul>
 
                         </section>
                 <section class="phpdocumentor-sidebar__category">
@@ -682,7 +664,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#constant_VERSION">VERSION</a>
     <span>
-        &nbsp;= &#039;6.5.1&#039;                            </span>
+        &nbsp;= &#039;6.6.3&#039;                            </span>
 </dt>
 <dd>The PHPMailer Version number.</dd>
 
@@ -1147,9 +1129,9 @@ even if `SMTPSecure` is not set to &#039;tls&#039;.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#property_oauth">$oauth</a>
     <span>
-                        &nbsp;: <a href="classes/PHPMailer-PHPMailer-OAuth.html"><abbr title="\PHPMailer\PHPMailer\OAuth">OAuth</abbr></a>            </span>
+                        &nbsp;: <a href="classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"><abbr title="\PHPMailer\PHPMailer\OAuthTokenProvider">OAuthTokenProvider</abbr></a>            </span>
 </dt>
-<dd>An instance of the PHPMailer OAuth class.</dd>
+<dd>An implementation of the PHPMailer OAuthTokenProvider interface.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#property_RecipientsQueue">$RecipientsQueue</a>
@@ -1547,9 +1529,9 @@ without breaking lines within a character.</dd>
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#method_getOAuth">getOAuth()</a>
     <span>
-                                &nbsp;: <a href="classes/PHPMailer-PHPMailer-OAuth.html"><abbr title="\PHPMailer\PHPMailer\OAuth">OAuth</abbr></a>    </span>
+                                &nbsp;: <a href="classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"><abbr title="\PHPMailer\PHPMailer\OAuthTokenProvider">OAuthTokenProvider</abbr></a>    </span>
 </dt>
-<dd>Get the OAuth instance.</dd>
+<dd>Get the OAuthTokenProvider instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#method_getReplyToAddresses">getReplyToAddresses()</a>
@@ -1791,7 +1773,7 @@ and escape any double quotes with a backslash.</dd>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Set an OAuth instance.</dd>
+<dd>Set an OAuthTokenProvider instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#method_setSMTPInstance">setSMTPInstance()</a>
@@ -2019,6 +2001,13 @@ be modified after calling this function), addition of such addresses is delayed 
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Validate encodings.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -private">
+    <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#method_getSmtpErrorMessage">getSmtpErrorMessage()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Build an error message starting with a generic one and adding details if possible.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#method_mailPassthru">mailPassthru()</a>
@@ -2987,7 +2976,7 @@ the line break format is LF or CRLF; both are valid.</p>
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">VERSION</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;6.5.1&#039;</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;6.6.3&#039;</span>
 </code>
 
 
@@ -5594,11 +5583,11 @@ The default validator uses PHP's FILTER_VALIDATE_EMAIL filter_var option.</p>
 
     </aside>
 
-        <p class="phpdocumentor-summary">An instance of the PHPMailer OAuth class.</p>
+        <p class="phpdocumentor-summary">An implementation of the PHPMailer OAuthTokenProvider interface.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/PHPMailer-PHPMailer-OAuth.html"><abbr title="\PHPMailer\PHPMailer\OAuth">OAuth</abbr></a></span>
+        <span class="phpdocumentor-signature__type"><a href="classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"><abbr title="\PHPMailer\PHPMailer\OAuthTokenProvider">OAuthTokenProvider</abbr></a></span>
     <span class="phpdocumentor-signature__name">$oauth</span>
     </code>
 
@@ -6129,7 +6118,7 @@ This array is used only for addresses with IDN.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4323</span>
+    <span class="phpdocumentor-element-found-in__line">4371</span>
 
     </aside>
 
@@ -6244,7 +6233,7 @@ This array is used only for addresses with IDN.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3142</span>
+    <span class="phpdocumentor-element-found-in__line">3173</span>
 
     </aside>
 
@@ -6480,7 +6469,7 @@ If you need to do that, fetch the resource yourself and pass it in via a local f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4133</span>
+    <span class="phpdocumentor-element-found-in__line">4181</span>
 
     </aside>
 
@@ -6551,7 +6540,7 @@ both header name and value (name:value).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3701</span>
+    <span class="phpdocumentor-element-found-in__line">3733</span>
 
     </aside>
 
@@ -6565,7 +6554,7 @@ both header name and value (name:value).</p>
 These differ from 'regular' attachments in that they are intended to be
 displayed inline with the message, not just attached for download.
 This is used in HTML messages that embed the images
-the HTML refers to using the $cid value.
+the HTML refers to using the <code class="prettyprint">$cid</code> value in <code class="prettyprint">img</code> tags, for example <code class="prettyprint">&lt;img src=&quot;cid:mylogo&quot;&gt;</code>.
 Never use a user-supplied path to a file!</p>
 </section>
 
@@ -6595,7 +6584,7 @@ the content when using an embedded image in HTML</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Overrides the attachment name</p>
+                    <section class="phpdocumentor-description"><p>Overrides the attachment filename</p>
 </section>
 
             </dd>
@@ -6604,7 +6593,7 @@ the content when using an embedded image in HTML</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">self::ENCODING_BASE64</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>File encoding (see $Encoding)</p>
+                    <section class="phpdocumentor-description"><p>File encoding (see $Encoding) defaults to <code class="prettyprint">base64</code></p>
 </section>
 
             </dd>
@@ -6613,7 +6602,7 @@ the content when using an embedded image in HTML</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>File MIME type</p>
+                    <section class="phpdocumentor-description"><p>File MIME type (by default mapped from the <code class="prettyprint">$path</code> filename's extension)</p>
 </section>
 
             </dd>
@@ -6622,7 +6611,8 @@ the content when using an embedded image in HTML</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;inline&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Disposition to use</p>
+                    <section class="phpdocumentor-description"><p>Disposition to use: <code class="prettyprint">inline</code> (default) or <code class="prettyprint">attachment</code>
+(unlikely you want this – <code class="prettyprint">addAttachment()</code> instead)</p>
 </section>
 
             </dd>
@@ -6665,7 +6655,7 @@ the content when using an embedded image in HTML</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2348</span>
+    <span class="phpdocumentor-element-found-in__line">2380</span>
 
     </aside>
 
@@ -6788,7 +6778,7 @@ and element 1 containing a name, like:
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2366</span>
+    <span class="phpdocumentor-element-found-in__line">2398</span>
 
     </aside>
 
@@ -6834,7 +6824,7 @@ and element 1 containing a name, like:
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3639</span>
+    <span class="phpdocumentor-element-found-in__line">3670</span>
 
     </aside>
 
@@ -6934,7 +6924,7 @@ such as a BLOB record from a database.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3771</span>
+    <span class="phpdocumentor-element-found-in__line">3803</span>
 
     </aside>
 
@@ -7046,7 +7036,7 @@ For example 'file.jpg' would get an 'image/jpeg' MIME type.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3890</span>
+    <span class="phpdocumentor-element-found-in__line">3922</span>
 
     </aside>
 
@@ -7079,7 +7069,7 @@ For example 'file.jpg' would get an 'image/jpeg' MIME type.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3874</span>
+    <span class="phpdocumentor-element-found-in__line">3906</span>
 
     </aside>
 
@@ -7112,7 +7102,7 @@ For example 'file.jpg' would get an 'image/jpeg' MIME type.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3525</span>
+    <span class="phpdocumentor-element-found-in__line">3556</span>
 
     </aside>
 
@@ -7183,7 +7173,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3913</span>
+    <span class="phpdocumentor-element-found-in__line">3945</span>
 
     </aside>
 
@@ -7216,7 +7206,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3958</span>
+    <span class="phpdocumentor-element-found-in__line">3990</span>
 
     </aside>
 
@@ -7249,7 +7239,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3970</span>
+    <span class="phpdocumentor-element-found-in__line">4002</span>
 
     </aside>
 
@@ -7282,7 +7272,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3937</span>
+    <span class="phpdocumentor-element-found-in__line">3969</span>
 
     </aside>
 
@@ -7315,7 +7305,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3925</span>
+    <span class="phpdocumentor-element-found-in__line">3957</span>
 
     </aside>
 
@@ -7348,7 +7338,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3978</span>
+    <span class="phpdocumentor-element-found-in__line">4010</span>
 
     </aside>
 
@@ -7381,7 +7371,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3900</span>
+    <span class="phpdocumentor-element-found-in__line">3932</span>
 
     </aside>
 
@@ -7426,7 +7416,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3949</span>
+    <span class="phpdocumentor-element-found-in__line">3981</span>
 
     </aside>
 
@@ -7459,7 +7449,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2752</span>
+    <span class="phpdocumentor-element-found-in__line">2783</span>
 
     </aside>
 
@@ -7510,7 +7500,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2556</span>
+    <span class="phpdocumentor-element-found-in__line">2588</span>
 
     </aside>
 
@@ -7545,7 +7535,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4767</span>
+    <span class="phpdocumentor-element-found-in__line">4815</span>
 
     </aside>
 
@@ -7622,7 +7612,7 @@ without breaking lines within a character.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4744</span>
+    <span class="phpdocumentor-element-found-in__line">4792</span>
 
     </aside>
 
@@ -7684,7 +7674,7 @@ Canonicalized bodies should <em>always</em> use CRLF, regardless of mailer setti
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4700</span>
+    <span class="phpdocumentor-element-found-in__line">4748</span>
 
     </aside>
 
@@ -7746,7 +7736,7 @@ Canonicalized headers should <em>always</em> use CRLF, regardless of mailer sett
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4633</span>
+    <span class="phpdocumentor-element-found-in__line">4681</span>
 
     </aside>
 
@@ -7789,7 +7779,7 @@ Canonicalized headers should <em>always</em> use CRLF, regardless of mailer sett
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4658</span>
+    <span class="phpdocumentor-element-found-in__line">4706</span>
 
     </aside>
 
@@ -7848,7 +7838,7 @@ Canonicalized headers should <em>always</em> use CRLF, regardless of mailer sett
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3402</span>
+    <span class="phpdocumentor-element-found-in__line">3433</span>
 
     </aside>
 
@@ -7905,7 +7895,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3581</span>
+    <span class="phpdocumentor-element-found-in__line">3612</span>
 
     </aside>
 
@@ -7973,7 +7963,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3566</span>
+    <span class="phpdocumentor-element-found-in__line">3597</span>
 
     </aside>
 
@@ -8020,7 +8010,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3356</span>
+    <span class="phpdocumentor-element-found-in__line">3387</span>
 
     </aside>
 
@@ -8090,7 +8080,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4455</span>
+    <span class="phpdocumentor-element-found-in__line">4503</span>
 
     </aside>
 
@@ -8137,7 +8127,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4988</span>
+    <span class="phpdocumentor-element-found-in__line">5036</span>
 
     </aside>
 
@@ -8172,7 +8162,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3195</span>
+    <span class="phpdocumentor-element-found-in__line">3226</span>
 
     </aside>
 
@@ -8205,7 +8195,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4966</span>
+    <span class="phpdocumentor-element-found-in__line">5014</span>
 
     </aside>
 
@@ -8240,7 +8230,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4955</span>
+    <span class="phpdocumentor-element-found-in__line">5003</span>
 
     </aside>
 
@@ -8275,7 +8265,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4159</span>
+    <span class="phpdocumentor-element-found-in__line">4207</span>
 
     </aside>
 
@@ -8308,7 +8298,7 @@ See RFC822 definitions for phrase, comment and text positions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1321</span>
+    <span class="phpdocumentor-element-found-in__line">1330</span>
 
     </aside>
 
@@ -8345,7 +8335,7 @@ pathological cases.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4595</span>
+    <span class="phpdocumentor-element-found-in__line">4643</span>
 
     </aside>
 
@@ -8378,7 +8368,7 @@ pathological cases.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2657</span>
+    <span class="phpdocumentor-element-found-in__line">2688</span>
 
     </aside>
 
@@ -8411,22 +8401,22 @@ pathological cases.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5017</span>
+    <span class="phpdocumentor-element-found-in__line">5065</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Get the OAuth instance.</p>
+        <p class="phpdocumentor-summary">Get the OAuthTokenProvider instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getOAuth</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PHPMailer-PHPMailer-OAuth.html"><abbr title="\PHPMailer\PHPMailer\OAuth">OAuth</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">getOAuth</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"><abbr title="\PHPMailer\PHPMailer\OAuthTokenProvider">OAuthTokenProvider</abbr></a></span></code>
 
     
     
     
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-    <span class="phpdocumentor-signature__response_type"><a href="classes/PHPMailer-PHPMailer-OAuth.html"><abbr title="\PHPMailer\PHPMailer\OAuth">OAuth</abbr></a></span>
+    <span class="phpdocumentor-signature__response_type"><a href="classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"><abbr title="\PHPMailer\PHPMailer\OAuthTokenProvider">OAuthTokenProvider</abbr></a></span>
             &mdash;
         
     
@@ -8444,7 +8434,7 @@ pathological cases.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4977</span>
+    <span class="phpdocumentor-element-found-in__line">5025</span>
 
     </aside>
 
@@ -8479,7 +8469,7 @@ pathological cases.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2709</span>
+    <span class="phpdocumentor-element-found-in__line">2740</span>
 
     </aside>
 
@@ -8529,7 +8519,7 @@ Only valid post preSend().</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1930</span>
+    <span class="phpdocumentor-element-found-in__line">1956</span>
 
     </aside>
 
@@ -8565,7 +8555,7 @@ or set one with setSMTPInstance.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4944</span>
+    <span class="phpdocumentor-element-found-in__line">4992</span>
 
     </aside>
 
@@ -8600,7 +8590,7 @@ or set one with setSMTPInstance.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2328</span>
+    <span class="phpdocumentor-element-found-in__line">2360</span>
 
     </aside>
 
@@ -8633,7 +8623,7 @@ or set one with setSMTPInstance.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3508</span>
+    <span class="phpdocumentor-element-found-in__line">3539</span>
 
     </aside>
 
@@ -8676,7 +8666,7 @@ or set one with setSMTPInstance.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4911</span>
+    <span class="phpdocumentor-element-found-in__line">4959</span>
 
     </aside>
 
@@ -8720,7 +8710,7 @@ allowed by RFC 2822 section 2.1.1.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3491</span>
+    <span class="phpdocumentor-element-found-in__line">3522</span>
 
     </aside>
 
@@ -8765,7 +8755,7 @@ allowed by RFC 2822 section 2.1.1.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3108</span>
+    <span class="phpdocumentor-element-found-in__line">3139</span>
 
     </aside>
 
@@ -8815,7 +8805,7 @@ allowed by RFC 2822 section 2.1.1.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4303</span>
+    <span class="phpdocumentor-element-found-in__line">4351</span>
 
     </aside>
 
@@ -8884,7 +8874,7 @@ or provide your own callable for custom conversion.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1417</span>
+    <span class="phpdocumentor-element-found-in__line">1426</span>
 
     </aside>
 
@@ -8920,7 +8910,7 @@ or provide your own callable for custom conversion.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3858</span>
+    <span class="phpdocumentor-element-found-in__line">3890</span>
 
     </aside>
 
@@ -8953,7 +8943,7 @@ or provide your own callable for custom conversion.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4118</span>
+    <span class="phpdocumentor-element-found-in__line">4166</span>
 
     </aside>
 
@@ -9165,7 +9155,7 @@ or provide your own callable for custom conversion.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4056</span>
+    <span class="phpdocumentor-element-found-in__line">4088</span>
 
     </aside>
 
@@ -9212,7 +9202,7 @@ or provide your own callable for custom conversion.
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4479</span>
+    <span class="phpdocumentor-element-found-in__line">4527</span>
 
     </aside>
 
@@ -9283,7 +9273,7 @@ or a string name to return only the specified piece</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4185</span>
+    <span class="phpdocumentor-element-found-in__line">4233</span>
 
     </aside>
 
@@ -9380,7 +9370,7 @@ or your own custom converter</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4563</span>
+    <span class="phpdocumentor-element-found-in__line">4611</span>
 
     </aside>
 
@@ -9435,7 +9425,7 @@ Defaults to CRLF (for message bodies) and preserves consecutive breaks.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1191</span>
+    <span class="phpdocumentor-element-found-in__line">1200</span>
 
     </aside>
 
@@ -9444,7 +9434,7 @@ of the form &quot;display name &lt;address&gt;&quot; into an array of name/addre
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$addrstr</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useimap</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::CHARSET_ISO88591</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">parseAddresses</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$addrstr</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useimap</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">self::CHARSET_ISO88591</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
 
         <section class="phpdocumentor-description"><p>Uses the imap_rfc822_parse_adrlist function if the IMAP extension is available.
 Note that quotes in the name part are removed.</p>
@@ -9472,10 +9462,11 @@ Note that quotes in the name part are removed.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$charset</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">self::CHARSET_ISO88591</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"></section>
+                    <section class="phpdocumentor-description"><p>The charset to use when decoding the address list string.</p>
+</section>
 
             </dd>
             </dl>
@@ -9517,7 +9508,7 @@ Note that quotes in the name part are removed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1639</span>
+    <span class="phpdocumentor-element-found-in__line">1653</span>
 
     </aside>
 
@@ -9564,7 +9555,7 @@ Note that quotes in the name part are removed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1505</span>
+    <span class="phpdocumentor-element-found-in__line">1519</span>
 
     </aside>
 
@@ -9611,7 +9602,7 @@ Note that quotes in the name part are removed.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1436</span>
+    <span class="phpdocumentor-element-found-in__line">1445</span>
 
     </aside>
 
@@ -9680,7 +9671,7 @@ or fails for any reason (e.g. domain contains characters not allowed in an IDN).
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4926</span>
+    <span class="phpdocumentor-element-found-in__line">4974</span>
 
     </aside>
 
@@ -9740,7 +9731,7 @@ and escape any double quotes with a backslash.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4014</span>
+    <span class="phpdocumentor-element-found-in__line">4046</span>
 
     </aside>
 
@@ -9773,7 +9764,7 @@ and escape any double quotes with a backslash.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4548</span>
+    <span class="phpdocumentor-element-found-in__line">4596</span>
 
     </aside>
 
@@ -9816,7 +9807,7 @@ and escape any double quotes with a backslash.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1479</span>
+    <span class="phpdocumentor-element-found-in__line">1493</span>
 
     </aside>
 
@@ -9867,7 +9858,7 @@ and escape any double quotes with a backslash.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4529</span>
+    <span class="phpdocumentor-element-found-in__line">4577</span>
 
     </aside>
 
@@ -9928,7 +9919,7 @@ is the same as:
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1280</span>
+    <span class="phpdocumentor-element-found-in__line">1289</span>
 
     </aside>
 
@@ -10001,7 +9992,7 @@ is the same as:
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2204</span>
+    <span class="phpdocumentor-element-found-in__line">2236</span>
 
     </aside>
 
@@ -10032,7 +10023,7 @@ script annotation and/or a 2-character country annotation.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Path to the language file directory, with trailing separator (slash).D
+                    <section class="phpdocumentor-description"><p>Path to the language file directory, with trailing separator (slash)
 Do not set this from user input!</p>
 </section>
 
@@ -10062,22 +10053,22 @@ Do not set this from user input!</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5025</span>
+    <span class="phpdocumentor-element-found-in__line">5073</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Set an OAuth instance.</p>
+        <p class="phpdocumentor-summary">Set an OAuthTokenProvider instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setOAuth</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/PHPMailer-PHPMailer-OAuth.html"><abbr title="\PHPMailer\PHPMailer\OAuth">OAuth</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oauth</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">setOAuth</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"><abbr title="\PHPMailer\PHPMailer\OAuthTokenProvider">OAuthTokenProvider</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oauth</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$oauth</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/PHPMailer-PHPMailer-OAuth.html"><abbr title="\PHPMailer\PHPMailer\OAuth">OAuth</abbr></a></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/PHPMailer-PHPMailer-OAuthTokenProvider.html"><abbr title="\PHPMailer\PHPMailer\OAuthTokenProvider">OAuthTokenProvider</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"></section>
@@ -10106,7 +10097,7 @@ Do not set this from user input!</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1944</span>
+    <span class="phpdocumentor-element-found-in__line">1970</span>
 
     </aside>
 
@@ -10150,7 +10141,7 @@ Do not set this from user input!</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2532</span>
+    <span class="phpdocumentor-element-found-in__line">2564</span>
 
     </aside>
 
@@ -10187,7 +10178,7 @@ This is called automatically by createBody(), so you don't need to call it yours
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4618</span>
+    <span class="phpdocumentor-element-found-in__line">4666</span>
 
     </aside>
 
@@ -10255,7 +10246,7 @@ This is called automatically by createBody(), so you don't need to call it yours
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2184</span>
+    <span class="phpdocumentor-element-found-in__line">2216</span>
 
     </aside>
 
@@ -10288,7 +10279,7 @@ This is called automatically by createBody(), so you don't need to call it yours
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2051</span>
+    <span class="phpdocumentor-element-found-in__line">2077</span>
 
     </aside>
 
@@ -10357,7 +10348,7 @@ This is called automatically by createBody(), so you don't need to call it yours
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4585</span>
+    <span class="phpdocumentor-element-found-in__line">4633</span>
 
     </aside>
 
@@ -10402,7 +10393,7 @@ This is called automatically by createBody(), so you don't need to call it yours
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3120</span>
+    <span class="phpdocumentor-element-found-in__line">3151</span>
 
     </aside>
 
@@ -10445,7 +10436,7 @@ This is called automatically by createBody(), so you don't need to call it yours
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2488</span>
+    <span class="phpdocumentor-element-found-in__line">2520</span>
 
     </aside>
 
@@ -10502,7 +10493,7 @@ quoted-printable encoded string.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1350</span>
+    <span class="phpdocumentor-element-found-in__line">1359</span>
 
     </aside>
 
@@ -10578,7 +10569,7 @@ Alternatively you may pass in a callable to inject your own validator, for examp
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2388</span>
+    <span class="phpdocumentor-element-found-in__line">2420</span>
 
     </aside>
 
@@ -10645,7 +10636,7 @@ Original written by philippe.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1131</span>
+    <span class="phpdocumentor-element-found-in__line">1139</span>
 
     </aside>
 
@@ -10755,7 +10746,7 @@ be modified after calling this function), addition of such addresses is delayed 
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The email address to send, resp. to reply to</p>
+                    <section class="phpdocumentor-description"><p>The email address</p>
 </section>
 
             </dd>
@@ -10764,7 +10755,9 @@ be modified after calling this function), addition of such addresses is delayed 
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>An optional username associated with the address</p>
+</section>
+
             </dd>
             </dl>
 
@@ -10805,7 +10798,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3211</span>
+    <span class="phpdocumentor-element-found-in__line">3242</span>
 
     </aside>
 
@@ -10871,7 +10864,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3842</span>
+    <span class="phpdocumentor-element-found-in__line">3874</span>
 
     </aside>
 
@@ -10914,7 +10907,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5005</span>
+    <span class="phpdocumentor-element-found-in__line">5053</span>
 
     </aside>
 
@@ -11073,7 +11066,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3321</span>
+    <span class="phpdocumentor-element-found-in__line">3352</span>
 
     </aside>
 
@@ -11129,7 +11122,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3072</span>
+    <span class="phpdocumentor-element-found-in__line">3103</span>
 
     </aside>
 
@@ -11172,7 +11165,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1838</span>
+    <span class="phpdocumentor-element-found-in__line">1861</span>
 
     </aside>
 
@@ -11217,7 +11210,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">2720</span>
+    <span class="phpdocumentor-element-found-in__line">2751</span>
 
     </aside>
 
@@ -11250,7 +11243,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3041</span>
+    <span class="phpdocumentor-element-found-in__line">3072</span>
 
     </aside>
 
@@ -11314,7 +11307,7 @@ be modified after calling this function), addition of such addresses is delayed 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1825</span>
+    <span class="phpdocumentor-element-found-in__line">1848</span>
 
     </aside>
 
@@ -11362,7 +11355,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1790</span>
+    <span class="phpdocumentor-element-found-in__line">1807</span>
 
     </aside>
 
@@ -11425,7 +11418,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4092</span>
+    <span class="phpdocumentor-element-found-in__line">4120</span>
 
     </aside>
 
@@ -11468,7 +11461,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1863</span>
+    <span class="phpdocumentor-element-found-in__line">1886</span>
 
     </aside>
 
@@ -11544,7 +11537,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1685</span>
+    <span class="phpdocumentor-element-found-in__line">1699</span>
 
     </aside>
 
@@ -11620,7 +11613,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4029</span>
+    <span class="phpdocumentor-element-found-in__line">4061</span>
 
     </aside>
 
@@ -11655,7 +11648,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3988</span>
+    <span class="phpdocumentor-element-found-in__line">4020</span>
 
     </aside>
 
@@ -11698,7 +11691,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">4605</span>
+    <span class="phpdocumentor-element-found-in__line">4653</span>
 
     </aside>
 
@@ -11741,7 +11734,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3081</span>
+    <span class="phpdocumentor-element-found-in__line">3112</span>
 
     </aside>
 
@@ -11776,7 +11769,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">1966</span>
+    <span class="phpdocumentor-element-found-in__line">1992</span>
 
     </aside>
 
@@ -11864,7 +11857,7 @@ such as addAttachment.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">3820</span>
+    <span class="phpdocumentor-element-found-in__line">3852</span>
 
     </aside>
 
@@ -11890,6 +11883,49 @@ such as addAttachment.</p>
 
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
     <span class="phpdocumentor-signature__response_type">bool</span>
+            &mdash;
+        
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -private
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getSmtpErrorMessage">
+        getSmtpErrorMessage()
+        <a href="classes/PHPMailer-PHPMailer-PHPMailer.html#method_getSmtpErrorMessage" class="headerlink"><i class="fas fa-link"></i></a>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php"><a href="files/cockpit-lib-vendor-phpmailer-phpmailer-src-phpmailer.html"><abbr title="cockpit/lib/vendor/phpmailer/phpmailer/src/PHPMailer.php">PHPMailer.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">4147</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Build an error message starting with a generic one and adding details if possible.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">private</span>
+                    <span class="phpdocumentor-signature__name">getSmtpErrorMessage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$base_key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$base_key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+    <span class="phpdocumentor-signature__response_type">string</span>
             &mdash;
         
     
