@@ -86,7 +86,6 @@ class yP
      */
     public static function proxy(string $yxorp_root, array|null $request = null): void
     {
-        exit('123');
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
@@ -154,7 +153,6 @@ class yP
      */
     private function dispatch(string $event_name): void
     {
-        exit('123');
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
         if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
@@ -169,6 +167,7 @@ class yP
      */
     public static function yxorP(array|null $request = null): self
     {
+        exit('123');
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
         return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
