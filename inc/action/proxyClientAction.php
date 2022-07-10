@@ -20,6 +20,7 @@ class proxyClientAction extends wrapper
         $getMethod = constants::get(VAR_REQUEST)->getMethod();
         $getUrl = constants::get(VAR_REQUEST)->getUrl();
         $json_decode = json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR);
+        $request = constants::get(VAR_PROXY)->request($getMethod, $getUrl, $json_decode);
         print_r(constants::get(VAR_PROXY)->request($getMethod, $getUrl, $json_decode)->getBody());
         constants::get(VAR_RESPONSE)->setContent(constants::get(VAR_PROXY)->request(constants::get(VAR_REQUEST)->getMethod(), constants::get(VAR_REQUEST)->getUrl(), json_decode(json_encode($_REQUEST), true, 512, JSON_THROW_ON_ERROR))->getBody());
     }
