@@ -99,12 +99,12 @@ class yP
         constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         mkdir(PATH_DIR_TMP, 0777, true);
+        /* It's setting the permissions of the `tmp` directory to `777`. */
         chmod(PATH_DIR_TMP, 0777);
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
-
-
+        /* It's returning the `YXORP_EVENT_LIST` constant. */
         return constants::get(YXORP_EVENT_LIST);
     }
 
