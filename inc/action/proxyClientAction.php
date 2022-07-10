@@ -18,7 +18,6 @@ class proxyClientAction extends wrapper
         var_drump(constants::get(VAR_RESPONSE));
         /* Creating a new `yxorP\inc\proxy\Client` object, and then it is sending a request to the `constants::get(YXORP_FETCH)` URL,
         with the `constants::get(YXORP_REQUEST)->getMethod()` method, and the `$_REQUEST` array as the body.   Setting the content of the response to the content of the request. */
-        exit('123');
         $getMethod = constants::get(VAR_REQUEST)->getMethod();
         var_dump($getMethod);
         $getUrl = constants::get(VAR_REQUEST)->getUrl();
