@@ -16,27 +16,17 @@ class mimeTypesAction extends wrapper
 
         $mimes_file = file_get_contents(PATH_FILE_MIME_TYPES);
         preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', $mimes_file, $matches, PREG_SET_ORDER);
-        foreach ($matches as $match) {
-            foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
-        }
+        foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
         if (is_file(YXORP_PROXY_URL)) {
             if (isset(pathinfo(YXORP_PROXY_URL) ['extension'])) {
                 $content_ext = pathinfo(YXORP_PROXY_URL) ['extension'];
-                if (isset($mimes[$content_ext])) {
-                    constants::set('MIME', $mimes[$content_ext]);
-                } else {
+                if (isset($mimes[$content_ext])) constants::set('MIME', $mimes[$content_ext]); else {
                     if (is_readable(YXORP_PROXY_URL) && is_executable(YXORP_PROXY_URL)) {
                         $finfo = finfo_open(FILEINFO_MIME_TYPE);
                         $content_mime = finfo_file($finfo, YXORP_PROXY_URL);
-                        if ($content_mime === null | $content_mime === "") {
-                            constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream');
-                        } else {
-                            constants::set('MIME', $content_mime);
-                        }
+                        if ($content_mime === null | $content_mime === "") constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream'); else constants::set('MIME', $content_mime);
                         finfo_close($finfo);
-                    } else {
-                        constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream');
-                    }
+                    } else constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream');
                 }
             }
         }
