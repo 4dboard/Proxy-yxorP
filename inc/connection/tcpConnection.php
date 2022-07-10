@@ -4,7 +4,7 @@ use JetBrains\PhpStorm\Pure;
 use JsonSerializable;
 use ReturnTypeWillChange;
 use Throwable;
-use yxorP\http\worker;
+use yxorP\inc\http\worker;
 use yxorP\inc\protocols\http\request;
 use function ceil;
 use function count;

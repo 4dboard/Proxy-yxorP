@@ -4,7 +4,7 @@
 
 use Exception;
 use Throwable;
-use yxorP\http\worker;
+use yxorP\inc\http\worker;
 use yxorP\inc\events\eventInterface;
 use function class_exists;
 use function explode;

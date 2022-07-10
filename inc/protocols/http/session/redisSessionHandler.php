@@ -5,7 +5,7 @@ namespace yxorP\inc\protocols\http\session;
 
 use Redis;
 use RuntimeException;
-use yxorP\http\timer;
+use yxorP\inc\http\timer;
 use yxorP\inc\protocols\http\session;
 
 class redisSessionHandler implements sessionHandlerInterface

@@ -1,12 +1,9 @@
 <?php
-/* Importing the wrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\inc\http namespace. */
 
-namespace yxorp\inc\action;
 
 use yxorP\inc\generalHelper;
 use yxorP\inc\wrapper;
-use const DIR_ROOT;
-use const YXORP_DIR_FULL;
 
 /* Extending the wrapper class. */
 
@@ -18,6 +15,6 @@ class checkFilesAction extends wrapper
         generalHelper::fileCheck(YXORP_DIR_FULL, false);
         /* Checking the files in the directory `DIR_ROOT . 'override' . DIRECTORY_SEPARATOR . 'global'` and it is not
         recursive. */
-        generalHelper::fileCheck(DIR_ROOT . 'override' . DIRECTORY_SEPARATOR . 'global', false);
+        generalHelper::fileCheck(DIR_ROOT . DIR_INC . 'override' . DIRECTORY_SEPARATOR . 'global', false);
     }
 }

@@ -2,8 +2,8 @@
 
 use Exception;
 use Throwable;
-use yxorP\http\timer;
-use yxorP\http\worker;
+use yxorP\inc\http\timer;
+use yxorP\inc\http\worker;
 use yxorP\inc\connection\connectionInterface;
 use yxorP\inc\connection\tcpConnection;
 

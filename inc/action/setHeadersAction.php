@@ -1,8 +1,7 @@
 <?php
 
-/* Importing the wrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\inc\http namespace. */
 
-namespace yxorp\inc\action;
 
 use yxorP\inc\wrapper;
 

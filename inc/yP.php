@@ -3,7 +3,6 @@
 namespace yxorP\inc;
 /* Importing the constants class from the inc folder. */
 
-
 use RuntimeException;
 
 /* Loading the required files. */
@@ -16,13 +15,13 @@ require __DIR__ . '/constants.php';
 /**
  * It's a proxy for the yxorp plugin
  */
-class yxorP
+class yP
 {
     /* It's a singleton. */
     /**
-     * @var yxorP|null
+     * @var yP|null
      */
-    public static ?yxorP $yxorP = null;
+    public static ?yP $yxorP = null;
     /* It's an array of events that will be triggered. */
     /**
      * @var array
@@ -45,18 +44,7 @@ class yxorP
 
         if (constants::get(YXORP_TARGET_PLUGINS) && empty(constants::get(YXORP_TARGET_PLUGINS))) array_merge($plugins, constants::get(YXORP_TARGET_PLUGINS));
 
-        foreach ([DIR_ACTION => scandir(DIR_ROOT . DIR_ACTION), DIR_PLUGIN => $plugins] as $key => $value) $this->subscribers($key, $value);
-    }
-
-    /**
-     * It checks if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks if the
-     * class exists in the yxorP namespace, if it does, it creates an instance of it
-     * @param string $dir
-     * @param array $actions
-     */
-    private function subscribers(string $dir, array $actions): void
-    {
-        foreach ($actions as $action) $this->subscribe($dir, $action);
+        foreach ([DIR_INC . DIR_ACTION => scandir(DIR_ROOT . DIR_INC . DIR_ACTION), DIR_PLUGIN => $plugins] as $key => $value) foreach ($value as $action) $this->subscribe($key, $action);
     }
 
     /**
@@ -68,13 +56,13 @@ class yxorP
      */
     private function subscribe(string $dir, string $action): void
     {
-        /* It's removing the `.php` extension from the `$action` variable. */
-        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
         /* It's checking if the length of the `$action` variable is less than 3, and if it is, it returns. */
         if (strlen($action) < 3) return;
+        /* It's removing the `.php` extension from the `$action` variable. */
+        $action = str_replace(EXT_PHP, CHAR_EMPTY_STRING, $action);
         /* It's checking if the file exists in the plugin directory, if it does, it requires it, if it doesn't, it checks
         if the class exists in the yxorP namespace, if it does, it creates an instance of it */
-        if (file_exists(DIR_ROOT . $dir . $action . EXT_PHP)) require(DIR_ROOT . $dir . $action . EXT_PHP);
+        require(DIR_ROOT . $dir . $action . EXT_PHP);
         /* It's creating an instance of the class that's in the `$action` variable, and passing it to the `addSubscriber()`
         function. */
         $this->addSubscriber(new $action());
@@ -95,24 +83,26 @@ class yxorP
 
     /**
      * It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function
+     * @param string $yxorp_root
      * @param array|null $request
      * @return void
      */
-    public static function proxy(array|null $request = null): void
+    public static function proxy(string $yxorp_root, array|null $request = null): void
     {
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::init() as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
+        foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
 
     /**
      * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
+     * * @param string $yxorp_root
      * * @return array
      */
-    private static function init(): array
+    private static function init(string $yxorp_root): array
     {
 
         /* It's creating the constants that are used in the plugin. */
-        constants::create(__DIR__);
+        constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
         foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))

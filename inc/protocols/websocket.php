@@ -2,7 +2,7 @@
 
 use Exception;
 use Throwable;
-use yxorP\http\worker;
+use yxorP\inc\http\worker;
 use yxorP\inc\connection\connectionInterface;
 use yxorP\inc\connection\tcpConnection;
 use yxorP\inc\protocols\http\request;

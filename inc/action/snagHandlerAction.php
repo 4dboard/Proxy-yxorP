@@ -1,14 +1,10 @@
 <?php
 
-/* Importing the wrapper class from the yxorP\http namespace. */
+/* Importing the wrapper class from the yxorP\inc\http namespace. */
 
-namespace yxorp\inc\action;
 
 use yxorP\inc\constants;
 use yxorP\inc\wrapper;
-use function str_contains;
-use const ENV_DEBUG;
-use const VAR_SNAG;
 
 /* A class that extends the wrapper class. */
 

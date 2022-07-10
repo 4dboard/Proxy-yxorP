@@ -4,7 +4,7 @@
 namespace yxorP\inc\events;
 
 use Throwable;
-use yxorP\http\worker;
+use yxorP\inc\http\worker;
 use function class_exists;
 use function count;
 

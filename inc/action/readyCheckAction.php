@@ -1,12 +1,11 @@
 <?php
 /* Importing the cache class from the cache namespace. */
 
-namespace yxorp\inc\action;
 
-use yxorP\http\cache;
+use yxorP\inc\http\cache;
 use yxorP\inc\wrapper;
 
-/* Importing the wrapper class from the yxorP\http namespace. Extending the wrapper class, which is a class that is used to wrap events. */
+/* Importing the wrapper class from the yxorP\inc\http namespace. Extending the wrapper class, which is a class that is used to wrap events. */
 
 class readyCheckAction extends wrapper
 {

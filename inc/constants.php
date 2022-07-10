@@ -6,28 +6,23 @@ namespace yxorP\inc;
 
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
-use yxorP\parse\parse;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\parseUrl;
 use yxorP\inc\parser\resolvedInterfaceDomainNameInterface;
 use yxorP\inc\parser\Rules;
 use yxorP\inc\proxy\Client;
+use yxorP\parse\parse;
 use function cockpit;
 
 class constants
 {
     /* Defining constants.Creating a new directory.  */
     /**
-     * @param string $dir
+     * @param string $yxorp_root
      * @return void
      */
-    public static function create(string $dir): void
+    public static function create(string $yxorp_root): void
     {
-
-        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$dir` with a `DIRECTORY_SEPARATOR`
-        appended to it. */
-        define('DIR_ROOT', $dir . DIRECTORY_SEPARATOR);
-
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
@@ -119,56 +114,6 @@ class constants
         define('EXT_ENV', CHAR_PERIOD . 'env');
         /* Defining a constant. */
         define('EXT_PHAR', CHAR_PERIOD . 'phar');
-
-        // EVENTS
-        /* Defining a constant called `EVENT_BUILD_CACHE` and setting it to the value of `request.build_cached`. */
-        define('EVENT_BUILD_CACHE', 'request' . CHAR_PERIOD . 'build_cached');
-        /* Defining a constant called `EVENT_BUILD_CONTEXT` and setting it to the value of `request.build_context`. */
-        define('EVENT_BUILD_CONTEXT', 'request' . CHAR_PERIOD . 'build_context');
-        /* Defining a constant called `EVENT_BUILD_INCLUDES` and setting it to the value of `request.build_includes`. */
-        define('EVENT_BUILD_INCLUDES', 'request' . CHAR_PERIOD . 'build_includes');
-        /* Defining a constant called `EVENT_BUILD_HEADERS` and setting it to the value of `request.build_headers`. */
-        define('EVENT_BUILD_HEADERS', 'request' . CHAR_PERIOD . 'build_headers');
-        /* Defining a constant called `EVENT_BUILD_REQUEST` and setting it to the value of `request.build_request`. */
-        define('EVENT_BUILD_REQUEST', 'request' . CHAR_PERIOD . 'build_request');
-        /* Defining a constant called `EVENT_BEFORE_SEND` and setting it to the value of `request.before_send`. */
-        define('EVENT_BEFORE_SEND', 'request' . CHAR_PERIOD . 'before_send');
-        /* Defining a constant called `EVENT_SEND` and setting it to the value of `request.send`. */
-        define('EVENT_SEND', 'request' . CHAR_PERIOD . 'send');
-        /* Defining a constant called `EVENT_SENT` and setting it to the value of `request.sent`. */
-        define('EVENT_SENT', 'request' . CHAR_PERIOD . 'sent');
-        /* Defining a constant called `EVENT_COMPLETE` and setting it to the value of `request.complete`. */
-        define('EVENT_COMPLETE', 'request' . CHAR_PERIOD . 'complete');
-        /* Defining a constant called `EVENT_FINAL` and setting it to the value of `request.final`. */
-        define('EVENT_FINAL', 'request' . CHAR_PERIOD . 'final');
-        /* Defining a constant called `EVENT_EXCEPTION` and setting it to the value of `request.build_exception`. */
-        define('EVENT_EXCEPTION', 'request' . CHAR_PERIOD . 'build_exception');
-        /* Defining a constant called `EVENT_WRITE` and setting it to the value of `curl.callback.write`. */
-        define('EVENT_WRITE', 'curl' . CHAR_PERIOD . 'callback' . CHAR_PERIOD . 'write');
-
-
-        // FILES
-        /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
-        define('FILE_REWRITE_SEARCH', 'replace_rewrite' . EXT_CSV);
-        /* Defining a constant called `FILE_REWRITE_REPLACE` and setting it to the value of `REWRITE_SEARCH`. */
-        define('FILE_REWRITE_REPLACE', 'search_rewrite' . EXT_CSV);
-        /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
-        define('FILE_INDEX', 'index' . EXT_PHP);
-        /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
-        define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
-        /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
-        define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
-
-
-        /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
-        define('FILE_TLDS_ALPHA_BY_DOMAIN', 'tlds-alpha-by-domain.txt');
-        /* Defining the PATH_ICANN_PSL_PHP path to the action icann-public-suffix-list file. */
-        define('FILE_PUBLIC_SUFFIX_LIST', 'public_suffix_list.dat');
-
-
-        //METHODS
-        /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
-        define('SUBSCRIBE_METHOD', 'subscribe');
 
 
         //VARIBLES SINGLE
@@ -350,33 +295,6 @@ class constants
         define('VAR_REQUEST_URI', VAR_REQUEST . CHAR_UNDER . VAR_URI);
 
 
-        // YXORP
-        define('YXORP_EVENT_LIST', VAR_EVENT . CHAR_UNDER . VAR_LIST);
-        /* Defining a constant. */
-        define('YXORP_REWRITE_SEARCH', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_SEARCH);
-        /* Defining a constant. */
-        define('YXORP_REWRITE_REPLACE', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_REPLACE);
-        /* Defining a constant. */
-        define('YXORP_COCKPIT_INSTALL', VAR_COCKPIT . CHAR_UNDER . VAR_INSTALL);
-        /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
-        define('YXORP_HTTP_HOST', VAR_HTTP_UP . CHAR_UNDER . VAR_HOST);
-        /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
-        define('YXORP_COCKPIT_APP', VAR_COCKPIT . CHAR_UNDER . VAR_APP);
-        /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
-        define('YXORP_PHP_SELF', VAR_PHP . CHAR_UNDER . VAR_SELF);
-        /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
-        define('YXORP_REQUEST_METHOD', VAR_REQUEST . CHAR_UNDER . VAR_METHOD);
-        /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
-        define('YXORP_HTTP_', VAR_HTTPS_UP . CHAR_UNDER);
-        /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
-        define('YXORP_REMOTE_ADDR', VAR_REMOTE . CHAR_UNDER . VAR_ADDR);
-        /* Defining a constant called YXORP_TARGET_PLUGINS and setting it to the string TARGET_PLUGINS. */
-        define('YXORP_TARGET_PLUGINS', 'TARGET_PLUGINS');
-        /* Defining a constant called YXORP_GLOBAL_REPLACE and setting it to the string VAR_REPLACE. */
-        define('YXORP_GLOBAL_REPLACE', VAR_GLOBAL_UP . CHAR_UNDER . VAR_REPLACE);
-        /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string VAR_PATTERN. */
-        define('YXORP_GLOBAL_PATTERN', VAR_GLOBAL_UP . CHAR_UNDER . VAR_PATTERN);
-
         // COCKPIT
         /* Defining a constant. */
         define('COCKPIT_COCKPIT', 'cockpit');
@@ -386,7 +304,11 @@ class constants
         define('COCKPIT_HOST', 'host');
         define('COCKPIT_TARGET', 'target');
 
+
         // DIRECTORIES
+        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$dir` with a `DIRECTORY_SEPARATOR`
+        appended to it. */
+        define('DIR_ROOT', $yxorp_root . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_ACTION', 'action' . DIRECTORY_SEPARATOR);
@@ -429,7 +351,6 @@ class constants
         /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_MINIFY', 'minify' . DIRECTORY_SEPARATOR);
-
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_SNAG', 'snag' . DIRECTORY_SEPARATOR);
@@ -440,6 +361,86 @@ class constants
         appended to it. */
         define('DIR_PSR', 'psr' . DIRECTORY_SEPARATOR);
         define('DIR_DEBUG', 'debug' . DIRECTORY_SEPARATOR);
+
+
+        // EVENTS
+        /* Defining a constant called `EVENT_BUILD_CACHE` and setting it to the value of `request.build_cached`. */
+        define('EVENT_BUILD_CACHE', 'request' . CHAR_PERIOD . 'build_cached');
+        /* Defining a constant called `EVENT_BUILD_CONTEXT` and setting it to the value of `request.build_context`. */
+        define('EVENT_BUILD_CONTEXT', 'request' . CHAR_PERIOD . 'build_context');
+        /* Defining a constant called `EVENT_BUILD_INCLUDES` and setting it to the value of `request.build_includes`. */
+        define('EVENT_BUILD_INCLUDES', 'request' . CHAR_PERIOD . 'build_includes');
+        /* Defining a constant called `EVENT_BUILD_HEADERS` and setting it to the value of `request.build_headers`. */
+        define('EVENT_BUILD_HEADERS', 'request' . CHAR_PERIOD . 'build_headers');
+        /* Defining a constant called `EVENT_BUILD_REQUEST` and setting it to the value of `request.build_request`. */
+        define('EVENT_BUILD_REQUEST', 'request' . CHAR_PERIOD . 'build_request');
+        /* Defining a constant called `EVENT_BEFORE_SEND` and setting it to the value of `request.before_send`. */
+        define('EVENT_BEFORE_SEND', 'request' . CHAR_PERIOD . 'before_send');
+        /* Defining a constant called `EVENT_SEND` and setting it to the value of `request.send`. */
+        define('EVENT_SEND', 'request' . CHAR_PERIOD . 'send');
+        /* Defining a constant called `EVENT_SENT` and setting it to the value of `request.sent`. */
+        define('EVENT_SENT', 'request' . CHAR_PERIOD . 'sent');
+        /* Defining a constant called `EVENT_COMPLETE` and setting it to the value of `request.complete`. */
+        define('EVENT_COMPLETE', 'request' . CHAR_PERIOD . 'complete');
+        /* Defining a constant called `EVENT_FINAL` and setting it to the value of `request.final`. */
+        define('EVENT_FINAL', 'request' . CHAR_PERIOD . 'final');
+        /* Defining a constant called `EVENT_EXCEPTION` and setting it to the value of `request.build_exception`. */
+        define('EVENT_EXCEPTION', 'request' . CHAR_PERIOD . 'build_exception');
+        /* Defining a constant called `EVENT_WRITE` and setting it to the value of `curl.callback.write`. */
+        define('EVENT_WRITE', 'curl' . CHAR_PERIOD . 'callback' . CHAR_PERIOD . 'write');
+
+
+        // FILES
+        /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
+        define('FILE_REWRITE_SEARCH', 'replace_rewrite' . EXT_CSV);
+        /* Defining a constant called `FILE_REWRITE_REPLACE` and setting it to the value of `REWRITE_SEARCH`. */
+        define('FILE_REWRITE_REPLACE', 'search_rewrite' . EXT_CSV);
+        /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
+        define('FILE_INDEX', 'index' . EXT_PHP);
+        /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
+        define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
+        /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
+        define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
+
+
+        /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
+        define('FILE_TLDS_ALPHA_BY_DOMAIN', 'tlds-alpha-by-domain.txt');
+        /* Defining the PATH_ICANN_PSL_PHP path to the action icann-public-suffix-list file. */
+        define('FILE_PUBLIC_SUFFIX_LIST', 'public_suffix_list.dat');
+
+
+        //METHODS
+        /* Defining a constant called `SUBSCRIBE_METHOD` and setting it to the value of `subscribe`. */
+        define('SUBSCRIBE_METHOD', 'subscribe');
+
+
+        // YXORP
+        define('YXORP_EVENT_LIST', VAR_EVENT . CHAR_UNDER . VAR_LIST);
+        /* Defining a constant. */
+        define('YXORP_REWRITE_SEARCH', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_SEARCH);
+        /* Defining a constant. */
+        define('YXORP_REWRITE_REPLACE', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_REPLACE);
+        /* Defining a constant. */
+        define('YXORP_COCKPIT_INSTALL', VAR_COCKPIT . CHAR_UNDER . VAR_INSTALL);
+        /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
+        define('YXORP_HTTP_HOST', VAR_HTTP_UP . CHAR_UNDER . VAR_HOST);
+        /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
+        define('YXORP_COCKPIT_APP', VAR_COCKPIT . CHAR_UNDER . VAR_APP);
+        /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
+        define('YXORP_PHP_SELF', VAR_PHP . CHAR_UNDER . VAR_SELF);
+        /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
+        define('YXORP_REQUEST_METHOD', VAR_REQUEST . CHAR_UNDER . VAR_METHOD);
+        /* Defining a constant called YXORP_HTTP_ and setting it to the string HTTP_. */
+        define('YXORP_HTTP_', VAR_HTTPS_UP . CHAR_UNDER);
+        /* Defining a constant called YXORP_REMOTE_ADDR and setting it to the string REMOTE_ADDR. */
+        define('YXORP_REMOTE_ADDR', VAR_REMOTE . CHAR_UNDER . VAR_ADDR);
+        /* Defining a constant called YXORP_TARGET_PLUGINS and setting it to the string TARGET_PLUGINS. */
+        define('YXORP_TARGET_PLUGINS', 'TARGET_PLUGINS');
+        /* Defining a constant called YXORP_GLOBAL_REPLACE and setting it to the string VAR_REPLACE. */
+        define('YXORP_GLOBAL_REPLACE', VAR_GLOBAL_UP . CHAR_UNDER . VAR_REPLACE);
+        /* Defining a constant called YXORP_GLOBAL_PATTERN and setting it to the string VAR_PATTERN. */
+        define('YXORP_GLOBAL_PATTERN', VAR_GLOBAL_UP . CHAR_UNDER . VAR_PATTERN);
+
 
         // PATHS
         /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
@@ -458,10 +459,10 @@ class constants
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH);
+        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_INC . DIR_OVERRIDE . DIR_GLOBAL . DIR_INCLUDES . FILE_REWRITE_SEARCH);
         /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
+        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_INC . DIR_OVERRIDE . DIR_GLOBAL . DIRECTORY_SEPARATOR . DIR_INCLUDES . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
@@ -540,10 +541,10 @@ class constants
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
 
-        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);        // Reporting
+        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
 
         /* Setting the token to the snag key. */
-        self::set(VAR_SNAG, \yxorP\inc\snag\Client::make(ENV_BUG_SNAG_KEY));
+        self::set(VAR_SNAG, snag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \yxorP\inc\proxy class. */
 
         self::set(VAR_PROXY, new Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
@@ -620,7 +621,7 @@ class constants
         // SITE DOMAIN DETAILS
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        $siteDomain = self::publicSuffix(YXORP_SITE_URL ?: ENV_DEFAULT_SITE);
+        $siteDomain = self::publicSuffix(YXORP_SITE_URL ?: constants::get(ENV_DEFAULT_SITE));
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_SITE_DOMAIN', $siteDomain->registrableDomain()->toString() ?: $siteDomain->domain()->toString());
         /* Defining a constant. */
@@ -643,7 +644,7 @@ class constants
         // TARGET DOMAIN DETAILS
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        $targetDomain = self::publicSuffix(YXORP_TARGET_URL ?: ENV_DEFAULT_TARGET);
+        $targetDomain = self::publicSuffix(YXORP_TARGET_URL ?: constants::get(ENV_DEFAULT_TARGET));
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain. */
 
         // --
@@ -664,10 +665,10 @@ class constants
         /* Setting the `PROXY_URL` variable to the value of the `FETCH` variable, with the value of the `YXORP_REQUEST_URI`
         variable appended to it. */
         define('YXORP_PROXY_URL', VAR_FETCH . YXORP_REQUEST_URI);
-        /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT` constant, with the `override` string appended
+        /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT . DIR_INC` constant, with the `override` string appended
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
-        define('YXORP_DIR_FULL', DIR_ROOT . DIR_OVERRIDE . ($siteDetails)[VAR_FILES]);
+        define('YXORP_DIR_FULL', DIR_ROOT . DIR_INC . DIR_OVERRIDE . ($siteDetails)[VAR_FILES]);
         /* Setting the cache key to the base64 encoded version of the proxy URL. */
         define('CACHE_KEY', generalHelper::base64_url_encode(YXORP_PROXY_URL) . EXT_TMP);
 

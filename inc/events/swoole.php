@@ -7,7 +7,7 @@ use Swoole\Event;
 use Swoole\Process;
 use Swoole\Timer;
 use Throwable;
-use yxorP\http\worker;
+use yxorP\inc\http\worker;
 
 /**
  * @property int $mapId

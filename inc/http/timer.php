@@ -21,7 +21,7 @@ class timer
             self::$_event = $event;
             return;
         }
-        if (function_exists('pcntl_signal')) pcntl_signal(SIGALRM, ['\yxorP\http\timer', 'signalHandle'], false);
+        if (function_exists('pcntl_signal')) pcntl_signal(SIGALRM, ['\yxorP\inc\http\timer', 'signalHandle'], false);
     }
 
     /* A callback function that is called when the timer is triggered. */

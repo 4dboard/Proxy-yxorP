@@ -4,8 +4,8 @@
 
 use Exception;
 use Throwable;
-use yxorP\http\timer;
-use yxorP\http\worker;
+use yxorP\inc\http\timer;
+use yxorP\inc\http\worker;
 use function class_exists;
 use function explode;
 use function function_exists;
