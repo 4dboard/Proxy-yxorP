@@ -2,9 +2,9 @@
 /* Importing the wrapper class from the yxorP\inc\http namespace. */
 
 
+use yxorP\inc\constants;
 use yxorP\inc\http\request;
 use yxorP\inc\http\response;
-use yxorP\inc\constants;
 use yxorP\inc\wrapper;
 
 /* Extending the wrapper class, which is a class that is used to wrap the request and response objects. */

@@ -1,11 +1,11 @@
 <?php namespace yxorP\inc\proxy;
 
-use yxorP\inc\psr\Http\Message\RequestInterface;
-use yxorP\inc\psr\Http\Message\ResponseInterface;
 use yxorP\inc\proxy\Exception\BadResponseException;
 use yxorP\inc\proxy\Exception\TooManyRedirectsException;
 use yxorP\inc\proxy\Promise\PromiseInterface;
 use yxorP\inc\proxy\Psr7;
+use yxorP\inc\psr\Http\Message\RequestInterface;
+use yxorP\inc\psr\Http\Message\ResponseInterface;
 
 class RedirectMiddleware
 {

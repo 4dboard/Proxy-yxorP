@@ -2,8 +2,8 @@
 
 namespace yxorP\inc\proxy\Psr7;
 
-use yxorP\inc\psr\Http\Message\StreamInterface;
 use RuntimeException;
+use yxorP\inc\psr\Http\Message\StreamInterface;
 
 
 /**

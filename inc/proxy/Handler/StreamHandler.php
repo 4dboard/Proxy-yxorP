@@ -2,9 +2,6 @@
 
 namespace yxorP\inc\proxy\Handler;
 
-use yxorP\inc\psr\Http\Message\RequestInterface;
-use yxorP\inc\psr\Http\Message\ResponseInterface;
-use yxorP\inc\psr\Http\Message\StreamInterface;
 use yxorP\inc\proxy\Exception\ARequestException;
 use yxorP\inc\proxy\Exception\ConnectException;
 use yxorP\inc\proxy\Promise\FulfilledPromise;
@@ -12,6 +9,9 @@ use yxorP\inc\proxy\Promise\PromiseInterface;
 use yxorP\inc\proxy\Psr7;
 use yxorP\inc\proxy\TransferStats;
 use yxorP\inc\proxy\Utils;
+use yxorP\inc\psr\Http\Message\RequestInterface;
+use yxorP\inc\psr\Http\Message\ResponseInterface;
+use yxorP\inc\psr\Http\Message\StreamInterface;
 use function yxorP\inc\proxy\debug_resource;
 use function yxorP\inc\proxy\default_ca_bundle;
 use function yxorP\inc\proxy\headers_from_lines;

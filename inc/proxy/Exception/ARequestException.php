@@ -2,10 +2,10 @@
 
 namespace yxorP\inc\proxy\Exception;
 
+use yxorP\inc\proxy\Promise\PromiseInterface;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
 use yxorP\inc\psr\Http\Message\UriInterface;
-use yxorP\inc\proxy\Promise\PromiseInterface;
 use function yxorP\inc\proxy\Psr7\get_message_body_summary;
 
 /**

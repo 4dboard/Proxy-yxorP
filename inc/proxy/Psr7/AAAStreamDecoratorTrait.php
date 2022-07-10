@@ -4,8 +4,8 @@ namespace yxorP\inc\proxy\Psr7;
 
 use BadMethodCallException;
 use Exception;
-use yxorP\inc\psr\Http\Message\StreamInterface;
 use UnexpectedValueException;
+use yxorP\inc\psr\Http\Message\StreamInterface;
 
 /**
  * Stream decorator trait

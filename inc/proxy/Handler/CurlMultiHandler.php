@@ -2,10 +2,10 @@
 
 namespace yxorP\inc\proxy\Handler;
 
-use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\proxy\Promise as P;
 use yxorP\inc\proxy\Promise\Promise;
 use yxorP\inc\proxy\Utils;
+use yxorP\inc\psr\Http\Message\RequestInterface;
 
 /**
  * Returns an asynchronous response using curl_multi_* functions.

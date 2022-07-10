@@ -1,9 +1,9 @@
 <?php namespace yxorP\inc\proxy;
 
-use yxorP\inc\psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use yxorP\inc\proxy\Cookie\CookieJarInterface;
 use yxorP\inc\proxy\Exception\ARequestException;
+use yxorP\inc\psr\Http\Message\ResponseInterface;
 use function yxorP\inc\proxy\Promise\rejection_for;
 
 final class Middleware

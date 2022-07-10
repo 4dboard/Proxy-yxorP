@@ -2,10 +2,10 @@
 
 namespace yxorP\inc\proxy\Handler;
 
+use yxorP\inc\proxy\Psr7\Response;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
 use yxorP\inc\psr\Http\Message\StreamInterface;
-use yxorP\inc\proxy\Psr7\Response;
 
 /**
  * Represents a cURL easy handle and the data it populates.

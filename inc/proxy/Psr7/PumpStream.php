@@ -3,8 +3,8 @@
 namespace yxorP\inc\proxy\Psr7;
 
 use Exception;
-use yxorP\inc\psr\Http\Message\StreamInterface;
 use RuntimeException;
+use yxorP\inc\psr\Http\Message\StreamInterface;
 
 /**
  * Provides a read only stream that pumps data from a PHP callable.

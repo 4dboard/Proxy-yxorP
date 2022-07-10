@@ -1,8 +1,8 @@
 <?php namespace yxorP\inc\proxy;
 
-use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\proxy\Promise\EachPromise;
 use yxorP\inc\proxy\Promise\PromisorInterface;
+use yxorP\inc\psr\Http\Message\RequestInterface;
 use function yxorP\inc\proxy\Promise\iter_for;
 
 class Pool implements PromisorInterface

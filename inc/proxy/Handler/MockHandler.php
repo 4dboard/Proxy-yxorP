@@ -3,13 +3,13 @@
 namespace yxorP\inc\proxy\Handler;
 
 use Countable;
-use yxorP\inc\psr\Http\Message\RequestInterface;
-use yxorP\inc\psr\Http\Message\ResponseInterface;
-use yxorP\inc\psr\Http\Message\StreamInterface;
 use yxorP\inc\proxy\Exception\ARequestException;
 use yxorP\inc\proxy\HandlerStack;
 use yxorP\inc\proxy\Promise\PromiseInterface;
 use yxorP\inc\proxy\TransferStats;
+use yxorP\inc\psr\Http\Message\RequestInterface;
+use yxorP\inc\psr\Http\Message\ResponseInterface;
+use yxorP\inc\psr\Http\Message\StreamInterface;
 use function yxorP\inc\proxy\describe_type;
 use function yxorP\inc\proxy\Promise\promise_for;
 use function yxorP\inc\proxy\Promise\rejection_for;

@@ -2,13 +2,13 @@
 
 namespace yxorP\inc\proxy\Handler;
 
-use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\proxy\Exception\ARequestException;
 use yxorP\inc\proxy\Exception\ConnectException;
 use yxorP\inc\proxy\Promise\FulfilledPromise;
 use yxorP\inc\proxy\Promise\PromiseInterface;
 use yxorP\inc\proxy\Psr7\LazyOpenStream;
 use yxorP\inc\proxy\TransferStats;
+use yxorP\inc\psr\Http\Message\RequestInterface;
 use function yxorP\inc\proxy\debug_resource;
 use function yxorP\inc\proxy\is_host_in_noproxy;
 use function yxorP\inc\proxy\Promise\rejection_for;

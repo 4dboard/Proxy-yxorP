@@ -3,9 +3,9 @@
 namespace yxorP\inc\proxy\Psr7;
 
 use InvalidArgumentException;
+use RuntimeException;
 use yxorP\inc\psr\Http\Message\StreamInterface;
 use yxorP\inc\psr\Http\Message\UploadedFileInterface;
-use RuntimeException;
 
 class UploadedFile implements UploadedFileInterface
 {

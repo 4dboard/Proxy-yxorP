@@ -1,9 +1,9 @@
 <?php namespace yxorP\inc\proxy;
 
-use yxorP\inc\psr\Http\Message\UriInterface;
 use RuntimeException;
 use Symfony\Polyfill\Intl\Idn\Idn;
 use yxorP\inc\proxy\Exception\InvalidArgumentException;
+use yxorP\inc\psr\Http\Message\UriInterface;
 use function extension_loaded;
 use function idn_to_ascii;
 use function preg_match;

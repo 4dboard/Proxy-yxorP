@@ -2,8 +2,8 @@
 
 namespace yxorP\inc\proxy\Handler;
 
-use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\proxy\RequestOptions;
+use yxorP\inc\psr\Http\Message\RequestInterface;
 
 /**
  * Provides basic proxies for handlers.
