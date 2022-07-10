@@ -27,7 +27,7 @@ class mimeTypesAction extends wrapper
             if (isset(pathinfo(YXORP_PROXY_URL) ['extension'])) {
                 $content_ext = pathinfo(YXORP_PROXY_URL) ['extension'];
                 if (isset($mimes[$content_ext])) {
-                    $content_mime = $mimes[$content_ext];
+                    constants::set('MIME', $mimes[$content_ext]);
                 } else {
                     if (is_readable(YXORP_PROXY_URL) && is_executable(YXORP_PROXY_URL)) {
                         $finfo = finfo_open(FILEINFO_MIME_TYPE);
