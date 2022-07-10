@@ -614,8 +614,7 @@ class constants
         // SITE DOMAIN
 
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
-        //define('YXORP_SITE_URL', (constants::get(VAR_SERVER)[YXORP_HTTP_HOST]));
-        define('YXORP_SITE_URL', ('www.xn--gme-nnb.com'));
+        define('YXORP_SITE_URL', (constants::get(VAR_SERVER)[YXORP_HTTP_HOST]));
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         define('YXORP_REQUEST_URI', (constants::get(VAR_SERVER))[VAR_REQUEST_URI]);
 
