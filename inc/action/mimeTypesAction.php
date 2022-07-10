@@ -15,8 +15,6 @@ class mimeTypesAction extends wrapper
         /* An array of mime types. */
         /* Getting the mime types from the mime.types file. */
         /* Parsing the mime.types file and creating an associative array of mime types. */
-        preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', file_get_contents(PATH_FILE_MIME_TYPES), $matches, PREG_SET_ORDER);
-        /* Parsing the mime.types file and creating an associative array of mime types. */
         foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
         print_r($mimes);
         /* Checking if the requested file exists. */
