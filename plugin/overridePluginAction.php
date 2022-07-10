@@ -32,8 +32,8 @@ class overridePluginAction extends wrapper
         constants::set(YXORP_REWRITE_REPLACE, generalHelper::CSV(PATH_REWRITE_REPLACE));
         /* Minifying the content of the response. */
 
+        /* Replacing the content of the response with the content of the `REWRITE` method. */
         constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(constants::get('MIME') !== VAR_TEXT_HTML ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
-            /* Replacing the content of the response with the content of the `REWRITE` method. */
             return str_replace(constants::get(YXORP_REWRITE_SEARCH), constants::get(YXORP_REWRITE_REPLACE), $m[3]);
         }, $content)));
     }
