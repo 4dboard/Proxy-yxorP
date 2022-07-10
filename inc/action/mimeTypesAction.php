@@ -13,7 +13,6 @@ class mimeTypesAction extends wrapper
     public function onBuildContext(): void
     {
         /* An array of mime types. */
-
         preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', file_get_contents(PATH_FILE_MIME_TYPES), $matches, PREG_SET_ORDER);
         foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
         if (is_file(YXORP_PROXY_URL)) {
