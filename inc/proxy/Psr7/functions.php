@@ -4,13 +4,13 @@ namespace yxorP\inc\proxy\Psr7;
 
 use InvalidArgumentException;
 use Iterator;
+use RuntimeException;
 use yxorP\inc\psr\Http\Message\MessageInterface;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
 use yxorP\inc\psr\Http\Message\ServerRequestInterface;
 use yxorP\inc\psr\Http\Message\StreamInterface;
 use yxorP\inc\psr\Http\Message\UriInterface;
-use RuntimeException;
 
 /**
  * Returns the string representation of an HTTP message.
@@ -242,7 +242,7 @@ function modify_request(RequestInterface $request, array $changes)
     }
 
     if ($request instanceof ServerRequestInterface) {
-        return (new ServerRequest(
+        return (new ServerAAAARequest(
             isset($changes['method']) ? $changes['method'] : $request->getMethod(),
             $uri,
             $headers,
@@ -258,7 +258,7 @@ function modify_request(RequestInterface $request, array $changes)
             ->withUploadedFiles($request->getUploadedFiles());
     }
 
-    return new Request(
+    return new AAAARequest(
         isset($changes['method']) ? $changes['method'] : $request->getMethod(),
         $uri,
         $headers,
@@ -468,7 +468,7 @@ function readline(StreamInterface $stream, $maxLength = null)
  *
  * @param string $message Request message string.
  *
- * @return Request
+ * @return AAAARequest
  */
 function parse_request($message)
 {
@@ -480,7 +480,7 @@ function parse_request($message)
     $parts = explode(' ', $data['start-line'], 3);
     $version = isset($parts[2]) ? explode('/', $parts[2])[1] : '1.1';
 
-    $request = new Request(
+    $request = new AAAARequest(
         $parts[0],
         $matches[1] === '/' ? _parse_request_uri($parts[1], $data['headers']) : $parts[1],
         $data['headers'],

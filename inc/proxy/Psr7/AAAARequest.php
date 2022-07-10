@@ -9,7 +9,7 @@ use yxorP\inc\psr\Http\Message\UriInterface;
 /**
  * PSR-7 request implementation.
  */
-class Request implements RequestInterface
+class AAAARequest implements RequestInterface
 {
     use MessageTrait;
 

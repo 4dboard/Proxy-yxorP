@@ -22,7 +22,7 @@ use yxorP\inc\psr\Http\Message\UriInterface;
  * implemented such that they retain the internal state of the current
  * message and return a new instance that contains the changed state.
  */
-class ServerRequest extends Request implements ServerRequestInterface
+class ServerAAAARequest extends AAAARequest implements ServerRequestInterface
 {
     /**
      * @var array
@@ -94,7 +94,7 @@ class ServerRequest extends Request implements ServerRequestInterface
         $body = new CachingStream(new LazyOpenStream('php://input', 'r+'));
         $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? str_replace('HTTP/', '', $_SERVER['SERVER_PROTOCOL']) : '1.1';
 
-        $serverRequest = new ServerRequest($method, $uri, $headers, $body, $protocol, $_SERVER);
+        $serverRequest = new ServerAAAARequest($method, $uri, $headers, $body, $protocol, $_SERVER);
 
         return $serverRequest
             ->withCookieParams($_COOKIE)
@@ -152,6 +152,64 @@ class ServerRequest extends Request implements ServerRequestInterface
         return $uri;
     }
 
+    private static function extractHostAndPortFromAuthority($authority)
+    {
+        $uri = 'http://' . $authority;
+        $parts = parse_url($uri);
+        if (false === $parts) {
+            return [null, null];
+        }
+
+        $host = isset($parts['host']) ? $parts['host'] : null;
+        $port = isset($parts['port']) ? $parts['port'] : null;
+
+        return [$host, $port];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function withUploadedFiles(array $uploadedFiles)
+    {
+        $new = clone $this;
+        $new->uploadedFiles = $uploadedFiles;
+
+        return $new;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function withParsedBody($data)
+    {
+        $new = clone $this;
+        $new->parsedBody = $data;
+
+        return $new;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function withQueryParams(array $query)
+    {
+        $new = clone $this;
+        $new->queryParams = $query;
+
+        return $new;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function withCookieParams(array $cookies)
+    {
+        $new = clone $this;
+        $new->cookieParams = $cookies;
+
+        return $new;
+    }
+
     /**
      * Return an UploadedFile instance array.
      *
@@ -177,20 +235,6 @@ class ServerRequest extends Request implements ServerRequestInterface
         }
 
         return $normalized;
-    }
-
-    private static function extractHostAndPortFromAuthority($authority)
-    {
-        $uri = 'http://' . $authority;
-        $parts = parse_url($uri);
-        if (false === $parts) {
-            return [null, null];
-        }
-
-        $host = isset($parts['host']) ? $parts['host'] : null;
-        $port = isset($parts['port']) ? $parts['port'] : null;
-
-        return [$host, $port];
     }
 
     /**
@@ -242,50 +286,6 @@ class ServerRequest extends Request implements ServerRequestInterface
         }
 
         return $normalizedFiles;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function withUploadedFiles(array $uploadedFiles)
-    {
-        $new = clone $this;
-        $new->uploadedFiles = $uploadedFiles;
-
-        return $new;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function withParsedBody($data)
-    {
-        $new = clone $this;
-        $new->parsedBody = $data;
-
-        return $new;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function withQueryParams(array $query)
-    {
-        $new = clone $this;
-        $new->queryParams = $query;
-
-        return $new;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function withCookieParams(array $cookies)
-    {
-        $new = clone $this;
-        $new->cookieParams = $cookies;
-
-        return $new;
     }
 
     /**
