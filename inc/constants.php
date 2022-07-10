@@ -274,7 +274,7 @@ class constants
         /* Defining a constant called VAR_EVENT and setting it to the string 'EVENT'. */
         define('VAR_EVENT', 'EVENT');
         /* Defining a constant named VAR_MIME with the value of MIME. */
-        define('VAR_MIME', 'MIME');
+        define('VAR_MIME', 'mime');
         /* Defining a constant called VAR_TYPES with the value of TYPES. */
         define('VAR_TYPES', 'TYPES');
         /* Defining a constant called VAR_LIST and assigning it the value of LIST. */
