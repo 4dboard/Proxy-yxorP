@@ -37,7 +37,7 @@ PHPMailer - PHP email creation and transport class.
 |`ICAL_METHOD_REFRESH`|public| |&#039;REFRESH&#039;|
 |`ICAL_METHOD_COUNTER`|public| |&#039;COUNTER&#039;|
 |`ICAL_METHOD_DECLINECOUNTER`|public| |&#039;DECLINECOUNTER&#039;|
-|`VERSION`|public|string|&#039;6.5.1&#039;|
+|`VERSION`|public|string|&#039;6.6.3&#039;|
 |`STOP_MESSAGE`|public|int|0|
 |`STOP_CONTINUE`|public|int|1|
 |`STOP_CRITICAL`|public|int|2|
@@ -598,10 +598,10 @@ Options are CRAM-MD5, LOGIN, PLAIN, XOAUTH2, attempted in that order if not spec
 
 ### oauth
 
-An instance of the PHPMailer OAuth class.
+An implementation of the PHPMailer OAuthTokenProvider interface.
 
 ```php
-protected \PHPMailer\PHPMailer\OAuth $oauth
+protected \PHPMailer\PHPMailer\OAuthTokenProvider $oauth
 ```
 
 
@@ -1673,8 +1673,8 @@ Addresses that have been added already return false, but do not throw exceptions
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$kind` | **string** | One of &#039;to&#039;, &#039;cc&#039;, &#039;bcc&#039;, or &#039;ReplyTo&#039; |
-| `$address` | **string** | The email address to send, resp. to reply to |
-| `$name` | **string** |  |
+| `$address` | **string** | The email address |
+| `$name` | **string** | An optional username associated with the address |
 
 
 **Return Value:**
@@ -1723,7 +1723,7 @@ Parse and validate a string containing one or more RFC822-style comma-separated 
 of the form "display name <address>" into an array of name/address pairs.
 
 ```php
-public static parseAddresses(string $addrstr, bool $useimap = true, mixed $charset = self::CHARSET_ISO88591): array
+public static parseAddresses(string $addrstr, bool $useimap = true, string $charset = self::CHARSET_ISO88591): array
 ```
 
 Uses the imap_rfc822_parse_adrlist function if the IMAP extension is available.
@@ -1740,7 +1740,7 @@ Note that quotes in the name part are removed.
 |-----------|------|-------------|
 | `$addrstr` | **string** | The address list string |
 | `$useimap` | **bool** | Whether to use the IMAP extension to parse the list |
-| `$charset` | **mixed** |  |
+| `$charset` | **string** | The charset to use when decoding the address list string. |
 
 
 
@@ -2253,7 +2253,7 @@ The default language is English.
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$langcode` | **string** | ISO 639-1 2-character language code (e.g. French is &quot;fr&quot;)<br />Optionally, the language code can be enhanced with a 4-character<br />script annotation and/or a 2-character country annotation. |
-| `$lang_path` | **string** | Path to the language file directory, with trailing separator (slash).D<br />Do not set this from user input! |
+| `$lang_path` | **string** | Path to the language file directory, with trailing separator (slash)<br />Do not set this from user input! |
 
 
 **Return Value:**
@@ -3005,7 +3005,7 @@ This can include images, sounds, and just about any other document type.
 These differ from 'regular' attachments in that they are intended to be
 displayed inline with the message, not just attached for download.
 This is used in HTML messages that embed the images
-the HTML refers to using the $cid value.
+the HTML refers to using the `$cid` value in `img` tags, for example `<img src="cid:mylogo">`.
 Never use a user-supplied path to a file!
 
 
@@ -3019,10 +3019,10 @@ Never use a user-supplied path to a file!
 |-----------|------|-------------|
 | `$path` | **string** | Path to the attachment |
 | `$cid` | **string** | Content ID of the attachment; Use this to reference<br />the content when using an embedded image in HTML |
-| `$name` | **string** | Overrides the attachment name |
-| `$encoding` | **string** | File encoding (see $Encoding) |
-| `$type` | **string** | File MIME type |
-| `$disposition` | **string** | Disposition to use |
+| `$name` | **string** | Overrides the attachment filename |
+| `$encoding` | **string** | File encoding (see $Encoding) defaults to `base64` |
+| `$type` | **string** | File MIME type (by default mapped from the `$path` filename&#039;s extension) |
+| `$disposition` | **string** | Disposition to use: `inline` (default) or `attachment`<br />(unlikely you want this – {@see `addAttachment()`} instead) |
 
 
 **Return Value:**
@@ -3459,6 +3459,32 @@ protected lang(string $key): string
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **string** |  |
+
+
+
+
+***
+
+### getSmtpErrorMessage
+
+Build an error message starting with a generic one and adding details if possible.
+
+```php
+private getSmtpErrorMessage(string $base_key): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$base_key` | **string** |  |
 
 
 
@@ -4232,10 +4258,10 @@ protected doCallback(bool $isSent, array $to, array $cc, array $bcc, string $sub
 
 ### getOAuth
 
-Get the OAuth instance.
+Get the OAuthTokenProvider instance.
 
 ```php
-public getOAuth(): \PHPMailer\PHPMailer\OAuth
+public getOAuth(): \PHPMailer\PHPMailer\OAuthTokenProvider
 ```
 
 
@@ -4252,10 +4278,10 @@ public getOAuth(): \PHPMailer\PHPMailer\OAuth
 
 ### setOAuth
 
-Set an OAuth instance.
+Set an OAuthTokenProvider instance.
 
 ```php
-public setOAuth(\PHPMailer\PHPMailer\OAuth $oauth): mixed
+public setOAuth(\PHPMailer\PHPMailer\OAuthTokenProvider $oauth): mixed
 ```
 
 
@@ -4269,7 +4295,7 @@ public setOAuth(\PHPMailer\PHPMailer\OAuth $oauth): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$oauth` | **\PHPMailer\PHPMailer\OAuth** |  |
+| `$oauth` | **\PHPMailer\PHPMailer\OAuthTokenProvider** |  |
 
 
 
@@ -4278,4 +4304,4 @@ public setOAuth(\PHPMailer\PHPMailer\OAuth $oauth): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
