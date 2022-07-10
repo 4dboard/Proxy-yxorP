@@ -59,7 +59,7 @@ class AAAARequest implements RequestInterface
     private function assertMethod($method)
     {
         if (!is_string($method) || $method === '') {
-            throw new InvalidArgumentException('Method must be a non-empty string.');
+            throw new yxorP\inc\proxy\Exception\InvalidArgumentException('Method must be a non-empty string.');
         }
     }
 
