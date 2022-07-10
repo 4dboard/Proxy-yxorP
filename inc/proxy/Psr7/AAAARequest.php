@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Psr7;
 
+use yxorP\inc\proxy\Exception\InvalidArgumentException;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\StreamInterface;
 use yxorP\inc\psr\Http\Message\UriInterface;
@@ -59,7 +60,7 @@ class AAAARequest implements RequestInterface
     private function assertMethod($method)
     {
         if (!is_string($method) || $method === '') {
-            throw new yxorP\inc\proxy\Exception\InvalidArgumentException('Method must be a non-empty string.');
+            throw new InvalidArgumentException('Method must be a non-empty string.');
         }
     }
 
