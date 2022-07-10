@@ -12,7 +12,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the `wrapper` class. */
 
-class overridePluginAction extends wrapper
+class overrideResultAction extends wrapper
 {
     /* Overriding the `onEventWrite` method of the `wrapper` class. */
     public function onEventWrite(): void
