@@ -22,7 +22,7 @@ use yxorP\inc\psr\Http\Message\UriInterface;
  * implemented such that they retain the internal state of the current
  * message and return a new instance that contains the changed state.
  */
-class ServerAAAARequest extends AAAARequest implements ServerRequestInterface
+class ServerRequest extends AAAARequest implements ServerRequestInterface
 {
     /**
      * @var array
@@ -94,7 +94,7 @@ class ServerAAAARequest extends AAAARequest implements ServerRequestInterface
         $body = new CachingStream(new LazyOpenStream('php://input', 'r+'));
         $protocol = isset($_SERVER['SERVER_PROTOCOL']) ? str_replace('HTTP/', '', $_SERVER['SERVER_PROTOCOL']) : '1.1';
 
-        $serverRequest = new ServerAAAARequest($method, $uri, $headers, $body, $protocol, $_SERVER);
+        $serverRequest = new ServerRequest($method, $uri, $headers, $body, $protocol, $_SERVER);
 
         return $serverRequest
             ->withCookieParams($_COOKIE)

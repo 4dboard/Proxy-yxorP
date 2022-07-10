@@ -242,7 +242,7 @@ function modify_request(RequestInterface $request, array $changes)
     }
 
     if ($request instanceof ServerRequestInterface) {
-        return (new ServerAAAARequest(
+        return (new ServerRequest(
             isset($changes['method']) ? $changes['method'] : $request->getMethod(),
             $uri,
             $headers,
