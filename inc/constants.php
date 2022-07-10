@@ -565,10 +565,7 @@ class constants
         // EVENTS
         constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
-        constants::set(YXORP_REWRITE_SEARCH, generalHelper::CSV(PATH_FILE_MIME_TYPES));
-        preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', file_get_contents(PATH_FILE_MIME_TYPES), $matches, PREG_SET_ORDER);
-        foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
-        constants::set(YXORP_MIME_TYPES, $mimes);
+        constants::set(YXORP_MIME_TYPES, generalHelper::CSV(PATH_FILE_MIME_TYPES));
 
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
