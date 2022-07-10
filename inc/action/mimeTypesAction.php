@@ -73,3 +73,4 @@ class mimeTypesAction extends wrapper
         /* Setting the content type of the response. */
         header('Content-Type: ' . constants::get('MIME') . '; charset = UTF-8');
     }
+}
