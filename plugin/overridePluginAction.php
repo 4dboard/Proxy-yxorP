@@ -1,12 +1,12 @@
 <?php
-/* Importing the `wrapper` class from the `yxorP\http` namespace. */
+/* Importing the `wrapper` class from the `yxorP\inc\http` namespace. */
 
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
 use yxorP\inc\minify\minify;
 use yxorP\inc\wrapper;
 
-/* Importing the `generalHelper` class from the `yxorP\http` namespace. */
+/* Importing the `generalHelper` class from the `yxorP\inc\http` namespace. */
 
 /* Importing the `minify` class from the `yxorP\inc\minify` namespace. */
 

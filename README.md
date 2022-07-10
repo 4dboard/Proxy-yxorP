@@ -1069,7 +1069,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`eventInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/events/eventInterface.md) | |
 
-### \yxorP\http
+### \yxorP\inc\http
 
 #### Classes
 

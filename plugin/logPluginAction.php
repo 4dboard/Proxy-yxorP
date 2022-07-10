@@ -1,6 +1,6 @@
 <?php
 
-/* It's importing the wrapper class from the yxorP\http namespace. */
+/* It's importing the wrapper class from the yxorP\inc\http namespace. */
 
 use yxorP\inc\constants;
 use yxorP\inc\wrapper;
