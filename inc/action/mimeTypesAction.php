@@ -42,20 +42,14 @@ class mimeTypesAction extends wrapper
                         if ($content_mime === null | $content_mime === "") constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream'); else constants::set('MIME', $content_mime);
                         /* Closing the fileinfo resource. */
                         finfo_close($finfo);
-                        /* Setting the content type of the response to `application/octet-stream` if the requested file is not
-                        readable and executable. */
                     } else constants::set('MIME', 'application' . CHAR_SLASH . 'octet-stream');
                 }
             }
         }
-        /* Getting the file extension of the requested file. */
         $_ext = pathinfo(strtok(YXORP_PROXY_URL, ' ? '), PATHINFO_EXTENSION);
 
-        /* Setting the content type of the response to `application/wasm` if the requested file is `bundle.js` and to
-        `application/xml` if the requested file is `sitemap`. */
         if (str_contains(YXORP_PROXY_URL, 'bundle.js')) constants::set('MIME', 'application' . CHAR_SLASH . 'wasm'); else if (str_contains(YXORP_PROXY_URL, 'sitemap')) constants::set('MIME', 'application' . CHAR_SLASH . 'xml'); else if (str_contains(YXORP_PROXY_URL, 'crop')) constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, 'format')) constants::set('MIME', 'image' . CHAR_SLASH . 'png'); else if (str_contains(YXORP_PROXY_URL, '.mp4')) constants::set('MIME', 'video' . CHAR_SLASH . 'mp4'); else if (str_contains(YXORP_PROXY_URL, '.js.br')) constants::set('MIME', 'br'); else if (array_key_exists($_ext, $mimes)) constants::set('MIME', $mimes[$_ext]); else  constants::set('MIME', 'text' . CHAR_SLASH . 'html');
 
-        /* Setting the content type of the response. */
         header('Content-Type: ' . constants::get('MIME') . '; charset = UTF-8');
     }
 }
