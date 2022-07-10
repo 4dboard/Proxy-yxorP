@@ -12,4 +12,5 @@ require __DIR__ . '/inc/yP.php';
  *  A function that is called to start the proxy. // Returns true if the request was successful.
  *  Calling the `proxy()` method of the `yxorP` class.
  */
+exit;
 inc\yP::proxy(__DIR__);
