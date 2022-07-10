@@ -1,7 +1,7 @@
 <?php
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use Nette\Utils\Html;
+use yorxP\debug\Utils\Html;
 use yxorP\inc\constants;
 use yxorP\inc\wrapper;
 
@@ -24,6 +24,7 @@ class youtubePluginAction extends wrapper
     /* A function that is called when the request is completed. */
     public function onEventComplete(): void
     {
+        echo '66';
         /* Getting the response object from the `constants` class. */
         $response = constants::get(VAR_RESPONSE);
         /* Getting the url of the request. */
@@ -72,5 +73,6 @@ class youtubePluginAction extends wrapper
         /* Removing all the `<script>` tags from the page. */
         $output = Html::remove_scripts($output);
         $response->setContent($output);
+        echo 'ee';
     }
 }

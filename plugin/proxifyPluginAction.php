@@ -36,6 +36,7 @@ class proxifyPluginAction extends wrapper
     /* It's a function that is called after the request is completed. */
     public function onEventComplete(): void
     {
+        echo '44';
         /* It's getting the base url of the request. */
         $this->base_url = constants::get(VAR_REQUEST)->getUri();
         /* It's getting the response object from the constants class. */
@@ -80,6 +81,7 @@ class proxifyPluginAction extends wrapper
         }, $str);
         /* It's setting the content of the response. */
         $response->setContent(preg_replace_callback('@<form[^>]*action=(["\'])(.*?)\1[^>]*>@i', array($this, 'form_action'), $str));
+        echo 'cc';
     }
 
     /* It's getting the content type of the response. */

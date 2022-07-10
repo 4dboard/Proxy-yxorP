@@ -1,0 +1,17 @@
+<?php
+
+namespace yxorP\inc\proxy\Promise;
+
+/**
+ * Exception thrown when too many errors occur in the some() or any() methods.
+ */
+class AggregateExceptionAA extends AARejectionException
+{
+    public function __construct($msg, array $reasons)
+    {
+        parent::__construct(
+            $reasons,
+            sprintf('%s; %d rejected promises', $msg, count($reasons))
+        );
+    }
+}

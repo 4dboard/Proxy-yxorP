@@ -129,7 +129,7 @@ can specify our services in a YAML file and then deploy, scale, and destruct our
 
 ``` 
 
-cd inc docker-composer up -d 
+docker-composer up -d 
 
 ```
 
@@ -142,7 +142,8 @@ machines. This streamlines a number of duties, including the design and building
 photographs, among others.
 
 ```
-cd inc docker run
+
+docker run
 
 -p 80:80 --rm -u www-data -v \`pwd\`:/var/www -e ENV=dev donpablonow/yxorp 
 
@@ -1052,7 +1053,7 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`SimpleImage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
 
-### \yxorP\events
+### \yxorP\inc\events
 
 #### Classes
 
@@ -1087,7 +1088,7 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`actionState`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/http/actionState.md) | |
 
-### \yxorP\minify
+### \yxorP\inc\minify
 
 #### Classes
 
@@ -1108,7 +1109,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`minfyInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/minify/minfyInterface.md) | |
 
-### \yxorP\parser
+### \yxorP\inc\parser
 
 #### Classes
 
@@ -1143,7 +1144,7 @@ in a number of forms and without the source code because they are licensed works
 | [`resourceUriInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/resourceUriInterface.md) | |
 | [`topInterfaceLevelDomainListInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/topInterfaceLevelDomainListInterface.md) | |
 
-### \yxorP\parser\Storage
+### \yxorP\inc\parser\storage
 
 #### Classes
 
@@ -1171,7 +1172,7 @@ in a number of forms and without the source code because they are licensed works
 | [`topLevelDomainListStorageFactoryInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListStorageFactoryInterface.md) | |
 | [`topLevelDomainListStorageInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/parser/Storage/topLevelDomainListStorageInterface.md) | |
 
-### \yxorP\protocols
+### \yxorP\inc\protocols
 
 #### Classes
 
@@ -1188,7 +1189,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`protocolInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/protocolInterface.md) | |
 
-### \yxorP\protocols\Http
+### \yxorP\inc\protocols\http
 
 #### Classes
 
@@ -1201,7 +1202,7 @@ in a number of forms and without the source code because they are licensed works
 | [`response`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/response.md) | |
 | [`serverSentEvents`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/serverSentEvents.md) | |
 
-### \yxorP\protocols\Http\Session
+### \yxorP\inc\protocols\http\session
 
 #### Classes
 
@@ -1217,7 +1218,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`sessionHandlerInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/protocols/Http/Session/sessionHandlerInterface.md) | |
 
-### \yxorP\proxy
+### \yxorP\inc\proxy
 
 #### Classes
 
@@ -1242,7 +1243,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`ClientInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/ClientInterface.md) | |
 
-### \yxorP\proxy\Apromise
+### \yxorP\inc\proxy\Apromise
 
 #### Classes
 
@@ -1266,7 +1267,7 @@ in a number of forms and without the source code because they are licensed works
 | [`PromisorInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/PromisorInterface.md) | |
 | [`TaskQueueInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Apromise/TaskQueueInterface.md) | |
 
-### \yxorP\proxy\Cookie
+### \yxorP\inc\proxy\Cookie
 
 #### Classes
 
@@ -1283,7 +1284,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`CookieJarInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Cookie/CookieJarInterface.md) | |
 
-### \yxorP\proxy\Exception
+### \yxorP\inc\proxy\Exception
 
 #### Classes
 
@@ -1305,7 +1306,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`ProxyException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Exception/ProxyException.md) | |
 
-### \yxorP\proxy\Handler
+### \yxorP\inc\proxy\Handler
 
 #### Classes
 
@@ -1325,7 +1326,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`CurlFactoryInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/proxy/Handler/CurlFactoryInterface.md) | |
 
-### \yxorP\proxy\Psr7
+### \yxorP\inc\proxy\Psr7
 
 #### Classes
 
@@ -1374,7 +1375,7 @@ in a number of forms and without the source code because they are licensed works
 | [`UploadedFileInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/UploadedFileInterface.md) | Value object representing a file uploaded through an HTTP request.|
 | [`UriInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/psr/Http/Message/UriInterface.md) | Value object representing a URI.|
 
-### \yxorP\snag
+### \yxorP\inc\snag
 
 #### Classes
 
@@ -1392,7 +1393,7 @@ in a number of forms and without the source code because they are licensed works
 | [`Stacktrace`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Stacktrace.md) | |
 | [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Utils.md) | |
 
-### \yxorP\snag\Breadcrumbs
+### \yxorP\inc\snag\Breadcrumbs
 
 #### Classes
 
@@ -1401,7 +1402,7 @@ in a number of forms and without the source code because they are licensed works
 | [`Breadcrumb`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Breadcrumbs/Breadcrumb.md) | |
 | [`Recorder`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Breadcrumbs/Recorder.md) | |
 
-### \yxorP\snag\Callbacks
+### \yxorP\inc\snag\Callbacks
 
 #### Classes
 
@@ -1416,7 +1417,7 @@ in a number of forms and without the source code because they are licensed works
 | [`RequestSession`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/RequestSession.md) | |
 | [`RequestUser`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Callbacks/RequestUser.md) | |
 
-### \yxorP\snag\DateTime
+### \yxorP\inc\snag\DateTime
 
 #### Classes
 
@@ -1431,7 +1432,7 @@ in a number of forms and without the source code because they are licensed works
 |-----------|-------------|
 | [`ClockInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/DateTime/ClockInterface.md) | |
 
-### \yxorP\snag\Internal
+### \yxorP\inc\snag\Internal
 
 #### Classes
 
@@ -1439,7 +1440,7 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`ProxyCompat`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Internal/ProxyCompat.md) | |
 
-### \yxorP\snag\Middleware
+### \yxorP\inc\snag\Middleware
 
 #### Classes
 
@@ -1451,7 +1452,7 @@ in a number of forms and without the source code because they are licensed works
 | [`NotificationSkipper`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Middleware/NotificationSkipper.md) | |
 | [`SessionData`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Middleware/SessionData.md) | |
 
-### \yxorP\snag\Request
+### \yxorP\inc\snag\Request
 
 #### Classes
 
@@ -1469,7 +1470,7 @@ in a number of forms and without the source code because they are licensed works
 | [`RequestInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/RequestInterface.md) | |
 | [`ResolverInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/yxorP/snag/Request/ResolverInterface.md) | |
 
-### \yxorP\snag\Shutdown
+### \yxorP\inc\snag\Shutdown
 
 #### Classes
 

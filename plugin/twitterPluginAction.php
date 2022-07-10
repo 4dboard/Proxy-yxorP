@@ -1,7 +1,7 @@
 <?php
 /* Importing the wrapper class from the yxorP\http namespace. */
 
-use Nette\Utils\Html;
+use yorxP\debug\Utils\Html;
 use yxorP\inc\constants;
 use yxorP\inc\wrapper;
 
@@ -15,6 +15,7 @@ class twitterPluginAction extends wrapper
 
     public function onEventComplete(): void
     {
+        echo '11';
         /* Getting the response object from the constants class. */
         $response = constants::get(VAR_RESPONSE);
         /* Getting the content of the response. */
@@ -23,5 +24,7 @@ class twitterPluginAction extends wrapper
         /* Setting the content of the response to the content that we have modified. */
         $content = Html::remove_scripts($content);
         $response->setContent($content);
+
+        echo 'aa';
     }
 }

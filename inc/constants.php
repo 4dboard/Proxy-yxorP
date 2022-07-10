@@ -7,11 +7,11 @@ namespace yxorP\inc;
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
 use yxorP\parse\parse;
-use yxorP\parser\domain;
-use yxorP\parser\parseUrl;
-use yxorP\parser\resolvedInterfaceDomainNameInterface;
-use yxorP\parser\Rules;
-use yxorP\proxy\Client;
+use yxorP\inc\parser\domain;
+use yxorP\inc\parser\parseUrl;
+use yxorP\inc\parser\resolvedInterfaceDomainNameInterface;
+use yxorP\inc\parser\Rules;
+use yxorP\inc\proxy\Client;
 use function cockpit;
 
 class constants
@@ -258,7 +258,7 @@ class constants
         /* Defining a constant called VAR_SNAG and setting it to the string SNAG. */
         define('VAR_SNAG', 'SNAG');
         /* Defining a constant called VAR_PROXY and setting it to the string 'PROXY'. */
-        define('VAR_proxy', 'PROXY');
+        define('VAR_PROXY', 'PROXY');
         /* Defining a constant called VAR_RESPONSE and setting it to the string VAR_RESPONSE. */
         define('VAR_RESPONSE', 'RESPONSE');
         /* Defining a constant called VAR_REQUEST and setting it to the string VAR_REQUEST. */
@@ -439,6 +439,7 @@ class constants
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_PSR', 'psr' . DIRECTORY_SEPARATOR);
+        define('DIR_DEBUG', 'debug' . DIRECTORY_SEPARATOR);
 
         // PATHS
         /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
@@ -513,6 +514,10 @@ class constants
         define('ENV_BUG_SNAG_KEY', 'BUG_SNAG_KEY' . EXT_ENV);
         /* Defining a constant called ENV_DEBUG and setting it to the value of 'DEBUG' . EXT_ENV. */
         define('ENV_DEBUG', 'DEBUG' . EXT_ENV);
+        /* Defining a constant called ENV_DEBUG and setting it to the value of 'DEBUG' . EXT_ENV. */
+        define('ENV_DEFAULT_SITE', 'DEFAULT_SITE' . EXT_ENV);
+        /* Defining a constant called ENV_DEBUG and setting it to the value of 'DEBUG' . EXT_ENV. */
+        define('ENV_DEFAULT_TARGET', 'DEFAULT_TARGET' . EXT_ENV);
 
 
         //EXCEPTIONS
@@ -534,14 +539,14 @@ class constants
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);
-        // Reporting
+
+        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . $_asset, true);        // Reporting
 
         /* Setting the token to the snag key. */
-        self::set(VAR_SNAG, \yxorP\snag\Client::make(ENV_BUG_SNAG_KEY));
-        /* Setting the token PROXY to a new instance of the \yxorP\proxy class. */
+        self::set(VAR_SNAG, \yxorP\inc\snag\Client::make(ENV_BUG_SNAG_KEY));
+        /* Setting the token PROXY to a new instance of the \yxorP\inc\proxy class. */
 
-        self::set(VAR_proxy, new Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        self::set(VAR_PROXY, new Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
@@ -549,12 +554,10 @@ class constants
         // EVENTS
         constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
-
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
         seconds in a year. */
         define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
-
 
     }
     /* A function that is being called to fetch .env values. */
@@ -617,9 +620,12 @@ class constants
         // SITE DOMAIN DETAILS
 
         /* Setting the `SITE_DOMAIN` variable to the result of the `extractDomain` method. */
-        $siteDomain = self::publicSuffix(YXORP_SITE_URL);
+        $siteDomain = self::publicSuffix(YXORP_SITE_URL ?: ENV_DEFAULT_SITE);
         /* Setting the `YXORP_SITE_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_SITE_DOMAIN', $siteDomain->registrableDomain()->toString() ?: $siteDomain->domain()->toString());
+        /* Defining a constant. */
+
+
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
         $siteDetails = constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
 
@@ -637,19 +643,21 @@ class constants
         // TARGET DOMAIN DETAILS
 
         /* Setting the `TARGET_URL_PARSE` variable to the value of the `target` key in the `TARGET` array. */
-        $targetDomain = self::publicSuffix(YXORP_TARGET_URL);
+        $targetDomain = self::publicSuffix(YXORP_TARGET_URL ?: ENV_DEFAULT_TARGET);
+        /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain. */
 
         // --
 
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_TARGET_DOMAIN', $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
-        define('YXORP_TARGET_SUB_DOMAIN', $targetDomain->subDomain()->toString());
+        /* Setting the `$subDomain` variable to the value of the `YXORP_SITE_SUB_DOMAIN` variable, if it is not null and '.' */
+        define('YXORP_SITE_SUB_DOMAIN', ($siteDomain->subDomain()->toString()) ? $siteDomain->subDomain()->toString() . CHAR_PERIOD : null);
 
         // PROXY DETAILS
 
         /* Setting the `FETCH` variable to the value of the `SITE_SUB_DOMAIN` variable, if it is not null, and the
         `TARGET_DOMAIN` variable, with the `https://` protocol. */
-        define('VAR_FETCH', VAR_HTTPS . YXORP_TARGET_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
+        define('VAR_FETCH', VAR_HTTPS . YXORP_SITE_SUB_DOMAIN . YXORP_TARGET_DOMAIN);
         /* Setting the value of the constant YXORP_REQUEST_URI_FULL to the value of the constant YXORP_SITE_URL plus the
         value of the constant YXORP_REQUEST_URI. */
         define('YXORP_REQUEST_URI_FULL', YXORP_SITE_URL . YXORP_REQUEST_URI);
@@ -671,6 +679,7 @@ class constants
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
         constants::set(YXORP_GLOBAL_PATTERN, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
+
 
     }
 
