@@ -100,9 +100,12 @@ class yP
         /* It's creating the constants that are used in the plugin. */
         constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
-        foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir)
+        foreach ([DIR_PLUGIN, PATH_DIR_TMP] as $_dir) {
+            mkdir($_dir, 0777, true);
+            chmod($_dir, 0777);
             if (!is_dir($_dir)) if (!mkdir($_dir) && !is_dir($_dir))
                 throw new RuntimeException(sprintf(RUNTIME_EXCEPTION, $_dir));
+        }
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
