@@ -672,7 +672,7 @@ class constants
         /* Setting the cache key to the base64 encoded version of the proxy URL. */
         define('CACHE_KEY', generalHelper::base64_url_encode(YXORP_PROXY_URL) . EXT_TMP);
 
-        // GLBAL COLLECTIONS
+        // GLOBAL COLLECTIONS
 
         /* Setting the `REPLACE` context variable to the value of the `replace` type in the `global` collection. */
         constants::set(YXORP_GLOBAL_REPLACE, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ?
