@@ -5,7 +5,7 @@
 
 
 
-This is an automatically generated documentation for **yxorP Documentation**.
+
 
 
 ## Namespaces
@@ -956,4 +956,4 @@ This is an automatically generated documentation for **yxorP Documentation**.
 
 
 ***
-> Automatically generated from source code comments on 2022-07-10 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
+
