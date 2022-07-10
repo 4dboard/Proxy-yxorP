@@ -14,8 +14,7 @@ class mimeTypesAction extends wrapper
     {
         /* An array of mime types. */
 
-        $mimes_file = file_get_contents(PATH_FILE_MIME_TYPES);
-        preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', $mimes_file, $matches, PREG_SET_ORDER);
+        preg_match_all('#^([^\s]{2,}?)\s+(.+?)$#ism', file_get_contents(PATH_FILE_MIME_TYPES), $matches, PREG_SET_ORDER);
         foreach ($matches as $match) foreach (explode(" ", $match[2]) as $ext) $mimes[$ext] = $match[1];
         if (is_file(YXORP_PROXY_URL)) {
             if (isset(pathinfo(YXORP_PROXY_URL) ['extension'])) {
