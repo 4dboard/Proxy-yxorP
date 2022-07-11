@@ -25,7 +25,7 @@ class cache
     public static function clearAll(): void
     {
         /* Used to get all the files in the `tmp` directory. */
-        $files = glob(PATH_DIR_CACHE . '*');
+        $files = glob(PATH_DIR_TMP . '*');
         /* Used to delete all the files in the `tmp` directory. */
         foreach ($files as $file) if (is_file($file)) unlink($file);
     }
@@ -41,7 +41,7 @@ class cache
     #[Pure] public function isValid(): bool
     {
         /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_CACHE_FULL);
+        return file_exists(PATH_DIR_TMP_FULL);
     }
 
     /* Used to get the data from the cache file. */
@@ -51,7 +51,7 @@ class cache
         /* Used to check if the cache file is valid. */
         if (!$this->isValid()) return;
         /* Used to include the cache file. */
-        @include PATH_DIR_CACHE_FULL;
+        @include PATH_DIR_TMP_FULL;
     }
 
     /* Used to get the instance of the class. */
@@ -69,15 +69,15 @@ class cache
 
     public function set($val): void
     {
-        $fopen = fopen(PATH_DIR_CACHE_FULL, 'w');
+        $fopen = fopen(PATH_DIR_TMP_FULL, 'w');
         if (gettype($fopen) != 'resource') {
-            if (!is_dir(PATH_DIR_CACHE)) {
+            if (!is_dir(PATH_DIR_TMP)) {
                 /* It's creating the `tmp` directory. */
-                if (!mkdir($concurrentDirectory = PATH_DIR_CACHE, 0777, true) && !is_dir($concurrentDirectory)) {
+                if (!mkdir($concurrentDirectory = PATH_DIR_TMP, 0777, true) && !is_dir($concurrentDirectory)) {
                     throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
                 }
                 /* It's setting the permissions of the `tmp` directory to `777`. */
-                chmod(PATH_DIR_CACHE, 0777);
+                chmod(PATH_DIR_TMP, 0777);
             }
         }
         fwrite($fopen, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;?>');

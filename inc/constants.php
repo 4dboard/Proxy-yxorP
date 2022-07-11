@@ -10,20 +10,20 @@ define('CHAR_SLASH', '/');
 define('CHAR_PERIOD', '.');
 /* Defining a constant. */
 /* Defining a constant. */
-define('FILE_CACHE', CHAR_PERIOD . 'cache');
+define('FILE_TMP', CHAR_PERIOD . 'cache');
 define('VAR_COCKPIT', 'cockpit');
-/* Defining a constant called PATH_DIR_CACHE. The value of the constant is the current directory (__DIR__) plus the
-directory separator (DIRECTORY_SEPARATOR) plus the value of the DIR_CACHE constant. */
-define('DIR_CACHE', FILE_CACHE . DIRECTORY_SEPARATOR);
+/* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
+directory separator (DIRECTORY_SEPARATOR) plus the value of the DIR_TMP constant. */
+define('DIR_TMP', FILE_TMP . DIRECTORY_SEPARATOR);
 /* Creating a unique key for the cache file. */
 define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
-/* Defining a constant called PATH_DIR_CACHE. The value of the constant is the current directory (__DIR__) plus the
-directory separator (DIRECTORY_SEPARATOR) plus the value of the constant DIR_CACHE. */
-define('PATH_DIR_CACHE', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE);
-/* Defining a constant called PATH_DIR_CACHE_FULL. The value of the constant is the current directory, a directory
-separator, the value of the constant DIR_CACHE, the value of the constant CACHE_KEY, and the value of the constant
-FILE_CACHE. */
-define('PATH_DIR_CACHE_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE . CACHE_KEY . FILE_CACHE);
+/* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
+directory separator (DIRECTORY_SEPARATOR) plus the value of the constant DIR_TMP. */
+define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
+/* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
+separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
+FILE_TMP. */
+define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
 /*  Try catch */
@@ -79,7 +79,7 @@ class constants
         header('Content-Type: ' . MIME . ';charset=UTF-8');
 
         /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-        include PATH_DIR_CACHE_FULL;
+        include PATH_DIR_TMP_FULL;
     }
 
 
@@ -181,8 +181,8 @@ class constants
         define('EXT_CSV', CHAR_PERIOD . 'csv');
         /* Defining a constant called `EXT_PHP` and setting it to the value of `.php`. */
         define('EXT_PHP', CHAR_PERIOD . 'php');
-        /* Defining a constant called `EXT_CACHE` and setting it to the value of `.tmp`. */
-        define('EXT_CACHE', CHAR_PERIOD . 'cache');
+        /* Defining a constant called `EXT_TMP` and setting it to the value of `.tmp`. */
+        define('EXT_TMP', CHAR_PERIOD . 'cache');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
         define('EXT_ENV', CHAR_PERIOD . 'env');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
@@ -245,8 +245,8 @@ class constants
         define('VAR_TYPE', 'type');
         /* Defining a constant called `VAR_ERROR` and setting it to the value of `error`. */
         define('VAR_ERROR', 'error');
-        /* Defining a constant called `VAR_CACHE_NAME` and setting it to the value of `tmp_name`. */
-        define('VAR_CACHE_NAME', 'tmp_name');
+        /* Defining a constant called `VAR_TMP_NAME` and setting it to the value of `tmp_name`. */
+        define('VAR_TMP_NAME', 'tmp_name');
         /* Defining a constant called `VAR_GET_URL` and setting it to the value of `getUrl`. */
         define('VAR_GET_URL', 'getUrl');
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
@@ -421,9 +421,9 @@ class constants
         /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_STORAGE', 'storage' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_CACHE` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
+        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
         to it. */
-        define('DIR_CACHE', CHAR_PERIOD . 'cache' . DIRECTORY_SEPARATOR);
+        define('DIR_TMP', CHAR_PERIOD . 'cache' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_HTTP', 'http' . DIRECTORY_SEPARATOR);
@@ -443,8 +443,8 @@ class constants
 
 
         // EVENTS
-        /* Defining a constant called `EVENT_BUILD_CACHE` and setting it to the value of `request.build_cached`. */
-        define('EVENT_BUILD_CACHE', 'request' . CHAR_PERIOD . 'build_cached');
+        /* Defining a constant called `EVENT_BUILD_TMP` and setting it to the value of `request.build_cached`. */
+        define('EVENT_BUILD_TMP', 'request' . CHAR_PERIOD . 'build_cached');
         /* Defining a constant called `EVENT_BUILD_CONTEXT` and setting it to the value of `request.build_context`. */
         define('EVENT_BUILD_CONTEXT', 'request' . CHAR_PERIOD . 'build_context');
         /* Defining a constant called `EVENT_BUILD_INCLUDES` and setting it to the value of `request.build_includes`. */
