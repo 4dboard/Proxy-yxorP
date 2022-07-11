@@ -47,7 +47,7 @@ class constants
         }
 
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
-        $array_map = array_map('str_getcsv', file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime.types'));
+        $mimeTypes = array_map('str_getcsv', file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime.types'));
         /* Getting the file extension of the requested file. */
         $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
 
