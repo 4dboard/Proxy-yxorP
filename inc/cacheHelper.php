@@ -6,7 +6,7 @@ define('CHAR_PERIOD', '.');
 define('VAR_CACHE', 'cache');
 define('DIR_CACHE', CHAR_PERIOD . VAR_CACHE . DIRECTORY_SEPARATOR);
 define('PATH_DIR_CACHE', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE);
-define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']))));
+define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
 
 try {
     /* Checking if the requested URI contains the string `$t`. */
@@ -52,7 +52,7 @@ try {
     header('Content-Type: ' . MIME . ';charset=UTF-8');
 
     /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-    include __DIR__ . DIRECTORY_SEPARATOR . '.cache' . rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')) . '.tmp';
+    include __DIR__ . DIRECTORY_SEPARATOR . '.cache' . CACHE_KEY . '.tmp';
 
 } catch
 (Exception $e) {
