@@ -9,7 +9,6 @@ require __DIR__ . '/generalHelper.php';
 /* Using the cacheHelper class. */
 
 use cacheHelper;
-use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
 
@@ -259,14 +258,6 @@ class yP
         /* It's creating the constants that are used in the plugin. */
         constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
-        if (!is_dir(PATH_DIR_CACHE)) {
-            /* It's creating the `tmp` directory. */
-            if (!mkdir($concurrentDirectory = PATH_DIR_CACHE, 0777, true) && !is_dir($concurrentDirectory)) {
-                throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
-            }
-            /* It's setting the permissions of the `tmp` directory to `777`. */
-            chmod(PATH_DIR_CACHE, 0777);
-        }
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
