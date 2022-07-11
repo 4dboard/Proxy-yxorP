@@ -70,16 +70,6 @@ class cache
     public function set($val): void
     {
         $fopen = fopen(PATH_DIR_TMP_FULL, 'w');
-        if (gettype($fopen) != 'resource') {
-            if (!is_dir(PATH_DIR_TMP)) {
-                /* It's creating the `tmp` directory. */
-                if (!mkdir($concurrentDirectory = PATH_DIR_TMP, 0777, true) && !is_dir($concurrentDirectory)) {
-                    throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
-                }
-                /* It's setting the permissions of the `tmp` directory to `777`. */
-                chmod(PATH_DIR_TMP, 0777);
-            }
-        }
         fwrite($fopen, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;?>');
         fclose($fopen);
     }
