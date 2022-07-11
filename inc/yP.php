@@ -203,7 +203,6 @@ class yP
         // REQUIRED
 
         /* Requiring the Cockpit library. */
-        echo PATH_COCKPIT_BOOTSTRAP;
         require PATH_COCKPIT_BOOTSTRAP;
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
