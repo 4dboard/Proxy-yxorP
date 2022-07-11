@@ -118,20 +118,6 @@ class ARequestException extends AATransferException
     }
 
     /**
-     * Get a short summary of the response
-     *
-     * Will return `null` if the response is not printable.
-     *
-     * @param ResponseInterface $response
-     *
-     * @return string|null
-     */
-    public static function getResponseBodySummary(ResponseInterface $response)
-    {
-        return get_message_body_summary($response);
-    }
-
-    /**
      * Obfuscates URI if there is a username and a password present
      *
      * @param UriInterface $uri
@@ -147,6 +133,20 @@ class ARequestException extends AATransferException
         }
 
         return $uri;
+    }
+
+    /**
+     * Get a short summary of the response
+     *
+     * Will return `null` if the response is not printable.
+     *
+     * @param ResponseInterface $response
+     *
+     * @return string|null
+     */
+    public static function getResponseBodySummary(ResponseInterface $response)
+    {
+        return get_message_body_summary($response);
     }
 
     /**
