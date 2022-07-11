@@ -5,12 +5,11 @@ namespace yxorP\inc;
 
 /* Loading the required files. */
 
+require __DIR__ . '/constants.php';
+require __DIR__ . '/generalHelper.php';
+
 use cacheHelper;
 use RuntimeException;
-
-require __DIR__ . '/cacheHelper.php';
-require __DIR__ . '/generalHelper.php';
-require __DIR__ . '/constants.php';
 
 // For security reasons, Tracy is visible only on localhost.
 // You may force Tracy to run in development mode by passing the Debugger::DEVELOPMENT instead of Debugger::DETECT.
