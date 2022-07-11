@@ -539,34 +539,6 @@ class constants
     /* A function that is being called to fetch .env values. */
 
     /**
-     * @param string $line
-     * @return void
-     */
-    public static function env(string $line): void
-    {
-        /* Checking if the line starts with a hash. If it does, it returns. */
-        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
-        /* Exploding the $line variable into an array of two elements. */
-        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
-        /* Replacing all the new lines with null. */
-        self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
-    }
-
-    /**
-     * @param string $_name
-     * @param string|array|object|null $_value
-     * @return string|array|object|null
-     */
-    public static function set(string $_name, string|array|object|null $_value): string|array|object|null
-    {
-        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
-        doesn't, it adds the argument to the global scope . */
-        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
-    }
-
-    /* Setting the value of the variable $_name to the value of the variable $_value. */
-
-    /**
      * @return void
      */
     #[NoReturn] public static function cockpit(): void
@@ -575,7 +547,7 @@ class constants
         exit();
     }
 
-    /* A function that is being called to localise constants. */
+    /* Setting the value of the variable $_name to the value of the variable $_value. */
 
     /**
      * @param array $req
@@ -661,6 +633,20 @@ class constants
         constants::set(YXORP_REWRITE_REPLACE, generalHelper::CSV(PATH_REWRITE_REPLACE));
 
 
+    }
+
+    /* A function that is being called to localise constants. */
+
+    /**
+     * @param string $_name
+     * @param string|array|object|null $_value
+     * @return string|array|object|null
+     */
+    public static function set(string $_name, string|array|object|null $_value): string|array|object|null
+    {
+        /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
+        doesn't, it adds the argument to the global scope . */
+        return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
     }
 
     /* A static method that returns the value of the $_name variable. */

@@ -92,7 +92,7 @@ class yP
         cacheHelper::check($yxorp_root);
 
         // REQUIRED
-        
+
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
         /* Requiring the Wrapper. */
@@ -121,6 +121,20 @@ class yP
 
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
+    }
+
+    /**
+     * @param string $line
+     * @return void
+     */
+    public static function env(string $line): void
+    {
+        /* Checking if the line starts with a hash. If it does, it returns. */
+        if (trim((string)str_starts_with(trim($line), CHAR_HASH))) return;
+        /* Exploding the $line variable into an array of two elements. */
+        [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
+        /* Replacing all the new lines with null. */
+        self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
     }
 
     /**
