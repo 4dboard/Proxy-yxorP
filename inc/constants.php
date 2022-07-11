@@ -2,10 +2,8 @@
 
 namespace yxorP\inc;
 
-/*
- * It defines constants and sets the value of the constants to the value of the arguments passed to the class.
- * Defining constants. Creating a class called constants.
- */
+/* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
+
 /* Defining a constant named `CHAR_SLASH` with the value `/`. */
 define('CHAR_SLASH', '/');
 /* Defining a constant. */
