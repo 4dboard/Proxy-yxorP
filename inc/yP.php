@@ -2,9 +2,9 @@
 
 namespace yxorP\inc;
 /* Importing the constants class from the inc folder. */
-require 'constants.php';
+require __DIR__ . '/constants.php';
 /* Loading the required files. */
-require 'generalHelper.php';
+require __DIR__ . '/generalHelper.php';
 
 /* Using the cacheHelper class. */
 
