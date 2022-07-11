@@ -7,7 +7,6 @@ namespace yxorP\inc;
  * Defining constants. Creating a class called constants.
  */
 
-
 class constants
 {
 
@@ -635,3 +634,6 @@ class constants
 
 
 }
+
+
+constants::cache();
