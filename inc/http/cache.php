@@ -69,7 +69,7 @@ class cache
 
     public function set($val): void
     {
-        $fopen = fopen(PATH_DIR_CACHE_FULL, 'w');
+        $fopen = fopen(PATH_DIR_CACHE_FULL, 'w') or die("Unable to open file!");
 
         if (!is_dir(PATH_DIR_CACHE)) {
             /* It's creating the `tmp` directory. */
