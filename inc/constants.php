@@ -20,6 +20,9 @@ define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['R
 /* Defining a constant called PATH_DIR_CACHE. The value of the constant is the current directory (__DIR__) plus the
 directory separator (DIRECTORY_SEPARATOR) plus the value of the constant DIR_CACHE. */
 define('PATH_DIR_CACHE', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE);
+/* Defining a constant called PATH_DIR_CACHE_FULL. The value of the constant is the current directory, a directory
+separator, the value of the constant DIR_CACHE, the value of the constant CACHE_KEY, and the value of the constant
+FILE_CACHE. */
 define('PATH_DIR_CACHE_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE . CACHE_KEY . FILE_CACHE);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
@@ -76,7 +79,7 @@ class constants
         header('Content-Type: ' . MIME . ';charset=UTF-8');
 
         /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-        include PATH_DIR_CACHE . CACHE_KEY;
+        include PATH_DIR_CACHE_FULL;
     }
 
 
@@ -521,9 +524,6 @@ class constants
 
 
         // PATHS
-        /* Defining a constant called `PATH_DIR_CACHE` and setting it to the value of `DIR_ROOT` with a `DIR_CACHE` appended
-        to it. */
-        define('PATH_DIR_CACHE', DIR_ROOT . DIR_INC . DIR_CACHE);
         /* Defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `DIR_STORAGE` appended to it. */
         define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT . DIR_STORAGE);
