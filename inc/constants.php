@@ -75,7 +75,7 @@ class constants
         header('Content-Type: ' . MIME . ';charset=UTF-8');
 
         /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-        include PATH_DIR_CACHE . CACHE_KEY . VAR_CACHE;
+        include PATH_DIR_CACHE . CACHE_KEY;
     }
 
 
