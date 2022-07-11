@@ -10,6 +10,7 @@ require __DIR__ . '/generalHelper.php';
 
 use cacheHelper;
 use RuntimeException;
+use yxorP\inc\domain;
 use yxorP\inc\parser\Rules;
 
 /* Importing the RuntimeException class from the PHP namespace. */
