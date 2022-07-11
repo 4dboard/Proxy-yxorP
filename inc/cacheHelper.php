@@ -2,6 +2,11 @@
 
 /* Defining a constant named `CHAR_SLASH` with the value `/`. */
 define('CHAR_SLASH', '/');
+define('CHAR_PERIOD', '.');
+define('VAR_CACHE', 'cache');
+define('DIR_CACHE', CHAR_PERIOD . VAR_CACHE . DIRECTORY_SEPARATOR);
+define('PATH_DIR_CACHE', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE);
+define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']))));
 
 try {
     /* Checking if the requested URI contains the string `$t`. */
