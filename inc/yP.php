@@ -117,8 +117,6 @@ class yP
         to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_INC . DIR_OVERRIDE . ($siteDetails)[VAR_FILES]);
-        /* Setting the cache key to the base64 encoded version of the proxy URL. */
-        define('CACHE_KEY', generalHelper::base64_url_encode(YXORP_SITE_URL . YXORP_REQUEST_URI) . EXT_CACHE);
 
         // GLOBAL COLLECTIONS
 
