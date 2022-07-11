@@ -565,26 +565,4 @@ class constants
     }
 
 
-    /**
-     * @param string $domain
-     * @return resolvedInterfaceDomainNameInterface
-     */
-    public static function publicSuffix(string $domain): resolvedInterfaceDomainNameInterface
-    {
-
-        $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
-        $domain = domain::fromIDNA2008($domain);
-
-
-        return $publicSuffixList->resolve($domain);
-        /*
-        echo $result->domain()->toString();            //display 'www.pref.okinawa.jp';
-        echo $result->subDomain()->toString();         //display 'www';
-        echo $result->secondLevelDomain()->toString(); //display 'pref';
-        echo $result->registrableDomain()->toString(); //display 'pref.okinawa.jp';
-        echo $result->suffix()->toString();            //display 'okinawa.jp';
-        $result->suffix()->isICANN();                  //return true;
-        */
-    }
-
 }
