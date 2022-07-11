@@ -92,6 +92,7 @@ class yP
         cacheHelper::check($yxorp_root);
 
         // REQUIRED
+        
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
         /* Requiring the Wrapper. */
@@ -117,7 +118,7 @@ class yP
         constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
         constants::set(YXORP_MIME_TYPES, generalHelper::CSV(PATH_FILE_MIME_TYPES));
-        
+
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
