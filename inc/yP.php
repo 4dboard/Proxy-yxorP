@@ -107,7 +107,7 @@ class yP
         foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
 
         /* Setting the token to the snag key. */
-        self::set(VAR_SNAG, snag\Client::make(ENV_BUG_SNAG_KEY));
+        constants::set(VAR_SNAG, snag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \yxorP\inc\proxy class. */
 
         self::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
