@@ -19,7 +19,7 @@ define('DIR_CACHE', VAR_CACHE . DIRECTORY_SEPARATOR);
 directory separator (DIRECTORY_SEPARATOR) plus the value of the constant DIR_CACHE. */
 define('PATH_DIR_CACHE', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE);
 /* Creating a unique key for the cache file. */
-define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
+define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')).VAR_CACHE);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
 /*  Try catch */
