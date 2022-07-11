@@ -50,7 +50,6 @@ class constants
         echo $file;
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
         $array_map = array_map('str_getcsv', $file);
-        0
         /* Getting the file extension of the requested file. */
         $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
 
