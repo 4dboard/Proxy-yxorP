@@ -10,7 +10,7 @@ define('CHAR_SLASH', '/');
 define('CHAR_PERIOD', '.');
 /* Defining a constant. */
 /* Defining a constant. */
-define('FILE_TMP', CHAR_PERIOD . 'cache');
+define('FILE_TMP', 'tmp');
 define('VAR_COCKPIT', 'cockpit');
 /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
 directory separator (DIRECTORY_SEPARATOR) plus the value of the DIR_TMP constant. */
@@ -23,7 +23,7 @@ define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
 /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
 separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
 FILE_TMP. */
-define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
+define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
 /*  Try catch */
