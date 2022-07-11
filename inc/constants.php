@@ -36,15 +36,17 @@ class constants
      * @param string $yxorp_root
      * @return void
      */
+
+    /* Checking if the requested URI contains the string `$t`. */
+    /* A function that checks if the current request URI contains the given string. */
+    public static function checkUri($t)
+    {
+        /* Checking if the current request URI contains the given string. */
+        return str_contains($_SERVER['REQUEST_URI'], $t);
+    }
+
     public static function mimeType(): void
     {
-        /* Checking if the requested URI contains the string `$t`. */
-        /* A function that checks if the current request URI contains the given string. */
-        function checkUri($t)
-        {
-            /* Checking if the current request URI contains the given string. */
-            return str_contains($_SERVER['REQUEST_URI'], $t);
-        }
 
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
         $mimeTypes = array_map('str_getcsv', file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime.types'));
