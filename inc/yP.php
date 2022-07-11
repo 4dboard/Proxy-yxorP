@@ -142,7 +142,7 @@ class yP
     {
 
         $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
-        $domain = domain::fromIDNA2008($domain);
+        $domain = yxorP\inc\domain::fromIDNA2008($domain);
 
 
         return $publicSuffixList->resolve($domain);
