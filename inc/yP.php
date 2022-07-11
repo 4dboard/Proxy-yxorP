@@ -9,6 +9,7 @@ require __DIR__ . '/generalHelper.php';
 /* Using the cacheHelper class. */
 
 use cacheHelper;
+use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
 
@@ -262,7 +263,7 @@ class yP
         if (!is_dir(PATH_DIR_TMP)) {
             /* It's creating the `tmp` directory. */
             if (!mkdir($concurrentDirectory = PATH_DIR_TMP, 0777, true) && !is_dir($concurrentDirectory)) {
-                throw new \RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+                throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
             }
             /* It's setting the permissions of the `tmp` directory to `777`. */
             chmod(PATH_DIR_TMP, 0777);
