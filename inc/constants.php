@@ -16,7 +16,7 @@ define('VAR_COCKPIT', 'cockpit');
 directory separator (DIRECTORY_SEPARATOR) plus the value of the DIR_TMP constant. */
 define('DIR_TMP', FILE_TMP . DIRECTORY_SEPARATOR);
 /* Creating a unique key for the cache file. */
-define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
+define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
 /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
 directory separator (DIRECTORY_SEPARATOR) plus the value of the constant DIR_TMP. */
 define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
@@ -78,7 +78,7 @@ class constants
         /* Setting the content type of the response. */
         header('Content-Type: ' . MIME . ';charset=UTF-8');
 
-        /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
+        /* Including the file `../tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
         include PATH_DIR_TMP_FULL;
     }
 
