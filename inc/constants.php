@@ -94,8 +94,9 @@ class constants
      * @param string $yxorp_root
      * @return void
      */
-    public static function create(string $yxorp_root): void
+    public static function create(string $yxorp_root): mixed
     {
+        if (CHAR_PERIOD) return;
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
