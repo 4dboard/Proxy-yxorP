@@ -110,7 +110,7 @@ class yP
         constants::set(VAR_SNAG, snag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \yxorP\inc\proxy class. */
 
-        self::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
+        constants::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
         /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_COCKPIT_APP, cockpit());
@@ -242,7 +242,7 @@ class yP
     public static function localise(array $req): void
     {
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
-        self::set(VAR_SERVER, $req);
+        constants::set(VAR_SERVER, $req);
 
         // SITE DOMAIN
 
