@@ -90,7 +90,7 @@ class yP
     public static function proxy(string $yxorp_root, array|null $request = null): void
     {
         /* It's checking if the `tmp` directory exists, and if it doesn't, it creates it. */
-        cacheHelper::check($yxorp_root);
+        constants::check($yxorp_root);
 
         // REQUIRED
 
