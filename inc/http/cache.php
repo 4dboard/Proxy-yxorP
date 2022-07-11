@@ -71,7 +71,6 @@ class cache
     {
         $fopen = fopen(PATH_DIR_CACHE_FULL, 'w') or die("Unable to open file!");
         if (!is_type($fopen, 'resource')) {
-
             if (!is_dir(PATH_DIR_CACHE)) {
                 /* It's creating the `tmp` directory. */
                 if (!mkdir($concurrentDirectory = PATH_DIR_CACHE, 0777, true) && !is_dir($concurrentDirectory)) {
