@@ -540,6 +540,8 @@ class constants
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
 
+        define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
+
         // REQUIRED
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
@@ -570,7 +572,6 @@ class constants
         // CACHE
         /* Defining a constant called CACHE_EXPIRATION. The value of the constant is the current time plus the number of
         seconds in a year. */
-        define('CACHE_EXPIRATION', @time() + (60 * 60 * 24 * 31 * 365));
 
     }
     /* A function that is being called to fetch .env values. */
