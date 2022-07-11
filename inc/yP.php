@@ -139,7 +139,7 @@ class yP
      * @param string $domain
      * @return resolvedInterfaceDomainNameInterface
      */
-    public static function publicSuffix(string $domain): resolvedInterfaceDomainNameInterface
+    public static function publicSuffix(string $domain): mixed
     {
 
         $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
