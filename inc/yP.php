@@ -135,7 +135,7 @@ class yP
         /* Exploding the $line variable into an array of two elements. */
         [$name, $value] = explode(CHAR_EQUALS, $line, NUM_ENV_LIMIT);
         /* Replacing all the new lines with null. */
-        self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
+        constants::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
     }
 
     /**
