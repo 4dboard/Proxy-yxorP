@@ -29,7 +29,7 @@ class response
 
     public function setContent($content): ?string
     {
-        return ($this->content = $content) ?: null;
+        return $this->content = $content;
     }
 
     public function sendHeaders(): void
