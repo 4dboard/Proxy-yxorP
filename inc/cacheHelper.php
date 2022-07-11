@@ -47,7 +47,7 @@ try {
     header('Content-Type: ' . MIME . ';charset=UTF-8');
 
     /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-    include __DIR__ . DIRECTORY_SEPARATOR . 'cache' . rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')) . '.tmp';
+    include __DIR__ . DIRECTORY_SEPARATOR . '.cache' . rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')) . '.tmp';
 
 } catch
 (Exception $e) {
