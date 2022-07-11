@@ -6,8 +6,12 @@ require __DIR__ . '/constants.php';
 /* Loading the required files. */
 require __DIR__ . '/generalHelper.php';
 
+/* Using the cacheHelper class. */
+
 use cacheHelper;
 use RuntimeException;
+
+/* Importing the RuntimeException class from the PHP namespace. */
 
 // For security reasons, Tracy is visible only on localhost.
 // You may force Tracy to run in development mode by passing the Debugger::DEVELOPMENT instead of Debugger::DETECT.
