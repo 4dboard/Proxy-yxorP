@@ -7,14 +7,6 @@ namespace yxorP\inc;
  * Defining constants. Creating a class called constants.
  */
 
-use JetBrains\PhpStorm\NoReturn;
-use RuntimeException;
-use yxorP\inc\parser\domain;
-use yxorP\inc\parser\parseUrl;
-use yxorP\inc\parser\resolvedInterfaceDomainNameInterface;
-use yxorP\inc\parser\Rules;
-use yxorP\parse\parse;
-use function cockpit;
 
 class constants
 {
