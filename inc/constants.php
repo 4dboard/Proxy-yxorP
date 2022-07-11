@@ -546,7 +546,6 @@ class constants
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
 
-        echo PATH_COCKPIT_BOOTSTRAP;
         /* Defining the path to the action wrapper file. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER);
         /* Defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `bootstrap`. */
