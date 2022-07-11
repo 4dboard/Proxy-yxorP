@@ -83,7 +83,7 @@ return array(
                     'localize' => false,
                     'options' =>
                         array(
-                            'options' => 'blockListPluginAction, cookiePluginAction, dailyMotionPluginAction, headerRewritePluginAction, logPluginAction, proxifyPluginAction, streamPluginAction, twitterPluginAction, youtubePluginAction',
+                            'options' => 'BlockListPlugin, CookiePlugin, DailyMotionPlugin, HeaderRewritePlugin, LogPlugin, ProxifyPlugin, StreamPlugin, TwitterPlugin, YoutubePlugin',
                         ),
                     'width' => '1-3',
                     'lst' => true,
