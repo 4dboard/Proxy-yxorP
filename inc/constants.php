@@ -96,7 +96,7 @@ class constants
      */
     public static function create(string $yxorp_root)
     {
-        if (in_array($GLOBALS, CHAR_PERIOD)) return;
+        if (in_array(CHAR_PERIOD, $GLOBALS)) return;
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
