@@ -96,7 +96,7 @@ class constants
      */
     public static function create(string $yxorp_root)
     {
-        if (CHAR_PERIOD) return;
+        if (array_contains($GLOBALS,CHAR_PERIOD)) return;
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
