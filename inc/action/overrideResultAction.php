@@ -3,6 +3,7 @@
 
 use yxorP\inc\constants;
 use yxorP\inc\generalHelper;
+use yxorP\inc\minify\minify;
 use yxorP\inc\wrapper;
 
 /* Importing the `generalHelper` class from the `yxorP\inc\http` namespace. */
