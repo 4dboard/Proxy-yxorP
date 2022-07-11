@@ -14,10 +14,9 @@
 /app/storage
 /nbproject
 /yomama
-/.cache
+/inc/.cache
 /.idea
 /.phpdoc
-/tmp
 /inc/phpdoc.xml
 /override
 /override/*
