@@ -3,10 +3,12 @@
 /* Defining a constant named `CHAR_SLASH` with the value `/`. */
 define('CHAR_SLASH', '/');
 define('CHAR_PERIOD', '.');
-define('VAR_CACHE', 'cache');
-define('DIR_CACHE', CHAR_PERIOD . VAR_CACHE . DIRECTORY_SEPARATOR);
+define('VAR_CACHE', CHAR_PERIOD . 'cache');
+define('DIR_CACHE', VAR_CACHE . DIRECTORY_SEPARATOR);
 define('PATH_DIR_CACHE', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE);
 define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
+
+if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
 
 try {
     /* Checking if the requested URI contains the string `$t`. */
@@ -52,7 +54,7 @@ try {
     header('Content-Type: ' . MIME . ';charset=UTF-8');
 
     /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-    include __DIR__ . DIRECTORY_SEPARATOR . '.cache' . CACHE_KEY . '.tmp';
+    include PATH_DIR_CACHE . CACHE_KEY . VAR_CACHE;
 
 } catch
 (Exception $e) {

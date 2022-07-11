@@ -540,9 +540,6 @@ class constants
         define('ACCESS_DENIED_EXCEPTION', 'Error: Access denied!');
         define('ACCESS_ALREADY_DEFINED', 'Argument already exists and cannot be redefined!');
 
-
-        if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . COCKPIT_COCKPIT)) self::cockpit();
-
         // REQUIRED
         /* Requiring the Cockpit library. */
         require PATH_COCKPIT_BOOTSTRAP;
@@ -579,15 +576,6 @@ class constants
     /* A function that is being called to fetch .env values. */
 
     /**
-     * @return void
-     */
-    #[NoReturn] public static function cockpit(): void
-    {
-        require PATH_COCKPIT_INDEX;
-        exit();
-    }
-
-    /**
      * @param string $line
      * @return void
      */
@@ -601,8 +589,6 @@ class constants
         self::set($name . EXT_ENV, str_replace("\r\n", CHAR_EMPTY_STRING, $value));
     }
 
-    /* Setting the value of the variable $_name to the value of the variable $_value. */
-
     /**
      * @param string $_name
      * @param string|array|object|null $_value
@@ -613,6 +599,17 @@ class constants
         /* Checking if the argument already exists in the global scope and if it does, it throws an exception. If it
         doesn't, it adds the argument to the global scope . */
         return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
+    }
+
+    /* Setting the value of the variable $_name to the value of the variable $_value. */
+
+    /**
+     * @return void
+     */
+    #[NoReturn] public static function cockpit(): void
+    {
+        require PATH_COCKPIT_INDEX;
+        exit();
     }
 
     /* A function that is being called to localise constants. */
