@@ -94,7 +94,7 @@ final class rules implements publicSuffixListInterface
         return new self($properties['rules']);
     }
 
-    public function resolve($host): resolvedDomain
+    public function resolve($host): resolvedInterfaceDomainNameInterface
     {
         try {
             return $this->getCookieDomain($host);
