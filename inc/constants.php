@@ -38,14 +38,7 @@ class constants
      */
 
     /* Checking if the requested URI contains the string `$t`. */
-    /* A function that checks if the current request URI contains the given string. */
-    public static function checkUri($t)
-    {
-        /* Checking if the current request URI contains the given string. */
-        return str_contains($_SERVER['REQUEST_URI'], $t);
-    }
-
-    public static function mimeType(): void
+    /* A function that checks if the current request URI contains the given string. */    public static function mimeType(): void
     {
 
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
@@ -54,21 +47,21 @@ class constants
         $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
 
         /* Setting the content type of the response. */
-        if (checkUri('bundle.js')) define('MIME', 'application' . CHAR_SLASH . 'wasm');
+        if (self::checkUri('bundle.js')) define('MIME', 'application' . CHAR_SLASH . 'wasm');
         /* Checking if the current request URI contains the string `sitemap`. */
-        else if (checkUri('sitemap'))
+        else if (self::checkUri('sitemap'))
             /* Checking if the current request URI contains the string `crop`. */
             define('MIME', 'application' . CHAR_SLASH . 'xml');
-        else if (checkUri('crop'))
+        else if (self::checkUri('crop'))
             /* Setting the content type of the response to `image/png`. */
             define('MIME', 'image' . CHAR_SLASH . 'png');
-        else if (checkUri('format'))
+        else if (self::checkUri('format'))
             /* Checking if the current request URI contains the string `.mp4`. */
             define('MIME', 'image' . CHAR_SLASH . 'png');
-        else if (checkUri('.mp4'))
+        else if (self::checkUri('.mp4'))
             define('MIME', 'video' . CHAR_SLASH . 'mp4');
         /* Checking if the current request URI contains the string `.js.br`. */
-        else if (checkUri('.js.br'))
+        else if (self::checkUri('.js.br'))
             /* Checking if the file extension of the requested file is in the array `$mimeTypes`. */
             define('MIME', 'br');
         /* Checking if the file extension of the requested file is in the array `$mimeTypes`. */
@@ -83,7 +76,15 @@ class constants
         /* Including the file `../tmp` + `base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
         include PATH_DIR_CACHE . CACHE_KEY . VAR_CACHE;
     }
+
+
+    public static function checkUri($t)
+    {
+        /* Checking if the current request URI contains the given string. */
+        return str_contains($_SERVER['REQUEST_URI'], $t);
+    }
     /* Defining constants.Creating a new directory.  */
+
     /**
      * @param string $yxorp_root
      * @return void
