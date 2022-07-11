@@ -10,13 +10,13 @@ define('CHAR_SLASH', '/');
 define('CHAR_PERIOD', '.');
 /* Defining a constant. */
 /* Defining a constant. */
-define('VAR_CACHE', CHAR_PERIOD . 'cache');
+define('FILE_CACHE', CHAR_PERIOD . 'cache');
 define('VAR_COCKPIT', 'cockpit');
 /* Defining a constant called PATH_DIR_CACHE. The value of the constant is the current directory (__DIR__) plus the
 directory separator (DIRECTORY_SEPARATOR) plus the value of the DIR_CACHE constant. */
-define('FILE_CACHE', VAR_CACHE . DIRECTORY_SEPARATOR);
+define('DIR_CACHE', FILE_CACHE . DIRECTORY_SEPARATOR);
 /* Creating a unique key for the cache file. */
-define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')) . VAR_CACHE);
+define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['SITE_URL'] . $_SERVER['REQUEST_URI']), '+/=', '._-')) . FILE_CACHE);
 /* Defining a constant called PATH_DIR_CACHE. The value of the constant is the current directory (__DIR__) plus the
 directory separator (DIRECTORY_SEPARATOR) plus the value of the constant DIR_CACHE. */
 define('PATH_DIR_CACHE', __DIR__ . DIRECTORY_SEPARATOR . DIR_CACHE);
