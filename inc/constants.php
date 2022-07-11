@@ -46,9 +46,7 @@ class constants
             return str_contains($_SERVER['REQUEST_URI'], $t);
         }
 
-        $file = file(__DIR__ . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime.types');
-        echo __DIR__ . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime.types';
-        print_r($file);
+        $file = file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime.types');
 
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
         $array_map = array_map('str_getcsv', $file);
