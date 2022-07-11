@@ -10,6 +10,7 @@ require __DIR__ . '/generalHelper.php';
 
 use cacheHelper;
 use RuntimeException;
+use yxorP\inc\parser\Rules;
 
 /* Importing the RuntimeException class from the PHP namespace. */
 
@@ -140,7 +141,7 @@ class yP
     public static function publicSuffix(string $domain): resolvedInterfaceDomainNameInterface
     {
 
-        $publicSuffixList = parser\Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
+        $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
         $domain = domain::fromIDNA2008($domain);
 
 
