@@ -140,7 +140,7 @@ class yP
     public static function publicSuffix(string $domain): resolvedInterfaceDomainNameInterface
     {
 
-        $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
+        $publicSuffixList = parser\Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
         $domain = domain::fromIDNA2008($domain);
 
 
