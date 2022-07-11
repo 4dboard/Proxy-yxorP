@@ -2,7 +2,10 @@
 
 namespace yxorP\inc;
 
-/* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants. */
+/*
+ * It defines constants and sets the value of the constants to the value of the arguments passed to the class.
+ * Defining constants. Creating a class called constants.
+ */
 
 use JetBrains\PhpStorm\NoReturn;
 use RuntimeException;
@@ -107,8 +110,8 @@ class constants
         define('EXT_CSV', CHAR_PERIOD . 'csv');
         /* Defining a constant called `EXT_PHP` and setting it to the value of `.php`. */
         define('EXT_PHP', CHAR_PERIOD . 'php');
-        /* Defining a constant called `EXT_TMP` and setting it to the value of `.tmp`. */
-        define('EXT_TMP', CHAR_PERIOD . 'tmp');
+        /* Defining a constant called `EXT_CACHE` and setting it to the value of `.tmp`. */
+        define('EXT_CACHE', CHAR_PERIOD . 'cache');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
         define('EXT_ENV', CHAR_PERIOD . 'env');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
@@ -171,8 +174,8 @@ class constants
         define('VAR_TYPE', 'type');
         /* Defining a constant called `VAR_ERROR` and setting it to the value of `error`. */
         define('VAR_ERROR', 'error');
-        /* Defining a constant called `VAR_TMP_NAME` and setting it to the value of `tmp_name`. */
-        define('VAR_TMP_NAME', 'tmp_name');
+        /* Defining a constant called `VAR_CACHE_NAME` and setting it to the value of `tmp_name`. */
+        define('VAR_CACHE_NAME', 'tmp_name');
         /* Defining a constant called `VAR_GET_URL` and setting it to the value of `getUrl`. */
         define('VAR_GET_URL', 'getUrl');
         /* Defining a constant called `VAR_UCFIRST` and setting it to the value of `ucfirst`. */
@@ -347,9 +350,9 @@ class constants
         /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_STORAGE', 'storage' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
+        /* Defining a constant called `DIR_CACHE` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
         to it. */
-        define('DIR_TMP', 'tmp' . DIRECTORY_SEPARATOR);
+        define('DIR_CACHE', CHAR_PERIOD . 'cache' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_HTTP', 'http' . DIRECTORY_SEPARATOR);
@@ -450,9 +453,9 @@ class constants
 
 
         // PATHS
-        /* Defining a constant called `PATH_DIR_TMP` and setting it to the value of `DIR_ROOT` with a `DIR_TMP` appended
+        /* Defining a constant called `PATH_DIR_CACHE` and setting it to the value of `DIR_ROOT` with a `DIR_CACHE` appended
         to it. */
-        define('PATH_DIR_TMP', DIR_ROOT . DIR_TMP);
+        define('PATH_DIR_CACHE', DIR_ROOT . DIR_INC . DIR_CACHE);
         /* Defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `DIR_STORAGE` appended to it. */
         define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT . DIR_STORAGE);
@@ -683,7 +686,7 @@ class constants
         array appended to it. */
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_INC . DIR_OVERRIDE . ($siteDetails)[VAR_FILES]);
         /* Setting the cache key to the base64 encoded version of the proxy URL. */
-        define('CACHE_KEY', generalHelper::base64_url_encode(YXORP_PROXY_URL) . EXT_TMP);
+        define('CACHE_KEY', generalHelper::base64_url_encode(YXORP_SITE_URL . YXORP_REQUEST_URI) . EXT_CACHE);
 
         // GLOBAL COLLECTIONS
 

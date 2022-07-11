@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Handler;
 
+use RuntimeException;
 use yxorP\inc\proxy\Exception\ARequestException;
 use yxorP\inc\proxy\Exception\ConnectException;
 use yxorP\inc\proxy\Promise\FulfilledPromise;

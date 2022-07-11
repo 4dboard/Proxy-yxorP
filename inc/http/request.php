@@ -124,7 +124,7 @@ class request
             $body .= "$value\r\n";
         }
         foreach ($files as $name => $values) {
-            if (!is_array($values[VAR_TMP_NAME])) {
+            if (!is_array($values[VAR_CACHE_NAME])) {
                 $multiValues = array_map(static function ($a) {
                     return (array)$a;
                 }, $values);
@@ -133,12 +133,12 @@ class request
                 $multiValues = $values;
                 $fieldName = (string)$name;
             }
-            foreach (array_keys($multiValues[VAR_TMP_NAME]) as $key) {
-                if (!$multiValues[VAR_TMP_NAME][$key] || $multiValues[VAR_ERROR][$key] !== 0 || !is_readable($multiValues[VAR_TMP_NAME][$key])) {
+            foreach (array_keys($multiValues[VAR_CACHE_NAME]) as $key) {
+                if (!$multiValues[VAR_CACHE_NAME][$key] || $multiValues[VAR_ERROR][$key] !== 0 || !is_readable($multiValues[VAR_CACHE_NAME][$key])) {
                     continue;
                 }
                 $body .= sprintf($part_file, $boundary, $fieldName, $multiValues['name'][$key], $multiValues[VAR_TYPE][$key]);
-                $body .= file_get_contents($multiValues[VAR_TMP_NAME][$key]);
+                $body .= file_get_contents($multiValues[VAR_CACHE_NAME][$key]);
                 $body .= "\r\n";
             }
         }

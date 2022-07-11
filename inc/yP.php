@@ -4,6 +4,11 @@ namespace yxorP\inc;
 /* Importing the constants class from the inc folder. */
 
 /* Loading the required files. */
+
+use cacheHelper;
+use RuntimeException;
+
+require __DIR__ . '/cacheHelper.php';
 require __DIR__ . '/generalHelper.php';
 require __DIR__ . '/constants.php';
 
@@ -35,11 +40,10 @@ class yP
     {
         /* It's setting the constants that are used in the plugin. */
         constants::localise($request);
+
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-
         foreach ([DIR_INC . DIR_ACTION => scandir(DIR_ROOT . DIR_INC . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS)] as $key => $value) foreach ($value as $action) $this->subscribe($key, $action);
-
     }
 
     /**
@@ -84,6 +88,8 @@ class yP
      */
     public static function proxy(string $yxorp_root, array|null $request = null): void
     {
+        /* It's checking if the `tmp` directory exists, and if it doesn't, it creates it. */
+        cacheHelper::check($yxorp_root);
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
@@ -98,9 +104,14 @@ class yP
         /* It's creating the constants that are used in the plugin. */
         constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
-        mkdir(PATH_DIR_TMP, 0777, true);
-        /* It's setting the permissions of the `tmp` directory to `777`. */
-        chmod(PATH_DIR_TMP, 0777);
+        if (!is_dir(PATH_DIR_CACHE)) {
+            /* It's creating the `tmp` directory. */
+            if (!mkdir($concurrentDirectory = PATH_DIR_CACHE, 0777, true) && !is_dir($concurrentDirectory)) {
+                throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            }
+            /* It's setting the permissions of the `tmp` directory to `777`. */
+            chmod(PATH_DIR_CACHE, 0777);
+        }
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
         if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
@@ -152,8 +163,7 @@ class yP
     {
         /* It's checking if there are any listeners for the event, and if there are, it's looping through them and calling
         them. */
-        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener)
-            if (is_callable($listener)) $listener();
+        if (isset($this->listeners[$event_name])) foreach ((array)$this->listeners[$event_name] as $priority => $listeners) foreach ((array)$listeners as $listener) if (is_callable($listener)) $listener();
     }
 
     /**
