@@ -9,26 +9,7 @@ use RuntimeException;
 
 try {
     /* Initialise minimum definable varibles */
-    constants::required();
-    /* Checking if we must clear the cache */
-    if (isset($_GET["CLECHE"])) constants::flush();
-    /*  Set Header MimeType */
-    constants::mimeType();
-    /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-    include PATH_TMP_FILE;
-} catch (Exception $e) { /* Catching an exception and swallowing it. */
-}
-
-
-class constants
-{
-    /* Required varibles.  */
-    /**
-     * @return void
-     */
-    public static function required()
-    {
-        if (defined('CHAR_SLASH')) return;
+    if (defined('CHAR_SLASH')) {
         /* Defining a constant. */
         define('CHAR_SLASH', '/');
         /* Defining a constant. */
@@ -48,6 +29,18 @@ class constants
         FILE_TMP. */
         define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
     }
+    /* Checking if we must clear the cache */
+    if (isset($_GET["CLECHE"])) constants::flush();
+    /*  Set Header MimeType */
+    constants::mimeType();
+    /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
+    include PATH_TMP_FILE;
+} catch (Exception $e) { /* Catching an exception and swallowing it. */
+}
+
+
+class constants
+{
     /* Defining constants.Creating a new directory.  */
     /**
      * @param string $yxorp_root
