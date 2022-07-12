@@ -11,13 +11,13 @@ class checkFilesAction extends wrapper
 {
     public function onBuildIncludes(): void
     {
-        echo DIR_ROOT . DIR_INC . 'override' . CHAR_SLASH . 'global';
+        echo DIR_ROOT . DIR_INC . 'override' . DIRECTORY_SEPARATOR . 'global';
         echo YXORP_DIR_FULL;
         exit;
         /* Checking the files in the directory `DIR_FULL` and it is not recursive. */
         generalHelper::fileCheck(YXORP_DIR_FULL, false);
         /* Checking the files in the directory `DIR_ROOT . 'override' . CHAR_SLASH . 'global'` and it is not
         recursive. */
-        generalHelper::fileCheck(DIR_ROOT . DIR_INC . 'override' . CHAR_SLASH . 'global', false);
+        generalHelper::fileCheck(DIR_ROOT . DIR_INC . 'override' . DIRECTORY_SEPARATOR . 'global', false);
     }
 }
