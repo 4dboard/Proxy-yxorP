@@ -17,8 +17,14 @@ class overrideResultAction extends wrapper
     /* Overriding the `onEventWrite` method of the `wrapper` class. */
     private static function result($m)
     {
+        foreach ($m as $k => $v) {
+            if (is_array($v)) {
+                $m[$k] = self::result($v);
+            } else {
+                $m[$k] = str_replace('This', 'That', $v);
+            }
+        }
         print_r($m);
-        return str_replace('This', 'That', $m[3]);
     }
 
     public function onEventWrite(): void
