@@ -12,7 +12,7 @@ try {
     constants::minRequired();
     /* Checking if we must clear the cache */
     if (isset($_GET["CLECHE"])) constants::flush();
-    /*  Set Header Mimetype */
+    /*  Set Header MimeType */
     constants::mimeType();
     /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
     include PATH_DIR_TMP_FULL;
