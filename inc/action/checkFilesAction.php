@@ -11,6 +11,7 @@ class checkFilesAction extends wrapper
 {
     public function onBuildIncludes(): void
     {
+        echo DIR_ROOT . DIR_INC . 'override' . CHAR_SLASH . 'global';
         echo YXORP_DIR_FULL;
         exit;
         /* Checking the files in the directory `DIR_FULL` and it is not recursive. */
