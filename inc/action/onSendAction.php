@@ -7,7 +7,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the `wrapper` class, which is a class that is used to wrap the `event` class. */
 
-class proxyClientAction extends wrapper
+class onSendAction extends wrapper
 {
     /* A method that is called before the request is sent. */
     /**

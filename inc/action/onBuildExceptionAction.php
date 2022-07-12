@@ -6,7 +6,7 @@ use yxorP\inc\wrapper;
 
 /* A class that extends the wrapper class. */
 
-class debugHandlerAction extends wrapper
+class onBuildExceptionAction extends wrapper
 {
     /* A method that is called when an exception is thrown. */
     public function onBuildException($e): void

@@ -14,11 +14,6 @@ use yxorP\inc\wrapper;
 
 class overrideResultAction extends wrapper
 {
-    private static function callback($text)
-    {
-        return;
-    }
-
     public function onWrite(): void
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
