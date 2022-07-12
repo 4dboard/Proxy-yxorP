@@ -16,7 +16,7 @@ class dailyMotionPluginAction extends wrapper
 
     /* A method that is called when the request is completed. */
 
-    public function onEventComplete(): void
+    public function onComplete(): void
     {
         echo '22';
         /* Getting the response object from the `constants` class. */

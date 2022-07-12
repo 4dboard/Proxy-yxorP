@@ -34,7 +34,7 @@ class proxifyPluginAction extends wrapper
     }
 
     /* It's a function that is called after the request is completed. */
-    public function onEventComplete(): void
+    public function onComplete(): void
     {
         echo '44';
         /* It's getting the base url of the request. */

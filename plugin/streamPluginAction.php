@@ -49,7 +49,7 @@ class streamPluginAction extends wrapper
     }
 
     /* Used to exit the script when the response is streamed. */
-    public function onEventComplete(): void
+    public function onComplete(): void
     {
         echo '55';
         /* Used to exit the script. */

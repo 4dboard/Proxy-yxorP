@@ -13,7 +13,7 @@ class twitterPluginAction extends wrapper
     /* A method that is called when the request is completed. */
     protected ?string $url_pattern = 'twitter.com';
 
-    public function onEventComplete(): void
+    public function onComplete(): void
     {
         echo '11';
         /* Getting the response object from the constants class. */

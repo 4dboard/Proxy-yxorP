@@ -22,7 +22,7 @@ class youtubePluginAction extends wrapper
     }
 
     /* A function that is called when the request is completed. */
-    public function onEventComplete(): void
+    public function onComplete(): void
     {
         echo '66';
         /* Getting the response object from the `constants` class. */
