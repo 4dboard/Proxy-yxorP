@@ -8,6 +8,7 @@ namespace yxorP\inc;
 
 use Memcache;
 use RuntimeException;
+use function get_defined_vars;
 
 define('CHAR_SLASH', '/');
 /* Defining a constant. */
@@ -99,8 +100,7 @@ class constants
      */
     public static function create(string $yxorp_root)
     {
-        if (in_array(CHAR_PERIOD, if (isset(CHAR_PERIOD) return;))
-        return;
+        if (in_array(CHAR_PERIOD, get_defined_vars())) return;
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
