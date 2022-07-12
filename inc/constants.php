@@ -8,6 +8,7 @@ use Memcache;
 use RuntimeException;
 
 if (!defined('CHAR_SLASH')) {
+    /* Defining a constant. */
     define('CHAR_SLASH', '/');
     /* Defining a constant. */
     define('CHAR_PERIOD', '.');
