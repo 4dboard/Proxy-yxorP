@@ -41,10 +41,9 @@ class overrideResultAction extends wrapper
     private static function callback($content): string
     {
         if (MIME !== VAR_TEXT_HTML) {
-            echo 1;
             return $content;
         } else {
-            echo 2;
+            exit(preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", "self::result", $content));
             return preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", "self::result", $content);
         }
     }
