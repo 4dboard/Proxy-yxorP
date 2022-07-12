@@ -9,7 +9,7 @@ use yxorP\inc\wrapper;
 
 class checkFilesAction extends wrapper
 {
-    public function buildIncludes()
+    public function onBuildIncludes()
     {
         echo YXORP_DIR_FULL;
         exit;

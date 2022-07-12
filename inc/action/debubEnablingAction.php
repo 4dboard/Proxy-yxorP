@@ -11,7 +11,7 @@ use function errorHandler\reportErrors;
 class debubEnablingAction extends wrapper
 {
     /* A method that is called before the action is executed. */
-    public function buildIncludes(): void
+    public function onBuildIncludes(): void
     {
         ini_set('display_startup_errors', 1);
         ini_set('display_errors', 1);
