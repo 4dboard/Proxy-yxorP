@@ -223,7 +223,7 @@ class generalHelper
 
     public static function CSV($filename): array
     {
-        return file($filename);
+        return [file($filename)];
     }
 
     /* It's reading the CSV file and returning the array. */
