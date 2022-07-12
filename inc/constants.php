@@ -333,9 +333,6 @@ class constants
         /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_STORAGE', 'storage' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
-        to it. */
-        define('DIR_TMP', CHAR_PERIOD . 'cache' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_HTTP', 'http' . DIRECTORY_SEPARATOR);
