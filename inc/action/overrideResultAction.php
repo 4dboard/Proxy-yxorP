@@ -44,6 +44,10 @@ class overrideResultAction extends wrapper
 
     private static function callback($content): string
     {
+        $fileContent = preg_replace_callback('/^.*video.*controls.*video.*$/m', function ($matches) {
+            $matches[0] = str_replace('controls', 'controls controlsList=&quot;nodownload&quot;', $match);
+            return $matches[0];
+        }, $fileContent);
         if (MIME !== VAR_TEXT_HTML) {
             return $content;
         } else {
