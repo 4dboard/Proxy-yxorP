@@ -77,7 +77,7 @@ abstract class wrapper
                     $this->onComplete();
                     break;
                 case EVENT_FINAL:
-                    $this->onEventFinal();
+                    $this->onFinal();
                     break;
             }
         } catch (Exception $e) {
@@ -154,7 +154,7 @@ abstract class wrapper
 
     /* Used to execute code when the request is completed. */
 
-    public function onEventFinal(): void
+    public function onFinal(): void
     {
     }
 
