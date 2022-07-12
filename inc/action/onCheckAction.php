@@ -7,7 +7,7 @@ use yxorP\inc\wrapper;
 
 /* Importing the wrapper class from the yxorP\inc\http namespace. Extending the wrapper class, which is a class that is used to wrap events. */
 
-class readyCheckAction extends wrapper
+class onCheckAction extends wrapper
 {
     /* A function that is called when the event is checked. */
     public function onCheck(): void

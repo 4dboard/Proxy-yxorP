@@ -12,7 +12,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the `wrapper` class. */
 
-class overrideResultAction extends wrapper
+class onWriteAction extends wrapper
 {
     public function onWrite(): void
     {

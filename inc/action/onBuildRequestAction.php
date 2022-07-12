@@ -7,7 +7,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
-class requestBodyAction extends wrapper
+class onBuildRequestAction extends wrapper
 {
     /* A method that is called by the wrapper class. */
     public function onBuildRequest(): void

@@ -9,7 +9,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class, which is a class that is used to wrap the request and response objects. */
 
-class requestResponseAction extends wrapper
+class onBuildContextAction extends wrapper
 {
     /* This function is used to build the request and response objects. */
     public function onBuildContext(): void
