@@ -14,7 +14,7 @@ use yxorP\inc\wrapper;
 
 class overrideResultAction extends wrapper
 {
-    private static function replacer($text)
+    private static function callback($text)
     {
         return preg_replace_callback_array(
             [
@@ -25,6 +25,19 @@ class overrideResultAction extends wrapper
             ],
             $text
         );
+    }
+
+    private static function callback($content): string
+    {
+        $fileContent = preg_replace_callback('/^(.*x.*)(.*x.*)', function ($matches) {
+            $matches[0] = str_replace('controls', 'controls controlsList=&quot;nodownload&quot;', $match);
+            return $matches[0];
+        }, $fileContent);
+        if (MIME !== VAR_TEXT_HTML) {
+            return $content;
+        } else {
+            return preg_replace_callback("<x(.*)>(.*)</x>", "self::result", $content);
+        }
     }
 
     public function onEventWrite(): void
@@ -46,19 +59,6 @@ class overrideResultAction extends wrapper
             exit;
         }
 
-    }
-
-    private static function callback($content): string
-    {
-        $fileContent = preg_replace_callback('/^(.*x.*)(.*x.*)', function ($matches) {
-            $matches[0] = str_replace('controls', 'controls controlsList=&quot;nodownload&quot;', $match);
-            return $matches[0];
-        }, $fileContent);
-        if (MIME !== VAR_TEXT_HTML) {
-            return $content;
-        } else {
-            return preg_replace_callback("<x(.*)>(.*)</x>", "self::result", $content);
-        }
     }
 
 }
