@@ -43,21 +43,21 @@ try {
         $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
 
         /* Setting the content type of the response. */
-        if (self::checkUri('bundle.js')) define('MIME', 'application' . CHAR_SLASH . 'wasm');
+        if (str_contains($_SERVER['REQUEST_URI'], 'bundle.js')) define('MIME', 'application' . CHAR_SLASH . 'wasm');
         /* Checking if the current request URI contains the string `sitemap`. */
-        else if (self::checkUri('sitemap'))
+        else if (str_contains($_SERVER['REQUEST_URI'], 'sitemap'))
             /* Checking if the current request URI contains the string `crop`. */
             define('MIME', 'application' . CHAR_SLASH . 'xml');
-        else if (self::checkUri('crop'))
+        else if (str_contains($_SERVER['REQUEST_URI'], 'crop'))
             /* Setting the content type of the response to `image/png`. */
             define('MIME', 'image' . CHAR_SLASH . 'png');
-        else if (self::checkUri('format'))
+        else if (str_contains($_SERVER['REQUEST_URI'], 'format'))
             /* Checking if the current request URI contains the string `.mp4`. */
             define('MIME', 'image' . CHAR_SLASH . 'png');
-        else if (self::checkUri('.mp4'))
+        else if (str_contains($_SERVER['REQUEST_URI'], '.mp4'))
             define('MIME', 'video' . CHAR_SLASH . 'mp4');
         /* Checking if the current request URI contains the string `.js.br`. */
-        else if (self::checkUri('.js.br'))
+        else if (str_contains($_SERVER['REQUEST_URI'], '.js.br'))
             /* Checking if the file extension of the requested file is in the array `$mimeTypes`. */
             define('MIME', 'br');
         /* Checking if the file extension of the requested file is in the array `$mimeTypes`. */
