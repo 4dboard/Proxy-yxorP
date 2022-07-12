@@ -11,6 +11,8 @@ class checkFilesAction extends wrapper
 {
     public function buildIncludes()
     {
+        echo YXORP_DIR_FULL;
+        exit;
         /* Checking the files in the directory `DIR_FULL` and it is not recursive. */
         generalHelper::fileCheck(YXORP_DIR_FULL, false);
         /* Checking the files in the directory `DIR_ROOT . 'override' . CHAR_SLASH . 'global'` and it is not
