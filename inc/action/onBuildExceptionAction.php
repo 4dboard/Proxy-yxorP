@@ -15,6 +15,6 @@ class onBuildExceptionAction extends wrapper
         these conditions are met, the exception is printed. */
         if (MIME === 'text' . CHAR_SLASH . 'html' && MIME !== "document") header("Location: " . YXORP_PROXY_URL);
         if (ENV_DEBUG) var_dump($e);
-
+        constants::get(VAR_SNAG)?->notifyException($e);
     }
 }

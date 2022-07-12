@@ -7,7 +7,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
-class setHeadersAction extends wrapper
+class onBuildHeadersAction extends wrapper
 {
     /* Setting the headers for the request. */
     public function onBuildHeaders(): void
