@@ -100,6 +100,7 @@ class constants
      */
     public static function create(string $yxorp_root)
     {
+        print_r(get_defined_vars());
         if (in_array(CHAR_PERIOD, get_defined_vars())) return;
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
