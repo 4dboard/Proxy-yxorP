@@ -6,17 +6,6 @@ namespace yxorP\inc;
 
 class constants
 {
-    /* Defining constants.Creating a new directory.  */
-    /**
-     * @param string $t
-     * @return string
-     */
-    public static function checkUri($t): string
-    {
-        /* Checking if the current request URI contains the given string. */
-        return str_contains($_SERVER['REQUEST_URI'], $t);
-    }
-
     /**
      * @param string $yxorp_root
      * @return void
