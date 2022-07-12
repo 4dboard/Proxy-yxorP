@@ -29,7 +29,7 @@ try {
     /* Checking if we must clear the cache */
     if (isset($_GET["CLECHE"])) {
         if (class_exists('Memcache')) {
-            $memcache = new \Memcache;
+            $memcache = new Memcache;
             $memcache->connect('localhost', 11211);
             $memcache->flush();
         }
@@ -77,11 +77,11 @@ try {
 
 
 use cacheHelper;
-use Memcache;
 use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
 use yxorP\inc\parser\RulesParser;
+use const Memcache;
 
 /* Importing the RuntimeException class from the PHP namespace. */
 
