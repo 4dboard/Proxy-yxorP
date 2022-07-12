@@ -149,7 +149,7 @@ class yP
         $siteDetails = constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . DASHBOARD_SITES, [DASHBOARD_HOST => YXORP_SITE_DOMAIN]);
 
         print_r($siteDetails);
-        exit;
+        exit();
         // TARGET DOMAIN
 
         /* Setting the `YXORP_TARGET_PATTERN` variable to the result of the `VAR_PATTERN` method. */
