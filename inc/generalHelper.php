@@ -195,12 +195,12 @@ class generalHelper
         $_parse_url = parse_url($base);
         extract($_parse_url);
         $path = preg_replace(REG_NINE, CHAR_EMPTY_STRING, $path);
-        if ($rel[0] === DIRECTORY_SEPARATOR) {
+        if ($rel[0] === CHAR_SLASH) {
             $path = CHAR_EMPTY_STRING;
         }
         $abs = "$host$path/$rel";
         $re = array(REG_ELEVEN, REG_TEN);
-        for ($n = 1; $n > 0; $abs = preg_replace($re, DIRECTORY_SEPARATOR, $abs, -1, $n)) {
+        for ($n = 1; $n > 0; $abs = preg_replace($re, CHAR_SLASH, $abs, -1, $n)) {
         }
         return $scheme . ':' . $abs;
     }
@@ -230,7 +230,7 @@ class generalHelper
     public static function fileInc($dir, $x, $inc)
     {
         if (str_contains($dir, 'views')) return;
-        if (is_dir($_loc = $dir . DIRECTORY_SEPARATOR . $x)) return self::fileCheck($_loc, $inc);
+        if (is_dir($_loc = $dir . CHAR_SLASH . $x)) return self::fileCheck($_loc, $inc);
         if (!$inc && str_contains(YXORP_PROXY_URL, $x)) return cache::cache()->set(file_get_contents($_loc));
         if ($inc) require_once($_loc);
     }

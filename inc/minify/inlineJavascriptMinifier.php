@@ -47,7 +47,7 @@ class inlineJavascriptMinifier implements minfyInterface
             for ($match = $match[0], $c = count($match), $i = $pos = $offset = 0; $i < $c; $i++) {
                 $js_code[$pos++] = trim(substr($buffer, $offset, $match[$i][1] - $offset));
                 $offset = $match[$i][1] + strlen($match[$i][0]);
-                if ($match[$i][0][0] !== DIRECTORY_SEPARATOR) {
+                if ($match[$i][0][0] !== CHAR_SLASH) {
                     $js_literals[$pos++] = array_shift($match[$i]);
                 }
             }

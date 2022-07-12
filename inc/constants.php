@@ -16,17 +16,17 @@ define('CHAR_PERIOD', '.');
 define('FILE_TMP', 'tmp');
 define('VAR_COCKPIT', 'cockpit');
 /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
-directory separator (DIRECTORY_SEPARATOR) plus the value of the DIR_TMP constant. */
-define('DIR_TMP', FILE_TMP . DIRECTORY_SEPARATOR);
+directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
+define('DIR_TMP', FILE_TMP . CHAR_SLASH);
 /* Creating a unique key for the cache file. */
 define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
 /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
-directory separator (DIRECTORY_SEPARATOR) plus the value of the constant DIR_TMP. */
-define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
+directory separator (CHAR_SLASH) plus the value of the constant DIR_TMP. */
+define('PATH_DIR_TMP', __DIR__ . CHAR_SLASH . DIR_TMP);
 /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
 separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
 FILE_TMP. */
-define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
+define('PATH_DIR_TMP_FULL', __DIR__ . CHAR_SLASH . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
 /*  Try catch */
@@ -50,7 +50,7 @@ class constants
     {
 
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
-        $mimeTypes = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime' . CHAR_PERIOD . 'json'), true);
+        $mimeTypes = json_decode(file_get_contents(__DIR__ . CHAR_SLASH . 'data' . CHAR_SLASH . 'mime' . CHAR_PERIOD . 'json'), true);
         /* Getting the file extension of the requested file. */
         $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
 
@@ -387,61 +387,61 @@ class constants
 
 
         // DIRECTORIES
-        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$dir` with a `DIRECTORY_SEPARATOR`
+        /* Defining a constant called `DIR_ROOT` and setting it to the value of `$dir` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_ROOT', $yxorp_root . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `DIRECTORY_SEPARATOR`
+        define('DIR_ROOT', $yxorp_root . CHAR_SLASH);
+        /* Defining a constant called `DIR_ACTION` and setting it to the value of `action` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_ACTION', 'action' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
+        define('DIR_ACTION', 'action' . CHAR_SLASH);
+        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_PARSER', 'parser' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `DIRECTORY_SEPARATOR`
+        define('DIR_PARSER', 'parser' . CHAR_SLASH);
+        /* Defining a constant called `DIR_PLUGIN` and setting it to the value of `plugin` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_PLUGIN', 'plugin' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `DIRECTORY_SEPARATOR`
+        define('DIR_PLUGIN', 'plugin' . CHAR_SLASH);
+        /* Defining a constant called `DIR_OVERRIDE` and setting it to the value of `override` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_OVERRIDE', 'override' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `DIRECTORY_SEPARATOR`
+        define('DIR_OVERRIDE', 'override' . CHAR_SLASH);
+        /* Defining a constant called `DIR_GLOBAL` and setting it to the value of `global` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_GLOBAL', VAR_GLOBAL . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `DIRECTORY_SEPARATOR`
+        define('DIR_GLOBAL', VAR_GLOBAL . CHAR_SLASH);
+        /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_INCLUDES', 'includes' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `DIRECTORY_SEPARATOR`
+        define('DIR_INCLUDES', 'includes' . CHAR_SLASH);
+        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_COCKPIT', COCKPIT_COCKPIT . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `DIRECTORY_SEPARATOR`
+        define('DIR_COCKPIT', COCKPIT_COCKPIT . CHAR_SLASH);
+        /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_ACCOUNTS', VAR_COCKPIT_ACCOUNTS . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `DIRECTORY_SEPARATOR` appended
+        define('DIR_ACCOUNTS', VAR_COCKPIT_ACCOUNTS . CHAR_SLASH);
+        /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `CHAR_SLASH` appended
         to it. */
-        define('DIR_INC', 'inc' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_DATA` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
+        define('DIR_INC', 'inc' . CHAR_SLASH);
+        /* Defining a constant called `DIR_DATA` and setting it to the value of `storage` with a `CHAR_SLASH`
         to it. */
-        define('DIR_DATA', 'data' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `DIRECTORY_SEPARATOR`
+        define('DIR_DATA', 'data' . CHAR_SLASH);
+        /* Defining a constant called `DIR_STORAGE` and setting it to the value of `storage` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_STORAGE', 'storage' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `DIRECTORY_SEPARATOR` appended
+        define('DIR_STORAGE', 'storage' . CHAR_SLASH);
+        /* Defining a constant called `DIR_TMP` and setting it to the value of `tmp` with a `CHAR_SLASH` appended
         to it. */
-        define('DIR_TMP', CHAR_PERIOD . 'cache' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        define('DIR_TMP', CHAR_PERIOD . 'cache' . CHAR_SLASH);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_HTTP', 'http' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `DIRECTORY_SEPARATOR`
+        define('DIR_HTTP', 'http' . CHAR_SLASH);
+        /* Defining a constant called `DIR_MINIFY` and setting it to the value of `minify` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_MINIFY', 'minify' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        define('DIR_MINIFY', 'minify' . CHAR_SLASH);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_SNAG', 'snag' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        define('DIR_SNAG', 'snag' . CHAR_SLASH);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_PROXY', 'proxy' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `DIRECTORY_SEPARATOR`
+        define('DIR_PROXY', 'proxy' . CHAR_SLASH);
+        /* Defining a constant called `DIR_HTTP` and setting it to the value of `http` with a `CHAR_SLASH`
         appended to it. */
-        define('DIR_PSR', 'psr' . DIRECTORY_SEPARATOR);
-        define('DIR_DEBUG', 'debug' . DIRECTORY_SEPARATOR);
+        define('DIR_PSR', 'psr' . CHAR_SLASH);
+        define('DIR_DEBUG', 'debug' . CHAR_SLASH);
 
 
         // EVENTS

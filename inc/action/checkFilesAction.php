@@ -13,8 +13,8 @@ class checkFilesAction extends wrapper
     {
         /* Checking the files in the directory `DIR_FULL` and it is not recursive. */
         generalHelper::fileCheck(YXORP_DIR_FULL, false);
-        /* Checking the files in the directory `DIR_ROOT . 'override' . DIRECTORY_SEPARATOR . 'global'` and it is not
+        /* Checking the files in the directory `DIR_ROOT . 'override' . CHAR_SLASH . 'global'` and it is not
         recursive. */
-        generalHelper::fileCheck(DIR_ROOT . DIR_INC . 'override' . DIRECTORY_SEPARATOR . 'global', false);
+        generalHelper::fileCheck(DIR_ROOT . DIR_INC . 'override' . CHAR_SLASH . 'global', false);
     }
 }

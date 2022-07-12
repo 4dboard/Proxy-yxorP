@@ -114,7 +114,7 @@ class yP
         variable appended to it. */
         define('YXORP_PROXY_URL', VAR_FETCH . YXORP_REQUEST_URI);
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT . DIR_INC` constant, with the `override` string appended
-        to it, with the `DIRECTORY_SEPARATOR` constant appended to it, with the value of the `files` key in the `TARGET`
+        to it, with the `CHAR_SLASH` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_INC . DIR_OVERRIDE . ($siteDetails)[VAR_FILES]);
 
@@ -300,7 +300,7 @@ class yP
     {
         $dir = opendir($src);
         @mkdir($dst);
-        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . DIRECTORY_SEPARATOR . $file)) self::migrate($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file); else  copy($src . DIRECTORY_SEPARATOR . $file, $dst . DIRECTORY_SEPARATOR . $file);
+        foreach (scandir($src) as $file) if (($file !== CHAR_PERIOD) && ($file !== CHAR_PERIOD . CHAR_PERIOD)) if (is_dir($src . CHAR_SLASH . $file)) self::migrate($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file); else  copy($src . CHAR_SLASH . $file, $dst . CHAR_SLASH . $file);
         closedir($dir);
     }
 
