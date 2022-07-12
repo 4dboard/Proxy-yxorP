@@ -14,7 +14,6 @@ class snagHandlerAction extends wrapper
     public function onBuildException($e): void
     {
         /* Calling the notifyException method on the Snag instance. */
-        if (ENV_DEBUG) print_r($e);
         constants::get(VAR_SNAG)?->notifyException($e);
     }
 }
