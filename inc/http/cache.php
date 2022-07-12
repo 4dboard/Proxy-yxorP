@@ -39,7 +39,7 @@ class cache
     #[Pure] public function isValid(): bool
     {
         /* Used to check if the cache file exists. */
-        return file_exists(PATH_DIR_TMP_FULL);
+        return file_exists(PATH_TMP_FILE);
     }
 
     /* Used to get the data from the cache file. */
@@ -49,7 +49,7 @@ class cache
         /* Used to check if the cache file is valid. */
         if (!$this->isValid()) return;
         /* Used to include the cache file. */
-        @include PATH_DIR_TMP_FULL;
+        @include PATH_TMP_FILE;
     }
 
     /* Used to get the instance of the class. */
@@ -67,7 +67,7 @@ class cache
 
     public function set($val): void
     {
-        $fopen = fopen(PATH_DIR_TMP_FULL, 'w');
+        $fopen = fopen(PATH_TMP_FILE, 'w');
         fwrite($fopen, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;?>');
         fclose($fopen);
     }
