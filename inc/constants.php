@@ -15,7 +15,7 @@ try {
     /*  Set Header MimeType */
     constants::mimeType();
     /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-    include PATH_DIR_TMP_FULL;
+    include PATH_TMP_FILE;
 } catch (Exception $e) { /*swollow*/
 }
 
@@ -418,7 +418,7 @@ class constants
         define('DIR_INCLUDES', 'includes' . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_DASHBOARD` and setting it to the value of `cockpit` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_DASHBOARD', DASHBOARD_DASHBOARD . DIRECTORY_SEPARATOR);
+        define('DIR_DASHBOARD', DASHBOARD_YXORP . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_ACCOUNTS', VAR_DASHBOARD_ACCOUNTS . DIRECTORY_SEPARATOR);
