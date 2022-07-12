@@ -41,7 +41,7 @@ class overrideResultAction extends wrapper
         } else {
             echo 2;
             preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
-                return str_replace(file('../data/search_rewrite.csv'), file('../data/replace_rewrite.csv'), $m[3]);
+                return str_replace('This', 'That', $m[3]);
             }, $content);
         }
     }
