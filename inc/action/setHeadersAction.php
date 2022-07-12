@@ -10,7 +10,7 @@ use yxorP\inc\wrapper;
 class setHeadersAction extends wrapper
 {
     /* Setting the headers for the request. */
-    public function buildHeaders(): void
+    public function onBuildHeaders(): void
     {
         /* It allows the request to be sent from any origin. */
         header("Access-Control-Allow-Origin: *");
