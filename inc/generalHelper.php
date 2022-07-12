@@ -243,7 +243,7 @@ class generalHelper
     {
         foreach (scandir($dir) as $x) if (strlen($x) > 3) if (str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
 
-        foreach (scandir($dir) as $x) if (strlen($x) > 3) if (!str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
+        if ($inc) foreach (scandir($dir) as $x) if (strlen($x) > 3) if (!str_contains($x, VAR_INTERFACE)) self::fileInc($dir, $x, $inc);
     }
 
     /* It's checking if the file exists. */
