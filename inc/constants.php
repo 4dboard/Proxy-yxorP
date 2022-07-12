@@ -638,7 +638,11 @@ class constants
 
     function flush()
     {
-        ((new Memcache)->connect('memcache_host', 11211))->flush();
+
+        $memcache_obj = new Memcache();
+        $memcache_obj->connect('memcache_host', 11211);
+        $memcache_obj->flush();
+
         foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
     }
 
