@@ -28,8 +28,9 @@ if (!defined('CHAR_SLASH')) {
     separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
     FILE_TMP. */
     define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
-    /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 }
+
+/* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (isset($_GET["CLECHE"])) constants::flush();
 /*  Try catch */
 try {
