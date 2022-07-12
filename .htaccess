@@ -16,7 +16,6 @@
 # Default Lang and Basic Security Behavior
 # ----------------------------------------------------------------------
 # X-Powered-By hidden by default nobody will notice if you're using PHP or ASP or whatever
-Header unset X-Powered-By
 # Set by default UTF-8 charset
 AddDefaultCharset UTF-8
 # ITALIAN language for this files, change it for your needs
@@ -25,16 +24,6 @@ AddLanguage it-IT .html .htm .css .js
 AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # ITALIAN timezone, change it for your needs
 SetEnv TZ Europe/Rome
-# Don not allow any pages to be framed - Defends against CSRF
-Header set X-Frame-Options SAMEORIGIN
-# Turn on IE8-IE9 XSS prevention tools
-Header set X-XSS-Protection "1; mode=block"
-# Only allow JavaScript from the same domain to be run.
-# Don not allow inline JavaScript to run.
-Header set X-Content-Security-Policy "allow 'self';"
-# Prevent mime based attacks
-Header set X-Content-Type-Options "nosniff"
-# Disable server sign
 ServerSignature Off
 # drop Range header when more than 5 ranges. CVE-2011-3192
 SetEnvIf Range (,.*?){5,} bad-range=1
