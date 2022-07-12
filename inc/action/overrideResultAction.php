@@ -14,32 +14,6 @@ use yxorP\inc\wrapper;
 
 class overrideResultAction extends wrapper
 {
-    private static function callback($text)
-    {
-        return preg_replace_callback_array(
-            [
-                '~\<x(.*?)x\>~is' =>
-                    function ($m) {
-                        return '<x' . str_replace('This', 'That', $m[1]) . 'x>';
-                    },
-            ],
-            $text
-        );
-    }
-
-    private static function callback($content): string
-    {
-        $fileContent = preg_replace_callback('/^(.*x.*)(.*x.*)', function ($matches) {
-            $matches[0] = str_replace('controls', 'controls controlsList=&quot;nodownload&quot;', $match);
-            return $matches[0];
-        }, $fileContent);
-        if (MIME !== VAR_TEXT_HTML) {
-            return $content;
-        } else {
-            return preg_replace_callback("<x(.*)>(.*)</x>", "self::result", $content);
-        }
-    }
-
     public function onEventWrite(): void
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
@@ -59,6 +33,19 @@ class overrideResultAction extends wrapper
             exit;
         }
 
+    }
+
+    private static function callback($text)
+    {
+        return preg_replace_callback_array(
+            [
+                '~\<x(.*?)x\>~is' =>
+                    function ($m) {
+                        return '<x' . str_replace('This', 'That', $m[1]) . 'x>';
+                    },
+            ],
+            $text
+        );
     }
 
 }
