@@ -8,7 +8,7 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class, which is a class that allows you to hook into the request lifecycle. */
 
-class cacheStoreAction extends wrapper
+class onFinalAction extends wrapper
 {
     /* A method that is called when the request is completed. */
     public function onFinal(): void

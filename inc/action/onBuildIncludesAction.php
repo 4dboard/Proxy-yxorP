@@ -7,10 +7,15 @@ use yxorP\inc\wrapper;
 
 /* Extending the wrapper class. */
 
-class checkFilesAction extends wrapper
+class onBuildIncludesAction extends wrapper
 {
     public function onBuildIncludes(): void
     {
+        if (ENV_DEBUG) {
+            ini_set('display_startup_errors', 1);
+            ini_set('display_errors', 1);
+            error_reporting(1);
+        }
         /* Checking the files in the directory `DIR_FULL` and it is not recursive. */
         generalHelper::fileCheck(YXORP_DIR_FULL, false);
         /* Checking the files in the directory `DIR_ROOT . 'override' . CHAR_SLASH . 'global'` and it is not
