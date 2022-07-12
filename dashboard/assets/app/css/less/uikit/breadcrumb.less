@@ -1,0 +1,53 @@
+//
+// Component: Breadcrumb
+//
+// ========================================================================
+
+
+// Variables
+// ========================================================================
+
+@breadcrumb-disabled-color:                     @global-muted-color;
+@breadcrumb-divider:                            '\f105';
+
+
+// Component
+// ========================================================================
+
+.hook-breadcrumb() {
+    display: inline-block;
+    margin-bottom: (2 * @global-margin);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px @global-border solid;
+}
+
+
+// Items
+// ========================================================================
+
+.hook-breadcrumb-divider() {
+    font-family: FontAwesome;
+    color: @global-muted-color;
+}
+
+
+// Miscellaneous
+// ========================================================================
+
+.hook-breadcrumb-misc() {
+
+    .uk-breadcrumb > li > a, .uk-breadcrumb > li > span {
+        font-size: @text-small-font-size;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .uk-breadcrumb > li > a {
+        color: @global-muted-color;
+    }
+
+    .uk-breadcrumb > li.uk-active > span {
+        color: @global-color !important;
+    }
+}
