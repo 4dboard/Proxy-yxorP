@@ -470,6 +470,8 @@ class constants
         define('EVENT_WRITE', 'curl' . CHAR_PERIOD . 'callback' . CHAR_PERIOD . 'write');
 
         // FILES
+        /* Defining a constant called `FILE_REWRITE` and setting it to the value of `REWRITE`. */
+        define('FILE_REWRITE', 'rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
         define('FILE_REWRITE_SEARCH', 'search_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_REWRITE_REPLACE` and setting it to the value of `REWRITE_SEARCH`. */
@@ -534,8 +536,9 @@ class constants
         /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
         define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
-        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
-        and `FILE_INDEX` and `EXT_PHP` appended to it. */
+        /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
+        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
+        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE_SEARCH);
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE_SEARCH);
