@@ -182,7 +182,7 @@ class constants
 
         // EXTENSIONS
         /* Defining a constant called `EXT_JSON` and setting it to the value of `.csv`. */
-        define('EXT_JSON', CHAR_PERIOD . 'csv');
+        define('EXT_JSON', CHAR_PERIOD . 'json');
         /* Defining a constant called `EXT_PHP` and setting it to the value of `.php`. */
         define('EXT_PHP', CHAR_PERIOD . 'php');
         /* Defining a constant called `EXT_TMP` and setting it to the value of `.tmp`. */
