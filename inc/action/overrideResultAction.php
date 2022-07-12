@@ -41,6 +41,8 @@ class overrideResultAction extends wrapper
             echo VAR_TEXT_HTML;
             if (MIME !== VAR_TEXT_HTML) echo "true";
             constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(self::callback($content)));
+
+            print_r(constants::get(VAR_RESPONSE)->getContent());
             exit;
         }
 
