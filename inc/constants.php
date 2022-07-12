@@ -540,8 +540,8 @@ class constants
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
         define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
-        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE_SEARCH);
+        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE` and `EXT_CSV` appended to it. */
+        define('PATH_REWRITE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE);
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE_SEARCH);
