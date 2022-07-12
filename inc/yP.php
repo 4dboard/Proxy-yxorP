@@ -12,15 +12,15 @@ try {
         define('CHAR_PERIOD', '.');
         /* Defining a constant. */
         define('FILE_TMP', CHAR_PERIOD . 'tmp');
-        /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
+        /* Defining a constant called PATH_TMP_DIR. The value of the constant is the current directory (__DIR__) plus the
         directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
         define('DIR_TMP', FILE_TMP . CHAR_SLASH);
         /* Creating a unique key for the cache file. */
         define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
-        /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
+        /* Defining a constant called PATH_TMP_DIR. The value of the constant is the current directory (__DIR__) plus the
         directory separator (CHAR_SLASH) plus the value of the constant DIR_TMP. */
         define('PATH_TMP_DIR', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
-        /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
+        /* Defining a constant called PATH_TMP_DIR_FULL. The value of the constant is the current directory, a directory
         separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
         FILE_TMP. */
         define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
@@ -333,11 +333,11 @@ class yP
         constants::create($yxorp_root);
         /* It's checking if the plugin directory exists, and if it doesn't, it creates it. */
 
-        if (!is_dir(PATH_DIR_TMP)) {
+        if (!is_dir(PATH_TMP_DIR)) {
             /* It's creating the `tmp` directory. */
-            if (!mkdir($concurrentDirectory = PATH_DIR_TMP, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
+            if (!mkdir($concurrentDirectory = PATH_TMP_DIR, 0777, true) && !is_dir($concurrentDirectory)) throw new RuntimeException(sprintf('Directory "%s" was not created', $concurrentDirectory));
             /* It's setting the permissions of the `tmp` directory to `777`. */
-            chmod(PATH_DIR_TMP, 0777);
+            chmod(PATH_TMP_DIR, 0777);
         }
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
