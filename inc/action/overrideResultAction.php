@@ -17,6 +17,7 @@ class overrideResultAction extends wrapper
     /* Overriding the `onEventWrite` method of the `wrapper` class. */
     private static function result($m)
     {
+        print_r($m);
         return (is_array($m) && count($m)) ? str_replace('This', 'That', $m[0]) : null;
     }
 
