@@ -29,7 +29,7 @@ class overrideResultAction extends wrapper
         if ($content) constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(MIME !== VAR_TEXT_HTML ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m, $x) {
             print_r($x);
             return str_replace(constants::get(YXORP_REWRITE_SEARCH), constants::get(YXORP_REWRITE_REPLACE), $m[3]);
-        }, $content)));
+        }, $content, $x)));
 
     }
 }
