@@ -1,6 +1,5 @@
 <?php namespace yxorP\inc;
 
-use JetBrains\PhpStorm\Pure;
 use function array_map;
 
 /* Importing the `array_map` function from the global namespace. Importing the `array_merge` function from the global namespace.  Importing the `file` function from the global namespace. A class that contains a bunch of functions that are used throughout the application. */
@@ -107,13 +106,6 @@ class generalHelper
             $result[$i] = chr($ascii);
         }
         return $result;
-    }
-
-    /* It's encrypting the `$str` with the `$key`. */
-
-    #[Pure] public static function app_url(): string
-    {
-        return VAR_HTTPS . (constants::get(YXORP_SITE_URL) . constants::get(VAR_SERVER))[YXORP_PHP_SELF];
     }
 
     /* It's returning the application URL. */
