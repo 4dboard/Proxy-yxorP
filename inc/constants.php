@@ -639,10 +639,12 @@ class constants
 
     public static function flush()
     {
-
-        $memcache_obj = new Memcache();
-        $memcache_obj->connect('memcache_host', 11211);
-        $memcache_obj->flush();
+        if (Memcache::isConnected()) {
+            Memcache::flush();
+        } else {
+            Memcache::connect('localhost', 11211);
+            Memcache::flush();
+        }
 
         foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
     }
