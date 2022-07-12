@@ -9,7 +9,7 @@ use RuntimeException;
 
 try {
     /* Initialise minimum definable varibles */
-    constants::minRequired();
+    constants::required();
     /* Checking if we must clear the cache */
     if (isset($_GET["CLECHE"])) constants::flush();
     /*  Set Header MimeType */
@@ -27,7 +27,7 @@ class constants
      * @param string $yxorp_root
      * @return void
      */
-    public static function minRequired()
+    public static function required()
     {
         if (defined('CHAR_SLASH')) return;
         /* Defining a constant. */
