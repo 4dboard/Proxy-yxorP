@@ -50,7 +50,7 @@ class constants
     {
 
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
-        $mimeTypes = array_map('str_getcsv', file(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime.types'));
+        $mimeTypes = array_map('str_getcsv', file(__DIR__ . DIRECTORY_SEPARATOR));
         /* Getting the file extension of the requested file. */
         $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
 
@@ -191,8 +191,6 @@ class constants
         define('EXT_ENV', CHAR_PERIOD . 'env');
         /* Defining a constant called `EXT_ENV` and setting it to the value of `.env`. */
         define('EXT_PHAR', CHAR_PERIOD . 'phar');
-        /* Defining a constant called EXT_TYPES and assigning it the value of 'types'. */
-        define('EXT_TYPES', CHAR_PERIOD . 'types');
 
 
         //VARIBLES SINGLE
@@ -474,7 +472,7 @@ class constants
 
         // FILES
         /* Defining a constant called `FILE_REWRITE` and setting it to the value of `REWRITE`. */
-        define('FILE_REWRITE', 'rewrite' . EXT_TYPES);
+        define('FILE_REWRITE', 'rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
@@ -482,7 +480,7 @@ class constants
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
-        define('FILE_MIME_TYPES', VAR_MIME . EXT_TYPES);
+        define('FILE_MIME_TYPES', VAR_MIME . EXT_CSV);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
