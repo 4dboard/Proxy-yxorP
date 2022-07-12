@@ -27,16 +27,7 @@ try {
         define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
     }
     /* Checking if we must clear the cache */
-    if (isset($_GET["CLECHE"])) {
-        /*
-                if (class_exists('Memcached')) {
-                    $memcached = new Memcached();
-                    $memcached->connect('localhost', 11211);
-                    $memcached->flush();
-                }
-        */
-        foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
-    }
+    if (isset($_GET["CLECHE"])) foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
     /*  Set Header MimeType */
 
     if (!defined('MIME')) {
