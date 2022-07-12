@@ -29,11 +29,12 @@ class overrideResultAction extends wrapper
     {
         /* Minifying the content of the response. Replacing the content of the response with the content of the `REWRITE` method. */
         if ($content) {
+            print_r(constants::get(YXORP_REWRITE_SEARCH));
             constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(preg_replace_callback_array(
                 [
                     '~\<x(.*?)x\>~is' =>
                         function ($m) {
-                            print_r(constants::get(YXORP_REWRITE_SEARCH))=
+                            print_r(constants::get(YXORP_REWRITE_SEARCH));
                             return '<x' . str_replace(constants::get(YXORP_REWRITE_SEARCH), constants::get(YXORP_REWRITE_REPLACE), $m[1]) . 'x>';
                         },
                 ],
