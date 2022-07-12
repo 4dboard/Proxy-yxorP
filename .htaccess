@@ -233,9 +233,6 @@ AddType text/vtt                            vtt
 # futher details: www.stevesouders.com/blog/2008/08/23/revving-filenames-dont-use-querystring/
 # If you don nott use filenames to version, lower the CSS and JS to something like "access plus 1 week".
 # 1 YEAR - does not change often
-<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav)$">
-  ExpiresDefault A29030400
-</FilesMatch>
 <IfModule mod_expires.c>
   ExpiresActive on
 #
