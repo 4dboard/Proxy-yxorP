@@ -28,13 +28,13 @@ try {
     }
     /* Checking if we must clear the cache */
     if (isset($_GET["CLECHE"])) {
-        /*
+
         if (class_exists('Memcached')) {
             $memcached = new Memcached();
             $memcached->connect('localhost', 11211);
             $memcached->flush();
         }
-        */
+
         foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
     }
     /*  Set Header MimeType */
@@ -83,7 +83,7 @@ use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
 use yxorP\inc\parser\RulesParser;
-use const Memcached;
+use Memcached;
 
 /* Importing the RuntimeException class from the PHP namespace. */
 
