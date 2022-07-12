@@ -29,7 +29,7 @@ FILE_TMP. */
 define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
-foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
+if (isset($_GET["CLECHE"])) foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
 /*  Try catch */
 try {
     constants::mimeType();
