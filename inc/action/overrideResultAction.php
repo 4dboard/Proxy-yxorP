@@ -27,7 +27,6 @@ class overrideResultAction extends wrapper
 
     private static function replace($content)
     {
-        print_r(array_values(constants::get(YXORP_REWRITE)));
         /* Minifying the content of the response. Replacing the content of the response with the content of the `REWRITE` method. */
         if ($content) {
             constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(preg_replace_callback_array(
