@@ -181,8 +181,8 @@ class constants
 
 
         // EXTENSIONS
-        /* Defining a constant called `EXT_CSV` and setting it to the value of `.csv`. */
-        define('EXT_CSV', CHAR_PERIOD . 'csv');
+        /* Defining a constant called `EXT_JSON` and setting it to the value of `.csv`. */
+        define('EXT_JSON', CHAR_PERIOD . 'csv');
         /* Defining a constant called `EXT_PHP` and setting it to the value of `.php`. */
         define('EXT_PHP', CHAR_PERIOD . 'php');
         /* Defining a constant called `EXT_TMP` and setting it to the value of `.tmp`. */
@@ -472,7 +472,7 @@ class constants
 
         // FILES
         /* Defining a constant called `FILE_REWRITE` and setting it to the value of `REWRITE`. */
-        define('FILE_REWRITE', 'rewrite' . EXT_CSV);
+        define('FILE_REWRITE', 'rewrite' . EXT_JSON);
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
@@ -480,7 +480,7 @@ class constants
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
-        define('FILE_MIME_TYPES', VAR_MIME . EXT_CSV);
+        define('FILE_MIME_TYPES', VAR_MIME . EXT_JSON);
 
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
@@ -532,7 +532,7 @@ class constants
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
         define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
-        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE` and `EXT_CSV` appended to it. */
+        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE` and `EXT_JSON` appended to it. */
         define('PATH_REWRITE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE);
         /* Defining the path to the snag.phar file. */
         /* Defining the path to the cockpit bootstrap file. */
