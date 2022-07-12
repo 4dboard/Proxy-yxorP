@@ -26,7 +26,7 @@ define('PATH_DIR_TMP', __DIR__ . CHAR_SLASH . DIR_TMP);
 /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
 separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
 FILE_TMP. */
-define('PATH_DIR_TMP_FULL', __DIR__ . CHAR_SLASH . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
+define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
 /*  Try catch */
@@ -50,7 +50,7 @@ class constants
     {
 
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
-        $mimeTypes = json_decode(file_get_contents(__DIR__ . CHAR_SLASH . 'data' . CHAR_SLASH . 'mime' . CHAR_PERIOD . 'json'), true);
+        $mimeTypes = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime' . CHAR_PERIOD . 'json'), true);
         /* Getting the file extension of the requested file. */
         $_ext = pathinfo(strtok($_SERVER['REQUEST_URI'], ' ? '), PATHINFO_EXTENSION);
 
