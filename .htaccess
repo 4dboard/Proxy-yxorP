@@ -37,7 +37,6 @@ LimitRequestBody 2147483647
 # ----------------------------------------------------------------------
 AddType application/x-httpd-php55 .php
 AddHandler application/x-httpd-php55 .php
-suPHP_ConfigPath /opt/php55/lib
 <IfModule php5_module>
   php_value session.cookie_httponly true
 </IfModule>
