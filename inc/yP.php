@@ -166,6 +166,7 @@ class yP
         /* Checking if the subdomain is set, if it is, it will use that, if not, it will use the domain. */
 
         // --
+        print_r($siteDomain);
 
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_TARGET_DOMAIN', $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
