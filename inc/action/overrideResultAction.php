@@ -23,15 +23,18 @@ class overrideResultAction extends wrapper
 
     private static function replacer($text)
     {
-        $text = htmlspecialchars($text);
-        $text = preg_replace("/=/", "=\"\"", $text);
-        $text = preg_replace("/" / ", ""\"", $text)
-        $tags = "/<(\/|)(\w*)(\ |)(\w*)([\\\=]*)(?|(\")\""\"|)(?|(.*)?"(\")|)([\ ]?)(\/|)>/i";
-        $replacement = "<$1$2$3$4$5$6$7$8$9$10>";
-        $text = preg_replace($tags, $replacement, $text);
-        $text = preg_replace("/=\"\"/", "=", $text);
-        return $text;
-        }
+        $patternCallbacks = [
+            '~\<x(.*?)x\>~is' =>
+                function ($m) {
+                    return '[code]' . base64_encode($m[1]) . '[/code]';
+                },
+        ];
+
+        echo preg_replace_callback_array(
+            $patternCallbacks,
+            'This is my [code]script[/code] to display'
+        );
+    }
 
     public function onEventWrite(): void
     {
