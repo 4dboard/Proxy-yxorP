@@ -271,6 +271,8 @@ class constants
         define('VAR_GLOBAL', 'global');
         /* Defining a constant called VAR_VALUE and setting it to the string value. */
         define('VAR_VALUE', 'value');
+        /* Defining a constant called `VAR_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
+        define('VAR_REQUEST_URI', 'REQUEST_URI');
 
 
         //VARIBLES MULTIPLE
@@ -282,8 +284,6 @@ class constants
         define('VAR_VAR_UNDER', CHAR_UNDER . VAR_VAR);
         /* Defining a constant called `VAR_VAR_UNDER_END` and setting it to the value of `CHAR_UNDER . VAR_VAR . CHAR_UNDER`. */
         define('VAR_VAR_UNDER_END', CHAR_UNDER . VAR_VAR . CHAR_UNDER);
-        /* Defining a constant called `VAR_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
-        define('VAR_REQUEST_URI', VAR_REQUEST . CHAR_UNDER . VAR_URI);
 
 
         // DASHBOARD
