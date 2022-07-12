@@ -271,8 +271,6 @@ class constants
         define('VAR_GLOBAL', 'global');
         /* Defining a constant called VAR_VALUE and setting it to the string value. */
         define('VAR_VALUE', 'value');
-        /* Defining a constant called `YXORP_REQUEST_URI` and setting it to the value of `REQUEST_URL_FULL`. */
-        define('YXORP_REQUEST_URI', 'REQUEST_URI');
 
 
         //VARIBLES MULTIPLE
