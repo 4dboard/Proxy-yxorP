@@ -186,7 +186,6 @@ class yP
         /* Setting the `DIR_FULL` variable to the value of the `DIR_ROOT . DIR_INC` constant, with the `override` string appended
         to it, with the `CHAR_SLASH` constant appended to it, with the value of the `files` key in the `TARGET`
         array appended to it. */
-        echo DIR_ROOT . DIR_INC . DIR_OVERRIDE . $siteDetails[VAR_FILES];
         define('YXORP_DIR_FULL', DIR_ROOT . DIR_INC . DIR_OVERRIDE . $siteDetails[VAR_FILES]);
 
         // GLOBAL COLLECTIONS
