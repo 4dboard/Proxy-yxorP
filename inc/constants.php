@@ -46,7 +46,7 @@ class constants
         /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
         separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
         FILE_TMP. */
-        define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
+        define('TMP_PATH_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
     }
     /* Defining constants.Creating a new directory.  */
     /**
