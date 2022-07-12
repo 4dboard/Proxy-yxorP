@@ -29,7 +29,6 @@ if (!defined('CHAR_SLASH')) {
     FILE_TMP. */
     define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
 }
-
 /* Checking if we must clear the cache */
 if (isset($_GET["CLECHE"])) constants::flush();
 /*  Try catch */
