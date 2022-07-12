@@ -41,7 +41,6 @@ class request
 
     public function setUrl($url): void
     {
-        $url = preg_replace(REG_TWO, CHAR_EMPTY_STRING, $url);
         $query = parse_url($url, PHP_URL_QUERY);
         if ($query) {
             $url = str_replace('?' . $query, CHAR_EMPTY_STRING, $url);
