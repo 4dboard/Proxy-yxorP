@@ -10,11 +10,12 @@ try {
         define('CHAR_SLASH', '/');
         /* Defining a constant. */
         define('CHAR_PERIOD', '.');
+        define('VAR_TMP', 'tmp');
         /* Defining a constant. */
-        define('FILE_TMP', CHAR_PERIOD . 'tmp');
+        define('FILE_TMP', CHAR_PERIOD . VAR_TMP);
         /* Defining a constant called PATH_TMP_DIR. The value of the constant is the current directory (__DIR__) plus the
         directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
-        define('DIR_TMP', FILE_TMP . CHAR_SLASH);
+        define('DIR_TMP', VAR_TMP . CHAR_SLASH);
         /* Creating a unique key for the cache file. */
         define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
         /* Defining a constant called PATH_TMP_DIR. The value of the constant is the current directory (__DIR__) plus the
