@@ -22,7 +22,7 @@ try {
 
 class constants
 {
-    /* Defining constants.Creating a new directory.  */
+    /* Required varibles.  */
     /**
      * @return void
      */
