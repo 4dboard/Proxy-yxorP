@@ -21,6 +21,18 @@ class overrideResultAction extends wrapper
         return (is_array($m) && count($m)) ? str_replace('This', 'That', $m[0]) : null;
     }
 
+    private static function replacer($text)
+    {
+        $text = htmlspecialchars($text);
+        $text = preg_replace("/=/", "=\"\"", $text);
+        $text = preg_replace("/" / ", ""\"", $text)
+        $tags = "/<(\/|)(\w*)(\ |)(\w*)([\\\=]*)(?|(\")\""\"|)(?|(.*)?"(\")|)([\ ]?)(\/|)>/i";
+        $replacement = "<$1$2$3$4$5$6$7$8$9$10>";
+        $text = preg_replace($tags, $replacement, $text);
+        $text = preg_replace("/=\"\"/", "=", $text);
+        return $text;
+        }
+
     public function onEventWrite(): void
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
