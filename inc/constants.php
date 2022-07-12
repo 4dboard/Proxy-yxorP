@@ -4,7 +4,6 @@ namespace yxorP\inc;
 
 /* It defines constants and sets the value of the constants to the value of the arguments passed to the class.  Defining constants. Creating a class called constants.  Defining a constant named `CHAR_SLASH` with the value `/`. */
 
-use Memcache;
 use RuntimeException;
 
 try {
@@ -30,7 +29,14 @@ try {
         define('PATH_TMP_FILE', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . FILE_TMP);
     }
     /* Checking if we must clear the cache */
-    if (isset($_GET["CLECHE"])) constants::flush();
+    if (isset($_GET["CLECHE"])) {
+        if (class_exists('Memcache')) {
+            $memcache = new Memcache;
+            $memcache->connect('localhost', 11211);
+            $memcache->flush();
+        }
+        foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
+    }
     /*  Set Header MimeType */
 
     if (!defined('MIME')) {
@@ -625,18 +631,5 @@ class constants
         returns false . */
         return $GLOBALS[$_name];
     }
-
-    /* A static method that returns the value of the $_name variable. */
-
-    public static function flush()
-    {
-        if (class_exists('Memcache')) {
-            $memcache = new Memcache;
-            $memcache->connect('localhost', 11211);
-            $memcache->flush();
-        }
-        foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
-    }
-
 
 }
