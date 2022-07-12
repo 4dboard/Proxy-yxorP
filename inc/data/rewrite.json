@@ -6498,18 +6498,7 @@
 " effulgent ":" beaming",
 " effusive ":" burbling",
 " egalitarian ":" equalitarian",
-" egalitarian ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classless",
+" egalitarian ":" classless",
 " egg-producing ":" young-bearing",
 " egg-shaped ":" elliptic",
 " egocentric ":" egoist",
@@ -7073,18 +7062,7 @@ classless",
 " exasperating ":" infuriating",
 " exceeding ":" exceed",
 " exceeding ":" exceptional",
-" excellent ":" first-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" excellent ":" first-class",
 " exceptionable ":" objectionable",
 " exceptional ":" exceeding",
 " excess ":" surplus",
@@ -7608,18 +7586,7 @@ class",
 " first ":" number one",
 " first ":" 1st",
 " first ":" firstly",
-" first-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" excellent",
+" first-class ":" excellent",
 " first-come-first-serve ":" rush",
 " first-rate ":" ace",
 " first-rate ":" very well",
@@ -8593,18 +8560,7 @@ class ":" excellent",
 " graduated ":" graduate",
 " graduated ":" calibrated",
 " graduated ":" gradational",
-" graeco-roman ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical",
+" graeco-roman ":" classical",
 " graecophile ":" philhellene",
 " graecophile ":" philhellenic",
 " graecophilic ":" philhellenic",
@@ -8688,18 +8644,7 @@ classical",
 " greathearted ":" magnanimous",
 " grecian ":" Grecian",
 " grecian ":" Greek",
-" greco-roman ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical",
+" greco-roman ":" classical",
 " greedy ":" avaricious",
 " greek ":" Greek",
 " greek ":" Greek",
@@ -9105,18 +9050,7 @@ classical",
 " heliacal ":" heliac",
 " helical ":" coiling",
 " hellenic ":" Greek",
-" hellenic ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical",
+" hellenic ":" classical",
 " hellenic ":" Hellenic",
 " hellenistic ":" Hellenic",
 " hellenistical ":" Hellenic",
@@ -9227,18 +9161,7 @@ classical",
 " high ":" high up",
 " high-altitude ":" high-level",
 " high-and-mighty ":" autocratic",
-" high-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" high-toned",
+" high-class ":" high-toned",
 " high-energy ":" high-octane",
 " high-fidelity ":" hi-fi",
 " high-flown ":" high-sounding",
@@ -9264,18 +9187,7 @@ class ":" high-toned",
 " high-strung ":" edgy",
 " high-tech ":" hi-tech",
 " high-ticket ":" big-ticket",
-" high-toned ":" high-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" high-toned ":" high-class",
 " high-top ":" high-topped",
 " high-topped ":" high-top",
 " high-velocity ":" high-speed",
@@ -11461,29 +11373,7 @@ class",
 " low ":" low-pitched",
 " low-altitude ":" low-level",
 " low-cal ":" light",
-" low-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" lower-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" low-class ":" lower-class",
 " low-cost ":" low-priced",
 " low-cut ":" decollete",
 " low-down ":" dope",
@@ -11506,29 +11396,7 @@ class",
 " lowbrow ":" philistine",
 " lowbrow ":" lowbrowed",
 " lowbrowed ":" lowbrow",
-" lower-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" low-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" lower-class ":" low-class",
 " lower-ranking ":" junior-grade",
 " lowercase ":" small letter",
 " lowered ":" lower",
@@ -12777,98 +12645,10 @@ class",
 " neighbourly ":" neighborly",
 " neo-darwinian ":" neo-Darwinian",
 " neo-lamarckian ":" neo-Lamarckian",
-" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classic ":" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical",
-" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical ":" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classic",
-" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicist ":" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicistic",
-" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicistic ":" neo/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicist",
+" neoclassic ":" neoclassical",
+" neoclassical ":" neoclassic",
+" neoclassicist ":" neoclassicistic",
+" neoclassicistic ":" neoclassicist",
 " neolithic ":" Neolithic Age",
 " neotenic ":" neotenous",
 " neotenous ":" neotenic",
@@ -13768,29 +13548,7 @@ classicist",
 " outcast ":" castaway",
 " outcast ":" friendless",
 " outcaste ":" casteless",
-" out/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classed ":" out/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" outclassed ":" outclass",
 " outdated ":" out-of-date",
 " outdoor ":" out-of-door",
 " outer ":" out",
@@ -14818,18 +14576,7 @@ class",
 " portuguese ":" Portuguese",
 " portuguese ":" Portuguese",
 " posed ":" present",
-" posh ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classy",
+" posh ":" classy",
 " positioning ":" placement",
 " positioning ":" position",
 " positioning ":" aligning",
@@ -18923,18 +18670,7 @@ classy",
 " swingy ":" lilting",
 " swinish ":" boorish",
 " swish ":" lap",
-" swish ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classy",
+" swish ":" classy",
 " swiss ":" Swiss",
 " swiss ":" Swiss",
 " swollen ":" swell",
@@ -20358,29 +20094,7 @@ classy",
 " underarm ":" underhand",
 " underarm ":" underhand",
 " underbred ":" ill-bred",
-" under/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" lower /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" underclass ":" lower class",
 " underclothed ":" half-clothed",
 " undercoated ":" prime",
 " undercoated ":" undersealed",
@@ -21700,18 +21414,7 @@ class",
 " vulvar ":" vulval",
 " w-shaped ":" W-shaped",
 " wacky ":" cockamamie",
-" wage-earning ":" working-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" wage-earning ":" working-class",
 " wagnerian ":" Wagnerian",
 " wagnerian ":" Wagnerian",
 " wailful ":" lamenting",
@@ -22162,32 +21865,10 @@ class",
 " working ":" workings",
 " working ":" work",
 " working ":" on the job",
-" working-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" propertyless",
+" working-class ":" propertyless",
 " world ":" universe",
 " world ":" global",
-" world-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" first",
+" world-class ":" first",
 " world-shaking ":" earthshaking",
 " world-shattering ":" earthshaking",
 " world-weary ":" bored",
@@ -23215,29 +22896,7 @@ class ":" first",
 " finely ":" fine",
 " firmly ":" firm",
 " first and last ":" above all",
-" first /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" 1st /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" first class ":" 1st class",
 " first of all ":" first",
 " first off ":" first",
 " firstly ":" first",
@@ -24376,29 +24035,7 @@ class",
 " seasonably ":" timely",
 " seawards ":" seaward",
 " seawards ":" seaward",
-" second /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" cabin /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" second class ":" cabin class",
 " secondly ":" second",
 " secretly ":" in secret",
 " securely ":" firmly",
@@ -25001,54 +24638,10 @@ class",
 " 1 kings ":" I Kings",
 " 1 maccabees ":" I Maccabees",
 " 1 samuel ":" I Samuel",
-" 1st-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class mail ":" first /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" 1st-class mail ":" first class",
 " 1st baron beaverbrook ":" Beaverbrook",
 " 1st baron verulam ":" Bacon",
-" 1st /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" first /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" 1st class ":" first class",
 " 1st earl attlee ":" Attlee",
 " 1st earl baldwin of bewdley ":" Baldwin",
 " 1st earl of balfour ":" Balfour",
@@ -27969,18 +27562,7 @@ class",
 " amphetamine ":" pep pill",
 " amphetamine sulfate ":" amphetamine sulphate",
 " amphetamine sulphate ":" amphetamine sulfate",
-" amphibia ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class Amphibia",
+" amphibia ":" class Amphibia",
 " amphibious aircraft ":" amphibian",
 " amphibious vehicle ":" amphibian",
 " amphibolips ":" Amphibolips",
@@ -35405,18 +34987,7 @@ class Amphibia",
 " bourbon ":" Bourbon",
 " bourbon dynasty ":" Bourbon",
 " bourdon ":" drone",
-" bourgeoisie ":" middle /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" bourgeoisie ":" middle class",
 " bourgogne ":" Bourgogne",
 " bourguignon ":" bourguignon sauce",
 " bourguignon sauce ":" bourguignon",
@@ -37108,29 +36679,7 @@ class",
 " cabernet sauvignon grape ":" Cabernet Sauvignon grape",
 " cabg ":" coronary bypass",
 " cabin car ":" caboose",
-" cabin /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" second /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" cabin class ":" second class",
 " cabin cruiser ":" cruiser",
 " cabinet ":" locker",
 " cabinetmaker ":" furniture maker",
@@ -39157,42 +38706,9 @@ class",
 " catechumen ":" neophyte",
 " categorem ":" categoreme",
 " categoreme ":" categorem",
-" categorisation ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification",
-" categorization ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification",
-" category ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" categorisation ":" classification",
+" categorization ":" classification",
+" category ":" class",
 " catering ":" provide",
 " caterpillar ":" Caterpillar",
 " caterpillar track ":" track",
@@ -41765,1981 +41281,155 @@ class",
 " clasp ":" clench",
 " clasp ":" brooch",
 " clasp knife ":" jackknife",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" category",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classify",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class-action suit ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class action",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class acrasiomycetes ":" Acrasiomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class actinozoa ":" Anthozoa",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class action ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class-action suit",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class amphibia ":" amphibia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class angiospermae ":" Angiospermae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class anthoceropsida ":" Anthoceropsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class anthozoa ":" Anthozoa",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class aphasmidia ":" Aphasmidia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class arachnida ":" Arachnida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class archiannelida ":" Archiannelida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ascidiaceae ":" Ascidiaceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ascomycetes ":" Ascomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class asteroidea ":" Asteroidea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class aves ":" Aves",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class bacillariophyceae ":" Bacillariophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class basidiomycetes ":" Basidiomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class bivalvia ":" Bivalvia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class bryopsida ":" Bryopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cephalopoda ":" Cephalopoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cestoda ":" Cestoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class channidae ":" Channidae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class charophyceae ":" Charophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class chilopoda ":" Chilopoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class chlorophyceae ":" Chlorophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class chondrichthyes ":" Chondrichthyes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class chrysophyceae ":" Chrysophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class chytridiomycetes ":" Chytridiomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ciliata ":" Ciliata",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ciliophora ":" Ciliata",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class coniferopsida ":" Coniferopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class crinoidea ":" Crinoidea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class crustacea ":" Crustacea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cryptophyceae ":" Cryptophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cyanobacteria ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class Cyanobacteria",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cyanophyceae ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class Cyanobacteria",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cycadopsida ":" Cycadopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cyclosporeae ":" Cyclosporeae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class deuteromycetes ":" Deuteromycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class diatomophyceae ":" Bacillariophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class dicotyledonae ":" Dicotyledones",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class dicotyledones ":" Dicotyledones",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class diplopoda ":" Diplopoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class echinoidea ":" Echinoidea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class equisetatae ":" Sphenopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class euglenophyceae ":" Euglenophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class eumycetes ":" Eumycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class fellow ":" schoolmate",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class filicinae ":" Filicopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class filicopsida ":" Filicopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class flagellata ":" Mastigophora",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class gasteromycetes ":" Gasteromycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class gasteropoda ":" Gastropoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class gastromycetes ":" Gasteromycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class gastropoda ":" Gastropoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ginkgophytina ":" Ginkgopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ginkgopsida ":" Ginkgopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class gnetopsida ":" Gnetopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class gymnospermae ":" Gymnospermae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hemiascomycetes ":" Hemiascomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hepaticae ":" Hepaticopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hepaticopsida ":" Hepaticopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class heterokontae ":" Chrysophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hexapoda ":" Insecta",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hirudinea ":" Hirudinea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class holothuroidea ":" Holothuroidea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hyalospongiae ":" Hyalospongiae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hydrozoa ":" Hydrozoa",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class hymenomycetes ":" Hymenomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class insecta ":" Insecta",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class lamellibranchia ":" Bivalvia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class larvacea ":" Larvacea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class liliopsida ":" Monocotyledones",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class list ":" honours list",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class lycopodiate ":" Lycopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class lycopodineae ":" Lycopodineae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class lycopsida ":" Lycopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class magnoliopsida ":" Dicotyledones",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class mammalia ":" Mammalia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class mastigophora ":" Mastigophora",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class merostomata ":" Merostomata",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class monocotyledonae ":" Monocotyledones",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class monocotyledones ":" Monocotyledones",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class musci ":" Bryopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class myriapoda ":" Diplopoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class myxomycetes ":" Myxomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class nuda ":" Nuda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class oligochaeta ":" Oligochaeta",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class onychophora ":" Onychophora",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class oomycetes ":" Oomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ophiuroidea ":" Ophiuroidea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class osteichthyes ":" Osteichthyes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class pauropoda ":" Pauropoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class pelecypoda ":" Bivalvia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class period ":" course session",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class phaeophyceae ":" Phaeophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class phasmidia ":" Phasmidia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class pinopsida ":" Pinopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class placodermi ":" Placodermi",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class plectomycetes ":" Plectomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class polychaeta ":" Polychaeta",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class polyplacophora ":" Polyplacophora",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class psilopsida ":" Psilopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class psilotatae ":" Psilopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class pteridospermopsida ":" Pteridospermopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class pyrenomycetes ":" Pyrenomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class reptilia ":" Reptilia",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class rhodophyceae ":" Rhodophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class sarcodina ":" Sarcodina",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class scaphopoda ":" Scaphopoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class schizomycetes ":" Schizomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class scyphozoa ":" Scyphozoa",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class sphenopsida ":" Sphenopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class sporozoa ":" Sporozoa",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class struggle ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class war",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class symphyla ":" Symphyla",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class tardigrada ":" Tardigrada",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class taxopsida ":" Taxopsida",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class tentaculata ":" Tentaculata",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class thaliacea ":" Thaliacea",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class tiliomycetes ":" Tiliomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class trematoda ":" Trematoda",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class turbellaria ":" Turbellaria",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ulvophyceae ":" Ulvophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class war ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class struggle",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class warfare ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class struggle",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class xanthophyceae ":" Xanthophyceae",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class zygomycetes ":" Zygomycetes",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classic hemochromatosis ":" idiopathic hemochromatosis",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical architecture ":" Greco-Roman architecture",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical greek ":" Attic",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical haemophilia ":" hemophilia A",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical hemophilia ":" hemophilia A",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical latin ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical Latin",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical mechanics ":" Newtonian mechanics",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical music ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical scholar ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicist",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicalism ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicism",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicism ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicalism",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classicist ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical scholar",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classics ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classic",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification ":" categorization",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classified ad ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classified advertisement",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classified advertisement ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classified ad",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classifying adjective ":" relational adjective",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classmate ":" schoolmate",
-" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classroom ":" schoolroom",
+" class ":" category",
+" class ":" classify",
+" class-action suit ":" class action",
+" class acrasiomycetes ":" Acrasiomycetes",
+" class actinozoa ":" Anthozoa",
+" class action ":" class-action suit",
+" class amphibia ":" amphibia",
+" class angiospermae ":" Angiospermae",
+" class anthoceropsida ":" Anthoceropsida",
+" class anthozoa ":" Anthozoa",
+" class aphasmidia ":" Aphasmidia",
+" class arachnida ":" Arachnida",
+" class archiannelida ":" Archiannelida",
+" class ascidiaceae ":" Ascidiaceae",
+" class ascomycetes ":" Ascomycetes",
+" class asteroidea ":" Asteroidea",
+" class aves ":" Aves",
+" class bacillariophyceae ":" Bacillariophyceae",
+" class basidiomycetes ":" Basidiomycetes",
+" class bivalvia ":" Bivalvia",
+" class bryopsida ":" Bryopsida",
+" class cephalopoda ":" Cephalopoda",
+" class cestoda ":" Cestoda",
+" class channidae ":" Channidae",
+" class charophyceae ":" Charophyceae",
+" class chilopoda ":" Chilopoda",
+" class chlorophyceae ":" Chlorophyceae",
+" class chondrichthyes ":" Chondrichthyes",
+" class chrysophyceae ":" Chrysophyceae",
+" class chytridiomycetes ":" Chytridiomycetes",
+" class ciliata ":" Ciliata",
+" class ciliophora ":" Ciliata",
+" class coniferopsida ":" Coniferopsida",
+" class crinoidea ":" Crinoidea",
+" class crustacea ":" Crustacea",
+" class cryptophyceae ":" Cryptophyceae",
+" class cyanobacteria ":" class Cyanobacteria",
+" class cyanophyceae ":" class Cyanobacteria",
+" class cycadopsida ":" Cycadopsida",
+" class cyclosporeae ":" Cyclosporeae",
+" class deuteromycetes ":" Deuteromycetes",
+" class diatomophyceae ":" Bacillariophyceae",
+" class dicotyledonae ":" Dicotyledones",
+" class dicotyledones ":" Dicotyledones",
+" class diplopoda ":" Diplopoda",
+" class echinoidea ":" Echinoidea",
+" class equisetatae ":" Sphenopsida",
+" class euglenophyceae ":" Euglenophyceae",
+" class eumycetes ":" Eumycetes",
+" class fellow ":" schoolmate",
+" class filicinae ":" Filicopsida",
+" class filicopsida ":" Filicopsida",
+" class flagellata ":" Mastigophora",
+" class gasteromycetes ":" Gasteromycetes",
+" class gasteropoda ":" Gastropoda",
+" class gastromycetes ":" Gasteromycetes",
+" class gastropoda ":" Gastropoda",
+" class ginkgophytina ":" Ginkgopsida",
+" class ginkgopsida ":" Ginkgopsida",
+" class gnetopsida ":" Gnetopsida",
+" class gymnospermae ":" Gymnospermae",
+" class hemiascomycetes ":" Hemiascomycetes",
+" class hepaticae ":" Hepaticopsida",
+" class hepaticopsida ":" Hepaticopsida",
+" class heterokontae ":" Chrysophyceae",
+" class hexapoda ":" Insecta",
+" class hirudinea ":" Hirudinea",
+" class holothuroidea ":" Holothuroidea",
+" class hyalospongiae ":" Hyalospongiae",
+" class hydrozoa ":" Hydrozoa",
+" class hymenomycetes ":" Hymenomycetes",
+" class insecta ":" Insecta",
+" class lamellibranchia ":" Bivalvia",
+" class larvacea ":" Larvacea",
+" class liliopsida ":" Monocotyledones",
+" class list ":" honours list",
+" class lycopodiate ":" Lycopsida",
+" class lycopodineae ":" Lycopodineae",
+" class lycopsida ":" Lycopsida",
+" class magnoliopsida ":" Dicotyledones",
+" class mammalia ":" Mammalia",
+" class mastigophora ":" Mastigophora",
+" class merostomata ":" Merostomata",
+" class monocotyledonae ":" Monocotyledones",
+" class monocotyledones ":" Monocotyledones",
+" class musci ":" Bryopsida",
+" class myriapoda ":" Diplopoda",
+" class myxomycetes ":" Myxomycetes",
+" class nuda ":" Nuda",
+" class oligochaeta ":" Oligochaeta",
+" class onychophora ":" Onychophora",
+" class oomycetes ":" Oomycetes",
+" class ophiuroidea ":" Ophiuroidea",
+" class osteichthyes ":" Osteichthyes",
+" class pauropoda ":" Pauropoda",
+" class pelecypoda ":" Bivalvia",
+" class period ":" course session",
+" class phaeophyceae ":" Phaeophyceae",
+" class phasmidia ":" Phasmidia",
+" class pinopsida ":" Pinopsida",
+" class placodermi ":" Placodermi",
+" class plectomycetes ":" Plectomycetes",
+" class polychaeta ":" Polychaeta",
+" class polyplacophora ":" Polyplacophora",
+" class psilopsida ":" Psilopsida",
+" class psilotatae ":" Psilopsida",
+" class pteridospermopsida ":" Pteridospermopsida",
+" class pyrenomycetes ":" Pyrenomycetes",
+" class reptilia ":" Reptilia",
+" class rhodophyceae ":" Rhodophyceae",
+" class sarcodina ":" Sarcodina",
+" class scaphopoda ":" Scaphopoda",
+" class schizomycetes ":" Schizomycetes",
+" class scyphozoa ":" Scyphozoa",
+" class sphenopsida ":" Sphenopsida",
+" class sporozoa ":" Sporozoa",
+" class struggle ":" class war",
+" class symphyla ":" Symphyla",
+" class tardigrada ":" Tardigrada",
+" class taxopsida ":" Taxopsida",
+" class tentaculata ":" Tentaculata",
+" class thaliacea ":" Thaliacea",
+" class tiliomycetes ":" Tiliomycetes",
+" class trematoda ":" Trematoda",
+" class turbellaria ":" Turbellaria",
+" class ulvophyceae ":" Ulvophyceae",
+" class war ":" class struggle",
+" class warfare ":" class struggle",
+" class xanthophyceae ":" Xanthophyceae",
+" class zygomycetes ":" Zygomycetes",
+" classic hemochromatosis ":" idiopathic hemochromatosis",
+" classical architecture ":" Greco-Roman architecture",
+" classical greek ":" Attic",
+" classical haemophilia ":" hemophilia A",
+" classical hemophilia ":" hemophilia A",
+" classical latin ":" classical Latin",
+" classical mechanics ":" Newtonian mechanics",
+" classical music ":" classical",
+" classical scholar ":" classicist",
+" classicalism ":" classicism",
+" classicism ":" classicalism",
+" classicist ":" classical scholar",
+" classics ":" classic",
+" classification ":" categorization",
+" classified ad ":" classified advertisement",
+" classified advertisement ":" classified ad",
+" classifying adjective ":" relational adjective",
+" classmate ":" schoolmate",
+" classroom ":" schoolroom",
 " clathraceae ":" Clathraceae",
 " clathrus ":" Clathrus",
 " clatonia lanceolata ":" spring beauty",
@@ -44043,18 +41733,7 @@ classroom ":" schoolroom",
 " close corporation ":" closed corporation",
 " close shave ":" close call",
 " closed-angle glaucoma ":" acute glaucoma",
-" closed-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class word ":" function word",
+" closed-class word ":" function word",
 " closed-end fund ":" closed-end investment company",
 " closed-end investment company ":" closed-end fund",
 " closed-loop system ":" closed loop",
@@ -45961,18 +43640,7 @@ class word ":" function word",
 " contempt of congress ":" contempt of Congress",
 " contemptibility ":" baseness",
 " contender ":" rival",
-" content word ":" open-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class word",
+" content word ":" open-class word",
 " contentedness ":" content",
 " contention ":" controversy",
 " contentiousness ":" quarrelsomeness",
@@ -46901,18 +44569,7 @@ class word",
 " course of action ":" course",
 " course of instruction ":" course",
 " course of study ":" program",
-" course session ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class period",
+" course session ":" class period",
 " courser ":" charger",
 " coursing ":" course",
 " court ":" tribunal",
@@ -47500,32 +45157,10 @@ class period",
 " cropper ":" sharecropper",
 " crosby ":" Crosby",
 " crosier ":" crozier",
-" cross-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification ":" cross-division",
+" cross-classification ":" cross-division",
 " cross-country jumping ":" cross-country riding",
 " cross-country riding ":" cross-country jumping",
-" cross-division ":" cross-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification",
+" cross-division ":" cross-classification",
 " cross-dresser ":" transvestite",
 " cross-examiner ":" cross-questioner",
 " cross-eye ":" crossed eye",
@@ -48185,18 +45820,7 @@ classification",
 " cyanocitta ":" Cyanocitta",
 " cyanocitta cristata ":" blue jay",
 " cyanocobalamin ":" vitamin B12",
-" cyanophyceae ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class Cyanobacteria",
+" cyanophyceae ":" class Cyanobacteria",
 " cyanophyta ":" Cyanophyta",
 " cyanuramide ":" melamine",
 " cyathea ":" Cyathea",
@@ -49236,29 +46860,7 @@ class Cyanobacteria",
 " decimal numeration system ":" decimal number system",
 " decimal point ":" percentage point",
 " decimal system ":" decimal numeration system",
-" decimal system of /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification ":" Dewey decimal /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification",
+" decimal system of classification ":" Dewey decimal classification",
 " decimalisation ":" decimalization",
 " decimalization ":" decimalisation",
 " decimeter ":" decimetre",
@@ -50164,41 +47766,8 @@ classification",
 " dewberry ":" dewberry bush",
 " dewberry bush ":" dewberry",
 " dewey ":" Dewey",
-" dewey decimal /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification ":" Dewey decimal /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification",
-" dewey decimal system ":" Dewey decimal /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classification",
+" dewey decimal classification ":" Dewey decimal classification",
+" dewey decimal system ":" Dewey decimal classification",
 " dewitt clinton ":" Clinton",
 " dexamethasone ":" Decadron",
 " dexamethasone intensol ":" dexamethasone",
@@ -53001,29 +50570,7 @@ classification",
 " economist ":" economic expert",
 " economizer ":" economiser",
 " economy ":" economic system",
-" economy /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" cabin /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" economy class ":" cabin class",
 " ecosoc ":" Economic and Social Council",
 " ecosoc commission ":" Economic and Social Council commission",
 " ecoterrorism ":" ecological terrorism",
@@ -58508,41 +56055,8 @@ class",
 " firmness ":" soundness",
 " firmness of purpose ":" resoluteness",
 " firmware ":" microcode",
-" first-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class honours degree ":" first",
-" first-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class mail ":" first /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" first-class honours degree ":" first",
+" first-class mail ":" first class",
 " first amendment ":" First Amendment",
 " first appearance ":" introduction",
 " first balcony ":" mezzanine",
@@ -58602,18 +56116,7 @@ class",
 " first principle ":" rudiment",
 " first rudiment ":" rudiment",
 " first sacker ":" first baseman",
-" first sergeant ":" sergeant first /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" first sergeant ":" sergeant first class",
 " first state ":" Delaware",
 " first step ":" initiative",
 " first stomach ":" rumen",
@@ -59599,18 +57102,7 @@ class",
 " forlornness ":" loneliness",
 " form ":" word form",
 " form ":" organize",
-" form /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" part of speech",
+" form class ":" part of speech",
 " form genus rhizoctinia ":" genus Rhizoctinia",
 " form of address ":" title",
 " form of government ":" political system",
@@ -60600,18 +58092,7 @@ class ":" part of speech",
 " funambulist ":" tightrope walker",
 " function ":" mathematical function",
 " function ":" work",
-" function word ":" closed-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class word",
+" function word ":" closed-class word",
 " functional anatomy ":" physiological anatomy",
 " functional calculus ":" predicate calculus",
 " functional magnetic resonance imaging ":" fMRI",
@@ -66711,18 +64192,7 @@ class word",
 " grad school ":" graduate school",
 " grad student ":" graduate student",
 " gradation ":" step",
-" grade ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" grade ":" class",
 " grade ":" rate",
 " grade crossing ":" level crossing",
 " grade insignia ":" chevron",
@@ -67155,18 +64625,7 @@ class",
 " greave ":" jambeau",
 " greaves ":" crackling",
 " greco ":" El Greco",
-" greco-roman architecture ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical architecture",
+" greco-roman architecture ":" classical architecture",
 " greco-roman deity ":" Greco-Roman deity",
 " greco-roman wrestling ":" Greco-Roman wrestling",
 " greece ":" Greece",
@@ -70765,18 +68224,7 @@ classical architecture",
 " honours ":" honours degree",
 " honours ":" honor",
 " honours degree ":" honours",
-" honours list ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class list",
+" honours list ":" class list",
 " honshu ":" Honshu",
 " hoo-ha ":" disturbance",
 " hoo-hah ":" disturbance",
@@ -72149,18 +69597,7 @@ class list",
 " idiomatic expression ":" idiom",
 " idiopathic disease ":" idiopathic disorder",
 " idiopathic disorder ":" idiopathic disease",
-" idiopathic hemochromatosis ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classic hemochromatosis",
+" idiopathic hemochromatosis ":" classic hemochromatosis",
 " idiopathic thrombocytopenic purpura ":" thrombocytopenic purpura",
 " idiopathy ":" idiopathic disease",
 " idiosyncrasy ":" foible",
@@ -80286,29 +77723,7 @@ classic hemochromatosis",
 " lower cannon ":" vambrace",
 " lower carboniferous ":" Mississippian",
 " lower carboniferous period ":" Mississippian",
-" lower /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" under/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" lower class ":" underclass",
 " lower court ":" inferior court",
 " lower deck ":" third deck",
 " lower egypt ":" Lower Egypt",
@@ -80322,29 +77737,7 @@ class",
 " lower saxony ":" Lower Saxony",
 " lower status ":" inferiority",
 " lower tunguska ":" Tunguska",
-" lower/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classman ":" under/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classman",
+" lowerclassman ":" underclassman",
 " lowest common multiple ":" least common multiple",
 " lowland burrowing treefrog ":" northern casque-headed frog",
 " lowland fir ":" lowland white fir",
@@ -83908,18 +81301,7 @@ classman",
 " middle buster ":" lister",
 " middle c ":" middle C",
 " middle cerebral vein ":" vena cerebri media",
-" middle /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" bourgeoisie",
+" middle class ":" bourgeoisie",
 " middle ear ":" tympanic cavity",
 " middle east ":" Middle East",
 " middle english ":" Middle English",
@@ -87406,18 +84788,7 @@ class ":" bourgeoisie",
 " newton's theory of gravitation ":" theory of gravitation",
 " newton's third law ":" third law of motion",
 " newton's third law of motion ":" third law of motion",
-" newtonian mechanics ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical mechanics",
+" newtonian mechanics ":" classical mechanics",
 " newtonian reflector ":" Newtonian telescope",
 " newtonian telescope ":" Newtonian telescope",
 " newtown wonder ":" Newtown Wonder",
@@ -89319,18 +86690,7 @@ classical mechanics",
 " open-air market ":" open-air marketplace",
 " open-air marketplace ":" open-air market",
 " open-angle glaucoma ":" chronic glaucoma",
-" open-/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class word ":" content word",
+" open-class word ":" content word",
 " open-door policy ":" open door",
 " open-end credit ":" revolving credit",
 " open-end fund ":" mutual fund",
@@ -91673,18 +89033,7 @@ class word ":" content word",
 " parsons table ":" Parsons table",
 " part-of-speech tagger ":" pos tagger",
 " part name ":" meronym",
-" part of speech ":" form /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" part of speech ":" form class",
 " part to whole relation ":" meronymy",
 " partaker ":" sharer",
 " parterre ":" parquet circle",
@@ -92563,18 +89912,7 @@ class",
 " people's republic of china ":" China",
 " people's republican army ":" Irish National Liberation Army",
 " people against gangsterism and drugs ":" People against Gangsterism and Drugs",
-" people in power ":" ruling /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" people in power ":" ruling class",
 " people of color ":" color",
 " people of colour ":" color",
 " peoples ":" people",
@@ -100073,18 +97411,7 @@ class",
 " relapsing fever ":" recurrent fever",
 " relation ":" sexual intercourse",
 " relation back ":" relation",
-" relational adjective ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classifying adjective",
+" relational adjective ":" classifying adjective",
 " relations ":" dealings",
 " relationship ":" human relationship",
 " relative-in-law ":" in-law",
@@ -102352,18 +99679,7 @@ classifying adjective",
 " rule of thumb ":" guidepost",
 " ruler ":" swayer",
 " rules of order ":" order",
-" ruling /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" people in power",
+" ruling class ":" people in power",
 " rum-blossom ":" rhinophyma",
 " rum baba ":" baba au rhum",
 " rum cherry ":" black cherry",
@@ -104149,31 +101465,9 @@ class ":" people in power",
 " schoolman ":" Schoolman",
 " schoolmarm ":" schoolma'am",
 " schoolmaster ":" headmaster",
-" schoolmate ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classmate",
+" schoolmate ":" classmate",
 " schoolmistress ":" schoolmarm",
-" schoolroom ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classroom",
+" schoolroom ":" classroom",
 " schoolteacher ":" school teacher",
 " schooltime ":" school",
 " schoolwork ":" school assignment",
@@ -105479,18 +102773,7 @@ classroom",
 " sergeant ":" police sergeant",
 " sergeant-at-law ":" serjeant-at-law",
 " sergeant at arms ":" serjeant-at-arms",
-" sergeant first /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" first sergeant",
+" sergeant first class ":" first sergeant",
 " sergeant fish ":" cobia",
 " sergeant major ":" command sergeant major",
 " sergei aleksandrovich koussevitzky ":" Koussevitzky",
@@ -105528,18 +102811,7 @@ class ":" first sergeant",
 " seriola grandis ":" kingfish",
 " seriola zonata ":" rudderfish",
 " serious-mindedness ":" seriousness",
-" serious music ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-classical music",
+" serious music ":" classical music",
 " seriousness ":" earnestness",
 " seriph ":" serif",
 " seriphidium ":" Seriphidium",
@@ -106332,18 +103604,7 @@ classical music",
 " shop ":" store",
 " shop ":" patronize",
 " shop assistant ":" salesclerk",
-" shop /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" shop",
+" shop class ":" shop",
 " shop clerk ":" salesclerk",
 " shop mechanic ":" machinist",
 " shop steward ":" steward",
@@ -108218,29 +105479,7 @@ class ":" shop",
 " social anthropologist ":" cultural anthropologist",
 " social anthropology ":" cultural anthropology",
 " social assistance ":" supplementary benefit",
-" social /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" social class ":" class",
 " social climber ":" climber",
 " social club ":" club",
 " social dancer ":" dancer",
@@ -108290,29 +105529,7 @@ class",
 " society of jesus ":" Society of Jesus",
 " socinian ":" Socinian",
 " socinus ":" Socinus",
-" socio-economic /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" socio-economic class ":" class",
 " sociology department ":" department of sociology",
 " sociopath ":" psychopath",
 " sociopathic personality ":" antisocial personality disorder",
@@ -111093,18 +108310,7 @@ class",
 " stratified sample ":" representative sample",
 " stratified sampling ":" representative sampling",
 " stratocracy ":" military government",
-" stratum ":" /**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class",
+" stratum ":" class",
 " stratum basale ":" stratum germinativum",
 " stratum corneum ":" corneum",
 " stratum germinativum ":" stratum basale",
@@ -111490,330 +108696,33 @@ class",
 " subatomic particle ":" particle",
 " subbing ":" substituting",
 " subbing ":" substitute",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class acnidosporidia ":" Acnidosporidia",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class actinopoda ":" Actinopoda",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class alismatidae ":" Alismatidae",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class amphineura ":" Amphineura",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class anapsida ":" Anapsida",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class archaeornithes ":" Archaeornithes",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class archosauria ":" Archosauria",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class arecidae ":" Arecidae",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class asteridae ":" Asteridae",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class branchiopoda ":" Branchiopoda",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class caryophyllidae ":" Caryophyllidae",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cirripedia ":" Cirripedia",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class cnidosporidia ":" Cnidosporidia",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class commelinidae ":" Commelinidae",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class copepoda ":" Copepoda",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class crossopterygii ":" Crossopterygii",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class diapsida ":" Diapsida",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class dibranchia ":" Dibranchiata",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class dibranchiata ":" Dibranchiata",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class dilleniidae ":" Dilleniidae",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class dipnoi ":" Dipnoi",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class discomycetes ":" Discomycetes",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class elasmobranchii ":" Elasmobranchii",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class entomostraca ":" Entomostraca",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class euascomycetes ":" Euascomycetes",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class euryalida ":" Euryalida",
-" sub/**
-
- * {@inlinetag}
-
- * this is @not a standardtag - must begin a line.
-
- * this is a valid {@inlinetag} also
-
- * @standardtag
-
- */
-class eutheria ":" Eutheria",
+" subclass acnidosporidia ":" Acnidosporidia",
+" subclass actinopoda ":" Actinopoda",
+" subclass alismatidae ":" Alismatidae",
+" subclass amphineura ":" Amphineura",
+" subclass anapsida ":" Anapsida",
+" subclass archaeornithes ":" Archaeornithes",
+" subclass archosauria ":" Archosauria",
+" subclass arecidae ":" Arecidae",
+" subclass asteridae ":" Asteridae",
+" subclass branchiopoda ":" Branchiopoda",
+" subclass caryophyllidae ":" Caryophyllidae",
+" subclass cirripedia ":" Cirripedia",
+" subclass cnidosporidia ":" Cnidosporidia",
+" subclass commelinidae ":" Commelinidae",
+" subclass copepoda ":" Copepoda",
+" subclass crossopterygii ":" Crossopterygii",
+" subclass diapsida ":" Diapsida",
+" subclass dibranchia ":" Dibranchiata",
+" subclass dibranchiata ":" Dibranchiata",
+" subclass dilleniidae ":" Dilleniidae",
+" subclass dipnoi ":" Dipnoi",
+" subclass discomycetes ":" Discomycetes",
+" subclass elasmobranchii ":" Elasmobranchii",
+" subclass entomostraca ":" Entomostraca",
+" subclass euascomycetes ":" Euascomycetes",
+" subclass euryalida ":" Euryalida",
+" subclass eutheria ":" Eutheria",
 " subclass exopterygota ":" Exopterygota",
 " subclass hamamelidae ":" Hamamelidae",
 " subclass heterobasidiomycetes ":" Heterobasidiomycetes",
