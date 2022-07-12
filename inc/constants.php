@@ -639,7 +639,7 @@ class constants
     public static function flush()
     {
 
-        $memcache_obj = new Memcache();
+        $memcache_obj = new \Memcache();
         $memcache_obj->connect('memcache_host', 11211);
         $memcache_obj->flush();
 
