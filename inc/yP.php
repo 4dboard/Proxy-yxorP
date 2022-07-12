@@ -80,6 +80,7 @@ use cacheHelper;
 use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
+use yxorP\inc\parser\RulesParser;
 
 /* Importing the RuntimeException class from the PHP namespace. */
 
