@@ -37,7 +37,7 @@ class streamPluginAction extends wrapper
     }
 
     /* A function that is called when the proxy receives data from the server. */
-    public function onEventWrite(): void
+    public function onWrite(): void
     {
         /* Checking if the response should be streamed or not. */
         if ($this->stream) {

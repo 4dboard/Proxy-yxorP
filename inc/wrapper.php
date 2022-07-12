@@ -71,7 +71,7 @@ abstract class wrapper
                     $this->onSent();
                     break;
                 case EVENT_WRITE:
-                    $this->onEventWrite();
+                    $this->onWrite();
                     break;
                 case EVENT_COMPLETE:
                     $this->onEventComplete();
@@ -142,7 +142,7 @@ abstract class wrapper
 
     /* Used to execute code when the headers are received. */
 
-    public function onEventWrite(): void
+    public function onWrite(): void
     {
     }
 
