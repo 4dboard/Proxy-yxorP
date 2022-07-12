@@ -6,8 +6,8 @@ namespace yxorP\inc;
 
 /* Defining a constant named `CHAR_SLASH` with the value `/`. */
 
-use Memcache;
 use RuntimeException;
+use function memcache_connect;
 
 define('CHAR_SLASH', '/');
 /* Defining a constant. */
@@ -639,12 +639,9 @@ class constants
 
     public static function flush()
     {
-        if (Memcache::isConnected()) {
-            Memcache::flush();
-        } else {
-            Memcache::connect('localhost', 11211);
-            Memcache::flush();
-        }
+        $memcache_obj = memcache_connect('localhost', 11211);
+
+        memcache_flush($memcache_obj);
 
         foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
     }
