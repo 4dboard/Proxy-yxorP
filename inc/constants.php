@@ -652,7 +652,7 @@ class constants
             $memcache->connect('localhost', 11211);
             $memcache->flush();
         }
-        foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
+        foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
     }
 
 
