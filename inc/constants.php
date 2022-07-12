@@ -16,7 +16,8 @@ try {
     constants::mimeType();
     /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
     include PATH_TMP_FILE;
-} catch (Exception $e) { /*swollow*/
+/* Catching an exception and swallowing it. */
+} catch (Exception $e) { /*swallow*/
 }
 
 
