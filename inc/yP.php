@@ -28,8 +28,8 @@ try {
     }
     /* Checking if we must clear the cache */
     if (isset($_GET["CLECHE"])) {
-        if (class_exists('Memcache')) {
-            $memcache = new Memcache();
+        if (class_exists('Memcached')) {
+            $memcache = new Memcached();
             $memcache->connect('localhost', 11211);
             $memcache->flush();
         }
