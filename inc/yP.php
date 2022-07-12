@@ -77,6 +77,7 @@ try {
 
 
 use cacheHelper;
+use Memcached;
 use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
