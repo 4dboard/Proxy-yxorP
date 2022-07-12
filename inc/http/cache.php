@@ -27,7 +27,7 @@ class cache
         /* Used to get all the files in the `tmp` directory. */
         $files = glob(PATH_DIR_TMP . '*');
         /* Used to delete all the files in the `tmp` directory. */
-        foreach ($files as $file) if (is_file($file)) unlink($file);
+        foreach ($files as $file) if unlink($file);
     }
 
     public function super(): void
