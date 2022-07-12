@@ -191,7 +191,7 @@
             // lock resource
             var idle = setInterval(function() {
                 if (!$this.singleton._id) return;
-                Yxorp.lockResource($this.singleton._id);
+                yxorP.lockResource($this.singleton._id);
                 clearInterval(idle);
             }, 60000);
         });

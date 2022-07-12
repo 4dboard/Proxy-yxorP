@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -10,7 +10,7 @@
 
 namespace Forms\Controller;
 
-class Admin extends \Yxorp\AuthController {
+class Admin extends \yxorP\AuthController {
 
     public function index() {
 

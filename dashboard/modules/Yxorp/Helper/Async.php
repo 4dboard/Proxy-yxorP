@@ -1,9 +1,9 @@
 <?php
 
-namespace Yxorp\Helper;
+namespace yxorP\Helper;
 
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *

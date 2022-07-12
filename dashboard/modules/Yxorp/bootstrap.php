@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -10,10 +10,10 @@
 
 // Helpers
 
-$this->helpers['revisions']  = 'Yxorp\\Helper\\Revisions';
-$this->helpers['updater']    = 'Yxorp\\Helper\\Updater';
-$this->helpers['async']      = 'Yxorp\\Helper\\Async';
-$this->helpers['jobs']       = 'Yxorp\\Helper\\Jobs';
+$this->helpers['revisions']  = 'yxorP\\Helper\\Revisions';
+$this->helpers['updater']    = 'yxorP\\Helper\\Updater';
+$this->helpers['async']      = 'yxorP\\Helper\\Async';
+$this->helpers['jobs']       = 'yxorP\\Helper\\Jobs';
 
 // API
 $this->module('yxorp')->extend([
@@ -398,6 +398,6 @@ if (YXORP_API_REQUEST) {
     include_once(__DIR__.'/rest-api.php');
 
     $this->on('yxorp.rest.init', function($routes) {
-        $routes['yxorp'] = 'Yxorp\\Controller\\RestApi';
+        $routes['yxorp'] = 'yxorP\\Controller\\RestApi';
     });
 }

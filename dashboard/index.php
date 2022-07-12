@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -40,7 +40,7 @@ if (YXORP_API_REQUEST) {
     header('Access-Control-Allow-Origin: '      .($_cors['allowedOrigins'] ?? '*'));
     header('Access-Control-Allow-Credentials: ' .($_cors['allowCredentials'] ?? 'true'));
     header('Access-Control-Max-Age: '           .($_cors['maxAge'] ?? '1000'));
-    header('Access-Control-Allow-Headers: '     .($_cors['allowedHeaders'] ?? 'X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding, Yxorp-Token'));
+    header('Access-Control-Allow-Headers: '     .($_cors['allowedHeaders'] ?? 'X-Requested-With, Content-Type, Origin, Cache-Control, Pragma, Authorization, Accept, Accept-Encoding, yxorP-Token'));
     header('Access-Control-Allow-Methods: '     .($_cors['allowedMethods'] ?? 'PUT, POST, GET, OPTIONS, DELETE'));
     header('Access-Control-Expose-Headers: '    .($_cors['exposedHeaders'] ?? 'true'));
 

@@ -3,7 +3,7 @@
 namespace LayoutComponents\Controller;
 
 
-class Admin extends \Yxorp\AuthController {
+class Admin extends \yxorP\AuthController {
 
     public function index() {
 

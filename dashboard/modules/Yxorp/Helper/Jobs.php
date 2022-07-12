@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yxorp\Helper;
+namespace yxorP\Helper;
 
 class Jobs extends \Lime\Helper {
 

@@ -28,7 +28,7 @@ $description = $collection['description'] ?? 'no description';
       <description><![CDATA[{{ $description }}]]></description>
       <lastBuildDate><?=date(DATE_ATOM)?></lastBuildDate>
       <language>{{ $app['i18n'] }}</language>
-      <generator uri="https://github.com/raffaelj/yxorp_Feed">Yxorp Feed Addon</generator>
+      <generator uri="https://github.com/raffaelj/yxorp_Feed">yxorP Feed Addon</generator>
 
       <?php
       $i = 0;

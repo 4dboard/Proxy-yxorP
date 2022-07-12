@@ -22,7 +22,7 @@
 
         <i class="uk-margin-right uk-icon-warning" title="{ App.i18n.get('If you deactivate core modules, some addons might break the application by calling functions on null.') }" data-uk-tooltip></i>
 
-        <i class="uk-margin-right uk-icon-ambulance" title="{ App.i18n.get('Module exists in two different folders. You should delete one of them. Yxorp prevents itself from breaking, because it doesn\'t load doubled addons, but it\'s hard guess, which one is loaded.') }" data-uk-tooltip></i>
+        <i class="uk-margin-right uk-icon-ambulance" title="{ App.i18n.get('Module exists in two different folders. You should delete one of them. yxorP prevents itself from breaking, because it doesn\'t load doubled addons, but it\'s hard guess, which one is loaded.') }" data-uk-tooltip></i>
 
         <a href="#help-modal" data-uk-modal><i class="uk-margin-right uk-icon-question-circle" title="{ App.i18n.get('Open help page') }" onclick="{loadReadme}" data-uk-tooltip></i></a>
 

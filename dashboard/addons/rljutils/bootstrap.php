@@ -1,8 +1,8 @@
 <?php
 /**
- * Some utilities for Yxorp CMS
+ * Some utilities for yxorP CMS
  * 
- * When using Yxorp with multiple users, it needs some customization.
+ * When using yxorP with multiple users, it needs some customization.
  * By default, some helper functions bypass the user group access control lists,
  * so they definitely need some adjustments. This addon also adds some UI tweaks
  * and helpers.

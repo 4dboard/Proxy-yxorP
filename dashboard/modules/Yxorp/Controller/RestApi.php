@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Yxorp\Controller;
+namespace yxorP\Controller;
 
 class RestApi extends \LimeExtra\Controller {
 

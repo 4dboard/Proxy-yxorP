@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -8,9 +8,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Yxorp\Controller;
+namespace yxorP\Controller;
 
-class Settings extends \Yxorp\AuthController {
+class Settings extends \yxorP\AuthController {
 
 
     public function index() {
@@ -52,7 +52,7 @@ class Settings extends \Yxorp\AuthController {
         if ($createconfig && !$this->app->path(YXORP_CONFIG_PATH)) {
 
             if ($this->app->helper('fs')->mkdir(dirname(YXORP_CONFIG_PATH))) {
-                $this->app->helper('fs')->write(YXORP_CONFIG_PATH, "# Yxorp settings\n");
+                $this->app->helper('fs')->write(YXORP_CONFIG_PATH, "# yxorP settings\n");
             }
         }
 

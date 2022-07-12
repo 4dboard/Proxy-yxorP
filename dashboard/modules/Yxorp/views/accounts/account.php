@@ -249,7 +249,7 @@
                 
                 if (!$this.account._id) return;
 
-                Yxorp.lockResource($this.account._id, function(e){
+                yxorP.lockResource($this.account._id, function(e){
                     window.location.href = App.route('/accounts/account/'+$this.account._id);
                 });
                 

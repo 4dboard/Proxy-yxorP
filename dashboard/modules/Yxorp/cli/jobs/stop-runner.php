@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -14,4 +14,4 @@ if (!$app->helper('jobs')->isRunnerActive()) {
 
 $app->helper('jobs')->stopRunner();
 
-CLI::writeln("Yxorp: Job queue runner stopped", false);
+CLI::writeln("yxorP: Job queue runner stopped", false);

@@ -1,6 +1,6 @@
 <?php
 /**
- * Boot Manager for Yxorp CMS
+ * Boot Manager for yxorP CMS
  * 
  * @see       https://github.com/raffaelj/yxorp_BootManager
  * @see       https://github.com/agentejo/yxorp/
@@ -70,7 +70,7 @@ $this->on('yxorp.bootstrap', function() {
         foreach (new \DirectoryIterator($dir) as $module) {
 
             if ($module->isFile() || $module->isDot()) continue;
-            if ($module->getBasename() == 'Yxorp') continue; // will always load first
+            if ($module->getBasename() == 'yxorP') continue; // will always load first
 
             $modules[$module->getBasename()] = [
                 'path' => $module->getRealPath(),

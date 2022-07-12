@@ -325,7 +325,7 @@
             // lock resource
             var idle = setInterval(function() {
                 if (!$this.collection._id) return;
-                Yxorp.lockResource($this.collection._id);
+                yxorP.lockResource($this.collection._id);
                 clearInterval(idle);
             }, 60000);
         });

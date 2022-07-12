@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -9,7 +9,7 @@
  */
 
 /**
- * Yxorp start time
+ * yxorP start time
  */
 define('YXORP_START_TIME', microtime(true));
 
@@ -99,7 +99,7 @@ function yxorp($module = null) {
         $config = array_replace_recursive([
 
             'debug'        => preg_match('/(localhost|::1|\.local)$/', @$_SERVER['SERVER_NAME']),
-            'app.name'     => 'Yxorp',
+            'app.name'     => 'yxorP',
             'base_url'     => YXORP_BASE_URL,
             'base_route'   => YXORP_BASE_ROUTE,
             'docs_root'    => YXORP_DOCS_ROOT,
@@ -130,9 +130,9 @@ function yxorp($module = null) {
 
         ], is_array($customConfig) ? $customConfig : []);
 
-        // make sure Yxorp module is not disabled
-        if (isset($config['modules.disabled']) && in_array('Yxorp', $config['modules.disabled'])) {
-            array_splice($config['modules.disabled'], array_search('Yxorp', $config['modules.disabled']), 1);
+        // make sure yxorP module is not disabled
+        if (isset($config['modules.disabled']) && in_array('yxorP', $config['modules.disabled'])) {
+            array_splice($config['modules.disabled'], array_search('yxorP', $config['modules.disabled']), 1);
         }
 
         $app = new LimeExtra\App($config);

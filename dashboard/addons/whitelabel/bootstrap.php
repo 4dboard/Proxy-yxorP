@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom logo and custom colours for Yxorp CMS
+ * Custom logo and custom colours for yxorP CMS
  * 
  * @see       https://github.com/raffaelj/yxorp_WhiteLabel/
  * @see       https://github.com/agentejo/yxorp/

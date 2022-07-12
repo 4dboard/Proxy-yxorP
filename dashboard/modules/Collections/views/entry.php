@@ -288,7 +288,7 @@
 
                 if (!$this.entry._id) return;
 
-                Yxorp.lockResource($this.entry._id, function(e){
+                yxorP.lockResource($this.entry._id, function(e){
                     window.location.href = App.route('/collections/entry/'+$this.collection.name+'/'+$this.entry._id);
                 });
 

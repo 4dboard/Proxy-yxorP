@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -15,8 +15,8 @@
 // because auto-load not ready yet
 include(__DIR__.'/Helper/Admin.php');
 
-$app->helpers['admin'] = 'Yxorp\\Helper\\Admin';
-$app->helpers['csrf']  = 'Yxorp\\Helper\\Csrf';
+$app->helpers['admin'] = 'yxorP\\Helper\\Admin';
+$app->helpers['csrf']  = 'yxorP\\Helper\\Csrf';
 
 // init + load i18n
 $app->on('before', function() {
@@ -95,18 +95,18 @@ $app->bind('/', function(){
         $this->reroute($this['yxorp.start']);
     }
 
-    return $this->invoke('Yxorp\\Controller\\Base', 'dashboard');
+    return $this->invoke('yxorP\\Controller\\Base', 'dashboard');
 });
 
-$app->bindClass('Yxorp\\Controller\\Utils', 'yxorp/utils');
-$app->bindClass('Yxorp\\Controller\\Base', 'yxorp');
-$app->bindClass('Yxorp\\Controller\\Settings', 'settings');
-$app->bindClass('Yxorp\\Controller\\Accounts', 'accounts');
-$app->bindClass('Yxorp\\Controller\\Auth', 'auth');
-$app->bindClass('Yxorp\\Controller\\Media', 'media');
-$app->bindClass('Yxorp\\Controller\\Assets', 'assetsmanager');
-$app->bindClass('Yxorp\\Controller\\RestAdmin', 'restadmin');
-$app->bindClass('Yxorp\\Controller\\Webhooks', 'webhooks');
+$app->bindClass('yxorP\\Controller\\Utils', 'yxorp/utils');
+$app->bindClass('yxorP\\Controller\\Base', 'yxorp');
+$app->bindClass('yxorP\\Controller\\Settings', 'settings');
+$app->bindClass('yxorP\\Controller\\Accounts', 'accounts');
+$app->bindClass('yxorP\\Controller\\Auth', 'auth');
+$app->bindClass('yxorP\\Controller\\Media', 'media');
+$app->bindClass('yxorP\\Controller\\Assets', 'assetsmanager');
+$app->bindClass('yxorP\\Controller\\RestAdmin', 'restadmin');
+$app->bindClass('yxorP\\Controller\\Webhooks', 'webhooks');
 
 
 /**

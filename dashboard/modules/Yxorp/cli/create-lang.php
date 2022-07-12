@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -12,7 +12,7 @@ if (!YXORP_CLI) return;
 
 $lang     = $app->param('lang', null);
 $language = $app->param('language', $lang);
-$author   = $app->param('author', 'Yxorp CLI');
+$author   = $app->param('author', 'yxorP CLI');
 
 if (!$lang) {
     return CLI::writeln("--lang parameter is missing", false);

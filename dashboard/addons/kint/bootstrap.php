@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Yxorp module bootstrap implementation.
+ * yxorP module bootstrap implementation.
  */
 
 // Kint library.
@@ -36,11 +36,11 @@ if (!YXORP_API_REQUEST) {
 else {
   $app->on('after', function() {
     if (!empty($_SESSION['kint_dump'])) {
-      header('X-Yxorp-Kint-Dump: ' . json_encode($_SESSION['kint_dump']));
+      header('X-yxorP-Kint-Dump: ' . json_encode($_SESSION['kint_dump']));
       unset($_SESSION['kint_dump']);
     }
     if (!empty($_SESSION['kint_console'])) {
-      header('X-Yxorp-Kint-Console: ' . json_encode($_SESSION['kint_console']));
+      header('X-yxorP-Kint-Console: ' . json_encode($_SESSION['kint_console']));
       unset($_SESSION['kint_console']);
     }
   });

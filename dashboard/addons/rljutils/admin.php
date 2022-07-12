@@ -71,7 +71,7 @@ $this->on('admin.init', function() use ($hardening) {
 
             if ($this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
 
-                return $this->invoke('Yxorp\\Controller\\Accounts', 'find');
+                return $this->invoke('yxorP\\Controller\\Accounts', 'find');
 
             }
 
@@ -81,7 +81,7 @@ $this->on('admin.init', function() use ($hardening) {
                 return $this->helper('admin')->denyRequest();
             }
 
-            $accounts = $this->invoke('Yxorp\\Controller\\Accounts', 'find');
+            $accounts = $this->invoke('yxorP\\Controller\\Accounts', 'find');
 
             $allowed = [
                 'user',

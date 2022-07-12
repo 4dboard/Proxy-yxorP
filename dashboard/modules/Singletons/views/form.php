@@ -265,7 +265,7 @@
                 });
 
                 // lock resource
-                Yxorp.lockResource('singleton_'+$this.singleton.name, function(e){
+                yxorP.lockResource('singleton_'+$this.singleton.name, function(e){
                     window.location.reload();
                 });
             });

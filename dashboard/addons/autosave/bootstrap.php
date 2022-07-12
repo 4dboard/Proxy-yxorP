@@ -1,12 +1,12 @@
 <?php
 /**
- * Yxorp autosave editor addon
+ * yxorP autosave editor addon
  *
  * @author  Paulo Gomes
- * @package YxorpCMS-Autosave
+ * @package yxorPCMS-Autosave
  * @license MIT
  *
- * @source  https://github.com/pauloamgomes/YxorpCMS-Autosave
+ * @source  https://github.com/pauloamgomes/yxorPCMS-Autosave
  * @see     { README.md } for usage info.
  */
 

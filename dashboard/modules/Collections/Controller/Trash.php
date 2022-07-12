@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the Yxorp project.
+ * This file is part of the yxorP project.
  *
  * (c) Artur Heinze - 🅰🅶🅴🅽🆃🅴🅹🅾, http://agentejo.com
  *
@@ -11,7 +11,7 @@
 namespace Collections\Controller;
 
 
-class Trash extends \Yxorp\AuthController {
+class Trash extends \yxorP\AuthController {
 
     public function collection($name = null) {
 
