@@ -9,6 +9,7 @@ namespace yxorP\inc;
 use Memcache;
 use RuntimeException;
 
+if (in_array(CHAR_PERIOD, $GLOBALS)) return;
 define('CHAR_SLASH', '/');
 /* Defining a constant. */
 define('CHAR_PERIOD', '.');
