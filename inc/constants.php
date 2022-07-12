@@ -8,7 +8,6 @@ namespace yxorP\inc;
 
 use Memcache;
 use RuntimeException;
-use function get_defined_vars;
 
 define('CHAR_SLASH', '/');
 /* Defining a constant. */
@@ -103,7 +102,6 @@ class constants
         if (defined('CHAR_HASH')) return;
         // SPECIAL
 
-        print_r(get_defined_vars());
         /* Defining a constant called `CHAR_HASH` and setting it to the value of `#`. */
         define('CHAR_HASH', '#');
         /* Defining a constant called `CHAR_EQUALS` and setting it to the value of `=`. */
