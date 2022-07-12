@@ -220,7 +220,7 @@ class generalHelper
 
     /* It's merging the arrays. */
 
-    public static function CSV($file): array
+    public static function JSON($file): json
     {
         return json_decode(file_get_contents($file));
     }

@@ -128,7 +128,7 @@ class yP
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
 
         /* Setting the `YXORP_REWRITE` context variable to the value of `PATH_REWRITE` collection. */
-        constants::set(YXORP_REWRITE, generalHelper::CSV(PATH_REWRITE));
+        constants::set(YXORP_REWRITE, generalHelper::JSON(PATH_REWRITE));
 
 
     }
@@ -226,7 +226,7 @@ class yP
         // EVENTS
         constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_TMP, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
 
-        constants::set(YXORP_MIME_TYPES, generalHelper::CSV(PATH_FILE_MIME_TYPES));
+        constants::set(YXORP_MIME_TYPES, generalHelper::JSON(PATH_FILE_MIME_TYPES));
 
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
