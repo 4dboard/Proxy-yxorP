@@ -105,6 +105,8 @@ class constants
         // SPECIAL
         /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
         define('CHAR_PERIOD', '.');
+
+        print_r(get_defined_vars());
         /* Defining a constant called `CHAR_HASH` and setting it to the value of `#`. */
         define('CHAR_HASH', '#');
         /* Defining a constant called `CHAR_EQUALS` and setting it to the value of `=`. */
