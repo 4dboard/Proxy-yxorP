@@ -14,25 +14,16 @@ use yxorP\inc\wrapper;
 
 class overrideResultAction extends wrapper
 {
-    /* Overriding the `onEventWrite` method of the `wrapper` class. */
-    private static function result($m)
-    {
-        print_r($m);
-        return (is_array($m) && count($m)) ? str_replace('This', 'That', $m[0]) : null;
-    }
-
     private static function replacer($text)
     {
-        $patternCallbacks = [
-            '~\<x(.*?)x\>~is' =>
-                function ($m) {
-                    return '[code]' . base64_encode($m[1]) . '[/code]';
-                },
-        ];
-
-        echo preg_replace_callback_array(
-            $patternCallbacks,
-            'This is my [code]script[/code] to display'
+        return preg_replace_callback_array(
+            [
+                '~\<x(.*?)x\>~is' =>
+                    function ($m) {
+                        return '<x' . str_replace('This', 'That', $m[1]) . 'x>';
+                    },
+            ],
+            $text
         );
     }
 
