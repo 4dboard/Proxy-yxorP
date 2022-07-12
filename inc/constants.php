@@ -636,7 +636,7 @@ class constants
 
     /* A static method that returns the value of the $_name variable. */
 
-    function flush()
+    public static function flush()
     {
 
         $memcache_obj = new Memcache();
