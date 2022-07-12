@@ -698,9 +698,6 @@ AddHandler cgi-script .pl .py .asp .shtml .sh .cgi
 # scripting) attacks. For more information: http://php.net/register_globals
 #
 # ---------------------------------------------------------------
-# PHP DEDICATED RULES
-# DO NOT USE THEM IF YOU DON'T USE PHP
-# ---------------------------------------------------------------
 # IF REGISTER_GLOBALS DIRECTIVE CAUSES 500 INTERNAL SERVER ERRORS:
 #
 # Your server does not allow PHP directives to be set via .htaccess. In that
