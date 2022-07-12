@@ -229,10 +229,11 @@ class generalHelper
     public static function fileInc($dir, $x, $inc)
     {
         if (str_contains($dir, 'views')) return;
-        if (is_dir($dir . DIRECTORY_SEPARATOR . $x)) return self::fileCheck($dir . DIRECTORY_SEPARATOR . $x, $inc);
-        if ($inc) require_once($_loc);
+        $loc = $dir . DIRECTORY_SEPARATOR . $x;
+        if (is_dir($loc)) return self::fileCheck($loc, $inc);
+        if ($inc) require_once($loc);
         if (!$inc && str_contains(YXORP_REQUEST_URI, $x)) {
-            echo file_get_contents($_loc);
+            echo file_get_contents($loc);
             exit;
         }
     }
