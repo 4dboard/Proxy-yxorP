@@ -67,7 +67,6 @@ class cache
 
     public function set($val): void
     {
-        echo PATH_TMP_FILE;
         $fopen = fopen(PATH_TMP_FILE, 'w');
         fwrite($fopen, '<?=' . str_replace('stdClass::__set_state', '(object)', var_export($val, true)) . ';exit;?>');
         fclose($fopen);
