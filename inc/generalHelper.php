@@ -226,7 +226,7 @@ class generalHelper
     {
         $csvArray = array_map(VAR_GETCSV, file($filename));
 
-        print_r($csvArray);
+        print_r(array_merge($csvArray));
         return array_merge(...$csvArray);
     }
 
