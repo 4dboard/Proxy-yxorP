@@ -24,10 +24,14 @@ class overrideResultAction extends wrapper
     private static function replace($content)
     {
         /* Minifying the content of the response. Replacing the content of the response with the content of the `REWRITE` method. */
-        if ($content) constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(MIME !== VAR_TEXT_HTML ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
+        if ($content) {
             echo 'xxxx';
-            return str_replace(file(__DIR__ . '../data/search_rewrite.csv'), file(__DIR__ . '../data/replace_rewrite.csv'), $m[3]);
-        }, $content)));
+            constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(MIME !== VAR_TEXT_HTML ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
+
+                echo 'xxxx';
+                return str_replace(file(__DIR__ . '../data/search_rewrite.csv'), file(__DIR__ . '../data/replace_rewrite.csv'), $m[3]);
+            }, $content)));
+        }
 
     }
 
