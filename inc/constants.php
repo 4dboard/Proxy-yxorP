@@ -7,28 +7,6 @@ namespace yxorP\inc;
 use Memcache;
 use RuntimeException;
 
-if (!defined('CHAR_SLASH')) {
-    /* Defining a constant. */
-    define('CHAR_SLASH', '/');
-    /* Defining a constant. */
-    define('CHAR_PERIOD', '.');
-    /* Defining a constant. */
-    define('FILE_TMP', 'tmp');
-    /* Defining a constant. */
-    define('VAR_COCKPIT', 'cockpit');
-    /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
-    directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
-    define('DIR_TMP', FILE_TMP . CHAR_SLASH);
-    /* Creating a unique key for the cache file. */
-    define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
-    /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
-    directory separator (CHAR_SLASH) plus the value of the constant DIR_TMP. */
-    define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
-    /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
-    separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
-    FILE_TMP. */
-    define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
-}
 /* Checking if we must clear the cache */
 if (isset($_GET["CLECHE"])) constants::flush();
 /*  Try catch */
@@ -45,7 +23,30 @@ class constants
      * @param string $yxorp_root
      * @return void
      */
-
+    public static function minRequired()
+    {
+        if (defined('CHAR_SLASH')) return;
+        /* Defining a constant. */
+        define('CHAR_SLASH', '/');
+        /* Defining a constant. */
+        define('CHAR_PERIOD', '.');
+        /* Defining a constant. */
+        define('FILE_TMP', 'tmp');
+        /* Defining a constant. */
+        define('VAR_COCKPIT', 'cockpit');
+        /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
+        directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
+        define('DIR_TMP', FILE_TMP . CHAR_SLASH);
+        /* Creating a unique key for the cache file. */
+        define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
+        /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
+        directory separator (CHAR_SLASH) plus the value of the constant DIR_TMP. */
+        define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
+        /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
+        separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
+        FILE_TMP. */
+        define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
+    }
     /* Checking if the requested URI contains the string `$t`. */
     /* A function that checks if the current request URI contains the given string. */
     public static function mimeType(): void
