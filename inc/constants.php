@@ -355,8 +355,8 @@ class constants
 
 
         // EVENTS
-        /* Defining a constant called `EVENT_BUILD_TMP` and setting it to the value of `request.build_cached`. */
-        define('EVENT_BUILD_TMP', 'request' . CHAR_PERIOD . 'build_cached');
+        /* Defining a constant called `EVENT_BUILD_CACHE` and setting it to the value of `request.build_cached`. */
+        define('EVENT_BUILD_CACHE', 'request' . CHAR_PERIOD . 'build_cached');
         /* Defining a constant called `EVENT_BUILD_CONTEXT` and setting it to the value of `request.build_context`. */
         define('EVENT_BUILD_CONTEXT', 'request' . CHAR_PERIOD . 'build_context');
         /* Defining a constant called `EVENT_BUILD_INCLUDES` and setting it to the value of `request.build_includes`. */
