@@ -26,6 +26,7 @@ class overrideResultAction extends wrapper
         /* Minifying the content of the response. Replacing the content of the response with the content of the `REWRITE` method. */
         if ($content) {
             constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(MIME !== VAR_TEXT_HTML ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
+                echo 123;
                 print_r(constants::get(PATH_REWRITE_SEARCH));
                 return str_replace('illustrative', 'This', $m[3]);
             }, $content)));
