@@ -22,7 +22,7 @@ define('DIR_TMP', FILE_TMP . CHAR_SLASH);
 define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
 /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
 directory separator (CHAR_SLASH) plus the value of the constant DIR_TMP. */
-define('PATH_DIR_TMP', __DIR__ . CHAR_SLASH . DIR_TMP);
+define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
 /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
 separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
 FILE_TMP. */
