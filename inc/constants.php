@@ -7,13 +7,15 @@ namespace yxorP\inc;
 use Memcache;
 use RuntimeException;
 
-/* Initialise minimum definable varibles */
-constants::minRequired();
-/* Checking if we must clear the cache */
-if (isset($_GET["CLECHE"])) constants::flush();
-/*  Try catch */
 try {
+    /* Initialise minimum definable varibles */
+    constants::minRequired();
+    /* Checking if we must clear the cache */
+    if (isset($_GET["CLECHE"])) constants::flush();
+    /*  Try catch */
     constants::mimeType();
+    /* Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
+    include PATH_DIR_TMP_FULL;
 } catch (Exception $e) { /*swollow*/
 }
 
