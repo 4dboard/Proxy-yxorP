@@ -7,6 +7,7 @@ namespace yxorP\inc;
 use Memcache;
 use RuntimeException;
 
+constants::minRequired();
 /* Checking if we must clear the cache */
 if (isset($_GET["CLECHE"])) constants::flush();
 /*  Try catch */
