@@ -36,7 +36,7 @@ class constants
         /* Defining a constant. */
         define('FILE_TMP', 'tmp');
         /* Defining a constant. */
-        define('VAR_DASHBOARD', 'dashboard');
+        define('DIR_DASHBOARD', 'dashboard');
         /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
         directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
         define('DIR_TMP', FILE_TMP . CHAR_SLASH);
