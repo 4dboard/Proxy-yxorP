@@ -408,7 +408,6 @@ class yP
         return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
     }
 
-
     /**
      * > This function adds a listener to the listeners array
      *
