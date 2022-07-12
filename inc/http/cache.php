@@ -25,7 +25,7 @@ class cache
     public static function clearAll(): void
     {
         /* Used to delete all the files in the `tmp` directory. */
-        foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
+        foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
     }
 
     public function super(): void
