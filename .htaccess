@@ -28,7 +28,6 @@ SetEnv TZ Europe/Rome
 ServerSignature Off
 # drop Range header when more than 5 ranges. CVE-2011-3192
 SetEnvIf Range (,.*?){5,} bad-range=1
-RequestHeader unset Range env=bad-range
 # LIMIT UPLOAD FILE SIZE TO PROTECT AGAINST DOS ATTACK. Bytes, 0-2147483647(2GB)
 LimitRequestBody 2147483647
 #
