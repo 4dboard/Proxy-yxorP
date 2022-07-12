@@ -127,12 +127,8 @@ class yP
         constants::set(YXORP_GLOBAL_PATTERN, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
             (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
 
+        /* Setting the `YXORP_REWRITE` context variable to the value of `PATH_REWRITE` collection. */
         constants::set(YXORP_REWRITE, generalHelper::CSV(PATH_REWRITE));
-        /* Setting the `YXORP_REWRITE_SEARCH` context variable to the value of `PATH_REWRITE_SEARCH` collection. */
-        constants::set(YXORP_REWRITE_SEARCH, generalHelper::CSV(PATH_REWRITE_SEARCH));
-
-        /* Setting the `YXORP_REWRITE_REPLACE` context variable to the value of `PATH_REWRITE_REPLACE` collection. */
-        constants::set(YXORP_REWRITE_REPLACE, generalHelper::CSV(PATH_REWRITE_REPLACE));
 
 
     }

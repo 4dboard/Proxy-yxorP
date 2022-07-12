@@ -506,10 +506,6 @@ class constants
         /* Defining a constant. */
         define('YXORP_REWRITE', VAR_INC . CHAR_UNDER . VAR_REWRITE);
         /* Defining a constant. */
-        define('YXORP_REWRITE_SEARCH', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_SEARCH);
-        /* Defining a constant. */
-        define('YXORP_REWRITE_REPLACE', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_REPLACE);
-        /* Defining a constant. */
         define('YXORP_COCKPIT_INSTALL', VAR_COCKPIT . CHAR_UNDER . VAR_INSTALL);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', VAR_HTTP_UP . CHAR_UNDER . VAR_HOST);
@@ -544,12 +540,6 @@ class constants
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE` and `EXT_CSV` appended to it. */
         define('PATH_REWRITE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE);
-        /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
-        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_SEARCH` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_SEARCH', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE_SEARCH);
-        /* Defining a constant called `PATH_REWRITE_REPLACE` and setting it to the value of `DIR_ROOT` with a
-        `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE_REPLACE` and `EXT_CSV` appended to it. */
-        define('PATH_REWRITE_REPLACE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE_REPLACE);
         /* Defining the path to the snag.phar file. */
         /* Defining the path to the cockpit bootstrap file. */
         define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
