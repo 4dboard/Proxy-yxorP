@@ -15,6 +15,11 @@ use yxorP\inc\wrapper;
 class overrideResultAction extends wrapper
 {
     /* Overriding the `onEventWrite` method of the `wrapper` class. */
+    private static function result($m)
+    {
+        return str_replace('This', 'That', $m[3]);
+    }
+
     public function onEventWrite(): void
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
@@ -40,7 +45,7 @@ class overrideResultAction extends wrapper
             return $content;
         } else {
             echo 2;
-            preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", str_replace('This', 'That', $m[3]), $content);
+            preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", result, $content);
         }
     }
 
