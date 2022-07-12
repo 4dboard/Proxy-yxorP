@@ -73,7 +73,7 @@ try {
         header('Content-Type: ' . MIME . ';charset=UTF-8');
     }
     /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-    include PATH_TMP_FILE;
+    if(exists(PATH_TMP_FILE)) include PATH_TMP_FILE;
 } catch (Exception $e) { /* Catching an exception and swallowing it. */
 }
 
