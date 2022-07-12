@@ -388,8 +388,8 @@ class constants
 
         // DASHBOARD
         /* Defining a constant. */
-        define('DASHBOARD_DASHBOARD', 'cockpit');
-        define('DASHBOARD_ACCOUNTS', DASHBOARD_DASHBOARD . CHAR_SLASH . VAR_DASHBOARD_ACCOUNTS);
+        define('DASHBOARD_YXORP', 'yxorp');
+        define('DASHBOARD_ACCOUNTS', DASHBOARD_YXORP . CHAR_SLASH . VAR_DASHBOARD_ACCOUNTS);
         define('DASHBOARD_COLLECTIONS', 'collections');
         define('DASHBOARD_SITES', 'sites');
         define('DASHBOARD_HOST', 'host');
