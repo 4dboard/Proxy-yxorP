@@ -1,7 +1,6 @@
 <?php namespace yxorP\inc;
 
 use JetBrains\PhpStorm\Pure;
-use yxorP\inc\http\cache;
 use function array_map;
 
 /* Importing the `array_map` function from the global namespace. Importing the `array_merge` function from the global namespace.  Importing the `file` function from the global namespace. A class that contains a bunch of functions that are used throughout the application. */
@@ -231,7 +230,7 @@ class generalHelper
     {
         if (str_contains($dir, 'views')) return;
         if (is_dir($_loc = $dir . CHAR_SLASH . $x)) return self::fileCheck($_loc, $inc);
-        if (!$inc && str_contains(YXORP_PROXY_URL, $x)) return cache::cache()->set(file_get_contents($_loc));
+        if (!$inc && str_contains(YXORP_PROXY_URL, $x)) return file_get_contents($_loc);
         if ($inc) require_once($_loc);
     }
 
