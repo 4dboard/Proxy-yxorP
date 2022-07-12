@@ -97,7 +97,7 @@ class cookiePluginAction extends wrapper
 
     /* Parsing the cookie and then it is returning an array with the cookie data. */
 
-    public function onEventSent(): void
+    public function onSent(): void
     {
         /* Getting the response object from the constants class. */
         $response = constants::get(VAR_RESPONSE);

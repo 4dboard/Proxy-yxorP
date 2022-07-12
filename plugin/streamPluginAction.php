@@ -18,7 +18,7 @@ class streamPluginAction extends wrapper
 
     /* Checking if the content type is in the array of content types that should be streamed. If it is, it sets the
     `$stream` variable to true. */
-    public function onEventSent(): void
+    public function onSent(): void
     {
         $content_type = constants::get(VAR_RESPONSE)->headers->get(VAR_CONTENT_TYPE);
         /* Getting the content length of the response. */

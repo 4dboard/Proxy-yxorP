@@ -68,7 +68,7 @@ abstract class wrapper
                     $this->onSend();
                     break;
                 case EVENT_SENT:
-                    $this->onEventSent();
+                    $this->onSent();
                     break;
                 case EVENT_WRITE:
                     $this->onEventWrite();
@@ -136,7 +136,7 @@ abstract class wrapper
 
     /* Used to execute code before the request is sent. */
 
-    public function onEventSent(): void
+    public function onSent(): void
     {
     }
 
