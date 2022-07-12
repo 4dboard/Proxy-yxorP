@@ -100,10 +100,8 @@ class constants
      */
     public static function create(string $yxorp_root)
     {
-        if (defined('CHAR_PERIOD')) return;
+        if (defined('CHAR_HASH')) return;
         // SPECIAL
-        /* Defining a constant called `CHAR_PERIOD` and setting it to the value of `.`. */
-        define('CHAR_PERIOD', '.');
 
         print_r(get_defined_vars());
         /* Defining a constant called `CHAR_HASH` and setting it to the value of `#`. */
