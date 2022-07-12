@@ -504,6 +504,8 @@ class constants
         define('YXORP_EVENT_LIST', VAR_EVENT . CHAR_UNDER . VAR_LIST);
         define('YXORP_MIME_TYPES', VAR_MIME . CHAR_UNDER . VAR_TYPES);
         /* Defining a constant. */
+        define('YXORP_REWRITE', VAR_INC . CHAR_UNDER . VAR_REWRITE);
+        /* Defining a constant. */
         define('YXORP_REWRITE_SEARCH', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_SEARCH);
         /* Defining a constant. */
         define('YXORP_REWRITE_REPLACE', VAR_INC . CHAR_UNDER . VAR_REWRITE . VAR_REPLACE);
