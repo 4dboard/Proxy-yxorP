@@ -79,11 +79,11 @@ try {
 
 
 use cacheHelper;
+use Memcached;
 use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
 use yxorP\inc\parser\RulesParser;
-use Memcached;
 
 /* Importing the RuntimeException class from the PHP namespace. */
 
