@@ -267,9 +267,6 @@ class yP
      */
     public static function proxy(string $yxorp_root, array|null $request = null): void
     {
-
-        echo YXORP_REQUEST_URI;
-        echo 123;
         require __DIR__ . '/constants.php';
         /* Loading the required files. */
         require __DIR__ . '/generalHelper.php';
