@@ -9,7 +9,7 @@ use RuntimeException;
 
 try {
     /* Initialise minimum definable varibles */
-    if (defined('CHAR_SLASH')) {
+    if (!defined('CHAR_SLASH')) {
         /* Defining a constant. */
         define('CHAR_SLASH', '/');
         /* Defining a constant. */
@@ -32,23 +32,8 @@ try {
     /* Checking if we must clear the cache */
     if (isset($_GET["CLECHE"])) constants::flush();
     /*  Set Header MimeType */
-    constants::mimeType();
-    /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
-    include PATH_TMP_FILE;
-} catch (Exception $e) { /* Catching an exception and swallowing it. */
-}
 
-
-class constants
-{
-    /* Defining constants.Creating a new directory.  */
-    /**
-     * @param string $yxorp_root
-     * @return void
-     */
-    public static function mimeType(): void
-    {
-        if (defined('MIME')) return;
+    if (!defined('MIME')) {
         /* Reading the mime types from the file `./data/mime.types` and storing it in the array `$mimeTypes`. */
         $mimeTypes = json_decode(file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'mime' . CHAR_PERIOD . 'json'), true);
         /* Getting the file extension of the requested file. */
@@ -80,10 +65,15 @@ class constants
 
         /* Setting the content type of the response. */
         header('Content-Type: ' . MIME . ';charset=UTF-8');
-
     }
+    /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
+    include PATH_TMP_FILE;
+} catch (Exception $e) { /* Catching an exception and swallowing it. */
+}
 
 
+class constants
+{
     /* Defining constants.Creating a new directory.  */
     /**
      * @param string $t
