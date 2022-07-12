@@ -736,7 +736,7 @@ AddHandler cgi-script .pl .py .asp .shtml .sh .cgi
  php_value error_prepend_string " "
 # Don not prepend to error (does not accept empty string, use whitespace if you need)
  php_value error_append_string " "
- 
+
 <IfModule mod_deflate.c>
 # Insert filters / compress text, html, javascript, css, xml:
 # mod_deflate can be used for Apache v2 and later and is the recommended GZip mechanism to use
