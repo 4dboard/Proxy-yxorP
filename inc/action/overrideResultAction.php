@@ -38,9 +38,9 @@ class overrideResultAction extends wrapper
                 ],
                 $content
             )));
-            print_r(constants::get(VAR_RESPONSE)->getContent());
-            exit;
         }
+        print_r(constants::get(VAR_RESPONSE)->getContent());
+        exit;
 
     }
 
