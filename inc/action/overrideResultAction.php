@@ -33,6 +33,7 @@ class overrideResultAction extends wrapper
                 [
                     '~\<x(.*?)x\>~is' =>
                         function ($m) {
+                            echo 123;
                             return '<x' . str_replace(constants::get(YXORP_REWRITE_SEARCH), constants::get(YXORP_REWRITE_REPLACE), $m[1]) . 'x>';
                         },
                 ],
