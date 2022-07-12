@@ -27,9 +27,7 @@ class overrideResultAction extends wrapper
         if ($content) {
             echo 'xxxx';
             constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(MIME !== VAR_TEXT_HTML ? $content : preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", static function ($m) {
-
-                echo 'xxxx';
-                return str_replace(file(__DIR__ . '../data/search_rewrite.csv'), file(__DIR__ . '../data/replace_rewrite.csv'), $m[3]);
+                return str_replace('illustrative', 'This', $m[3]);
             }, $content)));
         }
 
