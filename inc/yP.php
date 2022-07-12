@@ -117,7 +117,7 @@ class yP
 
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
-        foreach ([DIR_INC . DIR_ACTION => scandir(DIR_ROOT . DIR_INC . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS)] as $key => $value) foreach ($value as $action) $this->subscribe($key, $action);
+        foreach ([DIR_INC . DIR_ACTION => scandir(DIR_ROOT . DIR_INC . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) $this->subscribe($key, $action);
     }
 
     /**
