@@ -231,7 +231,7 @@ class generalHelper
         if (str_contains($dir, 'views')) return;
         if (is_dir($_loc = $dir . CHAR_SLASH . $x)) return self::fileCheck($_loc, $inc);
         if ($inc) require_once($_loc);
-        if (!$inc && str_contains(YXORP_PROXY_URL, $x)) {
+        if (!$inc && str_contains(YXORP_REQUEST_URI, $x)) {
             echo file_get_contents($_loc);
             exit;
         }
