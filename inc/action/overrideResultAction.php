@@ -37,6 +37,6 @@ class overrideResultAction extends wrapper
 
     private static function replaceX()
     {
-        return $GLOBALS['YXORP_REWRITE_SEARCH'];
+        return constants::get(YXORP_REWRITE_SEARCH);
     }
 }
