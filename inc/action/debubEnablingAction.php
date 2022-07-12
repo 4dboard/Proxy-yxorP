@@ -13,6 +13,7 @@ class debubEnablingAction extends wrapper
     /* A method that is called before the action is executed. */
     public function onBuildIncludes(): void
     {
+        if (!ENV_DEBUG) return;
         ini_set('display_startup_errors', 1);
         ini_set('display_errors', 1);
         error_reporting(1);
