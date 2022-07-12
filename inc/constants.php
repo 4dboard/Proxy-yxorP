@@ -28,8 +28,7 @@ separator, the value of the constant DIR_TMP, the value of the constant CACHE_KE
 FILE_TMP. */
 define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
-if (str_contains($_SERVER['REQUEST_URI'], CHAR_SLASH . VAR_COCKPIT)) self::cockpit();
-if (isset($_GET["CLECHE"])) foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
+if (isset($_GET["CLECHE"])) self::flush();
 /*  Try catch */
 try {
     constants::mimeType();
@@ -92,7 +91,6 @@ class constants
         /* Checking if the current request URI contains the given string. */
         return str_contains($_SERVER['REQUEST_URI'], $t);
     }
-    /* Defining constants.Creating a new directory.  */
 
     /**
      * @param string $yxorp_root
@@ -609,8 +607,7 @@ class constants
 
 
     }
-
-    /* A function that is being called to localise constants. */
+    /* Defining constants.Creating a new directory.  */
 
     /**
      * @param string $_name
@@ -624,7 +621,7 @@ class constants
         return (array_key_exists($_name, $GLOBALS)) ? throw new RuntimeException(ACCESS_ALREADY_DEFINED) : $GLOBALS[$_name] = $_value;
     }
 
-    /* A static method that returns the value of the $_name variable. */
+    /* A function that is being called to localise constants. */
 
     /**
      * @param string $_name
@@ -635,6 +632,26 @@ class constants
         /* Checking if the key exists in the global array. If it does, it returns the value of the key. If it doesn't, it
         returns false . */
         return $GLOBALS[$_name];
+    }
+
+    /* A static method that returns the value of the $_name variable. */
+
+    function flush()
+    {
+
+        /* procedural API */
+        $memcache_obj = memcache_connect('memcache_host', 11211);
+
+        memcache_flush($memcache_obj);
+
+        /* OO API */
+
+        $memcache_obj = new Memcache;
+        $memcache_obj->connect('memcache_host', 11211);
+
+        $memcache_obj->flush();
+
+        foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
     }
 
 
