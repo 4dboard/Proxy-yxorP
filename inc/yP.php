@@ -343,6 +343,7 @@ class yP
         }
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
+        echo constants::get(YXORP_DASHBOARD_APP)->storage->getCollection(DASHBOARD_ACCOUNTS)->count();
         if (!constants::get(YXORP_DASHBOARD_APP)->storage->getCollection(DASHBOARD_ACCOUNTS)->count()) self::install();
         /* It's returning the `YXORP_EVENT_LIST` constant. */
         return constants::get(YXORP_EVENT_LIST);
