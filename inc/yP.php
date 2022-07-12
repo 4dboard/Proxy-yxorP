@@ -167,6 +167,7 @@ class yP
 
         // --
         print_r($siteDomain);
+        exit;
 
         /* Setting the `TARGET_DOMAIN` variable to the result of the `extractDomain` method. */
         define('YXORP_TARGET_DOMAIN', $targetDomain->registrableDomain()->toString() ?: $targetDomain->domain()->toString());
