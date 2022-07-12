@@ -225,7 +225,7 @@ class generalHelper
     {
         $csvArray = array_map(VAR_GETCSV, file($filename));
 
-        return file($filename);
+        return (array)file($filename);
     }
 
     /* It's reading the CSV file and returning the array. */
