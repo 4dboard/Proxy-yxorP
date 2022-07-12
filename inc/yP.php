@@ -194,7 +194,6 @@ class yP
         constants::set(YXORP_GLOBAL_REPLACE, constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ?
             (constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null);
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
-        print_r(constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]));
         constants::set(YXORP_GLOBAL_PATTERN, constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
             (constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
 
