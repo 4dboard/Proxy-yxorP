@@ -471,9 +471,9 @@ class constants
 
         // FILES
         /* Defining a constant called `FILE_REWRITE_SEARCH` and setting it to the value of `REWRITE_REPLACE`. */
-        define('FILE_REWRITE_SEARCH', 'replace_rewrite' . EXT_CSV);
+        define('FILE_REWRITE_SEARCH', 'search_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_REWRITE_REPLACE` and setting it to the value of `REWRITE_SEARCH`. */
-        define('FILE_REWRITE_REPLACE', 'search_rewrite' . EXT_CSV);
+        define('FILE_REWRITE_REPLACE', 'replace_rewrite' . EXT_CSV);
         /* Defining a constant called `FILE_INDEX` and setting it to the value of `index`. */
         define('FILE_INDEX', 'index' . EXT_PHP);
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
