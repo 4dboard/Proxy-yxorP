@@ -49,8 +49,11 @@ class constants
         FILE_TMP. */
         define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
     }
-    /* Checking if the requested URI contains the string `$t`. */
-    /* A function that checks if the current request URI contains the given string. */
+    /* Defining constants.Creating a new directory.  */
+    /**
+     * @param string $yxorp_root
+     * @return void
+     */
     public static function mimeType(): void
     {
         if (defined('MIME')) return;
@@ -91,7 +94,12 @@ class constants
     }
 
 
-    public static function checkUri($t)
+    /* Defining constants.Creating a new directory.  */
+    /**
+     * @param string $t
+     * @return string
+     */
+    public static function checkUri($t): string
     {
         /* Checking if the current request URI contains the given string. */
         return str_contains($_SERVER['REQUEST_URI'], $t);
