@@ -17,6 +17,7 @@ class overrideResultAction extends wrapper
     /* Overriding the `onEventWrite` method of the `wrapper` class. */
     private static function result($m)
     {
+        $new = [];
         foreach ($m as $k => $v) {
             if (is_array($v)) {
                 $m[$k] = self::result($v);
