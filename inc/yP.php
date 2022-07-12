@@ -129,8 +129,6 @@ class yP
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
         constants::set(VAR_SERVER, $req);
 
-        print_r($req);
-
         // SITE DOMAIN
 
         /* Setting the `SITE_URL` variable to the value of the `SERVER_NAME` key in the `YXORP_SERVER` array. */
