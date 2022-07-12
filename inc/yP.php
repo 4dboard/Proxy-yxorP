@@ -3,7 +3,6 @@
 namespace yxorP\inc;
 /* Importing the constants class from the inc folder. */
 
-
 try {
     /* Initialise minimum definable varibles */
     if (!defined('CHAR_SLASH')) {
