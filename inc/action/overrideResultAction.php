@@ -14,6 +14,11 @@ use yxorP\inc\wrapper;
 
 class overrideResultAction extends wrapper
 {
+    private static function callback($text)
+    {
+        return;
+    }
+
     public function onEventWrite(): void
     {
         /* Checking if the content type is not HTML, JavaScript, CSS, XML or text. If it is not, it will return. */
@@ -24,28 +29,20 @@ class overrideResultAction extends wrapper
     {
         /* Minifying the content of the response. Replacing the content of the response with the content of the `REWRITE` method. */
         if ($content) {
-            echo MIME;
-            echo VAR_TEXT_HTML;
-            if (MIME !== VAR_TEXT_HTML) echo "true";
-            constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(self::callback($content)));
+            constants::get(VAR_RESPONSE)->setContent((minify::createDefault())->process(preg_replace_callback_array(
+                [
+                    '~\<x(.*?)x\>~is' =>
+                        function ($m) {
+                            return '<x' . str_replace('This', 'That', $m[1]) . 'x>';
+                        },
+                ],
+                $content
+            )));
 
             print_r(constants::get(VAR_RESPONSE)->getContent());
             exit;
         }
 
-    }
-
-    private static function callback($text)
-    {
-        return preg_replace_callback_array(
-            [
-                '~\<x(.*?)x\>~is' =>
-                    function ($m) {
-                        return '<x' . str_replace('This', 'That', $m[1]) . 'x>';
-                    },
-            ],
-            $text
-        );
     }
 
 }
