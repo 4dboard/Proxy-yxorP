@@ -44,7 +44,6 @@ class overrideResultAction extends wrapper
         if (MIME !== VAR_TEXT_HTML) {
             return $content;
         } else {
-            exit(preg_replace_callback("(<(x|y|z)(.*)>(.*)</(z|y|x)>)", "self::result", $content));
             return preg_replace_callback("(<x|y|z)(.*)>(.*)</(z|y|x)>)", "self::result", $content);
         }
     }
