@@ -89,7 +89,7 @@ class constants
         /* Setting the content type of the response. */
         header('Content-Type: ' . MIME . ';charset=UTF-8');
 
-        /* Including the file `../tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
+        /* Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
         include PATH_DIR_TMP_FULL;
     }
 
