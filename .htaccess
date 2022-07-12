@@ -24,6 +24,7 @@ AddLanguage it-IT .html .htm .css .js
 AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 # ITALIAN timezone, change it for your needs
 SetEnv TZ Europe/Rome
+# Disable server sign
 ServerSignature Off
 # drop Range header when more than 5 ranges. CVE-2011-3192
 SetEnvIf Range (,.*?){5,} bad-range=1
