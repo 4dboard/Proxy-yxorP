@@ -10,9 +10,11 @@
 
 namespace yxorP\Controller;
 
-class Utils extends \yxorP\AuthController {
+class Utils extends \yxorP\AuthController
+{
 
-    public function thumb_url() {
+    public function thumb_url()
+    {
 
         \session_write_close(); // improve concurrency loading
 
@@ -29,7 +31,7 @@ class Utils extends \yxorP\AuthController {
             'fp' => $this->param('fp', null),
             'mode' => $this->param('m', 'thumbnail'),
             'mime' => $mime,
-            'filters' => (array) $this->param('f', []),
+            'filters' => (array)$this->param('f', []),
             'width' => intval($this->param('w', null)),
             'height' => intval($this->param('h', null)),
             'quality' => intval($this->param('q', 80)),
@@ -40,25 +42,26 @@ class Utils extends \yxorP\AuthController {
         ];
 
         // Set single filter when available
-        foreach([
-            'blur', 'brighten',
-            'colorize', 'contrast',
-            'darken', 'desaturate',
-            'edge detect', 'emboss',
-            'flip', 'invert', 'opacity', 'pixelate', 'sepia', 'sharpen', 'sketch'
-        ] as $f) {
+        foreach ([
+                     'blur', 'brighten',
+                     'colorize', 'contrast',
+                     'darken', 'desaturate',
+                     'edge detect', 'emboss',
+                     'flip', 'invert', 'opacity', 'pixelate', 'sepia', 'sharpen', 'sketch'
+                 ] as $f) {
             if ($this->param($f)) $options[$f] = $this->param($f);
         }
 
         return $this->module('yxorp')->thumbnail($options);
     }
 
-    public function getCacheSize() {
+    public function getCacheSize()
+    {
 
         \session_write_close();
 
         $size = 0;
-        $dirs = ['#cache:','#tmp:','#thumbs:', '#pstorage:tmp'];
+        $dirs = ['#cache:', '#tmp:', '#thumbs:', '#pstorage:tmp'];
 
         foreach ($dirs as &$dir) {
             $dir = $this->app->path($dir);
@@ -77,7 +80,8 @@ class Utils extends \yxorP\AuthController {
     }
 
 
-    public function revisionsCount() {
+    public function revisionsCount()
+    {
 
         \session_write_close();
 
@@ -89,7 +93,8 @@ class Utils extends \yxorP\AuthController {
         return 0;
     }
 
-    public function revisionsRemove() {
+    public function revisionsRemove()
+    {
 
         if ($rid = $this->param('rid')) {
             $this->app->helper('revisions')->remove($rid);
@@ -99,7 +104,8 @@ class Utils extends \yxorP\AuthController {
         return false;
     }
 
-    public function revisionsRemoveAll() {
+    public function revisionsRemoveAll()
+    {
 
         if ($oid = $this->param('oid')) {
             $this->app->helper('revisions')->removeAll($oid);
@@ -109,7 +115,8 @@ class Utils extends \yxorP\AuthController {
         return false;
     }
 
-    public function isResourceLocked($resourceId) {
+    public function isResourceLocked($resourceId)
+    {
 
         $meta = $this->app->helper('admin')->isResourceLocked($resourceId);
 
@@ -120,7 +127,8 @@ class Utils extends \yxorP\AuthController {
         return ['locked' => false];
     }
 
-    public function lockResourceId($resourceId) {
+    public function lockResourceId($resourceId)
+    {
 
         $lockedMeta = $this->app->helper('admin')->isResourceLocked($resourceId);
 
@@ -136,7 +144,8 @@ class Utils extends \yxorP\AuthController {
         return $meta;
     }
 
-    public function unlockResourceId($resourceId) {
+    public function unlockResourceId($resourceId)
+    {
 
         $meta = $this->app->helper('admin')->isResourceLocked($resourceId);
         $success = false;
@@ -158,7 +167,8 @@ class Utils extends \yxorP\AuthController {
         return ['success' => $success];
     }
 
-    public function unlockResourceIdByCurrentUser($resourceId) {
+    public function unlockResourceIdByCurrentUser($resourceId)
+    {
 
         $meta = $this->app->helper('admin')->isResourceLocked($resourceId);
         $success = false;
@@ -176,7 +186,8 @@ class Utils extends \yxorP\AuthController {
         return ['success' => $success];
     }
 
-    public function startJobRunner() {
+    public function startJobRunner()
+    {
 
         \session_write_close();
 
@@ -185,7 +196,8 @@ class Utils extends \yxorP\AuthController {
         return ['running' => $this->app->helper('jobs')->isRunnerActive()];
     }
 
-    public function restartJobRunner() {
+    public function restartJobRunner()
+    {
 
         \session_write_close();
 
@@ -194,7 +206,8 @@ class Utils extends \yxorP\AuthController {
         return ['running' => $this->app->helper('jobs')->isRunnerActive()];
     }
 
-    public function stopJobRunner() {
+    public function stopJobRunner()
+    {
 
         \session_write_close();
 

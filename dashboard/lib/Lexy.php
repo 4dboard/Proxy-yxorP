@@ -14,7 +14,8 @@
  * based on: https://github.com/laravel/framework/blob/master/src/Illuminate/View/Compilers/BladeCompiler.php
  *
  */
-class Lexy {
+class Lexy
+{
 
     protected $cachePath = false;
 
@@ -40,28 +41,29 @@ class Lexy {
     protected $allowed_calls = array(
 
         // core
-        'true','false',
+        'true', 'false',
 
         // string functions
-        'explode','implode','strtolower','strtoupper','substr','stristr','strpos','print','print_r','number_format','htmlentities',
-        'md5','strip_tags','htmlspecialchars',
+        'explode', 'implode', 'strtolower', 'strtoupper', 'substr', 'stristr', 'strpos', 'print', 'print_r', 'number_format', 'htmlentities',
+        'md5', 'strip_tags', 'htmlspecialchars',
 
         // time functions
-        'date','time','mktime',
+        'date', 'time', 'mktime',
 
         // math functions
-        'round','trunc','rand','ceil','floor','srand',
+        'round', 'trunc', 'rand', 'ceil', 'floor', 'srand',
     );
 
 
     /**
      * [render description]
      * @param  [type]  $__content [description]
-     * @param  array   $__params  [description]
-     * @param  boolean $__sandbox [description]
+     * @param array $__params [description]
+     * @param boolean $__sandbox [description]
      * @return [type]             [description]
      */
-    public static function render($content, $params = array(), $sandbox=false, $srcinfo=null){
+    public static function render($content, $params = array(), $sandbox = false, $srcinfo = null)
+    {
 
         $obj = new self();
 
@@ -71,11 +73,12 @@ class Lexy {
     /**
      * [render_file description]
      * @param  [type]  $file    [description]
-     * @param  array   $params  [description]
-     * @param  boolean $sandbox [description]
+     * @param array $params [description]
+     * @param boolean $sandbox [description]
      * @return [type]           [description]
      */
-    public static function render_file($file, $params = array(), $sandbox=false){
+    public static function render_file($file, $params = array(), $sandbox = false)
+    {
 
         $obj = new self();
 
@@ -87,19 +90,21 @@ class Lexy {
      *
      * @param  [type]  $path    [description]
      */
-    public function setCachePath($path){
+    public function setCachePath($path)
+    {
         $this->cachePath = is_string($path) ? rtrim($path, "/\\") : $path;
     }
 
     /**
      * [execute description]
      * @param  [type]  $content [description]
-     * @param  array   $params  [description]
-     * @param  boolean $sandbox [description]
+     * @param array $params [description]
+     * @param boolean $sandbox [description]
      * @param  [type]  $srcinfo [description]
      * @return [type]           [description]
      */
-    public function execute($content, $params = array(), $sandbox=false, $srcinfo=null) {
+    public function execute($content, $params = array(), $sandbox = false, $srcinfo = null)
+    {
 
         $obj = $this;
 
@@ -115,11 +120,12 @@ class Lexy {
     /**
      * [file description]
      * @param  [type]  $file [description]
-     * @param  array   $params  [description]
-     * @param  boolean $sandbox [description]
+     * @param array $params [description]
+     * @param boolean $sandbox [description]
      * @return [type]           [description]
      */
-    public function file($file, $params = array(), $sandbox=false) {
+    public function file($file, $params = array(), $sandbox = false)
+    {
 
         if ($this->cachePath) {
 
@@ -141,9 +147,34 @@ class Lexy {
         return $this->execute(file_get_contents($file), $params, $sandbox, $file);
     }
 
-    protected function get_cached_file($file, $sandbox) {
+    /**
+     * [parse description]
+     * @param  [type]  $text    [description]
+     * @param boolean $sandbox [description]
+     * @return [type]           [description]
+     */
+    public function parse($text, $sandbox = false, $srcinfo = null)
+    {
 
-        $cachedfile = $this->cachePath.'/'.basename($file).'.'.md5($file).'.lexy.php';
+        $this->srcinfo = $srcinfo;
+
+        return $this->compile($text, $sandbox);
+    }
+
+    public function allowCall($call)
+    {
+        $this->allowed_calls[] = $call;
+    }
+
+    public function extend($compiler)
+    {
+        $this->extensions[] = $compiler;
+    }
+
+    protected function get_cached_file($file, $sandbox)
+    {
+
+        $cachedfile = $this->cachePath . '/' . basename($file) . '.' . md5($file) . '.lexy.php';
 
         if (!file_exists($cachedfile)) {
             $cachedfile = $this->cache_file($file, $cachedfile, null, $sandbox);
@@ -153,7 +184,7 @@ class Lexy {
 
             $mtime = filemtime($file);
 
-            if(filemtime($cachedfile)!=$mtime) {
+            if (filemtime($cachedfile) != $mtime) {
                 $cachedfile = $this->cache_file($file, $cachedfile, $mtime, $sandbox);
             }
 
@@ -163,14 +194,15 @@ class Lexy {
         return false;
     }
 
-    protected function cache_file($file, $cachedfile, $filemtime = null, $sandbox = false) {
+    protected function cache_file($file, $cachedfile, $filemtime = null, $sandbox = false)
+    {
 
-        if (!$filemtime){
+        if (!$filemtime) {
             $filemtime = filemtime($file);
         }
 
-        if (file_put_contents($cachedfile, $this->parse(file_get_contents($file), $sandbox, $file))){
-            touch($cachedfile,  $filemtime);
+        if (file_put_contents($cachedfile, $this->parse(file_get_contents($file), $sandbox, $file))) {
+            touch($cachedfile, $filemtime);
             return $cachedfile;
         }
 
@@ -178,50 +210,38 @@ class Lexy {
     }
 
     /**
-     * [parse description]
-     * @param  [type]  $text    [description]
-     * @param  boolean $sandbox [description]
-     * @return [type]           [description]
-     */
-    public function parse($text, $sandbox=false, $srcinfo=null) {
-
-        $this->srcinfo = $srcinfo;
-
-        return $this->compile($text, $sandbox);
-    }
-
-    /**
      * [compile description]
      * @param  [type]  $text    [description]
-     * @param  boolean $sandbox [description]
+     * @param boolean $sandbox [description]
      * @return [type]           [description]
      */
-    protected function compile($text, $sandbox=false){
+    protected function compile($text, $sandbox = false)
+    {
 
         // disable php in sandbox mode
         if ($sandbox) {
-            $text = str_replace( array("<?","?>"), array("&lt;?","?&gt;"), $text);
+            $text = str_replace(array("<?", "?>"), array("&lt;?", "?&gt;"), $text);
         }
 
         foreach ($this->compilers as $compiler) {
             $method = "compile_{$compiler}";
-            $text   = $this->{$method}($text);
+            $text = $this->{$method}($text);
         }
 
-        if($sandbox) {
+        if ($sandbox) {
 
             $lines = explode("\n", $text);
 
             foreach ($lines as $ln => &$line) {
-                if($errors = $this->check_security($line)) {
-                    return 'illegal call(s): '.implode(", ", $errors)." - on line ".$ln.($this->srcinfo ? ' ('.$this->srcinfo.') ':'');
+                if ($errors = $this->check_security($line)) {
+                    return 'illegal call(s): ' . implode(", ", $errors) . " - on line " . $ln . ($this->srcinfo ? ' (' . $this->srcinfo . ') ' : '');
                 }
             }
         }
 
-        if($errors = $this->check_syntax($text)) {
+        if ($errors = $this->check_syntax($text)) {
 
-            if($this->srcinfo) $errors[] = '('.$this->srcinfo.')';
+            if ($this->srcinfo) $errors[] = '(' . $this->srcinfo . ')';
 
             return implode("\n", $errors);
         }
@@ -229,38 +249,31 @@ class Lexy {
         return $text;
     }
 
-    public function allowCall($call) {
-        $this->allowed_calls[] = $call;
-    }
-
-    public function extend($compiler) {
-        $this->extensions[] = $compiler;
-    }
-
     /**
      * [check_security description]
      * @param  [type] $code [description]
      * @return [type]       [description]
      */
-    protected function check_security($code) {
+    protected function check_security($code)
+    {
 
         $tokens = token_get_all($code);
         $errors = array();
 
         foreach ($tokens as $index => $toc) {
-            if(is_array($toc) && isset($toc[0])) {
+            if (is_array($toc) && isset($toc[0])) {
 
                 //var_dump($toc[0]);
 
-                switch($toc[0]){
+                switch ($toc[0]) {
 
                     case T_STRING:
 
-                        if(!in_array(strtolower($toc[1]), $this->allowed_calls)){
+                        if (!in_array(strtolower($toc[1]), $this->allowed_calls)) {
 
-                            $prevtoc = $tokens[$index-1];
+                            $prevtoc = $tokens[$index - 1];
 
-                            if(!isset($prevtoc[1]) || (isset($prevtoc[1]) &&$prevtoc[1]!='->')){
+                            if (!isset($prevtoc[1]) || (isset($prevtoc[1]) && $prevtoc[1] != '->')) {
                                 $errors[] = $toc[1];
                             }
                         }
@@ -280,15 +293,15 @@ class Lexy {
                     case T_INCLUDE:
                     case T_EVAL:
                     case T_FUNCTION:
-                        if(!in_array(strtolower($toc[1]), $this->allowed_calls)){
-                            $errors[] = 'illegal call: '.$toc[1];
+                        if (!in_array(strtolower($toc[1]), $this->allowed_calls)) {
+                            $errors[] = 'illegal call: ' . $toc[1];
                         }
                         break;
                 }
             }
         }
 
-        return count($errors) ? $errors:false;
+        return count($errors) ? $errors : false;
     }
 
     /**
@@ -296,13 +309,14 @@ class Lexy {
      * @param  [type] $code [description]
      * @return [type]       [description]
      */
-    protected function check_syntax($code){
+    protected function check_syntax($code)
+    {
 
         $errors = array();
 
         ob_start();
 
-        $check = function_exists('eval') ? eval('?>'.'<?php if(0): ?>'.$code.'<?php endif; ?><?php ') : true;
+        $check = function_exists('eval') ? eval('?>' . '<?php if(0): ?>' . $code . '<?php endif; ?><?php ') : true;
 
         if ($check === false) {
             $output = ob_get_clean();
@@ -310,8 +324,8 @@ class Lexy {
 
             if (preg_match_all("/on line (\d+)/m", $output, $matches)) {
 
-                foreach($matches[1] as $m){
-                    $errors[] = "Parse error on line: ".$m;
+                foreach ($matches[1] as $m) {
+                    $errors[] = "Parse error on line: " . $m;
                 }
 
             } else {
@@ -322,7 +336,7 @@ class Lexy {
             ob_end_clean();
         }
 
-        return count($errors) ? $errors:false;
+        return count($errors) ? $errors : false;
     }
 
     /* COMPILERS */
@@ -330,10 +344,11 @@ class Lexy {
     /**
      * Rewrites Lexi's comments into PHP comments.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_comments($value) {
+    protected function compile_comments($value)
+    {
 
         return preg_replace('/\{\{\--((.|\s)*?)--\}\}/', "<?php /* $1 */ ?>", $value);
     }
@@ -342,10 +357,11 @@ class Lexy {
     /**
      * Rewrites Lexi's escaped statements.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_unescape_echos($value) {
+    protected function compile_unescape_echos($value)
+    {
 
 
         return preg_replace('/\@@(.+?)@@/', '{{$1}}', $value);
@@ -354,10 +370,11 @@ class Lexy {
     /**
      * Rewrites Lexi's echo statements into PHP echo statements.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_echos($value) {
+    protected function compile_echos($value)
+    {
 
         $value = preg_replace('/\{\{\{(.+?)\}\}\}/', '<?php echo htmlentities($1, ENT_QUOTES, "UTF-8", false); ?>', $value);
 
@@ -367,10 +384,11 @@ class Lexy {
     /**
      * Rewrites Lexi's structure openings into PHP structure openings.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_default_structures($value) {
+    protected function compile_default_structures($value)
+    {
 
         $value = preg_replace('/(?(R)\((?:[^\(\)]|(?R))*\)|(?<!\w)(\s*)@(if|foreach|for|while)(\s*(?R)+))/', '$1<?php $2 $3 { ?>', $value);
         $value = preg_replace('/(\s*)@elseif(\s*\(.*\))/', '$1<?php } elseif$2 { ?>', $value);
@@ -383,10 +401,11 @@ class Lexy {
     /**
      * Rewrites Lexi's else statements into PHP else statements.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_else($value) {
+    protected function compile_else($value)
+    {
         $value = preg_replace('/(\s*)@(else)(\s*)/', '$1<?php } else { ?>$3', $value);
         return $value;
     }
@@ -394,10 +413,11 @@ class Lexy {
     /**
      * Rewrites Lexi's "unless" statements into valid PHP.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_unless($value) {
+    protected function compile_unless($value)
+    {
         $value = preg_replace('/(\s*)@unless(\s*\(.*\))/', '$1<?php if (!$2) { ?>', $value);
         $value = str_replace('@endunless', '<?php } ?>', $value);
         return $value;
@@ -406,10 +426,11 @@ class Lexy {
     /**
      * Rewrites Lexi's php tags.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_php_tags($value) {
+    protected function compile_php_tags($value)
+    {
 
         return str_replace(array('{%', '%}'), array('<?php', '?>'), $value);
     }
@@ -417,10 +438,11 @@ class Lexy {
     /**
      * Execute user defined compilers.
      *
-     * @param  string  $value
+     * @param string $value
      * @return string
      */
-    protected function compile_extensions($value) {
+    protected function compile_extensions($value)
+    {
 
         foreach ($this->extensions as &$compiler) {
             $value = call_user_func($compiler, $value);
@@ -431,13 +453,15 @@ class Lexy {
 
 }
 
-function lexy_eval_with_params($__lexyobj, $__lexycontent, $__lexyparams, $__lexysandbox, $__lexysrcinfo) {
+function lexy_eval_with_params($__lexyobj, $__lexycontent, $__lexyparams, $__lexysandbox, $__lexysrcinfo)
+{
     extract($__lexyparams);
     $__FILE = $__lexysrcinfo;
-    eval('?>'.$__lexyobj->parse($__lexycontent, $__lexysandbox, $__lexysrcinfo).'<?php ');
+    eval('?>' . $__lexyobj->parse($__lexycontent, $__lexysandbox, $__lexysrcinfo) . '<?php ');
 }
 
-function lexy_include_with_params($__incfile, $__lexyparams, $__lexysrcinfo) {
+function lexy_include_with_params($__incfile, $__lexyparams, $__lexysrcinfo)
+{
     extract($__lexyparams);
     $__FILE = $__lexysrcinfo;
     include($__incfile);

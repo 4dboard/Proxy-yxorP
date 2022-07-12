@@ -1,13 +1,35 @@
-
 <style>
     @if($singleton['color'])
-    .app-header { border-top: 8px {{ $singleton['color'] }} solid; }
+    .app-header {
+        border-top:
+
+    8px { {
+        $ singleton ['color']
+    }
+    } solid
+
+    ;
+    }
     @endif
 </style>
 
 <script>
-    window.__singletonData = {{ json_encode($data) }} || {};
-    window.__singleton = {{ json_encode($singleton) }} || {};
+    window.__singletonData = {
+    {
+        json_encode($data)
+    }
+    } ||
+    {
+    }
+    ;
+    window.__singleton = {
+    {
+        json_encode($singleton)
+    }
+    } ||
+    {
+    }
+    ;
 </script>
 
 <div riot-view>
@@ -19,7 +41,8 @@
                 <li><a href="@route('/singletons')">@lang('Singletons')</a></li>
                 <li class="uk-active" data-uk-dropdown>
 
-                    <a><i class="uk-icon-bars"></i> {{ htmlspecialchars(@$singleton['label'] ? $singleton['label']:$singleton['name'], ENT_QUOTES, 'UTF-8') }}</a>
+                    <a><i class="uk-icon-bars"></i> {{ htmlspecialchars(@$singleton['label'] ?
+                        $singleton['label']:$singleton['name'], ENT_QUOTES, 'UTF-8') }}</a>
 
                     @if($app->module('singletons')->hasaccess($singleton['name'], 'edit'))
                     <div class="uk-dropdown">
@@ -35,26 +58,36 @@
 
             <div class="uk-h3 uk-flex uk-flex-middle uk-text-bold">
                 <div class="uk-margin-small-right">
-                    <img src="@url($singleton['icon'] ? 'assets:app/media/icons/'.$singleton['icon']:'singletons:icon.svg')" width="40" alt="icon">
+                    <img src="@url($singleton['icon'] ? 'assets:app/media/icons/'.$singleton['icon']:'singletons:icon.svg')"
+                         width="40" alt="icon">
                 </div>
                 <div class="uk-flex-item-1">{ singleton.label || singleton.name }</div>
             </div>
         </div>
 
-        <ul class="uk-tab header-sub-panel-tab uk-flex uk-flex-center" divider="true" if="{ App.Utils.count(_groups) > 1 && App.Utils.count(_groups) < 6 }">
-            <li class="{ !group && 'uk-active'}"><a class="uk-text-capitalize" onclick="{ toggleGroup }">{ App.i18n.get('All') }</a></li>
-            <li class="{ group==parent.group && 'uk-active'}" each="{group, idx in _groups}" show="{ parent.groups[group].length }"><a class="uk-text-capitalize" onclick="{ toggleGroup }">{ App.i18n.get(group) }</a></li>
+        <ul class="uk-tab header-sub-panel-tab uk-flex uk-flex-center" divider="true"
+            if="{ App.Utils.count(_groups) > 1 && App.Utils.count(_groups) < 6 }">
+            <li class="{ !group && 'uk-active'}"><a class="uk-text-capitalize" onclick="{ toggleGroup }">{
+                    App.i18n.get('All') }</a></li>
+            <li class="{ group==parent.group && 'uk-active'}" each="{group, idx in _groups}"
+                show="{ parent.groups[group].length }"><a class="uk-text-capitalize" onclick="{ toggleGroup }">{
+                    App.i18n.get(group) }</a></li>
         </ul>
 
-        <ul class="uk-tab header-sub-panel-tab uk-flex uk-flex-center" divider="true" if="{ App.Utils.count(_groups) > 5 }">
+        <ul class="uk-tab header-sub-panel-tab uk-flex uk-flex-center" divider="true"
+            if="{ App.Utils.count(_groups) > 5 }">
             <li class="uk-active" data-uk-dropdown="mode:'click', pos:'bottom-center'">
                 <a>{ App.i18n.get(group || 'All') } <i class="uk-margin-small-left uk-icon-angle-down"></i></a>
                 <div class="uk-dropdown uk-dropdown-scrollable uk-dropdown-close">
                     <ul class="uk-nav uk-nav-dropdown">
-                    <li class="uk-nav-header">@lang('Groups')</li>
-                    <li class="{ !group && 'uk-active'}"><a class="uk-text-capitalize" onclick="{ toggleGroup }">{ App.i18n.get('All') }</a></li>
-                    <li class="uk-nav-divider"></li>
-                    <li class="{ group==parent.group && 'uk-active'}" each="{group in _groups}" show="{ parent.groups[group].length }"><a class="uk-text-capitalize" onclick="{ toggleGroup }">{ App.i18n.get(group) }</a></li>
+                        <li class="uk-nav-header">@lang('Groups')</li>
+                        <li class="{ !group && 'uk-active'}"><a class="uk-text-capitalize" onclick="{ toggleGroup }">{
+                                App.i18n.get('All') }</a></li>
+                        <li class="uk-nav-divider"></li>
+                        <li class="{ group==parent.group && 'uk-active'}" each="{group in _groups}"
+                            show="{ parent.groups[group].length }"><a class="uk-text-capitalize"
+                                                                      onclick="{ toggleGroup }">{ App.i18n.get(group)
+                                }</a></li>
                     </ul>
                 </div>
             </li>
@@ -65,7 +98,8 @@
     <div class="uk-margin-top">
 
         <div class="uk-alert" if="{ !fields.length }">
-            @lang('No fields defined'). <a href="@route('/singletons/singleton')/{ singleton.name }">@lang('Define singleton fields').</a>
+            @lang('No fields defined'). <a href="@route('/singletons/singleton')/{ singleton.name }">@lang('Define
+                singleton fields').</a>
         </div>
 
         @if($singleton['description'])
@@ -82,21 +116,30 @@
 
                     <div class="uk-grid uk-grid-match uk-grid-gutter">
 
-                        <div class="uk-width-medium-{field.width}" each="{field,idx in fields}" show="{checkVisibilityRule(field) && (!group || (group == field.group)) }" if="{ hasFieldAccess(field.name) }" no-reorder>
+                        <div class="uk-width-medium-{field.width}" each="{field,idx in fields}"
+                             show="{checkVisibilityRule(field) && (!group || (group == field.group)) }"
+                             if="{ hasFieldAccess(field.name) }" no-reorder>
 
                             <cp-fieldcontainer>
 
                                 <label title="{ field.name }">
 
-                                    <span class="uk-text-bold"><i class="uk-icon-pencil-square uk-margin-small-right"></i> { field.label || App.Utils.ucfirst(field.name) }</span>
+                                    <span class="uk-text-bold"><i
+                                                class="uk-icon-pencil-square uk-margin-small-right"></i> { field.label || App.Utils.ucfirst(field.name) }</span>
                                     <span class="uk-text-muted" show="{field.required}">&mdash; @lang('required')</span>
                                     <span if="{ field.localize }" data-uk-dropdown="mode:'click'">
-                                        <a class="uk-icon-globe" title="@lang('Localized field')" data-uk-tooltip="pos:'right'"></a>
+                                        <a class="uk-icon-globe" title="@lang('Localized field')"
+                                           data-uk-tooltip="pos:'right'"></a>
                                         <div class="uk-dropdown uk-dropdown-close">
                                             <ul class="uk-nav uk-nav-dropdown">
                                                 <li class="uk-nav-header">@lang('Copy content from:')</li>
-                                                <li show="{parent.lang}"><a onclick="{parent.copyLocalizedValue}" lang="" field="{field.name}">@lang('Default')</a></li>
-                                                <li show="{parent.lang != language.code}" each="{language,idx in languages}" value="{language.code}"><a onclick="{parent.parent.copyLocalizedValue}" lang="{language.code}" field="{field.name}">{language.label}</a></li>
+                                                <li show="{parent.lang}"><a onclick="{parent.copyLocalizedValue}"
+                                                                            lang="" field="{field.name}">@lang('Default')</a></li>
+                                                <li show="{parent.lang != language.code}"
+                                                    each="{language,idx in languages}" value="{language.code}"><a
+                                                            onclick="{parent.parent.copyLocalizedValue}"
+                                                            lang="{language.code}"
+                                                            field="{field.name}">{language.label}</a></li>
                                             </ul>
                                         </div>
                                     </span>
@@ -104,7 +147,8 @@
                                 </label>
 
                                 <div class="uk-margin-top">
-                                    <cp-field type="{field.type || 'text'}" bind="{ parent.getBindValue(field) }" opts="{ field.options || {} }"></cp-field>
+                                    <cp-field type="{field.type || 'text'}" bind="{ parent.getBindValue(field) }"
+                                              opts="{ field.options || {} }"></cp-field>
                                 </div>
 
                                 <div class="uk-margin-top uk-text-small uk-text-muted" if="{field.info}">
@@ -136,8 +180,9 @@
                 @endif
 
 
-                <div class="uk-panel uk-panel-box uk-panel-framed uk-width-1-1 uk-form-select uk-form" if="{ languages.length }">
-                    
+                <div class="uk-panel uk-panel-box uk-panel-framed uk-width-1-1 uk-form-select uk-form"
+                     if="{ languages.length }">
+
                     <div class="uk-text-bold {lang ? 'uk-text-primary' : 'uk-text-muted'}">
                         <i class="uk-icon-globe"></i>
                         <span class="uk-margin-small-left">{ lang ? _.find(languages,{code:lang}).label:App.$data.languageDefaultLabel }</span>
@@ -151,7 +196,10 @@
 
                 <div class="uk-margin">
                     <label class="uk-text-small">@lang('Last Modified')</label>
-                    <div class="uk-margin-small-top uk-text-muted"><i class="uk-icon-calendar uk-margin-small-right"></i> {  App.Utils.dateformat( new Date( 1000 * singleton._modified )) }</div>
+                    <div class="uk-margin-small-top uk-text-muted"><i
+                                class="uk-icon-calendar uk-margin-small-right"></i> { App.Utils.dateformat( new Date(
+                        1000 * singleton._modified )) }
+                    </div>
                 </div>
 
                 <div class="uk-margin">
@@ -159,7 +207,8 @@
                     <div class="uk-margin-small-top">
                         <span class="uk-position-relative">
                             <cp-revisions-info class="uk-badge uk-text-large" rid="{singleton._id}"></cp-revisions-info>
-                            <a class="uk-position-cover" href="@route('/singletons/revisions/'.$singleton['name'])/{singleton._id}"></a>
+                            <a class="uk-position-cover"
+                               href="@route('/singletons/revisions/'.$singleton['name'])/{singleton._id}"></a>
                         </span>
                     </div>
                 </div>
@@ -387,6 +436,7 @@
                 $this.refs.inspect.show($this.data);
                 $this.update();
             }
+
         </script>
 
     </div>

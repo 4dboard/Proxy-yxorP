@@ -10,13 +10,13 @@
 
 $this->module('collections')->extend([
 
-    'createCollection' => function($name, $data = []) {
+    'createCollection' => function ($name, $data = []) {
 
         if (!trim($name)) {
             return false;
         }
 
-        $configpath = $this->app->path('#storage:').'/collections';
+        $configpath = $this->app->path('#storage:') . '/collections';
 
         if (!$this->app->path('#storage:collections')) {
 
@@ -32,13 +32,13 @@ $this->module('collections')->extend([
         $time = time();
 
         $collection = array_replace_recursive([
-            'name'      => $name,
-            'label'     => $name,
-            '_id'       => $name,
-            'fields'    => [],
-            'sortable'  => false,
-            'in_menu'   => false,
-            '_created'  => $time,
+            'name' => $name,
+            'label' => $name,
+            '_id' => $name,
+            'fields' => [],
+            'sortable' => false,
+            'in_menu' => false,
+            '_created' => $time,
             '_modified' => $time
         ], $data);
 
@@ -53,7 +53,7 @@ $this->module('collections')->extend([
         return $collection;
     },
 
-    'updateCollection' => function($name, $data) {
+    'updateCollection' => function ($name, $data) {
 
         $metapath = $this->app->path("#storage:collections/{$name}.collection.php");
 
@@ -63,9 +63,9 @@ $this->module('collections')->extend([
 
         $data['_modified'] = time();
 
-        $collection  = include($metapath);
-        $collection  = array_merge($collection, $data);
-        $export      = var_export($collection, true);
+        $collection = include($metapath);
+        $collection = array_merge($collection, $data);
+        $export = var_export($collection, true);
 
         if (!$this->app->helper('fs')->write($metapath, "<?php\n return {$export};")) {
             return false;
@@ -79,7 +79,7 @@ $this->module('collections')->extend([
         return $collection;
     },
 
-    'saveCollection' => function($name, $data, $rules = null) {
+    'saveCollection' => function ($name, $data, $rules = null) {
 
         if (!trim($name)) {
             return false;
@@ -97,7 +97,7 @@ $this->module('collections')->extend([
                         $code .= "\n\n";
                     }
 
-                    if (strpos($code, '<?php')!==0) {
+                    if (strpos($code, '<?php') !== 0) {
                         $code = "<?php\n\n{$code}";
                     }
 
@@ -109,7 +109,7 @@ $this->module('collections')->extend([
         return isset($data['_id']) ? $this->updateCollection($name, $data) : $this->createCollection($name, $data);
     },
 
-    'removeCollection' => function($name) {
+    'removeCollection' => function ($name) {
 
         if ($collection = $this->collection($name)) {
 
@@ -131,7 +131,7 @@ $this->module('collections')->extend([
         return false;
     },
 
-    'renameCollection' => function($name, $to) {
+    'renameCollection' => function ($name, $to) {
 
         if (!$this->exists($name)) return false;
         if ($this->exists($to)) return false;
@@ -166,11 +166,11 @@ $this->module('collections')->extend([
         return true;
     },
 
-    'collections' => function($extended = false) {
+    'collections' => function ($extended = false) {
 
         $stores = [];
 
-        foreach($this->app->helper('fs')->ls('*.collection.php', '#storage:collections') as $path) {
+        foreach ($this->app->helper('fs')->ls('*.collection.php', '#storage:collections') as $path) {
 
             $store = include($path->getPathName());
 
@@ -184,11 +184,11 @@ $this->module('collections')->extend([
         return $stores;
     },
 
-    'exists' => function($name) {
+    'exists' => function ($name) {
         return $this->app->path("#storage:collections/{$name}.collection.php");
     },
 
-    'collection' => function($name) {
+    'collection' => function ($name) {
 
         static $collections; // cache
 
@@ -212,7 +212,7 @@ $this->module('collections')->extend([
         return $collections[$name];
     },
 
-    'entries' => function($name) use($app) {
+    'entries' => function ($name) use ($app) {
 
         $_collection = $this->collection($name);
 
@@ -223,13 +223,13 @@ $this->module('collections')->extend([
         return $this->app->storage->getCollection("collections/{$collection}");
     },
 
-    'find' => function($collection, $options = []) {
+    'find' => function ($collection, $options = []) {
 
         $_collection = $this->collection($collection);
 
         if (!$_collection) return false;
 
-        $name       = $collection;
+        $name = $collection;
         $collection = $_collection['_id'];
 
         // check rule
@@ -262,7 +262,7 @@ $this->module('collections')->extend([
         }
 
         if (count($fieldsFilter)) {
-           $entries = $this->_filterFields($entries, $_collection, $fieldsFilter);
+            $entries = $this->_filterFields($entries, $_collection, $fieldsFilter);
         }
 
         if (isset($options['populate']) && $options['populate']) {
@@ -275,19 +275,19 @@ $this->module('collections')->extend([
         return $entries;
     },
 
-    'findOne' => function($collection, $criteria = [], $projection = null, $populate = false, $fieldsFilter = []) {
+    'findOne' => function ($collection, $criteria = [], $projection = null, $populate = false, $fieldsFilter = []) {
 
         $_collection = $this->collection($collection);
 
         if (!$_collection) return false;
 
-        $name       = $collection;
-        $options    = [
-            'filter'       => $criteria,
-            'fields'       => $projection,
-            'populate'     => $populate,
+        $name = $collection;
+        $options = [
+            'filter' => $criteria,
+            'fields' => $projection,
+            'populate' => $populate,
             'fieldsFilter' => $fieldsFilter,
-            'limit'        => 1
+            'limit' => 1
         ];
 
         $entries = $this->find($name, $options);
@@ -295,7 +295,7 @@ $this->module('collections')->extend([
         return $entries[0] ?? null;
     },
 
-    'save' => function($collection, $data, $options = []) {
+    'save' => function ($collection, $data, $options = []) {
 
         $options = array_merge(['revision' => false], $options);
 
@@ -303,11 +303,11 @@ $this->module('collections')->extend([
 
         if (!$_collection) return false;
 
-        $name       = $collection;
+        $name = $collection;
         $collection = $_collection['_id'];
-        $data       = isset($data[0]) ? $data : [$data];
-        $return     = [];
-        $modified   = time();
+        $data = isset($data[0]) ? $data : [$data];
+        $return = [];
+        $modified = time();
 
         foreach ($data as &$entry) {
 
@@ -330,7 +330,7 @@ $this->module('collections')->extend([
                         $value = $entry[$field['name']];
                     }
 
-                    switch($field['type']) {
+                    switch ($field['type']) {
 
                         case 'string':
                         case 'text':
@@ -341,7 +341,7 @@ $this->module('collections')->extend([
                             if ($value === 'true' || $value === 'false') {
                                 $value = $value === 'true' ? true : false;
                             } else {
-                                $value = $value ? true:false;
+                                $value = $value ? true : false;
                             }
                             break;
 
@@ -386,15 +386,15 @@ $this->module('collections')->extend([
             }
 
             // check rule
-            $context = _check_collection_rule($_collection, $isUpdate ? 'update':'create', [
+            $context = _check_collection_rule($_collection, $isUpdate ? 'update' : 'create', [
                 'options' => $options,
-                'entry'   => $entry
+                'entry' => $entry
             ]);
 
             if ($context === false) {
                 continue;
             } else {
-                $entry   = $context->entry;
+                $entry = $context->entry;
                 $options = $context->options;
             }
 
@@ -416,13 +416,13 @@ $this->module('collections')->extend([
         return count($return) == 1 ? $return[0] : $return;
     },
 
-    'remove' => function($collection, $criteria) {
+    'remove' => function ($collection, $criteria) {
 
         $_collection = $this->collection($collection);
 
         if (!$_collection) return false;
 
-        $name       = $collection;
+        $name = $collection;
         $collection = $_collection['_id'];
 
         // check rule
@@ -445,7 +445,7 @@ $this->module('collections')->extend([
         return $result;
     },
 
-    'count' => function($collection, $criteria = []) {
+    'count' => function ($collection, $criteria = []) {
 
         $_collection = $this->collection($collection);
 
@@ -465,7 +465,7 @@ $this->module('collections')->extend([
         return $this->app->storage->count("collections/{$collection}", $criteria);
     },
 
-    '_resolveLinkedItem' => function($link, $_id, $fieldsFilter = []) {
+    '_resolveLinkedItem' => function ($link, $_id, $fieldsFilter = []) {
 
         static $cache;
 
@@ -484,7 +484,7 @@ $this->module('collections')->extend([
         return $cache[$link][$_id];
     },
 
-    '_populate' => function($items, $maxlevel=-1, $level=0, $fieldsFilter = []) {
+    '_populate' => function ($items, $maxlevel = -1, $level = 0, $fieldsFilter = []) {
 
         if (!is_array($items)) {
             return $items;
@@ -493,7 +493,7 @@ $this->module('collections')->extend([
         return yxorp_populate_collection($items, $maxlevel, 0, $fieldsFilter);
     },
 
-    '_filterFields' => function($items, $collection, $filter) {
+    '_filterFields' => function ($items, $collection, $filter) {
 
         static $cache;
         static $languages;
@@ -559,17 +559,17 @@ $this->module('collections')->extend([
         if ($user && count($cache[$collection['name']]['acl'])) {
 
             $aclfields = $cache[$collection['name']]['acl'];
-            $items     = array_map(function($entry) use($user, $aclfields, $languages) {
+            $items = array_map(function ($entry) use ($user, $aclfields, $languages) {
 
                 foreach ($aclfields as $name => $acl) {
 
-                    if (!( in_array($user['group'], $acl) || in_array($user['_id'], $acl) )) {
+                    if (!(in_array($user['group'], $acl) || in_array($user['_id'], $acl))) {
 
                         unset($entry[$name]);
 
                         if (count($languages)) {
 
-                            foreach($languages as $l) {
+                            foreach ($languages as $l) {
                                 if (isset($entry["{$name}_{$l}"])) {
                                     unset($entry["{$name}_{$l}"]);
                                     unset($entry["{$name}_{$l}_slug"]);
@@ -587,7 +587,7 @@ $this->module('collections')->extend([
         if ($lang && count($languages) && count($cache[$collection['name']]['localize'])) {
 
             $localfields = $cache[$collection['name']]['localize'];
-            $items = array_map(function($entry) use($localfields, $lang, $languages, $ignoreDefaultFallback) {
+            $items = array_map(function ($entry) use ($localfields, $lang, $languages, $ignoreDefaultFallback) {
 
                 foreach ($localfields as $name => $local) {
 
@@ -625,13 +625,14 @@ $this->module('collections')->extend([
     }
 ]);
 
-function yxorp_populate_collection(&$items, $maxlevel = -1, $level = 0, $fieldsFilter = []) {
+function yxorp_populate_collection(&$items, $maxlevel = -1, $level = 0, $fieldsFilter = [])
+{
 
     if (!is_array($items)) {
         return $items;
     }
 
-    if (is_numeric($maxlevel) && $maxlevel > -1 && $level > ($maxlevel+1)) {
+    if (is_numeric($maxlevel) && $maxlevel > -1 && $level > ($maxlevel + 1)) {
         return $items;
     }
 
@@ -656,9 +657,10 @@ function yxorp_populate_collection(&$items, $maxlevel = -1, $level = 0, $fieldsF
     return $items;
 }
 
-function _check_collection_rule($collection, $rule, $_context = null) {
+function _check_collection_rule($collection, $rule, $_context = null)
+{
 
-    $context = (object) $_context;
+    $context = (object)$_context;
 
     if (isset($collection['rules'][$rule]['enabled']) && $collection['rules'][$rule]['enabled']) {
 
@@ -671,7 +673,7 @@ function _check_collection_rule($collection, $rule, $_context = null) {
 
             try {
                 $ret = include($_rulefile);
-            } catch(\Throwable $e) {
+            } catch (\Throwable $e) {
 
                 if (yxorp()->retrieve('config/debug')) {
                     echo $e;
@@ -694,7 +696,7 @@ $app('acl')->addResource("collections", ['create', 'delete', 'manage']);
 
 $this->module("collections")->extend([
 
-    'getCollectionsInGroup' => function($group = null, $extended = false) {
+    'getCollectionsInGroup' => function ($group = null, $extended = false) {
 
         if (!$group) {
             $group = $this->app->module('yxorp')->getGroup();
@@ -717,7 +719,7 @@ $this->module("collections")->extend([
         return $collections;
     },
 
-    'hasaccess' => function($collection, $action, $group = null) {
+    'hasaccess' => function ($collection, $action, $group = null) {
 
         $collection = $this->collection($collection);
 
@@ -745,12 +747,12 @@ $this->module("collections")->extend([
 // REST
 if (YXORP_API_REQUEST) {
 
-    $app->on('yxorp.rest.init', function($routes) {
+    $app->on('yxorp.rest.init', function ($routes) {
         $routes['collections'] = 'Collections\\Controller\\RestApi';
     });
 
     // allow access to public collections
-    $app->on('yxorp.api.authenticate', function($data) {
+    $app->on('yxorp.api.authenticate', function ($data) {
 
         if ($data['user'] || $data['resource'] != 'collections') return;
 
@@ -769,10 +771,10 @@ if (YXORP_API_REQUEST) {
 
 // ADMIN
 if (YXORP_ADMIN_CP) {
-    include_once(__DIR__.'/admin.php');
+    include_once(__DIR__ . '/admin.php');
 }
 
 // CLI
 if (YXORP_CLI) {
-    $this->path('#cli', __DIR__.'/cli');
+    $this->path('#cli', __DIR__ . '/cli');
 }

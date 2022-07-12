@@ -11,12 +11,12 @@
 // Auth Api
 $this->module('yxorp')->extend([
 
-    'authenticate' => function($data) use($app) {
+    'authenticate' => function ($data) use ($app) {
 
         $data = array_merge([
-            'user'     => '',
-            'email'    => '',
-            'group'    => '',
+            'user' => '',
+            'email' => '',
+            'group' => '',
             'password' => ''
         ], $data);
 
@@ -44,7 +44,7 @@ $this->module('yxorp')->extend([
         return false;
     },
 
-    'setUser' => function($user, $permanent = true) use($app) {
+    'setUser' => function ($user, $permanent = true) use ($app) {
 
         if ($permanent) {
             // prevent session fixation attacks
@@ -57,7 +57,7 @@ $this->module('yxorp')->extend([
         $app['yxorp.auth.user'] = $user;
     },
 
-    'getUser' => function($prop = null, $default = null) use($app) {
+    'getUser' => function ($prop = null, $default = null) use ($app) {
 
         $user = $app->retrieve('yxorp.auth.user');
 
@@ -72,7 +72,7 @@ $this->module('yxorp')->extend([
         return $user;
     },
 
-    'logout' => function() use($app) {
+    'logout' => function () use ($app) {
         $app->trigger('yxorp.account.logout', [$this->getUser()]);
         $app('session')->delete('yxorp.app.auth');
 
@@ -80,7 +80,7 @@ $this->module('yxorp')->extend([
         session_regenerate_id(true);
     },
 
-    'hasaccess' => function($resource, $action, $group = null) use($app) {
+    'hasaccess' => function ($resource, $action, $group = null) use ($app) {
 
         if (!$group) {
             $user = $this->getUser();
@@ -94,7 +94,7 @@ $this->module('yxorp')->extend([
         return false;
     },
 
-    'getGroup' => function() use($app) {
+    'getGroup' => function () use ($app) {
 
         $user = $this->getUser();
 
@@ -105,7 +105,7 @@ $this->module('yxorp')->extend([
         return false;
     },
 
-    'getGroupRights' => function($resource, $group = null) use($app) {
+    'getGroupRights' => function ($resource, $group = null) use ($app) {
 
         if ($group) {
             return $app('acl')->getGroupRights($group, $resource);
@@ -120,7 +120,7 @@ $this->module('yxorp')->extend([
         return false;
     },
 
-    'isSuperAdmin' => function($group = null) use($app) {
+    'isSuperAdmin' => function ($group = null) use ($app) {
 
         if (!$group) {
 
@@ -134,14 +134,14 @@ $this->module('yxorp')->extend([
         return $group ? $app('acl')->isSuperAdmin($group) : false;
     },
 
-    'getGroups' => function() use($app) {
+    'getGroups' => function () use ($app) {
 
         $groups = array_merge(['admin'], array_keys($app->retrieve('config/groups', [])));
 
         return array_unique($groups);
     },
 
-    'getGroupVar' => function($setting, $default = null) use($app) {
+    'getGroupVar' => function ($setting, $default = null) use ($app) {
 
         if ($user = $this->getUser()) {
 
@@ -154,14 +154,14 @@ $this->module('yxorp')->extend([
         return $default;
     },
 
-    'userInGroup' => function($groups) use($app) {
+    'userInGroup' => function ($groups) use ($app) {
 
         $user = $this->getUser();
 
         return (isset($user['group']) && in_array($user['group'], (array)$groups));
     },
 
-    'updateUserOption' => function($key, $value) use($app) {
+    'updateUserOption' => function ($key, $value) use ($app) {
 
         if ($user = $this->getUser()) {
 
@@ -205,7 +205,7 @@ $aclsettings = $app->retrieve('config/groups', []);
 foreach ($aclsettings as $group => $settings) {
 
     $isSuperAdmin = $settings === true || (isset($settings['$admin']) && $settings['$admin']);
-    $vars         = $settings['$vars'] ?? [];
+    $vars = $settings['$vars'] ?? [];
 
     $app('acl')->addGroup($group, $isSuperAdmin, $vars);
 

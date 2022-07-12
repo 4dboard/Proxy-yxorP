@@ -11,7 +11,8 @@
 /**
  * RedisLite class.
  */
-class RedisLite {
+class RedisLite
+{
 
     /**
      * @var string
@@ -32,18 +33,19 @@ class RedisLite {
      * Constructor
      *
      * @param string $path
-     * @param array  $options
+     * @param array $options
      */
-    public function __construct($path = ":memory:", $options = array()) {
+    public function __construct($path = ":memory:", $options = array())
+    {
 
-        $options = array_merge(array("storagetable"=>"storage"), $options);
-        $dns     = "sqlite:{$path}";
+        $options = array_merge(array("storagetable" => "storage"), $options);
+        $dns = "sqlite:{$path}";
 
-        $this->path  = $path;
+        $this->path = $path;
         $this->table = $options["storagetable"];
         $this->connection = new \PDO($dns, null, null, $options);
 
-        $stmt  = $this->connection->query("SELECT name FROM sqlite_master WHERE type='table' AND name='".$this->table."';");
+        $stmt = $this->connection->query("SELECT name FROM sqlite_master WHERE type='table' AND name='" . $this->table . "';");
         $table = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         if (!isset($table["name"])) {
@@ -51,45 +53,48 @@ class RedisLite {
         }
     }
 
-    protected function createTable() {
-        $this->connection->exec("CREATE TABLE ".$this->table." (key VARCHAR PRIMARY KEY, keyval TEXT)");
-        $this->connection->exec("CREATE UNIQUE INDEX key_name on ".$this->table." (key);");
+    protected function createTable()
+    {
+        $this->connection->exec("CREATE TABLE " . $this->table . " (key VARCHAR PRIMARY KEY, keyval TEXT)");
+        $this->connection->exec("CREATE UNIQUE INDEX key_name on " . $this->table . " (key);");
     }
 
     /**
      * Get value for specific key
      *
-     * @param  string $key
-     * @param  mixed $default
+     * @param string $key
+     * @param mixed $default
      * @return mixed
      */
-    public function get($key, $default = null) {
+    public function get($key, $default = null)
+    {
 
-        $stmt = $this->connection->query("SELECT * FROM ".$this->table." WHERE `key`='{$key}';");
+        $stmt = $this->connection->query("SELECT * FROM " . $this->table . " WHERE `key`='{$key}';");
 
         if (!$stmt) {
             return $default;
         }
 
-        $res  = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $res = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        return  isset($res["key"]) ? json_decode($res["keyval"], true) : $default;
+        return isset($res["key"]) ? json_decode($res["keyval"], true) : $default;
     }
 
     /**
      * Set value for specific key
      *
-     * @param  string $key
-     * @param  mixed $value
+     * @param string $key
+     * @param mixed $value
      */
-    public function set($key, $value) {
+    public function set($key, $value)
+    {
 
         $value = $this->connection->quote(json_encode($value, JSON_NUMERIC_CHECK));
 
-        if($this->exists($key)) {
-            $sql = "UPDATE ".$this->table." SET `keyval`={$value} WHERE `key`='{$key}'";
+        if ($this->exists($key)) {
+            $sql = "UPDATE " . $this->table . " SET `keyval`={$value} WHERE `key`='{$key}'";
         } else {
-            $sql = "INSERT INTO ".$this->table." (`key`,`keyval`) VALUES ('{$key}',{$value})";
+            $sql = "INSERT INTO " . $this->table . " (`key`,`keyval`) VALUES ('{$key}',{$value})";
         }
 
         $this->connection->exec($sql);
@@ -99,19 +104,21 @@ class RedisLite {
      * Clear database
      *
      */
-    public function flushdb() {
-        $this->connection->exec("DELETE FROM ".$this->table);
+    public function flushdb()
+    {
+        $this->connection->exec("DELETE FROM " . $this->table);
     }
 
     /**
      * Check if key exists
      *
-     * @param  string $key
+     * @param string $key
      */
-    public function exists($key) {
+    public function exists($key)
+    {
 
-        $stmt = $this->connection->query("SELECT `key` FROM ".$this->table." WHERE `key`='{$key}';");
-        $res  = $stmt->fetch(\PDO::FETCH_ASSOC);
+        $stmt = $this->connection->query("SELECT `key` FROM " . $this->table . " WHERE `key`='{$key}';");
+        $res = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         return isset($res["key"]);
     }
@@ -119,14 +126,15 @@ class RedisLite {
     /**
      * Get all keys matching a pattern
      *
-     * @param  string $pattern
+     * @param string $pattern
      * @return array
      */
-    public function keys($pattern = null) {
+    public function keys($pattern = null)
+    {
 
         $keys = array();
-        $stmt = $this->connection->query("SELECT `key` FROM ".$this->table." ORDER BY `key`;");
-        $res  = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $stmt = $this->connection->query("SELECT `key` FROM " . $this->table . " ORDER BY `key`;");
+        $res = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
         if (!$pattern) {
 
@@ -136,12 +144,12 @@ class RedisLite {
 
         } else {
 
-            $matcher = function_exists('fnmatch') ? 'fnmatch': function($pattern, $string){
-                return preg_match("#^".strtr(preg_quote($pattern, '#'), array('\*' => '.*', '\?' => '.'))."$#i", $string);
+            $matcher = function_exists('fnmatch') ? 'fnmatch' : function ($pattern, $string) {
+                return preg_match("#^" . strtr(preg_quote($pattern, '#'), array('\*' => '.*', '\?' => '.')) . "$#i", $string);
             };
 
             foreach ($res as $record) {
-                if($matcher($pattern, $record["key"])) {
+                if ($matcher($pattern, $record["key"])) {
                     $keys[] = $record["key"];
                 }
             }
@@ -153,16 +161,17 @@ class RedisLite {
     /**
      * Delete Key(s)
      *
-     * @param  string $key
+     * @param string $key
      * @return integer
      */
-    public function del($key) {
+    public function del($key)
+    {
 
         $keys = func_get_args();
         $removed = 0;
 
         foreach ($keys as $key) {
-            $sql = 'DELETE FROM '.$this->table.' WHERE `key`="'.$key.'"';
+            $sql = 'DELETE FROM ' . $this->table . ' WHERE `key`="' . $key . '"';
             $this->connection->exec($sql);
             $removed++;
         }
@@ -173,10 +182,11 @@ class RedisLite {
     /**
      * Get value type
      *
-     * @param  string $key
+     * @param string $key
      * @return string
      */
-    public function type($key) {
+    public function type($key)
+    {
 
         $value = $this->get($key, null);
 
@@ -186,14 +196,15 @@ class RedisLite {
     /**
      * Increment value by x
      *
-     * @param  string  $key
-     * @param  integer $by
+     * @param string $key
+     * @param integer $by
      * @return integer
      */
-    public function incr($key, $by = 1) {
+    public function incr($key, $by = 1)
+    {
 
         $current = $this->get($key, 0);
-        $newone  = $current + $by;
+        $newone = $current + $by;
 
         $this->set($key, $newone);
 
@@ -203,11 +214,12 @@ class RedisLite {
     /**
      * Decrement value by x
      *
-     * @param  string  $key
-     * @param  integer $by
+     * @param string $key
+     * @param integer $by
      * @return integer
      */
-    public function decr($key, $by = 1) {
+    public function decr($key, $by = 1)
+    {
 
         return $this->incr($key, ($by * -1));
     }
@@ -215,24 +227,26 @@ class RedisLite {
     /**
      * Count $value items
      *
-     * @param  string $key
+     * @param string $key
      * @return integer
      */
-    public function llen($key) {
+    public function llen($key)
+    {
 
         $value = $this->get($key, array());
 
-        return is_array($value) ? count($value):0;
+        return is_array($value) ? count($value) : 0;
     }
 
     /**
      * Add item to a value (right)
      *
-     * @param  string $key
-     * @param  mixed $value
+     * @param string $key
+     * @param mixed $value
      * @return integer
      */
-    public function rpush($key, $value) {
+    public function rpush($key, $value)
+    {
 
         $list = $this->get($key, array());
 
@@ -246,11 +260,12 @@ class RedisLite {
     /**
      * Add item to a value (left)
      *
-     * @param  string $key
-     * @param  mixed $value
+     * @param string $key
+     * @param mixed $value
      * @return integer
      */
-    public function lpush($key, $value) {
+    public function lpush($key, $value)
+    {
 
         $list = $this->get($key, array());
 
@@ -264,20 +279,21 @@ class RedisLite {
     /**
      * Set the value of an element in a list by its index
      *
-     * @param  string $key
-     * @param  integer $index
-     * @param  mixed $value
+     * @param string $key
+     * @param integer $index
+     * @param mixed $value
      * @return boolean
      */
-    public function lset($key, $index, $value) {
+    public function lset($key, $index, $value)
+    {
 
         $list = $this->get($key, array());
 
-        if($index < 0) {
+        if ($index < 0) {
             $index = count($list) - abs($index);
         }
 
-        if(isset($list[$index])){
+        if (isset($list[$index])) {
             $list[$index] = $value;
             $this->set($key, $list);
 
@@ -290,29 +306,31 @@ class RedisLite {
     /**
      * Get an element from a list by its index
      *
-     * @param  string $key
-     * @param  integer $index
+     * @param string $key
+     * @param integer $index
      * @return mixed
      */
-    public function lindex($key, $index) {
+    public function lindex($key, $index)
+    {
 
         $list = $this->get($key, array());
 
-        if($index < 0) {
+        if ($index < 0) {
             $index = count($list) - abs($index);
         }
 
-        return isset($list[$index]) ? $list[$index]:null;
+        return isset($list[$index]) ? $list[$index] : null;
     }
 
     /**
      * Set the string value of a hash field
      *
-     * @param  string $key
-     * @param  string $field
-     * @param  mixed $value
+     * @param string $key
+     * @param string $field
+     * @param mixed $value
      */
-    public function hset($key, $field, $value) {
+    public function hset($key, $field, $value)
+    {
 
         $set = $this->get($key, array());
 
@@ -323,25 +341,27 @@ class RedisLite {
     /**
      * Get the value of a hash field
      *
-     * @param  string $key
-     * @param  string $field
-     * @param  mixed $default
+     * @param string $key
+     * @param string $field
+     * @param mixed $default
      * @return mixed
      */
-    public function hget($key, $field, $default=null) {
+    public function hget($key, $field, $default = null)
+    {
 
         $set = $this->get($key, array());
 
-        return isset($set[$field]) ? $set[$field]:$default;
+        return isset($set[$field]) ? $set[$field] : $default;
     }
 
     /**
      * Get all the fields and values in a hash
      *
-     * @param  string $key
+     * @param string $key
      * @return array
      */
-    public function hgetall($key) {
+    public function hgetall($key)
+    {
 
         $set = $this->get($key, array());
 
@@ -351,11 +371,12 @@ class RedisLite {
     /**
      * Determine if a hash field exists
      *
-     * @param  string $key
-     * @param  string $field
+     * @param string $key
+     * @param string $field
      * @return boolean
      */
-    public function hexists($key, $field) {
+    public function hexists($key, $field)
+    {
 
         $set = $this->get($key, array());
 
@@ -365,10 +386,11 @@ class RedisLite {
     /**
      * Get all the fields in a hash
      *
-     * @param  string $key
+     * @param string $key
      * @return array
      */
-    public function hkeys($key) {
+    public function hkeys($key)
+    {
 
         $set = $this->get($key, array());
 
@@ -378,10 +400,11 @@ class RedisLite {
     /**
      * Get all the values in a hash
      *
-     * @param  string $key
+     * @param string $key
      * @return array
      */
-    public function hvals($key) {
+    public function hvals($key)
+    {
 
         $set = $this->get($key, array());
 
@@ -391,10 +414,11 @@ class RedisLite {
     /**
      * Get the number of fields in a hash
      *
-     * @param  string $key
+     * @param string $key
      * @return integer
      */
-    public function hlen($key) {
+    public function hlen($key)
+    {
 
         return count($this->hkeys($key));
     }
@@ -402,23 +426,24 @@ class RedisLite {
     /**
      * Delete one or more hash fields
      *
-     * @param  string $key
+     * @param string $key
      * @return integer
      */
-    public function hdel($key) {
+    public function hdel($key)
+    {
 
         $set = $this->get($key, array());
 
-        if(!count($set)) return 0;
+        if (!count($set)) return 0;
 
-        $fields  = func_get_args();
+        $fields = func_get_args();
         $removed = 0;
 
-        for ($i=1; $i<count($fields); $i++){
+        for ($i = 1; $i < count($fields); $i++) {
 
             $field = $fields[$i];
 
-            if(isset($set[$field])){
+            if (isset($set[$field])) {
                 unset($set[$field]);
                 $removed++;
             }
@@ -432,15 +457,16 @@ class RedisLite {
     /**
      * Increment the integer value of a hash field by the given number
      *
-     * @param  string  $key
-     * @param  string  $field
-     * @param  integer $by
+     * @param string $key
+     * @param string $field
+     * @param integer $by
      * @return integer
      */
-    public function hincrby($key, $field, $by = 1) {
+    public function hincrby($key, $field, $by = 1)
+    {
 
         $current = $this->hget($key, $field, 0);
-        $newone  = $current+$by;
+        $newone = $current + $by;
 
         $this->hset($key, $field, $newone);
 
@@ -450,18 +476,19 @@ class RedisLite {
     /**
      * Get the values of all the given hash fields
      *
-     * @param  string $key
+     * @param string $key
      * @return array
      */
-    public function hmget($key) {
+    public function hmget($key)
+    {
 
-        $set     = $this->get($key, array());
-        $fields  = func_get_args();
-        $values  = array();
+        $set = $this->get($key, array());
+        $fields = func_get_args();
+        $values = array();
 
-        for ($i=1; $i<count($fields); $i++){
+        for ($i = 1; $i < count($fields); $i++) {
             $field = $fields[$i];
-            $values[] = isset($set[$field]) ? $set[$field]:null;
+            $values[] = isset($set[$field]) ? $set[$field] : null;
         }
 
         return $values;
@@ -470,16 +497,17 @@ class RedisLite {
     /**
      * Set multiple hash fields to multiple values
      *
-     * @param  string $key
+     * @param string $key
      */
-    public function hmset($key) {
+    public function hmset($key)
+    {
 
-        $set     = $this->get($key, array());
-        $args    = func_get_args();
+        $set = $this->get($key, array());
+        $args = func_get_args();
 
-        for ($i=1; $i<count($fields); $i++){
+        for ($i = 1; $i < count($fields); $i++) {
             $field = $args[$i];
-            $value = isset($args[($i+1)]) ? $args[($i+1)] : null;
+            $value = isset($args[($i + 1)]) ? $args[($i + 1)] : null;
 
             $set[$field] = $value;
             $i = $i + 1;

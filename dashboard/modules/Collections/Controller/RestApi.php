@@ -10,20 +10,19 @@
 
 namespace Collections\Controller;
 
-class RestApi extends \LimeExtra\Controller {
-
-    protected function before() {
-        $this->app->response->mime = 'json';
-    }
+class RestApi extends \LimeExtra\Controller
+{
 
     /**
      * Deprecated! use /entries instead
      */
-    public function get($collection = null) {
+    public function get($collection = null)
+    {
         return $this->entries($collection);
     }
 
-    public function entries($collection = null) {
+    public function entries($collection = null)
+    {
 
         if (!$collection) {
             return $this->stop('{"error": "Missing collection name"}', 412);
@@ -45,11 +44,11 @@ class RestApi extends \LimeExtra\Controller {
 
         $options = [];
 
-        if ($filter   = $this->param('filter', null))   $options['filter'] = $filter;
-        if ($limit    = $this->param('limit', null))    $options['limit'] = \intval($limit);
-        if ($sort     = $this->param('sort', null))     $options['sort'] = $sort;
-        if ($fields   = $this->param('fields', null))   $options['fields'] = $fields;
-        if ($skip     = $this->param('skip', null))     $options['skip'] = \intval($skip);
+        if ($filter = $this->param('filter', null)) $options['filter'] = $filter;
+        if ($limit = $this->param('limit', null)) $options['limit'] = \intval($limit);
+        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
+        if ($fields = $this->param('fields', null)) $options['fields'] = $fields;
+        if ($skip = $this->param('skip', null)) $options['skip'] = \intval($skip);
         if ($populate = $this->param('populate', null)) $options['populate'] = $populate;
 
         // cast string values if get request
@@ -69,7 +68,7 @@ class RestApi extends \LimeExtra\Controller {
         if ($sort) {
 
             foreach ($sort as $key => &$value) {
-                $options['sort'][$key]= \intval($value);
+                $options['sort'][$key] = \intval($value);
             }
         }
 
@@ -82,14 +81,14 @@ class RestApi extends \LimeExtra\Controller {
 
             $entries = $this->helper('utils')->buildTree($entries, [
                 'parent_id_column_name' => '_pid',
-                'children_key_name'     => 'children',
-                'id_column_name'        => '_id',
-                'sort_column_name'      => '_o'
+                'children_key_name' => 'children',
+                'id_column_name' => '_id',
+                'sort_column_name' => '_o'
             ]);
         }
 
         // return only entries array - due to legacy
-        if ((boolean) $this->param('simple', false)) {
+        if ((boolean)$this->param('simple', false)) {
             return $entries;
         }
 
@@ -100,7 +99,7 @@ class RestApi extends \LimeExtra\Controller {
             if (
                 $user && isset($field['acl']) &&
                 \is_array($field['acl']) && \count($field['acl']) &&
-                !(\in_array($user['_id'] , $field['acl']) || \in_array($user['group'] , $field['acl']))
+                !(\in_array($user['_id'], $field['acl']) || \in_array($user['group'], $field['acl']))
             ) {
                 continue;
             }
@@ -114,14 +113,15 @@ class RestApi extends \LimeExtra\Controller {
         }
 
         return [
-            'fields'   => $fields,
-            'entries'  => $entries,
-            'total'    => (!$skip && !$limit) ? $count : $this->module('collections')->count($collection['name'], $filter ? $filter : [])
+            'fields' => $fields,
+            'entries' => $entries,
+            'total' => (!$skip && !$limit) ? $count : $this->module('collections')->count($collection['name'], $filter ? $filter : [])
         ];
 
     }
 
-    public function entry($collection = null, $id = null) {
+    public function entry($collection = null, $id = null)
+    {
 
         if (!$collection) {
             return $this->stop('{"error": "Missing collection name"}', 412);
@@ -153,7 +153,7 @@ class RestApi extends \LimeExtra\Controller {
 
         $options = [];
 
-        if ($fields   = $this->param('fields', null))   $options['fields'] = $fields;
+        if ($fields = $this->param('fields', null)) $options['fields'] = $fields;
         if ($populate = $this->param('populate', null)) $options['populate'] = $populate;
 
         // fields filter
@@ -175,7 +175,8 @@ class RestApi extends \LimeExtra\Controller {
         return $entry;
     }
 
-    public function save($collection = null) {
+    public function save($collection = null)
+    {
 
         $user = $this->module('yxorp')->getUser();
         $data = $this->param('data', null);
@@ -188,7 +189,7 @@ class RestApi extends \LimeExtra\Controller {
             return $this->stop('{"error": "Collection not found"}', 412);
         }
 
-        if ($user && !$this->module('collections')->hasaccess($collection, isset($data['_id']) ? 'entries_edit':'entries_create')) {
+        if ($user && !$this->module('collections')->hasaccess($collection, isset($data['_id']) ? 'entries_edit' : 'entries_create')) {
             return $this->stop('{"error": "Unauthorized"}', 401);
         }
 
@@ -209,19 +210,20 @@ class RestApi extends \LimeExtra\Controller {
         if ($revision = $this->param('revision', null)) $options['revision'] = $this->app->helper('utils')->fixStringBooleanValues($revision);
 
         try {
-            $data = $this->module('collections')->save($collection, $data, $options); 
-        } catch(\Throwable $e) {
+            $data = $this->module('collections')->save($collection, $data, $options);
+        } catch (\Throwable $e) {
             $this->app->stop(['error' => $e->getMessage()], 412);
         }
 
         return $data;
     }
 
-    public function remove($collection = null) {
+    public function remove($collection = null)
+    {
 
-        $user   = $this->module('yxorp')->getUser();
+        $user = $this->module('yxorp')->getUser();
         $filter = $this->param('filter', null);
-        $count  = $this->param('count', false);
+        $count = $this->param('count', false);
 
         if (!$collection || !$filter) {
             return $this->stop('{"error": "Please provide a collection name and filter"}', 417);
@@ -251,7 +253,8 @@ class RestApi extends \LimeExtra\Controller {
         return ['success' => true, 'count' => $count];
     }
 
-    public function createCollection() {
+    public function createCollection()
+    {
 
         $user = $this->module('yxorp')->getUser();
         $name = $this->param('name', null);
@@ -270,7 +273,8 @@ class RestApi extends \LimeExtra\Controller {
         return $collection;
     }
 
-    public function updateCollection($name = null) {
+    public function updateCollection($name = null)
+    {
 
         $user = $this->module('yxorp')->getUser();
         $data = $this->param('data', null);
@@ -290,7 +294,8 @@ class RestApi extends \LimeExtra\Controller {
         return $collection;
     }
 
-    public function collection($name) {
+    public function collection($name)
+    {
 
         $user = $this->module('yxorp')->getUser();
 
@@ -301,13 +306,14 @@ class RestApi extends \LimeExtra\Controller {
         }
 
         if (!isset($collections[$name])) {
-           return $this->stop('{"error": "Collection not found"}', 412);
+            return $this->stop('{"error": "Collection not found"}', 412);
         }
 
         return $collections[$name];
     }
 
-    public function listCollections($extended = false) {
+    public function listCollections($extended = false)
+    {
 
         $user = $this->module('yxorp')->getUser();
 
@@ -318,5 +324,10 @@ class RestApi extends \LimeExtra\Controller {
         }
 
         return $extended ? $collections : \array_keys($collections);
+    }
+
+    protected function before()
+    {
+        $this->app->response->mime = 'json';
     }
 }

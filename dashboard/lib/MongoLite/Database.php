@@ -13,7 +13,8 @@ namespace MongoLite;
 /**
  * Database object.
  */
-class Database {
+class Database
+{
 
     /**
      * @var string - DSN path form memory database
@@ -44,9 +45,10 @@ class Database {
      * Constructor
      *
      * @param string $path
-     * @param array  $options
+     * @param array $options
      */
-    public function __construct($path = self::DSN_PATH_MEMORY, $options = []) {
+    public function __construct($path = self::DSN_PATH_MEMORY, $options = [])
+    {
 
         $dns = "sqlite:{$path}";
 
@@ -55,10 +57,10 @@ class Database {
 
         $database = $this;
 
-        $this->connection->sqliteCreateFunction('document_key', function($key, $document){
+        $this->connection->sqliteCreateFunction('document_key', function ($key, $document) {
 
             $document = \json_decode($document, true);
-            $val      = '';
+            $val = '';
 
             if (strpos($key, '.') !== false) {
 
@@ -82,7 +84,7 @@ class Database {
             return \is_array($val) || \is_object($val) ? \json_encode($val) : $val;
         }, 2);
 
-        $this->connection->sqliteCreateFunction('document_criteria', function($funcid, $document) use($database) {
+        $this->connection->sqliteCreateFunction('document_criteria', function ($funcid, $document) use ($database) {
 
             $document = \json_decode($document, true);
 
@@ -97,23 +99,24 @@ class Database {
     /**
      * Register Criteria function
      *
-     * @param  mixed $criteria
+     * @param mixed $criteria
      * @return mixed
      */
-    public function registerCriteriaFunction($criteria) {
+    public function registerCriteriaFunction($criteria)
+    {
 
         $id = \uniqid('criteria');
 
         if (\is_callable($criteria)) {
-           $this->document_criterias[$id] = $criteria;
-           return $id;
+            $this->document_criterias[$id] = $criteria;
+            return $id;
         }
 
         if (is_array($criteria)) {
 
             $fn = null;
 
-            eval('$fn = function($document) { return '.UtilArrayQuery::buildCondition($criteria).'; };');
+            eval('$fn = function($document) { return ' . UtilArrayQuery::buildCondition($criteria) . '; };');
 
             $this->document_criterias[$id] = $fn;
 
@@ -126,26 +129,29 @@ class Database {
     /**
      * Execute registred criteria function
      *
-     * @param  string $id
-     * @param  array $document
+     * @param string $id
+     * @param array $document
      * @return boolean
      */
-    public function callCriteriaFunction($id, $document) {
+    public function callCriteriaFunction($id, $document)
+    {
 
-        return isset($this->document_criterias[$id]) ? $this->document_criterias[$id]($document):false;
+        return isset($this->document_criterias[$id]) ? $this->document_criterias[$id]($document) : false;
     }
 
     /**
      * Vacuum database
      */
-    public function vacuum() {
+    public function vacuum()
+    {
         $this->connection->query('VACUUM');
     }
 
     /**
      * Drop database
      */
-    public function drop() {
+    public function drop()
+    {
         if ($this->path != static::DSN_PATH_MEMORY) {
             \unlink($this->path);
         }
@@ -154,18 +160,20 @@ class Database {
     /**
      * Create a collection
      *
-     * @param  string $name
+     * @param string $name
      */
-    public function createCollection($name) {
+    public function createCollection($name)
+    {
         $this->connection->exec("CREATE TABLE `{$name}` ( id INTEGER PRIMARY KEY AUTOINCREMENT, document TEXT )");
     }
 
     /**
      * Drop a collection
      *
-     * @param  string $name
+     * @param string $name
      */
-    public function dropCollection($name) {
+    public function dropCollection($name)
+    {
         $this->connection->exec("DROP TABLE `{$name}`");
 
         // Remove collection from cache
@@ -177,11 +185,12 @@ class Database {
      *
      * @return array
      */
-    public function getCollectionNames() {
+    public function getCollectionNames()
+    {
 
-        $stmt   = $this->connection->query("SELECT name FROM sqlite_master WHERE type='table' AND name!='sqlite_sequence';");
-        $tables = $stmt->fetchAll( \PDO::FETCH_ASSOC);
-        $names  = [];
+        $stmt = $this->connection->query("SELECT name FROM sqlite_master WHERE type='table' AND name!='sqlite_sequence';");
+        $tables = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $names = [];
 
         foreach ($tables as $table) {
             $names[] = $table['name'];
@@ -195,10 +204,11 @@ class Database {
      *
      * @return array
      */
-    public function listCollections() {
+    public function listCollections()
+    {
 
         foreach ($this->getCollectionNames() as $name) {
-            if(!isset($this->collections[$name])) {
+            if (!isset($this->collections[$name])) {
                 $this->collections[$name] = new Collection($name, $this);
             }
         }
@@ -209,10 +219,11 @@ class Database {
     /**
      * Select collection
      *
-     * @param  string $name
+     * @param string $name
      * @return object
      */
-    public function selectCollection($name) {
+    public function selectCollection($name)
+    {
 
         if (!isset($this->collections[$name])) {
 
@@ -226,28 +237,32 @@ class Database {
         return $this->collections[$name];
     }
 
-    public function __get($collection) {
+    public function __get($collection)
+    {
 
         return $this->selectCollection($collection);
     }
 }
 
 
-class UtilArrayQuery {
+class UtilArrayQuery
+{
 
     protected static $closures = [];
 
-    public static function closureCall($uid, $doc) {
+    public static function closureCall($uid, $doc)
+    {
         return call_user_func_array(self::$closures[$uid], [$doc]);
     }
 
-    public static function buildCondition($criteria, $concat = ' && ') {
+    public static function buildCondition($criteria, $concat = ' && ')
+    {
 
         $fn = [];
 
         foreach ($criteria as $key => $value) {
 
-            switch($key) {
+            switch ($key) {
 
                 case '$and':
 
@@ -257,7 +272,7 @@ class UtilArrayQuery {
                         $_fn[] = self::buildCondition($v, ' && ');
                     }
 
-                    $fn[] = '('.\implode(' && ', $_fn).')';
+                    $fn[] = '(' . \implode(' && ', $_fn) . ')';
 
                     break;
                 case '$or':
@@ -268,21 +283,21 @@ class UtilArrayQuery {
                         $_fn[] = self::buildCondition($v, ' && ');
                     }
 
-                    $fn[] = '('.\implode(' || ', $_fn).')';
+                    $fn[] = '(' . \implode(' || ', $_fn) . ')';
 
                     break;
 
                 case '$where':
 
                     if (\is_string($value) || !\is_callable($value)) {
-                        throw new \InvalidArgumentException($key.' Function should be callable');
+                        throw new \InvalidArgumentException($key . ' Function should be callable');
                     }
 
-                    $uid = \uniqid('mongoliteCallable').bin2hex(random_bytes(5));
+                    $uid = \uniqid('mongoliteCallable') . bin2hex(random_bytes(5));
 
                     self::$closures[$uid] = $value;
 
-                    $fn[] = '\\MongoLite\\UtilArrayQuery::closureCall("'.$uid.'", $document)';
+                    $fn[] = '\\MongoLite\\UtilArrayQuery::closureCall("' . $uid . '", $document)';
 
                     break;
 
@@ -299,15 +314,15 @@ class UtilArrayQuery {
                         $keys = \explode('.', $key);
 
                         foreach ($keys as $k) {
-                            $d .= '[\''.$k.'\']';
+                            $d .= '[\'' . $k . '\']';
                         }
 
                     } else {
-                        $d .= '[\''.$key.'\']';
+                        $d .= '[\'' . $key . '\']';
                     }
 
                     if (\is_array($value)) {
-                        $fn[] = "\\MongoLite\\UtilArrayQuery::check((isset({$d}) ? {$d} : null), ".\var_export($value, true).')';
+                        $fn[] = "\\MongoLite\\UtilArrayQuery::check((isset({$d}) ? {$d} : null), " . \var_export($value, true) . ')';
                     } else {
 
                         if (is_null($value)) {
@@ -333,7 +348,8 @@ class UtilArrayQuery {
     }
 
 
-    public static function check($value, $condition) {
+    public static function check($value, $condition)
+    {
 
         $keys = \array_keys($condition);
 
@@ -349,7 +365,8 @@ class UtilArrayQuery {
         return true;
     }
 
-    private static function evaluate($func, $a, $b) {
+    private static function evaluate($func, $a, $b)
+    {
 
         $r = false;
 
@@ -367,25 +384,25 @@ class UtilArrayQuery {
                 break;
 
             case '$gte' :
-                if ( (\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b)) ) {
+                if ((\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b))) {
                     $r = $a >= $b;
                 }
                 break;
 
             case '$gt' :
-                if ( (\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b)) ) {
+                if ((\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b))) {
                     $r = $a > $b;
                 }
                 break;
 
             case '$lte' :
-                if ( (\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b)) ) {
+                if ((\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b))) {
                     $r = $a <= $b;
                 }
                 break;
 
             case '$lt' :
-                if ( (\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b)) ) {
+                if ((\is_numeric($a) && \is_numeric($b)) || (\is_string($a) && \is_string($b))) {
                     $r = $a < $b;
                 }
                 break;
@@ -409,12 +426,12 @@ class UtilArrayQuery {
             case '$has' :
                 if (\is_array($b))
                     throw new \InvalidArgumentException('Invalid argument for $has array not supported');
-                if (!\is_array($a)) $a = @\json_decode($a, true) ?  : [];
+                if (!\is_array($a)) $a = @\json_decode($a, true) ?: [];
                 $r = \in_array($b, $a);
                 break;
 
             case '$all' :
-                if (!\is_array($a)) $a = @\json_decode($a, true) ?  : [];
+                if (!\is_array($a)) $a = @\json_decode($a, true) ?: [];
                 if (!\is_array($b))
                     throw new \InvalidArgumentException('Invalid argument for $all option must be array');
                 $r = \count(\array_intersect_key($a, $b)) == \count($b);
@@ -424,19 +441,19 @@ class UtilArrayQuery {
             case '$preg' :
             case '$match' :
             case '$not':
-                $r = (boolean) @\preg_match(isset($b[0]) && $b[0]=='/' ? $b : '/'.$b.'/iu', $a, $match);
+                $r = (boolean)@\preg_match(isset($b[0]) && $b[0] == '/' ? $b : '/' . $b . '/iu', $a, $match);
                 if ($func === '$not') {
                     $r = !$r;
                 }
                 break;
 
             case '$size' :
-                if (!\is_array($a)) $a = @\json_decode($a, true) ?  : [];
-                $r = (int) $b == \count($a);
+                if (!\is_array($a)) $a = @\json_decode($a, true) ?: [];
+                $r = (int)$b == \count($a);
                 break;
 
             case '$mod' :
-                if (! \is_array($b))
+                if (!\is_array($b))
                     throw new \InvalidArgumentException('Invalid argument for $mod option must be array');
                 $r = $a % $b[0] == $b[1] ?? 0;
                 break;
@@ -473,10 +490,11 @@ class UtilArrayQuery {
 
 
 // Helper Functions
-function levenshtein_utf8($s1, $s2) {
+function levenshtein_utf8($s1, $s2)
+{
 
     $map = [];
-    $utf8_to_extended_ascii = function($str) use($map) {
+    $utf8_to_extended_ascii = function ($str) use ($map) {
 
         // find all multibyte characters (cf. utf-8 encoding specs)
         $matches = [];
@@ -495,13 +513,14 @@ function levenshtein_utf8($s1, $s2) {
     return levenshtein($utf8_to_extended_ascii($s1), $utf8_to_extended_ascii($s2));
 }
 
-function fuzzy_search($search, $text, $distance = 3){
+function fuzzy_search($search, $text, $distance = 3)
+{
 
     $needles = \explode(' ', \mb_strtolower($search, 'UTF-8'));
-    $tokens  = \explode(' ', \mb_strtolower($text, 'UTF-8'));
-    $score   = 0;
+    $tokens = \explode(' ', \mb_strtolower($text, 'UTF-8'));
+    $score = 0;
 
-    foreach ($needles as $needle){
+    foreach ($needles as $needle) {
 
         foreach ($tokens as $token) {
 
@@ -512,9 +531,9 @@ function fuzzy_search($search, $text, $distance = 3){
                 $d = levenshtein_utf8($needle, $token);
 
                 if ($d <= $distance) {
-                    $l       = \mb_strlen($token, 'UTF-8');
+                    $l = \mb_strlen($token, 'UTF-8');
                     $matches = $l - $d;
-                    $score  += ($matches / $l);
+                    $score += ($matches / $l);
                 }
             }
         }
@@ -524,7 +543,8 @@ function fuzzy_search($search, $text, $distance = 3){
     return $score / \count($needles);
 }
 
-function createMongoDbLikeId() {
+function createMongoDbLikeId()
+{
 
     // use native MongoDB ObjectId if available
     if (class_exists('MongoDB\\BSON\\ObjectId')) {
@@ -536,8 +556,8 @@ function createMongoDbLikeId() {
 
     $timestamp = \microtime(true);
     $processId = \random_int(10000, 99999);
-    $id        = \random_int(10, 1000);
-    $result    = '';
+    $id = \random_int(10, 1000);
+    $result = '';
 
     // Building binary data.
     $bin = \sprintf(

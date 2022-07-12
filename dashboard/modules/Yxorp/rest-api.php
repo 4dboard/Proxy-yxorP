@@ -8,19 +8,19 @@
  * file that was distributed with this source code.
  */
 
-$this->on('before', function() {
+$this->on('before', function () {
 
     $routes = new \ArrayObject([]);
 
     /*
         $routes['{:resource}'] = string (classname) | callable
     */
-    $this->trigger('yxorp.rest.init', [$routes])->bind('/api/*', function($params) use($routes) {
+    $this->trigger('yxorp.rest.init', [$routes])->bind('/api/*', function ($params) use ($routes) {
 
         $this->module('yxorp')->setUser(false, false);
 
         $route = $this['route'];
-        $path  = $params[':splat'][0];
+        $path = $params[':splat'][0];
 
         if (!$path) {
             return false;
@@ -41,12 +41,12 @@ $this->on('before', function() {
                 $this->module('yxorp')->setUser($account, false);
             }
 
-        // is jwt token?
+            // is jwt token?
         } elseif ($token && preg_match('/^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]*$/', $token)) {
 
             // todo
 
-        // default
+            // default
         } elseif ($token) {
 
             $apikeys = $this->module('yxorp')->loadApiKeys();
@@ -87,9 +87,9 @@ $this->on('before', function() {
 
         }
 
-        $parts    = explode('/', $path, 2);
+        $parts = explode('/', $path, 2);
         $resource = $parts[0];
-        $params   = isset($parts[1]) ? explode('/', $parts[1]) : [];
+        $params = isset($parts[1]) ? explode('/', $parts[1]) : [];
 
         // trigger authenticate event
         if (!$allowed) {
@@ -112,11 +112,13 @@ $this->on('before', function() {
         }
 
         $output = false;
-        $user   = $this->module('yxorp')->getUser();
+        $user = $this->module('yxorp')->getUser();
 
         if (strpos($path, '../') !== false) {
             // normalize path
-            $path = implode('/', array_filter(explode('/', $path), function($s) { return trim($s, '.'); }));
+            $path = implode('/', array_filter(explode('/', $path), function ($s) {
+                return trim($s, '.');
+            }));
         }
 
         if ($resource == 'public' && $resourcefile = $this->path("#config:api/{$path}.php")) {
@@ -141,7 +143,7 @@ $this->on('before', function() {
                     $output = call_user_func_array($routes[$resource], $params);
                 }
 
-            } catch(Exception $e) {
+            } catch (Exception $e) {
 
                 $output = ['error' => true];
 

@@ -29,7 +29,7 @@ if ($data = $app->helper('fs')->read("{$src}/yxorp/accounts.json")) {
 
         if (count($accounts)) {
 
-            CLI::writeln("Importing yxorp/accounts (".count($accounts).")");
+            CLI::writeln("Importing yxorp/accounts (" . count($accounts) . ")");
 
             foreach ($accounts as $account) {
                 if ($check) {

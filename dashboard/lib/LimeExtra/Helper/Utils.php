@@ -14,24 +14,27 @@ namespace LimeExtra\Helper;
  * Class Utils
  * @package Lime\Helper
  */
-class Utils extends \Lime\Helper {
+class Utils extends \Lime\Helper
+{
 
     /**
      * @param $email
      * @param int $size
      * @return string
      */
-    public function gravatar($email, $size=40) {
-        return '//www.gravatar.com/avatar/'.\md5($email).'?d=mm&s='.$size;
+    public function gravatar($email, $size = 40)
+    {
+        return '//www.gravatar.com/avatar/' . \md5($email) . '?d=mm&s=' . $size;
     }
 
     /**
      * @param $size
      * @return string
      */
-    public function formatSize($size) {
+    public function formatSize($size)
+    {
         $sizes = array(' Bytes', ' KB', ' MB', ' GB', ' TB', ' PB', ' EB', ' ZB', ' YB');
-        return ($size == 0) ? 'n/a' : (\round($size/\pow(1024, ($i = \floor(\log($size, 1024)))), 2) . $sizes[$i]);
+        return ($size == 0) ? 'n/a' : (\round($size / \pow(1024, ($i = \floor(\log($size, 1024)))), 2) . $sizes[$i]);
     }
 
     /**
@@ -39,7 +42,8 @@ class Utils extends \Lime\Helper {
      *
      * @return int
      */
-    public function getMaxUploadSize() {
+    public function getMaxUploadSize()
+    {
         static $max_size = -1;
 
         if ($max_size < 0) {
@@ -65,15 +69,15 @@ class Utils extends \Lime\Helper {
      * @param string $size
      * @return void
      */
-    public function parseSize($size) {
+    public function parseSize($size)
+    {
 
         $unit = preg_replace('/[^bkmgtpezy]/i', '', $size); // Remove the non-unit characters from the size.
         $size = preg_replace('/[^0-9\.]/', '', $size); // Remove the non-numeric characters from the size.
         if ($unit) {
             // Find the position of the unit in the ordered string which is the power of magnitude to multiply a kilobyte by.
             return round($size * pow(1024, stripos('bkmgtpezy', $unit[0])));
-        }
-        else {
+        } else {
             return round($size);
         }
     }
@@ -83,10 +87,11 @@ class Utils extends \Lime\Helper {
      * @param string $base
      * @return mixed
      */
-    public function fixRelativeUrls($content, $base = '/') {
+    public function fixRelativeUrls($content, $base = '/')
+    {
 
         $protocols = '[a-zA-Z0-9\-]+:';
-        $regex     = '#\s+(src|href|poster)="(?!/|' . $protocols . '|\#|\')([^"]*)"#m';
+        $regex = '#\s+(src|href|poster)="(?!/|' . $protocols . '|\#|\')([^"]*)"#m';
 
         \preg_match_all($regex, $content, $matches);
 
@@ -103,8 +108,8 @@ class Utils extends \Lime\Helper {
         //$content = preg_replace($regex, " $1=\"$base\$2\"", $content);
 
         // Background image.
-        $regex     = '#style\s*=\s*[\'\"](.*):\s*url\s*\([\'\"]?(?!/|' . $protocols . '|\#)([^\)\'\"]+)[\'\"]?\)#m';
-        $content   = \preg_replace($regex, 'style="$1: url(\'' . $base . '$2$3\')', $content);
+        $regex = '#style\s*=\s*[\'\"](.*):\s*url\s*\([\'\"]?(?!/|' . $protocols . '|\#)([^\)\'\"]+)[\'\"]?\)#m';
+        $content = \preg_replace($regex, 'style="$1: url(\'' . $base . '$2$3\')', $content);
 
         return $content;
 
@@ -116,7 +121,8 @@ class Utils extends \Lime\Helper {
      * @param bool|true $tolower
      * @return mixed|string
      */
-    public function sluggify($string, $replacement = '-', $tolower = true) {
+    public function sluggify($string, $replacement = '-', $tolower = true)
+    {
         $quotedReplacement = \preg_quote($replacement, '/');
 
         $merge = array(
@@ -126,92 +132,92 @@ class Utils extends \Lime\Helper {
         );
 
         $map = array(
-            '/ä|æ|ǽ/' => 'ae',
-            '/ö|œ/' => 'oe',
-            '/ü/' => 'ue',
-            '/Ä/' => 'Ae',
-            '/Ü/' => 'Ue',
-            '/Ö/' => 'Oe',
-            '/À|Á|Â|Ã|Ä|Å|Ǻ|Ā|Ă|Ą|Ǎ/' => 'A',
-            '/à|á|â|ã|å|ǻ|ā|ă|ą|ǎ|ª/' => 'a',
-            '/Ç|Ć|Ĉ|Ċ|Č/' => 'C',
-            '/ç|ć|ĉ|ċ|č/' => 'c',
-            '/Ð|Ď|Đ/' => 'D',
-            '/ð|ď|đ/' => 'd',
-            '/È|É|Ê|Ë|Ē|Ĕ|Ė|Ę|Ě/' => 'E',
-            '/è|é|ê|ë|ē|ĕ|ė|ę|ě/' => 'e',
-            '/Ĝ|Ğ|Ġ|Ģ/' => 'G',
-            '/ĝ|ğ|ġ|ģ/' => 'g',
-            '/Ĥ|Ħ/' => 'H',
-            '/ĥ|ħ/' => 'h',
-            '/Ì|Í|Î|Ï|Ĩ|Ī|Ĭ|Ǐ|Į|İ/' => 'I',
-            '/ì|í|î|ï|ĩ|ī|ĭ|ǐ|į|ı/' => 'i',
-            '/Ĵ/' => 'J',
-            '/ĵ/' => 'j',
-            '/Ķ/' => 'K',
-            '/ķ/' => 'k',
-            '/Ĺ|Ļ|Ľ|Ŀ|Ł/' => 'L',
-            '/ĺ|ļ|ľ|ŀ|ł/' => 'l',
-            '/Ñ|Ń|Ņ|Ň/' => 'N',
-            '/ñ|ń|ņ|ň|ŉ/' => 'n',
-            '/Ò|Ó|Ô|Õ|Ō|Ŏ|Ǒ|Ő|Ơ|Ø|Ǿ/' => 'O',
-            '/ò|ó|ô|õ|ō|ŏ|ǒ|ő|ơ|ø|ǿ|º/' => 'o',
-            '/Ŕ|Ŗ|Ř/' => 'R',
-            '/ŕ|ŗ|ř/' => 'r',
-            '/Ś|Ŝ|Ş|Š/' => 'S',
-            '/ś|ŝ|ş|š|ſ/' => 's',
-            '/Ţ|Ť|Ŧ/' => 'T',
-            '/ţ|ť|ŧ/' => 't',
-            '/Ù|Ú|Û|Ũ|Ū|Ŭ|Ů|Ű|Ų|Ư|Ǔ|Ǖ|Ǘ|Ǚ|Ǜ/' => 'U',
-            '/ù|ú|û|ũ|ū|ŭ|ů|ű|ų|ư|ǔ|ǖ|ǘ|ǚ|ǜ/' => 'u',
-            '/Ý|Ÿ|Ŷ/' => 'Y',
-            '/ý|ÿ|ŷ/' => 'y',
-            '/Ŵ/' => 'W',
-            '/ŵ/' => 'w',
-            '/Ź|Ż|Ž/' => 'Z',
-            '/ź|ż|ž/' => 'z',
-            '/Æ|Ǽ/' => 'AE',
-            '/ß/' => 'ss',
-            '/Ĳ/' => 'IJ',
-            '/ĳ/' => 'ij',
-            '/Œ/' => 'OE',
-            '/ƒ/' => 'f',
-            '/А|а/' => 'a',
-            '/Б|б/' => 'b',
-            '/В|в/' => 'v',
-            '/Г|г/' => 'g',
-            '/Д|д/' => 'd',
-            '/Е|е|Ё|ё/' => 'e',
-            '/Ж|ж/' => 'j',
-            '/З|з/' => 'z',
-            '/И|и/' => 'i',
-            '/Й|й/' => 'y',
-            '/К|к/' => 'k',
-            '/Л|л/' => 'l',
-            '/М|м/' => 'm',
-            '/Н|н/' => 'n',
-            '/О|о/' => 'o',
-            '/П|п/' => 'p',
-            '/Р|р/' => 'r',
-            '/С|с/' => 's',
-            '/Т|т/' => 't',
-            '/У|у/' => 'u',
-            '/Ф|ф/' => 'f',
-            '/Х|х/' => 'h',
-            '/Ц|ц/' => 'c',
-            '/Ч|ч/' => 'ch',
-            '/Ш|ш/' => 'sh',
-            '/Щ|щ/' => 'shch',
-            '/Ы|ы/' => 'y',
-            '/Э|э/' => 'e',
-            '/Ю|ю/' => 'yu',
-            '/Я|я/' => 'ya',
-            '/Ъ|ъ|Ь|ь/' => '',
-        ) + $merge;
+                '/ä|æ|ǽ/' => 'ae',
+                '/ö|œ/' => 'oe',
+                '/ü/' => 'ue',
+                '/Ä/' => 'Ae',
+                '/Ü/' => 'Ue',
+                '/Ö/' => 'Oe',
+                '/À|Á|Â|Ã|Ä|Å|Ǻ|Ā|Ă|Ą|Ǎ/' => 'A',
+                '/à|á|â|ã|å|ǻ|ā|ă|ą|ǎ|ª/' => 'a',
+                '/Ç|Ć|Ĉ|Ċ|Č/' => 'C',
+                '/ç|ć|ĉ|ċ|č/' => 'c',
+                '/Ð|Ď|Đ/' => 'D',
+                '/ð|ď|đ/' => 'd',
+                '/È|É|Ê|Ë|Ē|Ĕ|Ė|Ę|Ě/' => 'E',
+                '/è|é|ê|ë|ē|ĕ|ė|ę|ě/' => 'e',
+                '/Ĝ|Ğ|Ġ|Ģ/' => 'G',
+                '/ĝ|ğ|ġ|ģ/' => 'g',
+                '/Ĥ|Ħ/' => 'H',
+                '/ĥ|ħ/' => 'h',
+                '/Ì|Í|Î|Ï|Ĩ|Ī|Ĭ|Ǐ|Į|İ/' => 'I',
+                '/ì|í|î|ï|ĩ|ī|ĭ|ǐ|į|ı/' => 'i',
+                '/Ĵ/' => 'J',
+                '/ĵ/' => 'j',
+                '/Ķ/' => 'K',
+                '/ķ/' => 'k',
+                '/Ĺ|Ļ|Ľ|Ŀ|Ł/' => 'L',
+                '/ĺ|ļ|ľ|ŀ|ł/' => 'l',
+                '/Ñ|Ń|Ņ|Ň/' => 'N',
+                '/ñ|ń|ņ|ň|ŉ/' => 'n',
+                '/Ò|Ó|Ô|Õ|Ō|Ŏ|Ǒ|Ő|Ơ|Ø|Ǿ/' => 'O',
+                '/ò|ó|ô|õ|ō|ŏ|ǒ|ő|ơ|ø|ǿ|º/' => 'o',
+                '/Ŕ|Ŗ|Ř/' => 'R',
+                '/ŕ|ŗ|ř/' => 'r',
+                '/Ś|Ŝ|Ş|Š/' => 'S',
+                '/ś|ŝ|ş|š|ſ/' => 's',
+                '/Ţ|Ť|Ŧ/' => 'T',
+                '/ţ|ť|ŧ/' => 't',
+                '/Ù|Ú|Û|Ũ|Ū|Ŭ|Ů|Ű|Ų|Ư|Ǔ|Ǖ|Ǘ|Ǚ|Ǜ/' => 'U',
+                '/ù|ú|û|ũ|ū|ŭ|ů|ű|ų|ư|ǔ|ǖ|ǘ|ǚ|ǜ/' => 'u',
+                '/Ý|Ÿ|Ŷ/' => 'Y',
+                '/ý|ÿ|ŷ/' => 'y',
+                '/Ŵ/' => 'W',
+                '/ŵ/' => 'w',
+                '/Ź|Ż|Ž/' => 'Z',
+                '/ź|ż|ž/' => 'z',
+                '/Æ|Ǽ/' => 'AE',
+                '/ß/' => 'ss',
+                '/Ĳ/' => 'IJ',
+                '/ĳ/' => 'ij',
+                '/Œ/' => 'OE',
+                '/ƒ/' => 'f',
+                '/А|а/' => 'a',
+                '/Б|б/' => 'b',
+                '/В|в/' => 'v',
+                '/Г|г/' => 'g',
+                '/Д|д/' => 'd',
+                '/Е|е|Ё|ё/' => 'e',
+                '/Ж|ж/' => 'j',
+                '/З|з/' => 'z',
+                '/И|и/' => 'i',
+                '/Й|й/' => 'y',
+                '/К|к/' => 'k',
+                '/Л|л/' => 'l',
+                '/М|м/' => 'm',
+                '/Н|н/' => 'n',
+                '/О|о/' => 'o',
+                '/П|п/' => 'p',
+                '/Р|р/' => 'r',
+                '/С|с/' => 's',
+                '/Т|т/' => 't',
+                '/У|у/' => 'u',
+                '/Ф|ф/' => 'f',
+                '/Х|х/' => 'h',
+                '/Ц|ц/' => 'c',
+                '/Ч|ч/' => 'ch',
+                '/Ш|ш/' => 'sh',
+                '/Щ|щ/' => 'shch',
+                '/Ы|ы/' => 'y',
+                '/Э|э/' => 'e',
+                '/Ю|ю/' => 'yu',
+                '/Я|я/' => 'ya',
+                '/Ъ|ъ|Ь|ь/' => '',
+            ) + $merge;
 
         $string = \preg_replace(\array_keys($map), \array_values($map), $string);
 
-        return $tolower ? \strtolower($string):$string;
+        return $tolower ? \strtolower($string) : $string;
     }
 
     /**
@@ -230,8 +236,9 @@ class Utils extends \Lime\Helper {
      * @param array $data
      * @return array
      */
-    public function resolveDependencies(array $data) {
-        
+    public function resolveDependencies(array $data)
+    {
+
         $new_data = array();
         $original_count = \count($data);
         while (\count($new_data) < $original_count) {
@@ -253,23 +260,24 @@ class Utils extends \Lime\Helper {
     }
 
     /**
-    * Converts many english words that equate to true or false to boolean.
-    *
-    * Supports 'y', 'n', 'yes', 'no' and a few other variations.
-    *
-    * @param  string $string  The string to convert to boolean
-    * @param  bool   $default The value to return if we can't match any
-    *                          yes/no words
-    * @return boolean
-    */
-    public function str_to_bool($string, $default = false) {
+     * Converts many english words that equate to true or false to boolean.
+     *
+     * Supports 'y', 'n', 'yes', 'no' and a few other variations.
+     *
+     * @param string $string The string to convert to boolean
+     * @param bool $default The value to return if we can't match any
+     *                          yes/no words
+     * @return boolean
+     */
+    public function str_to_bool($string, $default = false)
+    {
 
         $yes_words = 'affirmative|all right|aye|indubitably|most assuredly|ok|of course|okay|sure thing|y|yes+|yea|yep|sure|yeah|true|t|on|1|oui|vrai';
-        $no_words  = 'no*|no way|nope|nah|na|never|absolutely not|by no means|negative|never ever|false|f|off|0|non|faux';
+        $no_words = 'no*|no way|nope|nah|na|never|absolutely not|by no means|negative|never ever|false|f|off|0|non|faux';
 
-        if (\preg_match('/^('.$yes_words.')$/i', $string)) {
+        if (\preg_match('/^(' . $yes_words . ')$/i', $string)) {
             return true;
-        } else if (\preg_match('/^('.$no_words.')$/i', $string)) {
+        } else if (\preg_match('/^(' . $no_words . ')$/i', $string)) {
             return false;
         }
 
@@ -277,24 +285,25 @@ class Utils extends \Lime\Helper {
     }
 
     /**
-    * Truncate a string to a specified length without cutting a word off.
-    *
-    * @param   string  $string  The string to truncate
-    * @param   integer $length  The length to truncate the string to
-    * @param   string  $append  Text to append to the string IF it gets
-    *                           truncated, defaults to '...'
-    * @return  string
-    */
-    public function safe_truncate($string, $length, $append = '...') {
+     * Truncate a string to a specified length without cutting a word off.
+     *
+     * @param string $string The string to truncate
+     * @param integer $length The length to truncate the string to
+     * @param string $append Text to append to the string IF it gets
+     *                           truncated, defaults to '...'
+     * @return  string
+     */
+    public function safe_truncate($string, $length, $append = '...')
+    {
 
-        $ret        = \substr($string, 0, $length);
+        $ret = \substr($string, 0, $length);
         $last_space = \strrpos($ret, ' ');
 
         if ($last_space !== false && $string != $ret) {
             $ret = \substr($ret, 0, $last_space);
         }
 
-        if ($ret != $string ) {
+        if ($ret != $string) {
             $ret .= $append;
         }
 
@@ -302,38 +311,40 @@ class Utils extends \Lime\Helper {
     }
 
     /**
-    * Get content from url source.
-    *
-    * @param   string  $url
-    * @return  string
-    */
-    public function url_get_contents($url) {
+     * Get content from url source.
+     *
+     * @param string $url
+     * @return  string
+     */
+    public function url_get_contents($url)
+    {
 
         $content = '';
 
-        if (\function_exists('curl_exec')){
+        if (\function_exists('curl_exec')) {
             $conn = \curl_init($url);
             \curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, true);
-            \curl_setopt($conn, CURLOPT_FRESH_CONNECT,  true);
+            \curl_setopt($conn, CURLOPT_FRESH_CONNECT, true);
             \curl_setopt($conn, CURLOPT_RETURNTRANSFER, 1);
-            \curl_setopt($conn,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.52 Safari/537.17');
+            \curl_setopt($conn, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.17 (KHTML, like Gecko) Chrome/24.0.1312.52 Safari/537.17');
             \curl_setopt($conn, CURLOPT_AUTOREFERER, true);
             \curl_setopt($conn, CURLOPT_FOLLOWLOCATION, 1);
             \curl_setopt($conn, CURLOPT_VERBOSE, 0);
             $content = (\curl_exec($conn));
             \curl_close($conn);
         }
-        if (!$content && \function_exists('file_get_contents')){
+        if (!$content && \function_exists('file_get_contents')) {
             $content = @\file_get_contents($url);
         }
-        if (!$content && \function_exists('fopen') && function_exists('stream_get_contents')){
-            $handle  = @\fopen ($url, "r");
+        if (!$content && \function_exists('fopen') && function_exists('stream_get_contents')) {
+            $handle = @\fopen($url, "r");
             $content = @\stream_get_contents($handle);
         }
         return $content;
     }
 
-    public function buildTree(array $elements, $options = [], $parentId = null) {
+    public function buildTree(array $elements, $options = [], $parentId = null)
+    {
 
         $options = \array_merge([
             'parent_id_column_name' => '_pid',
@@ -363,7 +374,7 @@ class Utils extends \Lime\Helper {
 
         if ($options['sort_column_name']) {
 
-            \usort($branch, function ($a, $b) use($options) {
+            \usort($branch, function ($a, $b) use ($options) {
 
                 $_a = isset($a[$options['sort_column_name']]) ? $a[$options['sort_column_name']] : null;
                 $_b = isset($b[$options['sort_column_name']]) ? $b[$options['sort_column_name']] : null;
@@ -379,11 +390,12 @@ class Utils extends \Lime\Helper {
         return $branch;
     }
 
-    public function buildTreeList($items, $options = [], $parent = null, $result = null, $depth = 0, $path = '-') {
+    public function buildTreeList($items, $options = [], $parent = null, $result = null, $depth = 0, $path = '-')
+    {
 
         $options = \array_merge([
-              'parent_id_column_name' => '_pid',
-              'id_column_name' => '_id'
+            'parent_id_column_name' => '_pid',
+            'id_column_name' => '_id'
         ], $options);
 
         if (!$result) {
@@ -394,7 +406,7 @@ class Utils extends \Lime\Helper {
 
             if ($item[$options['parent_id_column_name']] == $parent) {
                 $item['_depth'] = $depth;
-                $item['_path'] = $path.$item[$options['id_column_name']];
+                $item['_path'] = $path . $item[$options['id_column_name']];
                 $result[] = $item;
                 $idx = \count($result) - 1;
                 unset($items[$key]);
@@ -405,7 +417,7 @@ class Utils extends \Lime\Helper {
         if ($depth == 0) {
 
             foreach ($result as $i => $item) {
-                $result[$i]['_isParent'] = isset($result[$i+1]) && $result[($i+1)][$options['parent_id_column_name']]===$item[$options['id_column_name']];
+                $result[$i]['_isParent'] = isset($result[$i + 1]) && $result[($i + 1)][$options['parent_id_column_name']] === $item[$options['id_column_name']];
             }
         }
 
@@ -415,11 +427,12 @@ class Utils extends \Lime\Helper {
     /**
      * get access token from header
      * */
-    public function getBearerToken() {
+    public function getBearerToken()
+    {
 
         $headers = null;
-        $token   = null;
-        $server  = $this->app->request->server;
+        $token = null;
+        $server = $this->app->request->server;
 
         if (isset($server['Authorization'])) {
             $headers = \trim($server['Authorization']);
@@ -446,24 +459,26 @@ class Utils extends \Lime\Helper {
 
     /**
      * Check if string is valid email
-     * @param  string  $email
+     * @param string $email
      * @return boolean
      */
-    public function isEmail($email) {
+    public function isEmail($email)
+    {
 
         if (\function_exists('idn_to_ascii')) {
             $email = @\idn_to_ascii($email);
         }
 
-        return (bool) \filter_var($email, FILTER_VALIDATE_EMAIL);
+        return (bool)\filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
     /**
      * Cast boolean string values to boolean
-     * @param  mixed $input
+     * @param mixed $input
      * @return mixed
      */
-    public function fixStringBooleanValues(&$input) {
+    public function fixStringBooleanValues(&$input)
+    {
 
         if (!\is_array($input)) {
 
@@ -491,10 +506,11 @@ class Utils extends \Lime\Helper {
 
     /**
      * Cast numeric string values to numbers
-     * @param  mixed $input
+     * @param mixed $input
      * @return mixed
      */
-    public function fixStringNumericValues(&$input) {
+    public function fixStringNumericValues(&$input)
+    {
 
         if (!\is_array($input)) {
 
@@ -522,11 +538,12 @@ class Utils extends \Lime\Helper {
 
     /**
      * Execute callable with retry if it fails
-     * @param  int $times
-     * @param  callable $fn
+     * @param int $times
+     * @param callable $fn
      * @return null
      */
-    public function retry($times, callable $fn) {
+    public function retry($times, callable $fn)
+    {
 
         retrybeginning:
         try {
@@ -548,17 +565,18 @@ class Utils extends \Lime\Helper {
      * @param boolean $return
      * @return void
      */
-    function var_export($expr, $return=false) {
-        
+    function var_export($expr, $return = false)
+    {
+
         $export = var_export($expr, true);
-        $array  = preg_split("/\r\n|\n|\r/", $export);
-        $array  = preg_replace(["/\s*array\s\($/", "/\)(,)?$/", "/\s=>\s$/"], [NULL, ']$1', ' => ['], $array);
+        $array = preg_split("/\r\n|\n|\r/", $export);
+        $array = preg_replace(["/\s*array\s\($/", "/\)(,)?$/", "/\s=>\s$/"], [NULL, ']$1', ' => ['], $array);
         $export = join(PHP_EOL, array_filter(["["] + $array));
-        
+
         if ($return) {
             return $export;
         }
-        
+
         echo $export;
     }
 }

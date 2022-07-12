@@ -16,32 +16,36 @@ use Spyc;
  * Class YAML
  * @package Lime\Helper
  */
-class YAML extends \Lime\Helper {
+class YAML extends \Lime\Helper
+{
 
 
     protected $cachePath = false;
 
     /**
-     * @param $path
-     */
-    public function setCachePath($path){
-        $this->cachePath = \is_string($path) ? \rtrim($path, "/\\") : $path;
-    }
-
-    /**
      * @param $string
      * @return array
      */
-    public static function fromString($string) {
+    public static function fromString($string)
+    {
 
         return Spyc::YAMLLoadString($string);
+    }
+
+    /**
+     * @param $path
+     */
+    public function setCachePath($path)
+    {
+        $this->cachePath = \is_string($path) ? \rtrim($path, "/\\") : $path;
     }
 
     /**
      * @param $file
      * @return array|mixed
      */
-    public function fromFile($file) {
+    public function fromFile($file)
+    {
 
         if (\strpos($file, ':') !== false) {
             $file = $this->app->path($file);
@@ -64,7 +68,8 @@ class YAML extends \Lime\Helper {
      * @param $array
      * @return string
      */
-    public function toYAML($array) {
+    public function toYAML($array)
+    {
         return Spyc::YAMLDump((array)$array, false, false, true);
     }
 
@@ -73,7 +78,8 @@ class YAML extends \Lime\Helper {
      * @param $array
      * @return int
      */
-    public function toFile($file, $array) {
+    public function toFile($file, $array)
+    {
         return \file_put_contents($file, $this->toYAML($array));
     }
 
@@ -81,9 +87,10 @@ class YAML extends \Lime\Helper {
      * @param $file
      * @return bool|string
      */
-    protected function get_cached_file($file) {
+    protected function get_cached_file($file)
+    {
 
-        $cachedfile = $this->cachePath.'/'.basename($file).'.'.md5($file).'.php';
+        $cachedfile = $this->cachePath . '/' . basename($file) . '.' . md5($file) . '.php';
 
         if (!\file_exists($cachedfile)) {
             $cachedfile = $this->cache_file($file, $cachedfile, null);
@@ -93,7 +100,7 @@ class YAML extends \Lime\Helper {
 
             $mtime = \filemtime($file);
 
-            if (\filemtime($cachedfile)!=$mtime) {
+            if (\filemtime($cachedfile) != $mtime) {
                 $cachedfile = $this->cache_file($file, $cachedfile, $mtime);
             }
 
@@ -109,16 +116,17 @@ class YAML extends \Lime\Helper {
      * @param null $filemtime
      * @return bool
      */
-    protected function cache_file($file, $cachedfile, $filemtime = null) {
+    protected function cache_file($file, $cachedfile, $filemtime = null)
+    {
 
-        if (!$filemtime){
+        if (!$filemtime) {
             $filemtime = \filemtime($file);
         }
 
         $data = \var_export(Spyc::YAMLLoad($file), true);
 
         if (\file_put_contents($cachedfile, "<?php return {$data};")) {
-            \touch($cachedfile,  $filemtime);
+            \touch($cachedfile, $filemtime);
             return $cachedfile;
         }
 

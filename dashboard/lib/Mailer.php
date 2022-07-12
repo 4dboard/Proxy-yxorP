@@ -11,21 +11,24 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-class Mailer {
+class Mailer
+{
 
     protected $mailer;
     protected $transport;
     protected $options;
 
-    public function __construct($transport = 'mail', $options = array()) {
+    public function __construct($transport = 'mail', $options = array())
+    {
 
         $this->transport = $transport;
         $this->options = $options;
     }
 
-    public function mail($to, $subject, $message, $options = []) {
+    public function mail($to, $subject, $message, $options = [])
+    {
 
-        $options = array_merge($this->options, is_array($options) ? $options: []);
+        $options = array_merge($this->options, is_array($options) ? $options : []);
 
         $message = $this->createMessage($to, $subject, $message, $options);
 
@@ -40,7 +43,8 @@ class Mailer {
         return $message->send();
     }
 
-    public function createMessage($to, $subject, $message, $options=[]) {
+    public function createMessage($to, $subject, $message, $options = [])
+    {
 
         $mail = new PHPMailer(true);
 
@@ -48,7 +52,7 @@ class Mailer {
 
             $mail->isSMTP();
 
-            if (isset($this->options['host']) && $this->options['host'])      {
+            if (isset($this->options['host']) && $this->options['host']) {
                 $mail->Host = $this->options['host']; // Specify main and backup server
             }
 
@@ -79,10 +83,10 @@ class Mailer {
         }
 
         $mail->Subject = $subject;
-        $mail->Body    = $message;
+        $mail->Body = $message;
         $mail->CharSet = 'utf-8';
 
-        $mail->IsHTML($message !=  strip_tags($message)); // auto-set email format to HTML
+        $mail->IsHTML($message != strip_tags($message)); // auto-set email format to HTML
 
         if (is_string($to)) {
             $to_array = explode(',', $to);
@@ -135,44 +139,54 @@ class Mailer {
 
 }
 
-class Mailer_Message {
+class Mailer_Message
+{
 
     public $mail;
 
-    public function __construct($mail) {
+    public function __construct($mail)
+    {
         $this->mail = $mail;
     }
 
-    public function setCharset($charset) {
+    public function setCharset($charset)
+    {
         $this->mail->CharSet = $charset;
     }
 
-    public function setSubject($subject) {
+    public function setSubject($subject)
+    {
         $this->mail->Subject = $subject;
     }
 
-    public function setFrom($email, $name=false) {
+    public function setFrom($email, $name = false)
+    {
         $this->mail->From = $email;
         $this->mail->FromName = $name ? $name : $email;
     }
 
-    public function addReplyTo($email, $name='') {
+    public function addReplyTo($email, $name = '')
+    {
         $this->mail->addReplyTo($email, $name);
     }
 
-    public function addTo($email, $name = '') {
+    public function addTo($email, $name = '')
+    {
         $this->mail->AddAddress($email, $name);
     }
 
-    public function addCC($email, $name = '') {
+    public function addCC($email, $name = '')
+    {
         $this->mail->AddCC($email, $name);
     }
 
-    public function send() {
+    public function send()
+    {
         return $this->mail->Send();
     }
 
-    public function attach($file, $alias='') {
+    public function attach($file, $alias = '')
+    {
         return $this->mail->AddAttachment($file, $alias);
     }
 }

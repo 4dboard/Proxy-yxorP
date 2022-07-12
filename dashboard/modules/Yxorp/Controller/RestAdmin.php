@@ -10,9 +10,11 @@
 
 namespace yxorP\Controller;
 
-class RestAdmin extends \yxorP\AuthController {
+class RestAdmin extends \yxorP\AuthController
+{
 
-    public function __construct($app) {
+    public function __construct($app)
+    {
 
         parent::__construct($app);
 
@@ -22,7 +24,8 @@ class RestAdmin extends \yxorP\AuthController {
     }
 
 
-    public function index() {
+    public function index()
+    {
 
         $keys = $this->app->module('yxorp')->loadApiKeys();
 
@@ -30,8 +33,9 @@ class RestAdmin extends \yxorP\AuthController {
     }
 
 
-    public function save() {
-        
+    public function save()
+    {
+
         $data = $this->param('data', false);
 
         if (!$data) {

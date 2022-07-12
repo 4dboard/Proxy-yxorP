@@ -11,12 +11,14 @@
 namespace Singletons\Controller;
 
 
-class Admin extends \yxorP\AuthController {
+class Admin extends \yxorP\AuthController
+{
 
-    public function index() {
+    public function index()
+    {
 
         $_singletons = $this->module('singletons')->getSingletonsInGroup();
-        $singletons  = [];
+        $singletons = [];
 
         foreach ($_singletons as $name => $meta) {
 
@@ -28,21 +30,22 @@ class Admin extends \yxorP\AuthController {
             ];
 
             $singletons[] = [
-              'name'  => $name,
-              'label' => isset($meta['label']) && $meta['label'] ? $meta['label'] : $name,
-              'meta'  => $meta
+                'name' => $name,
+                'label' => isset($meta['label']) && $meta['label'] ? $meta['label'] : $name,
+                'meta' => $meta
             ];
         }
 
         // sort singletons
-        usort($singletons, function($a, $b) {
+        usort($singletons, function ($a, $b) {
             return mb_strtolower($a['label']) <=> mb_strtolower($b['label']);
         });
 
         return $this->render('singletons:views/index.php', compact('singletons'));
     }
 
-    public function singleton($name = null) {
+    public function singleton($name = null)
+    {
 
         if ($name && !$this->module('singletons')->hasaccess($name, 'edit')) {
             return $this->helper('admin')->denyRequest();
@@ -52,7 +55,7 @@ class Admin extends \yxorP\AuthController {
             return $this->helper('admin')->denyRequest();
         }
 
-        $singleton = [ 'name'=>'', 'description' => '', 'fields'=>[], 'data' => null];
+        $singleton = ['name' => '', 'description' => '', 'fields' => [], 'data' => null];
 
         if ($name) {
 
@@ -80,7 +83,8 @@ class Admin extends \yxorP\AuthController {
         return $this->render('singletons:views/singleton.php', compact('singleton', 'aclgroups'));
     }
 
-    public function form($name = null) {
+    public function form($name = null)
+    {
 
         if (!$name) {
             return false;
@@ -122,7 +126,8 @@ class Admin extends \yxorP\AuthController {
 
     }
 
-    public function remove_singleton($singleton) {
+    public function remove_singleton($singleton)
+    {
 
         $singleton = $this->module('singletons')->singleton($singleton);
 
@@ -139,7 +144,8 @@ class Admin extends \yxorP\AuthController {
         return ['success' => true];
     }
 
-    public function update_data($singleton) {
+    public function update_data($singleton)
+    {
 
         $singleton = $this->module('singletons')->singleton($singleton);
         $data = $this->param('data');
@@ -175,7 +181,8 @@ class Admin extends \yxorP\AuthController {
         return ['data' => $data];
     }
 
-    public function revisions($singleton, $id) {
+    public function revisions($singleton, $id)
+    {
 
         if (!$this->module('singletons')->hasaccess($singleton, 'form')) {
             return $this->helper('admin')->denyRequest();
@@ -201,7 +208,7 @@ class Admin extends \yxorP\AuthController {
 
             if (isset($field['acl']) && is_array($field['acl']) && count($field['acl'])) {
 
-                if (!( in_array($user['group'], $field['acl']) || in_array($user['_id'], $field['acl']) )) {
+                if (!(in_array($user['group'], $field['acl']) || in_array($user['_id'], $field['acl']))) {
                     continue;
                 }
             }

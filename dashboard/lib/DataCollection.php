@@ -8,16 +8,27 @@
  * file that was distributed with this source code.
  */
 
-class DataCollection implements \Iterator {
+class DataCollection implements \Iterator
+{
 
     protected $position = 0;
     protected $items;
 
     /**
      * @param $items
+     */
+    public function __construct($items)
+    {
+
+        $this->items = $items;
+    }
+
+    /**
+     * @param $items
      * @return DataCollection
      */
-    public static function create($items) {
+    public static function create($items)
+    {
 
         $collection = new self($items);
 
@@ -25,38 +36,34 @@ class DataCollection implements \Iterator {
     }
 
     /**
-     * @param $items
-     */
-    public function __construct($items) {
-
-        $this->items = $items;
-    }
-
-    /**
      * @return int
      */
-    public function count() {
+    public function count()
+    {
         return count($this->items);
     }
 
     /**
      * @return null
      */
-    public function first() {
+    public function first()
+    {
         return isset($this->items[0]) ? $this->items[0] : null;
     }
 
     /**
      * @return null
      */
-    public function last() {
-        return isset($this->items[0]) ? $this->items[count($this->items)-1] : null;
+    public function last()
+    {
+        return isset($this->items[0]) ? $this->items[count($this->items) - 1] : null;
     }
 
     /**
      * @return DataCollection
      */
-    public function reverse() {
+    public function reverse()
+    {
         return $this->setItems(array_reverse($this->items));
     }
 
@@ -64,7 +71,8 @@ class DataCollection implements \Iterator {
      * @param $number
      * @return DataCollection
      */
-    public function limit($number) {
+    public function limit($number)
+    {
 
         $items = array_slice($this->items, 0, $number);
 
@@ -75,7 +83,8 @@ class DataCollection implements \Iterator {
      * @param $number
      * @return DataCollection
      */
-    public function skip($number) {
+    public function skip($number)
+    {
 
         $items = array_slice($this->items, $number);
 
@@ -86,7 +95,8 @@ class DataCollection implements \Iterator {
      * @param $criteria
      * @return DataCollection
      */
-    public function not($criteria) {
+    public function not($criteria)
+    {
 
         return $this->filter("!({$criteria})");
     }
@@ -95,10 +105,11 @@ class DataCollection implements \Iterator {
      * @param $criteria
      * @return DataCollection
      */
-    public function filter($criteria) {
+    public function filter($criteria)
+    {
 
         if (is_string($criteria)) {
-            eval('$criteria = function($item) { return ('.$criteria.'); };');
+            eval('$criteria = function($item) { return (' . $criteria . '); };');
         }
 
         return $this->setItems(array_values(array_filter($this->items, $criteria)));
@@ -109,14 +120,15 @@ class DataCollection implements \Iterator {
      * @param int $dir
      * @return $this
      */
-    public function sort($expr, $dir = 1) {
+    public function sort($expr, $dir = 1)
+    {
 
-        $cache    = [];
-        $params   = explode(',', $expr);
+        $cache = [];
+        $params = explode(',', $expr);
 
-        $getValue = function($page, $expr) use($cache) {
+        $getValue = function ($page, $expr) use ($cache) {
 
-            eval('$cache[$expr] = function($item) { return ('.$expr.'); };');
+            eval('$cache[$expr] = function($item) { return (' . $expr . '); };');
 
             $value = $cache[$expr]($page);
 
@@ -124,7 +136,7 @@ class DataCollection implements \Iterator {
         };
 
 
-        $callback = function($a, $b) use($params, $getValue, $dir) {
+        $callback = function ($a, $b) use ($params, $getValue, $dir) {
 
             $result = 0;
 
@@ -160,7 +172,8 @@ class DataCollection implements \Iterator {
      * @param $obj
      * @return bool|int
      */
-    public function index($obj) {
+    public function index($obj)
+    {
 
         $uid = (string)$obj;
 
@@ -177,19 +190,9 @@ class DataCollection implements \Iterator {
      * @param $index
      * @return bool
      */
-    public function eq($index) {
+    public function eq($index)
+    {
         return isset($this->items[$index]) ? $this->items[$index] : null;
-    }
-
-    /**
-     * @param $items
-     * @return DataCollection
-     */
-    protected function setItems($items) {
-
-        $collection = new static($items, $this);
-
-        return $collection;
     }
 
     /**
@@ -197,7 +200,8 @@ class DataCollection implements \Iterator {
      * @param $current
      * @return \Pagination
      */
-    public function pagination($limit = 5, $current = 1) {
+    public function pagination($limit = 5, $current = 1)
+    {
 
         $pagination = new \Pagination($this->count(), $limit, $current);
 
@@ -207,7 +211,8 @@ class DataCollection implements \Iterator {
     /**
      * @return array
      */
-    public function toArray() {
+    public function toArray()
+    {
 
         $items = [];
 
@@ -221,24 +226,41 @@ class DataCollection implements \Iterator {
     /**
      * Iterator implementation
      */
-    public function rewind() {
+    public function rewind()
+    {
         if ($this->position !== false) $this->position = 0;
     }
 
-    public function current() {
+    public function current()
+    {
         return $this->items[$this->position];
     }
 
-    public function key() {
+    public function key()
+    {
         return $this->position;
     }
 
-    public function next() {
+    public function next()
+    {
         ++$this->position;
     }
 
-    public function valid() {
+    public function valid()
+    {
 
         return isset($this->items[$this->position]);
+    }
+
+    /**
+     * @param $items
+     * @return DataCollection
+     */
+    protected function setItems($items)
+    {
+
+        $collection = new static($items, $this);
+
+        return $collection;
     }
 }

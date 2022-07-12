@@ -11,9 +11,11 @@
 namespace Collections\Controller;
 
 
-class Utils extends \yxorP\AuthController {
+class Utils extends \yxorP\AuthController
+{
 
-    public function getUserCollections() {
+    public function getUserCollections()
+    {
 
         \session_write_close();
 
@@ -22,7 +24,8 @@ class Utils extends \yxorP\AuthController {
         return $collections;
     }
 
-    public function getLinkedOverview() {
+    public function getLinkedOverview()
+    {
 
         \session_write_close();
 
@@ -38,10 +41,11 @@ class Utils extends \yxorP\AuthController {
         $collections = $this->app->module('collections')->collections();
 
         $filter = ($this->app->storage->type == 'mongolite') ?
-            function ($doc) use ($id) { return strpos(json_encode($doc), $id) !== false;}
+            function ($doc) use ($id) {
+                return strpos(json_encode($doc), $id) !== false;
+            }
             :
-            ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"]
-        ;
+            ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"];
 
         foreach ($collections as $name => $meta) {
 

@@ -2,11 +2,15 @@
 
 namespace Bootmanager\Controller;
 
-class Admin extends \yxorP\AuthController {
+class Admin extends \yxorP\AuthController
+{
 
-    public function index() {}
+    public function index()
+    {
+    }
 
-    public function settings() {
+    public function settings()
+    {
 
         if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
             return $this('admin')->denyRequest();
@@ -20,7 +24,8 @@ class Admin extends \yxorP\AuthController {
 
     }
 
-    public function getConfig() {
+    public function getConfig()
+    {
 
         if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
             return $this('admin')->denyRequest();
@@ -41,7 +46,8 @@ class Admin extends \yxorP\AuthController {
 
     }
 
-    public function saveConfig($redirect = false) {
+    public function saveConfig($redirect = false)
+    {
 
         if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
             return $this('admin')->denyRequest();
@@ -63,7 +69,8 @@ class Admin extends \yxorP\AuthController {
 
     }
 
-    public function getUpdatedValues() {
+    public function getUpdatedValues()
+    {
 
         if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
             return $this('admin')->denyRequest();
@@ -77,7 +84,8 @@ class Admin extends \yxorP\AuthController {
 
     }
 
-    public function listModules() {
+    public function listModules()
+    {
 
         if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
             return $this('admin')->denyRequest();
@@ -86,15 +94,15 @@ class Admin extends \yxorP\AuthController {
         $active = array_keys(get_object_vars($this->app['modules']));
 
         $moduleDirs = [
-            'core'   => YXORP_DIR.'/modules',
-            'addons' => YXORP_DIR.'/addons',
+            'core' => YXORP_DIR . '/modules',
+            'addons' => YXORP_DIR . '/addons',
         ];
 
         if ($customAddonDirs = $this->app->retrieve('loadmodules', null)) {
             $i = 1;
             foreach ($customAddonDirs as $key => $dir) {
                 if (is_string($key)) $moduleDirs[$key] = $dir;
-                else $moduleDirs['loadmodules-'.$i++] = $dir;
+                else $moduleDirs['loadmodules-' . $i++] = $dir;
             }
         }
 
@@ -122,15 +130,15 @@ class Admin extends \yxorP\AuthController {
                     continue;
                 }
 
-                $modules[$name] =  [
+                $modules[$name] = [
                     'label' => $label,
                     'type' => $type,
                     // 'path' => $module->getRealPath(),
                     'active' => in_array($name, $active),
                     'forced' => ($type == 'core' && !in_array($label, $disabled))
-                             || ($type == 'addons' && !in_array($label, $disabled))
-                             || (strpos($type, 'loadmodules') === 0 && !in_array($label, $disabled))
-                             || ($name == 'yxorp' || $name == 'bootmanager'),
+                        || ($type == 'addons' && !in_array($label, $disabled))
+                        || (strpos($type, 'loadmodules') === 0 && !in_array($label, $disabled))
+                        || ($name == 'yxorp' || $name == 'bootmanager'),
                 ];
 
             }
@@ -141,7 +149,8 @@ class Admin extends \yxorP\AuthController {
 
     }
 
-    public function getReadme() {
+    public function getReadme()
+    {
 
         $path = $this->app->path('bootmanager:README.md');
 

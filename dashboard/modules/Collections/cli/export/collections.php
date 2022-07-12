@@ -23,7 +23,7 @@ foreach ($app->module('collections')->collections() as $name => $collection) {
 
     if (count($items)) {
 
-        CLI::writeln("Exporting collections/{$name} (".count($items).")");
+        CLI::writeln("Exporting collections/{$name} (" . count($items) . ")");
 
         $app->helper('fs')->write("{$target}/collections/{$name}.json", json_encode($items, JSON_PRETTY_PRINT));
     }

@@ -10,13 +10,15 @@
 
 namespace SimpleStorage;
 
-class Client {
+class Client
+{
 
     protected $driver;
 
-    public function __construct($server, $options=[]) {
+    public function __construct($server, $options = [])
+    {
 
-        if (strpos($server, 'redis://')===0) {
+        if (strpos($server, 'redis://') === 0) {
 
             $server = explode(':', str_replace('redis://', '', $server));
 
@@ -35,13 +37,14 @@ class Client {
 
             $this->driver->setOption(\Redis::OPT_SERIALIZER, \Redis::SERIALIZER_PHP);
 
-        } elseif (strpos($server, 'redislite://')===0) {
+        } elseif (strpos($server, 'redislite://') === 0) {
             $this->driver = new \RedisLite(str_replace('redislite://', '', $server), $options);
         }
     }
 
-    public function get($key, $default = false) {
-        
+    public function get($key, $default = false)
+    {
+
         $val = $this->driver->get($key);
 
         if ($val === false) {
@@ -52,7 +55,8 @@ class Client {
     }
 
 
-    public function __call($method, $args) {
+    public function __call($method, $args)
+    {
 
         return call_user_func_array([$this->driver, $method], $args);
     }

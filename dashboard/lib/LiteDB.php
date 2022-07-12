@@ -8,24 +8,27 @@
  * file that was distributed with this source code.
  */
 
-class LiteDB extends PDO {
+class LiteDB extends PDO
+{
 
     public $log = [];
 
-    public static function connect($dns="sqlite::memory:", $user = null, $password = null, $options=[]) {
+    public static function connect($dns = "sqlite::memory:", $user = null, $password = null, $options = [])
+    {
 
         $litedb = new static($dns, $user, $password, $options);
 
         return $litedb;
     }
 
-    public function fetch($sql) {
+    public function fetch($sql)
+    {
 
         $this->log[] = $sql;
 
         $data = [];
 
-        if ($stmt = $this->query($sql)){
+        if ($stmt = $this->query($sql)) {
 
             $res = $stmt->fetch(self::FETCH_ASSOC);
 
@@ -35,13 +38,14 @@ class LiteDB extends PDO {
         return count($data) ? $data : null;
     }
 
-    public function fetchAll($sql) {
+    public function fetchAll($sql)
+    {
 
         $this->log[] = $sql;
 
         $data = [];
 
-        if ($stmt = $this->query($sql)){
+        if ($stmt = $this->query($sql)) {
 
             $data = $stmt->fetchAll(self::FETCH_ASSOC);
         }
@@ -51,14 +55,16 @@ class LiteDB extends PDO {
         return $arObj;
     }
 
-    public function __get($table) {
+    public function __get($table)
+    {
         $query = new LiteDBQuery($this, $table);
 
         return $query;
     }
 }
 
-class LiteDBQuery {
+class LiteDBQuery
+{
 
     protected $cmd;
     protected $connection;
@@ -73,35 +79,40 @@ class LiteDBQuery {
     protected $limit;
     protected $offset;
 
-    public function __construct($connection, $table=null) {
+    public function __construct($connection, $table = null)
+    {
 
         $this->connection = $connection;
-        $this->table      = $table;
+        $this->table = $table;
     }
 
 
-    public function select($fields = '*') {
-        $this->cmd    = "select";
+    public function select($fields = '*')
+    {
+        $this->cmd = "select";
         $this->fields = $fields;
-        $this->joins  = "";
+        $this->joins = "";
 
         return $this;
     }
 
-    public function fields($fields = '*') {
+    public function fields($fields = '*')
+    {
 
         $this->fields = $fields;
 
         return $this;
     }
 
-    public function from($table) {
+    public function from($table)
+    {
         $this->table = $table;
 
         return $this;
     }
 
-    public function where($conditions) {
+    public function where($conditions)
+    {
 
         if (is_string($conditions)) {
             $this->conditions[] = $conditions;
@@ -115,37 +126,44 @@ class LiteDBQuery {
         return $this;
     }
 
-    public function join($type, $join) {
-        $this->joins .= strtoupper($type)." JOIN {$join} ";
+    public function join($type, $join)
+    {
+        $this->joins .= strtoupper($type) . " JOIN {$join} ";
         return $this;
     }
 
-    public function group($group) {
+    public function group($group)
+    {
         $this->group = $group;
         return $this;
     }
 
-    public function having($having) {
+    public function having($having)
+    {
         $this->having = $having;
         return $this;
     }
 
-    public function order($order) {
+    public function order($order)
+    {
         $this->order = $order;
         return $this;
     }
 
-    public function limit($limit) {
+    public function limit($limit)
+    {
         $this->limit = $limit;
         return $this;
     }
 
-    public function offset($offset) {
+    public function offset($offset)
+    {
         $this->offset = $offset;
         return $this;
     }
 
-    public function all($condition = null) {
+    public function all($condition = null)
+    {
 
         if (func_num_args() && $condition) {
             foreach (func_get_args() as $arg) {
@@ -156,7 +174,8 @@ class LiteDBQuery {
         return $this->connection->fetchAll($this->buildSelect());
     }
 
-    public function one($conditions = null) {
+    public function one($conditions = null)
+    {
 
         $this->limit = 1;
 
@@ -167,10 +186,11 @@ class LiteDBQuery {
         return $this->connection->fetch($this->buildSelect());
     }
 
-    public function count($conditions = null) {
+    public function count($conditions = null)
+    {
 
         $table = $this->table;
-        $obj   = $this->connection->{$table}->select('COUNT(*) AS C');
+        $obj = $this->connection->{$table}->select('COUNT(*) AS C');
 
         if ($conditions) {
             $obj->where($conditions);
@@ -178,14 +198,15 @@ class LiteDBQuery {
 
         $count = $obj->one();
 
-        return isset($count['C']) ? intval($count['C']):0;
+        return isset($count['C']) ? intval($count['C']) : 0;
     }
 
-    public function sum($field, $conditions = null) {
+    public function sum($field, $conditions = null)
+    {
 
-        $args  = func_get_args();
+        $args = func_get_args();
         $table = $this->table;
-        $obj   = $this->connection->{$table}->select('SUM('.$field.') AS S');
+        $obj = $this->connection->{$table}->select('SUM(' . $field . ') AS S');
 
         array_shift($args);
 
@@ -195,14 +216,15 @@ class LiteDBQuery {
 
         $count = $obj->one();
 
-        return isset($count['S']) ? floatval($count['S']):0;
+        return isset($count['S']) ? floatval($count['S']) : 0;
     }
 
-    public function avg($field, $conditions = null) {
+    public function avg($field, $conditions = null)
+    {
 
-        $args  = func_get_args();
+        $args = func_get_args();
         $table = $this->table;
-        $obj   = $this->connection->{$table}->select('AVG('.$field.') AS A');
+        $obj = $this->connection->{$table}->select('AVG(' . $field . ') AS A');
 
         array_shift($args);
 
@@ -212,24 +234,25 @@ class LiteDBQuery {
 
         $avg = $obj->one();
 
-        return isset($avg['A']) ? floatval($avg['A']):0;
+        return isset($avg['A']) ? floatval($avg['A']) : 0;
     }
 
-    public function insert($data){
+    public function insert($data)
+    {
 
         $table = $this->table;
 
         $fields = [];
         $values = [];
 
-        foreach ($data as $col=>$value){
+        foreach ($data as $col => $value) {
 
-            if (!is_null($value) && (is_array($value) || is_object($value))){
-              $value = json_encode($value, JSON_NUMERIC_CHECK);
+            if (!is_null($value) && (is_array($value) || is_object($value))) {
+                $value = json_encode($value, JSON_NUMERIC_CHECK);
             }
 
             $fields[] = "`{$col}`";
-            $values[] = (is_null($value) ? 'NULL':$this->connection->quote($value));
+            $values[] = (is_null($value) ? 'NULL' : $this->connection->quote($value));
         }
 
         $fields = implode(',', $fields);
@@ -241,30 +264,31 @@ class LiteDBQuery {
 
         $res = $this->connection->exec($sql);
 
-        if ($res){
+        if ($res) {
             return $this->connection->lastInsertId();
         } else {
-            trigger_error('SQL Error: '.implode(', ',$this->connection->errorInfo()).":\n".$sql);
+            trigger_error('SQL Error: ' . implode(', ', $this->connection->errorInfo()) . ":\n" . $sql);
             return false;
         }
     }
 
-    public function update($data, $conditions=[]){
+    public function update($data, $conditions = [])
+    {
 
         $table = $this->table;
         $conditions = $this->buildConditions($conditions);
 
-        if (strlen(trim($conditions))>0) $conditions = "WHERE ".$conditions;
+        if (strlen(trim($conditions)) > 0) $conditions = "WHERE " . $conditions;
 
         $fields = [];
 
-        foreach ($data as $col=>$value){
+        foreach ($data as $col => $value) {
 
-            if (!is_null($value) && (is_array($value) || is_object($value))){
+            if (!is_null($value) && (is_array($value) || is_object($value))) {
                 $value = json_encode($value, JSON_NUMERIC_CHECK);
             }
 
-            $fields[] = "`{$col}`=".(is_null($value) ? 'NULL':$this->connection->quote($value));
+            $fields[] = "`{$col}`=" . (is_null($value) ? 'NULL' : $this->connection->quote($value));
         }
 
         $fields = implode(',', $fields);
@@ -277,19 +301,20 @@ class LiteDBQuery {
 
         } else {
             $errorInfo = $this->connection->errorInfo();
-            if ($errorInfo[0]!='00000') {
-                trigger_error('SQL Error: '.implode(', ',$errorInfo).":\n".$sql);
+            if ($errorInfo[0] != '00000') {
+                trigger_error('SQL Error: ' . implode(', ', $errorInfo) . ":\n" . $sql);
                 return false;
             }
         }
     }
 
-    public function delete($conditions = []){
+    public function delete($conditions = [])
+    {
 
         $table = $this->table;
         $conditions = $this->buildConditions($conditions);
 
-        if (strlen(trim($conditions))>0) $conditions = "WHERE ".$conditions;
+        if (strlen(trim($conditions)) > 0) $conditions = "WHERE " . $conditions;
 
         $sql = "DELETE FROM `{$table}` {$conditions}";
 
@@ -297,42 +322,45 @@ class LiteDBQuery {
 
         $res = $this->connection->exec($sql);
 
-        if ($res || $res===0) {
+        if ($res || $res === 0) {
             return true;
         } else {
-            trigger_error('SQL Error: '.implode(', ',$this->connection->errorInfo()).":\n".$sql);
+            trigger_error('SQL Error: ' . implode(', ', $this->connection->errorInfo()) . ":\n" . $sql);
             return false;
         }
     }
 
-    public function truncate() {
+    public function truncate()
+    {
         $this->connection->exec("DELETE FROM `{$this->table}`");
     }
 
-    public function drop() {
+    public function drop()
+    {
         $this->connection->exec("DROP TABLE `{$this->table}`");
     }
 
 
-    public function buildSelect(){
+    public function buildSelect()
+    {
 
-        $fields     = $this->fields;
-        $table      = $this->table;
-        $joins      = $this->joins;
+        $fields = $this->fields;
+        $table = $this->table;
+        $joins = $this->joins;
         $conditions = $this->conditions;
-        $group      = $this->group;
-        $having     = $this->having;
-        $order      = $this->order;
-        $limit      = $this->limit;
-        $offset     = $this->offset;
+        $group = $this->group;
+        $having = $this->having;
+        $order = $this->order;
+        $limit = $this->limit;
+        $offset = $this->offset;
 
         if (is_array($fields)) $fields = implode(', ', $fields);
-        if (is_array($table))  $table  = implode(', ', $table);
-        if (is_array($group))  $group  = implode(', ', $group);
-        if (is_array($order))  $order  = implode(', ', $order);
+        if (is_array($table)) $table = implode(', ', $table);
+        if (is_array($group)) $group = implode(', ', $group);
+        if (is_array($order)) $order = implode(', ', $order);
 
         $conditions = $this->buildConditions($conditions);
-        $having     = $this->buildConditions($having);
+        $having = $this->buildConditions($having);
 
         if ($limit) {
 
@@ -351,12 +379,12 @@ class LiteDBQuery {
             $limit = $rt;
         }
 
-        if (strlen(trim($conditions))>0) $conditions = "WHERE ".$conditions;
-        if (strlen(trim($group))>0) $group = "GROUP BY ".$group;
-        if (strlen(trim($having))>0) $having = "HAVING ".$conditions;
-        if (strlen(trim($fields))==0) $fields = "*";
-        if (strlen(trim($order))>0) {
-            
+        if (strlen(trim($conditions)) > 0) $conditions = "WHERE " . $conditions;
+        if (strlen(trim($group)) > 0) $group = "GROUP BY " . $group;
+        if (strlen(trim($having)) > 0) $having = "HAVING " . $conditions;
+        if (strlen(trim($fields)) == 0) $fields = "*";
+        if (strlen(trim($order)) > 0) {
+
             $driver = strtolower($this->connection->getAttribute(\PDO::ATTR_DRIVER_NAME));
 
             if ($driver == 'mysql') {
@@ -365,7 +393,7 @@ class LiteDBQuery {
                 $order = str_replace(['RAND()'], ['RANDOM()'], $order);
             }
 
-            $order = "ORDER BY ".$order;
+            $order = "ORDER BY " . $order;
         }
 
         $sql = trim("SELECT {$fields} FROM `{$table}` {$joins} {$conditions} {$group} {$having} {$order} {$limit}");
@@ -374,7 +402,8 @@ class LiteDBQuery {
 
     }
 
-    protected function buildConditions($conditions){
+    protected function buildConditions($conditions)
+    {
 
         if (is_string($conditions)) $conditions = array($conditions);
 
@@ -393,22 +422,22 @@ class LiteDBQuery {
             } elseif (is_array($c) && isset($c[0], $c[1])) {
                 $sql = $c[0];
 
-                foreach ($c[1] as $key=>$value){
-                    $sql = str_replace(':'.$key, $this->connection->quote($value), $sql);
+                foreach ($c[1] as $key => $value) {
+                    $sql = str_replace(':' . $key, $this->connection->quote($value), $sql);
                 }
 
             }
 
-            if (count($_conditions) > 0  && strtoupper(substr($sql,0,4))!='AND ' && strtoupper(substr($sql,0,3))!='OR '){
-                $sql = 'AND '.$sql;
+            if (count($_conditions) > 0 && strtoupper(substr($sql, 0, 4)) != 'AND ' && strtoupper(substr($sql, 0, 3)) != 'OR ') {
+                $sql = 'AND ' . $sql;
             }
 
             $_conditions[] = $sql;
         }
-        
 
-       $conditions = implode(' ', $_conditions);
 
-       return $conditions;
+        $conditions = implode(' ', $_conditions);
+
+        return $conditions;
     }
 }

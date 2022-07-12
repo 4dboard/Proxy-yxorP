@@ -10,28 +10,28 @@
 
 // Helpers
 
-$this->helpers['revisions']  = 'yxorP\\Helper\\Revisions';
-$this->helpers['updater']    = 'yxorP\\Helper\\Updater';
-$this->helpers['async']      = 'yxorP\\Helper\\Async';
-$this->helpers['jobs']       = 'yxorP\\Helper\\Jobs';
+$this->helpers['revisions'] = 'yxorP\\Helper\\Revisions';
+$this->helpers['updater'] = 'yxorP\\Helper\\Updater';
+$this->helpers['async'] = 'yxorP\\Helper\\Async';
+$this->helpers['jobs'] = 'yxorP\\Helper\\Jobs';
 
 // API
 $this->module('yxorp')->extend([
 
-    'markdown' => function($content, $extra = false) use($app) {
+    'markdown' => function ($content, $extra = false) use ($app) {
 
         static $parseDown;
         static $parsedownExtra;
 
-        if (!$extra && !$parseDown)      $parseDown      = new \Parsedown();
-        if ($extra && !$parsedownExtra)  $parsedownExtra = new \ParsedownExtra();
+        if (!$extra && !$parseDown) $parseDown = new \Parsedown();
+        if ($extra && !$parsedownExtra) $parsedownExtra = new \ParsedownExtra();
 
         return $extra ? $parsedownExtra->text($content) : $parseDown->text($content);
     },
 
-    'clearCache' => function() use($app) {
+    'clearCache' => function () use ($app) {
 
-        $dirs = ['#cache:','#tmp:','#thumbs:', '#pstorage:tmp'];
+        $dirs = ['#cache:', '#tmp:', '#thumbs:', '#pstorage:tmp'];
 
         foreach (array_unique($dirs) as &$dir) {
             $dir = $this->app->path($dir);
@@ -65,13 +65,13 @@ $this->module('yxorp')->extend([
             opcache_reset();
         }
 
-        return ['size'=>$app->helper('utils')->formatSize($size)];
+        return ['size' => $app->helper('utils')->formatSize($size)];
     },
 
-    'loadApiKeys' => function() {
+    'loadApiKeys' => function () {
 
-        $keys      = [ 'master' => '', 'special' => [] ];
-        $container = $this->app->path('#storage:').'/api.keys.php';
+        $keys = ['master' => '', 'special' => []];
+        $container = $this->app->path('#storage:') . '/api.keys.php';
 
         if (file_exists($container)) {
 
@@ -89,16 +89,16 @@ $this->module('yxorp')->extend([
         return $keys;
     },
 
-    'saveApiKeys' => function($data) {
+    'saveApiKeys' => function ($data) {
 
-        $data = array_merge([ 'master' => '', 'special' => [] ], (array)$data);
+        $data = array_merge(['master' => '', 'special' => []], (array)$data);
 
         $this->app->storage->setKey('yxorp', 'api_keys', $data);
 
         // cache
         $serialized = serialize($data);
-        $export     = var_export($this->app->encode($serialized, $this->app["sec-key"]), true);
-        $container  = $this->app->path('#storage:').'/api.keys.php';
+        $export = var_export($this->app->encode($serialized, $this->app["sec-key"]), true);
+        $container = $this->app->path('#storage:') . '/api.keys.php';
 
         return $this->app->helper('fs')->write($container, "<?php\n return {$export};");
     },
@@ -106,21 +106,21 @@ $this->module('yxorp')->extend([
     /**
      * Generate thumbnail
      * @param array $options {
-     *   @var string [cachefolder=thumbs://] - Cache folder
-     *   @var string $source - Source file path
-     *   @var string [$mode=thumbnail] - One of thumbnail|bestFit|resize|fitToWidth|fitToHeight
-     *   @var string [$fp] - Position
-     *   @var array [$filters] - Associative array of filters and it's options: ['sepia', 'sharpen']
-     *   @var integer [$width] - Output width
-     *   @var integer [$height] - Output height
-     *   @var integer [$quality=100] - Output quality
-     *   @var boolean [$rebuild=false] - Force image rebuild
-     *   @var boolean [$base64=false] - Base64 output
-     *   @var boolean [$output=false] - Echo response and exit application
-     * }
      * @return string URL to file or Base64 output
+     * @var string [cachefolder=thumbs://] - Cache folder
+     * @var string $source - Source file path
+     * @var string [$mode=thumbnail] - One of thumbnail|bestFit|resize|fitToWidth|fitToHeight
+     * @var string [$fp] - Position
+     * @var array [$filters] - Associative array of filters and it's options: ['sepia', 'sharpen']
+     * @var integer [$width] - Output width
+     * @var integer [$height] - Output height
+     * @var integer [$quality=100] - Output quality
+     * @var boolean [$rebuild=false] - Force image rebuild
+     * @var boolean [$base64=false] - Base64 output
+     * @var boolean [$output=false] - Echo response and exit application
+     * }
      */
-    'thumbnail' => function($options) {
+    'thumbnail' => function ($options) {
 
         $options = array_merge([
             'cachefolder' => 'thumbs://',
@@ -148,7 +148,7 @@ $this->module('yxorp')->extend([
             return ['error' => 'Missing src parameter'];
         }
 
-        $src   = str_replace('../', '', rawurldecode($src));
+        $src = str_replace('../', '', rawurldecode($src));
         $asset = null;
 
         // is asset?
@@ -158,7 +158,7 @@ $this->module('yxorp')->extend([
 
             try {
 
-                if ($this->app->filestorage->has('assets://'.$path)) {
+                if ($this->app->filestorage->has('assets://' . $path)) {
 
                     $asset = $this->app->storage->findOne('yxorp/assets', ['path' => "/{$path}"]);
 
@@ -183,13 +183,13 @@ $this->module('yxorp')->extend([
             $asset['path'] = trim($asset['path'], '/');
             $src = $this->app->path("#uploads:{$asset['path']}");
 
-            if (!$src && $this->app->filestorage->has('assets://'.$asset['path'])) {
+            if (!$src && $this->app->filestorage->has('assets://' . $asset['path'])) {
 
-                $stream = $this->app->filestorage->readStream('assets://'.$asset['path']);
+                $stream = $this->app->filestorage->readStream('assets://' . $asset['path']);
 
                 if ($stream) {
-                   $this->app->filestorage->writeStream('uploads://'.$asset['path'], $stream);
-                   $src = $this->app->path("#uploads:{$asset['path']}");
+                    $this->app->filestorage->writeStream('uploads://' . $asset['path'], $stream);
+                    $src = $this->app->path("#uploads:{$asset['path']}");
                 }
             }
 
@@ -198,7 +198,7 @@ $this->module('yxorp')->extend([
             }
 
             if (isset($asset['fp']) && !$fp) {
-                $fp = $asset['fp']['x'].' '.$asset['fp']['y'];
+                $fp = $asset['fp']['x'] . ' ' . $asset['fp']['y'];
             }
         }
 
@@ -206,15 +206,15 @@ $this->module('yxorp')->extend([
 
             $path = trim(str_replace(rtrim($this->app->filestorage->getUrl('site://'), '/'), '', $src), '/');
 
-            if (file_exists(YXORP_SITE_DIR.'/'.$path)) {
-                $src = YXORP_SITE_DIR.'/'.$path;
-            } elseif (file_exists(YXORP_DOCS_ROOT.'/'.$path)) {
-                $src = YXORP_DOCS_ROOT.'/'.$path;
+            if (file_exists(YXORP_SITE_DIR . '/' . $path)) {
+                $src = YXORP_SITE_DIR . '/' . $path;
+            } elseif (file_exists(YXORP_DOCS_ROOT . '/' . $path)) {
+                $src = YXORP_DOCS_ROOT . '/' . $path;
             }
         }
 
-        $path  = $this->app->path($src);
-        $ext   = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+        $path = $this->app->path($src);
+        $ext = strtolower(pathinfo($path, PATHINFO_EXTENSION));
 
         if (!file_exists($path) || is_dir($path)) {
             return false;
@@ -224,12 +224,12 @@ $this->module('yxorp')->extend([
         if ($ext == 'svg') {
 
             if ($base64) {
-                return 'data:image/svg+xml;base64,'.base64_encode(file_get_contents($path));
+                return 'data:image/svg+xml;base64,' . base64_encode(file_get_contents($path));
             }
 
             if ($output) {
                 header('Content-Type: image/svg+xml');
-                header('Content-Length: '.filesize($path));
+                header('Content-Length: ' . filesize($path));
                 echo file_get_contents($path);
                 $this->app->stop();
             }
@@ -237,19 +237,19 @@ $this->module('yxorp')->extend([
             return $this->app->pathToUrl($path, true);
         }
 
-        if (!in_array($ext, ['png','jpg','jpeg','gif', 'webp'])) {
+        if (!in_array($ext, ['png', 'jpg', 'jpeg', 'gif', 'webp'])) {
             return $this->app->pathToUrl($path, true);
         }
 
         if (!$width || !$height || $width == 'original' || $height == 'original') {
 
-            list($w, $h, $type, $attr)  = getimagesize($path);
+            list($w, $h, $type, $attr) = getimagesize($path);
 
             if ($width == 'original') $width = $w;
             if ($height == 'original') $height = $h;
 
-            if (!$width) $width = ceil($w * ($height/$h));
-            if (!$height) $height = ceil($h * ($width/$w));
+            if (!$width) $width = ceil($w * ($height / $h));
+            if (!$height) $height = ceil($h * ($width / $w));
         }
 
         if (is_null($width) && is_null($height)) {
@@ -260,13 +260,13 @@ $this->module('yxorp')->extend([
             $fp = 'center';
         }
 
-        if (!in_array($mode, ['thumbnail', 'bestFit', 'resize','fitToWidth','fitToHeight'])) {
+        if (!in_array($mode, ['thumbnail', 'bestFit', 'resize', 'fitToWidth', 'fitToHeight'])) {
             $mode = 'thumbnail';
         }
 
         if ($mime) {
 
-            if (in_array($mime, ['image/gif', 'image/jpeg', 'image/png','image/webp','image/bmp'])) {
+            if (in_array($mime, ['image/gif', 'image/jpeg', 'image/png', 'image/webp', 'image/bmp'])) {
                 $ext = explode('/', $mime)[1];
             } else {
                 $mime = null;
@@ -276,8 +276,8 @@ $this->module('yxorp')->extend([
         $method = $mode == 'crop' ? 'thumbnail' : $mode;
 
         $filetime = filemtime($path);
-        $hash = md5($path.json_encode($options))."_{$width}x{$height}_{$quality}_{$filetime}_{$mode}_".md5($fp).".{$ext}";
-        $thumbpath = $cachefolder."/{$hash}";
+        $hash = md5($path . json_encode($options)) . "_{$width}x{$height}_{$quality}_{$filetime}_{$mode}_" . md5($fp) . ".{$ext}";
+        $thumbpath = $cachefolder . "/{$hash}";
 
         if ($rebuild || !$this->app->filestorage->has($thumbpath)) {
 
@@ -314,7 +314,7 @@ $this->module('yxorp')->extend([
                     }
 
                     if (in_array($filterName, $_filters)) {
-                        call_user_func_array([$img, $filterName], (array) $filterOptions);
+                        call_user_func_array([$img, $filterName], (array)$filterOptions);
                     }
                 }
 
@@ -322,13 +322,13 @@ $this->module('yxorp')->extend([
 
                 unset($img);
 
-            } catch(Exception $e) {
+            } catch (Exception $e) {
                 return "data:image/gif;base64,R0lGODlhAQABAJEAAAAAAP///////wAAACH5BAEHAAIALAAAAAABAAEAAAICVAEAOw=="; // transparent 1px gif
             }
         }
 
         if ($base64) {
-            return "data:image/{$ext};base64,".base64_encode($this->app->filestorage->read($thumbpath));
+            return "data:image/{$ext};base64," . base64_encode($this->app->filestorage->read($thumbpath));
         }
 
         if ($output) {
@@ -338,7 +338,7 @@ $this->module('yxorp')->extend([
             }
 
             header("Content-Type: image/{$ext}");
-            header('Content-Length: '.$this->app->filestorage->getSize($thumbpath));
+            header('Content-Length: ' . $this->app->filestorage->getSize($thumbpath));
             echo $this->app->filestorage->read($thumbpath);
             $this->app->stop();
         }
@@ -353,24 +353,24 @@ $this->module('yxorp')->extend([
 
 
 // Additional module Api
-include_once(__DIR__.'/module/auth.php');
-include_once(__DIR__.'/module/assets.php');
+include_once(__DIR__ . '/module/auth.php');
+include_once(__DIR__ . '/module/assets.php');
 
 
 // ADMIN
 if (YXORP_ADMIN_CP) {
 
-    include_once(__DIR__.'/admin.php');
+    include_once(__DIR__ . '/admin.php');
 
-    $this->bind('/yxorp-api.js', function() {
+    $this->bind('/yxorp-api.js', function () {
 
         $token = $this->param('token', '');
         $this->response->mime = 'js';
 
-        $apiurl = ($this->request->is('ssl') ? 'https':'http').'://';
+        $apiurl = ($this->request->is('ssl') ? 'https' : 'http') . '://';
 
         if (!in_array($this->registry['base_port'], ['80', '443'])) {
-            $apiurl .= $this->registry['base_host'].":".$this->registry['base_port'];
+            $apiurl .= $this->registry['base_host'] . ":" . $this->registry['base_port'];
         } else {
             $apiurl .= $this->registry['base_host'];
         }
@@ -383,21 +383,21 @@ if (YXORP_ADMIN_CP) {
 
 // CLI
 if (YXORP_CLI) {
-    $this->path('#cli', __DIR__.'/cli');
+    $this->path('#cli', __DIR__ . '/cli');
 }
 
 // WEBHOOKS
 if (!defined('YXORP_INSTALL')) {
-    include_once(__DIR__.'/webhooks.php');
+    include_once(__DIR__ . '/webhooks.php');
 }
 
 // REST
 if (YXORP_API_REQUEST) {
 
     // INIT REST API HANDLER
-    include_once(__DIR__.'/rest-api.php');
+    include_once(__DIR__ . '/rest-api.php');
 
-    $this->on('yxorp.rest.init', function($routes) {
+    $this->on('yxorp.rest.init', function ($routes) {
         $routes['yxorp'] = 'yxorP\\Controller\\RestApi';
     });
 }

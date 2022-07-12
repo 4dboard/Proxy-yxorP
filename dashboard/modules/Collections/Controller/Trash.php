@@ -11,9 +11,11 @@
 namespace Collections\Controller;
 
 
-class Trash extends \yxorP\AuthController {
+class Trash extends \yxorP\AuthController
+{
 
-    public function collection($name = null) {
+    public function collection($name = null)
+    {
 
         if (!$name) {
             return null;
@@ -30,12 +32,13 @@ class Trash extends \yxorP\AuthController {
         return $this->render('collections:views/trash/collection.php', compact('collection'));
     }
 
-    public function find() {
+    public function find()
+    {
 
         \session_write_close();
 
         $collection = $this->app->param('collection');
-        $options    = $this->app->param('options');
+        $options = $this->app->param('options');
 
         if (!$collection) return false;
 
@@ -53,7 +56,7 @@ class Trash extends \yxorP\AuthController {
 
         $count = $this->app->storage->count('collections/_trash', $options['filter']);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page  = 1;
+        $page = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -62,7 +65,8 @@ class Trash extends \yxorP\AuthController {
         return compact('entries', 'count', 'pages', 'page');
     }
 
-    public function empty($collection) {
+    public function empty($collection)
+    {
 
         $collection = $this->app->module('collections')->collection($collection);
 
@@ -81,7 +85,8 @@ class Trash extends \yxorP\AuthController {
         return ['success' => true];
     }
 
-    public function delete($collection) {
+    public function delete($collection)
+    {
 
         $collection = $this->module('collections')->collection($collection);
 
@@ -94,11 +99,11 @@ class Trash extends \yxorP\AuthController {
         }
 
         $filter = $this->param('filter', false);
-        
+
         if (!$filter) {
             return false;
         }
-        
+
         $filter['collection'] = $collection['name'];
 
         $this->app->storage->remove('collections/_trash', $filter);
@@ -106,7 +111,8 @@ class Trash extends \yxorP\AuthController {
         return true;
     }
 
-    public function recycle($collection) {
+    public function recycle($collection)
+    {
 
         $collection = $this->module('collections')->collection($collection);
 

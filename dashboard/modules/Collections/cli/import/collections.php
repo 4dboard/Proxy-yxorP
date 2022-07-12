@@ -29,12 +29,12 @@ if (count($collections)) {
 
         if ($_collection = $app->module('collections')->collection($name)) {
 
-            $cid  = $_collection['_id'];
+            $cid = $_collection['_id'];
             $data = $fs->read($__file->getRealPath());
 
             if ($items = json_decode($data, true)) {
 
-                CLI::writeln("Importing collections/{$name} (".count($items).")");
+                CLI::writeln("Importing collections/{$name} (" . count($items) . ")");
 
                 foreach ($items as &$item) {
 

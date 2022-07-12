@@ -1,15 +1,15 @@
 <?php
 /**
  * Some utilities for yxorP CMS
- * 
+ *
  * When using yxorP with multiple users, it needs some customization.
  * By default, some helper functions bypass the user group access control lists,
  * so they definitely need some adjustments. This addon also adds some UI tweaks
  * and helpers.
- * 
+ *
  * @see       https://github.com/raffaelj/yxorp_rljUtils
  * @see       https://github.com/agentejo/yxorp/
- * 
+ *
  * @version   0.1.4
  * @author    Raffael Jesche
  * @license   MIT
@@ -17,7 +17,7 @@
 
 $this->module('rljutils')->extend([
 
-    'getConfig' => function() {
+    'getConfig' => function () {
 
         static $config;
 
@@ -25,25 +25,25 @@ $this->module('rljutils')->extend([
 
         $config = [
             'hardening' => [
-                'allowed_uploads'           => true,
-                'max_upload_size'           => true,
-                'collections_find'          => true,
-                'collections_tree'          => true,
-                'collections_collections'   => true,
-                'accounts_find'             => true,
-                'assetsmanager'             => true,
+                'allowed_uploads' => true,
+                'max_upload_size' => true,
+                'collections_find' => true,
+                'collections_tree' => true,
+                'collections_collections' => true,
+                'accounts_find' => true,
+                'assetsmanager' => true,
                 'disable_getLinkedOverview' => true,
             ],
             'cosmetics' => [
-                'widgets_timer_disabled'    => true,
-                'entry_default_group_main'  => true,
-                'entry_language_buttons'    => true,
+                'widgets_timer_disabled' => true,
+                'entry_default_group_main' => true,
+                'entry_language_buttons' => true,
                 'wysiwyg_entity_encoding_raw' => true,
-                'dark_mode_switch'          => true,
-                'display_sortable_entries'  => true,
+                'dark_mode_switch' => true,
+                'display_sortable_entries' => true,
             ],
             'helpers' => [
-                'locked_entries_disabled'   => false,
+                'locked_entries_disabled' => false,
             ],
         ];
 
@@ -60,18 +60,18 @@ $this->module('rljutils')->extend([
 ]);
 
 // add "assets" to yxorp acl
-$actions   = $this('acl')->getResources()['yxorp'];
+$actions = $this('acl')->getResources()['yxorp'];
 $actions[] = 'assets';
 
 $this('acl')->addResource('yxorp', $actions);
 
 // set some config variables
-$config    = $this->module('rljutils')->getConfig();
+$config = $this->module('rljutils')->getConfig();
 $hardening = $config['hardening'];
 $cosmetics = $config['cosmetics'];
-$helpers   = $config['helpers'];
+$helpers = $config['helpers'];
 
-$this->on('admin.init', function() use ($hardening) {
+$this->on('admin.init', function () use ($hardening) {
 
     if (!empty($hardening['allowed_uploads'])) {
 
@@ -97,9 +97,9 @@ $this->on('admin.init', function() use ($hardening) {
 });
 
 if (YXORP_ADMIN && !YXORP_API_REQUEST) {
-    include_once(__DIR__.'/admin.php');
-    include_once(__DIR__.'/cosmetics.php');
-    include_once(__DIR__.'/helpers.php');
+    include_once(__DIR__ . '/admin.php');
+    include_once(__DIR__ . '/cosmetics.php');
+    include_once(__DIR__ . '/helpers.php');
 }
 
 // CLI

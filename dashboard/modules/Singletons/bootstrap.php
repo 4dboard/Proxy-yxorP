@@ -10,13 +10,13 @@
 
 $this->module('singletons')->extend([
 
-    'createSingleton' => function($name, $data = []) {
+    'createSingleton' => function ($name, $data = []) {
 
         if (!trim($name)) {
             return false;
         }
 
-        $configpath = $this->app->path('#storage:').'/singleton';
+        $configpath = $this->app->path('#storage:') . '/singleton';
 
         if (!$this->app->path('#storage:singleton')) {
 
@@ -32,12 +32,12 @@ $this->module('singletons')->extend([
         $time = time();
 
         $singleton = array_replace_recursive([
-            'name'      => $name,
-            'label'     => $name,
-            '_id'       => $name,
-            'fields'    => [],
-            'data'      => null,
-            '_created'  => $time,
+            'name' => $name,
+            'label' => $name,
+            '_id' => $name,
+            'fields' => [],
+            'data' => null,
+            '_created' => $time,
             '_modified' => $time
         ], $data);
 
@@ -56,7 +56,7 @@ $this->module('singletons')->extend([
         return $singleton;
     },
 
-    'updateSingleton' => function($name, $data) {
+    'updateSingleton' => function ($name, $data) {
 
         $metapath = $this->app->path("#storage:singleton/{$name}.singleton.php");
 
@@ -66,14 +66,14 @@ $this->module('singletons')->extend([
 
         $data['_modified'] = time();
 
-        $singleton  = include($metapath);
-        $singleton  = array_merge($singleton, $data);
+        $singleton = include($metapath);
+        $singleton = array_merge($singleton, $data);
 
 
         $this->app->trigger('singleton.save.before', [$singleton]);
         $this->app->trigger("singleton.save.before.{$name}", [$singleton]);
 
-        $export  = var_export($singleton, true);
+        $export = var_export($singleton, true);
 
         if (!$this->app->helper('fs')->write($metapath, "<?php\n return {$export};")) {
             return false;
@@ -87,7 +87,7 @@ $this->module('singletons')->extend([
         return $singleton;
     },
 
-    'saveSingleton' => function($name, $data) {
+    'saveSingleton' => function ($name, $data) {
 
         if (!trim($name)) {
             return false;
@@ -96,7 +96,7 @@ $this->module('singletons')->extend([
         return isset($data['_id']) ? $this->updateSingleton($name, $data) : $this->createSingleton($name, $data);
     },
 
-    'removeSingleton' => function($name) {
+    'removeSingleton' => function ($name) {
 
         if ($singleton = $this->singleton($name)) {
 
@@ -112,7 +112,7 @@ $this->module('singletons')->extend([
         return false;
     },
 
-    'saveData' => function($name, $data, $options = []) {
+    'saveData' => function ($name, $data, $options = []) {
 
         if ($singleton = $this->singleton($name)) {
 
@@ -134,7 +134,7 @@ $this->module('singletons')->extend([
         return false;
     },
 
-    'getData' => function($name, $options = []) {
+    'getData' => function ($name, $options = []) {
 
         if ($singleton = $this->singleton($name)) {
 
@@ -177,7 +177,7 @@ $this->module('singletons')->extend([
         return null;
     },
 
-    'singletons' => function() {
+    'singletons' => function () {
 
         $singletons = [];
 
@@ -190,11 +190,11 @@ $this->module('singletons')->extend([
         return $singletons;
     },
 
-    'exists' => function($name) {
+    'exists' => function ($name) {
         return $this->app->path("#storage:singleton/{$name}.singleton.php");
     },
 
-    'singleton' => function($name) {
+    'singleton' => function ($name) {
 
         static $singleton; // cache
 
@@ -218,14 +218,14 @@ $this->module('singletons')->extend([
         return $singleton[$name];
     },
 
-    'getFieldValue' => function($singleton, $fieldname, $default = null, $options = []) {
+    'getFieldValue' => function ($singleton, $fieldname, $default = null, $options = []) {
 
         $data = $this->getData($singleton, $options);
 
         return ($data && isset($data[$fieldname])) ? $data[$fieldname] : $default;
     },
 
-    '_filterFields' => function($data, $singleton, $filter) {
+    '_filterFields' => function ($data, $singleton, $filter) {
 
         static $cache;
         static $languages;
@@ -287,7 +287,7 @@ $this->module('singletons')->extend([
 
             foreach ($aclfields as $name => $acl) {
 
-                if (!( in_array($user['group'], $acl) || in_array($user['_id'], $acl) )) {
+                if (!(in_array($user['group'], $acl) || in_array($user['_id'], $acl))) {
 
                     unset($data[$name]);
 
@@ -346,7 +346,7 @@ $app("acl")->addResource('singletons', ['create', 'form', 'edit', 'data', 'delet
 
 $this->module('singletons')->extend([
 
-    'getSingletonsInGroup' => function($group = null) {
+    'getSingletonsInGroup' => function ($group = null) {
 
         if (!$group) {
             $group = $this->app->module('yxorp')->getGroup();
@@ -369,7 +369,7 @@ $this->module('singletons')->extend([
         return $singletons;
     },
 
-    'hasaccess' => function($singleton, $action, $group = null) {
+    'hasaccess' => function ($singleton, $action, $group = null) {
 
         $singleton = $this->singleton($singleton);
 
@@ -396,12 +396,12 @@ $this->module('singletons')->extend([
 // REST
 if (YXORP_API_REQUEST) {
 
-    $app->on('yxorp.rest.init', function($routes) {
+    $app->on('yxorp.rest.init', function ($routes) {
         $routes['singletons'] = 'Singletons\\Controller\\RestApi';
     });
 
     // allow access to public collections
-    $app->on('yxorp.api.authenticate', function($data) {
+    $app->on('yxorp.api.authenticate', function ($data) {
 
         if ($data['user'] || $data['resource'] != 'singletons') return;
 
@@ -419,10 +419,10 @@ if (YXORP_API_REQUEST) {
 
 // ADMIN
 if (YXORP_ADMIN_CP) {
-    include_once(__DIR__.'/admin.php');
+    include_once(__DIR__ . '/admin.php');
 }
 
 // CLI
 if (YXORP_CLI) {
-    $this->path('#cli', __DIR__.'/cli');
+    $this->path('#cli', __DIR__ . '/cli');
 }

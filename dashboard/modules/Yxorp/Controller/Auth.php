@@ -10,10 +10,12 @@
 
 namespace yxorP\Controller;
 
-class Auth extends \LimeExtra\Controller {
+class Auth extends \LimeExtra\Controller
+{
 
 
-    public function check() {
+    public function check()
+    {
 
         if ($auth = $this->param('auth')) {
 
@@ -25,7 +27,7 @@ class Auth extends \LimeExtra\Controller {
 
             if (isset($auth['user']) && $this->app->helper('utils')->isEmail($auth['user'])) {
                 $auth['email'] = $auth['user'];
-                $auth['user']  = '';
+                $auth['user'] = '';
             }
 
             if (!$this->app->helper('csrf')->isValid('login', $this->param('csrf'), true)) {
@@ -62,7 +64,8 @@ class Auth extends \LimeExtra\Controller {
     }
 
 
-    public function login() {
+    public function login()
+    {
 
         $redirectTo = '/';
 
@@ -73,7 +76,8 @@ class Auth extends \LimeExtra\Controller {
         return $this->render('yxorp:views/layouts/login.php', compact('redirectTo'));
     }
 
-    public function logout() {
+    public function logout()
+    {
 
         $this->module('yxorp')->logout();
 
@@ -84,12 +88,14 @@ class Auth extends \LimeExtra\Controller {
         }
     }
 
-    public function forgotpassword() {
+    public function forgotpassword()
+    {
 
         return $this->render('yxorp:views/layouts/forgotpassword.php');
     }
 
-    public function requestreset() {
+    public function requestreset()
+    {
 
         if ($user = $this->param('user')) {
 
@@ -108,17 +114,17 @@ class Auth extends \LimeExtra\Controller {
                 return ['message' => $this('i18n')->get('Recovery email sent if user exists')];
             }
 
-            $token  = uniqid('rp-'.bin2hex(random_bytes(16)));
-            $target = $this->app->param('', $this->app->getSiteUrl(true).'/auth/newpassword');
-            $data   = ['_id' => $user['_id'], '_reset_token' => $token];
+            $token = uniqid('rp-' . bin2hex(random_bytes(16)));
+            $target = $this->app->param('', $this->app->getSiteUrl(true) . '/auth/newpassword');
+            $data = ['_id' => $user['_id'], '_reset_token' => $token];
 
             $this->app->storage->save('yxorp/accounts', $data);
-            $message = $this->app->view('yxorp:emails/recover.php', compact('user','token','target'));
+            $message = $this->app->view('yxorp:emails/recover.php', compact('user', 'token', 'target'));
 
             try {
                 $response = $this->app->mailer->mail(
                     $user['email'],
-                    $this->param('subject', $this->app->getSiteUrl().' - '.$this('i18n')->get('Password Recovery')),
+                    $this->param('subject', $this->app->getSiteUrl() . ' - ' . $this('i18n')->get('Password Recovery')),
                     $message
                 );
             } catch (\Exception $e) {
@@ -135,7 +141,8 @@ class Auth extends \LimeExtra\Controller {
         return $this->stop(['error' => $this('i18n')->get('User required')], 412);
     }
 
-    public function newpassword() {
+    public function newpassword()
+    {
 
         if ($token = $this->param('token')) {
 
@@ -162,7 +169,8 @@ class Auth extends \LimeExtra\Controller {
 
     }
 
-    public function resetpassword() {
+    public function resetpassword()
+    {
 
         if ($token = $this->param('token')) {
 
@@ -177,7 +185,7 @@ class Auth extends \LimeExtra\Controller {
                 return false;
             }
 
-            $data = ['_id' => $user['_id'], 'password' =>$this->app->hash($password), '_reset_token' => null];
+            $data = ['_id' => $user['_id'], 'password' => $this->app->hash($password), '_reset_token' => null];
 
             $this->app->storage->save('yxorp/accounts', $data);
 

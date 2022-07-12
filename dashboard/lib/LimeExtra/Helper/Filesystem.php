@@ -11,26 +11,29 @@
 namespace LimeExtra\Helper;
 
 
-class Filesystem extends \Lime\Helper {
+class Filesystem extends \Lime\Helper
+{
 
     /**
      * @return mixed
      */
-    public function path($path) {
+    public function path($path)
+    {
         return $this->app->path($path);
     }
 
     /**
      * @return array
      */
-    public function ls() {
+    public function ls()
+    {
         $pattern = null;
-        $dir     = null;
+        $dir = null;
 
         $args = \func_get_args();
-        $lst  = [];
+        $lst = [];
 
-        switch(\count($args)){
+        switch (\count($args)) {
             case 0:
                 $dir = \getcwd();
             case 1:
@@ -65,7 +68,8 @@ class Filesystem extends \Lime\Helper {
     /**
      * @return bool|mixed
      */
-    public function read() {
+    public function read()
+    {
 
         $args = \func_get_args();
 
@@ -81,7 +85,8 @@ class Filesystem extends \Lime\Helper {
     /**
      * @return bool|mixed
      */
-    public function write() {
+    public function write()
+    {
 
         $args = \func_get_args();
 
@@ -91,13 +96,13 @@ class Filesystem extends \Lime\Helper {
 
         if (\strpos($args[0], ':') !== false && !$this->app->isAbsolutePath($args[0])) {
 
-            list($namespace, $additional) = \explode(":",$args[0], 2);
+            list($namespace, $additional) = \explode(":", $args[0], 2);
 
             if (!$this->app->path("{$namespace}:")) {
                 return false;
             }
 
-            $args[0] = $this->app->path("{$namespace}:").$additional;
+            $args[0] = $this->app->path("{$namespace}:") . $additional;
         }
 
         // create file path
@@ -113,11 +118,12 @@ class Filesystem extends \Lime\Helper {
      * @param int $mode
      * @return bool
      */
-    public function mkdir($path, $mode = 0755) {
+    public function mkdir($path, $mode = 0755)
+    {
 
         if (\strpos($path, ':') !== false && !$this->app->isAbsolutePath($path)) {
             list($namespace, $additional) = \explode(":", $path, 2);
-            $dir = $this->app->path("{$namespace}:").$additional;
+            $dir = $this->app->path("{$namespace}:") . $additional;
         } else {
             $dir = $path;
         }
@@ -133,7 +139,8 @@ class Filesystem extends \Lime\Helper {
      * @param $path
      * @throws \Exception
      */
-    public function delete($path) {
+    public function delete($path)
+    {
 
         $path = $this->app->path($path);
 
@@ -158,7 +165,8 @@ class Filesystem extends \Lime\Helper {
      * @param bool|true $_init
      * @return bool
      */
-    public function copy($path, $dest, $_init = true) {
+    public function copy($path, $dest, $_init = true)
+    {
 
         if ($_init) {
             if (\strpos($path, ':')) $path = $this->app->path($path);
@@ -172,7 +180,7 @@ class Filesystem extends \Lime\Helper {
             $items = \scandir($path);
 
             if (\sizeof($items) > 0) {
-                foreach($items as $file) {
+                foreach ($items as $file) {
 
                     if ($file == "." || $file == "..") continue;
 
@@ -200,7 +208,8 @@ class Filesystem extends \Lime\Helper {
      * @return bool
      * @throws \Exception
      */
-    public function rename($path, $newpath, $overwrite = true) {
+    public function rename($path, $newpath, $overwrite = true)
+    {
 
         $path = $this->app->path($path);
 
@@ -214,7 +223,7 @@ class Filesystem extends \Lime\Helper {
             $this->mkdir(dirname($newpath));
             $this->delete($newpath);
             if (!@\rename($path, $newpath)) {
-               return false;
+                return false;
             }
         }
 
@@ -225,7 +234,8 @@ class Filesystem extends \Lime\Helper {
      * @param $dir
      * @return int
      */
-    public function getDirSize($dir) {
+    public function getDirSize($dir)
+    {
 
         $size = 0;
 
@@ -249,13 +259,14 @@ class Filesystem extends \Lime\Helper {
      * @param bool|false $selfremove
      * @return bool
      */
-    public function removeEmptySubFolders($dir, $selfremove = false) {
+    public function removeEmptySubFolders($dir, $selfremove = false)
+    {
 
         if ($path = $this->app->path($dir)) {
 
             $empty = true;
 
-            foreach (\glob($path.DIRECTORY_SEPARATOR."*") as $file) {
+            foreach (\glob($path . DIRECTORY_SEPARATOR . "*") as $file) {
                 $empty &= \is_dir($file) && $this->removeEmptySubFolders($file, true);
             }
 
@@ -269,37 +280,44 @@ class Filesystem extends \Lime\Helper {
 /**
  * Use custom FileObject to prevent "too many files open" error
  */
-
-class FileObject {
+class FileObject
+{
 
     protected $path;
     protected $fileObject;
 
-    public function __construct($path) {
+    public function __construct($path)
+    {
         $this->path = $path;
     }
 
-    public function getFilename() {
+    public function getFilename()
+    {
         return \basename($this->path);
     }
 
-    public function getPathName() {
+    public function getPathName()
+    {
         return $this->path;
     }
 
-    public function getRealPath() {
+    public function getRealPath()
+    {
         return \realpath($this->path);
     }
 
-    public function getBasename($suffix = null) {
+    public function getBasename($suffix = null)
+    {
         return \basename($this->path, $suffix);
     }
 
-    public function getSize() {
+    public function getSize()
+    {
         return \filesize($this->path);
     }
 
-    public function __call($method, $args) {
+    public function __call($method, $args)
+    {
 
         if (!isset($this->fileObject)) {
             $this->fileObject = new \SplFileObject($this->path);
@@ -311,7 +329,8 @@ class FileObject {
 
 
 if (!function_exists('fnmatch')) {
-    function fnmatch($pattern, $string){
-        return \preg_match("#^".\strtr(\preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.'])."$#i", $string);
+    function fnmatch($pattern, $string)
+    {
+        return \preg_match("#^" . \strtr(\preg_quote($pattern, '#'), ['\*' => '.*', '\?' => '.']) . "$#i", $string);
     }
 }

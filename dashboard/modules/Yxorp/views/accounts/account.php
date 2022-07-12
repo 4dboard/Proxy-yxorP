@@ -27,7 +27,8 @@
                 <div class="uk-width-medium-1-1">
 
                     <ul class="uk-tab uk-tab-noborder uk-margin uk-flex uk-flex-center" if="{ tabs && tabs.length }">
-                        <li class="{ tab == 'general' ? 'uk-active':'' }"><a onclick="{ selectTab }" select="general">@lang('General')</a></li>
+                        <li class="{ tab == 'general' ? 'uk-active':'' }"><a onclick="{ selectTab }" select="general">@lang('General')</a>
+                        </li>
                         <li class="{ t == parent.tab ? 'uk-active':'' }" each="{t in tabs}">
                             <a onclick="{ parent.selectTab }" select="{t}">{t}</a>
                         </li>
@@ -39,23 +40,28 @@
 
                             <div class="uk-form-row">
                                 <label class="uk-text-small">@lang('Name')</label>
-                                <input class="uk-width-1-1 uk-form-large" type="text" bind="account.name" autocomplete="off" aria-label="@lang('Name')" required>
+                                <input class="uk-width-1-1 uk-form-large" type="text" bind="account.name"
+                                       autocomplete="off" aria-label="@lang('Name')" required>
                             </div>
 
                             <div class="uk-form-row">
                                 <label class="uk-text-small">@lang('Username')</label>
-                                <input class="uk-width-1-1 uk-form-large" type="text" bind="account.user" autocomplete="off" aria-label="@lang('Username')" required>
+                                <input class="uk-width-1-1 uk-form-large" type="text" bind="account.user"
+                                       autocomplete="off" aria-label="@lang('Username')" required>
                             </div>
 
                             <div class="uk-form-row">
                                 <label class="uk-text-small">@lang('Email')</label>
-                                <input class="uk-width-1-1 uk-form-large" type="email" bind="account.email" aria-label="@lang('Email')" autocomplete="off">
+                                <input class="uk-width-1-1 uk-form-large" type="email" bind="account.email"
+                                       aria-label="@lang('Email')" autocomplete="off">
                             </div>
 
                             <div class="uk-form-row">
                                 <label class="uk-text-small">@lang('New Password')</label>
                                 <div class="uk-form-password uk-width-1-1">
-                                    <input class="uk-form-large uk-width-1-1" type="password" placeholder="@lang('Password')" aria-label="@lang('Password')" bind="account.password" autocomplete="off">
+                                    <input class="uk-form-large uk-width-1-1" type="password"
+                                           placeholder="@lang('Password')" aria-label="@lang('Password')"
+                                           bind="account.password" autocomplete="off">
                                     <a href="" class="uk-form-password-toggle" data-uk-form-password>@lang('Show')</a>
                                 </div>
                                 <div class="uk-alert">
@@ -69,10 +75,15 @@
                                 <div class="uk-flex uk-flex-middle">
                                     <div class="uk-form-icon uk-display-block uk-flex-item-1">
                                         <i class="uk-icon-key"></i>
-                                        <input class="uk-form-large uk-text-monospace uk-width-1-1" type="text" bind="account.api_key" placeholder="@lang('No token generated yet')" aria-label="@lang('Api token')" bind="account.apikey" disabled>
+                                        <input class="uk-form-large uk-text-monospace uk-width-1-1" type="text"
+                                               bind="account.api_key" placeholder="@lang('No token generated yet')"
+                                               aria-label="@lang('Api token')" bind="account.apikey" disabled>
                                     </div>
-                                    <a class="uk-icon-refresh uk-margin-left" onclick="{ generateApiToken }" style="pointer-events:auto;"></a>
-                                    <a class="uk-margin-left" type="button" onclick="{ copyApiKey }" title="@lang('Copy Token')" data-uk-tooltip="pos:'top'"><i class="uk-icon-clone"></i></a>
+                                    <a class="uk-icon-refresh uk-margin-left" onclick="{ generateApiToken }"
+                                       style="pointer-events:auto;"></a>
+                                    <a class="uk-margin-left" type="button" onclick="{ copyApiKey }"
+                                       title="@lang('Copy Token')" data-uk-tooltip="pos:'top'"><i
+                                                class="uk-icon-clone"></i></a>
                                 </div>
                             </div>
 
@@ -86,7 +97,8 @@
 
                                 <div class="uk-grid">
 
-                                    <div class="uk-width-medium-{field.width || '1-1'} uk-grid-margin" each="{field, fieldname in group}" no-reorder>
+                                    <div class="uk-width-medium-{field.width || '1-1'} uk-grid-margin"
+                                         each="{field, fieldname in group}" no-reorder>
 
                                         <label class="uk-text-small">
                                             { field.label || fieldname }
@@ -97,7 +109,8 @@
                                         </div>
 
                                         <div class="uk-margin">
-                                            <cp-field type="{field.type || 'text'}" bind="account.{fieldname}" opts="{ field.options || {} }"></cp-field>
+                                            <cp-field type="{field.type || 'text'}" bind="account.{fieldname}"
+                                                      opts="{ field.options || {} }"></cp-field>
                                         </div>
 
                                     </div>
@@ -112,7 +125,8 @@
                         <cp-actionbar>
                             <div class="uk-container uk-container-center">
                                 <button class="uk-button uk-button-large uk-button-primary">@lang('Save')</button>
-                                <a class="uk-button uk-button-large uk-button-link" href="@route($app->module('yxorp')->hasaccess('yxorp', 'accounts') ? '/accounts' : '/')">@lang('Cancel')
+                                <a class="uk-button uk-button-large uk-button-link"
+                                   href="@route($app->module('yxorp')->hasaccess('yxorp', 'accounts') ? '/accounts' : '/')">@lang('Cancel')
                                 </a>
                             </div>
                         </cp-actionbar>
@@ -135,7 +149,8 @@
             <label class="uk-text-small">@lang('Status')</label>
 
             <div class="uk-form-controls uk-margin-small-top">
-                <a class="uk-button { !account.active ? 'uk-button-danger':'uk-button-success' } uk-width-medium-1-3" onclick="{ toggleactive }">
+                <a class="uk-button { !account.active ? 'uk-button-danger':'uk-button-success' } uk-width-medium-1-3"
+                   onclick="{ toggleactive }">
                     { App.i18n.get(account.active ? 'Active' : 'Inactive') }
                 </a>
             </div>
@@ -148,7 +163,8 @@
 
             <div class="uk-form-controls uk-margin-small-top">
                 <div class="uk-form-select uk-display-block">
-                    <a class="uk-text-upper uk-text-small uk-text-bold uk-text-muted">{ _.result(_.find(languages, { 'i18n': account.i18n }), 'language') || account.i18n }</a>
+                    <a class="uk-text-upper uk-text-small uk-text-bold uk-text-muted">{ _.result(_.find(languages, {
+                        'i18n': account.i18n }), 'language') || account.i18n }</a>
                     <select class="uk-width-1-1 uk-form-large" ref="i18n" bind="account.i18n">
                         @foreach($languages as $lang)
                         <option value="{{ $lang['i18n'] }}">{{ $lang['language'] }}</option>
@@ -294,6 +310,7 @@
         // i18n for uikit-formPassword
         UIkit.components.formPassword.prototype.defaults.lblShow = '@lang("Show")';
         UIkit.components.formPassword.prototype.defaults.lblHide = '@lang("Hide")';
+
 
     </script>
 

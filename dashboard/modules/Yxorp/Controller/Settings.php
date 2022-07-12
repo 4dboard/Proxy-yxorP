@@ -10,28 +10,31 @@
 
 namespace yxorP\Controller;
 
-class Settings extends \yxorP\AuthController {
+class Settings extends \yxorP\AuthController
+{
 
 
-    public function index() {
+    public function index()
+    {
         return $this->render('yxorp:views/settings/index.php');
     }
 
-    public function info() {
+    public function info()
+    {
 
         if (!$this->module('yxorp')->hasaccess('yxorp', 'info')) {
             return $this->helper('admin')->denyRequest();
         }
 
-        $info                  = [];
+        $info = [];
 
-        $info['app']           = $this->app->helper('admin')->data['yxorp'];
+        $info['app'] = $this->app->helper('admin')->data['yxorp'];
 
-        $info['system']        = php_uname();
-        $info['phpversion']    = phpversion();
-        $info['sapi_name']     = php_sapi_name();
-        $info['extensions']    = get_loaded_extensions();
-        $info['mailer']        = $this->app->retrieve('config/mailer', false);
+        $info['system'] = php_uname();
+        $info['phpversion'] = phpversion();
+        $info['sapi_name'] = php_sapi_name();
+        $info['extensions'] = get_loaded_extensions();
+        $info['mailer'] = $this->app->retrieve('config/mailer', false);
 
         $info['jobs_queue'] = [
             'running' => $this->app->helper('jobs')->isRunnerActive(),
@@ -43,7 +46,8 @@ class Settings extends \yxorP\AuthController {
         return $this->render('yxorp:views/settings/info.php', compact('info', 'update'));
     }
 
-    public function edit($createconfig = false) {
+    public function edit($createconfig = false)
+    {
 
         if (!$this->module('yxorp')->isSuperAdmin()) {
             return false;
@@ -61,7 +65,8 @@ class Settings extends \yxorP\AuthController {
         return $this->render('yxorp:views/settings/edit.php', compact('configexists'));
     }
 
-    public function update() {
+    public function update()
+    {
 
         if (!$this->module('yxorp')->isSuperAdmin()) {
             return false;
@@ -76,12 +81,13 @@ class Settings extends \yxorP\AuthController {
         return $ret;
     }
 
-    protected function getUptdateInfo() {
+    protected function getUptdateInfo()
+    {
 
         $update = new \ArrayObject(array_merge([
             'package.json' => 'https://raw.githubusercontent.com/agentejo/yxorp/master/package.json',
             'zipfile' => 'https://github.com/agentejo/yxorp/archive/master.zip',
-            'target'  => YXORP_DIR,
+            'target' => YXORP_DIR,
             'options' => ['zipRoot' => 'yxorp-master']
         ], $this->app->retrieve('config/update', [])));
 

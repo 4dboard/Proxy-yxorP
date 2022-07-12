@@ -1,4 +1,3 @@
-
 <div>
     <ul class="uk-breadcrumb">
         <li><a href="@route('/settings')">@lang('Settings')</a></li>
@@ -7,24 +6,36 @@
 </div>
 
 <div id="bootmanager" class="uk-width-1-1 uk-width-xlarge-3-4 uk-container-center" riot-view>
-    
-    <style>.cursor-move:hover{cursor:move;}</style>
+
+    <style>.cursor-move:hover {
+            cursor: move;
+        }</style>
 
     <div class="uk-panel uk-text-right">
 
-        <i class="uk-margin-right uk-icon-check-square-o" title="{ App.i18n.get('Module is active right now (in UI).') }" data-uk-tooltip></i>
+        <i class="uk-margin-right uk-icon-check-square-o"
+           title="{ App.i18n.get('Module is active right now (in UI).') }" data-uk-tooltip></i>
 
-        <i class="uk-margin-right uk-icon-square-o" title="{ App.i18n.get('Module is inactive right now.') }" data-uk-tooltip></i>
+        <i class="uk-margin-right uk-icon-square-o" title="{ App.i18n.get('Module is inactive right now.') }"
+           data-uk-tooltip></i>
 
-        <i class="uk-margin-right uk-icon-info-circle" title="{ App.i18n.get('To update the active state, reload the page.') }" data-uk-tooltip></i>
+        <i class="uk-margin-right uk-icon-info-circle"
+           title="{ App.i18n.get('To update the active state, reload the page.') }" data-uk-tooltip></i>
 
-        <i class="uk-margin-right uk-icon-lock" title="{ App.i18n.get('Module can\'t be turned off') }" data-uk-tooltip></i>
+        <i class="uk-margin-right uk-icon-lock" title="{ App.i18n.get('Module can\'t be turned off') }"
+           data-uk-tooltip></i>
 
-        <i class="uk-margin-right uk-icon-warning" title="{ App.i18n.get('If you deactivate core modules, some addons might break the application by calling functions on null.') }" data-uk-tooltip></i>
+        <i class="uk-margin-right uk-icon-warning"
+           title="{ App.i18n.get('If you deactivate core modules, some addons might break the application by calling functions on null.') }"
+           data-uk-tooltip></i>
 
-        <i class="uk-margin-right uk-icon-ambulance" title="{ App.i18n.get('Module exists in two different folders. You should delete one of them. yxorP prevents itself from breaking, because it doesn\'t load doubled addons, but it\'s hard guess, which one is loaded.') }" data-uk-tooltip></i>
+        <i class="uk-margin-right uk-icon-ambulance"
+           title="{ App.i18n.get('Module exists in two different folders. You should delete one of them. yxorP prevents itself from breaking, because it doesn\'t load doubled addons, but it\'s hard guess, which one is loaded.') }"
+           data-uk-tooltip></i>
 
-        <a href="#help-modal" data-uk-modal><i class="uk-margin-right uk-icon-question-circle" title="{ App.i18n.get('Open help page') }" onclick="{loadReadme}" data-uk-tooltip></i></a>
+        <a href="#help-modal" data-uk-modal><i class="uk-margin-right uk-icon-question-circle"
+                                               title="{ App.i18n.get('Open help page') }" onclick="{loadReadme}"
+                                               data-uk-tooltip></i></a>
 
     </div>
 
@@ -32,7 +43,9 @@
 
         <div class="uk-tab-center uk-width-1-1">
             <ul class="uk-tab uk-margin-bottom">
-                <li class="{ tab==mode && 'uk-active'}" each="{ mode in modes }"><a class="uk-text-capitalize" onclick="{ toggleTab }" data-tab="{mode}">{ mode }</a></li>
+                <li class="{ tab==mode && 'uk-active'}" each="{ mode in modes }"><a class="uk-text-capitalize"
+                                                                                    onclick="{ toggleTab }"
+                                                                                    data-tab="{mode}">{ mode }</a></li>
             </ul>
         </div>
 
@@ -51,11 +64,13 @@
 
                             <i class="uk-margin-right uk-text-muted uk-icon-{ module.active ? 'check-square-o' : 'square-o' }"></i>
 
-                            <field-boolean bind="config.{mode}.{module.label}" label="{ module.label }" if="{ !module.forced }"></field-boolean>
+                            <field-boolean bind="config.{mode}.{module.label}" label="{ module.label }"
+                                           if="{ !module.forced }"></field-boolean>
 
                             <span if="{ module.forced }"><i class="uk-icon-lock uk-margin-small-right"></i>{ module.label }</span>
 
-                            <i class="uk-icon-warning uk-margin-small-left" if="{ type == 'core' && !module.forced && (!config[tab] || !config[tab][module.label]) }"></i>
+                            <i class="uk-icon-warning uk-margin-small-left"
+                               if="{ type == 'core' && !module.forced && (!config[tab] || !config[tab][module.label]) }"></i>
 
                             <i class="uk-icon-ambulance uk-margin-small-left" if="{ module.danger }"></i>
 
@@ -67,12 +82,17 @@
 
                     <label class="uk-panel uk-margin-top uk-text-uppercase">
                         { App.i18n.get('Boot order') }
-                        <a href="#" class="uk-margin-left" onclick="{cleanDisabledModulesFromOrder}"><i class="uk-icon-trash-o" title="{ App.i18n.get('Remove disabled modules from list') }" data-uk-tooltip></i></a>
+                        <a href="#" class="uk-margin-left" onclick="{cleanDisabledModulesFromOrder}"><i
+                                    class="uk-icon-trash-o"
+                                    title="{ App.i18n.get('Remove disabled modules from list') }"
+                                    data-uk-tooltip></i></a>
                     </label>
 
-                    <div class="uk-panel uk-panel-box uk-panel-card uk-width-1-1" data-mode="{mode}" data-uk-sortable="{group:mode,animation:false}">
+                    <div class="uk-panel uk-panel-box uk-panel-card uk-width-1-1" data-mode="{mode}"
+                         data-uk-sortable="{group:mode,animation:false}">
 
-                        <div class="uk-panel-box uk-panel-card uk-margin-small cursor-move { (config[tab] && !config[tab][module]) ? 'uk-text-muted' : 'uk-text-primary' }" data-module="{module}" each="{ status, module in config[tab] }" if="{ config[tab] }">
+                        <div class="uk-panel-box uk-panel-card uk-margin-small cursor-move { (config[tab] && !config[tab][module]) ? 'uk-text-muted' : 'uk-text-primary' }"
+                             data-module="{module}" each="{ status, module in config[tab] }" if="{ config[tab] }">
 
                             <span>{ module }</span>
 
@@ -259,6 +279,7 @@
             }
 
         }
+
 
     </script>
 

@@ -2,9 +2,11 @@
 
 namespace rljUtils\Controller;
 
-class Admin extends \yxorP\AuthController {
+class Admin extends \yxorP\AuthController
+{
 
-    public function index() {
+    public function index()
+    {
 
         $config = $this->app->module('rljutils')->getConfig();
 
@@ -12,7 +14,8 @@ class Admin extends \yxorP\AuthController {
 
     }
 
-    public function saveConfig() {
+    public function saveConfig()
+    {
 
         $config = $this->param('config', false);
 

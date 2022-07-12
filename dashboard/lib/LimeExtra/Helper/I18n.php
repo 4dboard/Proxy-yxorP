@@ -13,14 +13,8 @@ namespace LimeExtra\Helper;
 /**
  * I18n class. Manage translations
  */
-class I18n extends \Lime\Helper {
-
-    /**
-     * @var $locale current language
-     */
-    public  $locale     = "en";
-    private $_languages = array();
-
+class I18n extends \Lime\Helper
+{
 
     public static $locals = array(
 
@@ -209,8 +203,6 @@ class I18n extends \Lime\Helper {
         'zh' => 'Chinese',
         'zu' => 'Zulu'
     );
-
-
     public static $countries = array(
 
         'AF' => 'Afghanistan',
@@ -453,7 +445,6 @@ class I18n extends \Lime\Helper {
         'ZM' => 'Zambia',
         'ZW' => 'Zimbabwe'
     );
-
     public static $currencies = array(
         'ALL' => 'Lek',
         'ARS' => '$',
@@ -537,11 +528,17 @@ class I18n extends \Lime\Helper {
         'VEF' => 'Bs',
         'ZWD' => 'Z$'
     );
+    /**
+     * @var $locale current language
+     */
+    public $locale = "en";
+    private $_languages = array();
 
     /**
      * @inherit
      */
-    public function initialize(){
+    public function initialize()
+    {
 
         $locale = $this->app->getClientLang();
 
@@ -553,60 +550,63 @@ class I18n extends \Lime\Helper {
     /**
      * Get translated string by key
      *
-     * @param   string $key translation key
-     * @param   array $alternative  returns if $key doesn''t exist
+     * @param string $key translation key
+     * @param array $alternative returns if $key doesn''t exist
      * @return  string
      */
-    public function get($key, $alternative=null, $lang=null){
+    public function get($key, $alternative = null, $lang = null)
+    {
 
         if (!$lang) {
             $lang = $this->locale;
         }
 
-        if (!$alternative){
+        if (!$alternative) {
             $alternative = $key;
         }
 
-        return isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key]:$alternative;
+        return isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative;
     }
 
     /**
      * Get translated string by key and params
      *
-     * @param   string $key translation key
-     * @param   array $params
-     * @param   array $alternative  returns if $key doesn''t exist
+     * @param string $key translation key
+     * @param array $params
+     * @param array $alternative returns if $key doesn''t exist
      * @return  string
      */
-    public function getstr($key, $params=[], $alternative=null, $lang=null){
+    public function getstr($key, $params = [], $alternative = null, $lang = null)
+    {
 
         if (!$lang) {
             $lang = $this->locale;
         }
 
-        if (!$alternative){
+        if (!$alternative) {
             $alternative = $key;
         }
 
-        return \vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key]:$alternative, $params);
+        return \vsprintf(isset($this->_languages[$lang][$key]) ? $this->_languages[$lang][$key] : $alternative, $params);
     }
 
 
     /**
      * Load language files
-     * @param  string $langfile path to language file
-     * @param  string $lang     language to merge to
+     * @param string $langfile path to language file
+     * @param string $lang language to merge to
      * @return boolean
      */
-    public function load($langfile, $lang=null) {
+    public function load($langfile, $lang = null)
+    {
 
         if (!$lang) {
             $lang = $this->locale;
         }
 
-        if ($path = $this->app->path($langfile)){
+        if ($path = $this->app->path($langfile)) {
 
-            if (!isset($this->_languages[$lang])){
+            if (!isset($this->_languages[$lang])) {
                 $this->_languages[$lang] = [];
             }
 
@@ -622,10 +622,11 @@ class I18n extends \Lime\Helper {
 
     /**
      * Get language data
-     * @param  string $lang     language
+     * @param string $lang language
      * @return array
      */
-    public function data($lang=null) {
+    public function data($lang = null)
+    {
 
         if ($lang) {
             return isset($this->_languages[$lang]) ? $this->_languages[$lang] : [];

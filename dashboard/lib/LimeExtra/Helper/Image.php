@@ -13,9 +13,11 @@ namespace LimeExtra\Helper;
 use claviska\SimpleImage;
 
 
-class Image extends \Lime\Helper {
+class Image extends \Lime\Helper
+{
 
-    public function take($imgpath) {
+    public function take($imgpath)
+    {
 
         $img = new Img($imgpath);
 
@@ -23,38 +25,46 @@ class Image extends \Lime\Helper {
     }
 }
 
-class Img {
+class Img
+{
 
     protected $image;
 
-    public function __construct($img) {
+    public function __construct($img)
+    {
 
         $this->image = new SimpleImage($img);
     }
 
-    public function negative() {
+    public function negative()
+    {
         $this->image->invert();
         return $this;
     }
 
-    public function grayscale() {
+    public function grayscale()
+    {
         $this->image->desaturate();
         return $this;
     }
 
-    public function base64data($format=null, $quality=100) {
+    public function base64data($format = null, $quality = 100)
+    {
         return $this->image->toDataUri($format, $quality);
     }
 
-    public function show($format=null, $quality=100) {
+    public function show($format = null, $quality = 100)
+    {
         $this->image->toScreen($format, $quality);
     }
 
-    public function blur($passes = 1, $type = 'gaussian') {
+    public function blur($passes = 1, $type = 'gaussian')
+    {
         return $this->image->blur($type, $passes);
     }
 
-    public function thumbnail($width, $height, $anchor = 'center') {
+    public function thumbnail($width, $height, $anchor = 'center')
+    {
 
 
         if (\preg_match('/\d \d/', $anchor)) {
@@ -65,9 +75,9 @@ class Img {
 
             // Fit to height/width
             if ($targetRatio > $currentRatio) {
-              $this->image->resize(null, $height);
+                $this->image->resize(null, $height);
             } else {
-              $this->image->resize($width, null);
+                $this->image->resize($width, null);
             }
 
             $anchor = \explode(' ', $anchor);
@@ -83,7 +93,8 @@ class Img {
         return $this->image->thumbnail($width, $height, $anchor);
     }
 
-    public function __call($method, $args) {
+    public function __call($method, $args)
+    {
 
         $ret = \call_user_func_array([$this->image, $method], $args);
 

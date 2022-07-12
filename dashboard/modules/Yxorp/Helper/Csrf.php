@@ -13,14 +13,17 @@ namespace yxorP\Helper;
 
 use Firebase\JWT\JWT;
 
-class Csrf extends \Lime\Helper {
+class Csrf extends \Lime\Helper
+{
 
-    public function initialize(){
+    public function initialize()
+    {
 
 
     }
 
-    public function generateToken($key, $expire = null) {
+    public function generateToken($key, $expire = null)
+    {
 
         $payload = ['csrf' => $key];
 
@@ -35,7 +38,8 @@ class Csrf extends \Lime\Helper {
         return $token;
     }
 
-    public function token($key, $generate = false, $expire = null) {
+    public function token($key, $generate = false, $expire = null)
+    {
 
         $token = $this->app->helper('session')->read("yxorp.csrf.token.{$key}", null);
 
@@ -46,7 +50,8 @@ class Csrf extends \Lime\Helper {
         return $token;
     }
 
-    public function isValid($key, $token, $checkpayload = false) {
+    public function isValid($key, $token, $checkpayload = false)
+    {
 
         if (!$token) {
             return false;
@@ -56,7 +61,7 @@ class Csrf extends \Lime\Helper {
             try {
                 $payload = JWT::decode($token, $this->app['sec-key'], ['HS256']);
                 return isset($payload->csrf) && $payload->csrf == $key;
-            } catch(\Exception $e) {
+            } catch (\Exception $e) {
                 return false;
             }
         }
@@ -69,7 +74,7 @@ class Csrf extends \Lime\Helper {
 
         try {
             $token = JWT::decode($token, $this->app['sec-key'], ['HS256']);
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return false;
         }
 

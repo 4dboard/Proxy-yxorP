@@ -10,9 +10,11 @@
 
 namespace Singletons\Controller;
 
-class RestApi extends \LimeExtra\Controller {
+class RestApi extends \LimeExtra\Controller
+{
 
-    public function get($name = null, $field = null) {
+    public function get($name = null, $field = null)
+    {
 
         if (!$name) {
             return false;
@@ -41,7 +43,8 @@ class RestApi extends \LimeExtra\Controller {
         return $field ? ($data[$field] ?? null) : $data;
     }
 
-    public function singleton($name) {
+    public function singleton($name)
+    {
 
         $user = $this->module('yxorp')->getUser();
 
@@ -52,13 +55,14 @@ class RestApi extends \LimeExtra\Controller {
         }
 
         if (!isset($singletons[$name])) {
-           return $this->stop('{"error": "Singleton not found"}', 412);
+            return $this->stop('{"error": "Singleton not found"}', 412);
         }
 
         return $singletons[$name];
     }
 
-    public function listSingletons($extended = false) {
+    public function listSingletons($extended = false)
+    {
 
         $user = $this->module('yxorp')->getUser();
 

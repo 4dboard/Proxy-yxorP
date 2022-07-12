@@ -10,7 +10,8 @@
 
 namespace LimeExtra\Helper;
 
-class Cookie extends \Lime\Helper {
+class Cookie extends \Lime\Helper
+{
     /**
      * @var array
      */
@@ -50,7 +51,7 @@ class Cookie extends \Lime\Helper {
             'secure' => $secure,
             'httponly' => $http_only
         ];
-        if($same_site){
+        if ($same_site) {
             $options['samesite'] = $same_site;
         }
 
@@ -73,7 +74,8 @@ class Cookie extends \Lime\Helper {
      * @param string $name
      * @return mixed
      */
-    public function get($name) {
+    public function get($name)
+    {
         if (isset($this->_deleted_cookies[$name])) {
             return null;
         }
@@ -94,7 +96,8 @@ class Cookie extends \Lime\Helper {
      * @param string $name
      * @return bool
      */
-    public function delete($name, $path = '/', $domain = '', $secure = false, $http_only = false, $same_site = null) {
+    public function delete($name, $path = '/', $domain = '', $secure = false, $http_only = false, $same_site = null)
+    {
         $success = $this->set($name, null, -10, $path, $domain, $secure, $http_only, $same_site);
         $this->_deleted_cookies[$name] = $name;
 
@@ -111,7 +114,8 @@ class Cookie extends \Lime\Helper {
      * @param string $name
      * @return mixed
      */
-    public function getAndDelete($name, $path = '/', $domain = '', $secure = false, $http_only = false, $same_site = null) {
+    public function getAndDelete($name, $path = '/', $domain = '', $secure = false, $http_only = false, $same_site = null)
+    {
         $value = $this->get($name);
         $this->delete($name, $path, $domain, $secure, $http_only, $same_site);
 

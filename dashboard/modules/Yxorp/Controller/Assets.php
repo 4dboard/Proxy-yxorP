@@ -12,14 +12,17 @@ namespace yxorP\Controller;
 
 use ArrayObject;
 
-class Assets extends \yxorP\AuthController {
+class Assets extends \yxorP\AuthController
+{
 
-    public function index() {
+    public function index()
+    {
 
         return $this->render('yxorp:views/assets/index.php');
     }
 
-    public function listAssets() {
+    public function listAssets()
+    {
 
         \session_write_close();
 
@@ -28,10 +31,10 @@ class Assets extends \yxorP\AuthController {
         ];
 
         if ($filter = $this->param('filter', null)) $options['filter'] = $filter;
-        if ($limit  = $this->param('limit' , null)) $options['limit']  = $limit;
-        if ($sort   = $this->param('sort'  , null)) $options['sort']   = $sort;
-        if ($skip   = $this->param('skip'  , null)) $options['skip']   = $skip;
-        if ($folder = $this->param('folder'  , '')) $options['folder'] = $folder;
+        if ($limit = $this->param('limit', null)) $options['limit'] = $limit;
+        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
+        if ($skip = $this->param('skip', null)) $options['skip'] = $skip;
+        if ($folder = $this->param('folder', '')) $options['folder'] = $folder;
 
         $ret = $this->module('yxorp')->listAssets($options);
 
@@ -46,12 +49,14 @@ class Assets extends \yxorP\AuthController {
         return $ret;
     }
 
-    public function asset($id) {
+    public function asset($id)
+    {
 
         return $this->app->storage->findOne('yxorp/assets', ['_id' => $id]);
     }
 
-    public function upload() {
+    public function upload()
+    {
 
         \session_write_close();
 
@@ -60,7 +65,8 @@ class Assets extends \yxorP\AuthController {
         return $this->module('yxorp')->uploadAssets('files', $meta);
     }
 
-    public function uploadfolder() {
+    public function uploadfolder()
+    {
 
         \session_write_close();
 
@@ -75,7 +81,7 @@ class Assets extends \yxorP\AuthController {
         $user = $this->module('yxorp')->getUser();
         $cache = new \ArrayObject([]);
 
-        $mkdir = function($path) use($root, $cache, $user) {
+        $mkdir = function ($path) use ($root, $cache, $user) {
 
             $folders = explode('/', $path);
             $i = 0;
@@ -158,7 +164,8 @@ class Assets extends \yxorP\AuthController {
         return $ret;
     }
 
-    public function removeAssets() {
+    public function removeAssets()
+    {
 
         if ($assets = $this->param('assets', false)) {
             return $this->module('yxorp')->removeAssets($assets);
@@ -167,7 +174,8 @@ class Assets extends \yxorP\AuthController {
         return false;
     }
 
-    public function updateAsset() {
+    public function updateAsset()
+    {
 
         if ($asset = $this->param('asset', false)) {
             return $this->module('yxorp')->updateAssets($asset);
@@ -176,9 +184,10 @@ class Assets extends \yxorP\AuthController {
         return false;
     }
 
-    public function addFolder() {
+    public function addFolder()
+    {
 
-        $name   = $this->param('name', null);
+        $name = $this->param('name', null);
         $parent = $this->param('parent', '');
 
         if (!$name) return;
@@ -196,7 +205,8 @@ class Assets extends \yxorP\AuthController {
         return $folder;
     }
 
-    public function renameFolder() {
+    public function renameFolder()
+    {
 
         $folder = $this->param('folder');
         $name = $this->param('name');
@@ -212,7 +222,8 @@ class Assets extends \yxorP\AuthController {
         return $folder;
     }
 
-    public function removeFolder() {
+    public function removeFolder()
+    {
 
         $folder = $this->param('folder');
 
@@ -221,7 +232,7 @@ class Assets extends \yxorP\AuthController {
         }
 
         $ids = [$folder['_id']];
-        $f   = ['_id' => $folder['_id']];
+        $f = ['_id' => $folder['_id']];
 
         while ($f = $this->app->storage->findOne('yxorp/assets_folders', ['_p' => $f['_id']])) {
             $ids[] = $f['_id'];
@@ -232,9 +243,11 @@ class Assets extends \yxorP\AuthController {
         return $ids;
     }
 
-    public function _folders() {
+    public function _folders()
+    {
 
-        function parent_sort(array $objects, array &$result=[], $parent='', $depth=0) {
+        function parent_sort(array $objects, array &$result = [], $parent = '', $depth = 0)
+        {
 
             foreach ($objects as $key => $object) {
 
@@ -258,7 +271,8 @@ class Assets extends \yxorP\AuthController {
         return $folders;
     }
 
-    public function updateAssetFile() {
+    public function updateAssetFile()
+    {
 
         \session_write_close();
 

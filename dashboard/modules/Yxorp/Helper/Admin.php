@@ -15,7 +15,8 @@ use ArrayObject;
 /**
  * Admin Helper class.
  */
-class Admin extends \Lime\Helper {
+class Admin extends \Lime\Helper
+{
 
     public $data;
     public $options;
@@ -23,9 +24,10 @@ class Admin extends \Lime\Helper {
 
     public $favicon;
 
-    public function initialize(){
+    public function initialize()
+    {
 
-        $this->data =  new \ContainerArray();
+        $this->data = new \ContainerArray();
         $this->options = [];
         $this->user = $this->app->module('yxorp')->getUser();
 
@@ -34,13 +36,14 @@ class Admin extends \Lime\Helper {
             unset($this->user['password'], $this->user['api_key'], $this->user['_reset_token']);
         }
 
-        $this->user['data'] = new \ContainerArray(isset($this->user['data']) && is_array($this->user['data']) ? $this->user['data']:[]);
+        $this->user['data'] = new \ContainerArray(isset($this->user['data']) && is_array($this->user['data']) ? $this->user['data'] : []);
     }
 
-    public function init() {
+    public function init()
+    {
 
         // extend lexy parser
-        $this->app->renderer->extend(function($content){
+        $this->app->renderer->extend(function ($content) {
             return preg_replace('/(\s*)@hasaccess\?\((.+?)\)/', '$1<?php if ($app->module("yxorp")->hasaccess($2)) { ?>', $content);
         });
 
@@ -54,7 +57,7 @@ class Admin extends \Lime\Helper {
             if ($key == 'default') {
                 $langDefaultLabel = $val;
             } else {
-                $languages[] = ['code'=>$key, 'label'=>$val];
+                $languages[] = ['code' => $key, 'label' => $val];
             }
         }
 
@@ -65,7 +68,7 @@ class Admin extends \Lime\Helper {
             /**
              * Admin assets
              */
-            'assets'  => new ArrayObject(array_merge($this->app['app.assets.base'], [
+            'assets' => new ArrayObject(array_merge($this->app['app.assets.base'], [
 
                 // uikit components
                 'assets:lib/uikit/js/components/autocomplete.min.js',
@@ -90,9 +93,9 @@ class Admin extends \Lime\Helper {
              * extract to App.$data
              */
             'extract' => [
-                'user'      => $this->user,
-                'locale'    => $this->app->helper('i18n')->locale,
-                'site_url'  => $this->app->pathToUrl('site:'),
+                'user' => $this->user,
+                'locale' => $this->app->helper('i18n')->locale,
+                'site_url' => $this->app->pathToUrl('site:'),
                 'languages' => $languages,
                 'languageDefaultLabel' => $langDefaultLabel,
                 'groups' => $this->app->helper('acl')->getGroups(),
@@ -105,8 +108,9 @@ class Admin extends \Lime\Helper {
         ]);
     }
 
-    public function favicon() {
-        
+    public function favicon()
+    {
+
         if (!$this->favicon) return;
 
         $favicon = $this->favicon;
@@ -121,28 +125,29 @@ class Admin extends \Lime\Helper {
 
         if (!$ext) return;
 
-        $type = $ext == 'svg' ? 'image/svg+xml':"image/{$ext}";
+        $type = $ext == 'svg' ? 'image/svg+xml' : "image/{$ext}";
 
         if (strpos($favicon, ':') && !preg_match('/^(\/|http\:|https\:)\//', $favicon)) {
             $path = $this->app->path($favicon);
             if (!$path) return;
             $favicon = $this->app->baseUrl($favicon);
 
-            if ($ext=='svg' && $color) {
+            if ($ext == 'svg' && $color) {
                 $svg = file_get_contents($path);
-                $svg = preg_replace('/fill="(.*?)"/', 'fill="'.$color.'"', $svg);
-                $favicon = 'data:image/svg+xml;base64,'.base64_encode($svg);
+                $svg = preg_replace('/fill="(.*?)"/', 'fill="' . $color . '"', $svg);
+                $favicon = 'data:image/svg+xml;base64,' . base64_encode($svg);
             }
         }
 
-        return '<link rel="icon" type="'.$type.'" href="'.$favicon.'" app-icon="true">';
+        return '<link rel="icon" type="' . $type . '" href="' . $favicon . '" app-icon="true">';
     }
 
-    public function addMenuItem($menu, $data) {
+    public function addMenuItem($menu, $data)
+    {
 
         $this->data["menu.{$menu}"]->append(array_merge([
             'label' => '',
-            'icon'  => 'cube',
+            'icon' => 'cube',
             'route' => '/',
             'active' => false
         ], $data));
@@ -150,13 +155,14 @@ class Admin extends \Lime\Helper {
         return $this;
     }
 
-    public function addAssets($assets) {
+    public function addAssets($assets)
+    {
 
         foreach ((array)$assets as $asset) {
 
             if (preg_match('/\.(js|css)$/i', $asset)) {
                 $this->data['assets']->append($asset);
-            } elseif(preg_match('/\.tag$/i', $asset)) {
+            } elseif (preg_match('/\.tag$/i', $asset)) {
                 $this->data['components']->append($asset);
             }
         }
@@ -164,13 +170,15 @@ class Admin extends \Lime\Helper {
         return $this;
     }
 
-    public function extractVar($key, $value) {
+    public function extractVar($key, $value)
+    {
 
         $this->data["extract/{$key}"] = $value;
     }
 
 
-    public function getOption($key, $default = null) {
+    public function getOption($key, $default = null)
+    {
 
         if (!isset($this->options[$key])) {
 
@@ -180,7 +188,8 @@ class Admin extends \Lime\Helper {
         return $this->options[$key];
     }
 
-    public function setOption($key, $value) {
+    public function setOption($key, $value)
+    {
 
         $this->options[$key] = $value;
         $this->app->storage->setKey("yxorp/options", $key, $value);
@@ -188,22 +197,25 @@ class Admin extends \Lime\Helper {
         return $value;
     }
 
-    public function getUserOption($key, $default = null) {
+    public function getUserOption($key, $default = null)
+    {
 
         return $this->user['data']->get($key, $default);
     }
 
-    public function setUserOption($key, $value) {
+    public function setUserOption($key, $value)
+    {
 
         $this->user['data']->set($key, $value);
 
         return $this->app->module('yxorp')->updateUserOption($key, $value);
     }
 
-    public function isResourceLocked($resourceId, $ttl = null) {
+    public function isResourceLocked($resourceId, $ttl = null)
+    {
 
-        $ttl  = $ttl ?? 300;
-        $key  = "locked:{$resourceId}";
+        $ttl = $ttl ?? 300;
+        $key = "locked:{$resourceId}";
         $meta = $this->app->memory->get($key, false);
 
         if ($meta && ($meta['time'] + $ttl) < time()) {
@@ -218,7 +230,8 @@ class Admin extends \Lime\Helper {
         return false;
     }
 
-    public function isResourceEditableByCurrentUser($resourceId, &$meta = null) {
+    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
+    {
 
         $meta = $this->isResourceLocked($resourceId);
 
@@ -235,13 +248,14 @@ class Admin extends \Lime\Helper {
         return false;
     }
 
-    public function lockResourceId($resourceId, $user = null) {
+    public function lockResourceId($resourceId, $user = null)
+    {
 
         if (!$resourceId) {
             return false;
         }
 
-        $key  = "locked:{$resourceId}";
+        $key = "locked:{$resourceId}";
         $user = $user ?? $this->app->module('yxorp')->getUser();
 
         if (!$user) {
@@ -249,9 +263,9 @@ class Admin extends \Lime\Helper {
         }
 
         $meta = [
-            'rid'  => $resourceId,
+            'rid' => $resourceId,
             'user' => ['_id' => $user['_id'], 'name' => $user['name'], 'user' => $user['user'], 'email' => $user['email']],
-            'sid'  => md5(session_id()),
+            'sid' => md5(session_id()),
             'time' => time()
         ];
 
@@ -260,14 +274,16 @@ class Admin extends \Lime\Helper {
         return true;
     }
 
-    public function unlockResourceId($resourceId) {
+    public function unlockResourceId($resourceId)
+    {
 
         $key = "locked:{$resourceId}";
         $this->app->memory->del($key);
         return true;
     }
 
-    public function denyRequest() {
+    public function denyRequest()
+    {
 
         if ($this->app->module('yxorp')->getUser()) {
             $this->app->response->status = 401;

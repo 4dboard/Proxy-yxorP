@@ -1,6 +1,6 @@
 <?php
 
-$this->on('admin.init', function() use ($hardening) {
+$this->on('admin.init', function () use ($hardening) {
 
     if ($this->module('yxorp')->isSuperAdmin()) {
 
@@ -19,7 +19,7 @@ $this->on('admin.init', function() use ($hardening) {
     // deny request for `find` and `_find`
     if ($hardening['collections_find']) {
 
-        $this->bind('/collections/find', function(){
+        $this->bind('/collections/find', function () {
 
             $collection = $this->param('collection');
 
@@ -36,7 +36,7 @@ $this->on('admin.init', function() use ($hardening) {
     if ($hardening['collections_tree']) {
 
         // deny request for `tree`
-        $this->bind('/collections/tree', function() {
+        $this->bind('/collections/tree', function () {
 
             $collection = $this->param('collection');
 
@@ -53,7 +53,7 @@ $this->on('admin.init', function() use ($hardening) {
     if ($hardening['collections_collections']) {
 
         // don't list collections schema of restricted collections
-        $this->bind('/collections/_collections', function() {
+        $this->bind('/collections/_collections', function () {
 
             return $this->module('collections')->getCollectionsInGroup(null, false);
 
@@ -67,7 +67,7 @@ $this->on('admin.init', function() use ($hardening) {
 
         // disable user lists for non-admins,
         // non-admins must send a user id to receive the user name
-        $this->bind('/accounts/find', function() {
+        $this->bind('/accounts/find', function () {
 
             if ($this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
 
@@ -105,13 +105,13 @@ $this->on('admin.init', function() use ($hardening) {
         // deny access to assetsmanager
         if (!$this->module('yxorp')->hasaccess('yxorp', 'assets')) {
 
-            $this->bind('/assetsmanager', function() {
+            $this->bind('/assetsmanager', function () {
 
                 return $this->helper('admin')->denyRequest();
 
             });
 
-            $this->bind('/assetsmanager/*', function() {
+            $this->bind('/assetsmanager/*', function () {
 
                 return $this->helper('admin')->denyRequest();
 
@@ -129,12 +129,12 @@ $this->on('admin.init', function() use ($hardening) {
         if (!$this->module('yxorp')->isSuperAdmin()) {
 
             // disable route
-            $this->bind('/collections/utils/getLinkedOverview', function() {
+            $this->bind('/collections/utils/getLinkedOverview', function () {
                 return $this->helper('admin')->denyRequest();
             });
 
             // hide LINKED button
-            $this->on('collections.entry.aside', function($collection) {
+            $this->on('collections.entry.aside', function ($collection) {
 
                 // target first button in sidebar to keep JSON button visible for admins
                 // might break if markup changes in future updates

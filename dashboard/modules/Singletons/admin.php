@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-$app->on('admin.init', function() {
+$app->on('admin.init', function () {
 
     if (!$this->module('yxorp')->getGroupRights('singletons') && !$this->module('singletons')->getSingletonsInGroup()) {
 
-        $this->bind('/singletons/*', function() {
+        $this->bind('/singletons/*', function () {
             return $this('admin')->denyRequest();
         });
 
@@ -27,7 +27,7 @@ $app->on('admin.init', function() {
     // add to modules menu
     $this->helper('admin')->addMenuItem('modules', [
         'label' => 'Singletons',
-        'icon'  => 'singletons:icon.svg',
+        'icon' => 'singletons:icon.svg',
         'route' => '/singletons',
         'active' => $active
     ]);
@@ -39,64 +39,67 @@ $app->on('admin.init', function() {
     /**
      * listen to app search to filter singleton
      */
-    $this->on('yxorp.search', function($search, $list) {
+    $this->on('yxorp.search', function ($search, $list) {
 
         foreach ($this->module('singletons')->getSingletonsInGroup() as $singleton => $meta) {
 
-            if (stripos($singleton, $search)!==false || stripos($meta['label'], $search)!==false) {
+            if (stripos($singleton, $search) !== false || stripos($meta['label'], $search) !== false) {
 
                 $list[] = [
-                    'icon'  => 'th',
+                    'icon' => 'th',
                     'title' => $meta['label'] ? $meta['label'] : $meta['name'],
-                    'url'   => $this->routeUrl('/singletons/singleton/'.$meta['name'])
+                    'url' => $this->routeUrl('/singletons/singleton/' . $meta['name'])
                 ];
             }
         }
     });
 
     // dashboard widgets
-    $this->on('admin.dashboard.widgets', function($widgets) {
+    $this->on('admin.dashboard.widgets', function ($widgets) {
 
         $singletons = $this->module('singletons')->getSingletonsInGroup();
 
         $widgets[] = [
-            'name'    => 'singleton',
+            'name' => 'singleton',
             'content' => $this->view('singletons:views/widgets/dashboard.php', compact('singletons')),
-            'area'    => 'aside-right'
+            'area' => 'aside-right'
         ];
 
     }, 100);
 
     // register events for autocomplete
-    $this->on('yxorp.webhook.events', function($triggers) {
+    $this->on('yxorp.webhook.events', function ($triggers) {
 
-        foreach([
-            'singleton.getData.after',
-            'singleton.getData.after.{$name}',
-            'singleton.remove',
-            'singleton.remove.{$name}',
-            'singleton.save.after',
-            'singleton.save.after.{$name}',
-            'singleton.save.before',
-            'singleton.save.before.{$name}',
-            'singleton.saveData.after',
-            'singleton.saveData.after.{$name}',
-            'singleton.saveData.before',
-            'singleton.saveData.before.{$name}',
-        ] as &$evt) { $triggers[] = $evt; }
+        foreach ([
+                     'singleton.getData.after',
+                     'singleton.getData.after.{$name}',
+                     'singleton.remove',
+                     'singleton.remove.{$name}',
+                     'singleton.save.after',
+                     'singleton.save.after.{$name}',
+                     'singleton.save.before',
+                     'singleton.save.before.{$name}',
+                     'singleton.saveData.after',
+                     'singleton.saveData.after.{$name}',
+                     'singleton.saveData.before',
+                     'singleton.saveData.before.{$name}',
+                 ] as &$evt) {
+            $triggers[] = $evt;
+        }
     });
 
     // update assets references on file update
-    $this->on('yxorp.assets.updatefile', function($asset) {
+    $this->on('yxorp.assets.updatefile', function ($asset) {
 
         $id = $asset['_id'];
         $filter = ($this->storage->type == 'mongolite') ?
-            function ($doc) use ($id) { return strpos(json_encode($doc), $id) !== false;}
+            function ($doc) use ($id) {
+                return strpos(json_encode($doc), $id) !== false;
+            }
             :
-            ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"]
-        ;
+            ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"];
 
-        $update = function(&$items) use($asset, $id, &$update) {
+        $update = function (&$items) use ($asset, $id, &$update) {
 
             if (!is_array($items)) return $items;
 

@@ -15,10 +15,12 @@ use Exception;
 /**
  * Admin Helper class.
  */
-class Updater extends \Lime\Helper {
+class Updater extends \Lime\Helper
+{
 
 
-    public function update($zipUrl, $targetPath, $options = []) {
+    public function update($zipUrl, $targetPath, $options = [])
+    {
 
         $options = array_merge([
             'zipRoot' => '/'
@@ -68,7 +70,7 @@ class Updater extends \Lime\Helper {
 
         // copy
 
-        $fs->copy("{$tmppath}/extract-{$zipname}/".trim($options['zipRoot'], '/'), $targetPath);
+        $fs->copy("{$tmppath}/extract-{$zipname}/" . trim($options['zipRoot'], '/'), $targetPath);
 
         // cleanup
         $fs->delete("{$tmppath}/{$zipname}");

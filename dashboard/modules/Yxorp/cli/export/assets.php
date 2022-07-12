@@ -21,7 +21,7 @@ $assets = $app->storage->find('yxorp/assets')->toArray();
 
 if (count($assets)) {
 
-    CLI::writeln("Exporting yxorp/assets (".count($assets).")");
+    CLI::writeln("Exporting yxorp/assets (" . count($assets) . ")");
 
     $fs->write("{$target}/yxorp/assets.json", json_encode($assets, JSON_PRETTY_PRINT));
 

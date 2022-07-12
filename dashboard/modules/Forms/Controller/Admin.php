@@ -10,33 +10,36 @@
 
 namespace Forms\Controller;
 
-class Admin extends \yxorP\AuthController {
+class Admin extends \yxorP\AuthController
+{
 
-    public function index() {
+    public function index()
+    {
 
         $_forms = $this->module('forms')->forms(true);
-        $forms  = [];
+        $forms = [];
 
         foreach ($_forms as $name => $meta) {
 
-           $forms[] = [
-             'name' => $name,
-             'label' => isset($meta['label']) && $meta['label'] ? $meta['label'] : $name,
-             'meta' => $meta
-           ];
+            $forms[] = [
+                'name' => $name,
+                'label' => isset($meta['label']) && $meta['label'] ? $meta['label'] : $name,
+                'meta' => $meta
+            ];
         }
 
         // sort forms
-        usort($forms, function($a, $b) {
+        usort($forms, function ($a, $b) {
             return mb_strtolower($a['label']) <=> mb_strtolower($b['label']);
         });
 
         return $this->render('forms:views/index.php', compact('forms'));
     }
 
-    public function form($name = null) {
+    public function form($name = null)
+    {
 
-        $form = [ 'name'=>'', 'in_menu' => false ];
+        $form = ['name' => '', 'in_menu' => false];
 
         if ($name) {
 
@@ -50,7 +53,8 @@ class Admin extends \yxorP\AuthController {
         return $this->render('forms:views/form.php', compact('form'));
     }
 
-    public function entries($form) {
+    public function entries($form)
+    {
 
         $form = $this->module('forms')->form($form);
 
@@ -74,24 +78,25 @@ class Admin extends \yxorP\AuthController {
 
         $view = 'forms:views/entries.php';
 
-        if ($override = $this->app->path('#config:forms/'.$form['name'].'/views/entries.php')) {
+        if ($override = $this->app->path('#config:forms/' . $form['name'] . '/views/entries.php')) {
             $view = $override;
         }
 
         return $this->render($view, compact('form', 'count'));
     }
 
-    public function find() {
+    public function find()
+    {
 
         $form = $this->app->param('form');
-        $options    = $this->app->param('options');
+        $options = $this->app->param('options');
 
         if (!$form) return false;
 
         $entries = $this->app->module('forms')->find($form, $options);
-        $count   = $this->app->module('forms')->count($form, isset($options['filter']) ? $options['filter'] : []);
-        $pages   = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page    = 1;
+        $count = $this->app->module('forms')->count($form, isset($options['filter']) ? $options['filter'] : []);
+        $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
+        $page = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -100,7 +105,8 @@ class Admin extends \yxorP\AuthController {
         return compact('entries', 'count', 'pages', 'page');
     }
 
-    public function export($form) {
+    public function export($form)
+    {
 
         if (!$this->app->module('yxorp')->hasaccess('forms', 'manage')) {
             return false;

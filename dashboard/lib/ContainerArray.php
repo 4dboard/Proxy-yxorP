@@ -8,23 +8,26 @@
  * file that was distributed with this source code.
  */
 
-class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, JsonSerializable {
+class ContainerArray implements ArrayAccess, Countable, IteratorAggregate, JsonSerializable
+{
 
-    protected $props  = array();
+    protected $props = array();
     protected $bindTo = array();
 
-    public function __construct($array = [], $bindTo = null) {
+    public function __construct($array = [], $bindTo = null)
+    {
 
-        $this->props  = new \ArrayObject(is_array($array) ? $array:[]);
+        $this->props = new \ArrayObject(is_array($array) ? $array : []);
         $this->bindTo = $bindTo ? $bindTo : $this;
     }
 
-    public function extend() {
+    public function extend()
+    {
 
-        $args  = func_get_args();
+        $args = func_get_args();
         $array = [];
 
-        switch(count($args)){
+        switch (count($args)) {
             case 1:
                 $array = $args[0];
                 break;
@@ -33,7 +36,7 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
                 break;
         }
 
-        foreach($array as $name => $value) {
+        foreach ($array as $name => $value) {
 
             if ($value instanceof \Closure) {
                 $value = $value->bindTo($this->bindTo, $this->bindTo);
@@ -45,42 +48,55 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
         return $this;
     }
 
-    public function get($key, $default=null) {
+    public function get($key, $default = null)
+    {
         return $this->fetch_from_array($key, $default);
     }
 
-    public function count() {
+    public function count()
+    {
         return count($this->props);
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         return $this->props;
     }
 
-    public function getIterator() {
+    public function getIterator()
+    {
         return clone $this->props;
     }
 
-    public function __set($name , $value) {
+    public function __get($name)
+    {
+        return isset($this->props[$name]) ? $this->props[$name] : null;
+    }
+
+    public function __set($name, $value)
+    {
 
         $this->extend(array($name => $value));
     }
-    public function __get($name) {
-        return isset($this->props[$name]) ? $this->props[$name] :null;
-    }
-    public function __isset($name) {
+
+    public function __isset($name)
+    {
         return isset($this->props[$name]);
     }
-    public function __unset($name) {
+
+    public function __unset($name)
+    {
         unset($this->props[$name]);
     }
-    public function __call($name, $arguments) {
 
-        if(isset($this->props[$name]) && is_callable($this->props[$name])) {
+    public function __call($name, $arguments)
+    {
+
+        if (isset($this->props[$name]) && is_callable($this->props[$name])) {
             return call_user_func_array($this->props[$name], $arguments);
         }
 
-        if(isset($this->props['__call']) && is_callable($this->props['__call'])) {
+        if (isset($this->props['__call']) && is_callable($this->props['__call'])) {
             return call_user_func_array($this->props['__call'], $arguments);
         }
 
@@ -89,14 +105,15 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
 
     // Array Access implementation
 
-    public function offsetSet($key, $value) {
+    public function offsetSet($key, $value)
+    {
 
         if (strpos($key, '/')) {
 
             $keys = explode('/', $key);
-            $mem  = $this->props;
+            $mem = $this->props;
 
-            foreach($keys as $keyname) {
+            foreach ($keys as $keyname) {
 
                 if (!isset($mem[$keyname])) {
                     $mem[$keyname] = new ArrayObject([]);
@@ -112,16 +129,19 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
         }
     }
 
-    public function offsetGet($key) {
+    public function offsetGet($key)
+    {
 
         return $this->get($key, null);
     }
 
-    public function offsetExists($key) {
-        return $this->get($key, null)===null ? false : true;
+    public function offsetExists($key)
+    {
+        return $this->get($key, null) === null ? false : true;
     }
 
-    public function offsetUnset($key) {
+    public function offsetUnset($key)
+    {
 
         if (isset($this->props[$key])) {
 
@@ -131,88 +151,38 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
 
             $keys = explode('/', $key);
 
-            switch(count($keys)){
+            switch (count($keys)) {
 
                 case 1:
-                    if (isset($this->props[$keys[0]])){
+                    if (isset($this->props[$keys[0]])) {
                         unset($this->props[$keys[0]]);
                     }
                     break;
 
                 case 2:
-                    if (isset($this->props[$keys[0]][$keys[1]])){
+                    if (isset($this->props[$keys[0]][$keys[1]])) {
                         unset($this->props[$keys[0]][$keys[1]]);
                     }
                     break;
 
                 case 3:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])){
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])) {
                         unset($this->props[$keys[0]][$keys[1]][$keys[2]]);
                     }
                     break;
 
                 case 4:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])){
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])) {
                         unset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]]);
                     }
                     break;
                 case 5:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])){
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])) {
                         unset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]]);
                     }
                     break;
             }
         }
-    }
-
-    protected function fetch_from_array($index=null, $default = null) {
-
-        if (is_null($index)) {
-
-            return $default;
-
-        } elseif (isset($this->props[$index])) {
-
-            return $this->props[$index];
-
-        } elseif (strpos($index, '/')) {
-
-            $keys = explode('/', $index);
-
-            switch(count($keys)){
-
-                case 1:
-                    if (isset($this->props[$keys[0]])){
-                        return $this->props[$keys[0]];
-                    }
-                    break;
-
-                case 2:
-                    if (isset($this->props[$keys[0]][$keys[1]])){
-                        return $this->props[$keys[0]][$keys[1]];
-                    }
-                    break;
-
-                case 3:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])){
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]];
-                    }
-                    break;
-
-                case 4:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])){
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]];
-                    }
-                    break;
-                case 5:
-                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])){
-                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]];
-                    }
-                    break;
-            }
-        }
-
-        return $default;
     }
 
     /**
@@ -222,7 +192,8 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
      * Source: Utility/Hash.php
      */
 
-    public function extract($path) {
+    public function extract($path)
+    {
 
         if (empty($path)) {
             return $this->props;
@@ -263,22 +234,79 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
         return $context[$_key];
     }
 
-    protected function _tokenize($data, $separator = ',', $leftBound = '(', $rightBound = ')') {
+    public function jsonSerialize()
+    {
+        return $this->props;
+    }
+
+    protected function fetch_from_array($index = null, $default = null)
+    {
+
+        if (is_null($index)) {
+
+            return $default;
+
+        } elseif (isset($this->props[$index])) {
+
+            return $this->props[$index];
+
+        } elseif (strpos($index, '/')) {
+
+            $keys = explode('/', $index);
+
+            switch (count($keys)) {
+
+                case 1:
+                    if (isset($this->props[$keys[0]])) {
+                        return $this->props[$keys[0]];
+                    }
+                    break;
+
+                case 2:
+                    if (isset($this->props[$keys[0]][$keys[1]])) {
+                        return $this->props[$keys[0]][$keys[1]];
+                    }
+                    break;
+
+                case 3:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]];
+                    }
+                    break;
+
+                case 4:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]];
+                    }
+                    break;
+                case 5:
+                    if (isset($this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]])) {
+                        return $this->props[$keys[0]][$keys[1]][$keys[2]][$keys[3]][$keys[4]];
+                    }
+                    break;
+            }
+        }
+
+        return $default;
+    }
+
+    protected function _tokenize($data, $separator = ',', $leftBound = '(', $rightBound = ')')
+    {
 
         if (empty($data)) {
             return array();
         }
 
-        $depth    = 0;
-        $offset   = 0;
-        $buffer   = '';
-        $results  = array();
-        $length   = strlen($data);
-        $open     = false;
+        $depth = 0;
+        $offset = 0;
+        $buffer = '';
+        $results = array();
+        $length = strlen($data);
+        $open = false;
 
         while ($offset <= $length) {
             $tmpOffset = -1;
-            $offsets   = array(
+            $offsets = array(
                 strpos($data, $separator, $offset),
                 strpos($data, $leftBound, $offset),
                 strpos($data, $rightBound, $offset)
@@ -330,7 +358,8 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
         return array();
     }
 
-    protected function _splitConditions($token) {
+    protected function _splitConditions($token)
+    {
         $conditions = false;
         $position = strpos($token, '[');
         if ($position !== false) {
@@ -340,7 +369,8 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
         return array($token, $conditions);
     }
 
-    protected function _matchToken($key, $token) {
+    protected function _matchToken($key, $token)
+    {
         if ($token === '{n}') {
             return is_numeric($key);
         }
@@ -353,7 +383,8 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
         return ($key === $token);
     }
 
-    protected function _matches(array $data, $selector) {
+    protected function _matches(array $data, $selector)
+    {
 
         preg_match_all(
             '/(\[ (?P<attr>[^=><!]+?) (\s* (?P<op>[><!]?[=]|[><]) \s* (?P<val>(?:\/.*?\/ | [^\]]+)) )? \])/x',
@@ -400,10 +431,6 @@ class ContainerArray implements  ArrayAccess, Countable, IteratorAggregate, Json
             }
         }
         return true;
-    }
-
-    public function jsonSerialize() {
-        return $this->props;
     }
 
 }

@@ -3,9 +3,11 @@
 namespace LayoutComponents\Controller;
 
 
-class Admin extends \yxorP\AuthController {
+class Admin extends \yxorP\AuthController
+{
 
-    public function index() {
+    public function index()
+    {
 
         $content = '{}';
 
@@ -24,13 +26,14 @@ class Admin extends \yxorP\AuthController {
         return $this->render('layoutcomponents:views/index.php', compact('components'));
     }
 
-    public function store() {
+    public function store()
+    {
         $components = $this->param('components');
 
         if ($components) {
             $this->helper('fs')->write('#storage:components.json', json_encode($components, JSON_PRETTY_PRINT));
             return true;
-        } else if(is_array($components) && empty($components)) {
+        } else if (is_array($components) && empty($components)) {
             $this->helper('fs')->delete('#storage:components.json');
             return true;
         }

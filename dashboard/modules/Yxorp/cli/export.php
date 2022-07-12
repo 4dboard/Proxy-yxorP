@@ -24,7 +24,7 @@ $fs = $app->helper('fs');
 
 foreach ($app->paths('#cli') as $__dir) {
 
-    foreach ($fs->ls($__dir.'export') as $__file) {
+    foreach ($fs->ls($__dir . 'export') as $__file) {
         include($__file->getRealPath());
     }
 }

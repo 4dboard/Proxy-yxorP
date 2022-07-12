@@ -8,11 +8,11 @@
  * file that was distributed with this source code.
  */
 
-$app->on('admin.init', function() {
+$app->on('admin.init', function () {
 
     if (!$this->module('yxorp')->getGroupRights('forms')) {
 
-        $this->bind('/forms/*', function() {
+        $this->bind('/forms/*', function () {
             return $this('admin')->denyRequest();
         });
 
@@ -27,28 +27,28 @@ $app->on('admin.init', function() {
     // add to modules menu
     $this->helper('admin')->addMenuItem('modules', [
         'label' => 'Forms',
-        'icon'  => 'forms:icon.svg',
+        'icon' => 'forms:icon.svg',
         'route' => '/forms',
         'active' => $active
     ]);
 
     if ($active) {
         $this->helper('admin')->favicon = 'forms:icon.svg';
-    } 
+    }
 
     /**
      * listen to app search to filter forms
      */
-    $this->on('yxorp.search', function($search, $list) {
+    $this->on('yxorp.search', function ($search, $list) {
 
         foreach ($this->module('forms')->forms() as $form => $meta) {
 
-            if (stripos($form, $search)!==false || stripos($meta['label'], $search)!==false) {
+            if (stripos($form, $search) !== false || stripos($meta['label'], $search) !== false) {
 
                 $list[] = [
-                    'icon'  => 'inbox',
+                    'icon' => 'inbox',
                     'title' => $meta['label'] ? $meta['label'] : $meta['name'],
-                    'url'   => $this->routeUrl('/forms/entries/'.$meta['name'])
+                    'url' => $this->routeUrl('/forms/entries/' . $meta['name'])
                 ];
             }
         }
@@ -56,29 +56,31 @@ $app->on('admin.init', function() {
 
 
     // dashboard widgets
-    $this->on('admin.dashboard.widgets', function($widgets) {
+    $this->on('admin.dashboard.widgets', function ($widgets) {
 
         $forms = $this->module('forms')->forms(false);
 
         $widgets[] = [
-            'name'    => 'forms',
+            'name' => 'forms',
             'content' => $this->view('forms:views/widgets/dashboard.php', compact('forms')),
-            'area'    => 'aside-left'
+            'area' => 'aside-left'
         ];
 
     }, 100);
 
     // register events for autocomplete
-    $this->on('yxorp.webhook.events', function($triggers) {
+    $this->on('yxorp.webhook.events', function ($triggers) {
 
-        foreach([
-            'forms.save.after',
-            'forms.save.after.{$name}',
-            'forms.save.before',
-            'forms.save.before.{$name}',
-            'forms.submit.after',
-            'forms.submit.before',
-        ] as &$evt) { $triggers[] = $evt; }
+        foreach ([
+                     'forms.save.after',
+                     'forms.save.after.{$name}',
+                     'forms.save.before',
+                     'forms.save.before.{$name}',
+                     'forms.submit.after',
+                     'forms.submit.before',
+                 ] as &$evt) {
+            $triggers[] = $evt;
+        }
     });
 
 });

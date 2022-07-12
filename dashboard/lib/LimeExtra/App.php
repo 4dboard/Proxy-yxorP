@@ -14,53 +14,55 @@ namespace LimeExtra;
  * Class App
  * @package LimeExtra
  */
-class App extends \Lime\App {
+class App extends \Lime\App
+{
 
     /**
      * @param array $settings
      */
-    public function __construct ($settings = []) {
+    public function __construct($settings = [])
+    {
 
-        $settings["helpers"]  = \array_merge([
-            'acl'     => 'LimeExtra\\Helper\\SimpleAcl',
-            'assets'  => 'LimeExtra\\Helper\\Assets',
-            'fs'      => 'LimeExtra\\Helper\\Filesystem',
-            'image'   => 'LimeExtra\\Helper\\Image',
-            'i18n'    => 'LimeExtra\\Helper\\I18n',
-            'utils'   => 'LimeExtra\\Helper\\Utils',
-            'cookie'  => 'LimeExtra\\Helper\\Cookie',
-            'yaml'    => 'LimeExtra\\Helper\\YAML',
+        $settings["helpers"] = \array_merge([
+            'acl' => 'LimeExtra\\Helper\\SimpleAcl',
+            'assets' => 'LimeExtra\\Helper\\Assets',
+            'fs' => 'LimeExtra\\Helper\\Filesystem',
+            'image' => 'LimeExtra\\Helper\\Image',
+            'i18n' => 'LimeExtra\\Helper\\I18n',
+            'utils' => 'LimeExtra\\Helper\\Utils',
+            'cookie' => 'LimeExtra\\Helper\\Cookie',
+            'yaml' => 'LimeExtra\\Helper\\YAML',
         ], $settings['helpers'] ?? []);
 
         parent::__construct($settings);
 
         // renderer service
-        $this->service('renderer', function() {
+        $this->service('renderer', function () {
 
             $renderer = new \Lexy();
 
             //register app helper functions
-            $renderer->extend(function($content){
+            $renderer->extend(function ($content) {
 
                 $replace = [
-                    'extend'   => '<?php $extend(expr); ?>',
-                    'base'     => '<?php $app->base(expr); ?>',
-                    'route'    => '<?php $app->route(expr); ?>',
-                    'trigger'  => '<?php $app->trigger(expr); ?>',
-                    'assets'   => '<?php echo $app->assets(expr); ?>',
-                    'start'    => '<?php $app->start(expr); ?>',
-                    'end'      => '<?php $app->end(expr); ?>',
-                    'block'    => '<?php $app->block(expr); ?>',
-                    'url'      => '<?php echo $app->pathToUrl(expr); ?>',
-                    'view'     => '<?php echo $app->view(expr); ?>',
-                    'render'   => '<?php echo $app->view(expr); ?>',
-                    'include'  => '<?php include($app->path(expr)); ?>',
-                    'lang'     => '<?php echo $app("i18n")->get(expr); ?>',
-                    'json'     => '<?php echo json_encode(expr); ?>',
+                    'extend' => '<?php $extend(expr); ?>',
+                    'base' => '<?php $app->base(expr); ?>',
+                    'route' => '<?php $app->route(expr); ?>',
+                    'trigger' => '<?php $app->trigger(expr); ?>',
+                    'assets' => '<?php echo $app->assets(expr); ?>',
+                    'start' => '<?php $app->start(expr); ?>',
+                    'end' => '<?php $app->end(expr); ?>',
+                    'block' => '<?php $app->block(expr); ?>',
+                    'url' => '<?php echo $app->pathToUrl(expr); ?>',
+                    'view' => '<?php echo $app->view(expr); ?>',
+                    'render' => '<?php echo $app->view(expr); ?>',
+                    'include' => '<?php include($app->path(expr)); ?>',
+                    'lang' => '<?php echo $app("i18n")->get(expr); ?>',
+                    'json' => '<?php echo json_encode(expr); ?>',
                 ];
 
 
-                $content = \preg_replace_callback('/\B@(\w+)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?/x', function($match) use($replace) {
+                $content = \preg_replace_callback('/\B@(\w+)([ \t]*)(\( ( (?>[^()]+) | (?3) )* \))?/x', function ($match) use ($replace) {
 
                     if (isset($match[3]) && \trim($match[1]) && isset($replace[$match[1]])) {
                         return \str_replace('(expr)', $match[3], $replace[$match[1]]);
@@ -84,12 +86,13 @@ class App extends \Lime\App {
 
 
     /**
-    * Render view.
-    * @param  String $template Path to view
-    * @param  Array  $slots   Passed variables
-    * @return String               Rendered view
-    */
-    public function view($template, $slots = []) {
+     * Render view.
+     * @param String $template Path to view
+     * @param Array $slots Passed variables
+     * @return String               Rendered view
+     */
+    public function view($template, $slots = [])
+    {
 
         $this->trigger('app.render.view', [&$template, &$slots]);
 
@@ -97,15 +100,15 @@ class App extends \Lime\App {
             $this->trigger("app.render.view/{$template}", [&$template, &$slots]);
         }
 
-        $renderer     = $this->renderer;
-        $olayout      = $this->layout;
+        $renderer = $this->renderer;
+        $olayout = $this->layout;
 
-        $slots        = \array_merge($this->viewvars, $slots);
-        $layout       = $olayout;
+        $slots = \array_merge($this->viewvars, $slots);
+        $layout = $olayout;
 
         $this->layout = false;
 
-        if (\strpos($template, ' with ') !== false ) {
+        if (\strpos($template, ' with ') !== false) {
             list($template, $layout) = \explode(' with ', $template, 2);
         }
 
@@ -113,7 +116,7 @@ class App extends \Lime\App {
             $template = $file;
         }
 
-        $slots['extend'] = function($from) use(&$layout) {
+        $slots['extend'] = function ($from) use (&$layout) {
             $layout = $from;
         };
 
@@ -129,7 +132,7 @@ class App extends \Lime\App {
                 $layout = $file;
             }
 
-            if(!\file_exists($layout)) {
+            if (!\file_exists($layout)) {
                 return "Couldn't resolve {$layout}.";
             }
 
@@ -148,15 +151,17 @@ class App extends \Lime\App {
      * @param $template
      * @param array $slots
      */
-    public function renderView($template, $slots = []) {
+    public function renderView($template, $slots = [])
+    {
         echo $this->view($template, $slots);
     }
 
-    public function assets($src, $version=false){
+    public function assets($src, $version = false)
+    {
 
-        $list   = [];
-        $js     = [];
-        $debug  = $this->retrieve('debug');
+        $list = [];
+        $js = [];
+        $debug = $this->retrieve('debug');
         $jshash = '';
 
         foreach ((array)$src as $asset) {
@@ -173,7 +178,7 @@ class App extends \Lime\App {
 
                 if (!$debug && $ispath && $path = $this->path($src)) {
                     $js[] = $path;
-                    $jshash = md5($jshash.md5_file($path));
+                    $jshash = md5($jshash . md5_file($path));
                 } else {
                     $list[] = $this->script($asset, $version);
                 }
@@ -184,17 +189,19 @@ class App extends \Lime\App {
         }
 
         if (count($js)) {
-            
-            $path = '#pstorage:tmp/'.$jshash.'.js';
+
+            $path = '#pstorage:tmp/' . $jshash . '.js';
 
             if (!$this->path($path)) {
                 $contents = [];
-                foreach ($js as $p) {$contents[] = file_get_contents($p); }
+                foreach ($js as $p) {
+                    $contents[] = file_get_contents($p);
+                }
                 $this->helper('fs')->write($path, implode("\n", $contents));
             }
 
             $url = $this->pathToUrl($path);
-            $list[] = '<script src="'.($url.($version ? "?ver={$version}":'')).'" type="text/javascript"></script>';
+            $list[] = '<script src="' . ($url . ($version ? "?ver={$version}" : '')) . '" type="text/javascript"></script>';
         }
 
         return \implode("\n", $list);

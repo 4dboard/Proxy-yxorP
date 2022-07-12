@@ -10,24 +10,27 @@
 
 namespace MongoHybrid;
 
-class Mongo {
+class Mongo
+{
 
     protected $client;
     protected $db;
     protected $options;
 
-    public function __construct($server, $options=[], $driverOptions=[]) {
+    public function __construct($server, $options = [], $driverOptions = [])
+    {
 
         $driverOptions = array_merge([
             'typeMap' => ['root' => 'array', 'document' => 'array', 'array' => 'array']
         ], $driverOptions);
 
-        $this->client  = new \MongoDB\Client($server, $options, $driverOptions);
-        $this->db      = $this->client->selectDatabase($options['db']);
+        $this->client = new \MongoDB\Client($server, $options, $driverOptions);
+        $this->db = $this->client->selectDatabase($options['db']);
         $this->options = $options;
     }
 
-    public function getCollection($name, $db = null){
+    public function getCollection($name, $db = null)
+    {
 
         if ($db) {
             $name = "{$db}/{$name}";
@@ -38,7 +41,8 @@ class Mongo {
         return $this->db->selectCollection($name);
     }
 
-    public function dropCollection($name, $db = null){
+    public function dropCollection($name, $db = null)
+    {
 
         if ($db) {
             $name = "{$db}/{$name}";
@@ -49,7 +53,8 @@ class Mongo {
         return $this->db->dropCollection($name);
     }
 
-    public function renameCollection($name, $newname, $db = null) {
+    public function renameCollection($name, $newname, $db = null)
+    {
 
         if ($db) {
             $name = "{$db}/{$name}";
@@ -60,7 +65,7 @@ class Mongo {
         $newname = str_replace('/', '_', $newname);
 
         $collections = iterator_to_array($this->db->listCollections([
-            'filter' => [ 'name' => $name ]
+            'filter' => ['name' => $name]
         ]));
 
         if (!count($collections)) {
@@ -75,44 +80,47 @@ class Mongo {
         return true;
     }
 
-    public function findOneById($collection, $id){
+    public function findOneById($collection, $id)
+    {
 
         if (is_string($id)) $id = new \MongoDB\BSON\ObjectID($id);
 
-        $doc =  $this->getCollection($collection)->findOne(['_id' => $id]);
+        $doc = $this->getCollection($collection)->findOne(['_id' => $id]);
 
-        if (isset($doc['_id'])) $doc['_id'] = (string) $doc['_id'];
+        if (isset($doc['_id'])) $doc['_id'] = (string)$doc['_id'];
 
         return $doc;
     }
 
-    public function findOne($collection, $filter = [], $projection = []) {
+    public function findOne($collection, $filter = [], $projection = [])
+    {
 
         if (!$filter) $filter = [];
 
         $filter = $this->_fixMongoIds($filter, true);
-        $doc    = $this->getCollection($collection)->findOne($filter, ['projection' => $projection]);
+        $doc = $this->getCollection($collection)->findOne($filter, ['projection' => $projection]);
 
-        if (isset($doc['_id'])) $doc['_id'] = (string) $doc['_id'];
+        if (isset($doc['_id'])) $doc['_id'] = (string)$doc['_id'];
 
         return $doc;
     }
 
-    public function find($collection, $options = []){
+    public function find($collection, $options = [])
+    {
 
         $filter = isset($options['filter']) && $options['filter'] ? $options['filter'] : [];
         $fields = isset($options['fields']) && $options['fields'] ? $options['fields'] : [];
-        $limit  = isset($options['limit'])  && $options['limit']  ? $options['limit']  : null;
-        $sort   = isset($options['sort'])   && $options['sort']   ? $options['sort']   : null;
-        $skip   = isset($options['skip'])   && $options['skip']   ? $options['skip']   : null;
+        $limit = isset($options['limit']) && $options['limit'] ? $options['limit'] : null;
+        $sort = isset($options['sort']) && $options['sort'] ? $options['sort'] : null;
+        $skip = isset($options['skip']) && $options['skip'] ? $options['skip'] : null;
 
         $filter = $this->_fixMongoIds($filter, true);
 
         $cursor = $this->getCollection($collection)->find($filter, [
             'projection' => $fields,
             'limit' => $limit,
-            'skip'  => $skip,
-            'sort'  => $sort
+            'skip' => $skip,
+            'sort' => $sort
         ]);
 
         $docs = $cursor->toArray();
@@ -120,7 +128,7 @@ class Mongo {
         if (count($docs)) {
 
             foreach ($docs as &$doc) {
-                if(isset($doc['_id'])) $doc['_id'] = (string) $doc['_id'];
+                if (isset($doc['_id'])) $doc['_id'] = (string)$doc['_id'];
             }
 
         } else {
@@ -132,11 +140,12 @@ class Mongo {
         return $resultSet;
     }
 
-    public function insert($collection, &$doc) {
+    public function insert($collection, &$doc)
+    {
 
         if (isset($doc[0])) {
 
-            foreach($doc as &$d) {
+            foreach ($doc as &$d) {
                 $this->insert($collection, $d);
             }
 
@@ -150,17 +159,18 @@ class Mongo {
 
         $ref['_id'] = $return->getInsertedId();
 
-        if (isset($ref['_id'])) $ref['_id'] = (string) $ref['_id'];
+        if (isset($ref['_id'])) $ref['_id'] = (string)$ref['_id'];
 
         $doc = $ref;
 
         return $return;
     }
 
-    public function save($collection, &$data, $create = false) {
+    public function save($collection, &$data, $create = false)
+    {
 
         $data = $this->_fixMongoIds($data);
-        $ref  = $data;
+        $ref = $data;
 
         if (isset($data['_id'])) {
 
@@ -175,22 +185,24 @@ class Mongo {
             $ref['_id'] = $return->getInsertedId();
         }
 
-        if (isset($ref['_id'])) $ref['_id'] = (string) $ref['_id'];
+        if (isset($ref['_id'])) $ref['_id'] = (string)$ref['_id'];
 
         $data = $ref;
 
         return $return;
     }
 
-    public function update($collection, $criteria, $data) {
+    public function update($collection, $criteria, $data)
+    {
 
         $criteria = $this->_fixMongoIds($criteria);
-        $data     = $this->_fixMongoIds($data);
+        $data = $this->_fixMongoIds($data);
 
         return $this->getCollection($collection)->updateMany($criteria, ['$set' => $data]);
     }
 
-    public function remove($collection, $filter=[]) {
+    public function remove($collection, $filter = [])
+    {
 
         if (!$filter) $filter = [];
 
@@ -199,7 +211,8 @@ class Mongo {
         return $this->getCollection($collection)->deleteMany($filter);
     }
 
-    public function removeField($collection, $field, $filter = []) {
+    public function removeField($collection, $field, $filter = [])
+    {
 
         $opts = ['$unset' => []];
         $opts['$unset'][$field] = 1;
@@ -207,7 +220,8 @@ class Mongo {
         return $this->getCollection($collection)->updateMany($filter, $opts);
     }
 
-    public function renameField($collection, $field, $newfield, $filter = []) {
+    public function renameField($collection, $field, $newfield, $filter = [])
+    {
 
         $opts = ['$rename' => []];
         $opts['$rename'][$field] = $newfield;
@@ -215,7 +229,8 @@ class Mongo {
         return $this->getCollection($collection)->updateMany($filter, $opts);
     }
 
-    public function count($collection, $filter=[], $options=[]) {
+    public function count($collection, $filter = [], $options = [])
+    {
 
         if (!$filter) $filter = [];
 
@@ -224,7 +239,8 @@ class Mongo {
         return $this->getCollection($collection)->countDocuments($filter, $options);
     }
 
-    protected function _fixMongoIds(&$data, $infinite = false, $_level = 0) {
+    protected function _fixMongoIds(&$data, $infinite = false, $_level = 0)
+    {
 
         if (!is_array($data)) {
             return $data;
@@ -246,7 +262,7 @@ class Mongo {
             if ($k === '_id') {
 
                 if (is_string($v)) {
-                    
+
                     $v = $v[0] === '@' ? \substr($v, 1) : new \MongoDB\BSON\ObjectID($v);
 
                 } elseif (is_array($v)) {
@@ -259,9 +275,9 @@ class Mongo {
                             }
                         }
                     }
-    
+
                     if (isset($v['$nin'])) {
-    
+
                         foreach ($v['$nin'] as &$id) {
                             if (is_string($id)) {
                                 $id = new \MongoDB\BSON\ObjectID($id);
@@ -270,8 +286,8 @@ class Mongo {
                     }
 
                     if (isset($v['$ne']) && is_string($v['$ne'])) {
-    
-                        $v['$ne'] = new \MongoDB\BSON\ObjectID($v['$ne']);                    
+
+                        $v['$ne'] = new \MongoDB\BSON\ObjectID($v['$ne']);
                     }
 
                 }

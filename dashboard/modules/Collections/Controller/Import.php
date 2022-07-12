@@ -11,10 +11,12 @@
 namespace Collections\Controller;
 
 
-class Import extends \yxorP\AuthController {
+class Import extends \yxorP\AuthController
+{
 
 
-    public function collection($collection) {
+    public function collection($collection)
+    {
 
         $collection = $this->module('collections')->collection($collection);
 
@@ -25,7 +27,8 @@ class Import extends \yxorP\AuthController {
         return $this->render('collections:views/import/collection.php', compact('collection'));
     }
 
-    public function execute() {
+    public function execute()
+    {
 
         \session_write_close();
 
@@ -45,7 +48,7 @@ class Import extends \yxorP\AuthController {
         }
 
         $_collection = $this->module('collections')->collection($collection);
-        $cid  = $_collection['_id'];
+        $cid = $_collection['_id'];
         $userId = $this->module('yxorp')->getUser('_id');
 
         foreach ($entries as &$entry) {

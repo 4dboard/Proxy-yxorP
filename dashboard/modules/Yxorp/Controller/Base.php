@@ -10,13 +10,15 @@
 
 namespace yxorP\Controller;
 
-class Base extends \yxorP\AuthController {
+class Base extends \yxorP\AuthController
+{
 
-    public function dashboard() {
+    public function dashboard()
+    {
 
-        $settings = $this->app->storage->getKey('yxorp/options', 'dashboard.widgets.'.$this->user["_id"], []);
+        $settings = $this->app->storage->getKey('yxorp/options', 'dashboard.widgets.' . $this->user["_id"], []);
 
-        $widgets  = new \ArrayObject([]);
+        $widgets = new \ArrayObject([]);
 
         $this->app->trigger('admin.dashboard.widgets', [$widgets]);
 
@@ -26,7 +28,7 @@ class Base extends \yxorP\AuthController {
             'aside-right' => new \SplPriorityQueue()
         ];
 
-        foreach($widgets as &$widget) {
+        foreach ($widgets as &$widget) {
 
             $name = $widget['name'];
             $area = isset($widget['area']) && in_array($widget['area'], ['main', 'aside-left', 'aside-right']) ? $widget['area'] : 'main';
@@ -40,21 +42,23 @@ class Base extends \yxorP\AuthController {
         return $this->render('yxorp:views/base/dashboard.php', compact('areas', 'widgets'));
     }
 
-    public function savedashboard() {
+    public function savedashboard()
+    {
 
         $widgets = $this->app->param('widgets', []);
 
-        $this->app->storage->setKey('yxorp/options', 'dashboard.widgets.'.$this->user["_id"], $widgets);
+        $this->app->storage->setKey('yxorp/options', 'dashboard.widgets.' . $this->user["_id"], $widgets);
 
         return $widgets;
     }
 
-    public function search() {
+    public function search()
+    {
 
         \session_write_close();
 
         $query = $this->app->param('search', false);
-        $list  = new \ArrayObject([]);
+        $list = new \ArrayObject([]);
 
         if ($query) {
             $this->app->trigger('yxorp.search', [$query, $list]);
@@ -63,10 +67,11 @@ class Base extends \yxorP\AuthController {
         return json_encode($list->getArrayCopy());
     }
 
-    public function call($module, $method) {
+    public function call($module, $method)
+    {
 
         $args = (array)$this->param('args', []);
-        $acl  = $this->param('acl', null);
+        $acl = $this->param('acl', null);
 
         if (!$acl) {
             return false;
@@ -78,6 +83,6 @@ class Base extends \yxorP\AuthController {
 
         $return = call_user_func_array([$this->app->module($module), $method], $args);
 
-        return '{"result":'.json_encode($return).'}';
+        return '{"result":' . json_encode($return) . '}';
     }
 }

@@ -18,7 +18,7 @@ if ($cachepath = $this->path('#tmp:webhooks.cache.php')) {
     $webhooks = include($cachepath);
 } else {
     $webhooks = $app->storage->find('yxorp/webhooks')->toArray();
-    $this->helper('fs')->write('#tmp:webhooks.cache.php', '<?php return '.var_export($webhooks, true ).';');
+    $this->helper('fs')->write('#tmp:webhooks.cache.php', '<?php return ' . var_export($webhooks, true) . ';');
 }
 
 if (!count($webhooks)) {
@@ -33,19 +33,19 @@ foreach ($webhooks as $webhook) {
 
         foreach ($webhook['events'] as $evt) {
 
-            $app->on($evt, function() use($evt, $webhook, $webHookCalls) {
+            $app->on($evt, function () use ($evt, $webhook, $webHookCalls) {
 
                 $url = trim($webhook['url']);
                 $data = json_encode([
                     'event' => $evt,
-                    'hook'  => $webhook['name'],
+                    'hook' => $webhook['name'],
                     'backend' => YXORP_ADMIN,
                     'args' => func_get_args()
                 ]);
 
                 $headers = [
                     'Content-Type: application/json',
-                    'Content-Length: '.strlen($data)
+                    'Content-Length: ' . strlen($data)
                 ];
 
                 // add custom headers
@@ -60,7 +60,7 @@ foreach ($webhooks as $webhook) {
                     }
                 }
 
-                $auth = $webhook['auth'] ?? null; 
+                $auth = $webhook['auth'] ?? null;
 
                 $webHookCalls[] = compact('url', 'data', 'headers', 'auth');
 
@@ -69,8 +69,8 @@ foreach ($webhooks as $webhook) {
     }
 }
 
-$app->on('shutdown', function() use($webHookCalls) {
-        
+$app->on('shutdown', function () use ($webHookCalls) {
+
     if (!count($webHookCalls)) {
         return;
     }

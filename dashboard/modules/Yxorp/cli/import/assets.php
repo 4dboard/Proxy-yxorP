@@ -31,12 +31,12 @@ if ($data = $fs->read("{$src}/yxorp/assets.json")) {
 
         if (count($assets)) {
 
-            CLI::writeln("Importing yxorp/assets (".count($assets).")");
+            CLI::writeln("Importing yxorp/assets (" . count($assets) . ")");
 
             foreach ($assets as $asset) {
 
-                $path    = trim($asset['path'], '/');
-                $_src    = "{$src}/yxorp/assets/{$path}";
+                $path = trim($asset['path'], '/');
+                $_src = "{$src}/yxorp/assets/{$path}";
                 $_target = "{$uploads}/{$path}";
 
                 if (!file_exists($_src)) continue;

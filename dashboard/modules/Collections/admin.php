@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-$app->on('admin.init', function() {
+$app->on('admin.init', function () {
 
     $this->helper('admin')->addAssets('collections:assets/field-collectionlink.tag');
     $this->helper('admin')->addAssets('collections:assets/field-collectionlinkselect.tag');
@@ -16,7 +16,7 @@ $app->on('admin.init', function() {
 
     if (!$this->module('yxorp')->getGroupRights('collections') && !$this->module('collections')->getCollectionsInGroup()) {
 
-        $this->bind('/collections/*', function() {
+        $this->bind('/collections/*', function () {
             return $this('admin')->denyRequest();
         });
 
@@ -34,7 +34,7 @@ $app->on('admin.init', function() {
     // add to modules menu
     $this->helper('admin')->addMenuItem('modules', [
         'label' => 'Collections',
-        'icon'  => 'collections:icon.svg',
+        'icon' => 'collections:icon.svg',
         'route' => '/collections',
         'active' => $active
     ]);
@@ -46,72 +46,75 @@ $app->on('admin.init', function() {
     /**
      * listen to app search to filter collections
      */
-    $this->on('yxorp.search', function($search, $list) {
+    $this->on('yxorp.search', function ($search, $list) {
 
         foreach ($this->module('collections')->getCollectionsInGroup() as $collection => $meta) {
 
-            if (stripos($collection, $search)!==false || stripos($meta['label'], $search)!==false) {
+            if (stripos($collection, $search) !== false || stripos($meta['label'], $search) !== false) {
 
                 $list[] = [
-                    'icon'  => 'database',
+                    'icon' => 'database',
                     'title' => $meta['label'] ? $meta['label'] : $meta['name'],
-                    'url'   => $this->routeUrl('/collections/entries/'.$meta['name'])
+                    'url' => $this->routeUrl('/collections/entries/' . $meta['name'])
                 ];
             }
         }
     });
 
     // dashboard widgets
-    $this->on("admin.dashboard.widgets", function($widgets) {
+    $this->on("admin.dashboard.widgets", function ($widgets) {
 
         $collections = $this->module("collections")->getCollectionsInGroup(null, false);
 
         $widgets[] = [
-            "name"    => "collections",
+            "name" => "collections",
             "content" => $this->view("collections:views/widgets/dashboard.php", compact('collections')),
-            "area"    => 'aside-left'
+            "area" => 'aside-left'
         ];
 
     }, 100);
 
     // register events for autocomplete
-    $this->on('yxorp.webhook.events', function($triggers) {
+    $this->on('yxorp.webhook.events', function ($triggers) {
 
-        foreach([
-            'collections.createcollection',
-            'collections.find.after',
-            'collections.find.after.{$name}',
-            'collections.find.before',
-            'collections.find.before.{$name}',
-            'collections.remove.after',
-            'collections.remove.after.{$name}',
-            'collections.remove.before',
-            'collections.remove.before.{$name}',
-            'collections.removecollection',
-            'collections.removecollection.{$name}',
-            'collections.reorder',
-            'collections.reorder.{$name}',
-            'collections.save.after',
-            'collections.save.after.{$name}',
-            'collections.save.before',
-            'collections.save.before.{$name}',
-            'collections.updatecollection',
-            'collections.updatecollection.{$name}'
-        ] as &$evt) { $triggers[] = $evt; }
+        foreach ([
+                     'collections.createcollection',
+                     'collections.find.after',
+                     'collections.find.after.{$name}',
+                     'collections.find.before',
+                     'collections.find.before.{$name}',
+                     'collections.remove.after',
+                     'collections.remove.after.{$name}',
+                     'collections.remove.before',
+                     'collections.remove.before.{$name}',
+                     'collections.removecollection',
+                     'collections.removecollection.{$name}',
+                     'collections.reorder',
+                     'collections.reorder.{$name}',
+                     'collections.save.after',
+                     'collections.save.after.{$name}',
+                     'collections.save.before',
+                     'collections.save.before.{$name}',
+                     'collections.updatecollection',
+                     'collections.updatecollection.{$name}'
+                 ] as &$evt) {
+            $triggers[] = $evt;
+        }
     });
 
     // update assets references on file update
-    $this->on('yxorp.assets.updatefile', function($asset) {
+    $this->on('yxorp.assets.updatefile', function ($asset) {
 
         $id = $asset['_id'];
         $collections = $this->module('collections')->collections();
         $filter = ($this->storage->type == 'mongolite') ?
-            function ($doc) use ($id) { return strpos(json_encode($doc), $id) !== false;}
+            function ($doc) use ($id) {
+                return strpos(json_encode($doc), $id) !== false;
+            }
             :
-            ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"]
-        ;
+            ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"];
 
-        $update = function(&$items) use($asset, $id, &$update) {
+        $update = function (&$items) use ($asset, $id, &$update) {
 
             if (!is_array($items)) return $items;
 

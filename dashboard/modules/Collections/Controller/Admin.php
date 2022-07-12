@@ -11,13 +11,15 @@
 namespace Collections\Controller;
 
 
-class Admin extends \yxorP\AuthController {
+class Admin extends \yxorP\AuthController
+{
 
 
-    public function index() {
+    public function index()
+    {
 
         $_collections = $this->module('collections')->getCollectionsInGroup(null, false);
-        $collections  = [];
+        $collections = [];
 
         foreach ($_collections as $collection => $meta) {
 
@@ -39,18 +41,20 @@ class Admin extends \yxorP\AuthController {
         }
 
         // sort collections
-        usort($collections, function($a, $b) {
+        usort($collections, function ($a, $b) {
             return mb_strtolower($a['label']) <=> mb_strtolower($b['label']);
         });
 
         return $this->render('collections:views/index.php', compact('collections'));
     }
 
-    public function _collections() {
+    public function _collections()
+    {
         return $this->module('collections')->collections();
     }
 
-    public function _find() {
+    public function _find()
+    {
 
         if ($this->param('collection') && $this->param('options')) {
             return $this->module('collections')->find($this->param('collection'), $this->param('options'));
@@ -59,7 +63,8 @@ class Admin extends \yxorP\AuthController {
         return false;
     }
 
-    public function collection($name = null) {
+    public function collection($name = null)
+    {
 
         if ($name && !$this->module('collections')->hasaccess($name, 'collection_edit')) {
             return $this->helper('admin')->denyRequest();
@@ -73,7 +78,7 @@ class Admin extends \yxorP\AuthController {
             'name' => '',
             'label' => '',
             'color' => '',
-            'fields'=>[],
+            'fields' => [],
             'acl' => new \ArrayObject,
             'sortable' => false,
             'sort' => [
@@ -124,7 +129,7 @@ class Admin extends \yxorP\AuthController {
         // rules
         $rules = [
             'create' => !$name ? "<?php\n\n" : $this->app->helper('fs')->read("#storage:collections/rules/{$name}.create.php"),
-            'read'   => !$name ? "<?php\n\n" : $this->app->helper('fs')->read("#storage:collections/rules/{$name}.read.php"),
+            'read' => !$name ? "<?php\n\n" : $this->app->helper('fs')->read("#storage:collections/rules/{$name}.read.php"),
             'update' => !$name ? "<?php\n\n" : $this->app->helper('fs')->read("#storage:collections/rules/{$name}.update.php"),
             'delete' => !$name ? "<?php\n\n" : $this->app->helper('fs')->read("#storage:collections/rules/{$name}.delete.php"),
         ];
@@ -132,10 +137,11 @@ class Admin extends \yxorP\AuthController {
         return $this->render('collections:views/collection.php', compact('collection', 'templates', 'aclgroups', 'rules'));
     }
 
-    public function save_collection() {
+    public function save_collection()
+    {
 
         $collection = $this->param('collection');
-        $rules      = $this->param('rules', null);
+        $rules = $this->param('rules', null);
 
         if (!$collection) {
             return false;
@@ -164,7 +170,8 @@ class Admin extends \yxorP\AuthController {
         return $collection;
     }
 
-    public function entries($collection) {
+    public function entries($collection)
+    {
 
         if (!$this->module('collections')->hasaccess($collection, 'entries_view')) {
             return $this->helper('admin')->denyRequest();
@@ -187,7 +194,7 @@ class Admin extends \yxorP\AuthController {
             'description' => ''
         ], $collection);
 
-        $context = _check_collection_rule($collection, 'read', ['options' => ['filter'=>[]]]);
+        $context = _check_collection_rule($collection, 'read', ['options' => ['filter' => []]]);
 
         $this->app->helper('admin')->favicon = [
             'path' => 'collections:icon.svg',
@@ -204,14 +211,15 @@ class Admin extends \yxorP\AuthController {
 
         $view = 'collections:views/entries.php';
 
-        if ($override = $this->app->path('#config:collections/'.$collection['name'].'/views/entries.php')) {
+        if ($override = $this->app->path('#config:collections/' . $collection['name'] . '/views/entries.php')) {
             $view = $override;
         }
 
         return $this->render($view, compact('collection'));
     }
 
-    public function entry($collection, $id = null) {
+    public function entry($collection, $id = null)
+    {
 
         if ($id && !$this->module('collections')->hasaccess($collection, 'entries_view')) {
             return $this->helper('admin')->denyRequest();
@@ -221,8 +229,8 @@ class Admin extends \yxorP\AuthController {
             return $this->helper('admin')->denyRequest();
         }
 
-        $collection    = $this->module('collections')->collection($collection);
-        $entry         = new \ArrayObject([]);
+        $collection = $this->module('collections')->collection($collection);
+        $entry = new \ArrayObject([]);
         $excludeFields = [];
 
         if (!$collection) {
@@ -261,24 +269,25 @@ class Admin extends \yxorP\AuthController {
             $this->app->helper('admin')->lockResourceId($id);
         }
 
-        $context = _check_collection_rule($collection, 'read', ['options' => ['filter'=>[]]]);
+        $context = _check_collection_rule($collection, 'read', ['options' => ['filter' => []]]);
 
         if ($context && isset($context->options['fields'])) {
             foreach ($context->options['fields'] as $field => $include) {
-                if(!$include) $excludeFields[] = $field;
+                if (!$include) $excludeFields[] = $field;
             }
         }
 
         $view = 'collections:views/entry.php';
 
-        if ($override = $this->app->path('#config:collections/'.$collection['name'].'/views/entry.php')) {
+        if ($override = $this->app->path('#config:collections/' . $collection['name'] . '/views/entry.php')) {
             $view = $override;
         }
 
         return $this->render($view, compact('collection', 'entry', 'excludeFields'));
     }
 
-    public function save_entry($collection) {
+    public function save_entry($collection)
+    {
 
         $collection = $this->module('collections')->collection($collection);
 
@@ -317,14 +326,14 @@ class Admin extends \yxorP\AuthController {
             $revision = true;
 
             if ($collection['sortable']) {
-                 $entry['_o'] = $this->app->storage->count("collections/{$collection['_id']}", ['_pid' => ['$exists' => false]]);
+                $entry['_o'] = $this->app->storage->count("collections/{$collection['_id']}", ['_pid' => ['$exists' => false]]);
             }
 
         }
 
         try {
             $entry = $this->module('collections')->save($collection['name'], $entry, ['revision' => $revision]);
-        } catch(\Throwable $e) {
+        } catch (\Throwable $e) {
             $this->app->stop(['error' => $e->getMessage()], 412);
         }
 
@@ -333,7 +342,8 @@ class Admin extends \yxorP\AuthController {
         return $entry;
     }
 
-    public function delete_entries($collection) {
+    public function delete_entries($collection)
+    {
 
         \session_write_close();
 
@@ -379,7 +389,8 @@ class Admin extends \yxorP\AuthController {
         return true;
     }
 
-    public function update_order($collection) {
+    public function update_order($collection)
+    {
 
         \session_write_close();
 
@@ -393,7 +404,7 @@ class Admin extends \yxorP\AuthController {
 
         if (is_array($entries) && count($entries)) {
 
-            foreach($entries as $entry) {
+            foreach ($entries as $entry) {
                 $this->app->storage->save("collections/{$_collectionId}", $entry);
             }
         }
@@ -404,7 +415,8 @@ class Admin extends \yxorP\AuthController {
         return $entries;
     }
 
-    public function export($collection) {
+    public function export($collection)
+    {
 
         \session_write_close();
 
@@ -426,7 +438,8 @@ class Admin extends \yxorP\AuthController {
     }
 
 
-    public function tree() {
+    public function tree()
+    {
 
         \session_write_close();
 
@@ -442,19 +455,20 @@ class Admin extends \yxorP\AuthController {
                 'parent_id_column_name' => '_pid',
                 'children_key_name' => 'children',
                 'id_column_name' => '_id',
-    			'sort_column_name' => '_o'
+                'sort_column_name' => '_o'
             ]);
         }
 
         return $items;
     }
 
-    public function find() {
+    public function find()
+    {
 
         \session_write_close();
 
         $collection = $this->app->param('collection');
-        $options    = $this->app->param('options');
+        $options = $this->app->param('options');
 
         if (!$collection) return false;
 
@@ -468,7 +482,8 @@ class Admin extends \yxorP\AuthController {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {}
+                } catch (\Exception $e) {
+                }
             }
 
             if (!$filter) {
@@ -484,7 +499,7 @@ class Admin extends \yxorP\AuthController {
 
         $count = $this->app->module('collections')->count($collection['name'], isset($options['filter']) ? $options['filter'] : []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page  = 1;
+        $page = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -494,7 +509,8 @@ class Admin extends \yxorP\AuthController {
     }
 
 
-    public function revisions($collection, $id) {
+    public function revisions($collection, $id)
+    {
 
         if (!$this->module('collections')->hasaccess($collection, 'entries_edit')) {
             return $this->helper('admin')->denyRequest();
@@ -521,7 +537,7 @@ class Admin extends \yxorP\AuthController {
 
             if (isset($field['acl']) && is_array($field['acl']) && count($field['acl'])) {
 
-                if (!( in_array($user['group'], $field['acl']) || in_array($user['_id'], $field['acl']) )) {
+                if (!(in_array($user['group'], $field['acl']) || in_array($user['_id'], $field['acl']))) {
                     continue;
                 }
             }
@@ -541,13 +557,14 @@ class Admin extends \yxorP\AuthController {
         return $this->render('collections:views/revisions.php', compact('collection', 'entry', 'revisions', 'allowedFields'));
     }
 
-    protected function _filter($filter, $collection, $lang = null) {
+    protected function _filter($filter, $collection, $lang = null)
+    {
 
-        $isMongoLite  = ($this->app->storage->type == 'mongolite');
+        $isMongoLite = ($this->app->storage->type == 'mongolite');
 
-        $allowedtypes = ['text','longtext','boolean','select','html','wysiwyg','markdown','code'];
-        $criterias    = [];
-        $_filter      = null;
+        $allowedtypes = ['text', 'longtext', 'boolean', 'select', 'html', 'wysiwyg', 'markdown', 'code'];
+        $criterias = [];
+        $_filter = null;
 
         $this->app->trigger('collections.admin._filter.before', [$collection, &$filter, &$allowedtypes, &$criterias]);
 
@@ -565,31 +582,31 @@ class Admin extends \yxorP\AuthController {
                 $criteria[$name] = ['$regex' => $filter];
 
                 if (!$isMongoLite) {
-                  $criteria[$name]['$options'] = 'i';
+                    $criteria[$name]['$options'] = 'i';
                 }
 
                 $criterias[] = $criteria;
             }
 
-            if ($field['type']=='collectionlink' || $field['type']=='collectionlinkselect') {
+            if ($field['type'] == 'collectionlink' || $field['type'] == 'collectionlinkselect') {
 
                 $criteria = [];
-                $criteria[$name.'.display'] = ['$regex' => $filter];
+                $criteria[$name . '.display'] = ['$regex' => $filter];
 
                 if (!$isMongoLite) {
-                  $criteria[$name.'.display']['$options'] = 'i';
+                    $criteria[$name . '.display']['$options'] = 'i';
                 }
 
                 $criterias[] = $criteria;
             }
 
-            if ($field['type']=='location') {
+            if ($field['type'] == 'location') {
 
                 $criteria = [];
-                $criteria[$name.'.address'] = ['$regex' => $filter];
+                $criteria[$name . '.address'] = ['$regex' => $filter];
 
                 if (!$isMongoLite) {
-                  $criteria[$name.'.address']['$options'] = 'i';
+                    $criteria[$name . '.address']['$options'] = 'i';
                 }
 
                 $criterias[] = $criteria;

@@ -11,13 +11,15 @@
 use League\Flysystem\Filesystem;
 use League\Flysystem\MountManager;
 
-class FileStorage {
+class FileStorage
+{
 
-    protected $config  = [];
+    protected $config = [];
     protected $storages = [];
     protected $manager;
 
-    public function __construct($config = []) {
+    public function __construct($config = [])
+    {
 
         $this->manager = new MountManager();
 
@@ -26,7 +28,8 @@ class FileStorage {
         }
     }
 
-    public function addStorage($name, $config) {
+    public function addStorage($name, $config)
+    {
 
         $this->config[$name] = $config;
 
@@ -37,7 +40,8 @@ class FileStorage {
         return $this;
     }
 
-    public function use($name) {
+    public function use($name)
+    {
 
         if (!isset($this->storages[$name]) && isset($this->config[$name])) {
             $this->initStorage($name);
@@ -46,7 +50,8 @@ class FileStorage {
         return $this->storages[$name] ?? null;
     }
 
-    public function getURL($file) {
+    public function getURL($file)
+    {
         $url = null;
 
         list($prefix, $path) = explode('://', $file, 2);
@@ -56,14 +61,21 @@ class FileStorage {
             if (!$path) {
                 $url = $this->config[$prefix]['url'];
             } elseif ($this->has($file)) {
-                $url = rtrim($this->config[$prefix]['url'], '/').'/'.ltrim($path, '/');
+                $url = rtrim($this->config[$prefix]['url'], '/') . '/' . ltrim($path, '/');
             }
         }
 
         return $url;
     }
 
-    protected function initStorage($name) {
+    public function __call($name, $args)
+    {
+
+        return call_user_func_array([$this->manager, $name], $args);
+    }
+
+    protected function initStorage($name)
+    {
 
         $config = $this->config[$name];
         $adapter = new \ReflectionClass($config['adapter']);
@@ -74,10 +86,5 @@ class FileStorage {
         }
 
         return $this->storages[$name];
-    }
-
-    public function __call($name, $args) {
-
-        return call_user_func_array([$this->manager, $name], $args);
     }
 }

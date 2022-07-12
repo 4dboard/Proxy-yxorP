@@ -13,7 +13,8 @@ namespace MongoLite;
 /**
  * Client object.
  */
-class Client {
+class Client
+{
 
     /**
      * @var array
@@ -34,10 +35,11 @@ class Client {
      * Constructor
      *
      * @param string $path - Pathname to database file or :memory:
-     * @param array  $options
+     * @param array $options
      */
-    public function __construct($path, $options = []) {
-        $this->path    = \rtrim($path, '\\');
+    public function __construct($path, $options = [])
+    {
+        $this->path = \rtrim($path, '\\');
         $this->options = $options;
     }
 
@@ -46,7 +48,8 @@ class Client {
      *
      * @return array List of database names
      */
-    public function listDBs() {
+    public function listDBs()
+    {
 
         // Return all databases available in memory
         if ($this->path === Database::DSN_PATH_MEMORY) {
@@ -68,11 +71,12 @@ class Client {
     /**
      * Select Collection
      *
-     * @param  string $database
-     * @param  string $collection
+     * @param string $database
+     * @param string $collection
      * @return Collection
      */
-    public function selectCollection($database, $collection) {
+    public function selectCollection($database, $collection)
+    {
 
         return $this->selectDB($database)->selectCollection($collection);
     }
@@ -80,10 +84,11 @@ class Client {
     /**
      * Select database
      *
-     * @param  string $name
+     * @param string $name
      * @return Database
      */
-    public function selectDB($name) {
+    public function selectDB($name)
+    {
 
         if (!isset($this->databases[$name])) {
             $this->databases[$name] = new Database(
@@ -95,7 +100,8 @@ class Client {
         return $this->databases[$name];
     }
 
-    public function __get($database) {
+    public function __get($database)
+    {
 
         return $this->selectDB($database);
     }

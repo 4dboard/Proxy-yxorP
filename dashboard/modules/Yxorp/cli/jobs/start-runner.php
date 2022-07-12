@@ -24,8 +24,8 @@ if ($app->helper('jobs')->isRunnerActive()) {
 
 CLI::writeln('yxorP: Job queue runner started', true);
 
-$app->on('shutdown', function() {
-    CLI::writeln('Job queue runner stopped', false);  
+$app->on('shutdown', function () {
+    CLI::writeln('Job queue runner stopped', false);
 });
 
 $app->helper('jobs')->run($runnerIdle);

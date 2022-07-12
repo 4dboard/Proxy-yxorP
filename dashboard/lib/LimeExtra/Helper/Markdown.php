@@ -17,7 +17,8 @@ use ParsedownExtra;
  * Class Markdown
  * @package Lime\Helper
  */
-class Markdown extends \Lime\Helper {
+class Markdown extends \Lime\Helper
+{
 
     protected $parser;
     protected $parserExtra;
@@ -25,7 +26,8 @@ class Markdown extends \Lime\Helper {
     /**
      * @inherit
      */
-    public function initialize() {
+    public function initialize()
+    {
 
         $this->parser = new Parsedown();
         $this->parserExtra = new ParsedownExtra();
@@ -36,7 +38,8 @@ class Markdown extends \Lime\Helper {
      * @param bool|true $extra
      * @return mixed
      */
-    public function parse($text, $extra = true) {
+    public function parse($text, $extra = true)
+    {
 
         return $extra ? $this->parserExtra->text($text) : $this->parser->text($text);
     }

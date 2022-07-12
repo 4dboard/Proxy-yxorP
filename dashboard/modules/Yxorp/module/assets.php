@@ -10,24 +10,24 @@
 
 $this->module('yxorp')->extend([
 
-    'listAssets' => function($options = []) {
+    'listAssets' => function ($options = []) {
         $this->app->trigger('yxorp.assets.find', [&$options]);
         $assets = $this->app->storage->find('yxorp/assets', $options)->toArray();
-        $total  = (!isset($options['skip']) && !isset($options['limit']))
-                   ? count($assets)
-                   : $this->app->storage->count('yxorp/assets', ($options['filter'] ?? null));
+        $total = (!isset($options['skip']) && !isset($options['limit']))
+            ? count($assets)
+            : $this->app->storage->count('yxorp/assets', ($options['filter'] ?? null));
 
         $this->app->trigger('yxorp.assets.list', [$assets]);
 
         return compact('assets', 'total');
     },
 
-    'saveAssets' => function($files, $meta = [], $update = false) use($app) {
+    'saveAssets' => function ($files, $meta = [], $update = false) use ($app) {
 
-        $files     = isset($files[0]) ? $files : [$files];
-        $finfo     = finfo_open(FILEINFO_MIME_TYPE);
-        $assets    = [];
-        $created   = time();
+        $files = isset($files[0]) ? $files : [$files];
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $assets = [];
+        $created = time();
 
         foreach ($files as $idx => &$file) {
 
@@ -37,9 +37,9 @@ $this->module('yxorp')->extend([
             // clean filename
             $filename = pathinfo($file, PATHINFO_FILENAME);
             $ext = pathinfo($file, PATHINFO_EXTENSION);
-            $cleanFilename = preg_replace('/[^a-zA-Z0-9-_\.]/','', str_replace(' ', '-', $filename));
-            $clean = $cleanFilename.uniqid("_uid_").'.'.$ext;
-            $path  = '/'.date('Y/m/d').'/'.$clean;
+            $cleanFilename = preg_replace('/[^a-zA-Z0-9-_\.]/', '', str_replace(' ', '-', $filename));
+            $clean = $cleanFilename . uniqid("_uid_") . '.' . $ext;
+            $path = '/' . date('Y/m/d') . '/' . $clean;
 
             $asset = [
                 'path' => $path,
@@ -48,12 +48,12 @@ $this->module('yxorp')->extend([
                 'description' => '',
                 'tags' => [],
                 'size' => filesize($file),
-                'image' => preg_match('/\.(jpg|jpeg|png|gif|svg|webp)$/i', $file) ? true:false,
-                'video' => preg_match('/\.(mp4|mov|ogv|webv|wmv|flv|avi)$/i', $file) ? true:false,
-                'audio' => preg_match('/\.(mp3|weba|ogg|wav|flac)$/i', $file) ? true:false,
-                'archive' => preg_match('/\.(zip|rar|7zip|gz|tar)$/i', $file) ? true:false,
-                'document' => preg_match('/\.(txt|htm|html|pdf|md)$/i', $file) ? true:false,
-                'code' => preg_match('/\.(htm|html|php|css|less|js|json|md|markdown|yaml|xml|htaccess)$/i', $file) ? true:false,
+                'image' => preg_match('/\.(jpg|jpeg|png|gif|svg|webp)$/i', $file) ? true : false,
+                'video' => preg_match('/\.(mp4|mov|ogv|webv|wmv|flv|avi)$/i', $file) ? true : false,
+                'audio' => preg_match('/\.(mp3|weba|ogg|wav|flac)$/i', $file) ? true : false,
+                'archive' => preg_match('/\.(zip|rar|7zip|gz|tar)$/i', $file) ? true : false,
+                'document' => preg_match('/\.(txt|htm|html|pdf|md)$/i', $file) ? true : false,
+                'code' => preg_match('/\.(htm|html|php|css|less|js|json|md|markdown|yaml|xml|htaccess)$/i', $file) ? true : false,
                 'colors' => null,
                 'width' => null,
                 'height' => null,
@@ -73,7 +73,7 @@ $this->module('yxorp')->extend([
             if ($asset['image'] && !preg_match('/\.svg$/i', $file)) {
 
                 $info = getimagesize($file);
-                $asset['width']  = $info[0];
+                $asset['width'] = $info[0];
                 $asset['height'] = $info[1];
                 $asset['colors'] = [];
 
@@ -91,7 +91,7 @@ $this->module('yxorp')->extend([
                 }
             }
 
-            $opts  = ['mimetype' => $asset['mime']];
+            $opts = ['mimetype' => $asset['mime']];
             $_meta = isset($meta[$idx]) && is_array($meta[$idx]) ? $meta[$idx] : $meta;
 
             $this->app->trigger('yxorp.asset.upload', [&$asset, &$_meta, &$opts, &$file, &$path]);
@@ -133,7 +133,7 @@ $this->module('yxorp')->extend([
         return $assets;
     },
 
-    'uploadAssets' => function($param = 'files', $meta = []) {
+    'uploadAssets' => function ($param = 'files', $meta = []) {
 
         $files = [];
 
@@ -143,26 +143,26 @@ $this->module('yxorp')->extend([
             $files = $param;
         }
 
-        $uploaded  = [];
-        $failed    = [];
-        $_files    = [];
-        $assets    = [];
+        $uploaded = [];
+        $failed = [];
+        $_files = [];
+        $assets = [];
 
-        $allowed   = $this->getGroupVar('assets.allowed_uploads', $this->app->retrieve('allowed_uploads', '*'));
-        $allowed   = $allowed == '*' ? true : str_replace([' ', ','], ['', '|'], preg_quote(is_array($allowed) ? implode(',', $allowed) : $allowed));
+        $allowed = $this->getGroupVar('assets.allowed_uploads', $this->app->retrieve('allowed_uploads', '*'));
+        $allowed = $allowed == '*' ? true : str_replace([' ', ','], ['', '|'], preg_quote(is_array($allowed) ? implode(',', $allowed) : $allowed));
         $max_size = $this->getGroupVar('assets.max_upload_size', $this->app->retrieve('max_upload_size', 0));
 
         if (isset($files['name']) && is_array($files['name'])) {
 
             for ($i = 0; $i < count($files['name']); $i++) {
 
-                $_file  = $this->app->path('#tmp:').'/'.$files['name'][$i];
+                $_file = $this->app->path('#tmp:') . '/' . $files['name'][$i];
                 $_isAllowed = $allowed === true ? true : preg_match("/\.({$allowed})$/i", $_file);
                 $_sizeAllowed = $max_size ? filesize($files['tmp_name'][$i]) < $max_size : true;
 
                 if (!$files['error'][$i] && $_isAllowed && $_sizeAllowed && move_uploaded_file($files['tmp_name'][$i], $_file)) {
 
-                    $_files[]   = $_file;
+                    $_files[] = $_file;
                     $uploaded[] = $files['name'][$i];
 
                     if (\preg_match('/\.(svg|xml)$/i', $_file)) {
@@ -187,10 +187,10 @@ $this->module('yxorp')->extend([
         return ['uploaded' => $uploaded, 'failed' => $failed, 'assets' => $assets];
     },
 
-    'updateAssetFile' => function($param = 'file', $asset = null) {
+    'updateAssetFile' => function ($param = 'file', $asset = null) {
 
-        $allowed   = $this->getGroupVar('assets.allowed_uploads', $this->app->retrieve('allowed_uploads', '*'));
-        $allowed   = $allowed == '*' ? true : str_replace([' ', ','], ['', '|'], preg_quote(is_array($allowed) ? implode(',', $allowed) : $allowed));
+        $allowed = $this->getGroupVar('assets.allowed_uploads', $this->app->retrieve('allowed_uploads', '*'));
+        $allowed = $allowed == '*' ? true : str_replace([' ', ','], ['', '|'], preg_quote(is_array($allowed) ? implode(',', $allowed) : $allowed));
         $max_size = $this->getGroupVar('assets.max_upload_size', $this->app->retrieve('max_upload_size', 0));
 
         $file = $_FILES[$param] ?? null;
@@ -199,7 +199,7 @@ $this->module('yxorp')->extend([
             return false;
         }
 
-        $_file  = $this->app->path('#tmp:').'/'.$file['name'];
+        $_file = $this->app->path('#tmp:') . '/' . $file['name'];
         $_isAllowed = $allowed === true ? true : preg_match("/\.({$allowed})$/i", $_file);
         $_sizeAllowed = $max_size ? filesize($file['tmp_name']) < $max_size : true;
 
@@ -227,7 +227,7 @@ $this->module('yxorp')->extend([
         return false;
     },
 
-    'removeAssets' => function($assets) {
+    'removeAssets' => function ($assets) {
 
         $assets = isset($assets[0]) ? $assets : [$assets];
 
@@ -243,8 +243,8 @@ $this->module('yxorp')->extend([
 
             $this->app->storage->remove('yxorp/assets', ['_id' => $asset['_id']]);
 
-            if ($this->app->filestorage->has('assets://'.trim($asset['path'], '/'))) {
-                $this->app->filestorage->delete('assets://'.trim($asset['path'], '/'));
+            if ($this->app->filestorage->has('assets://' . trim($asset['path'], '/'))) {
+                $this->app->filestorage->delete('assets://' . trim($asset['path'], '/'));
             }
         }
 
@@ -253,7 +253,7 @@ $this->module('yxorp')->extend([
         return $assets;
     },
 
-    'updateAssets' => function($assets) {
+    'updateAssets' => function ($assets) {
 
         $assets = isset($assets[0]) ? $assets : [$assets];
 

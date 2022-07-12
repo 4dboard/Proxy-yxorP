@@ -10,22 +10,25 @@
 
 namespace yxorP\Controller;
 
-class Accounts extends \yxorP\AuthController {
+class Accounts extends \yxorP\AuthController
+{
 
-    public function index() {
+    public function index()
+    {
 
         if (!$this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
             return $this->helper('admin')->denyRequest();
         }
 
-        $current  = $this->user['_id'];
-        $groups   = $this->module('yxorp')->getGroups();
+        $current = $this->user['_id'];
+        $groups = $this->module('yxorp')->getGroups();
 
         return $this->render('yxorp:views/accounts/index.php', compact('current', 'groups'));
     }
 
 
-    public function account($uid=null) {
+    public function account($uid = null)
+    {
 
         if (!$uid) {
             $uid = $this->user['_id'];
@@ -45,9 +48,9 @@ class Accounts extends \yxorP\AuthController {
 
         unset($account["password"]);
 
-        $fields    = $this->app->retrieve('config/account/fields', null);
+        $fields = $this->app->retrieve('config/account/fields', null);
         $languages = $this->getLanguages();
-        $groups    = $this->module('yxorp')->getGroups();
+        $groups = $this->module('yxorp')->getGroups();
 
         if (!$this->app->helper('admin')->isResourceEditableByCurrentUser($uid, $meta)) {
             return $this->render('yxorp:views/base/locked.php', compact('meta'));
@@ -60,31 +63,33 @@ class Accounts extends \yxorP\AuthController {
         return $this->render('yxorp:views/accounts/account.php', compact('account', 'uid', 'languages', 'groups', 'fields'));
     }
 
-    public function create() {
+    public function create()
+    {
 
         if (!$this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
             return $this->helper('admin')->denyRequest();
         }
 
-        $uid       = null;
-        $account   = [
-            'user'   => '',
-            'email'  => '',
+        $uid = null;
+        $account = [
+            'user' => '',
+            'email' => '',
             'active' => true,
-            'group'  => 'admin',
-            'i18n'   => $this->app->helper('i18n')->locale
+            'group' => 'admin',
+            'i18n' => $this->app->helper('i18n')->locale
         ];
 
-        $fields    = $this->app->retrieve('config/account/fields', null);
+        $fields = $this->app->retrieve('config/account/fields', null);
         $languages = $this->getLanguages();
-        $groups    = $this->module('yxorp')->getGroups();
+        $groups = $this->module('yxorp')->getGroups();
 
         $this->app->trigger('yxorp.account.fields', [&$fields, &$account]);
 
         return $this->render('yxorp:views/accounts/account.php', compact('account', 'uid', 'languages', 'groups', 'fields'));
     }
 
-    public function save() {
+    public function save()
+    {
 
         if ($data = $this->param('account', false)) {
 
@@ -111,9 +116,9 @@ class Accounts extends \yxorP\AuthController {
                 }
 
                 $data['_created'] = $data['_modified'];
-                
+
             } else {
-                
+
                 if (!$this->app->helper('admin')->isResourceEditableByCurrentUser($data['_id'])) {
                     $this->stop(['error' => "Saving failed! Account is locked!"], 412);
                 }
@@ -127,7 +132,7 @@ class Accounts extends \yxorP\AuthController {
 
             if (isset($data['password'])) {
 
-                if (strlen($data['password'])){
+                if (strlen($data['password'])) {
                     $data['password'] = $this->app->hash($data['password']);
                 } else {
                     unset($data['password']);
@@ -150,19 +155,19 @@ class Accounts extends \yxorP\AuthController {
             // --
             if (isset($data['user'])) {
 
-                $_account = $this->app->storage->findOne('yxorp/accounts', ['user'  => $data['user']]);
+                $_account = $this->app->storage->findOne('yxorp/accounts', ['user' => $data['user']]);
 
                 if ($_account && (!isset($data['_id']) || $data['_id'] != $_account['_id'])) {
-                    $this->app->stop(['error' =>  'Username is already used!'], 412);
+                    $this->app->stop(['error' => 'Username is already used!'], 412);
                 }
             }
 
             if (isset($data['email'])) {
 
-                $_account = $this->app->storage->findOne('yxorp/accounts', ['email'  => $data['email']]);
+                $_account = $this->app->storage->findOne('yxorp/accounts', ['email' => $data['email']]);
 
                 if ($_account && (!isset($data['_id']) || $data['_id'] != $_account['_id'])) {
-                    $this->app->stop(['error' =>  'Email is already used!'], 412);
+                    $this->app->stop(['error' => 'Email is already used!'], 412);
                 }
             }
             // --
@@ -190,7 +195,8 @@ class Accounts extends \yxorP\AuthController {
 
     }
 
-    public function remove() {
+    public function remove()
+    {
 
         if (!$this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
             return $this->helper('admin')->denyRequest();
@@ -210,12 +216,13 @@ class Accounts extends \yxorP\AuthController {
         return false;
     }
 
-    public function find() {
+    public function find()
+    {
 
         \session_write_close();
 
         $options = array_merge([
-            'sort'   => ['user' => 1]
+            'sort' => ['user' => 1]
         ], $this->param('options', []));
 
         if (isset($options['filter']) && is_string($options['filter'])) {
@@ -226,7 +233,8 @@ class Accounts extends \yxorP\AuthController {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {}
+                } catch (\Exception $e) {
+                }
             }
 
             if (!$filter) {
@@ -243,9 +251,9 @@ class Accounts extends \yxorP\AuthController {
         }
 
         $accounts = $this->app->storage->find('yxorp/accounts', $options)->toArray();
-        $count    = (!isset($options['skip']) && !isset($options['limit'])) ? count($accounts) : $this->app->storage->count('yxorp/accounts', isset($options['filter']) ? $options['filter'] : []);
-        $pages    = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
-        $page     = 1;
+        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($accounts) : $this->app->storage->count('yxorp/accounts', isset($options['filter']) ? $options['filter'] : []);
+        $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
+        $page = 1;
 
         if ($pages > 1 && isset($options['skip'])) {
             $page = ceil($options['skip'] / $options['limit']) + 1;
@@ -259,17 +267,18 @@ class Accounts extends \yxorP\AuthController {
         return compact('accounts', 'count', 'pages', 'page');
     }
 
-    protected function getLanguages() {
+    protected function getLanguages()
+    {
 
         $languages = [['i18n' => 'en', 'language' => 'English']];
 
         foreach ($this->app->helper('fs')->ls('*.php', '#config:yxorp/i18n') as $file) {
 
-            $lang     = include($file->getRealPath());
-            $i18n     = $file->getBasename('.php');
+            $lang = include($file->getRealPath());
+            $i18n = $file->getBasename('.php');
             $language = $lang['@meta']['language'] ?? $i18n;
 
-            $languages[] = ['i18n' => $i18n, 'language'=> $language];
+            $languages[] = ['i18n' => $i18n, 'language' => $language];
         }
 
         return $languages;

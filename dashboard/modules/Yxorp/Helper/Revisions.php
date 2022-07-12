@@ -10,32 +10,37 @@
 
 namespace yxorP\Helper;
 
-class Revisions extends \Lime\Helper {
+class Revisions extends \Lime\Helper
+{
 
     protected $storage;
 
-    public function initialize(){
+    public function initialize()
+    {
         $this->storage = $this->app->storage;
     }
 
 
-    public function count($id) {
+    public function count($id)
+    {
         return $this->storage->count('yxorp/revisions', ['_oid' => $id]);
     }
 
-    public function getList($id, $limit = 50, $skip = 0) {
+    public function getList($id, $limit = 50, $skip = 0)
+    {
 
         $options = [
             'filter' => ['_oid' => $id],
-            'sort'   => ['_created' => -1],
-            'limit'  => $limit,
-            'skip'   => $skip
+            'sort' => ['_created' => -1],
+            'limit' => $limit,
+            'skip' => $skip
         ];
 
         return $this->storage->find('yxorp/revisions', $options)->toArray();
     }
 
-    public function add($id, $data, $meta = null, $creator = null) {
+    public function add($id, $data, $meta = null, $creator = null)
+    {
 
         if ($creator === true) {
             $creator = null;
@@ -59,15 +64,18 @@ class Revisions extends \Lime\Helper {
         return $entry;
     }
 
-    public function get($id) {
+    public function get($id)
+    {
         return $this->storage->findOne('yxorp/revisions', ['_oid' => $id]);
     }
 
-    public function remove($rid) {
+    public function remove($rid)
+    {
         return $this->storage->remove('yxorp/revisions', ['_id' => $rid]);
     }
 
-    public function removeAll($id) {
+    public function removeAll($id)
+    {
         return $this->storage->remove('yxorp/revisions', ['_oid' => $id]);
     }
 }

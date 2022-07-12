@@ -11,7 +11,8 @@
 namespace MongoHybrid;
 
 
-class ResultSet extends \ArrayObject {
+class ResultSet extends \ArrayObject
+{
 
     /** Driver */
     protected $driver;
@@ -24,15 +25,17 @@ class ResultSet extends \ArrayObject {
      * @param $driver
      * @param iterable $documents
      */
-    public function __construct($driver, &$documents) {
+    public function __construct($driver, &$documents)
+    {
 
         $this->driver = $driver;
-        $this->cache  = [];
+        $this->cache = [];
 
         parent::__construct($documents);
     }
 
-    public function hasOne($collections) {
+    public function hasOne($collections)
+    {
 
         foreach ($this as &$doc) {
 
@@ -51,7 +54,8 @@ class ResultSet extends \ArrayObject {
 
     }
 
-    public function hasMany($collections) {
+    public function hasMany($collections)
+    {
 
         foreach ($this as &$doc) {
 
@@ -59,17 +63,19 @@ class ResultSet extends \ArrayObject {
 
                 foreach ($collections as $collection => $fkey) {
 
-                    $doc[$collection] = $this->driver->find($collection, ['filter' => [$fkey=>$doc['_id']]]);
+                    $doc[$collection] = $this->driver->find($collection, ['filter' => [$fkey => $doc['_id']]]);
                 }
             }
         }
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         return $this->getArrayCopy();
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return json_encode($this->getArrayCopy());
     }
 }

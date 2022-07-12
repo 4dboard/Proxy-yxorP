@@ -21,7 +21,7 @@ $accounts = $app->storage->find('yxorp/accounts')->toArray();
 
 if (count($accounts)) {
 
-    CLI::writeln("Exporting yxorp/accounts (".count($accounts).")");
+    CLI::writeln("Exporting yxorp/accounts (" . count($accounts) . ")");
 
     $app->helper('fs')->write("{$target}/yxorp/accounts.json", json_encode($accounts, JSON_PRETTY_PRINT));
 }

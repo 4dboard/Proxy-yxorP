@@ -10,9 +10,9 @@
 
 if (!YXORP_CLI) return;
 
-$lang     = $app->param('lang', null);
+$lang = $app->param('lang', null);
 $language = $app->param('language', $lang);
-$author   = $app->param('author', 'yxorP CLI');
+$author = $app->param('author', 'yxorP CLI');
 
 if (!$lang) {
     return CLI::writeln("--lang parameter is missing", false);
@@ -20,12 +20,12 @@ if (!$lang) {
 
 // settings
 $extensions = ['php', 'md', 'html', 'js', 'tag'];
-$strings    = [];
-$dirs       = [YXORP_DIR.'/modules'];
+$strings = [];
+$dirs = [YXORP_DIR . '/modules'];
 
 foreach ($dirs as $dir) {
 
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(YXORP_DIR.'/modules'), RecursiveIteratorIterator::SELF_FIRST);
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(YXORP_DIR . '/modules'), RecursiveIteratorIterator::SELF_FIRST);
 
     foreach ($iterator as $file) {
 
@@ -49,23 +49,23 @@ if (count($strings)) {
 
     $strings['@meta'] = [
         'language' => $language,
-        'author'   => $author,
+        'author' => $author,
         'date' => [
-            'shortdays'   => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            'longdays'    => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            'shortdays' => ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            'longdays' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
             'shortmonths' => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-            'longmonths'  => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            'longmonths' => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
         ]
     ];
 
     if ($app->path("#config:yxorp/i18n/{$lang}.php")) {
         $langfile = include($app->path("#config:yxorp/i18n/{$lang}.php"));
-        $strings  = array_merge($strings, $langfile);
+        $strings = array_merge($strings, $langfile);
     }
 
     ksort($strings);
 
-    $app->helper('fs')->write("#config:yxorp/i18n/{$lang}.php", '<?php return '.$app->helper('utils')->var_export($strings, true).';');
+    $app->helper('fs')->write("#config:yxorp/i18n/{$lang}.php", '<?php return ' . $app->helper('utils')->var_export($strings, true) . ';');
 }
 
 CLI::writeln("Done! Language file created: config/yxorp/i18n/{$lang}.php", true);

@@ -8,9 +8,11 @@
  * file that was distributed with this source code.
  */
 
-class DotEnv {
+class DotEnv
+{
 
-    public static function load($dir = '.') {
+    public static function load($dir = '.')
+    {
 
         $config = is_file($dir) ? $dir : "{$dir}/.env";
 
@@ -29,7 +31,8 @@ class DotEnv {
         return false;
     }
 
-    public static function parse($str, $expand = true) {
+    public static function parse($str, $expand = true)
+    {
 
         $lines = explode("\n", $str);
         $vars = [];
@@ -55,7 +58,7 @@ class DotEnv {
             $envs = array_merge(getenv(), $vars);
 
             foreach ($envs as $key => $value) {
-                $str = str_replace('${'.$key.'}', $value, $str);
+                $str = str_replace('${' . $key . '}', $value, $str);
             }
 
             $vars = self::parse($str, false);

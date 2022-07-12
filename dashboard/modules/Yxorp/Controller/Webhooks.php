@@ -10,9 +10,11 @@
 
 namespace yxorP\Controller;
 
-class Webhooks extends \yxorP\AuthController {
+class Webhooks extends \yxorP\AuthController
+{
 
-    public function __construct($app) {
+    public function __construct($app)
+    {
 
         parent::__construct($app);
 
@@ -21,7 +23,8 @@ class Webhooks extends \yxorP\AuthController {
         }
     }
 
-    public function index() {
+    public function index()
+    {
 
         $webhooks = $this->app->storage->find('yxorp/webhooks', [
             'sort' => ['name' => 1]
@@ -30,12 +33,13 @@ class Webhooks extends \yxorP\AuthController {
         return $this->render('yxorp:views/webhooks/index.php', compact('webhooks'));
     }
 
-    public function webhook($id = null) {
+    public function webhook($id = null)
+    {
 
         $webhook = [
             'name' => '',
-            'url'  => '',
-            'auth' => ['user'=>'', 'pass'=>''],
+            'url' => '',
+            'auth' => ['user' => '', 'pass' => ''],
             'headers' => [],
             'events' => [],
             'active' => true
@@ -81,7 +85,8 @@ class Webhooks extends \yxorP\AuthController {
         return $this->render('yxorp:views/webhooks/webhook.php', compact('webhook', 'triggers'));
     }
 
-    public function save() {
+    public function save()
+    {
 
         if ($data = $this->param('webhook', false)) {
 
@@ -105,11 +110,12 @@ class Webhooks extends \yxorP\AuthController {
 
     }
 
-    public function remove() {
+    public function remove()
+    {
 
         if ($data = $this->param('webhook', false)) {
 
-            $this->app->storage->remove('yxorp/webhooks', ['_id'=>$data['_id']]);
+            $this->app->storage->remove('yxorp/webhooks', ['_id' => $data['_id']]);
 
             // invalidate cache
             if ($cache = $this->app->path('#tmp:webhooks.cache.php')) {

@@ -14,21 +14,23 @@ namespace yxorP\Helper;
 /**
  * Async Helper class.
  * Use only if you know what you're doing!!!
- * 
+ *
  * Usage:
- * 
+ *
  * yxorp()->helper('async')->exec('
  *    sleep(10);
  *    file_put_contents(YXORP_DIR."/debug.txt", json_encode(ASYNC_PARAMS));
  * ', ['test' => 222]);
  */
-class Async extends \Lime\Helper {
+class Async extends \Lime\Helper
+{
 
     public $phpPath = 'php';
 
-    public function exec($script, $params = null, $maxTime = 60) {
-        
-        $processId = \uniqid('worker').'-'.(\time() + $maxTime);
+    public function exec($script, $params = null, $maxTime = 60)
+    {
+
+        $processId = \uniqid('worker') . '-' . (\time() + $maxTime);
         $fs = $this->app->helper('fs');
 
         if ($path = $this->app->path($script)) {
@@ -38,17 +40,17 @@ class Async extends \Lime\Helper {
         $script = \trim($script);
 
         if (\substr($script, 0, 4) !== '<?php') {
-            $script = "<?php ".$script;
+            $script = "<?php " . $script;
         }
 
 
-$script = "<?php
+        $script = "<?php
 
 // include yxorp
-include('".YXORP_DIR."/bootstrap.php');
-const ASYNC_PARAMS = ".\var_export($params, true).";
+include('" . YXORP_DIR . "/bootstrap.php');
+const ASYNC_PARAMS = " . \var_export($params, true) . ";
 
-?>".$script."
+?>" . $script . "
 
 // delete script after execution
 unlink(__FILE__);
@@ -62,7 +64,8 @@ unlink(__FILE__);
         return $processId;
     }
 
-    public function finished($processId, &$error = null) {
+    public function finished($processId, &$error = null)
+    {
 
         $processId = \str_replace('..', '', $processId);
         $file = $this->app->path("#storage:async/{$processId}.php");
@@ -71,7 +74,7 @@ unlink(__FILE__);
             $exit = \explode('-', basename($file, '.php'))[1];
 
             if (\time() > $exit) {
-                
+
                 // do something
                 \unlink($file);
                 $error = 'timeout';
@@ -80,26 +83,27 @@ unlink(__FILE__);
 
             return false;
         }
-        
+
         return true;
     }
 
-    protected function execInBackground($scriptfile) { 
-        
+    protected function execInBackground($scriptfile)
+    {
+
         if (!$this->isExecAvailable()) {
-            
+
             // fire and forget calling script
-            $url   = $this->app->pathToUrl($scriptfile, true).'?async=true'; 
+            $url = $this->app->pathToUrl($scriptfile, true) . '?async=true';
             $parts = \parse_url($url);
-            $fp    = \fsockopen($parts['host'], isset($parts['port']) ? $parts['port']:80, $errno, $errstr, 30);
+            $fp = \fsockopen($parts['host'], isset($parts['port']) ? $parts['port'] : 80, $errno, $errstr, 30);
 
             if ($fp) {
-                $out = "POST ".$parts['path']." HTTP/1.1\r\n";
-                $out.= "Host: ".$parts['host']."\r\n";
-                $out.= "Content-Type: application/x-www-form-urlencoded\r\n";
-                $out.= "Content-Length: ".\strlen($parts['query'])."\r\n";
-                $out.= "Connection: Close\r\n\r\n";
-                if (isset($parts['query'])) $out.= $parts['query'];
+                $out = "POST " . $parts['path'] . " HTTP/1.1\r\n";
+                $out .= "Host: " . $parts['host'] . "\r\n";
+                $out .= "Content-Type: application/x-www-form-urlencoded\r\n";
+                $out .= "Content-Length: " . \strlen($parts['query']) . "\r\n";
+                $out .= "Connection: Close\r\n\r\n";
+                if (isset($parts['query'])) $out .= $parts['query'];
             }
 
             \fwrite($fp, $out);
@@ -107,23 +111,24 @@ unlink(__FILE__);
             return;
         }
 
-        $cmd = $this->phpPath." $scriptfile";
+        $cmd = $this->phpPath . " $scriptfile";
 
-        if (\substr(\php_uname(), 0, 7) == "Windows") { 
-            \pclose(popen("start /B ". $cmd, "r"));  
-        } else { 
-            \exec($cmd . " > /dev/null &");   
-        } 
-    } 
+        if (\substr(\php_uname(), 0, 7) == "Windows") {
+            \pclose(popen("start /B " . $cmd, "r"));
+        } else {
+            \exec($cmd . " > /dev/null &");
+        }
+    }
 
-    protected function isExecAvailable() {
+    protected function isExecAvailable()
+    {
 
         if (\in_array(\strtolower(\ini_get('safe_mode')), ['on', '1'], true) || (!\function_exists('exec'))) {
             return false;
         }
-        
+
         $disabled_functions = \explode(',', \ini_get('disable_functions'));
-        
+
         return !\in_array('exec', $disabled_functions);
     }
 

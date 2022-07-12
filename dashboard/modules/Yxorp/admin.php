@@ -13,13 +13,13 @@
  */
 
 // because auto-load not ready yet
-include(__DIR__.'/Helper/Admin.php');
+include(__DIR__ . '/Helper/Admin.php');
 
 $app->helpers['admin'] = 'yxorP\\Helper\\Admin';
-$app->helpers['csrf']  = 'yxorP\\Helper\\Csrf';
+$app->helpers['csrf'] = 'yxorP\\Helper\\Csrf';
 
 // init + load i18n
-$app->on('before', function() {
+$app->on('before', function () {
 
     $this->helper('i18n')->locale = $this->retrieve('i18n', 'en');
 
@@ -30,10 +30,10 @@ $app->on('before', function() {
         $this->helper('i18n')->load($translationspath, $locale);
     }
 
-    $this->bind('/yxorp.i18n.data', function() {
+    $this->bind('/yxorp.i18n.data', function () {
         $this->response->mime = 'js';
         $data = $this->helper('i18n')->data($this->helper('i18n')->locale);
-        return 'if (i18n) { i18n.register('.(count($data) ? json_encode($data):'{}').'); }';
+        return 'if (i18n) { i18n.register(' . (count($data) ? json_encode($data) : '{}') . '); }';
     });
 });
 
@@ -89,7 +89,7 @@ $app['app.assets.base'] = $assets;
  * register routes
  */
 
-$app->bind('/', function(){
+$app->bind('/', function () {
 
     if ($this['yxorp.start'] && $this->module('yxorp')->getUser()) {
         $this->reroute($this['yxorp.start']);
@@ -112,20 +112,20 @@ $app->bindClass('yxorP\\Controller\\Webhooks', 'webhooks');
 /**
  * Check user session for backend ui
  */
-$app->on('yxorp.auth.setuser', function($user, $permanent) {
+$app->on('yxorp.auth.setuser', function ($user, $permanent) {
     if (!$permanent) return;
     $this('session')->write('yxorp.session.time', time());
 });
 
 // update session time
-$app->on('admin.init', function() {
+$app->on('admin.init', function () {
     if ($this['route'] != '/check-backend-session' && isset($_SESSION['yxorp.session.time'])) {
         $_SESSION['yxorp.session.time'] = time();
     }
 });
 
 // check + validate session time
-$app->bind('/check-backend-session', function() {
+$app->bind('/check-backend-session', function () {
 
     session_write_close();
 
@@ -149,10 +149,10 @@ $app->bind('/check-backend-session', function() {
 /**
  * on admint init
  */
-$app->on('admin.init', function() {
+$app->on('admin.init', function () {
 
     // bind finder
-    $this->bind('/finder', function() {
+    $this->bind('/finder', function () {
 
         $this->layout = 'yxorp:views/layouts/app.php';
         $this["user"] = $this->module('yxorp')->getUser();
@@ -167,7 +167,7 @@ $app->on('admin.init', function() {
  * listen to app search to filter accounts
  */
 
-$app->on('yxorp.search', function($search, $list) {
+$app->on('yxorp.search', function ($search, $list) {
 
     if (!$this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
         return;
@@ -175,11 +175,11 @@ $app->on('yxorp.search', function($search, $list) {
 
     foreach ($this->storage->find('yxorp/accounts') as $a) {
 
-        if (strripos($a['name'].' '.$a['user'], $search)!==false){
+        if (strripos($a['name'] . ' ' . $a['user'], $search) !== false) {
             $list[] = [
-                'icon'  => 'user',
+                'icon' => 'user',
                 'title' => $a['name'],
-                'url'   => $this->routeUrl('/accounts/account/'.$a['_id'])
+                'url' => $this->routeUrl('/accounts/account/' . $a['_id'])
             ];
         }
     }
@@ -188,14 +188,14 @@ $app->on('yxorp.search', function($search, $list) {
 // dashboard widgets
 
 
-$app->on('admin.dashboard.widgets', function($widgets) {
+$app->on('admin.dashboard.widgets', function ($widgets) {
 
     $title = $this('i18n')->get('Today');
 
     $widgets[] = [
-        'name'    => 'time',
+        'name' => 'time',
         'content' => $this->view('yxorp:views/widgets/datetime.php', compact('title')),
-        'area'    => 'main'
+        'area' => 'main'
     ];
 
 }, 100);
@@ -203,7 +203,7 @@ $app->on('admin.dashboard.widgets', function($widgets) {
 /**
  * handle error pages
  */
-$app->on('after', function() {
+$app->on('after', function () {
 
     switch ($this->response->status) {
 
@@ -225,7 +225,7 @@ $app->on('after', function() {
             } else {
 
                 if (!$this->module('yxorp')->getUser()) {
-                    $this->reroute('/auth/login?to='.$this->retrieve('route'));
+                    $this->reroute('/auth/login?to=' . $this->retrieve('route'));
                 }
 
                 $this->response->body = $this->view('yxorp:views/errors/404.php');
@@ -235,22 +235,22 @@ $app->on('after', function() {
             break;
     }
 
-     /**
+    /**
      * send some debug information
      * back to client (visible in the network panel)
      */
     if ($this['debug'] && !headers_sent()) {
 
         /**
-        * some system info
-        */
+         * some system info
+         */
 
         $DURATION_TIME = microtime(true) - YXORP_START_TIME;
-        $MEMORY_USAGE  = memory_get_peak_usage(false)/1024/1024;
+        $MEMORY_USAGE = memory_get_peak_usage(false) / 1024 / 1024;
 
-        header('YXORP_DURATION_TIME: '.$DURATION_TIME.'sec');
-        header('YXORP_MEMORY_USAGE: '.$MEMORY_USAGE.'mb');
-        header('YXORP_LOADED_FILES: '.count(get_included_files()));
+        header('YXORP_DURATION_TIME: ' . $DURATION_TIME . 'sec');
+        header('YXORP_MEMORY_USAGE: ' . $MEMORY_USAGE . 'mb');
+        header('YXORP_LOADED_FILES: ' . count(get_included_files()));
     }
 });
 

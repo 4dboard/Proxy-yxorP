@@ -10,13 +10,13 @@
 
 $this->module('forms')->extend([
 
-    'createForm' => function($name, $data = []) {
+    'createForm' => function ($name, $data = []) {
 
         if (!trim($name)) {
             return false;
         }
 
-        $configpath = $this->app->path('#storage:').'/forms';
+        $configpath = $this->app->path('#storage:') . '/forms';
 
         if (!$this->app->path('#storage:forms')) {
 
@@ -32,13 +32,13 @@ $this->module('forms')->extend([
         $time = time();
 
         $form = array_replace_recursive([
-            '_id'       => $name,
-            'name'      => $name,
-            'label'     => $name,
+            '_id' => $name,
+            'name' => $name,
+            'label' => $name,
             'save_entry' => true,
-            'in_menu'   => false,
+            'in_menu' => false,
             'email_forward' => '',
-            '_created'  => $time,
+            '_created' => $time,
             '_modified' => $time
         ], $data);
 
@@ -51,7 +51,7 @@ $this->module('forms')->extend([
         return $form;
     },
 
-    'updateForm' => function($name, $data) {
+    'updateForm' => function ($name, $data) {
 
         $metapath = $this->app->path("#storage:forms/{$name}.form.php");
 
@@ -61,8 +61,8 @@ $this->module('forms')->extend([
 
         $data['_modified'] = time();
 
-        $form   = include($metapath);
-        $form   = array_merge($form, $data);
+        $form = include($metapath);
+        $form = array_merge($form, $data);
         $export = var_export($form, true);
 
         if (!$this->app->helper('fs')->write($metapath, "<?php\n return {$export};")) {
@@ -74,7 +74,7 @@ $this->module('forms')->extend([
         return $form;
     },
 
-    'saveForm' => function($name, $data) {
+    'saveForm' => function ($name, $data) {
 
         if (!trim($name)) {
             return false;
@@ -83,7 +83,7 @@ $this->module('forms')->extend([
         return isset($data['_id']) ? $this->updateForm($name, $data) : $this->createForm($name, $data);
     },
 
-    'removeForm' => function($name) {
+    'removeForm' => function ($name) {
 
         if ($form = $this->form($name)) {
 
@@ -98,11 +98,11 @@ $this->module('forms')->extend([
         return false;
     },
 
-    'forms' => function($extended = false) {
+    'forms' => function ($extended = false) {
 
         $stores = [];
 
-        foreach($this->app->helper('fs')->ls('*.form.php', '#storage:forms') as $path) {
+        foreach ($this->app->helper('fs')->ls('*.form.php', '#storage:forms') as $path) {
 
             $store = include($path->getPathName());
 
@@ -116,11 +116,11 @@ $this->module('forms')->extend([
         return $stores;
     },
 
-    'exists' => function($name) {
+    'exists' => function ($name) {
         return $this->app->path("#storage:forms/{$name}.form.php");
     },
 
-    'form' => function($name) {
+    'form' => function ($name) {
 
         static $forms; // cache
 
@@ -144,7 +144,7 @@ $this->module('forms')->extend([
         return $forms[$name];
     },
 
-    'entries' => function($name) {
+    'entries' => function ($name) {
 
         $forms = $this->form($name);
 
@@ -155,7 +155,7 @@ $this->module('forms')->extend([
         return $this->app->storage->getCollection("forms/{$form}");
     },
 
-    'find' => function($form, $options = []) {
+    'find' => function ($form, $options = []) {
 
         $forms = $this->form($form);
 
@@ -171,7 +171,7 @@ $this->module('forms')->extend([
         return (array)$this->app->storage->find("forms/{$form}", $options);
     },
 
-    'findOne' => function($form, $criteria = [], $projection = null) {
+    'findOne' => function ($form, $criteria = [], $projection = null) {
 
         $forms = $this->form($form);
 
@@ -182,17 +182,17 @@ $this->module('forms')->extend([
         return $this->app->storage->findOne("forms/{$form}", $criteria, $projection);
     },
 
-    'save' => function($form, $data) {
+    'save' => function ($form, $data) {
 
         $forms = $this->form($form);
 
         if (!$forms) return false;
 
-        $name       = $form;
-        $form       = $forms['_id'];
-        $data       = isset($data[0]) ? $data : [$data];
-        $return     = [];
-        $modified   = time();
+        $name = $form;
+        $form = $forms['_id'];
+        $data = isset($data[0]) ? $data : [$data];
+        $return = [];
+        $modified = time();
 
         foreach ($data as $entry) {
 
@@ -218,7 +218,7 @@ $this->module('forms')->extend([
         return count($return) == 1 ? $return[0] : $return;
     },
 
-    'remove' => function($form, $criteria) {
+    'remove' => function ($form, $criteria) {
 
         $forms = $this->form($form);
 
@@ -229,7 +229,7 @@ $this->module('forms')->extend([
         return $this->app->storage->remove("forms/{$form}", $criteria);
     },
 
-    'count' => function($form, $criteria = []) {
+    'count' => function ($form, $criteria = []) {
 
         $forms = $this->form($form);
 
@@ -240,19 +240,19 @@ $this->module('forms')->extend([
         return $this->app->storage->count("forms/{$form}", $criteria);
     },
 
-    'open' => function($name, $options = []) {
+    'open' => function ($name, $options = []) {
 
         $this->app->trigger("forms.open.before", [$name, &$options]);
 
         $options = array_merge([
-            'id'          => uniqid('form'),
-            'class'       => '',
-            'action'      => $this->app->routeUrl('/api/forms/submit/'.$name),
-            'method'      => 'post',
-            'enctype'     => 'multipart/form-data',
-            'csrf'        => $this->app->hash($name),
+            'id' => uniqid('form'),
+            'class' => '',
+            'action' => $this->app->routeUrl('/api/forms/submit/' . $name),
+            'method' => 'post',
+            'enctype' => 'multipart/form-data',
+            'csrf' => $this->app->hash($name),
             'mailsubject' => false,
-            'include_js'  => true
+            'include_js' => true
         ], $options);
 
         $this->app->renderView('forms:views/api/form.php', compact('name', 'options'));
@@ -261,7 +261,7 @@ $this->module('forms')->extend([
 
     },
 
-    'close' => function($name = null, $options = []) {
+    'close' => function ($name = null, $options = []) {
 
         $this->app->trigger("forms.close.before", [$name, &$options]);
         echo '</form>';
@@ -269,7 +269,7 @@ $this->module('forms')->extend([
 
     },
 
-    'submit' => function($form, $data, $options = []) {
+    'submit' => function ($form, $data, $options = []) {
 
         $frm = $this->form($form);
 
@@ -278,7 +278,7 @@ $this->module('forms')->extend([
         }
 
         // custom form validation
-        if ($this->app->path("#config:forms/{$form}.php") && false===include($this->app->path("#config:forms/{$form}.php"))) {
+        if ($this->app->path("#config:forms/{$form}.php") && false === include($this->app->path("#config:forms/{$form}.php"))) {
             return false;
         }
 
@@ -286,13 +286,13 @@ $this->module('forms')->extend([
 
         if (isset($frm['email_forward']) && $frm['email_forward']) {
 
-            $emails          = array_map('trim', explode(',', $frm['email_forward']));
+            $emails = array_map('trim', explode(',', $frm['email_forward']));
             $filtered_emails = [];
 
-            foreach ($emails as $to){
+            foreach ($emails as $to) {
 
                 // Validate each email address individually, push if valid
-                if ($this->app->helper('utils')->isEmail($to)){
+                if ($this->app->helper('utils')->isEmail($to)) {
                     $filtered_emails[] = $to;
                 }
             }
@@ -306,14 +306,14 @@ $this->module('forms')->extend([
 
                     $body = $this->app->renderer->file($template, ['data' => $data, 'frm' => $frm], false);
 
-                // Prepare template manually
+                    // Prepare template manually
                 } else {
 
                     $body = [];
 
                     foreach ($data as $key => $value) {
                         $body[] = "<b>{$key}:</b>\n<br>";
-                        $body[] = (is_string($value) ? $value:json_encode($value))."\n<br>";
+                        $body[] = (is_string($value) ? $value : json_encode($value)) . "\n<br>";
                     }
 
                     $body = implode("\n<br>", $body);
@@ -347,7 +347,7 @@ $app('acl')->addResource('forms', ['create', 'delete', 'manage']);
 // REST
 if (YXORP_API_REQUEST) {
 
-    $this->bind('/api/forms/submit/:form', function($params) {
+    $this->bind('/api/forms/submit/:form', function ($params) {
 
         $form = $params["form"];
         $formhash = $this->param('__csrf', false);
@@ -367,7 +367,7 @@ if (YXORP_API_REQUEST) {
 
     if (!$this->param('__csrf', false)) {
 
-        $app->on('yxorp.rest.init', function($routes) {
+        $app->on('yxorp.rest.init', function ($routes) {
             $routes['forms'] = 'Forms\\Controller\\RestApi';
         });
     }
@@ -375,10 +375,10 @@ if (YXORP_API_REQUEST) {
 
 // ADMIN
 if (YXORP_ADMIN_CP) {
-    include_once(__DIR__.'/admin.php');
+    include_once(__DIR__ . '/admin.php');
 }
 
 // CLI
 if (YXORP_CLI) {
-    $this->path('#cli', __DIR__.'/cli');
+    $this->path('#cli', __DIR__ . '/cli');
 }
