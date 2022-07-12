@@ -6,6 +6,7 @@ namespace yxorP\inc;
 
 /* Defining a constant named `CHAR_SLASH` with the value `/`. */
 
+use Memcache;
 use RuntimeException;
 
 define('CHAR_SLASH', '/');
@@ -639,7 +640,7 @@ class constants
     public static function flush()
     {
 
-        $memcache_obj = new \Memcache();
+        $memcache_obj = new Memcache();
         $memcache_obj->connect('memcache_host', 11211);
         $memcache_obj->flush();
 
