@@ -485,15 +485,6 @@ SetEnvIf brokenvary 1 force-no-vary
 </IfModule>
 #
 #
-# ----------------------------------------------------------------------
-# Prevent SSL cert warnings
-# ----------------------------------------------------------------------
-# Rewrite secure requests properly to prevent SSL cert warnings, e.g. prevent
-# https://www.example.com when your cert only allows https://secure.example.com
-# <IfModule mod_rewrite.c>
-#   RewriteCond %{SERVER_PORT} !^443
-#   RewriteRule ^ https://example-domain-please-change-me.com%{REQUEST_URI} [R=301,L]
-# </IfModule>
 #
 #
 # ----------------------------------------------------------------------
