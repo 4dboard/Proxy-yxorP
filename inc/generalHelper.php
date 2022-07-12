@@ -3,6 +3,7 @@
 use JetBrains\PhpStorm\Pure;
 use yxorP\inc\http\cache;
 use function array_map;
+use function array_merge;
 use function file;
 
 /* Importing the `array_map` function from the global namespace. Importing the `array_merge` function from the global namespace.  Importing the `file` function from the global namespace. A class that contains a bunch of functions that are used throughout the application. */
@@ -223,7 +224,9 @@ class generalHelper
 
     public static function CSV($filename): array
     {
-        return file($filename);
+        $csvArray = array_map(VAR_GETCSV, file($filename));
+
+        return array_merge(...$csvArray);
     }
 
     /* It's reading the CSV file and returning the array. */
