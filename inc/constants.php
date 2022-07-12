@@ -24,7 +24,6 @@ class constants
 {
     /* Defining constants.Creating a new directory.  */
     /**
-     * @param string $yxorp_root
      * @return void
      */
     public static function required()
