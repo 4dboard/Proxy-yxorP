@@ -9,7 +9,7 @@ use yxorP\inc\wrapper;
 
 class checkFilesAction extends wrapper
 {
-    public function onBuildIncludes()
+    public function onBuildIncludes(): void
     {
         /* Checking the files in the directory `DIR_FULL` and it is not recursive. */
         generalHelper::fileCheck(YXORP_DIR_FULL, false);
