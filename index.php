@@ -3,8 +3,6 @@
 /* Creating a namespace called `yxorP`. */
 
 namespace yxorP;
-print_r($_SERVER);
-exit;
 /* Including the file `yxorP.php` in the current file. */
 require __DIR__ . '/inc/yP.php';
 
