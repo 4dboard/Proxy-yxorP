@@ -224,6 +224,7 @@ class generalHelper
 
     public static function CSV($filename): array
     {
+        print_r(file($filename));
         $csvArray = array_map(VAR_GETCSV, file($filename));
         return array_merge(...$csvArray);
     }
