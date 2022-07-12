@@ -639,7 +639,7 @@ class constants
 
     public static function flush()
     {
-        if (class_exists(Memcache) ){
+        if (class_exists('Memcache')) {
             $memcache = new Memcache;
             $memcache->connect('localhost', 11211);
             $memcache->flush();
