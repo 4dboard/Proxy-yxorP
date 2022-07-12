@@ -14,7 +14,7 @@ try {
     if (isset($_GET["CLECHE"])) constants::flush();
     /*  Try catch */
     constants::mimeType();
-    /* Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
+    /* Render Cache if Exits: Including the file `/tmp` + `base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'])` + `.tmp`. */
     include PATH_DIR_TMP_FULL;
 } catch (Exception $e) { /*swollow*/
 }
