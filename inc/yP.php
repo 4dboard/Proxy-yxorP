@@ -83,7 +83,7 @@ use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\Rules;
 use yxorP\inc\parser\RulesParser;
-use const Memcache;
+use const Memcached;
 
 /* Importing the RuntimeException class from the PHP namespace. */
 
