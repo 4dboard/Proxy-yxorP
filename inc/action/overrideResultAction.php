@@ -45,7 +45,7 @@ class overrideResultAction extends wrapper
             return $content;
         } else {
             echo 2;
-            preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", result, $content);
+            preg_replace_callback("(<(p|span|div|li|ul)(.*)>(.*)</(p|span|div|li|ul)>)", "result", $content);
         }
     }
 
