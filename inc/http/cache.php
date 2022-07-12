@@ -24,10 +24,8 @@ class cache
     /* Used to clear the cache. */
     public static function clearAll(): void
     {
-        /* Used to get all the files in the `tmp` directory. */
-        $files = glob(PATH_DIR_TMP . '*');
         /* Used to delete all the files in the `tmp` directory. */
-        foreach ($files as $file) if unlink($file);
+        foreach (glob(PATH_DIR_TMP . '*') as $file) unlink($file);
     }
 
     public function super(): void
