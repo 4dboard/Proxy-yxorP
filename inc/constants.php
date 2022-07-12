@@ -9,25 +9,33 @@ namespace yxorP\inc;
 use Memcache;
 use RuntimeException;
 
-if (!defined('CHAR_HASH')) define('CHAR_SLASH', '/');
+if (!defined('CHAR_SLASH'))
+    define('CHAR_SLASH', '/');
 /* Defining a constant. */
-if (!defined('CHAR_HASH')) define('CHAR_PERIOD', '.');
+if (!defined('CHAR_PERIOD'))
+    define('CHAR_PERIOD', '.');
 /* Defining a constant. */
+if (!defined('FILE_TMP'))
+    define('FILE_TMP', 'tmp');
 /* Defining a constant. */
-if (!defined('CHAR_HASH')) define('FILE_TMP', 'tmp');
-if (!defined('CHAR_HASH')) define('VAR_COCKPIT', 'cockpit');
+if (!defined('VAR_COCKPIT'))
+    define('VAR_COCKPIT', 'cockpit');
 /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
 directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
-if (!defined('CHAR_HASH')) define('DIR_TMP', FILE_TMP . CHAR_SLASH);
+if (!defined('DIR_TMP'))
+    define('DIR_TMP', FILE_TMP . CHAR_SLASH);
 /* Creating a unique key for the cache file. */
-if (!defined('CHAR_HASH')) define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
+if (!defined('CACHE_KEY'))
+    define('CACHE_KEY', rtrim(strtr(base64_encode($_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']), '+/=', '._-')));
 /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
 directory separator (CHAR_SLASH) plus the value of the constant DIR_TMP. */
-if (!defined('CHAR_HASH')) define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
+if (!defined('PATH_DIR_TMP'))
+    define('PATH_DIR_TMP', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP);
 /* Defining a constant called PATH_DIR_TMP_FULL. The value of the constant is the current directory, a directory
 separator, the value of the constant DIR_TMP, the value of the constant CACHE_KEY, and the value of the constant
 FILE_TMP. */
-if (!defined('CHAR_HASH')) define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
+if (!defined('PATH_DIR_TMP_FULL'))
+    define('PATH_DIR_TMP_FULL', __DIR__ . DIRECTORY_SEPARATOR . DIR_TMP . CACHE_KEY . CHAR_PERIOD . FILE_TMP);
 /* Checking if the request URI contains the string "cockpit" and if it does, it will call the cockpit() method. */
 if (isset($_GET["CLECHE"])) constants::flush();
 /*  Try catch */
