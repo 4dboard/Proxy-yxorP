@@ -222,7 +222,7 @@ class generalHelper
 
     public static function JSON($file): array
     {
-        return json_decode(file_get_contents($file));
+        return json_decode(file_get_contents($file), true);
     }
 
     /* It's reading the CSV file and returning the array. */
