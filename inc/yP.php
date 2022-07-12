@@ -76,7 +76,7 @@ class yP
 
 
         /* Setting the `TARGET` variable to the result of the `findOne` method. */
-        $siteDetails = constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . COCKPIT_SITES, [COCKPIT_HOST => YXORP_SITE_DOMAIN]);
+        $siteDetails = constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . DASHBOARD_SITES, [DASHBOARD_HOST => YXORP_SITE_DOMAIN]);
 
         // TARGET DOMAIN
 
@@ -87,7 +87,7 @@ class yP
         /* Setting the `YXORP_TARGET_PLUGINS` variable to the result of the `YXORP_PLUGINS` method. */
         constants::set(YXORP_TARGET_PLUGINS, $siteDetails[VAR_PLUGINS]);
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
-        define('YXORP_TARGET_URL', ($siteDetails)[COCKPIT_TARGET]);
+        define('YXORP_TARGET_URL', ($siteDetails)[DASHBOARD_TARGET]);
 
         // TARGET DOMAIN DETAILS
 
@@ -121,11 +121,11 @@ class yP
         // GLOBAL COLLECTIONS
 
         /* Setting the `REPLACE` context variable to the value of the `replace` type in the `global` collection. */
-        constants::set(YXORP_GLOBAL_REPLACE, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ?
-            (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null);
+        constants::set(YXORP_GLOBAL_REPLACE, constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]) ?
+            (constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_REPLACE]))[VAR_VALUE] : null);
         /* Setting the `PATTERN` context variable to the value of the `pattern` type in the `global` collection. */
-        constants::set(YXORP_GLOBAL_PATTERN, constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
-            (constants::get(YXORP_COCKPIT_APP)->storage->findOne(COCKPIT_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
+        constants::set(YXORP_GLOBAL_PATTERN, constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]) ?
+            (constants::get(YXORP_DASHBOARD_APP)->storage->findOne(DASHBOARD_COLLECTIONS . CHAR_SLASH . VAR_GLOBAL, [VAR_TYPE => VAR_PATTERN]))[VAR_VALUE] : null);
 
         /* Setting the `YXORP_REWRITE` context variable to the value of `PATH_REWRITE` collection. */
         constants::set(YXORP_REWRITE, generalHelper::JSON(PATH_REWRITE));
@@ -203,7 +203,7 @@ class yP
         // REQUIRED
 
         /* Requiring the Cockpit library. */
-        require PATH_COCKPIT_BOOTSTRAP;
+        require PATH_DASHBOARD_BOOTSTRAP;
         /* Requiring the Wrapper. */
         require PATH_INC_WRAPPER;
         // ENV
@@ -220,8 +220,8 @@ class yP
 
         constants::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
-        /* It's setting the `YXORP_COCKPIT_APP` constant to the `cockpit()` function. */
-        constants::set(YXORP_COCKPIT_APP, cockpit());
+        /* It's setting the `YXORP_DASHBOARD_APP` constant to the `cockpit()` function. */
+        constants::set(YXORP_DASHBOARD_APP, cockpit());
 
         // EVENTS
         constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_TMP, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
@@ -268,7 +268,7 @@ class yP
         }
         /* It's checking if there are any users in the `cockpit_accounts` collection, and if there aren't, it's calling the
         `install()` function. */
-        if (!constants::get(YXORP_COCKPIT_APP)->storage->getCollection(COCKPIT_ACCOUNTS)->count()) self::install();
+        if (!constants::get(YXORP_DASHBOARD_APP)->storage->getCollection(DASHBOARD_ACCOUNTS)->count()) self::install();
         /* It's returning the `YXORP_EVENT_LIST` constant. */
         return constants::get(YXORP_EVENT_LIST);
     }
@@ -278,16 +278,16 @@ class yP
      */
     private static function install(): void
     {
-        /* It's defining the `YXORP_COCKPIT_INSTALL` constant as `true`. */
-        define(YXORP_COCKPIT_INSTALL, true);
+        /* It's defining the `YXORP_DASHBOARD_INSTALL` constant as `true`. */
+        define(YXORP_DASHBOARD_INSTALL, true);
 
         /* It's copying the files from the `local` directory to the `cockpit` directory. */
-        self::migrate(PATH_COCKPIT_LOCAL, PATH_DIR_COCKPIT);
+        self::migrate(PATH_DASHBOARD_LOCAL, PATH_DIR_DASHBOARD);
 
         /* It's creating an array of user data. */
-        $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_COCKPIT_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_COCKPIT_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
+        $_account = [VAR_USER => constants::get(ENV_ADMIN_USER), VAR_NAME => constants::get(ENV_ADMIN_NAME), VAR_EMAIL => constants::get(ENV_ADMIN_EMAIL), VAR_ACTIVE => true, VAR_GROUP => VAR_ADMIN, VAR_PASSWORD => constants::get(YXORP_DASHBOARD_APP)->hash(constants::get(ENV_ADMIN_PASSWORD)), VAR_I18N => constants::get(YXORP_DASHBOARD_APP)->helper(VAR_I18N)->locale, VAR_CREATED => time(), VAR_MODIFIED => time()];
         /* It's inserting a new user into the `cockpit_accounts` collection. */
-        constants::get(YXORP_COCKPIT_APP)->storage->insert(COCKPIT_ACCOUNTS, $_account);
+        constants::get(YXORP_DASHBOARD_APP)->storage->insert(DASHBOARD_ACCOUNTS, $_account);
     }
 
     /**
@@ -338,7 +338,7 @@ class yP
      */
     #[NoReturn] public static function cockpit(): void
     {
-        require PATH_COCKPIT_INDEX;
+        require PATH_DASHBOARD_INDEX;
         exit();
     }
 

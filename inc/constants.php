@@ -36,7 +36,7 @@ class constants
         /* Defining a constant. */
         define('FILE_TMP', 'tmp');
         /* Defining a constant. */
-        define('VAR_COCKPIT', 'cockpit');
+        define('VAR_DASHBOARD', 'dashboard');
         /* Defining a constant called PATH_DIR_TMP. The value of the constant is the current directory (__DIR__) plus the
         directory separator (CHAR_SLASH) plus the value of the DIR_TMP constant. */
         define('DIR_TMP', FILE_TMP . CHAR_SLASH);
@@ -295,8 +295,8 @@ class constants
         define('VAR_RESPONSE', 'RESPONSE');
         /* Defining a constant called VAR_REQUEST and setting it to the string VAR_REQUEST. */
         define('VAR_REQUEST', 'REQUEST');
-        /* Defining a constant called VAR_COCKPIT_ACCOUNTS and setting it to the string accounts. */
-        define('VAR_COCKPIT_ACCOUNTS', 'accounts');
+        /* Defining a constant called VAR_DASHBOARD_ACCOUNTS and setting it to the string accounts. */
+        define('VAR_DASHBOARD_ACCOUNTS', 'accounts');
         /* Defining a constant called VAR_PLUGINS and setting it to the string plugins. */
         define('VAR_PLUGINS', 'plugins');
         /* Defining a constant called VAR_TARGET and setting it to the string TARGET. */
@@ -309,8 +309,8 @@ class constants
         define('VAR_SITE', 'SITE');
         /* Defining a constant called VAR_HOST and setting it to the string HOST. */
         define('VAR_HOST', 'HOST');
-        /* Defining a constant called COCKPIT and setting it to the string COCKPIT. */
-        define('VAR_COCKPIT', 'COCKPIT');
+        /* Defining a constant called DASHBOARD and setting it to the string DASHBOARD. */
+        define('VAR_DASHBOARD', 'DASHBOARD');
         /* Defining a constant called VAR_INSTALL and setting it to the string INSTALL. */
         define('VAR_INSTALL', 'INSTALL');
         /* Defining a constant called VAR_INC and setting it to the string INC. */
@@ -386,14 +386,14 @@ class constants
         define('VAR_REQUEST_URI', VAR_REQUEST . CHAR_UNDER . VAR_URI);
 
 
-        // COCKPIT
+        // DASHBOARD
         /* Defining a constant. */
-        define('COCKPIT_COCKPIT', 'cockpit');
-        define('COCKPIT_ACCOUNTS', COCKPIT_COCKPIT . CHAR_SLASH . VAR_COCKPIT_ACCOUNTS);
-        define('COCKPIT_COLLECTIONS', 'collections');
-        define('COCKPIT_SITES', 'sites');
-        define('COCKPIT_HOST', 'host');
-        define('COCKPIT_TARGET', 'target');
+        define('DASHBOARD_DASHBOARD', 'cockpit');
+        define('DASHBOARD_ACCOUNTS', DASHBOARD_DASHBOARD . CHAR_SLASH . VAR_DASHBOARD_ACCOUNTS);
+        define('DASHBOARD_COLLECTIONS', 'collections');
+        define('DASHBOARD_SITES', 'sites');
+        define('DASHBOARD_HOST', 'host');
+        define('DASHBOARD_TARGET', 'target');
 
 
         // DIRECTORIES
@@ -418,12 +418,12 @@ class constants
         /* Defining a constant called `DIR_INCLUDES` and setting it to the value of `includes` with a `DIRECTORY_SEPARATOR`
         appended to it. */
         define('DIR_INCLUDES', 'includes' . DIRECTORY_SEPARATOR);
-        /* Defining a constant called `DIR_COCKPIT` and setting it to the value of `cockpit` with a `DIRECTORY_SEPARATOR`
+        /* Defining a constant called `DIR_DASHBOARD` and setting it to the value of `cockpit` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_COCKPIT', COCKPIT_COCKPIT . DIRECTORY_SEPARATOR);
+        define('DIR_DASHBOARD', DASHBOARD_DASHBOARD . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_ACCOUNTS` and setting it to the value of `accounts` with a `DIRECTORY_SEPARATOR`
         appended to it. */
-        define('DIR_ACCOUNTS', VAR_COCKPIT_ACCOUNTS . DIRECTORY_SEPARATOR);
+        define('DIR_ACCOUNTS', VAR_DASHBOARD_ACCOUNTS . DIRECTORY_SEPARATOR);
         /* Defining a constant called `DIR_INC` and setting it to the value of `inc` with a `DIRECTORY_SEPARATOR` appended
         to it. */
         define('DIR_INC', 'inc' . DIRECTORY_SEPARATOR);
@@ -490,7 +490,7 @@ class constants
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
         define('FILE_WRAPPER', 'wrapper' . EXT_PHP);
         /* Defining a constant called `FILE_WRAPPER` and setting it to the value of `wrapper`. */
-        define('FILE_COCKPIT_BOOTSTRAP', 'bootstrap' . EXT_PHP);
+        define('FILE_DASHBOARD_BOOTSTRAP', 'bootstrap' . EXT_PHP);
         /* Defining a constant. */
         define('FILE_MIME_TYPES', VAR_MIME . EXT_JSON);
 
@@ -512,11 +512,11 @@ class constants
         /* Defining a constant. */
         define('YXORP_REWRITE', VAR_INC . CHAR_UNDER . VAR_REWRITE);
         /* Defining a constant. */
-        define('YXORP_COCKPIT_INSTALL', VAR_COCKPIT . CHAR_UNDER . VAR_INSTALL);
+        define('YXORP_DASHBOARD_INSTALL', VAR_DASHBOARD . CHAR_UNDER . VAR_INSTALL);
         /* Defining a constant called YXORP_HTTP_HOST and setting it equal to the string 'HTTP_HOST'. */
         define('YXORP_HTTP_HOST', VAR_HTTP_UP . CHAR_UNDER . VAR_HOST);
-        /* Defining a constant called YXORP_COCKPIT_APP and setting it to the string COCKPIT_APP. */
-        define('YXORP_COCKPIT_APP', VAR_COCKPIT . CHAR_UNDER . VAR_APP);
+        /* Defining a constant called YXORP_DASHBOARD_APP and setting it to the string DASHBOARD_APP. */
+        define('YXORP_DASHBOARD_APP', VAR_DASHBOARD . CHAR_UNDER . VAR_APP);
         /* Defining a constant called YXORP_PHP_SELF and setting it to the string PHP_SELF. */
         define('YXORP_PHP_SELF', VAR_PHP . CHAR_UNDER . VAR_SELF);
         /* Defining a constant called YXORP_REQUEST_METHOD and setting it to the string REQUEST_METHOD. */
@@ -534,25 +534,25 @@ class constants
 
 
         // PATHS
-        /* Defining a constant called `PATH_DIR_COCKPIT` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
+        /* Defining a constant called `PATH_DIR_DASHBOARD` and setting it to the value of `DIR_ROOT` with a `DIR_DASHBOARD`
         and `DIR_STORAGE` appended to it. */
-        define('PATH_DIR_COCKPIT', DIR_ROOT . DIR_COCKPIT . DIR_STORAGE);
-        /* Defining a constant called `PATH_COCKPIT_LOCAL` and setting it to the value of `DIR_ROOT` with a `DIR_INC` and
+        define('PATH_DIR_DASHBOARD', DIR_ROOT . DIR_DASHBOARD . DIR_STORAGE);
+        /* Defining a constant called `PATH_DASHBOARD_LOCAL` and setting it to the value of `DIR_ROOT` with a `DIR_INC` and
         `DIR_STORAGE` appended to it. */
-        define('PATH_COCKPIT_LOCAL', DIR_ROOT . DIR_INC . DIR_STORAGE);
-        /* Defining a constant called `PATH_COCKPIT_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_COCKPIT`
+        define('PATH_DASHBOARD_LOCAL', DIR_ROOT . DIR_INC . DIR_STORAGE);
+        /* Defining a constant called `PATH_DASHBOARD_INDEX` and setting it to the value of `DIR_ROOT` with a `DIR_DASHBOARD`
         and `FILE_INDEX` and `EXT_PHP` appended to it. */
-        define('PATH_COCKPIT_INDEX', DIR_ROOT . DIR_COCKPIT . FILE_INDEX);
+        define('PATH_DASHBOARD_INDEX', DIR_ROOT . DIR_DASHBOARD . FILE_INDEX);
         /* Defining a constant called `PATH_REWRITE_SEARCH` and setting it to the value of `DIR_ROOT` with a
         `DIR_OVERRIDE` and `DIR_GLOBAL` and `DIR_INCLUDES` and `FILE_REWRITE` and `EXT_JSON` appended to it. */
         define('PATH_REWRITE', DIR_ROOT . DIR_INC . DIR_DATA . FILE_REWRITE);
         /* Defining the path to the snag.phar file. */
         /* Defining the path to the cockpit bootstrap file. */
-        define('PATH_COCKPIT_BOOTSTRAP', DIR_ROOT . DIR_COCKPIT . FILE_COCKPIT_BOOTSTRAP);
+        define('PATH_DASHBOARD_BOOTSTRAP', DIR_ROOT . DIR_DASHBOARD . FILE_DASHBOARD_BOOTSTRAP);
 
         /* Defining the path to the action wrapper file. */
         define('PATH_INC_WRAPPER', DIR_ROOT . DIR_INC . FILE_WRAPPER);
-        /* Defining a constant called `PATH_COCKPIT_BOOTSTRAP` and setting it to the value of `bootstrap`. */
+        /* Defining a constant called `PATH_DASHBOARD_BOOTSTRAP` and setting it to the value of `bootstrap`. */
 
         /* Defining the PATH_PDP_PSL_TEXT path to the action public-suffix-list file. */
         define('PATH_TLDS_ALPHA_BY_DOMAIN', DIR_ROOT . DIR_INC . DIR_DATA . FILE_TLDS_ALPHA_BY_DOMAIN);
