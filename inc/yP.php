@@ -408,14 +408,6 @@ class yP
         return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
     }
 
-    /**
-     * @return void
-     */
-    #[NoReturn] public static function cockpit(): void
-    {
-        require PATH_DASHBOARD_INDEX;
-        exit();
-    }
 
     /**
      * > This function adds a listener to the listeners array
