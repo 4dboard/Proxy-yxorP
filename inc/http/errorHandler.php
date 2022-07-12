@@ -1264,12 +1264,6 @@ if (empty($_errorHandler_already_setup)) {
                             var self = this,
                                 inner = new old();
 
-                            /**
-                             * With a buggy XMLHttpRequest, it's possible to accidentally run the error handler
-                             * multiple times.
-                             *
-                             * This is a flag to only do it once, to keep the code more defensive.
-                             */
                             var errorOnce = true,
                                 isAjaxError = false;
 
