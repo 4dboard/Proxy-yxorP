@@ -150,7 +150,7 @@ docker run
 ```
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
-![image](https://user-images.githubusercontent.com/6468571/177684571-0c703469-9f5f-4992-b9cb-72f2353ceb76.png) ![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
+![image](https://user-images.githubusercontent.com/6468571/177686483-68ab777a-d0cc-497c-b9ff-d981ad8e7037.png)
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
 
