@@ -273,6 +273,11 @@ follow these steps to their logical conclusion.
 
 #### 🔳 iFrame
 
+The CORS Proxy API will use many backend technologies to fulfill all of your requests for third-party-controlled
+resources. This is required for the API to fulfill your requests. The sole requirement of the CORS Proxy API endpoint is
+that you provide the request body together with all client-requested request data. After receiving and processing your
+request, CORS Proxy will promptly return it to you using an efficient and effective method.
+
 Although it is feasible to use iframing services without CORS, doing so is discouraged. It has been said that the
 behavior in question, although being plausible and "not suggested but attainable," it is "not advised but possible."
 
