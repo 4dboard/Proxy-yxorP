@@ -22,21 +22,21 @@
 // Variables
 // ========================================================================
 
-@dotnav-margin-horizontal:                      15px;
-@dotnav-margin-vertical:                        @dotnav-margin-horizontal;
+@dotnav-margin-horizontal: 15px;
+@dotnav-margin-vertical: @dotnav-margin-horizontal;
 
-@dotnav-width:                                  20px;
-@dotnav-height:                                 @dotnav-width;
-@dotnav-background:                             rgba(50,50,50,0.1);
+@dotnav-width: 20px;
+@dotnav-height: @dotnav-width;
+@dotnav-background: rgba(50, 50, 50, 0.1);
 
-@dotnav-hover-background:                       rgba(50,50,50,0.4);
-@dotnav-onclick-background:                     rgba(50,50,50,0.6);
-@dotnav-active-background:                      rgba(50,50,50,0.4);
+@dotnav-hover-background: rgba(50, 50, 50, 0.4);
+@dotnav-onclick-background: rgba(50, 50, 50, 0.6);
+@dotnav-active-background: rgba(50, 50, 50, 0.4);
 
-@dotnav-contrast-background:                    rgba(255,255,255,0.4);
-@dotnav-contrast-hover-background:              rgba(255,255,255,0.7);
-@dotnav-contrast-onclick-background:            rgba(255,255,255,0.9);
-@dotnav-contrast-active-background:             rgba(255,255,255,0.9);
+@dotnav-contrast-background: rgba(255, 255, 255, 0.4);
+@dotnav-contrast-hover-background: rgba(255, 255, 255, 0.7);
+@dotnav-contrast-onclick-background: rgba(255, 255, 255, 0.9);
+@dotnav-contrast-active-background: rgba(255, 255, 255, 0.9);
 
 
 /* ========================================================================
@@ -49,18 +49,18 @@
  */
 
 .uk-dotnav {
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-    /* 1 */
-    margin-left: -@dotnav-margin-horizontal;
-    margin-top: -@dotnav-margin-vertical;
-    /* 2 */
-    padding: 0;
-    list-style: none;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  /* 1 */
+  margin-left: -@dotnav-margin-horizontal;
+  margin-top: -@dotnav-margin-vertical;
+  /* 2 */
+  padding: 0;
+  list-style: none;
 }
 
 /*
@@ -69,13 +69,13 @@
  */
 
 .uk-dotnav > * {
-    /* 1 */
-    -ms-flex: none;
-    -webkit-flex: none;
-    flex: none;
-    /* 2 */
-    padding-left: @dotnav-margin-horizontal;
-    margin-top: @dotnav-margin-vertical;
+  /* 1 */
+  -ms-flex: none;
+  -webkit-flex: none;
+  flex: none;
+  /* 2 */
+  padding-left: @dotnav-margin-horizontal;
+  margin-top: @dotnav-margin-vertical;
 }
 
 /*
@@ -84,14 +84,18 @@
 
 .uk-dotnav:before,
 .uk-dotnav:after {
-    content: "";
-    display: block;
-    overflow: hidden;
+  content: "";
+  display: block;
+  overflow: hidden;
 }
 
-.uk-dotnav:after { clear: both; }
+.uk-dotnav:after {
+  clear: both;
+}
 
-.uk-dotnav > * { float: left; }
+.uk-dotnav > * {
+  float: left;
+}
 
 
 /* Items
@@ -103,17 +107,17 @@
  */
 
 .uk-dotnav > * > * {
-    display: block;
-    box-sizing: content-box;
-    width: @dotnav-width;
-    height: @dotnav-height;
-    border-radius: 50%;
-    background: @dotnav-background;
-    /* 1 */
-    text-indent: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    .hook-dotnav-item;
+  display: block;
+  box-sizing: content-box;
+  width: @dotnav-width;
+  height: @dotnav-height;
+  border-radius: 50%;
+  background: @dotnav-background;
+  /* 1 */
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  .hook-dotnav-item;
 }
 
 /*
@@ -124,22 +128,22 @@
 
 .uk-dotnav > * > :hover,
 .uk-dotnav > * > :focus { // 1
-    background: @dotnav-hover-background;
-    /* 2 */
-    outline: none;
-    .hook-dotnav-item-hover;
+  background: @dotnav-hover-background;
+  /* 2 */
+  outline: none;
+  .hook-dotnav-item-hover;
 }
 
 /* OnClick */
 .uk-dotnav > * > :active {
-    background: @dotnav-onclick-background;
-    .hook-dotnav-item-onclick;
+  background: @dotnav-onclick-background;
+  .hook-dotnav-item-onclick;
 }
 
 /* Active */
 .uk-dotnav > .uk-active > * {
-    background: @dotnav-active-background;
-    .hook-dotnav-item-active;
+  background: @dotnav-active-background;
+  .hook-dotnav-item-active;
 }
 
 
@@ -147,8 +151,8 @@
  ========================================================================== */
 
 .uk-dotnav-contrast > * > * {
-    background: @dotnav-contrast-background;
-    .hook-dotnav-contrast-item;
+  background: @dotnav-contrast-background;
+  .hook-dotnav-contrast-item;
 }
 
 /*
@@ -158,20 +162,20 @@
 
 .uk-dotnav-contrast > * > :hover,
 .uk-dotnav-contrast > * > :focus { // 1
-    background: @dotnav-contrast-hover-background;
-    .hook-dotnav-contrast-item-hover;
+  background: @dotnav-contrast-hover-background;
+  .hook-dotnav-contrast-item-hover;
 }
 
 /* OnClick */
 .uk-dotnav-contrast > * > :active {
-    background: @dotnav-contrast-onclick-background;
-    .hook-dotnav-contrast-item-onclick;
+  background: @dotnav-contrast-onclick-background;
+  .hook-dotnav-contrast-item-onclick;
 }
 
 /* Active */
 .uk-dotnav-contrast > .uk-active > * {
-    background: @dotnav-contrast-active-background;
-    .hook-dotnav-contrast-item-active;
+  background: @dotnav-contrast-active-background;
+  .hook-dotnav-contrast-item-active;
 }
 
 
@@ -183,17 +187,18 @@
  */
 
 .uk-dotnav-vertical {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-flex-direction: column;
+  flex-direction: column;
 }
 
 /*
  * DEPRECATED IE9 Support
  */
 
-.uk-dotnav-vertical > * { float: none; }
-
+.uk-dotnav-vertical > * {
+  float: none;
+}
 
 
 // Hooks
@@ -201,12 +206,29 @@
 
 .hook-dotnav-misc;
 
-.hook-dotnav-item() {}
-.hook-dotnav-item-hover() {}
-.hook-dotnav-item-onclick() {}
-.hook-dotnav-item-active() {}
-.hook-dotnav-contrast-item() {}
-.hook-dotnav-contrast-item-hover() {}
-.hook-dotnav-contrast-item-onclick() {}
-.hook-dotnav-contrast-item-active() {}
-.hook-dotnav-misc() {}
+.hook-dotnav-item() {
+}
+
+.hook-dotnav-item-hover() {
+}
+
+.hook-dotnav-item-onclick() {
+}
+
+.hook-dotnav-item-active() {
+}
+
+.hook-dotnav-contrast-item() {
+}
+
+.hook-dotnav-contrast-item-hover() {
+}
+
+.hook-dotnav-contrast-item-onclick() {
+}
+
+.hook-dotnav-contrast-item-active() {
+}
+
+.hook-dotnav-misc() {
+}

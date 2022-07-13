@@ -1,4 +1,3 @@
-
 customElements.define('cp-actionbar', class extends HTMLElement {
 
     constructor() {

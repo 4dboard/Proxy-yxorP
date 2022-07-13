@@ -1,5 +1,5 @@
 /*! UIkit 2.27.5 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function(addon) {
+(function (addon) {
 
     var component;
 
@@ -8,12 +8,12 @@
     }
 
     if (typeof define == 'function' && define.amd) {
-        define('uikit-form-password', ['uikit'], function(){
+        define('uikit-form-password', ['uikit'], function () {
             return component || addon(UIkit2);
         });
     }
 
-})(function(UI){
+})(function (UI) {
 
     "use strict";
 
@@ -24,9 +24,9 @@
             lblHide: 'Hide'
         },
 
-        boot: function() {
+        boot: function () {
             // init code
-            UI.$html.on('click.formpassword.uikit', '[data-uk-form-password]', function(e) {
+            UI.$html.on('click.formpassword.uikit', '[data-uk-form-password]', function (e) {
 
                 var ele = UI.$(this);
 
@@ -40,23 +40,23 @@
             });
         },
 
-        init: function() {
+        init: function () {
 
             var $this = this;
 
-            this.on('click', function(e) {
+            this.on('click', function (e) {
 
                 e.preventDefault();
 
-                if($this.input.length) {
+                if ($this.input.length) {
                     var type = $this.input.attr('type');
-                    $this.input.attr('type', type=='text' ? 'password':'text');
-                    $this.element.html($this.options[type=='text' ? 'lblShow':'lblHide']);
+                    $this.input.attr('type', type == 'text' ? 'password' : 'text');
+                    $this.element.html($this.options[type == 'text' ? 'lblShow' : 'lblHide']);
                 }
             });
 
             this.input = this.element.next('input').length ? this.element.next('input') : this.element.prev('input');
-            this.element.html(this.options[this.input.is('[type="password"]') ? 'lblShow':'lblHide']);
+            this.element.html(this.options[this.input.is('[type="password"]') ? 'lblShow' : 'lblHide']);
 
 
             this.element.data('formPassword', this);

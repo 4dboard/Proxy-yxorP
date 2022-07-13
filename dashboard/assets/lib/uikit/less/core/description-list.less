@@ -12,15 +12,15 @@
 // Variables
 // ========================================================================
 
-@description-list-horizontal-width:             160px;
-@description-list-horizontal-margin-left:       180px;
+@description-list-horizontal-width: 160px;
+@description-list-horizontal-margin-left: 180px;
 
-@description-list-line-margin-top:              5px;
-@description-list-line-border-width:            1px;
-@description-list-line-border:                  #ddd;
-@description-list-line-color:                   #999;
+@description-list-line-margin-top: 5px;
+@description-list-line-border-width: 1px;
+@description-list-line-border: #ddd;
+@description-list-line-color: #999;
 
-@description-list-line-font-weight:             normal;
+@description-list-line-font-weight: normal;
 
 
 /* ========================================================================
@@ -34,33 +34,41 @@
 /* Tablet and bigger */
 @media (min-width: @breakpoint-medium) {
 
-    .uk-description-list-horizontal { overflow: hidden; }
+  .uk-description-list-horizontal {
+    overflow: hidden;
+  }
 
-    .uk-description-list-horizontal > dt {
-        width: @description-list-horizontal-width;
-        float: left;
-        clear: both;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+  .uk-description-list-horizontal > dt {
+    width: @description-list-horizontal-width;
+    float: left;
+    clear: both;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
-    .uk-description-list-horizontal > dd { margin-left: @description-list-horizontal-margin-left; }
+  .uk-description-list-horizontal > dd {
+    margin-left: @description-list-horizontal-margin-left;
+  }
 }
 
 
 /* Modifier: `uk-description-list-line`
  ========================================================================== */
 
-.uk-description-list-line > dt { font-weight: @description-list-line-font-weight; }
-
-.uk-description-list-line > dt:nth-child(n+2) {
-    margin-top: @description-list-line-margin-top;
-    padding-top: @description-list-line-margin-top;
-    border-top: @description-list-line-border-width solid @description-list-line-border;
+.uk-description-list-line > dt {
+  font-weight: @description-list-line-font-weight;
 }
 
-.uk-description-list-line > dd { color: @description-list-line-color; }
+.uk-description-list-line > dt:nth-child(n+2) {
+  margin-top: @description-list-line-margin-top;
+  padding-top: @description-list-line-margin-top;
+  border-top: @description-list-line-border-width solid @description-list-line-border;
+}
+
+.uk-description-list-line > dd {
+  color: @description-list-line-color;
+}
 
 
 // Hooks
@@ -68,4 +76,5 @@
 
 .hook-description-list-misc;
 
-.hook-description-list-misc() {}
+.hook-description-list-misc() {
+}

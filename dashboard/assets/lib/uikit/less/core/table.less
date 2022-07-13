@@ -16,21 +16,21 @@
 // Variables
 // ========================================================================
 
-@table-margin-vertical:                         15px;
-@table-padding-vertical:                        8px;
-@table-padding-horizontal:                      8px;
+@table-margin-vertical: 15px;
+@table-padding-vertical: 8px;
+@table-padding-horizontal: 8px;
 
-@table-caption-color:                           #999;
-@table-caption-font-size:                       12px;
+@table-caption-color: #999;
+@table-caption-font-size: 12px;
 
-@table-striped-background:                      #f5f5f5;
+@table-striped-background: #f5f5f5;
 
-@table-condensed-padding-vertical:              4px;
-@table-condensed-padding-horizontal:            8px;
+@table-condensed-padding-vertical: 4px;
+@table-condensed-padding-horizontal: 8px;
 
-@table-hover-background:                        #EEE;
+@table-hover-background: #EEE;
 
-@table-active-background:                       @table-hover-background;
+@table-active-background: @table-hover-background;
 
 
 /* ========================================================================
@@ -44,35 +44,44 @@
  */
 
 .uk-table {
-    /* 1 */
-    border-collapse: collapse;
-    border-spacing: 0;
-    /* 2 */
-    width: 100%;
-    /* 3 */
-    margin-bottom: @table-margin-vertical;
+  /* 1 */
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* 2 */
+  width: 100%;
+  /* 3 */
+  margin-bottom: @table-margin-vertical;
 }
 
 /*
  * Add margin if adjacent element
  */
 
-* + .uk-table { margin-top: @table-margin-vertical; }
+* + .uk-table {
+  margin-top: @table-margin-vertical;
+}
 
 .uk-table th,
 .uk-table td {
-    padding: @table-padding-vertical @table-padding-horizontal;
-    .hook-table;
+  padding: @table-padding-vertical @table-padding-horizontal;
+  .hook-table;
 }
 
 /*
  * Set alignment
  */
 
-.uk-table th { text-align: left; }
-.uk-table td { vertical-align: top; }
+.uk-table th {
+  text-align: left;
+}
 
-.uk-table thead th { vertical-align: bottom; }
+.uk-table td {
+  vertical-align: top;
+}
+
+.uk-table thead th {
+  vertical-align: bottom;
+}
 
 /*
  * Caption and footer
@@ -80,13 +89,13 @@
 
 .uk-table caption,
 .uk-table tfoot {
-    font-size: @table-caption-font-size;
-    font-style: italic;
+  font-size: @table-caption-font-size;
+  font-style: italic;
 }
 
 .uk-table caption {
-    text-align: left;
-    color: @table-caption-color;
+  text-align: left;
+  color: @table-caption-color;
 }
 
 /*
@@ -94,8 +103,8 @@
  */
 
 .uk-table tbody tr.uk-active {
-    background: @table-active-background;
-    .hook-table-active;
+  background: @table-active-background;
+  .hook-table-active;
 }
 
 
@@ -103,15 +112,17 @@
  ========================================================================== */
 
 .uk-table-middle,
-.uk-table-middle td { vertical-align: middle !important; }
+.uk-table-middle td {
+  vertical-align: middle !important;
+}
 
 
 /* Modifier: `uk-table-striped`
  ========================================================================== */
 
 .uk-table-striped tbody tr:nth-of-type(odd) {
-    background: @table-striped-background;
-    .hook-table-striped;
+  background: @table-striped-background;
+  .hook-table-striped;
 }
 
 
@@ -119,8 +130,8 @@
  ========================================================================== */
 
 .uk-table-condensed td {
-    padding: @table-condensed-padding-vertical @table-condensed-padding-horizontal;
-    .hook-table-condensed;
+  padding: @table-condensed-padding-vertical @table-condensed-padding-horizontal;
+  .hook-table-condensed;
 }
 
 
@@ -128,10 +139,9 @@
  ========================================================================== */
 
 .uk-table-hover tbody tr:hover {
-    background: @table-hover-background;
-    .hook-table-hover;
+  background: @table-hover-background;
+  .hook-table-hover;
 }
-
 
 
 // Hooks
@@ -139,9 +149,20 @@
 
 .hook-table-misc;
 
-.hook-table() {}
-.hook-table-active() {}
-.hook-table-striped() {}
-.hook-table-condensed() {}
-.hook-table-hover() {}
-.hook-table-misc() {}
+.hook-table() {
+}
+
+.hook-table-active() {
+}
+
+.hook-table-striped() {
+}
+
+.hook-table-condensed() {
+}
+
+.hook-table-hover() {
+}
+
+.hook-table-misc() {
+}
