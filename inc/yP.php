@@ -298,7 +298,6 @@ class yP
         creates them. */
         self::init($yxorp_root);
         print_r(constants::get(YXORP_EVENT_LIST));
-        exit('123');
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (constants::get(YXORP_EVENT_LIST) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
