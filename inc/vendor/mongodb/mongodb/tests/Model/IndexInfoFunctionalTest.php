@@ -8,7 +8,7 @@ use MongoDB\Tests\FunctionalTestCase;
 class IndexInfoFunctionalTest extends FunctionalTestCase
 {
     /** @var Collection */
-    private $collection;
+    private Collection $collection;
 
     public function setUp(): void
     {

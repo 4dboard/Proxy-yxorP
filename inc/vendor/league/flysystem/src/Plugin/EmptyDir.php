@@ -9,7 +9,7 @@ class EmptyDir extends AbstractPlugin
      *
      * @return string
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return 'emptyDir';
     }
@@ -19,7 +19,7 @@ class EmptyDir extends AbstractPlugin
      *
      * @param string $dirname
      */
-    public function handle($dirname)
+    public function handle(string $dirname)
     {
         $listing = $this->filesystem->listContents($dirname, false);
 

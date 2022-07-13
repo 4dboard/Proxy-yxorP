@@ -10,7 +10,7 @@ class ForcedCopy extends AbstractPlugin
     /**
      * @inheritdoc
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return 'forceCopy';
     }
@@ -18,15 +18,15 @@ class ForcedCopy extends AbstractPlugin
     /**
      * Copies a file, overwriting any existing files.
      *
-     * @param string $path    Path to the existing file.
+     * @param string $path Path to the existing file.
      * @param string $newpath The new path of the file.
      *
-     * @throws FileExistsException
+     * @return bool True on success, false on failure.
      * @throws FileNotFoundException Thrown if $path does not exist.
      *
-     * @return bool True on success, false on failure.
+     * @throws FileExistsException
      */
-    public function handle($path, $newpath)
+    public function handle(string $path, string $newpath): bool
     {
         try {
             $deleted = $this->filesystem->delete($newpath);

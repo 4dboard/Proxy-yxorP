@@ -11,21 +11,24 @@ class CountFunctionalTest extends FunctionalTestCase
 {
     public function testDefaultReadConcernIsOmitted(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Count(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [],
-                    ['readConcern' => $this->createDefaultReadConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Count(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [],
+                        ['readConcern' => $this->createDefaultReadConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testHintOption(): void
@@ -67,20 +70,23 @@ class CountFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Count(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Count(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 }

@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-define('YXORP_ADMIN', 1);
+const YXORP_ADMIN = 1;
 
 // set default timezone
 date_default_timezone_set('UTC');

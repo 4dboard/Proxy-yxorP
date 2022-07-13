@@ -26,12 +26,12 @@ class AAStream implements StreamInterface
     const WRITABLE_MODES = '/a|w|r\+|rb\+|rw|x|c/';
 
     private $stream;
-    private $size;
-    private $seekable;
-    private $readable;
-    private $writable;
-    private $uri;
-    private $customMetadata;
+    private mixed $size;
+    private mixed $seekable;
+    private bool $readable;
+    private bool $writable;
+    private mixed $uri;
+    private mixed $customMetadata;
 
     /**
      * This constructor accepts an associative array of options.
@@ -47,7 +47,7 @@ class AAStream implements StreamInterface
      *
      * @throws InvalidArgumentException if the stream is not a stream resource
      */
-    public function __construct($stream, $options = [])
+    public function __construct($stream, array $options = [])
     {
         if (!is_resource($stream)) {
             throw new InvalidArgumentException('Stream must be a resource');
@@ -57,9 +57,7 @@ class AAStream implements StreamInterface
             $this->size = $options['size'];
         }
 
-        $this->customMetadata = isset($options['metadata'])
-            ? $options['metadata']
-            : [];
+        $this->customMetadata = $options['metadata'] ?? [];
 
         $this->stream = $stream;
         $meta = stream_get_meta_data($this->stream);
@@ -69,7 +67,7 @@ class AAStream implements StreamInterface
         $this->uri = $this->getMetadata('uri');
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         if (!isset($this->stream)) {
             return $key ? null : [];
@@ -81,7 +79,7 @@ class AAStream implements StreamInterface
 
         $meta = stream_get_meta_data($this->stream);
 
-        return isset($meta[$key]) ? $meta[$key] : null;
+        return $meta[$key] ?? null;
     }
 
     /**
@@ -126,7 +124,7 @@ class AAStream implements StreamInterface
         }
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         $whence = (int)$whence;
 
@@ -142,7 +140,7 @@ class AAStream implements StreamInterface
         }
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -181,12 +179,12 @@ class AAStream implements StreamInterface
         return null;
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return $this->readable;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return $this->writable;
     }
@@ -196,7 +194,7 @@ class AAStream implements StreamInterface
         return $this->seekable;
     }
 
-    public function eof()
+    public function eof(): bool
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -205,7 +203,7 @@ class AAStream implements StreamInterface
         return feof($this->stream);
     }
 
-    public function tell()
+    public function tell(): int
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -225,7 +223,7 @@ class AAStream implements StreamInterface
         $this->seek(0);
     }
 
-    public function read($length)
+    public function read(int $length): string
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');
@@ -249,7 +247,7 @@ class AAStream implements StreamInterface
         return $string;
     }
 
-    public function write($string)
+    public function write(string $string): int
     {
         if (!isset($this->stream)) {
             throw new RuntimeException('Stream is detached');

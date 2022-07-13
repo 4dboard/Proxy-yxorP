@@ -1,5 +1,5 @@
 /*! UIkit 2.27.5 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function(UI){
+(function (UI) {
 
     "use strict";
 
@@ -8,18 +8,18 @@
     UI.component('toggle', {
 
         defaults: {
-            target    : false,
-            cls       : 'uk-hidden',
-            animation : false,
-            duration  : 200
+            target: false,
+            cls: 'uk-hidden',
+            animation: false,
+            duration: 200
         },
 
-        boot: function(){
+        boot: function () {
 
             // init code
-            UI.ready(function(context) {
+            UI.ready(function (context) {
 
-                UI.$('[data-uk-toggle]', context).each(function() {
+                UI.$('[data-uk-toggle]', context).each(function () {
                     var ele = UI.$(this);
 
                     if (!ele.data('toggle')) {
@@ -27,9 +27,9 @@
                     }
                 });
 
-                setTimeout(function(){
+                setTimeout(function () {
 
-                    toggles.forEach(function(toggle){
+                    toggles.forEach(function (toggle) {
                         toggle.getToggles();
                     });
 
@@ -37,13 +37,13 @@
             });
         },
 
-        init: function() {
+        init: function () {
 
             var $this = this;
 
             this.aria = (this.options.cls.indexOf('uk-hidden') !== -1);
 
-            this.on('click', function(e) {
+            this.on('click', function (e) {
 
                 if ($this.element.is('a[href="#"]')) {
                     e.preventDefault();
@@ -55,11 +55,11 @@
             toggles.push(this);
         },
 
-        toggle: function() {
+        toggle: function () {
 
             this.getToggles();
 
-            if(!this.totoggle.length) return;
+            if (!this.totoggle.length) return;
 
             if (this.options.animation && UI.support.animation) {
 
@@ -72,9 +72,9 @@
                 animations[0] = animations[0].trim();
                 animations[1] = animations[1].trim();
 
-                this.totoggle.css('animation-duration', this.options.duration+'ms');
+                this.totoggle.css('animation-duration', this.options.duration + 'ms');
 
-                this.totoggle.each(function(){
+                this.totoggle.each(function () {
 
                     var ele = UI.$(this);
 
@@ -82,14 +82,14 @@
 
                         ele.toggleClass($this.options.cls);
 
-                        UI.Utils.animate(ele, animations[0]).then(function(){
+                        UI.Utils.animate(ele, animations[0]).then(function () {
                             ele.css('animation-duration', '');
                             UI.Utils.checkDisplay(ele);
                         });
 
                     } else {
 
-                        UI.Utils.animate(this, animations[1]+' uk-animation-reverse').then(function(){
+                        UI.Utils.animate(this, animations[1] + ' uk-animation-reverse').then(function () {
                             ele.toggleClass($this.options.cls).css('animation-duration', '');
                             UI.Utils.checkDisplay(ele);
                         });
@@ -107,14 +107,14 @@
 
         },
 
-        getToggles: function() {
-            this.totoggle = this.options.target ? UI.$(this.options.target):[];
+        getToggles: function () {
+            this.totoggle = this.options.target ? UI.$(this.options.target) : [];
             this.updateAria();
         },
 
-        updateAria: function() {
+        updateAria: function () {
             if (this.aria && this.totoggle.length) {
-                this.totoggle.not('[aria-hidden]').each(function(){
+                this.totoggle.not('[aria-hidden]').each(function () {
                     UI.$(this).attr('aria-hidden', UI.$(this).hasClass('uk-hidden'));
                 });
             }

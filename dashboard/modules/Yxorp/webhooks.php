@@ -51,7 +51,7 @@ foreach ($webhooks as $webhook) {
                 // add custom headers
                 if (isset($webhook['headers']) && is_array($webhook['headers']) && count($webhook['headers'])) {
 
-                    foreach ($webhook['headers'] as &$h) {
+                    foreach ($webhook['headers'] as $h) {
 
                         if (!isset($h['k'], $h['v']) || !$h['k'] || !$h['v']) {
                             continue;

@@ -18,7 +18,7 @@ jobs:
           - '7.4'
           - '8.0'
           - '8.1'
-        composer_version: ['v2']
+        composer_version: [ 'v2' ]
         include:
           - description: '(prefer lowest)'
             php: '7.1'

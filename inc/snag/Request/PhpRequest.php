@@ -2,6 +2,8 @@
 
 namespace yxorP\inc\snag\Request;
 
+use JetBrains\PhpStorm\ArrayShape;
+
 class PhpRequest implements RequestInterface
 {
     /**
@@ -9,35 +11,35 @@ class PhpRequest implements RequestInterface
      *
      * @var array
      */
-    protected $server;
+    protected array $server;
 
     /**
      * The session variables.
      *
      * @var array
      */
-    protected $session;
+    protected array $session;
 
     /**
      * The cookie variables.
      *
      * @var array
      */
-    protected $cookies;
+    protected array $cookies;
 
     /**
      * The http headers.
      *
      * @var array
      */
-    protected $headers;
+    protected array $headers;
 
     /**
      * The input params.
      *
      * @var array|null
      */
-    protected $input;
+    protected ?array $input;
 
     /**
      * Create a new php request instance.
@@ -64,7 +66,7 @@ class PhpRequest implements RequestInterface
      *
      * @return bool
      */
-    public function isRequest()
+    public function isRequest(): bool
     {
         return true;
     }
@@ -74,7 +76,7 @@ class PhpRequest implements RequestInterface
      *
      * @return array
      */
-    public function getSession()
+    public function getSession(): array
     {
         return $this->session;
     }
@@ -84,7 +86,7 @@ class PhpRequest implements RequestInterface
      *
      * @return array
      */
-    public function getCookies()
+    public function getCookies(): array
     {
         return $this->cookies;
     }
@@ -94,7 +96,7 @@ class PhpRequest implements RequestInterface
      *
      * @return array
      */
-    public function getMetaData()
+    #[ArrayShape(['request' => "array"])] public function getMetaData(): array
     {
         $data = [];
 
@@ -124,11 +126,11 @@ class PhpRequest implements RequestInterface
      *
      * @return string
      */
-    protected function getCurrentUrl()
+    protected function getCurrentUrl(): string
     {
-        $schema = ((!empty($this->server['HTTPS']) && $this->server['HTTPS'] !== 'off') || (!empty($this->server['SERVER_PORT']) && $this->server['SERVER_PORT'] == 443)) ? 'https://' : 'http://';
+        $schema = ((!empty($this->server['HTTPS']) && $this->server['HTTPS'] !== 'off') || (!empty($this->server['SERVER_PORT']) && $this->server['SERVER_PORT'] == 443)) ? 'https://' : 'https://';
 
-        $host = isset($this->server['HTTP_HOST']) ? $this->server['HTTP_HOST'] : 'localhost';
+        $host = $this->server['HTTP_HOST'] ?? 'localhost';
 
         return $schema . $host . $this->server['REQUEST_URI'];
     }
@@ -138,7 +140,7 @@ class PhpRequest implements RequestInterface
      *
      * @return string|null
      */
-    protected function getRequestIp()
+    protected function getRequestIp(): ?string
     {
         if (isset($this->server['HTTP_X_FORWARDED_FOR'])) {
             return $this->server['HTTP_X_FORWARDED_FOR'];
@@ -156,7 +158,7 @@ class PhpRequest implements RequestInterface
      *
      * @return string|null
      */
-    public function getContext()
+    public function getContext(): ?string
     {
         if (isset($this->server['REQUEST_METHOD']) && isset($this->server['REQUEST_URI'])) {
             return $this->server['REQUEST_METHOD'] . ' ' . strtok($this->server['REQUEST_URI'], '?');
@@ -170,7 +172,7 @@ class PhpRequest implements RequestInterface
      *
      * @return string|null
      */
-    public function getUserId()
+    public function getUserId(): ?string
     {
         return $this->getRequestIp();
     }

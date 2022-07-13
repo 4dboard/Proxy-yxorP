@@ -3,6 +3,7 @@
 namespace MongoDB\Tests\UnifiedSpecTests\Constraint;
 
 use LogicException;
+use MongoDB\BSON\Int64;
 use MongoDB\BSON\Serializable;
 use MongoDB\BSON\Type;
 use MongoDB\Model\BSONArray;
@@ -35,7 +36,6 @@ use function PHPUnit\Framework\logicalAnd;
 use function PHPUnit\Framework\logicalOr;
 use function range;
 use function sprintf;
-use function strpos;
 use const PHP_INT_SIZE;
 
 /**
@@ -44,25 +44,26 @@ use const PHP_INT_SIZE;
  * The expected value is passed in the constructor. An EntityMap may be supplied
  * for resolving operators (e.g. $$matchesEntity). Behavior for allowing extra
  * keys in root documents and processing operators is also configurable.
+ * @property $comparatorFactory
  */
 class Matches extends Constraint
 {
     use ConstraintTrait;
 
     /** @var EntityMap */
-    private $entityMap;
+    private ?EntityMap $entityMap;
 
     /** @var mixed */
-    private $value;
+    private mixed $value;
 
     /** @var bool */
-    private $allowExtraRootKeys;
+    private mixed $allowExtraRootKeys;
 
     /** @var bool */
-    private $allowOperators;
+    private mixed $allowOperators;
 
     /** @var ComparisonFailure|null */
-    private $lastFailure;
+    private ?ComparisonFailure $lastFailure;
 
     public function __construct($value, ?EntityMap $entityMap = null, $allowExtraRootKeys = true, $allowOperators = true)
     {
@@ -71,6 +72,74 @@ class Matches extends Constraint
         $this->allowExtraRootKeys = $allowExtraRootKeys;
         $this->allowOperators = $allowOperators;
         $this->comparatorFactory = Factory::getInstance();
+    }
+
+    /**
+     * Prepare a value for comparison.
+     *
+     * If the value is an array or object, it will be converted to a BSONArray
+     * or BSONDocument. If $value is an array and $isRoot is true, it will be
+     * converted to a BSONDocument; otherwise, it will be converted to a
+     * BSONArray or BSONDocument based on its keys. Each value within an array
+     * or document will then be prepared recursively.
+     *
+     * @param mixed $bson
+     * @return mixed
+     */
+    private static function prepare(mixed $bson): mixed
+    {
+        if (!is_array($bson) && !is_object($bson)) {
+            return $bson;
+        }
+
+        /* Convert Int64 objects to integers on 64-bit platforms for
+         * compatibility reasons. */
+        if ($bson instanceof Int64 && PHP_INT_SIZE != 4) {
+            return (int)((string)$bson);
+        }
+
+        /* TODO: Convert Int64 objects to integers on 32-bit platforms if they
+         * can be expressed as such. This is necessary to handle flexible
+         * numeric comparisons if the server returns 32-bit value as a 64-bit
+         * integer (e.g. cursor ID). */
+
+        // Serializable can produce an array or object, so recurse on its output
+        if ($bson instanceof Serializable) {
+            return self::prepare($bson->bsonSerialize());
+        }
+
+        /* Serializable has already been handled, so any remaining instances of
+         * Type will not serialize as BSON arrays or objects */
+        if ($bson instanceof Type) {
+            return $bson;
+        }
+
+        if (is_array($bson) && self::isArrayEmptyOrIndexed($bson)) {
+            $bson = new BSONArray($bson);
+        }
+
+        if (!$bson instanceof BSONArray && !$bson instanceof BSONDocument) {
+            /* If $bson is an object, any numeric keys may become inaccessible.
+             * We can work around this by casting back to an array. */
+            $bson = new BSONDocument((array)$bson);
+        }
+
+        foreach ($bson as $key => $value) {
+            if (is_array($value) || is_object($value)) {
+                $bson[$key] = self::prepare($value);
+            }
+        }
+
+        return $bson;
+    }
+
+    private static function isArrayEmptyOrIndexed(array $a): bool
+    {
+        if (empty($a)) {
+            return true;
+        }
+
+        return array_keys($a) === range(0, count($a) - 1);
     }
 
     private function doEvaluate($other, $description = '', $returnResult = false)
@@ -82,10 +151,6 @@ class Matches extends Constraint
         try {
             $this->assertMatches($this->value, $other);
             $success = true;
-        } catch (ExpectationFailedException $e) {
-            /* Rethrow internal assertion failures (e.g. operator type checks,
-             * EntityMap errors), which are logical errors in the code/test. */
-            throw $e;
         } catch (RuntimeException $e) {
             /* This will generally catch internal errors from failAt(), which
              * include a key path to pinpoint the failure. */
@@ -105,29 +170,8 @@ class Matches extends Constraint
             return $success;
         }
 
-        if (! $success) {
+        if (!$success) {
             $this->fail($other, $description, $this->lastFailure);
-        }
-    }
-
-    private function assertEquals($expected, $actual, string $keyPath): void
-    {
-        $expectedType = get_debug_type($expected);
-        $actualType = get_debug_type($actual);
-
-        /* Early check to work around ObjectComparator printing the entire value
-         * for a failed type comparison. Avoid doing this if either value is
-         * numeric to allow for flexible numeric comparisons (e.g. 1 == 1.0). */
-        if ($expectedType !== $actualType && ! (self::isNumeric($expected) || self::isNumeric($actual))) {
-            self::failAt(sprintf('%s is not expected type "%s"', $actualType, $expectedType), $keyPath);
-        }
-
-        try {
-            $this->comparatorFactory->getComparatorFor($expected, $actual)->assertEquals($expected, $actual);
-        } catch (ComparisonFailure $e) {
-            /* Disregard other ComparisonFailure fields, as evaluate() only uses
-             * the message when creating its own ComparisonFailure. */
-            self::failAt($e->getMessage(), $keyPath);
         }
     }
 
@@ -150,7 +194,7 @@ class Matches extends Constraint
 
     private function assertMatchesArray(BSONArray $expected, $actual, string $keyPath): void
     {
-        if (! $actual instanceof BSONArray) {
+        if (!$actual instanceof BSONArray) {
             $actualType = get_debug_type($actual);
             self::failAt(sprintf('%s is not instance of expected class "%s"', $actualType, BSONArray::class), $keyPath);
         }
@@ -168,6 +212,13 @@ class Matches extends Constraint
         }
     }
 
+    private static function failAt(string $message, string $keyPath): void
+    {
+        $prefix = empty($keyPath) ? '' : sprintf('Field path "%s": ', $keyPath);
+
+        throw new RuntimeException($prefix . $message);
+    }
+
     private function assertMatchesDocument(BSONDocument $expected, $actual, string $keyPath): void
     {
         if ($this->allowOperators && self::isOperator($expected)) {
@@ -176,7 +227,7 @@ class Matches extends Constraint
             return;
         }
 
-        if (! $actual instanceof BSONDocument) {
+        if (!$actual instanceof BSONDocument) {
             $actualType = get_debug_type($actual);
             self::failAt(sprintf('%s is not instance of expected class "%s"', $actualType, BSONDocument::class), $keyPath);
         }
@@ -190,11 +241,11 @@ class Matches extends Constraint
                 if ($operatorName === '$$exists') {
                     assertIsBool($expectedValue['$$exists'], '$$exists requires bool');
 
-                    if ($expectedValue['$$exists'] && ! $actualKeyExists) {
+                    if ($expectedValue['$$exists'] && !$actualKeyExists) {
                         self::failAt(sprintf('$actual does not have expected key "%s"', $key), $keyPath);
                     }
 
-                    if (! $expectedValue['$$exists'] && $actualKeyExists) {
+                    if (!$expectedValue['$$exists'] && $actualKeyExists) {
                         self::failAt(sprintf('$actual has unexpected key "%s"', $key), $keyPath);
                     }
 
@@ -202,7 +253,7 @@ class Matches extends Constraint
                 }
 
                 if ($operatorName === '$$unsetOrMatches') {
-                    if (! $actualKeyExists) {
+                    if (!$actualKeyExists) {
                         continue;
                     }
 
@@ -210,7 +261,7 @@ class Matches extends Constraint
                 }
             }
 
-            if (! $actualKeyExists) {
+            if (!$actualKeyExists) {
                 self::failAt(sprintf('$actual does not have expected key "%s"', $key), $keyPath);
             }
 
@@ -228,10 +279,24 @@ class Matches extends Constraint
 
         // phpcs:ignore Squiz.NamingConventions.ValidVariableName.NotCamelCaps
         foreach ($actual as $key => $_) {
-            if (! $expected->offsetExists($key)) {
+            if (!$expected->offsetExists($key)) {
                 self::failAt(sprintf('$actual has unexpected key "%s"', $key), $keyPath);
             }
         }
+    }
+
+    private static function isOperator(BSONDocument $document): bool
+    {
+        if (count($document) !== 1) {
+            return false;
+        }
+
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.NotCamelCaps
+        foreach ($document as $key => $_) {
+            return str_starts_with((string)$key, '$$');
+        }
+
+        throw new LogicException('should not reach this point');
     }
 
     private function assertMatchesOperator(BSONDocument $operator, $actual, string $keyPath): void
@@ -245,9 +310,9 @@ class Matches extends Constraint
                 '$$type requires string or string[]'
             );
 
-            $constraint = IsBsonType::anyOf(...(array) $operator['$$type']);
+            $constraint = IsBsonType::anyOf(...(array)$operator['$$type']);
 
-            if (! $constraint->evaluate($actual, '', true)) {
+            if (!$constraint->evaluate($actual, '', true)) {
                 self::failAt(sprintf('%s is not an expected BSON type: %s', $this->exporter()->shortenedExport($actual), implode(', ', $types)), $keyPath);
             }
 
@@ -312,8 +377,46 @@ class Matches extends Constraint
         throw new LogicException('unsupported operator: ' . $name);
     }
 
+    private static function getOperatorName(BSONDocument $document): string
+    {
+        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.NotCamelCaps
+        foreach ($document as $key => $_) {
+            if (str_starts_with((string)$key, '$$')) {
+                return $key;
+            }
+        }
+
+        throw new LogicException('should not reach this point');
+    }
+
+    private function assertEquals($expected, $actual, string $keyPath): void
+    {
+        $expectedType = get_debug_type($expected);
+        $actualType = get_debug_type($actual);
+
+        /* Early check to work around ObjectComparator printing the entire value
+         * for a failed type comparison. Avoid doing this if either value is
+         * numeric to allow for flexible numeric comparisons (e.g. 1 == 1.0). */
+        if ($expectedType !== $actualType && !(self::isNumeric($expected) || self::isNumeric($actual))) {
+            self::failAt(sprintf('%s is not expected type "%s"', $actualType, $expectedType), $keyPath);
+        }
+
+        try {
+            $this->comparatorFactory->getComparatorFor($expected, $actual)->assertEquals($expected, $actual);
+        } catch (ComparisonFailure $e) {
+            /* Disregard other ComparisonFailure fields, as evaluate() only uses
+             * the message when creating its own ComparisonFailure. */
+            self::failAt($e->getMessage(), $keyPath);
+        }
+    }
+
+    private static function isNumeric($value): bool
+    {
+        return is_int($value) || is_float($value) || $value instanceof Int64;
+    }
+
     /** @see ConstraintTrait */
-    private function doAdditionalFailureDescription($other)
+    private function doAdditionalFailureDescription($other): string
     {
         if ($this->lastFailure === null) {
             return '';
@@ -323,13 +426,13 @@ class Matches extends Constraint
     }
 
     /** @see ConstraintTrait */
-    private function doFailureDescription($other)
+    private function doFailureDescription($other): string
     {
         return 'expected value matches actual value';
     }
 
     /** @see ConstraintTrait */
-    private function doMatches($other)
+    private function doMatches($other): bool
     {
         $other = self::prepare($other);
 
@@ -343,114 +446,8 @@ class Matches extends Constraint
     }
 
     /** @see ConstraintTrait */
-    private function doToString()
+    private function doToString(): string
     {
         return 'matches ' . $this->exporter()->export($this->value);
-    }
-
-    private static function failAt(string $message, string $keyPath): void
-    {
-        $prefix = empty($keyPath) ? '' : sprintf('Field path "%s": ', $keyPath);
-
-        throw new RuntimeException($prefix . $message);
-    }
-
-    private static function getOperatorName(BSONDocument $document): string
-    {
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.NotCamelCaps
-        foreach ($document as $key => $_) {
-            if (strpos((string) $key, '$$') === 0) {
-                return $key;
-            }
-        }
-
-        throw new LogicException('should not reach this point');
-    }
-
-    private static function isNumeric($value)
-    {
-        return is_int($value) || is_float($value) || $value instanceof Int64;
-    }
-
-    private static function isOperator(BSONDocument $document): bool
-    {
-        if (count($document) !== 1) {
-            return false;
-        }
-
-        // phpcs:ignore Squiz.NamingConventions.ValidVariableName.NotCamelCaps
-        foreach ($document as $key => $_) {
-            return strpos((string) $key, '$$') === 0;
-        }
-
-        throw new LogicException('should not reach this point');
-    }
-
-    /**
-     * Prepare a value for comparison.
-     *
-     * If the value is an array or object, it will be converted to a BSONArray
-     * or BSONDocument. If $value is an array and $isRoot is true, it will be
-     * converted to a BSONDocument; otherwise, it will be converted to a
-     * BSONArray or BSONDocument based on its keys. Each value within an array
-     * or document will then be prepared recursively.
-     *
-     * @param mixed $bson
-     * @return mixed
-     */
-    private static function prepare($bson)
-    {
-        if (! is_array($bson) && ! is_object($bson)) {
-            return $bson;
-        }
-
-        /* Convert Int64 objects to integers on 64-bit platforms for
-         * compatibility reasons. */
-        if ($bson instanceof Int64 && PHP_INT_SIZE != 4) {
-            return (int) ((string) $bson);
-        }
-
-        /* TODO: Convert Int64 objects to integers on 32-bit platforms if they
-         * can be expressed as such. This is necessary to handle flexible
-         * numeric comparisons if the server returns 32-bit value as a 64-bit
-         * integer (e.g. cursor ID). */
-
-        // Serializable can produce an array or object, so recurse on its output
-        if ($bson instanceof Serializable) {
-            return self::prepare($bson->bsonSerialize());
-        }
-
-        /* Serializable has already been handled, so any remaining instances of
-         * Type will not serialize as BSON arrays or objects */
-        if ($bson instanceof Type) {
-            return $bson;
-        }
-
-        if (is_array($bson) && self::isArrayEmptyOrIndexed($bson)) {
-            $bson = new BSONArray($bson);
-        }
-
-        if (! $bson instanceof BSONArray && ! $bson instanceof BSONDocument) {
-            /* If $bson is an object, any numeric keys may become inaccessible.
-             * We can work around this by casting back to an array. */
-            $bson = new BSONDocument((array) $bson);
-        }
-
-        foreach ($bson as $key => $value) {
-            if (is_array($value) || is_object($value)) {
-                $bson[$key] = self::prepare($value);
-            }
-        }
-
-        return $bson;
-    }
-
-    private static function isArrayEmptyOrIndexed(array $a): bool
-    {
-        if (empty($a)) {
-            return true;
-        }
-
-        return array_keys($a) === range(0, count($a) - 1);
     }
 }

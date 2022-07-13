@@ -231,7 +231,7 @@ $this->module('singletons')->extend([
         static $languages;
 
         if (null === $data) {
-            return $data;
+            return null;
         }
 
         $filter = array_merge([

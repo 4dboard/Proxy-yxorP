@@ -11,6 +11,6 @@
 
 When you've encountered a security vulnerability, please disclose it securely.
 
-The security process is described at: 
+The security process is described at:
 [https://flysystem.thephpleague.com/docs/security/](https://flysystem.thephpleague.com/docs/security/)
 

@@ -16,29 +16,29 @@
 // Variables
 // ========================================================================
 
-@datepicker-z-index:                            1050;
-@datepicker-animation:                          uk-fade;
+@datepicker-z-index: 1050;
+@datepicker-animation: uk-fade;
 
-@datepicker-nav-height:                         20px;
-@datepicker-nav-margin-bottom:                  15px;
-@datepicker-nav-color:                          #444;
-@datepicker-nav-hover-color:                    #444;
-@datepicker-previous-icon:                      "\f053";
-@datepicker-next-icon:                          "\f054";
+@datepicker-nav-height: 20px;
+@datepicker-nav-margin-bottom: 15px;
+@datepicker-nav-color: #444;
+@datepicker-nav-hover-color: #444;
+@datepicker-previous-icon: "\f053";
+@datepicker-next-icon: "\f054";
 
-@datepicker-table-width:                        26px;
-@datepicker-table-height:                       24px;
-@datepicker-table-color:                        #444;
+@datepicker-table-width: 26px;
+@datepicker-table-height: 24px;
+@datepicker-table-color: #444;
 
-@datepicker-table-hover-background:             #ddd;
-@datepicker-table-hover-color:                  #444;
-@datepicker-table-onclick-background:           #ccc;
-@datepicker-table-onclick-color:                #444;
+@datepicker-table-hover-background: #ddd;
+@datepicker-table-hover-color: #444;
+@datepicker-table-onclick-background: #ccc;
+@datepicker-table-onclick-color: #444;
 
-@datepicker-table-active-background:            #00a8e6;
-@datepicker-table-active-color:                 #fff;
+@datepicker-table-active-background: #00a8e6;
+@datepicker-table-active-color: #fff;
 
-@datepicker-table-muted-color:                  #999;
+@datepicker-table-muted-color: #999;
 
 
 /* ========================================================================
@@ -53,16 +53,16 @@
  */
 
 .uk-datepicker {
-    /* 1 */
-    z-index: @datepicker-z-index;
-    /* 2 */
-    width: auto;
-    /* 3 */
-    -webkit-animation: @datepicker-animation 0.2s ease-in-out;
-    animation: @datepicker-animation 0.2s ease-in-out;
-    /* 4 */
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
+  /* 1 */
+  z-index: @datepicker-z-index;
+  /* 2 */
+  width: auto;
+  /* 3 */
+  -webkit-animation: @datepicker-animation 0.2s ease-in-out;
+  animation: @datepicker-animation 0.2s ease-in-out;
+  /* 4 */
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
 }
 
 
@@ -70,10 +70,10 @@
 ========================================================================== */
 
 .uk-datepicker-nav {
-    margin-bottom: @datepicker-nav-margin-bottom;
-    text-align: center;
-    line-height: @datepicker-nav-height;
-    .hook-datepicker-nav;
+  margin-bottom: @datepicker-nav-margin-bottom;
+  text-align: center;
+  line-height: @datepicker-nav-height;
+  .hook-datepicker-nav;
 }
 
 /*
@@ -82,73 +82,96 @@
 
 .uk-datepicker-nav:before,
 .uk-datepicker-nav:after {
-    content: "";
-    display: table;
+  content: "";
+  display: table;
 }
 
-.uk-datepicker-nav:after { clear: both; }
+.uk-datepicker-nav:after {
+  clear: both;
+}
 
 /*
  * Previous and next navigation
  */
 
 .uk-datepicker-nav a {
-    color: @datepicker-nav-color;
-    text-decoration: none;
-    .hook-datepicker-nav-item;
+  color: @datepicker-nav-color;
+  text-decoration: none;
+  .hook-datepicker-nav-item;
 }
 
-.uk-datepicker-nav a:hover { color: @datepicker-nav-hover-color; }
+.uk-datepicker-nav a:hover {
+  color: @datepicker-nav-hover-color;
+}
 
-.uk-datepicker-previous { float: left; }
-.uk-datepicker-next { float: right; }
+.uk-datepicker-previous {
+  float: left;
+}
+
+.uk-datepicker-next {
+  float: right;
+}
 
 .uk-datepicker-previous:after,
 .uk-datepicker-next:after {
-    width: @datepicker-nav-height;
-    font-family: FontAwesome;
+  width: @datepicker-nav-height;
+  font-family: FontAwesome;
 }
 
-.uk-datepicker-previous:after { content: @datepicker-previous-icon; }
-.uk-datepicker-next:after { content: @datepicker-next-icon; }
+.uk-datepicker-previous:after {
+  content: @datepicker-previous-icon;
+}
+
+.uk-datepicker-next:after {
+  content: @datepicker-next-icon;
+}
 
 
 /* Sub-object: `uk-datepicker-heading`
 ========================================================================== */
 
-.uk-datepicker-heading {}
+.uk-datepicker-heading {
+}
 
 
 /* Sub-object: `uk-datepicker-table`
 ========================================================================== */
 
 /* Block element behavior */
-.uk-datepicker-table { width: 100%; }
+.uk-datepicker-table {
+  width: 100%;
+}
 
 .uk-datepicker-table th,
-.uk-datepicker-table td { padding: 2px; }
+.uk-datepicker-table td {
+  padding: 2px;
+}
 
-.uk-datepicker-table th { font-size: 12px; }
+.uk-datepicker-table th {
+  font-size: 12px;
+}
 
 /*
  * Item
  */
 
 .uk-datepicker-table a {
-    display: block;
-    width: @datepicker-table-width;
-    line-height: @datepicker-table-height;
-    text-align: center;
-    color: @datepicker-table-color;
-    text-decoration: none;
-    .hook-datepicker-table-item;
+  display: block;
+  width: @datepicker-table-width;
+  line-height: @datepicker-table-height;
+  text-align: center;
+  color: @datepicker-table-color;
+  text-decoration: none;
+  .hook-datepicker-table-item;
 }
 
 /*
  * Sub-object: `uk-datepicker-table-muted`
  */
 
-a.uk-datepicker-table-muted { color: @datepicker-table-muted-color; }
+a.uk-datepicker-table-muted {
+  color: @datepicker-table-muted-color;
+}
 
 /*
  * Hover
@@ -158,18 +181,18 @@ a.uk-datepicker-table-muted { color: @datepicker-table-muted-color; }
 
 .uk-datepicker-table a:hover,
 .uk-datepicker-table a:focus { // 1
-    background-color: @datepicker-table-hover-background;
-    color: @datepicker-table-hover-color;
-    /* 2 */
-    outline: none;
-    .hook-datepicker-table-item-hover;
+  background-color: @datepicker-table-hover-background;
+  color: @datepicker-table-hover-color;
+  /* 2 */
+  outline: none;
+  .hook-datepicker-table-item-hover;
 }
 
 /* OnClick */
 .uk-datepicker-table a:active {
-    background-color: @datepicker-table-onclick-background;
-    color: @datepicker-table-onclick-color;
-    .hook-datepicker-table-item-onclick;
+  background-color: @datepicker-table-onclick-background;
+  color: @datepicker-table-onclick-color;
+  .hook-datepicker-table-item-onclick;
 }
 
 /*
@@ -177,9 +200,9 @@ a.uk-datepicker-table-muted { color: @datepicker-table-muted-color; }
  */
 
 .uk-datepicker-table a.uk-active {
-    background: @datepicker-table-active-background;
-    color: @datepicker-table-active-color;
-    .hook-datepicker-table-item-active;
+  background: @datepicker-table-active-background;
+  color: @datepicker-table-active-color;
+  .hook-datepicker-table-item-active;
 }
 
 
@@ -188,10 +211,23 @@ a.uk-datepicker-table-muted { color: @datepicker-table-muted-color; }
 
 .hook-datepicker-misc;
 
-.hook-datepicker-nav() {}
-.hook-datepicker-nav-item() {}
-.hook-datepicker-table-item() {}
-.hook-datepicker-table-item-hover() {}
-.hook-datepicker-table-item-onclick() {}
-.hook-datepicker-table-item-active() {}
-.hook-datepicker-misc() {}
+.hook-datepicker-nav() {
+}
+
+.hook-datepicker-nav-item() {
+}
+
+.hook-datepicker-table-item() {
+}
+
+.hook-datepicker-table-item-hover() {
+}
+
+.hook-datepicker-table-item-onclick() {
+}
+
+.hook-datepicker-table-item-active() {
+}
+
+.hook-datepicker-misc() {
+}

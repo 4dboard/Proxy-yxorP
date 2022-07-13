@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\SpecTests;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\BSON\Binary;
 use MongoDB\BSON\Decimal128;
 use MongoDB\BSON\Javascript;
@@ -39,6 +40,11 @@ class DocumentsMatchConstraintTest extends TestCase
         $this->assertResult(true, $c, [1, ['a' => 1]], 'Exact match');
         $this->assertResult(true, $c, [1, ['a' => 1], 3], 'Extra keys in root are permitted');
         $this->assertResult(false, $c, [1, ['a' => 1, 'b' => 2]], 'Extra keys in embedded are not permitted');
+    }
+
+    private function assertResult($expectedResult, DocumentsMatchConstraint $constraint, $value, $message): void
+    {
+        $this->assertSame($expectedResult, $constraint->evaluate($value, '', true), $message);
     }
 
     public function testIgnoreExtraKeysInEmbedded(): void
@@ -81,7 +87,7 @@ class DocumentsMatchConstraintTest extends TestCase
         $this->assertResult(true, $constraint, ['x' => $value], 'Type matches');
     }
 
-    public function provideBSONTypes()
+    public function provideBSONTypes(): array
     {
         $undefined = toPHP(fromJSON('{ "undefined": {"$undefined": true} }'));
         $symbol = toPHP(fromJSON('{ "symbol": {"$symbol": "test"} }'));
@@ -125,7 +131,7 @@ class DocumentsMatchConstraintTest extends TestCase
         }
     }
 
-    public function errorMessageProvider()
+    #[ArrayShape(['Root type mismatch' => "array", 'Missing key' => "array", 'Extra key' => "array", 'Scalar value not equal' => "array", 'Scalar type mismatch' => "array", 'Type mismatch' => "array"])] public function errorMessageProvider(): array
     {
         return [
             'Root type mismatch' => [
@@ -156,13 +162,8 @@ class DocumentsMatchConstraintTest extends TestCase
             'Type mismatch' => [
                 'Field path "foo": MongoDB\Model\BSONDocument Object (...) is not instance of expected type "MongoDB\Model\BSONArray".',
                 new DocumentsMatchConstraint(['foo' => ['bar']]),
-                ['foo' => (object) ['bar']],
+                ['foo' => (object)['bar']],
             ],
         ];
-    }
-
-    private function assertResult($expectedResult, DocumentsMatchConstraint $constraint, $value, $message): void
-    {
-        $this->assertSame($expectedResult, $constraint->evaluate($value, '', true), $message);
     }
 }

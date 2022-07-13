@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace League\MimeTypeDetection;
 
+use JetBrains\PhpStorm\Pure;
 use const PATHINFO_EXTENSION;
 
 class ExtensionMimeTypeDetector implements MimeTypeDetector
@@ -11,9 +12,9 @@ class ExtensionMimeTypeDetector implements MimeTypeDetector
     /**
      * @var ExtensionToMimeTypeMap
      */
-    private $extensions;
+    private GeneratedExtensionToMimeTypeMap|ExtensionToMimeTypeMap $extensions;
 
-    public function __construct(ExtensionToMimeTypeMap $extensions = null)
+    #[Pure] public function __construct(ExtensionToMimeTypeMap $extensions = null)
     {
         $this->extensions = $extensions ?: new GeneratedExtensionToMimeTypeMap();
     }

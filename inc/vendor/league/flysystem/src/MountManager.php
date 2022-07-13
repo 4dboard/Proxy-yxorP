@@ -28,7 +28,7 @@ class MountManager implements FilesystemInterface
     /**
      * @var FilesystemInterface[]
      */
-    protected $filesystems = [];
+    protected array $filesystems = [];
 
     /**
      * Constructor.
@@ -47,11 +47,11 @@ class MountManager implements FilesystemInterface
      *
      * @param FilesystemInterface[] $filesystems [:prefix => Filesystem,]
      *
+     * @return $this
      * @throws InvalidArgumentException
      *
-     * @return $this
      */
-    public function mountFilesystems(array $filesystems)
+    public function mountFilesystems(array $filesystems): static
     {
         foreach ($filesystems as $prefix => $filesystem) {
             $this->mountFilesystem($prefix, $filesystem);
@@ -63,16 +63,16 @@ class MountManager implements FilesystemInterface
     /**
      * Mount filesystems.
      *
-     * @param string              $prefix
+     * @param string $prefix
      * @param FilesystemInterface $filesystem
      *
+     * @return $this
      * @throws InvalidArgumentException
      *
-     * @return $this
      */
-    public function mountFilesystem($prefix, FilesystemInterface $filesystem)
+    public function mountFilesystem(string $prefix, FilesystemInterface $filesystem): static
     {
-        if ( ! is_string($prefix)) {
+        if (!is_string($prefix)) {
             throw new InvalidArgumentException(__METHOD__ . ' expects argument #1 to be a string.');
         }
 
@@ -82,60 +82,15 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * Get the filesystem with the corresponding prefix.
-     *
-     * @param string $prefix
-     *
-     * @throws FilesystemNotFoundException
-     *
-     * @return FilesystemInterface
-     */
-    public function getFilesystem($prefix)
-    {
-        if ( ! isset($this->filesystems[$prefix])) {
-            throw new FilesystemNotFoundException('No filesystem mounted with prefix ' . $prefix);
-        }
-
-        return $this->filesystems[$prefix];
-    }
-
-    /**
-     * Retrieve the prefix from an arguments array.
-     *
-     * @param array $arguments
-     *
-     * @throws InvalidArgumentException
-     *
-     * @return array [:prefix, :arguments]
-     */
-    public function filterPrefix(array $arguments)
-    {
-        if (empty($arguments)) {
-            throw new InvalidArgumentException('At least one argument needed');
-        }
-
-        $path = array_shift($arguments);
-
-        if ( ! is_string($path)) {
-            throw new InvalidArgumentException('First argument should be a string');
-        }
-
-        list($prefix, $path) = $this->getPrefixAndPath($path);
-        array_unshift($arguments, $path);
-
-        return [$prefix, $arguments];
-    }
-
-    /**
      * @param string $directory
-     * @param bool   $recursive
-     *
-     * @throws InvalidArgumentException
-     * @throws FilesystemNotFoundException
+     * @param bool $recursive
      *
      * @return array
+     * @throws FilesystemNotFoundException
+     *
+     * @throws InvalidArgumentException
      */
-    public function listContents($directory = '', $recursive = false)
+    public function listContents($directory = '', $recursive = false): array
     {
         list($prefix, $directory) = $this->getPrefixAndPath($directory);
         $filesystem = $this->getFilesystem($prefix);
@@ -149,17 +104,51 @@ class MountManager implements FilesystemInterface
     }
 
     /**
+     * @param string $path
+     *
+     * @return string[] [:prefix, :path]
+     * @throws InvalidArgumentException
+     *
+     */
+    protected function getPrefixAndPath(string $path): array
+    {
+        if (strpos($path, '://') < 1) {
+            throw new InvalidArgumentException('No prefix detected in path: ' . $path);
+        }
+
+        return explode('://', $path, 2);
+    }
+
+    /**
+     * Get the filesystem with the corresponding prefix.
+     *
+     * @param string $prefix
+     *
+     * @return FilesystemInterface
+     * @throws FilesystemNotFoundException
+     *
+     */
+    public function getFilesystem(string $prefix): FilesystemInterface
+    {
+        if (!isset($this->filesystems[$prefix])) {
+            throw new FilesystemNotFoundException('No filesystem mounted with prefix ' . $prefix);
+        }
+
+        return $this->filesystems[$prefix];
+    }
+
+    /**
      * Call forwarder.
      *
      * @param string $method
-     * @param array  $arguments
-     *
-     * @throws InvalidArgumentException
-     * @throws FilesystemNotFoundException
+     * @param array $arguments
      *
      * @return mixed
+     * @throws FilesystemNotFoundException
+     *
+     * @throws InvalidArgumentException
      */
-    public function __call($method, $arguments)
+    public function __call($method, array $arguments)
     {
         list($prefix, $arguments) = $this->filterPrefix($arguments);
 
@@ -167,21 +156,177 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * @param string $from
-     * @param string $to
-     * @param array  $config
+     * Retrieve the prefix from an arguments array.
+     *
+     * @param array $arguments
+     *
+     * @return array [:prefix, :arguments]
+     * @throws InvalidArgumentException
+     *
+     */
+    public function filterPrefix(array $arguments): array
+    {
+        if (empty($arguments)) {
+            throw new InvalidArgumentException('At least one argument needed');
+        }
+
+        $path = array_shift($arguments);
+
+        if (!is_string($path)) {
+            throw new InvalidArgumentException('First argument should be a string');
+        }
+
+        list($prefix, $path) = $this->getPrefixAndPath($path);
+        array_unshift($arguments, $path);
+
+        return [$prefix, $arguments];
+    }
+
+    /**
+     * Invoke a plugin on a filesystem mounted on a given prefix.
+     *
+     * @param string $method
+     * @param array $arguments
+     * @param string $prefix
+     *
+     * @return mixed
+     * @throws FilesystemNotFoundException
+     *
+     */
+    public function invokePluginOnFilesystem(string $method, array $arguments, string $prefix): mixed
+    {
+        $filesystem = $this->getFilesystem($prefix);
+
+        try {
+            return $this->invokePlugin($method, $arguments, $filesystem);
+        } catch (PluginNotFoundException $e) {
+            // Let it pass, it's ok, don't panic.
+        }
+
+        $callback = [$filesystem, $method];
+
+        return call_user_func_array($callback, $arguments);
+    }
+
+    /**
+     * List with plugin adapter.
+     *
+     * @param array $keys
+     * @param string $directory
+     * @param bool $recursive
+     *
+     * @return array
+     * @throws FilesystemNotFoundException
      *
      * @throws InvalidArgumentException
-     * @throws FilesystemNotFoundException
-     * @throws FileExistsException
+     */
+    public function listWith(array $keys = [], string $directory = '', bool $recursive = false): array
+    {
+        list($prefix, $directory) = $this->getPrefixAndPath($directory);
+        $arguments = [$keys, $directory, $recursive];
+
+        return $this->invokePluginOnFilesystem('listWith', $arguments, $prefix);
+    }
+
+    /**
+     * Move a file.
+     *
+     * @param string $from
+     * @param string $to
+     * @param array $config
      *
      * @return bool
      */
-    public function copy($from, $to, array $config = [])
+    public function move(string $from, string $to, array $config = []): bool
+    {
+        list($prefixFrom, $pathFrom) = $this->getPrefixAndPath($from);
+        list($prefixTo, $pathTo) = $this->getPrefixAndPath($to);
+
+        if ($prefixFrom === $prefixTo) {
+            $filesystem = $this->getFilesystem($prefixFrom);
+            try {
+                $renamed = $filesystem->rename($pathFrom, $pathTo);
+            } catch (FileExistsException $e) {
+            } catch (FileNotFoundException $e) {
+            }
+
+            if ($renamed && isset($config['visibility'])) {
+                try {
+                    return $filesystem->setVisibility($pathTo, $config['visibility']);
+                } catch (FileNotFoundException $e) {
+                }
+            }
+
+            return $renamed;
+        }
+
+        try {
+            $copied = $this->copy($from, $to, $config);
+        } catch (FileExistsException $e) {
+        } catch (FileNotFoundException $e) {
+        }
+
+        if ($copied) {
+            try {
+                return $this->delete($from);
+            } catch (FileNotFoundException $e) {
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * Rename a file.
+     *
+     * @param string $path Path to the existing file.
+     * @param string $newpath The new path of the file.
+     *
+     * @return bool True on success, false on failure.
+     * @throws FileNotFoundException Thrown if $path does not exist.
+     *
+     * @throws FileExistsException   Thrown if $newpath exists.
+     */
+    public function rename($path, $newpath): bool
+    {
+        list($prefix, $path) = $this->getPrefixAndPath($path);
+
+        return $this->getFilesystem($prefix)->rename($path, $newpath);
+    }
+
+    /**
+     * Set the visibility for a file.
+     *
+     * @param string $path The path to the file.
+     * @param string $visibility One of 'public' or 'private'.
+     *
+     * @return bool True on success, false on failure.
+     * @throws FileNotFoundException
+     *
+     */
+    public function setVisibility($path, $visibility): bool
+    {
+        list($prefix, $path) = $this->getPrefixAndPath($path);
+
+        return $this->getFilesystem($prefix)->setVisibility($path, $visibility);
+    }
+
+    /**
+     * @param string $from
+     * @param string $to
+     * @param array $config
+     *
+     * @return bool
+     * @throws FileExistsException
+     */
+    public function copy($from, $to, array $config = []): bool
     {
         list($prefixFrom, $from) = $this->getPrefixAndPath($from);
 
-        $buffer = $this->getFilesystem($prefixFrom)->readStream($from);
+        try {
+            $buffer = $this->getFilesystem($prefixFrom)->readStream($from);
+        } catch (FileNotFoundException $e) {
+        }
 
         if ($buffer === false) {
             return false;
@@ -199,102 +344,54 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * List with plugin adapter.
+     * Retrieves a read-stream for a path.
      *
-     * @param array  $keys
-     * @param string $directory
-     * @param bool   $recursive
+     * @param string $path The path to the file.
      *
-     * @throws InvalidArgumentException
-     * @throws FilesystemNotFoundException
+     * @return resource|false The path resource or false on failure.
+     * @throws FileNotFoundException
      *
-     * @return array
      */
-    public function listWith(array $keys = [], $directory = '', $recursive = false)
+    public function readStream($path): bool
     {
-        list($prefix, $directory) = $this->getPrefixAndPath($directory);
-        $arguments = [$keys, $directory, $recursive];
+        list($prefix, $path) = $this->getPrefixAndPath($path);
 
-        return $this->invokePluginOnFilesystem('listWith', $arguments, $prefix);
+        return $this->getFilesystem($prefix)->readStream($path);
     }
 
     /**
-     * Move a file.
+     * Write a new file using a stream.
      *
-     * @param string $from
-     * @param string $to
-     * @param array  $config
+     * @param string $path The path of the new file.
+     * @param resource $resource The file handle.
+     * @param array $config An optional configuration array.
      *
-     * @throws InvalidArgumentException
-     * @throws FilesystemNotFoundException
+     * @return bool True on success, false on failure.
+     * @throws FileExistsException
      *
-     * @return bool
+     * @throws InvalidArgumentException If $resource is not a file handle.
      */
-    public function move($from, $to, array $config = [])
+    public function writeStream($path, $resource, array $config = []): bool
     {
-        list($prefixFrom, $pathFrom) = $this->getPrefixAndPath($from);
-        list($prefixTo, $pathTo) = $this->getPrefixAndPath($to);
+        list($prefix, $path) = $this->getPrefixAndPath($path);
 
-        if ($prefixFrom === $prefixTo) {
-            $filesystem = $this->getFilesystem($prefixFrom);
-            $renamed = $filesystem->rename($pathFrom, $pathTo);
-
-            if ($renamed && isset($config['visibility'])) {
-                return $filesystem->setVisibility($pathTo, $config['visibility']);
-            }
-
-            return $renamed;
-        }
-
-        $copied = $this->copy($from, $to, $config);
-
-        if ($copied) {
-            return $this->delete($from);
-        }
-
-        return false;
+        return $this->getFilesystem($prefix)->writeStream($path, $resource, $config);
     }
 
     /**
-     * Invoke a plugin on a filesystem mounted on a given prefix.
+     * Delete a file.
      *
-     * @param string $method
-     * @param array  $arguments
-     * @param string $prefix
-     *
-     * @throws FilesystemNotFoundException
-     *
-     * @return mixed
-     */
-    public function invokePluginOnFilesystem($method, $arguments, $prefix)
-    {
-        $filesystem = $this->getFilesystem($prefix);
-
-        try {
-            return $this->invokePlugin($method, $arguments, $filesystem);
-        } catch (PluginNotFoundException $e) {
-            // Let it pass, it's ok, don't panic.
-        }
-
-        $callback = [$filesystem, $method];
-
-        return call_user_func_array($callback, $arguments);
-    }
-
-    /**
      * @param string $path
      *
-     * @throws InvalidArgumentException
+     * @return bool True on success, false on failure.
+     * @throws FileNotFoundException
      *
-     * @return string[] [:prefix, :path]
      */
-    protected function getPrefixAndPath($path)
+    public function delete($path): bool
     {
-        if (strpos($path, '://') < 1) {
-            throw new InvalidArgumentException('No prefix detected in path: ' . $path);
-        }
+        list($prefix, $path) = $this->getPrefixAndPath($path);
 
-        return explode('://', $path, 2);
+        return $this->getFilesystem($prefix)->delete($path);
     }
 
     /**
@@ -304,7 +401,7 @@ class MountManager implements FilesystemInterface
      *
      * @return bool
      */
-    public function has($path)
+    public function has($path): bool
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -316,11 +413,11 @@ class MountManager implements FilesystemInterface
      *
      * @param string $path The path to the file.
      *
+     * @return string|false The file contents or false on failure.
      * @throws FileNotFoundException
      *
-     * @return string|false The file contents or false on failure.
      */
-    public function read($path)
+    public function read($path): bool|string
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -328,31 +425,15 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * Retrieves a read-stream for a path.
-     *
-     * @param string $path The path to the file.
-     *
-     * @throws FileNotFoundException
-     *
-     * @return resource|false The path resource or false on failure.
-     */
-    public function readStream($path)
-    {
-        list($prefix, $path) = $this->getPrefixAndPath($path);
-
-        return $this->getFilesystem($prefix)->readStream($path);
-    }
-
-    /**
      * Get a file's metadata.
      *
      * @param string $path The path to the file.
      *
+     * @return array|false The file metadata or false on failure.
      * @throws FileNotFoundException
      *
-     * @return array|false The file metadata or false on failure.
      */
-    public function getMetadata($path)
+    public function getMetadata($path): bool|array
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -364,11 +445,11 @@ class MountManager implements FilesystemInterface
      *
      * @param string $path The path to the file.
      *
+     * @return int|false The file size or false on failure.
      * @throws FileNotFoundException
      *
-     * @return int|false The file size or false on failure.
      */
-    public function getSize($path)
+    public function getSize($path): bool|int
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -380,11 +461,11 @@ class MountManager implements FilesystemInterface
      *
      * @param string $path The path to the file.
      *
+     * @return string|false The file mime-type or false on failure.
      * @throws FileNotFoundException
      *
-     * @return string|false The file mime-type or false on failure.
      */
-    public function getMimetype($path)
+    public function getMimetype($path): bool|string
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -396,11 +477,11 @@ class MountManager implements FilesystemInterface
      *
      * @param string $path The path to the file.
      *
+     * @return false|int The timestamp or false on failure.
      * @throws FileNotFoundException
      *
-     * @return string|false The timestamp or false on failure.
      */
-    public function getTimestamp($path)
+    public function getTimestamp($path): bool|int
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -412,11 +493,11 @@ class MountManager implements FilesystemInterface
      *
      * @param string $path The path to the file.
      *
+     * @return string|false The visibility (public|private) or false on failure.
      * @throws FileNotFoundException
      *
-     * @return string|false The visibility (public|private) or false on failure.
      */
-    public function getVisibility($path)
+    public function getVisibility($path): bool|string
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -426,15 +507,15 @@ class MountManager implements FilesystemInterface
     /**
      * Write a new file.
      *
-     * @param string $path     The path of the new file.
+     * @param string $path The path of the new file.
      * @param string $contents The file contents.
-     * @param array  $config   An optional configuration array.
-     *
-     * @throws FileExistsException
+     * @param array $config An optional configuration array.
      *
      * @return bool True on success, false on failure.
+     * @throws FileExistsException
+     *
      */
-    public function write($path, $contents, array $config = [])
+    public function write($path, $contents, array $config = []): bool
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -442,36 +523,17 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * Write a new file using a stream.
-     *
-     * @param string   $path     The path of the new file.
-     * @param resource $resource The file handle.
-     * @param array    $config   An optional configuration array.
-     *
-     * @throws InvalidArgumentException If $resource is not a file handle.
-     * @throws FileExistsException
-     *
-     * @return bool True on success, false on failure.
-     */
-    public function writeStream($path, $resource, array $config = [])
-    {
-        list($prefix, $path) = $this->getPrefixAndPath($path);
-
-        return $this->getFilesystem($prefix)->writeStream($path, $resource, $config);
-    }
-
-    /**
      * Update an existing file.
      *
-     * @param string $path     The path of the existing file.
+     * @param string $path The path of the existing file.
      * @param string $contents The file contents.
-     * @param array  $config   An optional configuration array.
-     *
-     * @throws FileNotFoundException
+     * @param array $config An optional configuration array.
      *
      * @return bool True on success, false on failure.
+     * @throws FileNotFoundException
+     *
      */
-    public function update($path, $contents, array $config = [])
+    public function update($path, $contents, array $config = []): bool
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -481,16 +543,16 @@ class MountManager implements FilesystemInterface
     /**
      * Update an existing file using a stream.
      *
-     * @param string   $path     The path of the existing file.
+     * @param string $path The path of the existing file.
      * @param resource $resource The file handle.
-     * @param array    $config   An optional configuration array.
-     *
-     * @throws InvalidArgumentException If $resource is not a file handle.
-     * @throws FileNotFoundException
+     * @param array $config An optional configuration array.
      *
      * @return bool True on success, false on failure.
+     * @throws FileNotFoundException
+     *
+     * @throws InvalidArgumentException If $resource is not a file handle.
      */
-    public function updateStream($path, $resource, array $config = [])
+    public function updateStream($path, $resource, array $config = []): bool
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -498,49 +560,15 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * Rename a file.
-     *
-     * @param string $path    Path to the existing file.
-     * @param string $newpath The new path of the file.
-     *
-     * @throws FileExistsException   Thrown if $newpath exists.
-     * @throws FileNotFoundException Thrown if $path does not exist.
-     *
-     * @return bool True on success, false on failure.
-     */
-    public function rename($path, $newpath)
-    {
-        list($prefix, $path) = $this->getPrefixAndPath($path);
-
-        return $this->getFilesystem($prefix)->rename($path, $newpath);
-    }
-
-    /**
-     * Delete a file.
-     *
-     * @param string $path
-     *
-     * @throws FileNotFoundException
-     *
-     * @return bool True on success, false on failure.
-     */
-    public function delete($path)
-    {
-        list($prefix, $path) = $this->getPrefixAndPath($path);
-
-        return $this->getFilesystem($prefix)->delete($path);
-    }
-
-    /**
      * Delete a directory.
      *
      * @param string $dirname
      *
+     * @return bool True on success, false on failure.
      * @throws RootViolationException Thrown if $dirname is empty.
      *
-     * @return bool True on success, false on failure.
      */
-    public function deleteDir($dirname)
+    public function deleteDir($dirname): bool
     {
         list($prefix, $dirname) = $this->getPrefixAndPath($dirname);
 
@@ -551,11 +579,11 @@ class MountManager implements FilesystemInterface
      * Create a directory.
      *
      * @param string $dirname The name of the new directory.
-     * @param array  $config  An optional configuration array.
+     * @param array $config An optional configuration array.
      *
      * @return bool True on success, false on failure.
      */
-    public function createDir($dirname, array $config = [])
+    public function createDir($dirname, array $config = []): bool
     {
         list($prefix, $dirname) = $this->getPrefixAndPath($dirname);
 
@@ -563,32 +591,15 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * Set the visibility for a file.
-     *
-     * @param string $path       The path to the file.
-     * @param string $visibility One of 'public' or 'private'.
-     *
-     * @throws FileNotFoundException
-     *
-     * @return bool True on success, false on failure.
-     */
-    public function setVisibility($path, $visibility)
-    {
-        list($prefix, $path) = $this->getPrefixAndPath($path);
-
-        return $this->getFilesystem($prefix)->setVisibility($path, $visibility);
-    }
-
-    /**
      * Create a file or update if exists.
      *
-     * @param string $path     The path to the file.
+     * @param string $path The path to the file.
      * @param string $contents The file contents.
-     * @param array  $config   An optional configuration array.
+     * @param array $config An optional configuration array.
      *
      * @return bool True on success, false on failure.
      */
-    public function put($path, $contents, array $config = [])
+    public function put($path, $contents, array $config = []): bool
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -598,15 +609,15 @@ class MountManager implements FilesystemInterface
     /**
      * Create a file or update if exists.
      *
-     * @param string   $path     The path to the file.
+     * @param string $path The path to the file.
      * @param resource $resource The file handle.
-     * @param array    $config   An optional configuration array.
-     *
-     * @throws InvalidArgumentException Thrown if $resource is not a resource.
+     * @param array $config An optional configuration array.
      *
      * @return bool True on success, false on failure.
+     * @throws InvalidArgumentException Thrown if $resource is not a resource.
+     *
      */
-    public function putStream($path, $resource, array $config = [])
+    public function putStream($path, $resource, array $config = []): bool
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -618,11 +629,11 @@ class MountManager implements FilesystemInterface
      *
      * @param string $path The path to the file.
      *
+     * @return string|false The file contents, or false on failure.
      * @throws FileNotFoundException
      *
-     * @return string|false The file contents, or false on failure.
      */
-    public function readAndDelete($path)
+    public function readAndDelete($path): bool|string
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
@@ -632,14 +643,14 @@ class MountManager implements FilesystemInterface
     /**
      * Get a file/directory handler.
      *
-     * @deprecated
-     *
-     * @param string  $path    The path to the file.
-     * @param Handler $handler An optional existing handler to populate.
+     * @param string $path The path to the file.
+     * @param Handler|null $handler An optional existing handler to populate.
      *
      * @return Handler Either a file or directory handler.
+     * @deprecated
+     *
      */
-    public function get($path, Handler $handler = null)
+    public function get($path, Handler $handler = null): Handler
     {
         list($prefix, $path) = $this->getPrefixAndPath($path);
 

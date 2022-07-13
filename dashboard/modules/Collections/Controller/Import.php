@@ -11,7 +11,10 @@
 namespace Collections\Controller;
 
 
-class Import extends \yxorP\AuthController
+use yxorP\AuthController;
+use function session_write_close;
+
+class Import extends AuthController
 {
 
 
@@ -30,10 +33,10 @@ class Import extends \yxorP\AuthController
     public function execute()
     {
 
-        \session_write_close();
+        session_write_close();
 
-        $collection = $this->param('collection', null);
-        $entries = $this->param('entries', null);
+        $collection = $this->param('collection');
+        $entries = $this->param('entries');
 
         if (!$collection || !$entries) {
             return false;

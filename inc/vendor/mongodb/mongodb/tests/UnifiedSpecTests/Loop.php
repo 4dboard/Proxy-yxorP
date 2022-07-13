@@ -22,28 +22,28 @@ use function usleep;
 final class Loop
 {
     /** @var boolean */
-    private static $allowIteration = true;
+    private static bool $allowIteration = true;
 
     /** @var integer */
-    private static $sleepUsecBetweenIterations = 0;
+    private static int $sleepUsecBetweenIterations = 0;
 
     /** @var Context */
-    private $context;
+    private Context $context;
 
     /** @var array */
-    private $operations = [];
+    private array $operations = [];
 
     /** @var BSONArray */
-    private $errorList;
+    private BSONArray $errorList;
 
     /** @var BSONArray */
-    private $failureList;
+    private BSONArray $failureList;
 
     /** @var string */
-    private $numSuccessfulOperationsEntityId;
+    private mixed $numSuccessfulOperationsEntityId;
 
     /** @var string */
-    private $numIterationsEntityId;
+    private mixed $numIterationsEntityId;
 
     public function __construct(array $operations, Context $context, array $options = [])
     {
@@ -71,6 +71,41 @@ final class Loop
 
         $this->numSuccessfulOperationsEntityId = $options['storeSuccessesAsEntity'] ?? null;
         $this->numIterationsEntityId = $options['storeIterationsAsEntity'] ?? null;
+    }
+
+    private function initializeListEntity(string $id): BSONArray
+    {
+        $entityMap = $this->context->getEntityMap();
+
+        if (!$entityMap->offsetExists($id)) {
+            $entityMap->set($id, new BSONArray());
+        }
+
+        assertInstanceOf(BSONArray::class, $entityMap[$id]);
+
+        return $entityMap[$id];
+    }
+
+    /**
+     * Allow or prohibit loop operations from starting a new iteration.
+     *
+     * This function is primarily used by the Atlas testing workload executor.
+     */
+    public static function allowIteration(bool $allowIteration = true): void
+    {
+        self::$allowIteration = $allowIteration;
+    }
+
+    /**
+     * Set time to sleep between iterations.
+     *
+     * This can be used to limit CPU usage during workload execution.
+     */
+    public static function setSleepUsecBetweenIterations(int $usec): void
+    {
+        assertGreaterThanOrEqual(0, $usec);
+
+        self::$sleepUsecBetweenIterations = $usec;
     }
 
     public function execute(): void
@@ -101,7 +136,10 @@ final class Loop
                         throw $e;
                     }
 
-                    $this->handleErrorOrFailure($e);
+                    try {
+                        $this->handleErrorOrFailure($e);
+                    } catch (Throwable $e) {
+                    }
                 }
 
                 if (self::$sleepUsecBetweenIterations > 0) {
@@ -124,33 +162,14 @@ final class Loop
     }
 
     /**
-     * Allow or prohibit loop operations from starting a new iteration.
-     *
-     * This function is primarily used by the Atlas testing workload executor.
+     * @throws Throwable
      */
-    public static function allowIteration(bool $allowIteration = true): void
-    {
-        self::$allowIteration = $allowIteration;
-    }
-
-    /**
-     * Set time to sleep between iterations.
-     *
-     * This can be used to limit CPU usage during workload execution.
-     */
-    public static function setSleepUsecBetweenIterations(int $usec): void
-    {
-        assertGreaterThanOrEqual(0, $usec);
-
-        self::$sleepUsecBetweenIterations = $usec;
-    }
-
     private function handleErrorOrFailure(Throwable $e): void
     {
         /* The constructor will either initialize both lists or leave them both
          * unset. If unset, exceptions should not be logged and instead
          * interrupt the loop. */
-        if (! isset($this->errorList, $this->failureList)) {
+        if (!isset($this->errorList, $this->failureList)) {
             throw $e;
         }
 
@@ -163,18 +182,5 @@ final class Loop
             'error' => $e->getMessage(),
             'time' => microtime(true),
         ]);
-    }
-
-    private function initializeListEntity(string $id): BSONArray
-    {
-        $entityMap = $this->context->getEntityMap();
-
-        if (! $entityMap->offsetExists($id)) {
-            $entityMap->set($id, new BSONArray());
-        }
-
-        assertInstanceOf(BSONArray::class, $entityMap[$id]);
-
-        return $entityMap[$id];
     }
 }

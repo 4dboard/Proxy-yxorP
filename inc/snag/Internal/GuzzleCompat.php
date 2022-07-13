@@ -2,6 +2,8 @@
 
 namespace yxorP\inc\snag\Internal;
 
+use yxorP\inc\proxy\ClientInterface;
+
 /**
  * @internal
  */
@@ -10,11 +12,11 @@ final class proxyCompat
     /**
      * Get the base URL/URI, which depends on the proxy version.
      *
-     * @param \yxorP\inc\proxy\ClientInterface $proxy
+     * @param ClientInterface $proxy
      *
      * @return mixed
      */
-    public static function getBaseUri(\yxorP\inc\proxy\ClientInterface $proxy)
+    public static function getBaseUri(ClientInterface $proxy): mixed
     {
         // TODO: validate this by running PHPStan with proxy 5
         return self::isUsingproxy5()
@@ -25,10 +27,10 @@ final class proxyCompat
     /**
      * @return bool
      */
-    public static function isUsingproxy5()
+    public static function isUsingproxy5(): bool
     {
-        if (defined(\yxorP\inc\proxy\ClientInterface::class . '::VERSION')) {
-            $version = constant(\yxorP\inc\proxy\ClientInterface::class . '::VERSION');
+        if (defined(ClientInterface::class . '::VERSION')) {
+            $version = constant(ClientInterface::class . '::VERSION');
 
             return version_compare($version, '5.0.0', '>=')
                 && version_compare($version, '6.0.0', '<');
@@ -42,7 +44,7 @@ final class proxyCompat
      *
      * @return string
      */
-    public static function getBaseUriOptionName()
+    public static function getBaseUriOptionName(): string
     {
         return self::isUsingproxy5() ? 'base_url' : 'base_uri';
     }
@@ -60,7 +62,7 @@ final class proxyCompat
      *
      * @return array
      */
-    public static function applyRequestOptions(array $options, array $requestOptions)
+    public static function applyRequestOptions(array $options, array $requestOptions): array
     {
         if (self::isUsingproxy5()) {
             if (!isset($options['defaults'])) {

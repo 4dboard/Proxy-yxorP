@@ -21,6 +21,8 @@
 
 namespace PHPMailer\PHPMailer;
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * PHPMailer exception handler.
  *
@@ -33,7 +35,7 @@ class Exception extends \Exception
      *
      * @return string
      */
-    public function errorMessage()
+    #[Pure] public function errorMessage(): string
     {
         return '<strong>' . htmlspecialchars($this->getMessage(), ENT_COMPAT | ENT_HTML401) . "</strong><br />\n";
     }

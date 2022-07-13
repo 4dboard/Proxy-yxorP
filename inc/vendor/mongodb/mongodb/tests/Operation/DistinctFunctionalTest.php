@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\BulkWrite;
 use MongoDB\Operation\Distinct;
 use MongoDB\Tests\CommandObserver;
@@ -13,42 +14,48 @@ class DistinctFunctionalTest extends FunctionalTestCase
 {
     public function testDefaultReadConcernIsOmitted(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Distinct(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    'x',
-                    [],
-                    ['readConcern' => $this->createDefaultReadConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Distinct(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        'x',
+                        [],
+                        ['readConcern' => $this->createDefaultReadConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Distinct(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    'x',
-                    [],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Distinct(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        'x',
+                        [],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -58,11 +65,11 @@ class DistinctFunctionalTest extends FunctionalTestCase
     {
         $bulkWrite = new BulkWrite(['ordered' => true]);
         $bulkWrite->insert([
-            'x' => (object) ['foo' => 'bar'],
+            'x' => (object)['foo' => 'bar'],
         ]);
         $bulkWrite->insert(['x' => 4]);
         $bulkWrite->insert([
-            'x' => (object) ['foo' => ['foo' => 'bar']],
+            'x' => (object)['foo' => ['foo' => 'bar']],
         ]);
         $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
 
@@ -74,11 +81,11 @@ class DistinctFunctionalTest extends FunctionalTestCase
          * comparing their string representations.
          */
         $sort = function ($a, $b) {
-            if (is_scalar($a) && ! is_scalar($b)) {
+            if (is_scalar($a) && !is_scalar($b)) {
                 return -1;
             }
 
-            if (! is_scalar($a)) {
+            if (!is_scalar($a)) {
                 if (is_scalar($b)) {
                     return 1;
                 }
@@ -96,7 +103,7 @@ class DistinctFunctionalTest extends FunctionalTestCase
         $this->assertEquals($expectedDocuments, $values);
     }
 
-    public function provideTypeMapOptionsAndExpectedDocuments()
+    #[ArrayShape(['No type map' => "array", 'array/array' => "array", 'object/array' => "array", 'array/stdClass' => "array"])] public function provideTypeMapOptionsAndExpectedDocuments(): array
     {
         return [
             'No type map' => [
@@ -118,9 +125,9 @@ class DistinctFunctionalTest extends FunctionalTestCase
             'object/array' => [
                 ['root' => 'object', 'document' => 'array'],
                 [
-                    (object) ['foo' => 'bar'],
+                    (object)['foo' => 'bar'],
                     4,
-                    (object) ['foo' => ['foo' => 'bar']],
+                    (object)['foo' => ['foo' => 'bar']],
                 ],
             ],
             'array/stdClass' => [
@@ -128,7 +135,7 @@ class DistinctFunctionalTest extends FunctionalTestCase
                 [
                     ['foo' => 'bar'],
                     4,
-                    ['foo' => (object) ['foo' => 'bar']],
+                    ['foo' => (object)['foo' => 'bar']],
                 ],
             ],
         ];

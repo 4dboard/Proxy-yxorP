@@ -10,14 +10,14 @@ class NotificationSkipper
     /**
      * The config instance.
      *
-     * @var \yxorP\inc\snag\Configuration
+     * @var Configuration
      */
-    protected $config;
+    protected Configuration $config;
 
     /**
      * Create a new notification skipper middleware instance.
      *
-     * @param \yxorP\inc\snag\Configuration $config the configuration instance
+     * @param Configuration $config the configuration instance
      *
      * @return void
      */
@@ -29,7 +29,7 @@ class NotificationSkipper
     /**
      * Execute the notification skipper middleware.
      *
-     * @param \yxorP\inc\snag\Report $report the snag report instance
+     * @param Report $report the snag report instance
      * @param callable $next the next stage callback
      *
      * @return void

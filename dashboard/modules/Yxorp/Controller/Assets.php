@@ -35,10 +35,10 @@ class Assets extends AuthController
             'sort' => ['created' => -1]
         ];
 
-        if ($filter = $this->param('filter', null)) $options['filter'] = $filter;
-        if ($limit = $this->param('limit', null)) $options['limit'] = $limit;
-        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
-        if ($skip = $this->param('skip', null)) $options['skip'] = $skip;
+        if ($filter = $this->param('filter')) $options['filter'] = $filter;
+        if ($limit = $this->param('limit')) $options['limit'] = $limit;
+        if ($sort = $this->param('sort')) $options['sort'] = $sort;
+        if ($skip = $this->param('skip')) $options['skip'] = $skip;
         if ($folder = $this->param('folder', '')) $options['folder'] = $folder;
 
         $ret = $this->module('yxorp')->listAssets($options);
@@ -70,7 +70,7 @@ class Assets extends AuthController
         return $this->module('yxorp')->uploadAssets('files', $meta);
     }
 
-    public function uploadfolder()
+    public function uploadfolder(): bool|array
     {
 
         session_write_close();
@@ -169,7 +169,7 @@ class Assets extends AuthController
         return $ret;
     }
 
-    public function removeAssets()
+    public function removeAssets(): bool
     {
 
         if ($assets = $this->param('assets', false)) {
@@ -179,7 +179,7 @@ class Assets extends AuthController
         return false;
     }
 
-    public function updateAsset()
+    public function updateAsset(): bool
     {
 
         if ($asset = $this->param('asset', false)) {
@@ -192,7 +192,7 @@ class Assets extends AuthController
     public function addFolder()
     {
 
-        $name = $this->param('name', null);
+        $name = $this->param('name');
         $parent = $this->param('parent', '');
 
         if (!$name) return;
@@ -227,7 +227,7 @@ class Assets extends AuthController
         return $folder;
     }
 
-    public function removeFolder()
+    public function removeFolder(): bool|array
     {
 
         $folder = $this->param('folder');
@@ -248,17 +248,17 @@ class Assets extends AuthController
         return $ids;
     }
 
-    public function _folders()
+    public function _folders(): array
     {
 
-        function parent_sort(array $objects, array &$result = [], $parent = '', $depth = 0)
+        function parent_sort(array $objects, array &$result = [], $parent = '', $depth = 0): array
         {
 
             foreach ($objects as $key => $object) {
 
                 if ($object['_p'] == $parent) {
                     $object['_lvl'] = $depth;
-                    array_push($result, $object);
+                    $result[] = $object;
                     unset($objects[$key]);
                     parent_sort($objects, $result, $object['_id'], $depth + 1);
                 }
@@ -271,12 +271,10 @@ class Assets extends AuthController
         $this->app->trigger('yxorp.assetsfolders.find.before', [&$options]);
 
         $_folders = $this->app->storage->find('yxorp/assets_folders', $options)->toArray();
-        $folders = parent_sort($_folders);
-
-        return $folders;
+        return parent_sort($_folders);
     }
 
-    public function updateAssetFile()
+    public function updateAssetFile(): bool
     {
 
         session_write_close();

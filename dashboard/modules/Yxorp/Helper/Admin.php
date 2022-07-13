@@ -130,7 +130,7 @@ class Admin extends Helper
 
         $type = $ext == 'svg' ? 'image/svg+xml' : "image/{$ext}";
 
-        if (strpos($favicon, ':') && !preg_match('/^(\/|http\:|https\:)\//', $favicon)) {
+        if (strpos($favicon, ':') && !preg_match('/^(\/|http:|https:)\//', $favicon)) {
             $path = $this->app->path($favicon);
             if (!$path) return;
             $favicon = $this->app->baseUrl($favicon);
@@ -145,7 +145,7 @@ class Admin extends Helper
         return '<link rel="icon" type="' . $type . '" href="' . $favicon . '" app-icon="true">';
     }
 
-    public function addMenuItem($menu, $data)
+    public function addMenuItem($menu, $data): static
     {
 
         $this->data["menu.{$menu}"]->append(array_merge([
@@ -158,7 +158,7 @@ class Admin extends Helper
         return $this;
     }
 
-    public function addAssets($assets)
+    public function addAssets($assets): static
     {
 
         foreach ((array)$assets as $asset) {
@@ -214,7 +214,7 @@ class Admin extends Helper
         return $this->app->module('yxorp')->updateUserOption($key, $value);
     }
 
-    public function isResourceEditableByCurrentUser($resourceId, &$meta = null)
+    public function isResourceEditableByCurrentUser($resourceId, &$meta = null): bool
     {
 
         $meta = $this->isResourceLocked($resourceId);
@@ -232,7 +232,7 @@ class Admin extends Helper
         return false;
     }
 
-    public function isResourceLocked($resourceId, $ttl = null)
+    public function isResourceLocked($resourceId, $ttl = null): bool
     {
 
         $ttl = $ttl ?? 300;
@@ -251,7 +251,7 @@ class Admin extends Helper
         return false;
     }
 
-    public function lockResourceId($resourceId, $user = null)
+    public function lockResourceId($resourceId, $user = null): bool
     {
 
         if (!$resourceId) {
@@ -277,7 +277,7 @@ class Admin extends Helper
         return true;
     }
 
-    public function unlockResourceId($resourceId)
+    public function unlockResourceId($resourceId): bool
     {
 
         $key = "locked:{$resourceId}";
@@ -285,7 +285,7 @@ class Admin extends Helper
         return true;
     }
 
-    public function denyRequest()
+    public function denyRequest(): string
     {
 
         if ($this->app->module('yxorp')->getUser()) {

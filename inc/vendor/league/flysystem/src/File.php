@@ -12,7 +12,7 @@ class File extends Handler
      *
      * @return bool
      */
-    public function exists()
+    public function exists(): bool
     {
         return $this->filesystem->has($this->path);
     }
@@ -22,9 +22,12 @@ class File extends Handler
      *
      * @return string|false file contents
      */
-    public function read()
+    public function read(): bool|string
     {
-        return $this->filesystem->read($this->path);
+        try {
+            return $this->filesystem->read($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -32,9 +35,12 @@ class File extends Handler
      *
      * @return resource|false file stream
      */
-    public function readStream()
+    public function readStream(): bool
     {
-        return $this->filesystem->readStream($this->path);
+        try {
+            return $this->filesystem->readStream($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -44,9 +50,12 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function write($content)
+    public function write(string $content): bool
     {
-        return $this->filesystem->write($this->path, $content);
+        try {
+            return $this->filesystem->write($this->path, $content);
+        } catch (FileExistsException $e) {
+        }
     }
 
     /**
@@ -56,9 +65,12 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function writeStream($resource)
+    public function writeStream($resource): bool
     {
-        return $this->filesystem->writeStream($this->path, $resource);
+        try {
+            return $this->filesystem->writeStream($this->path, $resource);
+        } catch (FileExistsException $e) {
+        }
     }
 
     /**
@@ -68,9 +80,12 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function update($content)
+    public function update(string $content): bool
     {
-        return $this->filesystem->update($this->path, $content);
+        try {
+            return $this->filesystem->update($this->path, $content);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -80,9 +95,12 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function updateStream($resource)
+    public function updateStream($resource): bool
     {
-        return $this->filesystem->updateStream($this->path, $resource);
+        try {
+            return $this->filesystem->updateStream($this->path, $resource);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -92,7 +110,7 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function put($content)
+    public function put(string $content): bool
     {
         return $this->filesystem->put($this->path, $content);
     }
@@ -104,7 +122,7 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function putStream($resource)
+    public function putStream($resource): bool
     {
         return $this->filesystem->putStream($this->path, $resource);
     }
@@ -116,12 +134,16 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function rename($newpath)
+    public function rename(string $newpath): bool
     {
-        if ($this->filesystem->rename($this->path, $newpath)) {
-            $this->path = $newpath;
+        try {
+            if ($this->filesystem->rename($this->path, $newpath)) {
+                $this->path = $newpath;
 
-            return true;
+                return true;
+            }
+        } catch (FileExistsException $e) {
+        } catch (FileNotFoundException $e) {
         }
 
         return false;
@@ -134,10 +156,14 @@ class File extends Handler
      *
      * @return File|false new file or false
      */
-    public function copy($newpath)
+    public function copy(string $newpath): File|bool
     {
-        if ($this->filesystem->copy($this->path, $newpath)) {
-            return new File($this->filesystem, $newpath);
+        try {
+            if ($this->filesystem->copy($this->path, $newpath)) {
+                return new File($this->filesystem, $newpath);
+            }
+        } catch (FileExistsException $e) {
+        } catch (FileNotFoundException $e) {
         }
 
         return false;
@@ -148,9 +174,12 @@ class File extends Handler
      *
      * @return string|false The timestamp or false on failure.
      */
-    public function getTimestamp()
+    public function getTimestamp(): bool|string
     {
-        return $this->filesystem->getTimestamp($this->path);
+        try {
+            return $this->filesystem->getTimestamp($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -158,9 +187,12 @@ class File extends Handler
      *
      * @return string|false The file mime-type or false on failure.
      */
-    public function getMimetype()
+    public function getMimetype(): bool|string
     {
-        return $this->filesystem->getMimetype($this->path);
+        try {
+            return $this->filesystem->getMimetype($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -168,9 +200,12 @@ class File extends Handler
      *
      * @return string|false The visibility (public|private) or false on failure.
      */
-    public function getVisibility()
+    public function getVisibility(): bool|string
     {
-        return $this->filesystem->getVisibility($this->path);
+        try {
+            return $this->filesystem->getVisibility($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -178,9 +213,12 @@ class File extends Handler
      *
      * @return array|false The file metadata or false on failure.
      */
-    public function getMetadata()
+    public function getMetadata(): bool|array
     {
-        return $this->filesystem->getMetadata($this->path);
+        try {
+            return $this->filesystem->getMetadata($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -188,9 +226,12 @@ class File extends Handler
      *
      * @return int|false The file size or false on failure.
      */
-    public function getSize()
+    public function getSize(): bool|int
     {
-        return $this->filesystem->getSize($this->path);
+        try {
+            return $this->filesystem->getSize($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 
     /**
@@ -198,8 +239,11 @@ class File extends Handler
      *
      * @return bool success boolean
      */
-    public function delete()
+    public function delete(): bool
     {
-        return $this->filesystem->delete($this->path);
+        try {
+            return $this->filesystem->delete($this->path);
+        } catch (FileNotFoundException $e) {
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace League\Flysystem\Adapter;
 
+use JetBrains\PhpStorm\Pure;
 use League\Flysystem\AdapterInterface;
 
 abstract class AbstractAdapter implements AdapterInterface
@@ -9,12 +10,34 @@ abstract class AbstractAdapter implements AdapterInterface
     /**
      * @var string|null path prefix
      */
-    protected $pathPrefix;
+    protected ?string $pathPrefix;
 
     /**
      * @var string
      */
     protected $pathSeparator = '/';
+
+    /**
+     * Prefix a path.
+     *
+     * @param string $path
+     *
+     * @return string prefixed path
+     */
+    #[Pure] public function applyPathPrefix(string $path): string
+    {
+        return $this->getPathPrefix() . ltrim($path, '\\/');
+    }
+
+    /**
+     * Get the path prefix.
+     *
+     * @return string|null path prefix or null if pathPrefix is empty
+     */
+    public function getPathPrefix(): ?string
+    {
+        return $this->pathPrefix;
+    }
 
     /**
      * Set the path prefix.
@@ -23,9 +46,9 @@ abstract class AbstractAdapter implements AdapterInterface
      *
      * @return void
      */
-    public function setPathPrefix($prefix)
+    public function setPathPrefix(string $prefix)
     {
-        $prefix = (string) $prefix;
+        $prefix = (string)$prefix;
 
         if ($prefix === '') {
             $this->pathPrefix = null;
@@ -37,36 +60,14 @@ abstract class AbstractAdapter implements AdapterInterface
     }
 
     /**
-     * Get the path prefix.
-     *
-     * @return string|null path prefix or null if pathPrefix is empty
-     */
-    public function getPathPrefix()
-    {
-        return $this->pathPrefix;
-    }
-
-    /**
-     * Prefix a path.
-     *
-     * @param string $path
-     *
-     * @return string prefixed path
-     */
-    public function applyPathPrefix($path)
-    {
-        return $this->getPathPrefix() . ltrim($path, '\\/');
-    }
-
-    /**
      * Remove a path prefix.
      *
      * @param string $path
      *
      * @return string path without the prefix
      */
-    public function removePathPrefix($path)
+    #[Pure] public function removePathPrefix(string $path): string
     {
-        return substr($path, strlen((string) $this->getPathPrefix()));
+        return substr($path, strlen((string)$this->getPathPrefix()));
     }
 }

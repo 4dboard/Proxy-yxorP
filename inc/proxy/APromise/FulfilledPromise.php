@@ -2,6 +2,8 @@
 
 namespace yxorP\inc\proxy\Promise;
 
+use Throwable;
+
 /**
  * A promise that has been fulfilled.
  *
@@ -22,7 +24,7 @@ class FulfilledPromise implements PromiseInterface
         $this->value = $value;
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): PromiseInterface|Promise|static
     {
         return $this->then(null, $onRejected);
     }
@@ -30,7 +32,7 @@ class FulfilledPromise implements PromiseInterface
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    )
+    ): Promise|PromiseInterface|static
     {
         // Return itself if there is no onFulfilled function.
         if (!$onFulfilled) {
@@ -44,9 +46,7 @@ class FulfilledPromise implements PromiseInterface
             if ($p->getState() === self::PENDING) {
                 try {
                     $p->resolve($onFulfilled($value));
-                } catch (Throwable $e) {
-                    $p->reject($e);
-                } catch (Exception $e) {
+                } catch (Throwable|Exception $e) {
                     $p->reject($e);
                 }
             }
@@ -55,24 +55,24 @@ class FulfilledPromise implements PromiseInterface
         return $p;
     }
 
-    public function wait($unwrap = true, $defaultDelivery = null)
+    public function wait(bool $unwrap = true)
     {
-        return $unwrap ? $this->value : null;
+        return null;
     }
 
-    public function getState()
+    public function getState(): string
     {
         return self::FULFILLED;
     }
 
-    public function resolve($value)
+    public function resolve(mixed $value)
     {
         if ($value !== $this->value) {
             throw new LogicException("Cannot resolve a fulfilled promise");
         }
     }
 
-    public function reject($reason)
+    public function reject(mixed $reason)
     {
         throw new LogicException("Cannot reject a fulfilled promise");
     }

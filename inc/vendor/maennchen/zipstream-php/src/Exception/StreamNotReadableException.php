@@ -2,6 +2,7 @@
 
 namespace ZipStream\Exception;
 
+use JetBrains\PhpStorm\Pure;
 use ZipStream\Exception;
 
 /**
@@ -17,7 +18,7 @@ class StreamNotReadableException extends Exception
      *
      * @param String fileName - The name of the file which the stream belongs to.
      */
-    public function __construct($fileName)
+    #[Pure] public function __construct($fileName)
     {
         parent::__construct("The stream for $fileName could not be read.");
     }

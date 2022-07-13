@@ -8,16 +8,16 @@ use OpenSSLAsymmetricKey;
 class Key
 {
     /** @var string $algorithm */
-    private $algorithm;
+    private string $algorithm;
 
     /** @var string|resource|OpenSSLAsymmetricKey $keyMaterial */
     private $keyMaterial;
 
     /**
-     * @param string|resource|OpenSSLAsymmetricKey $keyMaterial
+     * @param OpenSSLAsymmetricKey|string $keyMaterial
      * @param string $algorithm
      */
-    public function __construct($keyMaterial, $algorithm)
+    public function __construct(OpenSSLAsymmetricKey|string $keyMaterial, string $algorithm)
     {
         if (
             !is_string($keyMaterial)
@@ -31,7 +31,7 @@ class Key
             throw new InvalidArgumentException('Type error: $keyMaterial must not be empty');
         }
 
-        if (!is_string($algorithm)|| empty($keyMaterial)) {
+        if (!is_string($algorithm)) {
             throw new InvalidArgumentException('Type error: $algorithm must be a string');
         }
 
@@ -44,7 +44,7 @@ class Key
      *
      * @return string
      */
-    public function getAlgorithm()
+    public function getAlgorithm(): string
     {
         return $this->algorithm;
     }
@@ -52,7 +52,7 @@ class Key
     /**
      * @return string|resource|OpenSSLAsymmetricKey
      */
-    public function getKeyMaterial()
+    public function getKeyMaterial(): OpenSSLAsymmetricKey|string
     {
         return $this->keyMaterial;
     }

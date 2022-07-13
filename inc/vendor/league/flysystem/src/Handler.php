@@ -12,18 +12,18 @@ abstract class Handler
     /**
      * @var string
      */
-    protected $path;
+    protected ?string $path;
 
     /**
      * @var FilesystemInterface
      */
-    protected $filesystem;
+    protected ?FilesystemInterface $filesystem;
 
     /**
      * Constructor.
      *
-     * @param FilesystemInterface $filesystem
-     * @param string              $path
+     * @param FilesystemInterface|null $filesystem
+     * @param null $path
      */
     public function __construct(FilesystemInterface $filesystem = null, $path = null)
     {
@@ -36,19 +36,9 @@ abstract class Handler
      *
      * @return bool
      */
-    public function isDir()
+    public function isDir(): bool
     {
         return $this->getType() === 'dir';
-    }
-
-    /**
-     * Check whether the entree is a file.
-     *
-     * @return bool
-     */
-    public function isFile()
-    {
-        return $this->getType() === 'file';
     }
 
     /**
@@ -56,11 +46,34 @@ abstract class Handler
      *
      * @return string file or dir
      */
-    public function getType()
+    public function getType(): string
     {
-        $metadata = $this->filesystem->getMetadata($this->path);
+        try {
+            $metadata = $this->filesystem->getMetadata($this->path);
+        } catch (FileNotFoundException $e) {
+        }
 
         return $metadata ? $metadata['type'] : 'dir';
+    }
+
+    /**
+     * Check whether the entree is a file.
+     *
+     * @return bool
+     */
+    public function isFile(): bool
+    {
+        return $this->getType() === 'file';
+    }
+
+    /**
+     * Retrieve the Filesystem object.
+     *
+     * @return FilesystemInterface
+     */
+    public function getFilesystem(): ?FilesystemInterface
+    {
+        return $this->filesystem;
     }
 
     /**
@@ -70,33 +83,9 @@ abstract class Handler
      *
      * @return $this
      */
-    public function setFilesystem(FilesystemInterface $filesystem)
+    public function setFilesystem(FilesystemInterface $filesystem): static
     {
         $this->filesystem = $filesystem;
-
-        return $this;
-    }
-    
-    /**
-     * Retrieve the Filesystem object.
-     *
-     * @return FilesystemInterface
-     */
-    public function getFilesystem()
-    {
-        return $this->filesystem;
-    }
-
-    /**
-     * Set the entree path.
-     *
-     * @param string $path
-     *
-     * @return $this
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
 
         return $this;
     }
@@ -106,20 +95,34 @@ abstract class Handler
      *
      * @return string path
      */
-    public function getPath()
+    public function getPath(): ?string
     {
         return $this->path;
+    }
+
+    /**
+     * Set the entree path.
+     *
+     * @param string $path
+     *
+     * @return $this
+     */
+    public function setPath(string $path): static
+    {
+        $this->path = $path;
+
+        return $this;
     }
 
     /**
      * Plugins pass-through.
      *
      * @param string $method
-     * @param array  $arguments
+     * @param array $arguments
      *
      * @return mixed
      */
-    public function __call($method, array $arguments)
+    public function __call(string $method, array $arguments)
     {
         array_unshift($arguments, $this->path);
         $callback = [$this->filesystem, $method];

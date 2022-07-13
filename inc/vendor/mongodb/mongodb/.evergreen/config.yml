@@ -35,47 +35,47 @@ functions:
       params:
         working_dir: "src"
         script: |
-           # Get the current unique version of this checkout
-           if [ "${is_patch}" = "true" ]; then
-              CURRENT_VERSION=$(git describe)-patch-${version_id}
-           else
-              CURRENT_VERSION=latest
-           fi
-
-           export DRIVERS_TOOLS="$(pwd)/../drivers-tools"
-           export PROJECT_DIRECTORY="$(pwd)"
-
-           # Python has cygwin path problems on Windows. Detect prospective mongo-orchestration home directory
-           if [ "Windows_NT" = "$OS" ]; then # Magic variable in cygwin
-              export DRIVERS_TOOLS=$(cygpath -m $DRIVERS_TOOLS)
-              export PROJECT_DIRECTORY=$(cygpath -m $PROJECT_DIRECTORY)
-           fi
-
-           export MONGO_ORCHESTRATION_HOME="$DRIVERS_TOOLS/.evergreen/orchestration"
-           export MONGODB_BINARIES="$DRIVERS_TOOLS/mongodb/bin"
-           export UPLOAD_BUCKET="${project}"
-
-           cat <<EOT > expansion.yml
-           CURRENT_VERSION: "$CURRENT_VERSION"
-           DRIVERS_TOOLS: "$DRIVERS_TOOLS"
-           MONGO_ORCHESTRATION_HOME: "$MONGO_ORCHESTRATION_HOME"
-           MONGODB_BINARIES: "$MONGODB_BINARIES"
-           UPLOAD_BUCKET: "$UPLOAD_BUCKET"
-           PROJECT_DIRECTORY: "$PROJECT_DIRECTORY"
-           PREPARE_SHELL: |
-              set -o errexit
-              export DRIVERS_TOOLS="$DRIVERS_TOOLS"
-              export MONGO_ORCHESTRATION_HOME="$MONGO_ORCHESTRATION_HOME"
-              export MONGODB_BINARIES="$MONGODB_BINARIES"
-              export UPLOAD_BUCKET="$UPLOAD_BUCKET"
-              export PROJECT_DIRECTORY="$PROJECT_DIRECTORY"
-
-              export TMPDIR="$MONGO_ORCHESTRATION_HOME/db"
-              export PATH="$MONGODB_BINARIES:$PATH"
-              export PROJECT="${project}"
-           EOT
-           # See what we've done
-           cat expansion.yml
+          # Get the current unique version of this checkout
+          if [ "${is_patch}" = "true" ]; then
+             CURRENT_VERSION=$(git describe)-patch-${version_id}
+          else
+             CURRENT_VERSION=latest
+          fi
+          
+          export DRIVERS_TOOLS="$(pwd)/../drivers-tools"
+          export PROJECT_DIRECTORY="$(pwd)"
+          
+          # Python has cygwin path problems on Windows. Detect prospective mongo-orchestration home directory
+          if [ "Windows_NT" = "$OS" ]; then # Magic variable in cygwin
+             export DRIVERS_TOOLS=$(cygpath -m $DRIVERS_TOOLS)
+             export PROJECT_DIRECTORY=$(cygpath -m $PROJECT_DIRECTORY)
+          fi
+          
+          export MONGO_ORCHESTRATION_HOME="$DRIVERS_TOOLS/.evergreen/orchestration"
+          export MONGODB_BINARIES="$DRIVERS_TOOLS/mongodb/bin"
+          export UPLOAD_BUCKET="${project}"
+          
+          cat <<EOT > expansion.yml
+          CURRENT_VERSION: "$CURRENT_VERSION"
+          DRIVERS_TOOLS: "$DRIVERS_TOOLS"
+          MONGO_ORCHESTRATION_HOME: "$MONGO_ORCHESTRATION_HOME"
+          MONGODB_BINARIES: "$MONGODB_BINARIES"
+          UPLOAD_BUCKET: "$UPLOAD_BUCKET"
+          PROJECT_DIRECTORY: "$PROJECT_DIRECTORY"
+          PREPARE_SHELL: |
+             set -o errexit
+             export DRIVERS_TOOLS="$DRIVERS_TOOLS"
+             export MONGO_ORCHESTRATION_HOME="$MONGO_ORCHESTRATION_HOME"
+             export MONGODB_BINARIES="$MONGODB_BINARIES"
+             export UPLOAD_BUCKET="$UPLOAD_BUCKET"
+             export PROJECT_DIRECTORY="$PROJECT_DIRECTORY"
+          
+             export TMPDIR="$MONGO_ORCHESTRATION_HOME/db"
+             export PATH="$MONGODB_BINARIES:$PATH"
+             export PROJECT="${project}"
+          EOT
+          # See what we've done
+          cat expansion.yml
 
     # Load the expansion file to make an evergreen variable with the current unique version
     - command: expansions.update
@@ -251,14 +251,14 @@ functions:
           MOCK_SERVICE_ID=${MOCK_SERVICE_ID} API_VERSION=${API_VERSION} PHP_VERSION=${PHP_VERSION} AUTH=${AUTH} SSL=${SSL} MONGODB_URI="${MONGODB_URI}" sh ${PROJECT_DIRECTORY}/.evergreen/run-tests.sh
 
   "run atlas data lake test":
-     - command: shell.exec
-       type: test
-       params:
-         working_dir: "src"
-         script: |
-           ${PREPARE_SHELL}
-           export PATH="${PHP_PATH}/bin:$PATH"
-           PHP_VERSION=${PHP_VERSION} TESTS="atlas-data-lake" AUTH=${AUTH} SSL=${SSL} MONGODB_URI="${MONGODB_URI}" sh ${PROJECT_DIRECTORY}/.evergreen/run-tests.sh
+    - command: shell.exec
+      type: test
+      params:
+        working_dir: "src"
+        script: |
+          ${PREPARE_SHELL}
+          export PATH="${PHP_PATH}/bin:$PATH"
+          PHP_VERSION=${PHP_VERSION} TESTS="atlas-data-lake" AUTH=${AUTH} SSL=${SSL} MONGODB_URI="${MONGODB_URI}" sh ${PROJECT_DIRECTORY}/.evergreen/run-tests.sh
 
   "run serverless tests":
     - command: shell.exec
@@ -398,118 +398,118 @@ post:
 
 tasks:
 
-    # Wildcard task. Do you need to find out what tools are available and where?
-    # Throw it here, and execute this task on all buildvariants
-    - name: getdata
-      commands:
-        - command: shell.exec
-          type: test
-          params:
-            script: |
-               . ${DRIVERS_TOOLS}/.evergreen/download-mongodb.sh || true
-               get_distro || true
-               echo $DISTRO
-               echo $MARCH
-               echo $OS
-               uname -a || true
-               ls /etc/*release* || true
-               cc --version || true
-               gcc --version || true
-               clang --version || true
-               gcov --version || true
-               lcov --version || true
-               llvm-cov --version || true
-               echo $PATH
-               ls -la /usr/local/Cellar/llvm/*/bin/ || true
-               ls -la /usr/local/Cellar/ || true
-               scan-build --version || true
-               genhtml --version || true
-               valgrind --version || true
+  # Wildcard task. Do you need to find out what tools are available and where?
+  # Throw it here, and execute this task on all buildvariants
+  - name: getdata
+    commands:
+      - command: shell.exec
+        type: test
+        params:
+          script: |
+            . ${DRIVERS_TOOLS}/.evergreen/download-mongodb.sh || true
+            get_distro || true
+            echo $DISTRO
+            echo $MARCH
+            echo $OS
+            uname -a || true
+            ls /etc/*release* || true
+            cc --version || true
+            gcc --version || true
+            clang --version || true
+            gcov --version || true
+            lcov --version || true
+            llvm-cov --version || true
+            echo $PATH
+            ls -la /usr/local/Cellar/llvm/*/bin/ || true
+            ls -la /usr/local/Cellar/ || true
+            scan-build --version || true
+            genhtml --version || true
+            valgrind --version || true
+  
 
+  # Standard test tasks {{{
 
-# Standard test tasks {{{
+  - name: "test-standalone"
+    tags: [ "standalone" ]
+    commands:
+      - func: "bootstrap mongo-orchestration"
+        vars:
+          TOPOLOGY: "server"
+      - func: "start kms servers"
+      - func: "run tests"
 
-    - name: "test-standalone"
-      tags: ["standalone"]
-      commands:
-        - func: "bootstrap mongo-orchestration"
-          vars:
-            TOPOLOGY: "server"
-        - func: "start kms servers"
-        - func: "run tests"
+  - name: "test-replica_set"
+    tags: [ "replica_set" ]
+    commands:
+      - func: "bootstrap mongo-orchestration"
+        vars:
+          TOPOLOGY: "replica_set"
+      - func: "start kms servers"
+      - func: "run tests"
 
-    - name: "test-replica_set"
-      tags: ["replica_set"]
-      commands:
-        - func: "bootstrap mongo-orchestration"
-          vars:
-            TOPOLOGY: "replica_set"
-        - func: "start kms servers"
-        - func: "run tests"
+  - name: "test-sharded_cluster"
+    tags: [ "sharded_cluster" ]
+    commands:
+      - func: "bootstrap mongo-orchestration"
+        vars:
+          TOPOLOGY: "sharded_cluster"
+      - func: "start kms servers"
+      - func: "run tests"
 
-    - name: "test-sharded_cluster"
-      tags: ["sharded_cluster"]
-      commands:
-        - func: "bootstrap mongo-orchestration"
-          vars:
-            TOPOLOGY: "sharded_cluster"
-        - func: "start kms servers"
-        - func: "run tests"
+  - name: "test-atlas-data-lake"
+    commands:
+      - func: "bootstrap mongohoused"
+      - func: "run atlas data lake test"
 
-    - name: "test-atlas-data-lake"
-      commands:
-        - func: "bootstrap mongohoused"
-        - func: "run atlas data lake test"
+  - name: "test-requireApiVersion"
+    tags: [ "versioned-api" ]
+    commands:
+      - func: "bootstrap mongo-orchestration"
+        vars:
+          TOPOLOGY: "server"
+          AUTH: "auth"
+          REQUIRE_API_VERSION: "yes"
+      - func: "start kms servers"
+      - func: "run tests"
+        vars:
+          API_VERSION: "1"
 
-    - name: "test-requireApiVersion"
-      tags: ["versioned-api"]
-      commands:
-        - func: "bootstrap mongo-orchestration"
-          vars:
-            TOPOLOGY: "server"
-            AUTH: "auth"
-            REQUIRE_API_VERSION: "yes"
-        - func: "start kms servers"
-        - func: "run tests"
-          vars:
-            API_VERSION: "1"
+  - name: "test-acceptApiVersion2"
+    tags: [ "versioned-api" ]
+    commands:
+      - func: "bootstrap mongo-orchestration"
+        vars:
+          TOPOLOGY: "server"
+          ORCHESTRATION_FILE: "versioned-api-testing.json"
+      - func: "start kms servers"
+      - func: "run tests"
+        vars:
+          TESTS: "versioned-api"
 
-    - name: "test-acceptApiVersion2"
-      tags: ["versioned-api"]
-      commands:
-        - func: "bootstrap mongo-orchestration"
-          vars:
-            TOPOLOGY: "server"
-            ORCHESTRATION_FILE: "versioned-api-testing.json"
-        - func: "start kms servers"
-        - func: "run tests"
-          vars:
-            TESTS: "versioned-api"
+  - name: "test-serverless"
+    tags: [ "serverless" ]
+    commands:
+      - func: "create serverless instance"
+      - func: "run serverless tests"
+        vars:
+          MONGODB_URI: "${SINGLE_ATLASPROXY_SERVERLESS_URI}"
 
-    - name: "test-serverless"
-      tags: ["serverless"]
-      commands:
-        - func: "create serverless instance"
-        - func: "run serverless tests"
-          vars:
-            MONGODB_URI: "${SINGLE_ATLASPROXY_SERVERLESS_URI}"
-
-    - name: "test-loadBalanced"
-      tags: ["loadbalanced"]
-      commands:
-        - func: "bootstrap mongo-orchestration"
-          vars:
-            TOPOLOGY: "sharded_cluster"
-            LOAD_BALANCER: "true"
-            SSL: "yes"
-        - func: "start load balancer"
-        - func: "start kms servers"
-        - func: "run tests"
-          vars:
-            # Note: loadBalanced=true should already be appended to SINGLE_MONGOS_LB_URI
-            MONGODB_URI: "${SINGLE_MONGOS_LB_URI}"
-            SSL: "yes"
-        # Note: "stop load balancer" will be called from "post"
+  - name: "test-loadBalanced"
+    tags: [ "loadbalanced" ]
+    commands:
+      - func: "bootstrap mongo-orchestration"
+        vars:
+          TOPOLOGY: "sharded_cluster"
+          LOAD_BALANCER: "true"
+          SSL: "yes"
+      - func: "start load balancer"
+      - func: "start kms servers"
+      - func: "run tests"
+        vars:
+          # Note: loadBalanced=true should already be appended to SINGLE_MONGOS_LB_URI
+          MONGODB_URI: "${SINGLE_MONGOS_LB_URI}"
+          SSL: "yes"
+      # Note: "stop load balancer" will be called from "post"
 # }}}
 
 
@@ -554,27 +554,27 @@ axes:
       - id: "latest"
         display_name: "latest"
         variables:
-           VERSION: "latest"
+          VERSION: "latest"
       - id: "5.0"
         display_name: "5.0"
         variables:
-           VERSION: "5.0"
+          VERSION: "5.0"
       - id: "4.4"
         display_name: "4.4"
         variables:
-           VERSION: "4.4"
+          VERSION: "4.4"
       - id: "4.2"
         display_name: "4.2"
         variables:
-           VERSION: "4.2"
+          VERSION: "4.2"
       - id: "4.0"
         display_name: "4.0"
         variables:
-           VERSION: "4.0"
+          VERSION: "4.0"
       - id: "3.6"
         display_name: "3.6"
         variables:
-           VERSION: "3.6"
+          VERSION: "3.6"
 
   - id: edge-versions
     display_name: MongoDB Version
@@ -629,15 +629,15 @@ axes:
       - id: standalone
         display_name: Standalone
         variables:
-           TOPOLOGY: "server"
+          TOPOLOGY: "server"
       - id: replicaset
         display_name: Replica Set
         variables:
-           TOPOLOGY: "replica_set"
+          TOPOLOGY: "replica_set"
       - id: sharded-cluster
         display_name: Sharded Cluster
         variables:
-           TOPOLOGY: "sharded_cluster"
+          TOPOLOGY: "sharded_cluster"
 
   - id: auth
     display_name: Authentication
@@ -645,11 +645,11 @@ axes:
       - id: auth
         display_name: Auth
         variables:
-           AUTH: "auth"
+          AUTH: "auth"
       - id: noauth
         display_name: NoAuth
         variables:
-           AUTH: "noauth"
+          AUTH: "noauth"
 
   - id: ssl
     display_name: SSL
@@ -657,11 +657,11 @@ axes:
       - id: ssl
         display_name: SSL
         variables:
-           SSL: "ssl"
+          SSL: "ssl"
       - id: nossl
         display_name: NoSSL
         variables:
-           SSL: "nossl"
+          SSL: "nossl"
 
   - id: storage-engine
     display_name: Storage
@@ -669,15 +669,15 @@ axes:
       - id: mmapv1
         display_name: MMAPv1
         variables:
-           STORAGE_ENGINE: "mmapv1"
+          STORAGE_ENGINE: "mmapv1"
       - id: wiredtiger
         display_name: WiredTiger
         variables:
-           STORAGE_ENGINE: "wiredtiger"
+          STORAGE_ENGINE: "wiredtiger"
       - id: inmemory
         display_name: InMemory
         variables:
-           STORAGE_ENGINE: "inmemory"
+          STORAGE_ENGINE: "inmemory"
 
   - id: dependencies
     display_name: Dependencies
@@ -689,70 +689,70 @@ axes:
 
 buildvariants:
 
-# Tests all PHP versions on all operating systems and latest MongoDB and ext-mongodb versions
-- matrix_name: "test-php-versions"
-  matrix_spec: { "os": "*", "edge-versions": "latest-stable", "php-versions": "*", "driver-versions": "latest-stable" }
-  exclude_spec:
-    # rhel71-power8 fails due to not reaching pecl
-    - { "os": "rhel71-power8", "edge-versions": "*", "php-versions": "*", "driver-versions": "*" }
-    # rhel74-zseries doesn't start in a timely fashion - most likely missing executors
-    - { "os": "rhel74-zseries", "edge-versions": "*", "php-versions": "*", "driver-versions": "*" }
-    # rhel70 does not have PHP 8.0
-    - { "os": "rhel70-test", "edge-versions": "*", "php-versions": "8.0", "driver-versions": "*" }
-  display_name: "${os}, MongoDB ${edge-versions}, PHP ${php-versions}, ext-mongodb ${driver-versions}"
-  tasks:
-    - name: "test-standalone"
-    - name: "test-replica_set"
-    - name: "test-sharded_cluster"
+  # Tests all PHP versions on all operating systems and latest MongoDB and ext-mongodb versions
+  - matrix_name: "test-php-versions"
+    matrix_spec: { "os": "*", "edge-versions": "latest-stable", "php-versions": "*", "driver-versions": "latest-stable" }
+    exclude_spec:
+      # rhel71-power8 fails due to not reaching pecl
+      - { "os": "rhel71-power8", "edge-versions": "*", "php-versions": "*", "driver-versions": "*" }
+      # rhel74-zseries doesn't start in a timely fashion - most likely missing executors
+      - { "os": "rhel74-zseries", "edge-versions": "*", "php-versions": "*", "driver-versions": "*" }
+      # rhel70 does not have PHP 8.0
+      - { "os": "rhel70-test", "edge-versions": "*", "php-versions": "8.0", "driver-versions": "*" }
+    display_name: "${os}, MongoDB ${edge-versions}, PHP ${php-versions}, ext-mongodb ${driver-versions}"
+    tasks:
+      - name: "test-standalone"
+      - name: "test-replica_set"
+      - name: "test-sharded_cluster"
 
-# Tests all MongoDB versions with latest stable PHP and driver versions
-- matrix_name: "test-mongodb-versions"
-  matrix_spec: { "os": "debian92-test", "versions": "*", "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
-  exclude_spec:
-    # Avoid duplicate build variants from test-php-versions (assumes edge-versions:latest-stable is 5.0)
-    - { "os": "debian92-test", "versions": "5.0", "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
-  display_name: "${os}, MongoDB ${versions}, PHP ${php-edge-versions}, ext-mongodb ${driver-versions}"
-  tasks:
-    - name: "test-standalone"
-    - name: "test-replica_set"
-    - name: "test-sharded_cluster"
+  # Tests all MongoDB versions with latest stable PHP and driver versions
+  - matrix_name: "test-mongodb-versions"
+    matrix_spec: { "os": "debian92-test", "versions": "*", "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
+    exclude_spec:
+      # Avoid duplicate build variants from test-php-versions (assumes edge-versions:latest-stable is 5.0)
+      - { "os": "debian92-test", "versions": "5.0", "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
+    display_name: "${os}, MongoDB ${versions}, PHP ${php-edge-versions}, ext-mongodb ${driver-versions}"
+    tasks:
+      - name: "test-standalone"
+      - name: "test-replica_set"
+      - name: "test-sharded_cluster"
 
-# Tests all MongoDB versions with oldest supported PHP and driver versions
-# Enables --prefer-lowest for composer to test oldest dependencies against all server versions
-- matrix_name: "test-dependencies"
-  matrix_spec: { "os": "debian92-test", "versions": "*", "php-edge-versions": "oldest-supported", "driver-versions": "oldest-supported", "dependencies": "lowest" }
-  display_name: "Lowest Dependencies: ${os}, MongoDB ${versions}, PHP ${php-edge-versions}, ext-mongodb ${driver-versions}"
-  tasks:
-    - name: "test-standalone"
-    - name: "test-replica_set"
-    - name: "test-sharded_cluster"
+  # Tests all MongoDB versions with oldest supported PHP and driver versions
+  # Enables --prefer-lowest for composer to test oldest dependencies against all server versions
+  - matrix_name: "test-dependencies"
+    matrix_spec: { "os": "debian92-test", "versions": "*", "php-edge-versions": "oldest-supported", "driver-versions": "oldest-supported", "dependencies": "lowest" }
+    display_name: "Lowest Dependencies: ${os}, MongoDB ${versions}, PHP ${php-edge-versions}, ext-mongodb ${driver-versions}"
+    tasks:
+      - name: "test-standalone"
+      - name: "test-replica_set"
+      - name: "test-sharded_cluster"
 
-- matrix_name: "atlas-data-lake-test"
-  matrix_spec: { "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
-  display_name: "Atlas Data Lake"
-  run_on: debian92-test
-  tasks:
-    - name: "test-atlas-data-lake"
+  - matrix_name: "atlas-data-lake-test"
+    matrix_spec: { "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
+    display_name: "Atlas Data Lake"
+    run_on: debian92-test
+    tasks:
+      - name: "test-atlas-data-lake"
 
-- matrix_name: "test-versioned-api"
-  matrix_spec: { "versions": ["5.0", "latest"], "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
-  display_name: "Versioned API - ${versions}"
-  run_on: debian92-test
-  tasks:
-    - .versioned-api
+  - matrix_name: "test-versioned-api"
+    matrix_spec: { "versions": [ "5.0", "latest" ], "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
+    display_name: "Versioned API - ${versions}"
+    run_on: debian92-test
+    tasks:
+      - .versioned-api
 
-- matrix_name: "serverless"
-  matrix_spec: { "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
-  display_name: "Serverless"
-  run_on: debian92-test
-  tasks:
-    - .serverless
+  - matrix_name: "serverless"
+    matrix_spec: { "php-edge-versions": "latest-stable", "driver-versions": "latest-stable" }
+    display_name: "Serverless"
+    run_on: debian92-test
+    tasks:
+      - .serverless
 
-- matrix_name: "test-loadBalanced"
-  # TODO: Add "5.2" server version alongside "latest" following its GA release
-  # TODO: Revert driver-version to latest-stable after PHPC 1.13.0 is released (for CDRIVER-4207)
-  matrix_spec: { "versions": "latest", "php-edge-versions": "latest-stable", "driver-versions": "latest-dev" }
-  display_name: "Load balanced - ${versions}"
-  run_on: debian92-test
-  tasks:
-    - name: "test-loadBalanced"
+  - matrix_name: "test-loadBalanced"
+    # TODO: Add "5.2" server version alongside "latest" following its GA release
+    # TODO: Revert driver-version to latest-stable after PHPC 1.13.0 is released (for CDRIVER-4207)
+    matrix_spec: { "versions": "latest", "php-edge-versions": "latest-stable", "driver-versions": "latest-dev" }
+    display_name: "Load balanced - ${versions}"
+    run_on: debian92-test
+    tasks:
+      - name: "test-loadBalanced"

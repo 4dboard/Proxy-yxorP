@@ -1,12 +1,10 @@
 Term 1
 :   one
-:   two
-    extra line
+:   two extra line
 
 Term 2
 
-:   lazy
-line
+:   lazy line
 
 :   multiple
 

@@ -39,7 +39,7 @@ use function is_object;
 class ListDatabases implements Executable
 {
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a listDatabases command.
@@ -67,23 +67,23 @@ class ListDatabases implements Executable
      */
     public function __construct(array $options = [])
     {
-        if (isset($options['authorizedDatabases']) && ! is_bool($options['authorizedDatabases'])) {
+        if (isset($options['authorizedDatabases']) && !is_bool($options['authorizedDatabases'])) {
             throw InvalidArgumentException::invalidType('"authorizedDatabases" option', $options['authorizedDatabases'], 'boolean');
         }
 
-        if (isset($options['filter']) && ! is_array($options['filter']) && ! is_object($options['filter'])) {
+        if (isset($options['filter']) && !is_array($options['filter']) && !is_object($options['filter'])) {
             throw InvalidArgumentException::invalidType('"filter" option', $options['filter'], ['array', 'object']);
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['nameOnly']) && ! is_bool($options['nameOnly'])) {
+        if (isset($options['nameOnly']) && !is_bool($options['nameOnly'])) {
             throw InvalidArgumentException::invalidType('"nameOnly" option', $options['nameOnly'], 'boolean');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
@@ -93,18 +93,18 @@ class ListDatabases implements Executable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return array An array of database info structures
      * @throws UnexpectedValueException if the command response was malformed
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): array
     {
         $cmd = ['listDatabases' => 1];
 
-        if (! empty($this->options['filter'])) {
-            $cmd['filter'] = (object) $this->options['filter'];
+        if (!empty($this->options['filter'])) {
+            $cmd['filter'] = (object)$this->options['filter'];
         }
 
         foreach (['authorizedDatabases', 'maxTimeMS', 'nameOnly'] as $option) {
@@ -117,7 +117,7 @@ class ListDatabases implements Executable
         $cursor->setTypeMap(['root' => 'array', 'document' => 'array']);
         $result = current($cursor->toArray());
 
-        if (! isset($result['databases']) || ! is_array($result['databases'])) {
+        if (!isset($result['databases']) || !is_array($result['databases'])) {
             throw new UnexpectedValueException('listDatabases command did not return a "databases" array');
         }
 
@@ -133,7 +133,7 @@ class ListDatabases implements Executable
      * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

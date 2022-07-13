@@ -37,7 +37,7 @@ use function MongoDB\is_pipeline;
 class ReplaceOne implements Executable
 {
     /** @var Update */
-    private $update;
+    private Update $update;
 
     /**
      * Constructs an update command.
@@ -63,16 +63,16 @@ class ReplaceOne implements Executable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to filter documents
-     * @param array|object $replacement    Replacement document
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param object|array $filter Query by which to filter documents
+     * @param object|array $replacement Replacement document
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, $replacement, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, object|array $replacement, array $options = [])
     {
-        if (! is_array($replacement) && ! is_object($replacement)) {
+        if (!is_array($replacement) && !is_object($replacement)) {
             throw InvalidArgumentException::invalidType('$replacement', $replacement, 'array or object');
         }
 
@@ -96,13 +96,13 @@ class ReplaceOne implements Executable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return UpdateResult
      * @throws UnsupportedException if collation is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): UpdateResult
     {
         return $this->update->execute($server);
     }

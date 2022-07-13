@@ -14,7 +14,7 @@ use MongoDB\Tests\CommandObserver;
 class InsertManyFunctionalTest extends FunctionalTestCase
 {
     /** @var Collection */
-    private $collection;
+    private Collection $collection;
 
     public function setUp(): void
     {
@@ -28,7 +28,7 @@ class InsertManyFunctionalTest extends FunctionalTestCase
         $documents = [
             ['_id' => 'foo', 'x' => 11],
             ['x' => 22],
-            (object) ['_id' => 'bar', 'x' => 33],
+            (object)['_id' => 'bar', 'x' => 33],
             new BSONDocument(['_id' => 'baz', 'x' => 44]),
         ];
 
@@ -56,63 +56,72 @@ class InsertManyFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new InsertMany(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['_id' => 1], ['_id' => 2]],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new InsertMany(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['_id' => 1], ['_id' => 2]],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationSetWhenTrue(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new InsertMany(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['_id' => 1], ['_id' => 2]],
-                    ['bypassDocumentValidation' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new InsertMany(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['_id' => 1], ['_id' => 2]],
+                        ['bypassDocumentValidation' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-                $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                    $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationUnsetWhenFalse(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new InsertMany(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['_id' => 1], ['_id' => 2]],
-                    ['bypassDocumentValidation' => false]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new InsertMany(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['_id' => 1], ['_id' => 2]],
+                        ['bypassDocumentValidation' => false]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function testUnacknowledgedWriteConcern()
+    public function testUnacknowledgedWriteConcern(): InsertManyResult
     {
         $documents = [['x' => 11]];
         $options = ['writeConcern' => new WriteConcern(0)];

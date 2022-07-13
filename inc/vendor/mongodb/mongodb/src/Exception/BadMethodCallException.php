@@ -18,6 +18,7 @@
 namespace MongoDB\Exception;
 
 use BadMethodCallException as BaseBadMethodCallException;
+use JetBrains\PhpStorm\Pure;
 use function sprintf;
 
 class BadMethodCallException extends BaseBadMethodCallException implements Exception
@@ -28,7 +29,7 @@ class BadMethodCallException extends BaseBadMethodCallException implements Excep
      * @param string $class Class name
      * @return self
      */
-    public static function classIsImmutable($class)
+    #[Pure] public static function classIsImmutable(string $class): BadMethodCallException
     {
         return new static(sprintf('%s is immutable', $class));
     }
@@ -39,7 +40,7 @@ class BadMethodCallException extends BaseBadMethodCallException implements Excep
      * @param string $method Method name
      * @return self
      */
-    public static function unacknowledgedWriteResultAccess($method)
+    #[Pure] public static function unacknowledgedWriteResultAccess(string $method): BadMethodCallException
     {
         return new static(sprintf('%s should not be called for an unacknowledged write result', $method));
     }

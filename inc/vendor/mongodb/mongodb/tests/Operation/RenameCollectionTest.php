@@ -22,7 +22,7 @@ class RenameCollectionTest extends TestCase
         );
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

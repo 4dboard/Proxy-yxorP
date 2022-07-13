@@ -16,7 +16,7 @@ class DropDatabaseTest extends TestCase
         new DropDatabase($this->getDatabaseName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

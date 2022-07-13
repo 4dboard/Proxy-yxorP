@@ -40,22 +40,22 @@ use function is_object;
 class CountDocuments implements Executable
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $filter;
+    private array|object $filter;
 
     /** @var array */
-    private $aggregateOptions;
+    private array $aggregateOptions;
 
     /** @var array */
-    private $countOptions;
+    private array $countOptions;
 
     /** @var Aggregate */
-    private $aggregate;
+    private Aggregate $aggregate;
 
     /**
      * Constructs an aggregate command for counting documents
@@ -82,28 +82,28 @@ class CountDocuments implements Executable
      *  * skip (integer): The number of documents to skip before returning the
      *    documents.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to filter documents
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param object|array $filter Query by which to filter documents
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, array $options = [])
     {
-        if (! is_array($filter) && ! is_object($filter)) {
+        if (!is_array($filter) && !is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
-        if (isset($options['limit']) && ! is_integer($options['limit'])) {
+        if (isset($options['limit']) && !is_integer($options['limit'])) {
             throw InvalidArgumentException::invalidType('"limit" option', $options['limit'], 'integer');
         }
 
-        if (isset($options['skip']) && ! is_integer($options['skip'])) {
+        if (isset($options['skip']) && !is_integer($options['skip'])) {
             throw InvalidArgumentException::invalidType('"skip" option', $options['skip'], 'integer');
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->filter = $filter;
 
         $this->aggregateOptions = array_intersect_key($options, ['collation' => 1, 'hint' => 1, 'maxTimeMS' => 1, 'readConcern' => 1, 'readPreference' => 1, 'session' => 1]);
@@ -113,41 +113,12 @@ class CountDocuments implements Executable
     }
 
     /**
-     * Execute the operation.
-     *
-     * @see Executable::execute()
-     * @param Server $server
-     * @return integer
-     * @throws UnexpectedValueException if the command response was malformed
-     * @throws UnsupportedException if collation or read concern is used and unsupported
-     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
-     */
-    public function execute(Server $server)
-    {
-        $cursor = $this->aggregate->execute($server);
-        $allResults = $cursor->toArray();
-
-        /* If there are no documents to count, the aggregation pipeline has no items to group, and
-         * hence the result is an empty array (PHPLIB-376) */
-        if (count($allResults) == 0) {
-            return 0;
-        }
-
-        $result = current($allResults);
-        if (! isset($result->n) || ! (is_integer($result->n) || is_float($result->n))) {
-            throw new UnexpectedValueException('count command did not return a numeric "n" value');
-        }
-
-        return (integer) $result->n;
-    }
-
-    /**
      * @return Aggregate
      */
-    private function createAggregate()
+    private function createAggregate(): Aggregate
     {
         $pipeline = [
-            ['$match' => (object) $this->filter],
+            ['$match' => (object)$this->filter],
         ];
 
         if (isset($this->countOptions['skip'])) {
@@ -161,5 +132,34 @@ class CountDocuments implements Executable
         $pipeline[] = ['$group' => ['_id' => 1, 'n' => ['$sum' => 1]]];
 
         return new Aggregate($this->databaseName, $this->collectionName, $pipeline, $this->aggregateOptions);
+    }
+
+    /**
+     * Execute the operation.
+     *
+     * @param Server $server
+     * @return integer
+     * @throws UnexpectedValueException if the command response was malformed
+     * @throws UnsupportedException if collation or read concern is used and unsupported
+     * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
+     */
+    public function execute(Server $server): int
+    {
+        $cursor = $this->aggregate->execute($server);
+        $allResults = $cursor->toArray();
+
+        /* If there are no documents to count, the aggregation pipeline has no items to group, and
+         * hence the result is an empty array (PHPLIB-376) */
+        if (count($allResults) == 0) {
+            return 0;
+        }
+
+        $result = current($allResults);
+        if (!isset($result->n) || !(is_integer($result->n) || is_float($result->n))) {
+            throw new UnexpectedValueException('count command did not return a numeric "n" value');
+        }
+
+        return (integer)$result->n;
     }
 }

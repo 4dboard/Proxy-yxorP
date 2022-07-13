@@ -10,7 +10,10 @@
 
 namespace yxorP\Helper;
 
-class Revisions extends \Lime\Helper
+use JetBrains\PhpStorm\ArrayShape;
+use Lime\Helper;
+
+class Revisions extends Helper
 {
 
     protected $storage;
@@ -39,7 +42,7 @@ class Revisions extends \Lime\Helper
         return $this->storage->find('yxorp/revisions', $options)->toArray();
     }
 
-    public function add($id, $data, $meta = null, $creator = null)
+    #[ArrayShape(['_oid' => "", 'data' => "", 'meta' => "mixed|null", '_creator' => "mixed", '_created' => ""])] public function add($id, $data, $meta = null, $creator = null): array
     {
 
         if ($creator === true) {

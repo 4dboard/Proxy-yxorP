@@ -2,6 +2,9 @@
 
 namespace yxorP\inc\proxy\Psr7;
 
+use BadMethodCallException;
+use JetBrains\PhpStorm\Pure;
+use LogicException;
 use yxorP\inc\psr\Http\Message\StreamInterface;
 
 /**
@@ -9,15 +12,30 @@ use yxorP\inc\psr\Http\Message\StreamInterface;
  *
  * Allows for easy testing and extension of a provided stream without needing
  * to create a concrete class for a simple extension point.
+ * @property $_fn_getMetadata
+ * @property $_fn_getContents
+ * @property $_fn_read
+ * @property $_fn_isReadable
+ * @property $_fn_write
+ * @property $_fn_isWritable
+ * @property $_fn_seek
+ * @property $_fn_rewind
+ * @property $_fn_isSeekable
+ * @property $_fn_eof
+ * @property $_fn_tell
+ * @property $_fn_getSize
+ * @property $_fn_detach
+ * @property $_fn_close
+ * @property $_fn___toString
  */
 class FnStream implements StreamInterface
 {
     /** @var array Methods that must be implemented in the given array */
-    private static $slots = ['__toString', 'close', 'detach', 'rewind',
+    private static array $slots = ['__toString', 'close', 'detach', 'rewind',
         'getSize', 'tell', 'eof', 'isSeekable', 'seek', 'isWritable', 'write',
         'isReadable', 'read', 'getContents', 'getMetadata'];
     /** @var array */
-    private $methods;
+    private array $methods;
 
     /**
      * @param array $methods Hash of method name to a callable.
@@ -41,7 +59,7 @@ class FnStream implements StreamInterface
      *
      * @return FnStream
      */
-    public static function decorate(StreamInterface $stream, array $methods)
+    #[Pure] public static function decorate(StreamInterface $stream, array $methods): FnStream
     {
         // If any of the required methods were not provided, then simply
         // proxy to the decorated stream.
@@ -54,11 +72,11 @@ class FnStream implements StreamInterface
 
     /**
      * Lazily determine which methods are not implemented.
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      */
     public function __get($name)
     {
-        throw new \BadMethodCallException(str_replace('_fn_', '', $name)
+        throw new BadMethodCallException(str_replace('_fn_', '', $name)
             . '() is not implemented in the FnStream');
     }
 
@@ -74,11 +92,11 @@ class FnStream implements StreamInterface
 
     /**
      * An unserialize would allow the __destruct to run when the unserialized value goes out of scope.
-     * @throws \LogicException
+     * @throws LogicException
      */
     public function __wakeup()
     {
-        throw new \LogicException('FnStream should never be unserialized');
+        throw new LogicException('FnStream should never be unserialized');
     }
 
     public function __toString()
@@ -121,7 +139,7 @@ class FnStream implements StreamInterface
         call_user_func($this->_fn_rewind);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         call_user_func($this->_fn_seek, $offset, $whence);
     }
@@ -131,7 +149,7 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_isWritable);
     }
 
-    public function write($string)
+    public function write(string $string)
     {
         return call_user_func($this->_fn_write, $string);
     }
@@ -141,7 +159,7 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_isReadable);
     }
 
-    public function read($length)
+    public function read(int $length)
     {
         return call_user_func($this->_fn_read, $length);
     }
@@ -151,7 +169,7 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_getContents);
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         return call_user_func($this->_fn_getMetadata, $key);
     }

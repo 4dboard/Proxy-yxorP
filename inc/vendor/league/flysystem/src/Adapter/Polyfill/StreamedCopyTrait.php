@@ -14,17 +14,17 @@ trait StreamedCopyTrait
      *
      * @return bool
      */
-    public function copy($path, $newpath)
+    public function copy($path, $newpath): bool
     {
         $response = $this->readStream($path);
 
-        if ($response === false || ! is_resource($response['stream'])) {
+        if ($response === false || !is_resource($response['stream'])) {
             return false;
         }
 
         $result = $this->writeStream($newpath, $response['stream'], new Config());
 
-        if ($result !== false && is_resource($response['stream'])) {
+        if ($result !== false) {
             fclose($response['stream']);
         }
 
@@ -41,9 +41,9 @@ trait StreamedCopyTrait
     abstract public function readStream($path);
 
     /**
-     * @param string   $path
+     * @param string $path
      * @param resource $resource
-     * @param Config   $config
+     * @param Config $config
      *
      * @return resource
      */

@@ -19,7 +19,7 @@ use function glob;
 class UnifiedSpecTest extends FunctionalTestCase
 {
     /** @var array */
-    private static $incompleteTests = [
+    private static array $incompleteTests = [
         'command-monitoring/pre-42-server-connection-id: command events do not include server connection id' => 'Not yet implemented (PHPC-1899, PHPLIB-718)',
         'command-monitoring/server-connection-id: command events include server connection id' => 'Not yet implemented (PHPC-1899, PHPLIB-718)',
         // Many load balancer tests use CMAP events and/or assertNumberConnectionsCheckedOut
@@ -63,7 +63,7 @@ class UnifiedSpecTest extends FunctionalTestCase
     ];
 
     /** @var UnifiedTestRunner */
-    private static $runner;
+    private static UnifiedTestRunner $runner;
 
     public static function setUpBeforeClass(): void
     {
@@ -88,12 +88,26 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testChangeStreams(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideChangeStreamsTests()
+    public function provideChangeStreamsTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/change-streams/*.json');
+    }
+
+    private function provideTests(string $pattern): Generator
+    {
+        foreach (glob($pattern) as $filename) {
+            $group = basename(dirname($filename));
+
+            foreach (UnifiedTestCase::fromFile($filename) as $name => $test) {
+                yield $group . '/' . $name => [$test];
+            }
+        }
     }
 
     /**
@@ -101,10 +115,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testCollectionManagement(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideCollectionManagementTests()
+    public function provideCollectionManagementTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/collection-management/*.json');
     }
@@ -114,10 +131,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testCommandMonitoring(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideCommandMonitoringTests()
+    public function provideCommandMonitoringTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/command-monitoring/*.json');
     }
@@ -128,10 +148,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testCrud(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideCrudTests()
+    public function provideCrudTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/crud/*.json');
     }
@@ -141,10 +164,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testGridFS(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideGridFSTests()
+    public function provideGridFSTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/gridfs/*.json');
     }
@@ -154,10 +180,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testLoadBalancers(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideLoadBalancers()
+    public function provideLoadBalancers(): Generator
     {
         return $this->provideTests(__DIR__ . '/load-balancers/*.json');
     }
@@ -167,10 +196,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testSessions(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideSessionsTests()
+    public function provideSessionsTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/sessions/*.json');
     }
@@ -181,10 +213,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testTransactions(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideTransactionsTests()
+    public function provideTransactionsTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/transactions/*.json');
     }
@@ -196,10 +231,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testVersionedApi(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function provideVersionedApiTests()
+    public function provideVersionedApiTests(): Generator
     {
         return $this->provideTests(__DIR__ . '/versioned-api/*.json');
     }
@@ -209,10 +247,13 @@ class UnifiedSpecTest extends FunctionalTestCase
      */
     public function testPassingTests(UnifiedTestCase $test): void
     {
-        self::$runner->run($test);
+        try {
+            self::$runner->run($test);
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function providePassingTests()
+    public function providePassingTests(): Generator
     {
         yield from $this->provideTests(__DIR__ . '/valid-pass/*.json');
     }
@@ -229,7 +270,10 @@ class UnifiedSpecTest extends FunctionalTestCase
         /* Failing tests should never produce PHP errors, so intentionally catch
          * Exception instead of Throwable. */
         try {
-            self::$runner->run($test);
+            try {
+                self::$runner->run($test);
+            } catch (\Throwable $e) {
+            }
         } catch (Exception $e) {
             /* As is done in PHPUnit\Framework\TestCase::runBare(), exceptions
              * other than a select few will indicate a test failure. We cannot
@@ -239,7 +283,7 @@ class UnifiedSpecTest extends FunctionalTestCase
              * IncompleteTest is intentionally omitted as it is thrown for an
              * incompatible schema. This differs from PHPUnit's internal logic.
              */
-            $failed = ! ($e instanceof SkippedTest || $e instanceof Warning);
+            $failed = !($e instanceof SkippedTest || $e instanceof Warning);
         }
 
         // phpcs:enable
@@ -247,19 +291,8 @@ class UnifiedSpecTest extends FunctionalTestCase
         $this->assertTrue($failed, 'Expected test to throw an exception');
     }
 
-    public function provideFailingTests()
+    public function provideFailingTests(): Generator
     {
         yield from $this->provideTests(__DIR__ . '/valid-fail/*.json');
-    }
-
-    private function provideTests(string $pattern): Generator
-    {
-        foreach (glob($pattern) as $filename) {
-            $group = basename(dirname($filename));
-
-            foreach (UnifiedTestCase::fromFile($filename) as $name => $test) {
-                yield $group . '/' . $name => [$test];
-            }
-        }
     }
 }

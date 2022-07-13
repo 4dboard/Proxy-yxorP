@@ -25,7 +25,7 @@ class InsertOneTest extends TestCase
         new InsertOne($this->getDatabaseName(), $this->getCollectionName(), ['x' => 1], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

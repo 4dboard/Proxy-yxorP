@@ -10,7 +10,7 @@
  * @license   MIT
  */
 
-define('YXORP_BOOTMANAGER', 1);
+const YXORP_BOOTMANAGER = 1;
 
 $this->on('yxorp.bootstrap', function () {
 
@@ -67,7 +67,7 @@ $this->on('yxorp.bootstrap', function () {
 
         if (!file_exists($dir)) continue;
 
-        foreach (new \DirectoryIterator($dir) as $module) {
+        foreach (new DirectoryIterator($dir) as $module) {
 
             if ($module->isFile() || $module->isDot()) continue;
             if ($module->getBasename() == 'yxorP') continue; // will always load first

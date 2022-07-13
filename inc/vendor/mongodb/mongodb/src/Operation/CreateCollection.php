@@ -45,13 +45,13 @@ class CreateCollection implements Executable
     public const NO_PADDING = 2;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array */
-    private $options = [];
+    private array $options = [];
 
     /**
      * Constructs a create command.
@@ -112,78 +112,78 @@ class CreateCollection implements Executable
      *
      * @see http://source.wiredtiger.com/2.4.1/struct_w_t___s_e_s_s_i_o_n.html#a358ca4141d59c345f401c58501276bbb
      * @see https://docs.mongodb.org/manual/core/document-validation/
-     * @param string $databaseName   Database name
+     * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array  $options        Command options
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, array $options = [])
     {
-        if (isset($options['autoIndexId']) && ! is_bool($options['autoIndexId'])) {
+        if (isset($options['autoIndexId']) && !is_bool($options['autoIndexId'])) {
             throw InvalidArgumentException::invalidType('"autoIndexId" option', $options['autoIndexId'], 'boolean');
         }
 
-        if (isset($options['capped']) && ! is_bool($options['capped'])) {
+        if (isset($options['capped']) && !is_bool($options['capped'])) {
             throw InvalidArgumentException::invalidType('"capped" option', $options['capped'], 'boolean');
         }
 
-        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
+        if (isset($options['collation']) && !is_array($options['collation']) && !is_object($options['collation'])) {
             throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
         }
 
-        if (isset($options['expireAfterSeconds']) && ! is_integer($options['expireAfterSeconds'])) {
+        if (isset($options['expireAfterSeconds']) && !is_integer($options['expireAfterSeconds'])) {
             throw InvalidArgumentException::invalidType('"expireAfterSeconds" option', $options['expireAfterSeconds'], 'integer');
         }
 
-        if (isset($options['flags']) && ! is_integer($options['flags'])) {
+        if (isset($options['flags']) && !is_integer($options['flags'])) {
             throw InvalidArgumentException::invalidType('"flags" option', $options['flags'], 'integer');
         }
 
-        if (isset($options['indexOptionDefaults']) && ! is_array($options['indexOptionDefaults']) && ! is_object($options['indexOptionDefaults'])) {
+        if (isset($options['indexOptionDefaults']) && !is_array($options['indexOptionDefaults']) && !is_object($options['indexOptionDefaults'])) {
             throw InvalidArgumentException::invalidType('"indexOptionDefaults" option', $options['indexOptionDefaults'], 'array or object');
         }
 
-        if (isset($options['max']) && ! is_integer($options['max'])) {
+        if (isset($options['max']) && !is_integer($options['max'])) {
             throw InvalidArgumentException::invalidType('"max" option', $options['max'], 'integer');
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['size']) && ! is_integer($options['size'])) {
+        if (isset($options['size']) && !is_integer($options['size'])) {
             throw InvalidArgumentException::invalidType('"size" option', $options['size'], 'integer');
         }
 
-        if (isset($options['storageEngine']) && ! is_array($options['storageEngine']) && ! is_object($options['storageEngine'])) {
+        if (isset($options['storageEngine']) && !is_array($options['storageEngine']) && !is_object($options['storageEngine'])) {
             throw InvalidArgumentException::invalidType('"storageEngine" option', $options['storageEngine'], 'array or object');
         }
 
-        if (isset($options['timeseries']) && ! is_array($options['timeseries']) && ! is_object($options['timeseries'])) {
+        if (isset($options['timeseries']) && !is_array($options['timeseries']) && !is_object($options['timeseries'])) {
             throw InvalidArgumentException::invalidType('"timeseries" option', $options['timeseries'], ['array', 'object']);
         }
 
-        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (isset($options['validationAction']) && ! is_string($options['validationAction'])) {
+        if (isset($options['validationAction']) && !is_string($options['validationAction'])) {
             throw InvalidArgumentException::invalidType('"validationAction" option', $options['validationAction'], 'string');
         }
 
-        if (isset($options['validationLevel']) && ! is_string($options['validationLevel'])) {
+        if (isset($options['validationLevel']) && !is_string($options['validationLevel'])) {
             throw InvalidArgumentException::invalidType('"validationLevel" option', $options['validationLevel'], 'string');
         }
 
-        if (isset($options['validator']) && ! is_array($options['validator']) && ! is_object($options['validator'])) {
+        if (isset($options['validator']) && !is_array($options['validator']) && !is_object($options['validator'])) {
             throw InvalidArgumentException::invalidType('"validator" option', $options['validator'], 'array or object');
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
@@ -195,20 +195,20 @@ class CreateCollection implements Executable
             trigger_error('The "autoIndexId" option is deprecated and will be removed in a future release', E_USER_DEPRECATED);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->options = $options;
     }
 
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return array|object Command result document
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array
     {
         $cursor = $server->executeWriteCommand($this->databaseName, $this->createCommand(), $this->createOptions());
 
@@ -224,7 +224,7 @@ class CreateCollection implements Executable
      *
      * @return Command
      */
-    private function createCommand()
+    private function createCommand(): Command
     {
         $cmd = ['create' => $this->collectionName];
 
@@ -236,7 +236,7 @@ class CreateCollection implements Executable
 
         foreach (['collation', 'indexOptionDefaults', 'storageEngine', 'timeseries', 'validator'] as $option) {
             if (isset($this->options[$option])) {
-                $cmd[$option] = (object) $this->options[$option];
+                $cmd[$option] = (object)$this->options[$option];
             }
         }
 
@@ -249,7 +249,7 @@ class CreateCollection implements Executable
      * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

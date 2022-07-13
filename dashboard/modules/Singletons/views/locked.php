@@ -1,7 +1,20 @@
-
 @if($singleton['color'])
 <style>
-    .app-header { border-top: 8px {{ $singleton['color'] }} solid; }
+    .app-header {
+
+    border-top:
+
+    8
+    px {
+
+    {
+        $ singleton ['color']
+    }
+    }
+    solid
+
+    ;
+    }
 </style>
 @endif
 
@@ -10,7 +23,8 @@
         <li><a href="@route('/singletons')">@lang('Singletons')</a></li>
         <li class="uk-active" data-uk-dropdown>
 
-            <a><i class="uk-icon-bars"></i> {{ htmlspecialchars(@$singleton['label'] ? $singleton['label']:$singleton['name'], ENT_QUOTES, 'UTF-8') }}</a>
+            <a><i class="uk-icon-bars"></i> {{ htmlspecialchars(@$singleton['label'] ?
+                $singleton['label']:$singleton['name'], ENT_QUOTES, 'UTF-8') }}</a>
 
             @if($app->module('singletons')->hasaccess($singleton['name'], 'edit'))
             <div class="uk-dropdown">
@@ -25,7 +39,8 @@
     </ul>
 </div>
 
-<div class="uk-width-medium-1-2 uk-viewport-height-1-2 uk-container-center uk-flex uk-flex-center uk-flex-middle" riot-view>
+<div class="uk-width-medium-1-2 uk-viewport-height-1-2 uk-container-center uk-flex uk-flex-center uk-flex-middle"
+     riot-view>
 
     <div class="uk-animation-fade uk-width-1-1">
 
@@ -36,11 +51,11 @@
             <strong class="uk-text-uppercase uk-text-small">@lang('Current editor')</strong>
             <div class="uk-margin-top uk-flex">
                 <div>
-                    <cp-gravatar size="30" alt="<?=($meta['user']['name'] ? $meta['user']['name'] : $meta['user']['user'])?>"></cp-gravatar>
+                    <cp-gravatar size="30" alt="<?= ($meta['user']['name'] ?: $meta['user']['user']) ?>"></cp-gravatar>
                 </div>
                 <div class="uk-margin-left">
-                    <span><?=($meta['user']['name'] ? $meta['user']['name'] : $meta['user']['user'])?></span><br />
-                    <span class="uk-text-muted"><?=($meta['user']['email'])?></span>
+                    <span><?= ($meta['user']['name'] ?: $meta['user']['user']) ?></span><br/>
+                    <span class="uk-text-muted"><?= ($meta['user']['email']) ?></span>
                 </div>
             </div>
 

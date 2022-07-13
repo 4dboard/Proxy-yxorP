@@ -2,6 +2,8 @@
 
 namespace Firebase\JWT;
 
-class ExpiredException extends \UnexpectedValueException
+use UnexpectedValueException;
+
+class ExpiredException extends UnexpectedValueException
 {
 }

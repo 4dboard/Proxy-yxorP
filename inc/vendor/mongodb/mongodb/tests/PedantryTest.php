@@ -33,7 +33,7 @@ class PedantryTest extends TestCase
         $methods = array_filter(
             $methods,
             function (ReflectionMethod $method) use ($class) {
-                return $method->getDeclaringClass() == $class;
+                return $method->getDeclaringClass() === $class;
             }
         );
 
@@ -69,7 +69,7 @@ class PedantryTest extends TestCase
         $this->assertEquals($sortedMethods, $methods);
     }
 
-    public function provideProjectClassNames()
+    public function provideProjectClassNames(): array
     {
         $classNames = [];
         $srcDir = realpath(__DIR__ . '/../src/');

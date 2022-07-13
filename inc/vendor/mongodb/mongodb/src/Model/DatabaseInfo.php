@@ -35,7 +35,7 @@ use function array_key_exists;
 class DatabaseInfo implements ArrayAccess
 {
     /** @var array */
-    private $info;
+    private array $info;
 
     /**
      * @param array $info Database info
@@ -61,9 +61,9 @@ class DatabaseInfo implements ArrayAccess
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return (string) $this->info['name'];
+        return (string)$this->info['name'];
     }
 
     /**
@@ -71,10 +71,10 @@ class DatabaseInfo implements ArrayAccess
      *
      * @return integer
      */
-    public function getSizeOnDisk()
+    public function getSizeOnDisk(): int
     {
         /* The MongoDB server might return this number as an integer or float */
-        return (integer) $this->info['sizeOnDisk'];
+        return (integer)$this->info['sizeOnDisk'];
     }
 
     /**
@@ -82,9 +82,9 @@ class DatabaseInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function isEmpty()
+    public function isEmpty(): bool
     {
-        return (boolean) $this->info['empty'];
+        return (boolean)$this->info['empty'];
     }
 
     /**
@@ -95,7 +95,7 @@ class DatabaseInfo implements ArrayAccess
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function offsetExists($key)
+    public function offsetExists(mixed $key): bool
     {
         return array_key_exists($key, $this->info);
     }
@@ -108,7 +108,7 @@ class DatabaseInfo implements ArrayAccess
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function offsetGet($key)
+    public function offsetGet(mixed $key): mixed
     {
         return $this->info[$key];
     }
@@ -123,7 +123,7 @@ class DatabaseInfo implements ArrayAccess
      * @return void
      */
     #[ReturnTypeWillChange]
-    public function offsetSet($key, $value)
+    public function offsetSet(mixed $key, mixed $value)
     {
         throw BadMethodCallException::classIsImmutable(self::class);
     }
@@ -137,7 +137,7 @@ class DatabaseInfo implements ArrayAccess
      * @return void
      */
     #[ReturnTypeWillChange]
-    public function offsetUnset($key)
+    public function offsetUnset(mixed $key)
     {
         throw BadMethodCallException::classIsImmutable(self::class);
     }

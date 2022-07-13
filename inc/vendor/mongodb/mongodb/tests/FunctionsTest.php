@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\Driver\WriteConcern;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Model\BSONArray;
@@ -27,13 +28,13 @@ class FunctionsTest extends TestCase
         $this->assertEquals($expectedDocument, apply_type_map_to_document($document, $typeMap));
     }
 
-    public function provideDocumentAndTypeMap()
+    public function provideDocumentAndTypeMap(): array
     {
         return [
             [
                 [
                     'x' => 1,
-                    'y' => (object) ['foo' => 'bar'],
+                    'y' => (object)['foo' => 'bar'],
                     'z' => [1, 2, 3],
                 ],
                 [
@@ -41,16 +42,16 @@ class FunctionsTest extends TestCase
                     'document' => 'stdClass',
                     'array' => 'array',
                 ],
-                (object) [
+                (object)[
                     'x' => 1,
-                    'y' => (object) ['foo' => 'bar'],
+                    'y' => (object)['foo' => 'bar'],
                     'z' => [1, 2, 3],
                 ],
             ],
             [
                 [
                     'x' => 1,
-                    'y' => (object) ['foo' => 'bar'],
+                    'y' => (object)['foo' => 'bar'],
                     'z' => [1, 2, 3],
                 ],
                 [
@@ -81,10 +82,10 @@ class FunctionsTest extends TestCase
                 ],
                 [
                     'x' => 1,
-                    'random' => (object) ['foo' => 'bar'],
+                    'random' => (object)['foo' => 'bar'],
                     'value' => [
                         'bar' => 'baz',
-                        'embedded' => (object) ['foo' => 'bar'],
+                        'embedded' => (object)['foo' => 'bar'],
                     ],
                 ],
             ],
@@ -99,14 +100,14 @@ class FunctionsTest extends TestCase
         $this->assertSame($expectedName, generate_index_name($document));
     }
 
-    public function provideIndexSpecificationDocumentsAndGeneratedNames()
+    public function provideIndexSpecificationDocumentsAndGeneratedNames(): array
     {
         return [
-            [ ['x' => 1], 'x_1' ],
-            [ ['x' => -1, 'y' => 1], 'x_-1_y_1' ],
-            [ ['x' => '2dsphere', 'y' => 1 ], 'x_2dsphere_y_1' ],
-            [ (object) ['x' => 1], 'x_1' ],
-            [ new BSONDocument(['x' => 1]), 'x_1' ],
+            [['x' => 1], 'x_1'],
+            [['x' => -1, 'y' => 1], 'x_-1_y_1'],
+            [['x' => '2dsphere', 'y' => 1], 'x_2dsphere_y_1'],
+            [(object)['x' => 1], 'x_1'],
+            [new BSONDocument(['x' => 1]), 'x_1'],
         ];
     }
 
@@ -127,15 +128,15 @@ class FunctionsTest extends TestCase
         $this->assertSame($isFirstKeyOperator, is_first_key_operator($document));
     }
 
-    public function provideIsFirstKeyOperatorDocuments()
+    public function provideIsFirstKeyOperatorDocuments(): array
     {
         return [
-            [ ['y' => 1], false ],
-            [ (object) ['y' => 1], false ],
-            [ new BSONDocument(['y' => 1]), false ],
-            [ ['$set' => ['y' => 1]], true ],
-            [ (object) ['$set' => ['y' => 1]], true ],
-            [ new BSONDocument(['$set' => ['y' => 1]]), true ],
+            [['y' => 1], false],
+            [(object)['y' => 1], false],
+            [new BSONDocument(['y' => 1]), false],
+            [['$set' => ['y' => 1]], true],
+            [(object)['$set' => ['y' => 1]], true],
+            [new BSONDocument(['$set' => ['y' => 1]]), true],
         ];
     }
 
@@ -156,13 +157,13 @@ class FunctionsTest extends TestCase
         $this->assertSame($isInline, is_mapreduce_output_inline($out));
     }
 
-    public function provideMapReduceOutValues()
+    public function provideMapReduceOutValues(): array
     {
         return [
-            [ 'collectionName', false ],
-            [ ['inline' => 1], true ],
-            [ ['inline' => 0], true ], // only the key is significant
-            [ ['replace' => 'collectionName'], false ],
+            ['collectionName', false],
+            [['inline' => 1], true],
+            [['inline' => 0], true], // only the key is significant
+            [['replace' => 'collectionName'], false],
         ];
     }
 
@@ -174,7 +175,7 @@ class FunctionsTest extends TestCase
         $this->assertEquals($expected, create_field_path_type_map($typeMap, $fieldPath));
     }
 
-    public function provideTypeMapValues()
+    #[ArrayShape(['No root type' => "\string[][]", 'No field path' => "array", 'Field path exists' => "array[]", 'Nested field path' => "array[]", 'Array field path converted to array' => "array", 'Array field path without root key' => "array"])] public function provideTypeMapValues(): array
     {
         return [
             'No root type' => [
@@ -236,10 +237,10 @@ class FunctionsTest extends TestCase
         $this->assertSame($expected, is_pipeline($pipeline));
     }
 
-    public function providePipelines()
+    #[ArrayShape(['Not an array' => "array", 'Empty array' => "array", 'Non-sequential indexes in array' => "array", 'Update document instead of pipeline' => "array", 'Invalid pipeline stage' => "array", 'Update with DbRef' => "array", 'Valid pipeline' => "array", 'False positive with DbRef in numeric field' => "array", 'DbRef in numeric field as object' => "array"])] public function providePipelines(): array
     {
         return [
-            'Not an array' => [false, (object) []],
+            'Not an array' => [false, (object)[]],
             'Empty array' => [false, []],
             'Non-sequential indexes in array' => [false, [1 => ['$group' => []]]],
             'Update document instead of pipeline' => [false, ['$set' => ['foo' => 'bar']]],
@@ -253,7 +254,7 @@ class FunctionsTest extends TestCase
                 ],
             ],
             'False positive with DbRef in numeric field' => [true, ['0' => ['$ref' => 'foo', '$id' => 'bar']]],
-            'DbRef in numeric field as object' => [false, (object) ['0' => ['$ref' => 'foo', '$id' => 'bar']]],
+            'DbRef in numeric field as object' => [false, (object)['0' => ['$ref' => 'foo', '$id' => 'bar']]],
         ];
     }
 

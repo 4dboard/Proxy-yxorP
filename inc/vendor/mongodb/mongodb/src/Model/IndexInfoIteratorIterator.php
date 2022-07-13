@@ -38,12 +38,12 @@ use function array_key_exists;
 class IndexInfoIteratorIterator extends IteratorIterator implements IndexInfoIterator
 {
     /** @var string|null $ns */
-    private $ns;
+    private ?string $ns;
 
     /**
      * @param string|null $ns
      */
-    public function __construct(Traversable $iterator, $ns = null)
+    public function __construct(Traversable $iterator, string $ns = null)
     {
         parent::__construct($iterator);
 
@@ -53,16 +53,16 @@ class IndexInfoIteratorIterator extends IteratorIterator implements IndexInfoIte
     /**
      * Return the current element as an IndexInfo instance.
      *
-     * @see IndexInfoIterator::current()
-     * @see http://php.net/iterator.current
      * @return IndexInfo
+     * @see http://php.net/iterator.current
+     * @see IndexInfoIterator::current()
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): IndexInfo
     {
         $info = parent::current();
 
-        if (! array_key_exists('ns', $info) && $this->ns !== null) {
+        if (!array_key_exists('ns', $info) && $this->ns !== null) {
             $info['ns'] = $this->ns;
         }
 

@@ -23,7 +23,7 @@ class AggregateTest extends TestCase
         new Aggregate($this->getDatabaseName(), $this->getCollectionName(), [['$match' => ['x' => 1]]], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -94,6 +94,11 @@ class AggregateTest extends TestCase
         return $options;
     }
 
+    private function getInvalidHintValues(): array
+    {
+        return [123, 3.14, true];
+    }
+
     public function testConstructorBatchSizeOptionRequiresUseCursor(): void
     {
         $this->expectException(InvalidArgumentException::class);
@@ -104,10 +109,5 @@ class AggregateTest extends TestCase
             [['$match' => ['x' => 1]]],
             ['batchSize' => 100, 'useCursor' => false]
         );
-    }
-
-    private function getInvalidHintValues()
-    {
-        return [123, 3.14, true];
     }
 }

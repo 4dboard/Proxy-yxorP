@@ -9,5 +9,5 @@ interface ClockInterface
     /**
      * @return DateTimeImmutable
      */
-    public function now();
+    public function now(): DateTimeImmutable;
 }

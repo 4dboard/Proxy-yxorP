@@ -39,19 +39,19 @@ use function is_integer;
 class ListIndexes implements Executable
 {
     /** @var integer */
-    private static $errorCodeDatabaseNotFound = 60;
+    private static int $errorCodeDatabaseNotFound = 60;
 
     /** @var integer */
-    private static $errorCodeNamespaceNotFound = 26;
+    private static int $errorCodeNamespaceNotFound = 26;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a listIndexes command.
@@ -63,57 +63,37 @@ class ListIndexes implements Executable
      *
      *  * session (MongoDB\Driver\Session): Client session.
      *
-     * @param string $databaseName   Database name
+     * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array  $options        Command options
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, array $options = [])
     {
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->options = $options;
     }
 
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return IndexInfoIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): IndexInfoIterator|IndexInfoIteratorIterator
     {
         return $this->executeCommand($server);
-    }
-
-    /**
-     * Create options for executing the command.
-     *
-     * Note: read preference is intentionally omitted, as the spec requires that
-     * the command be executed on the primary.
-     *
-     * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
-     * @return array
-     */
-    private function createOptions()
-    {
-        $options = [];
-
-        if (isset($this->options['session'])) {
-            $options['session'] = $this->options['session'];
-        }
-
-        return $options;
     }
 
     /**
@@ -124,7 +104,7 @@ class ListIndexes implements Executable
      * @return IndexInfoIteratorIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
      */
-    private function executeCommand(Server $server)
+    private function executeCommand(Server $server): IndexInfoIteratorIterator
     {
         $cmd = ['listIndexes' => $this->collectionName];
 
@@ -149,5 +129,25 @@ class ListIndexes implements Executable
         $cursor->setTypeMap(['root' => 'array', 'document' => 'array']);
 
         return new IndexInfoIteratorIterator(new CachingIterator($cursor), $this->databaseName . '.' . $this->collectionName);
+    }
+
+    /**
+     * Create options for executing the command.
+     *
+     * Note: read preference is intentionally omitted, as the spec requires that
+     * the command be executed on the primary.
+     *
+     * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
+     * @return array
+     */
+    private function createOptions(): array
+    {
+        $options = [];
+
+        if (isset($this->options['session'])) {
+            $options['session'] = $this->options['session'];
+        }
+
+        return $options;
     }
 }

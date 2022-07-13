@@ -19,16 +19,19 @@ class ListDatabasesFunctionalTest extends FunctionalTestCase
         $this->assertEquals(1, $writeResult->getInsertedCount());
 
         $databases = null;
-        (new CommandObserver())->observe(
-            function () use (&$databases, $server): void {
-                $operation = new ListDatabases();
+        try {
+            (new CommandObserver())->observe(
+                function () use (&$databases, $server): void {
+                    $operation = new ListDatabases();
 
-                $databases = $operation->execute($server);
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('authorizedDatabases', $event['started']->getCommand());
-            }
-        );
+                    $databases = $operation->execute($server);
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('authorizedDatabases', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
 
         $this->assertInstanceOf(DatabaseInfoIterator::class, $databases);
 
@@ -39,19 +42,22 @@ class ListDatabasesFunctionalTest extends FunctionalTestCase
 
     public function testAuthorizedDatabasesOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new ListDatabases(
-                    ['authorizedDatabases' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new ListDatabases(
+                        ['authorizedDatabases' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('authorizedDatabases', $event['started']->getCommand());
-                $this->assertSame(true, $event['started']->getCommand()->authorizedDatabases);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('authorizedDatabases', $event['started']->getCommand());
+                    $this->assertSame(true, $event['started']->getCommand()->authorizedDatabases);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testFilterOption(): void
@@ -77,17 +83,20 @@ class ListDatabasesFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new ListDatabases(
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new ListDatabases(
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 }

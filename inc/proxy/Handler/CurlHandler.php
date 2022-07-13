@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Handler;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 
 /**
@@ -14,7 +15,7 @@ use yxorP\inc\psr\Http\Message\RequestInterface;
 class CurlHandler
 {
     /** @var CurlFactoryInterface */
-    private $factory;
+    private mixed $factory;
 
     /**
      * Accepts an associative array of options:
@@ -23,14 +24,12 @@ class CurlHandler
      *
      * @param array $options Array of options to use with the handler
      */
-    public function __construct(array $options = [])
+    #[Pure] public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory'])
-            ? $options['handle_factory']
-            : new CurlFactory(3);
+        $this->factory = $options['handle_factory'] ?? new CurlFactory(3);
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(RequestInterface $request, array $options): \yxorP\inc\proxy\Promise\FulfilledPromise|\yxorP\inc\proxy\Promise\PromiseInterface|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         if (isset($options['delay'])) {
             usleep($options['delay'] * 1000);

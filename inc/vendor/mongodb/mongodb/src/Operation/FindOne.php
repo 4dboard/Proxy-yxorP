@@ -34,7 +34,7 @@ use function current;
 class FindOne implements Executable, Explainable
 {
     /** @var Find */
-    private $find;
+    private Find $find;
 
     /**
      * Constructs a find command for finding a single document.
@@ -90,13 +90,13 @@ class FindOne implements Executable, Explainable
      *
      *  * typeMap (array): Type map for BSON deserialization.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to filter documents
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param object|array $filter Query by which to filter documents
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, array $options = [])
     {
         $this->find = new Find(
             $databaseName,
@@ -109,13 +109,13 @@ class FindOne implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return array|object|null
      * @throws UnsupportedException if collation or read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array|null
     {
         $cursor = $this->find->execute($server);
         $document = current($cursor->toArray());
@@ -126,11 +126,11 @@ class FindOne implements Executable, Explainable
     /**
      * Returns the command document for this operation.
      *
-     * @see Explainable::getCommandDocument()
      * @param Server $server
      * @return array
+     * @see Explainable::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->find->getCommandDocument($server);
     }

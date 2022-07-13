@@ -25,20 +25,20 @@
 // Variables
 // ========================================================================
 
-@thumbnail-padding:                             4px;
-@thumbnail-border:                              #ddd;
-@thumbnail-border-width:                        1px;
-@thumbnail-background:                          #fff;
-@thumbnail-hover-border:                        #aaa;
-@thumbnail-hover-background:                    #fff;
+@thumbnail-padding: 4px;
+@thumbnail-border: #ddd;
+@thumbnail-border-width: 1px;
+@thumbnail-background: #fff;
+@thumbnail-hover-border: #aaa;
+@thumbnail-hover-background: #fff;
 
-@thumbnail-caption-padding:                     @thumbnail-padding;
-@thumbnail-caption-color:                       #444;
+@thumbnail-caption-padding: @thumbnail-padding;
+@thumbnail-caption-color: #444;
 
-@thumbnail-mini-width:                          150px;
-@thumbnail-small-width:                         200px;
-@thumbnail-medium-width:                        300px;
-@thumbnail-large-width:                         400px;
+@thumbnail-mini-width: 150px;
+@thumbnail-small-width: 200px;
+@thumbnail-medium-width: 300px;
+@thumbnail-large-width: 400px;
 
 
 /* ========================================================================
@@ -54,19 +54,19 @@
  */
 
 .uk-thumbnail {
-    /* 1 */
-    display: inline-block;
-    /* 2 */
-    max-width: 100%;
-    /* 3 */
-    box-sizing: border-box;
-    /* 3 */
-    margin: 0;
-    /* 4 */
-    padding: @thumbnail-padding;
-    border: @thumbnail-border-width solid @thumbnail-border;
-    background: @thumbnail-background;
-    .hook-thumbnail;
+  /* 1 */
+  display: inline-block;
+  /* 2 */
+  max-width: 100%;
+  /* 3 */
+  box-sizing: border-box;
+  /* 3 */
+  margin: 0;
+  /* 4 */
+  padding: @thumbnail-padding;
+  border: @thumbnail-border-width solid @thumbnail-border;
+  background: @thumbnail-background;
+  .hook-thumbnail;
 }
 
 /*
@@ -78,13 +78,13 @@
 
 a.uk-thumbnail:hover,
 a.uk-thumbnail:focus { // 1
-    border-color: @thumbnail-hover-border;
-    background-color: @thumbnail-hover-background;
-    /* 2 */
-    text-decoration: none;
-    /* 3 */
-    outline: none;
-    .hook-thumbnail-hover;
+  border-color: @thumbnail-hover-border;
+  background-color: @thumbnail-hover-background;
+  /* 2 */
+  text-decoration: none;
+  /* 3 */
+  outline: none;
+  .hook-thumbnail-hover;
 }
 
 
@@ -92,23 +92,36 @@ a.uk-thumbnail:focus { // 1
  ========================================================================== */
 
 .uk-thumbnail-caption {
-    padding-top: @thumbnail-caption-padding;
-    text-align: center;
-    color: @thumbnail-caption-color;
-    .hook-thumbnail-caption;
+  padding-top: @thumbnail-caption-padding;
+  text-align: center;
+  color: @thumbnail-caption-color;
+  .hook-thumbnail-caption;
 }
 
 
 /* Sizes
  ========================================================================== */
 
-.uk-thumbnail-mini { width: @thumbnail-mini-width; }
-.uk-thumbnail-small { width: @thumbnail-small-width; }
-.uk-thumbnail-medium { width: @thumbnail-medium-width; }
-.uk-thumbnail-large { width: @thumbnail-large-width; }
+.uk-thumbnail-mini {
+  width: @thumbnail-mini-width;
+}
+
+.uk-thumbnail-small {
+  width: @thumbnail-small-width;
+}
+
+.uk-thumbnail-medium {
+  width: @thumbnail-medium-width;
+}
+
+.uk-thumbnail-large {
+  width: @thumbnail-large-width;
+}
 
 .uk-thumbnail-expand,
-.uk-thumbnail-expand > img { width: 100%; }
+.uk-thumbnail-expand > img {
+  width: 100%;
+}
 
 
 // Hooks
@@ -116,7 +129,14 @@ a.uk-thumbnail:focus { // 1
 
 .hook-thumbnail-misc;
 
-.hook-thumbnail() {}
-.hook-thumbnail-hover() {}
-.hook-thumbnail-caption() {}
-.hook-thumbnail-misc() {}
+.hook-thumbnail() {
+}
+
+.hook-thumbnail-hover() {
+}
+
+.hook-thumbnail-caption() {
+}
+
+.hook-thumbnail-misc() {
+}

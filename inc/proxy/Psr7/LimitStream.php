@@ -14,10 +14,10 @@ class LimitStream implements StreamInterface
     use AAAStreamDecoratorTrait;
 
     /** @var int Offset to start reading from */
-    private $offset;
+    private int $offset;
 
     /** @var int Limit the number of bytes that can be read */
-    private $limit;
+    private int $limit;
 
     /**
      * @param StreamInterface $stream Stream to wrap
@@ -28,8 +28,8 @@ class LimitStream implements StreamInterface
      */
     public function __construct(
         StreamInterface $stream,
-                        $limit = -1,
-                        $offset = 0
+        int             $limit = -1,
+        int             $offset = 0
     )
     {
         $this->stream = $stream;
@@ -44,7 +44,7 @@ class LimitStream implements StreamInterface
      * @param int $limit Number of bytes to allow to be read from the stream.
      *                   Use -1 for no limit.
      */
-    public function setLimit($limit)
+    public function setLimit(int $limit)
     {
         $this->limit = $limit;
     }
@@ -56,7 +56,7 @@ class LimitStream implements StreamInterface
      *
      * @throws RuntimeException if the stream cannot be seeked.
      */
-    public function setOffset($offset)
+    public function setOffset(int $offset)
     {
         $current = $this->stream->tell();
 
@@ -78,7 +78,7 @@ class LimitStream implements StreamInterface
      * Give a relative tell()
      * {@inheritdoc}
      */
-    public function tell()
+    public function tell(): int
     {
         return $this->stream->tell() - $this->offset;
     }
@@ -87,7 +87,7 @@ class LimitStream implements StreamInterface
      * Allow for a bounded seek on the read limited stream
      * {@inheritdoc}
      */
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         if ($whence !== SEEK_SET || $offset < 0) {
             throw new RuntimeException(sprintf(
@@ -108,7 +108,7 @@ class LimitStream implements StreamInterface
         $this->stream->seek($offset);
     }
 
-    public function read($length)
+    public function read(int $length): string
     {
         if ($this->limit == -1) {
             return $this->stream->read($length);
@@ -126,7 +126,7 @@ class LimitStream implements StreamInterface
         return '';
     }
 
-    public function eof()
+    public function eof(): bool
     {
         // Always return true if the underlying stream is EOF
         if ($this->stream->eof()) {

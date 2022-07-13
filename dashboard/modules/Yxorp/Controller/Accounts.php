@@ -10,7 +10,12 @@
 
 namespace yxorP\Controller;
 
-class Accounts extends \yxorP\AuthController
+use Exception;
+use yxorP\AuthController;
+use function preg_match;
+use function session_write_close;
+
+class Accounts extends AuthController
 {
 
     public function index()
@@ -48,7 +53,7 @@ class Accounts extends \yxorP\AuthController
 
         unset($account["password"]);
 
-        $fields = $this->app->retrieve('config/account/fields', null);
+        $fields = $this->app->retrieve('config/account/fields');
         $languages = $this->getLanguages();
         $groups = $this->module('yxorp')->getGroups();
 
@@ -61,6 +66,23 @@ class Accounts extends \yxorP\AuthController
         $this->app->trigger('yxorp.account.fields', [&$fields, &$account]);
 
         return $this->render('yxorp:views/accounts/account.php', compact('account', 'uid', 'languages', 'groups', 'fields'));
+    }
+
+    protected function getLanguages(): array
+    {
+
+        $languages = [['i18n' => 'en', 'language' => 'English']];
+
+        foreach ($this->app->helper('fs')->ls('*.php', '#config:yxorp/i18n') as $file) {
+
+            $lang = include($file->getRealPath());
+            $i18n = $file->getBasename('.php');
+            $language = $lang['@meta']['language'] ?? $i18n;
+
+            $languages[] = ['i18n' => $i18n, 'language' => $language];
+        }
+
+        return $languages;
     }
 
     public function create()
@@ -79,7 +101,7 @@ class Accounts extends \yxorP\AuthController
             'i18n' => $this->app->helper('i18n')->locale
         ];
 
-        $fields = $this->app->retrieve('config/account/fields', null);
+        $fields = $this->app->retrieve('config/account/fields');
         $languages = $this->getLanguages();
         $groups = $this->module('yxorp')->getGroups();
 
@@ -195,7 +217,7 @@ class Accounts extends \yxorP\AuthController
 
     }
 
-    public function remove()
+    public function remove(): bool|string
     {
 
         if (!$this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
@@ -216,10 +238,10 @@ class Accounts extends \yxorP\AuthController
         return false;
     }
 
-    public function find()
+    public function find(): array
     {
 
-        \session_write_close();
+        session_write_close();
 
         $options = array_merge([
             'sort' => ['user' => 1]
@@ -229,11 +251,11 @@ class Accounts extends \yxorP\AuthController
 
             $filter = null;
 
-            if (\preg_match('/^\{(.*)\}$/', $options['filter'])) {
+            if (preg_match('/^{(.*)}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                 }
             }
 
@@ -251,7 +273,7 @@ class Accounts extends \yxorP\AuthController
         }
 
         $accounts = $this->app->storage->find('yxorp/accounts', $options)->toArray();
-        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($accounts) : $this->app->storage->count('yxorp/accounts', isset($options['filter']) ? $options['filter'] : []);
+        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($accounts) : $this->app->storage->count('yxorp/accounts', $options['filter'] ?? []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
         $page = 1;
 
@@ -265,23 +287,6 @@ class Accounts extends \yxorP\AuthController
         }
 
         return compact('accounts', 'count', 'pages', 'page');
-    }
-
-    protected function getLanguages()
-    {
-
-        $languages = [['i18n' => 'en', 'language' => 'English']];
-
-        foreach ($this->app->helper('fs')->ls('*.php', '#config:yxorp/i18n') as $file) {
-
-            $lang = include($file->getRealPath());
-            $i18n = $file->getBasename('.php');
-            $language = $lang['@meta']['language'] ?? $i18n;
-
-            $languages[] = ['i18n' => $i18n, 'language' => $language];
-        }
-
-        return $languages;
     }
 
 }

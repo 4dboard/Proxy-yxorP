@@ -4,6 +4,8 @@ namespace yxorP\inc\snag\Breadcrumbs;
 
 use Countable;
 use Iterator;
+use JetBrains\PhpStorm\Pure;
+use ReturnTypeWillChange;
 
 /**
  * @implements Iterator<int, Breadcrumb>
@@ -20,30 +22,30 @@ class Recorder implements Countable, Iterator
     /**
      * The recorded breadcrumbs.
      *
-     * @var \yxorP\inc\snag\Breadcrumbs\Breadcrumb[]
+     * @var Breadcrumb[]
      */
-    protected $breadcrumbs = [];
+    protected array $breadcrumbs = [];
 
     /**
      * The head position.
      *
      * @var int
      */
-    protected $head = 0;
+    protected int $head = 0;
 
     /**
      * The pointer position.
      *
      * @var int
      */
-    protected $pointer = 0;
+    protected int $pointer = 0;
 
     /**
      * The iteration position.
      *
      * @var int
      */
-    protected $position = 0;
+    protected int $position = 0;
 
     /**
      * Record a breadcrumb.
@@ -52,7 +54,7 @@ class Recorder implements Countable, Iterator
      * start wrapping back around and replacing the earlier ones. In order to
      * indicate the start of the list, we advance a head pointer.
      *
-     * @param \yxorP\inc\snag\Breadcrumbs\Breadcrumb $breadcrumb
+     * @param Breadcrumb $breadcrumb
      *
      * @return void
      */
@@ -86,10 +88,10 @@ class Recorder implements Countable, Iterator
     /**
      * Get the current item.
      *
-     * @return \yxorP\inc\snag\Breadcrumbs\Breadcrumb
+     * @return Breadcrumb
      */
-    #[\ReturnTypeWillChange]
-    public function current()
+    #[ReturnTypeWillChange]
+    public function current(): Breadcrumb
     {
         return $this->breadcrumbs[($this->head + $this->position) % static::MAX_ITEMS];
     }
@@ -99,8 +101,8 @@ class Recorder implements Countable, Iterator
      *
      * @return int
      */
-    #[\ReturnTypeWillChange]
-    public function key()
+    #[ReturnTypeWillChange]
+    public function key(): int
     {
         return $this->position;
     }
@@ -110,7 +112,7 @@ class Recorder implements Countable, Iterator
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function next()
     {
         $this->position++;
@@ -121,7 +123,7 @@ class Recorder implements Countable, Iterator
      *
      * @return void
      */
-    #[\ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function rewind()
     {
         $this->position = 0;
@@ -132,8 +134,8 @@ class Recorder implements Countable, Iterator
      *
      * @return bool
      */
-    #[\ReturnTypeWillChange]
-    public function valid()
+    #[Pure] #[ReturnTypeWillChange]
+    public function valid(): bool
     {
         return $this->position < $this->count();
     }
@@ -143,8 +145,8 @@ class Recorder implements Countable, Iterator
      *
      * @return int
      */
-    #[\ReturnTypeWillChange]
-    public function count()
+    #[ReturnTypeWillChange]
+    public function count(): int
     {
         return count($this->breadcrumbs);
     }

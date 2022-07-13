@@ -14,16 +14,16 @@ class CachingStream implements StreamInterface
     use AAAStreamDecoratorTrait;
 
     /** @var StreamInterface Stream being wrapped */
-    private $remoteStream;
+    private StreamInterface $remoteStream;
 
     /** @var int Number of bytes to skip reading due to a write on the buffer */
-    private $skipReadBytes = 0;
+    private int $skipReadBytes = 0;
 
     /**
      * We will treat the buffer object as the body of the stream
      *
      * @param StreamInterface $stream Stream to cache
-     * @param StreamInterface $target Optionally specify where data is cached
+     * @param StreamInterface|null $target Optionally specify where data is cached
      */
     public function __construct(
         StreamInterface $stream,
@@ -39,7 +39,7 @@ class CachingStream implements StreamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         if ($whence == SEEK_SET) {
             $byte = $offset;
@@ -75,7 +75,7 @@ class CachingStream implements StreamInterface
         return max($this->stream->getSize(), $this->remoteStream->getSize());
     }
 
-    private function cacheEntireStream()
+    private function cacheEntireStream(): int
     {
         $target = new FnStream(['write' => 'strlen']);
         copy_to_stream($this, $target);
@@ -83,12 +83,12 @@ class CachingStream implements StreamInterface
         return $this->tell();
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return $this->stream->eof() && $this->remoteStream->eof();
     }
 
-    public function read($length)
+    public function read(int $length): string
     {
         // Perform a regular read on any previously read data from the buffer
         $data = $this->stream->read($length);
@@ -117,7 +117,7 @@ class CachingStream implements StreamInterface
         return $data;
     }
 
-    public function write($string)
+    public function write(string $string): int
     {
         // When appending to the end of the currently read stream, you'll want
         // to skip bytes from being read from the remote stream to emulate

@@ -34,7 +34,7 @@ use MongoDB\Model\CallbackIterator;
 class ListCollectionNames implements Executable
 {
     /** @var ListCollectionsCommand */
-    private $listCollections;
+    private ListCollectionsCommand $listCollections;
 
     /**
      * Constructs a listCollections command.
@@ -54,10 +54,10 @@ class ListCollectionNames implements Executable
      *  * session (MongoDB\Driver\Session): Client session.
      *
      * @param string $databaseName Database name
-     * @param array  $options      Command options
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, array $options = [])
+    public function __construct(string $databaseName, array $options = [])
     {
         $this->listCollections = new ListCollectionsCommand($databaseName, ['nameOnly' => true] + $options);
     }
@@ -65,10 +65,10 @@ class ListCollectionNames implements Executable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return Iterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
     public function execute(Server $server): Iterator
     {

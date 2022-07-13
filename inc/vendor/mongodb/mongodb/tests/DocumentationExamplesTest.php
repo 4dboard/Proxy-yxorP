@@ -2,14 +2,22 @@
 
 namespace MongoDB\Tests;
 
+use DateTime;
 use MongoDB\BSON\ObjectId;
 use MongoDB\BSON\UTCDateTime;
+use MongoDB\Client;
 use MongoDB\Database;
 use MongoDB\Driver\Cursor;
+use MongoDB\Driver\Exception\CommandException;
 use MongoDB\Driver\Exception\Exception;
+use MongoDB\Driver\ReadConcern;
 use MongoDB\Driver\ReadPreference;
+use MongoDB\Driver\ServerApi;
+use MongoDB\Driver\Session;
 use MongoDB\Driver\WriteConcern;
+use MongoDB\Operation\Watch;
 use function in_array;
+use function MongoDB\with_transaction;
 use function ob_end_clean;
 use function ob_start;
 use function var_dump;
@@ -64,6 +72,26 @@ class DocumentationExamplesTest extends FunctionalTestCase
         // End Example 2
 
         $this->assertCursorCount(1, $cursor);
+    }
+
+    private function assertInventoryCount($count): void
+    {
+        $this->assertCollectionCount($this->getDatabaseName() . '.' . $this->getCollectionName(), $count);
+    }
+
+    /**
+     * Return the test collection name.
+     *
+     * @return string
+     */
+    protected function getCollectionName(): string
+    {
+        return 'inventory';
+    }
+
+    private function assertCursorCount($count, Cursor $cursor): void
+    {
+        $this->assertCount($count, $cursor->toArray());
     }
 
     public function testExample_3(): void
@@ -402,35 +430,35 @@ class DocumentationExamplesTest extends FunctionalTestCase
             [
                 'item' => 'journal',
                 'instock' => [
-                    ['warehouse' => 'A',  'qty' => 5],
-                    ['warehouse' => 'C',  'qty' => 15],
+                    ['warehouse' => 'A', 'qty' => 5],
+                    ['warehouse' => 'C', 'qty' => 15],
                 ],
             ],
             [
                 'item' => 'notebook',
                 'instock' => [
-                    ['warehouse' => 'C',  'qty' => 5],
+                    ['warehouse' => 'C', 'qty' => 5],
                 ],
             ],
             [
                 'item' => 'paper',
                 'instock' => [
-                    ['warehouse' => 'A',  'qty' => 60],
-                    ['warehouse' => 'B',  'qty' => 15],
+                    ['warehouse' => 'A', 'qty' => 60],
+                    ['warehouse' => 'B', 'qty' => 15],
                 ],
             ],
             [
                 'item' => 'planner',
                 'instock' => [
-                    ['warehouse' => 'A',  'qty' => 40],
-                    ['warehouse' => 'B',  'qty' => 5],
+                    ['warehouse' => 'A', 'qty' => 40],
+                    ['warehouse' => 'B', 'qty' => 5],
                 ],
             ],
             [
                 'item' => 'postcard',
                 'instock' => [
-                    ['warehouse' => 'B',  'qty' => 15],
-                    ['warehouse' => 'C',  'qty' => 35],
+                    ['warehouse' => 'B', 'qty' => 15],
+                    ['warehouse' => 'C', 'qty' => 35],
                 ],
             ],
         ]);
@@ -945,7 +973,9 @@ class DocumentationExamplesTest extends FunctionalTestCase
         $this->assertInventoryCount(0);
     }
 
-    /** @group matrix-testing-exclude-server-5.0-driver-4.0-topology-sharded_cluster */
+    /** @group matrix-testing-exclude-server-5.0-driver-4.0-topology-sharded_cluster
+     * @throws \Exception
+     */
     public function testChangeStreamExample_1_4(): void
     {
         $this->skipIfChangeStreamIsNotSupported();
@@ -974,7 +1004,7 @@ class DocumentationExamplesTest extends FunctionalTestCase
 
         // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
         // Start Changestream Example 2
-        $changeStream = $db->inventory->watch([], ['fullDocument' => \MongoDB\Operation\Watch::FULL_DOCUMENT_UPDATE_LOOKUP]);
+        $changeStream = $db->inventory->watch([], ['fullDocument' => Watch::FULL_DOCUMENT_UPDATE_LOOKUP]);
         $changeStream->rewind();
 
         $firstChange = $changeStream->current();
@@ -1184,6 +1214,11 @@ class DocumentationExamplesTest extends FunctionalTestCase
         $this->assertInstanceOf(Cursor::class, $cursor);
     }
 
+    // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
+    // phpcs:disable Squiz.Commenting.FunctionComment.WrongStyle
+    // phpcs:disable Squiz.WhiteSpace.FunctionSpacing.After
+    // Start Transactions Intro Example 1
+
     public function testRunCommand_example_2(): void
     {
         $db = new Database($this->manager, $this->getDatabaseName());
@@ -1197,6 +1232,8 @@ class DocumentationExamplesTest extends FunctionalTestCase
 
         $this->assertInstanceOf(Cursor::class, $cursor);
     }
+    // End Transactions Intro Example 1
+    // phpcs:enable
 
     public function testIndex_example_1(): void
     {
@@ -1208,6 +1245,11 @@ class DocumentationExamplesTest extends FunctionalTestCase
 
         $this->assertEquals('score_1', $indexName);
     }
+
+    // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
+    // phpcs:disable Squiz.Commenting.FunctionComment.WrongStyle
+    // phpcs:disable Squiz.WhiteSpace.FunctionSpacing.After
+    // Start Transactions Retry Example 1
 
     public function testIndex_example_2(): void
     {
@@ -1222,60 +1264,13 @@ class DocumentationExamplesTest extends FunctionalTestCase
 
         $this->assertEquals('cuisine_1_name_1', $indexName);
     }
+    // End Transactions Retry Example 1
+    // phpcs:enable
 
     // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
     // phpcs:disable Squiz.Commenting.FunctionComment.WrongStyle
     // phpcs:disable Squiz.WhiteSpace.FunctionSpacing.After
-    // Start Transactions Intro Example 1
-    private function updateEmployeeInfo1(\MongoDB\Client $client, \MongoDB\Driver\Session $session): void
-    {
-        $session->startTransaction([
-            'readConcern' => new \MongoDB\Driver\ReadConcern('snapshot'),
-            'writeConcern' => new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY),
-        ]);
-
-        try {
-            $client->hr->employees->updateOne(
-                ['employee' => 3],
-                ['$set' => ['status' => 'Inactive']],
-                ['session' => $session]
-            );
-            $client->reporting->events->insertOne(
-                ['employee' => 3, 'status' => ['new' => 'Inactive', 'old' => 'Active']],
-                ['session' => $session]
-            );
-        } catch (\MongoDB\Driver\Exception\Exception $error) {
-            echo "Caught exception during transaction, aborting.\n";
-            $session->abortTransaction();
-
-            throw $error;
-        }
-
-        while (true) {
-            try {
-                $session->commitTransaction();
-                echo "Transaction committed.\n";
-                break;
-            } catch (\MongoDB\Driver\Exception\CommandException $error) {
-                $resultDoc = $error->getResultDocument();
-
-                if (isset($resultDoc->errorLabels) && in_array('UnknownTransactionCommitResult', $resultDoc->errorLabels)) {
-                    echo "UnknownTransactionCommitResult, retrying commit operation ...\n";
-                    continue;
-                } else {
-                    echo "Error during commit ...\n";
-
-                    throw $error;
-                }
-            } catch (\MongoDB\Driver\Exception\Exception $error) {
-                echo "Error during commit ...\n";
-
-                throw $error;
-            }
-        }
-    }
-    // End Transactions Intro Example 1
-    // phpcs:enable
+    // Start Transactions Retry Example 2
 
     public function testTransactions_intro_example_1(): void
     {
@@ -1297,68 +1292,12 @@ class DocumentationExamplesTest extends FunctionalTestCase
 
         ob_start();
         try {
-            $this->updateEmployeeInfo1($client, $session);
+            try {
+                $this->updateEmployeeInfo1($client, $session);
+            } catch (Exception $e) {
+            }
         } finally {
             ob_end_clean();
-        }
-    }
-
-    // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
-    // phpcs:disable Squiz.Commenting.FunctionComment.WrongStyle
-    // phpcs:disable Squiz.WhiteSpace.FunctionSpacing.After
-    // Start Transactions Retry Example 1
-    private function runTransactionWithRetry1(callable $txnFunc, \MongoDB\Client $client, \MongoDB\Driver\Session $session): void
-    {
-        while (true) {
-            try {
-                $txnFunc($client, $session);  // performs transaction
-                break;
-            } catch (\MongoDB\Driver\Exception\CommandException $error) {
-                $resultDoc = $error->getResultDocument();
-                echo "Transaction aborted. Caught exception during transaction.\n";
-
-                // If transient error, retry the whole transaction
-                if (isset($resultDoc->errorLabels) && in_array('TransientTransactionError', $resultDoc->errorLabels)) {
-                    echo "TransientTransactionError, retrying transaction ...\n";
-                    continue;
-                } else {
-                    throw $error;
-                }
-            } catch (\MongoDB\Driver\Exception\Exception $error) {
-                throw $error;
-            }
-        }
-    }
-    // End Transactions Retry Example 1
-    // phpcs:enable
-
-    // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
-    // phpcs:disable Squiz.Commenting.FunctionComment.WrongStyle
-    // phpcs:disable Squiz.WhiteSpace.FunctionSpacing.After
-    // Start Transactions Retry Example 2
-    private function commitWithRetry2(\MongoDB\Driver\Session $session): void
-    {
-        while (true) {
-            try {
-                $session->commitTransaction();
-                echo "Transaction committed.\n";
-                break;
-            } catch (\MongoDB\Driver\Exception\CommandException $error) {
-                $resultDoc = $error->getResultDocument();
-
-                if (isset($resultDoc->errorLabels) && in_array('UnknownTransactionCommitResult', $resultDoc->errorLabels)) {
-                    echo "UnknownTransactionCommitResult, retrying commit operation ...\n";
-                    continue;
-                } else {
-                    echo "Error during commit ...\n";
-
-                    throw $error;
-                }
-            } catch (\MongoDB\Driver\Exception\Exception $error) {
-                echo "Error during commit ...\n";
-
-                throw $error;
-            }
         }
     }
     // End Transactions Retry Example 2
@@ -1368,59 +1307,15 @@ class DocumentationExamplesTest extends FunctionalTestCase
     // phpcs:disable Squiz.Commenting.FunctionComment.WrongStyle
     // phpcs:disable Squiz.WhiteSpace.FunctionSpacing.After
     // Start Transactions Retry Example 3
-    private function runTransactionWithRetry3(callable $txnFunc, \MongoDB\Client $client, \MongoDB\Driver\Session $session): void
-    {
-        while (true) {
-            try {
-                $txnFunc($client, $session);  // performs transaction
-                break;
-            } catch (\MongoDB\Driver\Exception\CommandException $error) {
-                $resultDoc = $error->getResultDocument();
 
-                // If transient error, retry the whole transaction
-                if (isset($resultDoc->errorLabels) && in_array('TransientTransactionError', $resultDoc->errorLabels)) {
-                    continue;
-                } else {
-                    throw $error;
-                }
-            } catch (\MongoDB\Driver\Exception\Exception $error) {
-                throw $error;
-            }
-        }
-    }
-
-    private function commitWithRetry3(\MongoDB\Driver\Session $session): void
-    {
-        while (true) {
-            try {
-                $session->commitTransaction();
-                echo "Transaction committed.\n";
-                break;
-            } catch (\MongoDB\Driver\Exception\CommandException $error) {
-                $resultDoc = $error->getResultDocument();
-
-                if (isset($resultDoc->errorLabels) && in_array('UnknownTransactionCommitResult', $resultDoc->errorLabels)) {
-                    echo "UnknownTransactionCommitResult, retrying commit operation ...\n";
-                    continue;
-                } else {
-                    echo "Error during commit ...\n";
-
-                    throw $error;
-                }
-            } catch (\MongoDB\Driver\Exception\Exception $error) {
-                echo "Error during commit ...\n";
-
-                throw $error;
-            }
-        }
-    }
-
-    private function updateEmployeeInfo3(\MongoDB\Client $client, \MongoDB\Driver\Session $session): void
+    /**
+     * @throws Exception
+     */
+    private function updateEmployeeInfo1(Client $client, Session $session): void
     {
         $session->startTransaction([
-            'readConcern' => new \MongoDB\Driver\ReadConcern("snapshot"),
-            'readPrefernece' => new \MongoDB\Driver\ReadPreference(\MongoDB\Driver\ReadPreference::RP_PRIMARY),
-            'writeConcern' => new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY),
+            'readConcern' => new ReadConcern('snapshot'),
+            'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
         ]);
 
         try {
@@ -1433,29 +1328,36 @@ class DocumentationExamplesTest extends FunctionalTestCase
                 ['employee' => 3, 'status' => ['new' => 'Inactive', 'old' => 'Active']],
                 ['session' => $session]
             );
-        } catch (\MongoDB\Driver\Exception\Exception $error) {
+        } catch (Exception $error) {
             echo "Caught exception during transaction, aborting.\n";
             $session->abortTransaction();
 
             throw $error;
         }
 
-        $this->commitWithRetry3($session);
-    }
+        while (true) {
+            try {
+                $session->commitTransaction();
+                echo "Transaction committed.\n";
+                break;
+            } catch (CommandException $error) {
+                $resultDoc = $error->getResultDocument();
 
-    private function doUpdateEmployeeInfo(\MongoDB\Client $client): void
-    {
-        // Start a session.
-        $session = $client->startSession();
+                if (isset($resultDoc->errorLabels) && in_array('UnknownTransactionCommitResult', $resultDoc->errorLabels)) {
+                    echo "UnknownTransactionCommitResult, retrying commit operation ...\n";
+                    continue;
+                } else {
+                    echo "Error during commit ...\n";
 
-        try {
-            $this->runTransactionWithRetry3([$this, 'updateEmployeeInfo3'], $client, $session);
-        } catch (\MongoDB\Driver\Exception\Exception $error) {
-            // Do something with error
+                    throw $error;
+                }
+            } catch (Exception $error) {
+                echo "Error during commit ...\n";
+
+                throw $error;
+            }
         }
     }
-    // End Transactions Retry Example 3
-    // phpcs:enable
 
     public function testTransactions_retry_example_3(): void
     {
@@ -1480,6 +1382,39 @@ class DocumentationExamplesTest extends FunctionalTestCase
             ob_end_clean();
         }
     }
+
+    private function doUpdateEmployeeInfo(Client $client): void
+    {
+        // Start a session.
+        $session = $client->startSession();
+
+        try {
+            $this->runTransactionWithRetry3([$this, 'updateEmployeeInfo3'], $client, $session);
+        } catch (Exception $error) {
+            // Do something with error
+        }
+    }
+
+    private function runTransactionWithRetry3(callable $txnFunc, Client $client, Session $session): void
+    {
+        while (true) {
+            try {
+                $txnFunc($client, $session);  // performs transaction
+                break;
+            } catch (CommandException $error) {
+                $resultDoc = $error->getResultDocument();
+
+                // If transient error, retry the whole transaction
+                if (isset($resultDoc->errorLabels) && in_array('TransientTransactionError', $resultDoc->errorLabels)) {
+                    continue;
+                } else {
+                    throw $error;
+                }
+            }
+        }
+    }
+    // End Transactions Retry Example 3
+    // phpcs:enable
 
     public function testCausalConsistency(): void
     {
@@ -1514,8 +1449,8 @@ class DocumentationExamplesTest extends FunctionalTestCase
         $items = $client->selectDatabase(
             'test',
             [
-                'readConcern' => new \MongoDB\Driver\ReadConcern(\MongoDB\Driver\ReadConcern::MAJORITY),
-                'writeConcern' => new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY, 1000),
+                'readConcern' => new ReadConcern(ReadConcern::MAJORITY),
+                'writeConcern' => new WriteConcern(WriteConcern::MAJORITY, 1000),
             ]
         )->items;
 
@@ -1523,7 +1458,7 @@ class DocumentationExamplesTest extends FunctionalTestCase
             ['causalConsistency' => true]
         );
 
-        $currentDate = new \MongoDB\BSON\UTCDateTime();
+        $currentDate = new UTCDateTime();
 
         $items->updateOne(
             ['sku' => '111', 'end' => ['$exists' => false]],
@@ -1550,9 +1485,9 @@ class DocumentationExamplesTest extends FunctionalTestCase
         $items = $client->selectDatabase(
             'test',
             [
-                'readPreference' => new \MongoDB\Driver\ReadPreference(\MongoDB\Driver\ReadPreference::RP_SECONDARY),
-                'readConcern' => new \MongoDB\Driver\ReadConcern(\MongoDB\Driver\ReadConcern::MAJORITY),
-                'writeConcern' => new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY, 1000),
+                'readPreference' => new ReadPreference(ReadPreference::RP_SECONDARY),
+                'readConcern' => new ReadConcern(ReadConcern::MAJORITY),
+                'writeConcern' => new WriteConcern(WriteConcern::MAJORITY, 1000),
             ]
         )->items;
 
@@ -1579,23 +1514,23 @@ class DocumentationExamplesTest extends FunctionalTestCase
 
         // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
         // Start Versioned API Example 1
-        $serverApi = new \MongoDB\Driver\ServerApi('1');
-        $client = new \MongoDB\Client($uriString, [], ['serverApi' => $serverApi]);
+        $serverApi = new ServerApi('1');
+        $client = new Client($uriString, [], ['serverApi' => $serverApi]);
         // End Versioned API Example 1
 
         // Start Versioned API Example 2
-        $serverApi = new \MongoDB\Driver\ServerApi('1', true);
-        $client = new \MongoDB\Client($uriString, [], ['serverApi' => $serverApi]);
+        $serverApi = new ServerApi('1', true);
+        $client = new Client($uriString, [], ['serverApi' => $serverApi]);
         // End Versioned API Example 2
 
         // Start Versioned API Example 3
-        $serverApi = new \MongoDB\Driver\ServerApi('1', false);
-        $client = new \MongoDB\Client($uriString, [], ['serverApi' => $serverApi]);
+        $serverApi = new ServerApi('1', false);
+        $client = new Client($uriString, [], ['serverApi' => $serverApi]);
         // End Versioned API Example 3
 
         // Start Versioned API Example 4
-        $serverApi = new \MongoDB\Driver\ServerApi('1', false, true);
-        $client = new \MongoDB\Client($uriString, [], ['serverApi' => $serverApi]);
+        $serverApi = new ServerApi('1', false, true);
+        $client = new Client($uriString, [], ['serverApi' => $serverApi]);
         // End Versioned API Example 4
         // phpcs:enable
     }
@@ -1609,14 +1544,17 @@ class DocumentationExamplesTest extends FunctionalTestCase
         $uriString = static::getUri(true);
 
         // phpcs:disable SlevomatCodingStandard.Namespaces.ReferenceUsedNamesOnly
-        $serverApi = new \MongoDB\Driver\ServerApi('1', true);
-        $client = new \MongoDB\Client($uriString, [], ['serverApi' => $serverApi]);
+        $serverApi = new ServerApi('1', true);
+        $client = new Client($uriString, [], ['serverApi' => $serverApi]);
         $db = $client->selectDatabase($this->getDatabaseName());
         $db->dropCollection('sales');
 
         // Start Versioned API Example 5
         $strtoutc = function (string $datetime) {
-            return new \MongoDB\BSON\UTCDateTime(new \DateTime($datetime));
+            try {
+                return new UTCDateTime(new DateTime($datetime));
+            } catch (\Exception $e) {
+            }
         };
 
         $db->sales->insertMany([
@@ -1636,7 +1574,7 @@ class DocumentationExamplesTest extends FunctionalTestCase
         // Start Versioned API Example 6
         try {
             $count = $db->sales->count();
-        } catch (\MongoDB\Driver\Exception\CommandException $e) {
+        } catch (CommandException $e) {
             echo json_encode($e->getResultDocument());
             // { "ok": 0, "errmsg": "Provided apiStrict:true, but the command count is not in API Version 1", "code": 323, "codeName": "APIStrictError" }
         }
@@ -1678,14 +1616,14 @@ class DocumentationExamplesTest extends FunctionalTestCase
          * uriString = 'mongodb://mongos0.example.com:27017,mongos1.example.com:27017/'
          */
 
-        $client = new \MongoDB\Client($uriString);
+        $client = new Client($uriString);
 
         // Prerequisite: Create collections.
         $client->selectCollection(
             'mydb1',
             'foo',
             [
-                'writeConcern' => new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY, 1000),
+                'writeConcern' => new WriteConcern(WriteConcern::MAJORITY, 1000),
             ]
         )->insertOne(['abc' => 0]);
 
@@ -1693,13 +1631,13 @@ class DocumentationExamplesTest extends FunctionalTestCase
             'mydb2',
             'bar',
             [
-                'writeConcern' => new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY, 1000),
+                'writeConcern' => new WriteConcern(WriteConcern::MAJORITY, 1000),
             ]
         )->insertOne(['xyz' => 0]);
 
         // Step 1: Define the callback that specifies the sequence of operations to perform inside the transactions.
 
-        $callback = function (\MongoDB\Driver\Session $session) use ($client): void {
+        $callback = function (Session $session) use ($client): void {
             $client
                 ->selectCollection('mydb1', 'foo')
                 ->insertOne(['abc' => 1], ['session' => $session]);
@@ -1716,34 +1654,130 @@ class DocumentationExamplesTest extends FunctionalTestCase
         // Step 3: Use with_transaction to start a transaction, execute the callback, and commit (or abort on error).
 
         $transactionOptions = [
-            'readConcern' => new \MongoDB\Driver\ReadConcern(\MongoDB\Driver\ReadConcern::LOCAL),
-            'writeConcern' => new \MongoDB\Driver\WriteConcern(\MongoDB\Driver\WriteConcern::MAJORITY, 1000),
-            'readPreference' => new \MongoDB\Driver\ReadPreference(\MongoDB\Driver\ReadPreference::RP_PRIMARY),
+            'readConcern' => new ReadConcern(ReadConcern::LOCAL),
+            'writeConcern' => new WriteConcern(WriteConcern::MAJORITY, 1000),
+            'readPreference' => new ReadPreference(ReadPreference::RP_PRIMARY),
         ];
 
-        \MongoDB\with_transaction($session, $callback, $transactionOptions);
+        try {
+            with_transaction($session, $callback, $transactionOptions);
+        } catch (\Exception $e) {
+        }
 
         // End Transactions withTxn API Example 1
         // phpcs:enable
     }
 
+    private function runTransactionWithRetry1(callable $txnFunc, Client $client, Session $session): void
+    {
+        while (true) {
+            try {
+                $txnFunc($client, $session);  // performs transaction
+                break;
+            } catch (CommandException $error) {
+                $resultDoc = $error->getResultDocument();
+                echo "Transaction aborted. Caught exception during transaction.\n";
+
+                // If transient error, retry the whole transaction
+                if (isset($resultDoc->errorLabels) && in_array('TransientTransactionError', $resultDoc->errorLabels)) {
+                    echo "TransientTransactionError, retrying transaction ...\n";
+                    continue;
+                } else {
+                    throw $error;
+                }
+            }
+        }
+    }
+
     /**
-     * Return the test collection name.
-     *
-     * @return string
+     * @throws Exception
      */
-    protected function getCollectionName(): string
+    private function commitWithRetry2(Session $session): void
     {
-        return 'inventory';
+        while (true) {
+            try {
+                $session->commitTransaction();
+                echo "Transaction committed.\n";
+                break;
+            } catch (CommandException $error) {
+                $resultDoc = $error->getResultDocument();
+
+                if (isset($resultDoc->errorLabels) && in_array('UnknownTransactionCommitResult', $resultDoc->errorLabels)) {
+                    echo "UnknownTransactionCommitResult, retrying commit operation ...\n";
+                    continue;
+                } else {
+                    echo "Error during commit ...\n";
+
+                    throw $error;
+                }
+            } catch (Exception $error) {
+                echo "Error during commit ...\n";
+
+                throw $error;
+            }
+        }
     }
 
-    private function assertCursorCount($count, Cursor $cursor): void
+    /**
+     * @throws Exception
+     */
+    private function updateEmployeeInfo3(Client $client, Session $session): void
     {
-        $this->assertCount($count, $cursor->toArray());
+        $session->startTransaction([
+            'readConcern' => new ReadConcern("snapshot"),
+            'readPrefernece' => new ReadPreference(ReadPreference::RP_PRIMARY),
+            'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
+        ]);
+
+        try {
+            $client->hr->employees->updateOne(
+                ['employee' => 3],
+                ['$set' => ['status' => 'Inactive']],
+                ['session' => $session]
+            );
+            $client->reporting->events->insertOne(
+                ['employee' => 3, 'status' => ['new' => 'Inactive', 'old' => 'Active']],
+                ['session' => $session]
+            );
+        } catch (Exception $error) {
+            echo "Caught exception during transaction, aborting.\n";
+            $session->abortTransaction();
+
+            throw $error;
+        }
+
+        try {
+            $this->commitWithRetry3($session);
+        } catch (Exception $e) {
+        }
     }
 
-    private function assertInventoryCount($count): void
+    /**
+     * @throws Exception
+     */
+    private function commitWithRetry3(Session $session): void
     {
-        $this->assertCollectionCount($this->getDatabaseName() . '.' . $this->getCollectionName(), $count);
+        while (true) {
+            try {
+                $session->commitTransaction();
+                echo "Transaction committed.\n";
+                break;
+            } catch (CommandException $error) {
+                $resultDoc = $error->getResultDocument();
+
+                if (isset($resultDoc->errorLabels) && in_array('UnknownTransactionCommitResult', $resultDoc->errorLabels)) {
+                    echo "UnknownTransactionCommitResult, retrying commit operation ...\n";
+                    continue;
+                } else {
+                    echo "Error during commit ...\n";
+
+                    throw $error;
+                }
+            } catch (Exception $error) {
+                echo "Error during commit ...\n";
+
+                throw $error;
+            }
+        }
     }
 }

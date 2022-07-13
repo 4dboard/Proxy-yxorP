@@ -33,7 +33,7 @@ use MongoDB\Exception\UnsupportedException;
 class DeleteOne implements Executable, Explainable
 {
     /** @var Delete */
-    private $delete;
+    private Delete $delete;
 
     /**
      * Constructs a delete command.
@@ -53,13 +53,13 @@ class DeleteOne implements Executable, Explainable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to delete documents
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param object|array $filter Query by which to delete documents
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, array $options = [])
     {
         $this->delete = new Delete($databaseName, $collectionName, $filter, 1, $options);
     }
@@ -67,13 +67,13 @@ class DeleteOne implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return DeleteResult
      * @throws UnsupportedException if collation is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): DeleteResult
     {
         return $this->delete->execute($server);
     }
@@ -81,11 +81,11 @@ class DeleteOne implements Executable, Explainable
     /**
      * Returns the command document for this operation.
      *
-     * @see Explainable::getCommandDocument()
      * @param Server $server
      * @return array
+     * @see Explainable::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->delete->getCommandDocument($server);
     }

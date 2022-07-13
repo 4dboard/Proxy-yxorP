@@ -15,7 +15,7 @@ use function version_compare;
 class DeleteFunctionalTest extends FunctionalTestCase
 {
     /** @var Collection */
-    private $collection;
+    private Collection $collection;
 
     public function setUp(): void
     {
@@ -26,7 +26,7 @@ class DeleteFunctionalTest extends FunctionalTestCase
 
     public function testDeleteOne(): void
     {
-        $this->createFixtures(3);
+        $this->createFixtures();
 
         $filter = ['_id' => 1];
 
@@ -44,9 +44,29 @@ class DeleteFunctionalTest extends FunctionalTestCase
         $this->assertSameDocuments($expected, $this->collection->find());
     }
 
+    /**
+     * Create data fixtures.
+     *
+     */
+    private function createFixtures(): void
+    {
+        $bulkWrite = new BulkWrite(['ordered' => true]);
+
+        for ($i = 1; $i <= 3; $i++) {
+            $bulkWrite->insert([
+                '_id' => $i,
+                'x' => (integer)($i . $i),
+            ]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
+
+        $this->assertEquals(3, $result->getInsertedCount());
+    }
+
     public function testDeleteMany(): void
     {
-        $this->createFixtures(3);
+        $this->createFixtures();
 
         $filter = ['_id' => ['$gt' => 1]];
 
@@ -85,25 +105,28 @@ class DeleteFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Delete(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [],
-                    0,
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Delete(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [],
+                        0,
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function testUnacknowledgedWriteConcern()
+    public function testUnacknowledgedWriteConcern(): DeleteResult
     {
         $filter = ['_id' => 1];
         $options = ['writeConcern' => new WriteConcern(0)];
@@ -124,26 +147,5 @@ class DeleteFunctionalTest extends FunctionalTestCase
         $this->expectException(BadMethodCallException::class);
         $this->expectExceptionMessageMatches('/[\w:\\\\]+ should not be called for an unacknowledged write result/');
         $result->getDeletedCount();
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     */
-    private function createFixtures(int $n): void
-    {
-        $bulkWrite = new BulkWrite(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert([
-                '_id' => $i,
-                'x' => (integer) ($i . $i),
-            ]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
-
-        $this->assertEquals($n, $result->getInsertedCount());
     }
 }

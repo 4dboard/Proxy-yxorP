@@ -12,7 +12,7 @@ class Directory extends Handler
      *
      * @return bool
      */
-    public function delete()
+    public function delete(): bool
     {
         return $this->filesystem->deleteDir($this->path);
     }
@@ -22,9 +22,9 @@ class Directory extends Handler
      *
      * @param bool $recursive
      *
-     * @return array|bool directory contents or false
+     * @return array directory contents or false
      */
-    public function getContents($recursive = false)
+    public function getContents(bool $recursive = false): array
     {
         return $this->filesystem->listContents($this->path, $recursive);
     }

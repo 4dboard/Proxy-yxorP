@@ -13,7 +13,10 @@ class CachingIteratorTest extends TestCase
 {
     public function testTraversingGeneratorConsumesIt(): void
     {
-        $iterator = $this->getTraversable([1, 2, 3]);
+        try {
+            $iterator = $this->getTraversable([1, 2, 3]);
+        } catch (Exception $e) {
+        }
         $this->assertSame([1, 2, 3], iterator_to_array($iterator));
 
         $this->expectException(Throwable::class);
@@ -21,9 +24,26 @@ class CachingIteratorTest extends TestCase
         iterator_to_array($iterator);
     }
 
+    /**
+     * @throws Exception
+     */
+    private function getTraversable($items): \Generator
+    {
+        foreach ($items as $item) {
+            if ($item instanceof Exception) {
+                throw $item;
+            } else {
+                yield $item;
+            }
+        }
+    }
+
     public function testConstructorRewinds(): void
     {
-        $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        try {
+            $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        } catch (Exception $e) {
+        }
 
         $this->assertTrue($iterator->valid());
         $this->assertSame(0, $iterator->key());
@@ -32,7 +52,10 @@ class CachingIteratorTest extends TestCase
 
     public function testIteration(): void
     {
-        $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        try {
+            $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        } catch (Exception $e) {
+        }
 
         $expectedKey = 0;
         $expectedItem = 1;
@@ -47,7 +70,10 @@ class CachingIteratorTest extends TestCase
 
     public function testIterationWithEmptySet(): void
     {
-        $iterator = new CachingIterator($this->getTraversable([]));
+        try {
+            $iterator = new CachingIterator($this->getTraversable([]));
+        } catch (Exception $e) {
+        }
 
         $iterator->rewind();
         $this->assertFalse($iterator->valid());
@@ -55,7 +81,10 @@ class CachingIteratorTest extends TestCase
 
     public function testPartialIterationDoesNotExhaust(): void
     {
-        $traversable = $this->getTraversable([1, 2, new Exception()]);
+        try {
+            $traversable = $this->getTraversable([1, 2, new Exception()]);
+        } catch (Exception $e) {
+        }
         $iterator = new CachingIterator($traversable);
 
         $expectedKey = 0;
@@ -75,7 +104,10 @@ class CachingIteratorTest extends TestCase
 
     public function testRewindAfterPartialIteration(): void
     {
-        $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        try {
+            $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        } catch (Exception $e) {
+        }
 
         $iterator->rewind();
         $this->assertTrue($iterator->valid());
@@ -88,13 +120,19 @@ class CachingIteratorTest extends TestCase
 
     public function testCount(): void
     {
-        $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        try {
+            $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        } catch (Exception $e) {
+        }
         $this->assertCount(3, $iterator);
     }
 
     public function testCountAfterPartialIteration(): void
     {
-        $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        try {
+            $iterator = new CachingIterator($this->getTraversable([1, 2, 3]));
+        } catch (Exception $e) {
+        }
 
         $iterator->rewind();
         $this->assertTrue($iterator->valid());
@@ -107,7 +145,10 @@ class CachingIteratorTest extends TestCase
 
     public function testCountWithEmptySet(): void
     {
-        $iterator = new CachingIterator($this->getTraversable([]));
+        try {
+            $iterator = new CachingIterator($this->getTraversable([]));
+        } catch (Exception $e) {
+        }
         $this->assertCount(0, $iterator);
     }
 
@@ -119,7 +160,7 @@ class CachingIteratorTest extends TestCase
     {
         $nestedIterator = new class implements Iterator {
             /** @var int */
-            private $i = 0;
+            private int $i = 0;
 
             public function current(): int
             {
@@ -149,16 +190,5 @@ class CachingIteratorTest extends TestCase
 
         $iterator = new CachingIterator($nestedIterator);
         $this->assertCount(1, $iterator);
-    }
-
-    private function getTraversable($items)
-    {
-        foreach ($items as $item) {
-            if ($item instanceof Exception) {
-                throw $item;
-            } else {
-                yield $item;
-            }
-        }
     }
 }

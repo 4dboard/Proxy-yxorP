@@ -12,13 +12,13 @@ use MongoDB\Tests\CommandObserver;
 class RenameCollectionFunctionalTest extends FunctionalTestCase
 {
     /** @var integer */
-    private static $errorCodeNamespaceNotFound = 26;
+    private static int $errorCodeNamespaceNotFound = 26;
 
     /** @var integer */
-    private static $errorCodeNamespaceExists = 48;
+    private static int $errorCodeNamespaceExists = 48;
 
     /** @var string */
-    private $toCollectionName;
+    private string $toCollectionName;
 
     public function setUp(): void
     {
@@ -43,28 +43,31 @@ class RenameCollectionFunctionalTest extends FunctionalTestCase
 
     public function testDefaultWriteConcernIsOmitted(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $server = $this->getPrimaryServer();
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $server = $this->getPrimaryServer();
 
-                $insertOne = new InsertOne($this->getDatabaseName(), $this->getCollectionName(), ['x' => 1]);
-                $writeResult = $insertOne->execute($server);
-                $this->assertEquals(1, $writeResult->getInsertedCount());
+                    $insertOne = new InsertOne($this->getDatabaseName(), $this->getCollectionName(), ['x' => 1]);
+                    $writeResult = $insertOne->execute($server);
+                    $this->assertEquals(1, $writeResult->getInsertedCount());
 
-                $operation = new RenameCollection(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    $this->getDatabaseName(),
-                    $this->toCollectionName,
-                    ['writeConcern' => $this->createDefaultWriteConcern()]
-                );
+                    $operation = new RenameCollection(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        $this->getDatabaseName(),
+                        $this->toCollectionName,
+                        ['writeConcern' => $this->createDefaultWriteConcern()]
+                    );
 
-                $operation->execute($server);
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($server);
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testRenameCollectionToNonexistentTarget(): void
@@ -106,7 +109,7 @@ class RenameCollectionFunctionalTest extends FunctionalTestCase
         $this->expectException(CommandException::class);
 
         // TODO: mongos returns an inconsistent error code (see: SERVER-60632)
-        if (! $this->isShardedCluster()) {
+        if (!$this->isShardedCluster()) {
             $this->expectExceptionCode(self::$errorCodeNamespaceExists);
         }
 
@@ -135,27 +138,30 @@ class RenameCollectionFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $server = $this->getPrimaryServer();
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $server = $this->getPrimaryServer();
 
-                $insertOne = new InsertOne($this->getDatabaseName(), $this->getCollectionName(), ['x' => 1]);
-                $writeResult = $insertOne->execute($server);
-                $this->assertEquals(1, $writeResult->getInsertedCount());
+                    $insertOne = new InsertOne($this->getDatabaseName(), $this->getCollectionName(), ['x' => 1]);
+                    $writeResult = $insertOne->execute($server);
+                    $this->assertEquals(1, $writeResult->getInsertedCount());
 
-                $operation = new RenameCollection(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    $this->getDatabaseName(),
-                    $this->toCollectionName,
-                    ['session' => $this->createSession()]
-                );
+                    $operation = new RenameCollection(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        $this->getDatabaseName(),
+                        $this->toCollectionName,
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($server);
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($server);
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 }

@@ -120,7 +120,7 @@ final class UriNormalizer
      * @return bool
      * @link https://tools.ietf.org/html/rfc3986#section-6.1
      */
-    public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, $normalizations = self::PRESERVING_NORMALIZATIONS)
+    public static function isEquivalent(UriInterface $uri1, UriInterface $uri2, int $normalizations = self::PRESERVING_NORMALIZATIONS): bool
     {
         return (string)self::normalize($uri1, $normalizations) === (string)self::normalize($uri2, $normalizations);
     }
@@ -142,7 +142,7 @@ final class UriNormalizer
      * @return UriInterface The normalized URI
      * @link https://tools.ietf.org/html/rfc3986#section-6.2
      */
-    public static function normalize(UriInterface $uri, $flags = self::PRESERVING_NORMALIZATIONS)
+    public static function normalize(UriInterface $uri, int $flags = self::PRESERVING_NORMALIZATIONS): UriInterface
     {
         if ($flags & self::CAPITALIZE_PERCENT_ENCODING) {
             $uri = self::capitalizePercentEncoding($uri);
@@ -183,7 +183,7 @@ final class UriNormalizer
         return $uri;
     }
 
-    private static function capitalizePercentEncoding(UriInterface $uri)
+    private static function capitalizePercentEncoding(UriInterface $uri): UriInterface
     {
         $regex = '/(?:%[A-Fa-f0-9]{2})++/';
 
@@ -199,7 +199,7 @@ final class UriNormalizer
             );
     }
 
-    private static function decodeUnreservedCharacters(UriInterface $uri)
+    private static function decodeUnreservedCharacters(UriInterface $uri): UriInterface
     {
         $regex = '/%(?:2D|2E|5F|7E|3[0-9]|[46][1-9A-F]|[57][0-9A])/i';
 

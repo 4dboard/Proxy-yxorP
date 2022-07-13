@@ -10,6 +10,7 @@ use MongoDB\Driver\Exception\ServerException;
 use PHPUnit\Framework\Assert;
 use stdClass;
 use Throwable;
+use Webmozart\Assert\Assert;
 use function get_class;
 use function PHPUnit\Framework\assertArrayHasKey;
 use function PHPUnit\Framework\assertContainsOnly;
@@ -35,7 +36,7 @@ final class ExpectedError
      * @see https://github.com/mongodb/mongo/blob/master/src/mongo/base/error_codes.err
      * @var array
      */
-    private static $codeNameMap = [
+    private static array $codeNameMap = [
         'Interrupted' => 11601,
         'MaxTimeMSExpired' => 50,
         'NoSuchTransaction' => 251,
@@ -44,28 +45,28 @@ final class ExpectedError
     ];
 
     /** @var bool */
-    private $isError = false;
+    private bool $isError = false;
 
     /** @var bool|null */
-    private $isClientError;
+    private ?bool $isClientError;
 
     /** @var string|null */
-    private $messageContains;
+    private ?string $messageContains;
 
     /** @var int|null */
-    private $code;
+    private ?int $code;
 
     /** @var string|null */
-    private $codeName;
+    private ?string $codeName;
 
     /** @var array */
-    private $includedLabels = [];
+    private array $includedLabels = [];
 
     /** @var array */
-    private $excludedLabels = [];
+    private array $excludedLabels = [];
 
     /** @var ExpectedResult|null */
-    private $expectedResult;
+    private ?ExpectedResult $expectedResult;
 
     public function __construct(?stdClass $o, EntityMap $entityMap)
     {
@@ -123,11 +124,11 @@ final class ExpectedError
      */
     public function assert(?Throwable $e = null): void
     {
-        if (! $this->isError && $e !== null) {
+        if (!$this->isError && $e !== null) {
             Assert::fail(sprintf("Operation threw unexpected %s: %s\n%s", get_class($e), $e->getMessage(), $e->getTraceAsString()));
         }
 
-        if (! $this->isError) {
+        if (!$this->isError) {
             assertNull($e);
 
             return;
@@ -153,7 +154,7 @@ final class ExpectedError
             $this->assertCodeName($e);
         }
 
-        if (! empty($this->excludedLabels) || ! empty($this->includedLabels)) {
+        if (!empty($this->excludedLabels) || !empty($this->includedLabels)) {
             assertInstanceOf(RuntimeException::class, $e);
 
             foreach ($this->excludedLabels as $label) {

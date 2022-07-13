@@ -25,7 +25,7 @@ class DatabaseCommandTest extends TestCase
         new DatabaseCommand($this->getDatabaseName(), ['ping' => 1], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

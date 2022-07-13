@@ -16,7 +16,7 @@ class CreateCollectionTest extends TestCase
         new CreateCollection($this->getDatabaseName(), $this->getCollectionName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

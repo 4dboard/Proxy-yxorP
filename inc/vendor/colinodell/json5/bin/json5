@@ -10,6 +10,9 @@
  * file that was distributed with this source code.
  */
 
+use ColinODell\Json5\Json5Decoder;
+use JetBrains\PhpStorm\NoReturn;
+
 requireAutoloader();
 
 ini_set('display_errors', 'stderr');
@@ -19,7 +22,7 @@ foreach ($argv as $i => $arg) {
         continue;
     }
 
-    if (substr($arg, 0, 1) === '-') {
+    if (str_starts_with($arg, '-')) {
         switch ($arg) {
             case '-h':
             case '--help':
@@ -51,19 +54,15 @@ if (isset($src)) {
     }
 }
 
-try {
-    $decoded = \ColinODell\Json5\Json5Decoder::decode($json);
-    echo json_encode($decoded);
-} catch (\ColinODell\Json5\SyntaxError $e) {
-    fail($e->getMessage());
-}
+$decoded = Json5Decoder::decode($json);
+echo json_encode($decoded);
 
 /**
  * Get help and usage info
  *
  * @return string
  */
-function getHelpText()
+function getHelpText(): string
 {
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
         return <<<WINDOWSHELP
@@ -129,7 +128,7 @@ HELP;
 /**
  * @param string $message Error message
  */
-function fail($message)
+#[NoReturn] function fail(string $message)
 {
     fwrite(STDERR, $message . "\n");
     exit(1);
@@ -139,9 +138,9 @@ function requireAutoloader()
 {
     $autoloadPaths = array(
         // Local package usage
-      __DIR__ . '/../vendor/autoload.php',
+        __DIR__ . '/../vendor/autoload.php',
         // Package was included as a library
-      __DIR__ . '/../../../autoload.php',
+        __DIR__ . '/../../../autoload.php',
     );
     foreach ($autoloadPaths as $path) {
         if (file_exists($path)) {

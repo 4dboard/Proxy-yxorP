@@ -1,6 +1,7 @@
 <?php namespace yxorP\inc\snag;
 
 use Exception;
+use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\inc\proxy\ClientInterface;
 use yxorP\inc\snag\DateTime\Date;
@@ -12,9 +13,9 @@ class HttpClient
     const NOTIFY_PAYLOAD_VERSION = '4.0';
     const SESSION_PAYLOAD_VERSION = '1.0';
     const PAYLOAD_VERSION = self::NOTIFY_PAYLOAD_VERSION;
-    protected $config;
-    protected $proxy;
-    protected $queue = [];
+    protected Configuration $config;
+    protected ClientInterface $proxy;
+    protected array $queue = [];
 
     public function __construct(Configuration $config, ClientInterface $proxy)
     {
@@ -113,13 +114,13 @@ class HttpClient
             return;
         }
         try {
-            $this->post($uri, ['body' => $normalized, 'headers' => $this->getHeaders(self::NOTIFY_PAYLOAD_VERSION),]);
+            $this->post($uri, ['body' => $normalized, 'headers' => $this->getHeaders(),]);
         } catch (Exception $e) {
             error_log('Snag Warning: Couldn\'t notify. ' . $e->getMessage());
         }
     }
 
-    protected function normalize(array $data)
+    protected function normalize(array $data): bool|string
     {
         $body = json_encode($data);
         if ($this->length($body) <= static::MAX_SIZE) {
@@ -133,17 +134,17 @@ class HttpClient
         return $body;
     }
 
-    protected function length($str)
+    protected function length($str): bool|int
     {
         return function_exists('mb_strlen') ? mb_strlen($str, '8bit') : strlen($str);
     }
 
-    protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION)
+    #[ArrayShape(['Snag-Api-Key' => "string", 'Snag-Sent-At' => "string", 'Snag-Payload-Version' => "mixed|string", 'Content-Type' => "string"])] protected function getHeaders($version = self::NOTIFY_PAYLOAD_VERSION): array
     {
         return ['Snag-Api-Key' => $this->config->getApiKey(), 'Snag-Sent-At' => Date::now(), 'Snag-Payload-Version' => $version, 'Content-Type' => 'application/json',];
     }
 
-    protected function getEventPayload()
+    #[ArrayShape(['apiKey' => "string", 'notifier' => "string[]", 'events' => "array"])] protected function getEventPayload(): array
     {
         $events = [];
         foreach ($this->queue as $report) {
@@ -160,7 +161,7 @@ class HttpClient
         $this->post($this->config->getSessionEndpoint(), ['json' => $payload, 'headers' => $this->getHeaders(self::SESSION_PAYLOAD_VERSION),]);
     }
 
-    protected function build()
+    protected function build(): array
     {
         return $this->getEventPayload();
     }

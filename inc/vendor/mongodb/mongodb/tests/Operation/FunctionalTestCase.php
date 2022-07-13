@@ -29,17 +29,17 @@ abstract class FunctionalTestCase extends BaseFunctionalTestCase
         parent::tearDown();
     }
 
-    protected function createDefaultReadConcern()
+    protected function createDefaultReadConcern(): ReadConcern
     {
         return new ReadConcern();
     }
 
-    protected function createDefaultWriteConcern()
+    protected function createDefaultWriteConcern(): WriteConcern
     {
         return new WriteConcern(-2);
     }
 
-    protected function createSession()
+    protected function createSession(): \MongoDB\Driver\Session
     {
         return $this->manager->startSession();
     }

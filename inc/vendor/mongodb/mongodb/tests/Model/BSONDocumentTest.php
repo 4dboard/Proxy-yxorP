@@ -26,7 +26,7 @@ class BSONDocumentTest extends TestCase
 
         $document = new BSONDocument($data);
         $this->assertSame($data, $document->getArrayCopy());
-        $this->assertEquals((object) [0 => 'foo', 2 => 'bar'], $document->bsonSerialize());
+        $this->assertEquals((object)[0 => 'foo', 2 => 'bar'], $document->bsonSerialize());
     }
 
     public function testClone(): void
@@ -104,7 +104,7 @@ class BSONDocumentTest extends TestCase
 
         $document = new BSONDocument($data);
         $this->assertSame($data, $document->getArrayCopy());
-        $this->assertEquals((object) [0 => 'foo', 2 => 'bar'], $document->jsonSerialize());
+        $this->assertEquals((object)[0 => 'foo', 2 => 'bar'], $document->jsonSerialize());
     }
 
     public function testSetState(): void

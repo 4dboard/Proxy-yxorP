@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\UnifiedSpecTests\Constraint;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\BSON\Binary;
 use MongoDB\Tests\FunctionalTestCase;
 use MongoDB\Tests\UnifiedSpecTests\EntityMap;
@@ -20,6 +21,11 @@ class MatchesTest extends FunctionalTestCase
         $this->assertResult(true, $c, ['x' => 1, 'y' => ['a' => 1, 'b' => 2], 'z' => 3], 'Extra keys in root are permitted');
         $this->assertResult(false, $c, ['x' => 1, 'y' => ['a' => 1, 'b' => 2, 'c' => 3]], 'Extra keys in embedded are not permitted');
         $this->assertResult(true, $c, ['y' => ['b' => 2, 'a' => 1], 'x' => 1], 'Root and embedded key order is not significant');
+    }
+
+    private function assertResult($expected, Matches $constraint, $value, string $message = ''): void
+    {
+        $this->assertSame($expected, $constraint->evaluate($value, '', true), $message);
     }
 
     public function testDoNotAllowExtraRootKeys(): void
@@ -126,7 +132,7 @@ class MatchesTest extends FunctionalTestCase
         $entityMap->set('session', $session);
 
         $lsidWithWrongId = ['id' => new Binary('0123456789ABCDEF', Binary::TYPE_UUID)];
-        $lsidWithExtraField = (array) $session->getLogicalSessionId() + ['y' => 1];
+        $lsidWithExtraField = (array)$session->getLogicalSessionId() + ['y' => 1];
 
         $c = new Matches(['$$sessionLsid' => 'session'], $entityMap);
         $this->assertResult(true, $c, $session->getLogicalSessionId(), 'session LSID matches (root-level)');
@@ -155,7 +161,7 @@ class MatchesTest extends FunctionalTestCase
         }
     }
 
-    public function errorMessageProvider()
+    public function errorMessageProvider(): array
     {
         return [
             'assertEquals: type check (root-level)' => [
@@ -237,7 +243,7 @@ class MatchesTest extends FunctionalTestCase
         $constraint->evaluate(['x' => 1], '', true);
     }
 
-    public function operatorErrorMessageProvider()
+    #[ArrayShape(['$$exists type' => "array", '$$type type (string)' => "array", '$$type type (string[])' => "array", '$$matchesEntity requires EntityMap' => "array", '$$matchesEntity type' => "array", '$$matchesHexBytes type' => "array", '$$matchesHexBytes string format' => "array", '$$sessionLsid requires EntityMap' => "array", '$$sessionLsid type' => "array"])] public function operatorErrorMessageProvider(): array
     {
         return [
             '$$exists type' => [
@@ -277,10 +283,5 @@ class MatchesTest extends FunctionalTestCase
                 new Matches(['x' => ['$$sessionLsid' => 1]], new EntityMap()),
             ],
         ];
-    }
-
-    private function assertResult($expected, Matches $constraint, $value, string $message = ''): void
-    {
-        $this->assertSame($expected, $constraint->evaluate($value, '', true), $message);
     }
 }

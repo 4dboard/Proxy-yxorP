@@ -26,7 +26,7 @@ if (count($assets)) {
     $fs->write("{$target}/yxorp/assets.json", json_encode($assets, JSON_PRETTY_PRINT));
 
     // move assets files
-    foreach ($assets as &$asset) {
+    foreach ($assets as $asset) {
 
         $path = trim($asset['path'], '/');
         $_target = "{$target}/yxorp/assets/{$path}";

@@ -23,8 +23,8 @@ $this->module('yxorp')->extend([
         static $parseDown;
         static $parsedownExtra;
 
-        if (!$extra && !$parseDown) $parseDown = new \Parsedown();
-        if ($extra && !$parsedownExtra) $parsedownExtra = new \ParsedownExtra();
+        if (!$extra && !$parseDown) $parseDown = new Parsedown();
+        if ($extra && !$parsedownExtra) $parsedownExtra = new ParsedownExtra();
 
         return $extra ? $parsedownExtra->text($content) : $parseDown->text($content);
     },
@@ -37,10 +37,11 @@ $this->module('yxorp')->extend([
             $dir = $this->app->path($dir);
         }
 
+        unset($dir);
         foreach ($dirs as $dir) {
 
             $path = $app->path($dir);
-            $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
+            $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
 
             foreach ($files as $file) {
 
@@ -152,7 +153,7 @@ $this->module('yxorp')->extend([
         $asset = null;
 
         // is asset?
-        if (strpos($src, $this->app->filestorage->getUrl('assets://')) === 0) {
+        if (str_starts_with($src, $this->app->filestorage->getUrl('assets://'))) {
 
             $path = trim(str_replace(rtrim($this->app->filestorage->getUrl('assets://'), '/'), '', $src), '/');
 
@@ -170,7 +171,7 @@ $this->module('yxorp')->extend([
                     return $src;
                 }
 
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 return $src;
             }
 

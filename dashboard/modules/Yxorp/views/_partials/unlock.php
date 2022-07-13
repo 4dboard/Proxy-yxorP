@@ -11,7 +11,7 @@
 
         window.btnUnlockResource = function() {
 
-            var resourceId = '{{ $resourceId }}';
+            const resourceId = '{{ $resourceId }}';
 
             App.request('/yxorp/utils/unlockResourceId/'+resourceId, {}).then(function(data) {
                 

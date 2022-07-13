@@ -9,6 +9,7 @@ use MongoDB\Driver\Server;
 use MongoDB\Model\BSONArray;
 use MongoDB\Operation\DatabaseCommand;
 use MongoDB\Tests\FunctionalTestCase;
+use mysql_xdevapi\Warning;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\IncompleteTest;
 use PHPUnit\Framework\SkippedTest;
@@ -31,7 +32,6 @@ use function PHPUnit\Framework\assertNotEmpty;
 use function preg_match;
 use function preg_replace;
 use function sprintf;
-use function strpos;
 use function version_compare;
 use const FILTER_VALIDATE_BOOLEAN;
 
@@ -51,22 +51,22 @@ final class UnifiedTestRunner
     public const MAX_SCHEMA_VERSION = '1.5';
 
     /** @var MongoDB\Client */
-    private $internalClient;
+    private MongoDB\Client|\MongoDB\Client $internalClient;
 
     /** @var string */
-    private $internalClientUri;
+    private string $internalClientUri;
 
     /** @var bool */
-    private $allowKillAllSessions = true;
+    private bool $allowKillAllSessions = true;
 
     /** @var EntityMap */
-    private $entityMap;
+    private EntityMap $entityMap;
 
     /** @var callable(EntityMap):void */
     private $entityMapObserver;
 
     /** @var FailPointObserver */
-    private $failPointObserver;
+    private FailPointObserver $failPointObserver;
 
     public function __construct(string $internalClientUri)
     {
@@ -76,11 +76,24 @@ final class UnifiedTestRunner
         /* Atlas prohibits killAllSessions. Inspect the connection string to
          * determine if we should avoid calling killAllSessions(). This does
          * mean that lingering transactions could block test execution. */
-        if ($this->isServerless() || strpos($internalClientUri, self::ATLAS_TLD) !== false) {
+        if ($this->isServerless() || str_contains($internalClientUri, self::ATLAS_TLD)) {
             $this->allowKillAllSessions = false;
         }
     }
 
+    /**
+     * Return whether serverless (i.e. proxy as mongos) is being utilized.
+     */
+    private function isServerless(): bool
+    {
+        $isServerless = getenv('MONGODB_IS_SERVERLESS');
+
+        return $isServerless !== false ? filter_var($isServerless, FILTER_VALIDATE_BOOLEAN) : false;
+    }
+
+    /**
+     * @throws Throwable
+     */
     public function run(UnifiedTestCase $test): void
     {
         $this->doSetUp();
@@ -94,7 +107,7 @@ final class UnifiedTestRunner
              * call TestCase::hasFailed() for two reasons: runBare() has yet to
              * catch the exceptions and update the TestCase's status and, more
              * importantly, this class does not have access to the TestCase. */
-            $hasFailed = ! ($e instanceof IncompleteTest || $e instanceof SkippedTest || $e instanceof Warning);
+            $hasFailed = !($e instanceof IncompleteTest || $e instanceof SkippedTest || $e instanceof Warning);
 
             throw $e;
         } finally {
@@ -106,21 +119,9 @@ final class UnifiedTestRunner
                     call_user_func($this->entityMapObserver, $this->entityMap);
                 }
             } finally {
-                $this->doTearDown($hasFailed);
+                $this->doTearDown(false);
             }
         }
-    }
-
-    /**
-     * Defines a callable to receive the EntityMap after each test.
-     *
-     * This function is primarily used by the Atlas testing workload executor.
-     *
-     * @param callable(EntityMap):void $entityMapObserver
-     */
-    public function setEntityMapObserver(callable $entityMapObserver): void
-    {
-        $this->entityMapObserver = $entityMapObserver;
     }
 
     private function doSetUp(): void
@@ -135,26 +136,51 @@ final class UnifiedTestRunner
         $this->failPointObserver->start();
     }
 
-    private function doTearDown(bool $hasFailed): void
+    /**
+     * Kill all sessions on the cluster.
+     *
+     * This will clean up any open transactions that may remain from a
+     * previously failed test. For sharded clusters, this command will be run
+     * on all mongos nodes.
+     *
+     * This method is a NOP if allowKillAllSessions is false.
+     */
+    private function killAllSessions(): void
     {
-        $this->entityMap = null;
+        static $ignoreErrorCodes = [
+            self::SERVER_ERROR_INTERRUPTED, // SERVER-38335
+            self::SERVER_ERROR_UNAUTHORIZED, // SERVER-54216
+        ];
 
-        if ($hasFailed) {
-            $this->killAllSessions();
+        if (!$this->allowKillAllSessions) {
+            return;
         }
 
-        $this->failPointObserver->stop();
-        $this->failPointObserver->disableFailPoints();
+        $manager = $this->internalClient->getManager();
+        $primary = $manager->selectServer(new ReadPreference(ReadPreference::PRIMARY));
+        $servers = $primary->getType() === Server::TYPE_MONGOS ? $manager->getServers() : [$primary];
 
-        /* Manually invoking garbage collection since each test is prone to
-         * create cycles (perhaps due to EntityMap), which can leak and prevent
-         * sessions from being released back into the pool. */
-        gc_collect_cycles();
+        foreach ($servers as $server) {
+            try {
+                /* Skip servers that do not support sessions instead of always
+                 * attempting the command and ignoring CommandNotFound(59) */
+                if (!isset($server->getInfo()['logicalSessionTimeoutMinutes'])) {
+                    continue;
+                }
+
+                $command = new DatabaseCommand('admin', ['killAllSessions' => []]);
+                $command->execute($server);
+            } catch (ServerException $e) {
+                if (!in_array($e->getCode(), $ignoreErrorCodes)) {
+                    throw $e;
+                }
+            }
+        }
     }
 
     private function doTestCase(stdClass $test, string $schemaVersion, ?array $runOnRequirements = null, ?array $createEntities = null, ?array $initialData = null): void
     {
-        if (! $this->isSchemaVersionSupported($schemaVersion)) {
+        if (!$this->isSchemaVersionSupported($schemaVersion)) {
             Assert::markTestIncomplete(sprintf('Test format schema version "%s" is not supported', $schemaVersion));
         }
 
@@ -198,7 +224,10 @@ final class UnifiedTestRunner
 
         foreach ($test->operations as $o) {
             $operation = new Operation($o, $context);
-            $operation->assert();
+            try {
+                $operation->assert();
+            } catch (Throwable $e) {
+            }
         }
 
         $context->stopEventObservers();
@@ -216,6 +245,14 @@ final class UnifiedTestRunner
     }
 
     /**
+     * Checks is a test format schema version is supported.
+     */
+    private function isSchemaVersionSupported(string $schemaVersion): bool
+    {
+        return version_compare($schemaVersion, self::MIN_SCHEMA_VERSION, '>=') && version_compare($schemaVersion, self::MAX_SCHEMA_VERSION, '<=');
+    }
+
+    /**
      * Checks server version and topology requirements.
      *
      * Arguments for RunOnRequirement::isSatisfied() will be cached internally.
@@ -229,7 +266,7 @@ final class UnifiedTestRunner
         assertNotEmpty($runOnRequirements);
         assertContainsOnly('object', $runOnRequirements);
 
-        if (! isset($cachedIsSatisfiedArgs)) {
+        if (!isset($cachedIsSatisfiedArgs)) {
             $cachedIsSatisfiedArgs = [
                 $this->getServerVersion(),
                 $this->getTopology(),
@@ -255,11 +292,58 @@ final class UnifiedTestRunner
         ));
     }
 
+    private function getServerVersion(): string
+    {
+        $database = $this->internalClient->selectDatabase('admin');
+        $buildInfo = $database->command(['buildInfo' => 1])->toArray()[0];
+
+        if (isset($buildInfo->version) && is_string($buildInfo->version)) {
+            return preg_replace('#^(\d+\.\d+\.\d+).*$#', '\1', $buildInfo->version);
+        }
+
+        throw new UnexpectedValueException('Could not determine server version');
+    }
+
+    /**
+     * Return the topology type.
+     *
+     * @throws UnexpectedValueException if topology is neither single nor RS nor sharded
+     */
+    private function getTopology(): string
+    {
+        return match ($this->getPrimaryServer()->getType()) {
+            Server::TYPE_STANDALONE => RunOnRequirement::TOPOLOGY_SINGLE,
+            Server::TYPE_RS_PRIMARY => RunOnRequirement::TOPOLOGY_REPLICASET,
+            Server::TYPE_MONGOS => $this->isShardedClusterUsingReplicasets()
+                ? RunOnRequirement::TOPOLOGY_SHARDED_REPLICASET
+                : RunOnRequirement::TOPOLOGY_SHARDED,
+            Server::TYPE_LOAD_BALANCER => RunOnRequirement::TOPOLOGY_LOAD_BALANCED,
+            default => throw new UnexpectedValueException('Toplogy is neither single nor RS nor sharded'),
+        };
+    }
+
     private function getPrimaryServer(): Server
     {
         $manager = $this->internalClient->getManager();
 
         return $manager->selectServer(new ReadPreference(ReadPreference::PRIMARY));
+    }
+
+    private function isShardedClusterUsingReplicasets(): bool
+    {
+        $collection = $this->internalClient->selectCollection('config', 'shards');
+        $config = $collection->findOne();
+
+        if ($config === null) {
+            return false;
+        }
+
+        /**
+         * Use regular expression to distinguish between standalone or replicaset:
+         * Without a replicaset: "host" : "localhost:4100"
+         * With a replicaset: "host" : "dec6d8a7-9bc1-4c0e-960c-615f860b956f/localhost:4400,localhost:4401"
+         */
+        return preg_match('@^.*/.*:\d+@', $config['host']);
     }
 
     private function getServerParameters(): stdClass
@@ -280,45 +364,6 @@ final class UnifiedTestRunner
         return $cursor->toArray()[0];
     }
 
-    private function getServerVersion(): string
-    {
-        $database = $this->internalClient->selectDatabase('admin');
-        $buildInfo = $database->command(['buildInfo' => 1])->toArray()[0];
-
-        if (isset($buildInfo->version) && is_string($buildInfo->version)) {
-            return preg_replace('#^(\d+\.\d+\.\d+).*$#', '\1', $buildInfo->version);
-        }
-
-        throw new UnexpectedValueException('Could not determine server version');
-    }
-
-    /**
-     * Return the topology type.
-     *
-     * @throws UnexpectedValueException if topology is neither single nor RS nor sharded
-     */
-    private function getTopology(): string
-    {
-        switch ($this->getPrimaryServer()->getType()) {
-            case Server::TYPE_STANDALONE:
-                return RunOnRequirement::TOPOLOGY_SINGLE;
-
-            case Server::TYPE_RS_PRIMARY:
-                return RunOnRequirement::TOPOLOGY_REPLICASET;
-
-            case Server::TYPE_MONGOS:
-                return $this->isShardedClusterUsingReplicasets()
-                    ? RunOnRequirement::TOPOLOGY_SHARDED_REPLICASET
-                    : RunOnRequirement::TOPOLOGY_SHARDED;
-
-            case Server::TYPE_LOAD_BALANCER:
-                return RunOnRequirement::TOPOLOGY_LOAD_BALANCED;
-
-            default:
-                throw new UnexpectedValueException('Toplogy is neither single nor RS nor sharded');
-        }
-    }
-
     /**
      * Return whether the connection is authenticated.
      *
@@ -336,94 +381,6 @@ final class UnifiedTestRunner
         }
 
         throw new UnexpectedValueException('Could not determine authentication status');
-    }
-
-    /**
-     * Return whether serverless (i.e. proxy as mongos) is being utilized.
-     */
-    private function isServerless(): bool
-    {
-        $isServerless = getenv('MONGODB_IS_SERVERLESS');
-
-        return $isServerless !== false ? filter_var($isServerless, FILTER_VALIDATE_BOOLEAN) : false;
-    }
-
-    /**
-     * Checks is a test format schema version is supported.
-     */
-    private function isSchemaVersionSupported(string $schemaVersion): bool
-    {
-        return version_compare($schemaVersion, self::MIN_SCHEMA_VERSION, '>=') && version_compare($schemaVersion, self::MAX_SCHEMA_VERSION, '<=');
-    }
-
-    private function isShardedClusterUsingReplicasets(): bool
-    {
-        $collection = $this->internalClient->selectCollection('config', 'shards');
-        $config = $collection->findOne();
-
-        if ($config === null) {
-            return false;
-        }
-
-        /**
-         * Use regular expression to distinguish between standalone or replicaset:
-         * Without a replicaset: "host" : "localhost:4100"
-         * With a replicaset: "host" : "dec6d8a7-9bc1-4c0e-960c-615f860b956f/localhost:4400,localhost:4401"
-         */
-        return preg_match('@^.*/.*:\d+@', $config['host']);
-    }
-
-    /**
-     * Kill all sessions on the cluster.
-     *
-     * This will clean up any open transactions that may remain from a
-     * previously failed test. For sharded clusters, this command will be run
-     * on all mongos nodes.
-     *
-     * This method is a NOP if allowKillAllSessions is false.
-     */
-    private function killAllSessions(): void
-    {
-        static $ignoreErrorCodes = [
-            self::SERVER_ERROR_INTERRUPTED, // SERVER-38335
-            self::SERVER_ERROR_UNAUTHORIZED, // SERVER-54216
-        ];
-
-        if (! $this->allowKillAllSessions) {
-            return;
-        }
-
-        $manager = $this->internalClient->getManager();
-        $primary = $manager->selectServer(new ReadPreference(ReadPreference::PRIMARY));
-        $servers = $primary->getType() === Server::TYPE_MONGOS ? $manager->getServers() : [$primary];
-
-        foreach ($servers as $server) {
-            try {
-                /* Skip servers that do not support sessions instead of always
-                 * attempting the command and ignoring CommandNotFound(59) */
-                if (! isset($server->getInfo()['logicalSessionTimeoutMinutes'])) {
-                    continue;
-                }
-
-                $command = new DatabaseCommand('admin', ['killAllSessions' => []]);
-                $command->execute($server);
-            } catch (ServerException $e) {
-                if (! in_array($e->getCode(), $ignoreErrorCodes)) {
-                    throw $e;
-                }
-            }
-        }
-    }
-
-    private function assertOutcome(array $outcome): void
-    {
-        assertNotEmpty($outcome);
-        assertContainsOnly('object', $outcome);
-
-        foreach ($outcome as $data) {
-            $collectionData = new CollectionData($data);
-            $collectionData->assertOutcome($this->internalClient);
-        }
     }
 
     private function prepareInitialData(array $initialData): void
@@ -474,5 +431,45 @@ final class UnifiedTestRunner
                 return;
             }
         }
+    }
+
+    private function assertOutcome(array $outcome): void
+    {
+        assertNotEmpty($outcome);
+        assertContainsOnly('object', $outcome);
+
+        foreach ($outcome as $data) {
+            $collectionData = new CollectionData($data);
+            $collectionData->assertOutcome($this->internalClient);
+        }
+    }
+
+    private function doTearDown(bool $hasFailed): void
+    {
+        $this->entityMap = null;
+
+        if ($hasFailed) {
+            $this->killAllSessions();
+        }
+
+        $this->failPointObserver->stop();
+        $this->failPointObserver->disableFailPoints();
+
+        /* Manually invoking garbage collection since each test is prone to
+         * create cycles (perhaps due to EntityMap), which can leak and prevent
+         * sessions from being released back into the pool. */
+        gc_collect_cycles();
+    }
+
+    /**
+     * Defines a callable to receive the EntityMap after each test.
+     *
+     * This function is primarily used by the Atlas testing workload executor.
+     *
+     * @param callable(EntityMap):void $entityMapObserver
+     */
+    public function setEntityMapObserver(callable $entityMapObserver): void
+    {
+        $this->entityMapObserver = $entityMapObserver;
     }
 }

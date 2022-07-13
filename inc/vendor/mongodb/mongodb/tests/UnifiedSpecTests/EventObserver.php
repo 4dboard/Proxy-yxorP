@@ -44,7 +44,7 @@ final class EventObserver implements CommandSubscriber
      * @see https://github.com/mongodb/specifications/blob/master/source/command-monitoring/command-monitoring.rst#security
      * @var array
      */
-    private static $sensitiveCommands = [
+    private static array $sensitiveCommands = [
         'authenticate' => 1,
         'saslStart' => 1,
         'saslContinue' => 1,
@@ -63,14 +63,14 @@ final class EventObserver implements CommandSubscriber
      * @see https://github.com/mongodb/specifications/blob/master/source/command-monitoring/command-monitoring.rst#security
      * @var array
      */
-    private static $sensitiveCommandsWithSpeculativeAuthenticate = [
+    private static array $sensitiveCommandsWithSpeculativeAuthenticate = [
         'ismaster' => 1,
         'isMaster' => 1,
         'hello' => 1,
     ];
 
     /** @var array */
-    private static $supportedEvents = [
+    private static array $supportedEvents = [
         'commandStartedEvent' => CommandStartedEvent::class,
         'commandSucceededEvent' => CommandSucceededEvent::class,
         'commandFailedEvent' => CommandFailedEvent::class,
@@ -82,7 +82,7 @@ final class EventObserver implements CommandSubscriber
      *
      * @var array
      */
-    private static $unsupportedEvents = [
+    private static array $unsupportedEvents = [
         'poolCreatedEvent' => 1,
         'poolReadyEvent' => 1,
         'poolClearedEvent' => 1,
@@ -97,13 +97,13 @@ final class EventObserver implements CommandSubscriber
     ];
 
     /** @var array */
-    private $actualEvents = [];
+    private array $actualEvents = [];
 
     /** @var string */
-    private $clientId;
+    private string $clientId;
 
     /** @var Context */
-    private $context;
+    private Context $context;
 
     /**
      * The configureFailPoint command (used by failPoint and targetedFailPoint
@@ -111,13 +111,13 @@ final class EventObserver implements CommandSubscriber
      *
      * @var array
      */
-    private $ignoreCommands = ['configureFailPoint' => 1];
+    private array $ignoreCommands = ['configureFailPoint' => 1];
 
     /** @var array */
-    private $observeEvents = [];
+    private array $observeEvents = [];
 
     /** @var bool */
-    private $observeSensitiveCommands;
+    private bool $observeSensitiveCommands;
 
     public function __construct(array $observeEvents, array $ignoreCommands, bool $observeSensitiveCommands, string $clientId, Context $context)
     {
@@ -156,6 +156,52 @@ final class EventObserver implements CommandSubscriber
         $this->handleEvent($event);
     }
 
+    /** @param CommandFailedEvent|CommandStartedEvent|CommandSucceededEvent $event */
+    private function handleEvent(CommandFailedEvent|CommandSucceededEvent|CommandStartedEvent $event): void
+    {
+        if (!$this->context->isActiveClient($this->clientId)) {
+            return;
+        }
+
+        if (!is_object($event)) {
+            return;
+        }
+
+        if (!isset($this->observeEvents[get_class($event)])) {
+            return;
+        }
+
+        if (isset($this->ignoreCommands[$event->getCommandName()])) {
+            return;
+        }
+
+        if (!$this->observeSensitiveCommands && $this->isSensitiveCommand($event)) {
+            return;
+        }
+
+        $this->actualEvents[] = $event;
+    }
+
+    /** @param CommandFailedEvent|CommandStartedEvent|CommandSucceededEvent $event */
+    private function isSensitiveCommand(CommandFailedEvent|CommandSucceededEvent|CommandStartedEvent $event): bool
+    {
+        if (isset(self::$sensitiveCommands[$event->getCommandName()])) {
+            return true;
+        }
+
+        /* If the command or reply included a speculativeAuthenticate field,
+         * libmongoc will already have redacted it (CDRIVER-4000). Therefore, we
+         * can infer that the command was sensitive if its command or reply is
+         * empty. */
+        if (isset(self::$sensitiveCommandsWithSpeculativeAuthenticate[$event->getCommandName()])) {
+            $commandOrReply = $event instanceof CommandStartedEvent ? $event->getCommand() : $event->getReply();
+
+            return (array)$commandOrReply === [];
+        }
+
+        return false;
+    }
+
     /**
      * @see https://www.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandstarted.php
      */
@@ -187,7 +233,7 @@ final class EventObserver implements CommandSubscriber
         $lsids = [];
 
         foreach (array_reverse($this->actualEvents) as $event) {
-            if (! $event instanceof CommandStartedEvent) {
+            if (!$event instanceof CommandStartedEvent) {
                 continue;
             }
 
@@ -215,7 +261,7 @@ final class EventObserver implements CommandSubscriber
             [$expectedEvent, $actualEvent] = $events;
 
             assertIsObject($expectedEvent);
-            $expectedEvent = (array) $expectedEvent;
+            $expectedEvent = (array)$expectedEvent;
             assertCount(1, $expectedEvent);
 
             $type = key($expectedEvent);
@@ -310,51 +356,5 @@ final class EventObserver implements CommandSubscriber
             assertIsBool($expected->hasServiceId);
             assertSame($actual->getServiceId() !== null, $expected->hasServiceId, $message . ': hasServiceId matches');
         }
-    }
-
-    /** @param CommandStartedEvent|CommandSucceededEvent|CommandFailedEvent $event */
-    private function handleEvent($event): void
-    {
-        if (! $this->context->isActiveClient($this->clientId)) {
-            return;
-        }
-
-        if (! is_object($event)) {
-            return;
-        }
-
-        if (! isset($this->observeEvents[get_class($event)])) {
-            return;
-        }
-
-        if (isset($this->ignoreCommands[$event->getCommandName()])) {
-            return;
-        }
-
-        if (! $this->observeSensitiveCommands && $this->isSensitiveCommand($event)) {
-            return;
-        }
-
-        $this->actualEvents[] = $event;
-    }
-
-    /** @param CommandStartedEvent|CommandSucceededEvent|CommandFailedEvent $event */
-    private function isSensitiveCommand($event): bool
-    {
-        if (isset(self::$sensitiveCommands[$event->getCommandName()])) {
-            return true;
-        }
-
-        /* If the command or reply included a speculativeAuthenticate field,
-         * libmongoc will already have redacted it (CDRIVER-4000). Therefore, we
-         * can infer that the command was sensitive if its command or reply is
-         * empty. */
-        if (isset(self::$sensitiveCommandsWithSpeculativeAuthenticate[$event->getCommandName()])) {
-            $commandOrReply = $event instanceof CommandStartedEvent ? $event->getCommand() : $event->getReply();
-
-            return (array) $commandOrReply === [];
-        }
-
-        return false;
     }
 }

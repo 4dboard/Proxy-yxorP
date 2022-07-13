@@ -2,16 +2,21 @@
 
 namespace League\ColorExtractor;
 
+use JetBrains\PhpStorm\ArrayShape;
+use JetBrains\PhpStorm\Pure;
+use SplFixedArray;
+use SplPriorityQueue;
+
 class ColorExtractor
 {
-    /** @var \League\ColorExtractor\Palette */
-    protected $palette;
+    /** @var Palette */
+    protected Palette $palette;
 
-    /** @var \SplFixedArray */
-    protected $sortedColors;
+    /** @var SplFixedArray */
+    protected SplFixedArray $sortedColors;
 
     /**
-     * @param \League\ColorExtractor\Palette $palette
+     * @param Palette $palette
      */
     public function __construct(Palette $palette)
     {
@@ -23,7 +28,7 @@ class ColorExtractor
      *
      * @return array
      */
-    public function extract($colorCount = 1)
+    public function extract(int $colorCount = 1): array
     {
         if (!$this->isInitialized()) {
             $this->initialize();
@@ -35,15 +40,15 @@ class ColorExtractor
     /**
      * @return bool
      */
-    protected function isInitialized()
+    protected function isInitialized(): bool
     {
         return $this->sortedColors !== null;
     }
 
     protected function initialize()
     {
-        $queue = new \SplPriorityQueue();
-        $this->sortedColors = new \SplFixedArray(count($this->palette));
+        $queue = new SplPriorityQueue();
+        $this->sortedColors = new SplFixedArray(count($this->palette));
 
         $i = 0;
         foreach ($this->palette as $color => $count) {
@@ -66,19 +71,111 @@ class ColorExtractor
     }
 
     /**
-     * @param \SplFixedArray $colors
-     * @param int            $limit
-     * @param int            $maxDelta
+     * @param int $color
      *
      * @return array
      */
-    protected static function mergeColors(\SplFixedArray $colors, $limit, $maxDelta)
+    protected static function intColorToLab(int $color): array
+    {
+        return self::xyzToLab(
+            self::srgbToXyz(
+                self::rgbToSrgb(
+                    [
+                        'R' => ($color >> 16) & 0xFF,
+                        'G' => ($color >> 8) & 0xFF,
+                        'B' => $color & 0xFF,
+                    ]
+                )
+            )
+        );
+    }
+
+    /**
+     * @param array $xyz
+     *
+     * @return array
+     */
+    #[Pure] #[ArrayShape(['L' => "float|int", 'a' => "float|int", 'b' => "float|int"])] protected static function xyzToLab(array $xyz): array
+    {
+        //http://en.wikipedia.org/wiki/Illuminant_D65#Definition
+        $Xn = .95047;
+        $Yn = 1;
+        $Zn = 1.08883;
+
+        // http://en.wikipedia.org/wiki/Lab_color_space#CIELAB-CIEXYZ_conversions
+        return [
+            'L' => 116 * self::xyzToLabStep($xyz['Y'] / $Yn) - 16,
+            'a' => 500 * (self::xyzToLabStep($xyz['X'] / $Xn) - self::xyzToLabStep($xyz['Y'] / $Yn)),
+            'b' => 200 * (self::xyzToLabStep($xyz['Y'] / $Yn) - self::xyzToLabStep($xyz['Z'] / $Zn)),
+        ];
+    }
+
+    /**
+     * @param float $value
+     *
+     * @return float
+     */
+    protected static function xyzToLabStep(float $value): float|int
+    {
+        return $value > 216 / 24389 ? pow($value, 1 / 3) : 841 * $value / 108 + 4 / 29;
+    }
+
+    /**
+     * @param array $rgb
+     *
+     * @return array
+     */
+    #[ArrayShape(['X' => "float", 'Y' => "float", 'Z' => "float"])] protected static function srgbToXyz(array $rgb): array
+    {
+        return [
+            'X' => (.4124564 * $rgb['R']) + (.3575761 * $rgb['G']) + (.1804375 * $rgb['B']),
+            'Y' => (.2126729 * $rgb['R']) + (.7151522 * $rgb['G']) + (.0721750 * $rgb['B']),
+            'Z' => (.0193339 * $rgb['R']) + (.1191920 * $rgb['G']) + (.9503041 * $rgb['B']),
+        ];
+    }
+
+    /**
+     * @param array $rgb
+     *
+     * @return array
+     */
+    #[Pure] #[ArrayShape(['R' => "float", 'G' => "float", 'B' => "float"])] protected static function rgbToSrgb(array $rgb): array
+    {
+        return [
+            'R' => self::rgbToSrgbStep($rgb['R']),
+            'G' => self::rgbToSrgbStep($rgb['G']),
+            'B' => self::rgbToSrgbStep($rgb['B']),
+        ];
+    }
+
+    /**
+     * @param int $value
+     *
+     * @return float
+     */
+    protected static function rgbToSrgbStep(int $value): float
+    {
+        $value /= 255;
+
+        return $value <= .03928 ?
+            $value / 12.92 :
+            pow(($value + .055) / 1.055, 2.4);
+    }
+
+    /**
+     * @param SplFixedArray $colors
+     * @param int $limit
+     * @param int $maxDelta
+     *
+     * @return array
+     */
+    protected static function mergeColors(SplFixedArray $colors, int $limit, int $maxDelta): array
     {
         $limit = min(count($colors), $limit);
         if ($limit === 1) {
             return [$colors[0]];
         }
-        $labCache = new \SplFixedArray($limit - 1);
+        $labCache = new SplFixedArray($limit - 1);
         $mergedColors = [];
 
         foreach ($colors as $color) {
@@ -116,7 +213,7 @@ class ColorExtractor
      *
      * @return float
      */
-    protected static function ciede2000DeltaE($firstLabColor, $secondLabColor)
+    protected static function ciede2000DeltaE(array $firstLabColor, array $secondLabColor): float
     {
         $C1 = sqrt(pow($firstLabColor['a'], 2) + pow($firstLabColor['b'], 2));
         $C2 = sqrt(pow($secondLabColor['a'], 2) + pow($secondLabColor['b'], 2));
@@ -179,97 +276,5 @@ class ColorExtractor
             pow($HpDelta / $Sh, 2) +
             $Rt * ($CpDelta / $Sc) * ($HpDelta / $Sh)
         );
-    }
-
-    /**
-     * @param int $color
-     *
-     * @return array
-     */
-    protected static function intColorToLab($color)
-    {
-        return self::xyzToLab(
-            self::srgbToXyz(
-                self::rgbToSrgb(
-                    [
-                        'R' => ($color >> 16) & 0xFF,
-                        'G' => ($color >> 8) & 0xFF,
-                        'B' => $color & 0xFF,
-                    ]
-                )
-            )
-        );
-    }
-
-    /**
-     * @param int $value
-     *
-     * @return float
-     */
-    protected static function rgbToSrgbStep($value)
-    {
-        $value /= 255;
-
-        return $value <= .03928 ?
-            $value / 12.92 :
-            pow(($value + .055) / 1.055, 2.4);
-    }
-
-    /**
-     * @param array $rgb
-     *
-     * @return array
-     */
-    protected static function rgbToSrgb($rgb)
-    {
-        return [
-            'R' => self::rgbToSrgbStep($rgb['R']),
-            'G' => self::rgbToSrgbStep($rgb['G']),
-            'B' => self::rgbToSrgbStep($rgb['B']),
-        ];
-    }
-
-    /**
-     * @param array $rgb
-     *
-     * @return array
-     */
-    protected static function srgbToXyz($rgb)
-    {
-        return [
-            'X' => (.4124564 * $rgb['R']) + (.3575761 * $rgb['G']) + (.1804375 * $rgb['B']),
-            'Y' => (.2126729 * $rgb['R']) + (.7151522 * $rgb['G']) + (.0721750 * $rgb['B']),
-            'Z' => (.0193339 * $rgb['R']) + (.1191920 * $rgb['G']) + (.9503041 * $rgb['B']),
-        ];
-    }
-
-    /**
-     * @param float $value
-     *
-     * @return float
-     */
-    protected static function xyzToLabStep($value)
-    {
-        return $value > 216 / 24389 ? pow($value, 1 / 3) : 841 * $value / 108 + 4 / 29;
-    }
-
-    /**
-     * @param array $xyz
-     *
-     * @return array
-     */
-    protected static function xyzToLab($xyz)
-    {
-        //http://en.wikipedia.org/wiki/Illuminant_D65#Definition
-        $Xn = .95047;
-        $Yn = 1;
-        $Zn = 1.08883;
-
-        // http://en.wikipedia.org/wiki/Lab_color_space#CIELAB-CIEXYZ_conversions
-        return [
-            'L' => 116 * self::xyzToLabStep($xyz['Y'] / $Yn) - 16,
-            'a' => 500 * (self::xyzToLabStep($xyz['X'] / $Xn) - self::xyzToLabStep($xyz['Y'] / $Yn)),
-            'b' => 200 * (self::xyzToLabStep($xyz['Y'] / $Yn) - self::xyzToLabStep($xyz['Z'] / $Zn)),
-        ];
     }
 }

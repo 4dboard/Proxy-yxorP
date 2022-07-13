@@ -17,6 +17,7 @@
 
 namespace MongoDB\GridFS;
 
+use JetBrains\PhpStorm\Pure;
 use MongoDB\BSON\UTCDateTime;
 use stdClass;
 use function explode;
@@ -44,13 +45,27 @@ class StreamWrapper
     public $context;
 
     /** @var string|null */
-    private $mode;
+    private ?string $mode;
 
     /** @var string|null */
-    private $protocol;
+    private ?string $protocol;
 
     /** @var ReadableStream|WritableStream|null */
-    private $stream;
+    private null|ReadableStream|WritableStream $stream;
+
+    /**
+     * Register the GridFS stream wrapper.
+     *
+     * @param string $protocol Protocol to use for stream_wrapper_register()
+     */
+    public static function register(string $protocol = 'gridfs')
+    {
+        if (in_array($protocol, stream_get_wrappers())) {
+            stream_wrapper_unregister($protocol);
+        }
+
+        stream_wrapper_register($protocol, static::class, STREAM_IS_URL);
+    }
 
     public function __destruct()
     {
@@ -65,23 +80,9 @@ class StreamWrapper
      *
      * @return stdClass
      */
-    public function getFile()
+    #[Pure] public function getFile(): stdClass
     {
         return $this->stream->getFile();
-    }
-
-    /**
-     * Register the GridFS stream wrapper.
-     *
-     * @param string $protocol Protocol to use for stream_wrapper_register()
-     */
-    public static function register($protocol = 'gridfs')
-    {
-        if (in_array($protocol, stream_get_wrappers())) {
-            stream_wrapper_unregister($protocol);
-        }
-
-        stream_wrapper_register($protocol, static::class, STREAM_IS_URL);
     }
 
     /**
@@ -91,7 +92,7 @@ class StreamWrapper
      */
     public function stream_close()
     {
-        if (! $this->stream) {
+        if (!$this->stream) {
             return;
         }
 
@@ -104,9 +105,9 @@ class StreamWrapper
      * @see http://php.net/manual/en/streamwrapper.stream-eof.php
      * @return boolean
      */
-    public function stream_eof()
+    #[Pure] public function stream_eof(): bool
     {
-        if (! $this->stream instanceof ReadableStream) {
+        if (!$this->stream instanceof ReadableStream) {
             return false;
         }
 
@@ -117,13 +118,13 @@ class StreamWrapper
      * Opens the stream.
      *
      * @see http://php.net/manual/en/streamwrapper.stream-open.php
-     * @param string  $path       Path to the file resource
-     * @param string  $mode       Mode used to open the file (only "r" and "w" are supported)
-     * @param integer $options    Additional flags set by the streams API
-     * @param string  $openedPath Not used
+     * @param string $path Path to the file resource
+     * @param string $mode Mode used to open the file (only "r" and "w" are supported)
+     * @param integer $options Additional flags set by the streams API
+     * @param string $openedPath Not used
      * @return boolean
      */
-    public function stream_open($path, $mode, $options, &$openedPath)
+    public function stream_open(string $path, string $mode, int $options, string &$openedPath): bool
     {
         $this->initProtocol($path);
         $this->mode = $mode;
@@ -140,6 +141,55 @@ class StreamWrapper
     }
 
     /**
+     * Initialize the protocol from the given path.
+     *
+     * @param string $path
+     * @see StreamWrapper::stream_open()
+     */
+    private function initProtocol(string $path)
+    {
+        $parts = explode('://', $path, 2);
+        $this->protocol = $parts[0] ?: 'gridfs';
+    }
+
+    /**
+     * Initialize the internal stream for reading.
+     *
+     * @return boolean
+     * @see StreamWrapper::stream_open()
+     */
+    private function initReadableStream(): bool
+    {
+        $context = stream_context_get_options($this->context);
+
+        $this->stream = new ReadableStream(
+            $context[$this->protocol]['collectionWrapper'],
+            $context[$this->protocol]['file']
+        );
+
+        return true;
+    }
+
+    /**
+     * Initialize the internal stream for writing.
+     *
+     * @return boolean
+     * @see StreamWrapper::stream_open()
+     */
+    private function initWritableStream(): bool
+    {
+        $context = stream_context_get_options($this->context);
+
+        $this->stream = new WritableStream(
+            $context[$this->protocol]['collectionWrapper'],
+            $context[$this->protocol]['filename'],
+            $context[$this->protocol]['options']
+        );
+
+        return true;
+    }
+
+    /**
      * Read bytes from the stream.
      *
      * Note: this method may return a string smaller than the requested length
@@ -149,9 +199,9 @@ class StreamWrapper
      * @param integer $length Number of bytes to read
      * @return string
      */
-    public function stream_read($length)
+    public function stream_read(int $length): string
     {
-        if (! $this->stream instanceof ReadableStream) {
+        if (!$this->stream instanceof ReadableStream) {
             return '';
         }
 
@@ -166,7 +216,7 @@ class StreamWrapper
      * @param integer $whence One of SEEK_SET, SEEK_CUR, or SEEK_END
      * @return boolean True if the position was updated and false otherwise
      */
-    public function stream_seek($offset, $whence = SEEK_SET)
+    public function stream_seek(int $offset, int $whence = SEEK_SET): bool
     {
         $size = $this->stream->getSize();
 
@@ -198,7 +248,7 @@ class StreamWrapper
      * @see http://php.net/manual/en/streamwrapper.stream-stat.php
      * @return array
      */
-    public function stream_stat()
+    public function stream_stat(): array
     {
         $stat = $this->getStatTemplate();
 
@@ -223,12 +273,38 @@ class StreamWrapper
     }
 
     /**
+     * Returns a stat template with default values.
+     *
+     * @return array
+     */
+    private function getStatTemplate(): array
+    {
+        return [
+            // phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline
+            0 => 0, 'dev' => 0,
+            1 => 0, 'ino' => 0,
+            2 => 0, 'mode' => 0,
+            3 => 0, 'nlink' => 0,
+            4 => 0, 'uid' => 0,
+            5 => 0, 'gid' => 0,
+            6 => -1, 'rdev' => -1,
+            7 => 0, 'size' => 0,
+            8 => 0, 'atime' => 0,
+            9 => 0, 'mtime' => 0,
+            10 => 0, 'ctime' => 0,
+            11 => -1, 'blksize' => -1,
+            12 => -1, 'blocks' => -1,
+            // phpcs:enable
+        ];
+    }
+
+    /**
      * Return the current position of the stream.
      *
      * @see http://php.net/manual/en/streamwrapper.stream-tell.php
      * @return integer The current position of the stream
      */
-    public function stream_tell()
+    public function stream_tell(): int
     {
         return $this->stream->tell();
     }
@@ -240,87 +316,12 @@ class StreamWrapper
      * @param string $data Data to write
      * @return integer The number of bytes written
      */
-    public function stream_write($data)
+    public function stream_write(string $data): int
     {
-        if (! $this->stream instanceof WritableStream) {
+        if (!$this->stream instanceof WritableStream) {
             return 0;
         }
 
         return $this->stream->writeBytes($data);
-    }
-
-    /**
-     * Returns a stat template with default values.
-     *
-     * @return array
-     */
-    private function getStatTemplate()
-    {
-        return [
-            // phpcs:disable Squiz.Arrays.ArrayDeclaration.IndexNoNewline
-            0  => 0,  'dev'     => 0,
-            1  => 0,  'ino'     => 0,
-            2  => 0,  'mode'    => 0,
-            3  => 0,  'nlink'   => 0,
-            4  => 0,  'uid'     => 0,
-            5  => 0,  'gid'     => 0,
-            6  => -1, 'rdev'    => -1,
-            7  => 0,  'size'    => 0,
-            8  => 0,  'atime'   => 0,
-            9  => 0,  'mtime'   => 0,
-            10 => 0,  'ctime'   => 0,
-            11 => -1, 'blksize' => -1,
-            12 => -1, 'blocks'  => -1,
-            // phpcs:enable
-        ];
-    }
-
-    /**
-     * Initialize the protocol from the given path.
-     *
-     * @see StreamWrapper::stream_open()
-     * @param string $path
-     */
-    private function initProtocol($path)
-    {
-        $parts = explode('://', $path, 2);
-        $this->protocol = $parts[0] ?: 'gridfs';
-    }
-
-    /**
-     * Initialize the internal stream for reading.
-     *
-     * @see StreamWrapper::stream_open()
-     * @return boolean
-     */
-    private function initReadableStream()
-    {
-        $context = stream_context_get_options($this->context);
-
-        $this->stream = new ReadableStream(
-            $context[$this->protocol]['collectionWrapper'],
-            $context[$this->protocol]['file']
-        );
-
-        return true;
-    }
-
-    /**
-     * Initialize the internal stream for writing.
-     *
-     * @see StreamWrapper::stream_open()
-     * @return boolean
-     */
-    private function initWritableStream()
-    {
-        $context = stream_context_get_options($this->context);
-
-        $this->stream = new WritableStream(
-            $context[$this->protocol]['collectionWrapper'],
-            $context[$this->protocol]['filename'],
-            $context[$this->protocol]['options']
-        );
-
-        return true;
     }
 }

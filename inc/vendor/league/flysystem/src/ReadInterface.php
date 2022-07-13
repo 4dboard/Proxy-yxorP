@@ -11,7 +11,7 @@ interface ReadInterface
      *
      * @return array|bool|null
      */
-    public function has($path);
+    public function has($path): bool|array|null;
 
     /**
      * Read a file.
@@ -20,7 +20,7 @@ interface ReadInterface
      *
      * @return array|false
      */
-    public function read($path);
+    public function read($path): bool|array;
 
     /**
      * Read a file as a stream.
@@ -29,17 +29,17 @@ interface ReadInterface
      *
      * @return array|false
      */
-    public function readStream($path);
+    public function readStream($path): bool|array;
 
     /**
      * List contents of a directory.
      *
      * @param string $directory
-     * @param bool   $recursive
+     * @param bool $recursive
      *
      * @return array
      */
-    public function listContents($directory = '', $recursive = false);
+    public function listContents($directory = '', $recursive = false): array;
 
     /**
      * Get all the meta data of a file or directory.
@@ -48,7 +48,7 @@ interface ReadInterface
      *
      * @return array|false
      */
-    public function getMetadata($path);
+    public function getMetadata($path): bool|array;
 
     /**
      * Get the size of a file.
@@ -57,7 +57,7 @@ interface ReadInterface
      *
      * @return array|false
      */
-    public function getSize($path);
+    public function getSize($path): bool|array;
 
     /**
      * Get the mimetype of a file.
@@ -66,7 +66,7 @@ interface ReadInterface
      *
      * @return array|false
      */
-    public function getMimetype($path);
+    public function getMimetype($path): bool|array;
 
     /**
      * Get the last modified time of a file as a timestamp.
@@ -75,7 +75,7 @@ interface ReadInterface
      *
      * @return array|false
      */
-    public function getTimestamp($path);
+    public function getTimestamp($path): bool|array;
 
     /**
      * Get the visibility of a file.
@@ -84,5 +84,5 @@ interface ReadInterface
      *
      * @return array|false
      */
-    public function getVisibility($path);
+    public function getVisibility($path): bool|array;
 }

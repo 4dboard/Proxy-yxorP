@@ -10,14 +10,14 @@ class RequestContext
     /**
      * The request resolver instance.
      *
-     * @var \yxorP\inc\snag\Request\ResolverInterface
+     * @var ResolverInterface
      */
-    protected $resolver;
+    protected ResolverInterface $resolver;
 
     /**
      * Create a new request context callback instance.
      *
-     * @param \yxorP\inc\snag\Request\ResolverInterface $resolver the request resolver instance
+     * @param ResolverInterface $resolver the request resolver instance
      *
      * @return void
      */
@@ -29,7 +29,7 @@ class RequestContext
     /**
      * Execute the request context callback.
      *
-     * @param \yxorP\inc\snag\Report $report the snag report instance
+     * @param Report $report the snag report instance
      *
      * @return void
      */

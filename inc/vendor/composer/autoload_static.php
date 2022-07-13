@@ -4,120 +4,122 @@
 
 namespace Composer\Autoload;
 
+use Closure;
+
 class ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1
 {
-    public static $files = array (
+    public static array $files = array(
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '7aed44d824e149ce152c0fb82af9379a' => __DIR__ . '/..' . '/colinodell/json5/src/global.php',
         '3a37ebac017bc098e9a86b35401e7a68' => __DIR__ . '/..' . '/mongodb/mongodb/src/functions.php',
     );
 
-    public static $prefixLengthsPsr4 = array (
-        'Z' => 
-        array (
-            'ZipStream\\' => 10,
-        ),
-        'S' => 
-        array (
-            'Symfony\\Polyfill\\Php80\\' => 23,
-        ),
-        'P' => 
-        array (
-            'PHPMailer\\PHPMailer\\' => 20,
-        ),
-        'M' => 
-        array (
-            'MongoDB\\' => 8,
-        ),
-        'L' => 
-        array (
-            'League\\MimeTypeDetection\\' => 25,
-            'League\\Flysystem\\' => 17,
-        ),
-        'J' => 
-        array (
-            'Jean85\\' => 7,
-        ),
-        'F' => 
-        array (
-            'Firebase\\JWT\\' => 13,
-        ),
-        'C' => 
-        array (
-            'ColorThief\\' => 11,
-            'ColinODell\\Json5\\' => 17,
-        ),
+    public static array $prefixLengthsPsr4 = array(
+        'Z' =>
+            array(
+                'ZipStream\\' => 10,
+            ),
+        'S' =>
+            array(
+                'Symfony\\Polyfill\\Php80\\' => 23,
+            ),
+        'P' =>
+            array(
+                'PHPMailer\\PHPMailer\\' => 20,
+            ),
+        'M' =>
+            array(
+                'MongoDB\\' => 8,
+            ),
+        'L' =>
+            array(
+                'League\\MimeTypeDetection\\' => 25,
+                'League\\Flysystem\\' => 17,
+            ),
+        'J' =>
+            array(
+                'Jean85\\' => 7,
+            ),
+        'F' =>
+            array(
+                'Firebase\\JWT\\' => 13,
+            ),
+        'C' =>
+            array(
+                'ColorThief\\' => 11,
+                'ColinODell\\Json5\\' => 17,
+            ),
     );
 
-    public static $prefixDirsPsr4 = array (
-        'ZipStream\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
-        ),
-        'Symfony\\Polyfill\\Php80\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-        ),
-        'PHPMailer\\PHPMailer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-        ),
-        'MongoDB\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
-        ),
-        'League\\MimeTypeDetection\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
-        ),
-        'League\\Flysystem\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/league/flysystem/src',
-        ),
-        'Jean85\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
-        ),
-        'Firebase\\JWT\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
-        ),
-        'ColorThief\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/lib/ColorThief',
-        ),
-        'ColinODell\\Json5\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/colinodell/json5/src',
-        ),
+    public static array $prefixDirsPsr4 = array(
+        'ZipStream\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
+            ),
+        'Symfony\\Polyfill\\Php80\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+            ),
+        'PHPMailer\\PHPMailer\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+            ),
+        'MongoDB\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/mongodb/mongodb/src',
+            ),
+        'League\\MimeTypeDetection\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
+            ),
+        'League\\Flysystem\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/league/flysystem/src',
+            ),
+        'Jean85\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/jean85/pretty-package-versions/src',
+            ),
+        'Firebase\\JWT\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
+            ),
+        'ColorThief\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/lib/ColorThief',
+            ),
+        'ColinODell\\Json5\\' =>
+            array(
+                0 => __DIR__ . '/..' . '/colinodell/json5/src',
+            ),
     );
 
-    public static $fallbackDirsPsr4 = array (
+    public static array $fallbackDirsPsr4 = array(
         0 => __DIR__ . '/..' . '/league/color-extractor/src',
     );
 
-    public static $prefixesPsr0 = array (
-        'c' => 
-        array (
-            'claviska' => 
-            array (
-                0 => __DIR__ . '/..' . '/claviska/simpleimage/src',
+    public static array $prefixesPsr0 = array(
+        'c' =>
+            array(
+                'claviska' =>
+                    array(
+                        0 => __DIR__ . '/..' . '/claviska/simpleimage/src',
+                    ),
             ),
-        ),
-        'P' => 
-        array (
-            'ParsedownExtra' => 
-            array (
-                0 => __DIR__ . '/..' . '/erusev/parsedown-extra',
+        'P' =>
+            array(
+                'ParsedownExtra' =>
+                    array(
+                        0 => __DIR__ . '/..' . '/erusev/parsedown-extra',
+                    ),
+                'Parsedown' =>
+                    array(
+                        0 => __DIR__ . '/..' . '/erusev/parsedown',
+                    ),
             ),
-            'Parsedown' => 
-            array (
-                0 => __DIR__ . '/..' . '/erusev/parsedown',
-            ),
-        ),
     );
 
-    public static $classMap = array (
+    public static array $classMap = array(
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'ColinODell\\Json5\\Json5Decoder' => __DIR__ . '/..' . '/colinodell/json5/src/Json5Decoder.php',
         'ColinODell\\Json5\\SyntaxError' => __DIR__ . '/..' . '/colinodell/json5/src/SyntaxError.php',
@@ -310,9 +312,9 @@ class ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1
         'claviska\\SimpleImage' => __DIR__ . '/..' . '/claviska/simpleimage/src/claviska/SimpleImage.php',
     );
 
-    public static function getInitializer(ClassLoader $loader)
+    public static function getInitializer(ClassLoader $loader): bool|Closure|null
     {
-        return \Closure::bind(function () use ($loader) {
+        return Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1::$prefixDirsPsr4;
             $loader->fallbackDirsPsr4 = ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1::$fallbackDirsPsr4;

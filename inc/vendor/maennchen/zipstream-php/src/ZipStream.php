@@ -95,39 +95,39 @@ class ZipStream
      *
      * @var array
      */
-    public $opt = array();
+    public array $opt = array();
 
     /**
      * @var array
      */
-    public $files = array();
+    public array $files = array();
 
     /**
      * @var integer
      */
-    public $cdr_ofs = 0;
+    public int $cdr_ofs = 0;
 
     /**
      * @var integer
      */
-    public $ofs = 0;
+    public int $ofs = 0;
 
     /**
      * @var bool
      */
-    protected $need_headers;
+    protected bool $need_headers;
 
     /**
      * @var null|String
      */
-    protected $output_name;
+    protected ?string $output_name;
 
     /**
      * Create a new ZipStream object.
      *
      * Parameters:
      *
-     * @param String $name - Name of output file (optional).
+     * @param String|null $name - Name of output file (optional).
      * @param array $opt - Hash of archive options (optional, see "Archive Options"
      *           below).
      *
@@ -190,7 +190,7 @@ class ZipStream
      * headers by default.  This behavior is to allow software to send its
      * own headers (including the filename), and still use this library.
      */
-    public function __construct($name = null, $opt = array())
+    public function __construct(string $name = null, array $opt = array())
     {
 
         $defaults = array(
@@ -224,7 +224,6 @@ class ZipStream
      * @param String $name - name of file in archive (including directory path).
      * @param String $path - path to file on disk (note: paths should be encoded using
      *          UNIX-style forward slashes -- e.g '/path/to/some/file').
-     * @param String $storage_method - storage method for the file: either 'deflate' or 'store'
      * @param array $opt - Hash of options for file (optional, see "File Options"
      *          below).
      *
@@ -247,11 +246,12 @@ class ZipStream
      *     'comment' => 'this is a comment about bar.jpg',
      *   ));
      *
+     * @param String $storage_method - storage method for the file: either 'deflate' or 'store'
      * @return void
-     * @throws \ZipStream\Exception\FileNotFoundException
-     * @throws \ZipStream\Exception\FileNotReadableException
+     * @throws FileNotFoundException
+     * @throws FileNotReadableException
      */
-    public function addFileFromPath($name, $path, $opt = array(), $storage_method = "deflate")
+    public function addFileFromPath(string $name, string $path, array $opt = array(), string $storage_method = "deflate")
     {
         if (!is_readable($path)) {
             if (!file_exists($path)) {
@@ -262,7 +262,10 @@ class ZipStream
 
         if ($this->isLargeFile($path)) {
             // file is too large to be read into memory; add progressively
-            $this->addLargeFile($name, $path, $opt);
+            try {
+                $this->addLargeFile($name, $path, $opt);
+            } catch (InvalidOptionException $e) {
+            }
         } else {
             // file is small enough to read into memory; read file contents and
             // handle with addFile()
@@ -278,7 +281,7 @@ class ZipStream
      * @param string $path
      * @return Boolean
      */
-    protected function isLargeFile($path)
+    protected function isLargeFile(string $path): bool
     {
         $st = stat($path);
         return ($this->opt[self::OPTION_LARGE_FILE_SIZE] > 0) && ($st['size'] > $this->opt[self::OPTION_LARGE_FILE_SIZE]);
@@ -291,9 +294,9 @@ class ZipStream
      * @param String $path
      * @param array $opt
      * @return void
-     * @throws \ZipStream\Exception\InvalidOptionException
+     * @throws InvalidOptionException
      */
-    protected function addLargeFile($name, $path, $opt = array())
+    protected function addLargeFile(string $name, string $path, array $opt = array())
     {
         $st = stat($path);
         $block_size = 1048576; // process in 1 megabyte chunks
@@ -373,15 +376,15 @@ class ZipStream
      * Create and send zip header for this file.
      *
      * @param String $name
-     * @param Array $opt
+     * @param array $opt
      * @param Integer $meth
      * @param string $crc
      * @param Integer $zlen
      * @param Integer $len
-     * @param Hex $genb
+     * @param int|Hex $genb
      * @return Integer $num_bytes_written
      */
-    protected function addFileHeader($name, &$opt, $meth, $crc, $zlen, $len, $genb = 0x00)
+    protected function addFileHeader(string $name, array &$opt, int $meth, string $crc, int $zlen, int $len, int|Hex $genb = 0x00): int
     {
         // strip leading slashes from file name
         // (fixes bug in windows archive viewer)
@@ -477,7 +480,7 @@ class ZipStream
      * @param Integer $when
      * @return Integer DOS Timestamp
      */
-    protected final function dostime($when)
+    protected final function dostime(int $when): int
     {
         // get date array for timestamp
         $d = getdate($when);
@@ -508,7 +511,7 @@ class ZipStream
      * @param array $fields
      * @return string
      */
-    protected function packFields($fields)
+    protected function packFields(array $fields): string
     {
         list($fmt, $args) = array(
             '',
@@ -534,7 +537,7 @@ class ZipStream
      * @param String $str
      * @return void
      */
-    protected function send($str)
+    protected function send(string $str)
     {
         if ($this->need_headers) {
             $this->sendHttpHeaders();
@@ -588,16 +591,16 @@ class ZipStream
      * Save file attributes for trailing CDR record.
      *
      * @param String $name
-     * @param Array $opt
+     * @param array $opt
      * @param Integer $meth
      * @param string $crc
      * @param Integer $zlen
      * @param Integer $len
      * @param Integer $rec_len
-     * @param Hex $genb
-     * @return Integer $num_bytes_written
+     * @param int|Hex $genb
+     * @return void $num_bytes_written
      */
-    private function addToCdr($name, $opt, $meth, $crc, $zlen, $len, $rec_len, $genb = 0x00)
+    private function addToCdr(string $name, array $opt, int $meth, string $crc, int $zlen, int $len, int $rec_len, int|Hex $genb = 0x00)
     {
         $this->files[] = array(
             $name,
@@ -642,7 +645,7 @@ class ZipStream
      *     'comment' => 'this is a comment about bar.jpg',
      *   ));
      */
-    public function addFile($name, $data, $opt = array(), $storage_method = 'deflate')
+    public function addFile(string $name, string $data, array $opt = array(), string $storage_method = 'deflate')
     {
         // compress data
         $meth = $this->getStorageConstant($storage_method);
@@ -662,7 +665,7 @@ class ZipStream
         $this->send($zdata);
     }
 
-    protected function getStorageConstant($storage_method)
+    protected function getStorageConstant($storage_method): int
     {
         return $storage_method == self::METHOD_STORE ? self::NOCOMPRESS : self::COMPRESS;
     }
@@ -689,10 +692,11 @@ class ZipStream
      *
      *   // add a file named 'streamfile.txt' from the content of the stream
      *   $x->addFile_from_stream('streamfile.txt', $fp);
-     *
+     * @param string $storage_method
      * @return void
+     * @throws StreamNotReadableException
      */
-    public function addFileFromStream($name, $stream, $opt = array(), $storage_method = self::METHOD_DEFLATE)
+    public function addFileFromStream(string $name, $stream, array $opt = array(), $storage_method = self::METHOD_DEFLATE)
     {
         $block_size = 1048576; // process in 1 megabyte chunks
         $algo = 'crc32b';
@@ -701,12 +705,9 @@ class ZipStream
         $crc = $zlen = $len = 0;
         $hash_ctx = hash_init($algo);
 
-        if ($storage_method == self::METHOD_DEFLATE)
-        {
+        if ($storage_method == self::METHOD_DEFLATE) {
             $deflateCtx = deflate_init(ZLIB_ENCODING_RAW, ['level' => 6]);
-        }
-        else
-        {
+        } else {
             $deflateCtx = null;
         }
 
@@ -725,12 +726,9 @@ class ZipStream
                 break;
             }
 
-            if ($deflateCtx !== null)
-            {
+            if ($deflateCtx !== null) {
                 $zdata = deflate_add($deflateCtx, $data, ZLIB_NO_FLUSH);
-            }
-            else
-            {
+            } else {
                 $zdata = $data;
             }
 
@@ -742,8 +740,7 @@ class ZipStream
             $zlen += strlen($zdata);
         }
 
-        if ($deflateCtx !== null)
-        {
+        if ($deflateCtx !== null) {
             //finalize the compressed data
             $zdata = deflate_add($deflateCtx, '', ZLIB_FINISH);
             $zlen += strlen($zdata);
@@ -780,7 +777,7 @@ class ZipStream
      * @param String $crc
      * @return Integer $num_bytes_written. Num bytes written to zip stream output.
      */
-    protected function addDataDescriptorHeader($len, $zlen, $crc)
+    protected function addDataDescriptorHeader(int $len, int $zlen, string $crc): int
     {
         $fields = array(
             array(
@@ -834,10 +831,10 @@ class ZipStream
     /**
      * Add CDR (Central Directory Record) footer.
      *
-     * @param array $opt
+     * @param array|null $opt
      * @return void
      */
-    protected function addCdr($opt = null)
+    protected function addCdr(array $opt = null)
     {
         foreach ($this->files as $file) {
             $this->addCdrFile($file);
@@ -851,7 +848,7 @@ class ZipStream
      * @param array $args
      * @return void
      */
-    protected function addCdrFile($args)
+    protected function addCdrFile(array $args)
     {
         list($name, $opt, $meth, $crc, $zlen, $len, $ofs, $genb) = $args;
 
@@ -947,10 +944,10 @@ class ZipStream
     /**
      * Send CDR EOF (Central Directory Record End-of-File) record.
      *
-     * @param array $opt
+     * @param array|null $opt
      * @return void
      */
-    protected function addCdrEof($opt = null)
+    protected function addCdrEof(array $opt = null)
     {
         $num = count($this->files);
         $cdr_len = $this->cdr_ofs;

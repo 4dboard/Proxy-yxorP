@@ -64,6 +64,10 @@ class CLI
         return isset($opts[$name]) ? $opts[$name] : $default;
     }
 
+    public static function writeln($out, $fgcolor = null, $bgcolor = null)
+    {
+        self::write("{$out}\n", $fgcolor, $bgcolor);
+    }
 
     public static function write($out, $fgcolor = null, $bgcolor = null)
     {
@@ -111,11 +115,6 @@ class CLI
         }
 
         echo "{$out}";
-    }
-
-    public static function writeln($out, $fgcolor = null, $bgcolor = null)
-    {
-        self::write("{$out}\n", $fgcolor, $bgcolor);
     }
 
     public static function progress($percent, $dec = 0)

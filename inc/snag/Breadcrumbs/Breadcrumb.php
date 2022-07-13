@@ -3,6 +3,7 @@
 namespace yxorP\inc\snag\Breadcrumbs;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\inc\snag\DateTime\Date;
 
 class Breadcrumb
@@ -75,28 +76,28 @@ class Breadcrumb
      *
      * @var string
      */
-    protected $timestamp;
+    protected string $timestamp;
 
     /**
      * The name of the breadcrumb.
      *
      * @var string
      */
-    protected $name;
+    protected string $name;
 
     /**
      * The type of the breadcrumb.
      *
      * @var string
      */
-    protected $type;
+    protected mixed $type;
 
     /**
      * The meta data of the breadcrumb.
      *
      * @var array
      */
-    protected $metaData;
+    protected array $metaData;
 
     /**
      * Create a new breadcrumb instance.
@@ -106,19 +107,18 @@ class Breadcrumb
      * @param array $metaData additional information about the breadcrumb
      *
      * @return void
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      *
      */
-    public function __construct($name, $type, array $metaData = [])
+    public function __construct(string $name, string $type, array $metaData = [])
     {
         if (!is_string($name)) {
             if (is_null($name)) {
                 $metaData['BreadcrumbError'] = 'NULL provided as the breadcrumb name';
-                $name = '<no name>';
             } else {
                 $metaData['BreadcrumbError'] = 'Breadcrumb name must be a string - ' . gettype($name) . ' provided instead';
-                $name = '<no name>';
             }
+            $name = '<no name>';
         } elseif ($name === '') {
             $metaData['BreadcrumbError'] = 'Empty string provided as the breadcrumb name';
             $name = '<no name>';
@@ -141,7 +141,7 @@ class Breadcrumb
      *
      * @return array
      */
-    public static function getTypes()
+    public static function getTypes(): array
     {
         return [
             static::NAVIGATION_TYPE,
@@ -162,7 +162,7 @@ class Breadcrumb
      *
      * @return array
      */
-    public function toArray()
+    #[ArrayShape(['timestamp' => "string", 'name' => "string", 'type' => "mixed|string"])] public function toArray(): array
     {
         return [
             'timestamp' => $this->timestamp,
@@ -178,7 +178,7 @@ class Breadcrumb
      *
      * @return array
      */
-    public function getMetaData()
+    public function getMetaData(): array
     {
         return $this->metaData;
     }

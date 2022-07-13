@@ -12,21 +12,21 @@ interface IImageAdapter
      *
      * @param string $path
      */
-    public function loadFile($path);
+    public function loadFile(string $path);
 
     /**
      * Loads an image from a binary string representation.
      *
      * @param string $data
      */
-    public function loadBinaryString($data);
+    public function loadBinaryString(string $data);
 
     /**
      * Loads an image resource.
      *
-     * @param resource|object $resource
+     * @param object $resource
      */
-    public function load($resource);
+    public function load(object $resource);
 
     /**
      * Destroys the image.
@@ -38,14 +38,14 @@ interface IImageAdapter
      *
      * @return int
      */
-    public function getHeight();
+    public function getHeight(): int;
 
     /**
      * Returns image width.
      *
      * @return int
      */
-    public function getWidth();
+    public function getWidth(): int;
 
     /**
      * Returns the color of the specified pixel.
@@ -55,7 +55,7 @@ interface IImageAdapter
      *
      * @return object
      */
-    public function getPixelColor($x, $y);
+    public function getPixelColor(int $x, int $y): object;
 
     /**
      * Get the raw resource.

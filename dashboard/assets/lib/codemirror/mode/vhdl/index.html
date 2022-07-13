@@ -2,31 +2,34 @@
 
 <title>CodeMirror: VHDL mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/edit/matchbrackets.js"></script>
 <script src="vhdl.js"></script>
-<style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+<style>.CodeMirror {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}</style>
 <div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
+    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
 
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">VHDL</a>
-  </ul>
+    <ul>
+        <li><a href="../../index.html">Home</a>
+        <li><a href="../../doc/manual.html">Manual</a>
+        <li><a href="https://github.com/codemirror/codemirror">Code</a>
+    </ul>
+    <ul>
+        <li><a href="../index.html">Language modes</a>
+        <li><a class=active href="#">VHDL</a>
+    </ul>
 </div>
 
 <article>
-<h2>VHDL mode</h2>
+    <h2>VHDL mode</h2>
 
-<div><textarea id="code" name="code">
+    <div><label for="code"></label><textarea id="code" name="code">
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
@@ -71,25 +74,25 @@ BEGIN
 END;
 </textarea></div>
 
-<script>
-  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-    lineNumbers: true,
-    matchBrackets: true,
-    mode: {
-      name: "vhdl",
-    }
-  });
-</script>
+    <script>
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            mode: {
+                name: "vhdl",
+            }
+        });
+    </script>
 
-<p>
-Syntax highlighting and indentation for the VHDL language.
-<h2>Configuration options:</h2>
-  <ul>
-    <li><strong>atoms</strong> - List of atom words. Default: "null"</li>
-    <li><strong>hooks</strong> - List of meta hooks. Default: ["`", "$"]</li>
-    <li><strong>multiLineStrings</strong> - Whether multi-line strings are accepted. Default: false</li>
-  </ul>
-</p>
+    <p>
+        Syntax highlighting and indentation for the VHDL language.
+    <h2>Configuration options:</h2>
+    <ul>
+        <li><strong>atoms</strong> - List of atom words. Default: "null"</li>
+        <li><strong>hooks</strong> - List of meta hooks. Default: ["`", "$"]</li>
+        <li><strong>multiLineStrings</strong> - Whether multi-line strings are accepted. Default: false</li>
+    </ul>
+    </p>
 
-<p><strong>MIME types defined:</strong> <code>text/x-vhdl</code>.</p>
+    <p><strong>MIME types defined:</strong> <code>text/x-vhdl</code>.</p>
 </article>

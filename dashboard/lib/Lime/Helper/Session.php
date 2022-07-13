@@ -2,14 +2,16 @@
 
 namespace Lime\Helper;
 
-use function \Lime\fetch_from_array;
+use function Lime\fetch_from_array;
 
-class Session extends \Lime\Helper {
+class Session extends \Lime\Helper
+{
 
-    protected $initialized = false;
     public $name;
+    protected $initialized = false;
 
-    public function init($sessionname=null){
+    public function init($sessionname = null)
+    {
 
         if ($this->initialized) return;
 
@@ -25,19 +27,23 @@ class Session extends \Lime\Helper {
         $this->initialized = true;
     }
 
-    public function write($key, $value){
+    public function write($key, $value)
+    {
         $_SESSION[$key] = $value;
     }
 
-    public function read($key, $default=null){
+    public function read($key, $default = null)
+    {
         return fetch_from_array($_SESSION, $key, $default);
     }
 
-    public function delete($key){
+    public function delete($key)
+    {
         unset($_SESSION[$key]);
     }
 
-    public function destroy(){
+    public function destroy()
+    {
         \session_destroy();
     }
 }

@@ -3,9 +3,12 @@
 namespace ColorThief;
 
 /* Color map */
+
+use JetBrains\PhpStorm\Pure;
+
 class CMap
 {
-    private $vboxes;
+    private PQueue $vboxes;
 
     public function __construct()
     {
@@ -32,7 +35,7 @@ class CMap
         });
     }
 
-    public function size()
+    #[Pure] public function size(): int
     {
         return $this->vboxes->size();
     }

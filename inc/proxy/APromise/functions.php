@@ -2,6 +2,10 @@
 
 namespace yxorP\inc\proxy\Promise;
 
+use ArrayIterator;
+use Iterator;
+use Throwable;
+
 /**
  * Get the global task queue used for promise resolution.
  *
@@ -15,11 +19,11 @@ namespace yxorP\inc\proxy\Promise;
  * }
  * </code>
  *
- * @param TaskQueueInterface $assign Optionally specify a new queue instance.
+ * @param TaskQueueInterface|null $assign Optionally specify a new queue instance.
  *
  * @return TaskQueueInterface
  */
-function queue(TaskQueueInterface $assign = null)
+function queue(TaskQueueInterface $assign = null): TaskQueueInterface|TaskQueue
 {
     static $queue;
 
@@ -40,16 +44,14 @@ function queue(TaskQueueInterface $assign = null)
  *
  * @return PromiseInterface
  */
-function task(callable $task)
+function task(callable $task): PromiseInterface|Promise
 {
     $queue = queue();
     $promise = new Promise([$queue, 'run']);
     $queue->add(function () use ($task, $promise) {
         try {
             $promise->resolve($task());
-        } catch (Throwable $e) {
-            $promise->reject($e);
-        } catch (Exception $e) {
+        } catch (Throwable|Exception $e) {
             $promise->reject($e);
         }
     });
@@ -64,7 +66,7 @@ function task(callable $task)
  *
  * @return PromiseInterface
  */
-function promise_for($value)
+function promise_for(mixed $value): FulfilledPromise|PromiseInterface|Promise
 {
     if ($value instanceof PromiseInterface) {
         return $value;
@@ -90,7 +92,7 @@ function promise_for($value)
  *
  * @return PromiseInterface
  */
-function rejection_for($reason)
+function rejection_for(mixed $reason): PromiseInterface|RejectedPromise
 {
     if ($reason instanceof PromiseInterface) {
         return $reason;
@@ -104,9 +106,9 @@ function rejection_for($reason)
  *
  * @param mixed $reason
  *
- * @return Exception|Throwable
+ * @return AARejectionException
  */
-function exception_for($reason)
+function exception_for(mixed $reason): AARejectionException
 {
     return $reason instanceof Exception || $reason instanceof Throwable
         ? $reason
@@ -118,9 +120,9 @@ function exception_for($reason)
  *
  * @param mixed $value
  *
- * @return Iterator
+ * @return ArrayIterator
  */
-function iter_for($value)
+function iter_for(mixed $value): ArrayIterator
 {
     if ($value instanceof Iterator) {
         return $value;
@@ -145,7 +147,7 @@ function iter_for($value)
  *
  * @return array
  */
-function inspect(PromiseInterface $promise)
+function inspect(PromiseInterface $promise): array
 {
     try {
         return [
@@ -154,9 +156,7 @@ function inspect(PromiseInterface $promise)
         ];
     } catch (AARejectionException $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e->getReason()];
-    } catch (Throwable $e) {
-        return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
-    } catch (Exception $e) {
+    } catch (Throwable|Exception $e) {
         return ['state' => PromiseInterface::REJECTED, 'reason' => $e];
     }
 }
@@ -172,7 +172,7 @@ function inspect(PromiseInterface $promise)
  * @return array
  * @see \yxorP\inc\proxy\Promise\inspect for the inspection state array format.
  */
-function inspect_all($promises)
+function inspect_all(array $promises): array
 {
     $results = [];
     foreach ($promises as $key => $promise) {
@@ -195,7 +195,7 @@ function inspect_all($promises)
  * @throws Exception on error
  * @throws Throwable on error in PHP >=7
  */
-function unwrap($promises)
+function unwrap(mixed $promises): array
 {
     $results = [];
     foreach ($promises as $key => $promise) {
@@ -217,7 +217,7 @@ function unwrap($promises)
  *
  * @return PromiseInterface
  */
-function all($promises)
+function all(mixed $promises): PromiseInterface
 {
     $results = [];
     return each(
@@ -250,7 +250,7 @@ function all($promises)
  *
  * @return PromiseInterface
  */
-function some($count, $promises)
+function some(int $count, mixed $promises): PromiseInterface
 {
     $results = [];
     $rejections = [];
@@ -291,7 +291,7 @@ function some($count, $promises)
  *
  * @return PromiseInterface
  */
-function any($promises)
+function any(mixed $promises): PromiseInterface
 {
     return some(1, $promises)->then(function ($values) {
         return $values[0];
@@ -309,7 +309,7 @@ function any($promises)
  * @return PromiseInterface
  * @see \yxorP\inc\proxy\Promise\inspect for the inspection state array format.
  */
-function settle($promises)
+function settle(mixed $promises): PromiseInterface
 {
     $results = [];
 
@@ -341,16 +341,16 @@ function settle($promises)
  * effects and choose to resolve or reject the aggregate promise if needed.
  *
  * @param mixed $iterable Iterator or array to iterate over.
- * @param callable $onFulfilled
- * @param callable $onRejected
+ * @param callable|null $onFulfilled
+ * @param callable|null $onRejected
  *
  * @return PromiseInterface
  */
 function each(
-    $iterable,
+    mixed    $iterable,
     callable $onFulfilled = null,
     callable $onRejected = null
-)
+): PromiseInterface
 {
     return (new EachPromise($iterable, [
         'fulfilled' => $onFulfilled,
@@ -367,18 +367,18 @@ function each(
  * dynamic a concurrency size.
  *
  * @param mixed $iterable
- * @param int|callable $concurrency
- * @param callable $onFulfilled
- * @param callable $onRejected
+ * @param callable|int $concurrency
+ * @param callable|null $onFulfilled
+ * @param callable|null $onRejected
  *
  * @return PromiseInterface
  */
 function each_limit(
-    $iterable,
-    $concurrency,
-    callable $onFulfilled = null,
-    callable $onRejected = null
-)
+    mixed        $iterable,
+    callable|int $concurrency,
+    callable     $onFulfilled = null,
+    callable     $onRejected = null
+): PromiseInterface
 {
     return (new EachPromise($iterable, [
         'fulfilled' => $onFulfilled,
@@ -393,16 +393,16 @@ function each_limit(
  * rejected with the encountered rejection.
  *
  * @param mixed $iterable
- * @param int|callable $concurrency
- * @param callable $onFulfilled
+ * @param callable|int $concurrency
+ * @param callable|null $onFulfilled
  *
  * @return PromiseInterface
  */
 function each_limit_all(
-    $iterable,
-    $concurrency,
-    callable $onFulfilled = null
-)
+    mixed        $iterable,
+    callable|int $concurrency,
+    callable     $onFulfilled = null
+): PromiseInterface
 {
     return each_limit(
         $iterable,
@@ -421,7 +421,7 @@ function each_limit_all(
  *
  * @return bool
  */
-function is_fulfilled(PromiseInterface $promise)
+function is_fulfilled(PromiseInterface $promise): bool
 {
     return $promise->getState() === PromiseInterface::FULFILLED;
 }
@@ -433,7 +433,7 @@ function is_fulfilled(PromiseInterface $promise)
  *
  * @return bool
  */
-function is_rejected(PromiseInterface $promise)
+function is_rejected(PromiseInterface $promise): bool
 {
     return $promise->getState() === PromiseInterface::REJECTED;
 }
@@ -445,7 +445,7 @@ function is_rejected(PromiseInterface $promise)
  *
  * @return bool
  */
-function is_settled(PromiseInterface $promise)
+function is_settled(PromiseInterface $promise): bool
 {
     return $promise->getState() !== PromiseInterface::PENDING;
 }
@@ -457,7 +457,7 @@ function is_settled(PromiseInterface $promise)
  * @see Coroutine
  *
  */
-function coroutine(callable $generatorFn)
+function coroutine(callable $generatorFn): Coroutine|PromiseInterface
 {
     return new Coroutine($generatorFn);
 }

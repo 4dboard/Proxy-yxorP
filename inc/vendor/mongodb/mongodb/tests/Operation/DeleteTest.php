@@ -27,7 +27,7 @@ class DeleteTest extends TestCase
         new Delete($this->getDatabaseName(), $this->getCollectionName(), [], $limit);
     }
 
-    public function provideInvalidLimitValues()
+    public function provideInvalidLimitValues(): array
     {
         return $this->wrapValuesForDataProvider(array_merge($this->getInvalidIntegerValues(), [-1, 2]));
     }
@@ -41,7 +41,7 @@ class DeleteTest extends TestCase
         new Delete($this->getDatabaseName(), $this->getCollectionName(), [], 1, $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

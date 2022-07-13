@@ -9,11 +9,11 @@ class BasicResolver implements ResolverInterface
      *
      * @return RequestInterface
      */
-    public function resolve()
+    public function resolve(): PhpRequest|ConsoleRequest|NullRequest|RequestInterface
     {
         if (isset($_SERVER['REQUEST_METHOD'])) {
             if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {
-                $params = static::getInputParams($_SERVER, $_GET, false);
+                $params = static::getInputParams($_SERVER, $_GET);
             } else {
                 $params = static::getInputParams($_SERVER, $_POST, true);
             }
@@ -51,7 +51,7 @@ class BasicResolver implements ResolverInterface
      *
      * @return array|null
      */
-    protected static function getInputParams(array $server, array $params, $fallbackToInput = false)
+    protected static function getInputParams(array $server, array $params, bool $fallbackToInput = false): ?array
     {
         static $result;
 
@@ -76,7 +76,7 @@ class BasicResolver implements ResolverInterface
      *
      * @return array|null
      */
-    protected static function parseInput(array $server, $input)
+    protected static function parseInput(array $server, ?string $input): ?array
     {
         if (!$input) {
             return null;
@@ -100,7 +100,7 @@ class BasicResolver implements ResolverInterface
      *
      * @return string|false
      */
-    protected static function readInput()
+    protected static function readInput(): bool|string
     {
         return file_get_contents('php://input') ?: false;
     }
@@ -119,7 +119,7 @@ class BasicResolver implements ResolverInterface
      *
      * @return array
      */
-    protected static function getRequestHeaders(array $server)
+    protected static function getRequestHeaders(array $server): array
     {
         static $headers;
 
@@ -134,7 +134,7 @@ class BasicResolver implements ResolverInterface
         $headers = [];
 
         foreach ($server as $name => $value) {
-            if (substr($name, 0, 5) == 'HTTP_') {
+            if (str_starts_with($name, 'HTTP_')) {
                 $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
             } elseif ($name === 'CONTENT_TYPE') {
                 $headers['Content-Type'] = $value;

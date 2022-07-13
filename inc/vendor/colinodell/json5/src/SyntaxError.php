@@ -14,25 +14,30 @@
 
 namespace ColinODell\Json5;
 
-final class SyntaxError extends \JsonException
+use JetBrains\PhpStorm\Pure;
+use JsonException;
+use Throwable;
+use function sprintf;
+
+final class SyntaxError extends JsonException
 {
     /** @var int */
-    private $lineNumber;
+    private int $lineNumber;
 
     /** @var int */
-    private $column;
+    private int $column;
 
     /**
      * SyntaxError constructor.
      *
-     * @param string          $message
-     * @param int             $linenumber
-     * @param int             $columnNumber
-     * @param \Throwable|null $previous
+     * @param string $message
+     * @param int $linenumber
+     * @param int $columnNumber
+     * @param Throwable|null $previous
      */
-    public function __construct($message, $linenumber, $columnNumber, $previous = null)
+    #[Pure] public function __construct(string $message, int $linenumber, $columnNumber, Throwable $previous = null)
     {
-        $message = \sprintf('%s at line %d column %d of the JSON5 data', $message, $linenumber, $columnNumber);
+        $message = sprintf('%s at line %d column %d of the JSON5 data', $message, $linenumber, $columnNumber);
 
         parent::__construct($message, 0, $previous);
 
@@ -43,7 +48,7 @@ final class SyntaxError extends \JsonException
     /**
      * @return int
      */
-    public function getLineNumber()
+    public function getLineNumber(): int
     {
         return $this->lineNumber;
     }
@@ -51,7 +56,7 @@ final class SyntaxError extends \JsonException
     /**
      * @return int
      */
-    public function getColumn()
+    public function getColumn(): int
     {
         return $this->column;
     }

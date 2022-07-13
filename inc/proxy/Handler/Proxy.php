@@ -22,7 +22,7 @@ class Proxy
     public static function wrapSync(
         callable $default,
         callable $sync
-    )
+    ): callable|\Closure
     {
         return function (RequestInterface $request, array $options) use ($default, $sync) {
             return empty($options[RequestOptions::SYNCHRONOUS])
@@ -47,7 +47,7 @@ class Proxy
     public static function wrapStreaming(
         callable $default,
         callable $streaming
-    )
+    ): callable|\Closure
     {
         return function (RequestInterface $request, array $options) use ($default, $streaming) {
             return empty($options['stream'])

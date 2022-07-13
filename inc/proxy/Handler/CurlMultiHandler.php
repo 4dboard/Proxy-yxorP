@@ -2,6 +2,8 @@
 
 namespace yxorP\inc\proxy\Handler;
 
+use BadMethodCallException;
+use JetBrains\PhpStorm\Pure;
 use yxorP\inc\proxy\Promise as P;
 use yxorP\inc\proxy\Promise\Promise;
 use yxorP\inc\proxy\Utils;
@@ -19,12 +21,12 @@ use yxorP\inc\psr\Http\Message\RequestInterface;
 class CurlMultiHandler
 {
     /** @var CurlFactoryInterface */
-    private $factory;
-    private $selectTimeout;
+    private mixed $factory;
+    private mixed $selectTimeout;
     private $active;
-    private $handles = [];
-    private $delays = [];
-    private $options = [];
+    private array $handles = [];
+    private array $delays = [];
+    private mixed $options = [];
 
     /**
      * This handler accepts the following options:
@@ -37,10 +39,9 @@ class CurlMultiHandler
      *
      * @param array $options
      */
-    public function __construct(array $options = [])
+    #[Pure] public function __construct(array $options = [])
     {
-        $this->factory = isset($options['handle_factory'])
-            ? $options['handle_factory'] : new CurlFactory(50);
+        $this->factory = $options['handle_factory'] ?? new CurlFactory(50);
 
         if (isset($options['select_timeout'])) {
             $this->selectTimeout = $options['select_timeout'];
@@ -50,7 +51,7 @@ class CurlMultiHandler
             $this->selectTimeout = 1;
         }
 
-        $this->options = isset($options['options']) ? $options['options'] : [];
+        $this->options = $options['options'] ?? [];
     }
 
     public function __get($name)
@@ -68,7 +69,7 @@ class CurlMultiHandler
             return $this->_mh;
         }
 
-        throw new \BadMethodCallException();
+        throw new BadMethodCallException();
     }
 
     public function __destruct()
@@ -79,7 +80,7 @@ class CurlMultiHandler
         }
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(RequestInterface $request, array $options): Promise
     {
         $easy = $this->factory->create($request, $options);
         $id = (int)$easy->handle;
@@ -103,7 +104,7 @@ class CurlMultiHandler
      *
      * @return bool True on success, false on failure.
      */
-    private function cancel($id)
+    private function cancel(int $id): bool
     {
         // Cannot cancel if it has been processed.
         if (!isset($this->handles[$id])) {
@@ -146,7 +147,7 @@ class CurlMultiHandler
         }
     }
 
-    private function timeToNext()
+    #[Pure] private function timeToNext(): float|int
     {
         $currentTime = Utils::currentTime();
         $nextTime = PHP_INT_MAX;

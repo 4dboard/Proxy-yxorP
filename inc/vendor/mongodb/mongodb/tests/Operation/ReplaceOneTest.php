@@ -45,20 +45,20 @@ class ReplaceOneTest extends TestCase
         new ReplaceOne($this->getDatabaseName(), $this->getCollectionName(), ['x' => 1], $replacement);
     }
 
-    public function provideReplacementDocuments()
+    public function provideReplacementDocuments(): array
     {
         return $this->wrapValuesForDataProvider([
             ['y' => 1],
-            (object) ['y' => 1],
+            (object)['y' => 1],
             new BSONDocument(['y' => 1]),
         ]);
     }
 
-    public function provideUpdateDocuments()
+    public function provideUpdateDocuments(): array
     {
         return $this->wrapValuesForDataProvider([
             ['$set' => ['y' => 1]],
-            (object) ['$set' => ['y' => 1]],
+            (object)['$set' => ['y' => 1]],
             new BSONDocument(['$set' => ['y' => 1]]),
         ]);
     }

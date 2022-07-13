@@ -16,7 +16,7 @@ use function version_compare;
 class BulkWriteFunctionalTest extends FunctionalTestCase
 {
     /** @var Collection */
-    private $collection;
+    private Collection $collection;
 
     public function setUp(): void
     {
@@ -30,7 +30,7 @@ class BulkWriteFunctionalTest extends FunctionalTestCase
         $ops = [
             ['insertOne' => [['_id' => 1, 'x' => 11]]],
             ['insertOne' => [['x' => 22]]],
-            ['insertOne' => [(object) ['_id' => 'foo', 'x' => 33]]],
+            ['insertOne' => [(object)['_id' => 'foo', 'x' => 33]]],
             ['insertOne' => [new BSONDocument(['_id' => 'bar', 'x' => 44])]],
         ];
 
@@ -92,6 +92,27 @@ class BulkWriteFunctionalTest extends FunctionalTestCase
         $this->assertSameDocuments($expected, $this->collection->find());
     }
 
+    /**
+     * Create data fixtures.
+     *
+     * @param integer $n
+     */
+    private function createFixtures(int $n): void
+    {
+        $bulkWrite = new Bulk(['ordered' => true]);
+
+        for ($i = 1; $i <= $n; $i++) {
+            $bulkWrite->insert([
+                '_id' => $i,
+                'x' => (integer)($i . $i),
+            ]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
+
+        $this->assertEquals($n, $result->getInsertedCount());
+    }
+
     public function testDeletes(): void
     {
         $this->createFixtures(4);
@@ -150,7 +171,7 @@ class BulkWriteFunctionalTest extends FunctionalTestCase
         $this->assertSameDocuments($expected, $this->collection->find());
     }
 
-    public function testUnacknowledgedWriteConcern()
+    public function testUnacknowledgedWriteConcern(): BulkWriteResult
     {
         $ops = [['insertOne' => [['_id' => 1]]]];
         $options = ['writeConcern' => new WriteConcern(0)];
@@ -224,60 +245,69 @@ class BulkWriteFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new BulkWrite(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['insertOne' => [['_id' => 1]]]],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new BulkWrite(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['insertOne' => [['_id' => 1]]]],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationSetWhenTrue(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new BulkWrite(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['insertOne' => [['_id' => 1]]]],
-                    ['bypassDocumentValidation' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new BulkWrite(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['insertOne' => [['_id' => 1]]]],
+                        ['bypassDocumentValidation' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-                $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                    $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationUnsetWhenFalse(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new BulkWrite(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['insertOne' => [['_id' => 1]]]],
-                    ['bypassDocumentValidation' => false]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new BulkWrite(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['insertOne' => [['_id' => 1]]]],
+                        ['bypassDocumentValidation' => false]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBulkWriteWithPipelineUpdates(): void
@@ -308,26 +338,5 @@ class BulkWriteFunctionalTest extends FunctionalTestCase
         ];
 
         $this->assertSameDocuments($expected, $this->collection->find());
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     */
-    private function createFixtures(int $n): void
-    {
-        $bulkWrite = new Bulk(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert([
-                '_id' => $i,
-                'x' => (integer) ($i . $i),
-            ]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
-
-        $this->assertEquals($n, $result->getInsertedCount());
     }
 }

@@ -13,8 +13,8 @@ namespace yxorP\inc\proxy\Promise;
  */
 class TaskQueue implements TaskQueueInterface
 {
-    private $enableShutdown = true;
-    private $queue = [];
+    private bool $enableShutdown = true;
+    private array $queue = [];
 
     public function __construct($withShutdown = true)
     {
@@ -39,7 +39,7 @@ class TaskQueue implements TaskQueueInterface
         }
     }
 
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return !$this->queue;
     }

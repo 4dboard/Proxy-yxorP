@@ -3,6 +3,7 @@
 namespace yxorP\inc\proxy\Handler;
 
 use Countable;
+use ReturnTypeWillChange;
 use yxorP\inc\proxy\Exception\ARequestException;
 use yxorP\inc\proxy\HandlerStack;
 use yxorP\inc\proxy\Promise\PromiseInterface;
@@ -19,9 +20,9 @@ use function yxorP\inc\proxy\Promise\rejection_for;
  */
 class MockHandler implements Countable
 {
-    private $queue = [];
-    private $lastRequest;
-    private $lastOptions;
+    private array $queue = [];
+    private RequestInterface $lastRequest;
+    private array $lastOptions;
     private $onFulfilled;
     private $onRejected;
 
@@ -30,9 +31,9 @@ class MockHandler implements Countable
      * {@see Psr7\Http\Message\ResponseInterface} objects, Exceptions,
      * callables, or Promises.
      *
-     * @param array $queue
-     * @param callable $onFulfilled Callback to invoke when the return value is fulfilled.
-     * @param callable $onRejected Callback to invoke when the return value is rejected.
+     * @param array|null $queue
+     * @param callable|null $onFulfilled Callback to invoke when the return value is fulfilled.
+     * @param callable|null $onRejected Callback to invoke when the return value is rejected.
      */
     public function __construct(
         array    $queue = null,
@@ -52,9 +53,9 @@ class MockHandler implements Countable
      * Creates a new MockHandler that uses the default handler stack list of
      * middlewares.
      *
-     * @param array $queue Array of responses, callables, or exceptions.
-     * @param callable $onFulfilled Callback to invoke when the return value is fulfilled.
-     * @param callable $onRejected Callback to invoke when the return value is rejected.
+     * @param array|null $queue Array of responses, callables, or exceptions.
+     * @param callable|null $onFulfilled Callback to invoke when the return value is fulfilled.
+     * @param callable|null $onRejected Callback to invoke when the return value is rejected.
      *
      * @return HandlerStack
      */
@@ -62,12 +63,12 @@ class MockHandler implements Countable
         array    $queue = null,
         callable $onFulfilled = null,
         callable $onRejected = null
-    )
+    ): HandlerStack
     {
         return HandlerStack::create(new self($queue, $onFulfilled, $onRejected));
     }
 
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(RequestInterface $request, array $options): \yxorP\inc\proxy\Promise\FulfilledPromise|PromiseInterface|\yxorP\inc\proxy\Promise\Promise|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         if (!$this->queue) {
             throw new OutOfBoundsException('Mock queue is empty');
@@ -140,7 +141,7 @@ class MockHandler implements Countable
     )
     {
         if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $transferTime = $options['transfer_time'] ?? 0;
             $stats = new TransferStats($request, $response, $transferTime, $reason);
             call_user_func($options['on_stats'], $stats);
         }
@@ -171,7 +172,7 @@ class MockHandler implements Countable
      *
      * @return RequestInterface
      */
-    public function getLastRequest()
+    public function getLastRequest(): RequestInterface
     {
         return $this->lastRequest;
     }
@@ -181,7 +182,7 @@ class MockHandler implements Countable
      *
      * @return array
      */
-    public function getLastOptions()
+    public function getLastOptions(): array
     {
         return $this->lastOptions;
     }
@@ -191,7 +192,7 @@ class MockHandler implements Countable
      *
      * @return int
      */
-    public function count()
+    #[ReturnTypeWillChange] public function count(): int
     {
         return count($this->queue);
     }

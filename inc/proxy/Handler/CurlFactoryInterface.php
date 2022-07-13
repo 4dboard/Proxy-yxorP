@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Handler;
 
+use RuntimeException;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 
 interface CurlFactoryInterface
@@ -13,9 +14,9 @@ interface CurlFactoryInterface
      * @param array $options Transfer options
      *
      * @return EasyHandle
-     * @throws \RuntimeException when an option cannot be applied
+     * @throws RuntimeException when an option cannot be applied
      */
-    public function create(RequestInterface $request, array $options);
+    public function create(RequestInterface $request, array $options): EasyHandle;
 
     /**
      * Release an easy handle, allowing it to be reused or closed.

@@ -25,7 +25,7 @@ class FindTest extends TestCase
         new Find($this->getDatabaseName(), $this->getCollectionName(), [], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -128,6 +128,11 @@ class FindTest extends TestCase
         return $options;
     }
 
+    private function getInvalidHintValues(): array
+    {
+        return [123, 3.14, true];
+    }
+
     public function testSnapshotOptionIsDeprecated(): void
     {
         $this->assertDeprecated(function (): void {
@@ -146,11 +151,6 @@ class FindTest extends TestCase
         });
     }
 
-    private function getInvalidHintValues()
-    {
-        return [123, 3.14, true];
-    }
-
     /**
      * @dataProvider provideInvalidConstructorCursorTypeOptions
      */
@@ -160,7 +160,7 @@ class FindTest extends TestCase
         new Find($this->getDatabaseName(), $this->getCollectionName(), [], ['cursorType' => $cursorType]);
     }
 
-    public function provideInvalidConstructorCursorTypeOptions()
+    public function provideInvalidConstructorCursorTypeOptions(): array
     {
         return $this->wrapValuesForDataProvider([-1, 0, 4]);
     }

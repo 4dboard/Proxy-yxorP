@@ -6,6 +6,8 @@ use yxorP\inc\proxy\Psr7\Response;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
 use yxorP\inc\psr\Http\Message\StreamInterface;
+use function yxorP\inc\proxy\headers_from_lines;
+use function yxorP\inc\proxy\normalize_header_keys;
 
 /**
  * Represents a cURL easy handle and the data it populates.
@@ -18,25 +20,25 @@ final class EasyHandle
     public $handle;
 
     /** @var StreamInterface Where data is being written */
-    public $sink;
+    public StreamInterface $sink;
 
     /** @var array Received HTTP headers so far */
-    public $headers = [];
+    public array $headers = [];
 
     /** @var ResponseInterface Received response (if any) */
-    public $response;
+    public ResponseInterface $response;
 
     /** @var RequestInterface Request being sent */
-    public $request;
+    public RequestInterface $request;
 
     /** @var array Request options */
-    public $options = [];
+    public array $options = [];
 
     /** @var int cURL error number (if any) */
-    public $errno = 0;
+    public int $errno = 0;
 
     /** @var Exception Exception during on_headers (if any) */
-    public $onHeadersException;
+    public Exception $onHeadersException;
 
     /**
      * Attach a response to the easy handle based on the received headers.
@@ -51,8 +53,8 @@ final class EasyHandle
 
         // HTTP-version SP status-code SP reason-phrase
         $startLine = explode(' ', array_shift($this->headers), 3);
-        $headers = \yxorP\inc\proxy\headers_from_lines($this->headers);
-        $normalizedKeys = \yxorP\inc\proxy\normalize_header_keys($headers);
+        $headers = headers_from_lines($this->headers);
+        $normalizedKeys = normalize_header_keys($headers);
 
         if (!empty($this->options['decode_content'])
             && isset($normalizedKeys['content-encoding'])
@@ -79,7 +81,7 @@ final class EasyHandle
             $headers,
             $this->sink,
             substr($startLine[0], 5),
-            isset($startLine[2]) ? (string)$startLine[2] : null
+            isset($startLine[2]) ? $startLine[2] : null
         );
     }
 

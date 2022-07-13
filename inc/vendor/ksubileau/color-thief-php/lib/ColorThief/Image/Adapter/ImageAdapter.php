@@ -15,7 +15,7 @@ abstract class ImageAdapter implements IImageAdapter
     /**
      * {@inheritdoc}
      */
-    public function load($resource)
+    public function load(object $resource)
     {
         $this->resource = $resource;
     }

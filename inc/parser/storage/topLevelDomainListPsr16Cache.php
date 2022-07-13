@@ -21,7 +21,10 @@ final class topLevelDomainListPsr16Cache implements topLevelDomainListCacheInter
     {
         $this->cache = $cache;
         $this->cachePrefix = $cachePrefix;
-        $this->cacheTtl = timeToLive::convert($cacheTtl);
+        try {
+            $this->cacheTtl = timeToLive::convert($cacheTtl);
+        } catch (\Exception $e) {
+        }
     }
 
     /**

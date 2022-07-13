@@ -4,6 +4,7 @@ namespace MongoDB\Tests\SpecTests;
 
 use MongoDB\Driver\Command;
 use MongoDB\Driver\Cursor;
+use MongoDB\Driver\Exception\Exception;
 use MongoDB\Tests\CommandObserver;
 use stdClass;
 use function basename;
@@ -20,20 +21,11 @@ use function parse_url;
  */
 class AtlasDataLakeSpecTest extends FunctionalTestCase
 {
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        if (! $this->isAtlasDataLake()) {
-            $this->markTestSkipped('Server is not Atlas Data Lake');
-        }
-    }
-
     /**
      * Assert that the expected and actual command documents match.
      *
      * @param stdClass $expected Expected command document
-     * @param stdClass $actual   Actual command document
+     * @param stdClass $actual Actual command document
      */
     public static function assertCommandMatches(stdClass $expected, stdClass $actual): void
     {
@@ -47,15 +39,39 @@ class AtlasDataLakeSpecTest extends FunctionalTestCase
         static::assertDocumentsMatch($expected, $actual);
     }
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        if (!$this->isAtlasDataLake()) {
+            $this->markTestSkipped('Server is not Atlas Data Lake');
+        }
+    }
+
+    private function isAtlasDataLake(): bool
+    {
+        try {
+            $cursor = $this->manager->executeCommand(
+                $this->getDatabaseName(),
+                new Command(['buildInfo' => 1])
+            );
+        } catch (Exception $e) {
+        }
+
+        $document = current($cursor->toArray());
+
+        return !empty($document->dataLake);
+    }
+
     /**
      * Execute an individual test case from the specification.
      *
      * @dataProvider provideTests
-     * @param stdClass $test           Individual "tests[]" document
-     * @param array    $runOn          Top-level "runOn" array with server requirements
-     * @param array    $data           Top-level "data" array to initialize collection
-     * @param string   $databaseName   Name of database under test
-     * @param string   $collectionName Name of collection under test
+     * @param stdClass $test Individual "tests[]" document
+     * @param array|null $runOn Top-level "runOn" array with server requirements
+     * @param array $data Top-level "data" array to initialize collection
+     * @param string|null $databaseName Name of database under test
+     * @param string|null $collectionName Name of collection under test
      */
     public function testAtlasDataLake(stdClass $test, ?array $runOn, array $data, ?string $databaseName = null, ?string $collectionName = null): void
     {
@@ -82,12 +98,15 @@ class AtlasDataLakeSpecTest extends FunctionalTestCase
         }
 
         if (isset($test->expectations)) {
-            $commandExpectations = CommandExpectations::fromCrud((array) $test->expectations);
+            $commandExpectations = CommandExpectations::fromCrud((array)$test->expectations);
             $commandExpectations->startMonitoring();
         }
 
         foreach ($test->operations as $operation) {
-            Operation::fromCrud($operation)->assert($this, $context);
+            try {
+                Operation::fromCrud($operation)->assert($this, $context);
+            } catch (Exception $e) {
+            }
         }
 
         if (isset($commandExpectations)) {
@@ -100,7 +119,7 @@ class AtlasDataLakeSpecTest extends FunctionalTestCase
         }
     }
 
-    public function provideTests()
+    public function provideTests(): array
     {
         $testArgs = [];
 
@@ -131,62 +150,65 @@ class AtlasDataLakeSpecTest extends FunctionalTestCase
         $cursorId = null;
         $cursorNamespace = null;
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $client = static::createTestClient();
-                $client->test->driverdata->find([], ['batchSize' => 2, 'limit' => 3]);
-            },
-            function (array $event) use (&$cursorId, &$cursorNamespace): void {
-                if ($event['started']->getCommandName() === 'find') {
-                    $this->assertArrayHasKey('succeeded', $event);
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $client = static::createTestClient();
+                    $client->test->driverdata->find([], ['batchSize' => 2, 'limit' => 3]);
+                },
+                function (array $event) use (&$cursorId, &$cursorNamespace): void {
+                    if ($event['started']->getCommandName() === 'find') {
+                        $this->assertArrayHasKey('succeeded', $event);
 
+                        $reply = $event['succeeded']->getReply();
+                        $this->assertObjectHasAttribute('cursor', $reply);
+                        $this->assertIsObject($reply->cursor);
+                        $this->assertObjectHasAttribute('id', $reply->cursor);
+                        $this->assertIsInt($reply->cursor->id);
+                        $this->assertObjectHasAttribute('ns', $reply->cursor);
+                        $this->assertIsString($reply->cursor->ns);
+
+                        /* Note: MongoDB\Driver\CursorId is not used here; however,
+                         * we shouldn't have to worry about encoutnering a 64-bit
+                         * cursor IDs on a 32-bit platform mongohoused allocates IDs
+                         * sequentially (starting from 1). */
+                        $cursorId = $reply->cursor->id;
+                        $cursorNamespace = $reply->cursor->ns;
+
+                        return;
+                    }
+
+                    /* After the initial find command, expect that killCursors is
+                     * next and that a cursor ID and namespace were collected. */
+                    $this->assertSame('killCursors', $event['started']->getCommandName());
+                    $this->assertIsInt($cursorId);
+                    $this->assertIsString($cursorNamespace);
+
+                    [$databaseName, $collectionName] = explode('.', $cursorNamespace, 2);
+                    $command = $event['started']->getCommand();
+
+                    /* Assert that the killCursors command uses the namespace and
+                     * cursor ID from the find command reply. */
+                    $this->assertSame($databaseName, $event['started']->getDatabaseName());
+                    $this->assertSame($databaseName, $command->{'$db'});
+                    $this->assertObjectHasAttribute('killCursors', $command);
+                    $this->assertSame($collectionName, $command->killCursors);
+                    $this->assertObjectHasAttribute('cursors', $command);
+                    $this->assertIsArray($command->cursors);
+                    $this->assertArrayHasKey(0, $command->cursors);
+                    $this->assertSame($cursorId, $command->cursors[0]);
+
+                    /* Assert that the killCursors command reply indicates that the
+                     * expected cursor ID was killed. */
                     $reply = $event['succeeded']->getReply();
-                    $this->assertObjectHasAttribute('cursor', $reply);
-                    $this->assertIsObject($reply->cursor);
-                    $this->assertObjectHasAttribute('id', $reply->cursor);
-                    $this->assertIsInt($reply->cursor->id);
-                    $this->assertObjectHasAttribute('ns', $reply->cursor);
-                    $this->assertIsString($reply->cursor->ns);
-
-                    /* Note: MongoDB\Driver\CursorId is not used here; however,
-                     * we shouldn't have to worry about encoutnering a 64-bit
-                     * cursor IDs on a 32-bit platform mongohoused allocates IDs
-                     * sequentially (starting from 1). */
-                    $cursorId = $reply->cursor->id;
-                    $cursorNamespace = $reply->cursor->ns;
-
-                    return;
+                    $this->assertObjectHasAttribute('cursorsKilled', $reply);
+                    $this->assertIsArray($reply->cursorsKilled);
+                    $this->assertArrayHasKey(0, $reply->cursorsKilled);
+                    $this->assertSame($cursorId, $reply->cursorsKilled[0]);
                 }
-
-                /* After the initial find command, expect that killCursors is
-                 * next and that a cursor ID and namespace were collected. */
-                $this->assertSame('killCursors', $event['started']->getCommandName());
-                $this->assertIsInt($cursorId);
-                $this->assertIsString($cursorNamespace);
-
-                [$databaseName, $collectionName] = explode('.', $cursorNamespace, 2);
-                $command = $event['started']->getCommand();
-
-                /* Assert that the killCursors command uses the namespace and
-                 * cursor ID from the find command reply. */
-                $this->assertSame($databaseName, $event['started']->getDatabaseName());
-                $this->assertSame($databaseName, $command->{'$db'});
-                $this->assertObjectHasAttribute('killCursors', $command);
-                $this->assertSame($collectionName, $command->killCursors);
-                $this->assertObjectHasAttribute('cursors', $command);
-                $this->assertIsArray($command->cursors);
-                $this->assertArrayHasKey(0, $command->cursors);
-                $this->assertSame($cursorId, $command->cursors[0]);
-
-                /* Assert that the killCursors command reply indicates that the
-                 * expected cursor ID was killed. */
-                $reply = $event['succeeded']->getReply();
-                $this->assertObjectHasAttribute('cursorsKilled', $reply);
-                $this->assertIsArray($reply->cursorsKilled);
-                $this->assertArrayHasKey(0, $reply->cursorsKilled);
-                $this->assertSame($cursorId, $reply->cursorsKilled[0]);
-            }
-        );
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -232,17 +254,5 @@ class AtlasDataLakeSpecTest extends FunctionalTestCase
 
         $this->assertInstanceOf(Cursor::class, $cursor);
         $this->assertCommandSucceeded(current($cursor->toArray()));
-    }
-
-    private function isAtlasDataLake(): bool
-    {
-        $cursor = $this->manager->executeCommand(
-            $this->getDatabaseName(),
-            new Command(['buildInfo' => 1])
-        );
-
-        $document = current($cursor->toArray());
-
-        return ! empty($document->dataLake);
     }
 }

@@ -2,57 +2,12 @@
 
 namespace League\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use League\Flysystem\Util\MimeType;
 use LogicException;
 
 class Util
 {
-    /**
-     * Get normalized pathinfo.
-     *
-     * @param string $path
-     *
-     * @return array pathinfo
-     */
-    public static function pathinfo($path)
-    {
-        $pathinfo = compact('path');
-
-        if ('' !== $dirname = dirname($path)) {
-            $pathinfo['dirname'] = static::normalizeDirname($dirname);
-        }
-
-        $pathinfo['basename'] = static::basename($path);
-
-        $pathinfo += pathinfo($pathinfo['basename']);
-
-        return $pathinfo + ['dirname' => ''];
-    }
-
-    /**
-     * Normalize a dirname return value.
-     *
-     * @param string $dirname
-     *
-     * @return string normalized dirname
-     */
-    public static function normalizeDirname($dirname)
-    {
-        return $dirname === '.' ? '' : $dirname;
-    }
-
-    /**
-     * Get a normalized dirname from a path.
-     *
-     * @param string $path
-     *
-     * @return string dirname
-     */
-    public static function dirname($path)
-    {
-        return static::normalizeDirname(dirname($path));
-    }
-
     /**
      * Map result arrays.
      *
@@ -61,12 +16,12 @@ class Util
      *
      * @return array mapped result
      */
-    public static function map(array $object, array $map)
+    public static function map(array $object, array $map): array
     {
         $result = [];
 
         foreach ($map as $from => $to) {
-            if ( ! isset($object[$from])) {
+            if (!isset($object[$from])) {
                 continue;
             }
 
@@ -81,11 +36,11 @@ class Util
      *
      * @param string $path
      *
+     * @return string
      * @throws LogicException
      *
-     * @return string
      */
-    public static function normalizePath($path)
+    public static function normalizePath(string $path): string
     {
         return static::normalizeRelativePath($path);
     }
@@ -95,40 +50,38 @@ class Util
      *
      * @param string $path
      *
+     * @return string
      * @throws LogicException
      *
-     * @return string
      */
-    public static function normalizeRelativePath($path)
+    public static function normalizeRelativePath(string $path): string
     {
         $path = str_replace('\\', '/', $path);
-        $path =  static::removeFunkyWhiteSpace($path);
+        $path = static::removeFunkyWhiteSpace($path);
         $parts = [];
 
         foreach (explode('/', $path) as $part) {
             switch ($part) {
                 case '':
                 case '.':
-                break;
+                    break;
 
-            case '..':
-                if (empty($parts)) {
-                    throw new LogicException(
-                        'Path is outside of the defined root, path: [' . $path . ']'
-                    );
-                }
-                array_pop($parts);
-                break;
+                case '..':
+                    if (empty($parts)) {
+                        throw new LogicException(
+                            'Path is outside of the defined root, path: [' . $path . ']'
+                        );
+                    }
+                    array_pop($parts);
+                    break;
 
-            default:
-                $parts[] = $part;
-                break;
+                default:
+                    $parts[] = $part;
+                    break;
             }
         }
 
-        $path = implode('/', $parts);
-
-        return $path;
+        return implode('/', $parts);
     }
 
     /**
@@ -138,7 +91,7 @@ class Util
      *
      * @return string $path
      */
-    protected static function removeFunkyWhiteSpace($path)
+    protected static function removeFunkyWhiteSpace(string $path): string
     {
         if (preg_match('#\p{C}+#u', $path)) {
             throw CorruptedPathDetected::forPath($path);
@@ -155,7 +108,7 @@ class Util
      *
      * @return string normalized path
      */
-    public static function normalizePrefix($prefix, $separator)
+    public static function normalizePrefix(string $prefix, string $separator): string
     {
         return rtrim($prefix, $separator) . $separator;
     }
@@ -167,7 +120,7 @@ class Util
      *
      * @return int content size
      */
-    public static function contentSize($contents)
+    public static function contentSize(string $contents): int
     {
         return defined('MB_OVERLOAD_STRING') ? mb_strlen($contents, '8bit') : strlen($contents);
     }
@@ -175,16 +128,16 @@ class Util
     /**
      * Guess MIME Type based on the path of the file and it's content.
      *
-     * @param string          $path
-     * @param string|resource $content
+     * @param string $path
+     * @param string $content
      *
      * @return string|null MIME Type or NULL if no extension detected
      */
-    public static function guessMimeType($path, $content)
+    public static function guessMimeType(string $path, string $content): ?string
     {
         $mimeType = MimeType::detectByContent($content);
 
-        if ( ! (empty($mimeType) || in_array($mimeType, ['application/x-empty', 'text/plain', 'text/x-asm']))) {
+        if (!(empty($mimeType) || in_array($mimeType, ['application/x-empty', 'text/plain', 'text/x-asm']))) {
             return $mimeType;
         }
 
@@ -198,7 +151,7 @@ class Util
      *
      * @return array listing with emulated directories
      */
-    public static function emulateDirectories(array $listing)
+    public static function emulateDirectories(array $listing): array
     {
         $directories = [];
         $listedDirectories = [];
@@ -217,15 +170,132 @@ class Util
     }
 
     /**
+     * Emulate the directories of a single object.
+     *
+     * @param array $object
+     * @param array $directories
+     * @param array $listedDirectories
+     *
+     * @return array
+     */
+    protected static function emulateObjectDirectories(array $object, array $directories, array $listedDirectories): array
+    {
+        if ($object['type'] === 'dir') {
+            $listedDirectories[] = $object['path'];
+        }
+
+        if (!isset($object['dirname']) || trim($object['dirname']) === '') {
+            return [$directories, $listedDirectories];
+        }
+
+        $parent = $object['dirname'];
+
+        while (isset($parent) && trim($parent) !== '' && !in_array($parent, $directories)) {
+            $directories[] = $parent;
+            $parent = static::dirname($parent);
+        }
+
+        if (isset($object['type']) && $object['type'] === 'dir') {
+            $listedDirectories[] = $object['path'];
+
+            return [$directories, $listedDirectories];
+        }
+
+        return [$directories, $listedDirectories];
+    }
+
+    /**
+     * Get a normalized dirname from a path.
+     *
+     * @param string $path
+     *
+     * @return string dirname
+     */
+    #[Pure] public static function dirname(string $path): string
+    {
+        return static::normalizeDirname(dirname($path));
+    }
+
+    /**
+     * Normalize a dirname return value.
+     *
+     * @param string $dirname
+     *
+     * @return string normalized dirname
+     */
+    public static function normalizeDirname(string $dirname): string
+    {
+        return $dirname === '.' ? '' : $dirname;
+    }
+
+    /**
+     * Get normalized pathinfo.
+     *
+     * @param string $path
+     *
+     * @return array pathinfo
+     */
+    public static function pathinfo(string $path): array
+    {
+        $pathinfo = compact('path');
+
+        if ('' !== $dirname = dirname($path)) {
+            $pathinfo['dirname'] = static::normalizeDirname($dirname);
+        }
+
+        $pathinfo['basename'] = static::basename($path);
+
+        $pathinfo += pathinfo($pathinfo['basename']);
+
+        return $pathinfo + ['dirname' => ''];
+    }
+
+    /**
+     * Returns the trailing name component of the path.
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    private static function basename(string $path): string
+    {
+        $separators = DIRECTORY_SEPARATOR === '/' ? '/' : '\/';
+
+        $path = rtrim($path, $separators);
+
+        $basename = preg_replace('#.*?([^' . preg_quote($separators, '#') . ']+$)#', '$1', $path);
+
+        if (DIRECTORY_SEPARATOR === '/') {
+            return $basename;
+        }
+        // @codeCoverageIgnoreStart
+        // Extra Windows path munging. This is tested via AppVeyor, but code
+        // coverage is not reported.
+
+        // Handle relative paths with drive letters. c:file.txt.
+        while (preg_match('#^[a-zA-Z]{1}:[^\\\/]#', $basename)) {
+            $basename = substr($basename, 2);
+        }
+
+        // Remove colon for standalone drive letter names.
+        if (preg_match('#^[a-zA-Z]{1}:$#', $basename)) {
+            $basename = rtrim($basename, ':');
+        }
+
+        return $basename;
+        // @codeCoverageIgnoreEnd
+    }
+
+    /**
      * Ensure a Config instance.
      *
-     * @param null|array|Config $config
+     * @param array|Config|null $config
      *
      * @return Config config instance
      *
      * @throw  LogicException
      */
-    public static function ensureConfig($config)
+    public static function ensureConfig(Config|array|null $config): Config
     {
         if ($config === null) {
             return new Config();
@@ -268,85 +338,14 @@ class Util
      *
      * @return int|null stream size
      */
-    public static function getStreamSize($resource)
+    public static function getStreamSize($resource): ?int
     {
         $stat = fstat($resource);
 
-        if ( ! is_array($stat) || ! isset($stat['size'])) {
+        if (!is_array($stat) || !isset($stat['size'])) {
             return null;
         }
 
         return $stat['size'];
-    }
-
-    /**
-     * Emulate the directories of a single object.
-     *
-     * @param array $object
-     * @param array $directories
-     * @param array $listedDirectories
-     *
-     * @return array
-     */
-    protected static function emulateObjectDirectories(array $object, array $directories, array $listedDirectories)
-    {
-        if ($object['type'] === 'dir') {
-            $listedDirectories[] = $object['path'];
-        }
-
-        if ( ! isset($object['dirname']) || trim($object['dirname']) === '') {
-            return [$directories, $listedDirectories];
-        }
-
-        $parent = $object['dirname'];
-
-        while (isset($parent) && trim($parent) !== '' && ! in_array($parent, $directories)) {
-            $directories[] = $parent;
-            $parent = static::dirname($parent);
-        }
-
-        if (isset($object['type']) && $object['type'] === 'dir') {
-            $listedDirectories[] = $object['path'];
-
-            return [$directories, $listedDirectories];
-        }
-
-        return [$directories, $listedDirectories];
-    }
-
-    /**
-     * Returns the trailing name component of the path.
-     *
-     * @param string $path
-     *
-     * @return string
-     */
-    private static function basename($path)
-    {
-        $separators = DIRECTORY_SEPARATOR === '/' ? '/' : '\/';
-
-        $path = rtrim($path, $separators);
-
-        $basename = preg_replace('#.*?([^' . preg_quote($separators, '#') . ']+$)#', '$1', $path);
-
-        if (DIRECTORY_SEPARATOR === '/') {
-            return $basename;
-        }
-        // @codeCoverageIgnoreStart
-        // Extra Windows path munging. This is tested via AppVeyor, but code
-        // coverage is not reported.
-
-        // Handle relative paths with drive letters. c:file.txt.
-        while (preg_match('#^[a-zA-Z]{1}:[^\\\/]#', $basename)) {
-            $basename = substr($basename, 2);
-        }
-
-        // Remove colon for standalone drive letter names.
-        if (preg_match('#^[a-zA-Z]{1}:$#', $basename)) {
-            $basename = rtrim($basename, ':');
-        }
-
-        return $basename;
-        // @codeCoverageIgnoreEnd
     }
 }

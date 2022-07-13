@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Handler;
 
+use JetBrains\PhpStorm\ArrayShape;
 use yxorP\inc\proxy\Exception\ARequestException;
 use yxorP\inc\proxy\Exception\ConnectException;
 use yxorP\inc\proxy\Promise\FulfilledPromise;
@@ -23,15 +24,15 @@ class CurlFactory implements CurlFactoryInterface
     const LOW_CURL_VERSION_NUMBER = '7.21.2';
 
     /** @var array */
-    private $handles = [];
+    private array $handles = [];
 
     /** @var int Total number of idle handles to keep in cache */
-    private $maxHandles;
+    private int $maxHandles;
 
     /**
      * @param int $maxHandles Maximum number of idle handles.
      */
-    public function __construct($maxHandles)
+    public function __construct(int $maxHandles)
     {
         $this->maxHandles = $maxHandles;
     }
@@ -50,7 +51,7 @@ class CurlFactory implements CurlFactoryInterface
         callable             $handler,
         EasyHandle           $easy,
         CurlFactoryInterface $factory
-    )
+    ): FulfilledPromise|PromiseInterface|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         if (isset($easy->options['on_stats'])) {
             self::invokeStats($easy);
@@ -90,7 +91,7 @@ class CurlFactory implements CurlFactoryInterface
         callable             $handler,
         EasyHandle           $easy,
         CurlFactoryInterface $factory
-    )
+    ): PromiseInterface|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         // Get error information and release the handle to the factory.
         $ctx = [
@@ -145,7 +146,7 @@ class CurlFactory implements CurlFactoryInterface
         callable   $handler,
         EasyHandle $easy,
         array      $ctx
-    )
+    ): PromiseInterface|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         try {
             // Only rewind if the body has been read from.
@@ -179,7 +180,7 @@ class CurlFactory implements CurlFactoryInterface
         return $handler($easy->request, $easy->options);
     }
 
-    private static function createRejection(EasyHandle $easy, array $ctx)
+    private static function createRejection(EasyHandle $easy, array $ctx): PromiseInterface|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         static $connectionErrors = [
             CURLE_OPERATION_TIMEOUTED => true,
@@ -227,7 +228,7 @@ class CurlFactory implements CurlFactoryInterface
         return rejection_for($error);
     }
 
-    public function create(RequestInterface $request, array $options)
+    public function create(RequestInterface $request, array $options): EasyHandle
     {
         if (isset($options['curl']['body_as_string'])) {
             $options['_body_as_string'] = $options['curl']['body_as_string'];
@@ -257,7 +258,7 @@ class CurlFactory implements CurlFactoryInterface
         return $easy;
     }
 
-    private function getDefaultConf(EasyHandle $easy)
+    #[ArrayShape(['_headers' => "\string[][]", \yxorP\inc\proxy\Handler\CURLOPT_CUSTOMREQUEST => "string", \yxorP\inc\proxy\Handler\CURLOPT_URL => "string", \yxorP\inc\proxy\Handler\CURLOPT_RETURNTRANSFER => "false", \yxorP\inc\proxy\Handler\CURLOPT_HEADER => "false", \yxorP\inc\proxy\Handler\CURLOPT_CONNECTTIMEOUT => "int", \yxorP\inc\proxy\Handler\CURLOPT_HTTP_VERSION => "int", \yxorP\inc\proxy\Handler\CURLOPT_PROTOCOLS => "int"])] private function getDefaultConf(EasyHandle $easy): array
     {
         $conf = [
             '_headers' => $easy->request->getHeaders(),
@@ -358,7 +359,7 @@ class CurlFactory implements CurlFactoryInterface
      * @param string $name Case-insensitive header to remove
      * @param array $options Array of options to modify
      */
-    private function removeHeader($name, array &$options)
+    private function removeHeader(string $name, array &$options)
     {
         foreach (array_keys($options['_headers']) as $key) {
             if (!strcasecmp($key, $name)) {
@@ -495,7 +496,7 @@ class CurlFactory implements CurlFactoryInterface
                 }
             }
 
-            $sslKey = isset($sslKey) ? $sslKey : $options['ssl_key'];
+            $sslKey = $sslKey ?? $options['ssl_key'];
 
             if (!file_exists($sslKey)) {
                 throw new InvalidArgumentException(
@@ -550,7 +551,7 @@ class CurlFactory implements CurlFactoryInterface
         }
     }
 
-    private function createHeaderFn(EasyHandle $easy)
+    private function createHeaderFn(EasyHandle $easy): \Closure
     {
         if (isset($easy->options['on_headers'])) {
             $onHeaders = $easy->options['on_headers'];

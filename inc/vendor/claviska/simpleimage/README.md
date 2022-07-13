@@ -4,7 +4,8 @@ A PHP class that makes working with images as simple as possible.
 
 Developed and maintained by [Cory LaViska](https://github.com/claviska).
 
-_If this project has you loving PHP image manipulation again, please consider [sponsoring me](https://github.com/sponsors/claviska) to support its development._
+_If this project has you loving PHP image manipulation again, please
+consider [sponsoring me](https://github.com/sponsors/claviska) to support its development._
 
 ---
 
@@ -46,7 +47,8 @@ try {
 - Reads and writes files, data URIs, and image strings.
 - Manipulation: crop, resize, overlay/watermark, adding TTF text
 - Drawing: arc, border, dot, ellipse, line, polygon, rectangle, rounded rectangle
-- Filters: blur, brighten, colorize, contrast, darken, desaturate, edge detect, emboss, invert, opacity, pixelate, sepia, sharpen, sketch
+- Filters: blur, brighten, colorize, contrast, darken, desaturate, edge detect, emboss, invert, opacity, pixelate,
+  sepia, sharpen, sketch
 - Utilities: color adjustment, darken/lighten color, extract colors
 - Properties: exif data, height/width, mime type, orientation
 - Color arguments can be passed in as any CSS color (e.g. `LightBlue`), a hex color, or an RGB(A) array.
@@ -75,7 +77,8 @@ require 'src/claviska/SimpleImage.php';
 
 SimpleImage is developed and maintained by [Cory LaViska](https://github.com/claviska). Copyright A Beautiful Site, LLC.
 
-If you enjoy using SimpleImage, especially in commercial applications, please consider [sponsoring me](https://github.com/sponsors/claviska) to support its development.
+If you enjoy using SimpleImage, especially in commercial applications, please
+consider [sponsoring me](https://github.com/sponsors/claviska) to support its development.
 
 Thanks! 🙌
 
@@ -146,7 +149,8 @@ Returns a SimpleImage object.
 Generates a data URI.
 
 - `$mimeType` (string) - The image format to output as a mime type (defaults to the original mime type).
-- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the format is lossless.
+- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the
+  format is lossless.
 
 Returns a string containing a data URI.
 
@@ -156,7 +160,8 @@ Forces the image to be downloaded to the clients machine. Must be called before 
 
 - `$filename`* (string) - The filename (without path) to send to the client (e.g. 'image.jpeg').
 - `$mimeType` (string) - The image format to output as a mime type (defaults to the original mime type).
-- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the format is lossless.
+- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the
+  format is lossless.
 
 Returns a SimpleImage object.
 
@@ -165,7 +170,8 @@ Returns a SimpleImage object.
 Writes the image to a file.
 
 - `$mimeType` (string) - The image format to output as a mime type (defaults to the original mime type).
-- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the format is lossless.
+- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the
+  format is lossless.
 
 Returns a SimpleImage object.
 
@@ -174,7 +180,8 @@ Returns a SimpleImage object.
 Outputs the image to the screen. Must be called before any output is sent to the screen.
 
 - `$mimeType` (string) - The image format to output as a mime type (defaults to the original mime type).
-- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the format is lossless.
+- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the
+  format is lossless.
 
 Returns a SimpleImage object.
 
@@ -183,7 +190,8 @@ Returns a SimpleImage object.
 Generates an image string.
 
 - `$mimeType` (string) - The image format to output as a mime type (defaults to the original mime type).
-- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the format is lossless.
+- `$quality` (int) - Image quality as a percentage (default 100). This argument has no effect on PNG images, since the
+  format is lossless.
 
 Returns a SimpleImage object.
 
@@ -235,8 +243,8 @@ Returns the width as an integer.
 
 #### `autoOrient()`
 
-Rotates an image so the orientation will be correct based on its exif data. It is safe to call this method on images that don't have exif data (no changes will be made).
-Returns a SimpleImage object.
+Rotates an image so the orientation will be correct based on its exif data. It is safe to call this method on images
+that don't have exif data (no changes will be made). Returns a SimpleImage object.
 
 #### `bestFit($maxWidth, $maxHeight)`
 
@@ -262,7 +270,8 @@ Returns a SimpleImage object.
 
 Proportionally resize the image to a specific height.
 
-_This method was deprecated in version 3.2.2 and will be removed in version 4.0. Please use `resize(null, $height)` instead._
+_This method was deprecated in version 3.2.2 and will be removed in version 4.0. Please use `resize(null, $height)`
+instead._
 
 - `$height`* (int) - The height to resize the image to.
 
@@ -272,7 +281,8 @@ Returns a SimpleImage object.
 
 Proportionally resize the image to a specific width.
 
-_This method was deprecated in version 3.2.2 and will be removed in version 4.0. Please use `resize($width, null)` instead._
+_This method was deprecated in version 3.2.2 and will be removed in version 4.0. Please use `resize($width, null)`
+instead._
 
 - `$width`* (int) - The width to resize the image to.
 
@@ -300,17 +310,20 @@ Returns a SimpleImage object.
 Place an image on top of the current image.
 
 - `$overlay`* (string|SimpleImage) - The image to overlay. This can be a filename, a data URI, or a SimpleImage object.
-- `$anchor` (string) - The anchor point: 'center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right' (default 'center')
+- `$anchor` (string) - The anchor point: 'center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom
+  left', 'bottom right' (default 'center')
 - `$opacity` (float) - The opacity level of the overlay 0-1 (default 1).
 - `$xOffset` (int) - Horizontal offset in pixels (default 0).
 - `$yOffset` (int) - Vertical offset in pixels (default 0).
-- `$calculateOffsetFromEdge` (bool) - Calculate Offset referring to the edges of the image. $xOffset and $yOffset have no effect in center anchor. (default false).
+- `$calculateOffsetFromEdge` (bool) - Calculate Offset referring to the edges of the image. $xOffset and $yOffset have
+  no effect in center anchor. (default false).
 
 Returns a SimpleImage object.
 
 #### `resize($width, $height)`
 
-Resize an image to the specified dimensions. If only one dimension is specified, the image will be resized proportionally.
+Resize an image to the specified dimensions. If only one dimension is specified, the image will be resized
+proportionally.
 
 - `$width`* (int) - The new image width.
 - `$height`* (int) - The new image height.
@@ -331,7 +344,8 @@ Returns a SimpleImage object.
 Rotates the image.
 
 - `$angle`* (int) - The angle of rotation (-360 - 360).
-- `$backgroundColor` (string|array) - The background color to use for the uncovered zone area after rotation (default 'transparent').
+- `$backgroundColor` (string|array) - The background color to use for the uncovered zone area after rotation (default '
+  transparent').
 
 Returns a SimpleImage object.
 
@@ -349,28 +363,30 @@ Adds text to the image.
   - `xOffset` (int) - The horizontal offset in pixels (default 0).
   - `yOffset` (int) - The vertical offset in pixels (default 0).
   - `shadow` (array) - Text shadow params.
-      - `x`* (int) - Horizontal offset in pixels.
-      - `y`* (int) - Vertical offset in pixels.
-      - `color`* (string|array) - The text shadow color.
+    - `x`* (int) - Horizontal offset in pixels.
+    - `y`* (int) - Vertical offset in pixels.
+    - `color`* (string|array) - The text shadow color.
   - `calculateOffsetFromEdge` (bool) - Calculate Offset referring to the edges of the image (default false).
   - `baselineAlign` (bool) - Align the text font with the baseline. (default true).
-- `$boundary` (array) - If passed, this variable will contain an array with coordinates that
-  surround the text: [x1, y1, x2, y2, width, height]. This can be used for calculating the
-  text's position after it gets added to the image.
+- `$boundary` (array) - If passed, this variable will contain an array with coordinates that surround the
+  text: [x1, y1, x2, y2, width, height]. This can be used for calculating the text's position after it gets added to the
+  image.
 
 Returns a SimpleImage object.
 
 #### `thumbnail($width, $height, $anchor)`
 
-Creates a thumbnail image. This function attempts to get the image as close to the provided dimensions as possible, then crops the remaining overflow to force the desired size. Useful for generating thumbnail images.
+Creates a thumbnail image. This function attempts to get the image as close to the provided dimensions as possible, then
+crops the remaining overflow to force the desired size. Useful for generating thumbnail images.
 
 - `$width`* (int) - The thumbnail width.
 - `$height`* (int) - The thumbnail height.
-- `$anchor` (string) - The anchor point: 'center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom left', 'bottom right' (default 'center').
+- `$anchor` (string) - The anchor point: 'center', 'top', 'bottom', 'left', 'right', 'top left', 'top right', 'bottom
+  left', 'bottom right' (default 'center').
 
 Returns a SimpleImage object.
 
-###  Drawing
+### Drawing
 
 #### `arc($x, $y, $width, $height, $start, $end, $color, $thickness)`
 
@@ -621,10 +637,13 @@ Returns an RGBA color array.
 
 #### `extractColors($count = 10, $backgroundColor = null)`
 
-Extracts colors from an image like a human would do.™ This method requires the third-party library \League\ColorExtractor. If you're using Composer, it will be installed for you automatically.
+Extracts colors from an image like a human would do.™ This method requires the third-party library
+\League\ColorExtractor. If you're using Composer, it will be installed for you automatically.
 
 - `$count` (int) - The max number of colors to extract (default 5).
-- `$backgroundColor` (string|array) - By default any pixel with alpha value greater than zero will be discarded. This is because transparent colors are not perceived as is. For example, fully transparent black would be seen white on a white background. So if you want to take transparency into account, you have to specify a default background color.
+- `$backgroundColor` (string|array) - By default any pixel with alpha value greater than zero will be discarded. This is
+  because transparent colors are not perceived as is. For example, fully transparent black would be seen white on a
+  white background. So if you want to take transparency into account, you have to specify a default background color.
 
 Returns an array of RGBA colors arrays.
 
@@ -654,14 +673,16 @@ Normalizes a hex or array color value to a well-formatted RGBA array.
 
 You can pipe alpha transparency through hex strings and color names. For example:
 
-  #fff|0.50 <-- 50% white
-  red|0.25 <-- 25% red
+# fff|0.50 <-- 50% white
+
+red|0.25 <-- 25% red
 
 Returns an array: [red, green, blue, alpha]
 
 ### Exceptions
 
-SimpleImage throws standard exceptions when things go wrong. You should always use a try/catch block around your code to properly handle them.
+SimpleImage throws standard exceptions when things go wrong. You should always use a try/catch block around your code to
+properly handle them.
 
 ```php
 <?php
@@ -689,7 +710,8 @@ try {
 }
 ```
 
-As a best practice, always use the defined constants instead of their integers values. The values will likely change in future versions, and WILL NOT be considered a breaking change.
+As a best practice, always use the defined constants instead of their integers values. The values will likely change in
+future versions, and WILL NOT be considered a breaking change.
 
 - `ERR_FILE_NOT_FOUND` - The specified file could not be found or loaded for some reason.
 - `ERR_FONT_FILE` - The specified font file could not be loaded.
@@ -706,9 +728,12 @@ As a best practice, always use the defined constants instead of their integers v
 
 ### Useful Things To Know
 
-- Color arguments can be a CSS color name (e.g. `LightBlue`), a hex color string (e.g. `#0099dd`), or an RGB(A) array (e.g. `['red' => 255, 'green' => 0, 'blue' => 0, 'alpha' => 1]`).
+- Color arguments can be a CSS color name (e.g. `LightBlue`), a hex color string (e.g. `#0099dd`), or an RGB(A) array (
+  e.g. `['red' => 255, 'green' => 0, 'blue' => 0, 'alpha' => 1]`).
 
-- When `$thickness` > 1, GD draws lines of the desired thickness from the center origin. For example, a rectangle drawn at [10, 10, 20, 20] with a thickness of 3 will actually be draw at [9, 9, 21, 21]. This is true for all shapes and is not a bug in the SimpleImage library.
+- When `$thickness` > 1, GD draws lines of the desired thickness from the center origin. For example, a rectangle drawn
+  at [10, 10, 20, 20] with a thickness of 3 will actually be draw at [9, 9, 21, 21]. This is true for all shapes and is
+  not a bug in the SimpleImage library.
 
 ### Instance flags
 
@@ -730,7 +755,8 @@ $image = new \claviska\SimpleImage(flags: ['foo' => 'bar']);
 
 #### `sslVerify`
 
-Setting `sslVerify` to `false` (defaults to `true`) will make all images loaded over HTTPS forgo certificate peer validation. This is especially usefull for self-signed certificates.
+Setting `sslVerify` to `false` (defaults to `true`) will make all images loaded over HTTPS forgo certificate peer
+validation. This is especially usefull for self-signed certificates.
 
 ```php
 $image = new \claviska\SimpleImage('https://localhost/image.jpeg', ['sslVerify' => false]);
@@ -772,7 +798,8 @@ $image = new \claviska\SimpleImage('https://localhost/image.jpeg', ['sslVerify' 
 - Removed `smooth` method because its arguments in the PHP manual aren't documented well.
 - Removed deprecated method `adaptive_resize` (use `thumbnail` instead).
 - Removed `get_meta_data` (use `getExif`, `getHeight`, `getMime`, `getOrientation`, and `getWidth` instead).
-- Added [.editorconfig](http://editorconfig.org/) file. Please make sure your editor supports these settings before submitting contributions.
+- Added [.editorconfig](http://editorconfig.org/) file. Please make sure your editor supports these settings before
+  submitting contributions.
 - Switched from four spaces to two for indentations (sorry PHP-FIG!).
 - Switched from underscore_methods to camelCaseMethods.
 - Organized methods into groups based on function

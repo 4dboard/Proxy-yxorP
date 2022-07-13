@@ -65,7 +65,7 @@ class BucketFunctionalTest extends FunctionalTestCase
         new Bucket($this->manager, $this->getDatabaseName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -123,7 +123,7 @@ class BucketFunctionalTest extends FunctionalTestCase
         $this->assertCollectionCount($this->chunksCollection, 0);
     }
 
-    public function provideInputDataAndExpectedChunks()
+    public function provideInputDataAndExpectedChunks(): array
     {
         return [
             ['', 0],
@@ -226,9 +226,19 @@ class BucketFunctionalTest extends FunctionalTestCase
         $this->bucket->downloadToStream('id', $destination);
     }
 
-    public function provideInvalidStreamValues()
+    public function provideInvalidStreamValues(): array
     {
         return $this->wrapValuesForDataProvider($this->getInvalidStreamValues());
+    }
+
+    /**
+     * Return a list of invalid stream values.
+     *
+     * @return array
+     */
+    private function getInvalidStreamValues(): array
+    {
+        return [null, 123, 'foo', [], hash_init('md5')];
     }
 
     public function testDownloadToStreamShouldRequireFileToExist(): void
@@ -294,7 +304,7 @@ class BucketFunctionalTest extends FunctionalTestCase
         $this->bucket->downloadToStreamByName($filename, $destination, ['revision' => $revision]);
     }
 
-    public function provideNonexistentFilenameAndRevision()
+    public function provideNonexistentFilenameAndRevision(): array
     {
         return [
             ['filename', 2],
@@ -459,7 +469,7 @@ class BucketFunctionalTest extends FunctionalTestCase
         $this->bucket->getFileDocumentForStream($stream);
     }
 
-    public function provideInvalidGridFSStreamValues()
+    public function provideInvalidGridFSStreamValues(): array
     {
         return $this->wrapValuesForDataProvider(array_merge($this->getInvalidStreamValues(), [$this->createStream()]));
     }
@@ -670,7 +680,7 @@ class BucketFunctionalTest extends FunctionalTestCase
 
     public function testUploadingAnEmptyFile(): void
     {
-        $id = $this->bucket->uploadFromStream('filename', $this->createStream(''));
+        $id = $this->bucket->uploadFromStream('filename', $this->createStream());
         $destination = $this->createStream();
         $this->bucket->downloadToStream($id, $destination);
 
@@ -707,6 +717,43 @@ class BucketFunctionalTest extends FunctionalTestCase
         });
     }
 
+    /**
+     * Asserts that an index with the given name exists for the collection.
+     *
+     * An optional $callback may be provided, which should take an IndexInfo
+     * argument as its first and only parameter. If an IndexInfo matching the
+     * given name is found, it will be passed to the callback, which may perform
+     * additional assertions.
+     *
+     * @param string $collectionName
+     * @param string $indexName
+     * @param callable|null $callback
+     */
+    private function assertIndexExists(string $collectionName, string $indexName, ?callable $callback = null): void
+    {
+        if ($callback !== null && !is_callable($callback)) {
+            throw new InvalidArgumentException('$callback is not a callable');
+        }
+
+        $operation = new ListIndexes($this->getDatabaseName(), $collectionName);
+        $indexes = $operation->execute($this->getPrimaryServer());
+
+        $foundIndex = null;
+
+        foreach ($indexes as $index) {
+            if ($index->getName() === $indexName) {
+                $foundIndex = $index;
+                break;
+            }
+        }
+
+        $this->assertNotNull($foundIndex, sprintf('Index %s does not exist', $indexName));
+
+        if ($callback !== null) {
+            call_user_func($callback, $foundIndex);
+        }
+    }
+
     public function testExistingIndexIsReused(): void
     {
         $this->filesCollection->createIndex(['filename' => 1.0, 'uploadDate' => 1], ['name' => 'test']);
@@ -716,6 +763,29 @@ class BucketFunctionalTest extends FunctionalTestCase
 
         $this->assertIndexNotExists($this->filesCollection->getCollectionName(), 'filename_1_uploadDate_1');
         $this->assertIndexNotExists($this->chunksCollection->getCollectionName(), 'files_id_1_n_1');
+    }
+
+    /**
+     * Asserts that an index with the given name does not exist for the collection.
+     *
+     * @param string $collectionName
+     * @param string $indexName
+     */
+    private function assertIndexNotExists(string $collectionName, string $indexName): void
+    {
+        $operation = new ListIndexes($this->getDatabaseName(), $collectionName);
+        $indexes = $operation->execute($this->getPrimaryServer());
+
+        $foundIndex = false;
+
+        foreach ($indexes as $index) {
+            if ($index->getName() === $indexName) {
+                $foundIndex = true;
+                break;
+            }
+        }
+
+        $this->assertFalse($foundIndex, sprintf('Index %s exists', $indexName));
     }
 
     public function testDownloadToStreamFails(): void
@@ -752,7 +822,7 @@ class BucketFunctionalTest extends FunctionalTestCase
 
     public function testDanglingOpenWritableStream(): void
     {
-        if (! strncasecmp(PHP_OS, 'WIN', 3)) {
+        if (!strncasecmp(PHP_OS, 'WIN', 3)) {
             $this->markTestSkipped('Test does not apply to Windows');
         }
 
@@ -771,75 +841,5 @@ CMD;
         $output = implode(PHP_EOL, $output);
 
         $this->assertSame('', $output);
-    }
-
-    /**
-     * Asserts that an index with the given name exists for the collection.
-     *
-     * An optional $callback may be provided, which should take an IndexInfo
-     * argument as its first and only parameter. If an IndexInfo matching the
-     * given name is found, it will be passed to the callback, which may perform
-     * additional assertions.
-     *
-     * @param string   $collectionName
-     * @param string   $indexName
-     * @param callable $callback
-     */
-    private function assertIndexExists(string $collectionName, string $indexName, ?callable $callback = null): void
-    {
-        if ($callback !== null && ! is_callable($callback)) {
-            throw new InvalidArgumentException('$callback is not a callable');
-        }
-
-        $operation = new ListIndexes($this->getDatabaseName(), $collectionName);
-        $indexes = $operation->execute($this->getPrimaryServer());
-
-        $foundIndex = null;
-
-        foreach ($indexes as $index) {
-            if ($index->getName() === $indexName) {
-                $foundIndex = $index;
-                break;
-            }
-        }
-
-        $this->assertNotNull($foundIndex, sprintf('Index %s does not exist', $indexName));
-
-        if ($callback !== null) {
-            call_user_func($callback, $foundIndex);
-        }
-    }
-
-    /**
-     * Asserts that an index with the given name does not exist for the collection.
-     *
-     * @param string $collectionName
-     * @param string $indexName
-     */
-    private function assertIndexNotExists(string $collectionName, string $indexName): void
-    {
-        $operation = new ListIndexes($this->getDatabaseName(), $collectionName);
-        $indexes = $operation->execute($this->getPrimaryServer());
-
-        $foundIndex = false;
-
-        foreach ($indexes as $index) {
-            if ($index->getName() === $indexName) {
-                $foundIndex = true;
-                break;
-            }
-        }
-
-        $this->assertFalse($foundIndex, sprintf('Index %s exists', $indexName));
-    }
-
-    /**
-     * Return a list of invalid stream values.
-     *
-     * @return array
-     */
-    private function getInvalidStreamValues(): array
-    {
-        return [null, 123, 'foo', [], hash_init('md5')];
     }
 }

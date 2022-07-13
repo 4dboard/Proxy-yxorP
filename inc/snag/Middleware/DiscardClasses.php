@@ -8,12 +8,12 @@ use yxorP\inc\snag\Report;
 class DiscardClasses
 {
     /**
-     * @var \yxorP\inc\snag\Configuration
+     * @var Configuration
      */
-    protected $config;
+    protected Configuration $config;
 
     /**
-     * @param \yxorP\inc\snag\Configuration $config
+     * @param Configuration $config
      */
     public function __construct(Configuration $config)
     {
@@ -21,7 +21,7 @@ class DiscardClasses
     }
 
     /**
-     * @param \yxorP\inc\snag\Report $report
+     * @param Report $report
      * @param callable $next
      *
      * @return void

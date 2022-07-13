@@ -2,6 +2,8 @@
 
 namespace League\Flysystem\Plugin;
 
+use InvalidArgumentException;
+
 class ListWith extends AbstractPlugin
 {
     /**
@@ -9,7 +11,7 @@ class ListWith extends AbstractPlugin
      *
      * @return string
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return 'listWith';
     }
@@ -18,12 +20,12 @@ class ListWith extends AbstractPlugin
      * List contents with metadata.
      *
      * @param string[] $keys
-     * @param string   $directory
-     * @param bool     $recursive
+     * @param string $directory
+     * @param bool $recursive
      *
      * @return array listing with metadata
      */
-    public function handle(array $keys = [], $directory = '', $recursive = false)
+    public function handle(array $keys = [], string $directory = '', bool $recursive = false): array
     {
         $contents = $this->filesystem->listContents($directory, $recursive);
 
@@ -40,17 +42,17 @@ class ListWith extends AbstractPlugin
     /**
      * Get a meta-data value by key name.
      *
-     * @param array  $object
+     * @param array $object
      * @param string $key
      *
      * @return array
      */
-    protected function getMetadataByName(array $object, $key)
+    protected function getMetadataByName(array $object, string $key): array
     {
         $method = 'get' . ucfirst($key);
 
-        if ( ! method_exists($this->filesystem, $method)) {
-            throw new \InvalidArgumentException('Could not get meta-data for key: ' . $key);
+        if (!method_exists($this->filesystem, $method)) {
+            throw new InvalidArgumentException('Could not get meta-data for key: ' . $key);
         }
 
         $object[$key] = $this->filesystem->{$method}($object['path']);

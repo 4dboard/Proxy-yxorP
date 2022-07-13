@@ -43,19 +43,19 @@ use function sprintf;
 class CreateIndexes implements Executable
 {
     /** @var integer */
-    private static $wireVersionForCommitQuorum = 9;
+    private static int $wireVersionForCommitQuorum = 9;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array */
-    private $indexes = [];
+    private array $indexes = [];
 
     /** @var array */
-    private $options = [];
+    private array $options = [];
 
     /**
      * Constructs a createIndexes command.
@@ -73,13 +73,13 @@ class CreateIndexes implements Executable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string  $databaseName   Database name
-     * @param string  $collectionName Collection name
-     * @param array[] $indexes        List of index specifications
-     * @param array   $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param array[] $indexes List of index specifications
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, array $indexes, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, array $indexes, array $options = [])
     {
         if (empty($indexes)) {
             throw new InvalidArgumentException('$indexes is empty');
@@ -92,7 +92,7 @@ class CreateIndexes implements Executable
                 throw new InvalidArgumentException(sprintf('$indexes is not a list (unexpected index: "%s")', $i));
             }
 
-            if (! is_array($index)) {
+            if (!is_array($index)) {
                 throw InvalidArgumentException::invalidType(sprintf('$index[%d]', $i), $index, 'array');
             }
 
@@ -101,19 +101,19 @@ class CreateIndexes implements Executable
             $expectedIndex += 1;
         }
 
-        if (isset($options['commitQuorum']) && ! is_string($options['commitQuorum']) && ! is_integer($options['commitQuorum'])) {
+        if (isset($options['commitQuorum']) && !is_string($options['commitQuorum']) && !is_integer($options['commitQuorum'])) {
             throw InvalidArgumentException::invalidType('"commitQuorum" option', $options['commitQuorum'], ['integer', 'string']);
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
@@ -121,21 +121,21 @@ class CreateIndexes implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->options = $options;
     }
 
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return string[] The names of the created indexes
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): array
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['writeConcern'])) {
@@ -145,29 +145,8 @@ class CreateIndexes implements Executable
         $this->executeCommand($server);
 
         return array_map(function (IndexInput $index) {
-            return (string) $index;
+            return (string)$index;
         }, $this->indexes);
-    }
-
-    /**
-     * Create options for executing the command.
-     *
-     * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
-     * @return array
-     */
-    private function createOptions()
-    {
-        $options = [];
-
-        if (isset($this->options['session'])) {
-            $options['session'] = $this->options['session'];
-        }
-
-        if (isset($this->options['writeConcern'])) {
-            $options['writeConcern'] = $this->options['writeConcern'];
-        }
-
-        return $options;
     }
 
     /**
@@ -187,7 +166,7 @@ class CreateIndexes implements Executable
         if (isset($this->options['commitQuorum'])) {
             /* Drivers MUST manually raise an error if this option is specified
              * when creating an index on a pre 4.4 server. */
-            if (! server_supports_feature($server, self::$wireVersionForCommitQuorum)) {
+            if (!server_supports_feature($server, self::$wireVersionForCommitQuorum)) {
                 throw UnsupportedException::commitQuorumNotSupported();
             }
 
@@ -199,5 +178,26 @@ class CreateIndexes implements Executable
         }
 
         $server->executeWriteCommand($this->databaseName, new Command($cmd), $this->createOptions());
+    }
+
+    /**
+     * Create options for executing the command.
+     *
+     * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
+     * @return array
+     */
+    private function createOptions(): array
+    {
+        $options = [];
+
+        if (isset($this->options['session'])) {
+            $options['session'] = $this->options['session'];
+        }
+
+        if (isset($this->options['writeConcern'])) {
+            $options['writeConcern'] = $this->options['writeConcern'];
+        }
+
+        return $options;
     }
 }

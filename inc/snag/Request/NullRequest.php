@@ -9,7 +9,7 @@ class NullRequest implements RequestInterface
      *
      * @return bool
      */
-    public function isRequest()
+    public function isRequest(): bool
     {
         return false;
     }
@@ -19,7 +19,7 @@ class NullRequest implements RequestInterface
      *
      * @return array
      */
-    public function getSession()
+    public function getSession(): array
     {
         return [];
     }
@@ -29,7 +29,7 @@ class NullRequest implements RequestInterface
      *
      * @return array
      */
-    public function getCookies()
+    public function getCookies(): array
     {
         return [];
     }
@@ -39,7 +39,7 @@ class NullRequest implements RequestInterface
      *
      * @return array
      */
-    public function getMetaData()
+    public function getMetaData(): array
     {
         return [];
     }
@@ -49,7 +49,7 @@ class NullRequest implements RequestInterface
      *
      * @return string|null
      */
-    public function getContext()
+    public function getContext(): ?string
     {
         return null;
     }
@@ -59,7 +59,7 @@ class NullRequest implements RequestInterface
      *
      * @return string|null
      */
-    public function getUserId()
+    public function getUserId(): ?string
     {
         return null;
     }

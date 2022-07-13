@@ -1,20 +1,20 @@
 <?php namespace yxorP\inc\snag;
 class Pipeline
 {
-    protected $pipes;
+    protected array $pipes;
 
     public function __construct(array $pipes = [])
     {
         $this->pipes = $pipes;
     }
 
-    public function pipe(callable $pipe)
+    public function pipe(callable $pipe): static
     {
         $this->pipes[] = $pipe;
         return $this;
     }
 
-    public function insertBefore(callable $pipe, $beforeClass)
+    public function insertBefore(callable $pipe, $beforeClass): static
     {
         $beforePosition = null;
         foreach ($this->pipes as $index => $callable) {
@@ -41,7 +41,7 @@ class Pipeline
         return call_user_func(array_reduce($pipes, $this->getSlice(), $first), $passable);
     }
 
-    protected function getSlice()
+    protected function getSlice(): \Closure
     {
         return function ($stack, $pipe) {
             return function ($passable) use ($stack, $pipe) {

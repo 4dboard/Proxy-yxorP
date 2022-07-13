@@ -160,7 +160,7 @@ $app->on('admin.init', function () {
 
     }, $this->module('yxorp')->hasaccess('yxorp', 'finder'));
 
-}, 0);
+});
 
 
 /**
@@ -246,7 +246,7 @@ $app->on('after', function () {
          */
 
         $DURATION_TIME = microtime(true) - YXORP_START_TIME;
-        $MEMORY_USAGE = memory_get_peak_usage(false) / 1024 / 1024;
+        $MEMORY_USAGE = memory_get_peak_usage() / 1024 / 1024;
 
         header('YXORP_DURATION_TIME: ' . $DURATION_TIME . 'sec');
         header('YXORP_MEMORY_USAGE: ' . $MEMORY_USAGE . 'mb');

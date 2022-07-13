@@ -2,6 +2,8 @@
 
 namespace yxorP\inc\psr\Http\Message;
 
+use InvalidArgumentException;
+
 /**
  * Representation of an outgoing, client-side request.
  *
@@ -39,7 +41,7 @@ interface RequestInterface extends MessageInterface
      *
      * @return string
      */
-    public function getRequestTarget();
+    public function getRequestTarget(): string;
 
     /**
      * Return an instance with the specific request-target.
@@ -58,14 +60,14 @@ interface RequestInterface extends MessageInterface
      * @param mixed $requestTarget
      * @return static
      */
-    public function withRequestTarget($requestTarget);
+    public function withRequestTarget(mixed $requestTarget): static;
 
     /**
      * Retrieves the HTTP method of the request.
      *
      * @return string Returns the request method.
      */
-    public function getMethod();
+    public function getMethod(): string;
 
     /**
      * Return an instance with the provided HTTP method.
@@ -80,9 +82,9 @@ interface RequestInterface extends MessageInterface
      *
      * @param string $method Case-sensitive method.
      * @return static
-     * @throws \InvalidArgumentException for invalid HTTP methods.
+     * @throws InvalidArgumentException for invalid HTTP methods.
      */
-    public function withMethod($method);
+    public function withMethod(string $method): static;
 
     /**
      * Retrieves the URI instance.
@@ -93,7 +95,7 @@ interface RequestInterface extends MessageInterface
      * @return UriInterface Returns a UriInterface instance
      *     representing the URI of the request.
      */
-    public function getUri();
+    public function getUri(): UriInterface;
 
     /**
      * Returns an instance with the provided URI.
@@ -125,5 +127,5 @@ interface RequestInterface extends MessageInterface
      * @param bool $preserveHost Preserve the original state of the Host header.
      * @return static
      */
-    public function withUri(UriInterface $uri, $preserveHost = false);
+    public function withUri(UriInterface $uri, bool $preserveHost = false): static;
 }

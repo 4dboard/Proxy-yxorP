@@ -2,6 +2,9 @@
 
 namespace yxorP\inc\proxy\Promise;
 
+use JetBrains\PhpStorm\Pure;
+use Throwable;
+
 /**
  * Creates a promise that is resolved using a generator that yields values or
  * promises (somewhat similar to C#'s async keyword).
@@ -42,17 +45,17 @@ final class Coroutine implements PromiseInterface
     /**
      * @var PromiseInterface|null
      */
-    private $currentPromise;
+    private ?PromiseInterface $currentPromise;
 
     /**
      * @var Generator
      */
-    private $generator;
+    private Generator $generator;
 
     /**
      * @var Promise
      */
-    private $result;
+    private Promise $result;
 
     public function __construct(callable $generatorFn)
     {
@@ -65,7 +68,7 @@ final class Coroutine implements PromiseInterface
         $this->nextCoroutine($this->generator->current());
     }
 
-    public function wait($unwrap = true)
+    public function wait(bool $unwrap = true)
     {
         return $this->result->wait($unwrap);
     }
@@ -79,27 +82,27 @@ final class Coroutine implements PromiseInterface
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    )
+    ): FulfilledPromise|PromiseInterface|Promise|RejectedPromise
     {
         return $this->result->then($onFulfilled, $onRejected);
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): FulfilledPromise|PromiseInterface|Promise|RejectedPromise
     {
         return $this->result->otherwise($onRejected);
     }
 
-    public function getState()
+    #[Pure] public function getState(): string
     {
         return $this->result->getState();
     }
 
-    public function resolve($value)
+    public function resolve(mixed $value)
     {
         $this->result->resolve($value);
     }
 
-    public function reject($reason)
+    public function reject(mixed $reason)
     {
         $this->result->reject($reason);
     }

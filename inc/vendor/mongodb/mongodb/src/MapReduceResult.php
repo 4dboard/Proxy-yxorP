@@ -40,25 +40,25 @@ class MapReduceResult implements IteratorAggregate
     private $getIterator;
 
     /** @var integer */
-    private $executionTimeMS;
+    private int $executionTimeMS;
 
     /** @var array */
-    private $counts;
+    private array $counts;
 
     /** @var array */
-    private $timing;
+    private array $timing;
 
     /**
-     * @internal
      * @param callable $getIterator Callback that returns a Traversable for mapReduce results
-     * @param stdClass $result      Result document from the mapReduce command
+     * @param stdClass $result Result document from the mapReduce command
+     * @internal
      */
     public function __construct(callable $getIterator, stdClass $result)
     {
         $this->getIterator = $getIterator;
-        $this->executionTimeMS = isset($result->timeMillis) ? (integer) $result->timeMillis : 0;
-        $this->counts = isset($result->counts) ? (array) $result->counts : [];
-        $this->timing = isset($result->timing) ? (array) $result->timing : [];
+        $this->executionTimeMS = isset($result->timeMillis) ? (integer)$result->timeMillis : 0;
+        $this->counts = isset($result->counts) ? (array)$result->counts : [];
+        $this->timing = isset($result->timing) ? (array)$result->timing : [];
     }
 
     /**
@@ -66,7 +66,7 @@ class MapReduceResult implements IteratorAggregate
      *
      * @return array
      */
-    public function getCounts()
+    public function getCounts(): array
     {
         return $this->counts;
     }
@@ -76,9 +76,9 @@ class MapReduceResult implements IteratorAggregate
      *
      * @return integer
      */
-    public function getExecutionTimeMS()
+    public function getExecutionTimeMS(): int
     {
-        return (integer) $this->executionTimeMS;
+        return $this->executionTimeMS;
     }
 
     /**
@@ -88,7 +88,7 @@ class MapReduceResult implements IteratorAggregate
      * @return Traversable
      */
     #[ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return call_user_func($this->getIterator);
     }
@@ -101,7 +101,7 @@ class MapReduceResult implements IteratorAggregate
      *
      * @return array
      */
-    public function getTiming()
+    public function getTiming(): array
     {
         return $this->timing;
     }

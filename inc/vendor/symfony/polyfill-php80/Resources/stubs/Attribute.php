@@ -13,7 +13,7 @@ final class Attribute
     public const IS_REPEATABLE = 64;
 
     /** @var int */
-    public $flags;
+    public int $flags;
 
     public function __construct(int $flags = self::TARGET_ALL)
     {

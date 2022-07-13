@@ -3,6 +3,7 @@
 namespace MongoDB\Tests\UnifiedSpecTests;
 
 use ArrayAccess;
+use HumbugBox380\Composer\Semver\Constraint\Constraint;
 use MongoDB\ChangeStream;
 use MongoDB\Client;
 use MongoDB\Collection;
@@ -27,19 +28,17 @@ use function sprintf;
 
 class EntityMap implements ArrayAccess
 {
+    /** @var Constraint */
+    private static Constraint $isSupportedType;
     /** @var array */
-    private $map = [];
-
+    private array $map = [];
     /**
      * Track lsids so they can be accessed after Session::getLogicalSessionId()
      * has been called.
      *
      * @var stdClass[]
      */
-    private $lsidsBySession = [];
-
-    /** @var Constraint */
-    private static $isSupportedType;
+    private array $lsidsBySession = [];
 
     public function __destruct()
     {
@@ -70,7 +69,7 @@ class EntityMap implements ArrayAccess
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function offsetGet($id)
+    public function offsetGet($id): mixed
     {
         assertIsString($id);
         assertArrayHasKey($id, $this->map, sprintf('No entity is defined for "%s"', $id));
@@ -107,9 +106,9 @@ class EntityMap implements ArrayAccess
 
         $this->map[$id] = new class ($id, $value, $parent) {
             /** @var string */
-            public $id;
+            public string $id;
             /** @var mixed */
-            public $value;
+            public mixed $value;
             /** @var self */
             public $parent;
 
@@ -131,6 +130,24 @@ class EntityMap implements ArrayAccess
                 return $root;
             }
         };
+    }
+
+    private static function isSupportedType(): Constraint
+    {
+        if (self::$isSupportedType === null) {
+            self::$isSupportedType = logicalOr(
+                isInstanceOf(Client::class),
+                isInstanceOf(Database::class),
+                isInstanceOf(Collection::class),
+                isInstanceOf(Session::class),
+                isInstanceOf(Bucket::class),
+                isInstanceOf(ChangeStream::class),
+                isInstanceOf(Cursor::class),
+                IsBsonType::any()
+            );
+        }
+
+        return self::$isSupportedType;
     }
 
     /**
@@ -173,24 +190,6 @@ class EntityMap implements ArrayAccess
     {
         $root = $this->map[$id]->getRoot();
 
-        return $root->value instanceof Client ? $root->id : null;
-    }
-
-    private static function isSupportedType(): Constraint
-    {
-        if (self::$isSupportedType === null) {
-            self::$isSupportedType = logicalOr(
-                isInstanceOf(Client::class),
-                isInstanceOf(Database::class),
-                isInstanceOf(Collection::class),
-                isInstanceOf(Session::class),
-                isInstanceOf(Bucket::class),
-                isInstanceOf(ChangeStream::class),
-                isInstanceOf(Cursor::class),
-                IsBsonType::any()
-            );
-        }
-
-        return self::$isSupportedType;
+        return null;
     }
 }

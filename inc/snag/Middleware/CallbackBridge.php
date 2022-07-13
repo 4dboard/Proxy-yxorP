@@ -28,7 +28,7 @@ class CallbackBridge
     /**
      * Execute the add callback bridge middleware.
      *
-     * @param \yxorP\inc\snag\Report $report the snag report instance
+     * @param Report $report the snag report instance
      * @param callable $next the next stage callback
      *
      * @return void

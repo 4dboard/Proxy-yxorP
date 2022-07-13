@@ -7,13 +7,13 @@
 // Variables
 // ========================================================================
 
-@grid-gutter-horizontal:                        @global-grid-gutter;
-@grid-gutter-vertical:                          @global-grid-gutter;
+@grid-gutter-horizontal: @global-grid-gutter;
+@grid-gutter-vertical: @global-grid-gutter;
 
-@grid-gutter-large-horizontal:                  @global-grid-gutter-large;
-@grid-gutter-large-vertical:                    @global-grid-gutter-large;
+@grid-gutter-large-horizontal: @global-grid-gutter-large;
+@grid-gutter-large-vertical: @global-grid-gutter-large;
 
-@grid-divider-border:                           @global-border;
+@grid-divider-border: @global-border;
 
 
 // Miscellaneous
@@ -21,21 +21,30 @@
 
 .hook-grid-misc() {
 
+  .uk-grid-gutter {
+    margin-top: (-1 * @global-grid-gutter);
+
+    & > * {
+      margin-top: @global-grid-gutter;
+    }
+  }
+
+  @media (min-width: @breakpoint-xlarge) {
+
     .uk-grid-gutter {
-        margin-top: (-1 * @global-grid-gutter);
-        & > * { margin-top: @global-grid-gutter; }
-    }
+      margin-top: (-1 * @global-grid-gutter-large);
 
-    @media (min-width: @breakpoint-xlarge) {
-
-        .uk-grid-gutter {
-            margin-top: (-1 * @global-grid-gutter-large);
-            & > * { margin-top: @global-grid-gutter-large; }
-        }
+      & > * {
+        margin-top: @global-grid-gutter-large;
+      }
     }
+  }
 
-    .uk-grid-small.uk-grid-gutter {
-        margin-top: (-1 * @grid-gutter-small-vertical);
-        & > * { margin-top: @grid-gutter-small-vertical; }
+  .uk-grid-small.uk-grid-gutter {
+    margin-top: (-1 * @grid-gutter-small-vertical);
+
+    & > * {
+      margin-top: @grid-gutter-small-vertical;
     }
+  }
 }

@@ -36,19 +36,19 @@ final class ResultExpectation
     public const ASSERT_DOCUMENTS_MATCH = 12;
 
     /** @var integer */
-    private $assertionType = self::ASSERT_NOTHING;
+    private int $assertionType = self::ASSERT_NOTHING;
 
     /** @var mixed */
-    private $expectedValue;
+    private mixed $expectedValue;
 
     /** @var callable */
     private $assertionCallable;
 
     /**
      * @param integer $assertionType
-     * @param mixed   $expectedValue
+     * @param mixed $expectedValue
      */
-    private function __construct(int $assertionType, $expectedValue)
+    private function __construct(int $assertionType, mixed $expectedValue)
     {
         switch ($assertionType) {
             case self::ASSERT_BULKWRITE:
@@ -56,14 +56,14 @@ final class ResultExpectation
             case self::ASSERT_INSERTMANY:
             case self::ASSERT_INSERTONE:
             case self::ASSERT_UPDATE:
-                if (! is_object($expectedValue)) {
+                if (!is_object($expectedValue)) {
                     throw InvalidArgumentException::invalidType('$expectedValue', $expectedValue, 'object');
                 }
 
                 break;
 
             case self::ASSERT_SAME_DOCUMENTS:
-                if (! self::isArrayOfObjects($expectedValue)) {
+                if (!self::isArrayOfObjects($expectedValue)) {
                     throw InvalidArgumentException::invalidType('$expectedValue', $expectedValue, 'object[]');
                 }
 
@@ -74,9 +74,24 @@ final class ResultExpectation
         $this->expectedValue = $expectedValue;
     }
 
-    public static function fromChangeStreams(stdClass $result, callable $assertionCallable)
+    private static function isArrayOfObjects($array): bool
     {
-        if (! property_exists($result, 'success')) {
+        if (!is_array($array)) {
+            return false;
+        }
+
+        foreach ($array as $object) {
+            if (!is_object($object)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static function fromChangeStreams(stdClass $result, callable $assertionCallable): ResultExpectation
+    {
+        if (!property_exists($result, 'success')) {
             return new self(self::ASSERT_NOTHING, null);
         }
 
@@ -87,9 +102,9 @@ final class ResultExpectation
         return $o;
     }
 
-    public static function fromClientSideEncryption(stdClass $operation, $defaultAssertionType)
+    public static function fromClientSideEncryption(stdClass $operation, $defaultAssertionType): ResultExpectation
     {
-        if (property_exists($operation, 'result') && ! self::isErrorResult($operation->result)) {
+        if (property_exists($operation, 'result') && !self::isErrorResult($operation->result)) {
             $assertionType = $operation->result === null ? self::ASSERT_NULL : $defaultAssertionType;
             $expectedValue = $operation->result;
         } else {
@@ -100,9 +115,33 @@ final class ResultExpectation
         return new self($assertionType, $expectedValue);
     }
 
-    public static function fromCrud(stdClass $operation, $defaultAssertionType)
+    /**
+     * Determines whether the result is actually an error expectation.
+     *
+     * @see https://github.com/mongodb/specifications/blob/master/source/transactions/tests/README.rst#test-format
+     * @param mixed $result
+     * @return boolean
+     */
+    private static function isErrorResult(mixed $result): bool
     {
-        if (property_exists($operation, 'result') && ! self::isErrorResult($operation->result)) {
+        if (!is_object($result)) {
+            return false;
+        }
+
+        $keys = ['errorContains', 'errorCodeName', 'errorLabelsContain', 'errorLabelsOmit'];
+
+        foreach ($keys as $key) {
+            if (isset($result->{$key})) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static function fromCrud(stdClass $operation, $defaultAssertionType): ResultExpectation
+    {
+        if (property_exists($operation, 'result') && !self::isErrorResult($operation->result)) {
             $assertionType = $operation->result === null ? self::ASSERT_NULL : $defaultAssertionType;
             $expectedValue = $operation->result;
         } else {
@@ -113,9 +152,9 @@ final class ResultExpectation
         return new self($assertionType, $expectedValue);
     }
 
-    public static function fromReadWriteConcern(stdClass $operation, $defaultAssertionType)
+    public static function fromReadWriteConcern(stdClass $operation, $defaultAssertionType): ResultExpectation
     {
-        if (property_exists($operation, 'result') && ! self::isErrorResult($operation->result)) {
+        if (property_exists($operation, 'result') && !self::isErrorResult($operation->result)) {
             $assertionType = $operation->result === null ? self::ASSERT_NULL : $defaultAssertionType;
             $expectedValue = $operation->result;
         } else {
@@ -126,9 +165,9 @@ final class ResultExpectation
         return new self($assertionType, $expectedValue);
     }
 
-    public static function fromRetryableReads(stdClass $operation, $defaultAssertionType)
+    public static function fromRetryableReads(stdClass $operation, $defaultAssertionType): ResultExpectation
     {
-        if (property_exists($operation, 'result') && ! self::isErrorResult($operation->result)) {
+        if (property_exists($operation, 'result') && !self::isErrorResult($operation->result)) {
             $assertionType = $operation->result === null ? self::ASSERT_NULL : $defaultAssertionType;
             $expectedValue = $operation->result;
         } else {
@@ -139,9 +178,9 @@ final class ResultExpectation
         return new self($assertionType, $expectedValue);
     }
 
-    public static function fromRetryableWrites(stdClass $outcome, $defaultAssertionType)
+    public static function fromRetryableWrites(stdClass $outcome, $defaultAssertionType): ResultExpectation
     {
-        if (property_exists($outcome, 'result') && ! self::isErrorResult($outcome->result)) {
+        if (property_exists($outcome, 'result') && !self::isErrorResult($outcome->result)) {
             $assertionType = $outcome->result === null ? self::ASSERT_NULL : $defaultAssertionType;
             $expectedValue = $outcome->result;
         } else {
@@ -152,9 +191,9 @@ final class ResultExpectation
         return new self($assertionType, $expectedValue);
     }
 
-    public static function fromTransactions(stdClass $operation, $defaultAssertionType)
+    public static function fromTransactions(stdClass $operation, $defaultAssertionType): ResultExpectation
     {
-        if (property_exists($operation, 'result') && ! self::isErrorResult($operation->result)) {
+        if (property_exists($operation, 'result') && !self::isErrorResult($operation->result)) {
             $assertionType = $operation->result === null ? self::ASSERT_NULL : $defaultAssertionType;
             $expectedValue = $operation->result;
         } else {
@@ -168,9 +207,8 @@ final class ResultExpectation
     /**
      * Assert that the result expectation matches the actual outcome.
      *
-     * @param FunctionalTestCase $test   Test instance for performing assertions
-     * @param mixed              $result Result (if any) from the actual outcome
-     * @throws LogicException if the assertion type is unsupported
+     * @param FunctionalTestCase $test Test instance for performing assertions
+     * @param $actual
      */
     public function assert(FunctionalTestCase $test, $actual): void
     {
@@ -186,7 +224,7 @@ final class ResultExpectation
                     $test->isInstanceOf(WriteResult::class)
                 ));
 
-                if (! $actual->isAcknowledged()) {
+                if (!$actual->isAcknowledged()) {
                     break;
                 }
 
@@ -339,47 +377,8 @@ final class ResultExpectation
         }
     }
 
-    public function isExpected()
+    public function isExpected(): bool
     {
         return $this->assertionType !== self::ASSERT_NOTHING;
-    }
-
-    private static function isArrayOfObjects($array)
-    {
-        if (! is_array($array)) {
-            return false;
-        }
-
-        foreach ($array as $object) {
-            if (! is_object($object)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    /**
-     * Determines whether the result is actually an error expectation.
-     *
-     * @see https://github.com/mongodb/specifications/blob/master/source/transactions/tests/README.rst#test-format
-     * @param mixed $result
-     * @return boolean
-     */
-    private static function isErrorResult($result): bool
-    {
-        if (! is_object($result)) {
-            return false;
-        }
-
-        $keys = ['errorContains', 'errorCodeName', 'errorLabelsContain', 'errorLabelsOmit'];
-
-        foreach ($keys as $key) {
-            if (isset($result->{$key})) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

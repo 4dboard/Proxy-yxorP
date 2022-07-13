@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\SpecTests;
 
+use MongoDB\Driver\Exception\Exception;
 use stdClass;
 use function basename;
 use function dirname;
@@ -14,13 +15,13 @@ use function glob;
 class ReadWriteConcernSpecTest extends FunctionalTestCase
 {
     /** @var array */
-    private static $incompleteTests = [];
+    private static array $incompleteTests = [];
 
     /**
      * Assert that the expected and actual command documents match.
      *
      * @param stdClass $expected Expected command document
-     * @param stdClass $actual   Actual command document
+     * @param stdClass $actual Actual command document
      */
     public static function assertCommandMatches(stdClass $expected, stdClass $actual): void
     {
@@ -38,11 +39,11 @@ class ReadWriteConcernSpecTest extends FunctionalTestCase
      * Execute an individual test case from the specification.
      *
      * @dataProvider provideTests
-     * @param stdClass $test           Individual "tests[]" document
-     * @param array    $runOn          Top-level "runOn" array with server requirements
-     * @param array    $data           Top-level "data" array to initialize collection
-     * @param string   $databaseName   Name of database under test
-     * @param string   $collectionName Name of collection under test
+     * @param stdClass $test Individual "tests[]" document
+     * @param array|null $runOn Top-level "runOn" array with server requirements
+     * @param array $data Top-level "data" array to initialize collection
+     * @param string|null $databaseName Name of database under test
+     * @param string|null $collectionName Name of collection under test
      */
     public function testReadWriteConcern(stdClass $test, ?array $runOn, array $data, ?string $databaseName = null, ?string $collectionName = null): void
     {
@@ -77,7 +78,10 @@ class ReadWriteConcernSpecTest extends FunctionalTestCase
         }
 
         foreach ($test->operations as $operation) {
-            Operation::fromReadWriteConcern($operation)->assert($this, $context);
+            try {
+                Operation::fromReadWriteConcern($operation)->assert($this, $context);
+            } catch (Exception $e) {
+            }
         }
 
         if (isset($commandExpectations)) {
@@ -90,7 +94,7 @@ class ReadWriteConcernSpecTest extends FunctionalTestCase
         }
     }
 
-    public function provideTests()
+    public function provideTests(): array
     {
         $testArgs = [];
 

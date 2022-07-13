@@ -14,21 +14,24 @@ class FindFunctionalTest extends FunctionalTestCase
 {
     public function testDefaultReadConcernIsOmitted(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Find(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [],
-                    ['readConcern' => $this->createDefaultReadConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Find(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [],
+                        ['readConcern' => $this->createDefaultReadConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testHintOption(): void
@@ -55,8 +58,8 @@ class FindFunctionalTest extends FunctionalTestCase
             $cursor = $operation->execute($this->getPrimaryServer());
 
             $expectedDocuments = [
-                (object) ['_id' => 1, 'x' => 1],
-                (object) ['_id' => 2, 'x' => 2],
+                (object)['_id' => 1, 'x' => 1],
+                (object)['_id' => 2, 'x' => 2],
             ];
 
             $this->assertEquals($expectedDocuments, $cursor->toArray());
@@ -73,9 +76,9 @@ class FindFunctionalTest extends FunctionalTestCase
             $cursor = $operation->execute($this->getPrimaryServer());
 
             $expectedDocuments = [
-                (object) ['_id' => 1, 'x' => 1],
-                (object) ['_id' => 2, 'x' => 2],
-                (object) ['_id' => 3, 'y' => 3],
+                (object)['_id' => 1, 'x' => 1],
+                (object)['_id' => 2, 'x' => 2],
+                (object)['_id' => 3, 'y' => 3],
             ];
 
             $this->assertEquals($expectedDocuments, $cursor->toArray());
@@ -84,21 +87,24 @@ class FindFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Find(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Find(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -106,7 +112,7 @@ class FindFunctionalTest extends FunctionalTestCase
      */
     public function testTypeMapOption(array $typeMap, array $expectedDocuments): void
     {
-        $this->createFixtures(3);
+        $this->createFixtures();
 
         $operation = new Find($this->getDatabaseName(), $this->getCollectionName(), [], ['typeMap' => $typeMap]);
         $cursor = $operation->execute($this->getPrimaryServer());
@@ -114,7 +120,28 @@ class FindFunctionalTest extends FunctionalTestCase
         $this->assertEquals($expectedDocuments, $cursor->toArray());
     }
 
-    public function provideTypeMapOptionsAndExpectedDocuments()
+    /**
+     * Create data fixtures.
+     *
+     * @param array $executeBulkWriteOptions
+     */
+    private function createFixtures(array $executeBulkWriteOptions = []): void
+    {
+        $bulkWrite = new BulkWrite(['ordered' => true]);
+
+        for ($i = 1; $i <= 3; $i++) {
+            $bulkWrite->insert([
+                '_id' => $i,
+                'x' => (object)['foo' => 'bar'],
+            ]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite, $executeBulkWriteOptions);
+
+        $this->assertEquals(3, $result->getInsertedCount());
+    }
+
+    public function provideTypeMapOptionsAndExpectedDocuments(): array
     {
         return [
             [
@@ -128,17 +155,17 @@ class FindFunctionalTest extends FunctionalTestCase
             [
                 ['root' => 'object', 'document' => 'array'],
                 [
-                    (object) ['_id' => 1, 'x' => ['foo' => 'bar']],
-                    (object) ['_id' => 2, 'x' => ['foo' => 'bar']],
-                    (object) ['_id' => 3, 'x' => ['foo' => 'bar']],
+                    (object)['_id' => 1, 'x' => ['foo' => 'bar']],
+                    (object)['_id' => 2, 'x' => ['foo' => 'bar']],
+                    (object)['_id' => 3, 'x' => ['foo' => 'bar']],
                 ],
             ],
             [
                 ['root' => 'array', 'document' => 'stdClass'],
                 [
-                    ['_id' => 1, 'x' => (object) ['foo' => 'bar']],
-                    ['_id' => 2, 'x' => (object) ['foo' => 'bar']],
-                    ['_id' => 3, 'x' => (object) ['foo' => 'bar']],
+                    ['_id' => 1, 'x' => (object)['foo' => 'bar']],
+                    ['_id' => 2, 'x' => (object)['foo' => 'bar']],
+                    ['_id' => 3, 'x' => (object)['foo' => 'bar']],
                 ],
             ],
         ];
@@ -219,7 +246,7 @@ class FindFunctionalTest extends FunctionalTestCase
         $session->startTransaction();
 
         try {
-            $this->createFixtures(3, ['session' => $session]);
+            $this->createFixtures(['session' => $session]);
 
             $filter = ['_id' => ['$lt' => 3]];
             $options = [
@@ -241,27 +268,5 @@ class FindFunctionalTest extends FunctionalTestCase
         } finally {
             $session->endSession();
         }
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     * @param array   $executeBulkWriteOptions
-     */
-    private function createFixtures(int $n, array $executeBulkWriteOptions = []): void
-    {
-        $bulkWrite = new BulkWrite(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert([
-                '_id' => $i,
-                'x' => (object) ['foo' => 'bar'],
-            ]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite, $executeBulkWriteOptions);
-
-        $this->assertEquals($n, $result->getInsertedCount());
     }
 }

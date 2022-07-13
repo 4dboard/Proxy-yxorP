@@ -17,7 +17,7 @@ class ListDatabasesTest extends TestCase
         new ListDatabases($options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

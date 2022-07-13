@@ -1,7 +1,5 @@
 ---
-name: Bug Report
-about: Report a bug for the MongoDB PHP library.
-title: ''
+name: Bug Report about: Report a bug for the MongoDB PHP library. title: ''
 labels: ''
 assignees: ''
 

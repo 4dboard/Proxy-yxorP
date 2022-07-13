@@ -26,19 +26,19 @@ use MongoDB\Exception\BadMethodCallException;
 class InsertOneResult
 {
     /** @var WriteResult */
-    private $writeResult;
+    private WriteResult $writeResult;
 
     /** @var mixed */
-    private $insertedId;
+    private mixed $insertedId;
 
     /** @var boolean */
-    private $isAcknowledged;
+    private bool $isAcknowledged;
 
     /**
      * @param WriteResult $writeResult
-     * @param mixed       $insertedId
+     * @param mixed $insertedId
      */
-    public function __construct(WriteResult $writeResult, $insertedId)
+    public function __construct(WriteResult $writeResult, mixed $insertedId)
     {
         $this->writeResult = $writeResult;
         $this->insertedId = $insertedId;
@@ -50,11 +50,11 @@ class InsertOneResult
      *
      * This method should only be called if the write was acknowledged.
      *
-     * @see InsertOneResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
+     * @see InsertOneResult::isAcknowledged()
      */
-    public function getInsertedCount()
+    public function getInsertedCount(): int
     {
         if ($this->isAcknowledged) {
             return $this->writeResult->getInsertedCount();
@@ -72,7 +72,7 @@ class InsertOneResult
      *
      * @return mixed
      */
-    public function getInsertedId()
+    public function getInsertedId(): mixed
     {
         return $this->insertedId;
     }
@@ -89,7 +89,7 @@ class InsertOneResult
      *
      * @return boolean
      */
-    public function isAcknowledged()
+    public function isAcknowledged(): bool
     {
         return $this->writeResult->isAcknowledged();
     }

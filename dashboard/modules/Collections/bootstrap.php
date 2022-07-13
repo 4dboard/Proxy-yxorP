@@ -97,7 +97,7 @@ $this->module('collections')->extend([
                         $code .= "\n\n";
                     }
 
-                    if (strpos($code, '<?php') !== 0) {
+                    if (!str_starts_with($code, '<?php')) {
                         $code = "<?php\n\n{$code}";
                     }
 
@@ -233,7 +233,7 @@ $this->module('collections')->extend([
         $collection = $_collection['_id'];
 
         // check rule
-        $context = new \stdClass();
+        $context = new stdClass();
         $context->options = $options;
 
         if (_check_collection_rule($_collection, 'read', $context) === false) {
@@ -368,7 +368,7 @@ $this->module('collections')->extend([
                     if (!$isUpdate && isset($field['required']) && $field['required'] && !$value) {
 
                         if (!is_numeric($value) && $value !== false && empty($value)) {
-                            throw new \Exception("The {$field['name']} is required!");
+                            throw new Exception("The {$field['name']} is required!");
                         }
                     }
 
@@ -499,7 +499,7 @@ $this->module('collections')->extend([
         static $languages;
 
         if (null === $items) {
-            return $items;
+            return null;
         }
 
         $single = false;
@@ -642,7 +642,7 @@ function yxorp_populate_collection(&$items, $maxlevel = -1, $level = 0, $fieldsF
             continue;
         }
 
-        if (is_array($items[$k])) {
+        if (is_array($v)) {
             $items[$k] = yxorp_populate_collection($items[$k], $maxlevel, ($level + 1), $fieldsFilter);
         }
 
@@ -657,7 +657,7 @@ function yxorp_populate_collection(&$items, $maxlevel = -1, $level = 0, $fieldsF
     return $items;
 }
 
-function _check_collection_rule($collection, $rule, $_context = null)
+function _check_collection_rule($collection, $rule, $_context = null): object|bool
 {
 
     $context = (object)$_context;
@@ -673,14 +673,14 @@ function _check_collection_rule($collection, $rule, $_context = null)
 
             try {
                 $ret = include($_rulefile);
-            } catch (\Throwable $e) {
+            } catch (Throwable $e) {
 
                 if (yxorp()->retrieve('config/debug')) {
                     echo $e;
                 }
             }
 
-            if (!is_null($ret) && is_numeric($ret) && $ret >= 400) {
+            if (is_numeric($ret) && $ret >= 400) {
                 yxorp()->stop($ret);
             }
 

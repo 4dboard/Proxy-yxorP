@@ -21,38 +21,44 @@ class FindAndModifyFunctionalTest extends FunctionalTestCase
         $manager = static::createTestManager(null, ['readConcernLevel' => 'majority']);
         $server = $manager->selectServer(new ReadPreference(ReadPreference::RP_PRIMARY));
 
-        (new CommandObserver())->observe(
-            function () use ($server): void {
-                $operation = new FindAndModify(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['remove' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function () use ($server): void {
+                    $operation = new FindAndModify(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['remove' => true]
+                    );
 
-                $operation->execute($server);
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($server);
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testDefaultWriteConcernIsOmitted(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new FindAndModify(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['remove' => true, 'writeConcern' => $this->createDefaultWriteConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new FindAndModify(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['remove' => true, 'writeConcern' => $this->createDefaultWriteConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testHintOptionUnsupportedClientSideError(): void
@@ -93,57 +99,66 @@ class FindAndModifyFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new FindAndModify(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['remove' => true, 'session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new FindAndModify(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['remove' => true, 'session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationSetWhenTrue(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new FindAndModify(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['remove' => true, 'bypassDocumentValidation' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new FindAndModify(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['remove' => true, 'bypassDocumentValidation' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-                $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                    $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationUnsetWhenFalse(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new FindAndModify(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['remove' => true, 'bypassDocumentValidation' => false]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new FindAndModify(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['remove' => true, 'bypassDocumentValidation' => false]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -151,7 +166,7 @@ class FindAndModifyFunctionalTest extends FunctionalTestCase
      */
     public function testTypeMapOption(?array $typeMap, $expectedDocument): void
     {
-        $this->createFixtures(1);
+        $this->createFixtures();
 
         $operation = new FindAndModify(
             $this->getDatabaseName(),
@@ -166,12 +181,32 @@ class FindAndModifyFunctionalTest extends FunctionalTestCase
         $this->assertEquals($expectedDocument, $document);
     }
 
-    public function provideTypeMapOptionsAndExpectedDocument()
+    /**
+     * Create data fixtures.
+     *
+     */
+    private function createFixtures(): void
+    {
+        $bulkWrite = new BulkWrite(['ordered' => true]);
+
+        for ($i = 1; $i <= 1; $i++) {
+            $bulkWrite->insert([
+                '_id' => $i,
+                'x' => (object)['foo' => 'bar'],
+            ]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
+
+        $this->assertEquals(1, $result->getInsertedCount());
+    }
+
+    public function provideTypeMapOptionsAndExpectedDocument(): array
     {
         return [
             [
                 null,
-                (object) ['_id' => 1, 'x' => (object) ['foo' => 'bar']],
+                (object)['_id' => 1, 'x' => (object)['foo' => 'bar']],
             ],
             [
                 ['root' => 'array', 'document' => 'array'],
@@ -179,41 +214,20 @@ class FindAndModifyFunctionalTest extends FunctionalTestCase
             ],
             [
                 ['root' => 'object', 'document' => 'array'],
-                (object) ['_id' => 1, 'x' => ['foo' => 'bar']],
+                (object)['_id' => 1, 'x' => ['foo' => 'bar']],
             ],
             [
                 ['root' => 'array', 'document' => 'stdClass'],
-                ['_id' => 1, 'x' => (object) ['foo' => 'bar']],
+                ['_id' => 1, 'x' => (object)['foo' => 'bar']],
             ],
             [
                 ['root' => BSONDocument::class, 'document' => 'object'],
-                new BSONDocument(['_id' => 1, 'x' => (object) ['foo' => 'bar']]),
+                new BSONDocument(['_id' => 1, 'x' => (object)['foo' => 'bar']]),
             ],
             [
                 ['root' => 'array', 'document' => 'stdClass', 'fieldPaths' => ['x' => 'array']],
                 ['_id' => 1, 'x' => ['foo' => 'bar']],
             ],
         ];
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     */
-    private function createFixtures(int $n): void
-    {
-        $bulkWrite = new BulkWrite(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert([
-                '_id' => $i,
-                'x' => (object) ['foo' => 'bar'],
-            ]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
-
-        $this->assertEquals($n, $result->getInsertedCount());
     }
 }

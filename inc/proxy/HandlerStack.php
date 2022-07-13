@@ -1,11 +1,12 @@
 <?php namespace yxorP\inc\proxy;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 
 class HandlerStack
 {
     private $handler;
-    private $stack = [];
+    private array $stack = [];
     private $cached;
 
     public function __construct(callable $handler = null)
@@ -13,7 +14,7 @@ class HandlerStack
         $this->handler = $handler;
     }
 
-    public static function create(callable $handler = null)
+    public static function create(callable $handler = null): HandlerStack
     {
         $stack = new self($handler ?: choose_handler());
         $stack->push(Middleware::httpErrors(), 'http_errors');
@@ -49,7 +50,7 @@ class HandlerStack
         return $this->cached;
     }
 
-    public function __toString()
+    #[Pure] public function __toString()
     {
         $depth = 0;
         $stack = [];
@@ -70,7 +71,7 @@ class HandlerStack
         return $result;
     }
 
-    private function debugCallable($fn)
+    private function debugCallable($fn): string
     {
         if (is_string($fn)) {
             return "callable({$fn})";
@@ -87,7 +88,7 @@ class HandlerStack
         $this->cached = null;
     }
 
-    public function hasHandler()
+    public function hasHandler(): bool
     {
         return (bool)$this->handler;
     }
@@ -123,7 +124,7 @@ class HandlerStack
         }
     }
 
-    private function findByName($name)
+    private function findByName($name): int|string
     {
         foreach ($this->stack as $k => $v) {
             if ($v[1] === $name) {

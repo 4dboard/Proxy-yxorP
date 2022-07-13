@@ -35,7 +35,35 @@ class FunctionalTestCase extends BaseFunctionalTestCase
     public const SERVERLESS_REQUIRE = 'require';
 
     /** @var Context|null */
-    private $context;
+    private ?Context $context;
+
+    /**
+     * Assert that the expected and actual command documents match.
+     *
+     * Note: Spec tests that do not assert command started events may throw an
+     * exception in lieu of implementing this method.
+     *
+     * @param stdClass $expected
+     * @param stdClass $actual
+     */
+    public static function assertCommandMatches(stdClass $expected, stdClass $actual): void
+    {
+        throw new LogicException(sprintf('%s does not assert CommandStartedEvents', static::class));
+    }
+
+    /**
+     * Assert that the expected and actual command reply documents match.
+     *
+     * Note: Spec tests that do not assert command started events may throw an
+     * exception in lieu of implementing this method.
+     *
+     * @param stdClass $expected Expected command reply document
+     * @param stdClass $actual Actual command reply document
+     */
+    public static function assertCommandReplyMatches(stdClass $expected, stdClass $actual): void
+    {
+        throw new LogicException(sprintf('%s does not assert CommandSucceededEvents', static::class));
+    }
 
     public function setUp(): void
     {
@@ -52,54 +80,10 @@ class FunctionalTestCase extends BaseFunctionalTestCase
     }
 
     /**
-     * Assert that the expected and actual command documents match.
-     *
-     * Note: Spec tests that do not assert command started events may throw an
-     * exception in lieu of implementing this method.
-     *
-     * @param stdClass $expectedCommand Expected command document
-     * @param stdClass $actualCommand   Actual command document
-     */
-    public static function assertCommandMatches(stdClass $expected, stdClass $actual): void
-    {
-        throw new LogicException(sprintf('%s does not assert CommandStartedEvents', static::class));
-    }
-
-    /**
-     * Assert that the expected and actual command reply documents match.
-     *
-     * Note: Spec tests that do not assert command started events may throw an
-     * exception in lieu of implementing this method.
-     *
-     * @param stdClass $expected Expected command reply document
-     * @param stdClass $actual   Actual command reply document
-     */
-    public static function assertCommandReplyMatches(stdClass $expected, stdClass $actual): void
-    {
-        throw new LogicException(sprintf('%s does not assert CommandSucceededEvents', static::class));
-    }
-
-    /**
-     * Asserts that two given documents match.
-     *
-     * Extra keys in the actual value's document(s) will be ignored.
-     *
-     * @param array|object $expectedDocument
-     * @param array|object $actualDocument
-     * @param string       $message
-     */
-    protected static function assertDocumentsMatch($expectedDocument, $actualDocument, string $message = ''): void
-    {
-        $constraint = new DocumentsMatchConstraint($expectedDocument, true, true);
-
-        static::assertThat($actualDocument, $constraint, $message);
-    }
-
-    /**
      * Assert data within the outcome collection.
      *
      * @param array $expectedDocuments
-     * @param int   $resultExpectation
+     * @param int $resultExpectation
      */
     protected function assertOutcomeCollectionData(array $expectedDocuments, int $resultExpectation = ResultExpectation::ASSERT_SAME_DOCUMENT): void
     {
@@ -129,6 +113,55 @@ class FunctionalTestCase extends BaseFunctionalTestCase
         }
     }
 
+    private function getOutcomeCollection(array $collectionOptions = []): Collection
+    {
+        $context = $this->getContext();
+
+        // Outcome collection need not use the client under test
+        return new Collection($this->manager, $context->databaseName, $context->outcomeCollectionName, $collectionOptions);
+    }
+
+    /**
+     * Return the test context.
+     *
+     * @return Context
+     * @throws LogicException if the context has not been set
+     */
+    protected function getContext(): Context
+    {
+        if (!$this->context instanceof Context) {
+            throw new LogicException('Context has not been set');
+        }
+
+        return $this->context;
+    }
+
+    /**
+     * Set the test context.
+     *
+     * @param Context $context
+     */
+    protected function setContext(Context $context): void
+    {
+        $this->context = $context;
+    }
+
+    /**
+     * Asserts that two given documents match.
+     *
+     * Extra keys in the actual value's document(s) will be ignored.
+     *
+     * @param object|array $expectedDocument
+     * @param object|array $actualDocument
+     * @param string $message
+     */
+    protected static function assertDocumentsMatch(object|array $expectedDocument, object|array $actualDocument, string $message = ''): void
+    {
+        $constraint = new DocumentsMatchConstraint($expectedDocument, true, true);
+
+        static::assertThat($actualDocument, $constraint, $message);
+    }
+
     /**
      * Checks server version and topology requirements.
      *
@@ -155,102 +188,36 @@ class FunctionalTestCase extends BaseFunctionalTestCase
     }
 
     /**
-     * Decode a JSON spec test.
+     * Checks if server version and topology requirements are satifised.
      *
-     * This decodes the file through the driver's extended JSON parser to ensure
-     * proper handling of special types.
-     *
-     * @param string $json
-     * @return array|object
+     * @param string|null $minServerVersion
+     * @param string|null $maxServerVersion
+     * @param array|null $topologies
+     * @return boolean
      */
-    protected function decodeJson(string $json)
+    private function isServerRequirementSatisifed(?string $minServerVersion, ?string $maxServerVersion, ?array $topologies = null, ?string $serverlessMode = null): bool
     {
-        return toPHP(fromJSON($json));
-    }
+        $serverVersion = $this->getServerVersion();
 
-    /**
-     * Return the test context.
-     *
-     * @return Context
-     * @throws LogicException if the context has not been set
-     */
-    protected function getContext(): Context
-    {
-        if (! $this->context instanceof Context) {
-            throw new LogicException('Context has not been set');
+        if (isset($minServerVersion) && version_compare($serverVersion, $minServerVersion, '<')) {
+            return false;
         }
 
-        return $this->context;
-    }
-
-    /**
-     * Set the test context.
-     *
-     * @param Context $context
-     */
-    protected function setContext(Context $context): void
-    {
-        $this->context = $context;
-    }
-
-    /**
-     * Drop the test and outcome collections by dropping them.
-     */
-    protected function dropTestAndOutcomeCollections(): void
-    {
-        $context = $this->getContext();
-
-        if ($context->databaseName === 'admin') {
-            return;
+        if (isset($maxServerVersion) && version_compare($serverVersion, $maxServerVersion, '>')) {
+            return false;
         }
 
-        if ($context->bucketName !== null) {
-            $bucket = $context->getGridFSBucket($context->defaultWriteOptions);
-            $bucket->drop();
+        $topology = $this->getTopology();
+
+        if (isset($topologies) && !in_array($topology, $topologies)) {
+            return false;
         }
 
-        $collection = null;
-        if ($context->collectionName !== null) {
-            $collection = $context->getCollection($context->defaultWriteOptions);
-            $collection->drop();
+        if (!$this->isServerlessRequirementSatisfied($serverlessMode)) {
+            return false;
         }
 
-        if ($context->outcomeCollectionName !== null) {
-            $outcomeCollection = $this->getOutcomeCollection($context->defaultWriteOptions);
-
-            // Avoid redundant drop if the test and outcome collections are the same
-            if ($collection === null || $outcomeCollection->getNamespace() !== $collection->getNamespace()) {
-                $outcomeCollection->drop();
-            }
-        }
-    }
-
-    /**
-     * Insert data fixtures into the test collection.
-     *
-     * @param array       $documents
-     * @param string|null $collectionName
-     */
-    protected function insertDataFixtures(array $documents, ?string $collectionName = null): void
-    {
-        if (empty($documents)) {
-            return;
-        }
-
-        $context = $this->getContext();
-        $collection = $collectionName ? $context->selectCollection($context->databaseName, $collectionName) : $context->getCollection();
-
-        $collection->insertMany($documents, $context->defaultWriteOptions);
-
-        return;
-    }
-
-    private function getOutcomeCollection(array $collectionOptions = [])
-    {
-        $context = $this->getContext();
-
-        // Outcome collection need not use the client under test
-        return new Collection($this->manager, $context->databaseName, $context->outcomeCollectionName, $collectionOptions);
+        return true;
     }
 
     /**
@@ -288,7 +255,7 @@ class FunctionalTestCase extends BaseFunctionalTestCase
                 return true;
 
             case self::SERVERLESS_FORBID:
-                return ! static::isServerless();
+                return !static::isServerless();
 
             case self::SERVERLESS_REQUIRE:
                 return static::isServerless();
@@ -298,35 +265,67 @@ class FunctionalTestCase extends BaseFunctionalTestCase
     }
 
     /**
-     * Checks if server version and topology requirements are satifised.
+     * Decode a JSON spec test.
      *
-     * @param string|null $minServerVersion
-     * @param string|null $maxServerVersion
-     * @param array|null  $topologies
-     * @return boolean
+     * This decodes the file through the driver's extended JSON parser to ensure
+     * proper handling of special types.
+     *
+     * @param string $json
+     * @return object
      */
-    private function isServerRequirementSatisifed(?string $minServerVersion, ?string $maxServerVersion, ?array $topologies = null, ?string $serverlessMode = null): bool
+    protected function decodeJson(string $json): object
     {
-        $serverVersion = $this->getServerVersion();
+        return toPHP(fromJSON($json));
+    }
 
-        if (isset($minServerVersion) && version_compare($serverVersion, $minServerVersion, '<')) {
-            return false;
+    /**
+     * Drop the test and outcome collections by dropping them.
+     */
+    protected function dropTestAndOutcomeCollections(): void
+    {
+        $context = $this->getContext();
+
+        if ($context->databaseName === 'admin') {
+            return;
         }
 
-        if (isset($maxServerVersion) && version_compare($serverVersion, $maxServerVersion, '>')) {
-            return false;
+        if ($context->bucketName !== null) {
+            $bucket = $context->getGridFSBucket($context->defaultWriteOptions);
+            $bucket->drop();
         }
 
-        $topology = $this->getTopology();
-
-        if (isset($topologies) && ! in_array($topology, $topologies)) {
-            return false;
+        $collection = null;
+        if ($context->collectionName !== null) {
+            $collection = $context->getCollection($context->defaultWriteOptions);
+            $collection->drop();
         }
 
-        if (! $this->isServerlessRequirementSatisfied($serverlessMode)) {
-            return false;
+        if ($context->outcomeCollectionName !== null) {
+            $outcomeCollection = $this->getOutcomeCollection($context->defaultWriteOptions);
+
+            // Avoid redundant drop if the test and outcome collections are the same
+            if ($collection === null || $outcomeCollection->getNamespace() !== $collection->getNamespace()) {
+                $outcomeCollection->drop();
+            }
+        }
+    }
+
+    /**
+     * Insert data fixtures into the test collection.
+     *
+     * @param array $documents
+     * @param string|null $collectionName
+     */
+    protected function insertDataFixtures(array $documents, ?string $collectionName = null): void
+    {
+        if (empty($documents)) {
+            return;
         }
 
-        return true;
+        $context = $this->getContext();
+        $collection = $collectionName ? $context->selectCollection($context->databaseName, $collectionName) : $context->getCollection();
+
+        $collection->insertMany($documents, $context->defaultWriteOptions);
+
     }
 }

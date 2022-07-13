@@ -34,7 +34,7 @@ use function is_object;
 class FindOneAndDelete implements Executable, Explainable
 {
     /** @var FindAndModify */
-    private $findAndModify;
+    private FindAndModify $findAndModify;
 
     /**
      * Constructs a findAndModify command for deleting a document.
@@ -65,19 +65,19 @@ class FindOneAndDelete implements Executable, Explainable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to filter documents
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param object|array $filter Query by which to filter documents
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter, array $options = [])
     {
-        if (! is_array($filter) && ! is_object($filter)) {
+        if (!is_array($filter) && !is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
-        if (isset($options['projection']) && ! is_array($options['projection']) && ! is_object($options['projection'])) {
+        if (isset($options['projection']) && !is_array($options['projection']) && !is_object($options['projection'])) {
             throw InvalidArgumentException::invalidType('"projection" option', $options['projection'], 'array or object');
         }
 
@@ -97,13 +97,13 @@ class FindOneAndDelete implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return array|object|null
      * @throws UnsupportedException if collation or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array|null
     {
         return $this->findAndModify->execute($server);
     }
@@ -111,11 +111,11 @@ class FindOneAndDelete implements Executable, Explainable
     /**
      * Returns the command document for this operation.
      *
-     * @see Explainable::getCommandDocument()
      * @param Server $server
      * @return array
+     * @see Explainable::getCommandDocument()
      */
-    public function getCommandDocument(Server $server)
+    public function getCommandDocument(Server $server): array
     {
         return $this->findAndModify->getCommandDocument($server);
     }

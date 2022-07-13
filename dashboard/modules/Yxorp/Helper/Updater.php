@@ -21,7 +21,10 @@ class Updater extends Helper
 {
 
 
-    public function update($zipUrl, $targetPath, $options = [])
+    /**
+     * @throws Exception
+     */
+    public function update($zipUrl, $targetPath, $options = []): bool
     {
 
         $options = array_merge([
@@ -53,7 +56,7 @@ class Updater extends Helper
 
         // extract zip contents
 
-        @mkdir("{$tmppath}/extract-{$zipname}", 0777);
+        @mkdir("{$tmppath}/extract-{$zipname}");
         $zip = new ZipArchive;
 
         if ($zip->open("{$tmppath}/{$zipname}") === true) {

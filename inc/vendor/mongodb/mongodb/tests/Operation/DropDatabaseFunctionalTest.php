@@ -13,19 +13,22 @@ class DropDatabaseFunctionalTest extends FunctionalTestCase
 {
     public function testDefaultWriteConcernIsOmitted(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new DropDatabase(
-                    $this->getDatabaseName(),
-                    ['writeConcern' => $this->createDefaultWriteConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new DropDatabase(
+                        $this->getDatabaseName(),
+                        ['writeConcern' => $this->createDefaultWriteConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testDropExistingDatabase(): void
@@ -40,39 +43,6 @@ class DropDatabaseFunctionalTest extends FunctionalTestCase
         $operation->execute($server);
 
         $this->assertDatabaseDoesNotExist($server, $this->getDatabaseName());
-    }
-
-    /**
-     * @depends testDropExistingDatabase
-     */
-    public function testDropNonexistentDatabase(): void
-    {
-        $server = $this->getPrimaryServer();
-
-        $operation = new DropDatabase($this->getDatabaseName());
-        $operation->execute($server);
-
-        $this->assertDatabaseDoesNotExist($server, $this->getDatabaseName());
-
-        $operation = new DropDatabase($this->getDatabaseName());
-        $operation->execute($server);
-    }
-
-    public function testSessionOption(): void
-    {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new DropDatabase(
-                    $this->getDatabaseName(),
-                    ['session' => $this->createSession()]
-                );
-
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
     }
 
     /**
@@ -96,5 +66,41 @@ class DropDatabaseFunctionalTest extends FunctionalTestCase
         }
 
         $this->assertNull($foundDatabase, sprintf('Database %s exists on the server', $databaseName));
+    }
+
+    /**
+     * @depends testDropExistingDatabase
+     */
+    public function testDropNonexistentDatabase(): void
+    {
+        $server = $this->getPrimaryServer();
+
+        $operation = new DropDatabase($this->getDatabaseName());
+        $operation->execute($server);
+
+        $this->assertDatabaseDoesNotExist($server, $this->getDatabaseName());
+
+        $operation = new DropDatabase($this->getDatabaseName());
+        $operation->execute($server);
+    }
+
+    public function testSessionOption(): void
+    {
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new DropDatabase(
+                        $this->getDatabaseName(),
+                        ['session' => $this->createSession()]
+                    );
+
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 }

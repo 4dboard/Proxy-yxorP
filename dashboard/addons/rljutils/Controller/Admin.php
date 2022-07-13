@@ -2,7 +2,13 @@
 
 namespace rljUtils\Controller;
 
-class Admin extends \yxorP\AuthController
+use yxorP\AuthController;
+
+/**
+ * @property \Lime\App $app
+ * @property \Lime\App $app
+ */
+class Admin extends AuthController
 {
 
     public function index()

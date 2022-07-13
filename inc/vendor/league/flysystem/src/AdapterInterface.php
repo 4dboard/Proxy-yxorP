@@ -19,44 +19,44 @@ interface AdapterInterface extends ReadInterface
      *
      * @param string $path
      * @param string $contents
-     * @param Config $config   Config object
+     * @param Config $config Config object
      *
      * @return array|false false on failure file meta data on success
      */
-    public function write($path, $contents, Config $config);
+    public function write($path, $contents, Config $config): bool|array;
 
     /**
      * Write a new file using a stream.
      *
-     * @param string   $path
+     * @param string $path
      * @param resource $resource
-     * @param Config   $config   Config object
+     * @param Config $config Config object
      *
      * @return array|false false on failure file meta data on success
      */
-    public function writeStream($path, $resource, Config $config);
+    public function writeStream($path, $resource, Config $config): bool|array;
 
     /**
      * Update a file.
      *
      * @param string $path
      * @param string $contents
-     * @param Config $config   Config object
+     * @param Config $config Config object
      *
      * @return array|false false on failure file meta data on success
      */
-    public function update($path, $contents, Config $config);
+    public function update($path, $contents, Config $config): bool|array;
 
     /**
      * Update a file using a stream.
      *
-     * @param string   $path
+     * @param string $path
      * @param resource $resource
-     * @param Config   $config   Config object
+     * @param Config $config Config object
      *
      * @return array|false false on failure file meta data on success
      */
-    public function updateStream($path, $resource, Config $config);
+    public function updateStream($path, $resource, Config $config): bool|array;
 
     /**
      * Rename a file.
@@ -66,7 +66,7 @@ interface AdapterInterface extends ReadInterface
      *
      * @return bool
      */
-    public function rename($path, $newpath);
+    public function rename($path, $newpath): bool;
 
     /**
      * Copy a file.
@@ -76,7 +76,7 @@ interface AdapterInterface extends ReadInterface
      *
      * @return bool
      */
-    public function copy($path, $newpath);
+    public function copy($path, $newpath): bool;
 
     /**
      * Delete a file.
@@ -85,7 +85,7 @@ interface AdapterInterface extends ReadInterface
      *
      * @return bool
      */
-    public function delete($path);
+    public function delete($path): bool;
 
     /**
      * Delete a directory.
@@ -94,7 +94,7 @@ interface AdapterInterface extends ReadInterface
      *
      * @return bool
      */
-    public function deleteDir($dirname);
+    public function deleteDir($dirname): bool;
 
     /**
      * Create a directory.
@@ -104,7 +104,7 @@ interface AdapterInterface extends ReadInterface
      *
      * @return array|false
      */
-    public function createDir($dirname, Config $config);
+    public function createDir($dirname, Config $config): bool|array;
 
     /**
      * Set the visibility for a file.
@@ -114,5 +114,5 @@ interface AdapterInterface extends ReadInterface
      *
      * @return array|false file meta data
      */
-    public function setVisibility($path, $visibility);
+    public function setVisibility($path, $visibility): bool|array;
 }

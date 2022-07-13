@@ -45,8 +45,8 @@ use function substr;
 /**
  * Check whether all servers support executing a write stage on a secondary.
  *
- * @internal
  * @param Server[] $servers
+ * @internal
  */
 function all_servers_support_write_stage_on_secondary(array $servers): bool
 {
@@ -60,7 +60,7 @@ function all_servers_support_write_stage_on_secondary(array $servers): bool
             continue;
         }
 
-        if (! server_supports_feature($server, $wireVersionForWriteStageOnSecondary)) {
+        if (!server_supports_feature($server, $wireVersionForWriteStageOnSecondary)) {
             return false;
         }
     }
@@ -75,15 +75,15 @@ function all_servers_support_write_stage_on_secondary(array $servers): bool
  * map to the cursor directly because the root document is a command response
  * (e.g. findAndModify).
  *
- * @internal
- * @param array|object $document Document to which the type map will be applied
- * @param array        $typeMap  Type map for BSON deserialization.
- * @return array|object
+ * @param object|array $document Document to which the type map will be applied
+ * @param array $typeMap Type map for BSON deserialization.
+ * @return object
  * @throws InvalidArgumentException
+ * @internal
  */
-function apply_type_map_to_document($document, array $typeMap)
+function apply_type_map_to_document(object|array $document, array $typeMap): object
 {
-    if (! is_array($document) && ! is_object($document)) {
+    if (!is_array($document) && !is_object($document)) {
         throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
     }
 
@@ -93,13 +93,13 @@ function apply_type_map_to_document($document, array $typeMap)
 /**
  * Generate an index name from a key specification.
  *
- * @internal
- * @param array|object $document Document containing fields mapped to values,
+ * @param object|array $document Document containing fields mapped to values,
  *                               which denote order or an index type
  * @return string
  * @throws InvalidArgumentException
+ * @internal
  */
-function generate_index_name($document): string
+function generate_index_name(object|array $document): string
 {
     if ($document instanceof Serializable) {
         $document = $document->bsonSerialize();
@@ -109,7 +109,7 @@ function generate_index_name($document): string
         $document = get_object_vars($document);
     }
 
-    if (! is_array($document)) {
+    if (!is_array($document)) {
         throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
     }
 
@@ -127,12 +127,12 @@ function generate_index_name($document): string
  *
  * This is used for differentiating update and replacement documents.
  *
- * @internal
- * @param array|object $document Update or replacement document
+ * @param object|array $document Update or replacement document
  * @return boolean
  * @throws InvalidArgumentException
+ * @internal
  */
-function is_first_key_operator($document): bool
+function is_first_key_operator(object|array $document): bool
 {
     if ($document instanceof Serializable) {
         $document = $document->bsonSerialize();
@@ -142,12 +142,12 @@ function is_first_key_operator($document): bool
         $document = get_object_vars($document);
     }
 
-    if (! is_array($document)) {
+    if (!is_array($document)) {
         throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
     }
 
     reset($document);
-    $firstKey = (string) key($document);
+    $firstKey = (string)key($document);
 
     return isset($firstKey[0]) && $firstKey[0] === '$';
 }
@@ -155,13 +155,13 @@ function is_first_key_operator($document): bool
 /**
  * Returns whether an update specification is a valid aggregation pipeline.
  *
- * @internal
  * @param mixed $pipeline
  * @return boolean
+ * @internal
  */
-function is_pipeline($pipeline): bool
+function is_pipeline(mixed $pipeline): bool
 {
-    if (! is_array($pipeline)) {
+    if (!is_array($pipeline)) {
         return false;
     }
 
@@ -172,7 +172,7 @@ function is_pipeline($pipeline): bool
     $expectedKey = 0;
 
     foreach ($pipeline as $key => $stage) {
-        if (! is_array($stage) && ! is_object($stage)) {
+        if (!is_array($stage) && !is_object($stage)) {
             return false;
         }
 
@@ -181,11 +181,11 @@ function is_pipeline($pipeline): bool
         }
 
         $expectedKey++;
-        $stage = (array) $stage;
+        $stage = (array)$stage;
         reset($stage);
         $key = key($stage);
 
-        if (! isset($key[0]) || $key[0] !== '$') {
+        if (!isset($key[0]) || $key[0] !== '$') {
             return false;
         }
     }
@@ -196,9 +196,9 @@ function is_pipeline($pipeline): bool
 /**
  * Returns whether we are currently in a transaction.
  *
- * @internal
  * @param array $options Command options
  * @return boolean
+ * @internal
  */
 function is_in_transaction(array $options): bool
 {
@@ -215,9 +215,9 @@ function is_in_transaction(array $options): bool
  * This is used for determining whether the aggregation pipeline must be
  * executed against a primary server.
  *
- * @internal
  * @param array $pipeline List of pipeline operations
  * @return boolean
+ * @internal
  */
 function is_last_pipeline_operator_write(array $pipeline): bool
 {
@@ -227,7 +227,7 @@ function is_last_pipeline_operator_write(array $pipeline): bool
         return false;
     }
 
-    $lastOp = (array) $lastOp;
+    $lastOp = (array)$lastOp;
 
     return in_array(key($lastOp), ['$out', '$merge'], true);
 }
@@ -237,15 +237,15 @@ function is_last_pipeline_operator_write(array $pipeline): bool
  *
  * This is used to determine if a mapReduce command requires a primary.
  *
- * @internal
- * @see https://docs.mongodb.com/manual/reference/command/mapReduce/#output-inline
- * @param string|array|object $out Output specification
+ * @param object|array|string $out Output specification
  * @return boolean
  * @throws InvalidArgumentException
+ * @see https://docs.mongodb.com/manual/reference/command/mapReduce/#output-inline
+ * @internal
  */
-function is_mapreduce_output_inline($out): bool
+function is_mapreduce_output_inline(object|array|string $out): bool
 {
-    if (! is_array($out) && ! is_object($out)) {
+    if (!is_array($out) && !is_object($out)) {
         return false;
     }
 
@@ -257,7 +257,7 @@ function is_mapreduce_output_inline($out): bool
         $out = get_object_vars($out);
     }
 
-    if (! is_array($out)) {
+    if (!is_array($out)) {
         throw InvalidArgumentException::invalidType('$out', $out, 'array or object');
     }
 
@@ -272,10 +272,10 @@ function is_mapreduce_output_inline($out): bool
  * This function is similar to mongoc_write_concern_is_acknowledged but does not
  * check the fsync option since that was never supported in the PHP driver.
  *
- * @internal
- * @see https://docs.mongodb.com/manual/reference/write-concern/
  * @param WriteConcern $writeConcern
  * @return boolean
+ * @internal
+ * @see https://docs.mongodb.com/manual/reference/write-concern/
  */
 function is_write_concern_acknowledged(WriteConcern $writeConcern): bool
 {
@@ -288,16 +288,16 @@ function is_write_concern_acknowledged(WriteConcern $writeConcern): bool
 /**
  * Return whether the server supports a particular feature.
  *
- * @internal
- * @param Server  $server  Server to check
+ * @param Server $server Server to check
  * @param integer $feature Feature constant (i.e. wire protocol version)
  * @return boolean
+ * @internal
  */
 function server_supports_feature(Server $server, int $feature): bool
 {
     $info = $server->getInfo();
-    $maxWireVersion = isset($info['maxWireVersion']) ? (integer) $info['maxWireVersion'] : 0;
-    $minWireVersion = isset($info['minWireVersion']) ? (integer) $info['minWireVersion'] : 0;
+    $maxWireVersion = isset($info['maxWireVersion']) ? (integer)$info['maxWireVersion'] : 0;
+    $minWireVersion = isset($info['minWireVersion']) ? (integer)$info['minWireVersion'] : 0;
 
     return $minWireVersion <= $feature && $maxWireVersion >= $feature;
 }
@@ -305,18 +305,18 @@ function server_supports_feature(Server $server, int $feature): bool
 /**
  * Return whether the input is an array of strings.
  *
- * @internal
  * @param mixed $input
  * @return boolean
+ * @internal
  */
-function is_string_array($input): bool
+function is_string_array(mixed $input): bool
 {
-    if (! is_array($input)) {
+    if (!is_array($input)) {
         return false;
     }
 
     foreach ($input as $item) {
-        if (! is_string($item)) {
+        if (!is_string($item)) {
             return false;
         }
     }
@@ -329,13 +329,13 @@ function is_string_array($input): bool
  *
  * This function will clone objects and recursively copy values within arrays.
  *
- * @internal
- * @see https://bugs.php.net/bug.php?id=49664
  * @param mixed $element Value to be copied
  * @return mixed
  * @throws ReflectionException
+ * @see https://bugs.php.net/bug.php?id=49664
+ * @internal
  */
-function recursive_copy($element)
+function recursive_copy(mixed $element): mixed
 {
     if (is_array($element)) {
         foreach ($element as $key => $value) {
@@ -345,11 +345,11 @@ function recursive_copy($element)
         return $element;
     }
 
-    if (! is_object($element)) {
+    if (!is_object($element)) {
         return $element;
     }
 
-    if (! (new ReflectionClass($element))->isCloneable()) {
+    if (!(new ReflectionClass($element))->isCloneable()) {
         return $element;
     }
 
@@ -365,10 +365,10 @@ function recursive_copy($element)
  *
  * An existing type map for the given field path will not be overwritten
  *
- * @internal
- * @param array  $typeMap   The existing typeMap
+ * @param array $typeMap The existing typeMap
  * @param string $fieldPath The field path to apply the root type to
  * @return array
+ * @internal
  */
 function create_field_path_type_map(array $typeMap, string $fieldPath): array
 {
@@ -390,7 +390,7 @@ function create_field_path_type_map(array $typeMap, string $fieldPath): array
     /* Special case if we want to convert an array, in which case we need to
      * ensure that the field containing the array is exposed as an array,
      * instead of the type given in the type map's array key. */
-    if (substr($fieldPath, -2, 2) === '.$') {
+    if (str_ends_with($fieldPath, '.$')) {
         $typeMap['fieldPaths'][substr($fieldPath, 0, -2)] = 'array';
     }
 
@@ -415,15 +415,15 @@ function create_field_path_type_map(array $typeMap, string $fieldPath): array
  * from the initial call have elapsed. After that, no retries will happen and
  * the helper will throw the last exception received from the driver.
  *
- * @see Client::startSession
- * @see Session::startTransaction for supported transaction options
- *
- * @param Session  $session            A session object as retrieved by Client::startSession
- * @param callable $callback           A callback that will be invoked within the transaction
- * @param array    $transactionOptions Additional options that are passed to Session::startTransaction
+ * @param Session $session A session object as retrieved by Client::startSession
+ * @param callable $callback A callback that will be invoked within the transaction
+ * @param array $transactionOptions Additional options that are passed to Session::startTransaction
  * @return void
  * @throws RuntimeException for driver errors while committing the transaction
  * @throws Exception for any other errors, including those thrown in the callback
+ * @see Client::startSession
+ * @see Session::startTransaction for supported transaction options
+ *
  */
 function with_transaction(Session $session, callable $callback, array $transactionOptions = [])
 {
@@ -434,13 +434,13 @@ function with_transaction(Session $session, callable $callback, array $transacti
 /**
  * Returns the session option if it is set and valid.
  *
- * @internal
  * @param array $options
  * @return Session|null
+ * @internal
  */
 function extract_session_from_options(array $options): ?Session
 {
-    if (! isset($options['session']) || ! $options['session'] instanceof Session) {
+    if (!isset($options['session']) || !$options['session'] instanceof Session) {
         return null;
     }
 
@@ -450,13 +450,13 @@ function extract_session_from_options(array $options): ?Session
 /**
  * Returns the readPreference option if it is set and valid.
  *
- * @internal
  * @param array $options
  * @return ReadPreference|null
+ * @internal
  */
 function extract_read_preference_from_options(array $options): ?ReadPreference
 {
-    if (! isset($options['readPreference']) || ! $options['readPreference'] instanceof ReadPreference) {
+    if (!isset($options['readPreference']) || !$options['readPreference'] instanceof ReadPreference) {
         return null;
     }
 
@@ -467,8 +467,8 @@ function extract_read_preference_from_options(array $options): ?ReadPreference
  * Performs server selection, respecting the readPreference and session options
  * (if given)
  *
- * @internal
  * @return Server
+ * @internal
  */
 function select_server(Manager $manager, array $options): Server
 {
@@ -478,7 +478,7 @@ function select_server(Manager $manager, array $options): Server
     }
 
     $readPreference = extract_read_preference_from_options($options);
-    if (! $readPreference instanceof ReadPreference) {
+    if (!$readPreference instanceof ReadPreference) {
         // TODO: PHPLIB-476: Read transaction read preference once PHPC-1439 is implemented
         $readPreference = new ReadPreference(ReadPreference::RP_PRIMARY);
     }
@@ -515,7 +515,7 @@ function select_server_for_aggregate_write_stage(Manager $manager, array &$optio
     /* If any pre-5.0 servers exist in the topology, force a primary read
      * preference and repeat server selection if it previously failed or
      * selected a secondary. */
-    if (! all_servers_support_write_stage_on_secondary($manager->getServers())) {
+    if (!all_servers_support_write_stage_on_secondary($manager->getServers())) {
         $options['readPreference'] = new ReadPreference(ReadPreference::RP_PRIMARY);
 
         if ($server === null || $server->isSecondary()) {

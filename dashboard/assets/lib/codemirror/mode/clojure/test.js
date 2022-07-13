@@ -2,7 +2,7 @@
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
 (function () {
-    var mode = CodeMirror.getMode({indentUnit: 2}, "clojure");
+    const mode = CodeMirror.getMode({indentUnit: 2}, "clojure");
 
     function MT(name) {
         test.mode(name, mode, Array.prototype.slice.call(arguments, 1));
@@ -127,55 +127,55 @@
     );
 
     MT("symbols",
-      "[variable foo!]",
-      "[variable foo#]",
-      "[variable foo$]",
-      "[variable foo&]",
-      "[variable foo']",
-      "[variable foo*]",
-      "[variable foo+]",
-      "[variable foo-]",
-      "[variable foo.]",
-      "[variable foo/bar]",
-      "[variable foo:bar]",
-      "[variable foo<]",
-      "[variable foo=]",
-      "[variable foo>]",
-      "[variable foo?]",
-      "[variable foo_]",
-      "[variable foo|]",
-      "[variable foobarBaz]",
-      "[variable foo¡]",
-      "[variable 符号]",
-      "[variable シンボル]",
-      "[variable ئۇيغۇر]",
-      "[variable 🙂❤🇺🇸]",
+        "[variable foo!]",
+        "[variable foo#]",
+        "[variable foo$]",
+        "[variable foo&]",
+        "[variable foo']",
+        "[variable foo*]",
+        "[variable foo+]",
+        "[variable foo-]",
+        "[variable foo.]",
+        "[variable foo/bar]",
+        "[variable foo:bar]",
+        "[variable foo<]",
+        "[variable foo=]",
+        "[variable foo>]",
+        "[variable foo?]",
+        "[variable foo_]",
+        "[variable foo|]",
+        "[variable foobarBaz]",
+        "[variable foo¡]",
+        "[variable 符号]",
+        "[variable シンボル]",
+        "[variable ئۇيغۇر]",
+        "[variable 🙂❤🇺🇸]",
 
-      // invalid symbols
-      "[error 3foo]",
-      "[error 3+]",
-      "[error 3|]",
-      "[error 3_]"
+        // invalid symbols
+        "[error 3foo]",
+        "[error 3+]",
+        "[error 3|]",
+        "[error 3_]"
     );
 
     MT("numbers and other forms",
-      "[number 42][bracket (][builtin foo][bracket )]",
-      "[number 42][bracket [[][variable foo][bracket ]]]",
-      "[number 42][meta #][bracket {][variable foo][bracket }]",
-      "[number 42][bracket {][atom :foo] [variable bar][bracket }]",
-      "[number 42][meta `][variable foo]",
-      "[number 42][meta ~][variable foo]",
-      "[number 42][meta #][variable foo]"
+        "[number 42][bracket (][builtin foo][bracket )]",
+        "[number 42][bracket [[][variable foo][bracket ]]]",
+        "[number 42][meta #][bracket {][variable foo][bracket }]",
+        "[number 42][bracket {][atom :foo] [variable bar][bracket }]",
+        "[number 42][meta `][variable foo]",
+        "[number 42][meta ~][variable foo]",
+        "[number 42][meta #][variable foo]"
     );
 
-    var specialForms = [".", "catch", "def", "do", "if", "monitor-enter",
+    const specialForms = [".", "catch", "def", "do", "if", "monitor-enter",
         "monitor-exit", "new", "quote", "recur", "set!", "throw", "try", "var"];
 
     MT("should highlight special forms as keywords",
         typeTokenPairs("keyword", specialForms)
     );
 
-    var coreSymbols1 = [
+    const coreSymbols1 = [
         "*", "*'", "*1", "*2", "*3", "*agent*", "*allow-unresolved-vars*", "*assert*",
         "*clojure-version*", "*command-line-args*", "*compile-files*", "*compile-path*", "*compiler-options*",
         "*data-readers*", "*default-data-reader-fn*", "*e", "*err*", "*file*", "*flush-on-newline*", "*fn-loader*",
@@ -219,7 +219,7 @@
         "loop", "macroexpand", "macroexpand-1", "make-array", "make-hierarchy", "map", "map-entry?", "map-indexed", "map?",
         "mapcat", "mapv", "max", "max-key", "memfn", "memoize", "merge", "merge-with", "meta", "method-sig", "methods"];
 
-    var coreSymbols2 = [
+    const coreSymbols2 = [
         "min", "min-key", "mix-collection-hash", "mod", "munge", "name", "namespace", "namespace-munge", "nat-int?",
         "neg-int?", "neg?", "newline", "next", "nfirst", "nil?", "nnext", "not", "not-any?", "not-empty", "not-every?",
         "not=", "ns", "ns-aliases", "ns-imports", "ns-interns", "ns-map", "ns-name", "ns-publics", "ns-refers", "ns-resolve",
@@ -348,7 +348,7 @@
         "  [atom nil][bracket }]"
     );
 
-    var haveBodyParameter = [
+    const haveBodyParameter = [
         "->", "->>", "as->", "binding", "bound-fn", "case", "catch", "cond",
         "cond->", "cond->>", "condp", "def", "definterface", "defmethod", "defn",
         "defmacro", "defprotocol", "defrecord", "defstruct", "deftype", "do",
@@ -361,7 +361,7 @@
         "with-out-str", "with-precision", "with-redefs", "with-redefs-fn"];
 
     function testFormsThatHaveBodyParameter(forms) {
-        for (var i = 0; i < forms.length; i++) {
+        for (let i = 0; i < forms.length; i++) {
             MT("should indent body argument of `" + forms[i] + "` by `options.indentUnit` spaces",
                 "[bracket (][keyword " + forms[i] + "] [variable foo] [variable bar]",
                 "  [variable baz]",

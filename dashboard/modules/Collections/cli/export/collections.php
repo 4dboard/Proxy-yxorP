@@ -10,7 +10,7 @@
 
 if (!YXORP_CLI) return;
 
-$target = $app->param('target', null);
+$target = $app->param('target');
 
 if (!$target) {
     return;

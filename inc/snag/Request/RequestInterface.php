@@ -9,40 +9,40 @@ interface RequestInterface
      *
      * @return bool
      */
-    public function isRequest();
+    public function isRequest(): bool;
 
     /**
      * Get the session data.
      *
      * @return array
      */
-    public function getSession();
+    public function getSession(): array;
 
     /**
      * Get the cookies.
      *
      * @return array
      */
-    public function getCookies();
+    public function getCookies(): array;
 
     /**
      * Get the request formatted as meta data.
      *
      * @return array
      */
-    public function getMetaData();
+    public function getMetaData(): array;
 
     /**
      * Get the request context.
      *
      * @return string|null
      */
-    public function getContext();
+    public function getContext(): ?string;
 
     /**
      * Get the request user id.
      *
      * @return string|null
      */
-    public function getUserId();
+    public function getUserId(): ?string;
 }

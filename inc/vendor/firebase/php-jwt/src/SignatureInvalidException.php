@@ -2,6 +2,8 @@
 
 namespace Firebase\JWT;
 
-class SignatureInvalidException extends \UnexpectedValueException
+use UnexpectedValueException;
+
+class SignatureInvalidException extends UnexpectedValueException
 {
 }

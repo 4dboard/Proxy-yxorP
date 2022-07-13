@@ -224,7 +224,7 @@ class generalHelper
         $loc = $dir . DIRECTORY_SEPARATOR . $x;
         if (is_dir($loc)) return self::fileCheck($loc, $inc);
         if ($inc) require_once($loc);
-        
+
         if (!$inc && str_contains($_SERVER['REQUEST_URI'], $x)) {
             echo file_get_contents($loc);
             exit;

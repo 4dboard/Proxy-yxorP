@@ -3,6 +3,7 @@
 namespace MongoDB\Tests;
 
 use InvalidArgumentException;
+use JetBrains\PhpStorm\Pure;
 use MongoDB\Driver\ReadConcern;
 use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
@@ -47,10 +48,10 @@ abstract class TestCase extends BaseTestCase
      * Only fields in the expected document will be checked. The actual document
      * may contain additional fields.
      *
-     * @param array|object $expectedDocument
-     * @param array|object $actualDocument
+     * @param object|array $expectedDocument
+     * @param object|array $actualDocument
      */
-    public function assertMatchesDocument($expectedDocument, $actualDocument): void
+    public function assertMatchesDocument(object|array $expectedDocument, object|array $actualDocument): void
     {
         $normalizedExpectedDocument = $this->normalizeBSON($expectedDocument);
         $normalizedActualDocument = $this->normalizeBSON($actualDocument);
@@ -60,7 +61,7 @@ abstract class TestCase extends BaseTestCase
         /* Avoid unsetting fields while we're iterating on the ArrayObject to
          * work around https://bugs.php.net/bug.php?id=70246 */
         foreach ($normalizedActualDocument as $key => $value) {
-            if (! $normalizedExpectedDocument->offsetExists($key)) {
+            if (!$normalizedExpectedDocument->offsetExists($key)) {
                 $extraKeys[] = $key;
             }
         }
@@ -76,15 +77,58 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
+     * Normalizes a BSON document or array for use with assertEquals().
+     *
+     * The argument will be converted to a BSONArray or BSONDocument based on
+     * its type and keys. Document fields will be sorted alphabetically. Each
+     * value within the array or document will then be normalized recursively.
+     *
+     * @param object|array $bson
+     * @return BSONDocument|BSONArray
+     * @throws InvalidArgumentException if $bson is not an array or object
+     */
+    private function normalizeBSON(object|array $bson): object|BSONArray|BSONDocument|array
+    {
+        if (!is_array($bson) && !is_object($bson)) {
+            throw new InvalidArgumentException('$bson is not an array or object');
+        }
+
+        if ($bson instanceof BSONArray || (is_array($bson) && $bson === array_values($bson))) {
+            if (!$bson instanceof BSONArray) {
+                $bson = new BSONArray($bson);
+            }
+        } else {
+            if (!$bson instanceof BSONDocument) {
+                $bson = new BSONDocument((array)$bson);
+            }
+
+            $bson->ksort();
+        }
+
+        foreach ($bson as $key => $value) {
+            if ($value instanceof BSONArray || (is_array($value) && $value === array_values($value))) {
+                $bson[$key] = $this->normalizeBSON($value);
+                continue;
+            }
+
+            if ($value instanceof stdClass || $value instanceof BSONDocument || is_array($value)) {
+                $bson[$key] = $this->normalizeBSON($value);
+            }
+        }
+
+        return $bson;
+    }
+
+    /**
      * Asserts that a document has expected values for all fields.
      *
      * The actual document will be compared directly with the expected document
      * and may not contain extra fields.
      *
-     * @param array|object $expectedDocument
-     * @param array|object $actualDocument
+     * @param object|array $expectedDocument
+     * @param object|array $actualDocument
      */
-    public function assertSameDocument($expectedDocument, $actualDocument): void
+    public function assertSameDocument(object|array $expectedDocument, object|array $actualDocument): void
     {
         $this->assertEquals(
             toJSON(fromPHP($this->normalizeBSON($expectedDocument))),
@@ -98,7 +142,7 @@ abstract class TestCase extends BaseTestCase
             $actualDocuments = iterator_to_array($actualDocuments);
         }
 
-        if (! is_array($actualDocuments)) {
+        if (!is_array($actualDocuments)) {
             throw new InvalidArgumentException('$actualDocuments is not an array or Traversable');
         }
 
@@ -122,14 +166,51 @@ abstract class TestCase extends BaseTestCase
         return is_string($dataName) ? $dataName : '';
     }
 
-    public function provideInvalidArrayValues()
+    public function provideInvalidArrayValues(): array
     {
         return $this->wrapValuesForDataProvider($this->getInvalidArrayValues());
     }
 
-    public function provideInvalidDocumentValues()
+    /**
+     * Wrap a list of values for use as a single-argument data provider.
+     *
+     * @param array $values List of values
+     * @return array
+     */
+    protected function wrapValuesForDataProvider(array $values): array
+    {
+        return array_map(function ($value) {
+            return [$value];
+        }, $values);
+    }
+
+    /**
+     * Return a list of invalid array values.
+     *
+     * @param boolean $includeNull
+     *
+     * @return array
+     */
+    #[Pure] protected function getInvalidArrayValues(bool $includeNull = false): array
+    {
+        return array_merge([123, 3.14, 'foo', true, new stdClass()], $includeNull ? [null] : []);
+    }
+
+    public function provideInvalidDocumentValues(): array
     {
         return $this->wrapValuesForDataProvider($this->getInvalidDocumentValues());
+    }
+
+    /**
+     * Return a list of invalid document values.
+     *
+     * @param boolean $includeNull
+     *
+     * @return array
+     */
+    protected function getInvalidDocumentValues(bool $includeNull = false): array
+    {
+        return array_merge([123, 3.14, 'foo', true], $includeNull ? [null] : []);
     }
 
     protected function assertDeprecated(callable $execution): void
@@ -150,61 +231,15 @@ abstract class TestCase extends BaseTestCase
     }
 
     /**
-     * Return the test collection name.
-     *
-     * @return string
-     */
-    protected function getCollectionName(): string
-    {
-        $class = new ReflectionClass($this);
-
-        return sprintf('%s.%s', $class->getShortName(), hash('crc32b', $this->getName()));
-    }
-
-    /**
-     * Return the test database name.
-     *
-     * @return string
-     */
-    protected function getDatabaseName(): string
-    {
-        return getenv('MONGODB_DATABASE') ?: 'phplib_test';
-    }
-
-    /**
-     * Return a list of invalid array values.
-     *
-     * @param boolean $includeNull
-     *
-     * @return array
-     */
-    protected function getInvalidArrayValues(bool $includeNull = false): array
-    {
-        return array_merge([123, 3.14, 'foo', true, new stdClass()], $includeNull ? [null] : []);
-    }
-
-    /**
      * Return a list of invalid boolean values.
      *
      * @param boolean $includeNull
      *
      * @return array
      */
-    protected function getInvalidBooleanValues(bool $includeNull = false): array
+    #[Pure] protected function getInvalidBooleanValues(bool $includeNull = false): array
     {
         return array_merge([123, 3.14, 'foo', [], new stdClass()], $includeNull ? [null] : []);
-    }
-
-    /**
-     * Return a list of invalid document values.
-     *
-     * @param boolean $includeNull
-     *
-     * @return array
-     */
-    protected function getInvalidDocumentValues(bool $includeNull = false): array
-    {
-        return array_merge([123, 3.14, 'foo', true], $includeNull ? [null] : []);
     }
 
     /**
@@ -214,7 +249,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @return array
      */
-    protected function getInvalidIntegerValues(bool $includeNull = false): array
+    #[Pure] protected function getInvalidIntegerValues(bool $includeNull = false): array
     {
         return array_merge([3.14, 'foo', true, [], new stdClass()], $includeNull ? [null] : []);
     }
@@ -262,7 +297,7 @@ abstract class TestCase extends BaseTestCase
      *
      * @return array
      */
-    protected function getInvalidStringValues(bool $includeNull = false): array
+    #[Pure] protected function getInvalidStringValues(bool $includeNull = false): array
     {
         return array_merge([123, 3.14, true, [], new stdClass()], $includeNull ? [null] : []);
     }
@@ -286,63 +321,28 @@ abstract class TestCase extends BaseTestCase
      */
     protected function getNamespace(): string
     {
-         return sprintf('%s.%s', $this->getDatabaseName(), $this->getCollectionName());
+        return sprintf('%s.%s', $this->getDatabaseName(), $this->getCollectionName());
     }
 
     /**
-     * Wrap a list of values for use as a single-argument data provider.
+     * Return the test database name.
      *
-     * @param array $values List of values
-     * @return array
+     * @return string
      */
-    protected function wrapValuesForDataProvider(array $values): array
+    protected function getDatabaseName(): string
     {
-        return array_map(function ($value) {
-            return [$value];
-        }, $values);
+        return getenv('MONGODB_DATABASE') ?: 'phplib_test';
     }
 
     /**
-     * Normalizes a BSON document or array for use with assertEquals().
+     * Return the test collection name.
      *
-     * The argument will be converted to a BSONArray or BSONDocument based on
-     * its type and keys. Document fields will be sorted alphabetically. Each
-     * value within the array or document will then be normalized recursively.
-     *
-     * @param array|object $bson
-     * @return BSONDocument|BSONArray
-     * @throws InvalidArgumentException if $bson is not an array or object
+     * @return string
      */
-    private function normalizeBSON($bson)
+    protected function getCollectionName(): string
     {
-        if (! is_array($bson) && ! is_object($bson)) {
-            throw new InvalidArgumentException('$bson is not an array or object');
-        }
+        $class = new ReflectionClass($this);
 
-        if ($bson instanceof BSONArray || (is_array($bson) && $bson === array_values($bson))) {
-            if (! $bson instanceof BSONArray) {
-                $bson = new BSONArray($bson);
-            }
-        } else {
-            if (! $bson instanceof BSONDocument) {
-                $bson = new BSONDocument((array) $bson);
-            }
-
-            $bson->ksort();
-        }
-
-        foreach ($bson as $key => $value) {
-            if ($value instanceof BSONArray || (is_array($value) && $value === array_values($value))) {
-                $bson[$key] = $this->normalizeBSON($value);
-                continue;
-            }
-
-            if ($value instanceof stdClass || $value instanceof BSONDocument || is_array($value)) {
-                $bson[$key] = $this->normalizeBSON($value);
-                continue;
-            }
-        }
-
-        return $bson;
+        return sprintf('%s.%s', $class->getShortName(), hash('crc32b', $this->getName()));
     }
 }

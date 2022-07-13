@@ -16,9 +16,9 @@ trait StreamedReadingTrait
      *
      * @see League\Flysystem\ReadInterface::readStream()
      */
-    public function readStream($path)
+    public function readStream($path): bool|array
     {
-        if ( ! $data = $this->read($path)) {
+        if (!$data = $this->read($path)) {
             return false;
         }
 
@@ -40,5 +40,5 @@ trait StreamedReadingTrait
      *
      * @see League\Flysystem\ReadInterface::read()
      */
-    abstract public function read($path);
+    abstract public function read($path): bool|array;
 }

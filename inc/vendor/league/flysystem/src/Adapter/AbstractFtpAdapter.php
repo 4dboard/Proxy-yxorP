@@ -14,52 +14,52 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     /**
      * @var mixed
      */
-    protected $connection;
+    protected mixed $connection;
 
     /**
      * @var string
      */
-    protected $host;
+    protected string $host;
 
     /**
      * @var int
      */
-    protected $port = 21;
+    protected int $port = 21;
 
     /**
      * @var bool
      */
-    protected $ssl = false;
+    protected bool $ssl = false;
 
     /**
      * @var int
      */
-    protected $timeout = 90;
+    protected int $timeout = 90;
 
     /**
      * @var bool
      */
-    protected $passive = true;
+    protected bool $passive = true;
 
     /**
      * @var string
      */
-    protected $separator = '/';
+    protected string $separator = '/';
 
     /**
      * @var string|null
      */
-    protected $root;
+    protected ?string $root;
 
     /**
      * @var int
      */
-    protected $permPublic = 0744;
+    protected int $permPublic = 0744;
 
     /**
      * @var int
      */
-    protected $permPrivate = 0700;
+    protected int $permPrivate = 0700;
 
     /**
      * @var array
@@ -69,19 +69,19 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     /**
      * @var string
      */
-    protected $systemType;
+    protected string $systemType;
 
     /**
      * @var SafeStorage
      */
-    protected $safeStorage;
+    protected SafeStorage $safeStorage;
 
     /**
      * True to enable timestamps for FTP servers that return unix-style listings.
      *
      * @var bool
      */
-    protected $enableTimestampsOnUnixListings = false;
+    protected bool $enableTimestampsOnUnixListings = false;
 
     /**
      * Constructor.
@@ -101,10 +101,10 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setConfig(array $config)
+    public function setConfig(array $config): static
     {
         foreach ($this->configurable as $setting) {
-            if ( ! isset($config[$setting])) {
+            if (!isset($config[$setting])) {
                 continue;
             }
 
@@ -123,7 +123,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return string
      */
-    public function getHost()
+    public function getHost(): string
     {
         return $this->host;
     }
@@ -135,37 +135,9 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setHost($host)
+    public function setHost(string $host): static
     {
         $this->host = $host;
-
-        return $this;
-    }
-
-    /**
-     * Set the public permission value.
-     *
-     * @param int $permPublic
-     *
-     * @return $this
-     */
-    public function setPermPublic($permPublic)
-    {
-        $this->permPublic = $permPublic;
-
-        return $this;
-    }
-
-    /**
-     * Set the private permission value.
-     *
-     * @param int $permPrivate
-     *
-     * @return $this
-     */
-    public function setPermPrivate($permPrivate)
-    {
-        $this->permPrivate = $permPrivate;
 
         return $this;
     }
@@ -175,19 +147,9 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return int
      */
-    public function getPort()
+    public function getPort(): int
     {
         return $this->port;
-    }
-
-    /**
-     * Returns the root folder to work from.
-     *
-     * @return string
-     */
-    public function getRoot()
-    {
-        return $this->root;
     }
 
     /**
@@ -197,11 +159,21 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setPort($port)
+    public function setPort(int|string $port): static
     {
-        $this->port = (int) $port;
+        $this->port = (int)$port;
 
         return $this;
+    }
+
+    /**
+     * Returns the root folder to work from.
+     *
+     * @return string
+     */
+    public function getRoot(): ?string
+    {
+        return $this->root;
     }
 
     /**
@@ -211,7 +183,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setRoot($root)
+    public function setRoot(string $root): static
     {
         $this->root = rtrim($root, '\\/') . $this->separator;
 
@@ -223,7 +195,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return string username
      */
-    public function getUsername()
+    public function getUsername(): string
     {
         $username = $this->safeStorage->retrieveSafely('username');
 
@@ -237,7 +209,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setUsername($username)
+    public function setUsername(string $username): static
     {
         $this->safeStorage->storeSafely('username', $username);
 
@@ -249,7 +221,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return string password
      */
-    public function getPassword()
+    public function getPassword(): string
     {
         return $this->safeStorage->retrieveSafely('password');
     }
@@ -261,7 +233,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setPassword($password)
+    public function setPassword(string $password): static
     {
         $this->safeStorage->storeSafely('password', $password);
 
@@ -273,7 +245,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return int
      */
-    public function getTimeout()
+    public function getTimeout(): int
     {
         return $this->timeout;
     }
@@ -285,9 +257,9 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setTimeout($timeout)
+    public function setTimeout(int $timeout): static
     {
-        $this->timeout = (int) $timeout;
+        $this->timeout = (int)$timeout;
 
         return $this;
     }
@@ -297,7 +269,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return string
      */
-    public function getSystemType()
+    public function getSystemType(): string
     {
         return $this->systemType;
     }
@@ -309,7 +281,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setSystemType($systemType)
+    public function setSystemType(string $systemType): static
     {
         $this->systemType = strtolower($systemType);
 
@@ -323,7 +295,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return $this
      */
-    public function setEnableTimestampsOnUnixListings($bool = false)
+    public function setEnableTimestampsOnUnixListings(bool $bool = false): static
     {
         $this->enableTimestampsOnUnixListings = $bool;
 
@@ -333,7 +305,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function listContents($directory = '', $recursive = false)
+    public function listContents($directory = '', $recursive = false): array
     {
         return $this->listDirectoryContents($directory, $recursive);
     }
@@ -341,14 +313,138 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     abstract protected function listDirectoryContents($directory, $recursive = false);
 
     /**
+     * @inheritdoc
+     */
+    public function getSize($path): bool|array
+    {
+        return $this->getMetadata($path);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getVisibility($path): bool|array
+    {
+        return $this->getMetadata($path);
+    }
+
+    /**
+     * Ensure a directory exists.
+     *
+     * @param string $dirname
+     */
+    public function ensureDirectory(string $dirname)
+    {
+        $dirname = (string)$dirname;
+
+        if ($dirname !== '' && !$this->has($dirname)) {
+            $this->createDir($dirname, new Config());
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function has($path): bool|array|null
+    {
+        return $this->getMetadata($path);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConnection(): mixed
+    {
+        if (!$this->isConnected()) {
+            $this->disconnect();
+            $this->connect();
+        }
+
+        return $this->connection;
+    }
+
+    /**
+     * Check if a connection is active.
+     *
+     * @return bool
+     */
+    abstract public function isConnected(): bool;
+
+    /**
+     * Close the connection.
+     */
+    abstract public function disconnect();
+
+    /**
+     * Establish a connection.
+     */
+    abstract public function connect();
+
+    /**
+     * Get the public permission value.
+     *
+     * @return int
+     */
+    public function getPermPublic(): int
+    {
+        return $this->permPublic;
+    }
+
+    /**
+     * Set the public permission value.
+     *
+     * @param int $permPublic
+     *
+     * @return $this
+     */
+    public function setPermPublic(int $permPublic): static
+    {
+        $this->permPublic = $permPublic;
+
+        return $this;
+    }
+
+    /**
+     * Get the private permission value.
+     *
+     * @return int
+     */
+    public function getPermPrivate(): int
+    {
+        return $this->permPrivate;
+    }
+
+    /**
+     * Set the private permission value.
+     *
+     * @param int $permPrivate
+     *
+     * @return $this
+     */
+    public function setPermPrivate(int $permPrivate): static
+    {
+        $this->permPrivate = $permPrivate;
+
+        return $this;
+    }
+
+    /**
+     * Disconnect on destruction.
+     */
+    public function __destruct()
+    {
+        $this->disconnect();
+    }
+
+    /**
      * Normalize a directory listing.
      *
-     * @param array  $listing
+     * @param array $listing
      * @param string $prefix
      *
      * @return array directory listing
      */
-    protected function normalizeListing(array $listing, $prefix = '')
+    protected function normalizeListing(array $listing, string $prefix = ''): array
     {
         $base = $prefix;
         $result = [];
@@ -367,21 +463,19 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     }
 
     /**
-     * Sort a directory listing.
+     * Filter out dot-directories.
      *
-     * @param array $result
+     * @param array $list
      *
-     * @return array sorted listing
+     * @return array
      */
-    protected function sortListing(array $result)
+    public function removeDotDirectories(array $list): array
     {
-        $compare = function ($one, $two) {
-            return strnatcmp($one['path'], $two['path']);
+        $filter = function ($line) {
+            return $line !== '' && !preg_match('#.* \.(\.)?$|^total#', $line);
         };
 
-        usort($result, $compare);
-
-        return $result;
+        return array_filter($list, $filter);
     }
 
     /**
@@ -394,7 +488,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @throws NotSupportedException
      */
-    protected function normalizeObject($item, $base)
+    protected function normalizeObject(string $item, string $base): array
     {
         $systemType = $this->systemType ?: $this->detectSystemType($item);
 
@@ -405,6 +499,18 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
         }
 
         throw NotSupportedException::forFtpSystemType($systemType);
+    }
+
+    /**
+     * Get the system type from a listing item.
+     *
+     * @param string $item
+     *
+     * @return string the system type
+     */
+    protected function detectSystemType(string $item): string
+    {
+        return preg_match('/^[0-9]{2,4}-[0-9]{2}-[0-9]{2}/', trim($item)) ? 'windows' : 'unix';
     }
 
     /**
@@ -427,7 +533,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return array normalized file array
      */
-    protected function normalizeUnixObject($item, $base)
+    protected function normalizeUnixObject(string $item, string $base): array
     {
         $item = preg_replace('#\s+#', ' ', trim($item), 7);
 
@@ -451,7 +557,7 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
 
         $permissions = $this->normalizePermissions($permissions);
         $visibility = $permissions & 0044 ? AdapterInterface::VISIBILITY_PUBLIC : AdapterInterface::VISIBILITY_PRIVATE;
-        $size = (int) $size;
+        $size = (int)$size;
 
         $result = compact('type', 'path', 'visibility', 'size');
         if ($this->enableTimestampsOnUnixListings) {
@@ -463,6 +569,18 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     }
 
     /**
+     * Get the file type from the permissions.
+     *
+     * @param string $permissions
+     *
+     * @return string file type
+     */
+    protected function detectType(string $permissions): string
+    {
+        return str_starts_with($permissions, 'd') ? 'dir' : 'file';
+    }
+
+    /**
      * Only accurate to the minute (current year), or to the day.
      *
      * Inadequacies in timestamp accuracy are due to limitations of the FTP 'LIST' command
@@ -470,88 +588,26 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      * Note: The 'MLSD' command is a machine-readable replacement for 'LIST'
      * but many FTP servers do not support it :(
      *
-     * @param string $month      e.g. 'Aug'
-     * @param string $day        e.g. '19'
+     * @param string $month e.g. 'Aug'
+     * @param string $day e.g. '19'
      * @param string $timeOrYear e.g. '09:01' OR '2015'
      *
      * @return int
      */
-    protected function normalizeUnixTimestamp($month, $day, $timeOrYear)
+    protected function normalizeUnixTimestamp(string $month, string $day, string $timeOrYear): int
     {
         if (is_numeric($timeOrYear)) {
             $year = $timeOrYear;
             $hour = '00';
             $minute = '00';
-            $seconds = '00';
         } else {
             $year = date('Y');
             list($hour, $minute) = explode(':', $timeOrYear);
-            $seconds = '00';
         }
+        $seconds = '00';
         $dateTime = DateTime::createFromFormat('Y-M-j-G:i:s', "{$year}-{$month}-{$day}-{$hour}:{$minute}:{$seconds}");
 
         return $dateTime->getTimestamp();
-    }
-
-    /**
-     * Normalize a Windows/DOS file entry.
-     *
-     * @param string $item
-     * @param string $base
-     *
-     * @return array normalized file array
-     */
-    protected function normalizeWindowsObject($item, $base)
-    {
-        $item = preg_replace('#\s+#', ' ', trim($item), 3);
-
-        if (count(explode(' ', $item, 4)) !== 4) {
-            throw new RuntimeException("Metadata can't be parsed from item '$item' , not enough parts.");
-        }
-
-        list($date, $time, $size, $name) = explode(' ', $item, 4);
-        $path = $base === '' ? $name : $base . $this->separator . $name;
-
-        // Check for the correct date/time format
-        $format = strlen($date) === 8 ? 'm-d-yH:iA' : 'Y-m-dH:i';
-        $dt = DateTime::createFromFormat($format, $date . $time);
-        $timestamp = $dt ? $dt->getTimestamp() : (int) strtotime("$date $time");
-
-        if ($size === '<DIR>') {
-            $type = 'dir';
-
-            return compact('type', 'path', 'timestamp');
-        }
-
-        $type = 'file';
-        $visibility = AdapterInterface::VISIBILITY_PUBLIC;
-        $size = (int) $size;
-
-        return compact('type', 'path', 'visibility', 'size', 'timestamp');
-    }
-
-    /**
-     * Get the system type from a listing item.
-     *
-     * @param string $item
-     *
-     * @return string the system type
-     */
-    protected function detectSystemType($item)
-    {
-        return preg_match('/^[0-9]{2,4}-[0-9]{2}-[0-9]{2}/', trim($item)) ? 'windows' : 'unix';
-    }
-
-    /**
-     * Get the file type from the permissions.
-     *
-     * @param string $permissions
-     *
-     * @return string file type
-     */
-    protected function detectType($permissions)
-    {
-        return substr($permissions, 0, 1) === 'd' ? 'dir' : 'file';
     }
 
     /**
@@ -561,10 +617,10 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
      *
      * @return int
      */
-    protected function normalizePermissions($permissions)
+    protected function normalizePermissions(string $permissions): int
     {
         if (is_numeric($permissions)) {
-            return ((int) $permissions) & 0777;
+            return ((int)$permissions) & 0777;
         }
 
         // remove the type identifier
@@ -587,118 +643,61 @@ abstract class AbstractFtpAdapter extends AbstractAdapter
     }
 
     /**
-     * Filter out dot-directories.
+     * Normalize a Windows/DOS file entry.
      *
-     * @param array $list
+     * @param string $item
+     * @param string $base
      *
-     * @return array
+     * @return array normalized file array
      */
-    public function removeDotDirectories(array $list)
+    protected function normalizeWindowsObject(string $item, string $base): array
     {
-        $filter = function ($line) {
-            return $line !== '' && ! preg_match('#.* \.(\.)?$|^total#', $line);
+        $item = preg_replace('#\s+#', ' ', trim($item), 3);
+
+        if (count(explode(' ', $item, 4)) !== 4) {
+            throw new RuntimeException("Metadata can't be parsed from item '$item' , not enough parts.");
+        }
+
+        list($date, $time, $size, $name) = explode(' ', $item, 4);
+        $path = $base === '' ? $name : $base . $this->separator . $name;
+
+        // Check for the correct date/time format
+        $format = strlen($date) === 8 ? 'm-d-yH:iA' : 'Y-m-dH:i';
+        $dt = DateTime::createFromFormat($format, $date . $time);
+        $timestamp = $dt ? $dt->getTimestamp() : (int)strtotime("$date $time");
+
+        if ($size === '<DIR>') {
+            $type = 'dir';
+
+            return compact('type', 'path', 'timestamp');
+        }
+
+        $type = 'file';
+        $visibility = AdapterInterface::VISIBILITY_PUBLIC;
+        $size = (int)$size;
+
+        return compact('type', 'path', 'visibility', 'size', 'timestamp');
+    }
+
+    /**
+     * Sort a directory listing.
+     *
+     * @param array $result
+     *
+     * @return array sorted listing
+     */
+    protected function sortListing(array $result): array
+    {
+        $compare = function ($one, $two) {
+            return strnatcmp($one['path'], $two['path']);
         };
 
-        return array_filter($list, $filter);
+        usort($result, $compare);
+
+        return $result;
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function has($path)
-    {
-        return $this->getMetadata($path);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getSize($path)
-    {
-        return $this->getMetadata($path);
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function getVisibility($path)
-    {
-        return $this->getMetadata($path);
-    }
-
-    /**
-     * Ensure a directory exists.
-     *
-     * @param string $dirname
-     */
-    public function ensureDirectory($dirname)
-    {
-        $dirname = (string) $dirname;
-
-        if ($dirname !== '' && ! $this->has($dirname)) {
-            $this->createDir($dirname, new Config());
-        }
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getConnection()
-    {
-        if ( ! $this->isConnected()) {
-            $this->disconnect();
-            $this->connect();
-        }
-
-        return $this->connection;
-    }
-
-    /**
-     * Get the public permission value.
-     *
-     * @return int
-     */
-    public function getPermPublic()
-    {
-        return $this->permPublic;
-    }
-
-    /**
-     * Get the private permission value.
-     *
-     * @return int
-     */
-    public function getPermPrivate()
-    {
-        return $this->permPrivate;
-    }
-
-    /**
-     * Disconnect on destruction.
-     */
-    public function __destruct()
-    {
-        $this->disconnect();
-    }
-
-    /**
-     * Establish a connection.
-     */
-    abstract public function connect();
-
-    /**
-     * Close the connection.
-     */
-    abstract public function disconnect();
-
-    /**
-     * Check if a connection is active.
-     *
-     * @return bool
-     */
-    abstract public function isConnected();
-
-    protected function escapePath($path)
+    protected function escapePath($path): array|string
     {
         return str_replace(['*', '[', ']'], ['\\*', '\\[', '\\]'], $path);
     }

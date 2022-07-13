@@ -7,12 +7,12 @@ class Config
     /**
      * @var array
      */
-    protected $settings = [];
+    protected array $settings = [];
 
     /**
      * @var Config|null
      */
-    protected $fallback;
+    protected ?Config $fallback;
 
     /**
      * Constructor.
@@ -28,17 +28,34 @@ class Config
      * Get a setting.
      *
      * @param string $key
-     * @param mixed  $default
+     * @param mixed|null $default
      *
      * @return mixed config setting or default when not found
      */
-    public function get($key, $default = null)
+    public function get(string $key, mixed $default = null): mixed
     {
-        if ( ! array_key_exists($key, $this->settings)) {
+        if (!array_key_exists($key, $this->settings)) {
             return $this->getDefault($key, $default);
         }
 
         return $this->settings[$key];
+    }
+
+    /**
+     * Try to retrieve a default setting from a config fallback.
+     *
+     * @param string $key
+     * @param mixed $default
+     *
+     * @return mixed config setting or default when not found
+     */
+    protected function getDefault(string $key, mixed $default): mixed
+    {
+        if (!$this->fallback) {
+            return $default;
+        }
+
+        return $this->fallback->get($key, $default);
     }
 
     /**
@@ -48,7 +65,7 @@ class Config
      *
      * @return bool
      */
-    public function has($key)
+    public function has(string $key): bool
     {
         if (array_key_exists($key, $this->settings)) {
             return true;
@@ -60,31 +77,14 @@ class Config
     }
 
     /**
-     * Try to retrieve a default setting from a config fallback.
-     *
-     * @param string $key
-     * @param mixed  $default
-     *
-     * @return mixed config setting or default when not found
-     */
-    protected function getDefault($key, $default)
-    {
-        if ( ! $this->fallback) {
-            return $default;
-        }
-
-        return $this->fallback->get($key, $default);
-    }
-
-    /**
      * Set a setting.
      *
      * @param string $key
-     * @param mixed  $value
+     * @param mixed $value
      *
      * @return $this
      */
-    public function set($key, $value)
+    public function set(string $key, mixed $value): static
     {
         $this->settings[$key] = $value;
 
@@ -98,7 +98,7 @@ class Config
      *
      * @return $this
      */
-    public function setFallback(Config $fallback)
+    public function setFallback(Config $fallback): static
     {
         $this->fallback = $fallback;
 

@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\Operation;
 
+use JetBrains\PhpStorm\Pure;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Operation\FindOneAndDelete;
 
@@ -25,7 +26,7 @@ class FindOneAndDeleteTest extends TestCase
         new FindOneAndDelete($this->getDatabaseName(), $this->getCollectionName(), [], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    #[Pure] public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

@@ -40,14 +40,14 @@ class OAuth implements OAuthTokenProvider
      *
      * @var AbstractProvider
      */
-    protected $provider;
+    protected mixed $provider;
 
     /**
      * The current OAuth access token.
      *
      * @var AccessToken
      */
-    protected $oauthToken;
+    protected AccessToken $oauthToken;
 
     /**
      * The user's email address, usually used as the login ID
@@ -55,28 +55,28 @@ class OAuth implements OAuthTokenProvider
      *
      * @var string
      */
-    protected $oauthUserEmail = '';
+    protected mixed $oauthUserEmail = '';
 
     /**
      * The client secret, generated in the app definition of the service you're connecting to.
      *
      * @var string
      */
-    protected $oauthClientSecret = '';
+    protected mixed $oauthClientSecret = '';
 
     /**
      * The client ID, generated in the app definition of the service you're connecting to.
      *
      * @var string
      */
-    protected $oauthClientId = '';
+    protected mixed $oauthClientId = '';
 
     /**
      * The refresh token, used to obtain new AccessTokens.
      *
      * @var string
      */
-    protected $oauthRefreshToken = '';
+    protected mixed $oauthRefreshToken = '';
 
     /**
      * OAuth constructor.
@@ -84,7 +84,7 @@ class OAuth implements OAuthTokenProvider
      * @param array $options Associative array containing
      *                       `provider`, `userName`, `clientSecret`, `clientId` and `refreshToken` elements
      */
-    public function __construct($options)
+    public function __construct(array $options)
     {
         $this->provider = $options['provider'];
         $this->oauthUserEmail = $options['userName'];
@@ -94,34 +94,11 @@ class OAuth implements OAuthTokenProvider
     }
 
     /**
-     * Get a new RefreshToken.
-     *
-     * @return RefreshToken
-     */
-    protected function getGrant()
-    {
-        return new RefreshToken();
-    }
-
-    /**
-     * Get a new AccessToken.
-     *
-     * @return AccessToken
-     */
-    protected function getToken()
-    {
-        return $this->provider->getAccessToken(
-            $this->getGrant(),
-            ['refresh_token' => $this->oauthRefreshToken]
-        );
-    }
-
-    /**
      * Generate a base64-encoded OAuth token.
      *
      * @return string
      */
-    public function getOauth64()
+    public function getOauth64(): string
     {
         //Get a new token if it's not available or has expired
         if (null === $this->oauthToken || $this->oauthToken->hasExpired()) {
@@ -135,5 +112,28 @@ class OAuth implements OAuthTokenProvider
             $this->oauthToken .
             "\001\001"
         );
+    }
+
+    /**
+     * Get a new AccessToken.
+     *
+     * @return AccessToken
+     */
+    protected function getToken(): AccessToken
+    {
+        return $this->provider->getAccessToken(
+            $this->getGrant(),
+            ['refresh_token' => $this->oauthRefreshToken]
+        );
+    }
+
+    /**
+     * Get a new RefreshToken.
+     *
+     * @return RefreshToken
+     */
+    protected function getGrant(): RefreshToken
+    {
+        return new RefreshToken();
     }
 }

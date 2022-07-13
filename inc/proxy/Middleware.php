@@ -1,5 +1,6 @@
 <?php namespace yxorP\inc\proxy;
 
+use ArrayAccess;
 use Psr\Log\LoggerInterface;
 use yxorP\inc\proxy\Cookie\CookieJarInterface;
 use yxorP\inc\proxy\Exception\ARequestException;
@@ -8,7 +9,7 @@ use function yxorP\inc\proxy\Promise\rejection_for;
 
 final class Middleware
 {
-    public static function cookies()
+    public static function cookies(): \Closure
     {
         return function (callable $handler) {
             return function ($request, array $options) use ($handler) {
@@ -27,7 +28,7 @@ final class Middleware
         };
     }
 
-    public static function httpErrors()
+    public static function httpErrors(): \Closure
     {
         return function (callable $handler) {
             return function ($request, array $options) use ($handler) {
@@ -45,7 +46,7 @@ final class Middleware
         };
     }
 
-    public static function history(&$container)
+    public static function history(&$container): \Closure
     {
         if (!is_array($container) && !$container instanceof ArrayAccess) {
             throw new InvalidArgumentException('history container must be an array or object implementing ArrayAccess');
@@ -63,7 +64,7 @@ final class Middleware
         };
     }
 
-    public static function tap(callable $before = null, callable $after = null)
+    public static function tap(callable $before = null, callable $after = null): \Closure
     {
         return function (callable $handler) use ($before, $after) {
             return function ($request, array $options) use ($handler, $before, $after) {
@@ -79,21 +80,21 @@ final class Middleware
         };
     }
 
-    public static function redirect()
+    public static function redirect(): \Closure
     {
         return function (callable $handler) {
             return new RedirectMiddleware($handler);
         };
     }
 
-    public static function retry(callable $decider, callable $delay = null)
+    public static function retry(callable $decider, callable $delay = null): \Closure
     {
         return function (callable $handler) use ($decider, $delay) {
             return new RetryMiddleware($decider, $handler, $delay);
         };
     }
 
-    public static function log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = 'info')
+    public static function log(LoggerInterface $logger, MessageFormatter $formatter, $logLevel = 'info'): \Closure
     {
         return function (callable $handler) use ($logger, $formatter, $logLevel) {
             return function ($request, array $options) use ($handler, $logger, $formatter, $logLevel) {
@@ -111,14 +112,14 @@ final class Middleware
         };
     }
 
-    public static function prepareBody()
+    public static function prepareBody(): \Closure
     {
         return function (callable $handler) {
             return new PrepareBodyMiddleware($handler);
         };
     }
 
-    public static function mapRequest(callable $fn)
+    public static function mapRequest(callable $fn): \Closure
     {
         return function (callable $handler) use ($fn) {
             return function ($request, array $options) use ($handler, $fn) {
@@ -127,7 +128,7 @@ final class Middleware
         };
     }
 
-    public static function mapResponse(callable $fn)
+    public static function mapResponse(callable $fn): \Closure
     {
         return function (callable $handler) use ($fn) {
             return function ($request, array $options) use ($handler, $fn) {

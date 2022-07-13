@@ -39,16 +39,16 @@ use function is_object;
 class InsertOne implements Executable
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $document;
+    private array|object $document;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs an insert command.
@@ -62,31 +62,31 @@ class InsertOne implements Executable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $document       Document to insert
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param object|array $document Document to insert
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $document, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $document, array $options = [])
     {
-        if (! is_array($document) && ! is_object($document)) {
+        if (!is_array($document) && !is_object($document)) {
             throw InvalidArgumentException::invalidType('$document', $document, 'array or object');
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! is_bool($options['bypassDocumentValidation'])) {
+        if (isset($options['bypassDocumentValidation']) && !is_bool($options['bypassDocumentValidation'])) {
             throw InvalidArgumentException::invalidType('"bypassDocumentValidation" option', $options['bypassDocumentValidation'], 'boolean');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! $options['bypassDocumentValidation']) {
+        if (isset($options['bypassDocumentValidation']) && !$options['bypassDocumentValidation']) {
             unset($options['bypassDocumentValidation']);
         }
 
@@ -94,8 +94,8 @@ class InsertOne implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->document = $document;
         $this->options = $options;
     }
@@ -103,13 +103,13 @@ class InsertOne implements Executable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return InsertOneResult
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): InsertOneResult
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if (isset($this->options['writeConcern']) && $inTransaction) {
@@ -130,7 +130,7 @@ class InsertOne implements Executable
      * @see https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
      * @return array
      */
-    private function createBulkWriteOptions()
+    private function createBulkWriteOptions(): array
     {
         $options = [];
 
@@ -147,7 +147,7 @@ class InsertOne implements Executable
      * @see http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @return array
      */
-    private function createExecuteOptions()
+    private function createExecuteOptions(): array
     {
         $options = [];
 

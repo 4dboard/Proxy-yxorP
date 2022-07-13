@@ -9,7 +9,7 @@ interface TaskQueueInterface
      *
      * @return bool
      */
-    public function isEmpty();
+    public function isEmpty(): bool;
 
     /**
      * Adds a task to the queue that will be executed the next time run is

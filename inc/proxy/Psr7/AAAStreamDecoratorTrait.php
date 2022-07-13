@@ -29,7 +29,7 @@ trait AAAStreamDecoratorTrait
      *
      * @return StreamInterface
      */
-    public function __get($name)
+    public function __get(string $name)
     {
         if ($name == 'stream') {
             $this->stream = $this->createStream();
@@ -45,7 +45,7 @@ trait AAAStreamDecoratorTrait
      * @return StreamInterface
      * @throws BadMethodCallException
      */
-    protected function createStream()
+    protected function createStream(): StreamInterface
     {
         throw new BadMethodCallException('Not implemented');
     }
@@ -60,22 +60,22 @@ trait AAAStreamDecoratorTrait
         } catch (Exception $e) {
             // Really, PHP? https://bugs.php.net/bug.php?id=53648
             trigger_error('StreamDecorator::__toString exception: '
-                . (string)$e, E_USER_ERROR);
+                . $e, E_USER_ERROR);
             return '';
         }
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return $this->stream->isSeekable();
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         $this->stream->seek($offset, $whence);
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return copy_to_string($this);
     }
@@ -88,7 +88,7 @@ trait AAAStreamDecoratorTrait
      *
      * @return mixed
      */
-    public function __call($method, array $args)
+    public function __call(string $method, array $args)
     {
         $result = call_user_func_array([$this->stream, $method], $args);
 
@@ -101,7 +101,7 @@ trait AAAStreamDecoratorTrait
         $this->stream->close();
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         return $this->stream->getMetadata($key);
     }
@@ -111,27 +111,27 @@ trait AAAStreamDecoratorTrait
         return $this->stream->detach();
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->stream->getSize();
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return $this->stream->eof();
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->stream->tell();
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return $this->stream->isReadable();
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return $this->stream->isWritable();
     }
@@ -141,12 +141,12 @@ trait AAAStreamDecoratorTrait
         $this->seek(0);
     }
 
-    public function read($length)
+    public function read(int $length): string
     {
         return $this->stream->read($length);
     }
 
-    public function write($string)
+    public function write(string $string): int
     {
         return $this->stream->write($string);
     }

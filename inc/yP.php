@@ -70,7 +70,6 @@ try {
 
 
 use cacheHelper;
-use Rules;
 use RuntimeException;
 use yxorP\inc\parser\domain;
 use yxorP\inc\parser\RulesParser;
@@ -324,8 +323,10 @@ class yP
 
     /**
      * It creates the plugin's directory if it doesn't exist, and installs the plugin if it's not already installed.
-     * * @param string $yxorp_root
+     * *
+     * @param string $yxorp_root
      * * @return array
+     * @return void
      */
     private static function init(string $yxorp_root): void
     {

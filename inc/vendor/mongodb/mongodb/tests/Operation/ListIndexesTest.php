@@ -16,7 +16,7 @@ class ListIndexesTest extends TestCase
         new ListIndexes($this->getDatabaseName(), $this->getCollectionName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

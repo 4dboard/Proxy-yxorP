@@ -9,7 +9,7 @@ interface PluginInterface
      *
      * @return string
      */
-    public function getMethod();
+    public function getMethod(): string;
 
     /**
      * Set the Filesystem object.

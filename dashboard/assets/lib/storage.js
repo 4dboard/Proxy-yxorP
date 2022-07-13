@@ -6,23 +6,23 @@
  * @license    MIT - http://opensource.org/licenses/MIT
  * @url        https://github.com/aheinze/JSONStorage
  */
-(function(global) {
+(function (global) {
 
     function Store(name, adapter) {
 
-        var $this = this;
+        const $this = this;
 
-        this.name      = name;
-        this.adapter   = adapter;
-        this.data      = adapter.load(name);
+        this.name = name;
+        this.adapter = adapter;
+        this.data = adapter.load(name);
         this.data.__ex = this.data.__ex || {}; // expires data container
 
         // cleanup expires data
-        (function() {
+        (function () {
 
-            var time = (new Date()).getTime();
+            const time = (new Date()).getTime();
 
-            for (var key in $this.data.__ex) {
+            for (let key in $this.data.__ex) {
                 if ($this.data.__ex[key] < time) {
                     delete $this.data[key];
                     delete $this.data.__ex[key];
@@ -32,31 +32,32 @@
         })();
     }
 
-    Store.prototype.store = function() {
+    Store.prototype.store = function () {
         try {
             this.adapter.store(this.name, this.data);
-        }catch(e){}
+        } catch (e) {
+        }
     };
 
-    Store.prototype.toString = function() {
+    Store.prototype.toString = function () {
         return JSON.stringify(this.data);
     };
 
-    Store.prototype.flushdb = function() {
+    Store.prototype.flushdb = function () {
 
-        var $this = this;
+        const $this = this;
 
         this.data = {};
         this.data.__ex = {};
 
-        setTimeout(function() {
+        setTimeout(function () {
             $this.store();
         }, 0); // async saving!?
 
         return true;
     };
 
-    Store.prototype.get = function(key, def) {
+    Store.prototype.get = function (key, def) {
 
         if (this.data.__ex[key] && this.data.__ex[key] < (new Date()).getTime()) {
             delete this.data[key];
@@ -66,31 +67,31 @@
         return this.data[key] !== undefined ? this.data[key] : def;
     };
 
-    Store.prototype.set = function(key, value) {
+    Store.prototype.set = function (key, value) {
         this.data[key] = value;
         this.store();
     };
 
-    Store.prototype.setex = function(key, seconds, value) {
+    Store.prototype.setex = function (key, seconds, value) {
         this.set(key, value);
         this.expire(key, seconds);
     };
 
-    Store.prototype.expire = function(key, seconds) {
+    Store.prototype.expire = function (key, seconds) {
         if (this.data[key]) this.data.__ex[key] = (new Date()).getTime() + (seconds * 1000);
     };
 
-    Store.prototype.exists = function(key) {
+    Store.prototype.exists = function (key) {
         return this.get(key, "___no___") !== "___no___";
     };
 
-    Store.prototype.del = function() {
+    Store.prototype.del = function () {
 
-        var keys = arguments,
-            key = null,
+        const keys = arguments;
+        let key = null,
             removed = 0;
 
-        for (var i = 0; i < keys.length; i++) {
+        for (let i = 0; i < keys.length; i++) {
 
             key = keys[i];
 
@@ -110,22 +111,22 @@
         return removed;
     };
 
-    Store.prototype.type = function(key) {
+    Store.prototype.type = function (key) {
 
         key = this.get(key);
 
-        if (typeof(key) === 'object') {
+        if (typeof (key) === 'object') {
             return JSON.stringify(key)[0] === "[" ? "list" : "set";
         }
 
-        return typeof(key);
+        return typeof (key);
     };
 
-    Store.prototype.append = function(key, value) {
+    Store.prototype.append = function (key, value) {
 
         value = String(value);
 
-        var current = String(this.get(key, "")),
+        const current = String(this.get(key, "")),
             newone = current + value;
 
         this.set(key, newone);
@@ -133,11 +134,11 @@
         return newone.length;
     };
 
-    Store.prototype.incr = function(key, by) {
+    Store.prototype.incr = function (key, by) {
 
         by = by || 1;
 
-        var current = Number(this.get(key, 0)),
+        const current = Number(this.get(key, 0)),
             newone = current + by;
 
         this.set(key, newone);
@@ -145,35 +146,35 @@
         return newone;
     };
 
-    Store.prototype.decr = function(key, by) {
+    Store.prototype.decr = function (key, by) {
         by = by || 1;
         return this.incr(key, (by * -1));
     };
 
     /* List methods */
 
-    Store.prototype.llen = function(key) {
+    Store.prototype.llen = function (key) {
         return this.get(key, []).length;
     };
 
-    Store.prototype.lpush = function(key, value) {
-        var list = this.get(key, []),
+    Store.prototype.lpush = function (key, value) {
+        const list = this.get(key, []),
             ret = list.unshift(value);
 
         this.set(key, list);
         return ret;
     };
 
-    Store.prototype.rpush = function(key, value) {
-        var list = this.get(key, []),
+    Store.prototype.rpush = function (key, value) {
+        const list = this.get(key, []),
             ret = list.push(value);
 
         this.set(key, list);
         return ret;
     };
 
-    Store.prototype.lset = function(key, index, value) {
-        var list = this.get(key, []);
+    Store.prototype.lset = function (key, index, value) {
+        const list = this.get(key, []);
 
         if (index < 0) {
             index = list.length - Math.abs(index);
@@ -188,8 +189,8 @@
         return false;
     };
 
-    Store.prototype.lindex = function(key, index) {
-        var list = this.get(key, []);
+    Store.prototype.lindex = function (key, index) {
+        const list = this.get(key, []);
 
         if (index < 0) {
             index = list.length - Math.abs(index);
@@ -200,33 +201,33 @@
 
     /* Hash methods */
 
-    Store.prototype.hset = function(key, field, value) {
-        var set = this.get(key, {});
+    Store.prototype.hset = function (key, field, value) {
+        const set = this.get(key, {});
 
         set[field] = value;
         this.set(key, set);
     };
 
-    Store.prototype.hget = function(key, field, def) {
-        var set = this.get(key, {});
+    Store.prototype.hget = function (key, field, def) {
+        const set = this.get(key, {});
 
         return set[field] !== undefined ? set[field] : def;
     };
 
-    Store.prototype.hgetall = function(key) {
+    Store.prototype.hgetall = function (key) {
         return this.get(key, {});
     };
 
-    Store.prototype.hexists = function(key, field) {
-        var set = this.get(key, {});
+    Store.prototype.hexists = function (key, field) {
+        const set = this.get(key, {});
 
         return (set[field] !== undefined);
     };
 
-    Store.prototype.hkeys = function(key) {
-        var set = this.get(key, {}),
-            keys = [],
-            name = null;
+    Store.prototype.hkeys = function (key) {
+        const set = this.get(key, {}),
+            keys = [];
+        let name = null;
 
         for (name in set) {
             if (set.hasOwnProperty(name)) {
@@ -237,10 +238,10 @@
         return keys;
     };
 
-    Store.prototype.hvals = function(key) {
-        var set = this.get(key, {}),
-            vals = [],
-            name = null;
+    Store.prototype.hvals = function (key) {
+        const set = this.get(key, {}),
+            vals = [];
+        let name = null;
 
         for (name in set) {
             if (set.hasOwnProperty(name)) {
@@ -251,19 +252,19 @@
         return vals;
     };
 
-    Store.prototype.hlen = function(key) {
+    Store.prototype.hlen = function (key) {
         return this.hkeys(key).length;
     };
 
-    Store.prototype.hdel = function(key) {
+    Store.prototype.hdel = function (key) {
 
         if (!this.exists(key)) return 0;
 
-        var set = this.get(key, {}),
-            field = null,
+        const set = this.get(key, {});
+        let field = null,
             removed = 0;
 
-        for (var i = 1; i < arguments.length; i++) {
+        for (let i = 1; i < arguments.length; i++) {
 
             field = arguments[i];
 
@@ -278,9 +279,9 @@
         return removed;
     };
 
-    Store.prototype.hincrby = function(key, field, by) {
+    Store.prototype.hincrby = function (key, field, by) {
         by = by || 1;
-        var current = Number(this.hget(key, field, 0)),
+        const current = Number(this.hget(key, field, 0)),
             newone = current + by;
 
         this.hset(key, field, newone);
@@ -288,12 +289,12 @@
         return newone;
     };
 
-    Store.prototype.hmget = function(key) {
-        var set = this.get(key, {}),
-            field = null,
-            values = [];
+    Store.prototype.hmget = function (key) {
+        const set = this.get(key, {});
+        let field = null;
+        const values = [];
 
-        for (var i = 1; i < arguments.length; i++) {
+        for (let i = 1; i < arguments.length; i++) {
             field = arguments[i];
             values.push(set[field] !== undefined ? set[field] : null);
         }
@@ -301,12 +302,12 @@
         return values;
     };
 
-    Store.prototype.hmset = function(key) {
-        var set = this.get(key, {}),
-            field = null,
+    Store.prototype.hmset = function (key) {
+        const set = this.get(key, {});
+        let field = null,
             value = null;
 
-        for (var i = 1; i < arguments.length; i++) {
+        for (let i = 1; i < arguments.length; i++) {
             field = arguments[i];
             value = arguments[(i + 1)] ? arguments[(i + 1)] : null;
             set[field] = value;
@@ -316,41 +317,41 @@
         this.set(key, set);
     };
 
-    var JSONStorage = {
+    const JSONStorage = {
 
-        select: function(name, adapter) {
-            return (new Store(name, typeof(adapter)=='object' ? adapter : (this.adapters[adapter] || this.adapters['memory']) ));
+        select: function (name, adapter) {
+            return (new Store(name, typeof (adapter) == 'object' ? adapter : (this.adapters[adapter] || this.adapters['memory'])));
         },
 
         adapters: {
 
-            memory: (function() {
-                var dbs = {};
+            memory: (function () {
+                const dbs = {};
 
                 return {
-                    load: function(name) {
+                    load: function (name) {
                         return dbs[name] || {};
                     },
-                    store: function(name, data) {
+                    store: function (name, data) {
                         dbs[name] = data;
                     }
                 }
             })(),
 
             local: {
-                load: function(name) {
+                load: function (name) {
                     return global.localStorage["jsonstorage." + name] ? JSON.parse(global.localStorage["jsonstorage." + name]) : {};
                 },
-                store: function(name, data) {
+                store: function (name, data) {
                     global.localStorage["jsonstorage." + name] = JSON.stringify(data);
                 }
             },
 
             session: {
-                load: function(name) {
+                load: function (name) {
                     return global.sessionStorage["jsonstorage." + name] ? JSON.parse(global.sessionStorage["jsonstorage." + name]) : {};
                 },
-                store: function(name, data) {
+                store: function (name, data) {
                     global.sessionStorage["jsonstorage." + name] = JSON.stringify(data);
                 }
             }
@@ -359,7 +360,7 @@
 
     // AMD support
     if (typeof define === 'function' && define.amd) {
-        define(function() {
+        define(function () {
             return JSONStorage;
         });
         // CommonJS and Node.js module support.

@@ -39,20 +39,16 @@ use function MongoDB\server_supports_feature;
  */
 class EstimatedDocumentCount implements Executable, Explainable
 {
+    /** @var int */
+    private static int $errorCodeCollectionNotFound = 26;
+    /** @var int */
+    private static int $wireVersionForCollStats = 12;
     /** @var string */
-    private $databaseName;
-
+    private string $databaseName;
     /** @var string */
-    private $collectionName;
-
+    private string $collectionName;
     /** @var array */
-    private $options;
-
-    /** @var int */
-    private static $errorCodeCollectionNotFound = 26;
-
-    /** @var int */
-    private static $wireVersionForCollStats = 12;
+    private array $options;
 
     /**
      * Constructs a command to get the estimated number of documents in a
@@ -69,29 +65,29 @@ class EstimatedDocumentCount implements Executable, Explainable
      *
      *  * session (MongoDB\Driver\Session): Client session.
      *
-     * @param string $databaseName   Database name
+     * @param string $databaseName Database name
      * @param string $collectionName Collection name
-     * @param array  $options        Command options
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, array $options = [])
     {
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['readConcern']) && ! $options['readConcern'] instanceof ReadConcern) {
+        if (isset($options['readConcern']) && !$options['readConcern'] instanceof ReadConcern) {
             throw InvalidArgumentException::invalidType('"readConcern" option', $options['readConcern'], ReadConcern::class);
         }
 
-        if (isset($options['readPreference']) && ! $options['readPreference'] instanceof ReadPreference) {
+        if (isset($options['readPreference']) && !$options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
@@ -101,14 +97,14 @@ class EstimatedDocumentCount implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return integer
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if collation or read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): int
     {
         $command = $this->createCommand($server);
 
@@ -131,16 +127,12 @@ class EstimatedDocumentCount implements Executable, Explainable
         return $command->execute($server);
     }
 
-    /**
-     * Returns the command document for this operation.
-     *
-     * @see Explainable::getCommandDocument()
-     * @param Server $server
-     * @return array
-     */
-    public function getCommandDocument(Server $server)
+    /** @return Aggregate|Count */
+    private function createCommand(Server $server): Count|Aggregate
     {
-        return $this->createCommand($server)->getCommandDocument($server);
+        return server_supports_feature($server, self::$wireVersionForCollStats)
+            ? $this->createAggregate()
+            : $this->createCount();
     }
 
     private function createAggregate(): Aggregate
@@ -149,23 +141,27 @@ class EstimatedDocumentCount implements Executable, Explainable
             $this->databaseName,
             $this->collectionName,
             [
-                ['$collStats' => ['count' => (object) []]],
+                ['$collStats' => ['count' => (object)[]]],
                 ['$group' => ['_id' => 1, 'n' => ['$sum' => '$count']]],
             ],
             $this->options
         );
     }
 
-    /** @return Aggregate|Count */
-    private function createCommand(Server $server)
-    {
-        return server_supports_feature($server, self::$wireVersionForCollStats)
-            ? $this->createAggregate()
-            : $this->createCount();
-    }
-
     private function createCount(): Count
     {
         return new Count($this->databaseName, $this->collectionName, [], $this->options);
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see Explainable::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server): array
+    {
+        return $this->createCommand($server)->getCommandDocument($server);
     }
 }

@@ -43,7 +43,7 @@ class PrepareBodyMiddleware
         if ($request->hasHeader('Expect')) {
             return;
         }
-        $expect = isset($options['expect']) ? $options['expect'] : null;
+        $expect = $options['expect'] ?? null;
         if ($expect === false || $request->getProtocolVersion() < 1.1) {
             return;
         }

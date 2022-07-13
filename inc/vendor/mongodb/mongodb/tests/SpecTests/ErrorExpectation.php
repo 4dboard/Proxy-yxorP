@@ -26,7 +26,7 @@ final class ErrorExpectation
      *
      * @var array
      */
-    private static $codeNameMap = [
+    private static array $codeNameMap = [
         'Interrupted' => 11601,
         'MaxTimeMSExpired' => 50,
         'NoSuchTransaction' => 251,
@@ -35,28 +35,28 @@ final class ErrorExpectation
     ];
 
     /** @var integer */
-    private $code;
+    private int $code;
 
     /** @var string */
-    private $codeName;
+    private string $codeName;
 
     /** @var boolean */
-    private $isExpected = false;
+    private bool $isExpected = false;
 
     /** @var string[] */
-    private $excludedLabels = [];
+    private array $excludedLabels = [];
 
     /** @var string[] */
-    private $includedLabels = [];
+    private array $includedLabels = [];
 
     /** @var string */
-    private $messageContains;
+    private string $messageContains;
 
     private function __construct()
     {
     }
 
-    public static function fromChangeStreams(stdClass $result)
+    public static function fromChangeStreams(stdClass $result): ErrorExpectation
     {
         $o = new self();
 
@@ -66,7 +66,7 @@ final class ErrorExpectation
         }
 
         if (isset($result->error->errorLabels)) {
-            if (! self::isArrayOfStrings($result->error->errorLabels)) {
+            if (!self::isArrayOfStrings($result->error->errorLabels)) {
                 throw InvalidArgumentException::invalidType('errorLabels', $result->error->errorLabels, 'string[]');
             }
 
@@ -77,12 +77,71 @@ final class ErrorExpectation
         return $o;
     }
 
-    public static function fromClientSideEncryption(stdClass $operation)
+    private static function isArrayOfStrings($array): bool
+    {
+        if (!is_array($array)) {
+            return false;
+        }
+
+        foreach ($array as $string) {
+            if (!is_string($string)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static function fromClientSideEncryption(stdClass $operation): ErrorExpectation
     {
         return self::fromGenericOperation($operation);
     }
 
-    public static function fromCrud(stdClass $result)
+    /**
+     * @throws InvalidArgumentException
+     */
+    private static function fromGenericOperation(stdClass $operation): ErrorExpectation
+    {
+        $o = new self();
+
+        if (isset($operation->error)) {
+            $o->isExpected = $operation->error;
+        }
+
+        $result = $operation->result ?? null;
+
+        if (isset($result->errorContains)) {
+            $o->messageContains = $result->errorContains;
+            $o->isExpected = true;
+        }
+
+        if (isset($result->errorCodeName)) {
+            $o->codeName = $result->errorCodeName;
+            $o->isExpected = true;
+        }
+
+        if (isset($result->errorLabelsContain)) {
+            if (!self::isArrayOfStrings($result->errorLabelsContain)) {
+                throw InvalidArgumentException::invalidType('errorLabelsContain', $result->errorLabelsContain, 'string[]');
+            }
+
+            $o->includedLabels = $result->errorLabelsContain;
+            $o->isExpected = true;
+        }
+
+        if (isset($result->errorLabelsOmit)) {
+            if (!self::isArrayOfStrings($result->errorLabelsOmit)) {
+                throw InvalidArgumentException::invalidType('errorLabelsOmit', $result->errorLabelsOmit, 'string[]');
+            }
+
+            $o->excludedLabels = $result->errorLabelsOmit;
+            $o->isExpected = true;
+        }
+
+        return $o;
+    }
+
+    public static function fromCrud(stdClass $result): ErrorExpectation
     {
         $o = new self();
 
@@ -93,12 +152,12 @@ final class ErrorExpectation
         return $o;
     }
 
-    public static function fromReadWriteConcern(stdClass $operation)
+    public static function fromReadWriteConcern(stdClass $operation): ErrorExpectation
     {
         return self::fromGenericOperation($operation);
     }
 
-    public static function fromRetryableReads(stdClass $operation)
+    public static function fromRetryableReads(stdClass $operation): ErrorExpectation
     {
         $o = new self();
 
@@ -109,7 +168,7 @@ final class ErrorExpectation
         return $o;
     }
 
-    public static function fromRetryableWrites(stdClass $outcome)
+    public static function fromRetryableWrites(stdClass $outcome): ErrorExpectation
     {
         $o = new self();
 
@@ -120,7 +179,7 @@ final class ErrorExpectation
         /* outcome.result will only contain error label assertions if an error
          * is expected (i.e. outcome.error is true). */
         if ($o->isExpected && isset($outcome->result->errorLabelsContain)) {
-            if (! self::isArrayOfStrings($outcome->result->errorLabelsContain)) {
+            if (!self::isArrayOfStrings($outcome->result->errorLabelsContain)) {
                 throw InvalidArgumentException::invalidType('errorLabelsContain', $outcome->result->errorLabelsContain, 'string[]');
             }
 
@@ -128,7 +187,7 @@ final class ErrorExpectation
         }
 
         if ($o->isExpected && isset($outcome->result->errorLabelsOmit)) {
-            if (! self::isArrayOfStrings($outcome->result->errorLabelsOmit)) {
+            if (!self::isArrayOfStrings($outcome->result->errorLabelsOmit)) {
                 throw InvalidArgumentException::invalidType('errorLabelsOmit', $outcome->result->errorLabelsOmit, 'string[]');
             }
 
@@ -141,12 +200,12 @@ final class ErrorExpectation
     /**
      * @throws InvalidArgumentException
      */
-    public static function fromTransactions(stdClass $operation)
+    public static function fromTransactions(stdClass $operation): ErrorExpectation
     {
         return self::fromGenericOperation($operation);
     }
 
-    public static function noError()
+    public static function noError(): ErrorExpectation
     {
         return new self();
     }
@@ -154,12 +213,12 @@ final class ErrorExpectation
     /**
      * Assert that the error expectation matches the actual outcome.
      *
-     * @param TestCase       $test   Test instance for performing assertions
+     * @param TestCase $test Test instance for performing assertions
      * @param Exception|null $actual Exception (if any) from the actual outcome
      */
     public function assert(TestCase $test, ?Throwable $actual = null): void
     {
-        if (! $this->isExpected) {
+        if (!$this->isExpected) {
             if ($actual !== null) {
                 $test->fail(sprintf("Operation threw unexpected %s: %s\n%s", get_class($actual), $actual->getMessage(), $actual->getTraceAsString()));
             }
@@ -177,7 +236,7 @@ final class ErrorExpectation
             $this->assertCodeName($test, $actual);
         }
 
-        if (! empty($this->excludedLabels) || ! empty($this->includedLabels)) {
+        if (!empty($this->excludedLabels) || !empty($this->includedLabels)) {
             $test->assertInstanceOf(RuntimeException::class, $actual);
 
             foreach ($this->excludedLabels as $label) {
@@ -190,15 +249,10 @@ final class ErrorExpectation
         }
     }
 
-    public function isExpected()
-    {
-        return $this->isExpected;
-    }
-
     /**
      * Assert that the error code name expectation matches the actual outcome.
      *
-     * @param TestCase       $test   Test instance for performing assertions
+     * @param TestCase $test Test instance for performing assertions
      * @param Exception|null $actual Exception (if any) from the actual outcome
      */
     private function assertCodeName(TestCase $test, ?Throwable $actual = null): void
@@ -228,62 +282,8 @@ final class ErrorExpectation
         $test->assertSame($this->codeName, $result->codeName);
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    private static function fromGenericOperation(stdClass $operation)
+    public function isExpected(): bool
     {
-        $o = new self();
-
-        if (isset($operation->error)) {
-            $o->isExpected = $operation->error;
-        }
-
-        $result = $operation->result ?? null;
-
-        if (isset($result->errorContains)) {
-            $o->messageContains = $result->errorContains;
-            $o->isExpected = true;
-        }
-
-        if (isset($result->errorCodeName)) {
-            $o->codeName = $result->errorCodeName;
-            $o->isExpected = true;
-        }
-
-        if (isset($result->errorLabelsContain)) {
-            if (! self::isArrayOfStrings($result->errorLabelsContain)) {
-                throw InvalidArgumentException::invalidType('errorLabelsContain', $result->errorLabelsContain, 'string[]');
-            }
-
-            $o->includedLabels = $result->errorLabelsContain;
-            $o->isExpected = true;
-        }
-
-        if (isset($result->errorLabelsOmit)) {
-            if (! self::isArrayOfStrings($result->errorLabelsOmit)) {
-                throw InvalidArgumentException::invalidType('errorLabelsOmit', $result->errorLabelsOmit, 'string[]');
-            }
-
-            $o->excludedLabels = $result->errorLabelsOmit;
-            $o->isExpected = true;
-        }
-
-        return $o;
-    }
-
-    private static function isArrayOfStrings($array)
-    {
-        if (! is_array($array)) {
-            return false;
-        }
-
-        foreach ($array as $string) {
-            if (! is_string($string)) {
-                return false;
-            }
-        }
-
-        return true;
+        return $this->isExpected;
     }
 }

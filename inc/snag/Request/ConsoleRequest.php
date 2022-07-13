@@ -9,7 +9,7 @@ class ConsoleRequest implements RequestInterface
      *
      * @var string[]
      */
-    protected $command;
+    protected array $command;
 
     /**
      * Create a new console request instance.
@@ -28,7 +28,7 @@ class ConsoleRequest implements RequestInterface
      *
      * @return bool
      */
-    public function isRequest()
+    public function isRequest(): bool
     {
         return false;
     }
@@ -38,7 +38,7 @@ class ConsoleRequest implements RequestInterface
      *
      * @return array
      */
-    public function getSession()
+    public function getSession(): array
     {
         return [];
     }
@@ -48,7 +48,7 @@ class ConsoleRequest implements RequestInterface
      *
      * @return array
      */
-    public function getCookies()
+    public function getCookies(): array
     {
         return [];
     }
@@ -58,7 +58,7 @@ class ConsoleRequest implements RequestInterface
      *
      * @return array
      */
-    public function getMetaData()
+    public function getMetaData(): array
     {
         if (count($this->command) == 0) {
             return ['console' => [
@@ -91,7 +91,7 @@ class ConsoleRequest implements RequestInterface
      *
      * @return string|null
      */
-    public function getContext()
+    public function getContext(): ?string
     {
         return implode(' ', array_slice($this->command, 0, 4));
     }
@@ -101,7 +101,7 @@ class ConsoleRequest implements RequestInterface
      *
      * @return string|null
      */
-    public function getUserId()
+    public function getUserId(): ?string
     {
         return null;
     }

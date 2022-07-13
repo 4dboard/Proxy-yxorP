@@ -76,36 +76,42 @@ class ListCollectionsFunctionalTest extends FunctionalTestCase
 
     public function testAuthorizedCollectionsOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new ListCollections(
-                    $this->getDatabaseName(),
-                    ['authorizedCollections' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new ListCollections(
+                        $this->getDatabaseName(),
+                        ['authorizedCollections' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('authorizedCollections', $event['started']->getCommand());
-                $this->assertSame(true, $event['started']->getCommand()->authorizedCollections);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('authorizedCollections', $event['started']->getCommand());
+                    $this->assertSame(true, $event['started']->getCommand()->authorizedCollections);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new ListCollections(
-                    $this->getDatabaseName(),
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new ListCollections(
+                        $this->getDatabaseName(),
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 }

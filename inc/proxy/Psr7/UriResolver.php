@@ -27,7 +27,7 @@ final class UriResolver
      * @return UriInterface
      * @link http://tools.ietf.org/html/rfc3986#section-5.2
      */
-    public static function resolve(UriInterface $base, UriInterface $rel)
+    public static function resolve(UriInterface $base, UriInterface $rel): Uri|UriInterface
     {
         if ((string)$rel === '') {
             // we can simply return the same base URI instance for this same-document reference
@@ -84,7 +84,7 @@ final class UriResolver
      * @return string
      * @link http://tools.ietf.org/html/rfc3986#section-5.2.4
      */
-    public static function removeDotSegments($path)
+    public static function removeDotSegments(string $path): ?string
     {
         if ($path === '' || $path === '/') {
             return $path;
@@ -140,7 +140,7 @@ final class UriResolver
      *
      * @return UriInterface The relative URI reference
      */
-    public static function relativize(UriInterface $base, UriInterface $target)
+    public static function relativize(UriInterface $base, UriInterface $target): UriInterface
     {
         if ($target->getScheme() !== '' &&
             ($base->getScheme() !== $target->getScheme() || $target->getAuthority() === '' && $base->getAuthority() !== '')
@@ -185,7 +185,7 @@ final class UriResolver
         return $emptyPathUri;
     }
 
-    private static function getRelativePath(UriInterface $base, UriInterface $target)
+    private static function getRelativePath(UriInterface $base, UriInterface $target): string
     {
         $sourceSegments = explode('/', $base->getPath());
         $targetSegments = explode('/', $target->getPath());
@@ -204,7 +204,7 @@ final class UriResolver
         // A reference to am empty last segment or an empty first sub-segment must be prefixed with "./".
         // This also applies to a segment with a colon character (e.g., "file:colon") that cannot be used
         // as the first segment of a relative-path reference, as it would be mistaken for a scheme name.
-        if ('' === $relativePath || false !== strpos(explode('/', $relativePath, 2)[0], ':')) {
+        if ('' === $relativePath || str_contains(explode('/', $relativePath, 2)[0], ':')) {
             $relativePath = "./$relativePath";
         } elseif ('/' === $relativePath[0]) {
             if ($base->getAuthority() != '' && $base->getPath() === '') {

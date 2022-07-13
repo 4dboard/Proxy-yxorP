@@ -22,7 +22,7 @@ class DropIndexesTest extends TestCase
         new DropIndexes($this->getDatabaseName(), $this->getCollectionName(), '*', $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

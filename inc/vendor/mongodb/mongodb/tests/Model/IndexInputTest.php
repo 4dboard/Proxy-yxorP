@@ -31,7 +31,7 @@ class IndexInputTest extends TestCase
         new IndexInput(['key' => ['x' => $order]]);
     }
 
-    public function provideInvalidFieldOrderValues()
+    public function provideInvalidFieldOrderValues(): array
     {
         return $this->wrapValuesForDataProvider([true, [], new stdClass()]);
     }
@@ -47,10 +47,10 @@ class IndexInputTest extends TestCase
      */
     public function testNameGeneration($expectedName, array $key): void
     {
-        $this->assertSame($expectedName, (string) new IndexInput(['key' => $key]));
+        $this->assertSame($expectedName, (string)new IndexInput(['key' => $key]));
     }
 
-    public function provideExpectedNameAndKey()
+    public function provideExpectedNameAndKey(): array
     {
         return [
             ['x_1', ['x' => 1]],

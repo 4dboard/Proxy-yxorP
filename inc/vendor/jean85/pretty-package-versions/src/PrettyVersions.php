@@ -27,23 +27,12 @@ class PrettyVersions
         );
     }
 
-    public static function getRootPackageName(): string
-    {
-        return InstalledVersions::getRootPackage()['name'];
-    }
-
-    public static function getRootPackageVersion(): Version
-    {
-        return new Version(
-            self::getRootPackageName(),
-            InstalledVersions::getRootPackage()['pretty_version'],
-            InstalledVersions::getRootPackage()['reference']
-        );
-    }
-
+    /**
+     * @throws VersionMissingExceptionInterface
+     */
     protected static function checkProvidedPackages(string $packageName): void
     {
-        if (! method_exists(InstalledVersions::class, 'getAllRawData')) {
+        if (!method_exists(InstalledVersions::class, 'getAllRawData')) {
             if (isset(InstalledVersions::getRawData()['versions'][$packageName]['provided'])) {
                 throw ProvidedPackageException::create($packageName);
             }
@@ -58,9 +47,12 @@ class PrettyVersions
         }
     }
 
+    /**
+     * @throws VersionMissingExceptionInterface
+     */
     protected static function checkReplacedPackages(string $packageName): void
     {
-        if (! method_exists(InstalledVersions::class, 'getAllRawData')) {
+        if (!method_exists(InstalledVersions::class, 'getAllRawData')) {
             if (isset(InstalledVersions::getRawData()['versions'][$packageName]['replaced'])) {
                 throw ReplacedPackageException::create($packageName);
             }
@@ -73,5 +65,19 @@ class PrettyVersions
                 throw ReplacedPackageException::create($packageName);
             }
         }
+    }
+
+    public static function getRootPackageVersion(): Version
+    {
+        return new Version(
+            self::getRootPackageName(),
+            InstalledVersions::getRootPackage()['pretty_version'],
+            InstalledVersions::getRootPackage()['reference']
+        );
+    }
+
+    public static function getRootPackageName(): string
+    {
+        return InstalledVersions::getRootPackage()['name'];
     }
 }

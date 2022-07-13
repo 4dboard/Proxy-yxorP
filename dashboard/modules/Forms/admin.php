@@ -22,7 +22,7 @@ $app->on('admin.init', function () {
     // bind admin routes /forms/*
     $this->bindClass('Forms\\Controller\\Admin', 'forms');
 
-    $active = strpos($this['route'], '/forms') === 0;
+    $active = str_starts_with($this['route'], '/forms');
 
     // add to modules menu
     $this->helper('admin')->addMenuItem('modules', [
@@ -47,7 +47,7 @@ $app->on('admin.init', function () {
 
                 $list[] = [
                     'icon' => 'inbox',
-                    'title' => $meta['label'] ? $meta['label'] : $meta['name'],
+                    'title' => $meta['label'] ?: $meta['name'],
                     'url' => $this->routeUrl('/forms/entries/' . $meta['name'])
                 ];
             }
@@ -78,7 +78,7 @@ $app->on('admin.init', function () {
                      'forms.save.before.{$name}',
                      'forms.submit.after',
                      'forms.submit.before',
-                 ] as &$evt) {
+                 ] as $evt) {
             $triggers[] = $evt;
         }
     });

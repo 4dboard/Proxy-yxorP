@@ -11,7 +11,7 @@ use MongoDB\Tests\FunctionalTestCase as BaseFunctionalTestCase;
 abstract class FunctionalTestCase extends BaseFunctionalTestCase
 {
     /** @var Database */
-    protected $database;
+    protected Database $database;
 
     public function setUp(): void
     {

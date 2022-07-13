@@ -1,5 +1,5 @@
 /*! UIkit 2.27.5 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function(addon) {
+(function (addon) {
 
     var component;
 
@@ -8,47 +8,47 @@
     }
 
     if (typeof define == 'function' && define.amd) {
-        define('uikit-sticky', ['uikit'], function(){
+        define('uikit-sticky', ['uikit'], function () {
             return component || addon(UIkit2);
         });
     }
 
-})(function(UI){
+})(function (UI) {
 
     "use strict";
 
-    var $win         = UI.$win,
-        $doc         = UI.$doc,
-        sticked      = [],
-        direction    = 1;
+    var $win = UI.$win,
+        $doc = UI.$doc,
+        sticked = [],
+        direction = 1;
 
     UI.component('sticky', {
 
         defaults: {
-            top          : 0,
-            bottom       : 0,
-            animation    : '',
-            clsinit      : 'uk-sticky-init',
-            clsactive    : 'uk-active',
-            clsinactive  : '',
-            getWidthFrom : '',
-            showup       : false,
-            boundary     : false,
-            media        : false,
-            target       : false,
-            disabled     : false
+            top: 0,
+            bottom: 0,
+            animation: '',
+            clsinit: 'uk-sticky-init',
+            clsactive: 'uk-active',
+            clsinactive: '',
+            getWidthFrom: '',
+            showup: false,
+            boundary: false,
+            media: false,
+            target: false,
+            disabled: false
         },
 
-        boot: function() {
+        boot: function () {
 
             // should be more efficient than using $win.scroll(checkscrollposition):
-            UI.$doc.on('scrolling.uk.document', function(e, data) {
+            UI.$doc.on('scrolling.uk.document', function (e, data) {
                 if (!data || !data.dir) return;
                 direction = data.dir.y;
                 checkscrollposition();
             });
 
-            UI.$win.on('resize orientationchange', UI.Utils.debounce(function() {
+            UI.$win.on('resize orientationchange', UI.Utils.debounce(function () {
 
                 if (!sticked.length) return;
 
@@ -61,11 +61,11 @@
             }, 100));
 
             // init code
-            UI.ready(function(context) {
+            UI.ready(function (context) {
 
-                setTimeout(function(){
+                setTimeout(function () {
 
-                    UI.$('[data-uk-sticky]', context).each(function(){
+                    UI.$('[data-uk-sticky]', context).each(function () {
 
                         var $ele = UI.$(this);
 
@@ -79,17 +79,17 @@
             });
         },
 
-        init: function() {
+        init: function () {
 
             var boundary = this.options.boundary, boundtoparent;
 
             this.wrapper = this.element.wrap('<div class="uk-sticky-placeholder"></div>').parent();
             this.computeWrapper();
             this.wrapper.css({
-                'margin-top'    : this.element.css('margin-top'),
-                'margin-bottom' : this.element.css('margin-bottom'),
-                'margin-left'   : this.element.css('margin-left'),
-                'margin-right'  : this.element.css('margin-right')
+                'margin-top': this.element.css('margin-top'),
+                'margin-bottom': this.element.css('margin-bottom'),
+                'margin-left': this.element.css('margin-left'),
+                'margin-right': this.element.css('margin-right')
             })
             this.element.css('margin', 0);
 
@@ -97,7 +97,7 @@
 
                 if (boundary === true || boundary[0] === '!') {
 
-                    boundary      = boundary === true ? this.wrapper.parent() : this.wrapper.closest(boundary.substr(1));
+                    boundary = boundary === true ? this.wrapper.parent() : this.wrapper.closest(boundary.substr(1));
                     boundtoparent = true;
 
                 } else if (typeof boundary === "string") {
@@ -106,27 +106,27 @@
             }
 
             this.sticky = {
-                self          : this,
-                options       : this.options,
-                element       : this.element,
-                currentTop    : null,
-                wrapper       : this.wrapper,
-                init          : false,
-                getWidthFrom  : UI.$(this.options.getWidthFrom || this.wrapper),
-                boundary      : boundary,
-                boundtoparent : boundtoparent,
-                top           : 0,
-                calcTop       : function() {
+                self: this,
+                options: this.options,
+                element: this.element,
+                currentTop: null,
+                wrapper: this.wrapper,
+                init: false,
+                getWidthFrom: UI.$(this.options.getWidthFrom || this.wrapper),
+                boundary: boundary,
+                boundtoparent: boundtoparent,
+                top: 0,
+                calcTop: function () {
 
                     var top = this.options.top;
 
                     // dynamic top parameter
-                    if (this.options.top && typeof(this.options.top) == 'string') {
+                    if (this.options.top && typeof (this.options.top) == 'string') {
 
                         // e.g. 50vh
                         if (this.options.top.match(/^(-|)(\d+)vh$/)) {
-                            top = window.innerHeight * parseInt(this.options.top, 10)/100;
-                        // e.g. #elementId, or .class-1,class-2,.class-3 (first found is used)
+                            top = window.innerHeight * parseInt(this.options.top, 10) / 100;
+                            // e.g. #elementId, or .class-1,class-2,.class-3 (first found is used)
                         } else {
 
                             var topElement = UI.$(this.options.top).first();
@@ -141,18 +141,18 @@
                     this.top = top;
                 },
 
-                reset: function(force) {
+                reset: function (force) {
 
                     this.calcTop();
 
-                    var finalize = function() {
-                        this.element.css({position:'', top:'', width:'', left:'', margin:'0'});
+                    var finalize = function () {
+                        this.element.css({position: '', top: '', width: '', left: '', margin: '0'});
                         this.element.removeClass([this.options.animation, 'uk-animation-reverse', this.options.clsactive].join(' '));
                         this.element.addClass(this.options.clsinactive);
                         this.element.trigger('inactive.uk.sticky');
 
                         this.currentTop = null;
-                        this.animate    = false;
+                        this.animate = false;
 
                     }.bind(this);
 
@@ -161,17 +161,17 @@
 
                         this.animate = true;
 
-                        this.element.removeClass(this.options.animation).one(UI.support.animation.end, function(){
+                        this.element.removeClass(this.options.animation).one(UI.support.animation.end, function () {
                             finalize();
                         }).width(); // force redraw
 
-                        this.element.addClass(this.options.animation+' '+'uk-animation-reverse');
+                        this.element.addClass(this.options.animation + ' ' + 'uk-animation-reverse');
                     } else {
                         finalize();
                     }
                 },
 
-                check: function() {
+                check: function () {
 
                     if (this.options.disabled) {
                         return false;
@@ -179,7 +179,7 @@
 
                     if (this.options.media) {
 
-                        switch(typeof(this.options.media)) {
+                        switch (typeof (this.options.media)) {
                             case 'number':
                                 if (window.innerWidth < this.options.media) {
                                     return false;
@@ -193,13 +193,13 @@
                         }
                     }
 
-                    var scrollTop      = $win.scrollTop(),
+                    var scrollTop = $win.scrollTop(),
                         documentHeight = $doc.height(),
-                        dwh            = documentHeight - window.innerHeight,
-                        extra          = (scrollTop > dwh) ? dwh - scrollTop : 0,
-                        elementTop     = this.wrapper.offset().top,
-                        etse           = elementTop - this.top - extra,
-                        active         = (scrollTop  >= etse);
+                        dwh = documentHeight - window.innerHeight,
+                        extra = (scrollTop > dwh) ? dwh - scrollTop : 0,
+                        elementTop = this.wrapper.offset().top,
+                        etse = elementTop - this.top - extra,
+                        active = (scrollTop >= etse);
 
                     if (active && this.options.showup) {
 
@@ -223,25 +223,25 @@
             sticked.push(this.sticky);
         },
 
-        update: function() {
+        update: function () {
             checkscrollposition(this.sticky);
         },
 
-        enable: function() {
+        enable: function () {
             this.options.disabled = false;
             this.update();
         },
 
-        disable: function(force) {
+        disable: function (force) {
             this.options.disabled = true;
             this.sticky.reset(force);
         },
 
-        computeWrapper: function() {
+        computeWrapper: function () {
 
             this.wrapper.css({
-                'height'        : ['absolute','fixed'].indexOf(this.element.css('position')) == -1 ? this.element.outerHeight() : '',
-                'float'         : this.element.css('float') != 'none' ? this.element.css('float') : ''
+                'height': ['absolute', 'fixed'].indexOf(this.element.css('position')) == -1 ? this.element.outerHeight() : '',
+                'float': this.element.css('float') != 'none' ? this.element.css('float') : ''
             });
 
             if (this.element.css('position') == 'fixed') {
@@ -258,11 +258,11 @@
 
         if (!stickies.length || $win.scrollTop() < 0) return;
 
-        var scrollTop       = $win.scrollTop(),
-            documentHeight  = $doc.height(),
-            windowHeight    = $win.height(),
-            dwh             = documentHeight - windowHeight,
-            extra           = (scrollTop > dwh) ? dwh - scrollTop : 0,
+        var scrollTop = $win.scrollTop(),
+            documentHeight = $doc.height(),
+            windowHeight = $win.height(),
+            dwh = documentHeight - windowHeight,
+            extra = (scrollTop > dwh) ? dwh - scrollTop : 0,
             newTop, containerBottom, stickyHeight, sticky;
 
         for (var i = 0; i < stickies.length; i++) {
@@ -306,9 +306,9 @@
                 if (sticky.currentTop != newTop) {
 
                     sticky.element.css({
-                        position : 'fixed',
-                        top      : newTop,
-                        width    : sticky.getWidthFrom.length ? sticky.getWidthFrom.width() : sticky.element.width()
+                        position: 'fixed',
+                        top: newTop,
+                        width: sticky.getWidthFrom.length ? sticky.getWidthFrom.width() : sticky.element.width()
                     });
 
                     if (!sticky.init) {
@@ -321,14 +321,14 @@
 
                             if ($target.length) {
 
-                                setTimeout((function($target, sticky){
+                                setTimeout((function ($target, sticky) {
 
-                                    return function() {
+                                    return function () {
 
                                         sticky.element.width(); // force redraw
 
-                                        var offset       = $target.offset(),
-                                            maxoffset    = offset.top + $target.outerHeight(),
+                                        var offset = $target.offset(),
+                                            maxoffset = offset.top + $target.outerHeight(),
                                             stickyOffset = sticky.element.offset(),
                                             stickyHeight = sticky.element.outerHeight(),
                                             stickyMaxOffset = stickyOffset.top + stickyHeight;

@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\Operation;
 
+use JetBrains\PhpStorm\Pure;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Operation\Watch;
 use stdClass;
@@ -40,7 +41,7 @@ class WatchTest extends FunctionalTestCase
         new Watch($this->manager, $this->getDatabaseName(), $this->getCollectionName(), [], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -87,7 +88,7 @@ class WatchTest extends FunctionalTestCase
         return $options;
     }
 
-    private function getInvalidTimestampValues()
+    #[Pure] private function getInvalidTimestampValues(): array
     {
         return [123, 3.14, 'foo', true, [], new stdClass()];
     }

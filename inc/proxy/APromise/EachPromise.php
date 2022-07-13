@@ -2,16 +2,19 @@
 
 namespace yxorP\inc\proxy\Promise;
 
+use Iterator;
+use Throwable;
+
 /**
  * Represents a promise that iterates over many promises and invokes
  * side-effect functions in the process.
  */
 class EachPromise implements PromisorInterface
 {
-    private $pending = [];
+    private array $pending = [];
 
-    /** @var \Iterator */
-    private $iterable;
+    /** @var Iterator */
+    private Iterator|\yxorP\inc\proxy\Promise\Iterator|ArrayIterator $iterable;
 
     /** @var callable|int */
     private $concurrency;
@@ -23,10 +26,10 @@ class EachPromise implements PromisorInterface
     private $onRejected;
 
     /** @var Promise */
-    private $aggregate;
+    private Promise $aggregate;
 
     /** @var bool */
-    private $mutex;
+    private bool $mutex;
 
     /**
      * Configuration hash can include the following key value pairs:
@@ -49,7 +52,7 @@ class EachPromise implements PromisorInterface
      * @param mixed $iterable Promises or values to iterate.
      * @param array $config Configuration options
      */
-    public function __construct($iterable, array $config = [])
+    public function __construct(mixed $iterable, array $config = [])
     {
         $this->iterable = iter_for($iterable);
 
@@ -66,7 +69,7 @@ class EachPromise implements PromisorInterface
         }
     }
 
-    public function promise()
+    public function promise(): Promise|PromiseInterface
     {
         if ($this->aggregate) {
             return $this->aggregate;
@@ -76,9 +79,7 @@ class EachPromise implements PromisorInterface
             $this->createPromise();
             $this->iterable->rewind();
             $this->refillPending();
-        } catch (\Throwable $e) {
-            $this->aggregate->reject($e);
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             $this->aggregate->reject($e);
         }
 
@@ -143,7 +144,7 @@ class EachPromise implements PromisorInterface
             && $this->addPending()) ;
     }
 
-    private function addPending()
+    private function addPending(): bool
     {
         if (!$this->iterable || !$this->iterable->valid()) {
             return false;
@@ -192,7 +193,7 @@ class EachPromise implements PromisorInterface
         }
     }
 
-    private function advanceIterator()
+    private function advanceIterator(): bool
     {
         // Place a lock on the iterator so that we ensure to not recurse,
         // preventing fatal generator errors.
@@ -206,18 +207,14 @@ class EachPromise implements PromisorInterface
             $this->iterable->next();
             $this->mutex = false;
             return true;
-        } catch (\Throwable $e) {
-            $this->aggregate->reject($e);
-            $this->mutex = false;
-            return false;
-        } catch (\Exception $e) {
+        } catch (Throwable $e) {
             $this->aggregate->reject($e);
             $this->mutex = false;
             return false;
         }
     }
 
-    private function checkIfFinished()
+    private function checkIfFinished(): bool
     {
         if (!$this->pending && !$this->iterable->valid()) {
             // Resolve the promise if there's nothing left to do.

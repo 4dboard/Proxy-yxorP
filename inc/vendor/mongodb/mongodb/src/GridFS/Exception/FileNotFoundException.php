@@ -17,6 +17,7 @@
 
 namespace MongoDB\GridFS\Exception;
 
+use JetBrains\PhpStorm\Pure;
 use MongoDB\Exception\RuntimeException;
 use function MongoDB\BSON\fromPHP;
 use function MongoDB\BSON\toJSON;
@@ -27,12 +28,12 @@ class FileNotFoundException extends RuntimeException
     /**
      * Thrown when a file cannot be found by its filename and revision.
      *
-     * @param string  $filename  Filename
-     * @param integer $revision  Revision
-     * @param string  $namespace Namespace for the files collection
+     * @param string $filename Filename
+     * @param integer $revision Revision
+     * @param string $namespace Namespace for the files collection
      * @return self
      */
-    public static function byFilenameAndRevision($filename, $revision, $namespace)
+    #[Pure] public static function byFilenameAndRevision(string $filename, int $revision, string $namespace): FileNotFoundException
     {
         return new static(sprintf('File with name "%s" and revision "%d" not found in "%s"', $filename, $revision, $namespace));
     }
@@ -40,11 +41,11 @@ class FileNotFoundException extends RuntimeException
     /**
      * Thrown when a file cannot be found by its ID.
      *
-     * @param mixed  $id        File ID
+     * @param mixed $id File ID
      * @param string $namespace Namespace for the files collection
      * @return self
      */
-    public static function byId($id, $namespace)
+    public static function byId(mixed $id, string $namespace): FileNotFoundException
     {
         $json = toJSON(fromPHP(['_id' => $id]));
 

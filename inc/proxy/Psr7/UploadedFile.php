@@ -12,7 +12,7 @@ class UploadedFile implements UploadedFileInterface
     /**
      * @var int[]
      */
-    private static $errors = [
+    private static array $errors = [
         UPLOAD_ERR_OK,
         UPLOAD_ERR_INI_SIZE,
         UPLOAD_ERR_FORM_SIZE,
@@ -26,51 +26,51 @@ class UploadedFile implements UploadedFileInterface
     /**
      * @var string
      */
-    private $clientFilename;
+    private string $clientFilename;
 
     /**
      * @var string
      */
-    private $clientMediaType;
+    private string $clientMediaType;
 
     /**
      * @var int
      */
-    private $error;
+    private int $error;
 
     /**
      * @var null|string
      */
-    private $file;
+    private ?string $file;
 
     /**
      * @var bool
      */
-    private $moved = false;
+    private bool $moved = false;
 
     /**
      * @var int
      */
-    private $size;
+    private int $size;
 
     /**
      * @var StreamInterface|null
      */
-    private $stream;
+    private ?StreamInterface $stream;
 
     /**
-     * @param StreamInterface|string|resource $streamOrFile
+     * @param string|StreamInterface $streamOrFile
      * @param int $size
      * @param int $errorStatus
      * @param string|null $clientFilename
      * @param string|null $clientMediaType
      */
     public function __construct(
-        $streamOrFile,
-        $size,
-        $errorStatus,
-        $clientFilename = null,
-        $clientMediaType = null
+        string|StreamInterface $streamOrFile,
+        int                    $size,
+        int                    $errorStatus,
+        string                 $clientFilename = null,
+        string                 $clientMediaType = null
     )
     {
         $this->setError($errorStatus);
@@ -87,7 +87,7 @@ class UploadedFile implements UploadedFileInterface
      * @param int $error
      * @throws InvalidArgumentException
      */
-    private function setError($error)
+    private function setError(int $error)
     {
         if (false === is_int($error)) {
             throw new InvalidArgumentException(
@@ -108,7 +108,7 @@ class UploadedFile implements UploadedFileInterface
      * @param int $size
      * @throws InvalidArgumentException
      */
-    private function setSize($size)
+    private function setSize(int $size)
     {
         if (false === is_int($size)) {
             throw new InvalidArgumentException(
@@ -123,7 +123,7 @@ class UploadedFile implements UploadedFileInterface
      * @param string|null $clientFilename
      * @throws InvalidArgumentException
      */
-    private function setClientFilename($clientFilename)
+    private function setClientFilename(?string $clientFilename)
     {
         if (false === $this->isStringOrNull($clientFilename)) {
             throw new InvalidArgumentException(
@@ -138,7 +138,7 @@ class UploadedFile implements UploadedFileInterface
      * @param mixed $param
      * @return boolean
      */
-    private function isStringOrNull($param)
+    private function isStringOrNull(mixed $param): bool
     {
         return in_array(gettype($param), ['string', 'NULL']);
     }
@@ -147,7 +147,7 @@ class UploadedFile implements UploadedFileInterface
      * @param string|null $clientMediaType
      * @throws InvalidArgumentException
      */
-    private function setClientMediaType($clientMediaType)
+    private function setClientMediaType(?string $clientMediaType)
     {
         if (false === $this->isStringOrNull($clientMediaType)) {
             throw new InvalidArgumentException(
@@ -163,7 +163,7 @@ class UploadedFile implements UploadedFileInterface
      *
      * @return boolean
      */
-    private function isOk()
+    private function isOk(): bool
     {
         return $this->error === UPLOAD_ERR_OK;
     }
@@ -174,7 +174,7 @@ class UploadedFile implements UploadedFileInterface
      * @param mixed $streamOrFile
      * @throws InvalidArgumentException
      */
-    private function setStreamOrFile($streamOrFile)
+    private function setStreamOrFile(mixed $streamOrFile)
     {
         if (is_string($streamOrFile)) {
             $this->file = $streamOrFile;
@@ -200,7 +200,7 @@ class UploadedFile implements UploadedFileInterface
      * @throws RuntimeException on any error during the move operation, or on
      *     the second or subsequent call to the method.
      */
-    public function moveTo($targetPath)
+    public function moveTo(string $targetPath)
     {
         $this->validateActive();
 
@@ -247,7 +247,7 @@ class UploadedFile implements UploadedFileInterface
     /**
      * @return boolean
      */
-    public function isMoved()
+    public function isMoved(): bool
     {
         return $this->moved;
     }
@@ -256,7 +256,7 @@ class UploadedFile implements UploadedFileInterface
      * @param mixed $param
      * @return boolean
      */
-    private function isStringNotEmpty($param)
+    private function isStringNotEmpty(mixed $param): bool
     {
         return is_string($param) && false === empty($param);
     }
@@ -265,7 +265,7 @@ class UploadedFile implements UploadedFileInterface
      * {@inheritdoc}
      * @throws RuntimeException if the upload was not successful.
      */
-    public function getStream()
+    public function getStream(): LazyOpenStream|StreamInterface|null
     {
         $this->validateActive();
 
@@ -281,7 +281,7 @@ class UploadedFile implements UploadedFileInterface
      *
      * @return int|null The file size in bytes or null if unknown.
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->size;
     }
@@ -292,7 +292,7 @@ class UploadedFile implements UploadedFileInterface
      * @see http://php.net/manual/en/features.file-upload.errors.php
      * @return int One of PHP's UPLOAD_ERR_XXX constants.
      */
-    public function getError()
+    public function getError(): int
     {
         return $this->error;
     }
@@ -303,7 +303,7 @@ class UploadedFile implements UploadedFileInterface
      * @return string|null The filename sent by the client or null if none
      *     was provided.
      */
-    public function getClientFilename()
+    public function getClientFilename(): ?string
     {
         return $this->clientFilename;
     }
@@ -311,7 +311,7 @@ class UploadedFile implements UploadedFileInterface
     /**
      * {@inheritdoc}
      */
-    public function getClientMediaType()
+    public function getClientMediaType(): ?string
     {
         return $this->clientMediaType;
     }

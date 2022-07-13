@@ -29,7 +29,7 @@ class CustomUser
     /**
      * Execute the user data callback.
      *
-     * @param \yxorP\inc\snag\Report $report the snag report instance
+     * @param Report $report the snag report instance
      *
      * @return void
      */

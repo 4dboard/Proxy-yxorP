@@ -24,7 +24,7 @@ class CreateIndexesTest extends TestCase
         new CreateIndexes($this->getDatabaseName(), $this->getCollectionName(), [['key' => ['x' => 1]]], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -63,7 +63,7 @@ class CreateIndexesTest extends TestCase
         new CreateIndexes($this->getDatabaseName(), $this->getCollectionName(), [$index]);
     }
 
-    public function provideInvalidIndexSpecificationTypes()
+    public function provideInvalidIndexSpecificationTypes(): array
     {
         return $this->wrapValuesForDataProvider($this->getInvalidArrayValues());
     }

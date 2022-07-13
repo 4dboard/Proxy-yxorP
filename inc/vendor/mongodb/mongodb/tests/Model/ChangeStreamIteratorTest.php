@@ -17,7 +17,7 @@ use function sprintf;
 class ChangeStreamIteratorTest extends FunctionalTestCase
 {
     /** @var Collection */
-    private $collection;
+    private Collection $collection;
 
     public function setUp(): void
     {
@@ -41,7 +41,7 @@ class ChangeStreamIteratorTest extends FunctionalTestCase
         new ChangeStreamIterator($this->collection->find(), $firstBatchSize, null, null);
     }
 
-    public function provideInvalidIntegerValues()
+    public function provideInvalidIntegerValues(): array
     {
         return $this->wrapValuesForDataProvider($this->getInvalidIntegerValues());
     }
@@ -54,8 +54,8 @@ class ChangeStreamIteratorTest extends FunctionalTestCase
         $iterator = new ChangeStreamIterator($this->collection->find(), 0, ['resumeToken' => 1], null);
         $this->assertSameDocument(['resumeToken' => 1], $iterator->getResumeToken());
 
-        $iterator = new ChangeStreamIterator($this->collection->find(), 0, (object) ['resumeToken' => 2], null);
-        $this->assertSameDocument((object) ['resumeToken' => 2], $iterator->getResumeToken());
+        $iterator = new ChangeStreamIterator($this->collection->find(), 0, (object)['resumeToken' => 2], null);
+        $this->assertSameDocument((object)['resumeToken' => 2], $iterator->getResumeToken());
     }
 
     /**
@@ -76,7 +76,7 @@ class ChangeStreamIteratorTest extends FunctionalTestCase
         new ChangeStreamIterator($this->collection->find(), 0, null, $postBatchResumeToken);
     }
 
-    public function provideInvalidObjectValues()
+    public function provideInvalidObjectValues(): array
     {
         return $this->wrapValuesForDataProvider(array_merge($this->getInvalidDocumentValues(), [[]]));
     }
@@ -85,7 +85,7 @@ class ChangeStreamIteratorTest extends FunctionalTestCase
     {
         $this->collection->insertOne(['_id' => ['resumeToken' => 1], 'x' => 1]);
         $this->collection->insertOne(['_id' => ['resumeToken' => 2], 'x' => 2]);
-        $postBatchResumeToken = (object) ['resumeToken' => 'pb'];
+        $postBatchResumeToken = (object)['resumeToken' => 'pb'];
 
         $cursor = $this->collection->find([], ['cursorType' => Find::TAILABLE]);
         $iterator = new ChangeStreamIterator($cursor, 2, null, $postBatchResumeToken);
@@ -101,6 +101,23 @@ class ChangeStreamIteratorTest extends FunctionalTestCase
         $this->assertTrue($iterator->valid());
         $this->assertSameDocument($postBatchResumeToken, $iterator->getResumeToken());
         $this->assertSameDocument(['_id' => ['resumeToken' => 2], 'x' => 2], $iterator->current());
+    }
+
+    private function assertNoCommandExecuted(callable $callable): void
+    {
+        $commands = [];
+
+        try {
+            (new CommandObserver())->observe(
+                $callable,
+                function (array $event) use (&$commands): void {
+                    $this->fail(sprintf('"%s" command was executed', $event['started']->getCommandName()));
+                }
+            );
+        } catch (\Throwable $e) {
+        }
+
+        $this->assertEmpty($commands);
     }
 
     public function testRewindIsNopWhenFirstBatchIsEmpty(): void
@@ -146,19 +163,5 @@ class ChangeStreamIteratorTest extends FunctionalTestCase
 
         $this->expectException(LogicException::class);
         $iterator->rewind();
-    }
-
-    private function assertNoCommandExecuted(callable $callable): void
-    {
-        $commands = [];
-
-        (new CommandObserver())->observe(
-            $callable,
-            function (array $event) use (&$commands): void {
-                $this->fail(sprintf('"%s" command was executed', $event['started']->getCommandName()));
-            }
-        );
-
-        $this->assertEmpty($commands);
     }
 }

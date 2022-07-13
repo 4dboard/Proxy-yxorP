@@ -18,7 +18,7 @@ use function sprintf;
 class ClientFunctionalTest extends FunctionalTestCase
 {
     /** @var Client */
-    private $client;
+    private Client $client;
 
     public function setUp(): void
     {
@@ -68,21 +68,6 @@ class ClientFunctionalTest extends FunctionalTestCase
         });
     }
 
-    public function testListDatabaseNames(): void
-    {
-        $bulkWrite = new BulkWrite();
-        $bulkWrite->insert(['x' => 1]);
-
-        $writeResult = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
-        $this->assertEquals(1, $writeResult->getInsertedCount());
-
-        foreach ($this->client->listDatabaseNames() as $database) {
-            $this->assertIsString($database);
-        }
-
-        $this->assertContains($this->getDatabaseName(), $this->client->listDatabaseNames(), sprintf('Database %s does not exist on the server', $this->getDatabaseName()));
-    }
-
     /**
      * Asserts that a database with the given name exists on the server.
      *
@@ -91,12 +76,12 @@ class ClientFunctionalTest extends FunctionalTestCase
      * the given name is found, it will be passed to the callback, which may
      * perform additional assertions.
      *
-     * @param string   $databaseName
-     * @param callable $callback
+     * @param string $databaseName
+     * @param callable|null $callback
      */
     private function assertDatabaseExists(string $databaseName, ?callable $callback = null): void
     {
-        if ($callback !== null && ! is_callable($callback)) {
+        if ($callback !== null && !is_callable($callback)) {
             throw new InvalidArgumentException('$callback is not a callable');
         }
 
@@ -116,6 +101,21 @@ class ClientFunctionalTest extends FunctionalTestCase
         if ($callback !== null) {
             call_user_func($callback, $foundDatabase);
         }
+    }
+
+    public function testListDatabaseNames(): void
+    {
+        $bulkWrite = new BulkWrite();
+        $bulkWrite->insert(['x' => 1]);
+
+        $writeResult = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
+        $this->assertEquals(1, $writeResult->getInsertedCount());
+
+        foreach ($this->client->listDatabaseNames() as $database) {
+            $this->assertIsString($database);
+        }
+
+        $this->assertContains($this->getDatabaseName(), $this->client->listDatabaseNames(), sprintf('Database %s does not exist on the server', $this->getDatabaseName()));
     }
 
     public function testStartSession(): void

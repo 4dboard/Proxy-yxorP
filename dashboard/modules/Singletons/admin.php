@@ -22,7 +22,7 @@ $app->on('admin.init', function () {
     // bind admin routes /singleton/*
     $this->bindClass('Singletons\\Controller\\Admin', 'singletons');
 
-    $active = strpos($this['route'], '/singletons') === 0;
+    $active = str_starts_with($this['route'], '/singletons');
 
     // add to modules menu
     $this->helper('admin')->addMenuItem('modules', [
@@ -47,7 +47,7 @@ $app->on('admin.init', function () {
 
                 $list[] = [
                     'icon' => 'th',
-                    'title' => $meta['label'] ? $meta['label'] : $meta['name'],
+                    'title' => $meta['label'] ?: $meta['name'],
                     'url' => $this->routeUrl('/singletons/singleton/' . $meta['name'])
                 ];
             }
@@ -83,7 +83,7 @@ $app->on('admin.init', function () {
                      'singleton.saveData.after.{$name}',
                      'singleton.saveData.before',
                      'singleton.saveData.before.{$name}',
-                 ] as &$evt) {
+                 ] as $evt) {
             $triggers[] = $evt;
         }
     });
@@ -94,7 +94,7 @@ $app->on('admin.init', function () {
         $id = $asset['_id'];
         $filter = ($this->storage->type == 'mongolite') ?
             function ($doc) use ($id) {
-                return strpos(json_encode($doc), $id) !== false;
+                return str_contains(json_encode($doc), $id);
             }
             :
             ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"];
@@ -105,7 +105,7 @@ $app->on('admin.init', function () {
 
             foreach ($items as $k => &$v) {
                 if (!is_array($v)) continue;
-                if (is_array($items[$k])) $items[$k] = $update($items[$k]);
+                if (is_array($v)) $items[$k] = $update($v);
                 if (isset($v['_id']) && $v['_id'] == $id) $items[$k] = $asset;
             }
             return $items;

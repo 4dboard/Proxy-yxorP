@@ -21,7 +21,6 @@ use ArrayAccess;
 use MongoDB\Exception\BadMethodCallException;
 use ReturnTypeWillChange;
 use function array_key_exists;
-use function array_search;
 
 /**
  * Index information model class.
@@ -41,7 +40,7 @@ use function array_search;
 class IndexInfo implements ArrayAccess
 {
     /** @var array */
-    private $info;
+    private array $info;
 
     /**
      * @param array $info Index info
@@ -73,23 +72,13 @@ class IndexInfo implements ArrayAccess
     }
 
     /**
-     * Return the index key.
-     *
-     * @return array
-     */
-    public function getKey()
-    {
-        return (array) $this->info['key'];
-    }
-
-    /**
      * Return the index name.
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
-        return (string) $this->info['name'];
+        return (string)$this->info['name'];
     }
 
     /**
@@ -97,9 +86,9 @@ class IndexInfo implements ArrayAccess
      *
      * @return string
      */
-    public function getNamespace()
+    public function getNamespace(): string
     {
-        return (string) $this->info['ns'];
+        return (string)$this->info['ns'];
     }
 
     /**
@@ -107,9 +96,9 @@ class IndexInfo implements ArrayAccess
      *
      * @return integer
      */
-    public function getVersion()
+    public function getVersion(): int
     {
-        return (integer) $this->info['v'];
+        return (integer)$this->info['v'];
     }
 
     /**
@@ -117,9 +106,19 @@ class IndexInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function is2dSphere()
+    public function is2dSphere(): bool
     {
-        return array_search('2dsphere', $this->getKey(), true) !== false;
+        return in_array('2dsphere', $this->getKey(), true);
+    }
+
+    /**
+     * Return the index key.
+     *
+     * @return array
+     */
+    public function getKey(): array
+    {
+        return (array)$this->info['key'];
     }
 
     /**
@@ -127,9 +126,9 @@ class IndexInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function isGeoHaystack()
+    public function isGeoHaystack(): bool
     {
-        return array_search('geoHaystack', $this->getKey(), true) !== false;
+        return in_array('geoHaystack', $this->getKey(), true);
     }
 
     /**
@@ -138,9 +137,9 @@ class IndexInfo implements ArrayAccess
      * @see http://docs.mongodb.org/manual/core/index-sparse/
      * @return boolean
      */
-    public function isSparse()
+    public function isSparse(): bool
     {
-        return ! empty($this->info['sparse']);
+        return !empty($this->info['sparse']);
     }
 
     /**
@@ -148,9 +147,9 @@ class IndexInfo implements ArrayAccess
      *
      * @return boolean
      */
-    public function isText()
+    public function isText(): bool
     {
-        return array_search('text', $this->getKey(), true) !== false;
+        return in_array('text', $this->getKey(), true);
     }
 
     /**
@@ -159,7 +158,7 @@ class IndexInfo implements ArrayAccess
      * @see http://docs.mongodb.org/manual/core/index-ttl/
      * @return boolean
      */
-    public function isTtl()
+    public function isTtl(): bool
     {
         return array_key_exists('expireAfterSeconds', $this->info);
     }
@@ -170,9 +169,9 @@ class IndexInfo implements ArrayAccess
      * @see http://docs.mongodb.org/manual/core/index-unique/
      * @return boolean
      */
-    public function isUnique()
+    public function isUnique(): bool
     {
-        return ! empty($this->info['unique']);
+        return !empty($this->info['unique']);
     }
 
     /**
@@ -183,7 +182,7 @@ class IndexInfo implements ArrayAccess
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function offsetExists($key)
+    public function offsetExists(mixed $key): bool
     {
         return array_key_exists($key, $this->info);
     }
@@ -201,7 +200,7 @@ class IndexInfo implements ArrayAccess
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function offsetGet($key)
+    public function offsetGet(mixed $key): mixed
     {
         return $this->info[$key];
     }
@@ -216,7 +215,7 @@ class IndexInfo implements ArrayAccess
      * @return void
      */
     #[ReturnTypeWillChange]
-    public function offsetSet($key, $value)
+    public function offsetSet(mixed $key, mixed $value)
     {
         throw BadMethodCallException::classIsImmutable(self::class);
     }
@@ -230,7 +229,7 @@ class IndexInfo implements ArrayAccess
      * @return void
      */
     #[ReturnTypeWillChange]
-    public function offsetUnset($key)
+    public function offsetUnset(mixed $key)
     {
         throw BadMethodCallException::classIsImmutable(self::class);
     }

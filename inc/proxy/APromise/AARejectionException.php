@@ -13,7 +13,7 @@ use RuntimeException;
 class AARejectionException extends RuntimeException
 {
     /** @var mixed Rejection reason. */
-    private $reason;
+    private mixed $reason;
 
     /**
      * @param mixed $reason Rejection reason.
@@ -44,7 +44,7 @@ class AARejectionException extends RuntimeException
      *
      * @return mixed
      */
-    public function getReason()
+    public function getReason(): mixed
     {
         return $this->reason;
     }

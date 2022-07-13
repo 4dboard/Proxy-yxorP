@@ -41,7 +41,7 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
     public const SERVERLESS_REQUIRE = 'require';
 
     /** @var Collection */
-    private $expectedCollection;
+    private Collection $expectedCollection;
 
     public function setUp(): void
     {
@@ -82,72 +82,6 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
         $this->executeOutcome($test['operation'], $test['outcome'], $result, $exception);
     }
 
-    public function provideSpecificationTests()
-    {
-        $testArgs = [];
-
-        foreach (glob(__DIR__ . '/spec-tests/*/*.json') as $filename) {
-            $json = json_decode(file_get_contents($filename), true);
-
-            foreach ($json['tests'] as $test) {
-                $name = str_replace(' ', '_', $test['description']);
-                $testArgs[$name] = [
-                    $json['data'],
-                    $test,
-                    $json['minServerVersion'] ?? null,
-                    $json['maxServerVersion'] ?? null,
-                    $json['serverless'] ?? null,
-                ];
-            }
-        }
-
-        return $testArgs;
-    }
-
-    /**
-     * Assert that the collections contain equivalent documents.
-     *
-     * @param Collection $expectedCollection
-     * @param Collection $actualCollection
-     */
-    private function assertEquivalentCollections(Collection $expectedCollection, Collection $actualCollection): void
-    {
-        $mi = new MultipleIterator(MultipleIterator::MIT_NEED_ANY);
-        $mi->attachIterator($expectedCollection->find());
-        $mi->attachIterator($actualCollection->find());
-
-        foreach ($mi as $documents) {
-            [$expectedDocument, $actualDocument] = $documents;
-            $this->assertSameDocument($expectedDocument, $actualDocument);
-        }
-    }
-
-    private function checkServerlessRequirement(?string $serverless): void
-    {
-        switch ($serverless) {
-            case null:
-            case self::SERVERLESS_ALLOW:
-                return;
-
-            case self::SERVERLESS_FORBID:
-                if ($this->isServerless()) {
-                    $this->markTestSkipped('Test does not apply on serverless');
-                }
-
-                return;
-
-            case self::SERVERLESS_REQUIRE:
-                if (! $this->isServerless()) {
-                    $this->markTestSkipped('Test requires serverless');
-                }
-
-                return;
-
-            default:
-                $this->fail(sprintf('Unknown serverless requirement "%s".', $serverless));
-        }
-    }
-
     /**
      * Checks that the server version is within the allowed bounds (if any).
      *
@@ -168,6 +102,49 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
         }
     }
 
+    private function checkServerlessRequirement(?string $serverless): void
+    {
+        switch ($serverless) {
+            case null:
+            case self::SERVERLESS_ALLOW:
+                return;
+
+            case self::SERVERLESS_FORBID:
+                if ($this->isServerless()) {
+                    $this->markTestSkipped('Test does not apply on serverless');
+                }
+
+                return;
+
+            case self::SERVERLESS_REQUIRE:
+                if (!$this->isServerless()) {
+                    $this->markTestSkipped('Test requires serverless');
+                }
+
+                return;
+
+            default:
+                $this->fail(sprintf('Unknown serverless requirement "%s".', $serverless));
+        }
+    }
+
+    /**
+     * Initializes data in the test collections.
+     *
+     * @param array $initialData
+     * @param array|null $expectedData
+     */
+    private function initializeData(array $initialData, ?array $expectedData = null): void
+    {
+        if (!empty($initialData)) {
+            $this->collection->insertMany($initialData);
+        }
+
+        if (!empty($expectedData)) {
+            $this->expectedCollection->insertMany($expectedData);
+        }
+    }
+
     /**
      * Executes an "operation" block.
      *
@@ -175,7 +152,7 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
      * @return mixed
      * @throws LogicException if the operation is unsupported
      */
-    private function executeOperation(array $operation)
+    private function executeOperation(array $operation): mixed
     {
         switch ($operation['name']) {
             case 'aggregate':
@@ -218,7 +195,8 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
 
             case 'findOneAndReplace':
                 $operation['arguments'] = $this->prepareFindAndModifyArguments($operation['arguments']);
-                // Fall through
+                break;
+            // Fall through
 
             case 'replaceOne':
                 return $this->collection->{$operation['name']}(
@@ -229,7 +207,8 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
 
             case 'findOneAndUpdate':
                 $operation['arguments'] = $this->prepareFindAndModifyArguments($operation['arguments']);
-                // Fall through
+                break;
+            // Fall through
 
             case 'updateMany':
             case 'updateOne':
@@ -257,16 +236,32 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
     }
 
     /**
+     * Prepares arguments for findOneAndReplace and findOneAndUpdate operations.
+     *
+     * @param array $arguments
+     * @return array
+     */
+    private function prepareFindAndModifyArguments(array $arguments): array
+    {
+        if (isset($arguments['returnDocument'])) {
+            $arguments['returnDocument'] = 'after' === strtolower($arguments['returnDocument'])
+                ? FindOneAndReplace::RETURN_DOCUMENT_AFTER
+                : FindOneAndReplace::RETURN_DOCUMENT_BEFORE;
+        }
+
+        return $arguments;
+    }
+
+    /**
      * Executes an "outcome" block.
      *
-     * @param array            $operation
-     * @param array            $outcome
-     * @param mixed            $result
-     * @param RuntimeException $exception
+     * @param array $operation
+     * @param array $outcome
+     * @param mixed $result
+     * @param RuntimeException|null $exception
      * @return mixed
-     * @throws LogicException if the operation is unsupported
      */
-    private function executeOutcome(array $operation, array $outcome, $result, ?RuntimeException $exception = null)
+    private function executeOutcome(array $operation, array $outcome, mixed $result, ?RuntimeException $exception = null): mixed
     {
         $expectedError = array_key_exists('error', $outcome) ? $outcome['error'] : false;
 
@@ -299,11 +294,11 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
      *
      * If no result can be extracted, null will be returned.
      *
-     * @param array            $operation
+     * @param array $operation
      * @param RuntimeException $exception
-     * @return mixed
+     * @return BulkWriteResult|InsertManyResult|null
      */
-    private function extractResultFromException(array $operation, array $outcome, RuntimeException $exception)
+    private function extractResultFromException(array $operation, array $outcome, RuntimeException $exception): InsertManyResult|BulkWriteResult|null
     {
         switch ($operation['name']) {
             case 'bulkWrite':
@@ -336,7 +331,7 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
      * @param mixed $actualResult
      * @throws LogicException if the operation is unsupported
      */
-    private function executeAssertResult(array $operation, $expectedResult, $actualResult): void
+    private function executeAssertResult(array $operation, mixed $expectedResult, mixed $actualResult): void
     {
         switch ($operation['name']) {
             case 'aggregate':
@@ -346,7 +341,7 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
                  * the result here; however, assertEquivalentCollections() will
                  * assert the output collection's contents later.
                  */
-                if (! is_last_pipeline_operator_write($operation['arguments']['pipeline'])) {
+                if (!is_last_pipeline_operator_write($operation['arguments']['pipeline'])) {
                     $this->assertSameDocuments($expectedResult, $actualResult);
                 }
 
@@ -496,20 +491,43 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
     }
 
     /**
-     * Initializes data in the test collections.
+     * Assert that the collections contain equivalent documents.
      *
-     * @param array $initialData
-     * @param array $expectedData
+     * @param Collection $expectedCollection
+     * @param Collection $actualCollection
      */
-    private function initializeData(array $initialData, ?array $expectedData = null): void
+    private function assertEquivalentCollections(Collection $expectedCollection, Collection $actualCollection): void
     {
-        if (! empty($initialData)) {
-            $this->collection->insertMany($initialData);
+        $mi = new MultipleIterator(MultipleIterator::MIT_NEED_ANY);
+        $mi->attachIterator($expectedCollection->find());
+        $mi->attachIterator($actualCollection->find());
+
+        foreach ($mi as $documents) {
+            [$expectedDocument, $actualDocument] = $documents;
+            $this->assertSameDocument($expectedDocument, $actualDocument);
+        }
+    }
+
+    public function provideSpecificationTests(): array
+    {
+        $testArgs = [];
+
+        foreach (glob(__DIR__ . '/spec-tests/*/*.json') as $filename) {
+            $json = json_decode(file_get_contents($filename), true);
+
+            foreach ($json['tests'] as $test) {
+                $name = str_replace(' ', '_', $test['description']);
+                $testArgs[$name] = [
+                    $json['data'],
+                    $test,
+                    $json['minServerVersion'] ?? null,
+                    $json['maxServerVersion'] ?? null,
+                    $json['serverless'] ?? null,
+                ];
+            }
         }
 
-        if (! empty($expectedData)) {
-            $this->expectedCollection->insertMany($expectedData);
-        }
+        return $testArgs;
     }
 
     /**
@@ -520,57 +538,29 @@ class CrudSpecFunctionalTest extends FunctionalTestCase
      */
     private function prepareBulkWriteRequest(array $request): array
     {
-        switch ($request['name']) {
-            case 'deleteMany':
-            case 'deleteOne':
-                return [
-                    $request['name'] => [
-                        $request['arguments']['filter'],
-                        array_diff_key($request['arguments'], ['filter' => 1]),
-                    ],
-                ];
-
-            case 'insertOne':
-                return ['insertOne' => [$request['arguments']['document']]];
-
-            case 'replaceOne':
-                return [
-                    'replaceOne' => [
-                        $request['arguments']['filter'],
-                        $request['arguments']['replacement'],
-                        array_diff_key($request['arguments'], ['filter' => 1, 'replacement' => 1]),
-                    ],
-                ];
-
-            case 'updateMany':
-            case 'updateOne':
-                return [
-                    $request['name'] => [
-                        $request['arguments']['filter'],
-                        $request['arguments']['update'],
-                        array_diff_key($request['arguments'], ['filter' => 1, 'update' => 1]),
-                    ],
-                ];
-
-            default:
-                throw new LogicException('Unsupported bulk write request: ' . $request['name']);
-        }
-    }
-
-    /**
-     * Prepares arguments for findOneAndReplace and findOneAndUpdate operations.
-     *
-     * @param array $arguments
-     * @return array
-     */
-    private function prepareFindAndModifyArguments(array $arguments): array
-    {
-        if (isset($arguments['returnDocument'])) {
-            $arguments['returnDocument'] = 'after' === strtolower($arguments['returnDocument'])
-                ? FindOneAndReplace::RETURN_DOCUMENT_AFTER
-                : FindOneAndReplace::RETURN_DOCUMENT_BEFORE;
-        }
-
-        return $arguments;
+        return match ($request['name']) {
+            'deleteMany', 'deleteOne' => [
+                $request['name'] => [
+                    $request['arguments']['filter'],
+                    array_diff_key($request['arguments'], ['filter' => 1]),
+                ],
+            ],
+            'insertOne' => ['insertOne' => [$request['arguments']['document']]],
+            'replaceOne' => [
+                'replaceOne' => [
+                    $request['arguments']['filter'],
+                    $request['arguments']['replacement'],
+                    array_diff_key($request['arguments'], ['filter' => 1, 'replacement' => 1]),
+                ],
+            ],
+            'updateMany', 'updateOne' => [
+                $request['name'] => [
+                    $request['arguments']['filter'],
+                    $request['arguments']['update'],
+                    array_diff_key($request['arguments'], ['filter' => 1, 'update' => 1]),
+                ],
+            ],
+            default => throw new LogicException('Unsupported bulk write request: ' . $request['name']),
+        };
     }
 }

@@ -29,40 +29,32 @@ class RunOnRequirement
     public const SERVERLESS_ALLOW = 'allow';
 
     public const VERSION_PATTERN = '/^[0-9]+(\\.[0-9]+){1,2}$/';
-
-    /** @var string */
-    private $minServerVersion;
-
-    /** @var string */
-    private $maxServerVersion;
-
     /** @var array */
-    private $topologies;
-
-    /** @var stdClass */
-    private $serverParameters;
-
-    /** @var bool */
-    private $auth;
-
-    /** @var string */
-    private $serverless;
-
-    /** @var array */
-    private static $supportedTopologies = [
+    private static array $supportedTopologies = [
         self::TOPOLOGY_SINGLE,
         self::TOPOLOGY_REPLICASET,
         self::TOPOLOGY_SHARDED,
         self::TOPOLOGY_SHARDED_REPLICASET,
         self::TOPOLOGY_LOAD_BALANCED,
     ];
-
     /** @var array */
-    private static $supportedServerless = [
+    private static array $supportedServerless = [
         self::SERVERLESS_REQUIRE,
         self::SERVERLESS_FORBID,
         self::SERVERLESS_ALLOW,
     ];
+    /** @var string */
+    private string $minServerVersion;
+    /** @var string */
+    private string $maxServerVersion;
+    /** @var array */
+    private array $topologies;
+    /** @var stdClass */
+    private stdClass $serverParameters;
+    /** @var bool */
+    private bool $auth;
+    /** @var string */
+    private string $serverless;
 
     public function __construct(stdClass $o)
     {
@@ -114,13 +106,13 @@ class RunOnRequirement
             return false;
         }
 
-        if (isset($this->topologies) && ! $this->isTopologySatisfied($topology)) {
+        if (isset($this->topologies) && !$this->isTopologySatisfied($topology)) {
             return false;
         }
 
         if (isset($this->serverParameters)) {
             $constraint = new Matches($this->serverParameters, null, true, false);
-            if (! $constraint->evaluate($serverParameters, '', true)) {
+            if (!$constraint->evaluate($serverParameters, '', true)) {
                 return false;
             }
         }
@@ -130,7 +122,7 @@ class RunOnRequirement
         }
 
         if (isset($this->serverless)) {
-            if (! $isServerless && $this->serverless === self::SERVERLESS_REQUIRE) {
+            if (!$isServerless && $this->serverless === self::SERVERLESS_REQUIRE) {
                 return false;
             }
 

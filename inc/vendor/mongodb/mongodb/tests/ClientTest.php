@@ -19,7 +19,7 @@ class ClientTest extends TestCase
     {
         $client = new Client();
 
-        $this->assertEquals('mongodb://127.0.0.1/', (string) $client);
+        $this->assertEquals('mongodb://127.0.0.1/', (string)$client);
     }
 
     /**
@@ -45,7 +45,7 @@ class ClientTest extends TestCase
         new Client(static::getUri(), [], $driverOptions);
     }
 
-    public function provideInvalidConstructorDriverOptions()
+    public function provideInvalidConstructorDriverOptions(): array
     {
         $options = [];
 
@@ -77,7 +77,7 @@ class ClientTest extends TestCase
     {
         $client = new Client(static::getUri());
 
-        $this->assertSame(static::getUri(), (string) $client);
+        $this->assertSame(static::getUri(), (string)$client);
     }
 
     public function testSelectCollectionInheritsOptions(): void

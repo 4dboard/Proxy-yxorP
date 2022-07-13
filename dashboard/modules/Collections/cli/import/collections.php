@@ -11,7 +11,7 @@
 if (!YXORP_CLI) return;
 
 
-$src = $app->param('src', null);
+$src = $app->param('src');
 
 if (!$src) {
     return;

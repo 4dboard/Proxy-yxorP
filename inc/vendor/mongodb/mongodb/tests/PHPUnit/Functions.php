@@ -15,6 +15,10 @@ use ArrayAccess;
 use Countable;
 use DOMDocument;
 use DOMElement;
+use MongoDB\Operation\Count;
+use Nette\Utils\Callback;
+use PhpParser\Node\Expr\BinaryOp\LogicalAnd;
+use PhpParser\Node\Expr\BinaryOp\LogicalXor;
 use PHPUnit\Framework\Constraint\ArrayHasKey;
 use PHPUnit\Framework\Constraint\Callback;
 use PHPUnit\Framework\Constraint\ClassHasAttribute;
@@ -73,56 +77,57 @@ use PHPUnit\Util\Exception;
 use PHPUnit\Util\Xml\Exception as XmlException;
 use SebastianBergmann\RecursionContext\InvalidArgumentException;
 use Throwable;
+use Webmozart\Assert\Assert;
 use function func_get_args;
 use function function_exists;
 
-if (! function_exists('PHPUnit\Framework\assertArrayHasKey')) {
+if (!function_exists('PHPUnit\Framework\assertArrayHasKey')) {
     /**
      * Asserts that an array has a specified key.
      *
-     * @see Assert::assertArrayHasKey
-     *
-     * @param int|string        $key
-     * @param array|ArrayAccess $array
+     * @param int|string $key
+     * @param ArrayAccess|array $array
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertArrayHasKey
+     *
      */
-    function assertArrayHasKey($key, $array, string $message = ''): void
+    function assertArrayHasKey(int|string $key, ArrayAccess|array $array, string $message = ''): void
     {
         Assert::assertArrayHasKey(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertArrayNotHasKey')) {
+if (!function_exists('PHPUnit\Framework\assertArrayNotHasKey')) {
     /**
      * Asserts that an array does not have a specified key.
      *
-     * @see Assert::assertArrayNotHasKey
-     *
-     * @param int|string        $key
-     * @param array|ArrayAccess $array
+     * @param int|string $key
+     * @param ArrayAccess|array $array
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertArrayNotHasKey
+     *
      */
-    function assertArrayNotHasKey($key, $array, string $message = ''): void
+    function assertArrayNotHasKey(int|string $key, ArrayAccess|array $array, string $message = ''): void
     {
         Assert::assertArrayNotHasKey(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertContains')) {
+if (!function_exists('PHPUnit\Framework\assertContains')) {
     /**
      * Asserts that a haystack contains a needle.
-     *
-     * @see Assert::assertContains
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertContains
+     *
      */
     function assertContains($needle, $haystack, string $message = ''): void
     {
@@ -130,22 +135,22 @@ if (! function_exists('PHPUnit\Framework\assertContains')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertContainsEquals')) {
+if (!function_exists('PHPUnit\Framework\assertContainsEquals')) {
     function assertContainsEquals($needle, $haystack, string $message = ''): void
     {
         Assert::assertContainsEquals(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotContains')) {
+if (!function_exists('PHPUnit\Framework\assertNotContains')) {
     /**
      * Asserts that a haystack does not contain a needle.
-     *
-     * @see Assert::assertNotContains
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertNotContains
+     *
      */
     function assertNotContains($needle, $haystack, string $message = ''): void
     {
@@ -153,21 +158,21 @@ if (! function_exists('PHPUnit\Framework\assertNotContains')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotContainsEquals')) {
+if (!function_exists('PHPUnit\Framework\assertNotContainsEquals')) {
     function assertNotContainsEquals($needle, $haystack, string $message = ''): void
     {
         Assert::assertNotContainsEquals(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertContainsOnly')) {
+if (!function_exists('PHPUnit\Framework\assertContainsOnly')) {
     /**
      * Asserts that a haystack contains only values of a given type.
      *
-     * @see Assert::assertContainsOnly
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertContainsOnly
+     *
      */
     function assertContainsOnly(string $type, $haystack, ?bool $isNativeType = null, string $message = ''): void
     {
@@ -175,14 +180,14 @@ if (! function_exists('PHPUnit\Framework\assertContainsOnly')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertContainsOnlyInstancesOf')) {
+if (!function_exists('PHPUnit\Framework\assertContainsOnlyInstancesOf')) {
     /**
      * Asserts that a haystack contains only instances of a given class name.
      *
-     * @see Assert::assertContainsOnlyInstancesOf
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertContainsOnlyInstancesOf
+     *
      */
     function assertContainsOnlyInstancesOf(string $className, $haystack, string $message = ''): void
     {
@@ -190,14 +195,14 @@ if (! function_exists('PHPUnit\Framework\assertContainsOnlyInstancesOf')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotContainsOnly')) {
+if (!function_exists('PHPUnit\Framework\assertNotContainsOnly')) {
     /**
      * Asserts that a haystack does not contain only values of a given type.
      *
-     * @see Assert::assertNotContainsOnly
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertNotContainsOnly
+     *
      */
     function assertNotContainsOnly(string $type, $haystack, ?bool $isNativeType = null, string $message = ''): void
     {
@@ -205,50 +210,50 @@ if (! function_exists('PHPUnit\Framework\assertNotContainsOnly')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertCount')) {
+if (!function_exists('PHPUnit\Framework\assertCount')) {
     /**
      * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @see Assert::assertCount
      *
      * @param Countable|iterable $haystack
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertCount
+     *
      */
-    function assertCount(int $expectedCount, $haystack, string $message = ''): void
+    function assertCount(int $expectedCount, Countable|iterable $haystack, string $message = ''): void
     {
         Assert::assertCount(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotCount')) {
+if (!function_exists('PHPUnit\Framework\assertNotCount')) {
     /**
      * Asserts the number of elements of an array, Countable or Traversable.
-     *
-     * @see Assert::assertNotCount
      *
      * @param Countable|iterable $haystack
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertNotCount
+     *
      */
-    function assertNotCount(int $expectedCount, $haystack, string $message = ''): void
+    function assertNotCount(int $expectedCount, Countable|iterable $haystack, string $message = ''): void
     {
         Assert::assertNotCount(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertEquals')) {
+if (!function_exists('PHPUnit\Framework\assertEquals')) {
     /**
      * Asserts that two variables are equal.
      *
-     * @see Assert::assertEquals
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertEquals
+     *
      */
     function assertEquals($expected, $actual, string $message = ''): void
     {
@@ -256,14 +261,14 @@ if (! function_exists('PHPUnit\Framework\assertEquals')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertEqualsCanonicalizing')) {
+if (!function_exists('PHPUnit\Framework\assertEqualsCanonicalizing')) {
     /**
      * Asserts that two variables are equal (canonicalizing).
      *
-     * @see Assert::assertEqualsCanonicalizing
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertEqualsCanonicalizing
+     *
      */
     function assertEqualsCanonicalizing($expected, $actual, string $message = ''): void
     {
@@ -271,14 +276,14 @@ if (! function_exists('PHPUnit\Framework\assertEqualsCanonicalizing')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertEqualsIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertEqualsIgnoringCase')) {
     /**
      * Asserts that two variables are equal (ignoring case).
      *
-     * @see Assert::assertEqualsIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertEqualsIgnoringCase
+     *
      */
     function assertEqualsIgnoringCase($expected, $actual, string $message = ''): void
     {
@@ -286,14 +291,14 @@ if (! function_exists('PHPUnit\Framework\assertEqualsIgnoringCase')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertEqualsWithDelta')) {
+if (!function_exists('PHPUnit\Framework\assertEqualsWithDelta')) {
     /**
      * Asserts that two variables are equal (with delta).
      *
-     * @see Assert::assertEqualsWithDelta
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertEqualsWithDelta
+     *
      */
     function assertEqualsWithDelta($expected, $actual, float $delta, string $message = ''): void
     {
@@ -301,14 +306,14 @@ if (! function_exists('PHPUnit\Framework\assertEqualsWithDelta')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotEquals')) {
+if (!function_exists('PHPUnit\Framework\assertNotEquals')) {
     /**
      * Asserts that two variables are not equal.
      *
-     * @see Assert::assertNotEquals
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertNotEquals
+     *
      */
     function assertNotEquals($expected, $actual, string $message = ''): void
     {
@@ -316,14 +321,14 @@ if (! function_exists('PHPUnit\Framework\assertNotEquals')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotEqualsCanonicalizing')) {
+if (!function_exists('PHPUnit\Framework\assertNotEqualsCanonicalizing')) {
     /**
      * Asserts that two variables are not equal (canonicalizing).
      *
-     * @see Assert::assertNotEqualsCanonicalizing
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertNotEqualsCanonicalizing
+     *
      */
     function assertNotEqualsCanonicalizing($expected, $actual, string $message = ''): void
     {
@@ -331,14 +336,14 @@ if (! function_exists('PHPUnit\Framework\assertNotEqualsCanonicalizing')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotEqualsIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertNotEqualsIgnoringCase')) {
     /**
      * Asserts that two variables are not equal (ignoring case).
      *
-     * @see Assert::assertNotEqualsIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertNotEqualsIgnoringCase
+     *
      */
     function assertNotEqualsIgnoringCase($expected, $actual, string $message = ''): void
     {
@@ -346,14 +351,14 @@ if (! function_exists('PHPUnit\Framework\assertNotEqualsIgnoringCase')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotEqualsWithDelta')) {
+if (!function_exists('PHPUnit\Framework\assertNotEqualsWithDelta')) {
     /**
      * Asserts that two variables are not equal (with delta).
      *
-     * @see Assert::assertNotEqualsWithDelta
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertNotEqualsWithDelta
+     *
      */
     function assertNotEqualsWithDelta($expected, $actual, float $delta, string $message = ''): void
     {
@@ -361,16 +366,16 @@ if (! function_exists('PHPUnit\Framework\assertNotEqualsWithDelta')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertEmpty')) {
+if (!function_exists('PHPUnit\Framework\assertEmpty')) {
     /**
      * Asserts that a variable is empty.
-     *
-     * @see Assert::assertEmpty
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert empty $actual
+     * @see Assert::assertEmpty
+     *
      */
     function assertEmpty($actual, string $message = ''): void
     {
@@ -378,16 +383,16 @@ if (! function_exists('PHPUnit\Framework\assertEmpty')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotEmpty')) {
+if (!function_exists('PHPUnit\Framework\assertNotEmpty')) {
     /**
      * Asserts that a variable is not empty.
-     *
-     * @see Assert::assertNotEmpty
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !empty $actual
+     * @see Assert::assertNotEmpty
+     *
      */
     function assertNotEmpty($actual, string $message = ''): void
     {
@@ -395,14 +400,14 @@ if (! function_exists('PHPUnit\Framework\assertNotEmpty')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertGreaterThan')) {
+if (!function_exists('PHPUnit\Framework\assertGreaterThan')) {
     /**
      * Asserts that a value is greater than another value.
      *
-     * @see Assert::assertGreaterThan
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertGreaterThan
+     *
      */
     function assertGreaterThan($expected, $actual, string $message = ''): void
     {
@@ -410,14 +415,14 @@ if (! function_exists('PHPUnit\Framework\assertGreaterThan')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertGreaterThanOrEqual')) {
+if (!function_exists('PHPUnit\Framework\assertGreaterThanOrEqual')) {
     /**
      * Asserts that a value is greater than or equal to another value.
      *
-     * @see Assert::assertGreaterThanOrEqual
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertGreaterThanOrEqual
+     *
      */
     function assertGreaterThanOrEqual($expected, $actual, string $message = ''): void
     {
@@ -425,14 +430,14 @@ if (! function_exists('PHPUnit\Framework\assertGreaterThanOrEqual')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertLessThan')) {
+if (!function_exists('PHPUnit\Framework\assertLessThan')) {
     /**
      * Asserts that a value is smaller than another value.
      *
-     * @see Assert::assertLessThan
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertLessThan
+     *
      */
     function assertLessThan($expected, $actual, string $message = ''): void
     {
@@ -440,14 +445,14 @@ if (! function_exists('PHPUnit\Framework\assertLessThan')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertLessThanOrEqual')) {
+if (!function_exists('PHPUnit\Framework\assertLessThanOrEqual')) {
     /**
      * Asserts that a value is smaller than or equal to another value.
      *
-     * @see Assert::assertLessThanOrEqual
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertLessThanOrEqual
+     *
      */
     function assertLessThanOrEqual($expected, $actual, string $message = ''): void
     {
@@ -455,15 +460,15 @@ if (! function_exists('PHPUnit\Framework\assertLessThanOrEqual')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileEquals')) {
+if (!function_exists('PHPUnit\Framework\assertFileEquals')) {
     /**
      * Asserts that the contents of one file is equal to the contents of another
      * file.
      *
-     * @see Assert::assertFileEquals
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileEquals
+     *
      */
     function assertFileEquals(string $expected, string $actual, string $message = ''): void
     {
@@ -471,15 +476,15 @@ if (! function_exists('PHPUnit\Framework\assertFileEquals')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileEqualsCanonicalizing')) {
+if (!function_exists('PHPUnit\Framework\assertFileEqualsCanonicalizing')) {
     /**
      * Asserts that the contents of one file is equal to the contents of another
      * file (canonicalizing).
      *
-     * @see Assert::assertFileEqualsCanonicalizing
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileEqualsCanonicalizing
+     *
      */
     function assertFileEqualsCanonicalizing(string $expected, string $actual, string $message = ''): void
     {
@@ -487,15 +492,15 @@ if (! function_exists('PHPUnit\Framework\assertFileEqualsCanonicalizing')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileEqualsIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertFileEqualsIgnoringCase')) {
     /**
      * Asserts that the contents of one file is equal to the contents of another
      * file (ignoring case).
      *
-     * @see Assert::assertFileEqualsIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileEqualsIgnoringCase
+     *
      */
     function assertFileEqualsIgnoringCase(string $expected, string $actual, string $message = ''): void
     {
@@ -503,15 +508,15 @@ if (! function_exists('PHPUnit\Framework\assertFileEqualsIgnoringCase')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileNotEquals')) {
+if (!function_exists('PHPUnit\Framework\assertFileNotEquals')) {
     /**
      * Asserts that the contents of one file is not equal to the contents of
      * another file.
      *
-     * @see Assert::assertFileNotEquals
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileNotEquals
+     *
      */
     function assertFileNotEquals(string $expected, string $actual, string $message = ''): void
     {
@@ -519,15 +524,15 @@ if (! function_exists('PHPUnit\Framework\assertFileNotEquals')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileNotEqualsCanonicalizing')) {
+if (!function_exists('PHPUnit\Framework\assertFileNotEqualsCanonicalizing')) {
     /**
      * Asserts that the contents of one file is not equal to the contents of another
      * file (canonicalizing).
      *
-     * @see Assert::assertFileNotEqualsCanonicalizing
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileNotEqualsCanonicalizing
+     *
      */
     function assertFileNotEqualsCanonicalizing(string $expected, string $actual, string $message = ''): void
     {
@@ -535,15 +540,15 @@ if (! function_exists('PHPUnit\Framework\assertFileNotEqualsCanonicalizing')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileNotEqualsIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertFileNotEqualsIgnoringCase')) {
     /**
      * Asserts that the contents of one file is not equal to the contents of another
      * file (ignoring case).
      *
-     * @see Assert::assertFileNotEqualsIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileNotEqualsIgnoringCase
+     *
      */
     function assertFileNotEqualsIgnoringCase(string $expected, string $actual, string $message = ''): void
     {
@@ -551,15 +556,15 @@ if (! function_exists('PHPUnit\Framework\assertFileNotEqualsIgnoringCase')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringEqualsFile')) {
+if (!function_exists('PHPUnit\Framework\assertStringEqualsFile')) {
     /**
      * Asserts that the contents of a string is equal
      * to the contents of a file.
      *
-     * @see Assert::assertStringEqualsFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringEqualsFile
+     *
      */
     function assertStringEqualsFile(string $expectedFile, string $actualString, string $message = ''): void
     {
@@ -567,15 +572,15 @@ if (! function_exists('PHPUnit\Framework\assertStringEqualsFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringEqualsFileCanonicalizing')) {
+if (!function_exists('PHPUnit\Framework\assertStringEqualsFileCanonicalizing')) {
     /**
      * Asserts that the contents of a string is equal
      * to the contents of a file (canonicalizing).
      *
-     * @see Assert::assertStringEqualsFileCanonicalizing
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringEqualsFileCanonicalizing
+     *
      */
     function assertStringEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message = ''): void
     {
@@ -583,15 +588,15 @@ if (! function_exists('PHPUnit\Framework\assertStringEqualsFileCanonicalizing'))
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringEqualsFileIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertStringEqualsFileIgnoringCase')) {
     /**
      * Asserts that the contents of a string is equal
      * to the contents of a file (ignoring case).
      *
-     * @see Assert::assertStringEqualsFileIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringEqualsFileIgnoringCase
+     *
      */
     function assertStringEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message = ''): void
     {
@@ -599,15 +604,15 @@ if (! function_exists('PHPUnit\Framework\assertStringEqualsFileIgnoringCase')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringNotEqualsFile')) {
+if (!function_exists('PHPUnit\Framework\assertStringNotEqualsFile')) {
     /**
      * Asserts that the contents of a string is not equal
      * to the contents of a file.
      *
-     * @see Assert::assertStringNotEqualsFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringNotEqualsFile
+     *
      */
     function assertStringNotEqualsFile(string $expectedFile, string $actualString, string $message = ''): void
     {
@@ -615,15 +620,15 @@ if (! function_exists('PHPUnit\Framework\assertStringNotEqualsFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringNotEqualsFileCanonicalizing')) {
+if (!function_exists('PHPUnit\Framework\assertStringNotEqualsFileCanonicalizing')) {
     /**
      * Asserts that the contents of a string is not equal
      * to the contents of a file (canonicalizing).
      *
-     * @see Assert::assertStringNotEqualsFileCanonicalizing
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringNotEqualsFileCanonicalizing
+     *
      */
     function assertStringNotEqualsFileCanonicalizing(string $expectedFile, string $actualString, string $message = ''): void
     {
@@ -631,15 +636,15 @@ if (! function_exists('PHPUnit\Framework\assertStringNotEqualsFileCanonicalizing
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringNotEqualsFileIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertStringNotEqualsFileIgnoringCase')) {
     /**
      * Asserts that the contents of a string is not equal
      * to the contents of a file (ignoring case).
      *
-     * @see Assert::assertStringNotEqualsFileIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringNotEqualsFileIgnoringCase
+     *
      */
     function assertStringNotEqualsFileIgnoringCase(string $expectedFile, string $actualString, string $message = ''): void
     {
@@ -647,14 +652,14 @@ if (! function_exists('PHPUnit\Framework\assertStringNotEqualsFileIgnoringCase')
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsReadable')) {
+if (!function_exists('PHPUnit\Framework\assertIsReadable')) {
     /**
      * Asserts that a file/dir is readable.
      *
-     * @see Assert::assertIsReadable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertIsReadable
+     *
      */
     function assertIsReadable(string $filename, string $message = ''): void
     {
@@ -662,14 +667,14 @@ if (! function_exists('PHPUnit\Framework\assertIsReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotReadable')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotReadable')) {
     /**
      * Asserts that a file/dir exists and is not readable.
      *
-     * @see Assert::assertIsNotReadable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertIsNotReadable
+     *
      */
     function assertIsNotReadable(string $filename, string $message = ''): void
     {
@@ -677,7 +682,7 @@ if (! function_exists('PHPUnit\Framework\assertIsNotReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotIsReadable')) {
+if (!function_exists('PHPUnit\Framework\assertNotIsReadable')) {
     /**
      * Asserts that a file/dir exists and is not readable.
      *
@@ -695,14 +700,14 @@ if (! function_exists('PHPUnit\Framework\assertNotIsReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsWritable')) {
+if (!function_exists('PHPUnit\Framework\assertIsWritable')) {
     /**
      * Asserts that a file/dir exists and is writable.
      *
-     * @see Assert::assertIsWritable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertIsWritable
+     *
      */
     function assertIsWritable(string $filename, string $message = ''): void
     {
@@ -710,14 +715,14 @@ if (! function_exists('PHPUnit\Framework\assertIsWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotWritable')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotWritable')) {
     /**
      * Asserts that a file/dir exists and is not writable.
      *
-     * @see Assert::assertIsNotWritable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertIsNotWritable
+     *
      */
     function assertIsNotWritable(string $filename, string $message = ''): void
     {
@@ -725,7 +730,7 @@ if (! function_exists('PHPUnit\Framework\assertIsNotWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotIsWritable')) {
+if (!function_exists('PHPUnit\Framework\assertNotIsWritable')) {
     /**
      * Asserts that a file/dir exists and is not writable.
      *
@@ -743,14 +748,14 @@ if (! function_exists('PHPUnit\Framework\assertNotIsWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryExists')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryExists')) {
     /**
      * Asserts that a directory exists.
      *
-     * @see Assert::assertDirectoryExists
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertDirectoryExists
+     *
      */
     function assertDirectoryExists(string $directory, string $message = ''): void
     {
@@ -758,14 +763,14 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryExists')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryDoesNotExist')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryDoesNotExist')) {
     /**
      * Asserts that a directory does not exist.
      *
-     * @see Assert::assertDirectoryDoesNotExist
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertDirectoryDoesNotExist
+     *
      */
     function assertDirectoryDoesNotExist(string $directory, string $message = ''): void
     {
@@ -773,7 +778,7 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryDoesNotExist')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryNotExists')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryNotExists')) {
     /**
      * Asserts that a directory does not exist.
      *
@@ -791,14 +796,14 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryNotExists')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryIsReadable')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryIsReadable')) {
     /**
      * Asserts that a directory exists and is readable.
      *
-     * @see Assert::assertDirectoryIsReadable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertDirectoryIsReadable
+     *
      */
     function assertDirectoryIsReadable(string $directory, string $message = ''): void
     {
@@ -806,14 +811,14 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryIsReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryIsNotReadable')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryIsNotReadable')) {
     /**
      * Asserts that a directory exists and is not readable.
      *
-     * @see Assert::assertDirectoryIsNotReadable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertDirectoryIsNotReadable
+     *
      */
     function assertDirectoryIsNotReadable(string $directory, string $message = ''): void
     {
@@ -821,7 +826,7 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryIsNotReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryNotIsReadable')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryNotIsReadable')) {
     /**
      * Asserts that a directory exists and is not readable.
      *
@@ -839,14 +844,14 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryNotIsReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryIsWritable')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryIsWritable')) {
     /**
      * Asserts that a directory exists and is writable.
      *
-     * @see Assert::assertDirectoryIsWritable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertDirectoryIsWritable
+     *
      */
     function assertDirectoryIsWritable(string $directory, string $message = ''): void
     {
@@ -854,14 +859,14 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryIsWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryIsNotWritable')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryIsNotWritable')) {
     /**
      * Asserts that a directory exists and is not writable.
      *
-     * @see Assert::assertDirectoryIsNotWritable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertDirectoryIsNotWritable
+     *
      */
     function assertDirectoryIsNotWritable(string $directory, string $message = ''): void
     {
@@ -869,7 +874,7 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryIsNotWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDirectoryNotIsWritable')) {
+if (!function_exists('PHPUnit\Framework\assertDirectoryNotIsWritable')) {
     /**
      * Asserts that a directory exists and is not writable.
      *
@@ -887,14 +892,14 @@ if (! function_exists('PHPUnit\Framework\assertDirectoryNotIsWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileExists')) {
+if (!function_exists('PHPUnit\Framework\assertFileExists')) {
     /**
      * Asserts that a file exists.
      *
-     * @see Assert::assertFileExists
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileExists
+     *
      */
     function assertFileExists(string $filename, string $message = ''): void
     {
@@ -902,14 +907,14 @@ if (! function_exists('PHPUnit\Framework\assertFileExists')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileDoesNotExist')) {
+if (!function_exists('PHPUnit\Framework\assertFileDoesNotExist')) {
     /**
      * Asserts that a file does not exist.
      *
-     * @see Assert::assertFileDoesNotExist
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileDoesNotExist
+     *
      */
     function assertFileDoesNotExist(string $filename, string $message = ''): void
     {
@@ -917,7 +922,7 @@ if (! function_exists('PHPUnit\Framework\assertFileDoesNotExist')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileNotExists')) {
+if (!function_exists('PHPUnit\Framework\assertFileNotExists')) {
     /**
      * Asserts that a file does not exist.
      *
@@ -935,14 +940,14 @@ if (! function_exists('PHPUnit\Framework\assertFileNotExists')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileIsReadable')) {
+if (!function_exists('PHPUnit\Framework\assertFileIsReadable')) {
     /**
      * Asserts that a file exists and is readable.
      *
-     * @see Assert::assertFileIsReadable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileIsReadable
+     *
      */
     function assertFileIsReadable(string $file, string $message = ''): void
     {
@@ -950,14 +955,14 @@ if (! function_exists('PHPUnit\Framework\assertFileIsReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileIsNotReadable')) {
+if (!function_exists('PHPUnit\Framework\assertFileIsNotReadable')) {
     /**
      * Asserts that a file exists and is not readable.
      *
-     * @see Assert::assertFileIsNotReadable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileIsNotReadable
+     *
      */
     function assertFileIsNotReadable(string $file, string $message = ''): void
     {
@@ -965,7 +970,7 @@ if (! function_exists('PHPUnit\Framework\assertFileIsNotReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileNotIsReadable')) {
+if (!function_exists('PHPUnit\Framework\assertFileNotIsReadable')) {
     /**
      * Asserts that a file exists and is not readable.
      *
@@ -983,14 +988,14 @@ if (! function_exists('PHPUnit\Framework\assertFileNotIsReadable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileIsWritable')) {
+if (!function_exists('PHPUnit\Framework\assertFileIsWritable')) {
     /**
      * Asserts that a file exists and is writable.
      *
-     * @see Assert::assertFileIsWritable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileIsWritable
+     *
      */
     function assertFileIsWritable(string $file, string $message = ''): void
     {
@@ -998,14 +1003,14 @@ if (! function_exists('PHPUnit\Framework\assertFileIsWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileIsNotWritable')) {
+if (!function_exists('PHPUnit\Framework\assertFileIsNotWritable')) {
     /**
      * Asserts that a file exists and is not writable.
      *
-     * @see Assert::assertFileIsNotWritable
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFileIsNotWritable
+     *
      */
     function assertFileIsNotWritable(string $file, string $message = ''): void
     {
@@ -1013,7 +1018,7 @@ if (! function_exists('PHPUnit\Framework\assertFileIsNotWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFileNotIsWritable')) {
+if (!function_exists('PHPUnit\Framework\assertFileNotIsWritable')) {
     /**
      * Asserts that a file exists and is not writable.
      *
@@ -1031,16 +1036,16 @@ if (! function_exists('PHPUnit\Framework\assertFileNotIsWritable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertTrue')) {
+if (!function_exists('PHPUnit\Framework\assertTrue')) {
     /**
      * Asserts that a condition is true.
-     *
-     * @see Assert::assertTrue
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert true $condition
+     * @see Assert::assertTrue
+     *
      */
     function assertTrue($condition, string $message = ''): void
     {
@@ -1048,16 +1053,16 @@ if (! function_exists('PHPUnit\Framework\assertTrue')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotTrue')) {
+if (!function_exists('PHPUnit\Framework\assertNotTrue')) {
     /**
      * Asserts that a condition is not true.
-     *
-     * @see Assert::assertNotTrue
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !true $condition
+     * @see Assert::assertNotTrue
+     *
      */
     function assertNotTrue($condition, string $message = ''): void
     {
@@ -1065,16 +1070,16 @@ if (! function_exists('PHPUnit\Framework\assertNotTrue')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFalse')) {
+if (!function_exists('PHPUnit\Framework\assertFalse')) {
     /**
      * Asserts that a condition is false.
-     *
-     * @see Assert::assertFalse
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert false $condition
+     * @see Assert::assertFalse
+     *
      */
     function assertFalse($condition, string $message = ''): void
     {
@@ -1082,16 +1087,16 @@ if (! function_exists('PHPUnit\Framework\assertFalse')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotFalse')) {
+if (!function_exists('PHPUnit\Framework\assertNotFalse')) {
     /**
      * Asserts that a condition is not false.
-     *
-     * @see Assert::assertNotFalse
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !false $condition
+     * @see Assert::assertNotFalse
+     *
      */
     function assertNotFalse($condition, string $message = ''): void
     {
@@ -1099,16 +1104,16 @@ if (! function_exists('PHPUnit\Framework\assertNotFalse')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNull')) {
+if (!function_exists('PHPUnit\Framework\assertNull')) {
     /**
      * Asserts that a variable is null.
-     *
-     * @see Assert::assertNull
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert null $actual
+     * @see Assert::assertNull
+     *
      */
     function assertNull($actual, string $message = ''): void
     {
@@ -1116,16 +1121,16 @@ if (! function_exists('PHPUnit\Framework\assertNull')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotNull')) {
+if (!function_exists('PHPUnit\Framework\assertNotNull')) {
     /**
      * Asserts that a variable is not null.
-     *
-     * @see Assert::assertNotNull
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !null $actual
+     * @see Assert::assertNotNull
+     *
      */
     function assertNotNull($actual, string $message = ''): void
     {
@@ -1133,14 +1138,14 @@ if (! function_exists('PHPUnit\Framework\assertNotNull')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertFinite')) {
+if (!function_exists('PHPUnit\Framework\assertFinite')) {
     /**
      * Asserts that a variable is finite.
      *
-     * @see Assert::assertFinite
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertFinite
+     *
      */
     function assertFinite($actual, string $message = ''): void
     {
@@ -1148,14 +1153,14 @@ if (! function_exists('PHPUnit\Framework\assertFinite')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertInfinite')) {
+if (!function_exists('PHPUnit\Framework\assertInfinite')) {
     /**
      * Asserts that a variable is infinite.
      *
-     * @see Assert::assertInfinite
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertInfinite
+     *
      */
     function assertInfinite($actual, string $message = ''): void
     {
@@ -1163,14 +1168,14 @@ if (! function_exists('PHPUnit\Framework\assertInfinite')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNan')) {
+if (!function_exists('PHPUnit\Framework\assertNan')) {
     /**
      * Asserts that a variable is nan.
      *
-     * @see Assert::assertNan
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertNan
+     *
      */
     function assertNan($actual, string $message = ''): void
     {
@@ -1178,15 +1183,15 @@ if (! function_exists('PHPUnit\Framework\assertNan')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertClassHasAttribute')) {
+if (!function_exists('PHPUnit\Framework\assertClassHasAttribute')) {
     /**
      * Asserts that a class has a specified attribute.
-     *
-     * @see Assert::assertClassHasAttribute
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertClassHasAttribute
+     *
      */
     function assertClassHasAttribute(string $attributeName, string $className, string $message = ''): void
     {
@@ -1194,15 +1199,15 @@ if (! function_exists('PHPUnit\Framework\assertClassHasAttribute')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertClassNotHasAttribute')) {
+if (!function_exists('PHPUnit\Framework\assertClassNotHasAttribute')) {
     /**
      * Asserts that a class does not have a specified attribute.
-     *
-     * @see Assert::assertClassNotHasAttribute
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertClassNotHasAttribute
+     *
      */
     function assertClassNotHasAttribute(string $attributeName, string $className, string $message = ''): void
     {
@@ -1210,15 +1215,15 @@ if (! function_exists('PHPUnit\Framework\assertClassNotHasAttribute')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertClassHasStaticAttribute')) {
+if (!function_exists('PHPUnit\Framework\assertClassHasStaticAttribute')) {
     /**
      * Asserts that a class has a specified static attribute.
-     *
-     * @see Assert::assertClassHasStaticAttribute
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertClassHasStaticAttribute
+     *
      */
     function assertClassHasStaticAttribute(string $attributeName, string $className, string $message = ''): void
     {
@@ -1226,15 +1231,15 @@ if (! function_exists('PHPUnit\Framework\assertClassHasStaticAttribute')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertClassNotHasStaticAttribute')) {
+if (!function_exists('PHPUnit\Framework\assertClassNotHasStaticAttribute')) {
     /**
      * Asserts that a class does not have a specified static attribute.
-     *
-     * @see Assert::assertClassNotHasStaticAttribute
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertClassNotHasStaticAttribute
+     *
      */
     function assertClassNotHasStaticAttribute(string $attributeName, string $className, string $message = ''): void
     {
@@ -1242,49 +1247,47 @@ if (! function_exists('PHPUnit\Framework\assertClassNotHasStaticAttribute')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertObjectHasAttribute')) {
+if (!function_exists('PHPUnit\Framework\assertObjectHasAttribute')) {
     /**
      * Asserts that an object has a specified attribute.
-     *
-     * @see Assert::assertObjectHasAttribute
      *
      * @param object $object
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertObjectHasAttribute
+     *
      */
-    function assertObjectHasAttribute(string $attributeName, $object, string $message = ''): void
+    function assertObjectHasAttribute(string $attributeName, object $object, string $message = ''): void
     {
         Assert::assertObjectHasAttribute(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertObjectNotHasAttribute')) {
+if (!function_exists('PHPUnit\Framework\assertObjectNotHasAttribute')) {
     /**
      * Asserts that an object does not have a specified attribute.
-     *
-     * @see Assert::assertObjectNotHasAttribute
      *
      * @param object $object
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertObjectNotHasAttribute
+     *
      */
-    function assertObjectNotHasAttribute(string $attributeName, $object, string $message = ''): void
+    function assertObjectNotHasAttribute(string $attributeName, object $object, string $message = ''): void
     {
         Assert::assertObjectNotHasAttribute(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertSame')) {
+if (!function_exists('PHPUnit\Framework\assertSame')) {
     /**
      * Asserts that two variables have the same type and value.
      * Used on objects, it asserts that two variables reference
      * the same object.
-     *
-     * @see Assert::assertSame
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
@@ -1292,6 +1295,8 @@ if (! function_exists('PHPUnit\Framework\assertSame')) {
      * @psalm-template ExpectedType
      * @psalm-param ExpectedType $expected
      * @psalm-assert =ExpectedType $actual
+     * @see Assert::assertSame
+     *
      */
     function assertSame($expected, $actual, string $message = ''): void
     {
@@ -1299,16 +1304,16 @@ if (! function_exists('PHPUnit\Framework\assertSame')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotSame')) {
+if (!function_exists('PHPUnit\Framework\assertNotSame')) {
     /**
      * Asserts that two variables do not have the same type and value.
      * Used on objects, it asserts that two variables do not reference
      * the same object.
      *
-     * @see Assert::assertNotSame
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertNotSame
+     *
      */
     function assertNotSame($expected, $actual, string $message = ''): void
     {
@@ -1316,11 +1321,9 @@ if (! function_exists('PHPUnit\Framework\assertNotSame')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertInstanceOf')) {
+if (!function_exists('PHPUnit\Framework\assertInstanceOf')) {
     /**
      * Asserts that a variable is of a given type.
-     *
-     * @see Assert::assertInstanceOf
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
@@ -1329,6 +1332,8 @@ if (! function_exists('PHPUnit\Framework\assertInstanceOf')) {
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $expected
      * @psalm-assert ExpectedType $actual
+     * @see Assert::assertInstanceOf
+     *
      */
     function assertInstanceOf(string $expected, $actual, string $message = ''): void
     {
@@ -1336,11 +1341,9 @@ if (! function_exists('PHPUnit\Framework\assertInstanceOf')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotInstanceOf')) {
+if (!function_exists('PHPUnit\Framework\assertNotInstanceOf')) {
     /**
      * Asserts that a variable is not of a given type.
-     *
-     * @see Assert::assertNotInstanceOf
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
@@ -1349,6 +1352,8 @@ if (! function_exists('PHPUnit\Framework\assertNotInstanceOf')) {
      * @psalm-template ExpectedType of object
      * @psalm-param class-string<ExpectedType> $expected
      * @psalm-assert !ExpectedType $actual
+     * @see Assert::assertNotInstanceOf
+     *
      */
     function assertNotInstanceOf(string $expected, $actual, string $message = ''): void
     {
@@ -1356,16 +1361,16 @@ if (! function_exists('PHPUnit\Framework\assertNotInstanceOf')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsArray')) {
+if (!function_exists('PHPUnit\Framework\assertIsArray')) {
     /**
      * Asserts that a variable is of type array.
-     *
-     * @see Assert::assertIsArray
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert array $actual
+     * @see Assert::assertIsArray
+     *
      */
     function assertIsArray($actual, string $message = ''): void
     {
@@ -1373,16 +1378,16 @@ if (! function_exists('PHPUnit\Framework\assertIsArray')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsBool')) {
+if (!function_exists('PHPUnit\Framework\assertIsBool')) {
     /**
      * Asserts that a variable is of type bool.
-     *
-     * @see Assert::assertIsBool
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert bool $actual
+     * @see Assert::assertIsBool
+     *
      */
     function assertIsBool($actual, string $message = ''): void
     {
@@ -1390,16 +1395,16 @@ if (! function_exists('PHPUnit\Framework\assertIsBool')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsFloat')) {
+if (!function_exists('PHPUnit\Framework\assertIsFloat')) {
     /**
      * Asserts that a variable is of type float.
-     *
-     * @see Assert::assertIsFloat
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert float $actual
+     * @see Assert::assertIsFloat
+     *
      */
     function assertIsFloat($actual, string $message = ''): void
     {
@@ -1407,16 +1412,16 @@ if (! function_exists('PHPUnit\Framework\assertIsFloat')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsInt')) {
+if (!function_exists('PHPUnit\Framework\assertIsInt')) {
     /**
      * Asserts that a variable is of type int.
-     *
-     * @see Assert::assertIsInt
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert int $actual
+     * @see Assert::assertIsInt
+     *
      */
     function assertIsInt($actual, string $message = ''): void
     {
@@ -1424,16 +1429,16 @@ if (! function_exists('PHPUnit\Framework\assertIsInt')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNumeric')) {
+if (!function_exists('PHPUnit\Framework\assertIsNumeric')) {
     /**
      * Asserts that a variable is of type numeric.
-     *
-     * @see Assert::assertIsNumeric
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert numeric $actual
+     * @see Assert::assertIsNumeric
+     *
      */
     function assertIsNumeric($actual, string $message = ''): void
     {
@@ -1441,16 +1446,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNumeric')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsObject')) {
+if (!function_exists('PHPUnit\Framework\assertIsObject')) {
     /**
      * Asserts that a variable is of type object.
-     *
-     * @see Assert::assertIsObject
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert object $actual
+     * @see Assert::assertIsObject
+     *
      */
     function assertIsObject($actual, string $message = ''): void
     {
@@ -1458,16 +1463,16 @@ if (! function_exists('PHPUnit\Framework\assertIsObject')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsResource')) {
+if (!function_exists('PHPUnit\Framework\assertIsResource')) {
     /**
      * Asserts that a variable is of type resource.
-     *
-     * @see Assert::assertIsResource
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert resource $actual
+     * @see Assert::assertIsResource
+     *
      */
     function assertIsResource($actual, string $message = ''): void
     {
@@ -1475,16 +1480,16 @@ if (! function_exists('PHPUnit\Framework\assertIsResource')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsClosedResource')) {
+if (!function_exists('PHPUnit\Framework\assertIsClosedResource')) {
     /**
      * Asserts that a variable is of type resource and is closed.
-     *
-     * @see Assert::assertIsClosedResource
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert resource $actual
+     * @see Assert::assertIsClosedResource
+     *
      */
     function assertIsClosedResource($actual, string $message = ''): void
     {
@@ -1492,16 +1497,16 @@ if (! function_exists('PHPUnit\Framework\assertIsClosedResource')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsString')) {
+if (!function_exists('PHPUnit\Framework\assertIsString')) {
     /**
      * Asserts that a variable is of type string.
-     *
-     * @see Assert::assertIsString
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert string $actual
+     * @see Assert::assertIsString
+     *
      */
     function assertIsString($actual, string $message = ''): void
     {
@@ -1509,16 +1514,16 @@ if (! function_exists('PHPUnit\Framework\assertIsString')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsScalar')) {
+if (!function_exists('PHPUnit\Framework\assertIsScalar')) {
     /**
      * Asserts that a variable is of type scalar.
-     *
-     * @see Assert::assertIsScalar
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert scalar $actual
+     * @see Assert::assertIsScalar
+     *
      */
     function assertIsScalar($actual, string $message = ''): void
     {
@@ -1526,16 +1531,16 @@ if (! function_exists('PHPUnit\Framework\assertIsScalar')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsCallable')) {
+if (!function_exists('PHPUnit\Framework\assertIsCallable')) {
     /**
      * Asserts that a variable is of type callable.
-     *
-     * @see Assert::assertIsCallable
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert callable $actual
+     * @see Assert::assertIsCallable
+     *
      */
     function assertIsCallable($actual, string $message = ''): void
     {
@@ -1543,16 +1548,16 @@ if (! function_exists('PHPUnit\Framework\assertIsCallable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsIterable')) {
+if (!function_exists('PHPUnit\Framework\assertIsIterable')) {
     /**
      * Asserts that a variable is of type iterable.
-     *
-     * @see Assert::assertIsIterable
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert iterable $actual
+     * @see Assert::assertIsIterable
+     *
      */
     function assertIsIterable($actual, string $message = ''): void
     {
@@ -1560,16 +1565,16 @@ if (! function_exists('PHPUnit\Framework\assertIsIterable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotArray')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotArray')) {
     /**
      * Asserts that a variable is not of type array.
-     *
-     * @see Assert::assertIsNotArray
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !array $actual
+     * @see Assert::assertIsNotArray
+     *
      */
     function assertIsNotArray($actual, string $message = ''): void
     {
@@ -1577,16 +1582,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotArray')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotBool')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotBool')) {
     /**
      * Asserts that a variable is not of type bool.
-     *
-     * @see Assert::assertIsNotBool
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !bool $actual
+     * @see Assert::assertIsNotBool
+     *
      */
     function assertIsNotBool($actual, string $message = ''): void
     {
@@ -1594,16 +1599,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotBool')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotFloat')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotFloat')) {
     /**
      * Asserts that a variable is not of type float.
-     *
-     * @see Assert::assertIsNotFloat
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !float $actual
+     * @see Assert::assertIsNotFloat
+     *
      */
     function assertIsNotFloat($actual, string $message = ''): void
     {
@@ -1611,16 +1616,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotFloat')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotInt')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotInt')) {
     /**
      * Asserts that a variable is not of type int.
-     *
-     * @see Assert::assertIsNotInt
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !int $actual
+     * @see Assert::assertIsNotInt
+     *
      */
     function assertIsNotInt($actual, string $message = ''): void
     {
@@ -1628,16 +1633,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotInt')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotNumeric')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotNumeric')) {
     /**
      * Asserts that a variable is not of type numeric.
-     *
-     * @see Assert::assertIsNotNumeric
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !numeric $actual
+     * @see Assert::assertIsNotNumeric
+     *
      */
     function assertIsNotNumeric($actual, string $message = ''): void
     {
@@ -1645,16 +1650,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotNumeric')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotObject')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotObject')) {
     /**
      * Asserts that a variable is not of type object.
-     *
-     * @see Assert::assertIsNotObject
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !object $actual
+     * @see Assert::assertIsNotObject
+     *
      */
     function assertIsNotObject($actual, string $message = ''): void
     {
@@ -1662,16 +1667,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotObject')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotResource')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotResource')) {
     /**
      * Asserts that a variable is not of type resource.
-     *
-     * @see Assert::assertIsNotResource
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !resource $actual
+     * @see Assert::assertIsNotResource
+     *
      */
     function assertIsNotResource($actual, string $message = ''): void
     {
@@ -1679,16 +1684,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotResource')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotClosedResource')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotClosedResource')) {
     /**
      * Asserts that a variable is not of type resource.
-     *
-     * @see Assert::assertIsNotClosedResource
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !resource $actual
+     * @see Assert::assertIsNotClosedResource
+     *
      */
     function assertIsNotClosedResource($actual, string $message = ''): void
     {
@@ -1696,16 +1701,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotClosedResource')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotString')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotString')) {
     /**
      * Asserts that a variable is not of type string.
-     *
-     * @see Assert::assertIsNotString
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !string $actual
+     * @see Assert::assertIsNotString
+     *
      */
     function assertIsNotString($actual, string $message = ''): void
     {
@@ -1713,16 +1718,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotString')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotScalar')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotScalar')) {
     /**
      * Asserts that a variable is not of type scalar.
-     *
-     * @see Assert::assertIsNotScalar
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !scalar $actual
+     * @see Assert::assertIsNotScalar
+     *
      */
     function assertIsNotScalar($actual, string $message = ''): void
     {
@@ -1730,16 +1735,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotScalar')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotCallable')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotCallable')) {
     /**
      * Asserts that a variable is not of type callable.
-     *
-     * @see Assert::assertIsNotCallable
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !callable $actual
+     * @see Assert::assertIsNotCallable
+     *
      */
     function assertIsNotCallable($actual, string $message = ''): void
     {
@@ -1747,16 +1752,16 @@ if (! function_exists('PHPUnit\Framework\assertIsNotCallable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertIsNotIterable')) {
+if (!function_exists('PHPUnit\Framework\assertIsNotIterable')) {
     /**
      * Asserts that a variable is not of type iterable.
-     *
-     * @see Assert::assertIsNotIterable
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      *
      * @psalm-assert !iterable $actual
+     * @see Assert::assertIsNotIterable
+     *
      */
     function assertIsNotIterable($actual, string $message = ''): void
     {
@@ -1764,14 +1769,14 @@ if (! function_exists('PHPUnit\Framework\assertIsNotIterable')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertMatchesRegularExpression')) {
+if (!function_exists('PHPUnit\Framework\assertMatchesRegularExpression')) {
     /**
      * Asserts that a string matches a given regular expression.
      *
-     * @see Assert::assertMatchesRegularExpression
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertMatchesRegularExpression
+     *
      */
     function assertMatchesRegularExpression(string $pattern, string $string, string $message = ''): void
     {
@@ -1779,7 +1784,7 @@ if (! function_exists('PHPUnit\Framework\assertMatchesRegularExpression')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertRegExp')) {
+if (!function_exists('PHPUnit\Framework\assertRegExp')) {
     /**
      * Asserts that a string matches a given regular expression.
      *
@@ -1797,14 +1802,14 @@ if (! function_exists('PHPUnit\Framework\assertRegExp')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertDoesNotMatchRegularExpression')) {
+if (!function_exists('PHPUnit\Framework\assertDoesNotMatchRegularExpression')) {
     /**
      * Asserts that a string does not match a given regular expression.
      *
-     * @see Assert::assertDoesNotMatchRegularExpression
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertDoesNotMatchRegularExpression
+     *
      */
     function assertDoesNotMatchRegularExpression(string $pattern, string $string, string $message = ''): void
     {
@@ -1812,7 +1817,7 @@ if (! function_exists('PHPUnit\Framework\assertDoesNotMatchRegularExpression')) 
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotRegExp')) {
+if (!function_exists('PHPUnit\Framework\assertNotRegExp')) {
     /**
      * Asserts that a string does not match a given regular expression.
      *
@@ -1830,12 +1835,10 @@ if (! function_exists('PHPUnit\Framework\assertNotRegExp')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertSameSize')) {
+if (!function_exists('PHPUnit\Framework\assertSameSize')) {
     /**
      * Assert that the size of two arrays (or `Countable` or `Traversable` objects)
      * is the same.
-     *
-     * @see Assert::assertSameSize
      *
      * @param Countable|iterable $expected
      * @param Countable|iterable $actual
@@ -1843,19 +1846,19 @@ if (! function_exists('PHPUnit\Framework\assertSameSize')) {
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertSameSize
+     *
      */
-    function assertSameSize($expected, $actual, string $message = ''): void
+    function assertSameSize(Countable|iterable $expected, Countable|iterable $actual, string $message = ''): void
     {
         Assert::assertSameSize(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertNotSameSize')) {
+if (!function_exists('PHPUnit\Framework\assertNotSameSize')) {
     /**
      * Assert that the size of two arrays (or `Countable` or `Traversable` objects)
      * is not the same.
-     *
-     * @see Assert::assertNotSameSize
      *
      * @param Countable|iterable $expected
      * @param Countable|iterable $actual
@@ -1863,21 +1866,23 @@ if (! function_exists('PHPUnit\Framework\assertNotSameSize')) {
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertNotSameSize
+     *
      */
-    function assertNotSameSize($expected, $actual, string $message = ''): void
+    function assertNotSameSize(Countable|iterable $expected, Countable|iterable $actual, string $message = ''): void
     {
         Assert::assertNotSameSize(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringMatchesFormat')) {
+if (!function_exists('PHPUnit\Framework\assertStringMatchesFormat')) {
     /**
      * Asserts that a string matches a given format string.
      *
-     * @see Assert::assertStringMatchesFormat
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringMatchesFormat
+     *
      */
     function assertStringMatchesFormat(string $format, string $string, string $message = ''): void
     {
@@ -1885,14 +1890,14 @@ if (! function_exists('PHPUnit\Framework\assertStringMatchesFormat')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringNotMatchesFormat')) {
+if (!function_exists('PHPUnit\Framework\assertStringNotMatchesFormat')) {
     /**
      * Asserts that a string does not match a given format string.
      *
-     * @see Assert::assertStringNotMatchesFormat
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringNotMatchesFormat
+     *
      */
     function assertStringNotMatchesFormat(string $format, string $string, string $message = ''): void
     {
@@ -1900,14 +1905,14 @@ if (! function_exists('PHPUnit\Framework\assertStringNotMatchesFormat')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringMatchesFormatFile')) {
+if (!function_exists('PHPUnit\Framework\assertStringMatchesFormatFile')) {
     /**
      * Asserts that a string matches a given format file.
      *
-     * @see Assert::assertStringMatchesFormatFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringMatchesFormatFile
+     *
      */
     function assertStringMatchesFormatFile(string $formatFile, string $string, string $message = ''): void
     {
@@ -1915,14 +1920,14 @@ if (! function_exists('PHPUnit\Framework\assertStringMatchesFormatFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringNotMatchesFormatFile')) {
+if (!function_exists('PHPUnit\Framework\assertStringNotMatchesFormatFile')) {
     /**
      * Asserts that a string does not match a given format string.
      *
-     * @see Assert::assertStringNotMatchesFormatFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringNotMatchesFormatFile
+     *
      */
     function assertStringNotMatchesFormatFile(string $formatFile, string $string, string $message = ''): void
     {
@@ -1930,14 +1935,14 @@ if (! function_exists('PHPUnit\Framework\assertStringNotMatchesFormatFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringStartsWith')) {
+if (!function_exists('PHPUnit\Framework\assertStringStartsWith')) {
     /**
      * Asserts that a string starts with a given prefix.
      *
-     * @see Assert::assertStringStartsWith
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringStartsWith
+     *
      */
     function assertStringStartsWith(string $prefix, string $string, string $message = ''): void
     {
@@ -1945,17 +1950,17 @@ if (! function_exists('PHPUnit\Framework\assertStringStartsWith')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringStartsNotWith')) {
+if (!function_exists('PHPUnit\Framework\assertStringStartsNotWith')) {
     /**
      * Asserts that a string starts not with a given prefix.
-     *
-     * @see Assert::assertStringStartsNotWith
      *
      * @param string $prefix
      * @param string $string
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringStartsNotWith
+     *
      */
     function assertStringStartsNotWith(string $prefix, string $string, string $message = ''): void
     {
@@ -1963,12 +1968,12 @@ if (! function_exists('PHPUnit\Framework\assertStringStartsNotWith')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringContainsString')) {
+if (!function_exists('PHPUnit\Framework\assertStringContainsString')) {
     /**
-     * @see Assert::assertStringContainsString
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringContainsString
+     *
      */
     function assertStringContainsString(string $needle, string $haystack, string $message = ''): void
     {
@@ -1976,12 +1981,12 @@ if (! function_exists('PHPUnit\Framework\assertStringContainsString')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringContainsStringIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertStringContainsStringIgnoringCase')) {
     /**
-     * @see Assert::assertStringContainsStringIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringContainsStringIgnoringCase
+     *
      */
     function assertStringContainsStringIgnoringCase(string $needle, string $haystack, string $message = ''): void
     {
@@ -1989,12 +1994,12 @@ if (! function_exists('PHPUnit\Framework\assertStringContainsStringIgnoringCase'
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringNotContainsString')) {
+if (!function_exists('PHPUnit\Framework\assertStringNotContainsString')) {
     /**
-     * @see Assert::assertStringNotContainsString
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringNotContainsString
+     *
      */
     function assertStringNotContainsString(string $needle, string $haystack, string $message = ''): void
     {
@@ -2002,12 +2007,12 @@ if (! function_exists('PHPUnit\Framework\assertStringNotContainsString')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringNotContainsStringIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\assertStringNotContainsStringIgnoringCase')) {
     /**
-     * @see Assert::assertStringNotContainsStringIgnoringCase
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringNotContainsStringIgnoringCase
+     *
      */
     function assertStringNotContainsStringIgnoringCase(string $needle, string $haystack, string $message = ''): void
     {
@@ -2015,14 +2020,14 @@ if (! function_exists('PHPUnit\Framework\assertStringNotContainsStringIgnoringCa
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringEndsWith')) {
+if (!function_exists('PHPUnit\Framework\assertStringEndsWith')) {
     /**
      * Asserts that a string ends with a given suffix.
      *
-     * @see Assert::assertStringEndsWith
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringEndsWith
+     *
      */
     function assertStringEndsWith(string $suffix, string $string, string $message = ''): void
     {
@@ -2030,14 +2035,14 @@ if (! function_exists('PHPUnit\Framework\assertStringEndsWith')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertStringEndsNotWith')) {
+if (!function_exists('PHPUnit\Framework\assertStringEndsNotWith')) {
     /**
      * Asserts that a string ends not with a given suffix.
      *
-     * @see Assert::assertStringEndsNotWith
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertStringEndsNotWith
+     *
      */
     function assertStringEndsNotWith(string $suffix, string $string, string $message = ''): void
     {
@@ -2045,15 +2050,15 @@ if (! function_exists('PHPUnit\Framework\assertStringEndsNotWith')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertXmlFileEqualsXmlFile')) {
+if (!function_exists('PHPUnit\Framework\assertXmlFileEqualsXmlFile')) {
     /**
      * Asserts that two XML files are equal.
-     *
-     * @see Assert::assertXmlFileEqualsXmlFile
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertXmlFileEqualsXmlFile
+     *
      */
     function assertXmlFileEqualsXmlFile(string $expectedFile, string $actualFile, string $message = ''): void
     {
@@ -2061,15 +2066,15 @@ if (! function_exists('PHPUnit\Framework\assertXmlFileEqualsXmlFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertXmlFileNotEqualsXmlFile')) {
+if (!function_exists('PHPUnit\Framework\assertXmlFileNotEqualsXmlFile')) {
     /**
      * Asserts that two XML files are not equal.
-     *
-     * @see Assert::assertXmlFileNotEqualsXmlFile
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws Exception
+     * @see Assert::assertXmlFileNotEqualsXmlFile
+     *
      */
     function assertXmlFileNotEqualsXmlFile(string $expectedFile, string $actualFile, string $message = ''): void
     {
@@ -2077,47 +2082,45 @@ if (! function_exists('PHPUnit\Framework\assertXmlFileNotEqualsXmlFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertXmlStringEqualsXmlFile')) {
+if (!function_exists('PHPUnit\Framework\assertXmlStringEqualsXmlFile')) {
     /**
      * Asserts that two XML documents are equal.
-     *
-     * @see Assert::assertXmlStringEqualsXmlFile
      *
      * @param DOMDocument|string $actualXml
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws XmlException
+     * @see Assert::assertXmlStringEqualsXmlFile
+     *
      */
-    function assertXmlStringEqualsXmlFile(string $expectedFile, $actualXml, string $message = ''): void
+    function assertXmlStringEqualsXmlFile(string $expectedFile, DOMDocument|string $actualXml, string $message = ''): void
     {
         Assert::assertXmlStringEqualsXmlFile(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertXmlStringNotEqualsXmlFile')) {
+if (!function_exists('PHPUnit\Framework\assertXmlStringNotEqualsXmlFile')) {
     /**
      * Asserts that two XML documents are not equal.
-     *
-     * @see Assert::assertXmlStringNotEqualsXmlFile
      *
      * @param DOMDocument|string $actualXml
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws XmlException
+     * @see Assert::assertXmlStringNotEqualsXmlFile
+     *
      */
-    function assertXmlStringNotEqualsXmlFile(string $expectedFile, $actualXml, string $message = ''): void
+    function assertXmlStringNotEqualsXmlFile(string $expectedFile, DOMDocument|string $actualXml, string $message = ''): void
     {
         Assert::assertXmlStringNotEqualsXmlFile(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertXmlStringEqualsXmlString')) {
+if (!function_exists('PHPUnit\Framework\assertXmlStringEqualsXmlString')) {
     /**
      * Asserts that two XML documents are equal.
-     *
-     * @see Assert::assertXmlStringEqualsXmlString
      *
      * @param DOMDocument|string $expectedXml
      * @param DOMDocument|string $actualXml
@@ -2125,18 +2128,18 @@ if (! function_exists('PHPUnit\Framework\assertXmlStringEqualsXmlString')) {
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws XmlException
+     * @see Assert::assertXmlStringEqualsXmlString
+     *
      */
-    function assertXmlStringEqualsXmlString($expectedXml, $actualXml, string $message = ''): void
+    function assertXmlStringEqualsXmlString(DOMDocument|string $expectedXml, DOMDocument|string $actualXml, string $message = ''): void
     {
         Assert::assertXmlStringEqualsXmlString(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertXmlStringNotEqualsXmlString')) {
+if (!function_exists('PHPUnit\Framework\assertXmlStringNotEqualsXmlString')) {
     /**
      * Asserts that two XML documents are not equal.
-     *
-     * @see Assert::assertXmlStringNotEqualsXmlString
      *
      * @param DOMDocument|string $expectedXml
      * @param DOMDocument|string $actualXml
@@ -2144,14 +2147,16 @@ if (! function_exists('PHPUnit\Framework\assertXmlStringNotEqualsXmlString')) {
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
      * @throws XmlException
+     * @see Assert::assertXmlStringNotEqualsXmlString
+     *
      */
-    function assertXmlStringNotEqualsXmlString($expectedXml, $actualXml, string $message = ''): void
+    function assertXmlStringNotEqualsXmlString(DOMDocument|string $expectedXml, DOMDocument|string $actualXml, string $message = ''): void
     {
         Assert::assertXmlStringNotEqualsXmlString(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertEqualXMLStructure')) {
+if (!function_exists('PHPUnit\Framework\assertEqualXMLStructure')) {
     /**
      * Asserts that a hierarchy of DOMElements matches.
      *
@@ -2170,14 +2175,14 @@ if (! function_exists('PHPUnit\Framework\assertEqualXMLStructure')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertThat')) {
+if (!function_exists('PHPUnit\Framework\assertThat')) {
     /**
      * Evaluates a PHPUnit\Framework\Constraint matcher object.
      *
-     * @see Assert::assertThat
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertThat
+     *
      */
     function assertThat($value, Constraint $constraint, string $message = ''): void
     {
@@ -2185,14 +2190,14 @@ if (! function_exists('PHPUnit\Framework\assertThat')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertJson')) {
+if (!function_exists('PHPUnit\Framework\assertJson')) {
     /**
      * Asserts that a string is a valid JSON string.
      *
-     * @see Assert::assertJson
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertJson
+     *
      */
     function assertJson(string $actualJson, string $message = ''): void
     {
@@ -2200,14 +2205,14 @@ if (! function_exists('PHPUnit\Framework\assertJson')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertJsonStringEqualsJsonString')) {
+if (!function_exists('PHPUnit\Framework\assertJsonStringEqualsJsonString')) {
     /**
      * Asserts that two given JSON encoded objects or arrays are equal.
      *
-     * @see Assert::assertJsonStringEqualsJsonString
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertJsonStringEqualsJsonString
+     *
      */
     function assertJsonStringEqualsJsonString(string $expectedJson, string $actualJson, string $message = ''): void
     {
@@ -2215,17 +2220,17 @@ if (! function_exists('PHPUnit\Framework\assertJsonStringEqualsJsonString')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertJsonStringNotEqualsJsonString')) {
+if (!function_exists('PHPUnit\Framework\assertJsonStringNotEqualsJsonString')) {
     /**
      * Asserts that two given JSON encoded objects or arrays are not equal.
-     *
-     * @see Assert::assertJsonStringNotEqualsJsonString
      *
      * @param string $expectedJson
      * @param string $actualJson
      *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertJsonStringNotEqualsJsonString
+     *
      */
     function assertJsonStringNotEqualsJsonString(string $expectedJson, string $actualJson, string $message = ''): void
     {
@@ -2233,14 +2238,14 @@ if (! function_exists('PHPUnit\Framework\assertJsonStringNotEqualsJsonString')) 
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertJsonStringEqualsJsonFile')) {
+if (!function_exists('PHPUnit\Framework\assertJsonStringEqualsJsonFile')) {
     /**
      * Asserts that the generated JSON encoded object and the content of the given file are equal.
      *
-     * @see Assert::assertJsonStringEqualsJsonFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertJsonStringEqualsJsonFile
+     *
      */
     function assertJsonStringEqualsJsonFile(string $expectedFile, string $actualJson, string $message = ''): void
     {
@@ -2248,14 +2253,14 @@ if (! function_exists('PHPUnit\Framework\assertJsonStringEqualsJsonFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertJsonStringNotEqualsJsonFile')) {
+if (!function_exists('PHPUnit\Framework\assertJsonStringNotEqualsJsonFile')) {
     /**
      * Asserts that the generated JSON encoded object and the content of the given file are not equal.
      *
-     * @see Assert::assertJsonStringNotEqualsJsonFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertJsonStringNotEqualsJsonFile
+     *
      */
     function assertJsonStringNotEqualsJsonFile(string $expectedFile, string $actualJson, string $message = ''): void
     {
@@ -2263,14 +2268,14 @@ if (! function_exists('PHPUnit\Framework\assertJsonStringNotEqualsJsonFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertJsonFileEqualsJsonFile')) {
+if (!function_exists('PHPUnit\Framework\assertJsonFileEqualsJsonFile')) {
     /**
      * Asserts that two JSON files are equal.
      *
-     * @see Assert::assertJsonFileEqualsJsonFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertJsonFileEqualsJsonFile
+     *
      */
     function assertJsonFileEqualsJsonFile(string $expectedFile, string $actualFile, string $message = ''): void
     {
@@ -2278,14 +2283,14 @@ if (! function_exists('PHPUnit\Framework\assertJsonFileEqualsJsonFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\assertJsonFileNotEqualsJsonFile')) {
+if (!function_exists('PHPUnit\Framework\assertJsonFileNotEqualsJsonFile')) {
     /**
      * Asserts that two JSON files are not equal.
      *
-     * @see Assert::assertJsonFileNotEqualsJsonFile
-     *
      * @throws ExpectationFailedException
      * @throws InvalidArgumentException
+     * @see Assert::assertJsonFileNotEqualsJsonFile
+     *
      */
     function assertJsonFileNotEqualsJsonFile(string $expectedFile, string $actualFile, string $message = ''): void
     {
@@ -2293,308 +2298,308 @@ if (! function_exists('PHPUnit\Framework\assertJsonFileNotEqualsJsonFile')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\logicalAnd')) {
+if (!function_exists('PHPUnit\Framework\logicalAnd')) {
     function logicalAnd(): LogicalAnd
     {
         return Assert::logicalAnd(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\logicalOr')) {
+if (!function_exists('PHPUnit\Framework\logicalOr')) {
     function logicalOr(): LogicalOr
     {
         return Assert::logicalOr(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\logicalNot')) {
+if (!function_exists('PHPUnit\Framework\logicalNot')) {
     function logicalNot(Constraint $constraint): LogicalNot
     {
         return Assert::logicalNot(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\logicalXor')) {
+if (!function_exists('PHPUnit\Framework\logicalXor')) {
     function logicalXor(): LogicalXor
     {
         return Assert::logicalXor(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\anything')) {
+if (!function_exists('PHPUnit\Framework\anything')) {
     function anything(): IsAnything
     {
         return Assert::anything(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isTrue')) {
+if (!function_exists('PHPUnit\Framework\isTrue')) {
     function isTrue(): IsTrue
     {
         return Assert::isTrue(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\callback')) {
+if (!function_exists('PHPUnit\Framework\callback')) {
     function callback(callable $callback): Callback
     {
         return Assert::callback(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isFalse')) {
+if (!function_exists('PHPUnit\Framework\isFalse')) {
     function isFalse(): IsFalse
     {
         return Assert::isFalse(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isJson')) {
+if (!function_exists('PHPUnit\Framework\isJson')) {
     function isJson(): IsJson
     {
         return Assert::isJson(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isNull')) {
+if (!function_exists('PHPUnit\Framework\isNull')) {
     function isNull(): IsNull
     {
         return Assert::isNull(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isFinite')) {
+if (!function_exists('PHPUnit\Framework\isFinite')) {
     function isFinite(): IsFinite
     {
         return Assert::isFinite(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isInfinite')) {
+if (!function_exists('PHPUnit\Framework\isInfinite')) {
     function isInfinite(): IsInfinite
     {
         return Assert::isInfinite(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isNan')) {
+if (!function_exists('PHPUnit\Framework\isNan')) {
     function isNan(): IsNan
     {
         return Assert::isNan(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\containsEqual')) {
+if (!function_exists('PHPUnit\Framework\containsEqual')) {
     function containsEqual($value): TraversableContainsEqual
     {
         return Assert::containsEqual(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\containsIdentical')) {
+if (!function_exists('PHPUnit\Framework\containsIdentical')) {
     function containsIdentical($value): TraversableContainsIdentical
     {
         return Assert::containsIdentical(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\containsOnly')) {
+if (!function_exists('PHPUnit\Framework\containsOnly')) {
     function containsOnly(string $type): TraversableContainsOnly
     {
         return Assert::containsOnly(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\containsOnlyInstancesOf')) {
+if (!function_exists('PHPUnit\Framework\containsOnlyInstancesOf')) {
     function containsOnlyInstancesOf(string $className): TraversableContainsOnly
     {
         return Assert::containsOnlyInstancesOf(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\arrayHasKey')) {
+if (!function_exists('PHPUnit\Framework\arrayHasKey')) {
     function arrayHasKey($key): ArrayHasKey
     {
         return Assert::arrayHasKey(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\equalTo')) {
+if (!function_exists('PHPUnit\Framework\equalTo')) {
     function equalTo($value): IsEqual
     {
         return Assert::equalTo(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\equalToCanonicalizing')) {
+if (!function_exists('PHPUnit\Framework\equalToCanonicalizing')) {
     function equalToCanonicalizing($value): IsEqualCanonicalizing
     {
         return Assert::equalToCanonicalizing(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\equalToIgnoringCase')) {
+if (!function_exists('PHPUnit\Framework\equalToIgnoringCase')) {
     function equalToIgnoringCase($value): IsEqualIgnoringCase
     {
         return Assert::equalToIgnoringCase(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\equalToWithDelta')) {
+if (!function_exists('PHPUnit\Framework\equalToWithDelta')) {
     function equalToWithDelta($value, float $delta): IsEqualWithDelta
     {
         return Assert::equalToWithDelta(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isEmpty')) {
+if (!function_exists('PHPUnit\Framework\isEmpty')) {
     function isEmpty(): IsEmpty
     {
         return Assert::isEmpty(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isWritable')) {
+if (!function_exists('PHPUnit\Framework\isWritable')) {
     function isWritable(): IsWritable
     {
         return Assert::isWritable(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isReadable')) {
+if (!function_exists('PHPUnit\Framework\isReadable')) {
     function isReadable(): IsReadable
     {
         return Assert::isReadable(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\directoryExists')) {
+if (!function_exists('PHPUnit\Framework\directoryExists')) {
     function directoryExists(): DirectoryExists
     {
         return Assert::directoryExists(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\fileExists')) {
+if (!function_exists('PHPUnit\Framework\fileExists')) {
     function fileExists(): FileExists
     {
         return Assert::fileExists(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\greaterThan')) {
+if (!function_exists('PHPUnit\Framework\greaterThan')) {
     function greaterThan($value): GreaterThan
     {
         return Assert::greaterThan(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\greaterThanOrEqual')) {
+if (!function_exists('PHPUnit\Framework\greaterThanOrEqual')) {
     function greaterThanOrEqual($value): LogicalOr
     {
         return Assert::greaterThanOrEqual(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\classHasAttribute')) {
+if (!function_exists('PHPUnit\Framework\classHasAttribute')) {
     function classHasAttribute(string $attributeName): ClassHasAttribute
     {
         return Assert::classHasAttribute(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\classHasStaticAttribute')) {
+if (!function_exists('PHPUnit\Framework\classHasStaticAttribute')) {
     function classHasStaticAttribute(string $attributeName): ClassHasStaticAttribute
     {
         return Assert::classHasStaticAttribute(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\objectHasAttribute')) {
+if (!function_exists('PHPUnit\Framework\objectHasAttribute')) {
     function objectHasAttribute($attributeName): ObjectHasAttribute
     {
         return Assert::objectHasAttribute(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\identicalTo')) {
+if (!function_exists('PHPUnit\Framework\identicalTo')) {
     function identicalTo($value): IsIdentical
     {
         return Assert::identicalTo(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isInstanceOf')) {
+if (!function_exists('PHPUnit\Framework\isInstanceOf')) {
     function isInstanceOf(string $className): IsInstanceOf
     {
         return Assert::isInstanceOf(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\isType')) {
+if (!function_exists('PHPUnit\Framework\isType')) {
     function isType(string $type): IsType
     {
         return Assert::isType(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\lessThan')) {
+if (!function_exists('PHPUnit\Framework\lessThan')) {
     function lessThan($value): LessThan
     {
         return Assert::lessThan(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\lessThanOrEqual')) {
+if (!function_exists('PHPUnit\Framework\lessThanOrEqual')) {
     function lessThanOrEqual($value): LogicalOr
     {
         return Assert::lessThanOrEqual(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\matchesRegularExpression')) {
+if (!function_exists('PHPUnit\Framework\matchesRegularExpression')) {
     function matchesRegularExpression(string $pattern): RegularExpression
     {
         return Assert::matchesRegularExpression(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\matches')) {
+if (!function_exists('PHPUnit\Framework\matches')) {
     function matches(string $string): StringMatchesFormatDescription
     {
         return Assert::matches(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\stringStartsWith')) {
+if (!function_exists('PHPUnit\Framework\stringStartsWith')) {
     function stringStartsWith($prefix): StringStartsWith
     {
         return Assert::stringStartsWith(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\stringContains')) {
+if (!function_exists('PHPUnit\Framework\stringContains')) {
     function stringContains(string $string, bool $case = true): StringContains
     {
         return Assert::stringContains(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\stringEndsWith')) {
+if (!function_exists('PHPUnit\Framework\stringEndsWith')) {
     function stringEndsWith(string $suffix): StringEndsWith
     {
         return Assert::stringEndsWith(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\countOf')) {
+if (!function_exists('PHPUnit\Framework\countOf')) {
     function countOf(int $count): Count
     {
         return Assert::countOf(...func_get_args());
     }
 }
 
-if (! function_exists('PHPUnit\Framework\any')) {
+if (!function_exists('PHPUnit\Framework\any')) {
     /**
      * Returns a matcher that matches when the method is executed
      * zero or more times.
@@ -2605,7 +2610,7 @@ if (! function_exists('PHPUnit\Framework\any')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\never')) {
+if (!function_exists('PHPUnit\Framework\never')) {
     /**
      * Returns a matcher that matches when the method is never executed.
      */
@@ -2615,7 +2620,7 @@ if (! function_exists('PHPUnit\Framework\never')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\atLeast')) {
+if (!function_exists('PHPUnit\Framework\atLeast')) {
     /**
      * Returns a matcher that matches when the method is executed
      * at least N times.
@@ -2628,7 +2633,7 @@ if (! function_exists('PHPUnit\Framework\atLeast')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\atLeastOnce')) {
+if (!function_exists('PHPUnit\Framework\atLeastOnce')) {
     /**
      * Returns a matcher that matches when the method is executed at least once.
      */
@@ -2638,7 +2643,7 @@ if (! function_exists('PHPUnit\Framework\atLeastOnce')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\once')) {
+if (!function_exists('PHPUnit\Framework\once')) {
     /**
      * Returns a matcher that matches when the method is executed exactly once.
      */
@@ -2648,7 +2653,7 @@ if (! function_exists('PHPUnit\Framework\once')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\exactly')) {
+if (!function_exists('PHPUnit\Framework\exactly')) {
     /**
      * Returns a matcher that matches when the method is executed
      * exactly $count times.
@@ -2659,7 +2664,7 @@ if (! function_exists('PHPUnit\Framework\exactly')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\atMost')) {
+if (!function_exists('PHPUnit\Framework\atMost')) {
     /**
      * Returns a matcher that matches when the method is executed
      * at most N times.
@@ -2670,7 +2675,7 @@ if (! function_exists('PHPUnit\Framework\atMost')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\at')) {
+if (!function_exists('PHPUnit\Framework\at')) {
     /**
      * Returns a matcher that matches when the method is executed
      * at the given index.
@@ -2681,35 +2686,35 @@ if (! function_exists('PHPUnit\Framework\at')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\returnValue')) {
+if (!function_exists('PHPUnit\Framework\returnValue')) {
     function returnValue($value): ReturnStub
     {
         return new ReturnStub($value);
     }
 }
 
-if (! function_exists('PHPUnit\Framework\returnValueMap')) {
+if (!function_exists('PHPUnit\Framework\returnValueMap')) {
     function returnValueMap(array $valueMap): ReturnValueMapStub
     {
         return new ReturnValueMapStub($valueMap);
     }
 }
 
-if (! function_exists('PHPUnit\Framework\returnArgument')) {
+if (!function_exists('PHPUnit\Framework\returnArgument')) {
     function returnArgument(int $argumentIndex): ReturnArgumentStub
     {
         return new ReturnArgumentStub($argumentIndex);
     }
 }
 
-if (! function_exists('PHPUnit\Framework\returnCallback')) {
+if (!function_exists('PHPUnit\Framework\returnCallback')) {
     function returnCallback($callback): ReturnCallbackStub
     {
         return new ReturnCallbackStub($callback);
     }
 }
 
-if (! function_exists('PHPUnit\Framework\returnSelf')) {
+if (!function_exists('PHPUnit\Framework\returnSelf')) {
     /**
      * Returns the current object.
      *
@@ -2721,14 +2726,14 @@ if (! function_exists('PHPUnit\Framework\returnSelf')) {
     }
 }
 
-if (! function_exists('PHPUnit\Framework\throwException')) {
+if (!function_exists('PHPUnit\Framework\throwException')) {
     function throwException(Throwable $exception): ExceptionStub
     {
         return new ExceptionStub($exception);
     }
 }
 
-if (! function_exists('PHPUnit\Framework\onConsecutiveCalls')) {
+if (!function_exists('PHPUnit\Framework\onConsecutiveCalls')) {
     function onConsecutiveCalls(): ConsecutiveCallsStub
     {
         $args = func_get_args();

@@ -1,14 +1,14 @@
 /*! UIkit 2.27.5 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function(UI) {
+(function (UI) {
 
     "use strict";
 
     UI.component('smoothScroll', {
 
-        boot: function() {
+        boot: function () {
 
             // init code
-            UI.$html.on('click.smooth-scroll.uikit', '[data-uk-smooth-scroll]', function(e) {
+            UI.$html.on('click.smooth-scroll.uikit', '[data-uk-smooth-scroll]', function (e) {
                 var ele = UI.$(this);
 
                 if (!ele.data('smoothScroll')) {
@@ -20,11 +20,11 @@
             });
         },
 
-        init: function() {
+        init: function () {
 
             var $this = this;
 
-            this.on('click', function(e) {
+            this.on('click', function (e) {
                 e.preventDefault();
                 scrollToElement(UI.$(this.hash).length ? UI.$(this.hash) : UI.$('body'), $this.options);
             });
@@ -37,11 +37,12 @@
             duration: 1000,
             transition: 'easeOutExpo',
             offset: 0,
-            complete: function(){}
+            complete: function () {
+            }
         }, options);
 
         // get / set parameters
-        var target    = ele.offset().top - options.offset,
+        var target = ele.offset().top - options.offset,
             docheight = UI.$doc.height(),
             winheight = window.innerHeight;
 
@@ -56,7 +57,9 @@
     UI.Utils.scrollToElement = scrollToElement;
 
     if (!UI.$.easing.easeOutExpo) {
-        UI.$.easing.easeOutExpo = function(x, t, b, c, d) { return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b; };
+        UI.$.easing.easeOutExpo = function (x, t, b, c, d) {
+            return (t == d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+        };
     }
 
 })(UIkit2);

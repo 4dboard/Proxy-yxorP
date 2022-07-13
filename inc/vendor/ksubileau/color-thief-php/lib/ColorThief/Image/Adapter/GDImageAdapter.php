@@ -2,15 +2,18 @@
 
 namespace ColorThief\Image\Adapter;
 
+use InvalidArgumentException;
+use RuntimeException;
+
 class GDImageAdapter extends ImageAdapter
 {
     /**
      * {@inheritdoc}
      */
-    public function load($resource)
+    public function load(object $resource)
     {
         if (!is_resource($resource) || get_resource_type($resource) != 'gd') {
-            throw new \InvalidArgumentException('Passed variable is not a valid GD resource');
+            throw new InvalidArgumentException('Passed variable is not a valid GD resource');
         }
 
         parent::load($resource);
@@ -19,41 +22,30 @@ class GDImageAdapter extends ImageAdapter
     /**
      * {@inheritdoc}
      */
-    public function loadBinaryString($data)
+    public function loadBinaryString(string $data)
     {
         $this->resource = @imagecreatefromstring($data);
         if ($this->resource === false) {
-            throw new \InvalidArgumentException('Passed binary string is empty or is not a valid image');
+            throw new InvalidArgumentException('Passed binary string is empty or is not a valid image');
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    public function loadFile($file)
+    public function loadFile(string $path)
     {
-        list(, , $type) = @getimagesize($file);
+        list(, , $type) = @getimagesize($path);
 
-        switch ($type) {
-            case IMAGETYPE_GIF:
-                $resource = @imagecreatefromgif($file);
-                break;
-
-            case IMAGETYPE_JPEG:
-                $resource = @imagecreatefromjpeg($file);
-                break;
-
-            case IMAGETYPE_PNG:
-                $resource = @imagecreatefrompng($file);
-                break;
-
-            default:
-                throw new \RuntimeException("Image '{$file}' is not readable or does not exists.");
-                break;
-        }
+        $resource = match ($type) {
+            IMAGETYPE_GIF => @imagecreatefromgif($path),
+            IMAGETYPE_JPEG => @imagecreatefromjpeg($path),
+            IMAGETYPE_PNG => @imagecreatefrompng($path),
+            default => throw new RuntimeException("Image '{$path}' is not readable or does not exists."),
+        };
 
         if ($resource === false) {
-            throw new \RuntimeException("Image '{$file}' is not readable or does not exists.");
+            throw new RuntimeException("Image '{$path}' is not readable or does not exists.");
         }
 
         $this->resource = $resource;
@@ -73,7 +65,7 @@ class GDImageAdapter extends ImageAdapter
     /**
      * {@inheritdoc}
      */
-    public function getHeight()
+    public function getHeight(): bool|int
     {
         return imagesy($this->resource);
     }
@@ -81,7 +73,7 @@ class GDImageAdapter extends ImageAdapter
     /**
      * {@inheritdoc}
      */
-    public function getWidth()
+    public function getWidth(): bool|int
     {
         return imagesx($this->resource);
     }
@@ -89,11 +81,11 @@ class GDImageAdapter extends ImageAdapter
     /**
      * {@inheritdoc}
      */
-    public function getPixelColor($x, $y)
+    public function getPixelColor(int $x, int $y): object
     {
         $rgba = imagecolorat($this->resource, $x, $y);
         $color = imagecolorsforindex($this->resource, $rgba);
 
-        return (object) $color;
+        return (object)$color;
     }
 }

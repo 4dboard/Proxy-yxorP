@@ -8,10 +8,10 @@ namespace yxorP\inc\proxy\Cookie;
 class FileCookieJar extends CookieJar
 {
     /** @var string filename */
-    private $filename;
+    private string $filename;
 
     /** @var bool Control whether to persist session cookies or not. */
-    private $storeSessionCookies;
+    private bool $storeSessionCookies;
 
     /**
      * Create a new FileCookieJar object
@@ -41,7 +41,7 @@ class FileCookieJar extends CookieJar
      * @param string $filename Cookie file to load.
      * @throws RuntimeException if the file cannot be loaded.
      */
-    public function load($filename)
+    public function load(string $filename)
     {
         $json = file_get_contents($filename);
         if (false === $json) {
@@ -74,7 +74,7 @@ class FileCookieJar extends CookieJar
      * @param string $filename File to save
      * @throws RuntimeException if the file cannot be found or created
      */
-    public function save($filename)
+    public function save(string $filename)
     {
         $json = [];
         foreach ($this as $cookie) {

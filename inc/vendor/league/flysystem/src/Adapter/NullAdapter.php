@@ -2,6 +2,7 @@
 
 namespace League\Flysystem\Adapter;
 
+use JetBrains\PhpStorm\ArrayShape;
 use League\Flysystem\Adapter\Polyfill\StreamedCopyTrait;
 use League\Flysystem\Adapter\Polyfill\StreamedTrait;
 use League\Flysystem\Config;
@@ -18,7 +19,7 @@ class NullAdapter extends AbstractAdapter
      *
      * @return bool
      */
-    public function has($path)
+    public function has($path): bool
     {
         return false;
     }
@@ -26,7 +27,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function write($path, $contents, Config $config)
+    public function write($path, $contents, Config $config): array
     {
         $type = 'file';
         $result = compact('contents', 'type', 'path');
@@ -41,7 +42,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function update($path, $contents, Config $config)
+    public function update($path, $contents, Config $config): bool|array
     {
         return false;
     }
@@ -49,7 +50,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function read($path)
+    public function read($path): bool
     {
         return false;
     }
@@ -57,7 +58,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function rename($path, $newpath)
+    public function rename($path, $newpath): bool
     {
         return false;
     }
@@ -65,7 +66,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function delete($path)
+    public function delete($path): bool
     {
         return false;
     }
@@ -73,7 +74,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function listContents($directory = '', $recursive = false)
+    public function listContents($directory = '', $recursive = false): array
     {
         return [];
     }
@@ -81,7 +82,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function getMetadata($path)
+    public function getMetadata($path): bool|array
     {
         return false;
     }
@@ -89,7 +90,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function getSize($path)
+    public function getSize($path): bool
     {
         return false;
     }
@@ -97,7 +98,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function getMimetype($path)
+    public function getMimetype($path): bool|array
     {
         return false;
     }
@@ -105,7 +106,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function getTimestamp($path)
+    public function getTimestamp($path): bool|array
     {
         return false;
     }
@@ -113,7 +114,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function getVisibility($path)
+    public function getVisibility($path): bool
     {
         return false;
     }
@@ -121,7 +122,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function setVisibility($path, $visibility)
+    public function setVisibility($path, $visibility): bool|array
     {
         return compact('visibility');
     }
@@ -129,7 +130,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function createDir($dirname, Config $config)
+    #[ArrayShape(['path' => "", 'type' => "string"])] public function createDir($dirname, Config $config): bool|array
     {
         return ['path' => $dirname, 'type' => 'dir'];
     }
@@ -137,7 +138,7 @@ class NullAdapter extends AbstractAdapter
     /**
      * @inheritdoc
      */
-    public function deleteDir($dirname)
+    public function deleteDir($dirname): bool
     {
         return false;
     }

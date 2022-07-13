@@ -9,7 +9,7 @@ class ListPaths extends AbstractPlugin
      *
      * @return string
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return 'listPaths';
     }
@@ -18,11 +18,11 @@ class ListPaths extends AbstractPlugin
      * List all paths.
      *
      * @param string $directory
-     * @param bool   $recursive
+     * @param bool $recursive
      *
      * @return string[] paths
      */
-    public function handle($directory = '', $recursive = false)
+    public function handle(string $directory = '', bool $recursive = false): array
     {
         $result = [];
         $contents = $this->filesystem->listContents($directory, $recursive);

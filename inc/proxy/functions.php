@@ -20,7 +20,7 @@ function uri_template($template, array $variables)
     return $uriTemplate->expand($template, $variables);
 }
 
-function describe_type($input)
+function describe_type($input): array|string
 {
     switch (gettype($input)) {
         case 'object':
@@ -34,7 +34,7 @@ function describe_type($input)
     }
 }
 
-function headers_from_lines($lines)
+function headers_from_lines($lines): array
 {
     $headers = [];
     foreach ($lines as $line) {
@@ -44,7 +44,7 @@ function headers_from_lines($lines)
     return $headers;
 }
 
-function debug_resource($value = null)
+function debug_resource($value = null): bool
 {
     if (is_resource($value)) {
         return $value;
@@ -54,7 +54,7 @@ function debug_resource($value = null)
     return fopen('php://output', 'w');
 }
 
-function choose_handler()
+function choose_handler(): callable|CurlHandler|\Closure|StreamHandler|CurlMultiHandler
 {
     $handler = null;
     if (function_exists('curl_multi_exec') && function_exists('curl_exec')) {
@@ -72,11 +72,11 @@ function choose_handler()
     return $handler;
 }
 
-function default_user_agent()
+function default_user_agent(): string
 {
     static $defaultAgent = '';
     if (!$defaultAgent) {
-        $defaultAgent = '\yxorP\inc\proxy/' . Client::VERSION;
+        $defaultAgent = '\yxorP\inc\proxy/' . ClientInterface::VERSION;
         if (extension_loaded('curl') && function_exists('curl_version')) {
             $defaultAgent .= ' curl/' . curl_version()['version'];
         }
@@ -108,19 +108,19 @@ No system CA bundle could be found in any of the the common system locations.
 PHP versions earlier than 5.6 are not properly configured to use the system's
 CA bundle by default. In order to verify peer certificates, you will need to
 supply the path on disk to a certificate bundle to the 'verify' request
-option: http://docs.proxyphp.org/en/latest/clients.html#verify. If you do not
+option: https://docs.proxyphp.org/en/latest/clients.html#verify. If you do not
 need a specific certificate bundle, then Mozilla provides a commonly used CA
 bundle which can be downloaded here (provided by the maintainer of cURL):
 https://raw.githubusercontent.com/bagder/ca-bundle/master/ca-bundle.crt. Once
 you have a CA bundle available on disk, you can set the 'openssl.cafile' PHP
 ini setting to point to the path to the file, allowing you to omit the 'verify'
-request option. See http://curl.haxx.se/docs/sslcerts.html for more
+request option. See https://curl.haxx.se/docs/sslcerts.html for more
 information.
 S
     );
 }
 
-function normalize_header_keys(array $headers)
+function normalize_header_keys(array $headers): array
 {
     $result = [];
     foreach (array_keys($headers) as $key) {
@@ -129,7 +129,7 @@ function normalize_header_keys(array $headers)
     return $result;
 }
 
-function is_host_in_noproxy($host, array $noProxyArray)
+function is_host_in_noproxy($host, array $noProxyArray): bool
 {
     if (strlen($host) === 0) {
         throw new InvalidArgumentException('Empty host provided');
@@ -163,7 +163,7 @@ function json_decode($json, $assoc = false, $depth = 512, $options = 0)
     return $data;
 }
 
-function json_encode($value, $options = 0, $depth = 512)
+function json_encode($value, $options = 0, $depth = 512): bool|string
 {
     $json = \json_encode($value, $options, $depth);
     if (JSON_ERROR_NONE !== json_last_error()) {

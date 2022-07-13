@@ -40,6 +40,20 @@ class FileStorage
         return $this;
     }
 
+    protected function initStorage($name)
+    {
+
+        $config = $this->config[$name];
+        $adapter = new \ReflectionClass($config['adapter']);
+        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
+
+        if (isset($config['mount']) && $config['mount']) {
+            $this->manager->mountFilesystem($name, $this->storages[$name]);
+        }
+
+        return $this->storages[$name];
+    }
+
     public function use($name)
     {
 
@@ -72,19 +86,5 @@ class FileStorage
     {
 
         return call_user_func_array([$this->manager, $name], $args);
-    }
-
-    protected function initStorage($name)
-    {
-
-        $config = $this->config[$name];
-        $adapter = new \ReflectionClass($config['adapter']);
-        $this->storages[$name] = new Filesystem($adapter->newInstanceArgs($config['args'] ?: []));
-
-        if (isset($config['mount']) && $config['mount']) {
-            $this->manager->mountFilesystem($name, $this->storages[$name]);
-        }
-
-        return $this->storages[$name];
     }
 }

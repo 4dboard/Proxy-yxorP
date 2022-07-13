@@ -2,6 +2,7 @@
 
 namespace League\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use RuntimeException;
 use SplFileInfo;
 
@@ -14,7 +15,7 @@ class NotSupportedException extends RuntimeException implements FilesystemExcept
      *
      * @return static
      */
-    public static function forLink(SplFileInfo $file)
+    public static function forLink(SplFileInfo $file): static
     {
         $message = 'Links are not supported, encountered link at ';
 
@@ -28,7 +29,7 @@ class NotSupportedException extends RuntimeException implements FilesystemExcept
      *
      * @return static
      */
-    public static function forFtpSystemType($systemType)
+    #[Pure] public static function forFtpSystemType(string $systemType): static
     {
         $message = "The FTP system type '$systemType' is currently not supported.";
 

@@ -17,13 +17,13 @@ use function stream_get_contents;
 abstract class FunctionalTestCase extends BaseFunctionalTestCase
 {
     /** @var Bucket */
-    protected $bucket;
+    protected Bucket $bucket;
 
     /** @var Collection */
-    protected $chunksCollection;
+    protected Collection $chunksCollection;
 
     /** @var Collection */
-    protected $filesCollection;
+    protected Collection $filesCollection;
 
     public function setUp(): void
     {
@@ -41,7 +41,7 @@ abstract class FunctionalTestCase extends BaseFunctionalTestCase
      *
      * Note: this will seek to the beginning of the stream before reading.
      *
-     * @param string   $expectedContents
+     * @param string $expectedContents
      * @param resource $stream
      */
     protected function assertStreamContents(string $expectedContents, $stream): void

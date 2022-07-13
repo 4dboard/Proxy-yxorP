@@ -3,22 +3,23 @@
 namespace League\Flysystem;
 
 use Exception as BaseException;
+use JetBrains\PhpStorm\Pure;
 
 class FileNotFoundException extends Exception
 {
     /**
      * @var string
      */
-    protected $path;
+    protected string $path;
 
     /**
      * Constructor.
      *
-     * @param string     $path
-     * @param int        $code
-     * @param \Exception $previous
+     * @param string $path
+     * @param int $code
+     * @param BaseException|null $previous
      */
-    public function __construct($path, $code = 0, BaseException $previous = null)
+    #[Pure] public function __construct(string $path, int $code = 0, BaseException $previous = null)
     {
         $this->path = $path;
 
@@ -30,7 +31,7 @@ class FileNotFoundException extends Exception
      *
      * @return string
      */
-    public function getPath()
+    public function getPath(): string
     {
         return $this->path;
     }

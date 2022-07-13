@@ -22,16 +22,16 @@ class PumpStream implements StreamInterface
     private $source;
 
     /** @var int */
-    private $size;
+    private mixed $size;
 
     /** @var int */
-    private $tellPos = 0;
+    private int $tellPos = 0;
 
     /** @var array */
-    private $metadata;
+    private mixed $metadata;
 
     /** @var BufferStream */
-    private $buffer;
+    private BufferStream $buffer;
 
     /**
      * @param callable $source Source of the stream data. The callable MAY
@@ -46,8 +46,8 @@ class PumpStream implements StreamInterface
     public function __construct(callable $source, array $options = [])
     {
         $this->source = $source;
-        $this->size = isset($options['size']) ? $options['size'] : null;
-        $this->metadata = isset($options['metadata']) ? $options['metadata'] : [];
+        $this->size = $options['size'] ?? null;
+        $this->metadata = $options['metadata'] ?? [];
         $this->buffer = new BufferStream();
     }
 
@@ -76,12 +76,12 @@ class PumpStream implements StreamInterface
         return $this->size;
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->tellPos;
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return false;
     }
@@ -91,27 +91,27 @@ class PumpStream implements StreamInterface
         $this->seek(0);
     }
 
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         throw new RuntimeException('Cannot seek a PumpStream');
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return false;
     }
 
-    public function write($string)
+    public function write(string $string): int
     {
         throw new RuntimeException('Cannot write to a PumpStream');
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return true;
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         $result = '';
         while (!$this->eof()) {
@@ -121,12 +121,12 @@ class PumpStream implements StreamInterface
         return $result;
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return !$this->source;
     }
 
-    public function read($length)
+    public function read(int $length): string
     {
         $data = $this->buffer->read($length);
         $readLen = strlen($data);
@@ -157,12 +157,12 @@ class PumpStream implements StreamInterface
         }
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null)
     {
         if (!$key) {
             return $this->metadata;
         }
 
-        return isset($this->metadata[$key]) ? $this->metadata[$key] : null;
+        return $this->metadata[$key] ?? null;
     }
 }

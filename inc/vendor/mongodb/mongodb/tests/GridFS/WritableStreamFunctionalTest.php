@@ -13,7 +13,7 @@ use function str_repeat;
 class WritableStreamFunctionalTest extends FunctionalTestCase
 {
     /** @var CollectionWrapper */
-    private $collectionWrapper;
+    private CollectionWrapper $collectionWrapper;
 
     public function setUp(): void
     {
@@ -43,7 +43,7 @@ class WritableStreamFunctionalTest extends FunctionalTestCase
         new WritableStream($this->collectionWrapper, 'filename', $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -102,7 +102,7 @@ class WritableStreamFunctionalTest extends FunctionalTestCase
         $this->assertSameDocument(['md5' => $expectedMD5], $fileDocument);
     }
 
-    public function provideInputDataAndExpectedMD5()
+    public function provideInputDataAndExpectedMD5(): array
     {
         return [
             ['', 'd41d8cd98f00b204e9800998ecf8427e'],

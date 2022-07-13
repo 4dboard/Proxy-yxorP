@@ -25,7 +25,7 @@ class DistinctTest extends TestCase
         new Distinct($this->getDatabaseName(), $this->getCollectionName(), 'x', [], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

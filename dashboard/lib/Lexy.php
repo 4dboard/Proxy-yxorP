@@ -71,31 +71,6 @@ class Lexy
     }
 
     /**
-     * [render_file description]
-     * @param  [type]  $file    [description]
-     * @param array $params [description]
-     * @param boolean $sandbox [description]
-     * @return [type]           [description]
-     */
-    public static function render_file($file, $params = array(), $sandbox = false)
-    {
-
-        $obj = new self();
-
-        return $obj->file($file, $params, $sandbox);
-    }
-
-    /**
-     * [setcachePath description]
-     *
-     * @param  [type]  $path    [description]
-     */
-    public function setCachePath($path)
-    {
-        $this->cachePath = is_string($path) ? rtrim($path, "/\\") : $path;
-    }
-
-    /**
      * [execute description]
      * @param  [type]  $content [description]
      * @param array $params [description]
@@ -115,6 +90,21 @@ class Lexy
         $output = ob_get_clean();
 
         return $output;
+    }
+
+    /**
+     * [render_file description]
+     * @param  [type]  $file    [description]
+     * @param array $params [description]
+     * @param boolean $sandbox [description]
+     * @return [type]           [description]
+     */
+    public static function render_file($file, $params = array(), $sandbox = false)
+    {
+
+        $obj = new self();
+
+        return $obj->file($file, $params, $sandbox);
     }
 
     /**
@@ -145,30 +135,6 @@ class Lexy
 
 
         return $this->execute(file_get_contents($file), $params, $sandbox, $file);
-    }
-
-    /**
-     * [parse description]
-     * @param  [type]  $text    [description]
-     * @param boolean $sandbox [description]
-     * @return [type]           [description]
-     */
-    public function parse($text, $sandbox = false, $srcinfo = null)
-    {
-
-        $this->srcinfo = $srcinfo;
-
-        return $this->compile($text, $sandbox);
-    }
-
-    public function allowCall($call)
-    {
-        $this->allowed_calls[] = $call;
-    }
-
-    public function extend($compiler)
-    {
-        $this->extensions[] = $compiler;
     }
 
     protected function get_cached_file($file, $sandbox)
@@ -207,6 +173,20 @@ class Lexy
         }
 
         return false;
+    }
+
+    /**
+     * [parse description]
+     * @param  [type]  $text    [description]
+     * @param boolean $sandbox [description]
+     * @return [type]           [description]
+     */
+    public function parse($text, $sandbox = false, $srcinfo = null)
+    {
+
+        $this->srcinfo = $srcinfo;
+
+        return $this->compile($text, $sandbox);
     }
 
     /**
@@ -337,6 +317,26 @@ class Lexy
         }
 
         return count($errors) ? $errors : false;
+    }
+
+    /**
+     * [setcachePath description]
+     *
+     * @param  [type]  $path    [description]
+     */
+    public function setCachePath($path)
+    {
+        $this->cachePath = is_string($path) ? rtrim($path, "/\\") : $path;
+    }
+
+    public function allowCall($call)
+    {
+        $this->allowed_calls[] = $call;
+    }
+
+    public function extend($compiler)
+    {
+        $this->extensions[] = $compiler;
     }
 
     /* COMPILERS */

@@ -29,7 +29,7 @@ $app->on('admin.init', function () {
     $this->bindClass('Collections\\Controller\\Utils', 'collections/utils');
     $this->bindClass('Collections\\Controller\\Admin', 'collections');
 
-    $active = strpos($this['route'], '/collections') === 0;
+    $active = str_starts_with($this['route'], '/collections');
 
     // add to modules menu
     $this->helper('admin')->addMenuItem('modules', [
@@ -54,7 +54,7 @@ $app->on('admin.init', function () {
 
                 $list[] = [
                     'icon' => 'database',
-                    'title' => $meta['label'] ? $meta['label'] : $meta['name'],
+                    'title' => $meta['label'] ?: $meta['name'],
                     'url' => $this->routeUrl('/collections/entries/' . $meta['name'])
                 ];
             }
@@ -97,7 +97,7 @@ $app->on('admin.init', function () {
                      'collections.save.before.{$name}',
                      'collections.updatecollection',
                      'collections.updatecollection.{$name}'
-                 ] as &$evt) {
+                 ] as $evt) {
             $triggers[] = $evt;
         }
     });
@@ -109,7 +109,7 @@ $app->on('admin.init', function () {
         $collections = $this->module('collections')->collections();
         $filter = ($this->storage->type == 'mongolite') ?
             function ($doc) use ($id) {
-                return strpos(json_encode($doc), $id) !== false;
+                return str_contains(json_encode($doc), $id);
             }
             :
             ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"];
@@ -120,7 +120,7 @@ $app->on('admin.init', function () {
 
             foreach ($items as $k => &$v) {
                 if (!is_array($v)) continue;
-                if (is_array($items[$k])) $items[$k] = $update($items[$k]);
+                if (is_array($v)) $items[$k] = $update($v);
                 if (isset($v['_id']) && $v['_id'] == $id) $items[$k] = $asset;
             }
             return $items;

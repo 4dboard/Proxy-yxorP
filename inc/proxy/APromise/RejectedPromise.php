@@ -2,6 +2,8 @@
 
 namespace yxorP\inc\proxy\Promise;
 
+use Throwable;
+
 /**
  * A promise that has been rejected.
  *
@@ -22,7 +24,7 @@ class RejectedPromise implements PromiseInterface
         $this->reason = $reason;
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): PromiseInterface|Promise|static
     {
         return $this->then(null, $onRejected);
     }
@@ -30,7 +32,7 @@ class RejectedPromise implements PromiseInterface
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    )
+    ): Promise|PromiseInterface|static
     {
         // If there's no onRejected callback then just return self.
         if (!$onRejected) {
@@ -45,10 +47,7 @@ class RejectedPromise implements PromiseInterface
                 try {
                     // Return a resolved promise if onRejected does not throw.
                     $p->resolve($onRejected($reason));
-                } catch (Throwable $e) {
-                    // onRejected threw, so return a rejected promise.
-                    $p->reject($e);
-                } catch (Exception $e) {
+                } catch (Throwable|Exception $e) {
                     // onRejected threw, so return a rejected promise.
                     $p->reject($e);
                 }
@@ -58,24 +57,24 @@ class RejectedPromise implements PromiseInterface
         return $p;
     }
 
-    public function wait($unwrap = true, $defaultDelivery = null)
+    public function wait(bool $unwrap = true)
     {
         if ($unwrap) {
             throw exception_for($this->reason);
         }
     }
 
-    public function getState()
+    public function getState(): string
     {
         return self::REJECTED;
     }
 
-    public function resolve($value)
+    public function resolve(mixed $value)
     {
         throw new LogicException("Cannot resolve a rejected promise");
     }
 
-    public function reject($reason)
+    public function reject(mixed $reason)
     {
         if ($reason !== $this->reason) {
             throw new LogicException("Cannot reject a rejected promise");

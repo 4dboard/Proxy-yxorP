@@ -7,15 +7,15 @@ class OverridingExtensionToMimeTypeMap implements ExtensionToMimeTypeMap
     /**
      * @var ExtensionToMimeTypeMap
      */
-    private $innerMap;
+    private ExtensionToMimeTypeMap $innerMap;
 
     /**
      * @var string[]
      */
-    private $overrides;
+    private array $overrides;
 
     /**
-     * @param array<string, string>  $overrides
+     * @param array<string, string> $overrides
      */
     public function __construct(ExtensionToMimeTypeMap $innerMap, array $overrides)
     {

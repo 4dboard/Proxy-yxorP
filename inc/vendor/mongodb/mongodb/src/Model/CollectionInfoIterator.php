@@ -36,5 +36,5 @@ interface CollectionInfoIterator extends Iterator
      * @return CollectionInfo
      */
     #[ReturnTypeWillChange]
-    public function current();
+    public function current(): CollectionInfo;
 }

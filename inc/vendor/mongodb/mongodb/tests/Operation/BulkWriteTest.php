@@ -98,7 +98,7 @@ class BulkWriteTest extends TestCase
         ]);
     }
 
-    public function provideInvalidDocumentValues()
+    public function provideInvalidDocumentValues(): array
     {
         return $this->wrapValuesForDataProvider($this->getInvalidDocumentValues());
     }
@@ -211,7 +211,7 @@ class BulkWriteTest extends TestCase
         ]);
     }
 
-    public function provideInvalidBooleanValues()
+    public function provideInvalidBooleanValues(): array
     {
         return $this->wrapValuesForDataProvider($this->getInvalidBooleanValues());
     }
@@ -404,7 +404,7 @@ class BulkWriteTest extends TestCase
         );
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

@@ -2,6 +2,7 @@
 
 namespace League\Flysystem\Util;
 
+use JetBrains\PhpStorm\Pure;
 use League\Flysystem\Util;
 
 /**
@@ -12,23 +13,23 @@ class ContentListingFormatter
     /**
      * @var string
      */
-    private $directory;
+    private string $directory;
 
     /**
      * @var bool
      */
-    private $recursive;
+    private bool $recursive;
 
     /**
      * @var bool
      */
-    private $caseSensitive;
+    private mixed $caseSensitive;
 
     /**
      * @param string $directory
-     * @param bool   $recursive
+     * @param bool $recursive
      */
-    public function __construct($directory, $recursive, $caseSensitive = true)
+    public function __construct(string $directory, bool $recursive, $caseSensitive = true)
     {
         $this->directory = rtrim($directory, '/');
         $this->recursive = $recursive;
@@ -42,14 +43,28 @@ class ContentListingFormatter
      *
      * @return array
      */
-    public function formatListing(array $listing)
+    public function formatListing(array $listing): array
     {
         $listing = array_filter(array_map([$this, 'addPathInfo'], $listing), [$this, 'isEntryOutOfScope']);
 
         return $this->sortListing(array_values($listing));
     }
 
-    private function addPathInfo(array $entry)
+    /**
+     * @param array $listing
+     *
+     * @return array
+     */
+    private function sortListing(array $listing): array
+    {
+        usort($listing, function ($a, $b) {
+            return strcasecmp($a['path'], $b['path']);
+        });
+
+        return $listing;
+    }
+
+    private function addPathInfo(array $entry): array|string
     {
         return $entry + Util::pathinfo($entry['path']);
     }
@@ -61,7 +76,7 @@ class ContentListingFormatter
      *
      * @return bool
      */
-    private function isEntryOutOfScope(array $entry)
+    #[Pure] private function isEntryOutOfScope(array $entry): bool
     {
         if (empty($entry['path']) && $entry['path'] !== '0') {
             return false;
@@ -81,14 +96,14 @@ class ContentListingFormatter
      *
      * @return bool
      */
-    private function residesInDirectory(array $entry)
+    private function residesInDirectory(array $entry): bool
     {
         if ($this->directory === '') {
             return true;
         }
 
         return $this->caseSensitive
-            ? strpos($entry['path'], $this->directory . '/') === 0
+            ? str_starts_with($entry['path'], $this->directory . '/')
             : stripos($entry['path'], $this->directory . '/') === 0;
     }
 
@@ -99,24 +114,10 @@ class ContentListingFormatter
      *
      * @return bool
      */
-    private function isDirectChild(array $entry)
+    private function isDirectChild(array $entry): bool
     {
         return $this->caseSensitive
             ? $entry['dirname'] === $this->directory
             : strcasecmp($this->directory, $entry['dirname']) === 0;
-    }
-
-    /**
-     * @param array $listing
-     *
-     * @return array
-     */
-    private function sortListing(array $listing)
-    {
-        usort($listing, function ($a, $b) {
-            return strcasecmp($a['path'], $b['path']);
-        });
-
-        return $listing;
     }
 }

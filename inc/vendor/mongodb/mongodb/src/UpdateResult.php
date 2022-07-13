@@ -26,10 +26,10 @@ use MongoDB\Exception\BadMethodCallException;
 class UpdateResult
 {
     /** @var WriteResult */
-    private $writeResult;
+    private WriteResult $writeResult;
 
     /** @var boolean */
-    private $isAcknowledged;
+    private bool $isAcknowledged;
 
     public function __construct(WriteResult $writeResult)
     {
@@ -42,11 +42,11 @@ class UpdateResult
      *
      * This method should only be called if the write was acknowledged.
      *
-     * @see UpdateResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
+     * @see UpdateResult::isAcknowledged()
      */
-    public function getMatchedCount()
+    public function getMatchedCount(): int
     {
         if ($this->isAcknowledged) {
             return $this->writeResult->getMatchedCount();
@@ -63,11 +63,11 @@ class UpdateResult
      *
      * This method should only be called if the write was acknowledged.
      *
-     * @see UpdateResult::isAcknowledged()
      * @return integer|null
      * @throws BadMethodCallException is the write result is unacknowledged
+     * @see UpdateResult::isAcknowledged()
      */
-    public function getModifiedCount()
+    public function getModifiedCount(): ?int
     {
         if ($this->isAcknowledged) {
             return $this->writeResult->getModifiedCount();
@@ -81,11 +81,11 @@ class UpdateResult
      *
      * This method should only be called if the write was acknowledged.
      *
-     * @see UpdateResult::isAcknowledged()
      * @return integer
      * @throws BadMethodCallException is the write result is unacknowledged
+     * @see UpdateResult::isAcknowledged()
      */
-    public function getUpsertedCount()
+    public function getUpsertedCount(): int
     {
         if ($this->isAcknowledged) {
             return $this->writeResult->getUpsertedCount();
@@ -105,11 +105,11 @@ class UpdateResult
      *
      * This method should only be called if the write was acknowledged.
      *
-     * @see UpdateResult::isAcknowledged()
      * @return mixed|null
      * @throws BadMethodCallException is the write result is unacknowledged
+     * @see UpdateResult::isAcknowledged()
      */
-    public function getUpsertedId()
+    public function getUpsertedId(): mixed
     {
         if ($this->isAcknowledged) {
             foreach ($this->writeResult->getUpsertedIds() as $id) {
@@ -131,7 +131,7 @@ class UpdateResult
      *
      * @return boolean
      */
-    public function isAcknowledged()
+    public function isAcknowledged(): bool
     {
         return $this->isAcknowledged;
     }

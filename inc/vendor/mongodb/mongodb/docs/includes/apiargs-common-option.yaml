@@ -2,12 +2,12 @@ arg_name: option
 name: collation
 type: array|object
 description: |
-   :manual:`Collation </reference/collation>` allows users to specify
-   language-specific rules for string comparison, such as rules for lettercase
-   and accent marks. When specifying collation, the ``locale`` field is
-   mandatory; all other collation fields are optional. For descriptions of the
-   fields, see :manual:`Collation Document
-   </reference/collation/#collation-document>`.
+  :manual:`Collation </reference/collation>` allows users to specify
+  language-specific rules for string comparison, such as rules for lettercase
+  and accent marks. When specifying collation, the ``locale`` field is
+  mandatory; all other collation fields are optional. For descriptions of the
+  fields, see :manual:`Collation Document
+  </reference/collation/#collation-document>`.
 interface: phpmethod
 operation: ~
 optional: true
@@ -27,9 +27,9 @@ arg_name: option
 name: maxTimeMS
 type: integer
 description: |
-   The cumulative time limit in milliseconds for processing operations on the
-   cursor. MongoDB aborts the operation at the earliest following
-   :term:`interrupt point`.
+  The cumulative time limit in milliseconds for processing operations on the
+  cursor. MongoDB aborts the operation at the earliest following
+  :term:`interrupt point`.
 interface: phpmethod
 operation: ~
 optional: true

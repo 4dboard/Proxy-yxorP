@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="{{ $app('i18n')->locale }}" class="uk-height-1-1 app-page-forgetpassword" data-base="@base('/')" data-route="@route('/')" data-locale="{{ $app('i18n')->locale }}">
+<html lang="{{ $app('i18n')->locale }}" class="uk-height-1-1 app-page-forgetpassword" data-base="@base('/')"
+      data-route="@route('/')" data-locale="{{ $app('i18n')->locale }}">
 <head>
     <meta charset="UTF-8">
     <title>@lang('Password Reset!')</title>
     <link rel="icon" href="@base('/favicon.png')" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     {{ $app->assets($app['app.assets.base'], $app['yxorp/version']) }}
     {{ $app->assets(['assets:lib/uikit/js/components/form-password.min.js'], $app['yxorp/version']) }}
@@ -34,50 +35,57 @@
 </head>
 <body class="passwordreset-page uk-height-viewport uk-flex uk-flex-middle uk-flex-center">
 
-    <div class="uk-position-relative container uk-animation-scale" riot-view>
+<div class="uk-position-relative container uk-animation-scale" riot-view>
 
-        <form class="uk-form" method="post" action="@route('/auth/check')" onsubmit="{ submit }">
+    <form class="uk-form" method="post" action="@route('/auth/check')" onsubmit="{ submit }">
 
-            <div id="reset-dialog" class="reset-dialog uk-panel-box uk-panel-space uk-panel-card uk-nbfc" show="{!$user}">
+        <div id="reset-dialog" class="reset-dialog uk-panel-box uk-panel-space uk-panel-card uk-nbfc" show="{!$user}">
 
-                <div name="header" class="uk-panel-box-header uk-text-bold uk-text-center">
+            <div name="header" class="uk-panel-box-header uk-text-bold uk-text-center">
 
-                    <p>
-                        <img src="@url('assets:app/media/icons/password-reset.svg')" width="80" height="80" alt="" />
-                    </p>
+                <p>
+                    <img src="@url('assets:app/media/icons/password-reset.svg')" width="80" height="80" alt=""/>
+                </p>
 
-                    <h2 class="uk-text-bold uk-text-truncate"><span>{{ $app['app.name'] }}</span></h2>
+                <h2 class="uk-text-bold uk-text-truncate"><span>{{ $app['app.name'] }}</span></h2>
 
-                    <p class="uk-text-bold">@lang('Password Recovery')</p>
+                <p class="uk-text-bold">@lang('Password Recovery')</p>
 
-                    <div class="uk-animation-shake uk-margin-top" if="{ error }">
-                        <strong>{ error }</strong>
-                    </div>
-
-                    <div class="uk-animation-shake uk-margin-top" if="{ message }">
-                        <strong>{ message }</strong>
-                    </div>
+                <div class="uk-animation-shake uk-margin-top" if="{ error }">
+                    <strong>{ error }</strong>
                 </div>
 
-                <div class="uk-alert uk-alert-success uk-text-center uk-animation-slide-bottom" if="{ reset }">
-                    @lang('Please check your email-inbox.')
-                </div>
-
-                <div class="uk-form-row" show="{ !reset }">
-                    <input ref="user" class="uk-form-large uk-width-1-1 uk-text-center" type="text" placeholder="@lang('Username or Email')" autofocus required>
-                </div>
-
-                <div class="uk-margin-large-top" show="{ !reset }">
-                    <button class="uk-button uk-button-outline uk-button-large uk-text-primary uk-width-1-1">@lang('Reset')</button>
+                <div class="uk-animation-shake uk-margin-top" if="{ message }">
+                    <strong>{ message }</strong>
                 </div>
             </div>
 
-            <p class="uk-text-center"><a class="uk-button uk-button-link uk-link-muted" href="{{ $app->retrieve('yxorp.login.url', $app->routeUrl('/auth/login')) }}">@lang('Back to Login')</a></p>
+            <div class="uk-alert uk-alert-success uk-text-center uk-animation-slide-bottom" if="{ reset }">
+                @lang('Please check your email-inbox.')
+            </div>
 
-        </form>
+            <div class="uk-form-row" show="{ !reset }">
+                <label>
+                    <input ref="user" class="uk-form-large uk-width-1-1 uk-text-center" type="text"
+                           placeholder="@lang('Username or Email')" autofocus required>
+                </label>
+            </div>
+
+            <div class="uk-margin-large-top" show="{ !reset }">
+                <button class="uk-button uk-button-outline uk-button-large uk-text-primary uk-width-1-1">
+                    @lang('Reset')
+                </button>
+            </div>
+        </div>
+
+        <p class="uk-text-center"><a class="uk-button uk-button-link uk-link-muted"
+                                     href="{{ $app->retrieve('yxorp.login.url', $app->routeUrl('/auth/login')) }}">@lang('Back
+                to Login')</a></p>
+
+    </form>
 
 
-        <script type="view/script">
+    <script type="view/script">
 
             this.error = false;
             this.reset = false;
@@ -113,9 +121,11 @@
                 return false;
             }
 
-        </script>
 
-    </div>
+
+    </script>
+
+</div>
 
 </body>
 </html>

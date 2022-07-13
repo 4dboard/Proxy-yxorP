@@ -35,12 +35,12 @@ use Traversable;
 class CollectionInfoCommandIterator extends IteratorIterator implements CollectionInfoIterator
 {
     /** @var string|null */
-    private $databaseName;
+    private ?string $databaseName;
 
     /**
      * @param string|null $databaseName
      */
-    public function __construct(Traversable $iterator, $databaseName = null)
+    public function __construct(Traversable $iterator, string $databaseName = null)
     {
         parent::__construct($iterator);
 
@@ -50,16 +50,16 @@ class CollectionInfoCommandIterator extends IteratorIterator implements Collecti
     /**
      * Return the current element as a CollectionInfo instance.
      *
-     * @see CollectionInfoIterator::current()
-     * @see http://php.net/iterator.current
      * @return CollectionInfo
+     * @see http://php.net/iterator.current
+     * @see CollectionInfoIterator::current()
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): CollectionInfo
     {
         $info = parent::current();
 
-        if ($this->databaseName !== null && isset($info['idIndex']) && ! isset($info['idIndex']['ns'])) {
+        if ($this->databaseName !== null && isset($info['idIndex']) && !isset($info['idIndex']['ns'])) {
             $info['idIndex']['ns'] = $this->databaseName . '.' . $info['name'];
         }
 

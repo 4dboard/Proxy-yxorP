@@ -2,6 +2,9 @@
 
 namespace yxorP\inc\proxy\Psr7;
 
+use Exception;
+use InvalidArgumentException;
+use RuntimeException;
 use yxorP\inc\psr\Http\Message\StreamInterface;
 
 /**
@@ -12,11 +15,11 @@ use yxorP\inc\psr\Http\Message\StreamInterface;
 class AppendStream implements StreamInterface
 {
     /** @var StreamInterface[] Streams being decorated */
-    private $streams = [];
+    private array $streams = [];
 
-    private $seekable = true;
-    private $current = 0;
-    private $pos = 0;
+    private bool $seekable = true;
+    private int $current = 0;
+    private int $pos = 0;
 
     /**
      * @param StreamInterface[] $streams Streams to decorate. Each stream must
@@ -34,12 +37,12 @@ class AppendStream implements StreamInterface
      *
      * @param StreamInterface $stream Stream to append. Must be readable.
      *
-     * @throws \InvalidArgumentException if the stream is not readable
+     * @throws InvalidArgumentException if the stream is not readable
      */
     public function addStream(StreamInterface $stream)
     {
         if (!$stream->isReadable()) {
-            throw new \InvalidArgumentException('Each stream must be readable');
+            throw new InvalidArgumentException('Each stream must be readable');
         }
 
         // The stream is only seekable if all streams are seekable
@@ -50,12 +53,12 @@ class AppendStream implements StreamInterface
         $this->streams[] = $stream;
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return true;
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return $this->seekable;
     }
@@ -65,7 +68,7 @@ class AppendStream implements StreamInterface
         try {
             $this->rewind();
             return $this->getContents();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             return '';
         }
     }
@@ -80,12 +83,12 @@ class AppendStream implements StreamInterface
      *
      * {@inheritdoc}
      */
-    public function seek($offset, $whence = SEEK_SET)
+    public function seek(int $offset, int $whence = SEEK_SET)
     {
         if (!$this->seekable) {
-            throw new \RuntimeException('This AppendStream is not seekable');
+            throw new RuntimeException('This AppendStream is not seekable');
         } elseif ($whence !== SEEK_SET) {
-            throw new \RuntimeException('The AppendStream can only seek with SEEK_SET');
+            throw new RuntimeException('The AppendStream can only seek with SEEK_SET');
         }
 
         $this->pos = $this->current = 0;
@@ -94,8 +97,8 @@ class AppendStream implements StreamInterface
         foreach ($this->streams as $i => $stream) {
             try {
                 $stream->rewind();
-            } catch (\Exception $e) {
-                throw new \RuntimeException('Unable to seek stream '
+            } catch (Exception $e) {
+                throw new RuntimeException('Unable to seek stream '
                     . $i . ' of the AppendStream', 0, $e);
             }
         }
@@ -109,7 +112,7 @@ class AppendStream implements StreamInterface
         }
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return !$this->streams ||
             ($this->current >= count($this->streams) - 1 &&
@@ -121,7 +124,7 @@ class AppendStream implements StreamInterface
      *
      * {@inheritdoc}
      */
-    public function read($length)
+    public function read(int $length): string
     {
         $buffer = '';
         $total = count($this->streams) - 1;
@@ -156,7 +159,7 @@ class AppendStream implements StreamInterface
         return $buffer;
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return copy_to_string($this);
     }
@@ -197,7 +200,7 @@ class AppendStream implements StreamInterface
         $this->streams = [];
     }
 
-    public function tell()
+    public function tell(): int
     {
         return $this->pos;
     }
@@ -210,7 +213,7 @@ class AppendStream implements StreamInterface
      *
      * {@inheritdoc}
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         $size = 0;
 
@@ -225,17 +228,17 @@ class AppendStream implements StreamInterface
         return $size;
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return false;
     }
 
-    public function write($string)
+    public function write(string $string): int
     {
-        throw new \RuntimeException('Cannot write to an AppendStream');
+        throw new RuntimeException('Cannot write to an AppendStream');
     }
 
-    public function getMetadata($key = null)
+    public function getMetadata(string $key = null): ?array
     {
         return $key ? null : [];
     }

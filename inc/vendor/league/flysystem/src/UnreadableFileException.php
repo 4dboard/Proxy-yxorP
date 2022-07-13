@@ -6,7 +6,7 @@ use SplFileInfo;
 
 class UnreadableFileException extends Exception
 {
-    public static function forFileInfo(SplFileInfo $fileInfo)
+    public static function forFileInfo(SplFileInfo $fileInfo): static
     {
         return new static(
             sprintf(

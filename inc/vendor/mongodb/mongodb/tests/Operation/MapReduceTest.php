@@ -22,7 +22,7 @@ class MapReduceTest extends TestCase
         new MapReduce($this->getDatabaseName(), $this->getCollectionName(), $map, $reduce, $out);
     }
 
-    public function provideInvalidOutValues()
+    public function provideInvalidOutValues(): array
     {
         return $this->wrapValuesForDataProvider([123, 3.14, true]);
     }
@@ -40,7 +40,7 @@ class MapReduceTest extends TestCase
         new MapReduce($this->getDatabaseName(), $this->getCollectionName(), $map, $reduce, $out, $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -107,7 +107,7 @@ class MapReduceTest extends TestCase
         return $options;
     }
 
-    private function getInvalidJavascriptValues()
+    private function getInvalidJavascriptValues(): array
     {
         return [123, 3.14, 'foo', true, [], new stdClass(), new ObjectId()];
     }

@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\UnifiedSpecTests\Constraint;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\BSON\Binary;
 use MongoDB\BSON\Decimal128;
 use MongoDB\BSON\Javascript;
@@ -34,7 +35,12 @@ class IsBsonTypeTest extends TestCase
         $this->assertResult(true, new IsBsonType($type), $value, $this->dataName() . ' is ' . $type);
     }
 
-    public function provideTypes()
+    private function assertResult($expected, Constraint $constraint, $value, string $message = ''): void
+    {
+        $this->assertSame($expected, $constraint->evaluate($value, '', true), $message);
+    }
+
+    public function provideTypes(): array
     {
         $undefined = toPHP(fromJSON('{ "undefined": {"$undefined": true} }'));
         $symbol = toPHP(fromJSON('{ "symbol": {"$symbol": "test"} }'));
@@ -150,18 +156,13 @@ class IsBsonTypeTest extends TestCase
         $this->assertResult(false, $c, 1, 'integer is not javascriptWithScope');
         $this->assertResult(false, $c, new Javascript('foo = 1;'), 'javascript is not javascriptWithScope');
     }
-
-    private function assertResult($expected, Constraint $constraint, $value, string $message = ''): void
-    {
-        $this->assertSame($expected, $constraint->evaluate($value, '', true), $message);
-    }
 }
 
 // phpcs:disable PSR1.Classes.ClassDeclaration.MultipleClasses
 // phpcs:disable Squiz.Classes.ClassFileName.NoMatch
 class SerializableArray implements Serializable
 {
-    public function bsonSerialize()
+    public function bsonSerialize(): array
     {
         return ['foo'];
     }
@@ -169,7 +170,7 @@ class SerializableArray implements Serializable
 
 class SerializableObject implements Serializable
 {
-    public function bsonSerialize()
+    #[ArrayShape(['x' => "int"])] public function bsonSerialize(): array
     {
         return ['x' => 1];
     }

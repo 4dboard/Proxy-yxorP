@@ -7,7 +7,7 @@ class Ftpd extends Ftp
     /**
      * @inheritdoc
      */
-    public function getMetadata($path)
+    public function getMetadata($path): array|bool
     {
         if ($path === '') {
             return ['type' => 'dir', 'path' => ''];
@@ -21,11 +21,11 @@ class Ftpd extends Ftp
 
         $object = ftp_raw($this->getConnection(), 'STAT ' . $this->escapePath($path));
 
-        if ( ! $object || count($object) < 3) {
+        if (!$object || count($object) < 3) {
             return false;
         }
 
-        if (substr($object[1], 0, 5) === "ftpd:") {
+        if (str_starts_with($object[1], "ftpd:")) {
             return false;
         }
 
@@ -35,11 +35,11 @@ class Ftpd extends Ftp
     /**
      * @inheritdoc
      */
-    protected function listDirectoryContents($directory, $recursive = true)
+    protected function listDirectoryContents($directory, $recursive = true): array
     {
         $listing = ftp_rawlist($this->getConnection(), $this->escapePath($directory), $recursive);
 
-        if ($listing === false || ( ! empty($listing) && substr($listing[0], 0, 5) === "ftpd:")) {
+        if ($listing === false || (!empty($listing) && str_starts_with($listing[0], "ftpd:"))) {
             return [];
         }
 

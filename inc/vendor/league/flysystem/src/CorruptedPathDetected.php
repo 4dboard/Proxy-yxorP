@@ -2,6 +2,7 @@
 
 namespace League\Flysystem;
 
+use JetBrains\PhpStorm\Pure;
 use LogicException;
 
 class CorruptedPathDetected extends LogicException implements FilesystemException
@@ -10,7 +11,7 @@ class CorruptedPathDetected extends LogicException implements FilesystemExceptio
      * @param string $path
      * @return CorruptedPathDetected
      */
-    public static function forPath($path)
+    #[Pure] public static function forPath(string $path): CorruptedPathDetected
     {
         return new CorruptedPathDetected("Corrupted path detected: " . $path);
     }

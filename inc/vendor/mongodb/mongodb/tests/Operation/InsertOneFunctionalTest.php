@@ -14,7 +14,7 @@ use MongoDB\Tests\CommandObserver;
 class InsertOneFunctionalTest extends FunctionalTestCase
 {
     /** @var Collection */
-    private $collection;
+    private Collection $collection;
 
     public function setUp(): void
     {
@@ -42,11 +42,11 @@ class InsertOneFunctionalTest extends FunctionalTestCase
         $this->assertSameDocuments($expected, $this->collection->find());
     }
 
-    public function provideDocumentWithExistingId()
+    public function provideDocumentWithExistingId(): array
     {
         return [
             [['_id' => 'foo', 'x' => 11]],
-            [(object) ['_id' => 'foo', 'x' => 11]],
+            [(object)['_id' => 'foo', 'x' => 11]],
             [new BSONDocument(['_id' => 'foo', 'x' => 11])],
         ];
     }
@@ -71,63 +71,72 @@ class InsertOneFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new InsertOne(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => 1],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new InsertOne(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => 1],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationSetWhenTrue(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new InsertOne(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => 1],
-                    ['bypassDocumentValidation' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new InsertOne(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => 1],
+                        ['bypassDocumentValidation' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-                $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                    $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationUnsetWhenFalse(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new InsertOne(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => 1],
-                    ['bypassDocumentValidation' => false]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new InsertOne(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => 1],
+                        ['bypassDocumentValidation' => false]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
-    public function testUnacknowledgedWriteConcern()
+    public function testUnacknowledgedWriteConcern(): InsertOneResult
     {
         $document = ['x' => 11];
         $options = ['writeConcern' => new WriteConcern(0)];

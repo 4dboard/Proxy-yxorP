@@ -2,9 +2,9 @@
   * copyright: https://github.com/atom/fuzzaldrin - https://github.com/atom/fuzzaldrin/blob/master/LICENSE.md
  */
 
-(function(global){
+(function (global) {
 
-    var filter, scorer, FuzzySearch;
+    let filter, scorer, FuzzySearch;
 
     /*
     Original ported from:
@@ -23,9 +23,9 @@
 
     scorer = {
 
-        basenameScore: function(string, query, score) {
+        basenameScore: function (string, query, score) {
 
-            var base = null, depth, index, lastCharacter, segmentCount, slashCount = 0;
+            let base = null, depth, index, lastCharacter, segmentCount, slashCount = 0;
 
             index = string.length - 1;
 
@@ -67,32 +67,33 @@
             }
 
             segmentCount = slashCount + 1;
-            depth        = Math.max(1, 10 - segmentCount);
-            score       *= depth * 0.01;
+            depth = Math.max(1, 10 - segmentCount);
+            score *= depth * 0.01;
 
             return score;
         },
 
-        score: function(string, query) {
+        score: function (string, query) {
 
-            var character, characterScore, indexInQuery, indexInString, lowerCaseIndex, minIndex, queryLength, queryScore, stringLength, totalCharacterScore, upperCaseIndex, _ref;
+            let character, characterScore, indexInQuery, indexInString, lowerCaseIndex, minIndex, queryLength,
+                queryScore, stringLength, totalCharacterScore, upperCaseIndex, _ref;
 
             if (string === query) {
                 return 1;
             }
 
             totalCharacterScore = 0;
-            queryLength         = query.length;
-            stringLength        = string.length;
-            indexInQuery        = 0;
-            indexInString       = 0;
+            queryLength = query.length;
+            stringLength = string.length;
+            indexInQuery = 0;
+            indexInString = 0;
 
             while (indexInQuery < queryLength) {
 
-                character      = query[indexInQuery++];
+                character = query[indexInQuery++];
                 lowerCaseIndex = string.indexOf(character.toLowerCase());
                 upperCaseIndex = string.indexOf(character.toUpperCase());
-                minIndex       = Math.min(lowerCaseIndex, upperCaseIndex);
+                minIndex = Math.min(lowerCaseIndex, upperCaseIndex);
 
                 if (minIndex === -1) {
                     minIndex = Math.max(lowerCaseIndex, upperCaseIndex);
@@ -125,9 +126,9 @@
         }
     };
 
-    filter = function(candidates, query, queryHasSlashes, _arg) {
+    filter = function (candidates, query, queryHasSlashes, _arg) {
 
-        var candidate, key, maxResults, score, scoredCandidate, scoredCandidates, string, _i, _len, _ref;
+        let candidate, key, maxResults, score, scoredCandidate, scoredCandidates, string, _i, _len, _ref;
 
         _ref = _arg != null ? _arg : {}, key = _ref.key, maxResults = _ref.maxResults;
 
@@ -155,12 +156,13 @@
                 }
             }
 
-            scoredCandidates.sort(function(a, b) {
+            scoredCandidates.sort(function (a, b) {
                 return b.score - a.score;
             });
 
-            candidates = (function() {
-                var _j, _len1, _results = [];
+            candidates = (function () {
+                let _j, _len1;
+                const _results = [];
 
                 for (_j = 0, _len1 = scoredCandidates.length; _j < _len1; _j++) {
                     scoredCandidate = scoredCandidates[_j];
@@ -179,21 +181,21 @@
 
     FuzzySearch = {
 
-        filter: function(candidates, query, options) {
+        filter: function (candidates, query, options) {
 
-            var queryHasSlashes;
+            let queryHasSlashes;
 
             if (query) {
                 queryHasSlashes = query.indexOf('/') !== -1;
-                query = query.replace(/\ /g, '');
+                query = query.replace(/ /g, '');
             }
 
             return filter(candidates, query, queryHasSlashes, options);
         },
 
-        score: function(string, query) {
+        score: function (string, query) {
 
-            var queryHasSlashes, score;
+            let queryHasSlashes, score;
 
             if (!string || !query) {
                 return 0;
@@ -204,8 +206,8 @@
             }
 
             queryHasSlashes = query.indexOf('/') !== -1;
-            query           = query.replace(/\ /g, '');
-            score           = scorer.score(string, query);
+            query = query.replace(/ /g, '');
+            score = scorer.score(string, query);
 
             if (!queryHasSlashes) {
                 score = scorer.basenameScore(string, query, score);
@@ -218,13 +220,15 @@
 
     // AMD support
     if (typeof define === 'function' && define.amd) {
-        define(function () { return FuzzySearch; });
-    // CommonJS and Node.js module support.
+        define(function () {
+            return FuzzySearch;
+        });
+        // CommonJS and Node.js module support.
     } else if (typeof exports !== 'undefined') {
         // Support Node.js specific `module.exports` (which can be a function)
         if (typeof module != 'undefined' && module.exports) {
-        exports = module.exports = FuzzySearch;
-    }
+            exports = module.exports = FuzzySearch;
+        }
         // But always support CommonJS module 1.1.1 spec (`exports` cannot be a function)
         exports.FuzzySearch = FuzzySearch;
     } else {

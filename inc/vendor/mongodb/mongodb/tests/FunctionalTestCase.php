@@ -7,6 +7,7 @@ use MongoDB\BSON\ObjectId;
 use MongoDB\Client;
 use MongoDB\Driver\Command;
 use MongoDB\Driver\Exception\CommandException;
+use MongoDB\Driver\Exception\Exception;
 use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 use MongoDB\Driver\ReadPreference;
@@ -47,38 +48,14 @@ use const INFO_MODULES;
 abstract class FunctionalTestCase extends TestCase
 {
     /** @var Manager */
-    protected $manager;
+    protected Manager $manager;
 
     /** @var array */
-    private $configuredFailPoints = [];
-
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        $this->manager = static::createTestManager();
-        $this->configuredFailPoints = [];
-    }
-
-    public function tearDown(): void
-    {
-        $this->disableFailPoints();
-
-        parent::tearDown();
-    }
+    private array $configuredFailPoints = [];
 
     public static function createTestClient(?string $uri = null, array $options = [], array $driverOptions = []): Client
     {
         return new Client(
-            $uri ?? static::getUri(),
-            static::appendAuthenticationOptions($options),
-            static::appendServerApiOption($driverOptions)
-        );
-    }
-
-    public static function createTestManager(?string $uri = null, array $options = [], array $driverOptions = []): Manager
-    {
-        return new Manager(
             $uri ?? static::getUri(),
             static::appendAuthenticationOptions($options),
             static::appendServerApiOption($driverOptions)
@@ -146,11 +123,211 @@ abstract class FunctionalTestCase extends TestCase
         return implode('', $parts);
     }
 
+    public static function createTestManager(?string $uri = null, array $options = [], array $driverOptions = []): Manager
+    {
+        return new Manager(
+            $uri ?? static::getUri(),
+            static::appendAuthenticationOptions($options),
+            static::appendServerApiOption($driverOptions)
+        );
+    }
+
+    private static function appendAuthenticationOptions(array $options): array
+    {
+        if (isset($options['username']) || isset($options['password'])) {
+            return $options;
+        }
+
+        $username = getenv('MONGODB_USERNAME') ?: null;
+        $password = getenv('MONGODB_PASSWORD') ?: null;
+
+        if ($username !== null) {
+            $options['username'] = $username;
+        }
+
+        if ($password !== null) {
+            $options['password'] = $password;
+        }
+
+        return $options;
+    }
+
+    private static function appendServerApiOption(array $driverOptions): array
+    {
+        if (getenv('API_VERSION') && !isset($driverOptions['serverApi'])) {
+            $driverOptions['serverApi'] = new ServerApi(getenv('API_VERSION'));
+        }
+
+        return $driverOptions;
+    }
+
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        $this->manager = static::createTestManager();
+        $this->configuredFailPoints = [];
+    }
+
+    public function tearDown(): void
+    {
+        $this->disableFailPoints();
+
+        parent::tearDown();
+    }
+
+    /**
+     * Disables any fail points that were configured earlier in the test.
+     *
+     * This tracks fail points set via configureFailPoint() and should be called
+     * during tearDown().
+     */
+    private function disableFailPoints(): void
+    {
+        if (empty($this->configuredFailPoints)) {
+            return;
+        }
+
+        foreach ($this->configuredFailPoints as [$failPoint, $server]) {
+            $operation = new DatabaseCommand('admin', ['configureFailPoint' => $failPoint, 'mode' => 'off']);
+            $operation->execute($server);
+        }
+    }
+
+    /**
+     * Configure a fail point for the test.
+     *
+     * The fail point will automatically be disabled during tearDown() to avoid
+     * affecting a subsequent test.
+     *
+     * @param array|stdClass $command configureFailPoint command document
+     * @throws InvalidArgumentException if $command is not a configureFailPoint command
+     */
+    public function configureFailPoint(array|stdClass $command, ?Server $server = null): void
+    {
+        if (!$this->isFailCommandSupported()) {
+            $this->markTestSkipped('failCommand is only supported on mongod >= 4.0.0 and mongos >= 4.1.5.');
+        }
+
+        if (!$this->isFailCommandEnabled()) {
+            $this->markTestSkipped('The enableTestCommands parameter is not enabled.');
+        }
+
+        if (is_array($command)) {
+            $command = (object)$command;
+        }
+
+        if (!$command instanceof stdClass) {
+            throw new InvalidArgumentException('$command is not an array or stdClass instance');
+        }
+
+        if (key((array)$command) !== 'configureFailPoint') {
+            throw new InvalidArgumentException('$command is not a configureFailPoint command');
+        }
+
+        $failPointServer = $server ?: $this->getPrimaryServer();
+
+        $operation = new DatabaseCommand('admin', $command);
+        $cursor = $operation->execute($failPointServer);
+        $result = $cursor->toArray()[0];
+
+        $this->assertCommandSucceeded($result);
+
+        // Record the fail point so it can be disabled during tearDown()
+        $this->configuredFailPoints[] = [$command->configureFailPoint, $failPointServer];
+    }
+
+    /**
+     * Checks if the failCommand command is supported on this server version
+     *
+     * @return bool
+     */
+    private function isFailCommandSupported(): bool
+    {
+        $minVersion = $this->isShardedCluster() ? '4.1.5' : '4.0.0';
+
+        return version_compare($this->getServerVersion(), $minVersion, '>=');
+    }
+
+    protected function isShardedCluster(): bool
+    {
+        $type = $this->getPrimaryServer()->getType();
+
+        if ($type == Server::TYPE_MONGOS) {
+            return true;
+        }
+
+        // Assume that load balancers are properly configured and front sharded clusters
+        if ($type == Server::TYPE_LOAD_BALANCER) {
+            return true;
+        }
+
+        return false;
+    }
+
+    protected function getPrimaryServer(): Server
+    {
+        return $this->manager->selectServer(new ReadPreference(ReadPreference::RP_PRIMARY));
+    }
+
+    protected function getServerVersion(?ReadPreference $readPreference = null): array|string|null
+    {
+        try {
+            $buildInfo = $this->manager->executeCommand(
+                $this->getDatabaseName(),
+                new Command(['buildInfo' => 1]),
+                $readPreference ?: new ReadPreference(ReadPreference::RP_PRIMARY)
+            )->toArray()[0];
+        } catch (Exception $e) {
+        }
+
+        if (isset($buildInfo->version) && is_string($buildInfo->version)) {
+            return preg_replace('#^(\d+\.\d+\.\d+).*$#', '\1', $buildInfo->version);
+        }
+
+        throw new UnexpectedValueException('Could not determine server version');
+    }
+
+    /**
+     * Checks if the failCommand command is enabled by checking the enableTestCommands parameter
+     *
+     * @return bool
+     */
+    private function isFailCommandEnabled(): bool
+    {
+        try {
+            try {
+                $cursor = $this->manager->executeCommand(
+                    'admin',
+                    new Command(['getParameter' => 1, 'enableTestCommands' => 1])
+                );
+            } catch (Exception $e) {
+            }
+
+            $document = current($cursor->toArray());
+        } catch (CommandException $e) {
+            return false;
+        }
+
+        return isset($document->enableTestCommands) && $document->enableTestCommands === true;
+    }
+
+    protected function assertCommandSucceeded($document): void
+    {
+        $document = is_object($document) ? (array)$document : $document;
+
+        $this->assertArrayHasKey('ok', $document);
+        $this->assertEquals(1, $document['ok']);
+    }
+
     protected function assertCollectionCount($namespace, $count): void
     {
         [$databaseName, $collectionName] = explode('.', $namespace, 2);
 
-        $cursor = $this->manager->executeCommand($databaseName, new Command(['count' => $collectionName]));
+        try {
+            $cursor = $this->manager->executeCommand($databaseName, new Command(['count' => $collectionName]));
+        } catch (Exception $e) {
+        }
         $cursor->setTypeMap(['root' => 'array', 'document' => 'array']);
         $document = current($cursor->toArray());
 
@@ -166,7 +343,7 @@ abstract class FunctionalTestCase extends TestCase
      */
     protected function assertCollectionDoesNotExist(string $collectionName, ?string $databaseName = null): void
     {
-        if (! isset($databaseName)) {
+        if (!isset($databaseName)) {
             $databaseName = $this->getDatabaseName();
         }
 
@@ -196,11 +373,11 @@ abstract class FunctionalTestCase extends TestCase
      */
     protected function assertCollectionExists(string $collectionName, ?string $databaseName = null, ?callable $callback = null): void
     {
-        if (! isset($databaseName)) {
+        if (!isset($databaseName)) {
             $databaseName = $this->getDatabaseName();
         }
 
-        if ($callback !== null && ! is_callable($callback)) {
+        if ($callback !== null && !is_callable($callback)) {
             throw new InvalidArgumentException('$callback is not a callable');
         }
 
@@ -223,62 +400,11 @@ abstract class FunctionalTestCase extends TestCase
         }
     }
 
-    protected function assertCommandSucceeded($document): void
-    {
-        $document = is_object($document) ? (array) $document : $document;
-
-        $this->assertArrayHasKey('ok', $document);
-        $this->assertEquals(1, $document['ok']);
-    }
-
     protected function assertSameObjectId($expectedObjectId, $actualObjectId): void
     {
         $this->assertInstanceOf(ObjectId::class, $expectedObjectId);
         $this->assertInstanceOf(ObjectId::class, $actualObjectId);
-        $this->assertEquals((string) $expectedObjectId, (string) $actualObjectId);
-    }
-
-    /**
-     * Configure a fail point for the test.
-     *
-     * The fail point will automatically be disabled during tearDown() to avoid
-     * affecting a subsequent test.
-     *
-     * @param array|stdClass $command configureFailPoint command document
-     * @throws InvalidArgumentException if $command is not a configureFailPoint command
-     */
-    public function configureFailPoint($command, ?Server $server = null): void
-    {
-        if (! $this->isFailCommandSupported()) {
-            $this->markTestSkipped('failCommand is only supported on mongod >= 4.0.0 and mongos >= 4.1.5.');
-        }
-
-        if (! $this->isFailCommandEnabled()) {
-            $this->markTestSkipped('The enableTestCommands parameter is not enabled.');
-        }
-
-        if (is_array($command)) {
-            $command = (object) $command;
-        }
-
-        if (! $command instanceof stdClass) {
-            throw new InvalidArgumentException('$command is not an array or stdClass instance');
-        }
-
-        if (key((array) $command) !== 'configureFailPoint') {
-            throw new InvalidArgumentException('$command is not a configureFailPoint command');
-        }
-
-        $failPointServer = $server ?: $this->getPrimaryServer();
-
-        $operation = new DatabaseCommand('admin', $command);
-        $cursor = $operation->execute($failPointServer);
-        $result = $cursor->toArray()[0];
-
-        $this->assertCommandSucceeded($result);
-
-        // Record the fail point so it can be disabled during tearDown()
-        $this->configuredFailPoints[] = [$command->configureFailPoint, $failPointServer];
+        $this->assertEquals((string)$expectedObjectId, (string)$actualObjectId);
     }
 
     /**
@@ -315,107 +441,41 @@ abstract class FunctionalTestCase extends TestCase
         $operation->execute($this->getPrimaryServer());
     }
 
-    protected function getFeatureCompatibilityVersion(?ReadPreference $readPreference = null)
-    {
-        if ($this->isShardedCluster()) {
-            return $this->getServerVersion($readPreference);
-        }
-
-        $cursor = $this->manager->executeCommand(
-            'admin',
-            new Command(['getParameter' => 1, 'featureCompatibilityVersion' => 1]),
-            $readPreference ?: new ReadPreference(ReadPreference::RP_PRIMARY)
-        );
-
-        $cursor->setTypeMap(['root' => 'array', 'document' => 'array']);
-        $document = current($cursor->toArray());
-
-        if (isset($document['featureCompatibilityVersion']['version']) && is_string($document['featureCompatibilityVersion']['version'])) {
-            return $document['featureCompatibilityVersion']['version'];
-        }
-
-        throw new UnexpectedValueException('Could not determine featureCompatibilityVersion');
-    }
-
-    protected function getPrimaryServer()
-    {
-        return $this->manager->selectServer(new ReadPreference(ReadPreference::RP_PRIMARY));
-    }
-
-    protected function getServerVersion(?ReadPreference $readPreference = null)
-    {
-        $buildInfo = $this->manager->executeCommand(
-            $this->getDatabaseName(),
-            new Command(['buildInfo' => 1]),
-            $readPreference ?: new ReadPreference(ReadPreference::RP_PRIMARY)
-        )->toArray()[0];
-
-        if (isset($buildInfo->version) && is_string($buildInfo->version)) {
-            return preg_replace('#^(\d+\.\d+\.\d+).*$#', '\1', $buildInfo->version);
-        }
-
-        throw new UnexpectedValueException('Could not determine server version');
-    }
-
-    protected function getServerStorageEngine(?ReadPreference $readPreference = null)
-    {
-        $cursor = $this->manager->executeCommand(
-            $this->getDatabaseName(),
-            new Command(['serverStatus' => 1]),
-            $readPreference ?: new ReadPreference('primary')
-        );
-
-        $result = current($cursor->toArray());
-
-        if (isset($result->storageEngine->name) && is_string($result->storageEngine->name)) {
-            return $result->storageEngine->name;
-        }
-
-        throw new UnexpectedValueException('Could not determine server storage engine');
-    }
-
-    protected function isLoadBalanced()
+    protected function isLoadBalanced(): bool
     {
         return $this->getPrimaryServer()->getType() == Server::TYPE_LOAD_BALANCER;
     }
 
-    protected function isReplicaSet()
+    protected function isReplicaSet(): bool
     {
         return $this->getPrimaryServer()->getType() == Server::TYPE_RS_PRIMARY;
     }
 
-    protected function isMongos()
+    protected function isMongos(): bool
     {
         return $this->getPrimaryServer()->getType() == Server::TYPE_MONGOS;
     }
 
-    /**
-     * Return whether serverless (i.e. proxy as mongos) is being utilized.
-     */
-    protected static function isServerless(): bool
+    protected function skipIfChangeStreamIsNotSupported(): void
     {
-        $isServerless = getenv('MONGODB_IS_SERVERLESS');
+        switch ($this->getPrimaryServer()->getType()) {
+            case Server::TYPE_MONGOS:
+            case Server::TYPE_LOAD_BALANCER:
+                if (!$this->isShardedClusterUsingReplicasets()) {
+                    $this->markTestSkipped('$changeStream is only supported with replicasets');
+                }
 
-        return $isServerless !== false ? filter_var($isServerless, FILTER_VALIDATE_BOOLEAN) : false;
+                break;
+
+            case Server::TYPE_RS_PRIMARY:
+                break;
+
+            default:
+                $this->markTestSkipped('$changeStream is not supported');
+        }
     }
 
-    protected function isShardedCluster()
-    {
-        $type = $this->getPrimaryServer()->getType();
-
-        if ($type == Server::TYPE_MONGOS) {
-            return true;
-        }
-
-        // Assume that load balancers are properly configured and front sharded clusters
-        if ($type == Server::TYPE_LOAD_BALANCER) {
-            return true;
-        }
-
-        return false;
-    }
-
-    protected function isShardedClusterUsingReplicasets()
+    protected function isShardedClusterUsingReplicasets(): bool|int
     {
         // Assume serverless is a sharded cluster using replica sets
         if (static::isServerless()) {
@@ -430,7 +490,7 @@ abstract class FunctionalTestCase extends TestCase
         $cursor->setTypeMap(['root' => 'array', 'document' => 'array']);
         $document = current($cursor->toArray());
 
-        if (! $document) {
+        if (!$document) {
             return false;
         }
 
@@ -442,23 +502,14 @@ abstract class FunctionalTestCase extends TestCase
         return preg_match('@^.*/.*:\d+@', $document['host']);
     }
 
-    protected function skipIfChangeStreamIsNotSupported(): void
+    /**
+     * Return whether serverless (i.e. proxy as mongos) is being utilized.
+     */
+    protected static function isServerless(): bool
     {
-        switch ($this->getPrimaryServer()->getType()) {
-            case Server::TYPE_MONGOS:
-            case Server::TYPE_LOAD_BALANCER:
-                if (! $this->isShardedClusterUsingReplicasets()) {
-                    $this->markTestSkipped('$changeStream is only supported with replicasets');
-                }
+        $isServerless = getenv('MONGODB_IS_SERVERLESS');
 
-                break;
-
-            case Server::TYPE_RS_PRIMARY:
-                break;
-
-            default:
-                $this->markTestSkipped('$changeStream is not supported');
-        }
+        return $isServerless !== false ? filter_var($isServerless, FILTER_VALIDATE_BOOLEAN) : false;
     }
 
     protected function skipIfCausalConsistencyIsNotSupported(): void
@@ -466,7 +517,7 @@ abstract class FunctionalTestCase extends TestCase
         switch ($this->getPrimaryServer()->getType()) {
             case Server::TYPE_MONGOS:
             case Server::TYPE_LOAD_BALANCER:
-                if (! $this->isShardedClusterUsingReplicasets()) {
+                if (!$this->isShardedClusterUsingReplicasets()) {
                     $this->markTestSkipped('Causal Consistency is only supported with replicasets');
                 }
 
@@ -484,15 +535,75 @@ abstract class FunctionalTestCase extends TestCase
         }
     }
 
+    protected function getServerStorageEngine(?ReadPreference $readPreference = null)
+    {
+        try {
+            $cursor = $this->manager->executeCommand(
+                $this->getDatabaseName(),
+                new Command(['serverStatus' => 1]),
+                $readPreference ?: new ReadPreference('primary')
+            );
+        } catch (Exception $e) {
+        }
+
+        $result = current($cursor->toArray());
+
+        if (isset($result->storageEngine->name) && is_string($result->storageEngine->name)) {
+            return $result->storageEngine->name;
+        }
+
+        throw new UnexpectedValueException('Could not determine server storage engine');
+    }
+
     protected function skipIfClientSideEncryptionIsNotSupported(): void
     {
         if (version_compare($this->getFeatureCompatibilityVersion(), '4.2', '<')) {
             $this->markTestSkipped('Client Side Encryption only supported on FCV 4.2 or higher');
         }
 
-        if ($this->getModuleInfo('libmongocrypt') === 'disabled') {
+        if ($this->getModuleInfo() === 'disabled') {
             $this->markTestSkipped('Client Side Encryption is not enabled in the MongoDB extension');
         }
+    }
+
+    protected function getFeatureCompatibilityVersion(?ReadPreference $readPreference = null)
+    {
+        if ($this->isShardedCluster()) {
+            return $this->getServerVersion($readPreference);
+        }
+
+        try {
+            $cursor = $this->manager->executeCommand(
+                'admin',
+                new Command(['getParameter' => 1, 'featureCompatibilityVersion' => 1]),
+                $readPreference ?: new ReadPreference(ReadPreference::RP_PRIMARY)
+            );
+        } catch (Exception $e) {
+        }
+
+        $cursor->setTypeMap(['root' => 'array', 'document' => 'array']);
+        $document = current($cursor->toArray());
+
+        if (isset($document['featureCompatibilityVersion']['version']) && is_string($document['featureCompatibilityVersion']['version'])) {
+            return $document['featureCompatibilityVersion']['version'];
+        }
+
+        throw new UnexpectedValueException('Could not determine featureCompatibilityVersion');
+    }
+
+    private function getModuleInfo(): ?string
+    {
+        ob_start();
+        phpinfo(INFO_MODULES);
+        $info = ob_get_clean();
+
+        $pattern = sprintf('/^%s([\w ]+)$/m', preg_quote('libmongocrypt' . ' => '));
+
+        if (preg_match($pattern, $info, $matches) !== 1) {
+            return null;
+        }
+
+        return $matches[1];
     }
 
     protected function skipIfGeoHaystackIndexIsNotSupported(): void
@@ -509,7 +620,7 @@ abstract class FunctionalTestCase extends TestCase
         }
 
         if ($this->isShardedCluster()) {
-            if (! $this->isShardedClusterUsingReplicasets()) {
+            if (!$this->isShardedClusterUsingReplicasets()) {
                 $this->markTestSkipped('Transactions are not supported on sharded clusters without replica sets');
             }
 
@@ -527,100 +638,5 @@ abstract class FunctionalTestCase extends TestCase
         if ($this->getServerStorageEngine() !== 'wiredTiger') {
             $this->markTestSkipped('Transactions require WiredTiger storage engine');
         }
-    }
-
-    private static function appendAuthenticationOptions(array $options): array
-    {
-        if (isset($options['username']) || isset($options['password'])) {
-            return $options;
-        }
-
-        $username = getenv('MONGODB_USERNAME') ?: null;
-        $password = getenv('MONGODB_PASSWORD') ?: null;
-
-        if ($username !== null) {
-            $options['username'] = $username;
-        }
-
-        if ($password !== null) {
-            $options['password'] = $password;
-        }
-
-        return $options;
-    }
-
-    private static function appendServerApiOption(array $driverOptions): array
-    {
-        if (getenv('API_VERSION') && ! isset($driverOptions['serverApi'])) {
-            $driverOptions['serverApi'] = new ServerApi(getenv('API_VERSION'));
-        }
-
-        return $driverOptions;
-    }
-
-    /**
-     * Disables any fail points that were configured earlier in the test.
-     *
-     * This tracks fail points set via configureFailPoint() and should be called
-     * during tearDown().
-     */
-    private function disableFailPoints(): void
-    {
-        if (empty($this->configuredFailPoints)) {
-            return;
-        }
-
-        foreach ($this->configuredFailPoints as [$failPoint, $server]) {
-            $operation = new DatabaseCommand('admin', ['configureFailPoint' => $failPoint, 'mode' => 'off']);
-            $operation->execute($server);
-        }
-    }
-
-    private function getModuleInfo(string $row): ?string
-    {
-        ob_start();
-        phpinfo(INFO_MODULES);
-        $info = ob_get_clean();
-
-        $pattern = sprintf('/^%s([\w ]+)$/m', preg_quote($row . ' => '));
-
-        if (preg_match($pattern, $info, $matches) !== 1) {
-            return null;
-        }
-
-        return $matches[1];
-    }
-
-    /**
-     * Checks if the failCommand command is supported on this server version
-     *
-     * @return bool
-     */
-    private function isFailCommandSupported(): bool
-    {
-        $minVersion = $this->isShardedCluster() ? '4.1.5' : '4.0.0';
-
-        return version_compare($this->getServerVersion(), $minVersion, '>=');
-    }
-
-    /**
-     * Checks if the failCommand command is enabled by checking the enableTestCommands parameter
-     *
-     * @return bool
-     */
-    private function isFailCommandEnabled(): bool
-    {
-        try {
-            $cursor = $this->manager->executeCommand(
-                'admin',
-                new Command(['getParameter' => 1, 'enableTestCommands' => 1])
-            );
-
-            $document = current($cursor->toArray());
-        } catch (CommandException $e) {
-            return false;
-        }
-
-        return isset($document->enableTestCommands) && $document->enableTestCommands === true;
     }
 }

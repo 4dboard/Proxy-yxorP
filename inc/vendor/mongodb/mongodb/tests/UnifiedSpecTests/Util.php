@@ -25,11 +25,24 @@ use function PHPUnit\Framework\logicalOr;
 
 final class Util
 {
-    public static function assertHasOnlyKeys($arrayOrObject, array $keys): void
+    public static function prepareCommonOptions(array $options): array
     {
-        assertThat($arrayOrObject, logicalOr(isType('array'), isInstanceOf(stdClass::class)));
-        $diff = array_diff_key((array) $arrayOrObject, array_fill_keys($keys, 1));
-        assertEmpty($diff, 'Unsupported keys: ' . implode(',', array_keys($diff)));
+        if (array_key_exists('readConcern', $options)) {
+            assertIsObject($options['readConcern']);
+            $options['readConcern'] = self::createReadConcern($options['readConcern']);
+        }
+
+        if (array_key_exists('readPreference', $options)) {
+            assertIsObject($options['readPreference']);
+            $options['readPreference'] = self::createReadPreference($options['readPreference']);
+        }
+
+        if (array_key_exists('writeConcern', $options)) {
+            assertIsObject($options['writeConcern']);
+            $options['writeConcern'] = self::createWriteConcern($options['writeConcern']);
+        }
+
+        return $options;
     }
 
     public static function createReadConcern(stdClass $o): ReadConcern
@@ -40,6 +53,13 @@ final class Util
         assertIsString($level);
 
         return new ReadConcern($level);
+    }
+
+    public static function assertHasOnlyKeys($arrayOrObject, array $keys): void
+    {
+        assertThat($arrayOrObject, logicalOr(isType('array'), isInstanceOf(stdClass::class)));
+        $diff = array_diff_key((array)$arrayOrObject, array_fill_keys($keys, 1));
+        assertEmpty($diff, 'Unsupported keys: ' . implode(',', array_keys($diff)));
     }
 
     public static function createReadPreference(stdClass $o): ReadPreference
@@ -92,25 +112,5 @@ final class Util
         }
 
         return new WriteConcern(...$args);
-    }
-
-    public static function prepareCommonOptions(array $options): array
-    {
-        if (array_key_exists('readConcern', $options)) {
-            assertIsObject($options['readConcern']);
-            $options['readConcern'] = self::createReadConcern($options['readConcern']);
-        }
-
-        if (array_key_exists('readPreference', $options)) {
-            assertIsObject($options['readPreference']);
-            $options['readPreference'] = self::createReadPreference($options['readPreference']);
-        }
-
-        if (array_key_exists('writeConcern', $options)) {
-            assertIsObject($options['writeConcern']);
-            $options['writeConcern'] = self::createWriteConcern($options['writeConcern']);
-        }
-
-        return $options;
     }
 }

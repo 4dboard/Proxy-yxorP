@@ -17,10 +17,10 @@ use function property_exists;
 final class ExpectedResult
 {
     /** @var Matches */
-    private $constraint;
+    private Matches $constraint;
 
     /** @var EntityMap */
-    private $entityMap;
+    private EntityMap $entityMap;
 
     /**
      * ID of the entity yielding the result. This is mainly used to associate
@@ -28,7 +28,7 @@ final class ExpectedResult
      *
      * @var ?string
      */
-    private $yieldingEntityId;
+    private ?string $yieldingEntityId;
 
     public function __construct(stdClass $o, EntityMap $entityMap, ?string $yieldingEntityId = null)
     {
@@ -59,7 +59,7 @@ final class ExpectedResult
 
     private static function prepare($value)
     {
-        if (! is_object($value)) {
+        if (!is_object($value)) {
             return $value;
         }
 
@@ -77,11 +77,11 @@ final class ExpectedResult
         return $value;
     }
 
-    private static function prepareWriteResult($value)
+    private static function prepareWriteResult($value): array
     {
         $result = ['acknowledged' => $value->isAcknowledged()];
 
-        if (! $result['acknowledged']) {
+        if (!$result['acknowledged']) {
             return $result;
         }
 
@@ -91,12 +91,12 @@ final class ExpectedResult
             $result['matchedCount'] = $value->getMatchedCount();
             $result['modifiedCount'] = $value->getModifiedCount();
             $result['upsertedCount'] = $value->getUpsertedCount();
-            $result['upsertedIds'] = (object) $value->getUpsertedIds();
+            $result['upsertedIds'] = (object)$value->getUpsertedIds();
         }
 
         // WriteResult does not provide insertedIds (see: PHPLIB-428)
         if ($value instanceof BulkWriteResult) {
-            $result['insertedIds'] = (object) $value->getInsertedIds();
+            $result['insertedIds'] = (object)$value->getInsertedIds();
         }
 
         if ($value instanceof DeleteResult) {
@@ -105,7 +105,7 @@ final class ExpectedResult
 
         if ($value instanceof InsertManyResult) {
             $result['insertedCount'] = $value->getInsertedCount();
-            $result['insertedIds'] = (object) $value->getInsertedIds();
+            $result['insertedIds'] = (object)$value->getInsertedIds();
         }
 
         if ($value instanceof InsertOneResult) {

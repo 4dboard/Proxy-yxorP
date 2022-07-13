@@ -158,16 +158,6 @@ class Cursor implements \Iterator
     }
 
     /**
-     * Get documents matching criteria
-     *
-     * @return array
-     */
-    public function toArray()
-    {
-        return $this->getData();
-    }
-
-    /**
      * Iterator implementation
      */
     public function rewind()
@@ -178,32 +168,14 @@ class Cursor implements \Iterator
         }
     }
 
-    public function current()
+    /**
+     * Get documents matching criteria
+     *
+     * @return array
+     */
+    public function toArray()
     {
-
-        return $this->data[$this->position];
-    }
-
-    public function key()
-    {
-        return $this->position;
-    }
-
-    public function next()
-    {
-        ++$this->position;
-    }
-
-    public function valid()
-    {
-
-        if ($this->position === false) {
-
-            $this->data = $this->getData();
-            $this->position = 0;
-        }
-
-        return isset($this->data[$this->position]);
+        return $this->getData();
     }
 
     /**
@@ -289,6 +261,34 @@ class Cursor implements \Iterator
         }
 
         return $documents;
+    }
+
+    public function current()
+    {
+
+        return $this->data[$this->position];
+    }
+
+    public function key()
+    {
+        return $this->position;
+    }
+
+    public function next()
+    {
+        ++$this->position;
+    }
+
+    public function valid()
+    {
+
+        if ($this->position === false) {
+
+            $this->data = $this->getData();
+            $this->position = 0;
+        }
+
+        return isset($this->data[$this->position]);
     }
 
 }

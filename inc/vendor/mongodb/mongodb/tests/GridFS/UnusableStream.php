@@ -17,44 +17,44 @@ final class UnusableStream
             stream_wrapper_unregister($protocol);
         }
 
-        stream_wrapper_register($protocol, static::class, STREAM_IS_URL);
+        stream_wrapper_register($protocol, UnusableStream::class, STREAM_IS_URL);
     }
 
     public function stream_close(): void
     {
     }
 
-    public function stream_eof()
+    public function stream_eof(): bool
     {
         return true;
     }
 
-    public function stream_open($path, $mode, $options, &$openedPath)
+    public function stream_open($path, $mode, $options, &$openedPath): bool
     {
         return true;
     }
 
-    public function stream_read($length)
+    public function stream_read($length): bool
     {
         return false;
     }
 
-    public function stream_seek($offset, $whence = SEEK_SET)
+    public function stream_seek($offset, $whence = SEEK_SET): bool
     {
         return true;
     }
 
-    public function stream_stat()
+    public function stream_stat(): array
     {
         return [];
     }
 
-    public function stream_tell()
+    public function stream_tell(): int
     {
         return 0;
     }
 
-    public function stream_write($data)
+    public function stream_write($data): int
     {
         return 0;
     }

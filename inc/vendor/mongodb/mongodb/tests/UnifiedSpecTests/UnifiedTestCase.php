@@ -22,22 +22,22 @@ use function PHPUnit\Framework\assertIsString;
  *
  * @see https://github.com/mongodb/specifications/blob/master/source/unified-test-format/unified-test-format.rst
  */
-final class UnifiedTestCase implements IteratorAggregate
+final class UnifiedTestCase extends \stdClass implements IteratorAggregate
 {
     /** @var stdClass */
-    private $test;
+    private stdClass $test;
 
     /** @var string */
-    private $schemaVersion;
+    private string $schemaVersion;
 
     /** @var array|null */
-    private $runOnRequirements;
+    private ?array $runOnRequirements;
 
     /** @var array|null */
-    private $createEntities;
+    private ?array $createEntities;
 
     /** @var array|null */
-    private $initialData;
+    private ?array $initialData;
 
     private function __construct(stdClass $test, string $schemaVersion, ?array $runOnRequirements = null, ?array $createEntities = null, ?array $initialData = null)
     {
@@ -49,24 +49,6 @@ final class UnifiedTestCase implements IteratorAggregate
     }
 
     /**
-     * Return this object as arguments for UnifiedTestRunner::doTestCase().
-     *
-     * This allows the UnifiedTest object to be used directly with the argument
-     * unpacking operator (i.e. "...").
-     *
-     * @see https://www.php.net/manual/en/iteratoraggregate.getiterator.php
-     * @see https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list
-     */
-    public function getIterator(): Traversable
-    {
-        yield $this->test;
-        yield $this->schemaVersion;
-        yield $this->runOnRequirements;
-        yield $this->createEntities;
-        yield $this->initialData;
-    }
-
-    /**
      * Yields UnifiedTestCase objects for a JSON file.
      */
     public static function fromFile(string $filename): Generator
@@ -75,7 +57,7 @@ final class UnifiedTestCase implements IteratorAggregate
          * proper handling of special types. */
         $json = toPHP(fromJSON(file_get_contents($filename)));
 
-        yield from static::fromJSON($json);
+        yield from UnifiedTestCase::fromJSON($json);
     }
 
     /**
@@ -103,9 +85,25 @@ final class UnifiedTestCase implements IteratorAggregate
             assertIsObject($test);
             assertIsString($test->description);
 
-            $name = $description . ': ' . $test->description;
-
-            yield $name => new self($test, $schemaVersion, $runOnRequirements, $createEntities, $initialData);
+            yield $description . ': ' . $test->description => new self($test, $schemaVersion, $runOnRequirements, $createEntities, $initialData);
         }
+    }
+
+    /**
+     * Return this object as arguments for UnifiedTestRunner::doTestCase().
+     *
+     * This allows the UnifiedTest object to be used directly with the argument
+     * unpacking operator (i.e. "...").
+     *
+     * @see https://www.php.net/manual/en/iteratoraggregate.getiterator.php
+     * @see https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list
+     */
+    public function getIterator(): Traversable
+    {
+        yield $this->test;
+        yield $this->schemaVersion;
+        yield $this->runOnRequirements;
+        yield $this->createEntities;
+        yield $this->initialData;
     }
 }

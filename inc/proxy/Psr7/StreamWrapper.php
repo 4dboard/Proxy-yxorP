@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Psr7;
 
+use InvalidArgumentException;
 use yxorP\inc\psr\Http\Message\StreamInterface;
 
 /**
@@ -13,10 +14,10 @@ class StreamWrapper
     public $context;
 
     /** @var StreamInterface */
-    private $stream;
+    private StreamInterface $stream;
 
     /** @var string r, r+, or w */
-    private $mode;
+    private string $mode;
 
     /**
      * Returns a resource representing the stream.
@@ -24,7 +25,7 @@ class StreamWrapper
      * @param StreamInterface $stream The stream to get a resource for
      *
      * @return resource
-     * @throws \InvalidArgumentException if stream is not readable or writable
+     * @throws InvalidArgumentException if stream is not readable or writable
      */
     public static function getResource(StreamInterface $stream)
     {
@@ -35,7 +36,7 @@ class StreamWrapper
         } elseif ($stream->isWritable()) {
             $mode = 'w';
         } else {
-            throw new \InvalidArgumentException('The stream must be readable, '
+            throw new InvalidArgumentException('The stream must be readable, '
                 . 'writable, or both.');
         }
 
@@ -66,7 +67,7 @@ class StreamWrapper
         ]);
     }
 
-    public function stream_open($path, $mode, $options, &$opened_path)
+    public function stream_open($path, $mode, $options, &$opened_path): bool
     {
         $options = stream_context_get_options($this->context);
 
@@ -80,27 +81,27 @@ class StreamWrapper
         return true;
     }
 
-    public function stream_read($count)
+    public function stream_read($count): string
     {
         return $this->stream->read($count);
     }
 
-    public function stream_write($data)
+    public function stream_write($data): int
     {
-        return (int)$this->stream->write($data);
+        return $this->stream->write($data);
     }
 
-    public function stream_tell()
+    public function stream_tell(): int
     {
         return $this->stream->tell();
     }
 
-    public function stream_eof()
+    public function stream_eof(): bool
     {
         return $this->stream->eof();
     }
 
-    public function stream_seek($offset, $whence)
+    public function stream_seek($offset, $whence): bool
     {
         $this->stream->seek($offset, $whence);
 
@@ -114,7 +115,7 @@ class StreamWrapper
         return $stream->detach();
     }
 
-    public function stream_stat()
+    public function stream_stat(): array
     {
         static $modeMap = [
             'r' => 33060,
@@ -141,7 +142,7 @@ class StreamWrapper
         ];
     }
 
-    public function url_stat($path, $flags)
+    public function url_stat($path, $flags): array
     {
         return [
             'dev' => 0,

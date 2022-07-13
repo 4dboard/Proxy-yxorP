@@ -12,19 +12,19 @@ class DroppingStream implements StreamInterface
 {
     use AAAStreamDecoratorTrait;
 
-    private $maxLength;
+    private int $maxLength;
 
     /**
      * @param StreamInterface $stream Underlying stream to decorate.
      * @param int $maxLength Maximum size before dropping data.
      */
-    public function __construct(StreamInterface $stream, $maxLength)
+    public function __construct(StreamInterface $stream, int $maxLength)
     {
         $this->stream = $stream;
         $this->maxLength = $maxLength;
     }
 
-    public function write($string)
+    public function write(string $string): int
     {
         $diff = $this->maxLength - $this->stream->getSize();
 

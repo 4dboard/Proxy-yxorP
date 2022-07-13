@@ -9,11 +9,9 @@
 ![UTF-8 Compatible][ico-utf8]
 [![Total Downloads][ico-downloads]][link-downloads]
 
-
 This library is a PHP fork of the [JSON5 reference implementation][link-json5].
 
 JSON5 is a JS-compatible extension to JSON which allows comments, trailing commas, single-quoted strings, and more:
-
 
 ```js
 {
@@ -43,9 +41,7 @@ multi-line string',
 }
 ```
 
-
 [See the JSON5 website for additional examples and details][link-json5-site].
-
 
 ## Install
 
@@ -64,16 +60,20 @@ $json = file_get_contents('foo.json5');
 $data = json5_decode($json);
 ```
 
-It takes the same exact parameters in the same order.  For more details on these, see the [PHP docs][link-php-jsondecode].
+It takes the same exact parameters in the same order. For more details on these, see the [PHP docs][link-php-jsondecode]
+.
 
-To achieve the best possible performance, it'll try parsing with PHP's native function (which usually fails fast) and then falls back to JSON5.
+To achieve the best possible performance, it'll try parsing with PHP's native function (which usually fails fast) and
+then falls back to JSON5.
 
 ### Exceptions
 
-This function will **always** throw a `SyntaxError` exception if parsing fails.  This is a subclass of the new `\JsonException` introduced in PHP 7.3.
-Providing or omitting the `JSON_THROW_ON_ERROR` option will have no effect on this behavior.
+This function will **always** throw a `SyntaxError` exception if parsing fails. This is a subclass of the
+new `\JsonException` introduced in PHP 7.3. Providing or omitting the `JSON_THROW_ON_ERROR` option will have no effect
+on this behavior.
 
-For users on PHP 7.2 and below: a PHP 7.3 polyfill is included with this library so that you can safely reference `\JsonException` and `JSON_THROW_ON_ERROR` in your own code.
+For users on PHP 7.2 and below: a PHP 7.3 polyfill is included with this library so that you can safely
+reference `\JsonException` and `JSON_THROW_ON_ERROR` in your own code.
 
 ## Binary / Executable
 
@@ -108,6 +108,7 @@ echo -e "{hello: 'world!'}" | json5
 ```
 
 Converting from STDIN and saving the output:
+
 ```bash
 echo -e "{hello: 'world!'}" | json5 > output.json
 ```
@@ -132,12 +133,15 @@ If you discover any security related issues, please email colinodell@gmail.com i
 
 ## Support
 
-In addition to standard support, [consider a Tidelift Subscription for professional support and get alerted when new releases or security issues come out](https://tidelift.com/subscription/pkg/packagist-colinodell-json5?utm_source=packagist-colinodell-json5&utm_medium=referral&utm_campaign=readme).
+In addition to standard
+support, [consider a Tidelift Subscription for professional support and get alerted when new releases or security issues come out](https://tidelift.com/subscription/pkg/packagist-colinodell-json5?utm_source=packagist-colinodell-json5&utm_medium=referral&utm_campaign=readme)
+.
 
 ## Credits
 
 - [Colin O'Dell][link-author]
-- [Aseem Kishore][link-upstream-author], [the JSON5 project][link-json5], and [their contributors][link-upstream-contributors]
+- [Aseem Kishore][link-upstream-author], [the JSON5 project][link-json5],
+  and [their contributors][link-upstream-contributors]
 - [All other contributors to this project][link-contributors]
 
 ## License
@@ -145,25 +149,45 @@ In addition to standard support, [consider a Tidelift Subscription for professio
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/colinodell/json5.svg?style=flat-square
+
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
+
 [ico-build-status]: https://img.shields.io/github/workflow/status/colinodell/json5/Tests/main.svg?style=flat-square
+
 [ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/colinodell/json5.svg?style=flat-square
+
 [ico-code-quality]: https://img.shields.io/scrutinizer/g/colinodell/json5.svg?style=flat-square
+
 [ico-downloads]: https://img.shields.io/packagist/dt/colinodell/json5.svg?style=flat-square
+
 [ico-utf8]: https://img.shields.io/badge/utf--8-compatible-brightgreen.svg?style=flat-square
+
 [ico-sensio]: https://img.shields.io/symfony/i/grade/920abb3b-a7d0-431a-bb5a-9831d142690e?style=flat-square
+
 [ico-php]: https://img.shields.io/packagist/php-v/colinodell/json5.svg?style=flat-square
 
 [link-packagist]: https://packagist.org/packages/colinodell/json5
+
 [link-build-status]: https://github.com/colinodell/json5/actions?query=workflow%3ATests+branch%3Amain
+
 [link-scrutinizer]: https://scrutinizer-ci.com/g/colinodell/json5/code-structure/main/code-coverage
+
 [link-code-quality]: https://scrutinizer-ci.com/g/colinodell/json5
+
 [link-downloads]: https://packagist.org/packages/colinodell/json5
+
 [link-sensio]: https://insight.sensiolabs.com/projects/45decdff-5544-43c4-9547-61c9f514b121
+
 [link-author]: https://github.com/colinodell
+
 [link-json5]: https://github.com/json5/json5
+
 [link-php-jsondecode]: http://php.net/manual/en/function.json-decode.php
+
 [link-upstream-author]: https://github.com/aseemk
+
 [link-upstream-contributors]: https://github.com/json5/json5#credits
+
 [link-json5-site]: http://json5.org
+
 [link-contributors]: https://github.com/colinodell/json5/graphs/contributors

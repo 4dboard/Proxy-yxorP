@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\snag\Middleware;
 
+use JetBrains\PhpStorm\Pure;
 use yxorP\inc\snag\Client;
 use yxorP\inc\snag\Report;
 use yxorP\inc\snag\SessionTracker;
@@ -9,22 +10,22 @@ use yxorP\inc\snag\SessionTracker;
 class SessionData
 {
     /**
-     * @var \yxorP\inc\snag\Client
+     * @var Client
      *
      * @deprecated This will be removed in the next major version.
      *             The constructor parameter will also change to {@see SessionTracker}
      */
-    protected $client;
+    protected Client $client;
 
     /**
-     * @var \yxorP\inc\snag\SessionTracker
+     * @var SessionTracker
      */
-    private $sessionTracker;
+    private SessionTracker $sessionTracker;
 
     /**
-     * @param \yxorP\inc\snag\Client $client
+     * @param Client $client
      */
-    public function __construct(Client $client)
+    #[Pure] public function __construct(Client $client)
     {
         $this->client = $client;
         $this->sessionTracker = $client->getSessionTracker();
@@ -38,7 +39,7 @@ class SessionData
      * If the SessionTracker does not have a current session, the report will
      * not be changed.
      *
-     * @param \yxorP\inc\snag\Report $report
+     * @param Report $report
      * @param callable $next
      *
      * @return void

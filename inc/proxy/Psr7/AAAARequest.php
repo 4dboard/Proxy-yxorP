@@ -15,27 +15,27 @@ class AAAARequest implements RequestInterface
     use AAAAAMessageTrait;
 
     /** @var string */
-    private $method;
+    private string $method;
 
     /** @var null|string */
-    private $requestTarget;
+    private ?string $requestTarget;
 
     /** @var UriInterface */
-    private $uri;
+    private UriInterface|string|Uri $uri;
 
     /**
      * @param string $method HTTP method
      * @param string|UriInterface $uri URI
      * @param array $headers Request headers
-     * @param string|null|resource|StreamInterface $body Request body
+     * @param string|StreamInterface|null $body Request body
      * @param string $version Protocol version
      */
     public function __construct(
-        $method,
-        $uri,
-        array $headers = [],
-        $body = null,
-        $version = '1.1'
+        string                 $method,
+        string|UriInterface    $uri,
+        array                  $headers = [],
+        string|StreamInterface $body = null,
+        string                 $version = '1.1'
     )
     {
         $this->assertMethod($method);
@@ -87,7 +87,7 @@ class AAAARequest implements RequestInterface
         $this->headers = [$header => [$host]] + $this->headers;
     }
 
-    public function getRequestTarget()
+    public function getRequestTarget(): ?string
     {
         if ($this->requestTarget !== null) {
             return $this->requestTarget;
@@ -104,7 +104,7 @@ class AAAARequest implements RequestInterface
         return $target;
     }
 
-    public function withRequestTarget($requestTarget)
+    public function withRequestTarget(mixed $requestTarget): AAAARequest
     {
         if (preg_match('#\s#', $requestTarget)) {
             throw new InvalidArgumentException(
@@ -117,12 +117,12 @@ class AAAARequest implements RequestInterface
         return $new;
     }
 
-    public function getMethod()
+    public function getMethod(): string
     {
         return $this->method;
     }
 
-    public function withMethod($method)
+    public function withMethod(string $method): AAAARequest
     {
         $this->assertMethod($method);
         $new = clone $this;
@@ -130,12 +130,12 @@ class AAAARequest implements RequestInterface
         return $new;
     }
 
-    public function getUri()
+    public function getUri(): Uri|string|UriInterface
     {
         return $this->uri;
     }
 
-    public function withUri(UriInterface $uri, $preserveHost = false)
+    public function withUri(UriInterface $uri, bool $preserveHost = false): AAAARequest|static
     {
         if ($uri === $this->uri) {
             return $this;

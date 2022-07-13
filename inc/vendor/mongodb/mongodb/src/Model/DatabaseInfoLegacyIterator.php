@@ -17,6 +17,7 @@
 
 namespace MongoDB\Model;
 
+use JetBrains\PhpStorm\Pure;
 use ReturnTypeWillChange;
 use function current;
 use function key;
@@ -36,7 +37,7 @@ use function reset;
 class DatabaseInfoLegacyIterator implements DatabaseInfoIterator
 {
     /** @var array */
-    private $databases;
+    private array $databases;
 
     /**
      * @param array $databases
@@ -49,11 +50,11 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIterator
     /**
      * Return the current element as a DatabaseInfo instance.
      *
-     * @see DatabaseInfoIterator::current()
-     * @see http://php.net/iterator.current
      * @return DatabaseInfo
+     * @see http://php.net/iterator.current
+     * @see DatabaseInfoIterator::current()
      */
-    public function current()
+    #[Pure] #[\ReturnTypeWillChange] public function current(): DatabaseInfo
     {
         return new DatabaseInfo(current($this->databases));
     }
@@ -65,7 +66,7 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIterator
      * @return integer
      */
     #[ReturnTypeWillChange]
-    public function key()
+    public function key(): int
     {
         return key($this->databases);
     }
@@ -101,7 +102,7 @@ class DatabaseInfoLegacyIterator implements DatabaseInfoIterator
      * @return boolean
      */
     #[ReturnTypeWillChange]
-    public function valid()
+    public function valid(): bool
     {
         return key($this->databases) !== null;
     }

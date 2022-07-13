@@ -10,30 +10,35 @@
 
 namespace yxorP\Controller;
 
-class Utils extends \yxorP\AuthController
+use JetBrains\PhpStorm\ArrayShape;
+use yxorP\AuthController;
+use function gd_info;
+use function session_write_close;
+
+class Utils extends AuthController
 {
 
     public function thumb_url()
     {
 
-        \session_write_close(); // improve concurrency loading
+        session_write_close(); // improve concurrency loading
 
         $mime = $this->param('mime', 'auto');
 
-        if ($mime == 'auto' && strpos($this->app->request->headers['Accept'] ?? '', 'image/webp') !== false) {
-            $gdinfo = \gd_info();
+        if ($mime == 'auto' && str_contains($this->app->request->headers['Accept'] ?? '', 'image/webp')) {
+            $gdinfo = gd_info();
             $mime = isset($gdinfo['WebP Support']) && $gdinfo['WebP Support'] ? 'image/webp' : 'auto';
         }
 
 
         $options = [
             'src' => $this->param('src', false),
-            'fp' => $this->param('fp', null),
+            'fp' => $this->param('fp'),
             'mode' => $this->param('m', 'thumbnail'),
             'mime' => $mime,
             'filters' => (array)$this->param('f', []),
-            'width' => intval($this->param('w', null)),
-            'height' => intval($this->param('h', null)),
+            'width' => intval($this->param('w')),
+            'height' => intval($this->param('h')),
             'quality' => intval($this->param('q', 80)),
             'rebuild' => intval($this->param('r', false)),
             'base64' => intval($this->param('b64', false)),
@@ -55,10 +60,10 @@ class Utils extends \yxorP\AuthController
         return $this->module('yxorp')->thumbnail($options);
     }
 
-    public function getCacheSize()
+    #[ArrayShape(['size' => "mixed", 'size_pretty' => "mixed"])] public function getCacheSize(): array
     {
 
-        \session_write_close();
+        session_write_close();
 
         $size = 0;
         $dirs = ['#cache:', '#tmp:', '#thumbs:', '#pstorage:tmp'];
@@ -67,23 +72,22 @@ class Utils extends \yxorP\AuthController
             $dir = $this->app->path($dir);
         }
 
+        unset($dir);
         foreach (array_unique($dirs) as $dir) {
             $size += $this->app->helper("fs")->getDirSize($dir);
         }
 
-        $ret = [
+        return [
             'size' => $size,
             'size_pretty' => $this->app->helper('utils')->formatSize($size)
         ];
-
-        return $ret;
     }
 
 
-    public function revisionsCount()
+    public function revisionsCount(): int|string
     {
 
-        \session_write_close();
+        session_write_close();
 
         if ($id = $this->param('id')) {
             $cnt = $this->app->helper('revisions')->count($id);
@@ -93,7 +97,7 @@ class Utils extends \yxorP\AuthController
         return 0;
     }
 
-    public function revisionsRemove()
+    public function revisionsRemove(): bool
     {
 
         if ($rid = $this->param('rid')) {
@@ -104,7 +108,7 @@ class Utils extends \yxorP\AuthController
         return false;
     }
 
-    public function revisionsRemoveAll()
+    public function revisionsRemoveAll(): bool
     {
 
         if ($oid = $this->param('oid')) {
@@ -115,7 +119,7 @@ class Utils extends \yxorP\AuthController
         return false;
     }
 
-    public function isResourceLocked($resourceId)
+    public function isResourceLocked($resourceId): array
     {
 
         $meta = $this->app->helper('admin')->isResourceLocked($resourceId);
@@ -139,12 +143,10 @@ class Utils extends \yxorP\AuthController
             }
         }
 
-        $meta = $this->app->helper('admin')->lockResourceId($resourceId);
-
-        return $meta;
+        return $this->app->helper('admin')->lockResourceId($resourceId);
     }
 
-    public function unlockResourceId($resourceId)
+    #[ArrayShape(['success' => "bool"])] public function unlockResourceId($resourceId): array
     {
 
         $meta = $this->app->helper('admin')->isResourceLocked($resourceId);
@@ -167,7 +169,7 @@ class Utils extends \yxorP\AuthController
         return ['success' => $success];
     }
 
-    public function unlockResourceIdByCurrentUser($resourceId)
+    #[ArrayShape(['success' => "bool"])] public function unlockResourceIdByCurrentUser($resourceId): array
     {
 
         $meta = $this->app->helper('admin')->isResourceLocked($resourceId);
@@ -186,30 +188,30 @@ class Utils extends \yxorP\AuthController
         return ['success' => $success];
     }
 
-    public function startJobRunner()
+    #[ArrayShape(['running' => "mixed"])] public function startJobRunner(): array
     {
 
-        \session_write_close();
+        session_write_close();
 
         $this->app->helper('async')->exec("yxorp()->helper('jobs')->stopRunner();yxorp()->helper('jobs')->run();");
         sleep(3);
         return ['running' => $this->app->helper('jobs')->isRunnerActive()];
     }
 
-    public function restartJobRunner()
+    #[ArrayShape(['running' => "mixed"])] public function restartJobRunner(): array
     {
 
-        \session_write_close();
+        session_write_close();
 
         $this->app->helper('async')->exec("yxorp()->helper('jobs')->stopRunner();yxorp()->helper('jobs')->run();");
         sleep(3);
         return ['running' => $this->app->helper('jobs')->isRunnerActive()];
     }
 
-    public function stopJobRunner()
+    #[ArrayShape(['running' => "mixed"])] public function stopJobRunner(): array
     {
 
-        \session_write_close();
+        session_write_close();
 
         $this->app->helper('async')->exec("yxorp()->helper('jobs')->stopRunner();");
         sleep(3);

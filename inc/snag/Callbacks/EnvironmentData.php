@@ -9,7 +9,7 @@ class EnvironmentData
     /**
      * Execute the environment data callback.
      *
-     * @param \yxorP\inc\snag\Report $report the snag report instance
+     * @param Report $report the snag report instance
      *
      * @return void
      */

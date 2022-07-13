@@ -9,7 +9,7 @@ class ListFiles extends AbstractPlugin
      *
      * @return string
      */
-    public function getMethod()
+    public function getMethod(): string
     {
         return 'listFiles';
     }
@@ -18,11 +18,11 @@ class ListFiles extends AbstractPlugin
      * List all files in the directory.
      *
      * @param string $directory
-     * @param bool   $recursive
+     * @param bool $recursive
      *
      * @return array
      */
-    public function handle($directory = '', $recursive = false)
+    public function handle(string $directory = '', bool $recursive = false): array
     {
         $contents = $this->filesystem->listContents($directory, $recursive);
 

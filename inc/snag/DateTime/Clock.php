@@ -9,7 +9,7 @@ final class Clock implements ClockInterface
     /**
      * @return DateTimeImmutable
      */
-    public function now()
+    public function now(): DateTimeImmutable
     {
         return new DateTimeImmutable();
     }

@@ -20,13 +20,13 @@ use function sprintf;
 class CollectionData
 {
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var array */
-    private $documents;
+    private array $documents;
 
     public function __construct(stdClass $o)
     {

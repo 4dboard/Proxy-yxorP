@@ -10,7 +10,17 @@
 
 namespace Collections\Controller;
 
-class RestApi extends \LimeExtra\Controller
+use LimeExtra\Controller;
+use Throwable;
+use function array_keys;
+use function boolval;
+use function count;
+use function in_array;
+use function intval;
+use function is_array;
+use function is_string;
+
+class RestApi extends Controller
 {
 
     /**
@@ -44,12 +54,12 @@ class RestApi extends \LimeExtra\Controller
 
         $options = [];
 
-        if ($filter = $this->param('filter', null)) $options['filter'] = $filter;
-        if ($limit = $this->param('limit', null)) $options['limit'] = \intval($limit);
-        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
-        if ($fields = $this->param('fields', null)) $options['fields'] = $fields;
-        if ($skip = $this->param('skip', null)) $options['skip'] = \intval($skip);
-        if ($populate = $this->param('populate', null)) $options['populate'] = $populate;
+        if ($filter = $this->param('filter')) $options['filter'] = $filter;
+        if ($limit = $this->param('limit')) $options['limit'] = intval($limit);
+        if ($sort = $this->param('sort')) $options['sort'] = $sort;
+        if ($fields = $this->param('fields')) $options['fields'] = $fields;
+        if ($skip = $this->param('skip')) $options['skip'] = intval($skip);
+        if ($populate = $this->param('populate')) $options['populate'] = $populate;
 
         // cast string values if get request
         if ($filter && isset($this->app->request->query['filter'])) $options['filter'] = $this->app->helper('utils')->fixStringBooleanValues($filter);
@@ -58,22 +68,22 @@ class RestApi extends \LimeExtra\Controller
         // fields filter
         if ($fieldsFilter = $this->param('fieldsFilter', [])) $options['fieldsFilter'] = $fieldsFilter;
         if ($lang = $this->param('lang', false)) $fieldsFilter['lang'] = $lang;
-        if ($ignoreDefaultFallback = $this->param('ignoreDefaultFallback', false)) $fieldsFilter['ignoreDefaultFallback'] = \in_array($ignoreDefaultFallback, ['1', '0']) ? \boolval($ignoreDefaultFallback) : $ignoreDefaultFallback;
+        if ($ignoreDefaultFallback = $this->param('ignoreDefaultFallback', false)) $fieldsFilter['ignoreDefaultFallback'] = in_array($ignoreDefaultFallback, ['1', '0']) ? boolval($ignoreDefaultFallback) : $ignoreDefaultFallback;
         if ($user) $fieldsFilter['user'] = $user;
 
-        if (\is_array($fieldsFilter) && \count($fieldsFilter)) {
+        if (is_array($fieldsFilter) && count($fieldsFilter)) {
             $options['fieldsFilter'] = $fieldsFilter;
         }
 
         if ($sort) {
 
-            foreach ($sort as $key => &$value) {
-                $options['sort'][$key] = \intval($value);
+            foreach ($sort as $key => $value) {
+                $options['sort'][$key] = intval($value);
             }
         }
 
         $entries = $this->module('collections')->find($collection['name'], $options);
-        $count = \count($entries);
+        $count = count($entries);
         $isSortable = $collection['sortable'] ?? false;
 
         // sort by custom order if collection is sortable
@@ -88,7 +98,7 @@ class RestApi extends \LimeExtra\Controller
         }
 
         // return only entries array - due to legacy
-        if ((boolean)$this->param('simple', false)) {
+        if ($this->param('simple', false)) {
             return $entries;
         }
 
@@ -98,8 +108,8 @@ class RestApi extends \LimeExtra\Controller
 
             if (
                 $user && isset($field['acl']) &&
-                \is_array($field['acl']) && \count($field['acl']) &&
-                !(\in_array($user['_id'], $field['acl']) || \in_array($user['group'], $field['acl']))
+                is_array($field['acl']) && count($field['acl']) &&
+                !(in_array($user['_id'], $field['acl']) || in_array($user['group'], $field['acl']))
             ) {
                 continue;
             }
@@ -115,7 +125,7 @@ class RestApi extends \LimeExtra\Controller
         return [
             'fields' => $fields,
             'entries' => $entries,
-            'total' => (!$skip && !$limit) ? $count : $this->module('collections')->count($collection['name'], $filter ? $filter : [])
+            'total' => (!$skip && !$limit) ? $count : $this->module('collections')->count($collection['name'], $filter ?: [])
         ];
 
     }
@@ -153,16 +163,16 @@ class RestApi extends \LimeExtra\Controller
 
         $options = [];
 
-        if ($fields = $this->param('fields', null)) $options['fields'] = $fields;
-        if ($populate = $this->param('populate', null)) $options['populate'] = $populate;
+        if ($fields = $this->param('fields')) $options['fields'] = $fields;
+        if ($populate = $this->param('populate')) $options['populate'] = $populate;
 
         // fields filter
         if ($fieldsFilter = $this->param('fieldsFilter', [])) $options['fieldsFilter'] = $fieldsFilter;
         if ($lang = $this->param('lang', false)) $fieldsFilter['lang'] = $lang;
-        if ($ignoreDefaultFallback = $this->param('ignoreDefaultFallback', false)) $fieldsFilter['ignoreDefaultFallback'] = \in_array($ignoreDefaultFallback, ['1', '0']) ? \boolval($ignoreDefaultFallback) : $ignoreDefaultFallback;
+        if ($ignoreDefaultFallback = $this->param('ignoreDefaultFallback', false)) $fieldsFilter['ignoreDefaultFallback'] = in_array($ignoreDefaultFallback, ['1', '0']) ? boolval($ignoreDefaultFallback) : $ignoreDefaultFallback;
         if ($user) $fieldsFilter['user'] = $user;
 
-        if (\is_array($fieldsFilter) && \count($fieldsFilter)) {
+        if (is_array($fieldsFilter) && count($fieldsFilter)) {
             $options['fieldsFilter'] = $fieldsFilter;
         }
 
@@ -179,7 +189,7 @@ class RestApi extends \LimeExtra\Controller
     {
 
         $user = $this->module('yxorp')->getUser();
-        $data = $this->param('data', null);
+        $data = $this->param('data');
 
         if (!$collection || !$data) {
             return false;
@@ -207,11 +217,11 @@ class RestApi extends \LimeExtra\Controller
 
         $options = [];
 
-        if ($revision = $this->param('revision', null)) $options['revision'] = $this->app->helper('utils')->fixStringBooleanValues($revision);
+        if ($revision = $this->param('revision')) $options['revision'] = $this->app->helper('utils')->fixStringBooleanValues($revision);
 
         try {
             $data = $this->module('collections')->save($collection, $data, $options);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->app->stop(['error' => $e->getMessage()], 412);
         }
 
@@ -222,7 +232,7 @@ class RestApi extends \LimeExtra\Controller
     {
 
         $user = $this->module('yxorp')->getUser();
-        $filter = $this->param('filter', null);
+        $filter = $this->param('filter');
         $count = $this->param('count', false);
 
         if (!$collection || !$filter) {
@@ -230,7 +240,7 @@ class RestApi extends \LimeExtra\Controller
         }
 
         // handele single item cases
-        if (\is_string($filter)) {
+        if (is_string($filter)) {
             $filter = ['_id' => $filter];
         } elseif (isset($filter['_id'])) {
             $filter = ['_id' => $filter['_id']];
@@ -257,8 +267,8 @@ class RestApi extends \LimeExtra\Controller
     {
 
         $user = $this->module('yxorp')->getUser();
-        $name = $this->param('name', null);
-        $data = $this->param('data', null);
+        $name = $this->param('name');
+        $data = $this->param('data');
 
         if (!$name || !$data) {
             return false;
@@ -268,16 +278,14 @@ class RestApi extends \LimeExtra\Controller
             return $this->stop('{"error": "Unauthorized"}', 401);
         }
 
-        $collection = $this->module('collections')->createCollection($name, $data);
-
-        return $collection;
+        return $this->module('collections')->createCollection($name, $data);
     }
 
     public function updateCollection($name = null)
     {
 
         $user = $this->module('yxorp')->getUser();
-        $data = $this->param('data', null);
+        $data = $this->param('data');
 
         if (!$name || !$data) {
             return false;
@@ -289,9 +297,7 @@ class RestApi extends \LimeExtra\Controller
             return $this->stop('{"error": "Unauthorized"}', 401);
         }
 
-        $collection = $this->module('collections')->updateCollection($name, $data);
-
-        return $collection;
+        return $this->module('collections')->updateCollection($name, $data);
     }
 
     public function collection($name)
@@ -312,7 +318,7 @@ class RestApi extends \LimeExtra\Controller
         return $collections[$name];
     }
 
-    public function listCollections($extended = false)
+    public function listCollections($extended = false): array
     {
 
         $user = $this->module('yxorp')->getUser();
@@ -323,7 +329,7 @@ class RestApi extends \LimeExtra\Controller
             $collections = $this->module('collections')->collections($extended);
         }
 
-        return $extended ? $collections : \array_keys($collections);
+        return $extended ? $collections : array_keys($collections);
     }
 
     protected function before()

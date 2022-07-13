@@ -2,6 +2,9 @@
 
 namespace yxorP\inc\proxy\Promise;
 
+use LogicException;
+use RuntimeException;
+
 /**
  * A promise represents the eventual result of an asynchronous operation.
  *
@@ -21,15 +24,15 @@ interface PromiseInterface
      * Appends fulfillment and rejection handlers to the promise, and returns
      * a new promise resolving to the return value of the called handler.
      *
-     * @param callable $onFulfilled Invoked when the promise fulfills.
-     * @param callable $onRejected Invoked when the promise is rejected.
+     * @param callable|null $onFulfilled Invoked when the promise fulfills.
+     * @param callable|null $onRejected Invoked when the promise is rejected.
      *
      * @return PromiseInterface
      */
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    );
+    ): PromiseInterface;
 
     /**
      * Appends a rejection handler callback to the promise, and returns a new
@@ -41,7 +44,7 @@ interface PromiseInterface
      *
      * @return PromiseInterface
      */
-    public function otherwise(callable $onRejected);
+    public function otherwise(callable $onRejected): PromiseInterface;
 
     /**
      * Get the state of the promise ("pending", "rejected", or "fulfilled").
@@ -51,23 +54,23 @@ interface PromiseInterface
      *
      * @return string
      */
-    public function getState();
+    public function getState(): string;
 
     /**
      * Resolve the promise with the given value.
      *
      * @param mixed $value
-     * @throws \RuntimeException if the promise is already resolved.
+     * @throws RuntimeException if the promise is already resolved.
      */
-    public function resolve($value);
+    public function resolve(mixed $value);
 
     /**
      * Reject the promise with the given reason.
      *
      * @param mixed $reason
-     * @throws \RuntimeException if the promise is already resolved.
+     * @throws RuntimeException if the promise is already resolved.
      */
-    public function reject($reason);
+    public function reject(mixed $reason);
 
     /**
      * Cancels the promise if possible.
@@ -87,8 +90,8 @@ interface PromiseInterface
      * @param bool $unwrap
      *
      * @return mixed
-     * @throws \LogicException if the promise has no wait function or if the
+     * @throws LogicException if the promise has no wait function or if the
      *                         promise does not settle after waiting.
      */
-    public function wait($unwrap = true);
+    public function wait(bool $unwrap = true): mixed;
 }

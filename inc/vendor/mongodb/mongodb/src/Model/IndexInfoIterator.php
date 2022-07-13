@@ -36,5 +36,5 @@ interface IndexInfoIterator extends Iterator
      * @return IndexInfo
      */
     #[ReturnTypeWillChange]
-    public function current();
+    public function current(): IndexInfo;
 }

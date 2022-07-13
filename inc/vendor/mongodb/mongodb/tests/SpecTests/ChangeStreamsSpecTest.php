@@ -3,6 +3,7 @@
 namespace MongoDB\Tests\SpecTests;
 
 use ArrayIterator;
+use JetBrains\PhpStorm\Pure;
 use LogicException;
 use MongoDB\BSON\Int64;
 use MongoDB\ChangeStream;
@@ -23,7 +24,7 @@ use function glob;
 class ChangeStreamsSpecTest extends FunctionalTestCase
 {
     /** @var array */
-    private static $incompleteTests = [];
+    private static array $incompleteTests = [];
 
     /**
      * Assert that the expected and actual command documents match.
@@ -31,7 +32,7 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
      * Note: this method may modify the $expected object.
      *
      * @param stdClass $expected Expected command document
-     * @param stdClass $actual   Actual command document
+     * @param stdClass $actual Actual command document
      */
     public static function assertCommandMatches(stdClass $expected, stdClass $actual): void
     {
@@ -51,7 +52,7 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
      * Assert that the expected and actual documents match.
      *
      * @param array $expectedDocuments Expected documents
-     * @param array $actualDocuments   Actual documents
+     * @param array $actualDocuments Actual documents
      */
     public static function assertResult(array $expectedDocuments, array $actualDocuments): void
     {
@@ -74,11 +75,11 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
      * Execute an individual test case from the specification.
      *
      * @dataProvider provideTests
-     * @param stdClass $test            Individual "tests[]" document
-     * @param string   $databaseName    Name of database under test
-     * @param string   $collectionName  Name of collection under test
-     * @param string   $database2Name   Name of alternate database under test
-     * @param string   $collection2Name Name of alternate collection under test
+     * @param stdClass $test Individual "tests[]" document
+     * @param string|null $databaseName Name of database under test
+     * @param string|null $collectionName Name of collection under test
+     * @param string|null $database2Name Name of alternate database under test
+     * @param string|null $collection2Name Name of alternate collection under test
      */
     public function testChangeStreams(stdClass $test, ?string $databaseName = null, ?string $collectionName = null, ?string $database2Name = null, ?string $collection2Name = null): void
     {
@@ -86,13 +87,13 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
             $this->markTestIncomplete(self::$incompleteTests[$this->dataDescription()]);
         }
 
-        if ($this->isShardedCluster() && ! $this->isShardedClusterUsingReplicasets()) {
+        if ($this->isShardedCluster() && !$this->isShardedClusterUsingReplicasets()) {
             $this->markTestSkipped('$changeStream is only supported with replicasets');
         }
 
         $this->checkServerRequirements($this->createRunOn($test));
 
-        if (! isset($databaseName, $collectionName)) {
+        if (!isset($databaseName, $collectionName)) {
             $this->fail('Required database and collection names are unset');
         }
 
@@ -120,18 +121,17 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
         $result = null;
         $exception = null;
 
-        try {
-            $changeStream = $this->createChangeStream($test);
-        } catch (Exception $e) {
-            $exception = $e;
-        }
+        $changeStream = $this->createChangeStream($test);
 
         if (isset($commandExpectations)) {
             $commandExpectations->stopMonitoring();
         }
 
         foreach ($test->operations as $operation) {
-            Operation::fromChangeStreams($operation)->assert($this, $context);
+            try {
+                Operation::fromChangeStreams($operation)->assert($this, $context);
+            } catch (Exception $e) {
+            }
         }
 
         if (isset($commandExpectations)) {
@@ -142,14 +142,9 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
          * null), attempt to iterate up to the expected number of results. It's
          * possible that some errors (e.g. projecting out _id) will only be
          * thrown during iteration, so we must also try/catch here. */
-        try {
-            if (isset($changeStream)) {
-                $limit = isset($test->result->success) ? count($test->result->success) : 0;
-                $result = $this->iterateChangeStream($changeStream, $limit);
-            }
-        } catch (Exception $e) {
-            $this->assertNull($exception);
-            $exception = $e;
+        if (isset($changeStream)) {
+            $limit = isset($test->result->success) ? count($test->result->success) : 0;
+            $result = $this->iterateChangeStream($changeStream, $limit);
         }
 
         $errorExpectation->assert($this, $exception);
@@ -161,57 +156,6 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
         }
     }
 
-    public function provideTests()
-    {
-        $testArgs = [];
-
-        foreach (glob(__DIR__ . '/change-streams/*.json') as $filename) {
-            $json = $this->decodeJson(file_get_contents($filename));
-            $group = basename($filename, '.json');
-            // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-            $databaseName = $json->database_name ?? null;
-            $database2Name = $json->database2_name ?? null;
-            $collectionName = $json->collection_name ?? null;
-            $collection2Name = $json->collection2_name ?? null;
-            // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
-
-            foreach ($json->tests as $test) {
-                $name = $group . ': ' . $test->description;
-                $testArgs[$name] = [$test, $databaseName, $collectionName, $database2Name, $collection2Name];
-            }
-        }
-
-        return $testArgs;
-    }
-
-    /**
-     * Create a change stream.
-     *
-     * @param stdClass $test
-     * @return ChangeStream
-     * @throws LogicException if the target is unsupported
-     */
-    private function createChangeStream(stdClass $test): ChangeStream
-    {
-        $context = $this->getContext();
-        $pipeline = $test->changeStreamPipeline ?? [];
-        $options = isset($test->changeStreamOptions) ? (array) $test->changeStreamOptions : [];
-
-        switch ($test->target) {
-            case 'client':
-                return $context->getClient()->watch($pipeline, $options);
-
-            case 'database':
-                return $context->getDatabase()->watch($pipeline, $options);
-
-            case 'collection':
-                return $context->getCollection()->watch($pipeline, $options);
-
-            default:
-                throw new LogicException('Unsupported target: ' . $test->target);
-        }
-    }
-
     /**
      * Convert the server requirements to a standard "runOn" array used by other
      * specifications.
@@ -219,7 +163,7 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
      * @param stdClass $test
      * @return array
      */
-    private function createRunOn(stdClass $test): array
+    #[Pure] private function createRunOn(stdClass $test): array
     {
         $req = new stdClass();
 
@@ -256,10 +200,31 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
     }
 
     /**
+     * Create a change stream.
+     *
+     * @param stdClass $test
+     * @return ChangeStream
+     * @throws LogicException if the target is unsupported
+     */
+    private function createChangeStream(stdClass $test): ChangeStream
+    {
+        $context = $this->getContext();
+        $pipeline = $test->changeStreamPipeline ?? [];
+        $options = isset($test->changeStreamOptions) ? (array)$test->changeStreamOptions : [];
+
+        return match ($test->target) {
+            'client' => $context->getClient()->watch($pipeline, $options),
+            'database' => $context->getDatabase()->watch($pipeline, $options),
+            'collection' => $context->getCollection()->watch($pipeline, $options),
+            default => throw new LogicException('Unsupported target: ' . $test->target),
+        };
+    }
+
+    /**
      * Iterate a change stream.
      *
      * @param ChangeStream $changeStream
-     * @param integer      $limit
+     * @param integer $limit
      * @return BSONDocument[]
      */
     private function iterateChangeStream(ChangeStream $changeStream, int $limit = 0): array
@@ -282,7 +247,7 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
         $events = [];
 
         for ($i = 0, $changeStream->rewind(); $i < $maxIterations; $i++, $changeStream->next()) {
-            if (! $changeStream->valid()) {
+            if (!$changeStream->valid()) {
                 continue;
             }
 
@@ -296,5 +261,28 @@ class ChangeStreamsSpecTest extends FunctionalTestCase
         }
 
         return $events;
+    }
+
+    public function provideTests(): array
+    {
+        $testArgs = [];
+
+        foreach (glob(__DIR__ . '/change-streams/*.json') as $filename) {
+            $json = $this->decodeJson(file_get_contents($filename));
+            $group = basename($filename, '.json');
+            // phpcs:disable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+            $databaseName = $json->database_name ?? null;
+            $database2Name = $json->database2_name ?? null;
+            $collectionName = $json->collection_name ?? null;
+            $collection2Name = $json->collection2_name ?? null;
+            // phpcs:enable Squiz.NamingConventions.ValidVariableName.MemberNotCamelCaps
+
+            foreach ($json->tests as $test) {
+                $name = $group . ': ' . $test->description;
+                $testArgs[$name] = [$test, $databaseName, $collectionName, $database2Name, $collection2Name];
+            }
+        }
+
+        return $testArgs;
     }
 }

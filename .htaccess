@@ -466,7 +466,7 @@ SetEnvIf brokenvary 1 force-no-vary
     #
     ########## Begin - File injection protection, by SigSiu.net
     RewriteCond %{REQUEST_METHOD} GET
-    RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=http:// [OR]
+    RewriteCond %{QUERY_STRING} https:// [OR]
     RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=(\.\.//?)+ [OR]
     RewriteCond %{QUERY_STRING} [a-zA-Z0-9_]=/([a-z0-9_.]//?)+ [NC]
     RewriteRule .* - [F]

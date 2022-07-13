@@ -25,7 +25,7 @@ class CountTest extends TestCase
         new Count($this->getDatabaseName(), $this->getCollectionName(), [], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -64,7 +64,7 @@ class CountTest extends TestCase
         return $options;
     }
 
-    private function getInvalidHintValues()
+    private function getInvalidHintValues(): array
     {
         return [123, 3.14, true];
     }

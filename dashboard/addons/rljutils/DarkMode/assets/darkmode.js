@@ -1,5 +1,4 @@
-
-App.$(document).on('init-wysiwyg-editor', function(e, editor) {
+App.$(document).on('init-wysiwyg-editor', function (e, editor) {
 
     if (typeof editor.settings.content_style == 'undefined') {
         editor.settings.content_style = '';
@@ -13,10 +12,10 @@ App.$(document).on('init-wysiwyg-editor', function(e, editor) {
 
 });
 
-App.assets.require('/assets/lib/codemirror/theme/ayu-dark.css').then(function() {
+App.assets.require('/assets/lib/codemirror/theme/ayu-dark.css').then(function () {
 
 });
 
-App.$(document).on('init-html-editor', function(e, editor) {
+App.$(document).on('init-html-editor', function (e, editor) {
     editor.editor.setOption('theme', 'ayu-dark');
 });

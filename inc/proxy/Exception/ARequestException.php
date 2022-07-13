@@ -14,13 +14,13 @@ use function yxorP\inc\proxy\Psr7\get_message_body_summary;
 class ARequestException extends AATransferException
 {
     /** @var RequestInterface */
-    private $request;
+    private RequestInterface $request;
 
     /** @var ResponseInterface|null */
-    private $response;
+    private ?ResponseInterface $response;
 
     /** @var array */
-    private $handlerContext;
+    private array $handlerContext;
 
     public function __construct(
         $message,
@@ -48,7 +48,7 @@ class ARequestException extends AATransferException
      *
      * @return ARequestException
      */
-    public static function wrapException(RequestInterface $request, Exception $e)
+    public static function wrapException(RequestInterface $request, Exception $e): ARequestException
     {
         return $e instanceof ARequestException
             ? $e
@@ -59,8 +59,8 @@ class ARequestException extends AATransferException
      * Factory method to create a new exception with a normalized error message
      *
      * @param RequestInterface $request Request
-     * @param ResponseInterface $response Response received
-     * @param Exception $previous Previous exception
+     * @param ResponseInterface|null $response Response received
+     * @param Exception|null $previous Previous exception
      * @param array $ctx Optional handler context.
      *
      * @return self
@@ -70,7 +70,7 @@ class ARequestException extends AATransferException
         ResponseInterface $response = null,
         Exception         $previous = null,
         array             $ctx = []
-    )
+    ): ARequestException|ServerException|ClientException
     {
         if (!$response) {
             return new self(
@@ -124,7 +124,7 @@ class ARequestException extends AATransferException
      *
      * @return UriInterface
      */
-    private static function obfuscateUri(UriInterface $uri)
+    private static function obfuscateUri(UriInterface $uri): UriInterface
     {
         $userInfo = $uri->getUserInfo();
 
@@ -144,7 +144,7 @@ class ARequestException extends AATransferException
      *
      * @return string|null
      */
-    public static function getResponseBodySummary(ResponseInterface $response)
+    public static function getResponseBodySummary(ResponseInterface $response): ?string
     {
         return get_message_body_summary($response);
     }
@@ -154,7 +154,7 @@ class ARequestException extends AATransferException
      *
      * @return RequestInterface
      */
-    public function getRequest()
+    public function getRequest(): RequestInterface
     {
         return $this->request;
     }
@@ -164,7 +164,7 @@ class ARequestException extends AATransferException
      *
      * @return ResponseInterface|null
      */
-    public function getResponse()
+    public function getResponse(): ?ResponseInterface
     {
         return $this->response;
     }
@@ -174,7 +174,7 @@ class ARequestException extends AATransferException
      *
      * @return bool
      */
-    public function hasResponse()
+    public function hasResponse(): bool
     {
         return $this->response !== null;
     }
@@ -189,7 +189,7 @@ class ARequestException extends AATransferException
      *
      * @return array
      */
-    public function getHandlerContext()
+    public function getHandlerContext(): array
     {
         return $this->handlerContext;
     }

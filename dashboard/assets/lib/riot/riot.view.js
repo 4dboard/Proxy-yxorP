@@ -1,5 +1,5 @@
 // riot inline views
-(function(riot, d){
+(function (riot, d) {
 
     if (!riot || !riot.compile) {
         return;
@@ -9,7 +9,7 @@
 
     document.find = document.querySelectorAll.bind(document)
 
-    HTMLElement.prototype.find = function(selector){
+    HTMLElement.prototype.find = function (selector) {
         return this.querySelectorAll(selector);
     };
 
@@ -22,32 +22,32 @@
         }
 
         return this.addEventListener(name, function (e) {
-            if(e.target.matches(delegate)){
+            if (e.target.matches(delegate)) {
                 return fn.apply(e.target, arguments);
             }
         });
     };
 
     // hide [riot-view]
-    (function(style) {
+    (function (style) {
         style.innerText = '[riot-view]{display:none}';
         d.head.appendChild(style);
     })(d.createElement('style'));
 
-    riot.util.initViews = (function(views, view, vid, tag, ele, i) {
+    riot.util.initViews = (function (views, view, vid, tag, ele, i) {
 
-        return function(root, opts, clb) {
+        return function (root, opts) {
 
-            root  = root || d;
-            opts  = opts || {};
+            root = root || d;
+            opts = opts || {};
             views = root.querySelectorAll('[riot-view]');
 
-            for (i=0;i<views.length;i++) {
+            for (i = 0; i < views.length; i++) {
 
                 view = views[i];
-                vid  = viewuid();
-                tag  = ("<"+vid+">\n" + view.innerHTML + "\n</"+vid+">").replace(' type="view/script"', '');
-                ele  = d.createElement(view.tagName.toLowerCase() == 'script' ? 'div':view.tagName);
+                vid = viewuid();
+                tag = ("<" + vid + ">\n" + view.innerHTML + "\n</" + vid + ">").replace(' type="view/script"', '');
+                ele = d.createElement(view.tagName.toLowerCase() == 'script' ? 'div' : view.tagName);
 
                 copyattrs(view, ele);
                 riot.compile(tag);
@@ -62,7 +62,7 @@
 
     })();
 
-    d.addEventListener('DOMContentLoaded', function(event) {
+    d.addEventListener('DOMContentLoaded', function (event) {
         riot.compile(riot.util.initViews);
     });
 
@@ -76,8 +76,8 @@
 
     function viewuid() {
 
-        return 'view-xxxxxxxx'.replace(/[x]/g, function(c) {
-            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return 'view-xxxxxxxx'.replace(/[x]/g, function (c) {
+            var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
             return v.toString(16);
         });
     }
@@ -86,20 +86,20 @@
 
 
 // riot auto mount
-(function(riot, d){
+(function (riot, d) {
 
     if (!riot || !riot.compile) {
         return;
     }
 
-    riot.util.autoMount = (function(elements) {
+    riot.util.autoMount = (function (elements) {
 
-        return function(root) {
+        return function (root) {
 
-            root     = root || d;
+            root = root || d;
             elements = root.querySelectorAll('[riot-mount]');
 
-            for (i=0;i<elements.length;i++) {
+            for (i = 0; i < elements.length; i++) {
                 riot.mount(elements[i], '*');
                 elements[i].removeAttribute('riot-mount');
             }
@@ -107,7 +107,7 @@
 
     })();
 
-    d.addEventListener('DOMContentLoaded', function(event) {
+    d.addEventListener('DOMContentLoaded', function (event) {
         riot.util.autoMount();
     });
 

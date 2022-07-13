@@ -9,7 +9,7 @@ final class Date
     /**
      * @return string
      */
-    public static function now(ClockInterface $clock = null)
+    public static function now(ClockInterface $clock = null): string
     {
         if ($clock === null) {
             $clock = new Clock();
@@ -25,7 +25,7 @@ final class Date
      *
      * @return string
      */
-    private static function format(DateTimeImmutable $date)
+    private static function format(DateTimeImmutable $date): string
     {
         $dateTime = $date->format('Y-m-d\TH:i:s');
 

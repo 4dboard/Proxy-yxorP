@@ -23,7 +23,7 @@ class ModifyCollectionTest extends TestCase
         new ModifyCollection($this->getDatabaseName(), $this->getCollectionName(), [], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

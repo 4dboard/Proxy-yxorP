@@ -41,6 +41,47 @@ class ExplainFunctionalTest extends FunctionalTestCase
     }
 
     /**
+     * Create data fixtures.
+     *
+     * @param integer $n
+     */
+    private function createFixtures(int $n): void
+    {
+        $bulkWrite = new BulkWrite(['ordered' => true]);
+
+        for ($i = 1; $i <= $n; $i++) {
+            $bulkWrite->insert([
+                '_id' => $i,
+                'x' => (integer)($i . $i),
+            ]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
+
+        $this->assertEquals($n, $result->getInsertedCount());
+    }
+
+    private function assertExplainResult($result, $executionStatsExpected, $allPlansExecutionExpected, $stagesExpected = false): void
+    {
+        if ($stagesExpected) {
+            $this->assertArrayHasKey('stages', $result);
+        } else {
+            $this->assertArrayHasKey('queryPlanner', $result);
+        }
+
+        if ($executionStatsExpected) {
+            $this->assertArrayHasKey('executionStats', $result);
+            if ($allPlansExecutionExpected) {
+                $this->assertArrayHasKey('allPlansExecution', $result['executionStats']);
+            } else {
+                $this->assertArrayNotHasKey('allPlansExecution', $result['executionStats']);
+            }
+        } else {
+            $this->assertArrayNotHasKey('executionStats', $result);
+        }
+    }
+
+    /**
      * @dataProvider provideVerbosityInformation
      */
     public function testDelete($verbosity, $executionStatsExpected, $allPlansExecutionExpected): void
@@ -157,18 +198,21 @@ class ExplainFunctionalTest extends FunctionalTestCase
 
         $operation = new Find($databaseName, $cappedCollectionName, [], ['cursorType' => Find::TAILABLE_AWAIT, 'maxAwaitTimeMS' => $maxAwaitTimeMS]);
 
-        (new CommandObserver())->observe(
-            function () use ($operation): void {
-                $explainOperation = new Explain($this->getDatabaseName(), $operation, ['typeMap' => ['root' => 'array', 'document' => 'array']]);
-                $explainOperation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $command = $event['started']->getCommand();
-                $this->assertObjectNotHasAttribute('maxAwaitTimeMS', $command->explain);
-                $this->assertObjectHasAttribute('tailable', $command->explain);
-                $this->assertObjectHasAttribute('awaitData', $command->explain);
-            }
-        );
+        try {
+            (new CommandObserver())->observe(
+                function () use ($operation): void {
+                    $explainOperation = new Explain($this->getDatabaseName(), $operation, ['typeMap' => ['root' => 'array', 'document' => 'array']]);
+                    $explainOperation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $command = $event['started']->getCommand();
+                    $this->assertObjectNotHasAttribute('maxAwaitTimeMS', $command->explain);
+                    $this->assertObjectHasAttribute('tailable', $command->explain);
+                    $this->assertObjectHasAttribute('awaitData', $command->explain);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testFindModifiers(): void
@@ -182,17 +226,20 @@ class ExplainFunctionalTest extends FunctionalTestCase
             ['modifiers' => ['$orderby' => ['_id' => 1]]]
         );
 
-        (new CommandObserver())->observe(
-            function () use ($operation): void {
-                $explainOperation = new Explain($this->getDatabaseName(), $operation, ['typeMap' => ['root' => 'array', 'document' => 'array']]);
-                $explainOperation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $command = $event['started']->getCommand();
-                $this->assertObjectHasAttribute('sort', $command->explain);
-                $this->assertObjectNotHasAttribute('modifiers', $command->explain);
-            }
-        );
+        try {
+            (new CommandObserver())->observe(
+                function () use ($operation): void {
+                    $explainOperation = new Explain($this->getDatabaseName(), $operation, ['typeMap' => ['root' => 'array', 'document' => 'array']]);
+                    $explainOperation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $command = $event['started']->getCommand();
+                    $this->assertObjectHasAttribute('sort', $command->explain);
+                    $this->assertObjectNotHasAttribute('modifiers', $command->explain);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -271,53 +318,59 @@ class ExplainFunctionalTest extends FunctionalTestCase
     {
         $this->createFixtures(3);
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Update(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => ['$gt' => 1]],
-                    ['$inc' => ['x' => 1]],
-                    ['bypassDocumentValidation' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Update(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => ['$gt' => 1]],
+                        ['$inc' => ['x' => 1]],
+                        ['bypassDocumentValidation' => true]
+                    );
 
-                $explainOperation = new Explain($this->getDatabaseName(), $operation);
-                $result = $explainOperation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute(
-                    'bypassDocumentValidation',
-                    $event['started']->getCommand()->explain
-                );
-                $this->assertEquals(true, $event['started']->getCommand()->explain->bypassDocumentValidation);
-            }
-        );
+                    $explainOperation = new Explain($this->getDatabaseName(), $operation);
+                    $result = $explainOperation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute(
+                        'bypassDocumentValidation',
+                        $event['started']->getCommand()->explain
+                    );
+                    $this->assertEquals(true, $event['started']->getCommand()->explain->bypassDocumentValidation);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testUpdateBypassDocumentValidationUnsetWhenFalse(): void
     {
         $this->createFixtures(3);
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Update(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => ['$gt' => 1]],
-                    ['$inc' => ['x' => 1]],
-                    ['bypassDocumentValidation' => false]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Update(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => ['$gt' => 1]],
+                        ['$inc' => ['x' => 1]],
+                        ['bypassDocumentValidation' => false]
+                    );
 
-                $explainOperation = new Explain($this->getDatabaseName(), $operation);
-                $result = $explainOperation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute(
-                    'bypassDocumentValidation',
-                    $event['started']->getCommand()->explain
-                );
-            }
-        );
+                    $explainOperation = new Explain($this->getDatabaseName(), $operation);
+                    $result = $explainOperation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute(
+                        'bypassDocumentValidation',
+                        $event['started']->getCommand()->explain
+                    );
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -393,53 +446,12 @@ class ExplainFunctionalTest extends FunctionalTestCase
         $this->assertExplainResult($result, $executionStatsExpected, $allPlansExecutionExpected);
     }
 
-    public function provideVerbosityInformation()
+    public function provideVerbosityInformation(): array
     {
         return [
             [Explain::VERBOSITY_ALL_PLANS, true, true],
             [Explain::VERBOSITY_EXEC_STATS, true, false],
             [Explain::VERBOSITY_QUERY, false, false],
         ];
-    }
-
-    private function assertExplainResult($result, $executionStatsExpected, $allPlansExecutionExpected, $stagesExpected = false): void
-    {
-        if ($stagesExpected) {
-            $this->assertArrayHasKey('stages', $result);
-        } else {
-            $this->assertArrayHasKey('queryPlanner', $result);
-        }
-
-        if ($executionStatsExpected) {
-            $this->assertArrayHasKey('executionStats', $result);
-            if ($allPlansExecutionExpected) {
-                $this->assertArrayHasKey('allPlansExecution', $result['executionStats']);
-            } else {
-                $this->assertArrayNotHasKey('allPlansExecution', $result['executionStats']);
-            }
-        } else {
-            $this->assertArrayNotHasKey('executionStats', $result);
-        }
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     */
-    private function createFixtures(int $n): void
-    {
-        $bulkWrite = new BulkWrite(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert([
-                '_id' => $i,
-                'x' => (integer) ($i . $i),
-            ]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
-
-        $this->assertEquals($n, $result->getInsertedCount());
     }
 }

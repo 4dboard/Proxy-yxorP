@@ -16,7 +16,7 @@ use function version_compare;
 class UpdateFunctionalTest extends FunctionalTestCase
 {
     /** @var Collection */
-    private $collection;
+    private Collection $collection;
 
     public function setUp(): void
     {
@@ -27,63 +27,72 @@ class UpdateFunctionalTest extends FunctionalTestCase
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Update(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => 1],
-                    ['$inc' => ['x' => 1]],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Update(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => 1],
+                        ['$inc' => ['x' => 1]],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationSetWhenTrue(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Update(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => 1],
-                    ['$inc' => ['x' => 1]],
-                    ['bypassDocumentValidation' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Update(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => 1],
+                        ['$inc' => ['x' => 1]],
+                        ['bypassDocumentValidation' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-                $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                    $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationUnsetWhenFalse(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new Update(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    ['_id' => 1],
-                    ['$inc' => ['x' => 1]],
-                    ['bypassDocumentValidation' => false]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new Update(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        ['_id' => 1],
+                        ['$inc' => ['x' => 1]],
+                        ['bypassDocumentValidation' => false]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testHintOptionAndUnacknowledgedWriteConcernUnsupportedClientSideError(): void
@@ -108,7 +117,7 @@ class UpdateFunctionalTest extends FunctionalTestCase
 
     public function testUpdateOne(): void
     {
-        $this->createFixtures(3);
+        $this->createFixtures();
 
         $filter = ['_id' => ['$gt' => 1]];
         $update = ['$inc' => ['x' => 1]];
@@ -131,9 +140,29 @@ class UpdateFunctionalTest extends FunctionalTestCase
         $this->assertSameDocuments($expected, $this->collection->find());
     }
 
+    /**
+     * Create data fixtures.
+     *
+     */
+    private function createFixtures(): void
+    {
+        $bulkWrite = new BulkWrite(['ordered' => true]);
+
+        for ($i = 1; $i <= 3; $i++) {
+            $bulkWrite->insert([
+                '_id' => $i,
+                'x' => (integer)($i . $i),
+            ]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
+
+        $this->assertEquals(3, $result->getInsertedCount());
+    }
+
     public function testUpdateMany(): void
     {
-        $this->createFixtures(3);
+        $this->createFixtures();
 
         $filter = ['_id' => ['$gt' => 1]];
         $update = ['$inc' => ['x' => 1]];
@@ -159,7 +188,7 @@ class UpdateFunctionalTest extends FunctionalTestCase
 
     public function testUpdateManyWithExistingId(): void
     {
-        $this->createFixtures(3);
+        $this->createFixtures();
 
         $filter = ['_id' => 5];
         $update = ['$set' => ['x' => 55]];
@@ -186,7 +215,7 @@ class UpdateFunctionalTest extends FunctionalTestCase
 
     public function testUpdateManyWithGeneratedId(): void
     {
-        $this->createFixtures(3);
+        $this->createFixtures();
 
         $filter = ['x' => 66];
         $update = ['$set' => ['x' => 66]];
@@ -211,7 +240,7 @@ class UpdateFunctionalTest extends FunctionalTestCase
         $this->assertSameDocuments($expected, $this->collection->find());
     }
 
-    public function testUnacknowledgedWriteConcern()
+    public function testUnacknowledgedWriteConcern(): UpdateResult
     {
         $filter = ['_id' => 1];
         $update = ['$set' => ['x' => 1]];
@@ -262,26 +291,5 @@ class UpdateFunctionalTest extends FunctionalTestCase
         $this->expectException(BadMethodCallException::class);
         $this->expectExceptionMessageMatches('/[\w:\\\\]+ should not be called for an unacknowledged write result/');
         $result->getUpsertedId();
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     */
-    private function createFixtures(int $n): void
-    {
-        $bulkWrite = new BulkWrite(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert([
-                '_id' => $i,
-                'x' => (integer) ($i . $i),
-            ]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
-
-        $this->assertEquals($n, $result->getInsertedCount());
     }
 }

@@ -3,10 +3,11 @@
 namespace ColorThief;
 
 /* Simple priority queue */
+
 class PQueue
 {
-    private $contents = [];
-    private $sorted = false;
+    private array $contents = [];
+    private bool $sorted = false;
     private $comparator = null;
 
     public function __construct($comparator)
@@ -14,15 +15,15 @@ class PQueue
         $this->setComparator($comparator);
     }
 
-    private function sort()
+    public function setComparator($function)
     {
-        usort($this->contents, $this->comparator);
-        $this->sorted = true;
+        $this->comparator = $function;
+        $this->sorted = false;
     }
 
     public function push($object)
     {
-        array_push($this->contents, $object);
+        $this->contents[] = $object;
         $this->sorted = false;
     }
 
@@ -39,6 +40,17 @@ class PQueue
         return $this->contents[$index];
     }
 
+    private function sort()
+    {
+        usort($this->contents, $this->comparator);
+        $this->sorted = true;
+    }
+
+    public function size(): int
+    {
+        return count($this->contents);
+    }
+
     public function pop()
     {
         if (!$this->sorted) {
@@ -48,23 +60,12 @@ class PQueue
         return array_pop($this->contents);
     }
 
-    public function size()
-    {
-        return count($this->contents);
-    }
-
     public function map($function)
     {
         return array_map($function, $this->contents);
     }
 
-    public function setComparator($function)
-    {
-        $this->comparator = $function;
-        $this->sorted = false;
-    }
-
-    public function debug()
+    public function debug(): array
     {
         if (!$this->sorted) {
             $this->sort();

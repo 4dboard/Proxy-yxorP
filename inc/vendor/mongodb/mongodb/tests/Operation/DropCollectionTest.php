@@ -16,7 +16,7 @@ class DropCollectionTest extends TestCase
         new DropCollection($this->getDatabaseName(), $this->getCollectionName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

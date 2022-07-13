@@ -203,30 +203,30 @@ arg_name: option
 name: validationAction
 type: string
 description: |
-   Determines whether to ``error`` on invalid documents or just ``warn`` about
-   the violations but allow invalid documents to be inserted.
-
-   .. important::
-
-      Validation of documents only applies to those documents as determined by
-      the ``validationLevel``.
-
-   .. list-table::
-      :header-rows: 1
-
-      * - ``validationAction``
-
-        - Description
-
-      * - ``"error"``
-
-        - **Default**. Documents must pass validation before the write occurs.
-          Otherwise, the write operation fails.
-
-      * - ``"warn"``
-
-        - Documents do not have to pass validation. If the document fails
-          validation, the write operation logs the validation failure.
+  Determines whether to ``error`` on invalid documents or just ``warn`` about
+  the violations but allow invalid documents to be inserted.
+  
+  .. important::
+  
+     Validation of documents only applies to those documents as determined by
+     the ``validationLevel``.
+  
+  .. list-table::
+     :header-rows: 1
+  
+     * - ``validationAction``
+  
+       - Description
+  
+     * - ``"error"``
+  
+       - **Default**. Documents must pass validation before the write occurs.
+         Otherwise, the write operation fails.
+  
+     * - ``"warn"``
+  
+       - Documents do not have to pass validation. If the document fails
+         validation, the write operation logs the validation failure.
 interface: phpmethod
 operation: ~
 optional: true
@@ -235,29 +235,29 @@ arg_name: option
 name: validationLevel
 type: string
 description: |
-   Determines how strictly MongoDB applies the validation rules to existing
-   documents during an update.
-
-   .. list-table::
-      :header-rows: 1
-
-      * - ``validationLevel``
-
-        - Description
-
-      * - ``"off"``
-
-        - No validation for inserts or updates.
-
-      * - ``"strict"``
-
-        - **Default**. Apply validation rules to all inserts and all updates.
-
-      * - ``"moderate"``
-
-        - Apply validation rules to inserts and to updates on existing *valid*
-          documents. Do not apply rules to updates on existing *invalid*
-          documents.
+  Determines how strictly MongoDB applies the validation rules to existing
+  documents during an update.
+  
+  .. list-table::
+     :header-rows: 1
+  
+     * - ``validationLevel``
+  
+       - Description
+  
+     * - ``"off"``
+  
+       - No validation for inserts or updates.
+  
+     * - ``"strict"``
+  
+       - **Default**. Apply validation rules to all inserts and all updates.
+  
+     * - ``"moderate"``
+  
+       - Apply validation rules to inserts and to updates on existing *valid*
+         documents. Do not apply rules to updates on existing *invalid*
+         documents.
 interface: phpmethod
 operation: ~
 optional: true

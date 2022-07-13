@@ -11,7 +11,7 @@ use League\MimeTypeDetection\MimeTypeDetector;
  */
 class MimeType
 {
-    protected static $extensionToMimeTypeMap = GeneratedExtensionToMimeTypeMap::MIME_TYPES_FOR_EXTENSIONS;
+    protected static array $extensionToMimeTypeMap = GeneratedExtensionToMimeTypeMap::MIME_TYPES_FOR_EXTENSIONS;
     protected static $detector;
 
     public static function useDetector(MimeTypeDetector $detector)
@@ -20,26 +20,13 @@ class MimeType
     }
 
     /**
-     * @return MimeTypeDetector
-     */
-    protected static function detector()
-    {
-        if ( ! static::$detector instanceof MimeTypeDetector) {
-            static::$detector = new FinfoMimeTypeDetector();
-        }
-
-        return static::$detector;
-    }
-
-
-    /**
      * Detects MIME Type based on given content.
      *
      * @param mixed $content
      *
      * @return string MIME Type
      */
-    public static function detectByContent($content)
+    public static function detectByContent(mixed $content): string
     {
         if (is_string($content)) {
             return static::detector()->detectMimeTypeFromBuffer($content);
@@ -49,13 +36,25 @@ class MimeType
     }
 
     /**
+     * @return MimeTypeDetector
+     */
+    protected static function detector(): MimeTypeDetector
+    {
+        if (!static::$detector instanceof MimeTypeDetector) {
+            static::$detector = new FinfoMimeTypeDetector();
+        }
+
+        return static::$detector;
+    }
+
+    /**
      * Detects MIME Type based on file extension.
      *
      * @param string $extension
      *
      * @return string MIME Type
      */
-    public static function detectByFileExtension($extension)
+    public static function detectByFileExtension(string $extension): string
     {
         return static::detector()->detectMimeTypeFromPath('artificial.' . $extension) ?: 'text/plain';
     }
@@ -65,7 +64,7 @@ class MimeType
      *
      * @return string MIME Type
      */
-    public static function detectByFilename($filename)
+    public static function detectByFilename(string $filename): string
     {
         return static::detector()->detectMimeTypeFromPath($filename) ?: 'text/plain';
     }
@@ -73,7 +72,7 @@ class MimeType
     /**
      * @return array Map of file extension to MIME Type
      */
-    public static function getExtensionToMimeTypeMap()
+    public static function getExtensionToMimeTypeMap(): array
     {
         return static::$extensionToMimeTypeMap;
     }

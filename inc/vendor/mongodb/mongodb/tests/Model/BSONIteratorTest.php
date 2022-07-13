@@ -25,7 +25,7 @@ class BSONIteratorTest extends TestCase
         $this->assertEquals($expectedDocuments, $results);
     }
 
-    public function provideTypeMapOptionsAndExpectedDocuments()
+    public function provideTypeMapOptionsAndExpectedDocuments(): array
     {
         return [
             [
@@ -38,8 +38,8 @@ class BSONIteratorTest extends TestCase
                     ]
                 )),
                 [
-                    (object) ['_id' => 1, 'x' => (object) ['foo' => 'bar']],
-                    (object) ['_id' => 3, 'x' => (object) ['foo' => 'bar']],
+                    (object)['_id' => 1, 'x' => (object)['foo' => 'bar']],
+                    (object)['_id' => 3, 'x' => (object)['foo' => 'bar']],
                 ],
             ],
             [
@@ -66,8 +66,8 @@ class BSONIteratorTest extends TestCase
                     ]
                 )),
                 [
-                    (object) ['_id' => 1, 'x' => ['foo' => 'bar']],
-                    (object) ['_id' => 3, 'x' => ['foo' => 'bar']],
+                    (object)['_id' => 1, 'x' => ['foo' => 'bar']],
+                    (object)['_id' => 3, 'x' => ['foo' => 'bar']],
                 ],
             ],
             [
@@ -80,8 +80,8 @@ class BSONIteratorTest extends TestCase
                     ]
                 )),
                 [
-                    ['_id' => 1, 'x' => (object) ['foo' => 'bar']],
-                    ['_id' => 3, 'x' => (object) ['foo' => 'bar']],
+                    ['_id' => 1, 'x' => (object)['foo' => 'bar']],
+                    ['_id' => 3, 'x' => (object)['foo' => 'bar']],
                 ],
             ],
         ];

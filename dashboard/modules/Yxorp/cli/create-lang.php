@@ -10,7 +10,7 @@
 
 if (!YXORP_CLI) return;
 
-$lang = $app->param('lang', null);
+$lang = $app->param('lang');
 $language = $app->param('language', $lang);
 $author = $app->param('author', 'yxorP CLI');
 
@@ -33,11 +33,11 @@ foreach ($dirs as $dir) {
 
             $contents = file_get_contents($file->getRealPath());
 
-            preg_match_all('/(?:\@lang|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
+            preg_match_all('/(?:@lang|App\.i18n\.get|App\.ui\.notify)\((["\'])((?:[^\1]|\\.)*?)\1(,\s*(["\'])((?:[^\4]|\\.)*?)\4)?\)/', $contents, $matches);
 
             if (!isset($matches[2])) continue;
 
-            foreach ($matches[2] as &$string) {
+            foreach ($matches[2] as $string) {
                 $strings[$string] = $string;
             }
 

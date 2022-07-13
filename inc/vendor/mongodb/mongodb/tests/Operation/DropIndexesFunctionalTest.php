@@ -19,21 +19,24 @@ class DropIndexesFunctionalTest extends FunctionalTestCase
         $operation = new CreateIndexes($this->getDatabaseName(), $this->getCollectionName(), [['key' => ['x' => 1]]]);
         $operation->execute($this->getPrimaryServer());
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new DropIndexes(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    'x_1',
-                    ['writeConcern' => $this->createDefaultWriteConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new DropIndexes(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        'x_1',
+                        ['writeConcern' => $this->createDefaultWriteConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testDropOneIndexByName(): void
@@ -56,6 +59,40 @@ class DropIndexesFunctionalTest extends FunctionalTestCase
             if ($index->getName() === 'x_1') {
                 $this->fail('The "x_1" index should have been deleted');
             }
+        }
+    }
+
+    /**
+     * Asserts that an index with the given name exists for the collection.
+     *
+     * An optional $callback may be provided, which should take an IndexInfo
+     * argument as its first and only parameter. If an IndexInfo matching the
+     * given name is found, it will be passed to the callback, which may perform
+     * additional assertions.
+     *
+     */
+    private function assertIndexExists($indexName): void
+    {
+        if (null !== null && !is_callable(null)) {
+            throw new InvalidArgumentException('$callback is not a callable');
+        }
+
+        $operation = new ListIndexes($this->getDatabaseName(), $this->getCollectionName());
+        $indexes = $operation->execute($this->getPrimaryServer());
+
+        $foundIndex = null;
+
+        foreach ($indexes as $index) {
+            if ($index->getName() === $indexName) {
+                $foundIndex = $index;
+                break;
+            }
+        }
+
+        $this->assertNotNull($foundIndex, sprintf('Found %s index for the collection', $indexName));
+
+        if (null !== null) {
+            call_user_func(null, $foundIndex);
         }
     }
 
@@ -124,55 +161,23 @@ class DropIndexesFunctionalTest extends FunctionalTestCase
         $operation = new CreateIndexes($this->getDatabaseName(), $this->getCollectionName(), [['key' => ['x' => 1]]]);
         $operation->execute($this->getPrimaryServer());
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new DropIndexes(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    '*',
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new DropIndexes(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        '*',
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
-    }
-
-    /**
-     * Asserts that an index with the given name exists for the collection.
-     *
-     * An optional $callback may be provided, which should take an IndexInfo
-     * argument as its first and only parameter. If an IndexInfo matching the
-     * given name is found, it will be passed to the callback, which may perform
-     * additional assertions.
-     *
-     * @param callable $callback
-     */
-    private function assertIndexExists($indexName, ?callable $callback = null): void
-    {
-        if ($callback !== null && ! is_callable($callback)) {
-            throw new InvalidArgumentException('$callback is not a callable');
-        }
-
-        $operation = new ListIndexes($this->getDatabaseName(), $this->getCollectionName());
-        $indexes = $operation->execute($this->getPrimaryServer());
-
-        $foundIndex = null;
-
-        foreach ($indexes as $index) {
-            if ($index->getName() === $indexName) {
-                $foundIndex = $index;
-                break;
-            }
-        }
-
-        $this->assertNotNull($foundIndex, sprintf('Found %s index for the collection', $indexName));
-
-        if ($callback !== null) {
-            call_user_func($callback, $foundIndex);
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
         }
     }
 }

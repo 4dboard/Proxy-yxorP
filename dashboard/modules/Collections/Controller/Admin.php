@@ -11,7 +11,14 @@
 namespace Collections\Controller;
 
 
-class Admin extends \yxorP\AuthController
+use ArrayObject;
+use Exception;
+use Throwable;
+use yxorP\AuthController;
+use function preg_match;
+use function session_write_close;
+
+class Admin extends AuthController
 {
 
 
@@ -53,7 +60,7 @@ class Admin extends \yxorP\AuthController
         return $this->module('collections')->collections();
     }
 
-    public function _find()
+    public function _find(): bool
     {
 
         if ($this->param('collection') && $this->param('options')) {
@@ -79,7 +86,7 @@ class Admin extends \yxorP\AuthController
             'label' => '',
             'color' => '',
             'fields' => [],
-            'acl' => new \ArrayObject,
+            'acl' => new ArrayObject,
             'sortable' => false,
             'sort' => [
                 'column' => '_created',
@@ -137,11 +144,11 @@ class Admin extends \yxorP\AuthController
         return $this->render('collections:views/collection.php', compact('collection', 'templates', 'aclgroups', 'rules'));
     }
 
-    public function save_collection()
+    public function save_collection(): bool
     {
 
         $collection = $this->param('collection');
-        $rules = $this->param('rules', null);
+        $rules = $this->param('rules');
 
         if (!$collection) {
             return false;
@@ -230,7 +237,7 @@ class Admin extends \yxorP\AuthController
         }
 
         $collection = $this->module('collections')->collection($collection);
-        $entry = new \ArrayObject([]);
+        $entry = new ArrayObject([]);
         $excludeFields = [];
 
         if (!$collection) {
@@ -333,7 +340,7 @@ class Admin extends \yxorP\AuthController
 
         try {
             $entry = $this->module('collections')->save($collection['name'], $entry, ['revision' => $revision]);
-        } catch (\Throwable $e) {
+        } catch (Throwable $e) {
             $this->app->stop(['error' => $e->getMessage()], 412);
         }
 
@@ -342,10 +349,10 @@ class Admin extends \yxorP\AuthController
         return $entry;
     }
 
-    public function delete_entries($collection)
+    public function delete_entries($collection): bool
     {
 
-        \session_write_close();
+        session_write_close();
 
         $collection = $this->module('collections')->collection($collection);
 
@@ -392,7 +399,7 @@ class Admin extends \yxorP\AuthController
     public function update_order($collection)
     {
 
-        \session_write_close();
+        session_write_close();
 
         $collection = $this->module('collections')->collection($collection);
         $entries = $this->param('entries');
@@ -415,10 +422,10 @@ class Admin extends \yxorP\AuthController
         return $entries;
     }
 
-    public function export($collection)
+    public function export($collection): bool|string
     {
 
-        \session_write_close();
+        session_write_close();
 
         if (!$this->app->module("yxorp")->hasaccess('collections', 'manage')) {
             return false;
@@ -438,10 +445,10 @@ class Admin extends \yxorP\AuthController
     }
 
 
-    public function tree()
+    public function tree(): bool
     {
 
-        \session_write_close();
+        session_write_close();
 
         $collection = $this->app->param('collection');
 
@@ -462,10 +469,10 @@ class Admin extends \yxorP\AuthController
         return $items;
     }
 
-    public function find()
+    public function find(): bool|array
     {
 
-        \session_write_close();
+        session_write_close();
 
         $collection = $this->app->param('collection');
         $options = $this->app->param('options');
@@ -478,11 +485,11 @@ class Admin extends \yxorP\AuthController
 
             $filter = null;
 
-            if (\preg_match('/^\{(.*)\}$/', $options['filter'])) {
+            if (preg_match('/^{(.*)}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (\Exception $e) {
+                } catch (Exception $e) {
                 }
             }
 
@@ -497,7 +504,7 @@ class Admin extends \yxorP\AuthController
         $entries = $this->app->module('collections')->find($collection['name'], $options);
         $this->app->trigger("collections.admin.find.after.{$collection['name']}", [&$entries, $options]);
 
-        $count = $this->app->module('collections')->count($collection['name'], isset($options['filter']) ? $options['filter'] : []);
+        $count = $this->app->module('collections')->count($collection['name'], $options['filter'] ?? []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
         $page = 1;
 
@@ -557,7 +564,7 @@ class Admin extends \yxorP\AuthController
         return $this->render('collections:views/revisions.php', compact('collection', 'entry', 'revisions', 'allowedFields'));
     }
 
-    protected function _filter($filter, $collection, $lang = null)
+    protected function _filter($filter, $collection, $lang = null): ?array
     {
 
         $isMongoLite = ($this->app->storage->type == 'mongolite');

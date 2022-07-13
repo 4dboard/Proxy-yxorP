@@ -10,12 +10,29 @@
 
 namespace yxorP\Controller;
 
-class Media extends \yxorP\AuthController
+use DirectoryIterator;
+use JetBrains\PhpStorm\ArrayShape;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SVGSanitizer;
+use yxorP\AuthController;
+use ZipArchive;
+use ZipStream\Exception\FileNotFoundException;
+use ZipStream\Exception\FileNotReadableException;
+use ZipStream\ZipStream;
+use function file_get_contents;
+use function preg_match;
+use function session_write_close;
+
+/**
+ * @property mixed|null $memory
+ */
+class Media extends AuthController
 {
 
     protected $root;
 
-    public function api()
+    public function api(): bool
     {
 
         $cmd = $this->param('cmd', false);
@@ -37,7 +54,7 @@ class Media extends \yxorP\AuthController
         return false;
     }
 
-    public function savebookmarks()
+    public function savebookmarks(): bool|string
     {
 
         if ($bookmarks = $this->param('bookmarks', false)) {
@@ -47,13 +64,13 @@ class Media extends \yxorP\AuthController
         return json_encode($bookmarks);
     }
 
-    public function loadbookmarks()
+    public function loadbookmarks(): bool|string
     {
 
         return json_encode($this->app->memory->get('mediamanager.bookmarks.' . $this->user['_id'], ['folders' => [], 'files' => []]));
     }
 
-    protected function ls()
+    #[ArrayShape(['folders' => "array", 'files' => "array", 'path' => "string"])] protected function ls(): array
     {
 
         $data = ['folders' => [], 'files' => []];
@@ -73,7 +90,7 @@ class Media extends \yxorP\AuthController
 
             if (file_exists($dir)) {
 
-                foreach (new \DirectoryIterator($dir) as $file) {
+                foreach (new DirectoryIterator($dir) as $file) {
 
                     if ($file->isDot()) continue;
                     if ($file->isDir() && $file->getRealPath() == $cpfolder && !$isSuperAdmin) continue;
@@ -105,10 +122,27 @@ class Media extends \yxorP\AuthController
         return $data;
     }
 
-    protected function upload()
+    protected function _getPathParameter()
     {
 
-        \session_write_close();
+        $path = $this->param('path', false);
+
+        if ($path) {
+
+            $path = trim($path);
+
+            if (str_contains($path, '../')) {
+                $path = false;
+            }
+        }
+
+        return $path;
+    }
+
+    protected function upload(): bool|string
+    {
+
+        session_write_close();
 
         $path = $this->_getPathParameter();
 
@@ -123,20 +157,20 @@ class Media extends \yxorP\AuthController
         $_uploaded = [];
         $_failed = [];
 
-        if (isset($files['name']) && $path && file_exists($targetpath)) {
+        if (isset($files['name']) && file_exists($targetpath)) {
 
             for ($i = 0; $i < count($files['name']); $i++) {
 
                 // clean filename
-                $clean = preg_replace('/[^a-zA-Z0-9-_\.]/', '', str_replace(' ', '-', $files['name'][$i]));
+                $clean = preg_replace('/[^a-zA-Z0-9-_.]/', '', str_replace(' ', '-', $files['name'][$i]));
                 $_file = $targetpath . '/' . $clean;
 
                 if (!$files['error'][$i] && $this->_isFileTypeAllowed($clean) && move_uploaded_file($files['tmp_name'][$i], $_file)) {
                     $uploaded[] = $files['name'][$i];
                     $_uploaded[] = $_file;
 
-                    if (\preg_match('/\.(svg|xml)$/i', $clean)) {
-                        file_put_contents($_file, \SVGSanitizer::clean(\file_get_contents($_file)));
+                    if (preg_match('/\.(svg|xml)$/i', $clean)) {
+                        file_put_contents($_file, SVGSanitizer::clean(file_get_contents($_file)));
                     }
 
                 } else {
@@ -151,10 +185,28 @@ class Media extends \yxorP\AuthController
         return json_encode(['uploaded' => $uploaded, 'failed' => $failed]);
     }
 
-    protected function uploadfolder()
+    protected function _isFileTypeAllowed($file): bool|int
     {
 
-        \session_write_close();
+        $allowed = trim($this->module('yxorp')->getGroupVar('finder.allowed_uploads', $this->app->retrieve('allowed_uploads', '*')));
+
+        if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) == 'php' && !$this->module('yxorp')->isSuperAdmin()) {
+            return false;
+        }
+
+        if ($allowed == '*') {
+            return true;
+        }
+
+        $allowed = str_replace([' ', ','], ['', '|'], preg_quote($allowed));
+
+        return preg_match("/\.({$allowed})$/i", $file);
+    }
+
+    protected function uploadfolder(): bool|string
+    {
+
+        session_write_close();
 
         $path = $this->_getPathParameter();
 
@@ -170,14 +222,14 @@ class Media extends \yxorP\AuthController
         $_uploaded = [];
         $_failed = [];
 
-        if (isset($files['name']) && $path && file_exists($targetpath)) {
+        if (isset($files['name']) && file_exists($targetpath)) {
 
             for ($i = 0; $i < count($files['name']); $i++) {
 
                 $_path = str_replace('\\', '/', dirname(strip_tags($paths[$i])));
 
                 // clean filename
-                $clean = preg_replace('/[^a-zA-Z0-9-_\.]/', '', str_replace(' ', '-', $files['name'][$i]));
+                $clean = preg_replace('/[^a-zA-Z0-9-_.]/', '', str_replace(' ', '-', $files['name'][$i]));
                 $_file = $targetpath . '/' . $_path . '/' . $clean;
 
                 if (!is_dir(dirname($_file))) {
@@ -188,8 +240,8 @@ class Media extends \yxorP\AuthController
                     $uploaded[] = $files['name'][$i];
                     $_uploaded[] = $_file;
 
-                    if (\preg_match('/\.(svg|xml)$/i', $clean)) {
-                        file_put_contents($_file, \SVGSanitizer::clean(\file_get_contents($_file)));
+                    if (preg_match('/\.(svg|xml)$/i', $clean)) {
+                        file_put_contents($_file, SVGSanitizer::clean(file_get_contents($_file)));
                     }
 
                 } else {
@@ -204,7 +256,7 @@ class Media extends \yxorP\AuthController
         return json_encode(['uploaded' => $uploaded, 'failed' => $failed]);
     }
 
-    protected function createfolder()
+    protected function createfolder(): bool|string
     {
 
         $path = $this->_getPathParameter();
@@ -214,14 +266,14 @@ class Media extends \yxorP\AuthController
         $name = $this->param('name', false);
         $ret = false;
 
-        if ($name && $path) {
+        if ($name) {
             $ret = mkdir($this->root . '/' . trim($path, '/') . '/' . $name);
         }
 
         return json_encode(['success' => $ret]);
     }
 
-    protected function createfile()
+    protected function createfile(): bool|string
     {
 
         $path = $this->_getPathParameter();
@@ -231,14 +283,14 @@ class Media extends \yxorP\AuthController
         $name = $this->param('name', false);
         $ret = false;
 
-        if ($name && $this->_isFileTypeAllowed($name) && $path) {
+        if ($name && $this->_isFileTypeAllowed($name)) {
             $ret = @file_put_contents($this->root . '/' . trim($path, '/') . '/' . $name, '');
         }
 
         return json_encode(['success' => $ret]);
     }
 
-    protected function removefiles()
+    protected function removefiles(): bool|string
     {
 
         $paths = (array)$this->param('paths', []);
@@ -280,7 +332,7 @@ class Media extends \yxorP\AuthController
         }
     }
 
-    protected function rename()
+    protected function rename(): bool|string
     {
 
         $path = $this->_getPathParameter();
@@ -289,7 +341,7 @@ class Media extends \yxorP\AuthController
 
         $name = $this->param('name', false);
 
-        if ($path && $name && $this->_isFileTypeAllowed($name)) {
+        if ($name && $this->_isFileTypeAllowed($name)) {
             $source = $this->root . '/' . trim($path, '/');
             $target = dirname($source) . '/' . $name;
 
@@ -309,14 +361,14 @@ class Media extends \yxorP\AuthController
 
         $file = $this->root . '/' . trim($path, '/');
 
-        if ($path && file_exists($file)) {
+        if (file_exists($file)) {
             echo file_get_contents($file);
         }
 
         $this->app->stop();
     }
 
-    protected function writefile()
+    protected function writefile(): bool|string
     {
 
         $path = $this->_getPathParameter();
@@ -327,17 +379,17 @@ class Media extends \yxorP\AuthController
         $file = $this->root . '/' . trim($path, '/');
         $ret = false;
 
-        if ($path && file_exists($file) && $content !== false) {
+        if (file_exists($file) && $content !== false) {
             $ret = file_put_contents($file, $content);
         }
 
         return json_encode(['success' => $ret]);
     }
 
-    protected function unzip()
+    protected function unzip(): bool|string
     {
 
-        \session_write_close(); // improve concurrency loading
+        session_write_close(); // improve concurrency loading
 
         $path = $this->_getPathParameter();
 
@@ -346,12 +398,12 @@ class Media extends \yxorP\AuthController
         $return = ['success' => false];
         $zip = $this->param('zip', false);
 
-        if ($path && $zip) {
+        if ($zip) {
 
             $path = $this->root . '/' . trim($path, '/');
             $zip = $this->root . '/' . trim($zip, '/');
 
-            $za = new \ZipArchive;
+            $za = new ZipArchive;
 
             if ($za->open($zip)) {
 
@@ -410,7 +462,7 @@ class Media extends \yxorP\AuthController
     protected function downloadfolder()
     {
 
-        \session_write_close(); // improve concurrency loading
+        session_write_close(); // improve concurrency loading
 
         $path = $this->_getPathParameter();
 
@@ -425,8 +477,8 @@ class Media extends \yxorP\AuthController
         header('X-Accel-Buffering: no');
 
         $prefix = basename($path);
-        $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($folder), \RecursiveIteratorIterator::LEAVES_ONLY);
-        $zip = new \ZipStream\ZipStream("{$prefix}.zip");
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($folder), RecursiveIteratorIterator::LEAVES_ONLY);
+        $zip = new ZipStream("{$prefix}.zip");
 
         foreach ($files as $name => $file) {
 
@@ -434,7 +486,11 @@ class Media extends \yxorP\AuthController
 
             $filePath = $file->getRealPath();
             $relativePath = substr($filePath, strlen($folder) + 1);
-            $zip->addFileFromPath("{$prefix}/{$relativePath}", $filePath);
+            try {
+                $zip->addFileFromPath("{$prefix}/{$relativePath}", $filePath);
+            } catch (FileNotFoundException $e) {
+            } catch (FileNotReadableException $e) {
+            }
         }
 
         $zip->finish();
@@ -442,10 +498,10 @@ class Media extends \yxorP\AuthController
         $this->app->stop();
     }
 
-    protected function getfilelist()
+    protected function getfilelist(): bool|string
     {
 
-        \session_write_close(); // improve concurrency loading
+        session_write_close(); // improve concurrency loading
 
         $list = [];
         $toignore = [
@@ -454,7 +510,7 @@ class Media extends \yxorP\AuthController
 
         $toignore = '/(' . implode('|', $toignore) . ')/i';
 
-        foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($this->root)) as $file) {
+        foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($this->root)) as $file) {
 
             if ($file->isDir()) continue;
 
@@ -476,41 +532,6 @@ class Media extends \yxorP\AuthController
         }
 
         return json_encode($list);
-    }
-
-    protected function _getPathParameter()
-    {
-
-        $path = $this->param('path', false);
-
-        if ($path) {
-
-            $path = trim($path);
-
-            if (strpos($path, '../') !== false) {
-                $path = false;
-            }
-        }
-
-        return $path;
-    }
-
-    protected function _isFileTypeAllowed($file)
-    {
-
-        $allowed = trim($this->module('yxorp')->getGroupVar('finder.allowed_uploads', $this->app->retrieve('allowed_uploads', '*')));
-
-        if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) == 'php' && !$this->module('yxorp')->isSuperAdmin()) {
-            return false;
-        }
-
-        if ($allowed == '*') {
-            return true;
-        }
-
-        $allowed = str_replace([' ', ','], ['', '|'], preg_quote(is_array($allowed) ? implode(',', $allowed) : $allowed));
-
-        return preg_match("/\.({$allowed})$/i", $file);
     }
 
 }

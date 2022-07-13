@@ -2,33 +2,36 @@
 
 <title>CodeMirror: Handlebars mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/mode/simple.js"></script>
 <script src="../../addon/mode/multiplex.js"></script>
 <script src="../../addon/edit/matchbrackets.js"></script>
 <script src="../xml/xml.js"></script>
 <script src="handlebars.js"></script>
-<style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
+<style>.CodeMirror {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}</style>
 <div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
+    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
 
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">HTML mixed</a>
-  </ul>
+    <ul>
+        <li><a href="../../index.html">Home</a>
+        <li><a href="../../doc/manual.html">Manual</a>
+        <li><a href="https://github.com/codemirror/codemirror">Code</a>
+    </ul>
+    <ul>
+        <li><a href="../index.html">Language modes</a>
+        <li><a class=active href="#">HTML mixed</a>
+    </ul>
 </div>
 
 <article>
-<h2>Handlebars</h2>
-<form><textarea id="code" name="code">
+    <h2>Handlebars</h2>
+    <form><label for="code"></label><textarea id="code" name="code">
 {{> breadcrumbs}}
 
 {{!--
@@ -64,19 +67,19 @@
 
 </textarea></form>
     <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        lineNumbers: true,
-        matchBrackets: true,
-        mode: {name: "handlebars", base: "text/html"}
-      });
+        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            mode: {name: "handlebars", base: "text/html"}
+        });
     </script>
-    
+
     <p>Handlebars syntax highlighting for CodeMirror.</p>
 
     <p><strong>MIME types defined:</strong> <code>text/x-handlebars-template</code></p>
 
     <p>Supported options: <code>base</code> to set the mode to
-    wrap. For example, use</p>
+        wrap. For example, use</p>
     <pre>mode: {name: "handlebars", base: "text/html"}</pre>
     <p>to highlight an HTML template.</p>
 </article>

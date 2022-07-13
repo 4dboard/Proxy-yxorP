@@ -2,6 +2,8 @@
 
 namespace ColorThief;
 
+use JetBrains\PhpStorm\Pure;
+
 class VBox
 {
     public $r1;
@@ -12,10 +14,10 @@ class VBox
     public $b2;
     public $histo;
 
-    private $volume = false;
+    private bool $volume = false;
     private $count;
-    private $count_set = false;
-    private $avg = false;
+    private bool $count_set = false;
+    private bool $avg = false;
 
     public function __construct($r1, $r2, $g1, $g2, $b1, $b2, $histo)
     {
@@ -26,15 +28,6 @@ class VBox
         $this->b1 = $b1;
         $this->b2 = $b2;
         $this->histo = $histo;
-    }
-
-    public function volume($force = false)
-    {
-        if (!$this->volume || $force) {
-            $this->volume = (($this->r2 - $this->r1 + 1) * ($this->g2 - $this->g1 + 1) * ($this->b2 - $this->b1 + 1));
-        }
-
-        return $this->volume;
     }
 
     public function count($force = false)
@@ -78,7 +71,32 @@ class VBox
         return $this->count;
     }
 
-    public function copy()
+    public function volume($force = false): float|bool|int
+    {
+        if (!$this->volume || $force) {
+            $this->volume = (($this->r2 - $this->r1 + 1) * ($this->g2 - $this->g1 + 1) * ($this->b2 - $this->b1 + 1));
+        }
+
+        return $this->volume;
+    }
+
+    public function contains(array $rgbValue, $rshift = ColorThief::RSHIFT): bool
+    {
+        // Get the buckets from the RGB values.
+        $redBucket = $rgbValue[0] >> $rshift;
+        $greenBucket = $rgbValue[1] >> $rshift;
+        $blueBucket = $rgbValue[2] >> $rshift;
+
+        return
+            $redBucket >= $this->r1 &&
+            $redBucket <= $this->r2 &&
+            $greenBucket >= $this->g1 &&
+            $greenBucket <= $this->g2 &&
+            $blueBucket >= $this->b1 &&
+            $blueBucket <= $this->b2;
+    }
+
+    #[Pure] public function copy(): VBox
     {
         return new self($this->r1, $this->r2, $this->g1, $this->g2, $this->b1, $this->b2, $this->histo);
     }
@@ -88,9 +106,9 @@ class VBox
      *
      * @param bool $force
      *
-     * @return array|bool
+     * @return array
      */
-    public function avg($force = false)
+    public function avg(bool $force = false): array|bool
     {
         if (!$this->avg || $force) {
             $ntot = 0;
@@ -112,7 +130,7 @@ class VBox
 
                         // The bucket values need to be multiplied by $mult to get the RGB values.
                         // Can't use a left shift here, as we're working with a floating point number to put the value at the bucket's midpoint.
-                        $hval = isset($this->histo[$bucketIndex]) ? $this->histo[$bucketIndex] : 0;
+                        $hval = $this->histo[$bucketIndex] ?? 0;
                         $ntot += $hval;
                         $rsum += ($hval * ($redBucket + 0.5) * $mult);
                         $gsum += ($hval * ($greenBucket + 0.5) * $mult);
@@ -123,16 +141,16 @@ class VBox
 
             if ($ntot) {
                 $this->avg = [
-                    (int) ($rsum / $ntot),
-                    (int) ($gsum / $ntot),
-                    (int) ($bsum / $ntot),
+                    (int)($rsum / $ntot),
+                    (int)($gsum / $ntot),
+                    (int)($bsum / $ntot),
                 ];
             } else {
                 // echo 'empty box'."\n";
                 $this->avg = [
-                    (int) ($mult * ($this->r1 + $this->r2 + 1) / 2),
-                    (int) ($mult * ($this->g1 + $this->g2 + 1) / 2),
-                    (int) ($mult * ($this->b1 + $this->b2 + 1) / 2),
+                    (int)($mult * ($this->r1 + $this->r2 + 1) / 2),
+                    (int)($mult * ($this->g1 + $this->g2 + 1) / 2),
+                    (int)($mult * ($this->b1 + $this->b2 + 1) / 2),
                 ];
 
                 // Ensure all channel values are leather or equal 255 (Issue #24)
@@ -145,28 +163,12 @@ class VBox
         return $this->avg;
     }
 
-    public function contains(array $rgbValue, $rshift = ColorThief::RSHIFT)
-    {
-        // Get the buckets from the RGB values.
-        $redBucket = $rgbValue[0] >> $rshift;
-        $greenBucket = $rgbValue[1] >> $rshift;
-        $blueBucket = $rgbValue[2] >> $rshift;
-
-        return
-            $redBucket >= $this->r1 &&
-            $redBucket <= $this->r2 &&
-            $greenBucket >= $this->g1 &&
-            $greenBucket <= $this->g2 &&
-            $blueBucket >= $this->b1 &&
-            $blueBucket <= $this->b2;
-    }
-
     /**
      * Determines the longest axis.
      *
      * @return string
      */
-    public function longestAxis()
+    public function longestAxis(): string
     {
         // Color-Width for RGB
         $red = $this->r2 - $this->r1;

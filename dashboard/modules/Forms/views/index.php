@@ -1,5 +1,9 @@
 <script>
-    window.__forms = {{ json_encode($forms) }};
+    window.__forms = {
+    {
+        json_encode($forms)
+    }
+    }
 </script>
 
 <div>
@@ -17,24 +21,29 @@
             <div class="uk-form-icon uk-form uk-text-muted">
 
                 <i class="uk-icon-filter"></i>
-                <input class="uk-form-large uk-form-blank" type="text" ref="txtfilter" placeholder="@lang('Filter forms...')" aria-label="@lang('Filter forms...')" onkeyup="{ updatefilter }">
+                <input class="uk-form-large uk-form-blank" type="text" ref="txtfilter"
+                       placeholder="@lang('Filter forms...')" aria-label="@lang('Filter forms...')"
+                       onkeyup="{ updatefilter }">
 
             </div>
 
             <div class="uk-float-right">
 
-                <a class="uk-button uk-button-large uk-button-primary uk-width-1-1" href="@route('/forms/form')">@lang('Add Form')</a>
+                <a class="uk-button uk-button-large uk-button-primary uk-width-1-1" href="@route('/forms/form')">@lang('Add
+                    Form')</a>
 
             </div>
 
         </div>
 
-        <div class="uk-width-medium-1-1 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-middle uk-flex-center" if="{ !App.Utils.count(forms) }">
+        <div class="uk-width-medium-1-1 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-middle uk-flex-center"
+             if="{ !App.Utils.count(forms) }">
 
             <div class="uk-animation-scale">
 
                 <p>
-                    <img class="uk-svg-adjust uk-text-muted" src="@url('forms:icon.svg')" width="80" height="80" alt="Forms" data-uk-svg />
+                    <img class="uk-svg-adjust uk-text-muted" src="@url('forms:icon.svg')" width="80" height="80"
+                         alt="Forms" data-uk-svg/>
                 </p>
                 <hr>
                 <span class="uk-text-large"><strong>@lang('No forms').</strong> <a href="@route('/forms/form')">@lang('Create one')</a></span>
@@ -52,9 +61,11 @@
 
                     <div class="uk-panel-teaser uk-position-relative">
                         <canvas width="600" height="350"></canvas>
-                        <a aria-label="{ form.label }" href="@route('/forms/entries')/{form.name}" class="uk-position-cover uk-flex uk-flex-middle uk-flex-center">
+                        <a aria-label="{ form.label }" href="@route('/forms/entries')/{form.name}"
+                           class="uk-position-cover uk-flex uk-flex-middle uk-flex-center">
                             <div class="uk-width-1-4 uk-svg-adjust" style="color:{ (form.meta.color) }">
-                                <img riot-src="{ form.meta.icon ? '@url('assets:app/media/icons/')'+form.meta.icon : '@url('forms:icon.svg')'}" alt="icon" data-uk-svg>
+                                <img riot-src="{ form.meta.icon ? '@url('assets:app/media/icons/')'+form.meta.icon : '@url('forms:icon.svg')'}"
+                                     alt="icon" data-uk-svg>
                             </div>
                         </a>
                     </div>
@@ -63,7 +74,8 @@
 
                         <div data-uk-dropdown="mode:'click'">
 
-                            <a aria-label="@lang('Edit form')" class="uk-icon-cog" style="color:{ (form.meta.color) }"></a>
+                            <a aria-label="@lang('Edit form')" class="uk-icon-cog"
+                               style="color:{ (form.meta.color) }"></a>
 
                             <div class="uk-dropdown">
                                 <ul class="uk-nav uk-nav-dropdown">
@@ -71,15 +83,20 @@
                                     <li><a href="@route('/forms/entries')/{form.name}">@lang('Entries')</a></li>
                                     <li class="uk-nav-divider"></li>
                                     <li><a href="@route('/forms/form')/{ form.name }">@lang('Edit')</a></li>
-                                    <li class="uk-nav-item-danger"><a class="uk-dropdown-close" onclick="{ parent.remove }">@lang('Delete')</a></li>
+                                    <li class="uk-nav-item-danger"><a class="uk-dropdown-close"
+                                                                      onclick="{ parent.remove }">@lang('Delete')</a>
+                                    </li>
                                     <li class="uk-nav-divider"></li>
-                                    <li class="uk-text-truncate"><a href="@route('/forms/export')/{ form.meta.name }" download="{ form.meta.name }.form.json">@lang('Export entries')</a></li>
+                                    <li class="uk-text-truncate"><a href="@route('/forms/export')/{ form.meta.name }"
+                                                                    download="{ form.meta.name }.form.json">@lang('Export
+                                            entries')</a></li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="uk-flex-item-1 uk-text-center uk-text-truncate">
-                            <a class="uk-text-bold uk-link-muted" href="@route('/forms/entries')/{form.name}" title="{ form.label }">{ form.label }</a>
+                            <a class="uk-text-bold uk-link-muted" href="@route('/forms/entries')/{form.name}"
+                               title="{ form.label }">{ form.label }</a>
                         </div>
                         <div>
                             <span class="uk-badge" style="background-color:{ (form.meta.color) }">{ form.meta.itemsCount }</span>
@@ -131,6 +148,8 @@
 
             return name.indexOf(value) !== -1;
         }
+
+
 
     </script>
 

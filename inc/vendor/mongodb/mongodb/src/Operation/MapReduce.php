@@ -52,22 +52,22 @@ use const E_USER_DEPRECATED;
 class MapReduce implements Executable
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var JavascriptInterface */
-    private $map;
+    private JavascriptInterface $map;
 
     /** @var JavascriptInterface */
-    private $reduce;
+    private JavascriptInterface $reduce;
 
     /** @var array|object|string */
-    private $out;
+    private string|array|object $out;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a mapReduce command.
@@ -144,81 +144,81 @@ class MapReduce implements Executable
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern. This only
      *    applies when results are output to a collection.
      *
-     * @param string              $databaseName   Database name
-     * @param string              $collectionName Collection name
-     * @param JavascriptInterface $map            Map function
-     * @param JavascriptInterface $reduce         Reduce function
-     * @param string|array|object $out            Output specification
-     * @param array               $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param JavascriptInterface $map Map function
+     * @param JavascriptInterface $reduce Reduce function
+     * @param object|array|string $out Output specification
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, JavascriptInterface $map, JavascriptInterface $reduce, $out, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, JavascriptInterface $map, JavascriptInterface $reduce, object|array|string $out, array $options = [])
     {
-        if (! is_string($out) && ! is_array($out) && ! is_object($out)) {
+        if (!is_string($out) && !is_array($out) && !is_object($out)) {
             throw InvalidArgumentException::invalidType('$out', $out, 'string or array or object');
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! is_bool($options['bypassDocumentValidation'])) {
+        if (isset($options['bypassDocumentValidation']) && !is_bool($options['bypassDocumentValidation'])) {
             throw InvalidArgumentException::invalidType('"bypassDocumentValidation" option', $options['bypassDocumentValidation'], 'boolean');
         }
 
-        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
+        if (isset($options['collation']) && !is_array($options['collation']) && !is_object($options['collation'])) {
             throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
         }
 
-        if (isset($options['finalize']) && ! $options['finalize'] instanceof JavascriptInterface) {
+        if (isset($options['finalize']) && !$options['finalize'] instanceof JavascriptInterface) {
             throw InvalidArgumentException::invalidType('"finalize" option', $options['finalize'], JavascriptInterface::class);
         }
 
-        if (isset($options['jsMode']) && ! is_bool($options['jsMode'])) {
+        if (isset($options['jsMode']) && !is_bool($options['jsMode'])) {
             throw InvalidArgumentException::invalidType('"jsMode" option', $options['jsMode'], 'boolean');
         }
 
-        if (isset($options['limit']) && ! is_integer($options['limit'])) {
+        if (isset($options['limit']) && !is_integer($options['limit'])) {
             throw InvalidArgumentException::invalidType('"limit" option', $options['limit'], 'integer');
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['query']) && ! is_array($options['query']) && ! is_object($options['query'])) {
+        if (isset($options['query']) && !is_array($options['query']) && !is_object($options['query'])) {
             throw InvalidArgumentException::invalidType('"query" option', $options['query'], 'array or object');
         }
 
-        if (isset($options['readConcern']) && ! $options['readConcern'] instanceof ReadConcern) {
+        if (isset($options['readConcern']) && !$options['readConcern'] instanceof ReadConcern) {
             throw InvalidArgumentException::invalidType('"readConcern" option', $options['readConcern'], ReadConcern::class);
         }
 
-        if (isset($options['readPreference']) && ! $options['readPreference'] instanceof ReadPreference) {
+        if (isset($options['readPreference']) && !$options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['scope']) && ! is_array($options['scope']) && ! is_object($options['scope'])) {
+        if (isset($options['scope']) && !is_array($options['scope']) && !is_object($options['scope'])) {
             throw InvalidArgumentException::invalidType('"scope" option', $options['scope'], 'array or object');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['sort']) && ! is_array($options['sort']) && ! is_object($options['sort'])) {
+        if (isset($options['sort']) && !is_array($options['sort']) && !is_object($options['sort'])) {
             throw InvalidArgumentException::invalidType('"sort" option', $options['sort'], 'array or object');
         }
 
-        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (isset($options['verbose']) && ! is_bool($options['verbose'])) {
+        if (isset($options['verbose']) && !is_bool($options['verbose'])) {
             throw InvalidArgumentException::invalidType('"verbose" option', $options['verbose'], 'boolean');
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! $options['bypassDocumentValidation']) {
+        if (isset($options['bypassDocumentValidation']) && !$options['bypassDocumentValidation']) {
             unset($options['bypassDocumentValidation']);
         }
 
@@ -245,8 +245,8 @@ class MapReduce implements Executable
 
         $this->checkOutDeprecations($out);
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->map = $map;
         $this->reduce = $reduce;
         $this->out = $out;
@@ -254,16 +254,37 @@ class MapReduce implements Executable
     }
 
     /**
+     * @param object|array|string $out
+     * @return void
+     */
+    private function checkOutDeprecations(object|array|string $out)
+    {
+        if (is_string($out)) {
+            return;
+        }
+
+        $out = (array)$out;
+
+        if (isset($out['nonAtomic']) && !$out['nonAtomic']) {
+            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
+        }
+
+        if (isset($out['sharded']) && !$out['sharded']) {
+            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
+        }
+    }
+
+    /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return MapReduceResult
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if read concern or write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): MapReduceResult
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction) {
@@ -276,7 +297,7 @@ class MapReduce implements Executable
             }
         }
 
-        $hasOutputCollection = ! is_mapreduce_output_inline($this->out);
+        $hasOutputCollection = !is_mapreduce_output_inline($this->out);
 
         $command = $this->createCommand();
         $options = $this->createOptions($hasOutputCollection);
@@ -291,7 +312,7 @@ class MapReduce implements Executable
             ? $server->executeReadWriteCommand($this->databaseName, $command, $options)
             : $server->executeCommand($this->databaseName, $command, $options);
 
-        if (isset($this->options['typeMap']) && ! $hasOutputCollection) {
+        if (isset($this->options['typeMap']) && !$hasOutputCollection) {
             $cursor->setTypeMap(create_field_path_type_map($this->options['typeMap'], 'results.$'));
         }
 
@@ -303,32 +324,11 @@ class MapReduce implements Executable
     }
 
     /**
-     * @param string|array|object $out
-     * @return void
-     */
-    private function checkOutDeprecations($out)
-    {
-        if (is_string($out)) {
-            return;
-        }
-
-        $out = (array) $out;
-
-        if (isset($out['nonAtomic']) && ! $out['nonAtomic']) {
-            @trigger_error('Specifying false for "out.nonAtomic" is deprecated.', E_USER_DEPRECATED);
-        }
-
-        if (isset($out['sharded']) && ! $out['sharded']) {
-            @trigger_error('Specifying false for "out.sharded" is deprecated.', E_USER_DEPRECATED);
-        }
-    }
-
-    /**
      * Create the mapReduce command.
      *
      * @return Command
      */
-    private function createCommand()
+    private function createCommand(): Command
     {
         $cmd = [
             'mapReduce' => $this->collectionName,
@@ -345,7 +345,7 @@ class MapReduce implements Executable
 
         foreach (['collation', 'query', 'scope', 'sort'] as $option) {
             if (isset($this->options[$option])) {
-                $cmd[$option] = (object) $this->options[$option];
+                $cmd[$option] = (object)$this->options[$option];
             }
         }
 
@@ -353,14 +353,45 @@ class MapReduce implements Executable
     }
 
     /**
+     * Create options for executing the command.
+     *
+     * @see http://php.net/manual/en/mongodb-driver-server.executereadcommand.php
+     * @see http://php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
+     * @param boolean $hasOutputCollection
+     * @return array
+     */
+    private function createOptions(bool $hasOutputCollection): array
+    {
+        $options = [];
+
+        if (isset($this->options['readConcern'])) {
+            $options['readConcern'] = $this->options['readConcern'];
+        }
+
+        if (!$hasOutputCollection && isset($this->options['readPreference'])) {
+            $options['readPreference'] = $this->options['readPreference'];
+        }
+
+        if (isset($this->options['session'])) {
+            $options['session'] = $this->options['session'];
+        }
+
+        if ($hasOutputCollection && isset($this->options['writeConcern'])) {
+            $options['writeConcern'] = $this->options['writeConcern'];
+        }
+
+        return $options;
+    }
+
+    /**
      * Creates a callable for MapReduceResult::getIterator().
      *
      * @param stdClass $result
-     * @param Server   $server
+     * @param Server $server
      * @return callable
      * @throws UnexpectedValueException if the command response was malformed
      */
-    private function createGetIteratorCallable(stdClass $result, Server $server)
+    private function createGetIteratorCallable(stdClass $result, Server $server): callable|\Closure
     {
         // Inline results can be wrapped with an ArrayIterator
         if (isset($result->results) && is_array($result->results)) {
@@ -384,36 +415,5 @@ class MapReduce implements Executable
         }
 
         throw new UnexpectedValueException('mapReduce command did not return inline results or an output collection');
-    }
-
-    /**
-     * Create options for executing the command.
-     *
-     * @see http://php.net/manual/en/mongodb-driver-server.executereadcommand.php
-     * @see http://php.net/manual/en/mongodb-driver-server.executereadwritecommand.php
-     * @param boolean $hasOutputCollection
-     * @return array
-     */
-    private function createOptions($hasOutputCollection)
-    {
-        $options = [];
-
-        if (isset($this->options['readConcern'])) {
-            $options['readConcern'] = $this->options['readConcern'];
-        }
-
-        if (! $hasOutputCollection && isset($this->options['readPreference'])) {
-            $options['readPreference'] = $this->options['readPreference'];
-        }
-
-        if (isset($this->options['session'])) {
-            $options['session'] = $this->options['session'];
-        }
-
-        if ($hasOutputCollection && isset($this->options['writeConcern'])) {
-            $options['writeConcern'] = $this->options['writeConcern'];
-        }
-
-        return $options;
     }
 }

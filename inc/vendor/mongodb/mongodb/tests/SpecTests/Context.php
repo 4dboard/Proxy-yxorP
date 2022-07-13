@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\SpecTests;
 
+use JetBrains\PhpStorm\ArrayShape;
 use LogicException;
 use MongoDB\Client;
 use MongoDB\Driver\ReadConcern;
@@ -26,43 +27,32 @@ use function uniqid;
 final class Context
 {
     /** @var string|null */
-    public $bucketName;
-
-    /** @var Client|null */
-    private $client;
-
+    public ?string $bucketName;
     /** @var string|null */
-    public $collectionName;
-
+    public ?string $collectionName;
     /** @var string */
-    public $databaseName;
-
+    public string $databaseName;
     /** @var array */
-    public $defaultWriteOptions = [];
-
+    public array $defaultWriteOptions = [];
     /** @var array */
-    public $outcomeReadOptions = [];
-
+    public array $outcomeReadOptions = [];
     /** @var string|null */
-    public $outcomeCollectionName;
-
+    public ?string $outcomeCollectionName;
     /** @var Session|null */
-    public $session0;
-
+    public ?Session $session0;
     /** @var object */
-    public $session0Lsid;
-
+    public object $session0Lsid;
     /** @var Session|null */
-    public $session1;
-
+    public ?Session $session1;
     /** @var object */
-    public $session1Lsid;
-
+    public object $session1Lsid;
     /** @var Client|null */
-    private $encryptedClient;
+    private ?Client $client;
+    /** @var Client|null */
+    private ?Client $encryptedClient;
 
     /** @var bool */
-    private $useEncryptedClient = false;
+    private bool $useEncryptedClient = false;
 
     private function __construct(string $databaseName, ?string $collectionName)
     {
@@ -71,21 +61,7 @@ final class Context
         $this->outcomeCollectionName = $collectionName;
     }
 
-    public function disableEncryption(): void
-    {
-        $this->useEncryptedClient = false;
-    }
-
-    public function enableEncryption(): void
-    {
-        if (! $this->encryptedClient instanceof Client) {
-            throw new LogicException('Cannot enable encryption without autoEncryption options');
-        }
-
-        $this->useEncryptedClient = true;
-    }
-
-    public static function fromChangeStreams(stdClass $test, $databaseName, $collectionName)
+    public static function fromChangeStreams(stdClass $test, $databaseName, $collectionName): Context
     {
         $o = new self($databaseName, $collectionName);
 
@@ -94,11 +70,11 @@ final class Context
         return $o;
     }
 
-    public static function fromClientSideEncryption(stdClass $test, $databaseName, $collectionName)
+    public static function fromClientSideEncryption(stdClass $test, $databaseName, $collectionName): Context
     {
         $o = new self($databaseName, $collectionName);
 
-        $clientOptions = isset($test->clientOptions) ? (array) $test->clientOptions : [];
+        $clientOptions = isset($test->clientOptions) ? (array)$test->clientOptions : [];
 
         /* mongocryptd caches collection information, which causes test failures
          * if we reuse the client. Thus, we add a random value to ensure we're
@@ -108,7 +84,7 @@ final class Context
         $autoEncryptionOptions = [];
 
         if (isset($clientOptions['autoEncryptOpts'])) {
-            $autoEncryptionOptions = (array) $clientOptions['autoEncryptOpts'] + ['keyVaultNamespace' => 'keyvault.datakeys'];
+            $autoEncryptionOptions = (array)$clientOptions['autoEncryptOpts'] + ['keyVaultNamespace' => 'keyvault.datakeys'];
             unset($clientOptions['autoEncryptOpts']);
 
             if (isset($autoEncryptionOptions['kmsProviders']->aws)) {
@@ -147,119 +123,9 @@ final class Context
         return $o;
     }
 
-    public static function fromCommandMonitoring(stdClass $test, $databaseName, $collectionName)
+    #[ArrayShape(['accessKeyId' => "array|false|string", 'secretAccessKey' => "array|false|string"])] public static function getAWSCredentials(): array
     {
-        $o = new self($databaseName, $collectionName);
-
-        $o->client = FunctionalTestCase::createTestClient();
-
-        return $o;
-    }
-
-    public static function fromCrud(stdClass $test, $databaseName, $collectionName)
-    {
-        $o = new self($databaseName, $collectionName);
-
-        $clientOptions = isset($test->clientOptions) ? (array) $test->clientOptions : [];
-
-        if (isset($test->outcome->collection->name)) {
-            $o->outcomeCollectionName = $test->outcome->collection->name;
-        }
-
-        $o->defaultWriteOptions = [
-            'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
-        ];
-
-        $o->outcomeReadOptions = [
-            'readConcern' => new ReadConcern('local'),
-            'readPreference' => new ReadPreference('primary'),
-        ];
-
-        $o->client = FunctionalTestCase::createTestClient(null, $clientOptions);
-
-        return $o;
-    }
-
-    public static function fromReadWriteConcern(stdClass $test, $databaseName, $collectionName)
-    {
-        $o = new self($databaseName, $collectionName);
-
-        if (isset($test->outcome->collection->name)) {
-            $o->outcomeCollectionName = $test->outcome->collection->name;
-        }
-
-        $clientOptions = isset($test->clientOptions) ? (array) $test->clientOptions : [];
-
-        $o->client = FunctionalTestCase::createTestClient(null, $clientOptions);
-
-        return $o;
-    }
-
-    public static function fromRetryableReads(stdClass $test, $databaseName, $collectionName, $bucketName)
-    {
-        $o = new self($databaseName, $collectionName);
-
-        $o->bucketName = $bucketName;
-
-        $clientOptions = isset($test->clientOptions) ? (array) $test->clientOptions : [];
-
-        $o->client = FunctionalTestCase::createTestClient(null, $clientOptions);
-
-        return $o;
-    }
-
-    public static function fromRetryableWrites(stdClass $test, $databaseName, $collectionName, $useMultipleMongoses)
-    {
-        $o = new self($databaseName, $collectionName);
-
-        $clientOptions = isset($test->clientOptions) ? (array) $test->clientOptions : [];
-
-        if (isset($test->outcome->collection->name)) {
-            $o->outcomeCollectionName = $test->outcome->collection->name;
-        }
-
-        $o->client = FunctionalTestCase::createTestClient(FunctionalTestCase::getUri($useMultipleMongoses), $clientOptions);
-
-        return $o;
-    }
-
-    public static function fromTransactions(stdClass $test, $databaseName, $collectionName, $useMultipleMongoses)
-    {
-        $o = new self($databaseName, $collectionName);
-
-        $o->defaultWriteOptions = [
-            'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
-        ];
-
-        $o->outcomeReadOptions = [
-            'readConcern' => new ReadConcern('local'),
-            'readPreference' => new ReadPreference('primary'),
-        ];
-
-        $clientOptions = isset($test->clientOptions) ? (array) $test->clientOptions : [];
-
-        /* Transaction spec tests expect a new client for each test so that
-         * txnNumber values are deterministic. Append a random option to avoid
-         * re-using a previously persisted libmongoc client object. */
-        $clientOptions += ['p' => mt_rand()];
-
-        $o->client = FunctionalTestCase::createTestClient(FunctionalTestCase::getUri($useMultipleMongoses), $clientOptions);
-
-        $session0Options = isset($test->sessionOptions->session0) ? (array) $test->sessionOptions->session0 : [];
-        $session1Options = isset($test->sessionOptions->session1) ? (array) $test->sessionOptions->session1 : [];
-
-        $o->session0 = $o->client->startSession($o->prepareSessionOptions($session0Options));
-        $o->session1 = $o->client->startSession($o->prepareSessionOptions($session1Options));
-
-        $o->session0Lsid = $o->session0->getLogicalSessionId();
-        $o->session1Lsid = $o->session1->getLogicalSessionId();
-
-        return $o;
-    }
-
-    public static function getAWSCredentials(): array
-    {
-        if (! getenv('AWS_ACCESS_KEY_ID') || ! getenv('AWS_SECRET_ACCESS_KEY')) {
+        if (!getenv('AWS_ACCESS_KEY_ID') || !getenv('AWS_SECRET_ACCESS_KEY')) {
             Assert::markTestSkipped('Please configure AWS credentials to use AWS KMS provider.');
         }
 
@@ -269,9 +135,9 @@ final class Context
         ];
     }
 
-    public static function getAzureCredentials(): array
+    #[ArrayShape(['tenantId' => "array|false|string", 'clientId' => "array|false|string", 'clientSecret' => "array|false|string"])] public static function getAzureCredentials(): array
     {
-        if (! getenv('AZURE_TENANT_ID') || ! getenv('AZURE_CLIENT_ID') || ! getenv('AZURE_CLIENT_SECRET')) {
+        if (!getenv('AZURE_TENANT_ID') || !getenv('AZURE_CLIENT_ID') || !getenv('AZURE_CLIENT_SECRET')) {
             Assert::markTestSkipped('Please configure Azure credentials to use Azure KMS provider.');
         }
 
@@ -282,30 +148,9 @@ final class Context
         ];
     }
 
-    public static function getKmipEndpoint(): string
+    #[ArrayShape(['email' => "array|false|string", 'privateKey' => "array|false|string"])] public static function getGCPCredentials(): array
     {
-        if (! getenv('KMIP_ENDPOINT')) {
-            Assert::markTestSkipped('Please configure KMIP endpoint to use KMIP KMS provider.');
-        }
-
-        return getenv('KMIP_ENDPOINT');
-    }
-
-    public static function getKmsTlsOptions(): array
-    {
-        if (! getenv('KMS_TLS_CA_FILE') || ! getenv('KMS_TLS_CERTIFICATE_KEY_FILE')) {
-            Assert::markTestSkipped('Please configure KMS TLS options.');
-        }
-
-        return [
-            'tlsCAFile' => getenv('KMS_TLS_CA_FILE'),
-            'tlsCertificateKeyFile' => getenv('KMS_TLS_CERTIFICATE_KEY_FILE'),
-        ];
-    }
-
-    public static function getGCPCredentials(): array
-    {
-        if (! getenv('GCP_EMAIL') || ! getenv('GCP_PRIVATE_KEY')) {
+        if (!getenv('GCP_EMAIL') || !getenv('GCP_PRIVATE_KEY')) {
             Assert::markTestSkipped('Please configure GCP credentials to use GCP KMS provider.');
         }
 
@@ -315,29 +160,144 @@ final class Context
         ];
     }
 
-    public function getClient(): Client
+    public static function getKmipEndpoint(): string
     {
-        return $this->useEncryptedClient && $this->encryptedClient ? $this->encryptedClient : $this->client;
+        if (!getenv('KMIP_ENDPOINT')) {
+            Assert::markTestSkipped('Please configure KMIP endpoint to use KMIP KMS provider.');
+        }
+
+        return getenv('KMIP_ENDPOINT');
     }
 
-    public function getCollection(array $collectionOptions = [], array $databaseOptions = [])
+    #[ArrayShape(['tlsCAFile' => "array|false|string", 'tlsCertificateKeyFile' => "array|false|string"])] public static function getKmsTlsOptions(): array
     {
-        return $this->selectCollection(
-            $this->databaseName,
-            $this->collectionName,
-            $collectionOptions,
-            $databaseOptions
-        );
+        if (!getenv('KMS_TLS_CA_FILE') || !getenv('KMS_TLS_CERTIFICATE_KEY_FILE')) {
+            Assert::markTestSkipped('Please configure KMS TLS options.');
+        }
+
+        return [
+            'tlsCAFile' => getenv('KMS_TLS_CA_FILE'),
+            'tlsCertificateKeyFile' => getenv('KMS_TLS_CERTIFICATE_KEY_FILE'),
+        ];
     }
 
-    public function getDatabase(array $databaseOptions = [])
+    public static function fromCommandMonitoring(stdClass $test, $databaseName, $collectionName): Context
     {
-        return $this->selectDatabase($this->databaseName, $databaseOptions);
+        $o = new self($databaseName, $collectionName);
+
+        $o->client = FunctionalTestCase::createTestClient();
+
+        return $o;
     }
 
-    public function getGridFSBucket(array $bucketOptions = [])
+    public static function fromCrud(stdClass $test, $databaseName, $collectionName): Context
     {
-        return $this->selectGridFSBucket($this->databaseName, $this->bucketName, $bucketOptions);
+        $o = new self($databaseName, $collectionName);
+
+        $clientOptions = isset($test->clientOptions) ? (array)$test->clientOptions : [];
+
+        if (isset($test->outcome->collection->name)) {
+            $o->outcomeCollectionName = $test->outcome->collection->name;
+        }
+
+        $o->defaultWriteOptions = [
+            'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
+        ];
+
+        $o->outcomeReadOptions = [
+            'readConcern' => new ReadConcern('local'),
+            'readPreference' => new ReadPreference('primary'),
+        ];
+
+        $o->client = FunctionalTestCase::createTestClient(null, $clientOptions);
+
+        return $o;
+    }
+
+    public static function fromReadWriteConcern(stdClass $test, $databaseName, $collectionName): Context
+    {
+        $o = new self($databaseName, $collectionName);
+
+        if (isset($test->outcome->collection->name)) {
+            $o->outcomeCollectionName = $test->outcome->collection->name;
+        }
+
+        $clientOptions = isset($test->clientOptions) ? (array)$test->clientOptions : [];
+
+        $o->client = FunctionalTestCase::createTestClient(null, $clientOptions);
+
+        return $o;
+    }
+
+    public static function fromRetryableReads(stdClass $test, $databaseName, $collectionName, $bucketName): Context
+    {
+        $o = new self($databaseName, $collectionName);
+
+        $o->bucketName = $bucketName;
+
+        $clientOptions = isset($test->clientOptions) ? (array)$test->clientOptions : [];
+
+        $o->client = FunctionalTestCase::createTestClient(null, $clientOptions);
+
+        return $o;
+    }
+
+    public static function fromRetryableWrites(stdClass $test, $databaseName, $collectionName, $useMultipleMongoses): Context
+    {
+        $o = new self($databaseName, $collectionName);
+
+        $clientOptions = isset($test->clientOptions) ? (array)$test->clientOptions : [];
+
+        if (isset($test->outcome->collection->name)) {
+            $o->outcomeCollectionName = $test->outcome->collection->name;
+        }
+
+        $o->client = FunctionalTestCase::createTestClient(FunctionalTestCase::getUri($useMultipleMongoses), $clientOptions);
+
+        return $o;
+    }
+
+    public static function fromTransactions(stdClass $test, $databaseName, $collectionName, $useMultipleMongoses): Context
+    {
+        $o = new self($databaseName, $collectionName);
+
+        $o->defaultWriteOptions = [
+            'writeConcern' => new WriteConcern(WriteConcern::MAJORITY),
+        ];
+
+        $o->outcomeReadOptions = [
+            'readConcern' => new ReadConcern('local'),
+            'readPreference' => new ReadPreference('primary'),
+        ];
+
+        $clientOptions = isset($test->clientOptions) ? (array)$test->clientOptions : [];
+
+        /* Transaction spec tests expect a new client for each test so that
+         * txnNumber values are deterministic. Append a random option to avoid
+         * re-using a previously persisted libmongoc client object. */
+        $clientOptions += ['p' => mt_rand()];
+
+        $o->client = FunctionalTestCase::createTestClient(FunctionalTestCase::getUri($useMultipleMongoses), $clientOptions);
+
+        $session0Options = isset($test->sessionOptions->session0) ? (array)$test->sessionOptions->session0 : [];
+        $session1Options = isset($test->sessionOptions->session1) ? (array)$test->sessionOptions->session1 : [];
+
+        $o->session0 = $o->client->startSession($o->prepareSessionOptions($session0Options));
+        $o->session1 = $o->client->startSession($o->prepareSessionOptions($session1Options));
+
+        $o->session0Lsid = $o->session0->getLogicalSessionId();
+        $o->session1Lsid = $o->session1->getLogicalSessionId();
+
+        return $o;
+    }
+
+    private function prepareSessionOptions(array $options): array
+    {
+        if (isset($options['defaultTransactionOptions'])) {
+            $options['defaultTransactionOptions'] = $this->prepareOptions((array)$options['defaultTransactionOptions']);
+        }
+
+        return $options;
     }
 
     /**
@@ -350,37 +310,37 @@ final class Context
      */
     public function prepareOptions(array $options): array
     {
-        if (isset($options['readConcern']) && ! ($options['readConcern'] instanceof ReadConcern)) {
-            $readConcern = (array) $options['readConcern'];
+        if (isset($options['readConcern']) && !($options['readConcern'] instanceof ReadConcern)) {
+            $readConcern = (array)$options['readConcern'];
             $diff = array_diff_key($readConcern, ['level' => 1]);
 
-            if (! empty($diff)) {
+            if (!empty($diff)) {
                 throw new LogicException('Unsupported readConcern args: ' . implode(',', array_keys($diff)));
             }
 
             $options['readConcern'] = new ReadConcern($readConcern['level']);
         }
 
-        if (isset($options['readPreference']) && ! ($options['readPreference'] instanceof ReadPreference)) {
-            $readPreference = (array) $options['readPreference'];
+        if (isset($options['readPreference']) && !($options['readPreference'] instanceof ReadPreference)) {
+            $readPreference = (array)$options['readPreference'];
             $diff = array_diff_key($readPreference, ['mode' => 1]);
 
-            if (! empty($diff)) {
+            if (!empty($diff)) {
                 throw new LogicException('Unsupported readPreference args: ' . implode(',', array_keys($diff)));
             }
 
             $options['readPreference'] = new ReadPreference($readPreference['mode']);
         }
 
-        if (isset($options['writeConcern']) && ! ($options['writeConcern'] instanceof WriteConcern)) {
-            $writeConcern = (array) $options['writeConcern'];
+        if (isset($options['writeConcern']) && !($options['writeConcern'] instanceof WriteConcern)) {
+            $writeConcern = (array)$options['writeConcern'];
             $diff = array_diff_key($writeConcern, ['w' => 1, 'wtimeout' => 1, 'j' => 1]);
 
-            if (! empty($diff)) {
+            if (!empty($diff)) {
                 throw new LogicException('Unsupported writeConcern args: ' . implode(',', array_keys($diff)));
             }
 
-            if (! empty($writeConcern)) {
+            if (!empty($writeConcern)) {
                 $w = $writeConcern['w'];
                 $wtimeout = $writeConcern['wtimeout'] ?? 0;
                 $j = $writeConcern['j'] ?? null;
@@ -396,6 +356,74 @@ final class Context
         return $options;
     }
 
+    public function disableEncryption(): void
+    {
+        $this->useEncryptedClient = false;
+    }
+
+    public function enableEncryption(): void
+    {
+        if (!$this->encryptedClient instanceof Client) {
+            throw new LogicException('Cannot enable encryption without autoEncryption options');
+        }
+
+        $this->useEncryptedClient = true;
+    }
+
+    public function getCollection(array $collectionOptions = [], array $databaseOptions = []): \MongoDB\Collection
+    {
+        return $this->selectCollection(
+            $this->databaseName,
+            $this->collectionName,
+            $collectionOptions,
+            $databaseOptions
+        );
+    }
+
+    public function selectCollection($databaseName, $collectionName, array $collectionOptions = [], array $databaseOptions = []): \MongoDB\Collection
+    {
+        return $this
+            ->selectDatabase($databaseName, $databaseOptions)
+            ->selectCollection($collectionName, $this->prepareOptions($collectionOptions));
+    }
+
+    public function selectDatabase($databaseName, array $databaseOptions = []): \MongoDB\Database
+    {
+        return $this->getClient()->selectDatabase(
+            $databaseName,
+            $this->prepareOptions($databaseOptions)
+        );
+    }
+
+    public function getClient(): Client
+    {
+        return $this->useEncryptedClient && $this->encryptedClient ? $this->encryptedClient : $this->client;
+    }
+
+    public function getDatabase(array $databaseOptions = []): \MongoDB\Database
+    {
+        return $this->selectDatabase($this->databaseName, $databaseOptions);
+    }
+
+    public function getGridFSBucket(array $bucketOptions = []): \MongoDB\GridFS\Bucket
+    {
+        return $this->selectGridFSBucket($this->databaseName, $this->bucketName, $bucketOptions);
+    }
+
+    public function selectGridFSBucket($databaseName, $bucketName, array $bucketOptions = []): \MongoDB\GridFS\Bucket
+    {
+        return $this->selectDatabase($databaseName)->selectGridFSBucket($this->prepareGridFSBucketOptions($bucketOptions, $bucketName));
+    }
+
+    private function prepareGridFSBucketOptions(array $options, $bucketPrefix): array
+    {
+        if ($bucketPrefix !== null) {
+            $options['bucketPrefix'] = $bucketPrefix;
+        }
+
+        return $options;
+    }
+
     /**
      * Replace a session placeholder in an operation arguments array.
      *
@@ -406,22 +434,15 @@ final class Context
      */
     public function replaceArgumentSessionPlaceholder(array &$args): void
     {
-        if (! isset($args['session'])) {
+        if (!isset($args['session'])) {
             return;
         }
 
-        switch ($args['session']) {
-            case 'session0':
-                $args['session'] = $this->session0;
-                break;
-
-            case 'session1':
-                $args['session'] = $this->session1;
-                break;
-
-            default:
-                throw new LogicException('Unsupported session placeholder: ' . $args['session']);
-        }
+        $args['session'] = match ($args['session']) {
+            'session0' => $this->session0,
+            'session1' => $this->session1,
+            default => throw new LogicException('Unsupported session placeholder: ' . $args['session']),
+        };
     }
 
     /**
@@ -434,59 +455,14 @@ final class Context
      */
     public function replaceCommandSessionPlaceholder(stdClass $command): void
     {
-        if (! isset($command->lsid)) {
+        if (!isset($command->lsid)) {
             return;
         }
 
-        switch ($command->lsid) {
-            case 'session0':
-                $command->lsid = $this->session0Lsid;
-                break;
-
-            case 'session1':
-                $command->lsid = $this->session1Lsid;
-                break;
-
-            default:
-                throw new LogicException('Unsupported session placeholder: ' . $command->lsid);
-        }
-    }
-
-    public function selectCollection($databaseName, $collectionName, array $collectionOptions = [], array $databaseOptions = [])
-    {
-        return $this
-            ->selectDatabase($databaseName, $databaseOptions)
-            ->selectCollection($collectionName, $this->prepareOptions($collectionOptions));
-    }
-
-    public function selectDatabase($databaseName, array $databaseOptions = [])
-    {
-        return $this->getClient()->selectDatabase(
-            $databaseName,
-            $this->prepareOptions($databaseOptions)
-        );
-    }
-
-    public function selectGridFSBucket($databaseName, $bucketName, array $bucketOptions = [])
-    {
-        return $this->selectDatabase($databaseName)->selectGridFSBucket($this->prepareGridFSBucketOptions($bucketOptions, $bucketName));
-    }
-
-    private function prepareGridFSBucketOptions(array $options, $bucketPrefix)
-    {
-        if ($bucketPrefix !== null) {
-            $options['bucketPrefix'] = $bucketPrefix;
-        }
-
-        return $options;
-    }
-
-    private function prepareSessionOptions(array $options)
-    {
-        if (isset($options['defaultTransactionOptions'])) {
-            $options['defaultTransactionOptions'] = $this->prepareOptions((array) $options['defaultTransactionOptions']);
-        }
-
-        return $options;
+        $command->lsid = match ($command->lsid) {
+            'session0' => $this->session0Lsid,
+            'session1' => $this->session1Lsid,
+            default => throw new LogicException('Unsupported session placeholder: ' . $command->lsid),
+        };
     }
 }

@@ -18,7 +18,7 @@ class ExplainTest extends TestCase
         new Explain($this->getDatabaseName(), $explainable, $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

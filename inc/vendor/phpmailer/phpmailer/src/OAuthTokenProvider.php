@@ -40,5 +40,5 @@ interface OAuthTokenProvider
      *
      * @return string
      */
-    public function getOauth64();
+    public function getOauth64(): string;
 }

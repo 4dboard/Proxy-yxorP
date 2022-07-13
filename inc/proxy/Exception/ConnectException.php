@@ -33,7 +33,7 @@ class ConnectException extends ARequestException
     /**
      * @return bool
      */
-    public function hasResponse()
+    public function hasResponse(): bool
     {
         return false;
     }

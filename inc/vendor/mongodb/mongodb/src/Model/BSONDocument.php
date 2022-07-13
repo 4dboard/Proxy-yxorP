@@ -35,25 +35,15 @@ use function MongoDB\recursive_copy;
 class BSONDocument extends ArrayObject implements JsonSerializable, Serializable, Unserializable
 {
     /**
-     * Deep clone this BSONDocument.
-     */
-    public function __clone()
-    {
-        foreach ($this as $key => $value) {
-            $this[$key] = recursive_copy($value);
-        }
-    }
-
-    /**
      * This overrides the parent constructor to allow property access of entries
      * by default.
      *
      * @see http://php.net/arrayobject.construct
-     * @param array   $input
+     * @param array $input
      * @param integer $flags
-     * @param string  $iteratorClass
+     * @param string $iteratorClass
      */
-    public function __construct($input = [], $flags = ArrayObject::ARRAY_AS_PROPS, $iteratorClass = 'ArrayIterator')
+    public function __construct($input = [], int $flags = ArrayObject::ARRAY_AS_PROPS, string $iteratorClass = 'ArrayIterator')
     {
         parent::__construct($input, $flags, $iteratorClass);
     }
@@ -75,14 +65,27 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
     }
 
     /**
+     * Deep clone this BSONDocument.
+     */
+    public function __clone()
+    {
+        foreach ($this as $key => $value) {
+            try {
+                $this[$key] = recursive_copy($value);
+            } catch (\ReflectionException $e) {
+            }
+        }
+    }
+
+    /**
      * Serialize the document to BSON.
      *
      * @see http://php.net/mongodb-bson-serializable.bsonserialize
      * @return object
      */
-    public function bsonSerialize()
+    public function bsonSerialize(): object
     {
-        return (object) $this->getArrayCopy();
+        return (object)$this->getArrayCopy();
     }
 
     /**
@@ -103,8 +106,8 @@ class BSONDocument extends ArrayObject implements JsonSerializable, Serializable
      * @return object
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): object
     {
-        return (object) $this->getArrayCopy();
+        return (object)$this->getArrayCopy();
     }
 }

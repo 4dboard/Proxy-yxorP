@@ -29,18 +29,6 @@ class Mongo
         $this->options = $options;
     }
 
-    public function getCollection($name, $db = null)
-    {
-
-        if ($db) {
-            $name = "{$db}/{$name}";
-        }
-
-        $name = str_replace('/', '_', $name);
-
-        return $this->db->selectCollection($name);
-    }
-
     public function dropCollection($name, $db = null)
     {
 
@@ -92,6 +80,18 @@ class Mongo
         return $doc;
     }
 
+    public function getCollection($name, $db = null)
+    {
+
+        if ($db) {
+            $name = "{$db}/{$name}";
+        }
+
+        $name = str_replace('/', '_', $name);
+
+        return $this->db->selectCollection($name);
+    }
+
     public function findOne($collection, $filter = [], $projection = [])
     {
 
@@ -103,6 +103,64 @@ class Mongo
         if (isset($doc['_id'])) $doc['_id'] = (string)$doc['_id'];
 
         return $doc;
+    }
+
+    protected function _fixMongoIds(&$data, $infinite = false, $_level = 0)
+    {
+
+        if (!is_array($data)) {
+            return $data;
+        }
+
+        if ($_level == 0 && isset($data[0])) {
+            foreach ($data as $i => $doc) {
+                $data[$i] = $this->_fixMongoIds($doc, $infinite);
+            }
+            return $data;
+        }
+
+        foreach ($data as $k => &$v) {
+
+            if (is_array($data[$k]) && $infinite) {
+                $data[$k] = $this->_fixMongoIds($data[$k], $infinite, $_level + 1);
+            }
+
+            if ($k === '_id') {
+
+                if (is_string($v)) {
+
+                    $v = $v[0] === '@' ? \substr($v, 1) : new \MongoDB\BSON\ObjectID($v);
+
+                } elseif (is_array($v)) {
+
+                    if (isset($v['$in'])) {
+
+                        foreach ($v['$in'] as &$id) {
+                            if (is_string($id)) {
+                                $id = new \MongoDB\BSON\ObjectID($id);
+                            }
+                        }
+                    }
+
+                    if (isset($v['$nin'])) {
+
+                        foreach ($v['$nin'] as &$id) {
+                            if (is_string($id)) {
+                                $id = new \MongoDB\BSON\ObjectID($id);
+                            }
+                        }
+                    }
+
+                    if (isset($v['$ne']) && is_string($v['$ne'])) {
+
+                        $v['$ne'] = new \MongoDB\BSON\ObjectID($v['$ne']);
+                    }
+
+                }
+            }
+        }
+
+        return $data;
     }
 
     public function find($collection, $options = [])
@@ -237,63 +295,5 @@ class Mongo
         $filter = $this->_fixMongoIds($filter, true);
 
         return $this->getCollection($collection)->countDocuments($filter, $options);
-    }
-
-    protected function _fixMongoIds(&$data, $infinite = false, $_level = 0)
-    {
-
-        if (!is_array($data)) {
-            return $data;
-        }
-
-        if ($_level == 0 && isset($data[0])) {
-            foreach ($data as $i => $doc) {
-                $data[$i] = $this->_fixMongoIds($doc, $infinite);
-            }
-            return $data;
-        }
-
-        foreach ($data as $k => &$v) {
-
-            if (is_array($data[$k]) && $infinite) {
-                $data[$k] = $this->_fixMongoIds($data[$k], $infinite, $_level + 1);
-            }
-
-            if ($k === '_id') {
-
-                if (is_string($v)) {
-
-                    $v = $v[0] === '@' ? \substr($v, 1) : new \MongoDB\BSON\ObjectID($v);
-
-                } elseif (is_array($v)) {
-
-                    if (isset($v['$in'])) {
-
-                        foreach ($v['$in'] as &$id) {
-                            if (is_string($id)) {
-                                $id = new \MongoDB\BSON\ObjectID($id);
-                            }
-                        }
-                    }
-
-                    if (isset($v['$nin'])) {
-
-                        foreach ($v['$nin'] as &$id) {
-                            if (is_string($id)) {
-                                $id = new \MongoDB\BSON\ObjectID($id);
-                            }
-                        }
-                    }
-
-                    if (isset($v['$ne']) && is_string($v['$ne'])) {
-
-                        $v['$ne'] = new \MongoDB\BSON\ObjectID($v['$ne']);
-                    }
-
-                }
-            }
-        }
-
-        return $data;
     }
 }

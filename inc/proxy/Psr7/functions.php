@@ -4,6 +4,7 @@ namespace yxorP\inc\proxy\Psr7;
 
 use InvalidArgumentException;
 use Iterator;
+use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\inc\psr\Http\Message\MessageInterface;
 use yxorP\inc\psr\Http\Message\RequestInterface;
@@ -19,7 +20,7 @@ use yxorP\inc\psr\Http\Message\UriInterface;
  *
  * @return string
  */
-function str(MessageInterface $message)
+function str(MessageInterface $message): string
 {
     if ($message instanceof RequestInterface) {
         $msg = trim($message->getMethod() . ' '
@@ -55,7 +56,7 @@ function str(MessageInterface $message)
  * @return UriInterface
  * @throws InvalidArgumentException
  */
-function uri_for($uri)
+function uri_for(string|UriInterface $uri): Uri|UriInterface
 {
     if ($uri instanceof UriInterface) {
         return $uri;
@@ -73,13 +74,13 @@ function uri_for($uri)
  * - metadata: Array of custom metadata.
  * - size: Size of the stream.
  *
- * @param resource|string|null|int|float|bool|StreamInterface|callable|Iterator $resource Entity body data
+ * @param callable|float|Iterator|bool|int|string|StreamInterface|null $resource Entity body data
  * @param array $options Additional options
  *
  * @return StreamInterface
  * @throws InvalidArgumentException if the $resource arg is not valid.
  */
-function stream_for($resource = '', array $options = [])
+function stream_for(callable|float|Iterator|bool|int|string|StreamInterface|null $resource = '', array $options = []): AAStream|PumpStream|StreamInterface
 {
     if (is_scalar($resource)) {
         $stream = fopen('php://temp', 'r+');
@@ -126,11 +127,11 @@ function stream_for($resource = '', array $options = [])
  * data of the header. When a parameter does not contain a value, but just
  * contains a key, this function will inject a key with a '' string value.
  *
- * @param string|array $header Header to parse into components.
+ * @param array|string $header Header to parse into components.
  *
  * @return array Returns the parsed header values.
  */
-function parse_header($header)
+function parse_header(array|string $header): array
 {
     static $trimmed = "\"'  \n\t\r";
     $params = $matches = [];
@@ -159,11 +160,11 @@ function parse_header($header)
  * Converts an array of header values that may contain comma separated
  * headers into an array of headers with no comma separated values.
  *
- * @param string|array $header Header to normalize.
+ * @param array|string $header Header to normalize.
  *
  * @return array Returns the normalized header field values.
  */
-function normalize_header($header)
+function normalize_header(array|string $header): array
 {
     if (!is_array($header)) {
         return array_map('trim', explode(',', $header));
@@ -172,7 +173,7 @@ function normalize_header($header)
     $result = [];
     foreach ($header as $value) {
         foreach ((array)$value as $v) {
-            if (strpos($v, ',') === false) {
+            if (!str_contains($v, ',')) {
                 $result[] = $v;
                 continue;
             }
@@ -202,7 +203,7 @@ function normalize_header($header)
  *
  * @return RequestInterface
  */
-function modify_request(RequestInterface $request, array $changes)
+function modify_request(RequestInterface $request, array $changes): RequestInterface|AAAARequest
 {
     if (!$changes) {
         return $request;
@@ -243,13 +244,11 @@ function modify_request(RequestInterface $request, array $changes)
 
     if ($request instanceof ServerRequestInterface) {
         return (new ServerRequest(
-            isset($changes['method']) ? $changes['method'] : $request->getMethod(),
+            $changes['method'] ?? $request->getMethod(),
             $uri,
             $headers,
-            isset($changes['body']) ? $changes['body'] : $request->getBody(),
-            isset($changes['version'])
-                ? $changes['version']
-                : $request->getProtocolVersion(),
+            $changes['body'] ?? $request->getBody(),
+            $changes['version'] ?? $request->getProtocolVersion(),
             $request->getServerParams()
         ))
             ->withParsedBody($request->getParsedBody())
@@ -259,13 +258,11 @@ function modify_request(RequestInterface $request, array $changes)
     }
 
     return new AAAARequest(
-        isset($changes['method']) ? $changes['method'] : $request->getMethod(),
+        $changes['method'] ?? $request->getMethod(),
         $uri,
         $headers,
-        isset($changes['body']) ? $changes['body'] : $request->getBody(),
-        isset($changes['version'])
-            ? $changes['version']
-            : $request->getProtocolVersion()
+        $changes['body'] ?? $request->getBody(),
+        $changes['version'] ?? $request->getProtocolVersion()
     );
 }
 
@@ -300,7 +297,7 @@ function rewind_body(MessageInterface $message)
  * @return resource
  * @throws RuntimeException if the file cannot be opened
  */
-function try_fopen($filename, $mode)
+function try_fopen(string $filename, string $mode)
 {
     $ex = null;
     set_error_handler(function () use ($filename, $mode, &$ex) {
@@ -316,7 +313,6 @@ function try_fopen($filename, $mode)
     restore_error_handler();
 
     if ($ex) {
-        /** @var $ex RuntimeException */
         throw $ex;
     }
 
@@ -333,7 +329,7 @@ function try_fopen($filename, $mode)
  * @return string
  * @throws RuntimeException on error.
  */
-function copy_to_string(StreamInterface $stream, $maxLen = -1)
+function copy_to_string(StreamInterface $stream, int $maxLen = -1): string
 {
     $buffer = '';
 
@@ -377,7 +373,7 @@ function copy_to_string(StreamInterface $stream, $maxLen = -1)
 function copy_to_stream(
     StreamInterface $source,
     StreamInterface $dest,
-                    $maxLen = -1
+    int             $maxLen = -1
 )
 {
     $bufferSize = 8192;
@@ -414,9 +410,9 @@ function copy_to_stream(
  */
 function hash(
     StreamInterface $stream,
-                    $algo,
-                    $rawOutput = false
-)
+    string          $algo,
+    bool            $rawOutput = false
+): string
 {
     $pos = $stream->tell();
 
@@ -439,11 +435,11 @@ function hash(
  * Read a line from the stream up to the maximum allowed buffer length
  *
  * @param StreamInterface $stream Stream to read from
- * @param int $maxLength Maximum buffer length
+ * @param int|null $maxLength Maximum buffer length
  *
  * @return string
  */
-function readline(StreamInterface $stream, $maxLength = null)
+function readline(StreamInterface $stream, int $maxLength = null): string
 {
     $buffer = '';
     $size = 0;
@@ -470,7 +466,7 @@ function readline(StreamInterface $stream, $maxLength = null)
  *
  * @return AAAARequest
  */
-function parse_request($message)
+function parse_request(string $message): AAAARequest
 {
     $data = _parse_message($message);
     $matches = [];
@@ -498,7 +494,7 @@ function parse_request($message)
  *
  * @return Response
  */
-function parse_response($message)
+function parse_response(string $message): Response
 {
     $data = _parse_message($message);
     // According to https://tools.ietf.org/html/rfc7230#section-3.1.2 the space
@@ -514,7 +510,7 @@ function parse_response($message)
         $data['headers'],
         $data['body'],
         explode('/', $parts[0])[1],
-        isset($parts[2]) ? $parts[2] : null
+        $parts[2] ?? null
     );
 }
 
@@ -527,11 +523,11 @@ function parse_response($message)
  * be parsed into ['foo[a]' => '1', 'foo[b]' => '2']).
  *
  * @param string $str Query string to parse
- * @param int|bool $urlEncoding How the query string is encoded
+ * @param bool|int $urlEncoding How the query string is encoded
  *
  * @return array
  */
-function parse_query($str, $urlEncoding = true)
+function parse_query(string $str, bool|int $urlEncoding = true): array
 {
     $result = [];
 
@@ -578,12 +574,12 @@ function parse_query($str, $urlEncoding = true)
  * encountered (like http_build_query would).
  *
  * @param array $params Query string parameters.
- * @param int|false $encoding Set to false to not encode, PHP_QUERY_RFC3986
+ * @param bool|int $encoding Set to false to not encode, PHP_QUERY_RFC3986
  *                            to encode using RFC3986, or PHP_QUERY_RFC1738
  *                            to encode using RFC1738.
  * @return string
  */
-function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
+function build_query(array $params, bool|int $encoding = PHP_QUERY_RFC3986): string
 {
     if (!$params) {
         return '';
@@ -621,7 +617,7 @@ function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
         }
     }
 
-    return $qs ? (string)substr($qs, 0, -1) : '';
+    return $qs ? substr($qs, 0, -1) : '';
 }
 
 /**
@@ -631,7 +627,7 @@ function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
  *
  * @return null|string
  */
-function mimetype_from_filename($filename)
+function mimetype_from_filename($filename): ?string
 {
     return mimetype_from_extension(pathinfo($filename, PATHINFO_EXTENSION));
 }
@@ -644,7 +640,7 @@ function mimetype_from_filename($filename)
  * @return string|null
  * @link http://svn.apache.org/repos/asf/httpd/httpd/branches/1.3.x/conf/mime.types
  */
-function mimetype_from_extension($extension)
+function mimetype_from_extension(string $extension): ?string
 {
     static $mimetypes = [
         '3gp' => 'video/3gpp',
@@ -752,9 +748,7 @@ function mimetype_from_extension($extension)
 
     $extension = strtolower($extension);
 
-    return isset($mimetypes[$extension])
-        ? $mimetypes[$extension]
-        : null;
+    return $mimetypes[$extension] ?? null;
 }
 
 /**
@@ -769,7 +763,7 @@ function mimetype_from_extension($extension)
  * @return array
  * @internal
  */
-function _parse_message($message)
+#[ArrayShape(['start-line' => "mixed|string", 'headers' => "array", 'body' => "mixed|string"])] function _parse_message(string $message): array
 {
     if (!$message) {
         throw new InvalidArgumentException('Invalid message');
@@ -833,7 +827,7 @@ function _parse_message($message)
  * @return string
  * @internal
  */
-function _parse_request_uri($path, array $headers)
+function _parse_request_uri(string $path, array $headers): string
 {
     $hostKey = array_filter(array_keys($headers), function ($k) {
         return strtolower($k) === 'host';
@@ -845,7 +839,7 @@ function _parse_request_uri($path, array $headers)
     }
 
     $host = $headers[reset($hostKey)][0];
-    $scheme = substr($host, -4) === ':443' ? 'https' : 'http';
+    $scheme = str_ends_with($host, ':443') ? 'https' : 'http';
 
     return $scheme . '://' . $host . '/' . ltrim($path, '/');
 }
@@ -860,7 +854,7 @@ function _parse_request_uri($path, array $headers)
  *
  * @return null|string
  */
-function get_message_body_summary(MessageInterface $message, $truncateAt = 120)
+function get_message_body_summary(MessageInterface $message, int $truncateAt = 120): ?string
 {
     $body = $message->getBody();
 
@@ -891,7 +885,7 @@ function get_message_body_summary(MessageInterface $message, $truncateAt = 120)
 }
 
 /** @internal */
-function _caseless_remove($keys, array $data)
+function _caseless_remove($keys, array $data): array
 {
     $result = [];
 

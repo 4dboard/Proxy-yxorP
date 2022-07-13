@@ -1,23 +1,22 @@
 <?php namespace yxorP\inc\proxy;
 class UriTemplate
 {
-    private static $operatorHash = ['' => ['prefix' => '', 'joiner' => ',', 'query' => false], '+' => ['prefix' => '', 'joiner' => ',', 'query' => false], '#' => ['prefix' => '#', 'joiner' => ',', 'query' => false], '.' => ['prefix' => '.', 'joiner' => '.', 'query' => false], '/' => ['prefix' => '/', 'joiner' => '/', 'query' => false], ';' => ['prefix' => ';', 'joiner' => ';', 'query' => true], '?' => ['prefix' => '?', 'joiner' => '&', 'query' => true], '&' => ['prefix' => '&', 'joiner' => '&', 'query' => true]];
-    private static $delims = [':', '/', '?', '#', '[', ']', '@', '!', '$', '&', '\'', '(', ')', '*', '+', ',', ';', '='];
-    private static $delimsPct = ['%3A', '%2F', '%3F', '%23', '%5B', '%5D', '%40', '%21', '%24', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C', '%3B', '%3D'];
-    private $template;
+    private static array $operatorHash = ['' => ['prefix' => '', 'joiner' => ',', 'query' => false], '+' => ['prefix' => '', 'joiner' => ',', 'query' => false], '#' => ['prefix' => '#', 'joiner' => ',', 'query' => false], '.' => ['prefix' => '.', 'joiner' => '.', 'query' => false], '/' => ['prefix' => '/', 'joiner' => '/', 'query' => false], ';' => ['prefix' => ';', 'joiner' => ';', 'query' => true], '?' => ['prefix' => '?', 'joiner' => '&', 'query' => true], '&' => ['prefix' => '&', 'joiner' => '&', 'query' => true]];
+    private static array $delims = [':', '/', '?', '#', '[', ']', '@', '!', '$', '&', '\'', '(', ')', '*', '+', ',', ';', '='];
+    private static array $delimsPct = ['%3A', '%2F', '%3F', '%23', '%5B', '%5D', '%40', '%21', '%24', '%26', '%27', '%28', '%29', '%2A', '%2B', '%2C', '%3B', '%3D'];
     private $variables;
 
     public function expand($template, array $variables)
     {
-        if (false === strpos($template, '{')) {
+        if (!str_contains($template, '{')) {
             return $template;
         }
-        $this->template = $template;
+        $template1 = $template;
         $this->variables = $variables;
-        return preg_replace_callback('/\{([^\}]+)\}/', [$this, 'expandMatch'], $this->template);
+        return preg_replace_callback('/\{([^\}]+)\}/', [$this, 'expandMatch'], $template1);
     }
 
-    private function expandMatch(array $matches)
+    private function expandMatch(array $matches): string
     {
         static $rfc1738to3986 = ['+' => '%20', '%7e' => '~'];
         $replacements = [];
@@ -101,7 +100,7 @@ class UriTemplate
         return $ret;
     }
 
-    private function parseExpression($expression)
+    private function parseExpression($expression): array
     {
         $result = [];
         if (isset(self::$operatorHash[$expression[0]])) {
@@ -117,11 +116,11 @@ class UriTemplate
                 $varspec['value'] = substr($value, 0, $colonPos);
                 $varspec['modifier'] = ':';
                 $varspec['position'] = (int)substr($value, $colonPos + 1);
-            } elseif (substr($value, -1) === '*') {
+            } elseif (str_ends_with($value, '*')) {
                 $varspec['modifier'] = '*';
                 $varspec['value'] = substr($value, 0, -1);
             } else {
-                $varspec['value'] = (string)$value;
+                $varspec['value'] = $value;
                 $varspec['modifier'] = '';
             }
             $result['values'][] = $varspec;
@@ -129,12 +128,12 @@ class UriTemplate
         return $result;
     }
 
-    private function isAssoc(array $array)
+    private function isAssoc(array $array): bool
     {
         return $array && array_keys($array)[0] !== 0;
     }
 
-    private function decodeReserved($string)
+    private function decodeReserved($string): array|string
     {
         return str_replace(self::$delimsPct, self::$delims, $string);
     }

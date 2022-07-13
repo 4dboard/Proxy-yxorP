@@ -38,10 +38,10 @@ use function is_object;
 class ListCollections implements Executable
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a listCollections command.
@@ -65,49 +65,49 @@ class ListCollections implements Executable
      *  * session (MongoDB\Driver\Session): Client session.
      *
      * @param string $databaseName Database name
-     * @param array  $options      Command options
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, array $options = [])
+    public function __construct(string $databaseName, array $options = [])
     {
-        if (isset($options['authorizedCollections']) && ! is_bool($options['authorizedCollections'])) {
+        if (isset($options['authorizedCollections']) && !is_bool($options['authorizedCollections'])) {
             throw InvalidArgumentException::invalidType('"authorizedCollections" option', $options['authorizedCollections'], 'boolean');
         }
 
-        if (isset($options['filter']) && ! is_array($options['filter']) && ! is_object($options['filter'])) {
+        if (isset($options['filter']) && !is_array($options['filter']) && !is_object($options['filter'])) {
             throw InvalidArgumentException::invalidType('"filter" option', $options['filter'], 'array or object');
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['nameOnly']) && ! is_bool($options['nameOnly'])) {
+        if (isset($options['nameOnly']) && !is_bool($options['nameOnly'])) {
             throw InvalidArgumentException::invalidType('"nameOnly" option', $options['nameOnly'], 'boolean');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        $this->databaseName = (string) $databaseName;
+        $this->databaseName = (string)$databaseName;
         $this->options = $options;
     }
 
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return CachingIterator
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): CachingIterator
     {
         $cmd = ['listCollections' => 1];
 
-        if (! empty($this->options['filter'])) {
-            $cmd['filter'] = (object) $this->options['filter'];
+        if (!empty($this->options['filter'])) {
+            $cmd['filter'] = (object)$this->options['filter'];
         }
 
         foreach (['authorizedCollections', 'maxTimeMS', 'nameOnly'] as $option) {
@@ -131,7 +131,7 @@ class ListCollections implements Executable
      * @see http://php.net/manual/en/mongodb-driver-server.executecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

@@ -27,32 +27,32 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * @var array
      */
-    private $attributes = [];
+    private array $attributes = [];
 
     /**
      * @var array
      */
-    private $cookieParams = [];
+    private array $cookieParams = [];
 
     /**
      * @var null|array|object
      */
-    private $parsedBody;
+    private array|null|object $parsedBody;
 
     /**
      * @var array
      */
-    private $queryParams = [];
+    private array $queryParams = [];
 
     /**
      * @var array
      */
-    private $serverParams;
+    private array $serverParams;
 
     /**
      * @var array
      */
-    private $uploadedFiles = [];
+    private array $uploadedFiles = [];
 
     /**
      * @param string $method HTTP method
@@ -86,9 +86,9 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
      *
      * @return ServerRequestInterface
      */
-    public static function fromGlobals()
+    public static function fromGlobals(): ServerRequest|ServerRequestInterface
     {
-        $method = isset($_SERVER['REQUEST_METHOD']) ? $_SERVER['REQUEST_METHOD'] : 'GET';
+        $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
         $headers = getallheaders();
         $uri = self::getUriFromGlobals();
         $body = new CachingStream(new LazyOpenStream('php://input', 'r+'));
@@ -108,7 +108,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
      *
      * @return UriInterface
      */
-    public static function getUriFromGlobals()
+    public static function getUriFromGlobals(): UriInterface
     {
         $uri = new Uri('');
 
@@ -152,16 +152,16 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
         return $uri;
     }
 
-    private static function extractHostAndPortFromAuthority($authority)
+    private static function extractHostAndPortFromAuthority($authority): array
     {
-        $uri = 'http://' . $authority;
+        $uri = 'https://' . $authority;
         $parts = parse_url($uri);
         if (false === $parts) {
             return [null, null];
         }
 
-        $host = isset($parts['host']) ? $parts['host'] : null;
-        $port = isset($parts['port']) ? $parts['port'] : null;
+        $host = $parts['host'] ?? null;
+        $port = $parts['port'] ?? null;
 
         return [$host, $port];
     }
@@ -169,7 +169,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withUploadedFiles(array $uploadedFiles)
+    public function withUploadedFiles(array $uploadedFiles): ServerRequest|ServerRequestInterface
     {
         $new = clone $this;
         $new->uploadedFiles = $uploadedFiles;
@@ -180,7 +180,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withParsedBody($data)
+    public function withParsedBody(object|array|null $data): ServerRequest|ServerRequestInterface
     {
         $new = clone $this;
         $new->parsedBody = $data;
@@ -191,7 +191,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withQueryParams(array $query)
+    public function withQueryParams(array $query): ServerRequest|ServerRequestInterface
     {
         $new = clone $this;
         $new->queryParams = $query;
@@ -202,7 +202,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withCookieParams(array $cookies)
+    public function withCookieParams(array $cookies): ServerRequest|ServerRequestInterface
     {
         $new = clone $this;
         $new->cookieParams = $cookies;
@@ -217,7 +217,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
      * @return array
      * @throws InvalidArgumentException for unrecognized values
      */
-    public static function normalizeFiles(array $files)
+    public static function normalizeFiles(array $files): array
     {
         $normalized = [];
 
@@ -228,7 +228,6 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
                 $normalized[$key] = self::createUploadedFileFromSpec($value);
             } elseif (is_array($value)) {
                 $normalized[$key] = self::normalizeFiles($value);
-                continue;
             } else {
                 throw new InvalidArgumentException('Invalid value in files specification');
             }
@@ -246,7 +245,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
      * @param array $value $_FILES struct
      * @return array|UploadedFileInterface
      */
-    private static function createUploadedFileFromSpec(array $value)
+    private static function createUploadedFileFromSpec(array $value): UploadedFileInterface|UploadedFile|array
     {
         if (is_array($value['tmp_name'])) {
             return self::normalizeNestedFileSpec($value);
@@ -270,7 +269,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
      * @param array $files
      * @return UploadedFileInterface[]
      */
-    private static function normalizeNestedFileSpec(array $files = [])
+    private static function normalizeNestedFileSpec(array $files = []): array
     {
         $normalizedFiles = [];
 
@@ -291,7 +290,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getServerParams()
+    public function getServerParams(): array
     {
         return $this->serverParams;
     }
@@ -299,7 +298,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getUploadedFiles()
+    public function getUploadedFiles(): array
     {
         return $this->uploadedFiles;
     }
@@ -307,7 +306,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getCookieParams()
+    public function getCookieParams(): array
     {
         return $this->cookieParams;
     }
@@ -315,7 +314,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getQueryParams()
+    public function getQueryParams(): array
     {
         return $this->queryParams;
     }
@@ -323,7 +322,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getParsedBody()
+    public function getParsedBody(): object|array|null
     {
         return $this->parsedBody;
     }
@@ -331,7 +330,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return $this->attributes;
     }
@@ -339,22 +338,22 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttribute($attribute, $default = null)
+    public function getAttribute(string $name, mixed $default = null)
     {
-        if (false === array_key_exists($attribute, $this->attributes)) {
+        if (false === array_key_exists($name, $this->attributes)) {
             return $default;
         }
 
-        return $this->attributes[$attribute];
+        return $this->attributes[$name];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function withAttribute($attribute, $value)
+    public function withAttribute(string $name, mixed $value): ServerRequest|ServerRequestInterface
     {
         $new = clone $this;
-        $new->attributes[$attribute] = $value;
+        $new->attributes[$name] = $value;
 
         return $new;
     }
@@ -362,14 +361,14 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withoutAttribute($attribute)
+    public function withoutAttribute(string $name): ServerRequest|ServerRequestInterface|static
     {
-        if (false === array_key_exists($attribute, $this->attributes)) {
+        if (false === array_key_exists($name, $this->attributes)) {
             return $this;
         }
 
         $new = clone $this;
-        unset($new->attributes[$attribute]);
+        unset($new->attributes[$name]);
 
         return $new;
     }

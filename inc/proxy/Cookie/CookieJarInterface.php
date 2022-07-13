@@ -2,6 +2,8 @@
 
 namespace yxorP\inc\proxy\Cookie;
 
+use Countable;
+use IteratorAggregate;
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
 
@@ -15,7 +17,7 @@ use yxorP\inc\psr\Http\Message\ResponseInterface;
  *
  * @link http://docs.python.org/2/library/cookielib.html Inspiration
  */
-interface CookieJarInterface extends \Countable, \IteratorAggregate
+interface CookieJarInterface extends Countable, IteratorAggregate
 {
     /**
      * Create a request with added cookie headers.
@@ -27,7 +29,7 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
      *
      * @return RequestInterface returns the modified request.
      */
-    public function withCookieHeader(RequestInterface $request);
+    public function withCookieHeader(RequestInterface $request): RequestInterface;
 
     /**
      * Extract cookies from an HTTP response and store them in the CookieJar.
@@ -47,7 +49,7 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
      *
      * @return bool Returns true on success or false on failure
      */
-    public function setCookie(SetCookie $cookie);
+    public function setCookie(SetCookie $cookie): bool;
 
     /**
      * Remove cookies currently held in the cookie jar.
@@ -65,7 +67,7 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
      *
      * @return CookieJarInterface
      */
-    public function clear($domain = null, $path = null, $name = null);
+    public function clear(string $domain = null, string $path = null, string $name = null): CookieJarInterface;
 
     /**
      * Discard all sessions cookies.
@@ -81,5 +83,5 @@ interface CookieJarInterface extends \Countable, \IteratorAggregate
      *
      * @return array
      */
-    public function toArray();
+    public function toArray(): array;
 }

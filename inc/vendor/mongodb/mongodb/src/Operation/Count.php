@@ -43,16 +43,16 @@ use function is_string;
 class Count implements Executable, Explainable
 {
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array|object */
-    private $filter;
+    private array|object $filter;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a count command.
@@ -79,47 +79,47 @@ class Count implements Executable, Explainable
      *  * skip (integer): The number of documents to skip before returning the
      *    documents.
      *
-     * @param string       $databaseName   Database name
-     * @param string       $collectionName Collection name
-     * @param array|object $filter         Query by which to filter documents
-     * @param array        $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param object|array $filter Query by which to filter documents
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, $filter = [], array $options = [])
+    public function __construct(string $databaseName, string $collectionName, object|array $filter = [], array $options = [])
     {
-        if (! is_array($filter) && ! is_object($filter)) {
+        if (!is_array($filter) && !is_object($filter)) {
             throw InvalidArgumentException::invalidType('$filter', $filter, 'array or object');
         }
 
-        if (isset($options['collation']) && ! is_array($options['collation']) && ! is_object($options['collation'])) {
+        if (isset($options['collation']) && !is_array($options['collation']) && !is_object($options['collation'])) {
             throw InvalidArgumentException::invalidType('"collation" option', $options['collation'], 'array or object');
         }
 
-        if (isset($options['hint']) && ! is_string($options['hint']) && ! is_array($options['hint']) && ! is_object($options['hint'])) {
+        if (isset($options['hint']) && !is_string($options['hint']) && !is_array($options['hint']) && !is_object($options['hint'])) {
             throw InvalidArgumentException::invalidType('"hint" option', $options['hint'], 'string or array or object');
         }
 
-        if (isset($options['limit']) && ! is_integer($options['limit'])) {
+        if (isset($options['limit']) && !is_integer($options['limit'])) {
             throw InvalidArgumentException::invalidType('"limit" option', $options['limit'], 'integer');
         }
 
-        if (isset($options['maxTimeMS']) && ! is_integer($options['maxTimeMS'])) {
+        if (isset($options['maxTimeMS']) && !is_integer($options['maxTimeMS'])) {
             throw InvalidArgumentException::invalidType('"maxTimeMS" option', $options['maxTimeMS'], 'integer');
         }
 
-        if (isset($options['readConcern']) && ! $options['readConcern'] instanceof ReadConcern) {
+        if (isset($options['readConcern']) && !$options['readConcern'] instanceof ReadConcern) {
             throw InvalidArgumentException::invalidType('"readConcern" option', $options['readConcern'], ReadConcern::class);
         }
 
-        if (isset($options['readPreference']) && ! $options['readPreference'] instanceof ReadPreference) {
+        if (isset($options['readPreference']) && !$options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['skip']) && ! is_integer($options['skip'])) {
+        if (isset($options['skip']) && !is_integer($options['skip'])) {
             throw InvalidArgumentException::invalidType('"skip" option', $options['skip'], 'integer');
         }
 
@@ -127,8 +127,8 @@ class Count implements Executable, Explainable
             unset($options['readConcern']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->filter = $filter;
         $this->options = $options;
     }
@@ -136,14 +136,14 @@ class Count implements Executable, Explainable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return integer
      * @throws UnexpectedValueException if the command response was malformed
      * @throws UnsupportedException if read concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): int
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['readConcern'])) {
@@ -154,23 +154,11 @@ class Count implements Executable, Explainable
         $result = current($cursor->toArray());
 
         // Older server versions may return a float
-        if (! isset($result->n) || ! (is_integer($result->n) || is_float($result->n))) {
+        if (!isset($result->n) || !(is_integer($result->n) || is_float($result->n))) {
             throw new UnexpectedValueException('count command did not return a numeric "n" value');
         }
 
-        return (integer) $result->n;
-    }
-
-    /**
-     * Returns the command document for this operation.
-     *
-     * @see Explainable::getCommandDocument()
-     * @param Server $server
-     * @return array
-     */
-    public function getCommandDocument(Server $server)
-    {
-        return $this->createCommandDocument();
+        return (integer)$result->n;
     }
 
     /**
@@ -178,20 +166,20 @@ class Count implements Executable, Explainable
      *
      * @return array
      */
-    private function createCommandDocument()
+    private function createCommandDocument(): array
     {
         $cmd = ['count' => $this->collectionName];
 
-        if (! empty($this->filter)) {
-            $cmd['query'] = (object) $this->filter;
+        if (!empty($this->filter)) {
+            $cmd['query'] = (object)$this->filter;
         }
 
         if (isset($this->options['collation'])) {
-            $cmd['collation'] = (object) $this->options['collation'];
+            $cmd['collation'] = (object)$this->options['collation'];
         }
 
         if (isset($this->options['hint'])) {
-            $cmd['hint'] = is_array($this->options['hint']) ? (object) $this->options['hint'] : $this->options['hint'];
+            $cmd['hint'] = is_array($this->options['hint']) ? (object)$this->options['hint'] : $this->options['hint'];
         }
 
         foreach (['limit', 'maxTimeMS', 'skip'] as $option) {
@@ -209,7 +197,7 @@ class Count implements Executable, Explainable
      * @see http://php.net/manual/en/mongodb-driver-server.executereadcommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 
@@ -226,5 +214,17 @@ class Count implements Executable, Explainable
         }
 
         return $options;
+    }
+
+    /**
+     * Returns the command document for this operation.
+     *
+     * @param Server $server
+     * @return array
+     * @see Explainable::getCommandDocument()
+     */
+    public function getCommandDocument(Server $server): array
+    {
+        return $this->createCommandDocument();
     }
 }

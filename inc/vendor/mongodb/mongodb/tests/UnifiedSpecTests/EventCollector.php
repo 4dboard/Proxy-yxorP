@@ -29,7 +29,7 @@ use function sprintf;
 final class EventCollector implements CommandSubscriber
 {
     /** @var array */
-    private static $supportedEvents = [
+    private static array $supportedEvents = [
         'PoolCreatedEvent' => null,
         'PoolReadyEvent' => null,
         'PoolClearedEvent' => null,
@@ -47,16 +47,16 @@ final class EventCollector implements CommandSubscriber
     ];
 
     /** @var string */
-    private $clientId;
+    private string $clientId;
 
     /** @var Context */
-    private $context;
+    private Context $context;
 
     /** @var array */
-    private $collectEvents = [];
+    private array $collectEvents = [];
 
     /** @var BSONArray */
-    private $eventList;
+    private BSONArray $eventList;
 
     public function __construct(BSONArray $eventList, array $collectEvents, string $clientId, Context $context)
     {
@@ -87,42 +87,16 @@ final class EventCollector implements CommandSubscriber
         $this->handleCommandMonitoringEvent($event);
     }
 
-    /**
-     * @see https://www.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandstarted.php
-     */
-    public function commandStarted(CommandStartedEvent $event): void
-    {
-        $this->handleCommandMonitoringEvent($event);
-    }
-
-    /**
-     * @see https://www.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandsucceeded.php
-     */
-    public function commandSucceeded(CommandSucceededEvent $event): void
-    {
-        $this->handleCommandMonitoringEvent($event);
-    }
-
-    public function start(): void
-    {
-        addSubscriber($this);
-    }
-
-    public function stop(): void
-    {
-        removeSubscriber($this);
-    }
-
-    /** @param CommandStartedEvent|CommandSucceededEvent|CommandFailedEvent $event */
-    private function handleCommandMonitoringEvent($event): void
+    /** @param CommandFailedEvent|CommandStartedEvent|CommandSucceededEvent $event */
+    private function handleCommandMonitoringEvent(CommandFailedEvent|CommandSucceededEvent|CommandStartedEvent $event): void
     {
         assertIsObject($event);
 
-        if (! $this->context->isActiveClient($this->clientId)) {
+        if (!$this->context->isActiveClient($this->clientId)) {
             return;
         }
 
-        if (! isset($this->collectEvents[get_class($event)])) {
+        if (!isset($this->collectEvents[get_class($event)])) {
             return;
         }
 
@@ -154,16 +128,8 @@ final class EventCollector implements CommandSubscriber
         $this->eventList[] = $log;
     }
 
-    /** @param CommandStartedEvent|CommandSucceededEvent|CommandFailedEvent $event */
-    private static function getConnectionId($event): string
-    {
-        $server = $event->getServer();
-
-        return sprintf('%s:%d', $server->getHost(), $server->getPort());
-    }
-
     /** @param object $event */
-    private static function getEventName($event): string
+    private static function getEventName(object $event): string
     {
         static $eventNamesByClass = null;
 
@@ -172,5 +138,39 @@ final class EventCollector implements CommandSubscriber
         }
 
         return $eventNamesByClass[get_class($event)];
+    }
+
+    /** @param CommandFailedEvent|CommandStartedEvent|CommandSucceededEvent $event */
+    private static function getConnectionId(CommandFailedEvent|CommandSucceededEvent|CommandStartedEvent $event): string
+    {
+        $server = $event->getServer();
+
+        return sprintf('%s:%d', $server->getHost(), $server->getPort());
+    }
+
+    /**
+     * @see https://www.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandstarted.php
+     */
+    public function commandStarted(CommandStartedEvent $event): void
+    {
+        $this->handleCommandMonitoringEvent($event);
+    }
+
+    /**
+     * @see https://www.php.net/manual/en/mongodb-driver-monitoring-commandsubscriber.commandsucceeded.php
+     */
+    public function commandSucceeded(CommandSucceededEvent $event): void
+    {
+        $this->handleCommandMonitoringEvent($event);
+    }
+
+    public function start(): void
+    {
+        addSubscriber($this);
+    }
+
+    public function stop(): void
+    {
+        removeSubscriber($this);
     }
 }

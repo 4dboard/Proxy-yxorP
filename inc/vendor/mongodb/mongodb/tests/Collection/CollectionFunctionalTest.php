@@ -3,6 +3,7 @@
 namespace MongoDB\Tests\Collection;
 
 use Closure;
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\BSON\Javascript;
 use MongoDB\Collection;
 use MongoDB\Database;
@@ -48,7 +49,7 @@ class CollectionFunctionalTest extends FunctionalTestCase
         new Collection($this->manager, $this->getDatabaseName(), $collectionName);
     }
 
-    public function provideInvalidDatabaseAndCollectionNames()
+    public function provideInvalidDatabaseAndCollectionNames(): array
     {
         return [
             [null],
@@ -65,7 +66,7 @@ class CollectionFunctionalTest extends FunctionalTestCase
         new Collection($this->manager, $this->getDatabaseName(), $this->getCollectionName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -95,7 +96,7 @@ class CollectionFunctionalTest extends FunctionalTestCase
 
     public function testToString(): void
     {
-        $this->assertEquals($this->getNamespace(), (string) $this->collection);
+        $this->assertEquals($this->getNamespace(), (string)$this->collection);
     }
 
     public function getGetCollectionName(): void
@@ -144,30 +145,55 @@ class CollectionFunctionalTest extends FunctionalTestCase
         }
     }
 
+    /**
+     * Create data fixtures.
+     *
+     * @param integer $n
+     * @param array $executeBulkWriteOptions
+     */
+    private function createFixtures(int $n, array $executeBulkWriteOptions = []): void
+    {
+        $bulkWrite = new BulkWrite(['ordered' => true]);
+
+        for ($i = 1; $i <= $n; $i++) {
+            $bulkWrite->insert([
+                '_id' => $i,
+                'x' => (integer)($i . $i),
+            ]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite, $executeBulkWriteOptions);
+
+        $this->assertEquals($n, $result->getInsertedCount());
+    }
+
     public function testCreateIndexSplitsCommandOptions(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $this->collection->createIndex(
-                    ['x' => 1],
-                    [
-                        'maxTimeMS' => 10000,
-                        'session' => $this->manager->startSession(),
-                        'sparse' => true,
-                        'unique' => true,
-                        'writeConcern' => new WriteConcern(1),
-                    ]
-                );
-            },
-            function (array $event): void {
-                $command = $event['started']->getCommand();
-                $this->assertObjectHasAttribute('lsid', $command);
-                $this->assertObjectHasAttribute('maxTimeMS', $command);
-                $this->assertObjectHasAttribute('writeConcern', $command);
-                $this->assertObjectHasAttribute('sparse', $command->indexes[0]);
-                $this->assertObjectHasAttribute('unique', $command->indexes[0]);
-            }
-        );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $this->collection->createIndex(
+                        ['x' => 1],
+                        [
+                            'maxTimeMS' => 10000,
+                            'session' => $this->manager->startSession(),
+                            'sparse' => true,
+                            'unique' => true,
+                            'writeConcern' => new WriteConcern(1),
+                        ]
+                    );
+                },
+                function (array $event): void {
+                    $command = $event['started']->getCommand();
+                    $this->assertObjectHasAttribute('lsid', $command);
+                    $this->assertObjectHasAttribute('maxTimeMS', $command);
+                    $this->assertObjectHasAttribute('writeConcern', $command);
+                    $this->assertObjectHasAttribute('sparse', $command->indexes[0]);
+                    $this->assertObjectHasAttribute('unique', $command->indexes[0]);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -177,11 +203,11 @@ class CollectionFunctionalTest extends FunctionalTestCase
     {
         $bulkWrite = new BulkWrite(['ordered' => true]);
         $bulkWrite->insert([
-            'x' => (object) ['foo' => 'bar'],
+            'x' => (object)['foo' => 'bar'],
         ]);
         $bulkWrite->insert(['x' => 4]);
         $bulkWrite->insert([
-            'x' => (object) ['foo' => ['foo' => 'bar']],
+            'x' => (object)['foo' => ['foo' => 'bar']],
         ]);
         $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
 
@@ -192,11 +218,11 @@ class CollectionFunctionalTest extends FunctionalTestCase
          * comparing their string representations.
          */
         $sort = function ($a, $b) {
-            if (is_scalar($a) && ! is_scalar($b)) {
+            if (is_scalar($a) && !is_scalar($b)) {
                 return -1;
             }
 
-            if (! is_scalar($a)) {
+            if (!is_scalar($a)) {
                 if (is_scalar($b)) {
                     return 1;
                 }
@@ -214,7 +240,7 @@ class CollectionFunctionalTest extends FunctionalTestCase
         $this->assertEquals($expectedDocuments, $values);
     }
 
-    public function provideTypeMapOptionsAndExpectedDocuments()
+    #[ArrayShape(['No type map' => "array", 'array/array' => "array", 'object/array' => "array", 'array/stdClass' => "array"])] public function provideTypeMapOptionsAndExpectedDocuments(): array
     {
         return [
             'No type map' => [
@@ -236,9 +262,9 @@ class CollectionFunctionalTest extends FunctionalTestCase
             'object/array' => [
                 ['root' => 'object', 'document' => 'array'],
                 [
-                    (object) ['foo' => 'bar'],
+                    (object)['foo' => 'bar'],
                     4,
-                    (object) ['foo' => ['foo' => 'bar']],
+                    (object)['foo' => ['foo' => 'bar']],
                 ],
             ],
             'array/stdClass' => [
@@ -246,7 +272,7 @@ class CollectionFunctionalTest extends FunctionalTestCase
                 [
                     ['foo' => 'bar'],
                     4,
-                    ['foo' => (object) ['foo' => 'bar']],
+                    ['foo' => (object)['foo' => 'bar']],
                 ],
             ],
         ];
@@ -441,7 +467,7 @@ class CollectionFunctionalTest extends FunctionalTestCase
 
         $this->assertInstanceOf(MapReduceResult::class, $result);
         $expected = [
-            [ '_id' => 1.0, 'value' => 66.0 ],
+            ['_id' => 1.0, 'value' => 66.0],
         ];
 
         $this->assertSameDocuments($expected, $result);
@@ -452,7 +478,19 @@ class CollectionFunctionalTest extends FunctionalTestCase
         }
     }
 
-    public function collectionMethodClosures()
+    public function collectionReadMethodClosures(): array
+    {
+        return array_filter(
+            $this->collectionMethodClosures(),
+            function ($rw) {
+                if (strchr($rw[1], 'r') !== false) {
+                    return true;
+                }
+            }
+        );
+    }
+
+    public function collectionMethodClosures(): array
     {
         return [
             [
@@ -706,19 +744,7 @@ class CollectionFunctionalTest extends FunctionalTestCase
         ];
     }
 
-    public function collectionReadMethodClosures()
-    {
-        return array_filter(
-            $this->collectionMethodClosures(),
-            function ($rw) {
-                if (strchr($rw[1], 'r') !== false) {
-                    return true;
-                }
-            }
-        );
-    }
-
-    public function collectionWriteMethodClosures()
+    public function collectionWriteMethodClosures(): array
     {
         return array_filter(
             $this->collectionMethodClosures(),
@@ -747,15 +773,18 @@ class CollectionFunctionalTest extends FunctionalTestCase
             'writeConcern' => new WriteConcern(1),
         ]);
 
-        (new CommandObserver())->observe(
-            function () use ($method, $collection, $session): void {
-                call_user_func($method, $collection, $session);
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
-                $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
-            }
-        );
+        try {
+            (new CommandObserver())->observe(
+                function () use ($method, $collection, $session): void {
+                    call_user_func($method, $collection, $session);
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
+                    $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -800,27 +829,5 @@ class CollectionFunctionalTest extends FunctionalTestCase
         } finally {
             $session->endSession();
         }
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     * @param array   $executeBulkWriteOptions
-     */
-    private function createFixtures(int $n, array $executeBulkWriteOptions = []): void
-    {
-        $bulkWrite = new BulkWrite(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert([
-                '_id' => $i,
-                'x' => (integer) ($i . $i),
-            ]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite, $executeBulkWriteOptions);
-
-        $this->assertEquals($n, $result->getInsertedCount());
     }
 }

@@ -2,6 +2,7 @@
 
 namespace MongoDB\Tests\SpecTests;
 
+use MongoDB\Driver\Exception\Exception;
 use stdClass;
 use function basename;
 use function file_get_contents;
@@ -19,13 +20,13 @@ class RetryableWritesSpecTest extends FunctionalTestCase
      * Execute an individual test case from the specification.
      *
      * @dataProvider provideTests
-     * @param stdClass $test  Individual "tests[]" document
-     * @param array    $runOn Top-level "runOn" array with server requirements
-     * @param array    $data  Top-level "data" array to initialize collection
+     * @param stdClass $test Individual "tests[]" document
+     * @param array|null $runOn Top-level "runOn" array with server requirements
+     * @param array $data Top-level "data" array to initialize collection
      */
     public function testRetryableWrites(stdClass $test, ?array $runOn, array $data): void
     {
-        if ($this->isShardedCluster() && ! $this->isShardedClusterUsingReplicasets()) {
+        if ($this->isShardedCluster() && !$this->isShardedClusterUsingReplicasets()) {
             $this->markTestSkipped('Transaction numbers are only allowed on a replica set member or mongos (PHPC-1415)');
         }
 
@@ -45,14 +46,17 @@ class RetryableWritesSpecTest extends FunctionalTestCase
             $this->configureFailPoint($test->failPoint);
         }
 
-        Operation::fromRetryableWrites($test->operation, $test->outcome)->assert($this, $context);
+        try {
+            Operation::fromRetryableWrites($test->operation, $test->outcome)->assert($this, $context);
+        } catch (Exception $e) {
+        }
 
         if (isset($test->outcome->collection->data)) {
             $this->assertOutcomeCollectionData($test->outcome->collection->data);
         }
     }
 
-    public function provideTests()
+    public function provideTests(): array
     {
         $testArgs = [];
 

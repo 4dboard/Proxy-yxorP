@@ -36,7 +36,7 @@ class InflateStream implements StreamInterface
      * @param $header
      * @return int
      */
-    private function getLengthOfPossibleFilenameHeader(StreamInterface $stream, $header)
+    private function getLengthOfPossibleFilenameHeader(StreamInterface $stream, $header): int
     {
         $filename_header_length = 0;
 

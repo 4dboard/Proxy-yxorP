@@ -3,9 +3,17 @@
 namespace LayoutComponents\Controller;
 
 
-class RestApi extends \LimeExtra\Controller {
+use ArrayObject;
+use LimeExtra\Controller;
 
-    public function get($name = null) {
+/**
+ * @property \Lime\App $app
+ */
+class RestApi extends Controller
+{
+
+    public function get($name = null)
+    {
 
         $content = '{}';
 
@@ -19,12 +27,13 @@ class RestApi extends \LimeExtra\Controller {
             $json = [];
         }
 
-        $components = new \ArrayObject($json);
+        $components = new ArrayObject($json);
 
         return $name ? (isset($components[$name]) ? $components[$name] : null) : $components->getArrayCopy();
     }
 
-    public function store() {
+    public function store(): bool
+    {
 
         if ($components = $this->param('components')) {
             $this->helper('fs')->write('#storage:components.json', json_encode($components, JSON_PRETTY_PRINT));

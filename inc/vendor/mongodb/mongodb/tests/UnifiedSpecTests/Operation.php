@@ -58,39 +58,43 @@ use function rewind;
 use function stream_get_contents;
 use function strtolower;
 
+/**
+ * @property ExpectedResult $expectResult
+ * @property ExpectedError $expectError
+ */
 final class Operation
 {
     public const OBJECT_TEST_RUNNER = 'testRunner';
 
     /** @var bool */
-    private $isTestRunnerOperation;
+    private bool $isTestRunnerOperation;
 
     /** @var string */
-    private $name;
+    private string $name;
 
     /** @var ?string */
-    private $object;
+    private ?string $object;
 
     /** @var array */
-    private $arguments = [];
+    private array $arguments = [];
 
     /** @var Context */
-    private $context;
+    private Context $context;
 
     /** @var EntityMap */
-    private $entityMap;
+    private EntityMap $entityMap;
 
     /** @var ExpectedError */
-    private $expectedError;
+    private ExpectedError $expectedError;
 
     /** @var ExpectedResult */
-    private $expectedResult;
+    private ExpectedResult $expectedResult;
 
     /** @var bool */
-    private $ignoreResultAndError;
+    private bool $ignoreResultAndError;
 
     /** @var string */
-    private $saveResultAsEntity;
+    private string $saveResultAsEntity;
 
     public function __construct(stdClass $o, Context $context)
     {
@@ -106,7 +110,7 @@ final class Operation
 
         if (isset($o->arguments)) {
             assertIsObject($o->arguments);
-            $this->arguments = (array) $o->arguments;
+            $this->arguments = (array)$o->arguments;
         }
 
         if (isset($o->ignoreResultAndError) && (isset($o->expectError) || property_exists($o, 'expectResult') || isset($o->saveResultAsEntity))) {
@@ -127,8 +131,71 @@ final class Operation
         }
     }
 
+    private static function prepareBulkWriteRequest(stdClass $request): array
+    {
+        $request = (array)$request;
+        assertCount(1, $request);
+
+        $type = key($request);
+        $args = current($request);
+        assertIsObject($args);
+        $args = (array)$args;
+
+        switch ($type) {
+            case 'deleteMany':
+            case 'deleteOne':
+                assertArrayHasKey('filter', $args);
+                assertInstanceOf(stdClass::class, $args['filter']);
+
+                return [
+                    $type => [
+                        $args['filter'],
+                        array_diff_key($args, ['filter' => 1]),
+                    ],
+                ];
+
+            case 'insertOne':
+                assertArrayHasKey('document', $args);
+
+                return ['insertOne' => [$args['document']]];
+
+            case 'replaceOne':
+                assertArrayHasKey('filter', $args);
+                assertArrayHasKey('replacement', $args);
+                assertInstanceOf(stdClass::class, $args['filter']);
+                assertInstanceOf(stdClass::class, $args['replacement']);
+
+                return [
+                    'replaceOne' => [
+                        $args['filter'],
+                        $args['replacement'],
+                        array_diff_key($args, ['filter' => 1, 'replacement' => 1]),
+                    ],
+                ];
+
+            case 'updateMany':
+            case 'updateOne':
+                assertArrayHasKey('filter', $args);
+                assertArrayHasKey('update', $args);
+                assertInstanceOf(stdClass::class, $args['filter']);
+                assertThat($args['update'], logicalOr(new IsType('array'), new IsType('object')));
+
+                return [
+                    $type => [
+                        $args['filter'],
+                        $args['update'],
+                        array_diff_key($args, ['filter' => 1, 'update' => 1]),
+                    ],
+                ];
+
+            default:
+                Assert::fail('Unsupported bulk write request: ' . $type);
+        }
+    }
+
     /**
      * Execute the operation and assert its outcome.
+     * @throws Throwable
      */
     public function assert(bool $rethrowExceptions = false): void
     {
@@ -154,7 +221,7 @@ final class Operation
             $error = $e;
         }
 
-        if (! $this->ignoreResultAndError) {
+        if (!$this->ignoreResultAndError) {
             $this->expectError->assert($error);
             $this->expectResult->assert($result, $saveResultAsEntity);
         }
@@ -167,7 +234,7 @@ final class Operation
 
     private function execute()
     {
-        $this->context->setActiveClient(null);
+        $this->context->setActiveClient();
 
         if ($this->isTestRunnerOperation) {
             return $this->executeForTestRunner();
@@ -205,467 +272,6 @@ final class Operation
         }
 
         return $result;
-    }
-
-    private function executeForChangeStream(ChangeStream $changeStream)
-    {
-        $args = $this->prepareArguments();
-
-        switch ($this->name) {
-            case 'iterateUntilDocumentOrError':
-                /* Note: the first iteration should use rewind, otherwise we may
-                 * miss a document from the initial batch (possible if using a
-                 * resume token). We can infer this from a null key; however,
-                 * if a test ever calls this operation consecutively to expect
-                 * multiple errors from the same ChangeStream we will need a
-                 * different approach (e.g. examining internal hasAdvanced
-                 * property on the ChangeStream). */
-                if ($changeStream->key() === null) {
-                    $changeStream->rewind();
-
-                    if ($changeStream->valid()) {
-                        return $changeStream->current();
-                    }
-                }
-
-                do {
-                    $changeStream->next();
-                } while (! $changeStream->valid());
-
-                return $changeStream->current();
-
-            default:
-                Assert::fail('Unsupported change stream operation: ' . $this->name);
-        }
-    }
-
-    private function executeForClient(Client $client)
-    {
-        $args = $this->prepareArguments();
-
-        switch ($this->name) {
-            case 'createChangeStream':
-                assertArrayHasKey('pipeline', $args);
-                assertIsArray($args['pipeline']);
-
-                return $client->watch(
-                    $args['pipeline'],
-                    array_diff_key($args, ['pipeline' => 1])
-                );
-
-            case 'listDatabaseNames':
-                return iterator_to_array($client->listDatabaseNames($args));
-
-            case 'listDatabases':
-                return iterator_to_array($client->listDatabases($args));
-
-            default:
-                Assert::fail('Unsupported client operation: ' . $this->name);
-        }
-    }
-
-    private function executeForCollection(Collection $collection)
-    {
-        $args = $this->prepareArguments();
-
-        switch ($this->name) {
-            case 'aggregate':
-                assertArrayHasKey('pipeline', $args);
-                assertIsArray($args['pipeline']);
-
-                return iterator_to_array($collection->aggregate(
-                    $args['pipeline'],
-                    array_diff_key($args, ['pipeline' => 1])
-                ));
-
-            case 'bulkWrite':
-                assertArrayHasKey('requests', $args);
-                assertIsArray($args['requests']);
-
-                return $collection->bulkWrite(
-                    array_map('self::prepareBulkWriteRequest', $args['requests']),
-                    array_diff_key($args, ['requests' => 1])
-                );
-
-            case 'createChangeStream':
-                assertArrayHasKey('pipeline', $args);
-                assertIsArray($args['pipeline']);
-
-                return $collection->watch(
-                    $args['pipeline'],
-                    array_diff_key($args, ['pipeline' => 1])
-                );
-
-            case 'createFindCursor':
-                assertArrayHasKey('filter', $args);
-                assertInstanceOf(stdClass::class, $args['filter']);
-
-                return $collection->find(
-                    $args['filter'],
-                    array_diff_key($args, ['filter' => 1])
-                );
-
-            case 'createIndex':
-                assertArrayHasKey('keys', $args);
-                assertInstanceOf(stdClass::class, $args['keys']);
-
-                return $collection->createIndex(
-                    $args['keys'],
-                    array_diff_key($args, ['keys' => 1])
-                );
-
-            case 'dropIndex':
-                assertArrayHasKey('name', $args);
-                assertIsString($args['name']);
-
-                return $collection->dropIndex(
-                    $args['name'],
-                    array_diff_key($args, ['name' => 1])
-                );
-
-            case 'count':
-            case 'countDocuments':
-                assertArrayHasKey('filter', $args);
-                assertInstanceOf(stdClass::class, $args['filter']);
-
-                return $collection->{$this->name}(
-                    $args['filter'],
-                    array_diff_key($args, ['filter' => 1])
-                );
-
-            case 'estimatedDocumentCount':
-                return $collection->estimatedDocumentCount($args);
-
-            case 'deleteMany':
-            case 'deleteOne':
-            case 'findOneAndDelete':
-                assertArrayHasKey('filter', $args);
-                assertInstanceOf(stdClass::class, $args['filter']);
-
-                return $collection->{$this->name}(
-                    $args['filter'],
-                    array_diff_key($args, ['filter' => 1])
-                );
-
-            case 'distinct':
-                if (isset($args['session']) && $args['session']->isInTransaction()) {
-                    // Transaction, but sharded cluster?
-                    $collection->distinct('foo');
-                }
-
-                assertArrayHasKey('fieldName', $args);
-                assertArrayHasKey('filter', $args);
-                assertIsString($args['fieldName']);
-                assertInstanceOf(stdClass::class, $args['filter']);
-
-                return $collection->distinct(
-                    $args['fieldName'],
-                    $args['filter'],
-                    array_diff_key($args, ['fieldName' => 1, 'filter' => 1])
-                );
-
-            case 'drop':
-                return $collection->drop($args);
-
-            case 'find':
-                assertArrayHasKey('filter', $args);
-                assertInstanceOf(stdClass::class, $args['filter']);
-
-                return iterator_to_array($collection->find(
-                    $args['filter'],
-                    array_diff_key($args, ['filter' => 1])
-                ));
-
-            case 'findOne':
-                assertArrayHasKey('filter', $args);
-                assertInstanceOf(stdClass::class, $args['filter']);
-
-                return $collection->findOne(
-                    $args['filter'],
-                    array_diff_key($args, ['filter' => 1])
-                );
-
-            case 'findOneAndReplace':
-                if (isset($args['returnDocument'])) {
-                    $args['returnDocument'] = strtolower($args['returnDocument']);
-                    assertThat($args['returnDocument'], logicalOr(equalTo('after'), equalTo('before')));
-
-                    $args['returnDocument'] = 'after' === $args['returnDocument']
-                        ? FindOneAndReplace::RETURN_DOCUMENT_AFTER
-                        : FindOneAndReplace::RETURN_DOCUMENT_BEFORE;
-                }
-                // Fall through
-            case 'replaceOne':
-                assertArrayHasKey('filter', $args);
-                assertArrayHasKey('replacement', $args);
-                assertInstanceOf(stdClass::class, $args['filter']);
-                assertInstanceOf(stdClass::class, $args['replacement']);
-
-                return $collection->{$this->name}(
-                    $args['filter'],
-                    $args['replacement'],
-                    array_diff_key($args, ['filter' => 1, 'replacement' => 1])
-                );
-
-            case 'findOneAndUpdate':
-                if (isset($args['returnDocument'])) {
-                    $args['returnDocument'] = strtolower($args['returnDocument']);
-                    assertThat($args['returnDocument'], logicalOr(equalTo('after'), equalTo('before')));
-
-                    $args['returnDocument'] = 'after' === $args['returnDocument']
-                        ? FindOneAndUpdate::RETURN_DOCUMENT_AFTER
-                        : FindOneAndUpdate::RETURN_DOCUMENT_BEFORE;
-                }
-                // Fall through
-            case 'updateMany':
-            case 'updateOne':
-                assertArrayHasKey('filter', $args);
-                assertArrayHasKey('update', $args);
-                assertInstanceOf(stdClass::class, $args['filter']);
-                assertThat($args['update'], logicalOr(new IsType('array'), new IsType('object')));
-
-                return $collection->{$this->name}(
-                    $args['filter'],
-                    $args['update'],
-                    array_diff_key($args, ['filter' => 1, 'update' => 1])
-                );
-
-            case 'insertMany':
-                // Merge nested and top-level options (see: SPEC-1158)
-                $options = isset($args['options']) ? (array) $args['options'] : [];
-                $options += array_diff_key($args, ['documents' => 1]);
-
-                assertArrayHasKey('documents', $args);
-                assertIsArray($args['documents']);
-
-                return $collection->insertMany(
-                    $args['documents'],
-                    $options
-                );
-
-            case 'insertOne':
-                assertArrayHasKey('document', $args);
-                assertInstanceOf(stdClass::class, $args['document']);
-
-                return $collection->insertOne(
-                    $args['document'],
-                    array_diff_key($args, ['document' => 1])
-                );
-
-            case 'listIndexes':
-                return iterator_to_array($collection->listIndexes($args));
-
-            case 'mapReduce':
-                assertArrayHasKey('map', $args);
-                assertArrayHasKey('reduce', $args);
-                assertArrayHasKey('out', $args);
-                assertInstanceOf(Javascript::class, $args['map']);
-                assertInstanceOf(Javascript::class, $args['reduce']);
-                assertIsString($args['out']);
-
-                return $collection->mapReduce(
-                    $args['map'],
-                    $args['reduce'],
-                    $args['out'],
-                    array_diff_key($args, ['map' => 1, 'reduce' => 1, 'out' => 1])
-                );
-
-            default:
-                Assert::fail('Unsupported collection operation: ' . $this->name);
-        }
-    }
-
-    private function executeForCursor(Cursor $cursor)
-    {
-        $args = $this->prepareArguments();
-
-        switch ($this->name) {
-            case 'close':
-                /* PHPC does not provide an API to directly close a cursor.
-                 * mongoc_cursor_destroy is only invoked from the Cursor's
-                 * free_object handler, which requires unsetting the object from
-                 * the entity map to trigger garbage collection. This will need
-                 * a different approach if tests ever attempt to access the
-                 * cursor entity after calling the "close" operation. */
-                $this->entityMap->closeCursor($this->object);
-                assertFalse($this->entityMap->offsetExists($this->object));
-                break;
-            case 'iterateUntilDocumentOrError':
-                /* Note: the first iteration should use rewind, otherwise we may
-                 * miss a document from the initial batch (possible if using a
-                 * resume token). We can infer this from a null key; however,
-                 * if a test ever calls this operation consecutively to expect
-                 * multiple errors from the same ChangeStream we will need a
-                 * different approach (e.g. examining internal hasAdvanced
-                 * property on the ChangeStream). */
-
-                /* Note: similar to iterateUntilDocumentOrError for ChangeStream
-                 * entities, a different approach will be needed if a test ever
-                 * calls this operation consecutively to expect multiple errors.
-                 */
-                if ($cursor->key() === null) {
-                    $cursor->rewind();
-
-                    if ($cursor->valid()) {
-                        return $cursor->current();
-                    }
-                }
-
-                do {
-                    $cursor->next();
-                } while (! $cursor->valid());
-
-                return $cursor->current();
-
-            default:
-                Assert::fail('Unsupported cursor operation: ' . $this->name);
-        }
-    }
-
-    private function executeForDatabase(Database $database)
-    {
-        $args = $this->prepareArguments();
-
-        switch ($this->name) {
-            case 'aggregate':
-                assertArrayHasKey('pipeline', $args);
-                assertIsArray($args['pipeline']);
-
-                return iterator_to_array($database->aggregate(
-                    $args['pipeline'],
-                    array_diff_key($args, ['pipeline' => 1])
-                ));
-
-            case 'createChangeStream':
-                assertArrayHasKey('pipeline', $args);
-                assertIsArray($args['pipeline']);
-
-                return $database->watch(
-                    $args['pipeline'],
-                    array_diff_key($args, ['pipeline' => 1])
-                );
-
-            case 'createCollection':
-                assertArrayHasKey('collection', $args);
-                assertIsString($args['collection']);
-
-                return $database->createCollection(
-                    $args['collection'],
-                    array_diff_key($args, ['collection' => 1])
-                );
-
-            case 'dropCollection':
-                assertArrayHasKey('collection', $args);
-                assertIsString($args['collection']);
-
-                return $database->dropCollection(
-                    $args['collection'],
-                    array_diff_key($args, ['collection' => 1])
-                );
-
-            case 'listCollectionNames':
-                return iterator_to_array($database->listCollectionNames($args));
-
-            case 'listCollections':
-                return iterator_to_array($database->listCollections($args));
-
-            case 'runCommand':
-                assertArrayHasKey('command', $args);
-                assertInstanceOf(stdClass::class, $args['command']);
-
-                return $database->command(
-                    $args['command'],
-                    array_diff_key($args, ['command' => 1])
-                )->toArray()[0];
-
-            default:
-                Assert::fail('Unsupported database operation: ' . $this->name);
-        }
-    }
-
-    private function executeForSession(Session $session)
-    {
-        $args = $this->prepareArguments();
-
-        switch ($this->name) {
-            case 'abortTransaction':
-                return $session->abortTransaction();
-
-            case 'commitTransaction':
-                return $session->commitTransaction();
-
-            case 'endSession':
-                return $session->endSession();
-
-            case 'startTransaction':
-                return $session->startTransaction($args);
-
-            case 'withTransaction':
-                assertArrayHasKey('callback', $args);
-                assertIsArray($args['callback']);
-
-                $operations = array_map(function ($o) {
-                    assertIsObject($o);
-
-                    return new Operation($o, $this->context);
-                }, $args['callback']);
-
-                $callback = function () use ($operations): void {
-                    foreach ($operations as $operation) {
-                        $operation->assert(true); // rethrow exceptions
-                    }
-                };
-
-                return with_transaction($session, $callback, array_diff_key($args, ['callback' => 1]));
-
-            default:
-                Assert::fail('Unsupported session operation: ' . $this->name);
-        }
-    }
-
-    private function executeForBucket(Bucket $bucket)
-    {
-        $args = $this->prepareArguments();
-
-        switch ($this->name) {
-            case 'delete':
-                assertArrayHasKey('id', $args);
-
-                return $bucket->delete($args['id']);
-
-            case 'downloadByName':
-                assertArrayHasKey('filename', $args);
-                assertIsString($args['filename']);
-
-                return stream_get_contents($bucket->openDownloadStreamByName(
-                    $args['filename'],
-                    array_diff_key($args, ['filename' => 1])
-                ));
-
-            case 'download':
-                assertArrayHasKey('id', $args);
-
-                return stream_get_contents($bucket->openDownloadStream($args['id']));
-
-            case 'uploadWithId':
-                assertArrayHasKey('id', $args);
-                $args['_id'] = $args['id'];
-                unset($args['id']);
-
-                // Fall through
-
-            case 'upload':
-                $args = self::prepareUploadArguments($args);
-
-                return $bucket->uploadFromStream(
-                    $args['filename'],
-                    $args['source'],
-                    array_diff_key($args, ['filename' => 1, 'source' => 1])
-                );
-
-            default:
-                Assert::fail('Unsupported bucket operation: ' . $this->name);
-        }
     }
 
     private function executeForTestRunner()
@@ -785,16 +391,6 @@ final class Operation
         }
     }
 
-    private function getIndexNames(string $databaseName, string $collectionName): array
-    {
-        return array_map(
-            function (IndexInfo $indexInfo) {
-                return $indexInfo->getName();
-            },
-            iterator_to_array($this->context->getInternalClient()->selectCollection($databaseName, $collectionName)->listIndexes())
-        );
-    }
-
     private function prepareArguments(): array
     {
         $args = $this->arguments;
@@ -813,48 +409,257 @@ final class Operation
         return Util::prepareCommonOptions($args);
     }
 
-    private static function prepareBulkWriteRequest(stdClass $request): array
+    private function getIndexNames(string $databaseName, string $collectionName): array
     {
-        $request = (array) $request;
-        assertCount(1, $request);
+        return array_map(
+            function (IndexInfo $indexInfo) {
+                return $indexInfo->getName();
+            },
+            iterator_to_array($this->context->getInternalClient()->selectCollection($databaseName, $collectionName)->listIndexes())
+        );
+    }
 
-        $type = key($request);
-        $args = current($request);
-        assertIsObject($args);
-        $args = (array) $args;
+    private function executeForClient(Client $client)
+    {
+        $args = $this->prepareArguments();
 
-        switch ($type) {
+        switch ($this->name) {
+            case 'createChangeStream':
+                assertArrayHasKey('pipeline', $args);
+                assertIsArray($args['pipeline']);
+
+                return $client->watch(
+                    $args['pipeline'],
+                    array_diff_key($args, ['pipeline' => 1])
+                );
+
+            case 'listDatabaseNames':
+                return iterator_to_array($client->listDatabaseNames($args));
+
+            case 'listDatabases':
+                return iterator_to_array($client->listDatabases($args));
+
+            default:
+                Assert::fail('Unsupported client operation: ' . $this->name);
+        }
+    }
+
+    private function executeForDatabase(Database $database)
+    {
+        $args = $this->prepareArguments();
+
+        switch ($this->name) {
+            case 'aggregate':
+                assertArrayHasKey('pipeline', $args);
+                assertIsArray($args['pipeline']);
+
+                return iterator_to_array($database->aggregate(
+                    $args['pipeline'],
+                    array_diff_key($args, ['pipeline' => 1])
+                ));
+
+            case 'createChangeStream':
+                assertArrayHasKey('pipeline', $args);
+                assertIsArray($args['pipeline']);
+
+                return $database->watch(
+                    $args['pipeline'],
+                    array_diff_key($args, ['pipeline' => 1])
+                );
+
+            case 'createCollection':
+                assertArrayHasKey('collection', $args);
+                assertIsString($args['collection']);
+
+                return $database->createCollection(
+                    $args['collection'],
+                    array_diff_key($args, ['collection' => 1])
+                );
+
+            case 'dropCollection':
+                assertArrayHasKey('collection', $args);
+                assertIsString($args['collection']);
+
+                return $database->dropCollection(
+                    $args['collection'],
+                    array_diff_key($args, ['collection' => 1])
+                );
+
+            case 'listCollectionNames':
+                return iterator_to_array($database->listCollectionNames($args));
+
+            case 'listCollections':
+                return iterator_to_array($database->listCollections($args));
+
+            case 'runCommand':
+                assertArrayHasKey('command', $args);
+                assertInstanceOf(stdClass::class, $args['command']);
+
+                return $database->command(
+                    $args['command'],
+                    array_diff_key($args, ['command' => 1])
+                )->toArray()[0];
+
+            default:
+                Assert::fail('Unsupported database operation: ' . $this->name);
+        }
+    }
+
+    private function executeForCollection(Collection $collection)
+    {
+        $args = $this->prepareArguments();
+
+        switch ($this->name) {
+            case 'aggregate':
+                assertArrayHasKey('pipeline', $args);
+                assertIsArray($args['pipeline']);
+
+                return iterator_to_array($collection->aggregate(
+                    $args['pipeline'],
+                    array_diff_key($args, ['pipeline' => 1])
+                ));
+
+            case 'bulkWrite':
+                assertArrayHasKey('requests', $args);
+                assertIsArray($args['requests']);
+
+                return $collection->bulkWrite(
+                    array_map('self::prepareBulkWriteRequest', $args['requests']),
+                    array_diff_key($args, ['requests' => 1])
+                );
+
+            case 'createChangeStream':
+                assertArrayHasKey('pipeline', $args);
+                assertIsArray($args['pipeline']);
+
+                return $collection->watch(
+                    $args['pipeline'],
+                    array_diff_key($args, ['pipeline' => 1])
+                );
+
+            case 'createFindCursor':
+                assertArrayHasKey('filter', $args);
+                assertInstanceOf(stdClass::class, $args['filter']);
+
+                return $collection->find(
+                    $args['filter'],
+                    array_diff_key($args, ['filter' => 1])
+                );
+
+            case 'createIndex':
+                assertArrayHasKey('keys', $args);
+                assertInstanceOf(stdClass::class, $args['keys']);
+
+                return $collection->createIndex(
+                    $args['keys'],
+                    array_diff_key($args, ['keys' => 1])
+                );
+
+            case 'dropIndex':
+                assertArrayHasKey('name', $args);
+                assertIsString($args['name']);
+
+                return $collection->dropIndex(
+                    $args['name'],
+                    array_diff_key($args, ['name' => 1])
+                );
+
+            case 'count':
+            case 'findOneAndDelete':
+            case 'countDocuments':
+                assertArrayHasKey('filter', $args);
+                assertInstanceOf(stdClass::class, $args['filter']);
+
+                return $collection->{$this->name}(
+                    $args['filter'],
+                    array_diff_key($args, ['filter' => 1])
+                );
+
+            case 'estimatedDocumentCount':
+                return $collection->estimatedDocumentCount($args);
+
             case 'deleteMany':
             case 'deleteOne':
                 assertArrayHasKey('filter', $args);
                 assertInstanceOf(stdClass::class, $args['filter']);
 
-                return [
-                    $type => [
-                        $args['filter'],
-                        array_diff_key($args, ['filter' => 1]),
-                    ],
-                ];
+                return $collection->{$this->name}(
+                    $args['filter'],
+                    array_diff_key($args, ['filter' => 1])
+                );
 
-            case 'insertOne':
-                assertArrayHasKey('document', $args);
+            case 'distinct':
+                if (isset($args['session']) && $args['session']->isInTransaction()) {
+                    // Transaction, but sharded cluster?
+                    $collection->distinct('foo');
+                }
 
-                return ['insertOne' => [$args['document']]];
+                assertArrayHasKey('fieldName', $args);
+                assertArrayHasKey('filter', $args);
+                assertIsString($args['fieldName']);
+                assertInstanceOf(stdClass::class, $args['filter']);
 
+                return $collection->distinct(
+                    $args['fieldName'],
+                    $args['filter'],
+                    array_diff_key($args, ['fieldName' => 1, 'filter' => 1])
+                );
+
+            case 'drop':
+                return $collection->drop($args);
+
+            case 'find':
+                assertArrayHasKey('filter', $args);
+                assertInstanceOf(stdClass::class, $args['filter']);
+
+                return iterator_to_array($collection->find(
+                    $args['filter'],
+                    array_diff_key($args, ['filter' => 1])
+                ));
+
+            case 'findOne':
+                assertArrayHasKey('filter', $args);
+                assertInstanceOf(stdClass::class, $args['filter']);
+
+                return $collection->findOne(
+                    $args['filter'],
+                    array_diff_key($args, ['filter' => 1])
+                );
+
+            case 'findOneAndReplace':
+                if (isset($args['returnDocument'])) {
+                    $args['returnDocument'] = strtolower($args['returnDocument']);
+                    assertThat($args['returnDocument'], logicalOr(equalTo('after'), equalTo('before')));
+
+                    $args['returnDocument'] = 'after' === $args['returnDocument']
+                        ? FindOneAndReplace::RETURN_DOCUMENT_AFTER
+                        : FindOneAndReplace::RETURN_DOCUMENT_BEFORE;
+                }
+                break;
+            // Fall through
             case 'replaceOne':
                 assertArrayHasKey('filter', $args);
                 assertArrayHasKey('replacement', $args);
                 assertInstanceOf(stdClass::class, $args['filter']);
                 assertInstanceOf(stdClass::class, $args['replacement']);
 
-                return [
-                    'replaceOne' => [
-                        $args['filter'],
-                        $args['replacement'],
-                        array_diff_key($args, ['filter' => 1, 'replacement' => 1]),
-                    ],
-                ];
+                return $collection->{$this->name}(
+                    $args['filter'],
+                    $args['replacement'],
+                    array_diff_key($args, ['filter' => 1, 'replacement' => 1])
+                );
 
+            case 'findOneAndUpdate':
+                if (isset($args['returnDocument'])) {
+                    $args['returnDocument'] = strtolower($args['returnDocument']);
+                    assertThat($args['returnDocument'], logicalOr(equalTo('after'), equalTo('before')));
+
+                    $args['returnDocument'] = 'after' === $args['returnDocument']
+                        ? FindOneAndUpdate::RETURN_DOCUMENT_AFTER
+                        : FindOneAndUpdate::RETURN_DOCUMENT_BEFORE;
+                }
+                break;
+            // Fall through
             case 'updateMany':
             case 'updateOne':
                 assertArrayHasKey('filter', $args);
@@ -862,16 +667,222 @@ final class Operation
                 assertInstanceOf(stdClass::class, $args['filter']);
                 assertThat($args['update'], logicalOr(new IsType('array'), new IsType('object')));
 
-                return [
-                    $type => [
-                        $args['filter'],
-                        $args['update'],
-                        array_diff_key($args, ['filter' => 1, 'update' => 1]),
-                    ],
-                ];
+                return $collection->{$this->name}(
+                    $args['filter'],
+                    $args['update'],
+                    array_diff_key($args, ['filter' => 1, 'update' => 1])
+                );
+
+            case 'insertMany':
+                // Merge nested and top-level options (see: SPEC-1158)
+                $options = isset($args['options']) ? (array)$args['options'] : [];
+                $options += array_diff_key($args, ['documents' => 1]);
+
+                assertArrayHasKey('documents', $args);
+                assertIsArray($args['documents']);
+
+                return $collection->insertMany(
+                    $args['documents'],
+                    $options
+                );
+
+            case 'insertOne':
+                assertArrayHasKey('document', $args);
+                assertInstanceOf(stdClass::class, $args['document']);
+
+                return $collection->insertOne(
+                    $args['document'],
+                    array_diff_key($args, ['document' => 1])
+                );
+
+            case 'listIndexes':
+                return iterator_to_array($collection->listIndexes($args));
+
+            case 'mapReduce':
+                assertArrayHasKey('map', $args);
+                assertArrayHasKey('reduce', $args);
+                assertArrayHasKey('out', $args);
+                assertInstanceOf(Javascript::class, $args['map']);
+                assertInstanceOf(Javascript::class, $args['reduce']);
+                assertIsString($args['out']);
+
+                return $collection->mapReduce(
+                    $args['map'],
+                    $args['reduce'],
+                    $args['out'],
+                    array_diff_key($args, ['map' => 1, 'reduce' => 1, 'out' => 1])
+                );
 
             default:
-                Assert::fail('Unsupported bulk write request: ' . $type);
+                Assert::fail('Unsupported collection operation: ' . $this->name);
+        }
+    }
+
+    private function executeForChangeStream(ChangeStream $changeStream)
+    {
+        $args = $this->prepareArguments();
+
+        switch ($this->name) {
+            case 'iterateUntilDocumentOrError':
+                /* Note: the first iteration should use rewind, otherwise we may
+                 * miss a document from the initial batch (possible if using a
+                 * resume token). We can infer this from a null key; however,
+                 * if a test ever calls this operation consecutively to expect
+                 * multiple errors from the same ChangeStream we will need a
+                 * different approach (e.g. examining internal hasAdvanced
+                 * property on the ChangeStream). */
+                if ($changeStream->key() === null) {
+                    $changeStream->rewind();
+
+                    if ($changeStream->valid()) {
+                        return $changeStream->current();
+                    }
+                }
+
+                do {
+                    $changeStream->next();
+                } while (!$changeStream->valid());
+
+                return $changeStream->current();
+
+            default:
+                Assert::fail('Unsupported change stream operation: ' . $this->name);
+        }
+    }
+
+    private function executeForCursor(Cursor $cursor)
+    {
+        $args = $this->prepareArguments();
+
+        switch ($this->name) {
+            case 'close':
+                /* PHPC does not provide an API to directly close a cursor.
+                 * mongoc_cursor_destroy is only invoked from the Cursor's
+                 * free_object handler, which requires unsetting the object from
+                 * the entity map to trigger garbage collection. This will need
+                 * a different approach if tests ever attempt to access the
+                 * cursor entity after calling the "close" operation. */
+                $this->entityMap->closeCursor($this->object);
+                assertFalse($this->entityMap->offsetExists($this->object));
+                break;
+            case 'iterateUntilDocumentOrError':
+                /* Note: the first iteration should use rewind, otherwise we may
+                 * miss a document from the initial batch (possible if using a
+                 * resume token). We can infer this from a null key; however,
+                 * if a test ever calls this operation consecutively to expect
+                 * multiple errors from the same ChangeStream we will need a
+                 * different approach (e.g. examining internal hasAdvanced
+                 * property on the ChangeStream). */
+
+                /* Note: similar to iterateUntilDocumentOrError for ChangeStream
+                 * entities, a different approach will be needed if a test ever
+                 * calls this operation consecutively to expect multiple errors.
+                 */
+                if ($cursor->key() === null) {
+                    $cursor->rewind();
+
+                    if ($cursor->valid()) {
+                        return $cursor->current();
+                    }
+                }
+
+                do {
+                    $cursor->next();
+                } while (!$cursor->valid());
+
+                return $cursor->current();
+
+            default:
+                Assert::fail('Unsupported cursor operation: ' . $this->name);
+        }
+    }
+
+    private function executeForSession(Session $session)
+    {
+        $args = $this->prepareArguments();
+
+        switch ($this->name) {
+            case 'abortTransaction':
+                return $session->abortTransaction();
+
+            case 'commitTransaction':
+                return $session->commitTransaction();
+
+            case 'endSession':
+                return $session->endSession();
+
+            case 'startTransaction':
+                return $session->startTransaction($args);
+
+            case 'withTransaction':
+                assertArrayHasKey('callback', $args);
+                assertIsArray($args['callback']);
+
+                $operations = array_map(function ($o) {
+                    assertIsObject($o);
+
+                    return new Operation($o, $this->context);
+                }, $args['callback']);
+
+                $callback = function () use ($operations): void {
+                    foreach ($operations as $operation) {
+                        $operation->assert(true); // rethrow exceptions
+                    }
+                };
+
+                try {
+                    return with_transaction($session, $callback, array_diff_key($args, ['callback' => 1]));
+                } catch (\Exception $e) {
+                }
+
+            default:
+                Assert::fail('Unsupported session operation: ' . $this->name);
+        }
+    }
+
+    private function executeForBucket(Bucket $bucket)
+    {
+        $args = $this->prepareArguments();
+
+        switch ($this->name) {
+            case 'delete':
+                assertArrayHasKey('id', $args);
+
+                return $bucket->delete($args['id']);
+
+            case 'downloadByName':
+                assertArrayHasKey('filename', $args);
+                assertIsString($args['filename']);
+
+                return stream_get_contents($bucket->openDownloadStreamByName(
+                    $args['filename'],
+                    array_diff_key($args, ['filename' => 1])
+                ));
+
+            case 'download':
+                assertArrayHasKey('id', $args);
+
+                return stream_get_contents($bucket->openDownloadStream($args['id']));
+
+            case 'uploadWithId':
+                assertArrayHasKey('id', $args);
+                $args['_id'] = $args['id'];
+                unset($args['id']);
+                break;
+
+            // Fall through
+
+            case 'upload':
+                $args = self::prepareUploadArguments($args);
+
+                return $bucket->uploadFromStream(
+                    $args['filename'],
+                    $args['source'],
+                    array_diff_key($args, ['filename' => 1, 'source' => 1])
+                );
+
+            default:
+                Assert::fail('Unsupported bucket operation: ' . $this->name);
         }
     }
 

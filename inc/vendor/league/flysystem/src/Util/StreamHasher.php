@@ -7,14 +7,14 @@ class StreamHasher
     /**
      * @var string
      */
-    private $algo;
+    private string $algo;
 
     /**
      * StreamHasher constructor.
      *
      * @param string $algo
      */
-    public function __construct($algo)
+    public function __construct(string $algo)
     {
         $this->algo = $algo;
     }
@@ -24,7 +24,7 @@ class StreamHasher
      *
      * @return string
      */
-    public function hash($resource)
+    public function hash($resource): string
     {
         rewind($resource);
         $context = hash_init($this->algo);

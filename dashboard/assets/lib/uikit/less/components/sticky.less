@@ -11,10 +11,10 @@
 // Variables
 // ========================================================================
 
-@sticky-z-index:                                980;
+@sticky-z-index: 980;
 
-@sticky-animation-duration:                     0.2s;
-@sticky-reverse-animation-duration:             0.2s;
+@sticky-animation-duration: 0.2s;
+@sticky-reverse-animation-duration: 0.2s;
 
 
 /* ========================================================================
@@ -27,11 +27,11 @@
  */
 
 [data-uk-sticky].uk-active {
-   z-index: @sticky-z-index;
-   /* 1 */
-   box-sizing: border-box;
-   /* 2 */
-   -webkit-backface-visibility: hidden
+  z-index: @sticky-z-index;
+  /* 1 */
+  box-sizing: border-box;
+  /* 2 */
+  -webkit-backface-visibility: hidden
 }
 
 /*
@@ -39,13 +39,13 @@
  */
 
 [data-uk-sticky][class*='uk-animation-'] {
-    -webkit-animation-duration: @sticky-animation-duration;
-    animation-duration: @sticky-animation-duration;
+  -webkit-animation-duration: @sticky-animation-duration;
+  animation-duration: @sticky-animation-duration;
 }
 
 [data-uk-sticky].uk-animation-reverse {
-    -webkit-animation-duration: @sticky-reverse-animation-duration;
-    animation-duration: @sticky-reverse-animation-duration;
+  -webkit-animation-duration: @sticky-reverse-animation-duration;
+  animation-duration: @sticky-reverse-animation-duration;
 }
 
 
@@ -54,4 +54,5 @@
 
 .hook-sticky-misc;
 
-.hook-sticky-misc() {}
+.hook-sticky-misc() {
+}

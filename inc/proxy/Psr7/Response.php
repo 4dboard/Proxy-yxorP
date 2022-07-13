@@ -14,7 +14,7 @@ class Response implements ResponseInterface
     use AAAAAMessageTrait;
 
     /** @var array Map of standard HTTP status code/reason phrases */
-    private static $phrases = [
+    private static array $phrases = [
         100 => 'Continue',
         101 => 'Switching Protocols',
         102 => 'Processing',
@@ -76,24 +76,24 @@ class Response implements ResponseInterface
     ];
 
     /** @var string */
-    private $reasonPhrase = '';
+    private mixed $reasonPhrase = '';
 
     /** @var int */
-    private $statusCode = 200;
+    private int $statusCode = 200;
 
     /**
      * @param int $status Status code
      * @param array $headers Response headers
-     * @param string|null|resource|StreamInterface $body Response body
+     * @param string|StreamInterface|null $body Response body
      * @param string $version Protocol version
      * @param string|null $reason Reason phrase (when empty a default will be used based on the status code)
      */
     public function __construct(
-        $status = 200,
-        array $headers = [],
-        $body = null,
-        $version = '1.1',
-        $reason = null
+        int                    $status = 200,
+        array                  $headers = [],
+        string|StreamInterface $body = null,
+        string                 $version = '1.1',
+        string                 $reason = null
     )
     {
         $this->assertStatusCodeIsInteger($status);
@@ -130,7 +130,7 @@ class Response implements ResponseInterface
         }
     }
 
-    public function getStatusCode()
+    public function getStatusCode(): int
     {
         return $this->statusCode;
     }
@@ -140,7 +140,7 @@ class Response implements ResponseInterface
         return $this->reasonPhrase;
     }
 
-    public function withStatus($code, $reasonPhrase = '')
+    public function withStatus(int $code, string $reasonPhrase = ''): Response
     {
         $this->assertStatusCodeIsInteger($code);
         $code = (int)$code;

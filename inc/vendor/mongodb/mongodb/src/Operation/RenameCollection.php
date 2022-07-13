@@ -38,13 +38,13 @@ use function is_bool;
 class RenameCollection implements Executable
 {
     /** @var string */
-    private $fromNamespace;
+    private string $fromNamespace;
 
     /** @var string */
-    private $toNamespace;
+    private string $toNamespace;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a renameCollection command.
@@ -61,24 +61,24 @@ class RenameCollection implements Executable
      *  * dropTarget (boolean): If true, MongoDB will drop the target before
      *    renaming the collection.
      *
-     * @param string $fromDatabaseName   Database name
+     * @param string $fromDatabaseName Database name
      * @param string $fromCollectionName Collection name
-     * @param string $toDatabaseName     New database name
-     * @param string $toCollectionName   New collection name
-     * @param array  $options            Command options
+     * @param string $toDatabaseName New database name
+     * @param string $toCollectionName New collection name
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
     public function __construct(string $fromDatabaseName, string $fromCollectionName, string $toDatabaseName, string $toCollectionName, array $options = [])
     {
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
@@ -86,7 +86,7 @@ class RenameCollection implements Executable
             unset($options['writeConcern']);
         }
 
-        if (isset($options['dropTarget']) && ! is_bool($options['dropTarget'])) {
+        if (isset($options['dropTarget']) && !is_bool($options['dropTarget'])) {
             throw InvalidArgumentException::invalidType('"dropTarget" option', $options['dropTarget'], 'boolean');
         }
 
@@ -98,13 +98,13 @@ class RenameCollection implements Executable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return array|object Command result document
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): object|array
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['writeConcern'])) {
@@ -135,7 +135,7 @@ class RenameCollection implements Executable
      * @see http://php.net/manual/en/mongodb-driver-server.executewritecommand.php
      * @return array
      */
-    private function createOptions()
+    private function createOptions(): array
     {
         $options = [];
 

@@ -5,6 +5,7 @@ namespace MongoDB\Tests\SpecTests;
 use MongoDB\BSON\Int64;
 use MongoDB\BSON\Timestamp;
 use MongoDB\Driver\Command;
+use MongoDB\Driver\Exception\Exception;
 use MongoDB\Driver\Exception\ServerException;
 use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\Server;
@@ -32,29 +33,11 @@ class TransactionsSpecTest extends FunctionalTestCase
      *
      * @var array
      */
-    private static $incompleteTests = [
+    private static array $incompleteTests = [
         'transactions/mongos-recovery-token: commitTransaction retry fails on new mongos' => 'isMaster failpoints cannot be disabled',
         'transactions/pin-mongos: remain pinned after non-transient error on commit' => 'Blocked on SPEC-1320',
         'transactions/pin-mongos: unpin after transient error within a transaction and commit' => 'isMaster failpoints cannot be disabled',
     ];
-
-    public function setUp(): void
-    {
-        parent::setUp();
-
-        static::killAllSessions();
-
-        $this->skipIfTransactionsAreNotSupported();
-    }
-
-    public function tearDown(): void
-    {
-        if ($this->hasFailed()) {
-            static::killAllSessions();
-        }
-
-        parent::tearDown();
-    }
 
     /**
      * Assert that the expected and actual command documents match.
@@ -62,7 +45,7 @@ class TransactionsSpecTest extends FunctionalTestCase
      * Note: this method may modify the $expected object.
      *
      * @param stdClass $expected Expected command document
-     * @param stdClass $actual   Actual command document
+     * @param stdClass $actual Actual command document
      */
     public static function assertCommandMatches(stdClass $expected, stdClass $actual): void
     {
@@ -109,6 +92,62 @@ class TransactionsSpecTest extends FunctionalTestCase
         static::assertDocumentsMatch($expected, $actual);
     }
 
+    public function setUp(): void
+    {
+        parent::setUp();
+
+        static::killAllSessions();
+
+        $this->skipIfTransactionsAreNotSupported();
+    }
+
+    /**
+     * Kill all sessions on the cluster.
+     *
+     * This will clean up any open transactions that may remain from a
+     * previously failed test. For sharded clusters, this command will be run
+     * on all mongos nodes.
+     */
+    private static function killAllSessions(): void
+    {
+        // killAllSessions is not supported on serverless, see CLOUDP-84298
+        if (static::isServerless()) {
+            return;
+        }
+
+        $manager = static::createTestManager();
+        $primary = $manager->selectServer(new ReadPreference('primary'));
+
+        $servers = $primary->getType() === Server::TYPE_MONGOS
+            ? $manager->getServers()
+            : [$primary];
+
+        foreach ($servers as $server) {
+            try {
+                // Skip servers that do not support sessions
+                if (!isset($server->getInfo()['logicalSessionTimeoutMinutes'])) {
+                    continue;
+                }
+
+                $server->executeCommand('admin', new Command(['killAllSessions' => []]));
+            } catch (ServerException $e) {
+                // Interrupted error is safe to ignore (see: SERVER-38335)
+                if ($e->getCode() != self::INTERRUPTED) {
+                    throw $e;
+                }
+            }
+        }
+    }
+
+    public function tearDown(): void
+    {
+        if ($this->hasFailed()) {
+            static::killAllSessions();
+        }
+
+        parent::tearDown();
+    }
+
     /**
      * @dataProvider provideTransactionsTests
      * @group serverless
@@ -118,32 +157,14 @@ class TransactionsSpecTest extends FunctionalTestCase
         $this->runTransactionTest($test, $runOn, $data, $databaseName, $collectionName);
     }
 
-    public function provideTransactionsTests(): array
-    {
-        return $this->provideTests('transactions');
-    }
-
-    /**
-     * @dataProvider provideTransactionsConvenientApiTests
-     */
-    public function testTransactionsConvenientApi(stdClass $test, ?array $runOn, array $data, ?string $databaseName = null, ?string $collectionName = null): void
-    {
-        $this->runTransactionTest($test, $runOn, $data, $databaseName, $collectionName);
-    }
-
-    public function provideTransactionsConvenientApiTests(): array
-    {
-        return $this->provideTests('transactions-convenient-api');
-    }
-
     /**
      * Execute an individual test case from the specification.
      *
-     * @param stdClass $test           Individual "tests[]" document
-     * @param array    $runOn          Top-level "runOn" array with server requirements
-     * @param array    $data           Top-level "data" array to initialize collection
-     * @param string   $databaseName   Name of database under test
-     * @param string   $collectionName Name of collection under test
+     * @param stdClass $test Individual "tests[]" document
+     * @param array|null $runOn Top-level "runOn" array with server requirements
+     * @param array $data Top-level "data" array to initialize collection
+     * @param string|null $databaseName Name of database under test
+     * @param string|null $collectionName Name of collection under test
      */
     private function runTransactionTest(stdClass $test, ?array $runOn, array $data, ?string $databaseName = null, ?string $collectionName = null): void
     {
@@ -182,7 +203,10 @@ class TransactionsSpecTest extends FunctionalTestCase
         }
 
         foreach ($test->operations as $operation) {
-            Operation::fromTransactions($operation)->assert($this, $context);
+            try {
+                Operation::fromTransactions($operation)->assert($this, $context);
+            } catch (Exception $e) {
+            }
         }
 
         $context->session0->endSession();
@@ -196,6 +220,43 @@ class TransactionsSpecTest extends FunctionalTestCase
         if (isset($test->outcome->collection->data)) {
             $this->assertOutcomeCollectionData($test->outcome->collection->data);
         }
+    }
+
+    /**
+     * Create the collection, since it cannot be created within a transaction.
+     */
+    protected function createTestCollection(): void
+    {
+        $context = $this->getContext();
+
+        $database = $context->getDatabase();
+        $database->createCollection($context->collectionName, $context->defaultWriteOptions);
+    }
+
+    /**
+     * Work around potential error executing distinct on sharded clusters.
+     *
+     * @param array $operations
+     * @see https://github.com/mongodb/specifications/tree/master/source/transactions/tests#why-do-tests-that-run-distinct-sometimes-fail-with-staledbversionts.
+     */
+    private function preventStaleDbVersionError(array $operations): void
+    {
+        if (!$this->isShardedCluster()) {
+            return;
+        }
+
+        foreach ($operations as $operation) {
+            if ($operation->name === 'distinct') {
+                $this->getContext()->getCollection()->distinct('foo');
+
+                return;
+            }
+        }
+    }
+
+    public function provideTransactionsTests(): array
+    {
+        return $this->provideTests('transactions');
     }
 
     private function provideTests(string $dir): array
@@ -222,6 +283,19 @@ class TransactionsSpecTest extends FunctionalTestCase
     }
 
     /**
+     * @dataProvider provideTransactionsConvenientApiTests
+     */
+    public function testTransactionsConvenientApi(stdClass $test, ?array $runOn, array $data, ?string $databaseName = null, ?string $collectionName = null): void
+    {
+        $this->runTransactionTest($test, $runOn, $data, $databaseName, $collectionName);
+    }
+
+    public function provideTransactionsConvenientApiTests(): array
+    {
+        return $this->provideTests('transactions-convenient-api');
+    }
+
+    /**
      * Prose test 1: Test that starting a new transaction on a pinned
      * ClientSession unpins the session and normal server selection is performed
      * for the next operation.
@@ -230,7 +304,7 @@ class TransactionsSpecTest extends FunctionalTestCase
     {
         $this->skipIfTransactionsAreNotSupported();
 
-        if (! $this->isMongos()) {
+        if (!$this->isMongos()) {
             $this->markTestSkipped('Pinning tests require mongos');
         }
 
@@ -270,7 +344,7 @@ class TransactionsSpecTest extends FunctionalTestCase
     {
         $this->skipIfTransactionsAreNotSupported();
 
-        if (! $this->isMongos()) {
+        if (!$this->isMongos()) {
             $this->markTestSkipped('Pinning tests require mongos');
         }
 
@@ -297,75 +371,5 @@ class TransactionsSpecTest extends FunctionalTestCase
         $this->assertGreaterThan(1, count($servers));
 
         $session->endSession();
-    }
-
-    /**
-     * Create the collection, since it cannot be created within a transaction.
-     */
-    protected function createTestCollection(): void
-    {
-        $context = $this->getContext();
-
-        $database = $context->getDatabase();
-        $database->createCollection($context->collectionName, $context->defaultWriteOptions);
-    }
-
-    /**
-     * Kill all sessions on the cluster.
-     *
-     * This will clean up any open transactions that may remain from a
-     * previously failed test. For sharded clusters, this command will be run
-     * on all mongos nodes.
-     */
-    private static function killAllSessions(): void
-    {
-        // killAllSessions is not supported on serverless, see CLOUDP-84298
-        if (static::isServerless()) {
-            return;
-        }
-
-        $manager = static::createTestManager();
-        $primary = $manager->selectServer(new ReadPreference('primary'));
-
-        $servers = $primary->getType() === Server::TYPE_MONGOS
-            ? $manager->getServers()
-            : [$primary];
-
-        foreach ($servers as $server) {
-            try {
-                // Skip servers that do not support sessions
-                if (! isset($server->getInfo()['logicalSessionTimeoutMinutes'])) {
-                    continue;
-                }
-
-                $server->executeCommand('admin', new Command(['killAllSessions' => []]));
-            } catch (ServerException $e) {
-                // Interrupted error is safe to ignore (see: SERVER-38335)
-                if ($e->getCode() != self::INTERRUPTED) {
-                    throw $e;
-                }
-            }
-        }
-    }
-
-    /**
-     * Work around potential error executing distinct on sharded clusters.
-     *
-     * @param array $operations
-     * @see https://github.com/mongodb/specifications/tree/master/source/transactions/tests#why-do-tests-that-run-distinct-sometimes-fail-with-staledbversionts.
-     */
-    private function preventStaleDbVersionError(array $operations): void
-    {
-        if (! $this->isShardedCluster()) {
-            return;
-        }
-
-        foreach ($operations as $operation) {
-            if ($operation->name === 'distinct') {
-                $this->getContext()->getCollection()->distinct('foo');
-
-                return;
-            }
-        }
     }
 }

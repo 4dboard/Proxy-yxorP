@@ -11,23 +11,23 @@ use yxorP\inc\psr\Http\Message\StreamInterface;
 trait AAAAAMessageTrait
 {
     /** @var array Map of all registered headers, as original name => array of values */
-    private $headers = [];
+    private array $headers = [];
 
     /** @var array Map of lowercase header name => original name at registration */
-    private $headerNames = [];
+    private array $headerNames = [];
 
     /** @var string */
-    private $protocol = '1.1';
+    private string $protocol = '1.1';
 
     /** @var StreamInterface */
-    private $stream;
+    private StreamInterface $stream;
 
-    public function getProtocolVersion()
+    public function getProtocolVersion(): string
     {
         return $this->protocol;
     }
 
-    public function withProtocolVersion($version)
+    public function withProtocolVersion(string $version): AAAARequest|Response|static
     {
         if ($this->protocol === $version) {
             return $this;
@@ -38,46 +38,46 @@ trait AAAAAMessageTrait
         return $new;
     }
 
-    public function getHeaders()
+    public function getHeaders(): array
     {
         return $this->headers;
     }
 
-    public function hasHeader($header)
+    public function hasHeader(string $name): bool
     {
-        return isset($this->headerNames[strtolower($header)]);
+        return isset($this->headerNames[strtolower($name)]);
     }
 
-    public function getHeaderLine($header)
+    public function getHeaderLine(string $name): string
     {
-        return implode(', ', $this->getHeader($header));
+        return implode(', ', $this->getHeader($name));
     }
 
-    public function getHeader($header)
+    public function getHeader(string $name)
     {
-        $header = strtolower($header);
+        $name = strtolower($name);
 
-        if (!isset($this->headerNames[$header])) {
+        if (!isset($this->headerNames[$name])) {
             return [];
         }
 
-        $header = $this->headerNames[$header];
+        $name = $this->headerNames[$name];
 
-        return $this->headers[$header];
+        return $this->headers[$name];
     }
 
-    public function withHeader($header, $value)
+    public function withHeader(string $name, array|string $value): AAAARequest|Response
     {
-        $this->assertHeader($header);
+        $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($header);
+        $normalized = strtolower($name);
 
         $new = clone $this;
         if (isset($new->headerNames[$normalized])) {
             unset($new->headers[$new->headerNames[$normalized]]);
         }
-        $new->headerNames[$normalized] = $header;
-        $new->headers[$header] = $value;
+        $new->headerNames[$normalized] = $name;
+        $new->headers[$name] = $value;
 
         return $new;
     }
@@ -96,7 +96,7 @@ trait AAAAAMessageTrait
         }
     }
 
-    private function normalizeHeaderValue($value)
+    private function normalizeHeaderValue($value): array
     {
         if (!is_array($value)) {
             return $this->trimHeaderValues([$value]);
@@ -123,7 +123,7 @@ trait AAAAAMessageTrait
      *
      * @see https://tools.ietf.org/html/rfc7230#section-3.2.4
      */
-    private function trimHeaderValues(array $values)
+    private function trimHeaderValues(array $values): array
     {
         return array_map(function ($value) {
             if (!is_scalar($value) && null !== $value) {
@@ -137,50 +137,50 @@ trait AAAAAMessageTrait
         }, $values);
     }
 
-    public function withAddedHeader($header, $value)
+    public function withAddedHeader(string $name, array|string $value): AAAARequest|Response
     {
-        $this->assertHeader($header);
+        $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
-        $normalized = strtolower($header);
+        $normalized = strtolower($name);
 
         $new = clone $this;
         if (isset($new->headerNames[$normalized])) {
-            $header = $this->headerNames[$normalized];
-            $new->headers[$header] = array_merge($this->headers[$header], $value);
+            $name = $this->headerNames[$normalized];
+            $new->headers[$name] = array_merge($this->headers[$name], $value);
         } else {
-            $new->headerNames[$normalized] = $header;
-            $new->headers[$header] = $value;
+            $new->headerNames[$normalized] = $name;
+            $new->headers[$name] = $value;
         }
 
         return $new;
     }
 
-    public function withoutHeader($header)
+    public function withoutHeader(string $name): AAAARequest|Response|static
     {
-        $normalized = strtolower($header);
+        $normalized = strtolower($name);
 
         if (!isset($this->headerNames[$normalized])) {
             return $this;
         }
 
-        $header = $this->headerNames[$normalized];
+        $name = $this->headerNames[$normalized];
 
         $new = clone $this;
-        unset($new->headers[$header], $new->headerNames[$normalized]);
+        unset($new->headers[$name], $new->headerNames[$normalized]);
 
         return $new;
     }
 
-    public function getBody()
+    public function getBody(): AAStream|PumpStream|StreamInterface
     {
         if (!$this->stream) {
-            $this->stream = stream_for('');
+            $this->stream = stream_for();
         }
 
         return $this->stream;
     }
 
-    public function withBody(StreamInterface $body)
+    public function withBody(StreamInterface $body): AAAARequest|Response|static
     {
         if ($body === $this->stream) {
             return $this;

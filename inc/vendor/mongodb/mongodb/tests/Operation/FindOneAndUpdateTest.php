@@ -41,7 +41,7 @@ class FindOneAndUpdateTest extends TestCase
         new FindOneAndUpdate($this->getDatabaseName(), $this->getCollectionName(), [], ['$set' => ['x' => 1]], $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -65,7 +65,7 @@ class FindOneAndUpdateTest extends TestCase
         new FindOneAndUpdate($this->getDatabaseName(), $this->getCollectionName(), [], [], ['returnDocument' => $returnDocument]);
     }
 
-    public function provideInvalidConstructorReturnDocumentOptions()
+    public function provideInvalidConstructorReturnDocumentOptions(): array
     {
         return $this->wrapValuesForDataProvider([-1, 0, 3]);
     }

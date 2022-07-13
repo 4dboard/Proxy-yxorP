@@ -22,7 +22,7 @@ interface ShutdownStrategyInterface
      * this might be a call to register_shutdown_function, or it might involve hooking into a framework's lifecycle
      * events.
      *
-     * @param \yxorP\inc\snag\Client $client
+     * @param Client $client
      *
      * @return void
      */

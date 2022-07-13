@@ -34,25 +34,25 @@ use function unpack;
 class BSONIterator implements Iterator
 {
     /** @var integer */
-    private static $bsonSize = 4;
+    private static int $bsonSize = 4;
 
     /** @var string */
-    private $buffer;
+    private string $buffer;
 
     /** @var integer */
-    private $bufferLength;
+    private int $bufferLength;
 
     /** @var mixed */
-    private $current;
+    private mixed $current;
 
     /** @var integer */
-    private $key = 0;
+    private int $key = 0;
 
     /** @var integer */
-    private $position = 0;
+    private int $position = 0;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a BSON Iterator.
@@ -61,19 +61,19 @@ class BSONIterator implements Iterator
      *
      *  * typeMap (array): Type map for BSON deserialization.
      *
-     * @internal
-     * @see http://php.net/manual/en/function.mongodb.bson-tophp.php
-     * @param string $data    Concatenated, valid, BSON-encoded documents
-     * @param array  $options Iterator options
+     * @param string $data Concatenated, valid, BSON-encoded documents
+     * @param array $options Iterator options
      * @throws InvalidArgumentException for parameter/option parsing errors
+     * @see http://php.net/manual/en/function.mongodb.bson-tophp.php
+     * @internal
      */
-    public function __construct($data, array $options = [])
+    public function __construct(string $data, array $options = [])
     {
-        if (isset($options['typeMap']) && ! is_array($options['typeMap'])) {
+        if (isset($options['typeMap']) && !is_array($options['typeMap'])) {
             throw InvalidArgumentException::invalidType('"typeMap" option', $options['typeMap'], 'array');
         }
 
-        if (! isset($options['typeMap'])) {
+        if (!isset($options['typeMap'])) {
             $options['typeMap'] = [];
         }
 
@@ -87,17 +87,17 @@ class BSONIterator implements Iterator
      * @return mixed
      */
     #[ReturnTypeWillChange]
-    public function current()
+    public function current(): mixed
     {
         return $this->current;
     }
 
     /**
      * @see http://php.net/iterator.key
-     * @return mixed
+     * @return int
      */
     #[ReturnTypeWillChange]
-    public function key()
+    public function key(): int
     {
         return $this->key;
     }
@@ -112,29 +112,6 @@ class BSONIterator implements Iterator
         $this->key++;
         $this->current = null;
         $this->advance();
-    }
-
-    /**
-     * @see http://php.net/iterator.rewind
-     * @return void
-     */
-    #[ReturnTypeWillChange]
-    public function rewind()
-    {
-        $this->key = 0;
-        $this->position = 0;
-        $this->current = null;
-        $this->advance();
-    }
-
-    /**
-     * @see http://php.net/iterator.valid
-     * @return boolean
-     */
-    #[ReturnTypeWillChange]
-    public function valid()
-    {
-        return $this->current !== null;
     }
 
     private function advance()
@@ -155,5 +132,28 @@ class BSONIterator implements Iterator
 
         $this->current = toPHP(substr($this->buffer, $this->position, $documentLength), $this->options['typeMap']);
         $this->position += $documentLength;
+    }
+
+    /**
+     * @see http://php.net/iterator.rewind
+     * @return void
+     */
+    #[ReturnTypeWillChange]
+    public function rewind()
+    {
+        $this->key = 0;
+        $this->position = 0;
+        $this->current = null;
+        $this->advance();
+    }
+
+    /**
+     * @see http://php.net/iterator.valid
+     * @return boolean
+     */
+    #[ReturnTypeWillChange]
+    public function valid(): bool
+    {
+        return $this->current !== null;
     }
 }

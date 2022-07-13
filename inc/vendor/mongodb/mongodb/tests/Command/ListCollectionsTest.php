@@ -17,7 +17,7 @@ class ListCollectionsTest extends TestCase
         new ListCollections($this->getDatabaseName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 

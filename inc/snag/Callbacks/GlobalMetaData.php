@@ -10,14 +10,14 @@ class GlobalMetaData
     /**
      * The config instance.
      *
-     * @var \yxorP\inc\snag\Configuration
+     * @var Configuration
      */
-    protected $config;
+    protected Configuration $config;
 
     /**
      * Create a new global meta data callback instance.
      *
-     * @param \yxorP\inc\snag\Configuration $config the configuration instance
+     * @param Configuration $config the configuration instance
      *
      * @return void
      */
@@ -29,7 +29,7 @@ class GlobalMetaData
     /**
      * Execute the global meta data callback.
      *
-     * @param \yxorP\inc\snag\Report $report the snag report instance
+     * @param Report $report the snag report instance
      *
      * @return void
      */

@@ -29,7 +29,7 @@ class DatabaseFunctionalTest extends FunctionalTestCase
         new Database($this->manager, $databaseName);
     }
 
-    public function provideInvalidDatabaseNames()
+    public function provideInvalidDatabaseNames(): array
     {
         return [
             [null],
@@ -46,7 +46,7 @@ class DatabaseFunctionalTest extends FunctionalTestCase
         new Database($this->manager, $this->getDatabaseName(), $options);
     }
 
-    public function provideInvalidConstructorOptions()
+    public function provideInvalidConstructorOptions(): array
     {
         $options = [];
 
@@ -76,7 +76,7 @@ class DatabaseFunctionalTest extends FunctionalTestCase
 
     public function testToString(): void
     {
-        $this->assertEquals($this->getDatabaseName(), (string) $this->database);
+        $this->assertEquals($this->getDatabaseName(), (string)$this->database);
     }
 
     public function getGetDatabaseName(): void
@@ -98,12 +98,12 @@ class DatabaseFunctionalTest extends FunctionalTestCase
 
         $this->assertCommandSucceeded($commandResult);
         $this->assertObjectHasAttribute('ok', $commandResult);
-        $this->assertSame(1, (int) $commandResult->ok);
+        $this->assertSame(1, (int)$commandResult->ok);
     }
 
     public function testCommandDoesNotInheritReadPreference(): void
     {
-        if (! $this->isReplicaSet()) {
+        if (!$this->isReplicaSet()) {
             $this->markTestSkipped('Test only applies to replica sets');
         }
 
@@ -133,7 +133,7 @@ class DatabaseFunctionalTest extends FunctionalTestCase
         $this->assertCommandSucceeded($commandResult);
         $this->assertIsArray($commandResult);
         $this->assertArrayHasKey('ok', $commandResult);
-        $this->assertSame(1, (int) $commandResult['ok']);
+        $this->assertSame(1, (int)$commandResult['ok']);
     }
 
     /**
@@ -206,7 +206,7 @@ class DatabaseFunctionalTest extends FunctionalTestCase
         );
         $this->assertCommandSucceeded($commandResult);
 
-        $commandResult = (array) $commandResult;
+        $commandResult = (array)$commandResult;
 
         if (array_key_exists('raw', $commandResult)) {
             /* Sharded environment, where we only assert if a shard had a successful update. For

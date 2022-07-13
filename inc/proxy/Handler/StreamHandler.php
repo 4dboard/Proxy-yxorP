@@ -2,6 +2,7 @@
 
 namespace yxorP\inc\proxy\Handler;
 
+use JetBrains\PhpStorm\ArrayShape;
 use RuntimeException;
 use yxorP\inc\proxy\Exception\ARequestException;
 use yxorP\inc\proxy\Exception\ConnectException;
@@ -25,7 +26,7 @@ use function yxorP\inc\proxy\Promise\rejection_for;
  */
 class StreamHandler
 {
-    private $lastHeaders = [];
+    private array $lastHeaders = [];
 
     /**
      * Sends an HTTP request.
@@ -35,7 +36,7 @@ class StreamHandler
      *
      * @return PromiseInterface
      */
-    public function __invoke(RequestInterface $request, array $options)
+    public function __invoke(RequestInterface $request, array $options): FulfilledPromise|PromiseInterface|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         // Sleep if there is a delay specified.
         if (isset($options['delay'])) {
@@ -60,8 +61,6 @@ class StreamHandler
                 $this->createStream($request, $options),
                 $startTime
             );
-        } catch (InvalidArgumentException $e) {
-            throw $e;
         } catch (Exception $e) {
             // Determine if the error was a networking error.
             $message = $e->getMessage();
@@ -85,14 +84,14 @@ class StreamHandler
         array            $options,
                          $stream,
                          $startTime
-    )
+    ): FulfilledPromise|PromiseInterface|\yxorP\inc\proxy\Promise\RejectedPromise
     {
         $hdrs = $this->lastHeaders;
         $this->lastHeaders = [];
         $parts = explode(' ', array_shift($hdrs), 3);
         $ver = explode('/', $parts[0])[1];
         $status = $parts[1];
-        $reason = isset($parts[2]) ? $parts[2] : null;
+        $reason = $parts[2] ?? null;
         $headers = headers_from_lines($hdrs);
         list($stream, $headers) = $this->checkDecode($options, $headers, $stream);
         $stream = Psr7\stream_for($stream);
@@ -124,12 +123,12 @@ class StreamHandler
             );
         }
 
-        $this->invokeStats($options, $request, $startTime, $response, null);
+        $this->invokeStats($options, $request, $startTime, $response);
 
         return new FulfilledPromise($response);
     }
 
-    private function checkDecode(array $options, array $headers, $stream)
+    private function checkDecode(array $options, array $headers, $stream): array
     {
         // Automatically decode responses when instructed.
         if (!empty($options['decode_content'])) {
@@ -163,15 +162,13 @@ class StreamHandler
         return [$stream, $headers];
     }
 
-    private function createSink(StreamInterface $stream, array $options)
+    private function createSink(StreamInterface $stream, array $options): Psr7\LazyOpenStream|Psr7\AAStream|Psr7\PumpStream|StreamInterface
     {
         if (!empty($options['stream'])) {
             return $stream;
         }
 
-        $sink = isset($options['sink'])
-            ? $options['sink']
-            : fopen('php://temp', 'r+');
+        $sink = $options['sink'] ?? fopen('php://temp', 'r+');
 
         return is_string($sink)
             ? new Psr7\LazyOpenStream($sink, 'w+')
@@ -186,14 +183,14 @@ class StreamHandler
      * @param string $contentLength Header specifying the amount of
      *                                       data to read.
      *
-     * @return StreamInterface
+     * @return void
      * @throws RuntimeException when the sink option is invalid.
      */
     private function drain(
         StreamInterface $source,
         StreamInterface $sink,
-                        $contentLength
-    )
+        string          $contentLength
+    ): void
     {
         // If a content-length header is provided, then stop reading once
         // that number of bytes has been read. This can prevent infinitely
@@ -208,7 +205,6 @@ class StreamHandler
         $sink->seek(0);
         $source->close();
 
-        return $sink;
     }
 
     private function invokeStats(
@@ -311,7 +307,7 @@ class StreamHandler
         );
     }
 
-    private function getDefaultContext(RequestInterface $request)
+    #[ArrayShape(['http' => "array"])] private function getDefaultContext(RequestInterface $request): array
     {
         $headers = '';
         foreach ($request->getHeaders() as $name => $value) {
@@ -345,7 +341,7 @@ class StreamHandler
         return $context;
     }
 
-    private function resolveHost(RequestInterface $request, array $options)
+    private function resolveHost(RequestInterface $request, array $options): \yxorP\inc\psr\Http\Message\UriInterface
     {
         $uri = $request->getUri();
 
@@ -507,7 +503,7 @@ class StreamHandler
         }
     }
 
-    private function callArray(array $functions)
+    private function callArray(array $functions): \Closure
     {
         return function () use ($functions) {
             $args = func_get_args();

@@ -32,6 +32,42 @@ class CreateIndexesFunctionalTest extends FunctionalTestCase
         });
     }
 
+    /**
+     * Asserts that an index with the given name exists for the collection.
+     *
+     * An optional $callback may be provided, which should take an IndexInfo
+     * argument as its first and only parameter. If an IndexInfo matching the
+     * given name is found, it will be passed to the callback, which may perform
+     * additional assertions.
+     *
+     * @param string $indexName
+     * @param callable|null $callback
+     */
+    private function assertIndexExists(string $indexName, ?callable $callback = null): void
+    {
+        if ($callback !== null && !is_callable($callback)) {
+            throw new InvalidArgumentException('$callback is not a callable');
+        }
+
+        $operation = new ListIndexes($this->getDatabaseName(), $this->getCollectionName());
+        $indexes = $operation->execute($this->getPrimaryServer());
+
+        $foundIndex = null;
+
+        foreach ($indexes as $index) {
+            if ($index->getName() === $indexName) {
+                $foundIndex = $index;
+                break;
+            }
+        }
+
+        $this->assertNotNull($foundIndex, sprintf('Index %s does not exist', $indexName));
+
+        if ($callback !== null) {
+            call_user_func($callback, $foundIndex);
+        }
+    }
+
     public function testCreateCompoundIndex(): void
     {
         $indexes = [['key' => ['y' => -1, 'z' => 1]]];
@@ -133,40 +169,46 @@ class CreateIndexesFunctionalTest extends FunctionalTestCase
 
     public function testDefaultWriteConcernIsOmitted(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new CreateIndexes(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['key' => ['x' => 1]]],
-                    ['writeConcern' => $this->createDefaultWriteConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new CreateIndexes(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['key' => ['x' => 1]]],
+                        ['writeConcern' => $this->createDefaultWriteConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testSessionOption(): void
     {
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new CreateIndexes(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['key' => ['x' => 1]]],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new CreateIndexes(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['key' => ['x' => 1]]],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testCommitQuorumOption(): void
@@ -179,21 +221,24 @@ class CreateIndexesFunctionalTest extends FunctionalTestCase
             $this->markTestSkipped('commitQuorum is only supported on replica sets');
         }
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new CreateIndexes(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    [['key' => ['x' => 1]]],
-                    ['commitQuorum' => 'majority']
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new CreateIndexes(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        [['key' => ['x' => 1]]],
+                        ['commitQuorum' => 'majority']
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('commitQuorum', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('commitQuorum', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testCommitQuorumUnsupported(): void
@@ -213,41 +258,5 @@ class CreateIndexesFunctionalTest extends FunctionalTestCase
         $this->expectExceptionMessage('The "commitQuorum" option is not supported by the server executing this operation');
 
         $operation->execute($this->getPrimaryServer());
-    }
-
-    /**
-     * Asserts that an index with the given name exists for the collection.
-     *
-     * An optional $callback may be provided, which should take an IndexInfo
-     * argument as its first and only parameter. If an IndexInfo matching the
-     * given name is found, it will be passed to the callback, which may perform
-     * additional assertions.
-     *
-     * @param string   $indexName
-     * @param callable $callback
-     */
-    private function assertIndexExists(string $indexName, ?callable $callback = null): void
-    {
-        if ($callback !== null && ! is_callable($callback)) {
-            throw new InvalidArgumentException('$callback is not a callable');
-        }
-
-        $operation = new ListIndexes($this->getDatabaseName(), $this->getCollectionName());
-        $indexes = $operation->execute($this->getPrimaryServer());
-
-        $foundIndex = null;
-
-        foreach ($indexes as $index) {
-            if ($index->getName() === $indexName) {
-                $foundIndex = $index;
-                break;
-            }
-        }
-
-        $this->assertNotNull($foundIndex, sprintf('Index %s does not exist', $indexName));
-
-        if ($callback !== null) {
-            call_user_func($callback, $foundIndex);
-        }
     }
 }

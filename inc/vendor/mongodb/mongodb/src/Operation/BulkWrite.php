@@ -17,6 +17,7 @@
 
 namespace MongoDB\Operation;
 
+use JetBrains\PhpStorm\ArrayShape;
 use MongoDB\BulkWriteResult;
 use MongoDB\Driver\BulkWrite as Bulk;
 use MongoDB\Driver\Exception\RuntimeException as DriverRuntimeException;
@@ -45,23 +46,23 @@ use function sprintf;
 class BulkWrite implements Executable
 {
     public const DELETE_MANY = 'deleteMany';
-    public const DELETE_ONE  = 'deleteOne';
-    public const INSERT_ONE  = 'insertOne';
+    public const DELETE_ONE = 'deleteOne';
+    public const INSERT_ONE = 'insertOne';
     public const REPLACE_ONE = 'replaceOne';
     public const UPDATE_MANY = 'updateMany';
-    public const UPDATE_ONE  = 'updateOne';
+    public const UPDATE_ONE = 'updateOne';
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var string */
-    private $collectionName;
+    private string $collectionName;
 
     /** @var array[] */
-    private $operations;
+    private array $operations;
 
     /** @var array */
-    private $options;
+    private array $options;
 
     /**
      * Constructs a bulk write operation.
@@ -110,13 +111,13 @@ class BulkWrite implements Executable
      *
      *  * writeConcern (MongoDB\Driver\WriteConcern): Write concern.
      *
-     * @param string  $databaseName   Database name
-     * @param string  $collectionName Collection name
-     * @param array[] $operations     List of write operations
-     * @param array   $options        Command options
+     * @param string $databaseName Database name
+     * @param string $collectionName Collection name
+     * @param array[] $operations List of write operations
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct($databaseName, $collectionName, array $operations, array $options = [])
+    public function __construct(string $databaseName, string $collectionName, array $operations, array $options = [])
     {
         if (empty($operations)) {
             throw new InvalidArgumentException('$operations is empty');
@@ -129,7 +130,7 @@ class BulkWrite implements Executable
                 throw new InvalidArgumentException(sprintf('$operations is not a list (unexpected index: "%s")', $i));
             }
 
-            if (! is_array($operation)) {
+            if (!is_array($operation)) {
                 throw InvalidArgumentException::invalidType(sprintf('$operations[%d]', $i), $operation, 'array');
             }
 
@@ -140,11 +141,11 @@ class BulkWrite implements Executable
             $type = key($operation);
             $args = current($operation);
 
-            if (! isset($args[0]) && ! array_key_exists(0, $args)) {
+            if (!isset($args[0]) && !array_key_exists(0, $args)) {
                 throw new InvalidArgumentException(sprintf('Missing first argument for $operations[%d]["%s"]', $i, $type));
             }
 
-            if (! is_array($args[0]) && ! is_object($args[0])) {
+            if (!is_array($args[0]) && !is_object($args[0])) {
                 throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][0]', $i, $type), $args[0], 'array or object');
             }
 
@@ -154,17 +155,17 @@ class BulkWrite implements Executable
 
                 case self::DELETE_MANY:
                 case self::DELETE_ONE:
-                    if (! isset($args[1])) {
+                    if (!isset($args[1])) {
                         $args[1] = [];
                     }
 
-                    if (! is_array($args[1])) {
+                    if (!is_array($args[1])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][1]', $i, $type), $args[1], 'array');
                     }
 
                     $args[1]['limit'] = ($type === self::DELETE_ONE ? 1 : 0);
 
-                    if (isset($args[1]['collation']) && ! is_array($args[1]['collation']) && ! is_object($args[1]['collation'])) {
+                    if (isset($args[1]['collation']) && !is_array($args[1]['collation']) && !is_object($args[1]['collation'])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][1]["collation"]', $i, $type), $args[1]['collation'], 'array or object');
                     }
 
@@ -173,11 +174,11 @@ class BulkWrite implements Executable
                     break;
 
                 case self::REPLACE_ONE:
-                    if (! isset($args[1]) && ! array_key_exists(1, $args)) {
+                    if (!isset($args[1]) && !array_key_exists(1, $args)) {
                         throw new InvalidArgumentException(sprintf('Missing second argument for $operations[%d]["%s"]', $i, $type));
                     }
 
-                    if (! is_array($args[1]) && ! is_object($args[1])) {
+                    if (!is_array($args[1]) && !is_object($args[1])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][1]', $i, $type), $args[1], 'array or object');
                     }
 
@@ -185,22 +186,22 @@ class BulkWrite implements Executable
                         throw new InvalidArgumentException(sprintf('First key in $operations[%d]["%s"][1] is an update operator', $i, $type));
                     }
 
-                    if (! isset($args[2])) {
+                    if (!isset($args[2])) {
                         $args[2] = [];
                     }
 
-                    if (! is_array($args[2])) {
+                    if (!is_array($args[2])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][2]', $i, $type), $args[2], 'array');
                     }
 
                     $args[2]['multi'] = false;
                     $args[2] += ['upsert' => false];
 
-                    if (isset($args[2]['collation']) && ! is_array($args[2]['collation']) && ! is_object($args[2]['collation'])) {
+                    if (isset($args[2]['collation']) && !is_array($args[2]['collation']) && !is_object($args[2]['collation'])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][2]["collation"]', $i, $type), $args[2]['collation'], 'array or object');
                     }
 
-                    if (! is_bool($args[2]['upsert'])) {
+                    if (!is_bool($args[2]['upsert'])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][2]["upsert"]', $i, $type), $args[2]['upsert'], 'boolean');
                     }
 
@@ -210,38 +211,38 @@ class BulkWrite implements Executable
 
                 case self::UPDATE_MANY:
                 case self::UPDATE_ONE:
-                    if (! isset($args[1]) && ! array_key_exists(1, $args)) {
+                    if (!isset($args[1]) && !array_key_exists(1, $args)) {
                         throw new InvalidArgumentException(sprintf('Missing second argument for $operations[%d]["%s"]', $i, $type));
                     }
 
-                    if (! is_array($args[1]) && ! is_object($args[1])) {
+                    if (!is_array($args[1]) && !is_object($args[1])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][1]', $i, $type), $args[1], 'array or object');
                     }
 
-                    if (! is_first_key_operator($args[1]) && ! is_pipeline($args[1])) {
+                    if (!is_first_key_operator($args[1]) && !is_pipeline($args[1])) {
                         throw new InvalidArgumentException(sprintf('First key in $operations[%d]["%s"][1] is neither an update operator nor a pipeline', $i, $type));
                     }
 
-                    if (! isset($args[2])) {
+                    if (!isset($args[2])) {
                         $args[2] = [];
                     }
 
-                    if (! is_array($args[2])) {
+                    if (!is_array($args[2])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][2]', $i, $type), $args[2], 'array');
                     }
 
                     $args[2]['multi'] = ($type === self::UPDATE_MANY);
                     $args[2] += ['upsert' => false];
 
-                    if (isset($args[2]['arrayFilters']) && ! is_array($args[2]['arrayFilters'])) {
+                    if (isset($args[2]['arrayFilters']) && !is_array($args[2]['arrayFilters'])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][2]["arrayFilters"]', $i, $type), $args[2]['arrayFilters'], 'array');
                     }
 
-                    if (isset($args[2]['collation']) && ! is_array($args[2]['collation']) && ! is_object($args[2]['collation'])) {
+                    if (isset($args[2]['collation']) && !is_array($args[2]['collation']) && !is_object($args[2]['collation'])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][2]["collation"]', $i, $type), $args[2]['collation'], 'array or object');
                     }
 
-                    if (! is_bool($args[2]['upsert'])) {
+                    if (!is_bool($args[2]['upsert'])) {
                         throw InvalidArgumentException::invalidType(sprintf('$operations[%d]["%s"][2]["upsert"]', $i, $type), $args[2]['upsert'], 'boolean');
                     }
 
@@ -258,23 +259,23 @@ class BulkWrite implements Executable
 
         $options += ['ordered' => true];
 
-        if (isset($options['bypassDocumentValidation']) && ! is_bool($options['bypassDocumentValidation'])) {
+        if (isset($options['bypassDocumentValidation']) && !is_bool($options['bypassDocumentValidation'])) {
             throw InvalidArgumentException::invalidType('"bypassDocumentValidation" option', $options['bypassDocumentValidation'], 'boolean');
         }
 
-        if (! is_bool($options['ordered'])) {
+        if (!is_bool($options['ordered'])) {
             throw InvalidArgumentException::invalidType('"ordered" option', $options['ordered'], 'boolean');
         }
 
-        if (isset($options['session']) && ! $options['session'] instanceof Session) {
+        if (isset($options['session']) && !$options['session'] instanceof Session) {
             throw InvalidArgumentException::invalidType('"session" option', $options['session'], Session::class);
         }
 
-        if (isset($options['writeConcern']) && ! $options['writeConcern'] instanceof WriteConcern) {
+        if (isset($options['writeConcern']) && !$options['writeConcern'] instanceof WriteConcern) {
             throw InvalidArgumentException::invalidType('"writeConcern" option', $options['writeConcern'], WriteConcern::class);
         }
 
-        if (isset($options['bypassDocumentValidation']) && ! $options['bypassDocumentValidation']) {
+        if (isset($options['bypassDocumentValidation']) && !$options['bypassDocumentValidation']) {
             unset($options['bypassDocumentValidation']);
         }
 
@@ -282,8 +283,8 @@ class BulkWrite implements Executable
             unset($options['writeConcern']);
         }
 
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = (string) $collectionName;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = (string)$collectionName;
         $this->operations = $operations;
         $this->options = $options;
     }
@@ -291,13 +292,13 @@ class BulkWrite implements Executable
     /**
      * Execute the operation.
      *
-     * @see Executable::execute()
      * @param Server $server
      * @return BulkWriteResult
      * @throws UnsupportedException if write concern is used and unsupported
      * @throws DriverRuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
      */
-    public function execute(Server $server)
+    public function execute(Server $server): BulkWriteResult
     {
         $inTransaction = isset($this->options['session']) && $this->options['session']->isInTransaction();
         if ($inTransaction && isset($this->options['writeConcern'])) {
@@ -339,7 +340,7 @@ class BulkWrite implements Executable
      * @see https://www.php.net/manual/en/mongodb-driver-bulkwrite.construct.php
      * @return array
      */
-    private function createBulkWriteOptions()
+    #[ArrayShape(['ordered' => "bool|mixed", 'bypassDocumentValidation' => "bool|mixed"])] private function createBulkWriteOptions(): array
     {
         $options = ['ordered' => $this->options['ordered']];
 
@@ -356,7 +357,7 @@ class BulkWrite implements Executable
      * @see http://php.net/manual/en/mongodb-driver-server.executebulkwrite.php
      * @return array
      */
-    private function createExecuteOptions()
+    private function createExecuteOptions(): array
     {
         $options = [];
 

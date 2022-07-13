@@ -2,9 +2,9 @@
 
 <title>CodeMirror: ASN.1 mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/edit/matchbrackets.js"></script>
 <script src="asn.1.js"></script>
@@ -16,7 +16,7 @@
 </style>
 <div id=nav>
     <a href="https://codemirror.net"><h1>CodeMirror</h1>
-        <img id=logo src="../../doc/logo.png" alt="">
+        <img alt="" id=logo src="../../doc/logo.png">
     </a>
 
     <ul>
@@ -26,13 +26,13 @@
     </ul>
     <ul>
         <li><a href="../index.html">Language modes</a>
-        <li><a class=active href="http://en.wikipedia.org/wiki/Abstract_Syntax_Notation_One">ASN.1</a>
+        <li><a class=active href="https://en.wikipedia.org/wiki/Abstract_Syntax_Notation_One">ASN.1</a>
     </ul>
 </div>
 <article>
     <h2>ASN.1 example</h2>
     <div>
-        <textarea id="ttcn-asn-code">
+        <label for="ttcn-asn-code"></label><textarea id="ttcn-asn-code">
  --
  -- Sample ASN.1 Code
  --
@@ -55,23 +55,23 @@
     </div>
 
     <script>
-        var ttcnEditor = CodeMirror.fromTextArea(document.getElementById("ttcn-asn-code"), {
+        const ttcnEditor = CodeMirror.fromTextArea(document.getElementById("ttcn-asn-code"), {
             lineNumbers: true,
             matchBrackets: true,
             mode: "text/x-ttcn-asn"
         });
         ttcnEditor.setSize(400, 400);
-        var mac = CodeMirror.keyMap.default == CodeMirror.keyMap.macDefault;
+        const mac = CodeMirror.keyMap.default === CodeMirror.keyMap.macDefault;
         CodeMirror.keyMap.default[(mac ? "Cmd" : "Ctrl") + "-Space"] = "autocomplete";
     </script>
     <br/>
     <p><strong>Language:</strong> Abstract Syntax Notation One
-        (<a href="http://www.itu.int/en/ITU-T/asn1/Pages/introduction.aspx">ASN.1</a>)
+        (<a href="https://www.itu.int/en/ITU-T/asn1/Pages/introduction.aspx">ASN.1</a>)
     </p>
     <p><strong>MIME types defined:</strong> <code>text/x-ttcn-asn</code></p>
 
     <br/>
-    <p>The development of this mode has been sponsored by <a href="http://www.ericsson.com/">Ericsson
+    <p>The development of this mode has been sponsored by <a href="https://www.ericsson.com/">Ericsson
     </a>.</p>
     <p>Coded by Asmelash Tsegay Gebretsadkan </p>
 </article>

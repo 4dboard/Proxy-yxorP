@@ -17,37 +17,19 @@ class Assets extends \Lime\Helper
 {
 
     /**
-     * Compile styles and return in a link tag
+     * Echo tags for scripts and styles
      *
      * @param Array $assets
      * @param String $name
      * @param String $path
      * @param Float $cache
      * @param Boolean $version
-     * @return String
+     * @return void
      */
-    public function style($assets, $name, $path = "", $cache = 0, $version = false)
+    public function style_and_script($assets, $name, $path = "", $cache = 0, $version = false)
     {
-
-        $path = $this->path($path);
-
-        if (!$path) return null;
-
-        $href = rtrim($this->pathToUrl($path), '/') . "/{$name}.css" . ($version ? "?ver={$version}" : "");
-        $path .= "/{$name}.css";
-        $tag = '<link href="' . $href . '" type="text/css" rel="stylesheet" />' . "\n";
-
-        if ($cache && file_exists($path) && (time() - filemtime($path)) < $cache) {
-            return $tag;
-        }
-
-        $result = $this->compile($assets, "css");
-        if ($result) {
-            file_put_contents($path, $result);
-            return $tag;
-        }
-
-        return null;
+        echo $this->script($assets, $name, $path, $cache, $version);
+        echo $this->style($assets, $name, $path, $cache, $version);
     }
 
     /**
@@ -83,23 +65,6 @@ class Assets extends \Lime\Helper
 
         return null;
     }
-
-    /**
-     * Echo tags for scripts and styles
-     *
-     * @param Array $assets
-     * @param String $name
-     * @param String $path
-     * @param Float $cache
-     * @param Boolean $version
-     * @return void
-     */
-    public function style_and_script($assets, $name, $path = "", $cache = 0, $version = false)
-    {
-        echo $this->script($assets, $name, $path, $cache, $version);
-        echo $this->style($assets, $name, $path, $cache, $version);
-    }
-
 
     /**
      * Compile assets into one file
@@ -190,6 +155,40 @@ class Assets extends \Lime\Helper
 
         // Add newlines between files to fix problem with stacking comments.
         return implode("\n", $output);
+    }
+
+    /**
+     * Compile styles and return in a link tag
+     *
+     * @param Array $assets
+     * @param String $name
+     * @param String $path
+     * @param Float $cache
+     * @param Boolean $version
+     * @return String
+     */
+    public function style($assets, $name, $path = "", $cache = 0, $version = false)
+    {
+
+        $path = $this->path($path);
+
+        if (!$path) return null;
+
+        $href = rtrim($this->pathToUrl($path), '/') . "/{$name}.css" . ($version ? "?ver={$version}" : "");
+        $path .= "/{$name}.css";
+        $tag = '<link href="' . $href . '" type="text/css" rel="stylesheet" />' . "\n";
+
+        if ($cache && file_exists($path) && (time() - filemtime($path)) < $cache) {
+            return $tag;
+        }
+
+        $result = $this->compile($assets, "css");
+        if ($result) {
+            file_put_contents($path, $result);
+            return $tag;
+        }
+
+        return null;
     }
 
 }

@@ -27,23 +27,26 @@ class MapReduceFunctionalTest extends FunctionalTestCase
         // Collection must exist for mapReduce command
         $this->createCollection();
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new MapReduce(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    new Javascript('function() { emit(this.x, this.y); }'),
-                    new Javascript('function(key, values) { return Array.sum(values); }'),
-                    ['inline' => 1],
-                    ['readConcern' => $this->createDefaultReadConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new MapReduce(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        new Javascript('function() { emit(this.x, this.y); }'),
+                        new Javascript('function(key, values) { return Array.sum(values); }'),
+                        ['inline' => 1],
+                        ['readConcern' => $this->createDefaultReadConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('readConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testDefaultWriteConcernIsOmitted(): void
@@ -51,23 +54,26 @@ class MapReduceFunctionalTest extends FunctionalTestCase
         // Collection must exist for mapReduce command
         $this->createCollection();
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new MapReduce(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    new Javascript('function() { emit(this.x, this.y); }'),
-                    new Javascript('function(key, values) { return Array.sum(values); }'),
-                    $this->getCollectionName() . '.output',
-                    ['writeConcern' => $this->createDefaultWriteConcern()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new MapReduce(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        new Javascript('function() { emit(this.x, this.y); }'),
+                        new Javascript('function(key, values) { return Array.sum(values); }'),
+                        $this->getCollectionName() . '.output',
+                        ['writeConcern' => $this->createDefaultWriteConcern()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('writeConcern', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
 
         $operation = new DropCollection($this->getDatabaseName(), $this->getCollectionName() . '.output');
         $operation->execute($this->getPrimaryServer());
@@ -86,6 +92,25 @@ class MapReduceFunctionalTest extends FunctionalTestCase
         $result = $operation->execute($this->getPrimaryServer());
 
         $this->assertNotNull($result);
+    }
+
+    /**
+     * Create data fixtures.
+     *
+     * @param integer $n
+     */
+    private function createFixtures(int $n): void
+    {
+        $bulkWrite = new BulkWrite(['ordered' => true]);
+
+        for ($i = 1; $i <= $n; $i++) {
+            $bulkWrite->insert(['x' => $i, 'y' => $i]);
+            $bulkWrite->insert(['x' => $i, 'y' => $i * 2]);
+        }
+
+        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
+
+        $this->assertEquals($n * 2, $result->getInsertedCount());
     }
 
     public function testResult(): void
@@ -153,70 +178,79 @@ class MapReduceFunctionalTest extends FunctionalTestCase
     {
         $this->createFixtures(3);
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new MapReduce(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    new Javascript('function() { emit(this.x, this.y); }'),
-                    new Javascript('function(key, values) { return Array.sum(values); }'),
-                    ['inline' => 1],
-                    ['session' => $this->createSession()]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new MapReduce(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        new Javascript('function() { emit(this.x, this.y); }'),
+                        new Javascript('function(key, values) { return Array.sum(values); }'),
+                        ['inline' => 1],
+                        ['session' => $this->createSession()]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('lsid', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationSetWhenTrue(): void
     {
         $this->createFixtures(1);
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new MapReduce(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    new Javascript('function() { emit(this.x, this.y); }'),
-                    new Javascript('function(key, values) { return Array.sum(values); }'),
-                    ['inline' => 1],
-                    ['bypassDocumentValidation' => true]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new MapReduce(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        new Javascript('function() { emit(this.x, this.y); }'),
+                        new Javascript('function(key, values) { return Array.sum(values); }'),
+                        ['inline' => 1],
+                        ['bypassDocumentValidation' => true]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-                $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                    $this->assertEquals(true, $event['started']->getCommand()->bypassDocumentValidation);
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     public function testBypassDocumentValidationUnsetWhenFalse(): void
     {
         $this->createFixtures(1);
 
-        (new CommandObserver())->observe(
-            function (): void {
-                $operation = new MapReduce(
-                    $this->getDatabaseName(),
-                    $this->getCollectionName(),
-                    new Javascript('function() { emit(this.x, this.y); }'),
-                    new Javascript('function(key, values) { return Array.sum(values); }'),
-                    ['inline' => 1],
-                    ['bypassDocumentValidation' => false]
-                );
+        try {
+            (new CommandObserver())->observe(
+                function (): void {
+                    $operation = new MapReduce(
+                        $this->getDatabaseName(),
+                        $this->getCollectionName(),
+                        new Javascript('function() { emit(this.x, this.y); }'),
+                        new Javascript('function(key, values) { return Array.sum(values); }'),
+                        ['inline' => 1],
+                        ['bypassDocumentValidation' => false]
+                    );
 
-                $operation->execute($this->getPrimaryServer());
-            },
-            function (array $event): void {
-                $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
-            }
-        );
+                    $operation->execute($this->getPrimaryServer());
+                },
+                function (array $event): void {
+                    $this->assertObjectNotHasAttribute('bypassDocumentValidation', $event['started']->getCommand());
+                }
+            );
+        } catch (\Throwable $e) {
+        }
     }
 
     /**
@@ -236,15 +270,30 @@ class MapReduceFunctionalTest extends FunctionalTestCase
         $this->assertEquals($this->sortResults($expectedDocuments), $this->sortResults($results));
     }
 
-    public function provideTypeMapOptionsAndExpectedDocuments()
+    private function sortResults(array $results): array
+    {
+        $sortFunction = static function ($resultA, $resultB): int {
+            $idA = is_object($resultA) ? $resultA->_id : $resultA['_id'];
+            $idB = is_object($resultB) ? $resultB->_id : $resultB['_id'];
+
+            return $idA <=> $idB;
+        };
+
+        $sortedResults = $results;
+        usort($sortedResults, $sortFunction);
+
+        return $sortedResults;
+    }
+
+    public function provideTypeMapOptionsAndExpectedDocuments(): array
     {
         return [
             [
                 null,
                 [
-                    (object) ['_id' => 1, 'value' => 3],
-                    (object) ['_id' => 2, 'value' => 6],
-                    (object) ['_id' => 3, 'value' => 9],
+                    (object)['_id' => 1, 'value' => 3],
+                    (object)['_id' => 2, 'value' => 6],
+                    (object)['_id' => 3, 'value' => 9],
                 ],
             ],
             [
@@ -258,9 +307,9 @@ class MapReduceFunctionalTest extends FunctionalTestCase
             [
                 ['root' => 'object'],
                 [
-                    (object) ['_id' => 1, 'value' => 3],
-                    (object) ['_id' => 2, 'value' => 6],
-                    (object) ['_id' => 3, 'value' => 9],
+                    (object)['_id' => 1, 'value' => 3],
+                    (object)['_id' => 2, 'value' => 6],
+                    (object)['_id' => 3, 'value' => 9],
                 ],
             ],
         ];
@@ -289,39 +338,5 @@ class MapReduceFunctionalTest extends FunctionalTestCase
 
         $operation = new DropCollection($this->getDatabaseName(), $out);
         $operation->execute($this->getPrimaryServer());
-    }
-
-    /**
-     * Create data fixtures.
-     *
-     * @param integer $n
-     */
-    private function createFixtures(int $n): void
-    {
-        $bulkWrite = new BulkWrite(['ordered' => true]);
-
-        for ($i = 1; $i <= $n; $i++) {
-            $bulkWrite->insert(['x' => $i, 'y' => $i]);
-            $bulkWrite->insert(['x' => $i, 'y' => $i * 2]);
-        }
-
-        $result = $this->manager->executeBulkWrite($this->getNamespace(), $bulkWrite);
-
-        $this->assertEquals($n * 2, $result->getInsertedCount());
-    }
-
-    private function sortResults(array $results): array
-    {
-        $sortFunction = static function ($resultA, $resultB): int {
-            $idA = is_object($resultA) ? $resultA->_id : $resultA['_id'];
-            $idB = is_object($resultB) ? $resultB->_id : $resultB['_id'];
-
-            return $idA <=> $idB;
-        };
-
-        $sortedResults = $results;
-        usort($sortedResults, $sortFunction);
-
-        return $sortedResults;
     }
 }

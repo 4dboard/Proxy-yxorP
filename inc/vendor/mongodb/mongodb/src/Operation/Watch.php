@@ -53,46 +53,47 @@ use function MongoDB\server_supports_feature;
  * @see \MongoDB\Collection::watch()
  * @see https://docs.mongodb.com/manual/changeStreams/
  */
-class Watch implements Executable, /* @internal */ CommandSubscriber
+class Watch implements Executable, /* @internal */
+    CommandSubscriber
 {
     public const FULL_DOCUMENT_DEFAULT = 'default';
     public const FULL_DOCUMENT_UPDATE_LOOKUP = 'updateLookup';
 
     /** @var integer */
-    private static $wireVersionForStartAtOperationTime = 7;
+    private static int $wireVersionForStartAtOperationTime = 7;
 
     /** @var Aggregate */
-    private $aggregate;
+    private Aggregate $aggregate;
 
     /** @var array */
-    private $aggregateOptions;
+    private array $aggregateOptions;
 
     /** @var array */
-    private $changeStreamOptions;
+    private array $changeStreamOptions;
 
     /** @var string|null */
-    private $collectionName;
+    private ?string $collectionName;
 
     /** @var string */
-    private $databaseName;
+    private string $databaseName;
 
     /** @var integer|null */
-    private $firstBatchSize;
+    private ?int $firstBatchSize;
 
     /** @var boolean */
-    private $hasResumed = false;
+    private bool $hasResumed = false;
 
     /** @var Manager */
-    private $manager;
+    private Manager $manager;
 
     /** @var TimestampInterface */
-    private $operationTime;
+    private TimestampInterface $operationTime;
 
     /** @var array */
-    private $pipeline;
+    private array $pipeline;
 
     /** @var object|null */
-    private $postBatchResumeToken;
+    private ?object $postBatchResumeToken;
 
     /**
      * Constructs an aggregate command for creating a change stream.
@@ -158,16 +159,16 @@ class Watch implements Executable, /* @internal */ CommandSubscriber
      * for the collection name. A cluster-level change stream may be created by
      * specifying null for both the database and collection name.
      *
-     * @param Manager     $manager        Manager instance from the driver
-     * @param string|null $databaseName   Database name
+     * @param Manager $manager Manager instance from the driver
+     * @param string|null $databaseName Database name
      * @param string|null $collectionName Collection name
-     * @param array       $pipeline       List of pipeline operations
-     * @param array       $options        Command options
+     * @param array $pipeline List of pipeline operations
+     * @param array $options Command options
      * @throws InvalidArgumentException for parameter/option parsing errors
      */
-    public function __construct(Manager $manager, $databaseName, $collectionName, array $pipeline, array $options = [])
+    public function __construct(Manager $manager, ?string $databaseName, ?string $collectionName, array $pipeline, array $options = [])
     {
-        if (isset($collectionName) && ! isset($databaseName)) {
+        if (isset($collectionName) && !isset($databaseName)) {
             throw new InvalidArgumentException('$collectionName should also be null if $databaseName is null');
         }
 
@@ -176,23 +177,23 @@ class Watch implements Executable, /* @internal */ CommandSubscriber
             'readPreference' => new ReadPreference(ReadPreference::RP_PRIMARY),
         ];
 
-        if (! is_string($options['fullDocument'])) {
+        if (!is_string($options['fullDocument'])) {
             throw InvalidArgumentException::invalidType('"fullDocument" option', $options['fullDocument'], 'string');
         }
 
-        if (! $options['readPreference'] instanceof ReadPreference) {
+        if (!$options['readPreference'] instanceof ReadPreference) {
             throw InvalidArgumentException::invalidType('"readPreference" option', $options['readPreference'], ReadPreference::class);
         }
 
-        if (isset($options['resumeAfter']) && ! is_array($options['resumeAfter']) && ! is_object($options['resumeAfter'])) {
+        if (isset($options['resumeAfter']) && !is_array($options['resumeAfter']) && !is_object($options['resumeAfter'])) {
             throw InvalidArgumentException::invalidType('"resumeAfter" option', $options['resumeAfter'], 'array or object');
         }
 
-        if (isset($options['startAfter']) && ! is_array($options['startAfter']) && ! is_object($options['startAfter'])) {
+        if (isset($options['startAfter']) && !is_array($options['startAfter']) && !is_object($options['startAfter'])) {
             throw InvalidArgumentException::invalidType('"startAfter" option', $options['startAfter'], 'array or object');
         }
 
-        if (isset($options['startAtOperationTime']) && ! $options['startAtOperationTime'] instanceof TimestampInterface) {
+        if (isset($options['startAtOperationTime']) && !$options['startAtOperationTime'] instanceof TimestampInterface) {
             throw InvalidArgumentException::invalidType('"startAtOperationTime" option', $options['startAtOperationTime'], TimestampInterface::class);
         }
 
@@ -201,7 +202,7 @@ class Watch implements Executable, /* @internal */ CommandSubscriber
          * ("implicit from the user's perspective" per PHPLIB-342). Since this
          * is filling in for an implicit session, we default "causalConsistency"
          * to false. */
-        if (! isset($options['session'])) {
+        if (!isset($options['session'])) {
             try {
                 $options['session'] = $manager->startSession(['causalConsistency' => false]);
             } catch (RuntimeException $e) {
@@ -220,11 +221,26 @@ class Watch implements Executable, /* @internal */ CommandSubscriber
         }
 
         $this->manager = $manager;
-        $this->databaseName = (string) $databaseName;
-        $this->collectionName = isset($collectionName) ? (string) $collectionName : null;
+        $this->databaseName = (string)$databaseName;
+        $this->collectionName = isset($collectionName) ? (string)$collectionName : null;
         $this->pipeline = $pipeline;
 
         $this->aggregate = $this->createAggregate();
+    }
+
+    /**
+     * Create the aggregate command for a change stream.
+     *
+     * This method is also used to recreate the aggregate command when resuming.
+     *
+     * @return Aggregate
+     */
+    private function createAggregate(): Aggregate
+    {
+        $pipeline = $this->pipeline;
+        array_unshift($pipeline, ['$changeStream' => (object)$this->changeStreamOptions]);
+
+        return new Aggregate($this->databaseName, $this->collectionName, $pipeline, $this->aggregateOptions);
     }
 
     /** @internal */
@@ -252,7 +268,7 @@ class Watch implements Executable, /* @internal */ CommandSubscriber
 
         $reply = $event->getReply();
 
-        if (! isset($reply->cursor->firstBatch) || ! is_array($reply->cursor->firstBatch)) {
+        if (!isset($reply->cursor->firstBatch) || !is_array($reply->cursor->firstBatch)) {
             throw new UnexpectedValueException('aggregate command did not return a "cursor.firstBatch" array');
         }
 
@@ -271,149 +287,13 @@ class Watch implements Executable, /* @internal */ CommandSubscriber
     }
 
     /**
-     * Execute the operation.
-     *
-     * @see Executable::execute()
-     * @param Server $server
-     * @return ChangeStream
-     * @throws UnsupportedException if collation or read concern is used and unsupported
-     * @throws RuntimeException for other driver errors (e.g. connection errors)
-     */
-    public function execute(Server $server)
-    {
-        return new ChangeStream(
-            $this->createChangeStreamIterator($server),
-            function ($resumeToken, $hasAdvanced) {
-                return $this->resume($resumeToken, $hasAdvanced);
-            }
-        );
-    }
-
-    /**
-     * Create the aggregate command for a change stream.
-     *
-     * This method is also used to recreate the aggregate command when resuming.
-     *
-     * @return Aggregate
-     */
-    private function createAggregate()
-    {
-        $pipeline = $this->pipeline;
-        array_unshift($pipeline, ['$changeStream' => (object) $this->changeStreamOptions]);
-
-        return new Aggregate($this->databaseName, $this->collectionName, $pipeline, $this->aggregateOptions);
-    }
-
-    /**
-     * Create a ChangeStreamIterator by executing the aggregate command.
-     *
-     * @param Server $server
-     * @return ChangeStreamIterator
-     */
-    private function createChangeStreamIterator(Server $server)
-    {
-        return new ChangeStreamIterator(
-            $this->executeAggregate($server),
-            $this->firstBatchSize,
-            $this->getInitialResumeToken(),
-            $this->postBatchResumeToken
-        );
-    }
-
-    /**
-     * Execute the aggregate command.
-     *
-     * The command will be executed using APM so that we can capture data from
-     * its response (e.g. firstBatch size, postBatchResumeToken).
-     *
-     * @param Server $server
-     * @return Cursor
-     */
-    private function executeAggregate(Server $server)
-    {
-        addSubscriber($this);
-
-        try {
-            return $this->aggregate->execute($server);
-        } finally {
-            removeSubscriber($this);
-        }
-    }
-
-    /**
-     * Return the initial resume token for creating the ChangeStreamIterator.
-     *
-     * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#updating-the-cached-resume-token
-     * @return array|object|null
-     */
-    private function getInitialResumeToken()
-    {
-        if ($this->firstBatchSize === 0 && isset($this->postBatchResumeToken)) {
-            return $this->postBatchResumeToken;
-        }
-
-        if (isset($this->changeStreamOptions['startAfter'])) {
-            return $this->changeStreamOptions['startAfter'];
-        }
-
-        if (isset($this->changeStreamOptions['resumeAfter'])) {
-            return $this->changeStreamOptions['resumeAfter'];
-        }
-
-        return null;
-    }
-
-    /**
-     * Resumes a change stream.
-     *
-     * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resume-process
-     * @param array|object|null $resumeToken
-     * @param bool              $hasAdvanced
-     * @return ChangeStreamIterator
-     * @throws InvalidArgumentException
-     */
-    private function resume($resumeToken = null, $hasAdvanced = false)
-    {
-        if (isset($resumeToken) && ! is_array($resumeToken) && ! is_object($resumeToken)) {
-            throw InvalidArgumentException::invalidType('$resumeToken', $resumeToken, 'array or object');
-        }
-
-        $this->hasResumed = true;
-
-        /* Select a new server using the original read preference. While watch
-         * is not usable within transactions, we still check if there is a
-         * pinned session. This is to avoid an ambiguous error message about
-         * running a command on the wrong server. */
-        $server = select_server($this->manager, $this->aggregateOptions);
-
-        $resumeOption = isset($this->changeStreamOptions['startAfter']) && ! $hasAdvanced ? 'startAfter' : 'resumeAfter';
-
-        unset($this->changeStreamOptions['resumeAfter']);
-        unset($this->changeStreamOptions['startAfter']);
-        unset($this->changeStreamOptions['startAtOperationTime']);
-
-        if ($resumeToken !== null) {
-            $this->changeStreamOptions[$resumeOption] = $resumeToken;
-        }
-
-        if ($resumeToken === null && $this->operationTime !== null) {
-            $this->changeStreamOptions['startAtOperationTime'] = $this->operationTime;
-        }
-
-        // Recreate the aggregate command and return a new ChangeStreamIterator
-        $this->aggregate = $this->createAggregate();
-
-        return $this->createChangeStreamIterator($server);
-    }
-
-    /**
      * Determine whether to capture operation time from an aggregate response.
      *
      * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#startatoperationtime
      * @param Server $server
      * @return boolean
      */
-    private function shouldCaptureOperationTime(Server $server)
+    private function shouldCaptureOperationTime(Server $server): bool
     {
         if ($this->hasResumed) {
             return false;
@@ -435,10 +315,131 @@ class Watch implements Executable, /* @internal */ CommandSubscriber
             return false;
         }
 
-        if (! server_supports_feature($server, self::$wireVersionForStartAtOperationTime)) {
+        if (!server_supports_feature($server, self::$wireVersionForStartAtOperationTime)) {
             return false;
         }
 
         return true;
+    }
+
+    /**
+     * Execute the operation.
+     *
+     * @param Server $server
+     * @return ChangeStream
+     * @throws UnsupportedException if collation or read concern is used and unsupported
+     * @throws RuntimeException for other driver errors (e.g. connection errors)
+     * @see Executable::execute()
+     */
+    public function execute(Server $server): ChangeStream
+    {
+        return new ChangeStream(
+            $this->createChangeStreamIterator($server),
+            function ($resumeToken, $hasAdvanced) {
+                return $this->resume($resumeToken, $hasAdvanced);
+            }
+        );
+    }
+
+    /**
+     * Create a ChangeStreamIterator by executing the aggregate command.
+     *
+     * @param Server $server
+     * @return ChangeStreamIterator
+     */
+    private function createChangeStreamIterator(Server $server): ChangeStreamIterator
+    {
+        return new ChangeStreamIterator(
+            $this->executeAggregate($server),
+            $this->firstBatchSize,
+            $this->getInitialResumeToken(),
+            $this->postBatchResumeToken
+        );
+    }
+
+    /**
+     * Execute the aggregate command.
+     *
+     * The command will be executed using APM so that we can capture data from
+     * its response (e.g. firstBatch size, postBatchResumeToken).
+     *
+     * @param Server $server
+     * @return Cursor
+     */
+    private function executeAggregate(Server $server): Cursor
+    {
+        addSubscriber($this);
+
+        try {
+            return $this->aggregate->execute($server);
+        } finally {
+            removeSubscriber($this);
+        }
+    }
+
+    /**
+     * Return the initial resume token for creating the ChangeStreamIterator.
+     *
+     * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#updating-the-cached-resume-token
+     * @return array|object|null
+     */
+    private function getInitialResumeToken(): object|array|null
+    {
+        if ($this->firstBatchSize === 0 && isset($this->postBatchResumeToken)) {
+            return $this->postBatchResumeToken;
+        }
+
+        if (isset($this->changeStreamOptions['startAfter'])) {
+            return $this->changeStreamOptions['startAfter'];
+        }
+
+        if (isset($this->changeStreamOptions['resumeAfter'])) {
+            return $this->changeStreamOptions['resumeAfter'];
+        }
+
+        return null;
+    }
+
+    /**
+     * Resumes a change stream.
+     *
+     * @see https://github.com/mongodb/specifications/blob/master/source/change-streams/change-streams.rst#resume-process
+     * @param object|array|null $resumeToken
+     * @param bool $hasAdvanced
+     * @return ChangeStreamIterator
+     * @throws InvalidArgumentException
+     */
+    private function resume(object|array $resumeToken = null, bool $hasAdvanced = false): ChangeStreamIterator
+    {
+        if (isset($resumeToken) && !is_array($resumeToken) && !is_object($resumeToken)) {
+            throw InvalidArgumentException::invalidType('$resumeToken', $resumeToken, 'array or object');
+        }
+
+        $this->hasResumed = true;
+
+        /* Select a new server using the original read preference. While watch
+         * is not usable within transactions, we still check if there is a
+         * pinned session. This is to avoid an ambiguous error message about
+         * running a command on the wrong server. */
+        $server = select_server($this->manager, $this->aggregateOptions);
+
+        $resumeOption = isset($this->changeStreamOptions['startAfter']) && !$hasAdvanced ? 'startAfter' : 'resumeAfter';
+
+        unset($this->changeStreamOptions['resumeAfter']);
+        unset($this->changeStreamOptions['startAfter']);
+        unset($this->changeStreamOptions['startAtOperationTime']);
+
+        if ($resumeToken !== null) {
+            $this->changeStreamOptions[$resumeOption] = $resumeToken;
+        }
+
+        if ($resumeToken === null && $this->operationTime !== null) {
+            $this->changeStreamOptions['startAtOperationTime'] = $this->operationTime;
+        }
+
+        // Recreate the aggregate command and return a new ChangeStreamIterator
+        $this->aggregate = $this->createAggregate();
+
+        return $this->createChangeStreamIterator($server);
     }
 }

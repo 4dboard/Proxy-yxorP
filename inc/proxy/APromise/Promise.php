@@ -13,16 +13,16 @@ use Throwable;
  */
 class Promise implements PromiseInterface
 {
-    private $state = self::PENDING;
+    private string $state = self::PENDING;
     private $result;
     private $cancelFn;
     private $waitFn;
     private $waitList;
-    private $handlers = [];
+    private array $handlers = [];
 
     /**
-     * @param callable $waitFn Fn that when invoked resolves the promise.
-     * @param callable $cancelFn Fn that when invoked cancels the promise.
+     * @param callable|null $waitFn Fn that when invoked resolves the promise.
+     * @param callable|null $cancelFn Fn that when invoked cancels the promise.
      */
     public function __construct(
         callable $waitFn = null,
@@ -40,9 +40,9 @@ class Promise implements PromiseInterface
      * @param mixed $value Value to pass to the callback.
      * @param array $handler Array of handler data (promise and callbacks).
      *
-     * @return array Returns the next group to resolve.
+     * @return void Returns the next group to resolve.
      */
-    private static function callHandler($index, $value, array $handler)
+    private static function callHandler(int $index, mixed $value, array $handler)
     {
         /** @var PromiseInterface $promise */
         $promise = $handler[0];
@@ -65,17 +65,15 @@ class Promise implements PromiseInterface
             }
         } catch (Throwable $reason) {
             $promise->reject($reason);
-        } catch (Exception $reason) {
-            $promise->reject($reason);
         }
     }
 
-    public function getState()
+    public function getState(): string
     {
         return $this->state;
     }
 
-    public function resolve($value)
+    public function resolve(mixed $value)
     {
         $this->settle(self::FULFILLED, $value);
     }
@@ -140,12 +138,12 @@ class Promise implements PromiseInterface
         }
     }
 
-    public function reject($reason)
+    public function reject(mixed $reason)
     {
         $this->settle(self::REJECTED, $reason);
     }
 
-    public function otherwise(callable $onRejected)
+    public function otherwise(callable $onRejected): FulfilledPromise|Promise|PromiseInterface|RejectedPromise
     {
         return $this->then(null, $onRejected);
     }
@@ -153,7 +151,7 @@ class Promise implements PromiseInterface
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    )
+    ): FulfilledPromise|PromiseInterface|Promise|RejectedPromise
     {
         if ($this->state === self::PENDING) {
             $p = new Promise(null, [$this, 'cancel']);
@@ -176,7 +174,7 @@ class Promise implements PromiseInterface
         return $onRejected ? $rejection->then(null, $onRejected) : $rejection;
     }
 
-    public function wait($unwrap = true)
+    public function wait(bool $unwrap = true)
     {
         $this->waitIfPending();
 
@@ -201,7 +199,10 @@ class Promise implements PromiseInterface
         if ($this->state !== self::PENDING) {
             return;
         } elseif ($this->waitFn) {
-            $this->invokeWaitFn();
+            try {
+                $this->invokeWaitFn();
+            } catch (Exception $e) {
+            }
         } elseif ($this->waitList) {
             $this->invokeWaitList();
         } else {
@@ -219,6 +220,9 @@ class Promise implements PromiseInterface
         }
     }
 
+    /**
+     * @throws Exception
+     */
     private function invokeWaitFn()
     {
         try {
@@ -273,8 +277,6 @@ class Promise implements PromiseInterface
             try {
                 $fn();
             } catch (Throwable $e) {
-                $this->reject($e);
-            } catch (Exception $e) {
                 $this->reject($e);
             }
         }
