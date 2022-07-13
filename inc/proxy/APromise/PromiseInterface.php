@@ -32,7 +32,7 @@ interface PromiseInterface
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    ): PromiseInterface;
+    ): mixed;
 
     /**
      * Appends a rejection handler callback to the promise, and returns a new
