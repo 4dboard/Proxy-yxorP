@@ -1,95 +1,5295 @@
 Search.appendIndex(
     [
                 {
-            "fqsen": "\\COCKPIT_START_TIME",
-            "name": "COCKPIT_START_TIME",
-            "summary": "Cockpit\u0020start\u0020time",
-            "url": "namespaces/default.html#constant_COCKPIT_START_TIME"
-        },                {
-            "fqsen": "\\COCKPIT_CLI",
-            "name": "COCKPIT_CLI",
+            "fqsen": "\\includeIfExists\u0028\u0029",
+            "name": "includeIfExists",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_CLI"
+            "url": "namespaces/default.html#function_includeIfExists"
         },                {
-            "fqsen": "\\COCKPIT_DIR",
-            "name": "COCKPIT_DIR",
+            "fqsen": "\\Composer\\Installers\\AglInstaller",
+            "name": "AglInstaller",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_DIR"
+            "url": "classes/Composer-Installers-AglInstaller.html"
         },                {
-            "fqsen": "\\COCKPIT_ADMIN",
-            "name": "COCKPIT_ADMIN",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
-            "url": "namespaces/default.html#constant_COCKPIT_ADMIN"
+            "fqsen": "\\Composer\\Installers\\AglInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-AglInstaller.html#method_inflectPackageVars"
         },                {
-            "fqsen": "\\COCKPIT_DOCS_ROOT",
-            "name": "COCKPIT_DOCS_ROOT",
+            "fqsen": "\\Composer\\Installers\\AglInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_DOCS_ROOT"
+            "url": "classes/Composer-Installers-AglInstaller.html#property_locations"
         },                {
-            "fqsen": "\\COCKPIT_ENV_ROOT",
-            "name": "COCKPIT_ENV_ROOT",
+            "fqsen": "\\Composer\\Installers\\AimeosInstaller",
+            "name": "AimeosInstaller",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_ENV_ROOT"
+            "url": "classes/Composer-Installers-AimeosInstaller.html"
         },                {
-            "fqsen": "\\COCKPIT_BASE_URL",
-            "name": "COCKPIT_BASE_URL",
+            "fqsen": "\\Composer\\Installers\\AimeosInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_BASE_URL"
+            "url": "classes/Composer-Installers-AimeosInstaller.html#property_locations"
         },                {
-            "fqsen": "\\COCKPIT_API_REQUEST",
-            "name": "COCKPIT_API_REQUEST",
+            "fqsen": "\\Composer\\Installers\\AnnotateCmsInstaller",
+            "name": "AnnotateCmsInstaller",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_API_REQUEST"
+            "url": "classes/Composer-Installers-AnnotateCmsInstaller.html"
         },                {
-            "fqsen": "\\COCKPIT_SITE_DIR",
-            "name": "COCKPIT_SITE_DIR",
+            "fqsen": "\\Composer\\Installers\\AnnotateCmsInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_SITE_DIR"
+            "url": "classes/Composer-Installers-AnnotateCmsInstaller.html#property_locations"
         },                {
-            "fqsen": "\\COCKPIT_CONFIG_DIR",
-            "name": "COCKPIT_CONFIG_DIR",
+            "fqsen": "\\Composer\\Installers\\AsgardInstaller",
+            "name": "AsgardInstaller",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_CONFIG_DIR"
+            "url": "classes/Composer-Installers-AsgardInstaller.html"
         },                {
-            "fqsen": "\\COCKPIT_BASE_ROUTE",
-            "name": "COCKPIT_BASE_ROUTE",
-            "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_BASE_ROUTE"
+            "fqsen": "\\Composer\\Installers\\AsgardInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-AsgardInstaller.html#method_inflectPackageVars"
         },                {
-            "fqsen": "\\COCKPIT_STORAGE_FOLDER",
-            "name": "COCKPIT_STORAGE_FOLDER",
+            "fqsen": "\\Composer\\Installers\\AsgardInstaller\u003A\u003AinflectPluginVars\u0028\u0029",
+            "name": "inflectPluginVars",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_STORAGE_FOLDER"
+            "url": "classes/Composer-Installers-AsgardInstaller.html#method_inflectPluginVars"
         },                {
-            "fqsen": "\\COCKPIT_ADMIN_CP",
-            "name": "COCKPIT_ADMIN_CP",
+            "fqsen": "\\Composer\\Installers\\AsgardInstaller\u003A\u003AinflectThemeVars\u0028\u0029",
+            "name": "inflectThemeVars",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_ADMIN_CP"
+            "url": "classes/Composer-Installers-AsgardInstaller.html#method_inflectThemeVars"
         },                {
-            "fqsen": "\\COCKPIT_PUBLIC_STORAGE_FOLDER",
-            "name": "COCKPIT_PUBLIC_STORAGE_FOLDER",
+            "fqsen": "\\Composer\\Installers\\AsgardInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_PUBLIC_STORAGE_FOLDER"
+            "url": "classes/Composer-Installers-AsgardInstaller.html#property_locations"
         },                {
-            "fqsen": "\\COCKPIT_CONFIG_PATH",
-            "name": "COCKPIT_CONFIG_PATH",
+            "fqsen": "\\Composer\\Installers\\AttogramInstaller",
+            "name": "AttogramInstaller",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_CONFIG_PATH"
+            "url": "classes/Composer-Installers-AttogramInstaller.html"
         },                {
-            "fqsen": "\\cockpit\u0028\u0029",
-            "name": "cockpit",
+            "fqsen": "\\Composer\\Installers\\AttogramInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
             "summary": "",
-            "url": "namespaces/default.html#function_cockpit"
+            "url": "classes/Composer-Installers-AttogramInstaller.html#property_locations"
         },                {
-            "fqsen": "\\COCKPIT_ADMIN_ROUTE",
-            "name": "COCKPIT_ADMIN_ROUTE",
+            "fqsen": "\\Composer\\Installers\\BaseInstaller",
+            "name": "BaseInstaller",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_ADMIN_ROUTE"
+            "url": "classes/Composer-Installers-BaseInstaller.html"
         },                {
-            "fqsen": "\\COCKPIT_INSTALL",
-            "name": "COCKPIT_INSTALL",
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Initializes\u0020base\u0020installer.",
+            "url": "classes/Composer-Installers-BaseInstaller.html#method___construct"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003AgetInstallPath\u0028\u0029",
+            "name": "getInstallPath",
+            "summary": "Return\u0020the\u0020install\u0020path\u0020based\u0020on\u0020package\u0020type.",
+            "url": "classes/Composer-Installers-BaseInstaller.html#method_getInstallPath"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "For\u0020an\u0020installer\u0020to\u0020override\u0020to\u0020modify\u0020the\u0020vars\u0020per\u0020installer.",
+            "url": "classes/Composer-Installers-BaseInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003AmapCustomInstallPaths\u0028\u0029",
+            "name": "mapCustomInstallPaths",
+            "summary": "Search\u0020through\u0020a\u0020passed\u0020paths\u0020array\u0020for\u0020a\u0020custom\u0020install\u0020path.",
+            "url": "classes/Composer-Installers-BaseInstaller.html#method_mapCustomInstallPaths"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003AtemplatePath\u0028\u0029",
+            "name": "templatePath",
+            "summary": "Replace\u0020vars\u0020in\u0020a\u0020path",
+            "url": "classes/Composer-Installers-BaseInstaller.html#method_templatePath"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003AgetLocations\u0028\u0029",
+            "name": "getLocations",
+            "summary": "Gets\u0020the\u0020installer\u0027s\u0020locations",
+            "url": "classes/Composer-Installers-BaseInstaller.html#method_getLocations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
             "summary": "",
-            "url": "namespaces/default.html#constant_COCKPIT_INSTALL"
+            "url": "classes/Composer-Installers-BaseInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003A\u0024composer",
+            "name": "composer",
+            "summary": "",
+            "url": "classes/Composer-Installers-BaseInstaller.html#property_composer"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003A\u0024package",
+            "name": "package",
+            "summary": "",
+            "url": "classes/Composer-Installers-BaseInstaller.html#property_package"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BaseInstaller\u003A\u003A\u0024io",
+            "name": "io",
+            "summary": "",
+            "url": "classes/Composer-Installers-BaseInstaller.html#property_io"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BitrixInstaller",
+            "name": "BitrixInstaller",
+            "summary": "Installer\u0020for\u0020Bitrix\u0020Framework.\u0020Supported\u0020types\u0020of\u0020extensions\u003A\n\u002D\u0020\u0060bitrix\u002Dd7\u002Dmodule\u0060\u0020\u2014\u0020copy\u0020the\u0020module\u0020to\u0020directory\u0020\u0060bitrix\/modules\/\u003Cvendor\u003E.\u003Cname\u003E\u0060.",
+            "url": "classes/Composer-Installers-BitrixInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BitrixInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "For\u0020an\u0020installer\u0020to\u0020override\u0020to\u0020modify\u0020the\u0020vars\u0020per\u0020installer.",
+            "url": "classes/Composer-Installers-BitrixInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BitrixInstaller\u003A\u003AtemplatePath\u0028\u0029",
+            "name": "templatePath",
+            "summary": "Replace\u0020vars\u0020in\u0020a\u0020path",
+            "url": "classes/Composer-Installers-BitrixInstaller.html#method_templatePath"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BitrixInstaller\u003A\u003AcheckDuplicates\u0028\u0029",
+            "name": "checkDuplicates",
+            "summary": "Duplicates\u0020search\u0020packages.",
+            "url": "classes/Composer-Installers-BitrixInstaller.html#method_checkDuplicates"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BitrixInstaller\u003A\u003A\u0024checkedDuplicates",
+            "name": "checkedDuplicates",
+            "summary": "",
+            "url": "classes/Composer-Installers-BitrixInstaller.html#property_checkedDuplicates"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BitrixInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-BitrixInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BonefishInstaller",
+            "name": "BonefishInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-BonefishInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\BonefishInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-BonefishInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CakePHPInstaller",
+            "name": "CakePHPInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-CakePHPInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CakePHPInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-CakePHPInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CakePHPInstaller\u003A\u003AmatchesCakeVersion\u0028\u0029",
+            "name": "matchesCakeVersion",
+            "summary": "Check\u0020if\u0020CakePHP\u0020version\u0020matches\u0020against\u0020a\u0020version",
+            "url": "classes/Composer-Installers-CakePHPInstaller.html#method_matchesCakeVersion"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CakePHPInstaller\u003A\u003AgetLocations\u0028\u0029",
+            "name": "getLocations",
+            "summary": "Change\u0020the\u0020default\u0020plugin\u0020location\u0020when\u0020cakephp\u0020\u003E\u003D\u00203.0",
+            "url": "classes/Composer-Installers-CakePHPInstaller.html#method_getLocations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CakePHPInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-CakePHPInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ChefInstaller",
+            "name": "ChefInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ChefInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ChefInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ChefInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CiviCrmInstaller",
+            "name": "CiviCrmInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-CiviCrmInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CiviCrmInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-CiviCrmInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ClanCatsFrameworkInstaller",
+            "name": "ClanCatsFrameworkInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ClanCatsFrameworkInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ClanCatsFrameworkInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ClanCatsFrameworkInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CodeIgniterInstaller",
+            "name": "CodeIgniterInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-CodeIgniterInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CodeIgniterInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-CodeIgniterInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Concrete5Installer",
+            "name": "Concrete5Installer",
+            "summary": "",
+            "url": "classes/Composer-Installers-Concrete5Installer.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Concrete5Installer\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-Concrete5Installer.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CraftInstaller",
+            "name": "CraftInstaller",
+            "summary": "Installer\u0020for\u0020Craft\u0020Plugins",
+            "url": "classes/Composer-Installers-CraftInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CraftInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Strip\u0020\u0060craft\u002D\u0060\u0020prefix\u0020and\/or\u0020\u0060\u002Dplugin\u0060\u0020suffix\u0020from\u0020package\u0020names",
+            "url": "classes/Composer-Installers-CraftInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CraftInstaller\u003A\u003AinflectPluginVars\u0028\u0029",
+            "name": "inflectPluginVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-CraftInstaller.html#method_inflectPluginVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CraftInstaller\u003A\u003ANAME_PREFIX",
+            "name": "NAME_PREFIX",
+            "summary": "",
+            "url": "classes/Composer-Installers-CraftInstaller.html#constant_NAME_PREFIX"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CraftInstaller\u003A\u003ANAME_SUFFIX",
+            "name": "NAME_SUFFIX",
+            "summary": "",
+            "url": "classes/Composer-Installers-CraftInstaller.html#constant_NAME_SUFFIX"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CraftInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-CraftInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CroogoInstaller",
+            "name": "CroogoInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-CroogoInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CroogoInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-CroogoInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\CroogoInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-CroogoInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DecibelInstaller",
+            "name": "DecibelInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-DecibelInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DecibelInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-DecibelInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DframeInstaller",
+            "name": "DframeInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-DframeInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DframeInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-DframeInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DokuWikiInstaller",
+            "name": "DokuWikiInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-DokuWikiInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DokuWikiInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-DokuWikiInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DokuWikiInstaller\u003A\u003AinflectPluginVars\u0028\u0029",
+            "name": "inflectPluginVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-DokuWikiInstaller.html#method_inflectPluginVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DokuWikiInstaller\u003A\u003AinflectTemplateVars\u0028\u0029",
+            "name": "inflectTemplateVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-DokuWikiInstaller.html#method_inflectTemplateVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DokuWikiInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-DokuWikiInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DolibarrInstaller",
+            "name": "DolibarrInstaller",
+            "summary": "Class\u0020DolibarrInstaller",
+            "url": "classes/Composer-Installers-DolibarrInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DolibarrInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-DolibarrInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DrupalInstaller",
+            "name": "DrupalInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-DrupalInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\DrupalInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-DrupalInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ElggInstaller",
+            "name": "ElggInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ElggInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ElggInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ElggInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\EliasisInstaller",
+            "name": "EliasisInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-EliasisInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\EliasisInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-EliasisInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ExpressionEngineInstaller",
+            "name": "ExpressionEngineInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ExpressionEngineInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ExpressionEngineInstaller\u003A\u003AgetInstallPath\u0028\u0029",
+            "name": "getInstallPath",
+            "summary": "Return\u0020the\u0020install\u0020path\u0020based\u0020on\u0020package\u0020type.",
+            "url": "classes/Composer-Installers-ExpressionEngineInstaller.html#method_getInstallPath"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ExpressionEngineInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ExpressionEngineInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ExpressionEngineInstaller\u003A\u003A\u0024ee2Locations",
+            "name": "ee2Locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ExpressionEngineInstaller.html#property_ee2Locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ExpressionEngineInstaller\u003A\u003A\u0024ee3Locations",
+            "name": "ee3Locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ExpressionEngineInstaller.html#property_ee3Locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\EzPlatformInstaller",
+            "name": "EzPlatformInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-EzPlatformInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\EzPlatformInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-EzPlatformInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\FuelInstaller",
+            "name": "FuelInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-FuelInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\FuelInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-FuelInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\FuelphpInstaller",
+            "name": "FuelphpInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-FuelphpInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\FuelphpInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-FuelphpInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\GravInstaller",
+            "name": "GravInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-GravInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\GravInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name",
+            "url": "classes/Composer-Installers-GravInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\GravInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-GravInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\HuradInstaller",
+            "name": "HuradInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-HuradInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\HuradInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-HuradInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\HuradInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-HuradInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ImageCMSInstaller",
+            "name": "ImageCMSInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ImageCMSInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ImageCMSInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ImageCMSInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer",
+            "name": "Installer",
+            "summary": "",
+            "url": "classes/Composer-Installers-Installer.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Installer\u0020constructor.",
+            "url": "classes/Composer-Installers-Installer.html#method___construct"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003AremoveDisabledInstallers\u0028\u0029",
+            "name": "removeDisabledInstallers",
+            "summary": "Look\u0020for\u0020installers\u0020set\u0020to\u0020be\u0020disabled\u0020in\u0020composer\u0027s\u0020extra\u0020config\u0020and\nremove\u0020them\u0020from\u0020the\u0020list\u0020of\u0020supported\u0020installers.",
+            "url": "classes/Composer-Installers-Installer.html#method_removeDisabledInstallers"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003AgetInstallPath\u0028\u0029",
+            "name": "getInstallPath",
+            "summary": "\u007B\u0040inheritDoc\u007D",
+            "url": "classes/Composer-Installers-Installer.html#method_getInstallPath"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003AfindFrameworkType\u0028\u0029",
+            "name": "findFrameworkType",
+            "summary": "Finds\u0020a\u0020supported\u0020framework\u0020type\u0020if\u0020it\u0020exists\u0020and\u0020returns\u0020it",
+            "url": "classes/Composer-Installers-Installer.html#method_findFrameworkType"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003AgetIO\u0028\u0029",
+            "name": "getIO",
+            "summary": "Get\u0020I\/O\u0020object",
+            "url": "classes/Composer-Installers-Installer.html#method_getIO"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003Auninstall\u0028\u0029",
+            "name": "uninstall",
+            "summary": "",
+            "url": "classes/Composer-Installers-Installer.html#method_uninstall"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003Asupports\u0028\u0029",
+            "name": "supports",
+            "summary": "\u007B\u0040inheritDoc\u007D",
+            "url": "classes/Composer-Installers-Installer.html#method_supports"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003AgetLocationPattern\u0028\u0029",
+            "name": "getLocationPattern",
+            "summary": "Get\u0020the\u0020second\u0020part\u0020of\u0020the\u0020regular\u0020expression\u0020to\u0020check\u0020for\u0020support\u0020of\u0020a\npackage\u0020type",
+            "url": "classes/Composer-Installers-Installer.html#method_getLocationPattern"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Installer\u003A\u003A\u0024supportedTypes",
+            "name": "supportedTypes",
+            "summary": "Package\u0020types\u0020to\u0020installer\u0020class\u0020map",
+            "url": "classes/Composer-Installers-Installer.html#property_supportedTypes"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ItopInstaller",
+            "name": "ItopInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ItopInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ItopInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ItopInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\JoomlaInstaller",
+            "name": "JoomlaInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-JoomlaInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\JoomlaInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-JoomlaInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KanboardInstaller",
+            "name": "KanboardInstaller",
+            "summary": "Installer\u0020for\u0020kanboard\u0020plugins",
+            "url": "classes/Composer-Installers-KanboardInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KanboardInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-KanboardInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KirbyInstaller",
+            "name": "KirbyInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-KirbyInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KirbyInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-KirbyInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KnownInstaller",
+            "name": "KnownInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-KnownInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KnownInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-KnownInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KodiCMSInstaller",
+            "name": "KodiCMSInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-KodiCMSInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KodiCMSInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-KodiCMSInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KohanaInstaller",
+            "name": "KohanaInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-KohanaInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\KohanaInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-KohanaInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LanManagementSystemInstaller",
+            "name": "LanManagementSystemInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-LanManagementSystemInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LanManagementSystemInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-LanManagementSystemInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LanManagementSystemInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-LanManagementSystemInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LaravelInstaller",
+            "name": "LaravelInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-LaravelInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LaravelInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-LaravelInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LavaLiteInstaller",
+            "name": "LavaLiteInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-LavaLiteInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LavaLiteInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-LavaLiteInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LithiumInstaller",
+            "name": "LithiumInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-LithiumInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\LithiumInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-LithiumInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MagentoInstaller",
+            "name": "MagentoInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MagentoInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MagentoInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MagentoInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MajimaInstaller",
+            "name": "MajimaInstaller",
+            "summary": "Plugin\/theme\u0020installer\u0020for\u0020majima",
+            "url": "classes/Composer-Installers-MajimaInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MajimaInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Transforms\u0020the\u0020names",
+            "url": "classes/Composer-Installers-MajimaInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MajimaInstaller\u003A\u003AcorrectPluginName\u0028\u0029",
+            "name": "correctPluginName",
+            "summary": "Change\u0020hyphenated\u0020names\u0020to\u0020camelcase",
+            "url": "classes/Composer-Installers-MajimaInstaller.html#method_correctPluginName"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MajimaInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MajimaInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MakoInstaller",
+            "name": "MakoInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MakoInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MakoInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MakoInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MantisBTInstaller",
+            "name": "MantisBTInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MantisBTInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MantisBTInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-MantisBTInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MantisBTInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MantisBTInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MauticInstaller",
+            "name": "MauticInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MauticInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MauticInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020of\u0020mautic\u002Dplugins\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-MauticInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MauticInstaller\u003A\u003AgetDirectoryName\u0028\u0029",
+            "name": "getDirectoryName",
+            "summary": "",
+            "url": "classes/Composer-Installers-MauticInstaller.html#method_getDirectoryName"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MauticInstaller\u003A\u003AtoCamelCase\u0028\u0029",
+            "name": "toCamelCase",
+            "summary": "",
+            "url": "classes/Composer-Installers-MauticInstaller.html#method_toCamelCase"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MauticInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MauticInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MayaInstaller",
+            "name": "MayaInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MayaInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MayaInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-MayaInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MayaInstaller\u003A\u003AinflectModuleVars\u0028\u0029",
+            "name": "inflectModuleVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MayaInstaller.html#method_inflectModuleVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MayaInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MayaInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MediaWikiInstaller",
+            "name": "MediaWikiInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MediaWikiInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MediaWikiInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-MediaWikiInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MediaWikiInstaller\u003A\u003AinflectExtensionVars\u0028\u0029",
+            "name": "inflectExtensionVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MediaWikiInstaller.html#method_inflectExtensionVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MediaWikiInstaller\u003A\u003AinflectSkinVars\u0028\u0029",
+            "name": "inflectSkinVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MediaWikiInstaller.html#method_inflectSkinVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MediaWikiInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MediaWikiInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MiaoxingInstaller",
+            "name": "MiaoxingInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MiaoxingInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MiaoxingInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MiaoxingInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller",
+            "name": "MicroweberInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectTemplateVars\u0028\u0029",
+            "name": "inflectTemplateVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectTemplateVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectTemplatesVars\u0028\u0029",
+            "name": "inflectTemplatesVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectTemplatesVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectCoreVars\u0028\u0029",
+            "name": "inflectCoreVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectCoreVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectModuleVars\u0028\u0029",
+            "name": "inflectModuleVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectModuleVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectModulesVars\u0028\u0029",
+            "name": "inflectModulesVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectModulesVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectSkinVars\u0028\u0029",
+            "name": "inflectSkinVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectSkinVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003AinflectElementVars\u0028\u0029",
+            "name": "inflectElementVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#method_inflectElementVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MicroweberInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MicroweberInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MODULEWorkInstaller",
+            "name": "MODULEWorkInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MODULEWorkInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MODULEWorkInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MODULEWorkInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MODXEvoInstaller",
+            "name": "MODXEvoInstaller",
+            "summary": "An\u0020installer\u0020to\u0020handle\u0020MODX\u0020Evolution\u0020specifics\u0020when\u0020installing\u0020packages.",
+            "url": "classes/Composer-Installers-MODXEvoInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MODXEvoInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MODXEvoInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ModxInstaller",
+            "name": "ModxInstaller",
+            "summary": "An\u0020installer\u0020to\u0020handle\u0020MODX\u0020specifics\u0020when\u0020installing\u0020packages.",
+            "url": "classes/Composer-Installers-ModxInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ModxInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ModxInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MoodleInstaller",
+            "name": "MoodleInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-MoodleInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\MoodleInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-MoodleInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OctoberInstaller",
+            "name": "OctoberInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-OctoberInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OctoberInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-OctoberInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OctoberInstaller\u003A\u003AinflectPluginVars\u0028\u0029",
+            "name": "inflectPluginVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-OctoberInstaller.html#method_inflectPluginVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OctoberInstaller\u003A\u003AinflectThemeVars\u0028\u0029",
+            "name": "inflectThemeVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-OctoberInstaller.html#method_inflectThemeVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OctoberInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-OctoberInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OntoWikiInstaller",
+            "name": "OntoWikiInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-OntoWikiInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OntoWikiInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020lower\u0020case\u0020and\u0020remove\u0020\u0022.ontowiki\u0022\u0020suffix",
+            "url": "classes/Composer-Installers-OntoWikiInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OntoWikiInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-OntoWikiInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OsclassInstaller",
+            "name": "OsclassInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-OsclassInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OsclassInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-OsclassInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OxidInstaller",
+            "name": "OxidInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-OxidInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OxidInstaller\u003A\u003AgetInstallPath\u0028\u0029",
+            "name": "getInstallPath",
+            "summary": "getInstallPath",
+            "url": "classes/Composer-Installers-OxidInstaller.html#method_getInstallPath"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OxidInstaller\u003A\u003AprepareVendorDirectory\u0028\u0029",
+            "name": "prepareVendorDirectory",
+            "summary": "prepareVendorDirectory",
+            "url": "classes/Composer-Installers-OxidInstaller.html#method_prepareVendorDirectory"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OxidInstaller\u003A\u003AVENDOR_PATTERN",
+            "name": "VENDOR_PATTERN",
+            "summary": "",
+            "url": "classes/Composer-Installers-OxidInstaller.html#constant_VENDOR_PATTERN"
+        },                {
+            "fqsen": "\\Composer\\Installers\\OxidInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-OxidInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PantheonInstaller",
+            "name": "PantheonInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PantheonInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PantheonInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PantheonInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PhiftyInstaller",
+            "name": "PhiftyInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PhiftyInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PhiftyInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PhiftyInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PhpBBInstaller",
+            "name": "PhpBBInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PhpBBInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PhpBBInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PhpBBInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PimcoreInstaller",
+            "name": "PimcoreInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PimcoreInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PimcoreInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-PimcoreInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PimcoreInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PimcoreInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PiwikInstaller",
+            "name": "PiwikInstaller",
+            "summary": "Class\u0020PiwikInstaller",
+            "url": "classes/Composer-Installers-PiwikInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PiwikInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-PiwikInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PiwikInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PiwikInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PlentymarketsInstaller",
+            "name": "PlentymarketsInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PlentymarketsInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PlentymarketsInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Remove\u0020hyphen,\u0020\u0022plugin\u0022\u0020and\u0020format\u0020to\u0020camelcase",
+            "url": "classes/Composer-Installers-PlentymarketsInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PlentymarketsInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PlentymarketsInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Plugin",
+            "name": "Plugin",
+            "summary": "",
+            "url": "classes/Composer-Installers-Plugin.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Plugin\u003A\u003Aactivate\u0028\u0029",
+            "name": "activate",
+            "summary": "",
+            "url": "classes/Composer-Installers-Plugin.html#method_activate"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Plugin\u003A\u003Adeactivate\u0028\u0029",
+            "name": "deactivate",
+            "summary": "",
+            "url": "classes/Composer-Installers-Plugin.html#method_deactivate"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Plugin\u003A\u003Auninstall\u0028\u0029",
+            "name": "uninstall",
+            "summary": "",
+            "url": "classes/Composer-Installers-Plugin.html#method_uninstall"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Plugin\u003A\u003A\u0024installer",
+            "name": "installer",
+            "summary": "",
+            "url": "classes/Composer-Installers-Plugin.html#property_installer"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PortoInstaller",
+            "name": "PortoInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PortoInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PortoInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PortoInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PPIInstaller",
+            "name": "PPIInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PPIInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PPIInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PPIInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PrestashopInstaller",
+            "name": "PrestashopInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PrestashopInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PrestashopInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PrestashopInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ProcessWireInstaller",
+            "name": "ProcessWireInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ProcessWireInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ProcessWireInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-ProcessWireInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ProcessWireInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ProcessWireInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PuppetInstaller",
+            "name": "PuppetInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PuppetInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PuppetInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PuppetInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PxcmsInstaller",
+            "name": "PxcmsInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-PxcmsInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PxcmsInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-PxcmsInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PxcmsInstaller\u003A\u003AinflectModuleVars\u0028\u0029",
+            "name": "inflectModuleVars",
+            "summary": "For\u0020package\u0020type\u0020pxcms\u002Dmodule,\u0020cut\u0020off\u0020a\u0020trailing\u0020\u0027\u002Dplugin\u0027\u0020if\u0020present.",
+            "url": "classes/Composer-Installers-PxcmsInstaller.html#method_inflectModuleVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PxcmsInstaller\u003A\u003AinflectThemeVars\u0028\u0029",
+            "name": "inflectThemeVars",
+            "summary": "For\u0020package\u0020type\u0020pxcms\u002Dmodule,\u0020cut\u0020off\u0020a\u0020trailing\u0020\u0027\u002Dplugin\u0027\u0020if\u0020present.",
+            "url": "classes/Composer-Installers-PxcmsInstaller.html#method_inflectThemeVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\PxcmsInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-PxcmsInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RadPHPInstaller",
+            "name": "RadPHPInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-RadPHPInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RadPHPInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-RadPHPInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RadPHPInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-RadPHPInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Redaxo5Installer",
+            "name": "Redaxo5Installer",
+            "summary": "",
+            "url": "classes/Composer-Installers-Redaxo5Installer.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Redaxo5Installer\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-Redaxo5Installer.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RedaxoInstaller",
+            "name": "RedaxoInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-RedaxoInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RedaxoInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-RedaxoInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ReIndexInstaller",
+            "name": "ReIndexInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ReIndexInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ReIndexInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ReIndexInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RoundcubeInstaller",
+            "name": "RoundcubeInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-RoundcubeInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RoundcubeInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Lowercase\u0020name\u0020and\u0020changes\u0020the\u0020name\u0020to\u0020a\u0020underscores",
+            "url": "classes/Composer-Installers-RoundcubeInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\RoundcubeInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-RoundcubeInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ShopwareInstaller",
+            "name": "ShopwareInstaller",
+            "summary": "Plugin\/theme\u0020installer\u0020for\u0020shopware",
+            "url": "classes/Composer-Installers-ShopwareInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ShopwareInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Transforms\u0020the\u0020names",
+            "url": "classes/Composer-Installers-ShopwareInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ShopwareInstaller\u003A\u003AcorrectThemeName\u0028\u0029",
+            "name": "correctThemeName",
+            "summary": "Changes\u0020the\u0020name\u0020to\u0020a\u0020underscore\u0020separated\u0020name",
+            "url": "classes/Composer-Installers-ShopwareInstaller.html#method_correctThemeName"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ShopwareInstaller\u003A\u003AcorrectPluginName\u0028\u0029",
+            "name": "correctPluginName",
+            "summary": "Changes\u0020the\u0020name\u0020to\u0020a\u0020camelcased\u0020combination\u0020of\u0020vendor\u0020and\u0020name",
+            "url": "classes/Composer-Installers-ShopwareInstaller.html#method_correctPluginName"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ShopwareInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ShopwareInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SilverStripeInstaller",
+            "name": "SilverStripeInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-SilverStripeInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SilverStripeInstaller\u003A\u003AgetInstallPath\u0028\u0029",
+            "name": "getInstallPath",
+            "summary": "Return\u0020the\u0020install\u0020path\u0020based\u0020on\u0020package\u0020type.",
+            "url": "classes/Composer-Installers-SilverStripeInstaller.html#method_getInstallPath"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SilverStripeInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-SilverStripeInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SiteDirectInstaller",
+            "name": "SiteDirectInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-SiteDirectInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SiteDirectInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "For\u0020an\u0020installer\u0020to\u0020override\u0020to\u0020modify\u0020the\u0020vars\u0020per\u0020installer.",
+            "url": "classes/Composer-Installers-SiteDirectInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SiteDirectInstaller\u003A\u003AparseVars\u0028\u0029",
+            "name": "parseVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-SiteDirectInstaller.html#method_parseVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SiteDirectInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-SiteDirectInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SMFInstaller",
+            "name": "SMFInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-SMFInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SMFInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-SMFInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\StarbugInstaller",
+            "name": "StarbugInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-StarbugInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\StarbugInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-StarbugInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SyDESInstaller",
+            "name": "SyDESInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-SyDESInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SyDESInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020module\u0020name.",
+            "url": "classes/Composer-Installers-SyDESInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SyDESInstaller\u003A\u003AinflectModuleVars\u0028\u0029",
+            "name": "inflectModuleVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-SyDESInstaller.html#method_inflectModuleVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SyDESInstaller\u003A\u003AinflectThemeVars\u0028\u0029",
+            "name": "inflectThemeVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-SyDESInstaller.html#method_inflectThemeVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SyDESInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-SyDESInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SyliusInstaller",
+            "name": "SyliusInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-SyliusInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\SyliusInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-SyliusInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Symfony1Installer",
+            "name": "Symfony1Installer",
+            "summary": "Plugin\u0020installer\u0020for\u0020symfony\u00201.x",
+            "url": "classes/Composer-Installers-Symfony1Installer.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Symfony1Installer\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-Symfony1Installer.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\Symfony1Installer\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-Symfony1Installer.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TaoInstaller",
+            "name": "TaoInstaller",
+            "summary": "An\u0020installer\u0020to\u0020handle\u0020TAO\u0020extensions.",
+            "url": "classes/Composer-Installers-TaoInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TaoInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "For\u0020an\u0020installer\u0020to\u0020override\u0020to\u0020modify\u0020the\u0020vars\u0020per\u0020installer.",
+            "url": "classes/Composer-Installers-TaoInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TaoInstaller\u003A\u003AEXTRA_TAO_EXTENSION_NAME",
+            "name": "EXTRA_TAO_EXTENSION_NAME",
+            "summary": "",
+            "url": "classes/Composer-Installers-TaoInstaller.html#constant_EXTRA_TAO_EXTENSION_NAME"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TaoInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-TaoInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TastyIgniterInstaller",
+            "name": "TastyIgniterInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-TastyIgniterInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TastyIgniterInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-TastyIgniterInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TastyIgniterInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-TastyIgniterInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TheliaInstaller",
+            "name": "TheliaInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-TheliaInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TheliaInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-TheliaInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TuskInstaller",
+            "name": "TuskInstaller",
+            "summary": "Composer\u0020installer\u0020for\u00203rd\u0020party\u0020Tusk\u0020utilities",
+            "url": "classes/Composer-Installers-TuskInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TuskInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-TuskInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TYPO3CmsInstaller",
+            "name": "TYPO3CmsInstaller",
+            "summary": "Extension\u0020installer\u0020for\u0020TYPO3\u0020CMS",
+            "url": "classes/Composer-Installers-TYPO3CmsInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TYPO3CmsInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-TYPO3CmsInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TYPO3FlowInstaller",
+            "name": "TYPO3FlowInstaller",
+            "summary": "An\u0020installer\u0020to\u0020handle\u0020TYPO3\u0020Flow\u0020specifics\u0020when\u0020installing\u0020packages.",
+            "url": "classes/Composer-Installers-TYPO3FlowInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TYPO3FlowInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Modify\u0020the\u0020package\u0020name\u0020to\u0020be\u0020a\u0020TYPO3\u0020Flow\u0020style\u0020key.",
+            "url": "classes/Composer-Installers-TYPO3FlowInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\TYPO3FlowInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-TYPO3FlowInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\UserFrostingInstaller",
+            "name": "UserFrostingInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-UserFrostingInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\UserFrostingInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-UserFrostingInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\VanillaInstaller",
+            "name": "VanillaInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-VanillaInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\VanillaInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-VanillaInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\VgmcpInstaller",
+            "name": "VgmcpInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-VgmcpInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\VgmcpInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-VgmcpInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\VgmcpInstaller\u003A\u003AinflectPluginVars\u0028\u0029",
+            "name": "inflectPluginVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-VgmcpInstaller.html#method_inflectPluginVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\VgmcpInstaller\u003A\u003AinflectThemeVars\u0028\u0029",
+            "name": "inflectThemeVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-VgmcpInstaller.html#method_inflectThemeVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\VgmcpInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-VgmcpInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WHMCSInstaller",
+            "name": "WHMCSInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-WHMCSInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WHMCSInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-WHMCSInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WinterInstaller",
+            "name": "WinterInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-WinterInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WinterInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name.",
+            "url": "classes/Composer-Installers-WinterInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WinterInstaller\u003A\u003AinflectModuleVars\u0028\u0029",
+            "name": "inflectModuleVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-WinterInstaller.html#method_inflectModuleVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WinterInstaller\u003A\u003AinflectPluginVars\u0028\u0029",
+            "name": "inflectPluginVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-WinterInstaller.html#method_inflectPluginVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WinterInstaller\u003A\u003AinflectThemeVars\u0028\u0029",
+            "name": "inflectThemeVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-WinterInstaller.html#method_inflectThemeVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WinterInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-WinterInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WolfCMSInstaller",
+            "name": "WolfCMSInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-WolfCMSInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WolfCMSInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-WolfCMSInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WordPressInstaller",
+            "name": "WordPressInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-WordPressInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\WordPressInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-WordPressInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\YawikInstaller",
+            "name": "YawikInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-YawikInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\YawikInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020package\u0020name\u0020to\u0020CamelCase",
+            "url": "classes/Composer-Installers-YawikInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\YawikInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-YawikInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\yxorPInstaller",
+            "name": "yxorPInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-yxorPInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\yxorPInstaller\u003A\u003AinflectPackageVars\u0028\u0029",
+            "name": "inflectPackageVars",
+            "summary": "Format\u0020module\u0020name.",
+            "url": "classes/Composer-Installers-yxorPInstaller.html#method_inflectPackageVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\yxorPInstaller\u003A\u003AinflectModuleVars\u0028\u0029",
+            "name": "inflectModuleVars",
+            "summary": "",
+            "url": "classes/Composer-Installers-yxorPInstaller.html#method_inflectModuleVars"
+        },                {
+            "fqsen": "\\Composer\\Installers\\yxorPInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-yxorPInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ZendInstaller",
+            "name": "ZendInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ZendInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ZendInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ZendInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ZikulaInstaller",
+            "name": "ZikulaInstaller",
+            "summary": "",
+            "url": "classes/Composer-Installers-ZikulaInstaller.html"
+        },                {
+            "fqsen": "\\Composer\\Installers\\ZikulaInstaller\u003A\u003A\u0024locations",
+            "name": "locations",
+            "summary": "",
+            "url": "classes/Composer-Installers-ZikulaInstaller.html#property_locations"
+        },                {
+            "fqsen": "\\YXORP_BOOTMANAGER",
+            "name": "YXORP_BOOTMANAGER",
+            "summary": "Boot\u0020Manager\u0020for\u0020yxorP\u0020CMS",
+            "url": "namespaces/default.html#constant_YXORP_BOOTMANAGER"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin",
+            "name": "Admin",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Bootmanager-Controller-Admin.html"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Bootmanager-Controller-Admin.html#method_index"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003Asettings\u0028\u0029",
+            "name": "settings",
+            "summary": "",
+            "url": "classes/Bootmanager-Controller-Admin.html#method_settings"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AgetConfig\u0028\u0029",
+            "name": "getConfig",
+            "summary": "",
+            "url": "classes/Bootmanager-Controller-Admin.html#method_getConfig"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AlistModules\u0028\u0029",
+            "name": "listModules",
+            "summary": "",
+            "url": "classes/Bootmanager-Controller-Admin.html#method_listModules"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AsaveConfig\u0028\u0029",
+            "name": "saveConfig",
+            "summary": "",
+            "url": "classes/Bootmanager-Controller-Admin.html#method_saveConfig"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AgetUpdatedValues\u0028\u0029",
+            "name": "getUpdatedValues",
+            "summary": "",
+            "url": "classes/Bootmanager-Controller-Admin.html#method_getUpdatedValues"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller\\Admin\u003A\u003AgetReadme\u0028\u0029",
+            "name": "getReadme",
+            "summary": "",
+            "url": "classes/Bootmanager-Controller-Admin.html#method_getReadme"
+        },                {
+            "fqsen": "\\Feed\\Controller\\RestApi",
+            "name": "RestApi",
+            "summary": "Class\u0020Controller",
+            "url": "classes/Feed-Controller-RestApi.html"
+        },                {
+            "fqsen": "\\Feed\\Controller\\RestApi\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/Feed-Controller-RestApi.html#method_index"
+        },                {
+            "fqsen": "\\Feed\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/Feed-Controller-RestApi.html#method_get"
+        },                {
+            "fqsen": "\\Feed\\Controller\\RestApi\u003A\u003AlistFeeds\u0028\u0029",
+            "name": "listFeeds",
+            "summary": "",
+            "url": "classes/Feed-Controller-RestApi.html#method_listFeeds"
+        },                {
+            "fqsen": "\\composerRequired42bba94aeded5d24e2731a327a5667c\u0028\u0029",
+            "name": "composerRequired42bba94aeded5d24e2731a327a5667c",
+            "summary": "",
+            "url": "namespaces/default.html#function_composerRequired42bba94aeded5d24e2731a327a5667c"
+        },                {
+            "fqsen": "\\ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c",
+            "name": "ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c",
+            "summary": "",
+            "url": "classes/ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c.html"
+        },                {
+            "fqsen": "\\ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c\u003A\u003AloadClassLoader\u0028\u0029",
+            "name": "loadClassLoader",
+            "summary": "",
+            "url": "classes/ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c.html#method_loadClassLoader"
+        },                {
+            "fqsen": "\\ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c\u003A\u003AgetLoader\u0028\u0029",
+            "name": "getLoader",
+            "summary": "",
+            "url": "classes/ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c.html#method_getLoader"
+        },                {
+            "fqsen": "\\ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c\u003A\u003A\u0024loader",
+            "name": "loader",
+            "summary": "",
+            "url": "classes/ComposerAutoloaderInitd42bba94aeded5d24e2731a327a5667c.html#property_loader"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInitd42bba94aeded5d24e2731a327a5667c",
+            "name": "ComposerStaticInitd42bba94aeded5d24e2731a327a5667c",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ComposerStaticInitd42bba94aeded5d24e2731a327a5667c.html"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInitd42bba94aeded5d24e2731a327a5667c\u003A\u003AgetInitializer\u0028\u0029",
+            "name": "getInitializer",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ComposerStaticInitd42bba94aeded5d24e2731a327a5667c.html#method_getInitializer"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInitd42bba94aeded5d24e2731a327a5667c\u003A\u003A\u0024files",
+            "name": "files",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ComposerStaticInitd42bba94aeded5d24e2731a327a5667c.html#property_files"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInitd42bba94aeded5d24e2731a327a5667c\u003A\u003A\u0024prefixLengthsPsr4",
+            "name": "prefixLengthsPsr4",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ComposerStaticInitd42bba94aeded5d24e2731a327a5667c.html#property_prefixLengthsPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInitd42bba94aeded5d24e2731a327a5667c\u003A\u003A\u0024prefixDirsPsr4",
+            "name": "prefixDirsPsr4",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ComposerStaticInitd42bba94aeded5d24e2731a327a5667c.html#property_prefixDirsPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ComposerStaticInitd42bba94aeded5d24e2731a327a5667c\u003A\u003A\u0024classMap",
+            "name": "classMap",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ComposerStaticInitd42bba94aeded5d24e2731a327a5667c.html#property_classMap"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\includeFile\u0028\u0029",
+            "name": "includeFile",
+            "summary": "Scope\u0020isolated\u0020include.",
+            "url": "namespaces/composer-autoload.html#function_includeFile"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader",
+            "name": "ClassLoader",
+            "summary": "ClassLoader\u0020implements\u0020a\u0020PSR\u002D0,\u0020PSR\u002D4\u0020and\u0020classmap\u0020class\u0020loader.",
+            "url": "classes/Composer-Autoload-ClassLoader.html"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method___construct"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetRegisteredLoaders\u0028\u0029",
+            "name": "getRegisteredLoaders",
+            "summary": "Returns\u0020the\u0020currently\u0020registered\u0020loaders\u0020indexed\u0020by\u0020their\u0020corresponding\u0020vendor\u0020directories.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetPrefixes\u0028\u0029",
+            "name": "getPrefixes",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getPrefixes"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetPrefixesPsr4\u0028\u0029",
+            "name": "getPrefixesPsr4",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getPrefixesPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetFallbackDirs\u0028\u0029",
+            "name": "getFallbackDirs",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirs"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetFallbackDirsPsr4\u0028\u0029",
+            "name": "getFallbackDirsPsr4",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirsPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetClassMap\u0028\u0029",
+            "name": "getClassMap",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getClassMap"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AaddClassMap\u0028\u0029",
+            "name": "addClassMap",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_addClassMap"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D0\u0020directories\u0020for\u0020a\u0020given\u0020prefix,\u0020either\nappending\u0020or\u0020prepending\u0020to\u0020the\u0020ones\u0020previously\u0020set\u0020for\u0020this\u0020prefix.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_add"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AaddPsr4\u0028\u0029",
+            "name": "addPsr4",
+            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D4\u0020directories\u0020for\u0020a\u0020given\u0020namespace,\u0020either\nappending\u0020or\u0020prepending\u0020to\u0020the\u0020ones\u0020previously\u0020set\u0020for\u0020this\u0020namespace.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_addPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D0\u0020directories\u0020for\u0020a\u0020given\u0020prefix,\nreplacing\u0020any\u0020others\u0020previously\u0020set\u0020for\u0020this\u0020prefix.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_set"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetPsr4\u0028\u0029",
+            "name": "setPsr4",
+            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D4\u0020directories\u0020for\u0020a\u0020given\u0020namespace,\nreplacing\u0020any\u0020others\u0020previously\u0020set\u0020for\u0020this\u0020namespace.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_setPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetUseIncludePath\u0028\u0029",
+            "name": "getUseIncludePath",
+            "summary": "Can\u0020be\u0020used\u0020to\u0020check\u0020if\u0020the\u0020autoloader\u0020uses\u0020the\u0020include\u0020path\u0020to\u0020check\nfor\u0020classes.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getUseIncludePath"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetUseIncludePath\u0028\u0029",
+            "name": "setUseIncludePath",
+            "summary": "Turns\u0020on\u0020searching\u0020the\u0020include\u0020path\u0020for\u0020class\u0020files.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AisClassMapAuthoritative\u0028\u0029",
+            "name": "isClassMapAuthoritative",
+            "summary": "Should\u0020class\u0020lookup\u0020fail\u0020if\u0020not\u0020found\u0020in\u0020the\u0020current\u0020class\u0020map\u003F",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_isClassMapAuthoritative"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetClassMapAuthoritative\u0028\u0029",
+            "name": "setClassMapAuthoritative",
+            "summary": "Turns\u0020off\u0020searching\u0020the\u0020prefix\u0020and\u0020fallback\u0020directories\u0020for\u0020classes\nthat\u0020have\u0020not\u0020been\u0020registered\u0020with\u0020the\u0020class\u0020map.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetApcuPrefix\u0028\u0029",
+            "name": "getApcuPrefix",
+            "summary": "The\u0020APCu\u0020prefix\u0020in\u0020use,\u0020or\u0020null\u0020if\u0020APCu\u0020caching\u0020is\u0020not\u0020enabled.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_getApcuPrefix"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetApcuPrefix\u0028\u0029",
+            "name": "setApcuPrefix",
+            "summary": "APCu\u0020prefix\u0020to\u0020use\u0020to\u0020cache\u0020found\/not\u002Dfound\u0020classes,\u0020if\u0020the\u0020extension\u0020is\u0020enabled.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aregister\u0028\u0029",
+            "name": "register",
+            "summary": "Registers\u0020this\u0020instance\u0020as\u0020an\u0020autoloader.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_register"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aunregister\u0028\u0029",
+            "name": "unregister",
+            "summary": "Unregisters\u0020this\u0020instance\u0020as\u0020an\u0020autoloader.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_unregister"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AloadClass\u0028\u0029",
+            "name": "loadClass",
+            "summary": "Loads\u0020the\u0020given\u0020class\u0020or\u0020interface.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_loadClass"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AfindFile\u0028\u0029",
+            "name": "findFile",
+            "summary": "Finds\u0020the\u0020path\u0020to\u0020the\u0020file\u0020where\u0020the\u0020class\u0020is\u0020defined.",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_findFile"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AfindFileWithExtension\u0028\u0029",
+            "name": "findFileWithExtension",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024registeredLoaders",
+            "name": "registeredLoaders",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
+            "name": "vendorDir",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_vendorDir"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixLengthsPsr4",
+            "name": "prefixLengthsPsr4",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_prefixLengthsPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixDirsPsr4",
+            "name": "prefixDirsPsr4",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_prefixDirsPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024fallbackDirsPsr4",
+            "name": "fallbackDirsPsr4",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr4"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixesPsr0",
+            "name": "prefixesPsr0",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_prefixesPsr0"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024fallbackDirsPsr0",
+            "name": "fallbackDirsPsr0",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr0"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024useIncludePath",
+            "name": "useIncludePath",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_useIncludePath"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024classMap",
+            "name": "classMap",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_classMap"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024classMapAuthoritative",
+            "name": "classMapAuthoritative",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_classMapAuthoritative"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024missingClasses",
+            "name": "missingClasses",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_missingClasses"
+        },                {
+            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024apcuPrefix",
+            "name": "apcuPrefix",
+            "summary": "",
+            "url": "classes/Composer-Autoload-ClassLoader.html#property_apcuPrefix"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions",
+            "name": "InstalledVersions",
+            "summary": "This\u0020class\u0020is\u0020copied\u0020in\u0020every\u0020Composer\u0020installed\u0020project\u0020and\u0020available\u0020to\u0020all",
+            "url": "classes/Composer-InstalledVersions.html"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalledPackages\u0028\u0029",
+            "name": "getInstalledPackages",
+            "summary": "Returns\u0020a\u0020list\u0020of\u0020all\u0020package\u0020names\u0020which\u0020are\u0020present,\u0020either\u0020by\u0020being\u0020installed,\u0020replaced\u0020or\u0020provided",
+            "url": "classes/Composer-InstalledVersions.html#method_getInstalledPackages"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalled\u0028\u0029",
+            "name": "getInstalled",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#method_getInstalled"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalledPackagesByType\u0028\u0029",
+            "name": "getInstalledPackagesByType",
+            "summary": "Returns\u0020a\u0020list\u0020of\u0020all\u0020package\u0020names\u0020with\u0020a\u0020specific\u0020type\u0020e.g.\u0020\u0027library\u0027",
+            "url": "classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AisInstalled\u0028\u0029",
+            "name": "isInstalled",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020package\u0020is\u0020installed",
+            "url": "classes/Composer-InstalledVersions.html#method_isInstalled"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003Asatisfies\u0028\u0029",
+            "name": "satisfies",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020package\u0020satisfies\u0020a\u0020version\u0020constraint",
+            "url": "classes/Composer-InstalledVersions.html#method_satisfies"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetVersionRanges\u0028\u0029",
+            "name": "getVersionRanges",
+            "summary": "Returns\u0020a\u0020version\u0020constraint\u0020representing\u0020all\u0020the\u0020range\u0028s\u0029\u0020which\u0020are\u0020installed\u0020for\u0020a\u0020given\u0020package",
+            "url": "classes/Composer-InstalledVersions.html#method_getVersionRanges"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetVersion\u0028\u0029",
+            "name": "getVersion",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#method_getVersion"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetPrettyVersion\u0028\u0029",
+            "name": "getPrettyVersion",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#method_getPrettyVersion"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetReference\u0028\u0029",
+            "name": "getReference",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#method_getReference"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstallPath\u0028\u0029",
+            "name": "getInstallPath",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#method_getInstallPath"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetRootPackage\u0028\u0029",
+            "name": "getRootPackage",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#method_getRootPackage"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetRawData\u0028\u0029",
+            "name": "getRawData",
+            "summary": "Returns\u0020the\u0020raw\u0020installed.php\u0020data\u0020for\u0020custom\u0020implementations",
+            "url": "classes/Composer-InstalledVersions.html#method_getRawData"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetAllRawData\u0028\u0029",
+            "name": "getAllRawData",
+            "summary": "Returns\u0020the\u0020raw\u0020data\u0020of\u0020all\u0020installed.php\u0020which\u0020are\u0020currently\u0020loaded\u0020for\u0020custom\u0020implementations",
+            "url": "classes/Composer-InstalledVersions.html#method_getAllRawData"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003Areload\u0028\u0029",
+            "name": "reload",
+            "summary": "Lets\u0020you\u0020reload\u0020the\u0020static\u0020array\u0020from\u0020another\u0020file",
+            "url": "classes/Composer-InstalledVersions.html#method_reload"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installed",
+            "name": "installed",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#property_installed"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024canGetVendors",
+            "name": "canGetVendors",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#property_canGetVendors"
+        },                {
+            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installedByVendor",
+            "name": "installedByVendor",
+            "summary": "",
+            "url": "classes/Composer-InstalledVersions.html#property_installedByVendor"
+        },                {
+            "fqsen": "\\KINT_DIR",
+            "name": "KINT_DIR",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_DIR"
+        },                {
+            "fqsen": "\\KINT_WIN",
+            "name": "KINT_WIN",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_WIN"
+        },                {
+            "fqsen": "\\KINT_PHP56",
+            "name": "KINT_PHP56",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_PHP56"
+        },                {
+            "fqsen": "\\KINT_PHP70",
+            "name": "KINT_PHP70",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_PHP70"
+        },                {
+            "fqsen": "\\KINT_PHP72",
+            "name": "KINT_PHP72",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_PHP72"
+        },                {
+            "fqsen": "\\KINT_PHP73",
+            "name": "KINT_PHP73",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_PHP73"
+        },                {
+            "fqsen": "\\KINT_PHP74",
+            "name": "KINT_PHP74",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_PHP74"
+        },                {
+            "fqsen": "\\d\u0028\u0029",
+            "name": "d",
+            "summary": "Alias\u0020of\u0020Kint\u003A\u003Adump\u0028\u0029.",
+            "url": "namespaces/default.html#function_d"
+        },                {
+            "fqsen": "\\s\u0028\u0029",
+            "name": "s",
+            "summary": "Alias\u0020of\u0020Kint\u003A\u003Adump\u0028\u0029,\u0020however\u0020the\u0020output\u0020is\u0020in\u0020plain\u0020text.",
+            "url": "namespaces/default.html#function_s"
+        },                {
+            "fqsen": "\\Kint\\CallFinder",
+            "name": "CallFinder",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003AgetFunctionCalls\u0028\u0029",
+            "name": "getFunctionCalls",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html#method_getFunctionCalls"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003ArealTokenIndex\u0028\u0029",
+            "name": "realTokenIndex",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html#method_realTokenIndex"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003AtokensFormatted\u0028\u0029",
+            "name": "tokensFormatted",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html#method_tokensFormatted"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003AtokensTrim\u0028\u0029",
+            "name": "tokensTrim",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html#method_tokensTrim"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003AtokenIsOperator\u0028\u0029",
+            "name": "tokenIsOperator",
+            "summary": "We\u0020need\u0020a\u0020separate\u0020method\u0020to\u0020check\u0020if\u0020tokens\u0020are\u0020operators\u0020because\u0020we\noccasionally\u0020add\u0020\u0022...\u0022\u0020to\u0020short\u0020parameter\u0020versions.\u0020If\u0020we\u0020simply\u0020check\nfor\u0020\u0060\u0024token\u005B0\u005D\u0060\u0020then\u0020\u0022...\u0022\u0020will\u0020incorrectly\u0020match\u0020the\u0020\u0022.\u0022\u0020operator.",
+            "url": "classes/Kint-CallFinder.html#method_tokenIsOperator"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003AtokensToString\u0028\u0029",
+            "name": "tokensToString",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html#method_tokensToString"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003A\u0024ignore",
+            "name": "ignore",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html#property_ignore"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003A\u0024operator",
+            "name": "operator",
+            "summary": "Things\u0020we\u0020need\u0020to\u0020do\u0020specially\u0020for\u0020operator\u0020tokens\u003A\n\u002D\u0020Refuse\u0020to\u0020strip\u0020spaces\u0020around\u0020them\n\u002D\u0020Wrap\u0020the\u0020access\u0020path\u0020in\u0020parentheses\u0020if\u0020there\n\u0020\u0020are\u0020any\u0020of\u0020these\u0020in\u0020the\u0020final\u0020short\u0020parameter.",
+            "url": "classes/Kint-CallFinder.html#property_operator"
+        },                {
+            "fqsen": "\\Kint\\CallFinder\u003A\u003A\u0024strip",
+            "name": "strip",
+            "summary": "",
+            "url": "classes/Kint-CallFinder.html#property_strip"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject",
+            "name": "BasicObject",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003Ablank\u0028\u0029",
+            "name": "blank",
+            "summary": "Creates\u0020a\u0020new\u0020basic\u0020object\u0020with\u0020a\u0020name\u0020and\u0020access\u0020path.",
+            "url": "classes/Kint-Object-BasicObject.html#method_blank"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AsortByAccess\u0028\u0029",
+            "name": "sortByAccess",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_sortByAccess"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AsortByName\u0028\u0029",
+            "name": "sortByName",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_sortByName"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AreplaceRepresentation\u0028\u0029",
+            "name": "replaceRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_replaceRepresentation"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AremoveRepresentation\u0028\u0029",
+            "name": "removeRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_removeRepresentation"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AaddRepresentation\u0028\u0029",
+            "name": "addRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_addRepresentation"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetRepresentation\u0028\u0029",
+            "name": "getRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getRepresentation"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetRepresentations\u0028\u0029",
+            "name": "getRepresentations",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getRepresentations"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AclearRepresentations\u0028\u0029",
+            "name": "clearRepresentations",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_clearRepresentations"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getType"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetModifiers\u0028\u0029",
+            "name": "getModifiers",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getModifiers"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetAccess\u0028\u0029",
+            "name": "getAccess",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getAccess"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getName"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetOperator\u0028\u0029",
+            "name": "getOperator",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getOperator"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getSize"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetValueShort\u0028\u0029",
+            "name": "getValueShort",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getValueShort"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AgetAccessPath\u0028\u0029",
+            "name": "getAccessPath",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_getAccessPath"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003Atransplant\u0028\u0029",
+            "name": "transplant",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#method_transplant"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AACCESS_NONE",
+            "name": "ACCESS_NONE",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_ACCESS_NONE"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AACCESS_PUBLIC",
+            "name": "ACCESS_PUBLIC",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_ACCESS_PUBLIC"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AACCESS_PROTECTED",
+            "name": "ACCESS_PROTECTED",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_ACCESS_PROTECTED"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AACCESS_PRIVATE",
+            "name": "ACCESS_PRIVATE",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_ACCESS_PRIVATE"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AOPERATOR_NONE",
+            "name": "OPERATOR_NONE",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_OPERATOR_NONE"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AOPERATOR_ARRAY",
+            "name": "OPERATOR_ARRAY",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_OPERATOR_ARRAY"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AOPERATOR_OBJECT",
+            "name": "OPERATOR_OBJECT",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_OPERATOR_OBJECT"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003AOPERATOR_STATIC",
+            "name": "OPERATOR_STATIC",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#constant_OPERATOR_STATIC"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_name"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_type"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024static",
+            "name": "static",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_static"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024const",
+            "name": "const",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_const"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024access",
+            "name": "access",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_access"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024owner_class",
+            "name": "owner_class",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_owner_class"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024access_path",
+            "name": "access_path",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_access_path"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024operator",
+            "name": "operator",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_operator"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024reference",
+            "name": "reference",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_reference"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024depth",
+            "name": "depth",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_depth"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024size",
+            "name": "size",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_size"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_value"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\BasicObject\u003A\u003A\u0024representations",
+            "name": "representations",
+            "summary": "",
+            "url": "classes/Kint-Object-BasicObject.html#property_representations"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject",
+            "name": "BlobObject",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003Astrlen\u0028\u0029",
+            "name": "strlen",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#method_strlen"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003AdetectEncoding\u0028\u0029",
+            "name": "detectEncoding",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#method_detectEncoding"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003Asubstr\u0028\u0029",
+            "name": "substr",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#method_substr"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#method_getType"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003AgetValueShort\u0028\u0029",
+            "name": "getValueShort",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#method_getValueShort"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003Atransplant\u0028\u0029",
+            "name": "transplant",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#method_transplant"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003A\u0024char_encodings",
+            "name": "char_encodings",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#property_char_encodings"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003A\u0024legacy_encodings",
+            "name": "legacy_encodings",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#property_legacy_encodings"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#property_type"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003A\u0024encoding",
+            "name": "encoding",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#property_encoding"
+        },                {
+            "fqsen": "\\Kint\\Object\\BlobObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-BlobObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\ClosureObject",
+            "name": "ClosureObject",
+            "summary": "",
+            "url": "classes/Kint-Object-ClosureObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\ClosureObject\u003A\u003AgetAccessPath\u0028\u0029",
+            "name": "getAccessPath",
+            "summary": "",
+            "url": "classes/Kint-Object-ClosureObject.html#method_getAccessPath"
+        },                {
+            "fqsen": "\\Kint\\Object\\ClosureObject\u003A\u003AgetParams\u0028\u0029",
+            "name": "getParams",
+            "summary": "",
+            "url": "classes/Kint-Object-ClosureObject.html#method_getParams"
+        },                {
+            "fqsen": "\\Kint\\Object\\ClosureObject\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "",
+            "url": "classes/Kint-Object-ClosureObject.html#method_getSize"
+        },                {
+            "fqsen": "\\Kint\\Object\\ClosureObject\u003A\u003A\u0024parameters",
+            "name": "parameters",
+            "summary": "",
+            "url": "classes/Kint-Object-ClosureObject.html#property_parameters"
+        },                {
+            "fqsen": "\\Kint\\Object\\ClosureObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-ClosureObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\ClosureObject\u003A\u003A\u0024paramcache",
+            "name": "paramcache",
+            "summary": "",
+            "url": "classes/Kint-Object-ClosureObject.html#property_paramcache"
+        },                {
+            "fqsen": "\\Kint\\Object\\DateTimeObject",
+            "name": "DateTimeObject",
+            "summary": "",
+            "url": "classes/Kint-Object-DateTimeObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\DateTimeObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-DateTimeObject.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\DateTimeObject\u003A\u003AgetValueShort\u0028\u0029",
+            "name": "getValueShort",
+            "summary": "",
+            "url": "classes/Kint-Object-DateTimeObject.html#method_getValueShort"
+        },                {
+            "fqsen": "\\Kint\\Object\\DateTimeObject\u003A\u003A\u0024dt",
+            "name": "dt",
+            "summary": "",
+            "url": "classes/Kint-Object-DateTimeObject.html#property_dt"
+        },                {
+            "fqsen": "\\Kint\\Object\\DateTimeObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-DateTimeObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject",
+            "name": "InstanceObject",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003AsortByHierarchy\u0028\u0029",
+            "name": "sortByHierarchy",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#method_sortByHierarchy"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#method_getType"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003Atransplant\u0028\u0029",
+            "name": "transplant",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#method_transplant"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#property_type"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003A\u0024classname",
+            "name": "classname",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#property_classname"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003A\u0024hash",
+            "name": "hash",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#property_hash"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003A\u0024filename",
+            "name": "filename",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#property_filename"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003A\u0024startline",
+            "name": "startline",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#property_startline"
+        },                {
+            "fqsen": "\\Kint\\Object\\InstanceObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-InstanceObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject",
+            "name": "MethodObject",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003AsetAccessPathFrom\u0028\u0029",
+            "name": "setAccessPathFrom",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#method_setAccessPathFrom"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003AgetValueShort\u0028\u0029",
+            "name": "getValueShort",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#method_getValueShort"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003AgetModifiers\u0028\u0029",
+            "name": "getModifiers",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#method_getModifiers"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003AgetAccessPath\u0028\u0029",
+            "name": "getAccessPath",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#method_getAccessPath"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003AgetParams\u0028\u0029",
+            "name": "getParams",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#method_getParams"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003AgetPhpDocUrl\u0028\u0029",
+            "name": "getPhpDocUrl",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#method_getPhpDocUrl"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_type"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024filename",
+            "name": "filename",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_filename"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024startline",
+            "name": "startline",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_startline"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024endline",
+            "name": "endline",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_endline"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024parameters",
+            "name": "parameters",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_parameters"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024abstract",
+            "name": "abstract",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_abstract"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024final",
+            "name": "final",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_final"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024internal",
+            "name": "internal",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_internal"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024docstring",
+            "name": "docstring",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_docstring"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024returntype",
+            "name": "returntype",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_returntype"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024return_reference",
+            "name": "return_reference",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_return_reference"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024showparams",
+            "name": "showparams",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_showparams"
+        },                {
+            "fqsen": "\\Kint\\Object\\MethodObject\u003A\u003A\u0024paramcache",
+            "name": "paramcache",
+            "summary": "",
+            "url": "classes/Kint-Object-MethodObject.html#property_paramcache"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject",
+            "name": "ParameterObject",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#method_getType"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#method_getName"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003AgetDefault\u0028\u0029",
+            "name": "getDefault",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#method_getDefault"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003A\u0024type_hint",
+            "name": "type_hint",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#property_type_hint"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003A\u0024default",
+            "name": "default",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#property_default"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003A\u0024position",
+            "name": "position",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#property_position"
+        },                {
+            "fqsen": "\\Kint\\Object\\ParameterObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-ParameterObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation",
+            "name": "ColorRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003AsetValues\u0028\u0029",
+            "name": "setValues",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_setValues"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003AsetValuesFromHex\u0028\u0029",
+            "name": "setValuesFromHex",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_setValuesFromHex"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003AsetValuesFromFunction\u0028\u0029",
+            "name": "setValuesFromFunction",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_setValuesFromFunction"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003AhslToRgb\u0028\u0029",
+            "name": "hslToRgb",
+            "summary": "Turns\u0020HSL\u0020color\u0020to\u0020RGB.\u0020Black\u0020magic.",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_hslToRgb"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003AhueToRgb\u0028\u0029",
+            "name": "hueToRgb",
+            "summary": "Helper\u0020function\u0020for\u0020hslToRgb.\u0020Even\u0020blacker\u0020magic.",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_hueToRgb"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003AgetColor\u0028\u0029",
+            "name": "getColor",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_getColor"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ArgbToHsl\u0028\u0029",
+            "name": "rgbToHsl",
+            "summary": "Converts\u0020RGB\u0020to\u0020HSL.\u0020Color\u0020inversion\u0020of\u0020previous\u0020black\u0020magic\u0020is\u0020white\u0020magic\u003F",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_rgbToHsl"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003AhasAlpha\u0028\u0029",
+            "name": "hasAlpha",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#method_hasAlpha"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_NAME",
+            "name": "COLOR_NAME",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_NAME"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_HEX_3",
+            "name": "COLOR_HEX_3",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_HEX_3"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_HEX_6",
+            "name": "COLOR_HEX_6",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_HEX_6"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_RGB",
+            "name": "COLOR_RGB",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_RGB"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_RGBA",
+            "name": "COLOR_RGBA",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_RGBA"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_HSL",
+            "name": "COLOR_HSL",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_HSL"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_HSLA",
+            "name": "COLOR_HSLA",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_HSLA"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_HEX_4",
+            "name": "COLOR_HEX_4",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_HEX_4"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003ACOLOR_HEX_8",
+            "name": "COLOR_HEX_8",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#constant_COLOR_HEX_8"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024color_map",
+            "name": "color_map",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_color_map"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024r",
+            "name": "r",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_r"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024g",
+            "name": "g",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_g"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024b",
+            "name": "b",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_b"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024a",
+            "name": "a",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_a"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024variant",
+            "name": "variant",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_variant"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024implicit_label",
+            "name": "implicit_label",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_implicit_label"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\ColorRepresentation\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-ColorRepresentation.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\DocstringRepresentation",
+            "name": "DocstringRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-DocstringRepresentation.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\DocstringRepresentation\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-DocstringRepresentation.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\DocstringRepresentation\u003A\u003AgetDocstringWithoutComments\u0028\u0029",
+            "name": "getDocstringWithoutComments",
+            "summary": "Returns\u0020the\u0020representation\u0027s\u0020docstring\u0020without\u0020surrounding\u0020comments.",
+            "url": "classes/Kint-Object-Representation-DocstringRepresentation.html#method_getDocstringWithoutComments"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\DocstringRepresentation\u003A\u003A\u0024file",
+            "name": "file",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-DocstringRepresentation.html#property_file"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\DocstringRepresentation\u003A\u003A\u0024line",
+            "name": "line",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-DocstringRepresentation.html#property_line"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\DocstringRepresentation\u003A\u003A\u0024class",
+            "name": "class",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-DocstringRepresentation.html#property_class"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\DocstringRepresentation\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-DocstringRepresentation.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation",
+            "name": "MicrotimeRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003AgetDateTime\u0028\u0029",
+            "name": "getDateTime",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#method_getDateTime"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024seconds",
+            "name": "seconds",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_seconds"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024microseconds",
+            "name": "microseconds",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_microseconds"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024group",
+            "name": "group",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_group"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024lap",
+            "name": "lap",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_lap"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024total",
+            "name": "total",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_total"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024avg",
+            "name": "avg",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_avg"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024i",
+            "name": "i",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_i"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024mem",
+            "name": "mem",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_mem"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024mem_real",
+            "name": "mem_real",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_mem_real"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024mem_peak",
+            "name": "mem_peak",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_mem_peak"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024mem_peak_real",
+            "name": "mem_peak_real",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_mem_peak_real"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\MicrotimeRepresentation\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-MicrotimeRepresentation.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation",
+            "name": "Representation",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#method_getLabel"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003AgetName\u0028\u0029",
+            "name": "getName",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#method_getName"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003AsetName\u0028\u0029",
+            "name": "setName",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#method_setName"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003AlabelIsImplicit\u0028\u0029",
+            "name": "labelIsImplicit",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#method_labelIsImplicit"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003A\u0024label",
+            "name": "label",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#property_label"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003A\u0024implicit_label",
+            "name": "implicit_label",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#property_implicit_label"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003A\u0024contents",
+            "name": "contents",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#property_contents"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\Representation\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-Representation.html#property_name"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation",
+            "name": "SourceRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation\u003A\u003AgetSource\u0028\u0029",
+            "name": "getSource",
+            "summary": "Gets\u0020section\u0020of\u0020source\u0020code.",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html#method_getSource"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation\u003A\u003A\u0024source",
+            "name": "source",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html#property_source"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation\u003A\u003A\u0024filename",
+            "name": "filename",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html#property_filename"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation\u003A\u003A\u0024line",
+            "name": "line",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html#property_line"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SourceRepresentation\u003A\u003A\u0024showfilename",
+            "name": "showfilename",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SourceRepresentation.html#property_showfilename"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation",
+            "name": "SplFileInfoRepresentation",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#method_getSize"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003AgetMTime\u0028\u0029",
+            "name": "getMTime",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#method_getMTime"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003AgetLabel\u0028\u0029",
+            "name": "getLabel",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#method_getLabel"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024perms",
+            "name": "perms",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_perms"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024flags",
+            "name": "flags",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_flags"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024path",
+            "name": "path",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_path"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024realpath",
+            "name": "realpath",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_realpath"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024linktarget",
+            "name": "linktarget",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_linktarget"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024size",
+            "name": "size",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_size"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024is_dir",
+            "name": "is_dir",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_is_dir"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024is_file",
+            "name": "is_file",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_is_file"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024is_link",
+            "name": "is_link",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_is_link"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024owner",
+            "name": "owner",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_owner"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024group",
+            "name": "group",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_group"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024ctime",
+            "name": "ctime",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_ctime"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024mtime",
+            "name": "mtime",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_mtime"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024typename",
+            "name": "typename",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_typename"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024typeflag",
+            "name": "typeflag",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_typeflag"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation\\SplFileInfoRepresentation\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-Representation-SplFileInfoRepresentation.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\ResourceObject",
+            "name": "ResourceObject",
+            "summary": "",
+            "url": "classes/Kint-Object-ResourceObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\ResourceObject\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Kint-Object-ResourceObject.html#method_getType"
+        },                {
+            "fqsen": "\\Kint\\Object\\ResourceObject\u003A\u003Atransplant\u0028\u0029",
+            "name": "transplant",
+            "summary": "",
+            "url": "classes/Kint-Object-ResourceObject.html#method_transplant"
+        },                {
+            "fqsen": "\\Kint\\Object\\ResourceObject\u003A\u003A\u0024resource_type",
+            "name": "resource_type",
+            "summary": "",
+            "url": "classes/Kint-Object-ResourceObject.html#property_resource_type"
+        },                {
+            "fqsen": "\\Kint\\Object\\StreamObject",
+            "name": "StreamObject",
+            "summary": "",
+            "url": "classes/Kint-Object-StreamObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\StreamObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-StreamObject.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\StreamObject\u003A\u003AgetValueShort\u0028\u0029",
+            "name": "getValueShort",
+            "summary": "",
+            "url": "classes/Kint-Object-StreamObject.html#method_getValueShort"
+        },                {
+            "fqsen": "\\Kint\\Object\\StreamObject\u003A\u003A\u0024stream_meta",
+            "name": "stream_meta",
+            "summary": "",
+            "url": "classes/Kint-Object-StreamObject.html#property_stream_meta"
+        },                {
+            "fqsen": "\\Kint\\Object\\ThrowableObject",
+            "name": "ThrowableObject",
+            "summary": "",
+            "url": "classes/Kint-Object-ThrowableObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\ThrowableObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-ThrowableObject.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\ThrowableObject\u003A\u003AgetValueShort\u0028\u0029",
+            "name": "getValueShort",
+            "summary": "",
+            "url": "classes/Kint-Object-ThrowableObject.html#method_getValueShort"
+        },                {
+            "fqsen": "\\Kint\\Object\\ThrowableObject\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "",
+            "url": "classes/Kint-Object-ThrowableObject.html#property_message"
+        },                {
+            "fqsen": "\\Kint\\Object\\ThrowableObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-ThrowableObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceFrameObject",
+            "name": "TraceFrameObject",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceFrameObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceFrameObject\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceFrameObject.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceFrameObject\u003A\u003A\u0024trace",
+            "name": "trace",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceFrameObject.html#property_trace"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceFrameObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceFrameObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceObject",
+            "name": "TraceObject",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceObject.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceObject\u003A\u003AgetType\u0028\u0029",
+            "name": "getType",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceObject.html#method_getType"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceObject\u003A\u003AgetSize\u0028\u0029",
+            "name": "getSize",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceObject.html#method_getSize"
+        },                {
+            "fqsen": "\\Kint\\Object\\TraceObject\u003A\u003A\u0024hints",
+            "name": "hints",
+            "summary": "",
+            "url": "classes/Kint-Object-TraceObject.html#property_hints"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ArrayObjectPlugin",
+            "name": "ArrayObjectPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ArrayObjectPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ArrayObjectPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ArrayObjectPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ArrayObjectPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ArrayObjectPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ArrayObjectPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ArrayObjectPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Base64Plugin",
+            "name": "Base64Plugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-Base64Plugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Base64Plugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-Base64Plugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Base64Plugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-Base64Plugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Base64Plugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-Base64Plugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Base64Plugin\u003A\u003A\u0024min_length_hard",
+            "name": "min_length_hard",
+            "summary": "The\u0020minimum\u0020length\u0020before\u0020a\u0020string\u0020will\u0020be\u0020considered\u0020for\u0020base64\u0020decoding.",
+            "url": "classes/Kint-Parser-Base64Plugin.html#property_min_length_hard"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Base64Plugin\u003A\u003A\u0024min_length_soft",
+            "name": "min_length_soft",
+            "summary": "The\u0020minimum\u0020length\u0020before\u0020the\u0020base64\u0020decoding\u0020will\u0020take\u0020precedence.",
+            "url": "classes/Kint-Parser-Base64Plugin.html#property_min_length_soft"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BinaryPlugin",
+            "name": "BinaryPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-BinaryPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BinaryPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-BinaryPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BinaryPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-BinaryPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BinaryPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-BinaryPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin",
+            "name": "BlacklistPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003AparseObject\u0028\u0029",
+            "name": "parseObject",
+            "summary": "",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#method_parseObject"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003AblacklistObject\u0028\u0029",
+            "name": "blacklistObject",
+            "summary": "",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#method_blacklistObject"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003AparseArray\u0028\u0029",
+            "name": "parseArray",
+            "summary": "",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#method_parseArray"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003AblacklistArray\u0028\u0029",
+            "name": "blacklistArray",
+            "summary": "",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#method_blacklistArray"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003A\u0024blacklist",
+            "name": "blacklist",
+            "summary": "List\u0020of\u0020classes\u0020and\u0020interfaces\u0020to\u0020blacklist.",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#property_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003A\u0024shallow_blacklist",
+            "name": "shallow_blacklist",
+            "summary": "List\u0020of\u0020classes\u0020and\u0020interfaces\u0020to\u0020blacklist\u0020except\u0020when\u0020dumped\u0020directly.",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#property_shallow_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003A\u0024array_limit",
+            "name": "array_limit",
+            "summary": "Maximum\u0020size\u0020of\u0020arrays\u0020before\u0020blacklisting.",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#property_array_limit"
+        },                {
+            "fqsen": "\\Kint\\Parser\\BlacklistPlugin\u003A\u003A\u0024shallow_array_limit",
+            "name": "shallow_array_limit",
+            "summary": "Maximum\u0020size\u0020of\u0020arrays\u0020before\u0020blacklisting\u0020except\u0020when\u0020dumped\u0020directly.",
+            "url": "classes/Kint-Parser-BlacklistPlugin.html#property_shallow_array_limit"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassMethodsPlugin",
+            "name": "ClassMethodsPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassMethodsPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassMethodsPlugin\u003A\u003Asort\u0028\u0029",
+            "name": "sort",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassMethodsPlugin.html#method_sort"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassMethodsPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ClassMethodsPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassMethodsPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassMethodsPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassMethodsPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassMethodsPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassMethodsPlugin\u003A\u003A\u0024cache",
+            "name": "cache",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassMethodsPlugin.html#property_cache"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassStaticsPlugin",
+            "name": "ClassStaticsPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassStaticsPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassStaticsPlugin\u003A\u003Asort\u0028\u0029",
+            "name": "sort",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassStaticsPlugin.html#method_sort"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassStaticsPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ClassStaticsPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassStaticsPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassStaticsPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassStaticsPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassStaticsPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClassStaticsPlugin\u003A\u003A\u0024cache",
+            "name": "cache",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClassStaticsPlugin.html#property_cache"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClosurePlugin",
+            "name": "ClosurePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClosurePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClosurePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ClosurePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClosurePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClosurePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ClosurePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ClosurePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ColorPlugin",
+            "name": "ColorPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ColorPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ColorPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ColorPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ColorPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ColorPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ColorPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ColorPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DateTimePlugin",
+            "name": "DateTimePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-DateTimePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DateTimePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-DateTimePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DateTimePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-DateTimePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DateTimePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-DateTimePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin",
+            "name": "DOMDocumentPlugin",
+            "summary": "The\u0020DOMDocument\u0020parser\u0020plugin\u0020is\u0020particularly\u0020useful\u0020as\u0020it\u0020is\u0020both\u0020the\u0020only\nway\u0020to\u0020see\u0020inside\u0020the\u0020DOMNode\u0020without\u0020print_r,\u0020and\u0020the\u0020only\u0020way\u0020to\u0020see\u0020mixed\ntext\u0020and\u0020node\u0020inside\u0020XML\u0020\u0028SimpleXMLElement\u0020will\u0020strip\u0020out\u0020the\u0020text\u0029.",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003AparseList\u0028\u0029",
+            "name": "parseList",
+            "summary": "",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#method_parseList"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003AparseNode\u0028\u0029",
+            "name": "parseNode",
+            "summary": "",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#method_parseNode"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003AparseProperty\u0028\u0029",
+            "name": "parseProperty",
+            "summary": "",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#method_parseProperty"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003AtextualNodeToString\u0028\u0029",
+            "name": "textualNodeToString",
+            "summary": "",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#method_textualNodeToString"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003A\u0024blacklist",
+            "name": "blacklist",
+            "summary": "List\u0020of\u0020properties\u0020to\u0020skip\u0020parsing.",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#property_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\DOMDocumentPlugin\u003A\u003A\u0024verbose",
+            "name": "verbose",
+            "summary": "Show\u0020all\u0020properties\u0020and\u0020methods.",
+            "url": "classes/Kint-Parser-DOMDocumentPlugin.html#property_verbose"
+        },                {
+            "fqsen": "\\Kint\\Parser\\FsPathPlugin",
+            "name": "FsPathPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-FsPathPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\FsPathPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-FsPathPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\FsPathPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-FsPathPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\FsPathPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-FsPathPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\FsPathPlugin\u003A\u003A\u0024blacklist",
+            "name": "blacklist",
+            "summary": "",
+            "url": "classes/Kint-Parser-FsPathPlugin.html#property_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\IteratorPlugin",
+            "name": "IteratorPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-IteratorPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\IteratorPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-IteratorPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\IteratorPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-IteratorPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\IteratorPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-IteratorPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\IteratorPlugin\u003A\u003A\u0024blacklist",
+            "name": "blacklist",
+            "summary": "List\u0020of\u0020classes\u0020and\u0020interfaces\u0020to\u0020blacklist.",
+            "url": "classes/Kint-Parser-IteratorPlugin.html#property_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\JsonPlugin",
+            "name": "JsonPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-JsonPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\JsonPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-JsonPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\JsonPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-JsonPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\JsonPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-JsonPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin",
+            "name": "MicrotimePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003Aclean\u0028\u0029",
+            "name": "clean",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#method_clean"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003A\u0024last",
+            "name": "last",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#property_last"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003A\u0024start",
+            "name": "start",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#property_start"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003A\u0024times",
+            "name": "times",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#property_times"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MicrotimePlugin\u003A\u003A\u0024group",
+            "name": "group",
+            "summary": "",
+            "url": "classes/Kint-Parser-MicrotimePlugin.html#property_group"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MysqliPlugin",
+            "name": "MysqliPlugin",
+            "summary": "Adds\u0020support\u0020for\u0020Mysqli\u0020object\u0020parsing.",
+            "url": "classes/Kint-Parser-MysqliPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MysqliPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-MysqliPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MysqliPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-MysqliPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MysqliPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-MysqliPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MysqliPlugin\u003A\u003A\u0024always_readable",
+            "name": "always_readable",
+            "summary": "",
+            "url": "classes/Kint-Parser-MysqliPlugin.html#property_always_readable"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MysqliPlugin\u003A\u003A\u0024empty_readable",
+            "name": "empty_readable",
+            "summary": "",
+            "url": "classes/Kint-Parser-MysqliPlugin.html#property_empty_readable"
+        },                {
+            "fqsen": "\\Kint\\Parser\\MysqliPlugin\u003A\u003A\u0024connected_readable",
+            "name": "connected_readable",
+            "summary": "",
+            "url": "classes/Kint-Parser-MysqliPlugin.html#property_connected_readable"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser",
+            "name": "Parser",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AgetCallerClass\u0028\u0029",
+            "name": "getCallerClass",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_getCallerClass"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AsetCallerClass\u0028\u0029",
+            "name": "setCallerClass",
+            "summary": "Set\u0020the\u0020caller\u0020class.",
+            "url": "classes/Kint-Parser-Parser.html#method_setCallerClass"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AnoRecurseCall\u0028\u0029",
+            "name": "noRecurseCall",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_noRecurseCall"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AgetDepthLimit\u0028\u0029",
+            "name": "getDepthLimit",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_getDepthLimit"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AsetDepthLimit\u0028\u0029",
+            "name": "setDepthLimit",
+            "summary": "Set\u0020the\u0020depth\u0020limit.",
+            "url": "classes/Kint-Parser-Parser.html#method_setDepthLimit"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AparseDeep\u0028\u0029",
+            "name": "parseDeep",
+            "summary": "Disables\u0020the\u0020depth\u0020limit\u0020and\u0020parses\u0020a\u0020variable.",
+            "url": "classes/Kint-Parser-Parser.html#method_parseDeep"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "Parses\u0020a\u0020variable\u0020into\u0020a\u0020Kint\u0020object\u0020structure.",
+            "url": "classes/Kint-Parser-Parser.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AapplyPlugins\u0028\u0029",
+            "name": "applyPlugins",
+            "summary": "Applies\u0020plugins\u0020for\u0020an\u0020object\u0020type.",
+            "url": "classes/Kint-Parser-Parser.html#method_applyPlugins"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AparseArray\u0028\u0029",
+            "name": "parseArray",
+            "summary": "Parses\u0020an\u0020array\u0020into\u0020a\u0020Kint\u0020object\u0020structure.",
+            "url": "classes/Kint-Parser-Parser.html#method_parseArray"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AparseGeneric\u0028\u0029",
+            "name": "parseGeneric",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_parseGeneric"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AparseObject\u0028\u0029",
+            "name": "parseObject",
+            "summary": "Parses\u0020an\u0020object\u0020into\u0020a\u0020Kint\u0020InstanceObject\u0020structure.",
+            "url": "classes/Kint-Parser-Parser.html#method_parseObject"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AchildHasPath\u0028\u0029",
+            "name": "childHasPath",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_childHasPath"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AparseResource\u0028\u0029",
+            "name": "parseResource",
+            "summary": "Parses\u0020a\u0020resource\u0020into\u0020a\u0020Kint\u0020ResourceObject\u0020structure.",
+            "url": "classes/Kint-Parser-Parser.html#method_parseResource"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AparseString\u0028\u0029",
+            "name": "parseString",
+            "summary": "Parses\u0020a\u0020string\u0020into\u0020a\u0020Kint\u0020BlobObject\u0020structure.",
+            "url": "classes/Kint-Parser-Parser.html#method_parseString"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AparseUnknown\u0028\u0029",
+            "name": "parseUnknown",
+            "summary": "Parses\u0020an\u0020unknown\u0020into\u0020a\u0020Kint\u0020object\u0020structure.",
+            "url": "classes/Kint-Parser-Parser.html#method_parseUnknown"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AaddPlugin\u0028\u0029",
+            "name": "addPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_addPlugin"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AclearPlugins\u0028\u0029",
+            "name": "clearPlugins",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_clearPlugins"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AhaltParse\u0028\u0029",
+            "name": "haltParse",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#method_haltParse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003AgetCleanArray\u0028\u0029",
+            "name": "getCleanArray",
+            "summary": "Returns\u0020an\u0020array\u0020without\u0020the\u0020recursion\u0020marker\u0020in\u0020it.",
+            "url": "classes/Kint-Parser-Parser.html#method_getCleanArray"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003ATRIGGER_NONE",
+            "name": "TRIGGER_NONE",
+            "summary": "Plugin\u0020triggers.",
+            "url": "classes/Kint-Parser-Parser.html#constant_TRIGGER_NONE"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003ATRIGGER_BEGIN",
+            "name": "TRIGGER_BEGIN",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#constant_TRIGGER_BEGIN"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003ATRIGGER_SUCCESS",
+            "name": "TRIGGER_SUCCESS",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#constant_TRIGGER_SUCCESS"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003ATRIGGER_RECURSION",
+            "name": "TRIGGER_RECURSION",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#constant_TRIGGER_RECURSION"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003ATRIGGER_DEPTH_LIMIT",
+            "name": "TRIGGER_DEPTH_LIMIT",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#constant_TRIGGER_DEPTH_LIMIT"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003ATRIGGER_COMPLETE",
+            "name": "TRIGGER_COMPLETE",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#constant_TRIGGER_COMPLETE"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003A\u0024caller_class",
+            "name": "caller_class",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#property_caller_class"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003A\u0024depth_limit",
+            "name": "depth_limit",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#property_depth_limit"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003A\u0024marker",
+            "name": "marker",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#property_marker"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003A\u0024object_hashes",
+            "name": "object_hashes",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#property_object_hashes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003A\u0024parse_break",
+            "name": "parse_break",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#property_parse_break"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Parser\u003A\u003A\u0024plugins",
+            "name": "plugins",
+            "summary": "",
+            "url": "classes/Kint-Parser-Parser.html#property_plugins"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Plugin",
+            "name": "Plugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-Plugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Plugin\u003A\u003AsetParser\u0028\u0029",
+            "name": "setParser",
+            "summary": "",
+            "url": "classes/Kint-Parser-Plugin.html#method_setParser"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Plugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-Plugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Plugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-Plugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Plugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-Plugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\Plugin\u003A\u003A\u0024parser",
+            "name": "parser",
+            "summary": "",
+            "url": "classes/Kint-Parser-Plugin.html#property_parser"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin",
+            "name": "ProxyPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ProxyPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Parser-ProxyPlugin.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ProxyPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ProxyPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ProxyPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin\u003A\u003A\u0024types",
+            "name": "types",
+            "summary": "",
+            "url": "classes/Kint-Parser-ProxyPlugin.html#property_types"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin\u003A\u003A\u0024triggers",
+            "name": "triggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ProxyPlugin.html#property_triggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ProxyPlugin\u003A\u003A\u0024callback",
+            "name": "callback",
+            "summary": "",
+            "url": "classes/Kint-Parser-ProxyPlugin.html#property_callback"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SerializePlugin",
+            "name": "SerializePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-SerializePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SerializePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-SerializePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SerializePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-SerializePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SerializePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-SerializePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SerializePlugin\u003A\u003A\u0024safe_mode",
+            "name": "safe_mode",
+            "summary": "Disables\u0020automatic\u0020unserialization\u0020on\u0020arrays\u0020and\u0020objects.",
+            "url": "classes/Kint-Parser-SerializePlugin.html#property_safe_mode"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SerializePlugin\u003A\u003A\u0024options",
+            "name": "options",
+            "summary": "",
+            "url": "classes/Kint-Parser-SerializePlugin.html#property_options"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SimpleXMLElementPlugin",
+            "name": "SimpleXMLElementPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-SimpleXMLElementPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SimpleXMLElementPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-SimpleXMLElementPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SimpleXMLElementPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-SimpleXMLElementPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SimpleXMLElementPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-SimpleXMLElementPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SimpleXMLElementPlugin\u003A\u003A\u0024verbose",
+            "name": "verbose",
+            "summary": "Show\u0020all\u0020properties\u0020and\u0020methods.",
+            "url": "classes/Kint-Parser-SimpleXMLElementPlugin.html#property_verbose"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplFileInfoPlugin",
+            "name": "SplFileInfoPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-SplFileInfoPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplFileInfoPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-SplFileInfoPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplFileInfoPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-SplFileInfoPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplFileInfoPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-SplFileInfoPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplObjectStoragePlugin",
+            "name": "SplObjectStoragePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-SplObjectStoragePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplObjectStoragePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-SplObjectStoragePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplObjectStoragePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-SplObjectStoragePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\SplObjectStoragePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-SplObjectStoragePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\StreamPlugin",
+            "name": "StreamPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-StreamPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\StreamPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-StreamPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\StreamPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-StreamPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\StreamPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-StreamPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TablePlugin",
+            "name": "TablePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-TablePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TablePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-TablePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TablePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-TablePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TablePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-TablePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ThrowablePlugin",
+            "name": "ThrowablePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ThrowablePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ThrowablePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ThrowablePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ThrowablePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ThrowablePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ThrowablePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ThrowablePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TimestampPlugin",
+            "name": "TimestampPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-TimestampPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TimestampPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-TimestampPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TimestampPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-TimestampPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TimestampPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-TimestampPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TimestampPlugin\u003A\u003A\u0024blacklist",
+            "name": "blacklist",
+            "summary": "",
+            "url": "classes/Kint-Parser-TimestampPlugin.html#property_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ToStringPlugin",
+            "name": "ToStringPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-ToStringPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ToStringPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-ToStringPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ToStringPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-ToStringPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ToStringPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-ToStringPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\ToStringPlugin\u003A\u003A\u0024blacklist",
+            "name": "blacklist",
+            "summary": "",
+            "url": "classes/Kint-Parser-ToStringPlugin.html#property_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TracePlugin",
+            "name": "TracePlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-TracePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TracePlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-TracePlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TracePlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-TracePlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TracePlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-TracePlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\TracePlugin\u003A\u003A\u0024blacklist",
+            "name": "blacklist",
+            "summary": "",
+            "url": "classes/Kint-Parser-TracePlugin.html#property_blacklist"
+        },                {
+            "fqsen": "\\Kint\\Parser\\XmlPlugin",
+            "name": "XmlPlugin",
+            "summary": "",
+            "url": "classes/Kint-Parser-XmlPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Parser\\XmlPlugin\u003A\u003AxmlToDOMDocument\u0028\u0029",
+            "name": "xmlToDOMDocument",
+            "summary": "Get\u0020the\u0020DOMDocument\u0020info.",
+            "url": "classes/Kint-Parser-XmlPlugin.html#method_xmlToDOMDocument"
+        },                {
+            "fqsen": "\\Kint\\Parser\\XmlPlugin\u003A\u003AxmlToSimpleXML\u0028\u0029",
+            "name": "xmlToSimpleXML",
+            "summary": "",
+            "url": "classes/Kint-Parser-XmlPlugin.html#method_xmlToSimpleXML"
+        },                {
+            "fqsen": "\\Kint\\Parser\\XmlPlugin\u003A\u003AgetTypes\u0028\u0029",
+            "name": "getTypes",
+            "summary": "An\u0020array\u0020of\u0020types\u0020\u0028As\u0020returned\u0020by\u0020gettype\u0029\u0020for\u0020all\u0020data\u0020this\u0020plugin\u0020can\u0020operate\u0020on.",
+            "url": "classes/Kint-Parser-XmlPlugin.html#method_getTypes"
+        },                {
+            "fqsen": "\\Kint\\Parser\\XmlPlugin\u003A\u003AgetTriggers\u0028\u0029",
+            "name": "getTriggers",
+            "summary": "",
+            "url": "classes/Kint-Parser-XmlPlugin.html#method_getTriggers"
+        },                {
+            "fqsen": "\\Kint\\Parser\\XmlPlugin\u003A\u003Aparse\u0028\u0029",
+            "name": "parse",
+            "summary": "",
+            "url": "classes/Kint-Parser-XmlPlugin.html#method_parse"
+        },                {
+            "fqsen": "\\Kint\\Parser\\XmlPlugin\u003A\u003A\u0024parse_method",
+            "name": "parse_method",
+            "summary": "Which\u0020method\u0020to\u0020parse\u0020the\u0020variable\u0020with.",
+            "url": "classes/Kint-Parser-XmlPlugin.html#property_parse_method"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer",
+            "name": "CliRenderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003AcolorValue\u0028\u0029",
+            "name": "colorValue",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_colorValue"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003AcolorType\u0028\u0029",
+            "name": "colorType",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_colorType"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003AcolorTitle\u0028\u0029",
+            "name": "colorTitle",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_colorTitle"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003ArenderTitle\u0028\u0029",
+            "name": "renderTitle",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_renderTitle"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003Autf8ToWindows\u0028\u0029",
+            "name": "utf8ToWindows",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_utf8ToWindows"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003ApreRender\u0028\u0029",
+            "name": "preRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_preRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003ApostRender\u0028\u0029",
+            "name": "postRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_postRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003Aescape\u0028\u0029",
+            "name": "escape",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#method_escape"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A\u0024cli_colors",
+            "name": "cli_colors",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#property_cli_colors"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A\u0024force_utf8",
+            "name": "force_utf8",
+            "summary": "Forces\u0020utf8\u0020output\u0020on\u0020windows.",
+            "url": "classes/Kint-Renderer-CliRenderer.html#property_force_utf8"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A\u0024detect_width",
+            "name": "detect_width",
+            "summary": "Detects\u0020the\u0020terminal\u0020width\u0020on\u0020startup.",
+            "url": "classes/Kint-Renderer-CliRenderer.html#property_detect_width"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A\u0024min_terminal_width",
+            "name": "min_terminal_width",
+            "summary": "The\u0020minimum\u0020width\u0020to\u0020detect\u0020terminal\u0020size\u0020as.",
+            "url": "classes/Kint-Renderer-CliRenderer.html#property_min_terminal_width"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A\u0024terminal_width",
+            "name": "terminal_width",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#property_terminal_width"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A\u0024windows_output",
+            "name": "windows_output",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#property_windows_output"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\CliRenderer\u003A\u003A\u0024colors",
+            "name": "colors",
+            "summary": "",
+            "url": "classes/Kint-Renderer-CliRenderer.html#property_colors"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer",
+            "name": "PlainRenderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003ArenderJs\u0028\u0029",
+            "name": "renderJs",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_renderJs"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003ArenderCss\u0028\u0029",
+            "name": "renderCss",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_renderCss"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AsetCallInfo\u0028\u0029",
+            "name": "setCallInfo",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_setCallInfo"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AsetStatics\u0028\u0029",
+            "name": "setStatics",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_setStatics"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AgetPreRender\u0028\u0029",
+            "name": "getPreRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_getPreRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AsetPreRender\u0028\u0029",
+            "name": "setPreRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_setPreRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AcolorValue\u0028\u0029",
+            "name": "colorValue",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_colorValue"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AcolorType\u0028\u0029",
+            "name": "colorType",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_colorType"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AcolorTitle\u0028\u0029",
+            "name": "colorTitle",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_colorTitle"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003ArenderTitle\u0028\u0029",
+            "name": "renderTitle",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_renderTitle"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003Autf8ToHtmlentity\u0028\u0029",
+            "name": "utf8ToHtmlentity",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_utf8ToHtmlentity"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003ApreRender\u0028\u0029",
+            "name": "preRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_preRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003ApostRender\u0028\u0029",
+            "name": "postRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_postRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003AideLink\u0028\u0029",
+            "name": "ideLink",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_ideLink"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003Aescape\u0028\u0029",
+            "name": "escape",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#method_escape"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A\u0024pre_render_sources",
+            "name": "pre_render_sources",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#property_pre_render_sources"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A\u0024theme",
+            "name": "theme",
+            "summary": "Path\u0020to\u0020the\u0020CSS\u0020file\u0020to\u0020load\u0020by\u0020default.",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#property_theme"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A\u0024disable_utf8",
+            "name": "disable_utf8",
+            "summary": "Output\u0020htmlentities\u0020instead\u0020of\u0020utf8.",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#property_disable_utf8"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A\u0024needs_pre_render",
+            "name": "needs_pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#property_needs_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A\u0024always_pre_render",
+            "name": "always_pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#property_always_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A\u0024force_pre_render",
+            "name": "force_pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#property_force_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\PlainRenderer\u003A\u003A\u0024pre_render",
+            "name": "pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-PlainRenderer.html#property_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer",
+            "name": "Renderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AsortPropertiesFull\u0028\u0029",
+            "name": "sortPropertiesFull",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_sortPropertiesFull"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AsortProperties\u0028\u0029",
+            "name": "sortProperties",
+            "summary": "Sorts\u0020an\u0020array\u0020of\u0020BasicObject.",
+            "url": "classes/Kint-Renderer-Renderer.html#method_sortProperties"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003ArenderNothing\u0028\u0029",
+            "name": "renderNothing",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_renderNothing"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AgetCallInfo\u0028\u0029",
+            "name": "getCallInfo",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_getCallInfo"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AsetCallInfo\u0028\u0029",
+            "name": "setCallInfo",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_setCallInfo"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AgetStatics\u0028\u0029",
+            "name": "getStatics",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_getStatics"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AsetStatics\u0028\u0029",
+            "name": "setStatics",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_setStatics"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AgetShowTrace\u0028\u0029",
+            "name": "getShowTrace",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_getShowTrace"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AsetShowTrace\u0028\u0029",
+            "name": "setShowTrace",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_setShowTrace"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AmatchPlugins\u0028\u0029",
+            "name": "matchPlugins",
+            "summary": "Returns\u0020the\u0020first\u0020compatible\u0020plugin\u0020available.",
+            "url": "classes/Kint-Renderer-Renderer.html#method_matchPlugins"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003AfilterParserPlugins\u0028\u0029",
+            "name": "filterParserPlugins",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_filterParserPlugins"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003ApreRender\u0028\u0029",
+            "name": "preRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_preRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003ApostRender\u0028\u0029",
+            "name": "postRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#method_postRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003ASORT_NONE",
+            "name": "SORT_NONE",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#constant_SORT_NONE"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003ASORT_VISIBILITY",
+            "name": "SORT_VISIBILITY",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#constant_SORT_VISIBILITY"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003ASORT_FULL",
+            "name": "SORT_FULL",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#constant_SORT_FULL"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003A\u0024call_info",
+            "name": "call_info",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#property_call_info"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003A\u0024statics",
+            "name": "statics",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#property_statics"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Renderer\u003A\u003A\u0024show_trace",
+            "name": "show_trace",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Renderer.html#property_show_trace"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\BinaryPlugin",
+            "name": "BinaryPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-BinaryPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\BinaryPlugin\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-BinaryPlugin.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\BinaryPlugin\u003A\u003A\u0024line_length",
+            "name": "line_length",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-BinaryPlugin.html#property_line_length"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\BinaryPlugin\u003A\u003A\u0024chunk_length",
+            "name": "chunk_length",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-BinaryPlugin.html#property_chunk_length"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\BlacklistPlugin",
+            "name": "BlacklistPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-BlacklistPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\BlacklistPlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-BlacklistPlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\CallablePlugin",
+            "name": "CallablePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-CallablePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\CallablePlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-CallablePlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\CallablePlugin\u003A\u003ArenderMethod\u0028\u0029",
+            "name": "renderMethod",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-CallablePlugin.html#method_renderMethod"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\CallablePlugin\u003A\u003ArenderClosure\u0028\u0029",
+            "name": "renderClosure",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-CallablePlugin.html#method_renderClosure"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\CallablePlugin\u003A\u003ArenderCallable\u0028\u0029",
+            "name": "renderCallable",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-CallablePlugin.html#method_renderCallable"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\CallablePlugin\u003A\u003A\u0024method_cache",
+            "name": "method_cache",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-CallablePlugin.html#property_method_cache"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\ClosurePlugin",
+            "name": "ClosurePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-ClosurePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\ClosurePlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-ClosurePlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\ColorPlugin",
+            "name": "ColorPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-ColorPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\ColorPlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-ColorPlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\ColorPlugin\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-ColorPlugin.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\DepthLimitPlugin",
+            "name": "DepthLimitPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-DepthLimitPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\DepthLimitPlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-DepthLimitPlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\DocstringPlugin",
+            "name": "DocstringPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-DocstringPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\DocstringPlugin\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-DocstringPlugin.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\MicrotimePlugin",
+            "name": "MicrotimePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-MicrotimePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\MicrotimePlugin\u003A\u003ArenderJs\u0028\u0029",
+            "name": "renderJs",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-MicrotimePlugin.html#method_renderJs"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\MicrotimePlugin\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-MicrotimePlugin.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\ObjectPluginInterface",
+            "name": "ObjectPluginInterface",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-ObjectPluginInterface.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\ObjectPluginInterface\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-ObjectPluginInterface.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\Plugin",
+            "name": "Plugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-Plugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\Plugin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-Plugin.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\Plugin\u003A\u003ArenderLockedHeader\u0028\u0029",
+            "name": "renderLockedHeader",
+            "summary": "Renders\u0020a\u0020locked\u0020header.",
+            "url": "classes/Kint-Renderer-Rich-Plugin.html#method_renderLockedHeader"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\Plugin\u003A\u003A\u0024renderer",
+            "name": "renderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-Plugin.html#property_renderer"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\PluginInterface",
+            "name": "PluginInterface",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-PluginInterface.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\PluginInterface\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-PluginInterface.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\RecursionPlugin",
+            "name": "RecursionPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-RecursionPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\RecursionPlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-RecursionPlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\SimpleXMLElementPlugin",
+            "name": "SimpleXMLElementPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-SimpleXMLElementPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\SimpleXMLElementPlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-SimpleXMLElementPlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\SourcePlugin",
+            "name": "SourcePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-SourcePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\SourcePlugin\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-SourcePlugin.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TablePlugin",
+            "name": "TablePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TablePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TablePlugin\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TablePlugin.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TablePlugin\u003A\u003A\u0024respect_str_length",
+            "name": "respect_str_length",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TablePlugin.html#property_respect_str_length"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TabPluginInterface",
+            "name": "TabPluginInterface",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TabPluginInterface.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TabPluginInterface\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TabPluginInterface.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TimestampPlugin",
+            "name": "TimestampPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TimestampPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TimestampPlugin\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TimestampPlugin.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TraceFramePlugin",
+            "name": "TraceFramePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TraceFramePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich\\TraceFramePlugin\u003A\u003ArenderObject\u0028\u0029",
+            "name": "renderObject",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Rich-TraceFramePlugin.html#method_renderObject"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer",
+            "name": "RichRenderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AsetForcePreRender\u0028\u0029",
+            "name": "setForcePreRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_setForcePreRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderJs\u0028\u0029",
+            "name": "renderJs",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderJs"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderCss\u0028\u0029",
+            "name": "renderCss",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderCss"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AsetCallInfo\u0028\u0029",
+            "name": "setCallInfo",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_setCallInfo"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AsetStatics\u0028\u0029",
+            "name": "setStatics",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_setStatics"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AgetExpand\u0028\u0029",
+            "name": "getExpand",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_getExpand"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AsetExpand\u0028\u0029",
+            "name": "setExpand",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_setExpand"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AgetPreRender\u0028\u0029",
+            "name": "getPreRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_getPreRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AsetPreRender\u0028\u0029",
+            "name": "setPreRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_setPreRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AgetUseFolder\u0028\u0029",
+            "name": "getUseFolder",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_getUseFolder"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AsetUseFolder\u0028\u0029",
+            "name": "setUseFolder",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_setUseFolder"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AgetPlugin\u0028\u0029",
+            "name": "getPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_getPlugin"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderChildren\u0028\u0029",
+            "name": "renderChildren",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderChildren"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderTab\u0028\u0029",
+            "name": "renderTab",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderTab"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003Aescape\u0028\u0029",
+            "name": "escape",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_escape"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderHeaderWrapper\u0028\u0029",
+            "name": "renderHeaderWrapper",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderHeaderWrapper"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderHeader\u0028\u0029",
+            "name": "renderHeader",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderHeader"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderNothing\u0028\u0029",
+            "name": "renderNothing",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderNothing"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ApreRender\u0028\u0029",
+            "name": "preRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_preRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ArenderFolder\u0028\u0029",
+            "name": "renderFolder",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_renderFolder"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003ApostRender\u0028\u0029",
+            "name": "postRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_postRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003AideLink\u0028\u0029",
+            "name": "ideLink",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#method_ideLink"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024object_plugins",
+            "name": "object_plugins",
+            "summary": "RichRenderer\u0020object\u0020plugins\u0020should\u0020implement\u0020Kint\\Renderer\\Rich\\ObjectPluginInterface.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_object_plugins"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024tab_plugins",
+            "name": "tab_plugins",
+            "summary": "RichRenderer\u0020tab\u0020plugins\u0020should\u0020implement\u0020Kint\\Renderer\\Rich\\TabPluginInterface.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_tab_plugins"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024pre_render_sources",
+            "name": "pre_render_sources",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_pre_render_sources"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024access_paths",
+            "name": "access_paths",
+            "summary": "Whether\u0020or\u0020not\u0020to\u0020render\u0020access\u0020paths.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_access_paths"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024strlen_max",
+            "name": "strlen_max",
+            "summary": "The\u0020maximum\u0020length\u0020of\u0020a\u0020string\u0020before\u0020it\u0020is\u0020truncated.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_strlen_max"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024theme",
+            "name": "theme",
+            "summary": "Path\u0020to\u0020the\u0020CSS\u0020file\u0020to\u0020load\u0020by\u0020default.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_theme"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024escape_types",
+            "name": "escape_types",
+            "summary": "Assume\u0020types\u0020and\u0020sizes\u0020don\u0027t\u0020need\u0020to\u0020be\u0020escaped.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_escape_types"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024folder",
+            "name": "folder",
+            "summary": "Move\u0020all\u0020dumps\u0020to\u0020a\u0020folder\u0020at\u0020the\u0020bottom\u0020of\u0020the\u0020body.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_folder"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024sort",
+            "name": "sort",
+            "summary": "Sort\u0020mode\u0020for\u0020object\u0020properties.",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_sort"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024needs_pre_render",
+            "name": "needs_pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_needs_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024needs_folder_render",
+            "name": "needs_folder_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_needs_folder_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024always_pre_render",
+            "name": "always_pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_always_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024plugin_objs",
+            "name": "plugin_objs",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_plugin_objs"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024expand",
+            "name": "expand",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_expand"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024force_pre_render",
+            "name": "force_pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_force_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024pre_render",
+            "name": "pre_render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_pre_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\RichRenderer\u003A\u003A\u0024use_folder",
+            "name": "use_folder",
+            "summary": "",
+            "url": "classes/Kint-Renderer-RichRenderer.html#property_use_folder"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\BlacklistPlugin",
+            "name": "BlacklistPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-BlacklistPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\BlacklistPlugin\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-BlacklistPlugin.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\DepthLimitPlugin",
+            "name": "DepthLimitPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-DepthLimitPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\DepthLimitPlugin\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-DepthLimitPlugin.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\MicrotimePlugin",
+            "name": "MicrotimePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-MicrotimePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\MicrotimePlugin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-MicrotimePlugin.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\MicrotimePlugin\u003A\u003ArenderJs\u0028\u0029",
+            "name": "renderJs",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-MicrotimePlugin.html#method_renderJs"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\MicrotimePlugin\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-MicrotimePlugin.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\MicrotimePlugin\u003A\u003A\u0024useJs",
+            "name": "useJs",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-MicrotimePlugin.html#property_useJs"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\Plugin",
+            "name": "Plugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-Plugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\Plugin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-Plugin.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\Plugin\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-Plugin.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\Plugin\u003A\u003A\u0024renderer",
+            "name": "renderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-Plugin.html#property_renderer"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\RecursionPlugin",
+            "name": "RecursionPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-RecursionPlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\RecursionPlugin\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-RecursionPlugin.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\TracePlugin",
+            "name": "TracePlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-TracePlugin.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text\\TracePlugin\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-Text-TracePlugin.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer",
+            "name": "TextRenderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AgetPlugin\u0028\u0029",
+            "name": "getPlugin",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_getPlugin"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AcolorTitle\u0028\u0029",
+            "name": "colorTitle",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_colorTitle"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003ArenderTitle\u0028\u0029",
+            "name": "renderTitle",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_renderTitle"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AboxText\u0028\u0029",
+            "name": "boxText",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_boxText"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003Aescape\u0028\u0029",
+            "name": "escape",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_escape"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003ArenderHeader\u0028\u0029",
+            "name": "renderHeader",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_renderHeader"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AcolorType\u0028\u0029",
+            "name": "colorType",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_colorType"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AcolorValue\u0028\u0029",
+            "name": "colorValue",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_colorValue"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003ArenderChildren\u0028\u0029",
+            "name": "renderChildren",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_renderChildren"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003ArenderNothing\u0028\u0029",
+            "name": "renderNothing",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_renderNothing"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003ApostRender\u0028\u0029",
+            "name": "postRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_postRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AcalledFrom\u0028\u0029",
+            "name": "calledFrom",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_calledFrom"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AideLink\u0028\u0029",
+            "name": "ideLink",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_ideLink"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003AfilterParserPlugins\u0028\u0029",
+            "name": "filterParserPlugins",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#method_filterParserPlugins"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024plugins",
+            "name": "plugins",
+            "summary": "TextRenderer\u0020plugins\u0020should\u0020be\u0020instances\u0020of\u0020Kint\\Renderer\\Text\\Plugin.",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_plugins"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024parser_plugin_whitelist",
+            "name": "parser_plugin_whitelist",
+            "summary": "Parser\u0020plugins\u0020must\u0020be\u0020instanceof\u0020one\u0020of\u0020these\u0020or\nit\u0020will\u0020be\u0020removed\u0020for\u0020performance\u0020reasons.",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_parser_plugin_whitelist"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024strlen_max",
+            "name": "strlen_max",
+            "summary": "The\u0020maximum\u0020length\u0020of\u0020a\u0020string\u0020before\u0020it\u0020is\u0020truncated.",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_strlen_max"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024default_width",
+            "name": "default_width",
+            "summary": "The\u0020default\u0020width\u0020of\u0020the\u0020terminal\u0020for\u0020headers.",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_default_width"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024default_indent",
+            "name": "default_indent",
+            "summary": "Indentation\u0020width.",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_default_indent"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024decorations",
+            "name": "decorations",
+            "summary": "Decorate\u0020the\u0020header\u0020and\u0020footer.",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_decorations"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024sort",
+            "name": "sort",
+            "summary": "Sort\u0020mode\u0020for\u0020object\u0020properties.",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_sort"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024header_width",
+            "name": "header_width",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_header_width"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024indent_width",
+            "name": "indent_width",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_indent_width"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\TextRenderer\u003A\u003A\u0024plugin_objs",
+            "name": "plugin_objs",
+            "summary": "",
+            "url": "classes/Kint-Renderer-TextRenderer.html#property_plugin_objs"
+        },                {
+            "fqsen": "\\KINT_SKIP_FACADE",
+            "name": "KINT_SKIP_FACADE",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_SKIP_FACADE"
+        },                {
+            "fqsen": "\\KINT_SKIP_HELPERS",
+            "name": "KINT_SKIP_HELPERS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_KINT_SKIP_HELPERS"
+        },                {
+            "fqsen": "\\Kint\\Utils",
+            "name": "Utils",
+            "summary": "A\u0020collection\u0020of\u0020utility\u0020methods.\u0020Should\u0020all\u0020be\u0020static\u0020methods\u0020with\u0020no\u0020dependencies.",
+            "url": "classes/Kint-Utils.html"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method___construct"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AgetHumanReadableBytes\u0028\u0029",
+            "name": "getHumanReadableBytes",
+            "summary": "Turns\u0020a\u0020byte\u0020value\u0020into\u0020a\u0020human\u002Dreadable\u0020representation.",
+            "url": "classes/Kint-Utils.html#method_getHumanReadableBytes"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AcomposerSkipFlags\u0028\u0029",
+            "name": "composerSkipFlags",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_composerSkipFlags"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AcomposerGetExtras\u0028\u0029",
+            "name": "composerGetExtras",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_composerGetExtras"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AisTrace\u0028\u0029",
+            "name": "isTrace",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_isTrace"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AisSequential\u0028\u0029",
+            "name": "isSequential",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_isSequential"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AtraceFrameIsListed\u0028\u0029",
+            "name": "traceFrameIsListed",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_traceFrameIsListed"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AnormalizeAliases\u0028\u0029",
+            "name": "normalizeAliases",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_normalizeAliases"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AtruncateString\u0028\u0029",
+            "name": "truncateString",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_truncateString"
+        },                {
+            "fqsen": "\\Kint\\Utils\u003A\u003AgetTypeString\u0028\u0029",
+            "name": "getTypeString",
+            "summary": "",
+            "url": "classes/Kint-Utils.html#method_getTypeString"
+        },                {
+            "fqsen": "\\j\u0028\u0029",
+            "name": "j",
+            "summary": "Alias\u0020of\u0020Kint\u003A\u003Adump\u0028\u0029,\u0020however\u0020the\u0020output\u0020is\u0020dumped\u0020to\u0020the\u0020javascript\u0020console\u0020and\nadded\u0020to\u0020the\u0020global\u0020array\u0020\u0060kintDump\u0060.\u0020If\u0020run\u0020in\u0020CLI\u0020mode,\u0020output\u0020is\u0020pure\u0020whitespace.",
+            "url": "namespaces/default.html#function_j"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer",
+            "name": "JsRenderer",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html#method_render"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer\u003A\u003Asimplify\u0028\u0029",
+            "name": "simplify",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html#method_simplify"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer\u003A\u003ArenderNothing\u0028\u0029",
+            "name": "renderNothing",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html#method_renderNothing"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer\u003A\u003ApreRender\u0028\u0029",
+            "name": "preRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html#method_preRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer\u003A\u003ApostRender\u0028\u0029",
+            "name": "postRender",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html#method_postRender"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer\u003A\u003ARENDER_MODE",
+            "name": "RENDER_MODE",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html#constant_RENDER_MODE"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\JsRenderer\u003A\u003A\u0024dump_storage",
+            "name": "dump_storage",
+            "summary": "",
+            "url": "classes/Kint-Renderer-JsRenderer.html#property_dump_storage"
+        },                {
+            "fqsen": "\\LayoutComponents\\Controller\\Admin",
+            "name": "Admin",
+            "summary": "Class\u0020Controller",
+            "url": "classes/LayoutComponents-Controller-Admin.html"
+        },                {
+            "fqsen": "\\LayoutComponents\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/LayoutComponents-Controller-Admin.html#method_index"
+        },                {
+            "fqsen": "\\LayoutComponents\\Controller\\Admin\u003A\u003Astore\u0028\u0029",
+            "name": "store",
+            "summary": "",
+            "url": "classes/LayoutComponents-Controller-Admin.html#method_store"
+        },                {
+            "fqsen": "\\LayoutComponents\\Controller\\RestApi",
+            "name": "RestApi",
+            "summary": "Class\u0020Controller",
+            "url": "classes/LayoutComponents-Controller-RestApi.html"
+        },                {
+            "fqsen": "\\LayoutComponents\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/LayoutComponents-Controller-RestApi.html#method_get"
+        },                {
+            "fqsen": "\\LayoutComponents\\Controller\\RestApi\u003A\u003Astore\u0028\u0029",
+            "name": "store",
+            "summary": "",
+            "url": "classes/LayoutComponents-Controller-RestApi.html#method_store"
+        },                {
+            "fqsen": "\\rljUtils\\Controller\\Admin",
+            "name": "Admin",
+            "summary": "Class\u0020Controller",
+            "url": "classes/rljUtils-Controller-Admin.html"
+        },                {
+            "fqsen": "\\rljUtils\\Controller\\Admin\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/rljUtils-Controller-Admin.html#method_index"
+        },                {
+            "fqsen": "\\rljUtils\\Controller\\Admin\u003A\u003AsaveConfig\u0028\u0029",
+            "name": "saveConfig",
+            "summary": "",
+            "url": "classes/rljUtils-Controller-Admin.html#method_saveConfig"
+        },                {
+            "fqsen": "\\YXORP_START_TIME",
+            "name": "YXORP_START_TIME",
+            "summary": "yxorP\u0020start\u0020time",
+            "url": "namespaces/default.html#constant_YXORP_START_TIME"
+        },                {
+            "fqsen": "\\YXORP_CLI",
+            "name": "YXORP_CLI",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_CLI"
+        },                {
+            "fqsen": "\\YXORP_DIR",
+            "name": "YXORP_DIR",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_DIR"
+        },                {
+            "fqsen": "\\YXORP_ADMIN",
+            "name": "YXORP_ADMIN",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
+            "url": "namespaces/default.html#constant_YXORP_ADMIN"
+        },                {
+            "fqsen": "\\YXORP_DOCS_ROOT",
+            "name": "YXORP_DOCS_ROOT",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_DOCS_ROOT"
+        },                {
+            "fqsen": "\\YXORP_ENV_ROOT",
+            "name": "YXORP_ENV_ROOT",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_ENV_ROOT"
+        },                {
+            "fqsen": "\\YXORP_BASE_URL",
+            "name": "YXORP_BASE_URL",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_BASE_URL"
+        },                {
+            "fqsen": "\\YXORP_API_REQUEST",
+            "name": "YXORP_API_REQUEST",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_API_REQUEST"
+        },                {
+            "fqsen": "\\YXORP_SITE_DIR",
+            "name": "YXORP_SITE_DIR",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_SITE_DIR"
+        },                {
+            "fqsen": "\\YXORP_CONFIG_DIR",
+            "name": "YXORP_CONFIG_DIR",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_CONFIG_DIR"
+        },                {
+            "fqsen": "\\YXORP_BASE_ROUTE",
+            "name": "YXORP_BASE_ROUTE",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_BASE_ROUTE"
+        },                {
+            "fqsen": "\\YXORP_STORAGE_FOLDER",
+            "name": "YXORP_STORAGE_FOLDER",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_STORAGE_FOLDER"
+        },                {
+            "fqsen": "\\YXORP_ADMIN_CP",
+            "name": "YXORP_ADMIN_CP",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_ADMIN_CP"
+        },                {
+            "fqsen": "\\YXORP_PUBLIC_STORAGE_FOLDER",
+            "name": "YXORP_PUBLIC_STORAGE_FOLDER",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_PUBLIC_STORAGE_FOLDER"
+        },                {
+            "fqsen": "\\YXORP_CONFIG_PATH",
+            "name": "YXORP_CONFIG_PATH",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_CONFIG_PATH"
+        },                {
+            "fqsen": "\\yxorp\u0028\u0029",
+            "name": "yxorp",
+            "summary": "",
+            "url": "namespaces/default.html#function_yxorp"
+        },                {
+            "fqsen": "\\YXORP_ADMIN_ROUTE",
+            "name": "YXORP_ADMIN_ROUTE",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_ADMIN_ROUTE"
+        },                {
+            "fqsen": "\\YXORP_INSTALL",
+            "name": "YXORP_INSTALL",
+            "summary": "",
+            "url": "namespaces/default.html#constant_YXORP_INSTALL"
         },                {
             "fqsen": "\\ensure_writable\u0028\u0029",
             "name": "ensure_writable",
@@ -98,7 +5298,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\CLI",
             "name": "CLI",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
             "url": "classes/CLI.html"
         },                {
             "fqsen": "\\CLI\u003A\u003Abeep\u0028\u0029",
@@ -111,15 +5311,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/CLI.html#method_opts"
         },                {
-            "fqsen": "\\CLI\u003A\u003Awrite\u0028\u0029",
-            "name": "write",
-            "summary": "",
-            "url": "classes/CLI.html#method_write"
-        },                {
             "fqsen": "\\CLI\u003A\u003Awriteln\u0028\u0029",
             "name": "writeln",
             "summary": "",
             "url": "classes/CLI.html#method_writeln"
+        },                {
+            "fqsen": "\\CLI\u003A\u003Awrite\u0028\u0029",
+            "name": "write",
+            "summary": "",
+            "url": "classes/CLI.html#method_write"
         },                {
             "fqsen": "\\CLI\u003A\u003Aprogress\u0028\u0029",
             "name": "progress",
@@ -128,23 +5328,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ContainerArray",
             "name": "ContainerArray",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
             "url": "classes/ContainerArray.html"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/ContainerArray.html#method___construct"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_extend"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_get"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003Acount\u0028\u0029",
             "name": "count",
@@ -161,15 +5351,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method_getIterator"
         },                {
+            "fqsen": "\\ContainerArray\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method___get"
+        },                {
             "fqsen": "\\ContainerArray\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
             "url": "classes/ContainerArray.html#method___set"
         },                {
-            "fqsen": "\\ContainerArray\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
+            "fqsen": "\\ContainerArray\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
             "summary": "",
-            "url": "classes/ContainerArray.html#method___get"
+            "url": "classes/ContainerArray.html#method_extend"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003A__isset\u0028\u0029",
             "name": "__isset",
@@ -196,6 +5391,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ContainerArray.html#method_offsetGet"
         },                {
+            "fqsen": "\\ContainerArray\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_get"
+        },                {
+            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
+            "name": "fetch_from_array",
+            "summary": "",
+            "url": "classes/ContainerArray.html#method_fetch_from_array"
+        },                {
             "fqsen": "\\ContainerArray\u003A\u003AoffsetExists\u0028\u0029",
             "name": "offsetExists",
             "summary": "",
@@ -205,11 +5410,6 @@ Search.appendIndex(
             "name": "offsetUnset",
             "summary": "",
             "url": "classes/ContainerArray.html#method_offsetUnset"
-        },                {
-            "fqsen": "\\ContainerArray\u003A\u003Afetch_from_array\u0028\u0029",
-            "name": "fetch_from_array",
-            "summary": "",
-            "url": "classes/ContainerArray.html#method_fetch_from_array"
         },                {
             "fqsen": "\\ContainerArray\u003A\u003Aextract\u0028\u0029",
             "name": "extract",
@@ -253,23 +5453,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DataCollection",
             "name": "DataCollection",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
             "url": "classes/DataCollection.html"
-        },                {
-            "fqsen": "\\DataCollection\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/DataCollection.html#method_create"
         },                {
             "fqsen": "\\DataCollection\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/DataCollection.html#method___construct"
         },                {
-            "fqsen": "\\DataCollection\u003A\u003Acount\u0028\u0029",
-            "name": "count",
+            "fqsen": "\\DataCollection\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
             "summary": "",
-            "url": "classes/DataCollection.html#method_count"
+            "url": "classes/DataCollection.html#method_create"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Afirst\u0028\u0029",
             "name": "first",
@@ -285,6 +5480,11 @@ Search.appendIndex(
             "name": "reverse",
             "summary": "",
             "url": "classes/DataCollection.html#method_reverse"
+        },                {
+            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
+            "name": "setItems",
+            "summary": "",
+            "url": "classes/DataCollection.html#method_setItems"
         },                {
             "fqsen": "\\DataCollection\u003A\u003Alimit\u0028\u0029",
             "name": "limit",
@@ -321,15 +5521,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/DataCollection.html#method_eq"
         },                {
-            "fqsen": "\\DataCollection\u003A\u003AsetItems\u0028\u0029",
-            "name": "setItems",
-            "summary": "",
-            "url": "classes/DataCollection.html#method_setItems"
-        },                {
             "fqsen": "\\DataCollection\u003A\u003Apagination\u0028\u0029",
             "name": "pagination",
             "summary": "",
             "url": "classes/DataCollection.html#method_pagination"
+        },                {
+            "fqsen": "\\DataCollection\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/DataCollection.html#method_count"
         },                {
             "fqsen": "\\DataCollection\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
@@ -373,7 +5573,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DotEnv",
             "name": "DotEnv",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
             "url": "classes/DotEnv.html"
         },                {
             "fqsen": "\\DotEnv\u003A\u003Aload\u0028\u0029",
@@ -401,6 +5601,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/FileStorage.html#method_addStorage"
         },                {
+            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
+            "name": "initStorage",
+            "summary": "",
+            "url": "classes/FileStorage.html#method_initStorage"
+        },                {
             "fqsen": "\\FileStorage\u003A\u003Ause\u0028\u0029",
             "name": "use",
             "summary": "",
@@ -410,11 +5615,6 @@ Search.appendIndex(
             "name": "getURL",
             "summary": "",
             "url": "classes/FileStorage.html#method_getURL"
-        },                {
-            "fqsen": "\\FileStorage\u003A\u003AinitStorage\u0028\u0029",
-            "name": "initStorage",
-            "summary": "",
-            "url": "classes/FileStorage.html#method_initStorage"
         },                {
             "fqsen": "\\FileStorage\u003A\u003A__call\u0028\u0029",
             "name": "__call",
@@ -456,20 +5656,15 @@ Search.appendIndex(
             "summary": "\u005Brender\u0020description\u005D",
             "url": "classes/Lexy.html#method_render"
         },                {
-            "fqsen": "\\Lexy\u003A\u003Arender_file\u0028\u0029",
-            "name": "render_file",
-            "summary": "\u005Brender_file\u0020description\u005D",
-            "url": "classes/Lexy.html#method_render_file"
-        },                {
-            "fqsen": "\\Lexy\u003A\u003AsetCachePath\u0028\u0029",
-            "name": "setCachePath",
-            "summary": "\u005BsetcachePath\u0020description\u005D",
-            "url": "classes/Lexy.html#method_setCachePath"
-        },                {
             "fqsen": "\\Lexy\u003A\u003Aexecute\u0028\u0029",
             "name": "execute",
             "summary": "\u005Bexecute\u0020description\u005D",
             "url": "classes/Lexy.html#method_execute"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003Arender_file\u0028\u0029",
+            "name": "render_file",
+            "summary": "\u005Brender_file\u0020description\u005D",
+            "url": "classes/Lexy.html#method_render_file"
         },                {
             "fqsen": "\\Lexy\u003A\u003Afile\u0028\u0029",
             "name": "file",
@@ -496,16 +5691,6 @@ Search.appendIndex(
             "summary": "\u005Bcompile\u0020description\u005D",
             "url": "classes/Lexy.html#method_compile"
         },                {
-            "fqsen": "\\Lexy\u003A\u003AallowCall\u0028\u0029",
-            "name": "allowCall",
-            "summary": "",
-            "url": "classes/Lexy.html#method_allowCall"
-        },                {
-            "fqsen": "\\Lexy\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
-            "summary": "",
-            "url": "classes/Lexy.html#method_extend"
-        },                {
             "fqsen": "\\Lexy\u003A\u003Acheck_security\u0028\u0029",
             "name": "check_security",
             "summary": "\u005Bcheck_security\u0020description\u005D",
@@ -515,6 +5700,21 @@ Search.appendIndex(
             "name": "check_syntax",
             "summary": "\u005Bcheck_syntax\u0020description\u005D",
             "url": "classes/Lexy.html#method_check_syntax"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003AsetCachePath\u0028\u0029",
+            "name": "setCachePath",
+            "summary": "\u005BsetcachePath\u0020description\u005D",
+            "url": "classes/Lexy.html#method_setCachePath"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003AallowCall\u0028\u0029",
+            "name": "allowCall",
+            "summary": "",
+            "url": "classes/Lexy.html#method_allowCall"
+        },                {
+            "fqsen": "\\Lexy\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
+            "summary": "",
+            "url": "classes/Lexy.html#method_extend"
         },                {
             "fqsen": "\\Lexy\u003A\u003Acompile_comments\u0028\u0029",
             "name": "compile_comments",
@@ -596,6 +5796,16 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/Lime-App.html#method___construct"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
+            "name": "retrieve",
+            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
+            "url": "classes/Lime-App.html#method_retrieve"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
+            "name": "getRequestfromGlobals",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003Ainstance\u0028\u0029",
             "name": "instance",
             "summary": "Get\u0020App\u0020instance",
@@ -606,85 +5816,90 @@ Search.appendIndex(
             "summary": "Returns\u0020a\u0020closure\u0020that\u0020stores\u0020the\u0020result\u0020of\u0020the\u0020given\u0020closure",
             "url": "classes/Lime-App.html#method_service"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
-            "name": "stop",
-            "summary": "stop\u0020application\u0020\u0028exit\u0029",
-            "url": "classes/Lime-App.html#method_stop"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003AisExit\u0028\u0029",
             "name": "isExit",
             "summary": "Is\u0020application\u0020stopped\u003F",
             "url": "classes/Lime-App.html#method_isExit"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
-            "name": "baseUrl",
-            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
-            "url": "classes/Lime-App.html#method_baseUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Abase\u0028\u0029",
             "name": "base",
             "summary": "",
             "url": "classes/Lime-App.html#method_base"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
-            "name": "routeUrl",
-            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
-            "url": "classes/Lime-App.html#method_routeUrl"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
-            "name": "route",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_route"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
-            "name": "reroute",
-            "summary": "Redirect\u0020to\u0020path.",
-            "url": "classes/Lime-App.html#method_reroute"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
-            "url": "classes/Lime-App.html#method_set"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aretrieve\u0028\u0029",
-            "name": "retrieve",
-            "summary": "Get\u0020a\u0020value\u0020from\u0020the\u0020Lime\u0020registry",
-            "url": "classes/Lime-App.html#method_retrieve"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
-            "name": "path",
-            "summary": "Path\u0020helper\u0020method",
-            "url": "classes/Lime-App.html#method_path"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
-            "name": "paths",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_paths"
+            "fqsen": "\\Lime\\App\u003A\u003AbaseUrl\u0028\u0029",
+            "name": "baseUrl",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020base\u0020url\u0020of\u0020the\u0020app",
+            "url": "classes/Lime-App.html#method_baseUrl"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003ApathToUrl\u0028\u0029",
             "name": "pathToUrl",
             "summary": "",
             "url": "classes/Lime-App.html#method_pathToUrl"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Apath\u0028\u0029",
+            "name": "path",
+            "summary": "Path\u0020helper\u0020method",
+            "url": "classes/Lime-App.html#method_path"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
+            "name": "isAbsolutePath",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_isAbsolutePath"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aroute\u0028\u0029",
+            "name": "route",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_route"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003ArouteUrl\u0028\u0029",
+            "name": "routeUrl",
+            "summary": "Returns\u0020link\u0020based\u0020on\u0020the\u0020route\u0020url\u0020of\u0020the\u0020app",
+            "url": "classes/Lime-App.html#method_routeUrl"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Areroute\u0028\u0029",
+            "name": "reroute",
+            "summary": "Redirect\u0020to\u0020path.",
+            "url": "classes/Lime-App.html#method_reroute"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Astop\u0028\u0029",
+            "name": "stop",
+            "summary": "stop\u0020application\u0020\u0028exit\u0029",
+            "url": "classes/Lime-App.html#method_stop"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Put\u0020a\u0020value\u0020in\u0020the\u0020Lime\u0020registry",
+            "url": "classes/Lime-App.html#method_set"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024paths",
+            "name": "paths",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_paths"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003Acache\u0028\u0029",
             "name": "cache",
             "summary": "Cache\u0020helper\u0020method",
             "url": "classes/Lime-App.html#method_cache"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
+            "name": "helper",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_helper"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aon\u0028\u0029",
             "name": "on",
             "summary": "Bind\u0020an\u0020event\u0020to\u0020closure",
             "url": "classes/Lime-App.html#method_on"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Atrigger\u0028\u0029",
-            "name": "trigger",
-            "summary": "Trigger\u0020event.",
-            "url": "classes/Lime-App.html#method_trigger"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Arender\u0028\u0029",
             "name": "render",
             "summary": "Render\u0020view.",
             "url": "classes/Lime-App.html#method_render"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Atrigger\u0028\u0029",
+            "name": "trigger",
+            "summary": "Trigger\u0020event.",
+            "url": "classes/Lime-App.html#method_trigger"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Astart\u0028\u0029",
             "name": "start",
@@ -706,25 +5921,30 @@ Search.appendIndex(
             "summary": "Escape\u0020string.",
             "url": "classes/Lime-App.html#method_escape"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
-            "name": "style",
-            "summary": "Get\u0020style\u0020inc.\u0020markup",
-            "url": "classes/Lime-App.html#method_style"
+            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
+            "name": "assets",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_assets"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Ascript\u0028\u0029",
             "name": "script",
             "summary": "Get\u0020script\u0020inc.\u0020markup",
             "url": "classes/Lime-App.html#method_script"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aassets\u0028\u0029",
-            "name": "assets",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_assets"
+            "fqsen": "\\Lime\\App\u003A\u003Astyle\u0028\u0029",
+            "name": "style",
+            "summary": "Get\u0020style\u0020inc.\u0020markup",
+            "url": "classes/Lime-App.html#method_style"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Bind\u0020GET\u0020request\u0020to\u0020route",
             "url": "classes/Lime-App.html#method_get"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
+            "name": "bind",
+            "summary": "Bind\u0020request\u0020to\u0020route",
+            "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Apost\u0028\u0029",
             "name": "post",
@@ -736,15 +5956,15 @@ Search.appendIndex(
             "summary": "Bind\u0020Class\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindClass"
         },                {
+            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
+            "name": "invoke",
+            "summary": "Invoke\u0020Class\u0020as\u0020controller",
+            "url": "classes/Lime-App.html#method_invoke"
+        },                {
             "fqsen": "\\Lime\\App\u003A\u003AbindNamespace\u0028\u0029",
             "name": "bindNamespace",
             "summary": "Bind\u0020namespace\u0020to\u0020routes",
             "url": "classes/Lime-App.html#method_bindNamespace"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Abind\u0028\u0029",
-            "name": "bind",
-            "summary": "Bind\u0020request\u0020to\u0020route",
-            "url": "classes/Lime-App.html#method_bind"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Arun\u0028\u0029",
             "name": "run",
@@ -760,11 +5980,6 @@ Search.appendIndex(
             "name": "render_route",
             "summary": "Render\u0020dispatched\u0020route",
             "url": "classes/Lime-App.html#method_render_route"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ainvoke\u0028\u0029",
-            "name": "invoke",
-            "summary": "Invoke\u0020Class\u0020as\u0020controller",
-            "url": "classes/Lime-App.html#method_invoke"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -796,40 +6011,30 @@ Search.appendIndex(
             "summary": "Create\u0020Hash",
             "url": "classes/Lime-App.html#method_hash"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
-            "name": "encode",
-            "summary": "RC4\u0020encryption",
-            "url": "classes/Lime-App.html#method_encode"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003Adecode\u0028\u0029",
             "name": "decode",
             "summary": "Decode\u0020RC4\u0020encrypted\u0020text",
             "url": "classes/Lime-App.html#method_decode"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003Ahelper\u0028\u0029",
-            "name": "helper",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_helper"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003AisAbsolutePath\u0028\u0029",
-            "name": "isAbsolutePath",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_isAbsolutePath"
+            "fqsen": "\\Lime\\App\u003A\u003Aencode\u0028\u0029",
+            "name": "encode",
+            "summary": "RC4\u0020encryption",
+            "url": "classes/Lime-App.html#method_encode"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003Amodule\u0028\u0029",
             "name": "module",
             "summary": "",
             "url": "classes/Lime-App.html#method_module"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AregisterModule\u0028\u0029",
-            "name": "registerModule",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_registerModule"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003AloadModules\u0028\u0029",
             "name": "loadModules",
             "summary": "",
             "url": "classes/Lime-App.html#method_loadModules"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003AregisterModule\u0028\u0029",
+            "name": "registerModule",
+            "summary": "",
+            "url": "classes/Lime-App.html#method_registerModule"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003AbootModule\u0028\u0029",
             "name": "bootModule",
@@ -866,40 +6071,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-App.html#method___invoke"
         },                {
-            "fqsen": "\\Lime\\App\u003A\u003AgetRequestfromGlobals\u0028\u0029",
-            "name": "getRequestfromGlobals",
-            "summary": "",
-            "url": "classes/Lime-App.html#method_getRequestfromGlobals"
-        },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024apps",
             "name": "apps",
             "summary": "",
             "url": "classes/Lime-App.html#property_apps"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024registry",
-            "name": "registry",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_registry"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024routes",
-            "name": "routes",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_routes"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024events",
-            "name": "events",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_events"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024blocks",
-            "name": "blocks",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_blocks"
-        },                {
-            "fqsen": "\\Lime\\App\u003A\u003A\u0024exit",
-            "name": "exit",
-            "summary": "",
-            "url": "classes/Lime-App.html#property_exit"
         },                {
             "fqsen": "\\Lime\\App\u003A\u003A\u0024response",
             "name": "response",
@@ -925,6 +6100,31 @@ Search.appendIndex(
             "name": "viewvars",
             "summary": "",
             "url": "classes/Lime-App.html#property_viewvars"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024registry",
+            "name": "registry",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_registry"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024routes",
+            "name": "routes",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_routes"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024events",
+            "name": "events",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_events"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024blocks",
+            "name": "blocks",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_blocks"
+        },                {
+            "fqsen": "\\Lime\\App\u003A\u003A\u0024exit",
+            "name": "exit",
+            "summary": "",
+            "url": "classes/Lime-App.html#property_exit"
         },                {
             "fqsen": "\\Lime\\AppAware",
             "name": "AppAware",
@@ -966,20 +6166,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Module.html"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
-            "name": "extend",
+            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
+            "name": "__get",
             "summary": "",
-            "url": "classes/Lime-Module.html#method_extend"
+            "url": "classes/Lime-Module.html#method___get"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__set\u0028\u0029",
             "name": "__set",
             "summary": "",
             "url": "classes/Lime-Module.html#method___set"
         },                {
-            "fqsen": "\\Lime\\Module\u003A\u003A__get\u0028\u0029",
-            "name": "__get",
+            "fqsen": "\\Lime\\Module\u003A\u003Aextend\u0028\u0029",
+            "name": "extend",
             "summary": "",
-            "url": "classes/Lime-Module.html#method___get"
+            "url": "classes/Lime-Module.html#method_extend"
         },                {
             "fqsen": "\\Lime\\Module\u003A\u003A__isset\u0028\u0029",
             "name": "__isset",
@@ -1016,15 +6216,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_initialize"
         },                {
-            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AsetCachePath\u0028\u0029",
-            "name": "setCachePath",
-            "summary": "",
-            "url": "classes/Lime-Helper-Cache.html#method_setCachePath"
-        },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AgetCachePath\u0028\u0029",
             "name": "getCachePath",
             "summary": "",
             "url": "classes/Lime-Helper-Cache.html#method_getCachePath"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Cache\u003A\u003AsetCachePath\u0028\u0029",
+            "name": "setCachePath",
+            "summary": "",
+            "url": "classes/Lime-Helper-Cache.html#method_setCachePath"
         },                {
             "fqsen": "\\Lime\\Helper\\Cache\u003A\u003Awrite\u0028\u0029",
             "name": "write",
@@ -1086,30 +6286,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#method_destroy"
         },                {
-            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024initialized",
-            "name": "initialized",
-            "summary": "",
-            "url": "classes/Lime-Helper-Session.html#property_initialized"
-        },                {
             "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024name",
             "name": "name",
             "summary": "",
             "url": "classes/Lime-Helper-Session.html#property_name"
+        },                {
+            "fqsen": "\\Lime\\Helper\\Session\u003A\u003A\u0024initialized",
+            "name": "initialized",
+            "summary": "",
+            "url": "classes/Lime-Helper-Session.html#property_initialized"
         },                {
             "fqsen": "\\Lime\\Request",
             "name": "Request",
             "summary": "",
             "url": "classes/Lime-Request.html"
         },                {
+            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Lime-Request.html#method___construct"
+        },                {
             "fqsen": "\\Lime\\Request\u003A\u003AfromGlobalRequest\u0028\u0029",
             "name": "fromGlobalRequest",
             "summary": "",
             "url": "classes/Lime-Request.html#method_fromGlobalRequest"
         },                {
-            "fqsen": "\\Lime\\Request\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
+            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
+            "name": "getAllHeaders",
             "summary": "",
-            "url": "classes/Lime-Request.html#method___construct"
+            "url": "classes/Lime-Request.html#method_getAllHeaders"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003Aparam\u0028\u0029",
             "name": "param",
@@ -1135,11 +6340,6 @@ Search.appendIndex(
             "name": "is",
             "summary": "",
             "url": "classes/Lime-Request.html#method_is"
-        },                {
-            "fqsen": "\\Lime\\Request\u003A\u003AgetAllHeaders\u0028\u0029",
-            "name": "getAllHeaders",
-            "summary": "",
-            "url": "classes/Lime-Request.html#method_getAllHeaders"
         },                {
             "fqsen": "\\Lime\\Request\u003A\u003A\u0024request",
             "name": "request",
@@ -1216,6 +6416,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Response.html#method_flush"
         },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
+            "name": "statusCodes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_statusCodes"
+        },                {
+            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
+            "name": "mimeTypes",
+            "summary": "",
+            "url": "classes/Lime-Response.html#property_mimeTypes"
+        },                {
             "fqsen": "\\Lime\\Response\u003A\u003A\u0024body",
             "name": "body",
             "summary": "",
@@ -1251,16 +6461,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Lime-Response.html#property_headers"
         },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024statusCodes",
-            "name": "statusCodes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_statusCodes"
-        },                {
-            "fqsen": "\\Lime\\Response\u003A\u003A\u0024mimeTypes",
-            "name": "mimeTypes",
-            "summary": "",
-            "url": "classes/Lime-Response.html#property_mimeTypes"
-        },                {
             "fqsen": "\\LimeExtra\\App",
             "name": "App",
             "summary": "Class\u0020App",
@@ -1271,15 +6471,15 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/LimeExtra-App.html#method___construct"
         },                {
-            "fqsen": "\\LimeExtra\\App\u003A\u003Aview\u0028\u0029",
-            "name": "view",
-            "summary": "Render\u0020view.",
-            "url": "classes/LimeExtra-App.html#method_view"
-        },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003ArenderView\u0028\u0029",
             "name": "renderView",
             "summary": "Outputs\u0020view\u0020content\u0020result",
             "url": "classes/LimeExtra-App.html#method_renderView"
+        },                {
+            "fqsen": "\\LimeExtra\\App\u003A\u003Aview\u0028\u0029",
+            "name": "view",
+            "summary": "Render\u0020view.",
+            "url": "classes/LimeExtra-App.html#method_view"
         },                {
             "fqsen": "\\LimeExtra\\App\u003A\u003Aassets\u0028\u0029",
             "name": "assets",
@@ -1296,15 +6496,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Controller.html#method___construct"
         },                {
-            "fqsen": "\\LimeExtra\\Controller\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/LimeExtra-Controller.html#method_index"
-        },                {
             "fqsen": "\\LimeExtra\\Controller\u003A\u003Abefore\u0028\u0029",
             "name": "before",
             "summary": "",
             "url": "classes/LimeExtra-Controller.html#method_before"
+        },                {
+            "fqsen": "\\LimeExtra\\Controller\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/LimeExtra-Controller.html#method_index"
         },                {
             "fqsen": "\\LimeExtra\\Controller\u003A\u003Arender\u0028\u0029",
             "name": "render",
@@ -1341,35 +6541,35 @@ Search.appendIndex(
             "summary": "Assets\u0020class.",
             "url": "classes/LimeExtra-Helper-Assets.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle\u0028\u0029",
-            "name": "style",
-            "summary": "Compile\u0020styles\u0020and\u0020return\u0020in\u0020a\u0020link\u0020tag",
-            "url": "classes/LimeExtra-Helper-Assets.html#method_style"
+            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle_and_script\u0028\u0029",
+            "name": "style_and_script",
+            "summary": "Echo\u0020tags\u0020for\u0020scripts\u0020and\u0020styles",
+            "url": "classes/LimeExtra-Helper-Assets.html#method_style_and_script"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Ascript\u0028\u0029",
             "name": "script",
             "summary": "Compile\u0020scripts\u0020and\u0020return\u0020in\u0020a\u0020script\u0020tag",
             "url": "classes/LimeExtra-Helper-Assets.html#method_script"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle_and_script\u0028\u0029",
-            "name": "style_and_script",
-            "summary": "Echo\u0020tags\u0020for\u0020scripts\u0020and\u0020styles",
-            "url": "classes/LimeExtra-Helper-Assets.html#method_style_and_script"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Acompile\u0028\u0029",
             "name": "compile",
             "summary": "Compile\u0020assets\u0020into\u0020one\u0020file",
             "url": "classes/LimeExtra-Helper-Assets.html#method_compile"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\Assets\u003A\u003Astyle\u0028\u0029",
+            "name": "style",
+            "summary": "Compile\u0020styles\u0020and\u0020return\u0020in\u0020a\u0020link\u0020tag",
+            "url": "classes/LimeExtra-Helper-Assets.html#method_style"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie",
             "name": "Cookie",
             "summary": "",
             "url": "classes/LimeExtra-Helper-Cookie.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "sets\u0020a\u0020cookie",
-            "url": "classes/LimeExtra-Helper-Cookie.html#method_set"
+            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003AgetAndDelete\u0028\u0029",
+            "name": "getAndDelete",
+            "summary": "gets\u0020a\u0020cookie\u0020and\u0020eats\u0020it",
+            "url": "classes/LimeExtra-Helper-Cookie.html#method_getAndDelete"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aget\u0028\u0029",
             "name": "get",
@@ -1381,10 +6581,10 @@ Search.appendIndex(
             "summary": "deletes\u0020a\u0020cookie",
             "url": "classes/LimeExtra-Helper-Cookie.html#method_delete"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003AgetAndDelete\u0028\u0029",
-            "name": "getAndDelete",
-            "summary": "gets\u0020a\u0020cookie\u0020and\u0020eats\u0020it",
-            "url": "classes/LimeExtra-Helper-Cookie.html#method_getAndDelete"
+            "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "sets\u0020a\u0020cookie",
+            "url": "classes/LimeExtra-Helper-Cookie.html#method_set"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Cookie\u003A\u003A\u0024_cookies",
             "name": "_cookies",
@@ -1431,11 +6631,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Helper-Filesystem.html#method_mkdir"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
-            "name": "delete",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-Filesystem.html#method_delete"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Acopy\u0028\u0029",
             "name": "copy",
             "summary": "",
@@ -1445,6 +6640,11 @@ Search.appendIndex(
             "name": "rename",
             "summary": "",
             "url": "classes/LimeExtra-Helper-Filesystem.html#method_rename"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003Adelete\u0028\u0029",
+            "name": "delete",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-Filesystem.html#method_delete"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Filesystem\u003A\u003AgetDirSize\u0028\u0029",
             "name": "getDirSize",
@@ -1536,16 +6736,6 @@ Search.appendIndex(
             "summary": "Get\u0020language\u0020data",
             "url": "classes/LimeExtra-Helper-I18n.html#method_data"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locale",
-            "name": "locale",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-I18n.html#property_locale"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024_languages",
-            "name": "_languages",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-I18n.html#property__languages"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locals",
             "name": "locals",
             "summary": "",
@@ -1560,6 +6750,16 @@ Search.appendIndex(
             "name": "currencies",
             "summary": "",
             "url": "classes/LimeExtra-Helper-I18n.html#property_currencies"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024locale",
+            "name": "locale",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-I18n.html#property_locale"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\I18n\u003A\u003A\u0024_languages",
+            "name": "_languages",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-I18n.html#property__languages"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\Image",
             "name": "Image",
@@ -1831,30 +7031,20 @@ Search.appendIndex(
             "summary": "Class\u0020YAML",
             "url": "classes/LimeExtra-Helper-YAML.html"
         },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AsetCachePath\u0028\u0029",
-            "name": "setCachePath",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_setCachePath"
-        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AfromString\u0028\u0029",
             "name": "fromString",
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_fromString"
         },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AsetCachePath\u0028\u0029",
+            "name": "setCachePath",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_setCachePath"
+        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AfromFile\u0028\u0029",
             "name": "fromFile",
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_fromFile"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoYAML\u0028\u0029",
-            "name": "toYAML",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_toYAML"
-        },                {
-            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoFile\u0028\u0029",
-            "name": "toFile",
-            "summary": "",
-            "url": "classes/LimeExtra-Helper-YAML.html#method_toFile"
         },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003Aget_cached_file\u0028\u0029",
             "name": "get_cached_file",
@@ -1866,6 +7056,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LimeExtra-Helper-YAML.html#method_cache_file"
         },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoFile\u0028\u0029",
+            "name": "toFile",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_toFile"
+        },                {
+            "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003AtoYAML\u0028\u0029",
+            "name": "toYAML",
+            "summary": "",
+            "url": "classes/LimeExtra-Helper-YAML.html#method_toYAML"
+        },                {
             "fqsen": "\\LimeExtra\\Helper\\YAML\u003A\u003A\u0024cachePath",
             "name": "cachePath",
             "summary": "",
@@ -1873,7 +7073,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\LiteDB",
             "name": "LiteDB",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
             "url": "classes/LiteDB.html"
         },                {
             "fqsen": "\\LiteDB\u003A\u003Aconnect\u0028\u0029",
@@ -1926,11 +7126,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_from"
         },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003Awhere\u0028\u0029",
-            "name": "where",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_where"
-        },                {
             "fqsen": "\\LiteDBQuery\u003A\u003Ajoin\u0028\u0029",
             "name": "join",
             "summary": "",
@@ -1965,6 +7160,21 @@ Search.appendIndex(
             "name": "all",
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_all"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003Awhere\u0028\u0029",
+            "name": "where",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_where"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003AbuildSelect\u0028\u0029",
+            "name": "buildSelect",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_buildSelect"
+        },                {
+            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
+            "name": "buildConditions",
+            "summary": "",
+            "url": "classes/LiteDBQuery.html#method_buildConditions"
         },                {
             "fqsen": "\\LiteDBQuery\u003A\u003Aone\u0028\u0029",
             "name": "one",
@@ -2010,16 +7220,6 @@ Search.appendIndex(
             "name": "drop",
             "summary": "",
             "url": "classes/LiteDBQuery.html#method_drop"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003AbuildSelect\u0028\u0029",
-            "name": "buildSelect",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_buildSelect"
-        },                {
-            "fqsen": "\\LiteDBQuery\u003A\u003AbuildConditions\u0028\u0029",
-            "name": "buildConditions",
-            "summary": "",
-            "url": "classes/LiteDBQuery.html#method_buildConditions"
         },                {
             "fqsen": "\\LiteDBQuery\u003A\u003A\u0024cmd",
             "name": "cmd",
@@ -2166,16 +7366,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method_insert"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
-            "name": "getKey",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_getKey"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
-            "name": "setKey",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/MongoHybrid-Client.html#method_setKey"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AremoveKey\u0028\u0029",
             "name": "removeKey",
             "summary": "Delete\u0020Key\u0028s\u0029",
@@ -2190,6 +7380,16 @@ Search.appendIndex(
             "name": "incrKey",
             "summary": "Increment\u0020value\u0020by\u0020x",
             "url": "classes/MongoHybrid-Client.html#method_incrKey"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AgetKey\u0028\u0029",
+            "name": "getKey",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_getKey"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003AsetKey\u0028\u0029",
+            "name": "setKey",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/MongoHybrid-Client.html#method_setKey"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003AdecrKey\u0028\u0029",
             "name": "decrKey",
@@ -2216,16 +7416,6 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/MongoHybrid-Client.html#method_lindex"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hset"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/MongoHybrid-Client.html#method_hget"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
             "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
@@ -2235,11 +7425,6 @@ Search.appendIndex(
             "name": "hexists",
             "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/MongoHybrid-Client.html#method_hexists"
-        },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/MongoHybrid-Client.html#method_hkeys"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
@@ -2251,6 +7436,11 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/MongoHybrid-Client.html#method_hlen"
         },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
+            "url": "classes/MongoHybrid-Client.html#method_hkeys"
+        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
             "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
@@ -2260,6 +7450,16 @@ Search.appendIndex(
             "name": "hincrby",
             "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/MongoHybrid-Client.html#method_hincrby"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hget"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/MongoHybrid-Client.html#method_hset"
         },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
@@ -2276,15 +7476,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#method___call"
         },                {
-            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024driver",
-            "name": "driver",
-            "summary": "",
-            "url": "classes/MongoHybrid-Client.html#property_driver"
-        },                {
             "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024type",
             "name": "type",
             "summary": "",
             "url": "classes/MongoHybrid-Client.html#property_type"
+        },                {
+            "fqsen": "\\MongoHybrid\\Client\u003A\u003A\u0024driver",
+            "name": "driver",
+            "summary": "",
+            "url": "classes/MongoHybrid-Client.html#property_driver"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo",
             "name": "Mongo",
@@ -2295,11 +7495,6 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method___construct"
-        },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
@@ -2316,10 +7511,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOneById"
         },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method_getCollection"
+        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003AfindOne\u0028\u0029",
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_findOne"
+        },                {
+            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixMongoIds\u0028\u0029",
+            "name": "_fixMongoIds",
+            "summary": "",
+            "url": "classes/MongoHybrid-Mongo.html#method__fixMongoIds"
         },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003Afind\u0028\u0029",
             "name": "find",
@@ -2361,11 +7566,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-Mongo.html#method_count"
         },                {
-            "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A_fixMongoIds\u0028\u0029",
-            "name": "_fixMongoIds",
-            "summary": "",
-            "url": "classes/MongoHybrid-Mongo.html#method__fixMongoIds"
-        },                {
             "fqsen": "\\MongoHybrid\\Mongo\u003A\u003A\u0024client",
             "name": "client",
             "summary": "",
@@ -2391,11 +7591,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method___construct"
         },                {
-            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
-            "name": "getCollection",
-            "summary": "",
-            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
-        },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "",
@@ -2410,6 +7605,11 @@ Search.appendIndex(
             "name": "findOne",
             "summary": "",
             "url": "classes/MongoHybrid-MongoLite.html#method_findOne"
+        },                {
+            "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AgetCollection\u0028\u0029",
+            "name": "getCollection",
+            "summary": "",
+            "url": "classes/MongoHybrid-MongoLite.html#method_getCollection"
         },                {
             "fqsen": "\\MongoHybrid\\MongoLite\u003A\u003AfindOneById\u0028\u0029",
             "name": "findOneById",
@@ -2661,6 +7861,11 @@ Search.appendIndex(
             "summary": "Loop\u0020through\u0020result\u0020set",
             "url": "classes/MongoLite-Cursor.html#method_each"
         },                {
+            "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
+            "name": "rewind",
+            "summary": "Iterator\u0020implementation",
+            "url": "classes/MongoLite-Cursor.html#method_rewind"
+        },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
@@ -2670,11 +7875,6 @@ Search.appendIndex(
             "name": "getData",
             "summary": "Get\u0020documents\u0020matching\u0020criteria",
             "url": "classes/MongoLite-Cursor.html#method_getData"
-        },                {
-            "fqsen": "\\MongoLite\\Cursor\u003A\u003Arewind\u0028\u0029",
-            "name": "rewind",
-            "summary": "Iterator\u0020implementation",
-            "url": "classes/MongoLite-Cursor.html#method_rewind"
         },                {
             "fqsen": "\\MongoLite\\Cursor\u003A\u003Acurrent\u0028\u0029",
             "name": "current",
@@ -2746,15 +7946,15 @@ Search.appendIndex(
             "summary": "Constructor",
             "url": "classes/MongoLite-Database.html#method___construct"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
-            "name": "registerCriteriaFunction",
-            "summary": "Register\u0020Criteria\u0020function",
-            "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
-        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AcallCriteriaFunction\u0028\u0029",
             "name": "callCriteriaFunction",
             "summary": "Execute\u0020registred\u0020criteria\u0020function",
             "url": "classes/MongoLite-Database.html#method_callCriteriaFunction"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AregisterCriteriaFunction\u0028\u0029",
+            "name": "registerCriteriaFunction",
+            "summary": "Register\u0020Criteria\u0020function",
+            "url": "classes/MongoLite-Database.html#method_registerCriteriaFunction"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003Avacuum\u0028\u0029",
             "name": "vacuum",
@@ -2766,35 +7966,35 @@ Search.appendIndex(
             "summary": "Drop\u0020database",
             "url": "classes/MongoLite-Database.html#method_drop"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
-            "name": "createCollection",
-            "summary": "Create\u0020a\u0020collection",
-            "url": "classes/MongoLite-Database.html#method_createCollection"
-        },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AdropCollection\u0028\u0029",
             "name": "dropCollection",
             "summary": "Drop\u0020a\u0020collection",
             "url": "classes/MongoLite-Database.html#method_dropCollection"
-        },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
-            "name": "getCollectionNames",
-            "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
-            "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003AlistCollections\u0028\u0029",
             "name": "listCollections",
             "summary": "Get\u0020all\u0020collections\u0020in\u0020the\u0020database",
             "url": "classes/MongoLite-Database.html#method_listCollections"
         },                {
-            "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
-            "name": "selectCollection",
-            "summary": "Select\u0020collection",
-            "url": "classes/MongoLite-Database.html#method_selectCollection"
+            "fqsen": "\\MongoLite\\Database\u003A\u003AgetCollectionNames\u0028\u0029",
+            "name": "getCollectionNames",
+            "summary": "Get\u0020all\u0020collection\u0020names\u0020in\u0020the\u0020database",
+            "url": "classes/MongoLite-Database.html#method_getCollectionNames"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003A__get\u0028\u0029",
             "name": "__get",
             "summary": "",
             "url": "classes/MongoLite-Database.html#method___get"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AselectCollection\u0028\u0029",
+            "name": "selectCollection",
+            "summary": "Select\u0020collection",
+            "url": "classes/MongoLite-Database.html#method_selectCollection"
+        },                {
+            "fqsen": "\\MongoLite\\Database\u003A\u003AcreateCollection\u0028\u0029",
+            "name": "createCollection",
+            "summary": "Create\u0020a\u0020collection",
+            "url": "classes/MongoLite-Database.html#method_createCollection"
         },                {
             "fqsen": "\\MongoLite\\Database\u003A\u003ADSN_PATH_MEMORY",
             "name": "DSN_PATH_MEMORY",
@@ -2853,7 +8053,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Pagination",
             "name": "Pagination",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
             "url": "classes/Pagination.html"
         },                {
             "fqsen": "\\Pagination\u003A\u003A__construct\u0028\u0029",
@@ -2903,7 +8103,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\PriorityQueue",
             "name": "PriorityQueue",
-            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020Cockpit\u0020project.",
+            "summary": "This\u0020file\u0020is\u0020part\u0020of\u0020the\u0020yxorP\u0020project.",
             "url": "classes/PriorityQueue.html"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003A__construct\u0028\u0029",
@@ -2911,15 +8111,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PriorityQueue.html#method___construct"
         },                {
-            "fqsen": "\\PriorityQueue\u003A\u003Acount\u0028\u0029",
-            "name": "count",
-            "summary": "",
-            "url": "classes/PriorityQueue.html#method_count"
-        },                {
             "fqsen": "\\PriorityQueue\u003A\u003AisEmpty\u0028\u0029",
             "name": "isEmpty",
             "summary": "",
             "url": "classes/PriorityQueue.html#method_isEmpty"
+        },                {
+            "fqsen": "\\PriorityQueue\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/PriorityQueue.html#method_count"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003AsetExtractFlags\u0028\u0029",
             "name": "setExtractFlags",
@@ -2956,15 +8156,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/PriorityQueue.html#method_top"
         },                {
-            "fqsen": "\\PriorityQueue\u003A\u003Aextract\u0028\u0029",
-            "name": "extract",
-            "summary": "",
-            "url": "classes/PriorityQueue.html#method_extract"
-        },                {
             "fqsen": "\\PriorityQueue\u003A\u003AgetIterator\u0028\u0029",
             "name": "getIterator",
             "summary": "",
             "url": "classes/PriorityQueue.html#method_getIterator"
+        },                {
+            "fqsen": "\\PriorityQueue\u003A\u003Aextract\u0028\u0029",
+            "name": "extract",
+            "summary": "",
+            "url": "classes/PriorityQueue.html#method_extract"
         },                {
             "fqsen": "\\PriorityQueue\u003A\u003A__clone\u0028\u0029",
             "name": "__clone",
@@ -3016,25 +8216,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/RedisLite.html#method_createTable"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_get"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
-            "url": "classes/RedisLite.html#method_set"
-        },                {
             "fqsen": "\\RedisLite\u003A\u003Aflushdb\u0028\u0029",
             "name": "flushdb",
             "summary": "Clear\u0020database",
             "url": "classes/RedisLite.html#method_flushdb"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
-            "name": "exists",
-            "summary": "Check\u0020if\u0020key\u0020exists",
-            "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Akeys\u0028\u0029",
             "name": "keys",
@@ -3051,15 +8236,30 @@ Search.appendIndex(
             "summary": "Get\u0020value\u0020type",
             "url": "classes/RedisLite.html#method_type"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
-            "name": "incr",
-            "summary": "Increment\u0020value\u0020by\u0020x",
-            "url": "classes/RedisLite.html#method_incr"
+            "fqsen": "\\RedisLite\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "Get\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/RedisLite.html#method_get"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Adecr\u0028\u0029",
             "name": "decr",
             "summary": "Decrement\u0020value\u0020by\u0020x",
             "url": "classes/RedisLite.html#method_decr"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aincr\u0028\u0029",
+            "name": "incr",
+            "summary": "Increment\u0020value\u0020by\u0020x",
+            "url": "classes/RedisLite.html#method_incr"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Set\u0020value\u0020for\u0020specific\u0020key",
+            "url": "classes/RedisLite.html#method_set"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Aexists\u0028\u0029",
+            "name": "exists",
+            "summary": "Check\u0020if\u0020key\u0020exists",
+            "url": "classes/RedisLite.html#method_exists"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Allen\u0028\u0029",
             "name": "llen",
@@ -3086,16 +8286,6 @@ Search.appendIndex(
             "summary": "Get\u0020an\u0020element\u0020from\u0020a\u0020list\u0020by\u0020its\u0020index",
             "url": "classes/RedisLite.html#method_lindex"
         },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
-            "name": "hset",
-            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hset"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
-            "name": "hget",
-            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
-            "url": "classes/RedisLite.html#method_hget"
-        },                {
             "fqsen": "\\RedisLite\u003A\u003Ahgetall\u0028\u0029",
             "name": "hgetall",
             "summary": "Get\u0020all\u0020the\u0020fields\u0020and\u0020values\u0020in\u0020a\u0020hash",
@@ -3105,11 +8295,6 @@ Search.appendIndex(
             "name": "hexists",
             "summary": "Determine\u0020if\u0020a\u0020hash\u0020field\u0020exists",
             "url": "classes/RedisLite.html#method_hexists"
-        },                {
-            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
-            "name": "hkeys",
-            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
-            "url": "classes/RedisLite.html#method_hkeys"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahvals\u0028\u0029",
             "name": "hvals",
@@ -3121,6 +8306,11 @@ Search.appendIndex(
             "summary": "Get\u0020the\u0020number\u0020of\u0020fields\u0020in\u0020a\u0020hash",
             "url": "classes/RedisLite.html#method_hlen"
         },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahkeys\u0028\u0029",
+            "name": "hkeys",
+            "summary": "Get\u0020all\u0020the\u0020fields\u0020in\u0020a\u0020hash",
+            "url": "classes/RedisLite.html#method_hkeys"
+        },                {
             "fqsen": "\\RedisLite\u003A\u003Ahdel\u0028\u0029",
             "name": "hdel",
             "summary": "Delete\u0020one\u0020or\u0020more\u0020hash\u0020fields",
@@ -3130,6 +8320,16 @@ Search.appendIndex(
             "name": "hincrby",
             "summary": "Increment\u0020the\u0020integer\u0020value\u0020of\u0020a\u0020hash\u0020field\u0020by\u0020the\u0020given\u0020number",
             "url": "classes/RedisLite.html#method_hincrby"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahget\u0028\u0029",
+            "name": "hget",
+            "summary": "Get\u0020the\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/RedisLite.html#method_hget"
+        },                {
+            "fqsen": "\\RedisLite\u003A\u003Ahset\u0028\u0029",
+            "name": "hset",
+            "summary": "Set\u0020the\u0020string\u0020value\u0020of\u0020a\u0020hash\u0020field",
+            "url": "classes/RedisLite.html#method_hset"
         },                {
             "fqsen": "\\RedisLite\u003A\u003Ahmget\u0028\u0029",
             "name": "hmget",
@@ -3546,60 +8746,25 @@ Search.appendIndex(
             "summary": "Class\u0020SVGSanitizer",
             "url": "classes/SVGSanitizer.html"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
-            "name": "clean",
-            "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
-            "url": "classes/SVGSanitizer.html#method_clean"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "",
             "url": "classes/SVGSanitizer.html#method___construct"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
-            "name": "resetInternal",
-            "summary": "Set\u0020up\u0020the\u0020DOMDocument",
-            "url": "classes/SVGSanitizer.html#method_resetInternal"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
-            "name": "setXMLOptions",
-            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
-            "name": "getXMLOptions",
-            "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
-            "url": "classes/SVGSanitizer.html#method_getXMLOptions"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
-            "name": "getAllowedTags",
-            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_getAllowedTags"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
-            "name": "setAllowedTags",
-            "summary": "Set\u0020custom\u0020allowed\u0020tags",
-            "url": "classes/SVGSanitizer.html#method_setAllowedTags"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
-            "name": "getAllowedAttrs",
-            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
-            "name": "setAllowedAttrs",
-            "summary": "Set\u0020custom\u0020allowed\u0020attributes",
-            "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
-            "name": "removeRemoteReferences",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
+            "fqsen": "\\SVGSanitizer\u003A\u003Aclean\u0028\u0029",
+            "name": "clean",
+            "summary": "SVGSanitizer\u003A\u003Aclean\u0028\u0027\u003Csvg\u0020...\u003E\u0027\u0029",
+            "url": "classes/SVGSanitizer.html#method_clean"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003Asanitize\u0028\u0029",
             "name": "sanitize",
             "summary": "Sanitize\u0020the\u0020passed\u0020string",
             "url": "classes/SVGSanitizer.html#method_sanitize"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AresetInternal\u0028\u0029",
+            "name": "resetInternal",
+            "summary": "Set\u0020up\u0020the\u0020DOMDocument",
+            "url": "classes/SVGSanitizer.html#method_resetInternal"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AsetUpBefore\u0028\u0029",
             "name": "setUpBefore",
@@ -3626,36 +8791,6 @@ Search.appendIndex(
             "summary": "Only\u0020allow\u0020attributes\u0020that\u0020are\u0020on\u0020the\u0020whitelist",
             "url": "classes/SVGSanitizer.html#method_cleanAttributesOnWhitelist"
         },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
-            "name": "cleanXlinkHrefs",
-            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
-            "name": "cleanHrefs",
-            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
-            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
-            "name": "removeNonPrintableCharacters",
-            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
-            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
-            "name": "hasRemoteReference",
-            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
-            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
-            "name": "minify",
-            "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
-            "url": "classes/SVGSanitizer.html#method_minify"
-        },                {
-            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
-            "name": "removeXMLTag",
-            "summary": "",
-            "url": "classes/SVGSanitizer.html#property_removeXMLTag"
-        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisAriaAttribute\u0028\u0029",
             "name": "isAriaAttribute",
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020aria\u0020attribute\u0020or\u0020not",
@@ -3666,10 +8801,75 @@ Search.appendIndex(
             "summary": "Check\u0020to\u0020see\u0020if\u0020an\u0020attribute\u0020is\u0020an\u0020data\u0020attribute\u0020or\u0020not",
             "url": "classes/SVGSanitizer.html#method_isDataAttribute"
         },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AhasRemoteReference\u0028\u0029",
+            "name": "hasRemoteReference",
+            "summary": "Does\u0020this\u0020attribute\u0020value\u0020have\u0020a\u0020remote\u0020reference\u003F",
+            "url": "classes/SVGSanitizer.html#method_hasRemoteReference"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AremoveNonPrintableCharacters\u0028\u0029",
+            "name": "removeNonPrintableCharacters",
+            "summary": "Removes\u0020non\u002Dprintable\u0020ASCII\u0020characters\u0020from\u0020string\u0020\u0026\u0020trims\u0020it",
+            "url": "classes/SVGSanitizer.html#method_removeNonPrintableCharacters"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanXlinkHrefs\u0028\u0029",
+            "name": "cleanXlinkHrefs",
+            "summary": "Clean\u0020the\u0020xlink\u003Ahrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanXlinkHrefs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AcleanHrefs\u0028\u0029",
+            "name": "cleanHrefs",
+            "summary": "Clean\u0020the\u0020hrefs\u0020of\u0020script\u0020and\u0020data\u0020embeds",
+            "url": "classes/SVGSanitizer.html#method_cleanHrefs"
+        },                {
             "fqsen": "\\SVGSanitizer\u003A\u003AisUseTagDirty\u0028\u0029",
             "name": "isUseTagDirty",
             "summary": "Make\u0020sure\u0020our\u0020use\u0020tag\u0020is\u0020only\u0020referencing\u0020internal\u0020resources",
             "url": "classes/SVGSanitizer.html#method_isUseTagDirty"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetXMLOptions\u0028\u0029",
+            "name": "getXMLOptions",
+            "summary": "Get\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_getXMLOptions"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetXMLOptions\u0028\u0029",
+            "name": "setXMLOptions",
+            "summary": "Set\u0020XML\u0020options\u0020to\u0020use\u0020when\u0020saving\u0020XML\nSee\u003A\u0020DOMDocument\u003A\u003AsaveXML",
+            "url": "classes/SVGSanitizer.html#method_setXMLOptions"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedTags\u0028\u0029",
+            "name": "getAllowedTags",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020tags",
+            "url": "classes/SVGSanitizer.html#method_getAllowedTags"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedTags\u0028\u0029",
+            "name": "setAllowedTags",
+            "summary": "Set\u0020custom\u0020allowed\u0020tags",
+            "url": "classes/SVGSanitizer.html#method_setAllowedTags"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AgetAllowedAttrs\u0028\u0029",
+            "name": "getAllowedAttrs",
+            "summary": "Get\u0020the\u0020array\u0020of\u0020allowed\u0020attributes",
+            "url": "classes/SVGSanitizer.html#method_getAllowedAttrs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003AsetAllowedAttrs\u0028\u0029",
+            "name": "setAllowedAttrs",
+            "summary": "Set\u0020custom\u0020allowed\u0020attributes",
+            "url": "classes/SVGSanitizer.html#method_setAllowedAttrs"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeRemoteReferences",
+            "name": "removeRemoteReferences",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#property_removeRemoteReferences"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003Aminify\u0028\u0029",
+            "name": "minify",
+            "summary": "Should\u0020we\u0020minify\u0020the\u0020output\u003F",
+            "url": "classes/SVGSanitizer.html#method_minify"
+        },                {
+            "fqsen": "\\SVGSanitizer\u003A\u003A\u0024removeXMLTag",
+            "name": "removeXMLTag",
+            "summary": "",
+            "url": "classes/SVGSanitizer.html#property_removeXMLTag"
         },                {
             "fqsen": "\\SVGSanitizer\u003A\u003ASCRIPT_REGEX",
             "name": "SCRIPT_REGEX",
@@ -4415,281 +9615,6 @@ Search.appendIndex(
             "name": "classMap",
             "summary": "",
             "url": "classes/Composer-Autoload-ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.html#property_classMap"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\includeFile\u0028\u0029",
-            "name": "includeFile",
-            "summary": "Scope\u0020isolated\u0020include.",
-            "url": "namespaces/composer-autoload.html#function_includeFile"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader",
-            "name": "ClassLoader",
-            "summary": "ClassLoader\u0020implements\u0020a\u0020PSR\u002D0,\u0020PSR\u002D4\u0020and\u0020classmap\u0020class\u0020loader.",
-            "url": "classes/Composer-Autoload-ClassLoader.html"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method___construct"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetPrefixes\u0028\u0029",
-            "name": "getPrefixes",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getPrefixes"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetPrefixesPsr4\u0028\u0029",
-            "name": "getPrefixesPsr4",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getPrefixesPsr4"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetFallbackDirs\u0028\u0029",
-            "name": "getFallbackDirs",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirs"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetFallbackDirsPsr4\u0028\u0029",
-            "name": "getFallbackDirsPsr4",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getFallbackDirsPsr4"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetClassMap\u0028\u0029",
-            "name": "getClassMap",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getClassMap"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AaddClassMap\u0028\u0029",
-            "name": "addClassMap",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_addClassMap"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aadd\u0028\u0029",
-            "name": "add",
-            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D0\u0020directories\u0020for\u0020a\u0020given\u0020prefix,\u0020either\nappending\u0020or\u0020prepending\u0020to\u0020the\u0020ones\u0020previously\u0020set\u0020for\u0020this\u0020prefix.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_add"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AaddPsr4\u0028\u0029",
-            "name": "addPsr4",
-            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D4\u0020directories\u0020for\u0020a\u0020given\u0020namespace,\u0020either\nappending\u0020or\u0020prepending\u0020to\u0020the\u0020ones\u0020previously\u0020set\u0020for\u0020this\u0020namespace.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_addPsr4"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aset\u0028\u0029",
-            "name": "set",
-            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D0\u0020directories\u0020for\u0020a\u0020given\u0020prefix,\nreplacing\u0020any\u0020others\u0020previously\u0020set\u0020for\u0020this\u0020prefix.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_set"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetPsr4\u0028\u0029",
-            "name": "setPsr4",
-            "summary": "Registers\u0020a\u0020set\u0020of\u0020PSR\u002D4\u0020directories\u0020for\u0020a\u0020given\u0020namespace,\nreplacing\u0020any\u0020others\u0020previously\u0020set\u0020for\u0020this\u0020namespace.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_setPsr4"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetUseIncludePath\u0028\u0029",
-            "name": "setUseIncludePath",
-            "summary": "Turns\u0020on\u0020searching\u0020the\u0020include\u0020path\u0020for\u0020class\u0020files.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_setUseIncludePath"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetUseIncludePath\u0028\u0029",
-            "name": "getUseIncludePath",
-            "summary": "Can\u0020be\u0020used\u0020to\u0020check\u0020if\u0020the\u0020autoloader\u0020uses\u0020the\u0020include\u0020path\u0020to\u0020check\nfor\u0020classes.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getUseIncludePath"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetClassMapAuthoritative\u0028\u0029",
-            "name": "setClassMapAuthoritative",
-            "summary": "Turns\u0020off\u0020searching\u0020the\u0020prefix\u0020and\u0020fallback\u0020directories\u0020for\u0020classes\nthat\u0020have\u0020not\u0020been\u0020registered\u0020with\u0020the\u0020class\u0020map.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_setClassMapAuthoritative"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AisClassMapAuthoritative\u0028\u0029",
-            "name": "isClassMapAuthoritative",
-            "summary": "Should\u0020class\u0020lookup\u0020fail\u0020if\u0020not\u0020found\u0020in\u0020the\u0020current\u0020class\u0020map\u003F",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_isClassMapAuthoritative"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AsetApcuPrefix\u0028\u0029",
-            "name": "setApcuPrefix",
-            "summary": "APCu\u0020prefix\u0020to\u0020use\u0020to\u0020cache\u0020found\/not\u002Dfound\u0020classes,\u0020if\u0020the\u0020extension\u0020is\u0020enabled.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_setApcuPrefix"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetApcuPrefix\u0028\u0029",
-            "name": "getApcuPrefix",
-            "summary": "The\u0020APCu\u0020prefix\u0020in\u0020use,\u0020or\u0020null\u0020if\u0020APCu\u0020caching\u0020is\u0020not\u0020enabled.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getApcuPrefix"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aregister\u0028\u0029",
-            "name": "register",
-            "summary": "Registers\u0020this\u0020instance\u0020as\u0020an\u0020autoloader.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_register"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003Aunregister\u0028\u0029",
-            "name": "unregister",
-            "summary": "Unregisters\u0020this\u0020instance\u0020as\u0020an\u0020autoloader.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_unregister"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AloadClass\u0028\u0029",
-            "name": "loadClass",
-            "summary": "Loads\u0020the\u0020given\u0020class\u0020or\u0020interface.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_loadClass"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AfindFile\u0028\u0029",
-            "name": "findFile",
-            "summary": "Finds\u0020the\u0020path\u0020to\u0020the\u0020file\u0020where\u0020the\u0020class\u0020is\u0020defined.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_findFile"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AgetRegisteredLoaders\u0028\u0029",
-            "name": "getRegisteredLoaders",
-            "summary": "Returns\u0020the\u0020currently\u0020registered\u0020loaders\u0020indexed\u0020by\u0020their\u0020corresponding\u0020vendor\u0020directories.",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_getRegisteredLoaders"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003AfindFileWithExtension\u0028\u0029",
-            "name": "findFileWithExtension",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#method_findFileWithExtension"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024vendorDir",
-            "name": "vendorDir",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_vendorDir"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixLengthsPsr4",
-            "name": "prefixLengthsPsr4",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_prefixLengthsPsr4"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixDirsPsr4",
-            "name": "prefixDirsPsr4",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_prefixDirsPsr4"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024fallbackDirsPsr4",
-            "name": "fallbackDirsPsr4",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr4"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024prefixesPsr0",
-            "name": "prefixesPsr0",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_prefixesPsr0"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024fallbackDirsPsr0",
-            "name": "fallbackDirsPsr0",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_fallbackDirsPsr0"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024useIncludePath",
-            "name": "useIncludePath",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_useIncludePath"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024classMap",
-            "name": "classMap",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_classMap"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024classMapAuthoritative",
-            "name": "classMapAuthoritative",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_classMapAuthoritative"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024missingClasses",
-            "name": "missingClasses",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_missingClasses"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024apcuPrefix",
-            "name": "apcuPrefix",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_apcuPrefix"
-        },                {
-            "fqsen": "\\Composer\\Autoload\\ClassLoader\u003A\u003A\u0024registeredLoaders",
-            "name": "registeredLoaders",
-            "summary": "",
-            "url": "classes/Composer-Autoload-ClassLoader.html#property_registeredLoaders"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions",
-            "name": "InstalledVersions",
-            "summary": "This\u0020class\u0020is\u0020copied\u0020in\u0020every\u0020Composer\u0020installed\u0020project\u0020and\u0020available\u0020to\u0020all",
-            "url": "classes/Composer-InstalledVersions.html"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalledPackages\u0028\u0029",
-            "name": "getInstalledPackages",
-            "summary": "Returns\u0020a\u0020list\u0020of\u0020all\u0020package\u0020names\u0020which\u0020are\u0020present,\u0020either\u0020by\u0020being\u0020installed,\u0020replaced\u0020or\u0020provided",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstalledPackages"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalledPackagesByType\u0028\u0029",
-            "name": "getInstalledPackagesByType",
-            "summary": "Returns\u0020a\u0020list\u0020of\u0020all\u0020package\u0020names\u0020with\u0020a\u0020specific\u0020type\u0020e.g.\u0020\u0027library\u0027",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstalledPackagesByType"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AisInstalled\u0028\u0029",
-            "name": "isInstalled",
-            "summary": "Checks\u0020whether\u0020the\u0020given\u0020package\u0020is\u0020installed",
-            "url": "classes/Composer-InstalledVersions.html#method_isInstalled"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003Asatisfies\u0028\u0029",
-            "name": "satisfies",
-            "summary": "Checks\u0020whether\u0020the\u0020given\u0020package\u0020satisfies\u0020a\u0020version\u0020constraint",
-            "url": "classes/Composer-InstalledVersions.html#method_satisfies"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetVersionRanges\u0028\u0029",
-            "name": "getVersionRanges",
-            "summary": "Returns\u0020a\u0020version\u0020constraint\u0020representing\u0020all\u0020the\u0020range\u0028s\u0029\u0020which\u0020are\u0020installed\u0020for\u0020a\u0020given\u0020package",
-            "url": "classes/Composer-InstalledVersions.html#method_getVersionRanges"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetVersion\u0028\u0029",
-            "name": "getVersion",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getVersion"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetPrettyVersion\u0028\u0029",
-            "name": "getPrettyVersion",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getPrettyVersion"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetReference\u0028\u0029",
-            "name": "getReference",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getReference"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstallPath\u0028\u0029",
-            "name": "getInstallPath",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstallPath"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetRootPackage\u0028\u0029",
-            "name": "getRootPackage",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getRootPackage"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetRawData\u0028\u0029",
-            "name": "getRawData",
-            "summary": "Returns\u0020the\u0020raw\u0020installed.php\u0020data\u0020for\u0020custom\u0020implementations",
-            "url": "classes/Composer-InstalledVersions.html#method_getRawData"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetAllRawData\u0028\u0029",
-            "name": "getAllRawData",
-            "summary": "Returns\u0020the\u0020raw\u0020data\u0020of\u0020all\u0020installed.php\u0020which\u0020are\u0020currently\u0020loaded\u0020for\u0020custom\u0020implementations",
-            "url": "classes/Composer-InstalledVersions.html#method_getAllRawData"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003Areload\u0028\u0029",
-            "name": "reload",
-            "summary": "Lets\u0020you\u0020reload\u0020the\u0020static\u0020array\u0020from\u0020another\u0020file",
-            "url": "classes/Composer-InstalledVersions.html#method_reload"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003AgetInstalled\u0028\u0029",
-            "name": "getInstalled",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#method_getInstalled"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installed",
-            "name": "installed",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_installed"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024canGetVendors",
-            "name": "canGetVendors",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_canGetVendors"
-        },                {
-            "fqsen": "\\Composer\\InstalledVersions\u003A\u003A\u0024installedByVendor",
-            "name": "installedByVendor",
-            "summary": "",
-            "url": "classes/Composer-InstalledVersions.html#property_installedByVendor"
         },                {
             "fqsen": "\\Parsedown",
             "name": "Parsedown",
@@ -22456,705 +27381,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/ValueError.html"
         },                {
-            "fqsen": "\\Cockpit\\AuthController",
-            "name": "AuthController",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-AuthController.html"
-        },                {
-            "fqsen": "\\Cockpit\\AuthController\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
+            "fqsen": "\\yxorp_populate_collection\u0028\u0029",
+            "name": "yxorp_populate_collection",
             "summary": "",
-            "url": "classes/Cockpit-AuthController.html#method___construct"
-        },                {
-            "fqsen": "\\Cockpit\\AuthController\u003A\u003A\u0024layout",
-            "name": "layout",
-            "summary": "",
-            "url": "classes/Cockpit-AuthController.html#property_layout"
-        },                {
-            "fqsen": "\\Cockpit\\AuthController\u003A\u003A\u0024user",
-            "name": "user",
-            "summary": "",
-            "url": "classes/Cockpit-AuthController.html#property_user"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts",
-            "name": "Accounts",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-Accounts.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_index"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Aaccount\u0028\u0029",
-            "name": "account",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_account"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
-            "name": "create",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_create"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_save"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_remove"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003Afind\u0028\u0029",
-            "name": "find",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_find"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
-            "name": "getLanguages",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Accounts.html#method_getLanguages"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth",
-            "name": "Auth",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-Auth.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Acheck\u0028\u0029",
-            "name": "check",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Auth.html#method_check"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Alogin\u0028\u0029",
-            "name": "login",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Auth.html#method_login"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Alogout\u0028\u0029",
-            "name": "logout",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Auth.html#method_logout"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Aforgotpassword\u0028\u0029",
-            "name": "forgotpassword",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Auth.html#method_forgotpassword"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Arequestreset\u0028\u0029",
-            "name": "requestreset",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Auth.html#method_requestreset"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Anewpassword\u0028\u0029",
-            "name": "newpassword",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Auth.html#method_newpassword"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Auth\u003A\u003Aresetpassword\u0028\u0029",
-            "name": "resetpassword",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Auth.html#method_resetpassword"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Base",
-            "name": "Base",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-Base.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Adashboard\u0028\u0029",
-            "name": "dashboard",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Base.html#method_dashboard"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Asavedashboard\u0028\u0029",
-            "name": "savedashboard",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Base.html#method_savedashboard"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Asearch\u0028\u0029",
-            "name": "search",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Base.html#method_search"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Base\u003A\u003Acall\u0028\u0029",
-            "name": "call",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Base.html#method_call"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media",
-            "name": "Media",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-Media.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aapi\u0028\u0029",
-            "name": "api",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_api"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Als\u0028\u0029",
-            "name": "ls",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_ls"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
-            "name": "upload",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_upload"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
-            "name": "uploadfolder",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_uploadfolder"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Acreatefolder\u0028\u0029",
-            "name": "createfolder",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_createfolder"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Acreatefile\u0028\u0029",
-            "name": "createfile",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_createfile"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aremovefiles\u0028\u0029",
-            "name": "removefiles",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_removefiles"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_rrmdir\u0028\u0029",
-            "name": "_rrmdir",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method__rrmdir"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Arename\u0028\u0029",
-            "name": "rename",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_rename"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Areadfile\u0028\u0029",
-            "name": "readfile",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_readfile"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Awritefile\u0028\u0029",
-            "name": "writefile",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_writefile"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aunzip\u0028\u0029",
-            "name": "unzip",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_unzip"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Adownload\u0028\u0029",
-            "name": "download",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_download"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Adownloadfolder\u0028\u0029",
-            "name": "downloadfolder",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_downloadfolder"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Agetfilelist\u0028\u0029",
-            "name": "getfilelist",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_getfilelist"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
-            "name": "savebookmarks",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_savebookmarks"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
-            "name": "loadbookmarks",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method_loadbookmarks"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
-            "name": "_getPathParameter",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method__getPathParameter"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
-            "name": "_isFileTypeAllowed",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#method__isFileTypeAllowed"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Media\u003A\u003A\u0024root",
-            "name": "root",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Media.html#property_root"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestAdmin",
-            "name": "RestAdmin",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-RestAdmin.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestAdmin\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestAdmin.html#method___construct"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestAdmin\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestAdmin.html#method_index"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestAdmin\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestAdmin.html#method_save"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi",
-            "name": "RestApi",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-RestApi.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_before"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AauthUser\u0028\u0029",
-            "name": "authUser",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_authUser"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003ArefreshUserApiKey\u0028\u0029",
-            "name": "refreshUserApiKey",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_refreshUserApiKey"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AsaveUser\u0028\u0029",
-            "name": "saveUser",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_saveUser"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AlistUsers\u0028\u0029",
-            "name": "listUsers",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_listUsers"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Aimage\u0028\u0029",
-            "name": "image",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_image"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Aassets\u0028\u0029",
-            "name": "assets",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_assets"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003Aasset\u0028\u0029",
-            "name": "asset",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_asset"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AaddAssets\u0028\u0029",
-            "name": "addAssets",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_addAssets"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AupdateAssets\u0028\u0029",
-            "name": "updateAssets",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_updateAssets"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\RestApi\u003A\u003AremoveAssets\u0028\u0029",
-            "name": "removeAssets",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-RestApi.html#method_removeAssets"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Settings",
-            "name": "Settings",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-Settings.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Settings.html#method_index"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Ainfo\u0028\u0029",
-            "name": "info",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Settings.html#method_info"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
-            "name": "edit",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Settings.html#method_edit"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Settings.html#method_update"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
-            "name": "getUptdateInfo",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Settings.html#method_getUptdateInfo"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils",
-            "name": "Utils",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-Utils.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003Athumb_url\u0028\u0029",
-            "name": "thumb_url",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_thumb_url"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AgetCacheSize\u0028\u0029",
-            "name": "getCacheSize",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_getCacheSize"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArevisionsCount\u0028\u0029",
-            "name": "revisionsCount",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_revisionsCount"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArevisionsRemove\u0028\u0029",
-            "name": "revisionsRemove",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_revisionsRemove"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArevisionsRemoveAll\u0028\u0029",
-            "name": "revisionsRemoveAll",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_revisionsRemoveAll"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_isResourceLocked"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AlockResourceId\u0028\u0029",
-            "name": "lockResourceId",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_lockResourceId"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AunlockResourceId\u0028\u0029",
-            "name": "unlockResourceId",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_unlockResourceId"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AunlockResourceIdByCurrentUser\u0028\u0029",
-            "name": "unlockResourceIdByCurrentUser",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_unlockResourceIdByCurrentUser"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AstartJobRunner\u0028\u0029",
-            "name": "startJobRunner",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_startJobRunner"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003ArestartJobRunner\u0028\u0029",
-            "name": "restartJobRunner",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_restartJobRunner"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Utils\u003A\u003AstopJobRunner\u0028\u0029",
-            "name": "stopJobRunner",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Utils.html#method_stopJobRunner"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Webhooks",
-            "name": "Webhooks",
-            "summary": "Class\u0020Controller",
-            "url": "classes/Cockpit-Controller-Webhooks.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Webhooks.html#method___construct"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Aindex\u0028\u0029",
-            "name": "index",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Webhooks.html#method_index"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Awebhook\u0028\u0029",
-            "name": "webhook",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Webhooks.html#method_webhook"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Asave\u0028\u0029",
-            "name": "save",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Webhooks.html#method_save"
-        },                {
-            "fqsen": "\\Cockpit\\Controller\\Webhooks\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Cockpit-Controller-Webhooks.html#method_remove"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin",
-            "name": "Admin",
-            "summary": "Admin\u0020Helper\u0020class.",
-            "url": "classes/Cockpit-Helper-Admin.html"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_initialize"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003Ainit\u0028\u0029",
-            "name": "init",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_init"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024favicon",
-            "name": "favicon",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#property_favicon"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AaddMenuItem\u0028\u0029",
-            "name": "addMenuItem",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_addMenuItem"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AaddAssets\u0028\u0029",
-            "name": "addAssets",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_addAssets"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AextractVar\u0028\u0029",
-            "name": "extractVar",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_extractVar"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AgetOption\u0028\u0029",
-            "name": "getOption",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_getOption"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AsetOption\u0028\u0029",
-            "name": "setOption",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_setOption"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AgetUserOption\u0028\u0029",
-            "name": "getUserOption",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_getUserOption"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AsetUserOption\u0028\u0029",
-            "name": "setUserOption",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_setUserOption"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_isResourceLocked"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
-            "name": "isResourceEditableByCurrentUser",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_isResourceEditableByCurrentUser"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
-            "name": "lockResourceId",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_lockResourceId"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
-            "name": "unlockResourceId",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_unlockResourceId"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003AdenyRequest\u0028\u0029",
-            "name": "denyRequest",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#method_denyRequest"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024data",
-            "name": "data",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#property_data"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024options",
-            "name": "options",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#property_options"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Admin\u003A\u003A\u0024user",
-            "name": "user",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Admin.html#property_user"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Async",
-            "name": "Async",
-            "summary": "Async\u0020Helper\u0020class.",
-            "url": "classes/Cockpit-Helper-Async.html"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
-            "name": "exec",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Async.html#method_exec"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
-            "name": "finished",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Async.html#method_finished"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
-            "name": "execInBackground",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Async.html#method_execInBackground"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003AisExecAvailable\u0028\u0029",
-            "name": "isExecAvailable",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Async.html#method_isExecAvailable"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Async\u003A\u003A\u0024phpPath",
-            "name": "phpPath",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Async.html#property_phpPath"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Csrf",
-            "name": "Csrf",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Csrf.html"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Csrf.html#method_initialize"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
-            "name": "generateToken",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Csrf.html#method_generateToken"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
-            "name": "token",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Csrf.html#method_token"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
-            "name": "isValid",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Csrf.html#method_isValid"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs",
-            "name": "Jobs",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_initialize"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
-            "name": "getJob",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_getJob"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
-            "name": "add",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_add"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_remove"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
-            "name": "work",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_work"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_execute"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
-            "name": "isRunnerActive",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_isRunnerActive"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AstopRunner\u0028\u0029",
-            "name": "stopRunner",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_stopRunner"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003AcountJobs\u0028\u0029",
-            "name": "countJobs",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_countJobs"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Jobs\u003A\u003Arun\u0028\u0029",
-            "name": "run",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Jobs.html#method_run"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions",
-            "name": "Revisions",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Ainitialize\u0028\u0029",
-            "name": "initialize",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#method_initialize"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Acount\u0028\u0029",
-            "name": "count",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#method_count"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003AgetList\u0028\u0029",
-            "name": "getList",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#method_getList"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Aadd\u0028\u0029",
-            "name": "add",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#method_add"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Aget\u0028\u0029",
-            "name": "get",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#method_get"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#method_remove"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003AremoveAll\u0028\u0029",
-            "name": "removeAll",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#method_removeAll"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Revisions\u003A\u003A\u0024storage",
-            "name": "storage",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Revisions.html#property_storage"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Updater",
-            "name": "Updater",
-            "summary": "Admin\u0020Helper\u0020class.",
-            "url": "classes/Cockpit-Helper-Updater.html"
-        },                {
-            "fqsen": "\\Cockpit\\Helper\\Updater\u003A\u003Aupdate\u0028\u0029",
-            "name": "update",
-            "summary": "",
-            "url": "classes/Cockpit-Helper-Updater.html#method_update"
-        },                {
-            "fqsen": "\\cockpit_populate_collection\u0028\u0029",
-            "name": "cockpit_populate_collection",
-            "summary": "",
-            "url": "namespaces/default.html#function_cockpit_populate_collection"
+            "url": "namespaces/default.html#function_yxorp_populate_collection"
         },                {
             "fqsen": "\\_check_collection_rule\u0028\u0029",
             "name": "_check_collection_rule",
@@ -23261,11 +27491,6 @@ Search.appendIndex(
             "summary": "Class\u0020Controller",
             "url": "classes/Collections-Controller-RestApi.html"
         },                {
-            "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
-            "name": "before",
-            "summary": "",
-            "url": "classes/Collections-Controller-RestApi.html#method_before"
-        },                {
             "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Aget\u0028\u0029",
             "name": "get",
             "summary": "Deprecated\u0021\u0020use\u0020\/entries\u0020instead",
@@ -23310,6 +27535,11 @@ Search.appendIndex(
             "name": "listCollections",
             "summary": "",
             "url": "classes/Collections-Controller-RestApi.html#method_listCollections"
+        },                {
+            "fqsen": "\\Collections\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/Collections-Controller-RestApi.html#method_before"
         },                {
             "fqsen": "\\Collections\\Controller\\Trash",
             "name": "Trash",
@@ -23456,30 +27686,735 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/Singletons-Controller-RestApi.html#method_listSingletons"
         },                {
+            "fqsen": "\\yxorP\\AuthController",
+            "name": "AuthController",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-AuthController.html"
+        },                {
+            "fqsen": "\\yxorP\\AuthController\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-AuthController.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\AuthController\u003A\u003A\u0024layout",
+            "name": "layout",
+            "summary": "",
+            "url": "classes/yxorP-AuthController.html#property_layout"
+        },                {
+            "fqsen": "\\yxorP\\AuthController\u003A\u003A\u0024user",
+            "name": "user",
+            "summary": "",
+            "url": "classes/yxorP-AuthController.html#property_user"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts",
+            "name": "Accounts",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-Accounts.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_index"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Aaccount\u0028\u0029",
+            "name": "account",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_account"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_create"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_save"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_remove"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Afind\u0028\u0029",
+            "name": "find",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_find"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
+            "name": "getLanguages",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_getLanguages"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth",
+            "name": "Auth",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-Auth.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Auth.html#method_check"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Alogin\u0028\u0029",
+            "name": "login",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Auth.html#method_login"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Alogout\u0028\u0029",
+            "name": "logout",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Auth.html#method_logout"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Aforgotpassword\u0028\u0029",
+            "name": "forgotpassword",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Auth.html#method_forgotpassword"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Arequestreset\u0028\u0029",
+            "name": "requestreset",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Auth.html#method_requestreset"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Anewpassword\u0028\u0029",
+            "name": "newpassword",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Auth.html#method_newpassword"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Auth\u003A\u003Aresetpassword\u0028\u0029",
+            "name": "resetpassword",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Auth.html#method_resetpassword"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Base",
+            "name": "Base",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-Base.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Adashboard\u0028\u0029",
+            "name": "dashboard",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Base.html#method_dashboard"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Asavedashboard\u0028\u0029",
+            "name": "savedashboard",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Base.html#method_savedashboard"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Asearch\u0028\u0029",
+            "name": "search",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Base.html#method_search"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Base\u003A\u003Acall\u0028\u0029",
+            "name": "call",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Base.html#method_call"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media",
+            "name": "Media",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-Media.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aapi\u0028\u0029",
+            "name": "api",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_api"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Asavebookmarks\u0028\u0029",
+            "name": "savebookmarks",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_savebookmarks"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aloadbookmarks\u0028\u0029",
+            "name": "loadbookmarks",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_loadbookmarks"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Als\u0028\u0029",
+            "name": "ls",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_ls"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
+            "name": "upload",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_upload"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
+            "name": "uploadfolder",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_uploadfolder"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Acreatefolder\u0028\u0029",
+            "name": "createfolder",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_createfolder"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Acreatefile\u0028\u0029",
+            "name": "createfile",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_createfile"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aremovefiles\u0028\u0029",
+            "name": "removefiles",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_removefiles"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_rrmdir\u0028\u0029",
+            "name": "_rrmdir",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method__rrmdir"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Arename\u0028\u0029",
+            "name": "rename",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_rename"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Areadfile\u0028\u0029",
+            "name": "readfile",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_readfile"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Awritefile\u0028\u0029",
+            "name": "writefile",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_writefile"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aunzip\u0028\u0029",
+            "name": "unzip",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_unzip"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Adownload\u0028\u0029",
+            "name": "download",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_download"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Adownloadfolder\u0028\u0029",
+            "name": "downloadfolder",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_downloadfolder"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Agetfilelist\u0028\u0029",
+            "name": "getfilelist",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method_getfilelist"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
+            "name": "_getPathParameter",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method__getPathParameter"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
+            "name": "_isFileTypeAllowed",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method__isFileTypeAllowed"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A\u0024root",
+            "name": "root",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#property_root"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestAdmin",
+            "name": "RestAdmin",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-RestAdmin.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestAdmin\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestAdmin.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestAdmin\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestAdmin.html#method_index"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestAdmin\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestAdmin.html#method_save"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi",
+            "name": "RestApi",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-RestApi.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AauthUser\u0028\u0029",
+            "name": "authUser",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_authUser"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003ArefreshUserApiKey\u0028\u0029",
+            "name": "refreshUserApiKey",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_refreshUserApiKey"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AsaveUser\u0028\u0029",
+            "name": "saveUser",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_saveUser"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AlistUsers\u0028\u0029",
+            "name": "listUsers",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_listUsers"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Aimage\u0028\u0029",
+            "name": "image",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_image"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Aassets\u0028\u0029",
+            "name": "assets",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_assets"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Aasset\u0028\u0029",
+            "name": "asset",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_asset"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AaddAssets\u0028\u0029",
+            "name": "addAssets",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_addAssets"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AupdateAssets\u0028\u0029",
+            "name": "updateAssets",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_updateAssets"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003AremoveAssets\u0028\u0029",
+            "name": "removeAssets",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_removeAssets"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\RestApi\u003A\u003Abefore\u0028\u0029",
+            "name": "before",
+            "summary": "",
+            "url": "classes/yxorP-Controller-RestApi.html#method_before"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Settings",
+            "name": "Settings",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-Settings.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Settings.html#method_index"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Ainfo\u0028\u0029",
+            "name": "info",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Settings.html#method_info"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
+            "name": "edit",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Settings.html#method_edit"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Settings.html#method_update"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
+            "name": "getUptdateInfo",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Settings.html#method_getUptdateInfo"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils",
+            "name": "Utils",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-Utils.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003Athumb_url\u0028\u0029",
+            "name": "thumb_url",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_thumb_url"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AgetCacheSize\u0028\u0029",
+            "name": "getCacheSize",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_getCacheSize"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArevisionsCount\u0028\u0029",
+            "name": "revisionsCount",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_revisionsCount"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArevisionsRemove\u0028\u0029",
+            "name": "revisionsRemove",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_revisionsRemove"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArevisionsRemoveAll\u0028\u0029",
+            "name": "revisionsRemoveAll",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_revisionsRemoveAll"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_isResourceLocked"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AlockResourceId\u0028\u0029",
+            "name": "lockResourceId",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_lockResourceId"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AunlockResourceId\u0028\u0029",
+            "name": "unlockResourceId",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_unlockResourceId"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AunlockResourceIdByCurrentUser\u0028\u0029",
+            "name": "unlockResourceIdByCurrentUser",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_unlockResourceIdByCurrentUser"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AstartJobRunner\u0028\u0029",
+            "name": "startJobRunner",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_startJobRunner"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003ArestartJobRunner\u0028\u0029",
+            "name": "restartJobRunner",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_restartJobRunner"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Utils\u003A\u003AstopJobRunner\u0028\u0029",
+            "name": "stopJobRunner",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Utils.html#method_stopJobRunner"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Webhooks",
+            "name": "Webhooks",
+            "summary": "Class\u0020Controller",
+            "url": "classes/yxorP-Controller-Webhooks.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Webhooks.html#method___construct"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Aindex\u0028\u0029",
+            "name": "index",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Webhooks.html#method_index"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Awebhook\u0028\u0029",
+            "name": "webhook",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Webhooks.html#method_webhook"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Asave\u0028\u0029",
+            "name": "save",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Webhooks.html#method_save"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Webhooks\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Webhooks.html#method_remove"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin",
+            "name": "Admin",
+            "summary": "Admin\u0020Helper\u0020class.",
+            "url": "classes/yxorP-Helper-Admin.html"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_initialize"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003Ainit\u0028\u0029",
+            "name": "init",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_init"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024favicon",
+            "name": "favicon",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#property_favicon"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AaddMenuItem\u0028\u0029",
+            "name": "addMenuItem",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_addMenuItem"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AaddAssets\u0028\u0029",
+            "name": "addAssets",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_addAssets"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AextractVar\u0028\u0029",
+            "name": "extractVar",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_extractVar"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AgetOption\u0028\u0029",
+            "name": "getOption",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_getOption"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AsetOption\u0028\u0029",
+            "name": "setOption",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_setOption"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AgetUserOption\u0028\u0029",
+            "name": "getUserOption",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_getUserOption"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AsetUserOption\u0028\u0029",
+            "name": "setUserOption",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_setUserOption"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_isResourceLocked"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
+            "name": "isResourceEditableByCurrentUser",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
+            "name": "lockResourceId",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_lockResourceId"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AunlockResourceId\u0028\u0029",
+            "name": "unlockResourceId",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_unlockResourceId"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AdenyRequest\u0028\u0029",
+            "name": "denyRequest",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_denyRequest"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024data",
+            "name": "data",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#property_data"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024options",
+            "name": "options",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#property_options"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003A\u0024user",
+            "name": "user",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#property_user"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Async",
+            "name": "Async",
+            "summary": "Async\u0020Helper\u0020class.",
+            "url": "classes/yxorP-Helper-Async.html"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003Aexec\u0028\u0029",
+            "name": "exec",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Async.html#method_exec"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
+            "name": "finished",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Async.html#method_finished"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
+            "name": "execInBackground",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Async.html#method_execInBackground"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003AisExecAvailable\u0028\u0029",
+            "name": "isExecAvailable",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Async.html#method_isExecAvailable"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003A\u0024phpPath",
+            "name": "phpPath",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Async.html#property_phpPath"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Csrf",
+            "name": "Csrf",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Csrf.html"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Csrf.html#method_initialize"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
+            "name": "generateToken",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Csrf.html#method_generateToken"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
+            "name": "token",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Csrf.html#method_token"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
+            "name": "isValid",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Csrf.html#method_isValid"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs",
+            "name": "Jobs",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_initialize"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
+            "name": "getJob",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_getJob"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_add"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_remove"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
+            "name": "work",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_work"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_execute"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
+            "name": "isRunnerActive",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_isRunnerActive"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AstopRunner\u0028\u0029",
+            "name": "stopRunner",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_stopRunner"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AcountJobs\u0028\u0029",
+            "name": "countJobs",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_countJobs"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Arun\u0028\u0029",
+            "name": "run",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_run"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions",
+            "name": "Revisions",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Ainitialize\u0028\u0029",
+            "name": "initialize",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#method_initialize"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Acount\u0028\u0029",
+            "name": "count",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#method_count"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003AgetList\u0028\u0029",
+            "name": "getList",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#method_getList"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Aadd\u0028\u0029",
+            "name": "add",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#method_add"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Aget\u0028\u0029",
+            "name": "get",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#method_get"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#method_remove"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003AremoveAll\u0028\u0029",
+            "name": "removeAll",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#method_removeAll"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Revisions\u003A\u003A\u0024storage",
+            "name": "storage",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Revisions.html#property_storage"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Updater",
+            "name": "Updater",
+            "summary": "Admin\u0020Helper\u0020class.",
+            "url": "classes/yxorP-Helper-Updater.html"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Updater\u003A\u003Aupdate\u0028\u0029",
+            "name": "update",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Updater.html#method_update"
+        },                {
             "fqsen": "\\blockListPluginAction",
             "name": "blockListPluginAction",
             "summary": "",
             "url": "classes/blockListPluginAction.html"
-        },                {
-            "fqsen": "\\blockListPluginAction\u003A\u003Acallable\u0028\u0029",
-            "name": "callable",
-            "summary": "",
-            "url": "classes/blockListPluginAction.html#method_callable"
         },                {
             "fqsen": "\\blockListPluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
             "summary": "",
             "url": "classes/blockListPluginAction.html#method_onBeforeSend"
         },                {
+            "fqsen": "\\blockListPluginAction\u003A\u003Acallable\u0028\u0029",
+            "name": "callable",
+            "summary": "",
+            "url": "classes/blockListPluginAction.html#method_callable"
+        },                {
             "fqsen": "\\cookiePluginAction",
             "name": "cookiePluginAction",
             "summary": "",
             "url": "classes/cookiePluginAction.html"
         },                {
+            "fqsen": "\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
+            "name": "onBeforeSend",
+            "summary": "",
+            "url": "classes/cookiePluginAction.html#method_onBeforeSend"
+        },                {
             "fqsen": "\\cookiePluginAction\u003A\u003AbeforeRequest\u0028\u0029",
             "name": "beforeRequest",
             "summary": "",
             "url": "classes/cookiePluginAction.html#method_beforeRequest"
+        },                {
+            "fqsen": "\\cookiePluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
+            "summary": "",
+            "url": "classes/cookiePluginAction.html#method_onSent"
         },                {
             "fqsen": "\\cookiePluginAction\u003A\u003AheadersReceived\u0028\u0029",
             "name": "headersReceived",
@@ -23496,16 +28431,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/cookiePluginAction.html#method_parse_cookie"
         },                {
-            "fqsen": "\\cookiePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
-            "name": "onBeforeSend",
-            "summary": "",
-            "url": "classes/cookiePluginAction.html#method_onBeforeSend"
-        },                {
-            "fqsen": "\\cookiePluginAction\u003A\u003AonEventSent\u0028\u0029",
-            "name": "onEventSent",
-            "summary": "",
-            "url": "classes/cookiePluginAction.html#method_onEventSent"
-        },                {
             "fqsen": "\\cookiePluginAction\u003A\u003ACOOKIE_PREFIX",
             "name": "COOKIE_PREFIX",
             "summary": "",
@@ -23516,15 +28441,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/dailyMotionPluginAction.html"
         },                {
+            "fqsen": "\\dailyMotionPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
+            "summary": "",
+            "url": "classes/dailyMotionPluginAction.html#method_onComplete"
+        },                {
             "fqsen": "\\dailyMotionPluginAction\u003A\u003Acompleted\u0028\u0029",
             "name": "completed",
             "summary": "",
             "url": "classes/dailyMotionPluginAction.html#method_completed"
-        },                {
-            "fqsen": "\\dailyMotionPluginAction\u003A\u003AonEventComplete\u0028\u0029",
-            "name": "onEventComplete",
-            "summary": "",
-            "url": "classes/dailyMotionPluginAction.html#method_onEventComplete"
         },                {
             "fqsen": "\\dailyMotionPluginAction\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -23536,30 +28461,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/headerRewritePluginAction.html"
         },                {
-            "fqsen": "\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
-            "name": "headersReceived",
-            "summary": "",
-            "url": "classes/headerRewritePluginAction.html#method_headersReceived"
-        },                {
             "fqsen": "\\headerRewritePluginAction\u003A\u003AonBeforeSend\u0028\u0029",
             "name": "onBeforeSend",
             "summary": "",
             "url": "classes/headerRewritePluginAction.html#method_onBeforeSend"
         },                {
-            "fqsen": "\\headerRewritePluginAction\u003A\u003AonEventSent\u0028\u0029",
-            "name": "onEventSent",
+            "fqsen": "\\headerRewritePluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
             "summary": "",
-            "url": "classes/headerRewritePluginAction.html#method_onEventSent"
+            "url": "classes/headerRewritePluginAction.html#method_onSent"
+        },                {
+            "fqsen": "\\headerRewritePluginAction\u003A\u003AheadersReceived\u0028\u0029",
+            "name": "headersReceived",
+            "summary": "",
+            "url": "classes/headerRewritePluginAction.html#method_headersReceived"
         },                {
             "fqsen": "\\logPluginAction",
             "name": "logPluginAction",
             "summary": "",
             "url": "classes/logPluginAction.html"
         },                {
-            "fqsen": "\\logPluginAction\u003A\u003AonEventSent\u0028\u0029",
-            "name": "onEventSent",
+            "fqsen": "\\logPluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
             "summary": "",
-            "url": "classes/logPluginAction.html#method_onEventSent"
+            "url": "classes/logPluginAction.html#method_onSent"
         },                {
             "fqsen": "\\proxifyPluginAction",
             "name": "proxifyPluginAction",
@@ -23571,10 +28496,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/proxifyPluginAction.html#method_onBeforeSend"
         },                {
-            "fqsen": "\\proxifyPluginAction\u003A\u003AonEventComplete\u0028\u0029",
-            "name": "onEventComplete",
+            "fqsen": "\\proxifyPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
             "summary": "",
-            "url": "classes/proxifyPluginAction.html#method_onEventComplete"
+            "url": "classes/proxifyPluginAction.html#method_onComplete"
         },                {
             "fqsen": "\\proxifyPluginAction\u003A\u003Aclean_content_type\u0028\u0029",
             "name": "clean_content_type",
@@ -23626,20 +28551,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/streamPluginAction.html"
         },                {
-            "fqsen": "\\streamPluginAction\u003A\u003AonEventSent\u0028\u0029",
-            "name": "onEventSent",
+            "fqsen": "\\streamPluginAction\u003A\u003AonSent\u0028\u0029",
+            "name": "onSent",
             "summary": "",
-            "url": "classes/streamPluginAction.html#method_onEventSent"
+            "url": "classes/streamPluginAction.html#method_onSent"
         },                {
-            "fqsen": "\\streamPluginAction\u003A\u003AonEventWrite\u0028\u0029",
-            "name": "onEventWrite",
+            "fqsen": "\\streamPluginAction\u003A\u003AonWrite\u0028\u0029",
+            "name": "onWrite",
             "summary": "",
-            "url": "classes/streamPluginAction.html#method_onEventWrite"
+            "url": "classes/streamPluginAction.html#method_onWrite"
         },                {
-            "fqsen": "\\streamPluginAction\u003A\u003AonEventComplete\u0028\u0029",
-            "name": "onEventComplete",
+            "fqsen": "\\streamPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
             "summary": "",
-            "url": "classes/streamPluginAction.html#method_onEventComplete"
+            "url": "classes/streamPluginAction.html#method_onComplete"
         },                {
             "fqsen": "\\streamPluginAction\u003A\u003A\u0024output_buffer_types",
             "name": "output_buffer_types",
@@ -23661,10 +28586,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/twitterPluginAction.html"
         },                {
-            "fqsen": "\\twitterPluginAction\u003A\u003AonEventComplete\u0028\u0029",
-            "name": "onEventComplete",
+            "fqsen": "\\twitterPluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
             "summary": "",
-            "url": "classes/twitterPluginAction.html#method_onEventComplete"
+            "url": "classes/twitterPluginAction.html#method_onComplete"
         },                {
             "fqsen": "\\twitterPluginAction\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -23681,10 +28606,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/youtubePluginAction.html#method_onBeforeSend"
         },                {
-            "fqsen": "\\youtubePluginAction\u003A\u003AonEventComplete\u0028\u0029",
-            "name": "onEventComplete",
+            "fqsen": "\\youtubePluginAction\u003A\u003AonComplete\u0028\u0029",
+            "name": "onComplete",
             "summary": "",
-            "url": "classes/youtubePluginAction.html#method_onEventComplete"
+            "url": "classes/youtubePluginAction.html#method_onComplete"
         },                {
             "fqsen": "\\youtubePluginAction\u003A\u003A\u0024url_pattern",
             "name": "url_pattern",
@@ -23695,6 +28620,96 @@ Search.appendIndex(
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
+        },                {
+            "fqsen": "\\Composer\\Installers",
+            "name": "Installers",
+            "summary": "",
+            "url": "namespaces/composer-installers.html"
+        },                {
+            "fqsen": "\\Bootmanager\\Controller",
+            "name": "Controller",
+            "summary": "",
+            "url": "namespaces/bootmanager-controller.html"
+        },                {
+            "fqsen": "\\Bootmanager",
+            "name": "Bootmanager",
+            "summary": "",
+            "url": "namespaces/bootmanager.html"
+        },                {
+            "fqsen": "\\Feed\\Controller",
+            "name": "Controller",
+            "summary": "",
+            "url": "namespaces/feed-controller.html"
+        },                {
+            "fqsen": "\\Feed",
+            "name": "Feed",
+            "summary": "",
+            "url": "namespaces/feed.html"
+        },                {
+            "fqsen": "\\Composer\\Autoload",
+            "name": "Autoload",
+            "summary": "",
+            "url": "namespaces/composer-autoload.html"
+        },                {
+            "fqsen": "\\Composer",
+            "name": "Composer",
+            "summary": "",
+            "url": "namespaces/composer.html"
+        },                {
+            "fqsen": "\\Kint",
+            "name": "Kint",
+            "summary": "",
+            "url": "namespaces/kint.html"
+        },                {
+            "fqsen": "\\Kint\\Object",
+            "name": "Object",
+            "summary": "",
+            "url": "namespaces/kint-object.html"
+        },                {
+            "fqsen": "\\Kint\\Object\\Representation",
+            "name": "Representation",
+            "summary": "",
+            "url": "namespaces/kint-object-representation.html"
+        },                {
+            "fqsen": "\\Kint\\Parser",
+            "name": "Parser",
+            "summary": "",
+            "url": "namespaces/kint-parser.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer",
+            "name": "Renderer",
+            "summary": "",
+            "url": "namespaces/kint-renderer.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Rich",
+            "name": "Rich",
+            "summary": "",
+            "url": "namespaces/kint-renderer-rich.html"
+        },                {
+            "fqsen": "\\Kint\\Renderer\\Text",
+            "name": "Text",
+            "summary": "",
+            "url": "namespaces/kint-renderer-text.html"
+        },                {
+            "fqsen": "\\LayoutComponents\\Controller",
+            "name": "Controller",
+            "summary": "",
+            "url": "namespaces/layoutcomponents-controller.html"
+        },                {
+            "fqsen": "\\LayoutComponents",
+            "name": "LayoutComponents",
+            "summary": "",
+            "url": "namespaces/layoutcomponents.html"
+        },                {
+            "fqsen": "\\rljUtils\\Controller",
+            "name": "Controller",
+            "summary": "",
+            "url": "namespaces/rljutils-controller.html"
+        },                {
+            "fqsen": "\\rljUtils",
+            "name": "rljUtils",
+            "summary": "",
+            "url": "namespaces/rljutils.html"
         },                {
             "fqsen": "\\Lime",
             "name": "Lime",
@@ -23745,16 +28760,6 @@ Search.appendIndex(
             "name": "ColinODell",
             "summary": "",
             "url": "namespaces/colinodell.html"
-        },                {
-            "fqsen": "\\Composer\\Autoload",
-            "name": "Autoload",
-            "summary": "",
-            "url": "namespaces/composer-autoload.html"
-        },                {
-            "fqsen": "\\Composer",
-            "name": "Composer",
-            "summary": "",
-            "url": "namespaces/composer.html"
         },                {
             "fqsen": "\\Firebase\\JWT",
             "name": "JWT",
@@ -23961,21 +28966,6 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/symfony.html"
         },                {
-            "fqsen": "\\Cockpit",
-            "name": "Cockpit",
-            "summary": "",
-            "url": "namespaces/cockpit.html"
-        },                {
-            "fqsen": "\\Cockpit\\Controller",
-            "name": "Controller",
-            "summary": "",
-            "url": "namespaces/cockpit-controller.html"
-        },                {
-            "fqsen": "\\Cockpit\\Helper",
-            "name": "Helper",
-            "summary": "",
-            "url": "namespaces/cockpit-helper.html"
-        },                {
             "fqsen": "\\Collections\\Controller",
             "name": "Controller",
             "summary": "",
@@ -24010,5 +29000,15 @@ Search.appendIndex(
             "name": "yxorP",
             "summary": "",
             "url": "namespaces/yxorp.html"
+        },                {
+            "fqsen": "\\yxorP\\Controller",
+            "name": "Controller",
+            "summary": "",
+            "url": "namespaces/yxorp-controller.html"
+        },                {
+            "fqsen": "\\yxorP\\Helper",
+            "name": "Helper",
+            "summary": "",
+            "url": "namespaces/yxorp-helper.html"
         }            ]
 );
