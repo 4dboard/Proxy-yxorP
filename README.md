@@ -242,8 +242,9 @@ You should get started on this as soon as humanly feasible, since it is of the h
 
 ![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671919-1584593a-cfcc-476a-93ce-c1a65e81de92.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
-Applications Create static flat file variants of your original webpages by using yxorP to mirror your websites and offer
-the mirrored/cloned copies as static flat file variations of the original webpages.
+You may build static flat file versions of your original webpages by utilizing yxorP to mirror your websites, supplying
+mirrored or cloned copies of those websites, and then giving the mirrored or cloned copies of those websites as static
+flat file variants of your original webpages. This is feasible by using yxorP to mirror your websites.
 
 #### 🔥 Cache
 
