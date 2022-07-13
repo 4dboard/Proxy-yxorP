@@ -210,9 +210,7 @@ interface, as opposed to depending on the transmission of data through individua
 
 #### Key features:
 
-Manage flexible content models. There are no pre-defined content models. Define the content model yourself. Uncluttered
-UI. Cockpit offers you a modern and simple user interface. One system, consume it the way you want. Receive your content
-via a simple API.
+Manage flexible content models. Despite the existence of accessible content models, none have been developed before. You will be solely responsible for developing the content model required for this method. A user interface free of extraneous elements and clutter. Dashboard provides not just an easy user interface, but also one that is continuously updated. You may use the system in any way you see appropriate, so long as you adhere to the set requirements. There is just one system in place. Utilize a straightforward application programming interface to get access to your content (API).
 
 #### The Advantages Of Going Headless
 
