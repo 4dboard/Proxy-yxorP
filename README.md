@@ -324,10 +324,11 @@ creation of software, it is necessary to have the ability to retain stability.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Snag.gif)
 
-Diagnostic data from our mobile assistance, which has been regarded as the best-in the industry, enables teams to
-reproduce and fix issues as soon as they begin to have an impact on system stability. Reports on error situations are
-arranged by root cause and may also be classified by business impact. In addition, they are supplied with extensive
-diagnostic information.
+Because our mobile support is widely regarded as the industry's gold standard, we are able to supply teams with
+diagnostic data that enables them to reproduce issues and discover solutions to them as soon as those problems begin to
+have an effect on the system's reliability. The reports on the different types of errors are sorted according to the
+underlying cause of the error, and in some situations, they are also categorized according to the impact that the error
+had on the business. In addition to this, we provide our clients with in-depth information on the diagnostic process.
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177672109-b49bb56d-abfe-411f-87b6-b506e47820b8.png) ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
 
