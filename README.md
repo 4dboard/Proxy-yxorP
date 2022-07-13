@@ -547,12 +547,19 @@ us.
 ![image](https://user-images.githubusercontent.com/6468571/177675374-f3d170e8-fd9a-4e76-a9bf-5805bc2ce504.png)
 
 [MIT Software License for .yxorP The PHP Web-Proxy by don Pablo](https://choosealicense.com/licenses/mit/) The
-Massachusetts Institute of Technology (MIT) License, sometimes referred to as the "MIT License," is a permissive free
-software license developed in the late 1980s and still in use at the Massachusetts Institute of Technology today.
-Repurposing is confined to a limited number of scenarios due to the permissive nature of the program, which assures
-compliance with licensing agreements. This license is straightforward and concise; it is a permissive license that just
-requires copyright protection and prominent display of licensing information in the form of terms. They may be released
-in a number of forms and without the source code because they are licensed works, adaptations, or large-scale works.
+Massachusetts Institute of Technology (MIT) License is a permissive free software license developed in the late 1980s by
+the Massachusetts Institute of Technology. The MIT License was named after Cambridge, Massachusetts's Massachusetts
+Institute of Technology. This software license's moniker was conceived at the Massachusetts Institute of Technology in
+Cambridge, Massachusetts. This software license was named after the Massachusetts Institute of Technology in Cambridge,
+Massachusetts. It is seldom referred to as the "MIT License," a common alternative name. In addition, it is also known
+as "MIT." Attaching a second function to another entity is only permitted in a few circumstances. This is owing to the
+permissive nature of the program, which assures compliance with license agreements. This sentence provides the
+explanation. This issue has occurred directly as a consequence. This license is simple and basic; it is a permissive
+license requiring just the protection of intellectual property rights and the disclosure of licensing conditions in an
+open and transparent manner. This license is concise and simple. This license has no superfluous language and is concise
+and unambiguous. The application process for this license is simple and expedient. It is possible to transmit licensed
+works, adaptations, and large-scale works utilizing a variety of transmission methods and without the source code due to
+the nature of the works. This is due to the fact that each of these works falls under one of three categories.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
