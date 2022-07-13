@@ -290,6 +290,13 @@ to execute this assignment effectively.
 
 #### ⌛ Allways-online
 
+It is possible to provide failover support across proxies by duplicating the first proxy server. This second proxy
+server is very identical to the first. This permits a smooth transfer between proxy servers in the case of a server
+failure. Due to their incapacity to communicate, proxy servers and peer masters must be handled by a load balancer since
+they are unaware of one another. Peer masters are in communication with and converse with one another. In contrast, peer
+masters are familiar with one another and maintain open communication lines. Various properties of peer masters and
+proxy servers must be accounted for.
+
 By keeping a proxy version of your website and switching to it whenever the actual website is unavailable for
 maintenance or changes, you can ensure that your online resources remain accessible at a high level and continuously.
 This will guarantee that your online material is constantly accessible to users. This will help you to guarantee that
