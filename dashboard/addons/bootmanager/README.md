@@ -2,8 +2,7 @@
 
 **draft/experimental**
 
-After testing this addon for a while, I decided, not to use it anymore. I always forgot to enable the needed modules for
-specific use cases... Maybe the idea could be a base for an addon manager in the future...
+After testing this addon for a while, I decided, not to use it anymore. I always forgot to enable the needed modules for specific use cases... Maybe the idea could be a base for an addon manager in the future...
 
 ## Features
 
@@ -23,11 +22,9 @@ git clone https://github.com/raffaelj/yxorp_BootManager.git addons/BootManager
 
 Put only this addon in your addon folder and store all other addons in `/addons/BootManager/addons/`.
 
-By default, all addons are disabled. Log into Yxorp, go to *Settings --> BootManager* and enable all addons for your
-specific needs or change the boot order.
+By default, all addons are disabled. Log into Yxorp, go to *Settings --> BootManager* and enable all addons for your specific needs or change the boot order.
 
-If you want to change core modules or addons in the original addon folder `yxorp/addons/`, you have to disable them
-manually in your config file `/config/config.yaml`.
+If you want to change core modules or addons in the original addon folder `yxorp/addons/`, you have to disable them manually in your config file `/config/config.yaml`.
 
 ```yaml
 modules.disabled:
