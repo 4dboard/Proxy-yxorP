@@ -2,37 +2,50 @@
 
 <title>CodeMirror: Markdown mode</title>
 <meta charset="utf-8"/>
-<link rel=stylesheet href="../../doc/docs.css">
+<link href="../../doc/docs.css" rel=stylesheet>
 
-<link rel="stylesheet" href="../../lib/codemirror.css">
+<link href="../../lib/codemirror.css" rel="stylesheet">
 <script src="../../lib/codemirror.js"></script>
 <script src="../../addon/edit/continuelist.js"></script>
 <script src="../xml/xml.js"></script>
 <script src="../javascript/javascript.js"></script>
 <script src="markdown.js"></script>
 <style>
-      .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
-      .cm-s-default .cm-trailing-space-a:before,
-      .cm-s-default .cm-trailing-space-b:before {position: absolute; content: "\00B7"; color: #777;}
-      .cm-s-default .cm-trailing-space-new-line:before {position: absolute; content: "\21B5"; color: #777;}
-    </style>
-<div id=nav>
-  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
+    .CodeMirror {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }
 
-  <ul>
-    <li><a href="../../index.html">Home</a>
-    <li><a href="../../doc/manual.html">Manual</a>
-    <li><a href="https://github.com/codemirror/codemirror">Code</a>
-  </ul>
-  <ul>
-    <li><a href="../index.html">Language modes</a>
-    <li><a class=active href="#">Markdown</a>
-  </ul>
+    .cm-s-default .cm-trailing-space-a:before,
+    .cm-s-default .cm-trailing-space-b:before {
+        position: absolute;
+        content: "\00B7";
+        color: #777;
+    }
+
+    .cm-s-default .cm-trailing-space-new-line:before {
+        position: absolute;
+        content: "\21B5";
+        color: #777;
+    }
+</style>
+<div id=nav>
+    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
+
+    <ul>
+        <li><a href="../../index.html">Home</a>
+        <li><a href="../../doc/manual.html">Manual</a>
+        <li><a href="https://github.com/codemirror/codemirror">Code</a>
+    </ul>
+    <ul>
+        <li><a href="../index.html">Language modes</a>
+        <li><a class=active href="#">Markdown</a>
+    </ul>
 </div>
 
 <article>
-<h2>Markdown mode</h2>
-<form><textarea id="code" name="code">
+    <h2>Markdown mode</h2>
+    <form><textarea id="code" name="code">
 Markdown: Basics
 ================
 
@@ -352,61 +365,66 @@ for (var i = 0; i < items.length; i++) {
 </textarea></form>
 
     <script>
-      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode: 'markdown',
-        lineNumbers: true,
-        theme: "default",
-        extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
-      });
+        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+            mode: 'markdown',
+            lineNumbers: true,
+            theme: "default",
+            extraKeys: {"Enter": "newlineAndIndentContinueMarkdownList"}
+        });
     </script>
 
-    <p>If you also want support <code>strikethrough</code>, <code>emoji</code> and few other goodies, check out <a href="../gfm/index.html">Github-Flavored Markdown mode</a>.</p>
+    <p>If you also want support <code>strikethrough</code>, <code>emoji</code> and few other goodies, check out <a
+            href="../gfm/index.html">Github-Flavored Markdown mode</a>.</p>
 
     <p>Optionally depends on other modes for properly highlighted code blocks,
-      and XML mode for properly highlighted inline XML blocks.</p>
+        and XML mode for properly highlighted inline XML blocks.</p>
 
     <p>Markdown mode supports these options:</p>
     <ul>
-      <li>
-        <d1>
-          <dt><code>highlightFormatting: boolean</code></dt>
-          <dd>Whether to separately highlight markdown meta characterts (<code>*[]()</code>etc.) (default: <code>false</code>).</dd>
-        </d1>
-      </li>
-      <li>
-        <d1>
-          <dt><code>maxBlockquoteDepth: boolean</code></dt>
-          <dd>Maximum allowed blockquote nesting (default: <code>0</code> - infinite nesting).</dd>
-        </d1>
-      </li>
-      <li>
-        <d1>
-          <dt><code>xml: boolean</code></dt>
-          <dd>Whether to highlight inline XML (default: <code>true</code>).</dd>
-        </d1>
-      </li>
-      <li>
-        <d1>
-          <dt><code>fencedCodeBlockHighlighting: boolean</code></dt>
-          <dd>Whether to syntax-highlight fenced code blocks, if given mode is included (default: <code>true</code>).</dd>
-        </d1>
-      </li>
-      <li>
-        <d1>
-          <dt><code>tokenTypeOverrides: Object</code></dt>
-          <dd>When you want ot override default token type names (e.g. <code>{code: "code"}</code>).</dd>
-        </d1>
-      </li>
-      <li>
-        <d1>
-          <dt><code>allowAtxHeaderWithoutSpace: boolean</code></dt>
-          <dd>Allow lazy headers without whitespace between hashtag and text (default: <code>false</code>).</dd>
-        </d1>
-      </li>
+        <li>
+            <d1>
+                <dt><code>highlightFormatting: boolean</code></dt>
+                <dd>Whether to separately highlight markdown meta characterts (<code>*[]()</code>etc.) (default: <code>false</code>).
+                </dd>
+            </d1>
+        </li>
+        <li>
+            <d1>
+                <dt><code>maxBlockquoteDepth: boolean</code></dt>
+                <dd>Maximum allowed blockquote nesting (default: <code>0</code> - infinite nesting).</dd>
+            </d1>
+        </li>
+        <li>
+            <d1>
+                <dt><code>xml: boolean</code></dt>
+                <dd>Whether to highlight inline XML (default: <code>true</code>).</dd>
+            </d1>
+        </li>
+        <li>
+            <d1>
+                <dt><code>fencedCodeBlockHighlighting: boolean</code></dt>
+                <dd>Whether to syntax-highlight fenced code blocks, if given mode is included (default:
+                    <code>true</code>).
+                </dd>
+            </d1>
+        </li>
+        <li>
+            <d1>
+                <dt><code>tokenTypeOverrides: Object</code></dt>
+                <dd>When you want ot override default token type names (e.g. <code>{code: "code"}</code>).</dd>
+            </d1>
+        </li>
+        <li>
+            <d1>
+                <dt><code>allowAtxHeaderWithoutSpace: boolean</code></dt>
+                <dd>Allow lazy headers without whitespace between hashtag and text (default: <code>false</code>).</dd>
+            </d1>
+        </li>
     </ul>
 
     <p><strong>MIME types defined:</strong> <code>text/x-markdown</code>.</p>
 
-    <p><strong>Parsing/Highlighting Tests:</strong> <a href="../../test/index.html#markdown_*">normal</a>,  <a href="../../test/index.html#verbose,markdown_*">verbose</a>.</p>
+    <p><strong>Parsing/Highlighting Tests:</strong> <a href="../../test/index.html#markdown_*">normal</a>, <a
+            href="../../test/index.html#verbose,markdown_*">verbose</a>.</p>
 
-  </article>
+</article>

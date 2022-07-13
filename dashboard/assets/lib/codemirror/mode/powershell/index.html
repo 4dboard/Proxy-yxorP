@@ -1,33 +1,36 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>CodeMirror: Powershell mode</title>
-    <link rel="stylesheet" href="../../doc/docs.css">
-    <link rel="stylesheet" href="../../lib/codemirror.css">
+    <link href="../../doc/docs.css" rel="stylesheet">
+    <link href="../../lib/codemirror.css" rel="stylesheet">
     <script src="../../lib/codemirror.js"></script>
     <script src="../../addon/edit/matchbrackets.js"></script>
     <script src="powershell.js"></script>
-    <style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
-  </head>
-  <body>
-    <div id=nav>
-      <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
+    <style>.CodeMirror {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+    }</style>
+</head>
+<body>
+<div id=nav>
+    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
 
-      <ul>
+    <ul>
         <li><a href="../../index.html">Home</a>
         <li><a href="../../doc/manual.html">Manual</a>
         <li><a href="https://github.com/codemirror/codemirror">Code</a>
-      </ul>
-      <ul>
+    </ul>
+    <ul>
         <li><a href="../index.html">Language modes</a>
         <li><a class=active href="#">JavaScript</a>
-      </ul>
-    </div>
-    <article>
-      <h2>PowerShell mode</h2>
+    </ul>
+</div>
+<article>
+    <h2>PowerShell mode</h2>
 
-      <div><textarea id="code" name="code">
+    <div><textarea id="code" name="code">
 # Number Literals
 0 12345
 12kb 12mb 12gB 12Tb 12PB 12L 12D 12lkb 12dtb
@@ -189,17 +192,17 @@ Write-Host Write-Output Write-Progress Write-Verbose Write-Warning
 X:
 Y:
 Z:</textarea></div>
-      <script>
+    <script>
         var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-          mode: "powershell",
-          lineNumbers: true,
-          indentUnit: 4,
-          tabMode: "shift",
-          matchBrackets: true
+            mode: "powershell",
+            lineNumbers: true,
+            indentUnit: 4,
+            tabMode: "shift",
+            matchBrackets: true
         });
-      </script>
+    </script>
 
-      <p><strong>MIME types defined:</strong> <code>application/x-powershell</code>.</p>
-    </article>
-  </body>
+    <p><strong>MIME types defined:</strong> <code>application/x-powershell</code>.</p>
+</article>
+</body>
 </html>
