@@ -320,7 +320,7 @@ class yP
      * * @param string $yxorp_root
      * * @return array
      */
-    private static function init(string $yxorp_root): array
+    private static function init(string $yxorp_root): void
     {
         /* It's creating the constants that are used in the plugin. */
         constants::create($yxorp_root);
@@ -336,7 +336,6 @@ class yP
         `install()` function. */
         if (!constants::get(YXORP_DASHBOARD_APP)->storage->getCollection(DASHBOARD_ACCOUNTS)->count()) self::install();
         /* It's returning the `YXORP_EVENT_LIST` constant. */
-        return constants::get(YXORP_EVENT_LIST);
     }
 
     /**
