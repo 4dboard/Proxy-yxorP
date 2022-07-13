@@ -1,0 +1,355 @@
+// dark theme
+
+$color-black: #000;
+
+$color-primary: #a69016;
+$color-primary-hover: #c25f17;
+$color-danger: #933b27;
+$color-danger-hover: #a62c3e;
+
+$color-text: #efefef;
+$color-text-bright: #fff;
+$color-text-less-bright: #eee;
+$color-text-dark: $color-black;
+
+$color-bg-gloomy: $color-black;
+$color-bg-night: #222;
+$color-bg-dark: #333;
+
+$color-bg-light: #eee;
+
+html {
+  background-color: $color-bg-dark;
+  color: $color-text;
+}
+
+.uk-button {
+  background-color: $color-bg-light;
+  color: $color-text-dark;
+
+  &.uk-text-muted {
+    color: $color-black !important;
+  }
+}
+
+.uk-button-link, .uk-button-outline {
+  background-color: transparent;
+}
+
+.uk-button-success { // revert to original
+  background-color: #8cc14c;
+}
+
+.uk-text-primary {
+  color: $color-primary !important;
+}
+
+.uk-panel-box,
+.app-header,
+.uk-table th, .uk-table td,
+.header-sub-panel {
+  background-color: $color-bg-dark;
+  color: $color-text-bright;
+}
+
+.uk-panel-card {
+  box-shadow: 0 1px 2px 0 rgb(0, 0, 0);
+
+  &:hover {
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.8), 0 3px 12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+cp-actionbar {
+  background-color: #2a2a2a;
+}
+
+.uk-tab > li > a {
+  color: $color-text;
+}
+
+.uk-tab > li.uk-active > a {
+  color: $color-text-bright;
+
+  &:after {
+    background-color: $color-primary;
+  }
+}
+
+.uk-tab > li > a:hover, .uk-tab > li > a:focus, .uk-tab > li.uk-open > a {
+  color: $color-primary;
+}
+
+.uk-link-muted {
+  color: $color-text-less-bright;
+}
+
+.uk-link-muted:hover, .uk-link-muted a:hover {
+  color: #eee;
+}
+
+.uk-text-muted {
+  color: #ddd !important;
+}
+
+.uk-breadcrumb > li > a {
+  color: $color-text;
+}
+
+.uk-breadcrumb > li.uk-active > span {
+  color: #ddd !important;
+}
+
+.uk-button-link,
+a,
+.uk-link,
+.app-modulesbar a.uk-active {
+  color: $color-primary;
+}
+
+a:hover,
+.uk-link:hover,
+.uk-subnav > * > :hover,
+.uk-subnav > * > :focus,
+.uk-button-link:hover, .uk-button-link:focus, .uk-button-link:active, .uk-button-link.uk-active {
+  color: $color-primary-hover;
+}
+
+.uk-button-primary:hover, .uk-button-primary:focus {
+  background-color: $color-primary-hover;
+  color: #eee;
+}
+
+.uk-button-primary {
+  background-color: $color-primary;
+  color: #222;
+}
+
+.uk-badge {
+  background-color: $color-primary;
+}
+
+.uk-badge-outline {
+  background-color: transparent; // revert from uk-badge
+}
+
+.app-modulesbar > li > .uk-active::after,
+cp-fieldcontainer[active="true"] {
+  border-color: $color-primary;
+}
+
+.uk-bg-primary {
+  background-color: $color-primary !important;
+}
+
+.uk-form {
+  select, textarea, input:not([type]), input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    color: #ddd;
+
+    &:focus {
+      color: #ddd;
+    }
+  }
+
+  ::placeholder {
+    color: #ccc;
+  }
+}
+
+option {
+  background-color: #333;
+}
+
+::selection {
+  background-color: $color-primary;
+}
+
+.uk-dropdown {
+  background-color: #555;
+  color: #ddd;
+}
+
+.uk-nav-dropdown > li > a,
+.uk-nav-navbar > li > a {
+  color: #ddd;
+}
+
+.uk-nav-navbar .uk-nav-header {
+  color: #eee;
+}
+
+.uk-nav-navbar > li > a:hover, .uk-nav-navbar > li > a:focus {
+  background-color: #333;
+}
+
+.uk-nav-dropdown .uk-nav-header {
+  color: #ccc;
+}
+
+.uk-nav-dropdown > li > a:hover, .uk-nav-dropdown > li > a:focus {
+  background-color: #444;
+}
+
+.uk-nav-autocomplete > li > a {
+  color: #ddd;
+}
+
+.uk-nav-autocomplete > li.uk-active > a {
+  background-color: #666;
+}
+
+.uk-text-danger {
+  color: $color-danger !important;
+}
+
+.uk-form-switch input[type="checkbox"] + label::after {
+  background-color: $color-danger;
+}
+
+.uk-form-switch input[type="checkbox"] + label::before {
+  background-color: #222;
+}
+
+.uk-modal {
+  background-color: rgba(0, 0, 0, .5);
+}
+
+.uk-modal-dialog {
+  background-color: #333;
+}
+
+.uk-modal-header, .uk-block-default {
+  background-color: #444;
+}
+
+.uk-selected, tr.uk-selected > td {
+  background-color: #666;
+}
+
+.uk-button-danger {
+  background-color: $color-danger;
+
+  &:hover, &:focus {
+    background-color: $color-danger-hover;
+  }
+}
+
+.app-panel-dropdown::before {
+  background-color: rgba(0, 0, 0, .9);
+}
+
+// Finder
+.uk-nav-side > li > a {
+  color: $color-primary;
+
+  &:hover, &:focus {
+    color: $color-primary-hover;
+  }
+}
+
+.uk-nav-side > li.uk-active > a {
+  background-color: #222;
+}
+
+
+.uk-offcanvas {
+  background-color: rgba(0, 0, 0, .8);
+}
+
+.picoedit {
+  color: #222;
+}
+
+.app-modulesbar > li > a {
+  color: rgba(200, 200, 200, 0.7);
+}
+
+.uk-tooltip {
+  background-color: #ddd;
+  color: #222;
+}
+
+.uk-datepicker-table a {
+  color: #ddd;
+}
+
+a.uk-datepicker-table-muted {
+  color: #999;
+}
+
+.uk-datepicker-table a.uk-active {
+  background-color: $color-primary;
+}
+
+.dashboard-header-panel,
+.uk-offcanvas-bar {
+  background-color: $color-bg-night;
+}
+
+// wysiwyg/TinyMCE
+.mce-panel,
+.mce-btn {
+  background-color: #222 !important;
+}
+
+.mce-menubar .mce-menubtn button span,
+.mce-container, .mce-container *, .mce-widget, .mce-widget *, .mce-reset {
+  color: #ddd !important;
+}
+
+.mce-ico {
+  color: #eee !important;
+}
+
+.mce-tabs, .mce-tabs + .mce-container-body {
+  background-color: #333 !important;
+}
+
+.mce-label,
+.mce-tab {
+  text-shadow: none !important;
+  background-color: #333 !important;
+}
+
+.mce-tab.mce-active,
+.mce-textbox {
+  background-color: #222 !important;
+}
+
+.mce-notification-error *, .mce-notification-error .mce-progress .mce-text {
+  color: #595959 !important; // revert
+}
+
+.mce-menu-item:hover, .mce-menu-item:focus {
+  background-color: #333 !important;
+}
+
+// entry preview
+
+collection-entrypreview .collection-entrypreview .preview-panel, [data-is="collection-entrypreview"] .collection-entrypreview .preview-panel {
+  background: $color-bg-gloomy;
+}
+
+collection-entrypreview .preview-panel-header, [data-is="collection-entrypreview"] .preview-panel-header {
+  background: $color-bg-night;
+}
+
+.preview-panel-footer .preview-mode {
+  background: $color-text-bright;
+  border-radius: 2px;
+}
+
+// codemirror, html field
+
+.uk-htmleditor-preview {
+  background-color: #0a0e14; // match with ayu-dark theme
+  color: #b3b1ad;
+}
+
+.uk-htmleditor-navbar {
+  background: #222;
+}
+
+.uk-htmleditor-navbar-nav > li > a {
+  color: #fff;
+}

@@ -1,0 +1,5 @@
+/node_modules 
+*.kate-swp
+package-lock.json
+composer.lock
+/lib/vendor

@@ -1,0 +1,38 @@
+/**
+ * source: https://raw.githubusercontent.com/serjoscha87/yxorp_FORCE-FULL-TITLE/master/FullTitle/assets/css/full_title.css
+ */
+entries-tree-item .uk-dropdown.uk-dropdown-scrollable {
+    display: block;
+    position: static;
+    border: 0;
+    padding: 0;
+    box-shadow: none;
+    width: 100%;
+}
+
+entries-tree-item .uk-dropdown.uk-dropdown-scrollable > div {
+    float: left;
+    margin-left: 5px;
+    margin-bottom: 0 !important;
+    pointer-events: none;
+}
+
+entries-tree-item .uk-dropdown.uk-dropdown-scrollable > div:nth-child(odd) {
+    background-color: #eaeaea;
+    padding: 0 5px;
+}
+
+entries-tree-item .uk-dropdown.uk-dropdown-scrollable > div > span {
+    display: none !important;
+}
+
+entries-tree-item .uk-dropdown.uk-dropdown-scrollable > div > a {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+entries-tree-item .extrafields-indicator {
+    display: none !important;
+}
+
+/* end of copy/paste from FullTitle addon */
