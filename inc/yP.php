@@ -278,22 +278,6 @@ class yP
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
 
-        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
-
-        /* Setting the token to the snag key. */
-        constants::set(VAR_SNAG, snag\Client::make(ENV_BUG_SNAG_KEY));
-        /* Setting the token PROXY to a new instance of the \yxorP\inc\proxy class. */
-
-        constants::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
-
-        /* It's setting the `YXORP_DASHBOARD_APP` constant to the `cockpit()` function. */
-        constants::set(YXORP_DASHBOARD_APP, yxorp());
-
-        // EVENTS
-        constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
-
-        constants::set(YXORP_MIME_TYPES, generalHelper::JSON(PATH_FILE_MIME_TYPES));
-
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
