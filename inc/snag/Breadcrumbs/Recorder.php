@@ -77,7 +77,7 @@ class Recorder implements Countable, Iterator
      *
      * @return void
      */
-    public function clear()
+    public function clear(): mixed
     {
         $this->head = 0;
         $this->pointer = 0;

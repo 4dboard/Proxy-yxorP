@@ -1004,7 +1004,7 @@ class ZipStream
      *
      * @return void
      */
-    protected function clear()
+    protected function clear(): mixed
     {
         $this->files = array();
         $this->ofs = 0;
