@@ -25,7 +25,7 @@ class ConnectException extends ARequestException
     /**
      * @return null
      */
-    public function getResponse()
+    public function getResponse(): mixed
     {
         return null;
     }

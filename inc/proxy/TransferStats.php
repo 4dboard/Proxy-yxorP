@@ -2,6 +2,7 @@
 
 use yxorP\inc\psr\Http\Message\RequestInterface;
 use yxorP\inc\psr\Http\Message\ResponseInterface;
+use yxorP\inc\psr\Http\Message\UriInterface;
 
 final class TransferStats
 {
@@ -25,7 +26,7 @@ final class TransferStats
         return $this->request;
     }
 
-    public function getResponse(): ?ResponseInterface
+    public function getResponse(): mixed
     {
         return $this->response;
     }
@@ -40,7 +41,7 @@ final class TransferStats
         return $this->handlerErrorData;
     }
 
-    public function getEffectiveUri(): \yxorP\inc\psr\Http\Message\UriInterface
+    public function getEffectiveUri(): UriInterface
     {
         return $this->request->getUri();
     }

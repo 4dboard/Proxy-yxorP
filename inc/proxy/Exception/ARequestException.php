@@ -164,7 +164,7 @@ class ARequestException extends AATransferException
      *
      * @return ResponseInterface|null
      */
-    public function getResponse(): ?ResponseInterface
+    public function getResponse(): mixed
     {
         return $this->response;
     }

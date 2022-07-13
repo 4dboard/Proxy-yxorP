@@ -308,7 +308,7 @@ class POP3
      *
      * @return string
      */
-    protected function getResponse(int $size = 128): string
+    protected function getResponse(int $size = 128): mixed
     {
         $response = fgets($this->pop_conn, $size);
         if ($this->do_debug >= self::DEBUG_SERVER) {
