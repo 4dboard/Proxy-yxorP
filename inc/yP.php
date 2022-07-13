@@ -294,7 +294,6 @@ class yP
 
         constants::set(YXORP_MIME_TYPES, generalHelper::JSON(PATH_FILE_MIME_TYPES));
 
-        exit('123');
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
