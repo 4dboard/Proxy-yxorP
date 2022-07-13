@@ -219,15 +219,26 @@ API).
 
 #### The Advantages Of Going Headless
 
-- No presentation limitations
-- build the best design ever.
-- Content for multiple channels – create content once, consume anywhere.
-- Highly scalable content
-- For all your devices and microsites.
-- Minimum training required
-- Get started, immediately.
-- Easy integrations
-- Connect with everything.
+- You are free to come up with the most creative arrangement you are capable of conceiving since the display does not
+  have any restrictions of any kind, giving you the opportunity to do so.
+
+- As a consequence of the potential to make content just once and then use it across the board, it is possible to
+  produce material for a substantial number of various distribution channels at the same time. These channels include
+  television, radio, the internet, and mobile devices.
+
+- Content that can be easily resized to suit numerous screen sizes without suffering a degradation in quality and that
+  can be rapidly changed to match a number of screen sizes
+
+- Capable of functioning appropriately on all of the various devices that you use, in addition to the microsites, in the
+  event that you make use of them.
+
+- The basic minimal amount of knowledge and experience that is necessary to be considered qualified for the position
+
+You should get started on this as soon as humanly feasible, since it is of the highest significance that you do so.
+
+- Incorporations that are not just fast, but they are also simple and straightforward to comprehend
+
+- Creating effective lines of communication with every facet of life is an imperative need that must be met.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488424-88456e97-539c-4ec2-918b-fc59be5be8da.png) ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671919-1584593a-cfcc-476a-93ce-c1a65e81de92.png) ![image](https://user-images.githubusercontent.com/6468571/157188653-bde1f08c-27ee-4eb8-90f7-69d1e60aa949.png)
 
