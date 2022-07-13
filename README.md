@@ -259,6 +259,14 @@ will decrease with time.
 
 #### 📛 Firewall
 
+All network access requests are continually monitored and filtered by a firewall, while proxy servers only provide the
+former role. This is the most significant distinction between the two security techniques. This is the most notable
+distinction between the two kinds of used safety measures. By emphasizing this contrast, the two unique types of
+security measures may be distinguished most clearly from one another. A proxy server connects the user's local computer
+to the server, allowing it to receive data on the user's behalf. This connection gives the local computer of the user
+access to the server. Due to these operations, the proxy server acts as an intermediate between the client and the
+server. Access should never be allowed unless specifically permitted by the appropriate authorities.
+
 To defend your websites against distributed denial of service attacks and other sorts of attacks, you must configure a
 virtual firewall behind your proxy server. You will be safeguarded against website-based assaults in general if you
 follow these steps to their logical conclusion.
