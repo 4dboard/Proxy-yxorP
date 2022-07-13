@@ -8,7 +8,6 @@ use MongoDB\Operation\CreateCollection;
 use MongoDB\Operation\CreateIndexes;
 use MongoDB\Operation\Find;
 use MongoDB\Tests\CommandObserver;
-
 use function microtime;
 
 class FindFunctionalTest extends FunctionalTestCase

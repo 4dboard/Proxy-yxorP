@@ -31,7 +31,6 @@ use MongoDB\Exception\UnexpectedValueException;
 use MongoDB\Exception\UnsupportedException;
 use stdClass;
 use Traversable;
-
 use function current;
 use function is_array;
 use function is_bool;

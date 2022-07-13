@@ -10,7 +10,6 @@ use MongoDB\Exception\BadMethodCallException;
 use MongoDB\Exception\UnsupportedException;
 use MongoDB\Operation\Delete;
 use MongoDB\Tests\CommandObserver;
-
 use function version_compare;
 
 class DeleteFunctionalTest extends FunctionalTestCase

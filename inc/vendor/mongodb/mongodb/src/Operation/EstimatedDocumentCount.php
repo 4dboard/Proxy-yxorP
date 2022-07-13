@@ -26,7 +26,6 @@ use MongoDB\Driver\Session;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\UnexpectedValueException;
 use MongoDB\Exception\UnsupportedException;
-
 use function array_intersect_key;
 use function is_integer;
 use function MongoDB\server_supports_feature;

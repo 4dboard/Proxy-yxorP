@@ -15,7 +15,6 @@ use MongoDB\GridFS\Exception\StreamException;
 use MongoDB\Model\BSONDocument;
 use MongoDB\Model\IndexInfo;
 use MongoDB\Operation\ListIndexes;
-
 use function array_merge;
 use function call_user_func;
 use function current;
@@ -34,7 +33,6 @@ use function stream_get_contents;
 use function strlen;
 use function strncasecmp;
 use function substr;
-
 use const PHP_EOL;
 use const PHP_OS;
 use const PHP_VERSION_ID;

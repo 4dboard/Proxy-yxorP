@@ -5,7 +5,6 @@ namespace MongoDB\Tests\Model;
 use MongoDB\Exception\UnexpectedValueException;
 use MongoDB\Model\BSONIterator;
 use MongoDB\Tests\TestCase;
-
 use function array_map;
 use function implode;
 use function iterator_to_array;

@@ -21,7 +21,6 @@ use IteratorAggregate;
 use ReturnTypeWillChange;
 use stdClass;
 use Traversable;
-
 use function call_user_func;
 
 /**

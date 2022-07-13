@@ -11,7 +11,6 @@ use MongoDB\Operation\DropCollection;
 use MongoDB\Operation\Find;
 use MongoDB\Tests\CommandObserver;
 use MongoDB\Tests\FunctionalTestCase;
-
 use function array_merge;
 use function sprintf;
 

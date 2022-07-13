@@ -25,7 +25,6 @@ use MongoDB\Driver\Exception\ServerException;
 use MongoDB\Exception\ResumeTokenException;
 use MongoDB\Model\ChangeStreamIterator;
 use ReturnTypeWillChange;
-
 use function call_user_func;
 use function in_array;
 
