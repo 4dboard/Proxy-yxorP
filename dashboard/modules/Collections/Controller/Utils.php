@@ -11,25 +11,23 @@
 namespace Collections\Controller;
 
 
-use ArrayObject;
-use yxorP\AuthController;
-use function session_write_close;
-
-class Utils extends AuthController
+class Utils extends \yxorP\AuthController
 {
 
     public function getUserCollections()
     {
 
-        session_write_close();
+        \session_write_close();
 
-        return $this->module('collections')->getCollectionsInGroup(null, true);
+        $collections = $this->module('collections')->getCollectionsInGroup(null, true);
+
+        return $collections;
     }
 
-    public function getLinkedOverview(): bool|ArrayObject|array
+    public function getLinkedOverview()
     {
 
-        session_write_close();
+        \session_write_close();
 
         $collection = $this->param('collection');
         $id = $this->param('id');
@@ -38,13 +36,13 @@ class Utils extends AuthController
             return false;
         }
 
-        $return = new ArrayObject([]);
+        $return = new \ArrayObject([]);
 
         $collections = $this->app->module('collections')->collections();
 
         $filter = ($this->app->storage->type == 'mongolite') ?
             function ($doc) use ($id) {
-                return str_contains(json_encode($doc), $id);
+                return strpos(json_encode($doc), $id) !== false;
             }
             :
             ['$where' => "function() { return JSON.stringify(this).indexOf('{$id}') > -1; }"];

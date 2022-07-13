@@ -7,7 +7,7 @@ $title = 'Collection-Feeds';
 $description = 'all available feeds';
 
 ?>
-<?php xml version = "1.0" encoding = "UTF-8"?>
+<? xml version = "1.0" encoding = "UTF-8"?>
 <rss version="2.0"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:atom="http://www.w3.org/2005/Atom"
@@ -25,7 +25,7 @@ $description = 'all available feeds';
         $i = 0;
         foreach ($entries as $post):
 
-            $title = isset($post['label']) && !empty($post['label']) ? htmlspecialchars($post['label'], ENT_XML1) : htmlspecialchars($post['name'], ENT_XML1);
+            $title = isset($post['label']) && !empty($post['label']) ? htmlspecialchars($post['label'], ENT_XML1, 'UTF-8') : htmlspecialchars($post['name'], ENT_XML1, 'UTF-8');
 
             $url = $post['url'];
 

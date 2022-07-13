@@ -1,11 +1,11 @@
+
 <li class="uk-grid-margin" riot-view>
     <div class="uk-display-block uk-panel-box uk-panel-card-hover uk-panel-space">
         <div style="height:40px;line-height:40px;">
 
             <div class="uk-form-switch uk-display-inline">
 
-                <input ref="check" type="checkbox" id="darkmode_toggle" checked="{ darkmode }"
-                       onchange="{ toggleDarkmode }"/>
+                <input ref="check" type="checkbox" id="darkmode_toggle" checked="{ darkmode }" onchange="{ toggleDarkmode }"/>
                 <label for="darkmode_toggle" style="padding-left:3em;"></label>
 
             </div>
@@ -46,7 +46,6 @@
 
             });
         }
-
 
     </script>
 

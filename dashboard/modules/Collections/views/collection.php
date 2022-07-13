@@ -276,20 +276,16 @@
                         <div class="uk-form-icon uk-form uk-width-1-1 uk-text-muted uk-margin-top"
                              show="{collection.contentpreview && collection.contentpreview.enabled}">
                             <i class="uk-icon-globe"></i>
-                            <label>
-                                <input class="uk-width-1-1 uk-form-large uk-text-primary" type="url"
-                                       placeholder="@lang('http://...')" bind="collection.contentpreview.url">
-                            </label>
+                            <input class="uk-width-1-1 uk-form-large uk-text-primary" type="url"
+                                   placeholder="@lang('http://...')" bind="collection.contentpreview.url">
                         </div>
                         <div class="uk-grid uk-margin-top"
                              show="{collection.contentpreview && collection.contentpreview.enabled}">
                             <div class="uk-width-medium-2-3">
                                 <div class="uk-form-icon uk-form uk-width-1-1 uk-text-muted">
                                     <i class="uk-icon-random"></i>
-                                    <label>
-                                        <input class="uk-width-1-1 uk-form-large uk-text-primary" type="url"
-                                               placeholder="@lang('ws://...')" bind="collection.contentpreview.wsurl">
-                                    </label>
+                                    <input class="uk-width-1-1 uk-form-large uk-text-primary" type="url"
+                                           placeholder="@lang('ws://...')" bind="collection.contentpreview.wsurl">
                                 </div>
                             </div>
                             <div class="uk-width-medium-1-3">
@@ -455,9 +451,6 @@
                 App.ui.notify(res && (res.message || res.error) ? (res.message || res.error) : 'Saving failed.', 'danger');
             });
         }
-
-
-
 
 
     </script>

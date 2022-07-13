@@ -1,3 +1,4 @@
+
 <div>
     <ul class="uk-breadcrumb">
         <li><a href="@route('/settings')">@lang('Settings')</a></li>
@@ -56,7 +57,6 @@
             });
 
         }
-
 
     </script>
 

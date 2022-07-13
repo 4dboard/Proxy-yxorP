@@ -11,10 +11,7 @@
 namespace Collections\Controller;
 
 
-use yxorP\AuthController;
-use function session_write_close;
-
-class Trash extends AuthController
+class Trash extends \yxorP\AuthController
 {
 
     public function collection($name = null)
@@ -35,10 +32,10 @@ class Trash extends AuthController
         return $this->render('collections:views/trash/collection.php', compact('collection'));
     }
 
-    public function find(): bool|array
+    public function find()
     {
 
-        session_write_close();
+        \session_write_close();
 
         $collection = $this->app->param('collection');
         $options = $this->app->param('options');
@@ -68,7 +65,7 @@ class Trash extends AuthController
         return compact('entries', 'count', 'pages', 'page');
     }
 
-    public function empty($collection): array|bool
+    public function empty($collection)
     {
 
         $collection = $this->app->module('collections')->collection($collection);
@@ -88,7 +85,7 @@ class Trash extends AuthController
         return ['success' => true];
     }
 
-    public function delete($collection): bool
+    public function delete($collection)
     {
 
         $collection = $this->module('collections')->collection($collection);
@@ -114,7 +111,7 @@ class Trash extends AuthController
         return true;
     }
 
-    public function recycle($collection): bool
+    public function recycle($collection)
     {
 
         $collection = $this->module('collections')->collection($collection);

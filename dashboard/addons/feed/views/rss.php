@@ -12,7 +12,7 @@ $title = $collection['label'] ?? $collection['name'];
 $description = $collection['description'] ?? 'no description';
 
 ?>
-<?php xml version = "1.0" encoding = "UTF-8"?>
+<? xml version = "1.0" encoding = "UTF-8"?>
 <rss version="2.0"
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -31,11 +31,11 @@ $description = $collection['description'] ?? 'no description';
         $i = 0;
         foreach ($entries as $post):
 
-            $title = isset($post['title']) && !empty($post['title']) ? htmlspecialchars($post['title'], ENT_XML1) : 'entry' . $i++;
+            $title = isset($post['title']) && !empty($post['title']) ? htmlspecialchars($post['title'], ENT_XML1, 'UTF-8') : 'entry' . $i++;
 
             $account = $app->storage->findOne('yxorp/accounts', ['_id' => $post['_by']]);
 
-            $author = htmlspecialchars((!empty($account['name']) ? $account['name'] : $account['user']), ENT_XML1);
+            $author = htmlspecialchars((!empty($account['name']) ? $account['name'] : $account['user']), ENT_XML1, 'UTF-8');
 
             if (YXORP_API_REQUEST) {
 
@@ -67,7 +67,7 @@ $description = $collection['description'] ?? 'no description';
                 <?php // categories and tags - to do
                 if (isset($post['tags'])):
                     foreach ($post['tags'] as &$tag):
-                        $tag = htmlspecialchars($tag, ENT_XML1);
+                        $tag = htmlspecialchars($tag, ENT_XML1, 'UTF-8');
                         ?>
                         <category><![CDATA[{{ $tag }}]]></category>
                     <?php endforeach; endif; ?>

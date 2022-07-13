@@ -1,6 +1,6 @@
 (function () {
 
-    const linkCache = {};
+    var linkCache = {};
 
     App.Utils.renderer.collectionlink = function (v, field, lang) {
 
@@ -15,23 +15,19 @@
             v = v[0];
         }
 
-        const displayId = lang ? `${v._id}_${lang}` : v._id;
+        var displayId = lang ? `${v._id}_${lang}` : v._id;
 
         if (!linkCache[displayId]) {
 
             linkCache[displayId] = new Promise(function (resolve) {
 
-                App.request('/collections/find', {
-                    collection: field.options.link,
-                    options: {lang: lang, filter: {_id: v._id}}
-                }).then(function (data) {
+                App.request('/collections/find', { collection: field.options.link, options: { lang: lang, filter: { _id: v._id } } }).then(function (data) {
 
                     if (!data.entries || !data.entries.length) {
                         v.display = 'n/a';
                     } else {
 
-                        const _entry = data.entries[0];
-                        let display = field.options.display;
+                        var _entry = data.entries[0], display = field.options.display;
 
                         if (!display) {
                             display = _entry.name ? 'name' : 'title';
@@ -65,13 +61,12 @@
     function selectCollectionItem(fn, options) {
 
         var options = _.extend({
-            release: fn || function () {
-            }
+            release: fn || function () { }
         }, options || {});
 
-        const dialog = UIkit.modal.dialog(
+        var dialog = UIkit.modal.dialog(
             '<div riot-view><link-collectionitem></link-collectionitem></div>',
-            {modal: false}
+            { modal: false }
         );
 
         options.dialog = dialog;
@@ -96,13 +91,13 @@
 
             selectCollectionItem(function (data) {
 
-                if (editor.getCursorMode() === 'markdown') {
+                if (editor.getCursorMode() == 'markdown') {
                     editor['replaceSelection']('[' + data.title + '](' + data.url + ')');
                 } else {
                     editor['replaceSelection']('<a href="' + data.url + '">' + data.title + '</a>');
                 }
 
-            }, {url: '', title: ''});
+            }, { url: '', title: '' });
 
         });
 
@@ -120,7 +115,7 @@
 
                     selectCollectionItem(function (data) {
                         ed.insertContent('<a href="' + data.url + '" alt="">' + data.title + '</a>');
-                    }, {url: '', title: ''});
+                    }, { url: '', title: '' });
                 },
                 context: 'insert',
                 prependToContext: true
@@ -234,78 +229,78 @@
 
               `, '', '', function (opts) {
 
-            const $this = this;
+        var $this = this;
 
-            this.count = 0;
-            this.page = 1;
-            this.pages = 1;
+        this.count = 0;
+        this.page = 1;
+        this.pages = 1;
 
-            App.request('/collections/_collections').then(function (data) {
-                $this.collections = data;
-                $this.update();
-            });
-
-            this.on('mount', function () {
-
-                App.$(this.refs.form).on('submit', function (e) {
-
-                    e.preventDefault();
-                    $this.parent.opts.release({url: $this.refs.url.value, title: $this.refs.title.value});
-                    $this.parent.opts.dialog.hide();
-                });
-            })
-
-            this.selectCollection = function (e) {
-                this.collection = e.item.name;
-                this.filter = '';
-                this.page = 1;
-                this.load();
-            }.bind(this)
-
-            this.apply = function (e) {
-                this.refs.url.value = 'collection://' + this.collection + '/' + e.item.item._id;
-                this.refs.title.value = e.item.item.title || e.item.item.name || '';
-            }.bind(this)
-
-            this.val = function (ref) {
-                return this.refs[ref] && this.refs[ref].value;
-            }.bind(this)
-
-            this.updatefilter = function (e) {
-                this.filter = e.target.value;
-                this.page = 1;
-                this.load();
-            }.bind(this)
-
-            this.loadpage = function (page) {
-                this.page = page > this.pages ? this.pages : page;
-                this.load();
-            }.bind(this)
-
-            this.load = function () {
-
-                this.items = null;
-
-                const options = {
-                    limit: 20
-                };
-
-                if (this.filter) {
-                    options.filter = this.filter;
-                }
-
-                options.skip = (this.page - 1) * options.limit;
-
-                App.request('/collections/find', {collection: this.collection, options: options}).then(function (data) {
-
-                    this.items = data.entries;
-                    this.page = data.page;
-                    this.pages = data.pages;
-                    this.count = data.count;
-                    this.update();
-
-                }.bind(this))
-            }.bind(this)
+        App.request('/collections/_collections').then(function (data) {
+            $this.collections = data;
+            $this.update();
         });
+
+        this.on('mount', function () {
+
+            App.$(this.refs.form).on('submit', function (e) {
+
+                e.preventDefault();
+                $this.parent.opts.release({ url: $this.refs.url.value, title: $this.refs.title.value });
+                $this.parent.opts.dialog.hide();
+            });
+        })
+
+        this.selectCollection = function (e) {
+            this.collection = e.item.name;
+            this.filter = '';
+            this.page = 1;
+            this.load();
+        }.bind(this)
+
+        this.apply = function (e) {
+            this.refs.url.value = 'collection://' + this.collection + '/' + e.item.item._id;
+            this.refs.title.value = e.item.item.title || e.item.item.name || '';
+        }.bind(this)
+
+        this.val = function (ref) {
+            return this.refs[ref] && this.refs[ref].value;
+        }.bind(this)
+
+        this.updatefilter = function (e) {
+            this.filter = e.target.value;
+            this.page = 1;
+            this.load();
+        }.bind(this)
+
+        this.loadpage = function (page) {
+            this.page = page > this.pages ? this.pages : page;
+            this.load();
+        }.bind(this)
+
+        this.load = function () {
+
+            this.items = null;
+
+            var options = {
+                limit: 20
+            };
+
+            if (this.filter) {
+                options.filter = this.filter;
+            }
+
+            options.skip = (this.page - 1) * options.limit;
+
+            App.request('/collections/find', { collection: this.collection, options: options }).then(function (data) {
+
+                this.items = data.entries;
+                this.page = data.page;
+                this.pages = data.pages;
+                this.count = data.count;
+                this.update();
+
+            }.bind(this))
+        }.bind(this)
+    });
 
 })();

@@ -186,12 +186,10 @@
                     <span class="uk-margin-small-left">{ lang ? _.find(languages,{code:lang}).label:App.$data.languageDefaultLabel }</span>
                 </div>
 
-                <label>
-                    <select bind="lang" onchange="{persistLanguage}">
-                        <option value="">{App.$data.languageDefaultLabel}</option>
-                        <option each="{language,idx in languages}" value="{language.code}">{language.label}</option>
-                    </select>
-                </label>
+                <select bind="lang" onchange="{persistLanguage}">
+                    <option value="">{App.$data.languageDefaultLabel}</option>
+                    <option each="{language,idx in languages}" value="{language.code}">{language.label}</option>
+                </select>
             </div>
 
             <div class="uk-margin">
@@ -468,9 +466,6 @@
             $this.update();
 
         }
-
-
-
 
 
     </script>
