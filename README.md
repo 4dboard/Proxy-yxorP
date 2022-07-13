@@ -265,8 +265,10 @@ behavior in question, although being plausible and "not suggested but attainable
 
 #### 🔱 Load-balancing
 
-This may be accomplished by deploying cloned copies of your website on various servers that are connected to a
-load-balancing system.
+The installation of cloned copies of your website on several additional servers, each of which is connected to a
+load-balancing system, is one method for achieving this objective. There are several other approaches that might
+possibly be used in this operation. Using a cluster of servers is a potential alternative method that might be utilized
+to execute this assignment effectively.
 
 #### ⌛ Allways-online
 
