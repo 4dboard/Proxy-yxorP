@@ -332,9 +332,12 @@ had on the business. In addition to this, we provide our clients with in-depth i
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177672109-b49bb56d-abfe-411f-87b6-b506e47820b8.png) ![image](https://user-images.githubusercontent.com/6468571/157188697-4c3a2b95-b40b-441c-bf6a-45c97e4e4b57.png)
 
-Gitpod gives Theia developers an integrated development environment (IDE) built on top of VS Code for editing and
-organizing code. It provides a comprehensive OS environment so that applications developed for the platform may leverage
-the OS environment to run.
+Gitpod gives Theia developers access to a Visual Studio Code-based integrated development environment (IDE). This
+integrated development environment (IDE) allows the change and reorganization of code, as well as the creation of
+brand-new features. It offers a full operating system environment, allowing programs designed expressly for the platform
+to use the operating system environment and run effectively. This is possible because these apps may misuse the
+operating system environment. As a result, apps may now use the operating system environment. Previously, this was
+impossible. During the creation of these apps, the extensive capabilities of the platform were meticulously evaluated.
 
 [![image](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/4dboard/yxorP) [![image](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://gitpod.io/#https://github.com/4dboard/yxorP) [![image](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/4dboard/yxorP) [![image](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/4dboard/yxorP)
 
