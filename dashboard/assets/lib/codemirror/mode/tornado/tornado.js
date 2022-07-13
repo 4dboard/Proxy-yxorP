@@ -3,10 +3,10 @@
 
 (function (mod) {
     if (typeof exports == "object" && typeof module == "object") // CommonJS
-        mod(require("../../../inc/codemirror"), require("../htmlmixed/htmlmixed"),
+        mod(require("../../lib/codemirror"), require("../htmlmixed/htmlmixed"),
             require("../../addon/mode/overlay"));
     else if (typeof define == "function" && define.amd) // AMD
-        define(["../../../inc/codemirror", "../htmlmixed/htmlmixed",
+        define(["../../lib/codemirror", "../htmlmixed/htmlmixed",
             "../../addon/mode/overlay"], mod);
     else // Plain browser env
         mod(CodeMirror);

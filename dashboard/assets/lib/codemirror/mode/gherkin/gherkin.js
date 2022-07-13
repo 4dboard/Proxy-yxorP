@@ -18,9 +18,9 @@ Report bugs/issues here: https://github.com/codemirror/CodeMirror/issues
 
 (function (mod) {
     if (typeof exports == "object" && typeof module == "object") // CommonJS
-        mod(require("../../../inc/codemirror"));
+        mod(require("../../lib/codemirror"));
     else if (typeof define == "function" && define.amd) // AMD
-        define(["../../../inc/codemirror"], mod);
+        define(["../../lib/codemirror"], mod);
     else // Plain browser env
         mod(CodeMirror);
 })(function (CodeMirror) {

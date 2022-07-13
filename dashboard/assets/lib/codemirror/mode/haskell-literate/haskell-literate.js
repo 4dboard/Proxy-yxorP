@@ -3,9 +3,9 @@
 
 (function (mod) {
     if (typeof exports == "object" && typeof module == "object") // CommonJS
-        mod(require("../../../inc/codemirror"), require("../haskell/haskell"))
+        mod(require("../../lib/codemirror"), require("../haskell/haskell"))
     else if (typeof define == "function" && define.amd) // AMD
-        define(["../../../inc/codemirror", "../haskell/haskell"], mod)
+        define(["../../lib/codemirror", "../haskell/haskell"], mod)
     else // Plain browser env
         mod(CodeMirror)
 })(function (CodeMirror) {
