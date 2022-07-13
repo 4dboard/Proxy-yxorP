@@ -2,9 +2,9 @@
 
 # Lexy
 
-Lexy class. Simple on the fly template parser class
 
-based on: https://github.com/laravel/framework/blob/master/src/Illuminate/View/Compilers/BladeCompiler.php
+
+
 
 * Full name: `\Lexy`
 
@@ -75,10 +75,10 @@ protected $extensions
 
 ### allowed_calls
 
-[$allowed_calls description]
+
 
 ```php
-protected array $allowed_calls
+protected $allowed_calls
 ```
 
 
@@ -93,7 +93,7 @@ protected array $allowed_calls
 
 ### render
 
-[render description]
+
 
 ```php
 public static render(mixed $content, mixed $params = array(), mixed $sandbox = false, mixed $srcinfo = null): mixed
@@ -120,66 +120,12 @@ public static render(mixed $content, mixed $params = array(), mixed $sandbox = f
 
 ***
 
-### render_file
-
-[render_file description]
-
-```php
-public static render_file(mixed $file, array $params = array(), bool $sandbox = false): mixed
-```
-
-
-
-* This method is **static**.
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$file` | **mixed** |  |
-| `$params` | **array** | [description] |
-| `$sandbox` | **bool** | [description] |
-
-
-
-
-***
-
-### setCachePath
-
-[setcachePath description]
-
-```php
-public setCachePath(mixed $path): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **mixed** |  |
-
-
-
-
-***
-
 ### execute
 
-[execute description]
+
 
 ```php
-public execute(mixed $content, array $params = array(), bool $sandbox = false, mixed $srcinfo = null): mixed
+public execute(mixed $content, mixed $params = array(), mixed $sandbox = false, mixed $srcinfo = null): mixed
 ```
 
 
@@ -194,9 +140,37 @@ public execute(mixed $content, array $params = array(), bool $sandbox = false, m
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **mixed** |  |
-| `$params` | **array** | [description] |
-| `$sandbox` | **bool** | [description] |
+| `$params` | **mixed** |  |
+| `$sandbox` | **mixed** |  |
 | `$srcinfo` | **mixed** |  |
+
+
+
+
+***
+
+### render_file
+
+
+
+```php
+public static render_file(mixed $file, mixed $params = array(), mixed $sandbox = false): mixed
+```
+
+
+
+* This method is **static**.
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$file` | **mixed** |  |
+| `$params` | **mixed** |  |
+| `$sandbox` | **mixed** |  |
 
 
 
@@ -205,10 +179,10 @@ public execute(mixed $content, array $params = array(), bool $sandbox = false, m
 
 ### file
 
-[file description]
+
 
 ```php
-public file(mixed $file, array $params = array(), bool $sandbox = false): mixed
+public file(mixed $file, mixed $params = array(), mixed $sandbox = false): mixed
 ```
 
 
@@ -223,8 +197,8 @@ public file(mixed $file, array $params = array(), bool $sandbox = false): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **mixed** |  |
-| `$params` | **array** | [description] |
-| `$sandbox` | **bool** | [description] |
+| `$params` | **mixed** |  |
+| `$sandbox` | **mixed** |  |
 
 
 
@@ -289,10 +263,10 @@ protected cache_file(mixed $file, mixed $cachedfile, mixed $filemtime = null, mi
 
 ### parse
 
-[parse description]
+
 
 ```php
-public parse(mixed $text, bool $sandbox = false, mixed $srcinfo = null): mixed
+public parse(mixed $text, mixed $sandbox = false, mixed $srcinfo = null): mixed
 ```
 
 
@@ -307,7 +281,7 @@ public parse(mixed $text, bool $sandbox = false, mixed $srcinfo = null): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
-| `$sandbox` | **bool** | [description] |
+| `$sandbox` | **mixed** |  |
 | `$srcinfo` | **mixed** |  |
 
 
@@ -317,10 +291,10 @@ public parse(mixed $text, bool $sandbox = false, mixed $srcinfo = null): mixed
 
 ### compile
 
-[compile description]
+
 
 ```php
-protected compile(mixed $text, bool $sandbox = false): mixed
+protected compile(mixed $text, mixed $sandbox = false): mixed
 ```
 
 
@@ -335,7 +309,85 @@ protected compile(mixed $text, bool $sandbox = false): mixed
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$text` | **mixed** |  |
-| `$sandbox` | **bool** | [description] |
+| `$sandbox` | **mixed** |  |
+
+
+
+
+***
+
+### check_security
+
+
+
+```php
+protected check_security(mixed $code): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$code` | **mixed** |  |
+
+
+
+
+***
+
+### check_syntax
+
+
+
+```php
+protected check_syntax(mixed $code): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$code` | **mixed** |  |
+
+
+
+
+***
+
+### setCachePath
+
+
+
+```php
+public setCachePath(mixed $path): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **mixed** |  |
 
 
 
@@ -394,64 +446,12 @@ public extend(mixed $compiler): mixed
 
 ***
 
-### check_security
-
-[check_security description]
-
-```php
-protected check_security(mixed $code): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$code` | **mixed** |  |
-
-
-
-
-***
-
-### check_syntax
-
-[check_syntax description]
-
-```php
-protected check_syntax(mixed $code): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$code` | **mixed** |  |
-
-
-
-
-***
-
 ### compile_comments
 
-Rewrites Lexi's comments into PHP comments.
+
 
 ```php
-protected compile_comments(string $value): string
+protected compile_comments(mixed $value): mixed
 ```
 
 
@@ -465,7 +465,7 @@ protected compile_comments(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -474,10 +474,10 @@ protected compile_comments(string $value): string
 
 ### compile_unescape_echos
 
-Rewrites Lexi's escaped statements.
+
 
 ```php
-protected compile_unescape_echos(string $value): string
+protected compile_unescape_echos(mixed $value): mixed
 ```
 
 
@@ -491,7 +491,7 @@ protected compile_unescape_echos(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -500,10 +500,10 @@ protected compile_unescape_echos(string $value): string
 
 ### compile_echos
 
-Rewrites Lexi's echo statements into PHP echo statements.
+
 
 ```php
-protected compile_echos(string $value): string
+protected compile_echos(mixed $value): mixed
 ```
 
 
@@ -517,7 +517,7 @@ protected compile_echos(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -526,10 +526,10 @@ protected compile_echos(string $value): string
 
 ### compile_default_structures
 
-Rewrites Lexi's structure openings into PHP structure openings.
+
 
 ```php
-protected compile_default_structures(string $value): string
+protected compile_default_structures(mixed $value): mixed
 ```
 
 
@@ -543,7 +543,7 @@ protected compile_default_structures(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -552,10 +552,10 @@ protected compile_default_structures(string $value): string
 
 ### compile_else
 
-Rewrites Lexi's else statements into PHP else statements.
+
 
 ```php
-protected compile_else(string $value): string
+protected compile_else(mixed $value): mixed
 ```
 
 
@@ -569,7 +569,7 @@ protected compile_else(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -578,10 +578,10 @@ protected compile_else(string $value): string
 
 ### compile_unless
 
-Rewrites Lexi's "unless" statements into valid PHP.
+
 
 ```php
-protected compile_unless(string $value): string
+protected compile_unless(mixed $value): mixed
 ```
 
 
@@ -595,7 +595,7 @@ protected compile_unless(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -604,10 +604,10 @@ protected compile_unless(string $value): string
 
 ### compile_php_tags
 
-Rewrites Lexi's php tags.
+
 
 ```php
-protected compile_php_tags(string $value): string
+protected compile_php_tags(mixed $value): mixed
 ```
 
 
@@ -621,7 +621,7 @@ protected compile_php_tags(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -630,10 +630,10 @@ protected compile_php_tags(string $value): string
 
 ### compile_extensions
 
-Execute user defined compilers.
+
 
 ```php
-protected compile_extensions(string $value): string
+protected compile_extensions(mixed $value): mixed
 ```
 
 
@@ -647,7 +647,7 @@ protected compile_extensions(string $value): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -656,4 +656,4 @@ protected compile_extensions(string $value): string
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

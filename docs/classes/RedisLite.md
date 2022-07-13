@@ -2,7 +2,7 @@
 
 # RedisLite
 
-RedisLite class.
+
 
 
 
@@ -18,7 +18,7 @@ RedisLite class.
 
 
 ```php
-protected string $path
+protected $path
 ```
 
 
@@ -33,7 +33,7 @@ protected string $path
 
 
 ```php
-protected object $connection
+protected $connection
 ```
 
 
@@ -48,7 +48,7 @@ protected object $connection
 
 
 ```php
-protected string $table
+protected $table
 ```
 
 
@@ -63,10 +63,10 @@ protected string $table
 
 ### __construct
 
-Constructor
+
 
 ```php
-public __construct(string $path = &quot;:memory:&quot;, array $options = array()): mixed
+public __construct(mixed $path = &quot;:memory:&quot;, mixed $options = array()): mixed
 ```
 
 
@@ -80,8 +80,8 @@ public __construct(string $path = &quot;:memory:&quot;, array $options = array()
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** |  |
-| `$options` | **array** |  |
+| `$path` | **mixed** |  |
+| `$options` | **mixed** |  |
 
 
 
@@ -108,63 +108,9 @@ protected createTable(): mixed
 
 ***
 
-### get
-
-Get value for specific key
-
-```php
-public get(string $key, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$default` | **mixed** |  |
-
-
-
-
-***
-
-### set
-
-Set value for specific key
-
-```php
-public set(string $key, mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
 ### flushdb
 
-Clear database
+
 
 ```php
 public flushdb(): mixed
@@ -182,38 +128,12 @@ public flushdb(): mixed
 
 ***
 
-### exists
-
-Check if key exists
-
-```php
-public exists(string $key): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-
-
-
-
-***
-
 ### keys
 
-Get all keys matching a pattern
+
 
 ```php
-public keys(string $pattern = null): array
+public keys(mixed $pattern = null): mixed
 ```
 
 
@@ -227,7 +147,7 @@ public keys(string $pattern = null): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$pattern` | **string** |  |
+| `$pattern` | **mixed** |  |
 
 
 
@@ -236,10 +156,10 @@ public keys(string $pattern = null): array
 
 ### del
 
-Delete Key(s)
+
 
 ```php
-public del(string $key): int
+public del(mixed $key): mixed
 ```
 
 
@@ -253,7 +173,7 @@ public del(string $key): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
@@ -262,10 +182,10 @@ public del(string $key): int
 
 ### type
 
-Get value type
+
 
 ```php
-public type(string $key): string
+public type(mixed $key): mixed
 ```
 
 
@@ -279,19 +199,19 @@ public type(string $key): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
 
 ***
 
-### incr
+### get
 
-Increment value by x
+
 
 ```php
-public incr(string $key, int $by = 1): int
+public get(mixed $key, mixed $default = null): mixed
 ```
 
 
@@ -305,8 +225,8 @@ public incr(string $key, int $by = 1): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
-| `$by` | **int** |  |
+| `$key` | **mixed** |  |
+| `$default` | **mixed** |  |
 
 
 
@@ -315,10 +235,10 @@ public incr(string $key, int $by = 1): int
 
 ### decr
 
-Decrement value by x
+
 
 ```php
-public decr(string $key, int $by = 1): int
+public decr(mixed $key, mixed $by = 1): mixed
 ```
 
 
@@ -332,8 +252,88 @@ public decr(string $key, int $by = 1): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
-| `$by` | **int** |  |
+| `$key` | **mixed** |  |
+| `$by` | **mixed** |  |
+
+
+
+
+***
+
+### incr
+
+
+
+```php
+public incr(mixed $key, mixed $by = 1): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+| `$by` | **mixed** |  |
+
+
+
+
+***
+
+### set
+
+
+
+```php
+public set(mixed $key, mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### exists
+
+
+
+```php
+public exists(mixed $key): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
 
 
 
@@ -342,10 +342,10 @@ public decr(string $key, int $by = 1): int
 
 ### llen
 
-Count $value items
+
 
 ```php
-public llen(string $key): int
+public llen(mixed $key): mixed
 ```
 
 
@@ -359,7 +359,7 @@ public llen(string $key): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
@@ -368,10 +368,10 @@ public llen(string $key): int
 
 ### rpush
 
-Add item to a value (right)
+
 
 ```php
-public rpush(string $key, mixed $value): int
+public rpush(mixed $key, mixed $value): mixed
 ```
 
 
@@ -385,7 +385,7 @@ public rpush(string $key, mixed $value): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
 
@@ -395,10 +395,10 @@ public rpush(string $key, mixed $value): int
 
 ### lpush
 
-Add item to a value (left)
+
 
 ```php
-public lpush(string $key, mixed $value): int
+public lpush(mixed $key, mixed $value): mixed
 ```
 
 
@@ -412,7 +412,7 @@ public lpush(string $key, mixed $value): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
 
@@ -422,10 +422,10 @@ public lpush(string $key, mixed $value): int
 
 ### lset
 
-Set the value of an element in a list by its index
+
 
 ```php
-public lset(string $key, int $index, mixed $value): bool
+public lset(mixed $key, mixed $index, mixed $value): mixed
 ```
 
 
@@ -439,8 +439,8 @@ public lset(string $key, int $index, mixed $value): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
-| `$index` | **int** |  |
+| `$key` | **mixed** |  |
+| `$index` | **mixed** |  |
 | `$value` | **mixed** |  |
 
 
@@ -450,10 +450,10 @@ public lset(string $key, int $index, mixed $value): bool
 
 ### lindex
 
-Get an element from a list by its index
+
 
 ```php
-public lindex(string $key, int $index): mixed
+public lindex(mixed $key, mixed $index): mixed
 ```
 
 
@@ -467,64 +467,8 @@ public lindex(string $key, int $index): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
-| `$index` | **int** |  |
-
-
-
-
-***
-
-### hset
-
-Set the string value of a hash field
-
-```php
-public hset(string $key, string $field, mixed $value): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-| `$value` | **mixed** |  |
-
-
-
-
-***
-
-### hget
-
-Get the value of a hash field
-
-```php
-public hget(string $key, string $field, mixed $default = null): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-| `$default` | **mixed** |  |
+| `$key` | **mixed** |  |
+| `$index` | **mixed** |  |
 
 
 
@@ -533,10 +477,10 @@ public hget(string $key, string $field, mixed $default = null): mixed
 
 ### hgetall
 
-Get all the fields and values in a hash
+
 
 ```php
-public hgetall(string $key): array
+public hgetall(mixed $key): mixed
 ```
 
 
@@ -550,7 +494,7 @@ public hgetall(string $key): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
@@ -559,10 +503,10 @@ public hgetall(string $key): array
 
 ### hexists
 
-Determine if a hash field exists
+
 
 ```php
-public hexists(string $key, string $field): bool
+public hexists(mixed $key, mixed $field): mixed
 ```
 
 
@@ -576,34 +520,8 @@ public hexists(string $key, string $field): bool
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-
-
-
-
-***
-
-### hkeys
-
-Get all the fields in a hash
-
-```php
-public hkeys(string $key): array
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
+| `$field` | **mixed** |  |
 
 
 
@@ -612,10 +530,10 @@ public hkeys(string $key): array
 
 ### hvals
 
-Get all the values in a hash
+
 
 ```php
-public hvals(string $key): array
+public hvals(mixed $key): mixed
 ```
 
 
@@ -629,7 +547,7 @@ public hvals(string $key): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
@@ -638,10 +556,10 @@ public hvals(string $key): array
 
 ### hlen
 
-Get the number of fields in a hash
+
 
 ```php
-public hlen(string $key): int
+public hlen(mixed $key): mixed
 ```
 
 
@@ -655,7 +573,33 @@ public hlen(string $key): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
+
+
+
+
+***
+
+### hkeys
+
+
+
+```php
+public hkeys(mixed $key): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
 
 
 
@@ -664,10 +608,10 @@ public hlen(string $key): int
 
 ### hdel
 
-Delete one or more hash fields
+
 
 ```php
-public hdel(string $key): int
+public hdel(mixed $key): mixed
 ```
 
 
@@ -681,7 +625,7 @@ public hdel(string $key): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
@@ -690,10 +634,10 @@ public hdel(string $key): int
 
 ### hincrby
 
-Increment the integer value of a hash field by the given number
+
 
 ```php
-public hincrby(string $key, string $field, int $by = 1): int
+public hincrby(mixed $key, mixed $field, mixed $by = 1): mixed
 ```
 
 
@@ -707,9 +651,65 @@ public hincrby(string $key, string $field, int $by = 1): int
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
-| `$field` | **string** |  |
-| `$by` | **int** |  |
+| `$key` | **mixed** |  |
+| `$field` | **mixed** |  |
+| `$by` | **mixed** |  |
+
+
+
+
+***
+
+### hget
+
+
+
+```php
+public hget(mixed $key, mixed $field, mixed $default = null): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+| `$field` | **mixed** |  |
+| `$default` | **mixed** |  |
+
+
+
+
+***
+
+### hset
+
+
+
+```php
+public hset(mixed $key, mixed $field, mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$key` | **mixed** |  |
+| `$field` | **mixed** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -718,10 +718,10 @@ public hincrby(string $key, string $field, int $by = 1): int
 
 ### hmget
 
-Get the values of all the given hash fields
+
 
 ```php
-public hmget(string $key): array
+public hmget(mixed $key): mixed
 ```
 
 
@@ -735,7 +735,7 @@ public hmget(string $key): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
@@ -744,10 +744,10 @@ public hmget(string $key): array
 
 ### hmset
 
-Set multiple hash fields to multiple values
+
 
 ```php
-public hmset(string $key): mixed
+public hmset(mixed $key): mixed
 ```
 
 
@@ -761,7 +761,7 @@ public hmset(string $key): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **string** |  |
+| `$key` | **mixed** |  |
 
 
 
@@ -770,4 +770,4 @@ public hmset(string $key): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

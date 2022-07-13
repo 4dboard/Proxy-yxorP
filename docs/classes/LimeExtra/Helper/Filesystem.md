@@ -128,32 +128,6 @@ public mkdir( $path, int $mode = 0755): bool
 
 ***
 
-### delete
-
-
-
-```php
-public delete( $path): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$path` | **** |  |
-
-
-
-
-***
-
 ### copy
 
 
@@ -204,6 +178,32 @@ public rename( $path,  $newpath, bool|true $overwrite = true): bool
 | `$path` | **** |  |
 | `$newpath` | **** |  |
 | `$overwrite` | **bool&#124;true** |  |
+
+
+
+
+***
+
+### delete
+
+
+
+```php
+public delete( $path): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$path` | **** |  |
 
 
 
@@ -394,4 +394,4 @@ public __get(mixed $name): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

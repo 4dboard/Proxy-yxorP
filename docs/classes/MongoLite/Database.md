@@ -2,7 +2,7 @@
 
 # Database
 
-Database object.
+
 
 
 
@@ -13,7 +13,7 @@ Database object.
 
 | Constant | Visibility | Type | Value |
 |:---------|:-----------|:-----|:------|
-|`DSN_PATH_MEMORY`|public|string|&#039;:memory:&#039;|
+|`DSN_PATH_MEMORY`|public| |&#039;:memory:&#039;|
 
 ## Properties
 
@@ -23,7 +23,7 @@ Database object.
 
 
 ```php
-public \MongoLite\PDO $connection
+public $connection
 ```
 
 
@@ -38,7 +38,7 @@ public \MongoLite\PDO $connection
 
 
 ```php
-protected array $collections
+protected $collections
 ```
 
 
@@ -53,7 +53,7 @@ protected array $collections
 
 
 ```php
-protected string $path
+protected $path
 ```
 
 
@@ -68,7 +68,7 @@ protected string $path
 
 
 ```php
-protected array $document_criterias
+protected $document_criterias
 ```
 
 
@@ -83,10 +83,10 @@ protected array $document_criterias
 
 ### __construct
 
-Constructor
+
 
 ```php
-public __construct(string $path = self::DSN_PATH_MEMORY, array $options = []): mixed
+public __construct(mixed $path = self::DSN_PATH_MEMORY, mixed $options = []): mixed
 ```
 
 
@@ -100,8 +100,35 @@ public __construct(string $path = self::DSN_PATH_MEMORY, array $options = []): m
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** |  |
-| `$options` | **array** |  |
+| `$path` | **mixed** |  |
+| `$options` | **mixed** |  |
+
+
+
+
+***
+
+### callCriteriaFunction
+
+
+
+```php
+public callCriteriaFunction(mixed $id, mixed $document): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$id` | **mixed** |  |
+| `$document` | **mixed** |  |
 
 
 
@@ -110,7 +137,7 @@ public __construct(string $path = self::DSN_PATH_MEMORY, array $options = []): m
 
 ### registerCriteriaFunction
 
-Register Criteria function
+
 
 ```php
 public registerCriteriaFunction(mixed $criteria): mixed
@@ -134,36 +161,9 @@ public registerCriteriaFunction(mixed $criteria): mixed
 
 ***
 
-### callCriteriaFunction
-
-Execute registred criteria function
-
-```php
-public callCriteriaFunction(string $id, array $document): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$id` | **string** |  |
-| `$document` | **array** |  |
-
-
-
-
-***
-
 ### vacuum
 
-Vacuum database
+
 
 ```php
 public vacuum(): mixed
@@ -183,7 +183,7 @@ public vacuum(): mixed
 
 ### drop
 
-Drop database
+
 
 ```php
 public drop(): mixed
@@ -201,38 +201,12 @@ public drop(): mixed
 
 ***
 
-### createCollection
-
-Create a collection
-
-```php
-public createCollection(string $name): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
-
-
-
-
-***
-
 ### dropCollection
 
-Drop a collection
+
 
 ```php
-public dropCollection(string $name): mixed
+public dropCollection(mixed $name): mixed
 ```
 
 
@@ -246,27 +220,7 @@ public dropCollection(string $name): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** |  |
-
-
-
-
-***
-
-### getCollectionNames
-
-Get all collection names in the database
-
-```php
-public getCollectionNames(): array
-```
-
-
-
-
-
-
-
+| `$name` | **mixed** |  |
 
 
 
@@ -275,10 +229,10 @@ public getCollectionNames(): array
 
 ### listCollections
 
-Get all collections in the database
+
 
 ```php
-public listCollections(): array
+public listCollections(): mixed
 ```
 
 
@@ -293,12 +247,12 @@ public listCollections(): array
 
 ***
 
-### selectCollection
+### getCollectionNames
 
-Select collection
+
 
 ```php
-public selectCollection(string $name): object
+public getCollectionNames(): mixed
 ```
 
 
@@ -307,12 +261,6 @@ public selectCollection(string $name): object
 
 
 
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$name` | **string** |  |
 
 
 
@@ -345,6 +293,58 @@ public __get(mixed $collection): mixed
 
 ***
 
+### selectCollection
+
+
+
+```php
+public selectCollection(mixed $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+
+
+
 
 ***
 
+### createCollection
+
+
+
+```php
+public createCollection(mixed $name): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$name` | **mixed** |  |
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

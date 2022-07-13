@@ -2,25 +2,9 @@
 
 # Spyc
 
-The Simple PHP YAML Class.
 
-This class can be used to read a YAML file and convert its contents
-into a PHP array.  It currently supports a very limited subsection of
-the YAML spec.
 
-Usage:
-<code>
-  $Spyc  = new Spyc;
-  $array = $Spyc->load($file);
-</code>
-or:
-<code>
-  $array = Spyc::YAMLLoad($file);
-</code>
-or:
-<code>
-  $array = spyc_load_file($file);
-</code>
+
 
 * Full name: `\Spyc`
 
@@ -36,11 +20,10 @@ or:
 
 ### setting_dump_force_quotes
 
-Setting this to true will force YAMLDump to enclose any string value in
-quotes.  False by default.
+
 
 ```php
-public bool $setting_dump_force_quotes
+public $setting_dump_force_quotes
 ```
 
 
@@ -52,11 +35,10 @@ public bool $setting_dump_force_quotes
 
 ### setting_use_syck_is_possible
 
-Setting this to true will forse YAMLLoad to use syck_load function when
-possible. False by default.
+
 
 ```php
-public bool $setting_use_syck_is_possible
+public $setting_use_syck_is_possible
 ```
 
 
@@ -203,10 +185,10 @@ private $indent
 
 ### delayedPath
 
-Path modifier that should be applied after adding current element.
+
 
 ```php
-private array $delayedPath
+private $delayedPath
 ```
 
 
@@ -236,10 +218,10 @@ public $_nodeId
 
 ### load
 
-Load a valid YAML string to Spyc.
+
 
 ```php
-public load(string $input): array
+public load(mixed $input): mixed
 ```
 
 
@@ -253,7 +235,7 @@ public load(string $input): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$input` | **string** |  |
+| `$input` | **mixed** |  |
 
 
 
@@ -262,10 +244,10 @@ public load(string $input): array
 
 ### loadFile
 
-Load a valid YAML file to Spyc.
+
 
 ```php
-public loadFile(string $file): array
+public loadFile(mixed $file): mixed
 ```
 
 
@@ -279,7 +261,7 @@ public loadFile(string $file): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$file` | **string** |  |
+| `$file` | **mixed** |  |
 
 
 
@@ -288,20 +270,13 @@ public loadFile(string $file): array
 
 ### YAMLLoad
 
-Load YAML into a PHP array statically
+
 
 ```php
-public static YAMLLoad(string $input): array
+public static YAMLLoad(mixed $input): mixed
 ```
 
-The load method, when supplied with a YAML stream (string or file),
-will do its best to convert YAML in a file into a PHP array.  Pretty
-simple.
- Usage:
- <code>
-  $array = Spyc::YAMLLoad('lucky.yaml');
-  print_r($array);
- </code>
+
 
 * This method is **static**.
 
@@ -312,7 +287,7 @@ simple.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$input` | **string** | Path of YAML file or string containing YAML |
+| `$input` | **mixed** |  |
 
 
 
@@ -321,24 +296,13 @@ simple.
 
 ### YAMLLoadString
 
-Load a string of YAML into a PHP array statically
+
 
 ```php
-public static YAMLLoadString(string $input): array
+public static YAMLLoadString(mixed $input): mixed
 ```
 
-The load method, when supplied with a YAML string, will do its best
-to convert YAML in a string into a PHP array.  Pretty simple.
 
-Note: use this function if you don't want files from the file system
-loaded and processed as YAML.  This is of interest to people concerned
-about security whose input is from a string.
-
- Usage:
- <code>
-  $array = Spyc::YAMLLoadString("---\n0: hello world\n");
-  print_r($array);
- </code>
 
 * This method is **static**.
 
@@ -349,7 +313,7 @@ about security whose input is from a string.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$input` | **string** | String containing YAML |
+| `$input` | **mixed** |  |
 
 
 
@@ -358,22 +322,13 @@ about security whose input is from a string.
 
 ### YAMLDump
 
-Dump YAML from PHP array statically
+
 
 ```php
-public static YAMLDump(array|\stdClass $array, int $indent = false, int $wordwrap = false, bool $no_opening_dashes = false): string
+public static YAMLDump(mixed $array, mixed $indent = false, mixed $wordwrap = false, mixed $no_opening_dashes = false): mixed
 ```
 
-The dump method, when supplied with an array, will do its best
-to convert the array into friendly YAML.  Pretty simple.  Feel free to
-save the returned string as nothing.yaml and pass it around.
 
-Oh, and you can decide how big the indent is and what the wordwrap
-for folding is.  Pretty cool -- just pass in 'false' for either if
-you want to use the default.
-
-Indent's default is 2 spaces, wordwrap's default is 40 characters.  And
-you can turn off wordwrap by passing in 0.
 
 * This method is **static**.
 
@@ -384,10 +339,10 @@ you can turn off wordwrap by passing in 0.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$array` | **array&#124;\stdClass** | PHP array |
-| `$indent` | **int** | Pass in false to use the default, which is 2 |
-| `$wordwrap` | **int** | Pass in 0 for no wordwrap, false for default (40) |
-| `$no_opening_dashes` | **bool** | Do not start YAML file with &quot;---\n&quot; |
+| `$array` | **mixed** |  |
+| `$indent` | **mixed** |  |
+| `$wordwrap` | **mixed** |  |
+| `$no_opening_dashes` | **mixed** |  |
 
 
 
@@ -396,22 +351,13 @@ you can turn off wordwrap by passing in 0.
 
 ### dump
 
-Dump PHP array to YAML
+
 
 ```php
-public dump(array $array, int $indent = false, int $wordwrap = false, mixed $no_opening_dashes = false): string
+public dump(mixed $array, mixed $indent = false, mixed $wordwrap = false, mixed $no_opening_dashes = false): mixed
 ```
 
-The dump method, when supplied with an array, will do its best
-to convert the array into friendly YAML.  Pretty simple.  Feel free to
-save the returned string as tasteful.yaml and pass it around.
 
-Oh, and you can decide how big the indent is and what the wordwrap
-for folding is.  Pretty cool -- just pass in 'false' for either if
-you want to use the default.
-
-Indent's default is 2 spaces, wordwrap's default is 40 characters.  And
-you can turn off wordwrap by passing in 0.
 
 
 
@@ -422,9 +368,9 @@ you can turn off wordwrap by passing in 0.
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$array` | **array** | PHP array |
-| `$indent` | **int** | Pass in false to use the default, which is 2 |
-| `$wordwrap` | **int** | Pass in 0 for no wordwrap, false for default (40) |
+| `$array` | **mixed** |  |
+| `$indent` | **mixed** |  |
+| `$wordwrap` | **mixed** |  |
 | `$no_opening_dashes` | **mixed** |  |
 
 
@@ -434,10 +380,10 @@ you can turn off wordwrap by passing in 0.
 
 ### _yamlize
 
-Attempts to convert a key / value array item to YAML
+
 
 ```php
-private _yamlize( $key,  $value,  $indent, mixed $previous_key = -1, mixed $first_key, mixed $source_array = null): string
+private _yamlize(mixed $key, mixed $value, mixed $indent, mixed $previous_key = -1, mixed $first_key, mixed $source_array = null): mixed
 ```
 
 
@@ -451,9 +397,9 @@ private _yamlize( $key,  $value,  $indent, mixed $previous_key = -1, mixed $firs
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **** | The name of the key |
-| `$value` | **** | The value of the item |
-| `$indent` | **** | The indent of the current node |
+| `$key` | **mixed** |  |
+| `$value` | **mixed** |  |
+| `$indent` | **mixed** |  |
 | `$previous_key` | **mixed** |  |
 | `$first_key` | **mixed** |  |
 | `$source_array` | **mixed** |  |
@@ -465,10 +411,10 @@ private _yamlize( $key,  $value,  $indent, mixed $previous_key = -1, mixed $firs
 
 ### _yamlizeArray
 
-Attempts to convert an array to YAML
+
 
 ```php
-private _yamlizeArray( $array,  $indent): string
+private _yamlizeArray(mixed $array, mixed $indent): mixed
 ```
 
 
@@ -482,8 +428,8 @@ private _yamlizeArray( $array,  $indent): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$array` | **** | The array you want to convert |
-| `$indent` | **** | The indent of the current level |
+| `$array` | **mixed** |  |
+| `$indent` | **mixed** |  |
 
 
 
@@ -492,10 +438,10 @@ private _yamlizeArray( $array,  $indent): string
 
 ### _dumpNode
 
-Returns YAML from a key and a value
+
 
 ```php
-private _dumpNode( $key,  $value,  $indent, mixed $previous_key = -1, mixed $first_key, mixed $source_array = null): string
+private _dumpNode(mixed $key, mixed $value, mixed $indent, mixed $previous_key = -1, mixed $first_key, mixed $source_array = null): mixed
 ```
 
 
@@ -509,9 +455,9 @@ private _dumpNode( $key,  $value,  $indent, mixed $previous_key = -1, mixed $fir
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$key` | **** | The name of the key |
-| `$value` | **** | The value of the item |
-| `$indent` | **** | The indent of the current node |
+| `$key` | **mixed** |  |
+| `$value` | **mixed** |  |
+| `$indent` | **mixed** |  |
 | `$previous_key` | **mixed** |  |
 | `$first_key` | **mixed** |  |
 | `$source_array` | **mixed** |  |
@@ -523,10 +469,10 @@ private _dumpNode( $key,  $value,  $indent, mixed $previous_key = -1, mixed $fir
 
 ### _doLiteralBlock
 
-Creates a literal block for dumping
+
 
 ```php
-private _doLiteralBlock( $value,  $indent): string
+private _doLiteralBlock(mixed $value, mixed $indent): mixed
 ```
 
 
@@ -540,8 +486,8 @@ private _doLiteralBlock( $value,  $indent): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **** |  |
-| `$indent` | **** | int The value of the indent |
+| `$value` | **mixed** |  |
+| `$indent` | **mixed** |  |
 
 
 
@@ -550,10 +496,10 @@ private _doLiteralBlock( $value,  $indent): string
 
 ### _doFolding
 
-Folds a string of text, if necessary
+
 
 ```php
-private _doFolding( $value, mixed $indent): string
+private _doFolding(mixed $value, mixed $indent): mixed
 ```
 
 
@@ -567,7 +513,7 @@ private _doFolding( $value, mixed $indent): string
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **** | The string you wish to fold |
+| `$value` | **mixed** |  |
 | `$indent` | **mixed** |  |
 
 
@@ -681,12 +627,10 @@ private isTranslationWord(mixed $value): mixed
 
 ### coerceValue
 
-Coerce a string into a native type
-Reference: http://yaml.org/type/bool.html
-TODO: Use only words from the YAML spec.
+
 
 ```php
-private coerceValue(& $value): mixed
+private coerceValue(mixed& $value): mixed
 ```
 
 
@@ -700,7 +644,7 @@ private coerceValue(& $value): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **** | The value to coerce |
+| `$value` | **mixed** |  |
 
 
 
@@ -709,11 +653,10 @@ private coerceValue(& $value): mixed
 
 ### getTranslations
 
-Given a set of words, perform the appropriate translations on them to
-match the YAML 1.1 specification for type coercing.
+
 
 ```php
-private static getTranslations( $words): mixed
+private static getTranslations(array $words): mixed
 ```
 
 
@@ -727,7 +670,7 @@ private static getTranslations( $words): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$words` | **** | The words to translate |
+| `$words` | **array** |  |
 
 
 
@@ -866,10 +809,10 @@ private loadFromString(mixed $input): mixed
 
 ### _parseLine
 
-Parses YAML code and returns an array for a node
+
 
 ```php
-private _parseLine(string $line): array
+private _parseLine(mixed $line): mixed
 ```
 
 
@@ -883,7 +826,7 @@ private _parseLine(string $line): array
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$line` | **string** | A line from the YAML file |
+| `$line` | **mixed** |  |
 
 
 
@@ -892,10 +835,10 @@ private _parseLine(string $line): array
 
 ### _toType
 
-Finds the type of the passed value, returns the value as the new type.
+
 
 ```php
-private _toType(string $value): mixed
+private _toType(mixed $value): mixed
 ```
 
 
@@ -909,7 +852,7 @@ private _toType(string $value): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$value` | **string** |  |
+| `$value` | **mixed** |  |
 
 
 
@@ -918,10 +861,10 @@ private _toType(string $value): mixed
 
 ### _inlineEscape
 
-Used in inlines to check for more inlines or quoted strings
+
 
 ```php
-private _inlineEscape(mixed $inline): array
+private _inlineEscape(mixed $inline): mixed
 ```
 
 
@@ -1708,4 +1651,4 @@ private stripGroup(mixed $line, mixed $group): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

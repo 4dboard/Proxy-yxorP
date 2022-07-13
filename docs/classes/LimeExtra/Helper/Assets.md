@@ -15,12 +15,12 @@ Assets class.
 ## Methods
 
 
-### style
+### style_and_script
 
-Compile styles and return in a link tag
+Echo tags for scripts and styles
 
 ```php
-public style(array $assets, string $name, string $path = &quot;&quot;, float $cache, bool $version = false): string
+public style_and_script(array $assets, string $name, string $path = &quot;&quot;, float $cache, bool $version = false): void
 ```
 
 
@@ -75,36 +75,6 @@ public script(array $assets, string $name, string $path = &quot;&quot;, float $c
 
 ***
 
-### style_and_script
-
-Echo tags for scripts and styles
-
-```php
-public style_and_script(array $assets, string $name, string $path = &quot;&quot;, float $cache, bool $version = false): void
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$assets` | **array** |  |
-| `$name` | **string** |  |
-| `$path` | **string** |  |
-| `$cache` | **float** |  |
-| `$version` | **bool** |  |
-
-
-
-
-***
-
 ### compile
 
 Compile assets into one file
@@ -126,6 +96,36 @@ public compile(array $assets, string $type): string
 |-----------|------|-------------|
 | `$assets` | **array** |  |
 | `$type` | **string** | js or css |
+
+
+
+
+***
+
+### style
+
+Compile styles and return in a link tag
+
+```php
+public style(array $assets, string $name, string $path = &quot;&quot;, float $cache, bool $version = false): string
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$assets` | **array** |  |
+| `$name` | **string** |  |
+| `$path` | **string** |  |
+| `$cache` | **float** |  |
+| `$version` | **bool** |  |
 
 
 
@@ -263,4 +263,4 @@ public __get(mixed $name): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

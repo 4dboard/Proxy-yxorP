@@ -13,6 +13,36 @@
 ## Properties
 
 
+### statusCodes
+
+
+
+```php
+public static $statusCodes
+```
+
+
+
+* This property is **static**.
+
+
+***
+
+### mimeTypes
+
+
+
+```php
+public static $mimeTypes
+```
+
+
+
+* This property is **static**.
+
+
+***
+
 ### body
 
 
@@ -118,36 +148,6 @@ public $headers
 
 ***
 
-### statusCodes
-
-
-
-```php
-public static $statusCodes
-```
-
-
-
-* This property is **static**.
-
-
-***
-
-### mimeTypes
-
-
-
-```php
-public static $mimeTypes
-```
-
-
-
-* This property is **static**.
-
-
-***
-
 ## Methods
 
 
@@ -193,4 +193,4 @@ public flush(): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

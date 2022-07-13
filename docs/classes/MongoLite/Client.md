@@ -2,7 +2,7 @@
 
 # Client
 
-Client object.
+
 
 
 
@@ -18,7 +18,7 @@ Client object.
 
 
 ```php
-protected array $databases
+protected $databases
 ```
 
 
@@ -33,7 +33,7 @@ protected array $databases
 
 
 ```php
-protected string $path
+protected $path
 ```
 
 
@@ -48,7 +48,7 @@ protected string $path
 
 
 ```php
-protected array $options
+protected $options
 ```
 
 
@@ -63,10 +63,10 @@ protected array $options
 
 ### __construct
 
-Constructor
+
 
 ```php
-public __construct(string $path, array $options = []): mixed
+public __construct(mixed $path, mixed $options = []): mixed
 ```
 
 
@@ -80,8 +80,8 @@ public __construct(string $path, array $options = []): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$path` | **string** | - Pathname to database file or :memory: |
-| `$options` | **array** |  |
+| `$path` | **mixed** |  |
+| `$options` | **mixed** |  |
 
 
 
@@ -90,10 +90,10 @@ public __construct(string $path, array $options = []): mixed
 
 ### listDBs
 
-List Databases
+
 
 ```php
-public listDBs(): array
+public listDBs(): mixed
 ```
 
 
@@ -104,20 +104,16 @@ public listDBs(): array
 
 
 
-**Return Value:**
-
-List of database names
-
 
 
 ***
 
 ### selectCollection
 
-Select Collection
+
 
 ```php
-public selectCollection(string $database, string $collection): \MongoLite\Collection
+public selectCollection(mixed $database, mixed $collection): mixed
 ```
 
 
@@ -131,8 +127,8 @@ public selectCollection(string $database, string $collection): \MongoLite\Collec
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$database` | **string** |  |
-| `$collection` | **string** |  |
+| `$database` | **mixed** |  |
+| `$collection` | **mixed** |  |
 
 
 
@@ -141,10 +137,10 @@ public selectCollection(string $database, string $collection): \MongoLite\Collec
 
 ### selectDB
 
-Select database
+
 
 ```php
-public selectDB(string $name): \MongoLite\Database
+public selectDB(mixed $name): mixed
 ```
 
 
@@ -158,7 +154,7 @@ public selectDB(string $name): \MongoLite\Database
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$name` | **string** |  |
+| `$name` | **mixed** |  |
 
 
 
@@ -193,4 +189,4 @@ public __get(mixed $database): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

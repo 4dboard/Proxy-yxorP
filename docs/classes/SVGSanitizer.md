@@ -2,9 +2,9 @@
 
 # SVGSanitizer
 
-Class SVGSanitizer
 
-simplified/compact version of svg-sanitizer - https://github.com/darylldoyle/svg-sanitizer by Daryll Doyle
+
+
 
 * Full name: `\SVGSanitizer`
 
@@ -23,7 +23,7 @@ simplified/compact version of svg-sanitizer - https://github.com/darylldoyle/svg
 
 
 ```php
-protected \DOMDocument $xmlDocument
+protected $xmlDocument
 ```
 
 
@@ -38,7 +38,7 @@ protected \DOMDocument $xmlDocument
 
 
 ```php
-protected array $allowedTags
+protected $allowedTags
 ```
 
 
@@ -53,7 +53,7 @@ protected array $allowedTags
 
 
 ```php
-protected array $allowedAttrs
+protected $allowedAttrs
 ```
 
 
@@ -83,7 +83,7 @@ protected $xmlLoaderValue
 
 
 ```php
-protected bool $minifyXML
+protected $minifyXML
 ```
 
 
@@ -98,7 +98,7 @@ protected bool $minifyXML
 
 
 ```php
-protected bool $removeRemoteReferences
+protected $removeRemoteReferences
 ```
 
 
@@ -113,7 +113,7 @@ protected bool $removeRemoteReferences
 
 
 ```php
-protected bool $removeXMLTag
+protected $removeXMLTag
 ```
 
 
@@ -128,7 +128,7 @@ protected bool $removeXMLTag
 
 
 ```php
-protected int $xmlOptions
+protected $xmlOptions
 ```
 
 
@@ -141,9 +141,29 @@ protected int $xmlOptions
 ## Methods
 
 
+### __construct
+
+
+
+```php
+public __construct(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### clean
 
-SVGSanitizer::clean('<svg ...>')
+
 
 ```php
 public static clean(mixed $svgText): mixed
@@ -167,12 +187,12 @@ public static clean(mixed $svgText): mixed
 
 ***
 
-### __construct
+### sanitize
 
 
 
 ```php
-public __construct(): mixed
+public sanitize(mixed $dirty): mixed
 ```
 
 
@@ -182,6 +202,12 @@ public __construct(): mixed
 
 
 
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$dirty` | **mixed** |  |
+
 
 
 
@@ -189,7 +215,7 @@ public __construct(): mixed
 
 ### resetInternal
 
-Set up the DOMDocument
+
 
 ```php
 protected resetInternal(): mixed
@@ -207,201 +233,9 @@ protected resetInternal(): mixed
 
 ***
 
-### setXMLOptions
-
-Set XML options to use when saving XML
-See: DOMDocument::saveXML
-
-```php
-public setXMLOptions(int $xmlOptions): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$xmlOptions` | **int** |  |
-
-
-
-
-***
-
-### getXMLOptions
-
-Get XML options to use when saving XML
-See: DOMDocument::saveXML
-
-```php
-public getXMLOptions(): int
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### getAllowedTags
-
-Get the array of allowed tags
-
-```php
-public getAllowedTags(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### setAllowedTags
-
-Set custom allowed tags
-
-```php
-public setAllowedTags(array $allowedTags): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$allowedTags` | **array** |  |
-
-
-
-
-***
-
-### getAllowedAttrs
-
-Get the array of allowed attributes
-
-```php
-public getAllowedAttrs(): array
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-### setAllowedAttrs
-
-Set custom allowed attributes
-
-```php
-public setAllowedAttrs(array $allowedAttrs): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$allowedAttrs` | **array** |  |
-
-
-
-
-***
-
-### removeRemoteReferences
-
-Should we remove references to remote files?
-
-```php
-public removeRemoteReferences(bool $removeRemoteRefs = false): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$removeRemoteRefs` | **bool** |  |
-
-
-
-
-***
-
-### sanitize
-
-Sanitize the passed string
-
-```php
-public sanitize(string $dirty): string
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$dirty` | **string** |  |
-
-
-
-
-***
-
 ### setUpBefore
 
-Set up libXML before we start
+
 
 ```php
 protected setUpBefore(): mixed
@@ -421,7 +255,7 @@ protected setUpBefore(): mixed
 
 ### resetAfter
 
-Reset the class after use
+
 
 ```php
 protected resetAfter(): mixed
@@ -441,8 +275,7 @@ protected resetAfter(): mixed
 
 ### removeDoctype
 
-Remove the XML Doctype
-It may be caught later on output but that seems to be buggy, so we need to make sure it's gone
+
 
 ```php
 protected removeDoctype(): mixed
@@ -462,7 +295,7 @@ protected removeDoctype(): mixed
 
 ### startClean
 
-Start the cleaning with tags, then we move onto attributes and hrefs later
+
 
 ```php
 protected startClean(\DOMNodeList $elements): mixed
@@ -488,7 +321,7 @@ protected startClean(\DOMNodeList $elements): mixed
 
 ### cleanAttributesOnWhitelist
 
-Only allow attributes that are on the whitelist
+
 
 ```php
 protected cleanAttributesOnWhitelist(\DOMElement $element): mixed
@@ -512,9 +345,113 @@ protected cleanAttributesOnWhitelist(\DOMElement $element): mixed
 
 ***
 
+### isAriaAttribute
+
+
+
+```php
+protected isAriaAttribute(mixed $attributeName): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$attributeName` | **mixed** |  |
+
+
+
+
+***
+
+### isDataAttribute
+
+
+
+```php
+protected isDataAttribute(mixed $attributeName): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$attributeName` | **mixed** |  |
+
+
+
+
+***
+
+### hasRemoteReference
+
+
+
+```php
+protected hasRemoteReference(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
+### removeNonPrintableCharacters
+
+
+
+```php
+protected removeNonPrintableCharacters(mixed $value): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$value` | **mixed** |  |
+
+
+
+
+***
+
 ### cleanXlinkHrefs
 
-Clean the xlink:hrefs of script and data embeds
+
 
 ```php
 protected cleanXlinkHrefs(\DOMElement $element): mixed
@@ -540,7 +477,7 @@ protected cleanXlinkHrefs(\DOMElement $element): mixed
 
 ### cleanHrefs
 
-Clean the hrefs of script and data embeds
+
 
 ```php
 protected cleanHrefs(\DOMElement $element): mixed
@@ -564,168 +501,12 @@ protected cleanHrefs(\DOMElement $element): mixed
 
 ***
 
-### removeNonPrintableCharacters
-
-Removes non-printable ASCII characters from string & trims it
-
-```php
-protected removeNonPrintableCharacters(string $value): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **string** |  |
-
-
-
-
-***
-
-### hasRemoteReference
-
-Does this attribute value have a remote reference?
-
-```php
-protected hasRemoteReference( $value): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$value` | **** |  |
-
-
-
-
-***
-
-### minify
-
-Should we minify the output?
-
-```php
-public minify(bool $shouldMinify = false): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$shouldMinify` | **bool** |  |
-
-
-
-
-***
-
-### removeXMLTag
-
-Should we remove the XML tag in the header?
-
-```php
-public removeXMLTag(bool $removeXMLTag = false): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$removeXMLTag` | **bool** |  |
-
-
-
-
-***
-
-### isAriaAttribute
-
-Check to see if an attribute is an aria attribute or not
-
-```php
-protected isAriaAttribute( $attributeName): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$attributeName` | **** |  |
-
-
-
-
-***
-
-### isDataAttribute
-
-Check to see if an attribute is an data attribute or not
-
-```php
-protected isDataAttribute( $attributeName): bool
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$attributeName` | **** |  |
-
-
-
-
-***
-
 ### isUseTagDirty
 
-Make sure our use tag is only referencing internal resources
+
 
 ```php
-protected isUseTagDirty(\DOMElement $element): bool
+protected isUseTagDirty(\DOMElement $element): mixed
 ```
 
 
@@ -746,6 +527,222 @@ protected isUseTagDirty(\DOMElement $element): bool
 
 ***
 
+### getXMLOptions
+
+
+
+```php
+public getXMLOptions(): mixed
+```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
+### setXMLOptions
+
+
+
+```php
+public setXMLOptions(mixed $xmlOptions): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$xmlOptions` | **mixed** |  |
+
+
+
+
+***
+
+### getAllowedTags
+
+
+
+```php
+public getAllowedTags(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setAllowedTags
+
+
+
+```php
+public setAllowedTags(mixed $allowedTags): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$allowedTags` | **mixed** |  |
+
+
+
+
+***
+
+### getAllowedAttrs
+
+
+
+```php
+public getAllowedAttrs(): mixed
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### setAllowedAttrs
+
+
+
+```php
+public setAllowedAttrs(mixed $allowedAttrs): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$allowedAttrs` | **mixed** |  |
+
+
+
+
+***
+
+### removeRemoteReferences
+
+
+
+```php
+public removeRemoteReferences(mixed $removeRemoteRefs = false): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$removeRemoteRefs` | **mixed** |  |
+
+
+
+
+***
+
+### minify
+
+
+
+```php
+public minify(mixed $shouldMinify = false): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$shouldMinify` | **mixed** |  |
+
+
+
+
+***
+
+### removeXMLTag
+
+
+
+```php
+public removeXMLTag(mixed $removeXMLTag = false): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$removeXMLTag` | **mixed** |  |
+
+
+
+
+***
+
+
+***
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

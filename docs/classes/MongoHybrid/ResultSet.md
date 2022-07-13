@@ -16,7 +16,7 @@
 
 ### driver
 
-Driver
+
 
 ```php
 protected $driver
@@ -34,7 +34,7 @@ protected $driver
 
 
 ```php
-protected array $cache
+protected $cache
 ```
 
 
@@ -49,10 +49,10 @@ protected array $cache
 
 ### __construct
 
-Constructor
+
 
 ```php
-public __construct( $driver, iterable& $documents): mixed
+public __construct(mixed $driver, mixed& $documents): mixed
 ```
 
 
@@ -66,8 +66,8 @@ public __construct( $driver, iterable& $documents): mixed
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `$driver` | **** |  |
-| `$documents` | **iterable** |  |
+| `$driver` | **mixed** |  |
+| `$documents` | **mixed** |  |
 
 
 
@@ -168,4 +168,4 @@ public __toString(): mixed
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
