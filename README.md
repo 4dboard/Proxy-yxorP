@@ -34,28 +34,26 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/177683962-8426f6e0-9626-4484-a1a0-1c03c952e8e4.png) ![image](https://user-images.githubusercontent.com/6468571/177686029-28027b8e-fadd-4aed-973b-d79bbe8edfdc.png)
 
-yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*; these are all
-optional additions that are fully supported. yxorP is intended to act as a proxy that can edit or update the content
-of *multiple websites* and managed via a user-friendly *
-Cockpit backend (GUI)*.
+yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*. yxorP is meant to
+work as a proxy that may modify or change the content of several websites and is managed through a simple Cockpit
+backend (GUI).
 
 It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web
-proxy systems now available on the market. This is owing to its event-driven architecture and emphasis on its
-plugin-based design, as opposed to its built-in features, which are the most crucial and differentiating components that
-allow customization and development of its capabilities. In addition to its Back-end administration CMS and graphical
-user interface, yxorP has a number of other distinguishing features.
+proxy systems now available on the market. This is because of its event-driven architecture and emphasis on its
+plugin-based design, as opposed to its built-in features, which are the most important and distinguishing components
+that permit customization and extension of its capabilities. In addition to its Back-end administration CMS and
+graphical user interface, yxorP has a variety of additional distinguishing features.
 
-The incoming request hostname is used to fetch site-specific requirements from the backend, the target website is then
-retrieved and modified accordingly. Additionally, the website content can be optionally spun using the *article spinning
-engine* that is already embedded into the application. After the website has been modified the result is then stored for
-a predefined time inside a custom-built, *flat-file cache* system architectured to be *500x faster than memory-based
-cache* systems such as Memcache and Redis. This is accomplished by bypassing the serialisation and deserialization
-processes, which resulted a significantly faster cache.
+To get site-specific requirements from the backend, the hostname of the incoming request is used. These specifications
+are then used to get and alter the requested webpage. In addition, website material may optionally be spun using the
+application's already-integrated *article spinning engine*. Five hundred times slower than flat-file cache solutions are
+memory-based cache systems like Memcache and Redis. This is accomplished by reducing serialization and deserialization
+procedures, which results in a cache that is much faster.
 
-The Snag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This was
-done to assure Snag's compatibility with the modification. Changes to the *default logging* system may be done in as
-little as two minutes due to the program's compatibility with the great majority of the *industry's primary error
-tracking systems*.
+The Snag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
+operation was carried out to confirm Snag's compatibility with the change. Modifications to the *default logging* system
+may be implemented in as little as two minutes due to the program's compatibility with the overwhelming majority of *
+industry-standard error tracking systems*.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
