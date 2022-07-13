@@ -70,9 +70,9 @@ try {
 
 
 use cacheHelper;
+use Rules;
 use RuntimeException;
 use yxorP\inc\parser\domain;
-use yxorP\inc\parser\Rules;
 use yxorP\inc\parser\RulesParser;
 
 /* Importing the RuntimeException class from the PHP namespace. */
@@ -211,7 +211,7 @@ class yP
     public static function publicSuffix(string $domain): mixed
     {
 
-        $publicSuffixList = \Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
+        $publicSuffixList = Rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
         $domain = domain::fromIDNA2008($domain);
 
 
