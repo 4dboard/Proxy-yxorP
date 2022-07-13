@@ -62,12 +62,12 @@ private int $max_content_length
 ## Methods
 
 
-### onEventSent
+### onSent
 
 
 
 ```php
-public onEventSent(): void
+public onSent(): void
 ```
 
 
@@ -82,12 +82,12 @@ public onEventSent(): void
 
 ***
 
-### onEventWrite
+### onWrite
 
 
 
 ```php
-public onEventWrite(): void
+public onWrite(): void
 ```
 
 
@@ -102,12 +102,12 @@ public onEventWrite(): void
 
 ***
 
-### onEventComplete
+### onComplete
 
 
 
 ```php
-public onEventComplete(): void
+public onComplete(): void
 ```
 
 
@@ -124,4 +124,4 @@ public onEventComplete(): void
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

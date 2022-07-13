@@ -15,6 +15,46 @@
 ## Methods
 
 
+### onBeforeSend
+
+
+
+```php
+public onBeforeSend(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
+### onSent
+
+
+
+```php
+public onSent(): void
+```
+
+
+
+
+
+
+
+
+
+
+
+***
+
 ### headersReceived
 
 
@@ -42,46 +82,6 @@ public static headersReceived(mixed $response, mixed $request_url): void
 
 ***
 
-### onBeforeSend
-
-
-
-```php
-public onBeforeSend(): void
-```
-
-
-
-
-
-
-
-
-
-
 
 ***
-
-### onEventSent
-
-
-
-```php
-public onEventSent(): void
-```
-
-
-
-
-
-
-
-
-
-
-
-***
-
-
-***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
