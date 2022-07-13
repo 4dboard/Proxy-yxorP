@@ -55,7 +55,7 @@ class FulfilledPromise implements PromiseInterface
         return $p;
     }
 
-    public function wait(bool $unwrap = true)
+    public function wait(bool $unwrap = true): mixed
     {
         return null;
     }

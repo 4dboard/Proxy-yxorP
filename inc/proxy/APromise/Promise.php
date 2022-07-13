@@ -174,7 +174,7 @@ class Promise implements PromiseInterface
         return $onRejected ? $rejection->then(null, $onRejected) : $rejection;
     }
 
-    public function wait(bool $unwrap = true)
+    public function wait(bool $unwrap = true): mixed
     {
         $this->waitIfPending();
 

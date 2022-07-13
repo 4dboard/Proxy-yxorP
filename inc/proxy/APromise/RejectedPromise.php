@@ -57,7 +57,7 @@ class RejectedPromise implements PromiseInterface
         return $p;
     }
 
-    public function wait(bool $unwrap = true)
+    public function wait(bool $unwrap = true): mixed
     {
         if ($unwrap) {
             throw exception_for($this->reason);
