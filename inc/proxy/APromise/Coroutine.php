@@ -68,7 +68,7 @@ final class Coroutine implements PromiseInterface
         $this->nextCoroutine($this->generator->current());
     }
 
-    public function wait(bool $unwrap = true)
+    public function wait(bool $unwrap = true): mixed
     {
         return $this->result->wait($unwrap);
     }
