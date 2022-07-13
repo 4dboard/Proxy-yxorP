@@ -374,10 +374,15 @@ the growth and development of the project, therefore accelerating its overall ad
 
 ![image](https://user-images.githubusercontent.com/6468571/177675918-d0dcee6e-dc9e-4ed5-b859-85d5debb0bbb.png)
 
-Server Bear in mind that this proxy script may not function properly on websites or pages that are very script-heavy or
-include an excessive number of "dynamic components," as indicated above. Web proxies' inability to encrypt data is a
-well-documented flaw in the technology. When visiting such websites, you should utilize a legitimate proxy server to
-redirect your browser's HTTP requests via the following domains:
+Server Keep in mind that the operation of this proxy script may be compromised on websites or pages that, as mentioned
+above, include an excessive number of "dynamic components" or are otherwise script-heavy. This is something that must be
+recalled continually. This is an essential factor that must constantly be kept in mind. It is essential that you always
+have this in mind, thus keep it in mind at all times. Web proxy transmissions cannot be encrypted, which is a
+shortcoming of the technology. This topic is well recognized. This problem has persisted for a period of time that is
+deemed substantial. This is only one of the several unfavorable facets of the present situation. Visiting certain types
+of websites may need the usage of a dependable proxy server to guarantee that your web browser's HTTP requests are
+routed via the proper websites. To preserve the privacy of the information you enter on the websites you visit, this
+will be the case. This is done to guarantee that your privacy and safety are always maintained.
 
 ![image](https://user-images.githubusercontent.com/6468571/153799352-ee3e60ed-6564-4633-9cc1-7acc2cfb2b50.png)
 
