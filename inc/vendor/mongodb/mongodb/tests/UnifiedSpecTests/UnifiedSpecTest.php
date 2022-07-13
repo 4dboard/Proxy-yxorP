@@ -7,7 +7,6 @@ use Generator;
 use MongoDB\Tests\FunctionalTestCase;
 use PHPUnit\Framework\SkippedTest;
 use PHPUnit\Framework\Warning;
-
 use function basename;
 use function dirname;
 use function glob;

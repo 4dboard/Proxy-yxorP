@@ -10,7 +10,6 @@ use MongoDB\Driver\WriteConcern;
 use MongoDB\Tests\UnifiedSpecTests\Constraint\Matches;
 use MultipleIterator;
 use stdClass;
-
 use function PHPUnit\Framework\assertContainsOnly;
 use function PHPUnit\Framework\assertIsArray;
 use function PHPUnit\Framework\assertIsString;

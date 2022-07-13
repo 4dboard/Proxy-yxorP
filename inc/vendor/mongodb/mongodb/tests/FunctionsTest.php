@@ -6,7 +6,6 @@ use MongoDB\Driver\WriteConcern;
 use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Model\BSONArray;
 use MongoDB\Model\BSONDocument;
-
 use function MongoDB\apply_type_map_to_document;
 use function MongoDB\create_field_path_type_map;
 use function MongoDB\generate_index_name;

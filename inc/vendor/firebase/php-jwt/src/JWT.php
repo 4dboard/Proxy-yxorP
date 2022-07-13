@@ -3,12 +3,12 @@
 namespace Firebase\JWT;
 
 use ArrayAccess;
+use DateTime;
 use DomainException;
 use Exception;
 use InvalidArgumentException;
 use OpenSSLAsymmetricKey;
 use UnexpectedValueException;
-use DateTime;
 
 /**
  * JSON Web Token implementation, based on this spec:

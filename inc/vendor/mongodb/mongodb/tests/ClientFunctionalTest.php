@@ -8,7 +8,6 @@ use MongoDB\Driver\Manager;
 use MongoDB\Driver\Session;
 use MongoDB\Model\DatabaseInfo;
 use MongoDB\Model\DatabaseInfoIterator;
-
 use function call_user_func;
 use function is_callable;
 use function sprintf;

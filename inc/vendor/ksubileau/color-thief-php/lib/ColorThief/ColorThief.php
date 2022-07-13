@@ -30,8 +30,8 @@
 
 namespace ColorThief;
 
-use SplFixedArray;
 use ColorThief\Image\ImageLoader;
+use SplFixedArray;
 
 class ColorThief
 {

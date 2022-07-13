@@ -6,7 +6,6 @@ use Generator;
 use IteratorAggregate;
 use stdClass;
 use Traversable;
-
 use function file_get_contents;
 use function MongoDB\BSON\fromJSON;
 use function MongoDB\BSON\toPHP;

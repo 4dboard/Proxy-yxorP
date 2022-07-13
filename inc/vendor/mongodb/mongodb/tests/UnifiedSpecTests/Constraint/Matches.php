@@ -14,7 +14,6 @@ use RuntimeException;
 use SebastianBergmann\Comparator\ComparisonFailure;
 use SebastianBergmann\Comparator\Factory;
 use Symfony\Bridge\PhpUnit\ConstraintTrait;
-
 use function array_keys;
 use function count;
 use function get_debug_type;
@@ -37,7 +36,6 @@ use function PHPUnit\Framework\logicalOr;
 use function range;
 use function sprintf;
 use function strpos;
-
 use const PHP_INT_SIZE;
 
 /**

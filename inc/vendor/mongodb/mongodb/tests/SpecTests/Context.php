@@ -10,7 +10,6 @@ use MongoDB\Driver\Session;
 use MongoDB\Driver\WriteConcern;
 use PHPUnit\Framework\Assert;
 use stdClass;
-
 use function array_diff_key;
 use function array_keys;
 use function getenv;

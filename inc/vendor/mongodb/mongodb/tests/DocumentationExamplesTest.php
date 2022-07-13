@@ -9,7 +9,6 @@ use MongoDB\Driver\Cursor;
 use MongoDB\Driver\Exception\Exception;
 use MongoDB\Driver\ReadPreference;
 use MongoDB\Driver\WriteConcern;
-
 use function in_array;
 use function ob_end_clean;
 use function ob_start;

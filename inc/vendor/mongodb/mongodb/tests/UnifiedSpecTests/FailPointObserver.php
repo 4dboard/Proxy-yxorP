@@ -7,7 +7,6 @@ use MongoDB\Driver\Monitoring\CommandStartedEvent;
 use MongoDB\Driver\Monitoring\CommandSubscriber;
 use MongoDB\Driver\Monitoring\CommandSucceededEvent;
 use MongoDB\Operation\DatabaseCommand;
-
 use function MongoDB\Driver\Monitoring\addSubscriber;
 use function MongoDB\Driver\Monitoring\removeSubscriber;
 

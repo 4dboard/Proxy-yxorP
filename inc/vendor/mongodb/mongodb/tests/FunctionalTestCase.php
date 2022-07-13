@@ -19,7 +19,6 @@ use MongoDB\Operation\DropCollection;
 use MongoDB\Operation\ListCollections;
 use stdClass;
 use UnexpectedValueException;
-
 use function array_merge;
 use function call_user_func;
 use function count;
@@ -42,7 +41,6 @@ use function preg_quote;
 use function preg_replace;
 use function sprintf;
 use function version_compare;
-
 use const FILTER_VALIDATE_BOOLEAN;
 use const INFO_MODULES;
 

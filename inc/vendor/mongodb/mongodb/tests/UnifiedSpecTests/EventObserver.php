@@ -11,7 +11,6 @@ use MongoDB\Tests\UnifiedSpecTests\Constraint\Matches;
 use MultipleIterator;
 use PHPUnit\Framework\Assert;
 use stdClass;
-
 use function array_reverse;
 use function count;
 use function current;

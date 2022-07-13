@@ -9,7 +9,6 @@ use MongoDB\Exception\UnsupportedException;
 use MongoDB\Model\BSONDocument;
 use MongoDB\Operation\FindAndModify;
 use MongoDB\Tests\CommandObserver;
-
 use function version_compare;
 
 class FindAndModifyFunctionalTest extends FunctionalTestCase
