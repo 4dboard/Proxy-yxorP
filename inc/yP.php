@@ -107,7 +107,7 @@ class yP
 
         /* It's setting the constants that are used in the plugin. */
         self::localise($request);
-        
+
         /* Setting the token to the snag key. */
         constants::set(VAR_SNAG, snag\Client::make(ENV_BUG_SNAG_KEY));
         /* Setting the token PROXY to a new instance of the \yxorP\inc\proxy class. */
@@ -126,6 +126,8 @@ class yP
     public static function localise(array $req): void
     {
 
+        /* Checking if the files exist in the directory. */
+        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
 
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
         constants::set(VAR_SERVER, $req);
