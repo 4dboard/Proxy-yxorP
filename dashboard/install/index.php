@@ -1,96 +1,4 @@
-<?php
-
-define('YXORP_INSTALL', true);
-
-$sqlitesupport = false;
-
-// check whether sqlite is supported
-try {
-
-    if (extension_loaded('pdo')) {
-        $test = new PDO('sqlite::memory:');
-        $sqlitesupport = true;
-    }
-
-} catch (Exception $e) {
-}
-
-require(__DIR__ . '/../bootstrap.php');
-
-function ensure_writable($path)
-{
-    try {
-        $dir = YXORP_STORAGE_FOLDER . $path;
-        if (!file_exists($dir)) {
-            mkdir($dir, 0700, true);
-            if ($path === '/data') {
-                if (file_put_contents($dir . '/.htaccess', 'deny from all') === false) {
-                    return false;
-                }
-            }
-        }
-        return is_writable($dir);
-    } catch (Exception $e) {
-        error_log($e);
-        return false;
-    }
-}
-
-// misc checks
-$checks = array(
-    'Php version >= 7.3.0' => (version_compare(PHP_VERSION, '7.3.0') >= 0),
-    'Missing PDO extension with Sqlite support' => $sqlitesupport,
-    'GD extension not available' => extension_loaded('gd'),
-    'MBString extension not available' => extension_loaded('mbstring'),
-    'Data folder is not writable: /storage/data' => ensure_writable('/data'),
-    'Cache folder is not writable: /storage/cache' => ensure_writable('/cache'),
-    'Temp folder is not writable: /storage/tmp' => ensure_writable('/tmp'),
-    'Thumbs folder is not writable: /storage/thumbs' => ensure_writable('/thumbs'),
-    'Uploads folder is not writable: /storage/uploads' => ensure_writable('/uploads'),
-);
-
-$failed = [];
-
-foreach ($checks as $info => $check) {
-
-    if (!$check) {
-        $failed[] = $info;
-    }
-}
-
-if (!count($failed)) {
-
-    $app = yxorp();
-
-    // check whether yxorp is already installed
-    try {
-
-        if ($app->storage->getCollection('yxorp/accounts')->count()) {
-            header('Location: ' . $app->baseUrl('/'));
-            exit;
-        }
-
-    } catch (Exception $e) {
-    }
-
-    $created = time();
-
-    $account = [
-        'user' => 'admin',
-        'name' => 'Admin',
-        'email' => 'admin@yourdomain.de',
-        'active' => true,
-        'group' => 'admin',
-        'password' => $app->hash('admin'),
-        'i18n' => $app->helper('i18n')->locale,
-        '_created' => $created,
-        '_modified' => $created,
-    ];
-
-    $app->storage->insert("yxorp/accounts", $account);
-}
-
-?><!doctype html>
+<?php define('YXORP_INSTALL',true);$sqlitesupport=false;try{if(extension_loaded('pdo')){$test=new PDO('sqlite::memory:');$sqlitesupport=true;}}catch(Exception $e){}require(__DIR__.'/../bootstrap.php');function ensure_writable($path){try{$dir=YXORP_STORAGE_FOLDER.$path;if(!file_exists($dir)){mkdir($dir,0700,true);if($path==='/data'){if(file_put_contents($dir.'/.htaccess','deny from all')===false){return false;}}}return is_writable($dir);}catch(Exception $e){error_log($e);return false;}}$checks=array('Php version >= 7.3.0'=>(version_compare(PHP_VERSION,'7.3.0')>=0),'Missing PDO extension with Sqlite support'=>$sqlitesupport,'GD extension not available'=>extension_loaded('gd'),'MBString extension not available'=>extension_loaded('mbstring'),'Data folder is not writable: /storage/data'=>ensure_writable('/data'),'Cache folder is not writable: /storage/cache'=>ensure_writable('/cache'),'Temp folder is not writable: /storage/tmp'=>ensure_writable('/tmp'),'Thumbs folder is not writable: /storage/thumbs'=>ensure_writable('/thumbs'),'Uploads folder is not writable: /storage/uploads'=>ensure_writable('/uploads'),);$failed=[];foreach($checks as $info=>$check){if(!$check){$failed[]=$info;}}if(!count($failed)){$app=yxorp();try{if($app->storage->getCollection('yxorp/accounts')->count()){header('Location: '.$app->baseUrl('/'));exit;}}catch(Exception $e){}$created=time();$account=['user'=>'admin','name'=>'Admin','email'=>'admin@yourdomain.de','active'=>true,'group'=>'admin','password'=>$app->hash('admin'),'i18n'=>$app->helper('i18n')->locale,'_created'=>$created,'_modified'=>$created,];$app->storage->insert("yxorp/accounts",$account);} ?><!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -118,7 +26,7 @@ if (!count($failed)) {
 
         <img src="../assets/app/media/logo.svg" width="80" height="80" alt="logo">
 
-        <?php if (count($failed)): ?>
+        <?php if(count($failed)): ?>
 
             <h1 class="uk-text-bold">Installation failed</h1>
 
@@ -126,9 +34,9 @@ if (!count($failed)) {
 
             <div class="uk-margin">
 
-                <?php foreach ($failed as &$info): ?>
+                <?php foreach($failed as &$info): ?>
                     <div class="uk-alert uk-alert-danger">
-                        <?php echo @$info; ?>
+                        <?php echo@$info; ?>
                     </div>
                 <?php endforeach; ?>
 
