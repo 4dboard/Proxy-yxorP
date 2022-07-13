@@ -272,8 +272,10 @@ to execute this assignment effectively.
 
 #### ⌛ Allways-online
 
-High/Continuous availability is achieved by running a proxy version of your existing website and switching to this
-version of the website during upgrades or down-time.
+By keeping a proxy version of your website and switching to it whenever the actual website is unavailable for
+maintenance or changes, you can ensure that your online resources remain accessible at a high level and continuously.
+This will guarantee that your online material is constantly accessible to users. This will help you to guarantee that
+your consumers always have access to your online resources.
 
 ##### + many more..
 
