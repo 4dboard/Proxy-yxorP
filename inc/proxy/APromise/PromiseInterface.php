@@ -44,7 +44,7 @@ interface PromiseInterface
      *
      * @return PromiseInterface
      */
-    public function otherwise(callable $onRejected): PromiseInterface;
+    public function otherwise(callable $onRejected): mixed;
 
     /**
      * Get the state of the promise ("pending", "rejected", or "fulfilled").

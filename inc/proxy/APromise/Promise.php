@@ -143,7 +143,7 @@ class Promise implements PromiseInterface
         $this->settle(self::REJECTED, $reason);
     }
 
-    public function otherwise(callable $onRejected): FulfilledPromise|Promise|PromiseInterface|RejectedPromise
+    public function otherwise(callable $onRejected): mixed
     {
         return $this->then(null, $onRejected);
     }

@@ -87,7 +87,7 @@ final class Coroutine implements PromiseInterface
         return $this->result->then($onFulfilled, $onRejected);
     }
 
-    public function otherwise(callable $onRejected): FulfilledPromise|PromiseInterface|Promise|RejectedPromise
+    public function otherwise(callable $onRejected): mixed
     {
         return $this->result->otherwise($onRejected);
     }

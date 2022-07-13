@@ -24,7 +24,7 @@ class FulfilledPromise implements PromiseInterface
         $this->value = $value;
     }
 
-    public function otherwise(callable $onRejected): PromiseInterface|Promise|static
+    public function otherwise(callable $onRejected): mixed
     {
         return $this->then(null, $onRejected);
     }

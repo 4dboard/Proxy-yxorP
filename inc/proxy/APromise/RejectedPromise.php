@@ -24,7 +24,7 @@ class RejectedPromise implements PromiseInterface
         $this->reason = $reason;
     }
 
-    public function otherwise(callable $onRejected): PromiseInterface|Promise|static
+    public function otherwise(callable $onRejected): mixed
     {
         return $this->then(null, $onRejected);
     }
