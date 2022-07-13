@@ -22,7 +22,6 @@ use Iterator;
 use IteratorIterator;
 use ReturnTypeWillChange;
 use Traversable;
-
 use function count;
 use function current;
 use function key;

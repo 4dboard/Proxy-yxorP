@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace League\MimeTypeDetection;
 
-use const FILEINFO_MIME_TYPE;
-
-use const PATHINFO_EXTENSION;
 use finfo;
+use const FILEINFO_MIME_TYPE;
+use const PATHINFO_EXTENSION;
 
 class FinfoMimeTypeDetector implements MimeTypeDetector
 {

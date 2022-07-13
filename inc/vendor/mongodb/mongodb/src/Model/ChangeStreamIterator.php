@@ -29,7 +29,6 @@ use MongoDB\Exception\InvalidArgumentException;
 use MongoDB\Exception\ResumeTokenException;
 use MongoDB\Exception\UnexpectedValueException;
 use ReturnTypeWillChange;
-
 use function count;
 use function is_array;
 use function is_integer;

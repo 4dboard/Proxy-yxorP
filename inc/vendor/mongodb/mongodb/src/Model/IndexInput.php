@@ -19,7 +19,6 @@ namespace MongoDB\Model;
 
 use MongoDB\BSON\Serializable;
 use MongoDB\Exception\InvalidArgumentException;
-
 use function is_array;
 use function is_float;
 use function is_int;

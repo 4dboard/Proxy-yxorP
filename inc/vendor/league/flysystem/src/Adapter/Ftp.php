@@ -10,7 +10,6 @@ use League\Flysystem\ConnectionRuntimeException;
 use League\Flysystem\InvalidRootException;
 use League\Flysystem\Util;
 use League\Flysystem\Util\MimeType;
-
 use function in_array;
 
 class Ftp extends AbstractFtpAdapter

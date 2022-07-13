@@ -19,7 +19,6 @@ namespace MongoDB\GridFS;
 
 use MongoDB\BSON\UTCDateTime;
 use stdClass;
-
 use function explode;
 use function in_array;
 use function is_integer;
@@ -27,7 +26,6 @@ use function stream_context_get_options;
 use function stream_get_wrappers;
 use function stream_wrapper_register;
 use function stream_wrapper_unregister;
-
 use const SEEK_CUR;
 use const SEEK_END;
 use const SEEK_SET;

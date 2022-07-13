@@ -33,7 +33,6 @@ use MongoDB\Model\BSONArray;
 use MongoDB\Model\BSONDocument;
 use MongoDB\Operation\Find;
 use stdClass;
-
 use function array_intersect_key;
 use function fopen;
 use function get_resource_type;

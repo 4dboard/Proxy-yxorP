@@ -18,7 +18,6 @@
 namespace MongoDB\GridFS\Exception;
 
 use MongoDB\Exception\RuntimeException;
-
 use function sprintf;
 
 class CorruptFileException extends RuntimeException

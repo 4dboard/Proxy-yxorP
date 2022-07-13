@@ -5,8 +5,6 @@ namespace League\Flysystem;
 use League\Flysystem\Util\MimeType;
 use LogicException;
 
-use function strcmp;
-
 class Util
 {
     /**

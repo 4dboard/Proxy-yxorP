@@ -20,7 +20,6 @@ namespace MongoDB\Model;
 use IteratorIterator;
 use ReturnTypeWillChange;
 use Traversable;
-
 use function array_key_exists;
 
 /**
