@@ -469,8 +469,6 @@ in a number of forms and without the source code because they are licensed works
 
 ***
 
-***
-
 # yxorP Documentation
 
 ## Namespaces
@@ -515,11 +513,15 @@ in a number of forms and without the source code because they are licensed works
 | [`twitterPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/twitterPluginAction.md) | |
 | [`youtubePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/youtubePluginAction.md) | |
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`Stringable`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Stringable.md) | |
+
+
 
 ### \Cockpit
 
@@ -528,6 +530,9 @@ in a number of forms and without the source code because they are licensed works
 | Class | Description |
 |-------|-------------|
 | [`AuthController`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/AuthController.md) | Class Controller|
+
+
+
 
 ### \Cockpit\Controller
 
@@ -545,6 +550,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Utils.md) | Class Controller|
 | [`Webhooks`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Webhooks.md) | Class Controller|
 
+
+
+
 ### \Cockpit\Helper
 
 #### Classes
@@ -558,6 +566,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Revisions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Revisions.md) | |
 | [`Updater`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
 
+
+
+
 ### \ColinODell\Json5
 
 #### Classes
@@ -566,6 +577,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`Json5Decoder`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColinODell/Json5/Json5Decoder.md) | |
 | [`SyntaxError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColinODell/Json5/SyntaxError.md) | |
+
+
+
 
 ### \Collections\Controller
 
@@ -579,6 +593,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Trash`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Trash.md) | Class Controller|
 | [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Utils.md) | Class Controller|
 
+
+
+
 ### \ColorThief
 
 #### Classes
@@ -590,6 +607,9 @@ in a number of forms and without the source code because they are licensed works
 | [`PQueue`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/PQueue.md) | |
 | [`VBox`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/VBox.md) | |
 
+
+
+
 ### \ColorThief\Image
 
 #### Classes
@@ -597,6 +617,9 @@ in a number of forms and without the source code because they are licensed works
 | Class | Description |
 |-------|-------------|
 | [`ImageLoader`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/ImageLoader.md) | |
+
+
+
 
 ### \ColorThief\Image\Adapter
 
@@ -609,11 +632,15 @@ in a number of forms and without the source code because they are licensed works
 | [`ImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/ImageAdapter.md) | Base adapter implementation to handle image manipulation.|
 | [`ImagickImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/ImagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`IImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/IImageAdapter.md) | Basic interface for all image adapters.|
+
+
 
 ### \Composer
 
@@ -623,6 +650,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`InstalledVersions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/InstalledVersions.md) | This class is copied in every Composer installed project and available to all|
 
+
+
+
 ### \Composer\Autoload
 
 #### Classes
@@ -631,6 +661,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`ClassLoader`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
 | [`ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/Autoload/ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
+
+
+
 
 ### \Firebase\JWT
 
@@ -645,6 +678,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Key`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/Key.md) | |
 | [`SignatureInvalidException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/SignatureInvalidException.md) | |
 
+
+
+
 ### \Forms\Controller
 
 #### Classes
@@ -653,6 +689,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Forms/Controller/Admin.md) | Class Controller|
 | [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Forms/Controller/RestApi.md) | Class Controller|
+
+
+
 
 ### \Jean85
 
@@ -663,6 +702,9 @@ in a number of forms and without the source code because they are licensed works
 | [`PrettyVersions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/PrettyVersions.md) | |
 | [`Version`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Version.md) | |
 
+
+
+
 ### \Jean85\Exception
 
 #### Classes
@@ -672,11 +714,15 @@ in a number of forms and without the source code because they are licensed works
 | [`ProvidedPackageException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Exception/ProvidedPackageException.md) | |
 | [`ReplacedPackageException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Exception/ReplacedPackageException.md) | |
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`VersionMissingExceptionInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Exception/VersionMissingExceptionInterface.md) | |
+
+
 
 ### \League\ColorExtractor
 
@@ -687,6 +733,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Color`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/Color.md) | |
 | [`ColorExtractor`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/ColorExtractor.md) | |
 | [`Palette`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/Palette.md) | |
+
+
+
 
 ### \League\Flysystem
 
@@ -714,6 +763,8 @@ in a number of forms and without the source code because they are licensed works
 | [`UnreadableFileException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/UnreadableFileException.md) | |
 | [`Util`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Util.md) | |
 
+
+
 #### Interfaces
 
 | Interface | Description |
@@ -723,6 +774,8 @@ in a number of forms and without the source code because they are licensed works
 | [`FilesystemInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FilesystemInterface.md) | |
 | [`PluginInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/PluginInterface.md) | |
 | [`ReadInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/ReadInterface.md) | |
+
+
 
 ### \League\Flysystem\Adapter
 
@@ -738,13 +791,19 @@ in a number of forms and without the source code because they are licensed works
 | [`NullAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/NullAdapter.md) | |
 | [`SynologyFtp`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/SynologyFtp.md) | |
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`CanOverwriteFiles`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/CanOverwriteFiles.md) | Adapters that implement this interface let the Filesystem know that files can be overwritten using the write<br />functions and don&#039;t need the update function to be called. This can help improve performance when asserts are disabled.|
 
+
+
 ### \League\Flysystem\Adapter\Polyfill
+
+
 
 #### Traits
 
@@ -755,6 +814,9 @@ in a number of forms and without the source code because they are licensed works
 | [`StreamedReadingTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedReadingTrait.md) | A helper for adapters that only handle strings to provide read streams.|
 | [`StreamedTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedTrait.md) | |
 | [`StreamedWritingTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedWritingTrait.md) | |
+
+
+
 
 ### \League\Flysystem\Plugin
 
@@ -772,11 +834,15 @@ in a number of forms and without the source code because they are licensed works
 | [`ListWith`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ListWith.md) | |
 | [`PluginNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/PluginNotFoundException.md) | |
 
+
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
 | [`PluggableTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/PluggableTrait.md) | |
+
+
+
 
 ### \League\Flysystem\Util
 
@@ -785,6 +851,9 @@ in a number of forms and without the source code because they are licensed works
 | Class | Description |
 |-------|-------------|
 | [`StreamHasher`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Util/StreamHasher.md) | |
+
+
+
 
 ### \League\MimeTypeDetection
 
@@ -798,12 +867,16 @@ in a number of forms and without the source code because they are licensed works
 | [`GeneratedExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
 | [`OverridingExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/OverridingExtensionToMimeTypeMap.md) | |
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`ExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/ExtensionToMimeTypeMap.md) | |
 | [`MimeTypeDetector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/MimeTypeDetector.md) | |
+
+
 
 ### \Lime
 
@@ -818,6 +891,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Request`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Request.md) | |
 | [`Response`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Response.md) | |
 
+
+
+
 ### \LimeExtra
 
 #### Classes
@@ -826,6 +902,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`App`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/App.md) | Class App|
 | [`Controller`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Controller.md) | Class Controller|
+
+
+
 
 ### \LimeExtra\Helper
 
@@ -845,6 +924,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Utils.md) | Class Utils|
 | [`YAML`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/YAML.md) | Class YAML|
 
+
+
+
 ### \Lime\Helper
 
 #### Classes
@@ -853,6 +935,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`Cache`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper/Cache.md) | |
 | [`Session`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper/Session.md) | |
+
+
+
 
 ### \MongoDB
 
@@ -871,6 +956,9 @@ in a number of forms and without the source code because they are licensed works
 | [`MapReduceResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/MapReduceResult.md) | Result class for mapReduce command results.|
 | [`UpdateResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/UpdateResult.md) | Result class for an update operation.|
 
+
+
+
 ### \MongoDB\Exception
 
 #### Classes
@@ -884,11 +972,15 @@ in a number of forms and without the source code because they are licensed works
 | [`UnexpectedValueException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/UnexpectedValueException.md) | |
 | [`UnsupportedException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/UnsupportedException.md) | |
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/Exception.md) | |
+
+
 
 ### \MongoDB\GridFS
 
@@ -897,6 +989,9 @@ in a number of forms and without the source code because they are licensed works
 | Class | Description |
 |-------|-------------|
 | [`Bucket`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Bucket.md) | Bucket provides a public API for interacting with the GridFS files and chunks<br />collections.|
+
+
+
 
 ### \MongoDB\GridFS\Exception
 
@@ -907,6 +1002,9 @@ in a number of forms and without the source code because they are licensed works
 | [`CorruptFileException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/CorruptFileException.md) | |
 | [`FileNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/FileNotFoundException.md) | |
 | [`StreamException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/StreamException.md) | |
+
+
+
 
 ### \MongoDB\Model
 
@@ -921,6 +1019,8 @@ in a number of forms and without the source code because they are licensed works
 | [`DatabaseInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/DatabaseInfo.md) | Database information model class.|
 | [`IndexInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/IndexInfo.md) | Index information model class.|
 
+
+
 #### Interfaces
 
 | Interface | Description |
@@ -928,6 +1028,8 @@ in a number of forms and without the source code because they are licensed works
 | [`CollectionInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/CollectionInfoIterator.md) | CollectionInfoIterator interface.|
 | [`DatabaseInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/DatabaseInfoIterator.md) | DatabaseInfoIterator interface.|
 | [`IndexInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/IndexInfoIterator.md) | IndexInfoIterator interface.|
+
+
 
 ### \MongoDB\Operation
 
@@ -970,6 +1072,9 @@ in a number of forms and without the source code because they are licensed works
 | [`UpdateOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
 | [`Watch`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
 
+
+
+
 ### \MongoDB\Tests
 
 #### Classes
@@ -985,6 +1090,9 @@ in a number of forms and without the source code because they are licensed works
 | [`PedantryTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/PedantryTest.md) | Pedantic tests that have nothing to do with functional correctness.|
 | [`TestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/TestCase.md) | |
 
+
+
+
 ### \MongoDB\Tests\Collection
 
 #### Classes
@@ -995,6 +1103,9 @@ in a number of forms and without the source code because they are licensed works
 | [`CrudSpecFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Collection/CrudSpecFunctionalTest.md) | CRUD spec functional tests.|
 | [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Collection/FunctionalTestCase.md) | Base class for Collection functional tests.|
 
+
+
+
 ### \MongoDB\Tests\Command
 
 #### Classes
@@ -1003,6 +1114,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`ListCollectionsTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Command/ListCollectionsTest.md) | |
 | [`ListDatabasesTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Command/ListDatabasesTest.md) | |
+
+
+
 
 ### \MongoDB\Tests\Database
 
@@ -1013,6 +1127,9 @@ in a number of forms and without the source code because they are licensed works
 | [`CollectionManagementFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Database/CollectionManagementFunctionalTest.md) | Functional tests for collection management methods.|
 | [`DatabaseFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Database/DatabaseFunctionalTest.md) | Functional tests for the Database class.|
 | [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Database/FunctionalTestCase.md) | Base class for Database functional tests.|
+
+
+
 
 ### \MongoDB\Tests\GridFS
 
@@ -1026,6 +1143,9 @@ in a number of forms and without the source code because they are licensed works
 | [`StreamWrapperFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/StreamWrapperFunctionalTest.md) | Functional tests for the internal StreamWrapper class.|
 | [`UnusableStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/UnusableStream.md) | |
 | [`WritableStreamFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/WritableStreamFunctionalTest.md) | Functional tests for the internal WritableStream class.|
+
+
+
 
 ### \MongoDB\Tests\Model
 
@@ -1044,6 +1164,9 @@ in a number of forms and without the source code because they are licensed works
 | [`IndexInfoTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/IndexInfoTest.md) | |
 | [`IndexInputTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/IndexInputTest.md) | |
 | [`UncloneableObject`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/UncloneableObject.md) | This class is used by the BSONArray and BSONDocument clone tests.|
+
+
+
 
 ### \MongoDB\Tests\Operation
 
@@ -1112,6 +1235,9 @@ in a number of forms and without the source code because they are licensed works
 | [`WatchFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/WatchFunctionalTest.md) | Base class for Operation functional tests.|
 | [`WatchTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/WatchTest.md) | Although these are unit tests, we extend FunctionalTestCase because Watch is<br />constructed with a Manager instance.|
 
+
+
+
 ### \MongoDB\Tests\SpecTests
 
 #### Classes
@@ -1136,6 +1262,9 @@ in a number of forms and without the source code because they are licensed works
 | [`RetryableWritesSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/RetryableWritesSpecTest.md) | Retryable writes spec tests.|
 | [`TransactionsSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/TransactionsSpecTest.md) | Transactions spec tests.|
 
+
+
+
 ### \MongoDB\Tests\UnifiedSpecTests
 
 #### Classes
@@ -1158,6 +1287,9 @@ in a number of forms and without the source code because they are licensed works
 | [`UnifiedTestRunner`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/UnifiedTestRunner.md) | Unified test runner.|
 | [`Util`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Util.md) | |
 
+
+
+
 ### \MongoDB\Tests\UnifiedSpecTests\Constraint
 
 #### Classes
@@ -1171,6 +1303,9 @@ in a number of forms and without the source code because they are licensed works
 | [`SerializableArray`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableArray.md) | |
 | [`SerializableObject`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableObject.md) | |
 
+
+
+
 ### \MongoHybrid
 
 #### Classes
@@ -1181,6 +1316,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Mongo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/Mongo.md) | |
 | [`MongoLite`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/MongoLite.md) | |
 | [`ResultSet`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/ResultSet.md) | |
+
+
+
 
 ### \MongoLite
 
@@ -1194,6 +1332,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Database`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Database.md) | Database object.|
 | [`UtilArrayQuery`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/UtilArrayQuery.md) | |
 
+
+
+
 ### \PHPMailer\PHPMailer
 
 #### Classes
@@ -1206,11 +1347,15 @@ in a number of forms and without the source code because they are licensed works
 | [`POP3`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/POP3.md) | PHPMailer POP-Before-SMTP Authentication Class.|
 | [`SMTP`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/SMTP.md) | PHPMailer RFC821 SMTP email transport class.|
 
+
+
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
 | [`OAuthTokenProvider`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/OAuthTokenProvider.md) | OAuthTokenProvider - OAuth2 token provider interface.|
+
+
 
 ### \SimpleStorage
 
@@ -1219,6 +1364,9 @@ in a number of forms and without the source code because they are licensed works
 | Class | Description |
 |-------|-------------|
 | [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/SimpleStorage/Client.md) | |
+
+
+
 
 ### \Singletons\Controller
 
@@ -1229,6 +1377,9 @@ in a number of forms and without the source code because they are licensed works
 | [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Singletons/Controller/Admin.md) | Class Controller|
 | [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Singletons/Controller/RestApi.md) | Class Controller|
 
+
+
+
 ### \ZipStream
 
 #### Classes
@@ -1237,6 +1388,9 @@ in a number of forms and without the source code because they are licensed works
 |-------|-------------|
 | [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception.md) | This class is only for inheriting|
 | [`ZipStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/ZipStream.md) | ZipStream|
+
+
+
 
 ### \ZipStream\Exception
 
@@ -1249,6 +1403,9 @@ in a number of forms and without the source code because they are licensed works
 | [`InvalidOptionException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/InvalidOptionException.md) | This Exception gets invoked if an invalid parameter gets passed on as option|
 | [`StreamNotReadableException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/StreamNotReadableException.md) | This Exception gets invoked if fread() fails on a stream.|
 
+
+
+
 ### \claviska
 
 #### Classes
@@ -1256,6 +1413,4 @@ in a number of forms and without the source code because they are licensed works
 | Class | Description |
 |-------|-------------|
 | [`SimpleImage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
-
-***
 
