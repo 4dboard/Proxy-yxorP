@@ -33,7 +33,7 @@ RUN rm -r /var/www/app
 
 WORKDIR /var/www/app
 
-RUN git clone https://github.com/4dboard/proxy-yxorp /var/www/app
+RUN git clone https://github.com/4dboard/Proxy-yxorP /var/www/app
 
 COPY --chown=www-data:www-data . .
 

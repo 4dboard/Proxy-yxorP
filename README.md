@@ -1,4 +1,4 @@
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logo.png)
+![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logo.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/174686673-e3ee3ce5-2c13-4ae6-886d-f22aed12a5a0.png)
 
@@ -6,13 +6,13 @@
 
 ## yxorP Headless SAAS(y), Multi-tenancy Proxy + Backend (GUI) included, PHP CURL+Composer are Optional
 
-📢 [ [ ARCHITECTURE](https://github.com/4dboard/proxy-yxorp/wiki) ]
-⚡ [ [ DEVELOPERS](https://github.com/4dboard/proxy-yxorp/blob/main/docs/index.md) ]
-🌈 [ [DOCUMENTATION](https://4dboard.github.io/proxy-yxorp/docs/) ]
-🔥 [ [MAKING VIDEO](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) ]
+📢 [ [ ARCHITECTURE](https://github.com/4dboard/Proxy-yxorP/wiki) ]
+⚡ [ [ DEVELOPERS](https://github.com/4dboard/Proxy-yxorP/blob/main/docs/index.md) ]
+🌈 [ [DOCUMENTATION](https://4dboard.github.io/Proxy-yxorP/docs/) ]
+🔥 [ [MAKING VIDEO](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) ]
 🌟 [ [WEBSITE](https://4dboard.github.io/) ] 🚀️
 
-[![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/proxy-yxorp/files/latest/download)
+[![image](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/Proxy-yxorP/files/latest/download)
 
 [![image](https://www.donPabloNow.com/notice.wepd)](https://www.donPabloNow.com/#notice)
 
@@ -22,9 +22,9 @@
 
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
 
-> 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/proxy-yxorp) We have just launched the first working live demo / sneak preview via Gitpod`
+> 🏆️ [ LIVE DEMO  : ](https://gitpod.io/#https://github.com/4dboard/Proxy-yxorP) We have just launched the first working live demo / sneak preview via Gitpod`
 
-> 🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/proxy-yxorp/docs/movie.mp4) We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so.
+> 🎥️ [ MAKING OF VIDEO  : ](https://4dboard.github.io/Proxy-yxorP/docs/movie.mp4) We put up a short video called "Making of the yxorP Proxy" so that anyone who wants to see how the project came together can do so.
 
 > ❤️[ PATREON  : ](https://patreon.com/donpablonow) Donations always welcome via Github (Subscriptions & Credit Cards), Patreon (Subscriptions & Credit Cards), Paypal (Once-off, Credit Cards & E-wallet) & Ethereum (Once-off, Crypto Currency)
 
@@ -188,7 +188,7 @@ may use the credentials provided in the '.env' file. This will allow you to conf
 from a given domain to a specific website. After gaining access to the dashboard, choose "sites" and clone the example
 website so that its settings may be modified.
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/diagrams.png)
+![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/diagrams.png)
 
 ![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 ![image](https://user-images.githubusercontent.com/6468571/177685870-385a203b-9654-4c7b-b3e7-00c725d3fa51.png)
@@ -208,7 +208,7 @@ plugin-based. Internet-based graphical user interface (GUI) monitoring and analy
 content spinning engine, the system is able to "enhance" (or "spin") information with little performance loss (10,000+
 thesaurus/dictionary items) and without sacrificing quality.
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
+![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/Idna.png)
 ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
 ### Dashboard Back-End is awesome if you need a flexible content structure but don't want to be limited in how to
@@ -351,7 +351,7 @@ your consumers always have access to your online resources.
 The applications outlined in this page are only a sampling of the many ways in which this proxy may be implemented;
 further information is accessible in our discussion forum.
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png)
+![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/logosnag.png)
 
 By using a technique that is simple to put into action, BugSnag is able to assist in the simplification of the process
 of error monitoring in addition to the management of application stability. This is made possible via the use of an easy
@@ -359,7 +359,7 @@ to implement approach. Because of this, BugSnag is able to maintain application 
 order to be in a position to create views that are supported by facts about the process of problem-solving or the
 creation of software, it is necessary to have the ability to retain stability.
 
-![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Snag.gif)
+![image](https://raw.githubusercontent.com/4dboard/Proxy-yxorP/main/asset/Snag.gif)
 
 Because our mobile support is widely regarded as the industry's gold standard, we are able to supply teams with
 diagnostic data that enables them to reproduce issues and discover solutions to them as soon as those problems begin to
@@ -445,7 +445,7 @@ Clone this repo
 
 ``` 
 
-git clone https://github.com/4dboard/proxy-yxorp 
+git clone https://github.com/4dboard/Proxy-yxorP 
 
 ``` 
 
@@ -612,45 +612,45 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Attribute`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Attribute.md) | |
-| [`CLI`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/CLI.md) | This file is part of the Cockpit project.|
-| [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
-| [`ContainerArray`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ContainerArray.md) | This file is part of the Cockpit project.|
-| [`DataCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/DataCollection.md) | This file is part of the Cockpit project.|
-| [`DotEnv`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/DotEnv.md) | This file is part of the Cockpit project.|
-| [`FileStorage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/FileStorage.md) | |
-| [`JsonException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/JsonException.md) | |
-| [`Lexy`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
-| [`LiteDB`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LiteDB.md) | This file is part of the Cockpit project.|
-| [`LiteDBQuery`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LiteDBQuery.md) | |
-| [`Mailer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Mailer.md) | |
-| [`Mailer_Message`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Mailer_Message.md) | |
-| [`Pagination`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Pagination.md) | This file is part of the Cockpit project.|
-| [`Parsedown`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Parsedown.md) | |
-| [`ParsedownExtra`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ParsedownExtra.md) | |
-| [`ParsedownExtraTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ParsedownExtraTest.md) | |
-| [`PhpToken`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PhpToken.md) | |
-| [`PriorityQueue`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PriorityQueue.md) | This file is part of the Cockpit project.|
-| [`RedisLite`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/RedisLite.md) | RedisLite class.|
-| [`SVGSanitizer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
-| [`Spyc`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|
-| [`UnhandledMatchError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/UnhandledMatchError.md) | |
-| [`ValueError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ValueError.md) | |
-| [`blockListPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/blockListPluginAction.md) | |
-| [`cookiePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/cookiePluginAction.md) | |
-| [`dailyMotionPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/dailyMotionPluginAction.md) | |
-| [`headerRewritePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/headerRewritePluginAction.md) | |
-| [`logPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/logPluginAction.md) | |
-| [`proxifyPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/proxifyPluginAction.md) | |
-| [`streamPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/streamPluginAction.md) | |
-| [`twitterPluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/twitterPluginAction.md) | |
-| [`youtubePluginAction`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/youtubePluginAction.md) | |
+| [`Attribute`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Attribute.md) | |
+| [`CLI`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/CLI.md) | This file is part of the Cockpit project.|
+| [`ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ComposerAutoloaderInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
+| [`ContainerArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ContainerArray.md) | This file is part of the Cockpit project.|
+| [`DataCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DataCollection.md) | This file is part of the Cockpit project.|
+| [`DotEnv`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/DotEnv.md) | This file is part of the Cockpit project.|
+| [`FileStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/FileStorage.md) | |
+| [`JsonException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/JsonException.md) | |
+| [`Lexy`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lexy.md) | Lexy class. Simple on the fly template parser class|
+| [`LiteDB`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDB.md) | This file is part of the Cockpit project.|
+| [`LiteDBQuery`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LiteDBQuery.md) | |
+| [`Mailer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer.md) | |
+| [`Mailer_Message`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Mailer_Message.md) | |
+| [`Pagination`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Pagination.md) | This file is part of the Cockpit project.|
+| [`Parsedown`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Parsedown.md) | |
+| [`ParsedownExtra`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtra.md) | |
+| [`ParsedownExtraTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ParsedownExtraTest.md) | |
+| [`PhpToken`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PhpToken.md) | |
+| [`PriorityQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PriorityQueue.md) | This file is part of the Cockpit project.|
+| [`RedisLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/RedisLite.md) | RedisLite class.|
+| [`SVGSanitizer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SVGSanitizer.md) | Class SVGSanitizer|
+| [`Spyc`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Spyc.md) | The Simple PHP YAML Class.|
+| [`UnhandledMatchError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/UnhandledMatchError.md) | |
+| [`ValueError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ValueError.md) | |
+| [`blockListPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/blockListPluginAction.md) | |
+| [`cookiePluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/cookiePluginAction.md) | |
+| [`dailyMotionPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/dailyMotionPluginAction.md) | |
+| [`headerRewritePluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/headerRewritePluginAction.md) | |
+| [`logPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/logPluginAction.md) | |
+| [`proxifyPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/proxifyPluginAction.md) | |
+| [`streamPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/streamPluginAction.md) | |
+| [`twitterPluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/twitterPluginAction.md) | |
+| [`youtubePluginAction`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/youtubePluginAction.md) | |
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`Stringable`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Stringable.md) | |
+| [`Stringable`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Stringable.md) | |
 
 ### \Cockpit
 
@@ -658,7 +658,7 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`AuthController`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/AuthController.md) | Class Controller|
+| [`AuthController`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/AuthController.md) | Class Controller|
 
 ### \Cockpit\Controller
 
@@ -666,15 +666,15 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Accounts`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Accounts.md) | Class Controller|
-| [`Auth`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Auth.md) | Class Controller|
-| [`Base`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Base.md) | Class Controller|
-| [`Media`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Media.md) | Class Controller|
-| [`RestAdmin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/RestAdmin.md) | Class Controller|
-| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/RestApi.md) | Class Controller|
-| [`Settings`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Settings.md) | Class Controller|
-| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Utils.md) | Class Controller|
-| [`Webhooks`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Controller/Webhooks.md) | Class Controller|
+| [`Accounts`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Accounts.md) | Class Controller|
+| [`Auth`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Auth.md) | Class Controller|
+| [`Base`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Base.md) | Class Controller|
+| [`Media`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Media.md) | Class Controller|
+| [`RestAdmin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/RestAdmin.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/RestApi.md) | Class Controller|
+| [`Settings`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Settings.md) | Class Controller|
+| [`Utils`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Utils.md) | Class Controller|
+| [`Webhooks`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Controller/Webhooks.md) | Class Controller|
 
 ### \Cockpit\Helper
 
@@ -682,12 +682,12 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Admin.md) | Admin Helper class.|
-| [`Async`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Async.md) | Async Helper class.|
-| [`Csrf`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Csrf.md) | |
-| [`Jobs`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Jobs.md) | |
-| [`Revisions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Revisions.md) | |
-| [`Updater`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
+| [`Admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Admin.md) | Admin Helper class.|
+| [`Async`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Async.md) | Async Helper class.|
+| [`Csrf`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Csrf.md) | |
+| [`Jobs`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Jobs.md) | |
+| [`Revisions`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Revisions.md) | |
+| [`Updater`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Cockpit/Helper/Updater.md) | Admin Helper class.|
 
 ### \ColinODell\Json5
 
@@ -695,8 +695,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Json5Decoder`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColinODell/Json5/Json5Decoder.md) | |
-| [`SyntaxError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColinODell/Json5/SyntaxError.md) | |
+| [`Json5Decoder`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColinODell/Json5/Json5Decoder.md) | |
+| [`SyntaxError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColinODell/Json5/SyntaxError.md) | |
 
 ### \Collections\Controller
 
@@ -704,11 +704,11 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Admin.md) | Class Controller|
-| [`Import`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Import.md) | Class Controller|
-| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/RestApi.md) | Class Controller|
-| [`Trash`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Trash.md) | Class Controller|
-| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Collections/Controller/Utils.md) | Class Controller|
+| [`Admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Collections/Controller/Admin.md) | Class Controller|
+| [`Import`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Collections/Controller/Import.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Collections/Controller/RestApi.md) | Class Controller|
+| [`Trash`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Collections/Controller/Trash.md) | Class Controller|
+| [`Utils`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Collections/Controller/Utils.md) | Class Controller|
 
 ### \ColorThief
 
@@ -716,10 +716,10 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`CMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/CMap.md) | |
-| [`ColorThief`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/ColorThief.md) | |
-| [`PQueue`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/PQueue.md) | |
-| [`VBox`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/VBox.md) | |
+| [`CMap`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/CMap.md) | |
+| [`ColorThief`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/ColorThief.md) | |
+| [`PQueue`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/PQueue.md) | |
+| [`VBox`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/VBox.md) | |
 
 ### \ColorThief\Image
 
@@ -727,7 +727,7 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`ImageLoader`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/ImageLoader.md) | |
+| [`ImageLoader`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/Image/ImageLoader.md) | |
 
 ### \ColorThief\Image\Adapter
 
@@ -735,16 +735,16 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`GDImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/GDImageAdapter.md) | Base adapter implementation to handle image manipulation.|
-| [`GmagickImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/GmagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
-| [`ImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/ImageAdapter.md) | Base adapter implementation to handle image manipulation.|
-| [`ImagickImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/ImagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`GDImageAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/Image/Adapter/GDImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`GmagickImageAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/Image/Adapter/GmagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`ImageAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/Image/Adapter/ImageAdapter.md) | Base adapter implementation to handle image manipulation.|
+| [`ImagickImageAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/Image/Adapter/ImagickImageAdapter.md) | Base adapter implementation to handle image manipulation.|
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`IImageAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ColorThief/Image/Adapter/IImageAdapter.md) | Basic interface for all image adapters.|
+| [`IImageAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ColorThief/Image/Adapter/IImageAdapter.md) | Basic interface for all image adapters.|
 
 ### \Composer
 
@@ -752,7 +752,7 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`InstalledVersions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/InstalledVersions.md) | This class is copied in every Composer installed project and available to all|
+| [`InstalledVersions`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Composer/InstalledVersions.md) | This class is copied in every Composer installed project and available to all|
 
 ### \Composer\Autoload
 
@@ -760,8 +760,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`ClassLoader`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
-| [`ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Composer/Autoload/ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
+| [`ClassLoader`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Composer/Autoload/ClassLoader.md) | ClassLoader implements a PSR-0, PSR-4 and classmap class loader.|
+| [`ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Composer/Autoload/ComposerStaticInit0fc67c8c6d14d2081ce037f8348a35e1.md) | |
 
 ### \Firebase\JWT
 
@@ -769,12 +769,12 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`BeforeValidException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/BeforeValidException.md) | |
-| [`ExpiredException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/ExpiredException.md) | |
-| [`JWK`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/JWK.md) | JSON Web Key implementation, based on this spec:<br />https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41|
-| [`JWT`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/JWT.md) | JSON Web Token implementation, based on this spec:<br />https://tools.ietf.org/html/rfc7519|
-| [`Key`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/Key.md) | |
-| [`SignatureInvalidException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Firebase/JWT/SignatureInvalidException.md) | |
+| [`BeforeValidException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Firebase/JWT/BeforeValidException.md) | |
+| [`ExpiredException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Firebase/JWT/ExpiredException.md) | |
+| [`JWK`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Firebase/JWT/JWK.md) | JSON Web Key implementation, based on this spec:<br />https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41|
+| [`JWT`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Firebase/JWT/JWT.md) | JSON Web Token implementation, based on this spec:<br />https://tools.ietf.org/html/rfc7519|
+| [`Key`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Firebase/JWT/Key.md) | |
+| [`SignatureInvalidException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Firebase/JWT/SignatureInvalidException.md) | |
 
 ### \Forms\Controller
 
@@ -782,8 +782,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Forms/Controller/Admin.md) | Class Controller|
-| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Forms/Controller/RestApi.md) | Class Controller|
+| [`Admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Forms/Controller/Admin.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Forms/Controller/RestApi.md) | Class Controller|
 
 ### \Jean85
 
@@ -791,8 +791,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`PrettyVersions`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/PrettyVersions.md) | |
-| [`Version`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Version.md) | |
+| [`PrettyVersions`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Jean85/PrettyVersions.md) | |
+| [`Version`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Jean85/Version.md) | |
 
 ### \Jean85\Exception
 
@@ -800,14 +800,14 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`ProvidedPackageException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Exception/ProvidedPackageException.md) | |
-| [`ReplacedPackageException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Exception/ReplacedPackageException.md) | |
+| [`ProvidedPackageException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Jean85/Exception/ProvidedPackageException.md) | |
+| [`ReplacedPackageException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Jean85/Exception/ReplacedPackageException.md) | |
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`VersionMissingExceptionInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Jean85/Exception/VersionMissingExceptionInterface.md) | |
+| [`VersionMissingExceptionInterface`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Jean85/Exception/VersionMissingExceptionInterface.md) | |
 
 ### \League\ColorExtractor
 
@@ -815,9 +815,9 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Color`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/Color.md) | |
-| [`ColorExtractor`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/ColorExtractor.md) | |
-| [`Palette`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/ColorExtractor/Palette.md) | |
+| [`Color`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/ColorExtractor/Color.md) | |
+| [`ColorExtractor`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/ColorExtractor/ColorExtractor.md) | |
+| [`Palette`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/ColorExtractor/Palette.md) | |
 
 ### \League\Flysystem
 
@@ -825,35 +825,35 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Config`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Config.md) | |
-| [`ConnectionErrorException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/ConnectionErrorException.md) | |
-| [`ConnectionRuntimeException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/ConnectionRuntimeException.md) | |
-| [`CorruptedPathDetected`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/CorruptedPathDetected.md) | |
-| [`Directory`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Directory.md) | |
-| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Exception.md) | |
-| [`File`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/File.md) | |
-| [`FileExistsException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FileExistsException.md) | |
-| [`FileNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FileNotFoundException.md) | |
-| [`Filesystem`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Filesystem.md) | |
-| [`FilesystemNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FilesystemNotFoundException.md) | Thrown when the MountManager cannot find a filesystem.|
-| [`Handler`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Handler.md) | |
-| [`InvalidRootException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/InvalidRootException.md) | |
-| [`MountManager`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/MountManager.md) | Class MountManager.|
-| [`NotSupportedException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/NotSupportedException.md) | |
-| [`RootViolationException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/RootViolationException.md) | |
-| [`SafeStorage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/SafeStorage.md) | |
-| [`UnreadableFileException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/UnreadableFileException.md) | |
-| [`Util`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Util.md) | |
+| [`Config`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Config.md) | |
+| [`ConnectionErrorException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/ConnectionErrorException.md) | |
+| [`ConnectionRuntimeException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/ConnectionRuntimeException.md) | |
+| [`CorruptedPathDetected`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/CorruptedPathDetected.md) | |
+| [`Directory`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Directory.md) | |
+| [`Exception`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Exception.md) | |
+| [`File`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/File.md) | |
+| [`FileExistsException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/FileExistsException.md) | |
+| [`FileNotFoundException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/FileNotFoundException.md) | |
+| [`Filesystem`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Filesystem.md) | |
+| [`FilesystemNotFoundException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/FilesystemNotFoundException.md) | Thrown when the MountManager cannot find a filesystem.|
+| [`Handler`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Handler.md) | |
+| [`InvalidRootException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/InvalidRootException.md) | |
+| [`MountManager`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/MountManager.md) | Class MountManager.|
+| [`NotSupportedException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/NotSupportedException.md) | |
+| [`RootViolationException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/RootViolationException.md) | |
+| [`SafeStorage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/SafeStorage.md) | |
+| [`UnreadableFileException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/UnreadableFileException.md) | |
+| [`Util`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Util.md) | |
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`AdapterInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/AdapterInterface.md) | |
-| [`FilesystemException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FilesystemException.md) | |
-| [`FilesystemInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/FilesystemInterface.md) | |
-| [`PluginInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/PluginInterface.md) | |
-| [`ReadInterface`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/ReadInterface.md) | |
+| [`AdapterInterface`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/AdapterInterface.md) | |
+| [`FilesystemException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/FilesystemException.md) | |
+| [`FilesystemInterface`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/FilesystemInterface.md) | |
+| [`PluginInterface`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/PluginInterface.md) | |
+| [`ReadInterface`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/ReadInterface.md) | |
 
 ### \League\Flysystem\Adapter
 
@@ -861,19 +861,19 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`AbstractAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/AbstractAdapter.md) | |
-| [`AbstractFtpAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/AbstractFtpAdapter.md) | |
-| [`Ftp`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Ftp.md) | |
-| [`Ftpd`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Ftpd.md) | |
-| [`Local`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Local.md) | |
-| [`NullAdapter`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/NullAdapter.md) | |
-| [`SynologyFtp`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/SynologyFtp.md) | |
+| [`AbstractAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/AbstractAdapter.md) | |
+| [`AbstractFtpAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/AbstractFtpAdapter.md) | |
+| [`Ftp`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Ftp.md) | |
+| [`Ftpd`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Ftpd.md) | |
+| [`Local`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Local.md) | |
+| [`NullAdapter`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/NullAdapter.md) | |
+| [`SynologyFtp`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/SynologyFtp.md) | |
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`CanOverwriteFiles`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/CanOverwriteFiles.md) | Adapters that implement this interface let the Filesystem know that files can be overwritten using the write<br />functions and don&#039;t need the update function to be called. This can help improve performance when asserts are disabled.|
+| [`CanOverwriteFiles`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/CanOverwriteFiles.md) | Adapters that implement this interface let the Filesystem know that files can be overwritten using the write<br />functions and don&#039;t need the update function to be called. This can help improve performance when asserts are disabled.|
 
 ### \League\Flysystem\Adapter\Polyfill
 
@@ -881,11 +881,11 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Trait | Description |
 |-------|-------------|
-| [`NotSupportingVisibilityTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/NotSupportingVisibilityTrait.md) | |
-| [`StreamedCopyTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedCopyTrait.md) | |
-| [`StreamedReadingTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedReadingTrait.md) | A helper for adapters that only handle strings to provide read streams.|
-| [`StreamedTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedTrait.md) | |
-| [`StreamedWritingTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedWritingTrait.md) | |
+| [`NotSupportingVisibilityTrait`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/NotSupportingVisibilityTrait.md) | |
+| [`StreamedCopyTrait`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedCopyTrait.md) | |
+| [`StreamedReadingTrait`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedReadingTrait.md) | A helper for adapters that only handle strings to provide read streams.|
+| [`StreamedTrait`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedTrait.md) | |
+| [`StreamedWritingTrait`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Adapter/Polyfill/StreamedWritingTrait.md) | |
 
 ### \League\Flysystem\Plugin
 
@@ -893,21 +893,21 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`AbstractPlugin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/AbstractPlugin.md) | |
-| [`EmptyDir`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/EmptyDir.md) | |
-| [`ForcedCopy`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ForcedCopy.md) | |
-| [`ForcedRename`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ForcedRename.md) | |
-| [`GetWithMetadata`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/GetWithMetadata.md) | |
-| [`ListFiles`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ListFiles.md) | |
-| [`ListPaths`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ListPaths.md) | |
-| [`ListWith`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/ListWith.md) | |
-| [`PluginNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/PluginNotFoundException.md) | |
+| [`AbstractPlugin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/AbstractPlugin.md) | |
+| [`EmptyDir`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/EmptyDir.md) | |
+| [`ForcedCopy`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/ForcedCopy.md) | |
+| [`ForcedRename`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/ForcedRename.md) | |
+| [`GetWithMetadata`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/GetWithMetadata.md) | |
+| [`ListFiles`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/ListFiles.md) | |
+| [`ListPaths`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/ListPaths.md) | |
+| [`ListWith`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/ListWith.md) | |
+| [`PluginNotFoundException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/PluginNotFoundException.md) | |
 
 #### Traits
 
 | Trait | Description |
 |-------|-------------|
-| [`PluggableTrait`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Plugin/PluggableTrait.md) | |
+| [`PluggableTrait`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Plugin/PluggableTrait.md) | |
 
 ### \League\Flysystem\Util
 
@@ -915,7 +915,7 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`StreamHasher`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/Flysystem/Util/StreamHasher.md) | |
+| [`StreamHasher`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/Flysystem/Util/StreamHasher.md) | |
 
 ### \League\MimeTypeDetection
 
@@ -923,18 +923,18 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`EmptyExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/EmptyExtensionToMimeTypeMap.md) | |
-| [`ExtensionMimeTypeDetector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/ExtensionMimeTypeDetector.md) | |
-| [`FinfoMimeTypeDetector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/FinfoMimeTypeDetector.md) | |
-| [`GeneratedExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
-| [`OverridingExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/OverridingExtensionToMimeTypeMap.md) | |
+| [`EmptyExtensionToMimeTypeMap`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/MimeTypeDetection/EmptyExtensionToMimeTypeMap.md) | |
+| [`ExtensionMimeTypeDetector`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/MimeTypeDetection/ExtensionMimeTypeDetector.md) | |
+| [`FinfoMimeTypeDetector`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/MimeTypeDetection/FinfoMimeTypeDetector.md) | |
+| [`GeneratedExtensionToMimeTypeMap`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/MimeTypeDetection/GeneratedExtensionToMimeTypeMap.md) | |
+| [`OverridingExtensionToMimeTypeMap`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/MimeTypeDetection/OverridingExtensionToMimeTypeMap.md) | |
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`ExtensionToMimeTypeMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/ExtensionToMimeTypeMap.md) | |
-| [`MimeTypeDetector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/League/MimeTypeDetection/MimeTypeDetector.md) | |
+| [`ExtensionToMimeTypeMap`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/MimeTypeDetection/ExtensionToMimeTypeMap.md) | |
+| [`MimeTypeDetector`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/League/MimeTypeDetection/MimeTypeDetector.md) | |
 
 ### \Lime
 
@@ -942,12 +942,12 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`App`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/App.md) | |
-| [`AppAware`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/AppAware.md) | |
-| [`Helper`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper.md) | |
-| [`Module`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Module.md) | |
-| [`Request`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Request.md) | |
-| [`Response`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Response.md) | |
+| [`App`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/App.md) | |
+| [`AppAware`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/AppAware.md) | |
+| [`Helper`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/Helper.md) | |
+| [`Module`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/Module.md) | |
+| [`Request`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/Request.md) | |
+| [`Response`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/Response.md) | |
 
 ### \LimeExtra
 
@@ -955,8 +955,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`App`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/App.md) | Class App|
-| [`Controller`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Controller.md) | Class Controller|
+| [`App`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/App.md) | Class App|
+| [`Controller`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Controller.md) | Class Controller|
 
 ### \LimeExtra\Helper
 
@@ -964,17 +964,17 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Assets`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Assets.md) | Assets class.|
-| [`Cookie`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Cookie.md) | |
-| [`FileObject`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/FileObject.md) | Use custom FileObject to prevent &quot;too many files open&quot; error|
-| [`Filesystem`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Filesystem.md) | |
-| [`I18n`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/I18n.md) | I18n class. Manage translations|
-| [`Image`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Image.md) | |
-| [`Img`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Img.md) | |
-| [`Markdown`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Markdown.md) | Class Markdown|
-| [`SimpleAcl`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/SimpleAcl.md) | Class SimpleAcl|
-| [`Utils`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/Utils.md) | Class Utils|
-| [`YAML`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/LimeExtra/Helper/YAML.md) | Class YAML|
+| [`Assets`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/Assets.md) | Assets class.|
+| [`Cookie`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/Cookie.md) | |
+| [`FileObject`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/FileObject.md) | Use custom FileObject to prevent &quot;too many files open&quot; error|
+| [`Filesystem`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/Filesystem.md) | |
+| [`I18n`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/I18n.md) | I18n class. Manage translations|
+| [`Image`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/Image.md) | |
+| [`Img`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/Img.md) | |
+| [`Markdown`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/Markdown.md) | Class Markdown|
+| [`SimpleAcl`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/SimpleAcl.md) | Class SimpleAcl|
+| [`Utils`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/Utils.md) | Class Utils|
+| [`YAML`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/LimeExtra/Helper/YAML.md) | Class YAML|
 
 ### \Lime\Helper
 
@@ -982,8 +982,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Cache`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper/Cache.md) | |
-| [`Session`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Lime/Helper/Session.md) | |
+| [`Cache`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/Helper/Cache.md) | |
+| [`Session`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Lime/Helper/Session.md) | |
 
 ### \MongoDB
 
@@ -991,16 +991,16 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`BulkWriteResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/BulkWriteResult.md) | Result class for a bulk write operation.|
-| [`ChangeStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/ChangeStream.md) | Iterator for a change stream.|
-| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Client.md) | |
-| [`Collection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Collection.md) | |
-| [`Database`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Database.md) | |
-| [`DeleteResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/DeleteResult.md) | Result class for a delete operation.|
-| [`InsertManyResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/InsertManyResult.md) | Result class for a multi-document insert operation.|
-| [`InsertOneResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/InsertOneResult.md) | Result class for a single-document insert operation.|
-| [`MapReduceResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/MapReduceResult.md) | Result class for mapReduce command results.|
-| [`UpdateResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/UpdateResult.md) | Result class for an update operation.|
+| [`BulkWriteResult`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/BulkWriteResult.md) | Result class for a bulk write operation.|
+| [`ChangeStream`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/ChangeStream.md) | Iterator for a change stream.|
+| [`Client`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Client.md) | |
+| [`Collection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Collection.md) | |
+| [`Database`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Database.md) | |
+| [`DeleteResult`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/DeleteResult.md) | Result class for a delete operation.|
+| [`InsertManyResult`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/InsertManyResult.md) | Result class for a multi-document insert operation.|
+| [`InsertOneResult`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/InsertOneResult.md) | Result class for a single-document insert operation.|
+| [`MapReduceResult`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/MapReduceResult.md) | Result class for mapReduce command results.|
+| [`UpdateResult`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/UpdateResult.md) | Result class for an update operation.|
 
 ### \MongoDB\Exception
 
@@ -1008,18 +1008,18 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`BadMethodCallException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/BadMethodCallException.md) | |
-| [`InvalidArgumentException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/InvalidArgumentException.md) | |
-| [`ResumeTokenException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/ResumeTokenException.md) | |
-| [`RuntimeException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/RuntimeException.md) | |
-| [`UnexpectedValueException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/UnexpectedValueException.md) | |
-| [`UnsupportedException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/UnsupportedException.md) | |
+| [`BadMethodCallException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Exception/BadMethodCallException.md) | |
+| [`InvalidArgumentException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Exception/InvalidArgumentException.md) | |
+| [`ResumeTokenException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Exception/ResumeTokenException.md) | |
+| [`RuntimeException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Exception/RuntimeException.md) | |
+| [`UnexpectedValueException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Exception/UnexpectedValueException.md) | |
+| [`UnsupportedException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Exception/UnsupportedException.md) | |
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Exception/Exception.md) | |
+| [`Exception`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Exception/Exception.md) | |
 
 ### \MongoDB\GridFS
 
@@ -1027,7 +1027,7 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Bucket`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Bucket.md) | Bucket provides a public API for interacting with the GridFS files and chunks<br />collections.|
+| [`Bucket`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/GridFS/Bucket.md) | Bucket provides a public API for interacting with the GridFS files and chunks<br />collections.|
 
 ### \MongoDB\GridFS\Exception
 
@@ -1035,9 +1035,9 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`CorruptFileException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/CorruptFileException.md) | |
-| [`FileNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/FileNotFoundException.md) | |
-| [`StreamException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/GridFS/Exception/StreamException.md) | |
+| [`CorruptFileException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/GridFS/Exception/CorruptFileException.md) | |
+| [`FileNotFoundException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/GridFS/Exception/FileNotFoundException.md) | |
+| [`StreamException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/GridFS/Exception/StreamException.md) | |
 
 ### \MongoDB\Model
 
@@ -1045,20 +1045,20 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`BSONArray`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/BSONArray.md) | Model class for a BSON array.|
-| [`BSONDocument`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/BSONDocument.md) | Model class for a BSON document.|
-| [`BSONIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/BSONIterator.md) | Iterator for BSON documents.|
-| [`CollectionInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/CollectionInfo.md) | Collection information model class.|
-| [`DatabaseInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/DatabaseInfo.md) | Database information model class.|
-| [`IndexInfo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/IndexInfo.md) | Index information model class.|
+| [`BSONArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/BSONArray.md) | Model class for a BSON array.|
+| [`BSONDocument`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/BSONDocument.md) | Model class for a BSON document.|
+| [`BSONIterator`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/BSONIterator.md) | Iterator for BSON documents.|
+| [`CollectionInfo`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/CollectionInfo.md) | Collection information model class.|
+| [`DatabaseInfo`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/DatabaseInfo.md) | Database information model class.|
+| [`IndexInfo`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/IndexInfo.md) | Index information model class.|
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`CollectionInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/CollectionInfoIterator.md) | CollectionInfoIterator interface.|
-| [`DatabaseInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/DatabaseInfoIterator.md) | DatabaseInfoIterator interface.|
-| [`IndexInfoIterator`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Model/IndexInfoIterator.md) | IndexInfoIterator interface.|
+| [`CollectionInfoIterator`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/CollectionInfoIterator.md) | CollectionInfoIterator interface.|
+| [`DatabaseInfoIterator`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/DatabaseInfoIterator.md) | DatabaseInfoIterator interface.|
+| [`IndexInfoIterator`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Model/IndexInfoIterator.md) | IndexInfoIterator interface.|
 
 ### \MongoDB\Operation
 
@@ -1066,40 +1066,40 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Aggregate`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Aggregate.md) | Operation for the aggregate command.|
-| [`BulkWrite`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/BulkWrite.md) | Operation for executing multiple write operations.|
-| [`Count`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Count.md) | Operation for the count command.|
-| [`CountDocuments`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/CountDocuments.md) | Operation for obtaining an exact count of documents in a collection|
-| [`CreateCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/CreateCollection.md) | Operation for the create command.|
-| [`CreateIndexes`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/CreateIndexes.md) | Operation for the createIndexes command.|
-| [`DatabaseCommand`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DatabaseCommand.md) | Operation for executing a database command.|
-| [`DeleteMany`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DeleteMany.md) | Operation for deleting multiple document with the delete command.|
-| [`DeleteOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DeleteOne.md) | Operation for deleting a single document with the delete command.|
-| [`Distinct`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Distinct.md) | Operation for the distinct command.|
-| [`DropCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DropCollection.md) | Operation for the drop command.|
-| [`DropDatabase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DropDatabase.md) | Operation for the dropDatabase command.|
-| [`DropIndexes`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/DropIndexes.md) | Operation for the dropIndexes command.|
-| [`EstimatedDocumentCount`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/EstimatedDocumentCount.md) | Operation for obtaining an estimated count of documents in a collection|
-| [`Explain`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Explain.md) | Operation for the explain command.|
-| [`Find`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Find.md) | Operation for the find command.|
-| [`FindOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOne.md) | Operation for finding a single document with the find command.|
-| [`FindOneAndDelete`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOneAndDelete.md) | Operation for deleting a document with the findAndModify command.|
-| [`FindOneAndReplace`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOneAndReplace.md) | Operation for replacing a document with the findAndModify command.|
-| [`FindOneAndUpdate`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/FindOneAndUpdate.md) | Operation for updating a document with the findAndModify command.|
-| [`InsertMany`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/InsertMany.md) | Operation for inserting multiple documents with the insert command.|
-| [`InsertOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/InsertOne.md) | Operation for inserting a single document with the insert command.|
-| [`ListCollectionNames`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListCollectionNames.md) | Operation for the listCollectionNames helper.|
-| [`ListCollections`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListCollections.md) | Operation for the listCollections command.|
-| [`ListDatabaseNames`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListDatabaseNames.md) | Operation for the ListDatabases command, returning only database names.|
-| [`ListDatabases`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListDatabases.md) | Operation for the ListDatabases command.|
-| [`ListIndexes`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ListIndexes.md) | Operation for the listIndexes command.|
-| [`MapReduce`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/MapReduce.md) | Operation for the mapReduce command.|
-| [`ModifyCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ModifyCollection.md) | Operation for the collMod command.|
-| [`RenameCollection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/RenameCollection.md) | Operation for the renameCollection command.|
-| [`ReplaceOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/ReplaceOne.md) | Operation for replacing a single document with the update command.|
-| [`UpdateMany`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/UpdateMany.md) | Operation for updating multiple documents with the update command.|
-| [`UpdateOne`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
-| [`Watch`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
+| [`Aggregate`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/Aggregate.md) | Operation for the aggregate command.|
+| [`BulkWrite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/BulkWrite.md) | Operation for executing multiple write operations.|
+| [`Count`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/Count.md) | Operation for the count command.|
+| [`CountDocuments`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/CountDocuments.md) | Operation for obtaining an exact count of documents in a collection|
+| [`CreateCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/CreateCollection.md) | Operation for the create command.|
+| [`CreateIndexes`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/CreateIndexes.md) | Operation for the createIndexes command.|
+| [`DatabaseCommand`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/DatabaseCommand.md) | Operation for executing a database command.|
+| [`DeleteMany`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/DeleteMany.md) | Operation for deleting multiple document with the delete command.|
+| [`DeleteOne`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/DeleteOne.md) | Operation for deleting a single document with the delete command.|
+| [`Distinct`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/Distinct.md) | Operation for the distinct command.|
+| [`DropCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/DropCollection.md) | Operation for the drop command.|
+| [`DropDatabase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/DropDatabase.md) | Operation for the dropDatabase command.|
+| [`DropIndexes`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/DropIndexes.md) | Operation for the dropIndexes command.|
+| [`EstimatedDocumentCount`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/EstimatedDocumentCount.md) | Operation for obtaining an estimated count of documents in a collection|
+| [`Explain`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/Explain.md) | Operation for the explain command.|
+| [`Find`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/Find.md) | Operation for the find command.|
+| [`FindOne`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/FindOne.md) | Operation for finding a single document with the find command.|
+| [`FindOneAndDelete`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/FindOneAndDelete.md) | Operation for deleting a document with the findAndModify command.|
+| [`FindOneAndReplace`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/FindOneAndReplace.md) | Operation for replacing a document with the findAndModify command.|
+| [`FindOneAndUpdate`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/FindOneAndUpdate.md) | Operation for updating a document with the findAndModify command.|
+| [`InsertMany`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/InsertMany.md) | Operation for inserting multiple documents with the insert command.|
+| [`InsertOne`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/InsertOne.md) | Operation for inserting a single document with the insert command.|
+| [`ListCollectionNames`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/ListCollectionNames.md) | Operation for the listCollectionNames helper.|
+| [`ListCollections`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/ListCollections.md) | Operation for the listCollections command.|
+| [`ListDatabaseNames`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/ListDatabaseNames.md) | Operation for the ListDatabases command, returning only database names.|
+| [`ListDatabases`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/ListDatabases.md) | Operation for the ListDatabases command.|
+| [`ListIndexes`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/ListIndexes.md) | Operation for the listIndexes command.|
+| [`MapReduce`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/MapReduce.md) | Operation for the mapReduce command.|
+| [`ModifyCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/ModifyCollection.md) | Operation for the collMod command.|
+| [`RenameCollection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/RenameCollection.md) | Operation for the renameCollection command.|
+| [`ReplaceOne`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/ReplaceOne.md) | Operation for replacing a single document with the update command.|
+| [`UpdateMany`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/UpdateMany.md) | Operation for updating multiple documents with the update command.|
+| [`UpdateOne`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/UpdateOne.md) | Operation for updating a single document with the update command.|
+| [`Watch`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Operation/Watch.md) | Operation for creating a change stream with the aggregate command.|
 
 ### \MongoDB\Tests
 
@@ -1107,14 +1107,14 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`ClientFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/ClientFunctionalTest.md) | Functional tests for the Client class.|
-| [`ClientTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/ClientTest.md) | Unit tests for the Client class.|
-| [`CommandObserver`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/CommandObserver.md) | Observes command documents using the driver&#039;s monitoring API.|
-| [`DocumentationExamplesTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/DocumentationExamplesTest.md) | Documentation examples to be parsed for inclusion in the MongoDB manual.|
-| [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/FunctionalTestCase.md) | |
-| [`FunctionsTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/FunctionsTest.md) | Unit tests for utility functions.|
-| [`PedantryTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/PedantryTest.md) | Pedantic tests that have nothing to do with functional correctness.|
-| [`TestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/TestCase.md) | |
+| [`ClientFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/ClientFunctionalTest.md) | Functional tests for the Client class.|
+| [`ClientTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/ClientTest.md) | Unit tests for the Client class.|
+| [`CommandObserver`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/CommandObserver.md) | Observes command documents using the driver&#039;s monitoring API.|
+| [`DocumentationExamplesTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/DocumentationExamplesTest.md) | Documentation examples to be parsed for inclusion in the MongoDB manual.|
+| [`FunctionalTestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/FunctionalTestCase.md) | |
+| [`FunctionsTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/FunctionsTest.md) | Unit tests for utility functions.|
+| [`PedantryTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/PedantryTest.md) | Pedantic tests that have nothing to do with functional correctness.|
+| [`TestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/TestCase.md) | |
 
 ### \MongoDB\Tests\Collection
 
@@ -1122,9 +1122,9 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`CollectionFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Collection/CollectionFunctionalTest.md) | Functional tests for the Collection class.|
-| [`CrudSpecFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Collection/CrudSpecFunctionalTest.md) | CRUD spec functional tests.|
-| [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Collection/FunctionalTestCase.md) | Base class for Collection functional tests.|
+| [`CollectionFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Collection/CollectionFunctionalTest.md) | Functional tests for the Collection class.|
+| [`CrudSpecFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Collection/CrudSpecFunctionalTest.md) | CRUD spec functional tests.|
+| [`FunctionalTestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Collection/FunctionalTestCase.md) | Base class for Collection functional tests.|
 
 ### \MongoDB\Tests\Command
 
@@ -1132,8 +1132,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`ListCollectionsTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Command/ListCollectionsTest.md) | |
-| [`ListDatabasesTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Command/ListDatabasesTest.md) | |
+| [`ListCollectionsTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Command/ListCollectionsTest.md) | |
+| [`ListDatabasesTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Command/ListDatabasesTest.md) | |
 
 ### \MongoDB\Tests\Database
 
@@ -1141,9 +1141,9 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`CollectionManagementFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Database/CollectionManagementFunctionalTest.md) | Functional tests for collection management methods.|
-| [`DatabaseFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Database/DatabaseFunctionalTest.md) | Functional tests for the Database class.|
-| [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Database/FunctionalTestCase.md) | Base class for Database functional tests.|
+| [`CollectionManagementFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Database/CollectionManagementFunctionalTest.md) | Functional tests for collection management methods.|
+| [`DatabaseFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Database/DatabaseFunctionalTest.md) | Functional tests for the Database class.|
+| [`FunctionalTestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Database/FunctionalTestCase.md) | Base class for Database functional tests.|
 
 ### \MongoDB\Tests\GridFS
 
@@ -1151,12 +1151,12 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`BucketFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/BucketFunctionalTest.md) | Functional tests for the Bucket class.|
-| [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/FunctionalTestCase.md) | Base class for GridFS functional tests.|
-| [`ReadableStreamFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/ReadableStreamFunctionalTest.md) | Functional tests for the internal ReadableStream class.|
-| [`StreamWrapperFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/StreamWrapperFunctionalTest.md) | Functional tests for the internal StreamWrapper class.|
-| [`UnusableStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/UnusableStream.md) | |
-| [`WritableStreamFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/GridFS/WritableStreamFunctionalTest.md) | Functional tests for the internal WritableStream class.|
+| [`BucketFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/GridFS/BucketFunctionalTest.md) | Functional tests for the Bucket class.|
+| [`FunctionalTestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/GridFS/FunctionalTestCase.md) | Base class for GridFS functional tests.|
+| [`ReadableStreamFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/GridFS/ReadableStreamFunctionalTest.md) | Functional tests for the internal ReadableStream class.|
+| [`StreamWrapperFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/GridFS/StreamWrapperFunctionalTest.md) | Functional tests for the internal StreamWrapper class.|
+| [`UnusableStream`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/GridFS/UnusableStream.md) | |
+| [`WritableStreamFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/GridFS/WritableStreamFunctionalTest.md) | Functional tests for the internal WritableStream class.|
 
 ### \MongoDB\Tests\Model
 
@@ -1164,17 +1164,17 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`BSONArrayTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/BSONArrayTest.md) | |
-| [`BSONDocumentTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/BSONDocumentTest.md) | |
-| [`BSONIteratorTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/BSONIteratorTest.md) | |
-| [`CachingIteratorTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/CachingIteratorTest.md) | |
-| [`ChangeStreamIteratorTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/ChangeStreamIteratorTest.md) | |
-| [`CollectionInfoTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/CollectionInfoTest.md) | |
-| [`DatabaseInfoTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/DatabaseInfoTest.md) | |
-| [`IndexInfoFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/IndexInfoFunctionalTest.md) | |
-| [`IndexInfoTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/IndexInfoTest.md) | |
-| [`IndexInputTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/IndexInputTest.md) | |
-| [`UncloneableObject`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Model/UncloneableObject.md) | This class is used by the BSONArray and BSONDocument clone tests.|
+| [`BSONArrayTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/BSONArrayTest.md) | |
+| [`BSONDocumentTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/BSONDocumentTest.md) | |
+| [`BSONIteratorTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/BSONIteratorTest.md) | |
+| [`CachingIteratorTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/CachingIteratorTest.md) | |
+| [`ChangeStreamIteratorTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/ChangeStreamIteratorTest.md) | |
+| [`CollectionInfoTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/CollectionInfoTest.md) | |
+| [`DatabaseInfoTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/DatabaseInfoTest.md) | |
+| [`IndexInfoFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/IndexInfoFunctionalTest.md) | |
+| [`IndexInfoTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/IndexInfoTest.md) | |
+| [`IndexInputTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/IndexInputTest.md) | |
+| [`UncloneableObject`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Model/UncloneableObject.md) | This class is used by the BSONArray and BSONDocument clone tests.|
 
 ### \MongoDB\Tests\Operation
 
@@ -1182,66 +1182,66 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`AggregateFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/AggregateFunctionalTest.md) | Base class for Operation functional tests.|
-| [`AggregateTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/AggregateTest.md) | Base class for Operation unit tests.|
-| [`BulkWriteFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/BulkWriteFunctionalTest.md) | Base class for Operation functional tests.|
-| [`BulkWriteTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/BulkWriteTest.md) | Base class for Operation unit tests.|
-| [`CountDocumentsFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CountDocumentsFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CountDocumentsTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CountDocumentsTest.md) | Base class for Operation unit tests.|
-| [`CountFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CountFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CountTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CountTest.md) | Base class for Operation unit tests.|
-| [`CreateCollectionFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CreateCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CreateCollectionTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CreateCollectionTest.md) | Base class for Operation unit tests.|
-| [`CreateIndexesFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CreateIndexesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`CreateIndexesTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/CreateIndexesTest.md) | Base class for Operation unit tests.|
-| [`DatabaseCommandFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DatabaseCommandFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DatabaseCommandTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DatabaseCommandTest.md) | Base class for Operation unit tests.|
-| [`DeleteFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DeleteFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DeleteTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DeleteTest.md) | Base class for Operation unit tests.|
-| [`DistinctFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DistinctFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DistinctTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DistinctTest.md) | Base class for Operation unit tests.|
-| [`DropCollectionFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DropCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DropCollectionTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DropCollectionTest.md) | Base class for Operation unit tests.|
-| [`DropDatabaseFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DropDatabaseFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DropDatabaseTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DropDatabaseTest.md) | Base class for Operation unit tests.|
-| [`DropIndexesFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DropIndexesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`DropIndexesTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/DropIndexesTest.md) | Base class for Operation unit tests.|
-| [`EstimatedDocumentCountTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/EstimatedDocumentCountTest.md) | Base class for Operation unit tests.|
-| [`ExplainFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ExplainFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ExplainTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ExplainTest.md) | Base class for Operation unit tests.|
-| [`FindAndModifyFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindAndModifyFunctionalTest.md) | Base class for Operation functional tests.|
-| [`FindAndModifyTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindAndModifyTest.md) | Base class for Operation unit tests.|
-| [`FindFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindFunctionalTest.md) | Base class for Operation functional tests.|
-| [`FindOneAndDeleteTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneAndDeleteTest.md) | Base class for Operation unit tests.|
-| [`FindOneAndReplaceTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneAndReplaceTest.md) | Base class for Operation unit tests.|
-| [`FindOneAndUpdateTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneAndUpdateTest.md) | Base class for Operation unit tests.|
-| [`FindOneFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneFunctionalTest.md) | Base class for Operation functional tests.|
-| [`FindTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FindTest.md) | Base class for Operation unit tests.|
-| [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/FunctionalTestCase.md) | Base class for Operation functional tests.|
-| [`InsertManyFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/InsertManyFunctionalTest.md) | Base class for Operation functional tests.|
-| [`InsertManyTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/InsertManyTest.md) | Base class for Operation unit tests.|
-| [`InsertOneFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/InsertOneFunctionalTest.md) | Base class for Operation functional tests.|
-| [`InsertOneTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/InsertOneTest.md) | Base class for Operation unit tests.|
-| [`ListCollectionNamesFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ListCollectionNamesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListCollectionsFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ListCollectionsFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListDatabaseNamesFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ListDatabaseNamesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListDatabasesFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ListDatabasesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListIndexesFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ListIndexesFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ListIndexesTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ListIndexesTest.md) | Base class for Operation unit tests.|
-| [`MapReduceFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/MapReduceFunctionalTest.md) | Base class for Operation functional tests.|
-| [`MapReduceTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/MapReduceTest.md) | Base class for Operation unit tests.|
-| [`ModifyCollectionFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ModifyCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`ModifyCollectionTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ModifyCollectionTest.md) | Base class for Operation unit tests.|
-| [`RenameCollectionFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/RenameCollectionFunctionalTest.md) | Base class for Operation functional tests.|
-| [`RenameCollectionTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/RenameCollectionTest.md) | Base class for Operation unit tests.|
-| [`ReplaceOneTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/ReplaceOneTest.md) | Base class for Operation unit tests.|
-| [`TestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/TestCase.md) | Base class for Operation unit tests.|
-| [`UpdateFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateFunctionalTest.md) | Base class for Operation functional tests.|
-| [`UpdateManyTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateManyTest.md) | Base class for Operation unit tests.|
-| [`UpdateOneTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateOneTest.md) | Base class for Operation unit tests.|
-| [`UpdateTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateTest.md) | Base class for Operation unit tests.|
-| [`WatchFunctionalTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/WatchFunctionalTest.md) | Base class for Operation functional tests.|
-| [`WatchTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/Operation/WatchTest.md) | Although these are unit tests, we extend FunctionalTestCase because Watch is<br />constructed with a Manager instance.|
+| [`AggregateFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/AggregateFunctionalTest.md) | Base class for Operation functional tests.|
+| [`AggregateTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/AggregateTest.md) | Base class for Operation unit tests.|
+| [`BulkWriteFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/BulkWriteFunctionalTest.md) | Base class for Operation functional tests.|
+| [`BulkWriteTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/BulkWriteTest.md) | Base class for Operation unit tests.|
+| [`CountDocumentsFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CountDocumentsFunctionalTest.md) | Base class for Operation functional tests.|
+| [`CountDocumentsTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CountDocumentsTest.md) | Base class for Operation unit tests.|
+| [`CountFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CountFunctionalTest.md) | Base class for Operation functional tests.|
+| [`CountTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CountTest.md) | Base class for Operation unit tests.|
+| [`CreateCollectionFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CreateCollectionFunctionalTest.md) | Base class for Operation functional tests.|
+| [`CreateCollectionTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CreateCollectionTest.md) | Base class for Operation unit tests.|
+| [`CreateIndexesFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CreateIndexesFunctionalTest.md) | Base class for Operation functional tests.|
+| [`CreateIndexesTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/CreateIndexesTest.md) | Base class for Operation unit tests.|
+| [`DatabaseCommandFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DatabaseCommandFunctionalTest.md) | Base class for Operation functional tests.|
+| [`DatabaseCommandTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DatabaseCommandTest.md) | Base class for Operation unit tests.|
+| [`DeleteFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DeleteFunctionalTest.md) | Base class for Operation functional tests.|
+| [`DeleteTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DeleteTest.md) | Base class for Operation unit tests.|
+| [`DistinctFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DistinctFunctionalTest.md) | Base class for Operation functional tests.|
+| [`DistinctTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DistinctTest.md) | Base class for Operation unit tests.|
+| [`DropCollectionFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DropCollectionFunctionalTest.md) | Base class for Operation functional tests.|
+| [`DropCollectionTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DropCollectionTest.md) | Base class for Operation unit tests.|
+| [`DropDatabaseFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DropDatabaseFunctionalTest.md) | Base class for Operation functional tests.|
+| [`DropDatabaseTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DropDatabaseTest.md) | Base class for Operation unit tests.|
+| [`DropIndexesFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DropIndexesFunctionalTest.md) | Base class for Operation functional tests.|
+| [`DropIndexesTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/DropIndexesTest.md) | Base class for Operation unit tests.|
+| [`EstimatedDocumentCountTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/EstimatedDocumentCountTest.md) | Base class for Operation unit tests.|
+| [`ExplainFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ExplainFunctionalTest.md) | Base class for Operation functional tests.|
+| [`ExplainTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ExplainTest.md) | Base class for Operation unit tests.|
+| [`FindAndModifyFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindAndModifyFunctionalTest.md) | Base class for Operation functional tests.|
+| [`FindAndModifyTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindAndModifyTest.md) | Base class for Operation unit tests.|
+| [`FindFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindFunctionalTest.md) | Base class for Operation functional tests.|
+| [`FindOneAndDeleteTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneAndDeleteTest.md) | Base class for Operation unit tests.|
+| [`FindOneAndReplaceTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneAndReplaceTest.md) | Base class for Operation unit tests.|
+| [`FindOneAndUpdateTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneAndUpdateTest.md) | Base class for Operation unit tests.|
+| [`FindOneFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindOneFunctionalTest.md) | Base class for Operation functional tests.|
+| [`FindTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FindTest.md) | Base class for Operation unit tests.|
+| [`FunctionalTestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/FunctionalTestCase.md) | Base class for Operation functional tests.|
+| [`InsertManyFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/InsertManyFunctionalTest.md) | Base class for Operation functional tests.|
+| [`InsertManyTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/InsertManyTest.md) | Base class for Operation unit tests.|
+| [`InsertOneFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/InsertOneFunctionalTest.md) | Base class for Operation functional tests.|
+| [`InsertOneTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/InsertOneTest.md) | Base class for Operation unit tests.|
+| [`ListCollectionNamesFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ListCollectionNamesFunctionalTest.md) | Base class for Operation functional tests.|
+| [`ListCollectionsFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ListCollectionsFunctionalTest.md) | Base class for Operation functional tests.|
+| [`ListDatabaseNamesFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ListDatabaseNamesFunctionalTest.md) | Base class for Operation functional tests.|
+| [`ListDatabasesFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ListDatabasesFunctionalTest.md) | Base class for Operation functional tests.|
+| [`ListIndexesFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ListIndexesFunctionalTest.md) | Base class for Operation functional tests.|
+| [`ListIndexesTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ListIndexesTest.md) | Base class for Operation unit tests.|
+| [`MapReduceFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/MapReduceFunctionalTest.md) | Base class for Operation functional tests.|
+| [`MapReduceTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/MapReduceTest.md) | Base class for Operation unit tests.|
+| [`ModifyCollectionFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ModifyCollectionFunctionalTest.md) | Base class for Operation functional tests.|
+| [`ModifyCollectionTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ModifyCollectionTest.md) | Base class for Operation unit tests.|
+| [`RenameCollectionFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/RenameCollectionFunctionalTest.md) | Base class for Operation functional tests.|
+| [`RenameCollectionTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/RenameCollectionTest.md) | Base class for Operation unit tests.|
+| [`ReplaceOneTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/ReplaceOneTest.md) | Base class for Operation unit tests.|
+| [`TestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/TestCase.md) | Base class for Operation unit tests.|
+| [`UpdateFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateFunctionalTest.md) | Base class for Operation functional tests.|
+| [`UpdateManyTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateManyTest.md) | Base class for Operation unit tests.|
+| [`UpdateOneTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateOneTest.md) | Base class for Operation unit tests.|
+| [`UpdateTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/UpdateTest.md) | Base class for Operation unit tests.|
+| [`WatchFunctionalTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/WatchFunctionalTest.md) | Base class for Operation functional tests.|
+| [`WatchTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/Operation/WatchTest.md) | Although these are unit tests, we extend FunctionalTestCase because Watch is<br />constructed with a Manager instance.|
 
 ### \MongoDB\Tests\SpecTests
 
@@ -1249,23 +1249,23 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`AtlasDataLakeSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/AtlasDataLakeSpecTest.md) | Atlas Data Lake spec tests.|
-| [`ChangeStreamsSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/ChangeStreamsSpecTest.md) | Change Streams spec tests.|
-| [`ClientSideEncryptionSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/ClientSideEncryptionSpecTest.md) | Client-side encryption spec tests.|
-| [`CommandExpectations`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/CommandExpectations.md) | Spec test CommandStartedEvent expectations.|
-| [`CommandMonitoringSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/CommandMonitoringSpecTest.md) | Command monitoring spec tests.|
-| [`Context`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/Context.md) | Execution context for spec tests.|
-| [`DocumentsMatchConstraint`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/DocumentsMatchConstraint.md) | Constraint that checks if one document matches another.|
-| [`DocumentsMatchConstraintTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/DocumentsMatchConstraintTest.md) | |
-| [`ErrorExpectation`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/ErrorExpectation.md) | Spec test operation error expectation.|
-| [`FunctionalTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/FunctionalTestCase.md) | Base class for spec test runners.|
-| [`Operation`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/Operation.md) | Spec test operation.|
-| [`PrimaryStepDownSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/PrimaryStepDownSpecTest.md) | Base class for spec test runners.|
-| [`ReadWriteConcernSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/ReadWriteConcernSpecTest.md) | Base class for spec test runners.|
-| [`ResultExpectation`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/ResultExpectation.md) | Spec test operation result expectation.|
-| [`RetryableReadsSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/RetryableReadsSpecTest.md) | Retryable reads spec tests.|
-| [`RetryableWritesSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/RetryableWritesSpecTest.md) | Retryable writes spec tests.|
-| [`TransactionsSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/SpecTests/TransactionsSpecTest.md) | Transactions spec tests.|
+| [`AtlasDataLakeSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/AtlasDataLakeSpecTest.md) | Atlas Data Lake spec tests.|
+| [`ChangeStreamsSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/ChangeStreamsSpecTest.md) | Change Streams spec tests.|
+| [`ClientSideEncryptionSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/ClientSideEncryptionSpecTest.md) | Client-side encryption spec tests.|
+| [`CommandExpectations`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/CommandExpectations.md) | Spec test CommandStartedEvent expectations.|
+| [`CommandMonitoringSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/CommandMonitoringSpecTest.md) | Command monitoring spec tests.|
+| [`Context`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/Context.md) | Execution context for spec tests.|
+| [`DocumentsMatchConstraint`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/DocumentsMatchConstraint.md) | Constraint that checks if one document matches another.|
+| [`DocumentsMatchConstraintTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/DocumentsMatchConstraintTest.md) | |
+| [`ErrorExpectation`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/ErrorExpectation.md) | Spec test operation error expectation.|
+| [`FunctionalTestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/FunctionalTestCase.md) | Base class for spec test runners.|
+| [`Operation`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/Operation.md) | Spec test operation.|
+| [`PrimaryStepDownSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/PrimaryStepDownSpecTest.md) | Base class for spec test runners.|
+| [`ReadWriteConcernSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/ReadWriteConcernSpecTest.md) | Base class for spec test runners.|
+| [`ResultExpectation`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/ResultExpectation.md) | Spec test operation result expectation.|
+| [`RetryableReadsSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/RetryableReadsSpecTest.md) | Retryable reads spec tests.|
+| [`RetryableWritesSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/RetryableWritesSpecTest.md) | Retryable writes spec tests.|
+| [`TransactionsSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/SpecTests/TransactionsSpecTest.md) | Transactions spec tests.|
 
 ### \MongoDB\Tests\UnifiedSpecTests
 
@@ -1273,21 +1273,21 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`CollectionData`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/CollectionData.md) | |
-| [`Context`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Context.md) | Execution context for spec tests.|
-| [`EntityMap`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/EntityMap.md) | |
-| [`EventCollector`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/EventCollector.md) | EventCollector handles &quot;storeEventsAsEntities&quot; for client entities.|
-| [`EventObserver`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/EventObserver.md) | EventObserver handles &quot;observeEvents&quot; for client entities and assertions for<br />&quot;expectEvents&quot; and special operations (e.g. assertSameLsidOnLastTwoCommands).|
-| [`ExpectedError`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/ExpectedError.md) | |
-| [`ExpectedResult`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/ExpectedResult.md) | |
-| [`FailPointObserver`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/FailPointObserver.md) | |
-| [`Loop`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Loop.md) | |
-| [`Operation`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Operation.md) | |
-| [`RunOnRequirement`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/RunOnRequirement.md) | |
-| [`UnifiedSpecTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/UnifiedSpecTest.md) | Unified test format spec tests.|
-| [`UnifiedTestCase`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/UnifiedTestCase.md) | Unified test case model class.|
-| [`UnifiedTestRunner`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/UnifiedTestRunner.md) | Unified test runner.|
-| [`Util`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Util.md) | |
+| [`CollectionData`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/CollectionData.md) | |
+| [`Context`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Context.md) | Execution context for spec tests.|
+| [`EntityMap`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/EntityMap.md) | |
+| [`EventCollector`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/EventCollector.md) | EventCollector handles &quot;storeEventsAsEntities&quot; for client entities.|
+| [`EventObserver`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/EventObserver.md) | EventObserver handles &quot;observeEvents&quot; for client entities and assertions for<br />&quot;expectEvents&quot; and special operations (e.g. assertSameLsidOnLastTwoCommands).|
+| [`ExpectedError`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/ExpectedError.md) | |
+| [`ExpectedResult`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/ExpectedResult.md) | |
+| [`FailPointObserver`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/FailPointObserver.md) | |
+| [`Loop`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Loop.md) | |
+| [`Operation`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Operation.md) | |
+| [`RunOnRequirement`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/RunOnRequirement.md) | |
+| [`UnifiedSpecTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/UnifiedSpecTest.md) | Unified test format spec tests.|
+| [`UnifiedTestCase`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/UnifiedTestCase.md) | Unified test case model class.|
+| [`UnifiedTestRunner`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/UnifiedTestRunner.md) | Unified test runner.|
+| [`Util`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Util.md) | |
 
 ### \MongoDB\Tests\UnifiedSpecTests\Constraint
 
@@ -1295,12 +1295,12 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`IsBsonType`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/IsBsonType.md) | |
-| [`IsBsonTypeTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/IsBsonTypeTest.md) | |
-| [`Matches`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/Matches.md) | Constraint that checks if one value matches another.|
-| [`MatchesTest`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/MatchesTest.md) | |
-| [`SerializableArray`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableArray.md) | |
-| [`SerializableObject`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableObject.md) | |
+| [`IsBsonType`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/IsBsonType.md) | |
+| [`IsBsonTypeTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/IsBsonTypeTest.md) | |
+| [`Matches`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/Matches.md) | Constraint that checks if one value matches another.|
+| [`MatchesTest`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/MatchesTest.md) | |
+| [`SerializableArray`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableArray.md) | |
+| [`SerializableObject`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoDB/Tests/UnifiedSpecTests/Constraint/SerializableObject.md) | |
 
 ### \MongoHybrid
 
@@ -1308,10 +1308,10 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/Client.md) | |
-| [`Mongo`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/Mongo.md) | |
-| [`MongoLite`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/MongoLite.md) | |
-| [`ResultSet`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoHybrid/ResultSet.md) | |
+| [`Client`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoHybrid/Client.md) | |
+| [`Mongo`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoHybrid/Mongo.md) | |
+| [`MongoLite`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoHybrid/MongoLite.md) | |
+| [`ResultSet`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoHybrid/ResultSet.md) | |
 
 ### \MongoLite
 
@@ -1319,11 +1319,11 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Client.md) | Client object.|
-| [`Collection`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Collection.md) | Collection object.|
-| [`Cursor`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Cursor.md) | Cursor object.|
-| [`Database`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/Database.md) | Database object.|
-| [`UtilArrayQuery`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/MongoLite/UtilArrayQuery.md) | |
+| [`Client`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoLite/Client.md) | Client object.|
+| [`Collection`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoLite/Collection.md) | Collection object.|
+| [`Cursor`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoLite/Cursor.md) | Cursor object.|
+| [`Database`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoLite/Database.md) | Database object.|
+| [`UtilArrayQuery`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/MongoLite/UtilArrayQuery.md) | |
 
 ### \PHPMailer\PHPMailer
 
@@ -1331,17 +1331,17 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/Exception.md) | PHPMailer exception handler.|
-| [`OAuth`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/OAuth.md) | OAuth - OAuth2 authentication wrapper class.|
-| [`PHPMailer`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/PHPMailer.md) | PHPMailer - PHP email creation and transport class.|
-| [`POP3`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/POP3.md) | PHPMailer POP-Before-SMTP Authentication Class.|
-| [`SMTP`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/SMTP.md) | PHPMailer RFC821 SMTP email transport class.|
+| [`Exception`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PHPMailer/PHPMailer/Exception.md) | PHPMailer exception handler.|
+| [`OAuth`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PHPMailer/PHPMailer/OAuth.md) | OAuth - OAuth2 authentication wrapper class.|
+| [`PHPMailer`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PHPMailer/PHPMailer/PHPMailer.md) | PHPMailer - PHP email creation and transport class.|
+| [`POP3`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PHPMailer/PHPMailer/POP3.md) | PHPMailer POP-Before-SMTP Authentication Class.|
+| [`SMTP`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PHPMailer/PHPMailer/SMTP.md) | PHPMailer RFC821 SMTP email transport class.|
 
 #### Interfaces
 
 | Interface | Description |
 |-----------|-------------|
-| [`OAuthTokenProvider`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/PHPMailer/PHPMailer/OAuthTokenProvider.md) | OAuthTokenProvider - OAuth2 token provider interface.|
+| [`OAuthTokenProvider`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/PHPMailer/PHPMailer/OAuthTokenProvider.md) | OAuthTokenProvider - OAuth2 token provider interface.|
 
 ### \SimpleStorage
 
@@ -1349,7 +1349,7 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Client`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/SimpleStorage/Client.md) | |
+| [`Client`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/SimpleStorage/Client.md) | |
 
 ### \Singletons\Controller
 
@@ -1357,8 +1357,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Admin`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Singletons/Controller/Admin.md) | Class Controller|
-| [`RestApi`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/Singletons/Controller/RestApi.md) | Class Controller|
+| [`Admin`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Singletons/Controller/Admin.md) | Class Controller|
+| [`RestApi`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/Singletons/Controller/RestApi.md) | Class Controller|
 
 ### \ZipStream
 
@@ -1366,8 +1366,8 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`Exception`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception.md) | This class is only for inheriting|
-| [`ZipStream`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/ZipStream.md) | ZipStream|
+| [`Exception`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ZipStream/Exception.md) | This class is only for inheriting|
+| [`ZipStream`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ZipStream/ZipStream.md) | ZipStream|
 
 ### \ZipStream\Exception
 
@@ -1375,10 +1375,10 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`FileNotFoundException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/FileNotFoundException.md) | This Exception gets invoked if a file wasn&#039;t found|
-| [`FileNotReadableException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/FileNotReadableException.md) | This Exception gets invoked if a file wasn&#039;t found|
-| [`InvalidOptionException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/InvalidOptionException.md) | This Exception gets invoked if an invalid parameter gets passed on as option|
-| [`StreamNotReadableException`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/ZipStream/Exception/StreamNotReadableException.md) | This Exception gets invoked if fread() fails on a stream.|
+| [`FileNotFoundException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ZipStream/Exception/FileNotFoundException.md) | This Exception gets invoked if a file wasn&#039;t found|
+| [`FileNotReadableException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ZipStream/Exception/FileNotReadableException.md) | This Exception gets invoked if a file wasn&#039;t found|
+| [`InvalidOptionException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ZipStream/Exception/InvalidOptionException.md) | This Exception gets invoked if an invalid parameter gets passed on as option|
+| [`StreamNotReadableException`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/ZipStream/Exception/StreamNotReadableException.md) | This Exception gets invoked if fread() fails on a stream.|
 
 ### \claviska
 
@@ -1386,5 +1386,5 @@ the nature of the works. This is due to the fact that each of these works falls 
 
 | Class | Description |
 |-------|-------------|
-| [`SimpleImage`](https://github.com/4dboard/proxy-yxorp/tree/main/docs/classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
+| [`SimpleImage`](https://github.com/4dboard/Proxy-yxorP/tree/main/docs/classes/claviska/SimpleImage.md) | A PHP class that makes working with images as simple as possible.|
 
