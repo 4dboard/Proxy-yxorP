@@ -124,8 +124,6 @@ class yP
     public static function localise(array $req): void
     {
 
-        /* Checking if the files exist in the directory. */
-        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
 
         /* Defining a constant called self::get(YXORP_SERVER) and setting it to the value of $req. */
         constants::set(VAR_SERVER, $req);
@@ -269,6 +267,13 @@ class yP
      */
     public static function proxy(string $yxorp_root, array|null $request = null): void
     {
+        require __DIR__ . '/constants.php';
+        /* Loading the required files. */
+        require __DIR__ . '/generalHelper.php';
+
+        /* Checking if the files exist in the directory. */
+        foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
+
         /* It's checking if the `tmp` directory exists, and if it doesn't, it creates it. */
         constants::create($yxorp_root);
 
