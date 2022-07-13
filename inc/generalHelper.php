@@ -226,7 +226,7 @@ class generalHelper
         if ($inc) require_once($loc);
 
         echo YXORP_REQUEST_URI;
-
+        echo '123';
         echo $x;
 
         if (!$inc && str_contains(YXORP_REQUEST_URI, $x)) {
