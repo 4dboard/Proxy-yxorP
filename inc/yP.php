@@ -297,7 +297,6 @@ class yP
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
         self::init($yxorp_root);
-        print_r(constants::get(YXORP_EVENT_LIST));
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
         foreach (constants::get(YXORP_EVENT_LIST) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
@@ -397,7 +396,6 @@ class yP
      */
     public static function yxorP(array|null $request = null): self
     {
-        exit('123');
         /* It's checking if the `$yxorP` variable is set, and if it is, it returns it, if it isn't, it creates a new
         instance of the `yxorP` class and sets the `$yxorP` variable to it. */
         return (self::$yxorP) ?: self::$yxorP = new self($request ?: $_SERVER);
