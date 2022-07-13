@@ -45,7 +45,7 @@ flexible web proxy solutions in terms of browsing capabilities. Moreover, yxorP 
 ever created. This is due to its event-driven architecture and emphasis on its plugin-based design, rather than its
 built-in features, which are the most essential and defining components that enable customization and extension of its
 capabilities. Due to its versatility and scalability, this is the case.
-  
+
 Because they provide customization and expansion of a product's capabilities, the built-in features are the most
 distinguishing and significant aspects. This is due to its adaptable and expandable qualities, which has led to the
 current circumstance. This is due to the fact that the inherent characteristics are the most fundamental and distinctive
@@ -202,6 +202,8 @@ website so that its settings may be modified.
 
 ### 🔋 Batteries Included: Plug & Play \[CURL + Composer Optional\], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.
 
+![image](https://user-images.githubusercontent.com/6468571/178638238-d67683cc-00bf-47ab-b4d1-b0fe2edc0a6d.png)
+
 In addition to a system for content-spinning and an auto-caching engine, the website's interface is visually pleasant.
 Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,
 Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Sssb, and Zend Disk Cache are among the available cache drivers.
@@ -216,7 +218,9 @@ thesaurus/dictionary items) and without sacrificing quality.
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
 ![image](https://user-images.githubusercontent.com/6468571/177671798-1d8a9fc9-64d4-43d8-82e1-3d2a056ada90.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
-### Cockpit Back-End Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to
+### Dashboard Back-End is awesome if you need a flexible content structure but don't want to be limited in how to
+
+![image](https://user-images.githubusercontent.com/6468571/178638445-0805737e-d8e5-418a-92d3-3b1e6a704a8d.png)
 
 Implementation is the most efficient approach to use the offered information. Cockpit is a good option to investigate if
 you need to manage a large number of devices or require a content management interface for static site builders. Both of
@@ -236,6 +240,8 @@ interface, as opposed to depending on the transmission of data through individua
 
 #### Key features:
 
+![image](https://user-images.githubusercontent.com/6468571/178638561-576ea776-4fdb-4e2f-98e7-0d380de98212.png)
+
 Manage flexible content models. Despite the existence of accessible content models, none have been developed before. You
 will be solely responsible for developing the content model required for this method. A user interface free of
 extraneous elements and clutter. Dashboard provides not just an easy user interface, but also one that is continuously
@@ -244,6 +250,8 @@ just one system in place. Utilize a straightforward application programming inte
 API).
 
 #### The Advantages Of Going Headless
+
+![image](https://user-images.githubusercontent.com/6468571/178638648-57afc681-e222-4401-a1c6-a6c8812dd624.png)
 
 - You are free to come up with the most creative arrangement you are capable of conceiving since the display does not
   have any restrictions of any kind, giving you the opportunity to do so.
@@ -279,6 +287,8 @@ available through the Internet. This category may include articles, images, and 
 required information far faster, and they are no longer directly in competition with other activities for available
 bandwidth.
 
+![image](https://user-images.githubusercontent.com/6468571/178638714-b7a75c9d-eec0-4831-aced-45a3da6424a2.png)
+
 When you load your websites utilizing caching, you not only reduce the likelihood that the loading time will increase,
 but you also reduce the server strain caused by your actions. Consequently, the time required for online pages to load
 will decrease with time.
@@ -288,10 +298,12 @@ will decrease with time.
 All network access requests are continually monitored and filtered by a firewall, while proxy servers only provide the
 former role. This is the most significant distinction between the two security techniques. This is the most notable
 distinction between the two kinds of used safety measures. By emphasizing this contrast, the two unique types of
-security measures may be distinguished most clearly from one another. A proxy server connects the user's local computer
-to the server, allowing it to receive data on the user's behalf. This connection gives the local computer of the user
-access to the server. Due to these operations, the proxy server acts as an intermediate between the client and the
+security measures may be distinguished most clearly from one another. 
+
+A proxy server connects the user's local computer to the server, allowing it to receive data on the user's behalf. This connection gives the local computer of the user access to the server. Due to these operations, the proxy server acts as an intermediate between the client and the
 server. Access should never be allowed unless specifically permitted by the appropriate authorities.
+
+![image](https://user-images.githubusercontent.com/6468571/178638799-eed7c7ae-0bc6-4fc8-9403-68caf71d182b.png)
 
 To defend your websites against distributed denial of service attacks and other sorts of attacks, you must configure a
 virtual firewall behind your proxy server. You will be safeguarded against website-based assaults in general if you
@@ -304,6 +316,8 @@ resources. This is required for the API to fulfill your requests. The sole requi
 that you provide the request body together with all client-requested request data. After receiving and processing your
 request, CORS Proxy will promptly return it to you using an efficient and effective method.
 
+![image](https://user-images.githubusercontent.com/6468571/178638893-c3dd1cef-48ae-490e-b80c-66b1eeb84b99.png)
+
 Although it is feasible to use iframing services without CORS, doing so is discouraged. It has been said that the
 behavior in question, although being plausible and "not suggested but attainable," it is "not advised but possible."
 
@@ -315,6 +329,8 @@ Proxy Load Balancing may operate as a global load balancing service when the Pre
 balancer or a Web proxy server is required when implementing in-memory replication of client session information. Both
 options cannot be used together. This is done so that all domain-based applications may be accessed through a single URL
 for external clients.
+
+![image](https://user-images.githubusercontent.com/6468571/178639159-0556cdfa-b102-4e7b-bda7-7b79d91342ca.png)
 
 The installation of cloned copies of your website on several additional servers, each of which is connected to a
 load-balancing system, is one method for achieving this objective. There are several other approaches that might
@@ -329,6 +345,8 @@ failure. Due to their incapacity to communicate, proxy servers and peer masters 
 they are unaware of one another. Peer masters are in communication with and converse with one another. In contrast, peer
 masters are familiar with one another and maintain open communication lines. Various properties of peer masters and
 proxy servers must be accounted for.
+
+![image](https://user-images.githubusercontent.com/6468571/178639215-2ed92212-1f09-46de-bb24-5287862c72c2.png)
 
 By keeping a proxy version of your website and switching to it whenever the actual website is unavailable for
 maintenance or changes, you can ensure that your online resources remain accessible at a high level and continuously.
