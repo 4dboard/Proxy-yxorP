@@ -176,16 +176,16 @@ website so that its settings may be modified.
 
 ### 🔋 Batteries Included: Plug & Play \[CURL + Composer Optional\], Proxy as a Service, Multi-tenant, Multi-Threaded, with Cache & Article Spinner.
 
-Convenient features such as built-in content spinning and an auto caching engine are hidden behind a slick online
-interface. Among the cache drivers provided are Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files,
-CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb, Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Ssdb, and
-Zend Disk Cache. The combined might of two of the most successful web proxy initiatives is harnessed for maximum effect.
-This self-service proxy engine has zero performance loss and supports numerous tenants by combining a flat-file
-beautiful web interface with a custom multi-threaded caching layer and an extremely powerful 10,000+ word thesaurus
-article spinner. In addition to having a built-in "cache" management system as well as a web-based "cache" management
-system, the proxy is "modular" or "plugin-based." Web-based reporting and analytics using a graphical user interface (
-GUI) (GUI). By leveraging a custom-built content spinning engine, the system allows material to be "augmented" (or "
-spun") with little performance degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
+In addition to a system for content-spinning and an auto-caching engine, the website's interface is visually pleasant.
+Arangodb, Devnull, Dynamodb (AWS), Cassandra, Devrandom, Files, CouchBasev3, Memstatic, Firestore, Couchdb, Leveldb,
+Mongodb, Memcache(d),Predis, Sqlite, Redis, Wincache, Sssb, and Zend Disk Cache are among the available cache drivers.
+Integrating the two most efficient web proxy applications enhances performance. This self-service proxy engine supports
+several tenants with little performance loss by combining an attractive flat-file web interface with a bespoke
+multi-threaded caching layer and a very effective thesaurus article spinner with a minimum vocabulary of 10,000 words.
+In addition to an integrated cache management system and a web-based cache management system, the proxy is modular or
+plugin-based. Internet-based graphical user interface (GUI) monitoring and analytics (GUI). By using a custom-built
+content spinning engine, the system is able to "enhance" (or "spin") information with little performance loss (10,000+
+thesaurus/dictionary items) and without sacrificing quality.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
 ![image](https://user-images.githubusercontent.com/6468571/177671798-1d8a9fc9-64d4-43d8-82e1-3d2a056ada90.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
