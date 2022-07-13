@@ -260,7 +260,8 @@ follow these steps to their logical conclusion.
 
 #### 🔳 iFrame
 
-It is possible to circumvent CORS for the iframing services that you need – ***not recommended, but feasible***.
+Although it is feasible to use iframing services without CORS, doing so is discouraged. It has been said that the
+behavior in question, although being plausible and "not suggested but attainable," it is "not advised but possible."
 
 #### 🔱 Load-balancing
 
