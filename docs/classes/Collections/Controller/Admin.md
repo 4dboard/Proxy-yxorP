@@ -318,33 +318,6 @@ public find(): mixed
 
 ***
 
-### revisions
-
-
-
-```php
-public revisions(mixed $collection, mixed $id): mixed
-```
-
-
-
-
-
-
-
-
-**Parameters:**
-
-| Parameter | Type | Description |
-|-----------|------|-------------|
-| `$collection` | **mixed** |  |
-| `$id` | **mixed** |  |
-
-
-
-
-***
-
 ### _filter
 
 
@@ -367,6 +340,33 @@ protected _filter(mixed $filter, mixed $collection, mixed $lang = null): mixed
 | `$filter` | **mixed** |  |
 | `$collection` | **mixed** |  |
 | `$lang` | **mixed** |  |
+
+
+
+
+***
+
+### revisions
+
+
+
+```php
+public revisions(mixed $collection, mixed $id): mixed
+```
+
+
+
+
+
+
+
+
+**Parameters:**
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `$collection` | **mixed** |  |
+| `$id` | **mixed** |  |
 
 
 
