@@ -2,16 +2,33 @@
 
 # Filesystem
 
+
+
+
+
 * Full name: `\LimeExtra\Helper\Filesystem`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
+
+
+
 ## Methods
 
+
 ### path
+
+
 
 ```php
 public path(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -19,37 +36,85 @@ public path(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### ls
+
+
 
 ```php
 public ls(): array
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### read
+
+
 
 ```php
 public read(): bool|mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### write
+
+
 
 ```php
 public write(): bool|mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### mkdir
 
+
+
 ```php
 public mkdir( $path, int $mode = 0755): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -58,13 +123,25 @@ public mkdir( $path, int $mode = 0755): bool
 | `$path` | **** |  |
 | `$mode` | **int** |  |
 
+
+
+
 ***
 
 ### copy
 
+
+
 ```php
 public copy( $path,  $dest, bool|true $_init = true): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -74,13 +151,25 @@ public copy( $path,  $dest, bool|true $_init = true): bool
 | `$dest` | **** |  |
 | `$_init` | **bool&#124;true** |  |
 
+
+
+
 ***
 
 ### rename
 
+
+
 ```php
 public rename( $path,  $newpath, bool|true $overwrite = true): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -90,13 +179,25 @@ public rename( $path,  $newpath, bool|true $overwrite = true): bool
 | `$newpath` | **** |  |
 | `$overwrite` | **bool&#124;true** |  |
 
+
+
+
 ***
 
 ### delete
 
+
+
 ```php
 public delete( $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -104,13 +205,25 @@ public delete( $path): mixed
 |-----------|------|-------------|
 | `$path` | **** |  |
 
+
+
+
 ***
 
 ### getDirSize
 
+
+
 ```php
 public getDirSize( $dir): int
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -118,13 +231,25 @@ public getDirSize( $dir): int
 |-----------|------|-------------|
 | `$dir` | **** |  |
 
+
+
+
 ***
 
 ### removeEmptySubFolders
 
+
+
 ```php
 public removeEmptySubFolders( $dir, bool|false $selfremove = false): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -133,15 +258,29 @@ public removeEmptySubFolders( $dir, bool|false $selfremove = false): bool
 | `$dir` | **** |  |
 | `$selfremove` | **bool&#124;false** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $app): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -149,21 +288,45 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 public initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -172,13 +335,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -186,13 +361,25 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -200,8 +387,11 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

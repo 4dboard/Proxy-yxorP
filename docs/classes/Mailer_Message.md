@@ -2,25 +2,49 @@
 
 # Mailer_Message
 
+
+
+
+
 * Full name: `\Mailer_Message`
+
+
 
 ## Properties
 
+
 ### mail
+
+
 
 ```php
 public $mail
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $mail): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -28,13 +52,25 @@ public __construct(mixed $mail): mixed
 |-----------|------|-------------|
 | `$mail` | **mixed** |  |
 
+
+
+
 ***
 
 ### setCharset
 
+
+
 ```php
 public setCharset(mixed $charset): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -42,13 +78,25 @@ public setCharset(mixed $charset): mixed
 |-----------|------|-------------|
 | `$charset` | **mixed** |  |
 
+
+
+
 ***
 
 ### setSubject
 
+
+
 ```php
 public setSubject(mixed $subject): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -56,28 +104,52 @@ public setSubject(mixed $subject): mixed
 |-----------|------|-------------|
 | `$subject` | **mixed** |  |
 
+
+
+
 ***
 
 ### setFrom
+
+
 
 ```php
 public setFrom(mixed $email, mixed $name = false): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$email` | **mixed** |  |
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 
 ### addReplyTo
 
+
+
 ```php
 public addReplyTo(mixed $email, mixed $name = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -85,14 +157,26 @@ public addReplyTo(mixed $email, mixed $name = &#039;&#039;): mixed
 |-----------|------|-------------|
 | `$email` | **mixed** |  |
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 
 ### addTo
 
+
+
 ```php
 public addTo(mixed $email, mixed $name = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -100,14 +184,26 @@ public addTo(mixed $email, mixed $name = &#039;&#039;): mixed
 |-----------|------|-------------|
 | `$email` | **mixed** |  |
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 
 ### addCC
 
+
+
 ```php
 public addCC(mixed $email, mixed $name = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -116,21 +212,45 @@ public addCC(mixed $email, mixed $name = &#039;&#039;): mixed
 | `$email` | **mixed** |  |
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### send
+
+
 
 ```php
 public send(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### attach
 
+
+
 ```php
 public attach(mixed $file, mixed $alias = &#039;&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -139,8 +259,11 @@ public attach(mixed $file, mixed $alias = &#039;&#039;): mixed
 | `$file` | **mixed** |  |
 | `$alias` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

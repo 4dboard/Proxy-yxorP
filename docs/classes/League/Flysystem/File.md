@@ -2,11 +2,19 @@
 
 # File
 
+
+
+
+
 * Full name: `\League\Flysystem\File`
 * Parent class: [`\League\Flysystem\Handler`](./Handler.md)
 * **Warning:** this class is **deprecated**. This means that this class will likely be removed in a future version.
 
+
+
+
 ## Methods
+
 
 ### exists
 
@@ -15,6 +23,16 @@ Check whether the file exists.
 ```php
 public exists(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -25,6 +43,14 @@ Read the file.
 ```php
 public read(): string|false
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -42,6 +68,14 @@ Read the file as a stream.
 public readStream(): resource|false
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 file stream
@@ -58,11 +92,19 @@ Write the new file.
 public write(string $content): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
+
 
 **Return Value:**
 
@@ -80,11 +122,19 @@ Write the new file using a stream.
 public writeStream(resource $resource): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **resource** |  |
+
 
 **Return Value:**
 
@@ -102,11 +152,19 @@ Update the file contents.
 public update(string $content): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
+
 
 **Return Value:**
 
@@ -124,11 +182,19 @@ Update the file contents with a stream.
 public updateStream(resource $resource): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **resource** |  |
+
 
 **Return Value:**
 
@@ -146,11 +212,19 @@ Create the file or update if exists.
 public put(string $content): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$content` | **string** |  |
+
 
 **Return Value:**
 
@@ -168,11 +242,19 @@ Create the file or update if exists using a stream.
 public putStream(resource $resource): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **resource** |  |
+
 
 **Return Value:**
 
@@ -190,11 +272,19 @@ Rename the file.
 public rename(string $newpath): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newpath` | **string** |  |
+
 
 **Return Value:**
 
@@ -212,11 +302,19 @@ Copy the file.
 public copy(string $newpath): \League\Flysystem\File|false
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$newpath` | **string** |  |
+
 
 **Return Value:**
 
@@ -234,6 +332,14 @@ Get the file's timestamp.
 public getTimestamp(): string|false
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 The timestamp or false on failure.
@@ -249,6 +355,14 @@ Get the file's mimetype.
 ```php
 public getMimetype(): string|false
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -266,6 +380,14 @@ Get the file's visibility.
 public getVisibility(): string|false
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 The visibility (public|private) or false on failure.
@@ -281,6 +403,14 @@ Get the file's metadata.
 ```php
 public getMetadata(): array|false
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -298,6 +428,14 @@ Get the file size.
 public getSize(): int|false
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 The file size or false on failure.
@@ -314,6 +452,14 @@ Delete the file.
 public delete(): bool
 ```
 
+
+
+
+
+
+
+
+
 **Return Value:**
 
 success boolean
@@ -322,7 +468,9 @@ success boolean
 
 ***
 
+
 ## Inherited methods
+
 
 ### __construct
 
@@ -332,12 +480,22 @@ Constructor.
 public __construct(\League\Flysystem\FilesystemInterface $filesystem = null, string $path = null): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
 | `$path` | **string** |  |
+
+
+
 
 ***
 
@@ -349,6 +507,16 @@ Check whether the entree is a directory.
 public isDir(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isFile
@@ -359,6 +527,16 @@ Check whether the entree is a file.
 public isFile(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getType
@@ -368,6 +546,14 @@ Retrieve the entree type (file|dir).
 ```php
 public getType(): string
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -385,11 +571,21 @@ Set the Filesystem object.
 public setFilesystem(\League\Flysystem\FilesystemInterface $filesystem): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
+
+
+
 
 ***
 
@@ -401,6 +597,16 @@ Retrieve the Filesystem object.
 public getFilesystem(): \League\Flysystem\FilesystemInterface
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setPath
@@ -411,11 +617,21 @@ Set the entree path.
 public setPath(string $path): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
+
+
 
 ***
 
@@ -426,6 +642,14 @@ Retrieve the entree path.
 ```php
 public getPath(): string
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -443,6 +667,13 @@ Plugins pass-through.
 public __call(string $method, array $arguments): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -450,8 +681,11 @@ public __call(string $method, array $arguments): mixed
 | `$method` | **string** |  |
 | `$arguments` | **array** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

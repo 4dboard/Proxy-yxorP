@@ -4,27 +4,49 @@
 
 Observes command documents using the driver's monitoring API.
 
+
+
 * Full name: `\MongoDB\Tests\CommandObserver`
 * This class implements:
-  [`\MongoDB\Driver\Monitoring\CommandSubscriber`](../Driver/Monitoring/CommandSubscriber.md)
+[`\MongoDB\Driver\Monitoring\CommandSubscriber`](../Driver/Monitoring/CommandSubscriber.md)
+
+
 
 ## Properties
 
+
 ### commands
+
+
 
 ```php
 private array $commands
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### observe
+
+
 
 ```php
 public observe(callable $execution, callable $commandCallback): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -33,13 +55,25 @@ public observe(callable $execution, callable $commandCallback): void
 | `$execution` | **callable** |  |
 | `$commandCallback` | **callable** |  |
 
+
+
+
 ***
 
 ### commandStarted
 
+
+
 ```php
 public commandStarted(\MongoDB\Driver\Monitoring\CommandStartedEvent $event): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -47,13 +81,25 @@ public commandStarted(\MongoDB\Driver\Monitoring\CommandStartedEvent $event): vo
 |-----------|------|-------------|
 | `$event` | **\MongoDB\Driver\Monitoring\CommandStartedEvent** |  |
 
+
+
+
 ***
 
 ### commandSucceeded
 
+
+
 ```php
 public commandSucceeded(\MongoDB\Driver\Monitoring\CommandSucceededEvent $event): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -61,13 +107,25 @@ public commandSucceeded(\MongoDB\Driver\Monitoring\CommandSucceededEvent $event)
 |-----------|------|-------------|
 | `$event` | **\MongoDB\Driver\Monitoring\CommandSucceededEvent** |  |
 
+
+
+
 ***
 
 ### commandFailed
 
+
+
 ```php
 public commandFailed(\MongoDB\Driver\Monitoring\CommandFailedEvent $event): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -75,8 +133,11 @@ public commandFailed(\MongoDB\Driver\Monitoring\CommandFailedEvent $event): void
 |-----------|------|-------------|
 | `$event` | **\MongoDB\Driver\Monitoring\CommandFailedEvent** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

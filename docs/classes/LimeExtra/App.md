@@ -2,16 +2,33 @@
 
 # App
 
+
+
+
+
 * Full name: `\LimeExtra\App`
 * Parent class: [`\Lime\App`](../Lime/App.md)
 
+
+
+
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $settings = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -19,28 +36,52 @@ public __construct(mixed $settings = []): mixed
 |-----------|------|-------------|
 | `$settings` | **mixed** |  |
 
+
+
+
 ***
 
 ### renderView
+
+
 
 ```php
 public renderView(mixed $template, mixed $slots = []): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$template` | **mixed** |  |
 | `$slots` | **mixed** |  |
+
+
+
 
 ***
 
 ### view
 
+
+
 ```php
 public view(mixed $template, mixed $slots = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -49,13 +90,25 @@ public view(mixed $template, mixed $slots = []): mixed
 | `$template` | **mixed** |  |
 | `$slots` | **mixed** |  |
 
+
+
+
 ***
 
 ### assets
 
+
+
 ```php
 public assets(mixed $src, mixed $version = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -64,15 +117,29 @@ public assets(mixed $src, mixed $version = false): mixed
 | `$src` | **mixed** |  |
 | `$version` | **mixed** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $settings = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -80,13 +147,25 @@ public __construct(mixed $settings = []): mixed
 |-----------|------|-------------|
 | `$settings` | **mixed** |  |
 
+
+
+
 ***
 
 ### retrieve
 
+
+
 ```php
 public retrieve(mixed $key, mixed $default = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -95,23 +174,45 @@ public retrieve(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### getRequestfromGlobals
+
+
 
 ```php
 protected getRequestfromGlobals(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### instance
+
+
 
 ```php
 public static instance(mixed $name): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -119,13 +220,25 @@ public static instance(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### service
 
+
+
 ```php
 public service(mixed $name, mixed $callable): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -134,35 +247,71 @@ public service(mixed $name, mixed $callable): mixed
 | `$name` | **mixed** |  |
 | `$callable` | **mixed** |  |
 
+
+
+
 ***
 
 ### isExit
+
+
 
 ```php
 public isExit(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### base
+
+
 
 ```php
 public base(mixed $path): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### baseUrl
 
+
+
 ```php
 public baseUrl(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -170,13 +319,25 @@ public baseUrl(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### pathToUrl
 
+
+
 ```php
 public pathToUrl(mixed $path, mixed $full = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -185,57 +346,117 @@ public pathToUrl(mixed $path, mixed $full = false): mixed
 | `$path` | **mixed** |  |
 | `$full` | **mixed** |  |
 
+
+
+
 ***
 
 ### path
+
+
 
 ```php
 public path(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isAbsolutePath
+
+
 
 ```php
 public isAbsolutePath(mixed $path): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### route
 
+
+
 ```php
 public route(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
 ### routeUrl
 
+
+
 ```php
 public routeUrl(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### reroute
 
+
+
 ```php
 public reroute(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -243,13 +464,25 @@ public reroute(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### stop
 
+
+
 ```php
 public stop(mixed $data = false, mixed $status = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -258,13 +491,25 @@ public stop(mixed $data = false, mixed $status = null): mixed
 | `$data` | **mixed** |  |
 | `$status` | **mixed** |  |
 
+
+
+
 ***
 
 ### set
 
+
+
 ```php
 public set(mixed $key, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -273,13 +518,25 @@ public set(mixed $key, mixed $value): mixed
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### paths
 
+
+
 ```php
 public paths(mixed $namespace = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -287,21 +544,45 @@ public paths(mixed $namespace = null): mixed
 |-----------|------|-------------|
 | `$namespace` | **mixed** |  |
 
+
+
+
 ***
 
 ### cache
+
+
 
 ```php
 public cache(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### helper
 
+
+
 ```php
 public helper(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -309,13 +590,25 @@ public helper(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### on
 
+
+
 ```php
 public on(mixed $event, mixed $callback, mixed $priority): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -325,13 +618,25 @@ public on(mixed $event, mixed $callback, mixed $priority): mixed
 | `$callback` | **mixed** |  |
 | `$priority` | **mixed** |  |
 
+
+
+
 ***
 
 ### render
 
+
+
 ```php
 public render(mixed $____template, mixed $_____slots = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -340,13 +645,25 @@ public render(mixed $____template, mixed $_____slots = []): mixed
 | `$____template` | **mixed** |  |
 | `$_____slots` | **mixed** |  |
 
+
+
+
 ***
 
 ### trigger
 
+
+
 ```php
 public trigger(mixed $event, mixed $params = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -355,27 +672,51 @@ public trigger(mixed $event, mixed $params = []): mixed
 | `$event` | **mixed** |  |
 | `$params` | **mixed** |  |
 
+
+
+
 ***
 
 ### start
+
+
 
 ```php
 public start(mixed $name): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
+
+
+
 
 ***
 
 ### end
 
+
+
 ```php
 public end(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -383,13 +724,25 @@ public end(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### block
 
+
+
 ```php
 public block(mixed $name, mixed $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -398,13 +751,25 @@ public block(mixed $name, mixed $options = []): mixed
 | `$name` | **mixed** |  |
 | `$options` | **mixed** |  |
 
+
+
+
 ***
 
 ### escape
 
+
+
 ```php
 public escape(mixed $string, mixed $charset = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -413,28 +778,52 @@ public escape(mixed $string, mixed $charset = null): mixed
 | `$string` | **mixed** |  |
 | `$charset` | **mixed** |  |
 
+
+
+
 ***
 
 ### assets
+
+
 
 ```php
 public assets(mixed $src, mixed $version = false): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$src` | **mixed** |  |
 | `$version` | **mixed** |  |
+
+
+
 
 ***
 
 ### script
 
+
+
 ```php
 public script(mixed $src, mixed $version = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -443,13 +832,25 @@ public script(mixed $src, mixed $version = false): mixed
 | `$src` | **mixed** |  |
 | `$version` | **mixed** |  |
 
+
+
+
 ***
 
 ### style
 
+
+
 ```php
 public style(mixed $href, mixed $version = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -458,14 +859,26 @@ public style(mixed $href, mixed $version = false): mixed
 | `$href` | **mixed** |  |
 | `$version` | **mixed** |  |
 
+
+
+
 ***
 
 ### get
+
+
 
 ```php
 public get(mixed $path, mixed $callback, mixed $condition = true): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -473,14 +886,26 @@ public get(mixed $path, mixed $callback, mixed $condition = true): mixed
 | `$path` | **mixed** |  |
 | `$callback` | **mixed** |  |
 | `$condition` | **mixed** |  |
+
+
+
 
 ***
 
 ### bind
 
+
+
 ```php
 public bind(mixed $path, mixed $callback, mixed $condition = true): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -489,14 +914,26 @@ public bind(mixed $path, mixed $callback, mixed $condition = true): mixed
 | `$path` | **mixed** |  |
 | `$callback` | **mixed** |  |
 | `$condition` | **mixed** |  |
+
+
+
 
 ***
 
 ### post
 
+
+
 ```php
 public post(mixed $path, mixed $callback, mixed $condition = true): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -506,13 +943,25 @@ public post(mixed $path, mixed $callback, mixed $condition = true): mixed
 | `$callback` | **mixed** |  |
 | `$condition` | **mixed** |  |
 
+
+
+
 ***
 
 ### bindClass
 
+
+
 ```php
 public bindClass(mixed $class, mixed $alias = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -521,13 +970,25 @@ public bindClass(mixed $class, mixed $alias = false): mixed
 | `$class` | **mixed** |  |
 | `$alias` | **mixed** |  |
 
+
+
+
 ***
 
 ### invoke
 
+
+
 ```php
 public invoke(mixed $class, mixed $action = &quot;index&quot;, mixed $params = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -537,13 +998,25 @@ public invoke(mixed $class, mixed $action = &quot;index&quot;, mixed $params = [
 | `$action` | **mixed** |  |
 | `$params` | **mixed** |  |
 
+
+
+
 ***
 
 ### bindNamespace
 
+
+
 ```php
 public bindNamespace(mixed $namespace, mixed $alias): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -552,13 +1025,25 @@ public bindNamespace(mixed $namespace, mixed $alias): mixed
 | `$namespace` | **mixed** |  |
 | `$alias` | **mixed** |  |
 
+
+
+
 ***
 
 ### run
 
+
+
 ```php
 public run(mixed $route = null, mixed $request = null, mixed $flush = true): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -568,13 +1053,25 @@ public run(mixed $route = null, mixed $request = null, mixed $flush = true): mix
 | `$request` | **mixed** |  |
 | `$flush` | **mixed** |  |
 
+
+
+
 ***
 
 ### dispatch
 
+
+
 ```php
 public dispatch(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -582,13 +1079,25 @@ public dispatch(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### render_route
 
+
+
 ```php
 protected render_route(mixed $route, mixed $params = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -597,13 +1106,25 @@ protected render_route(mixed $route, mixed $params = []): mixed
 | `$route` | **mixed** |  |
 | `$params` | **mixed** |  |
 
+
+
+
 ***
 
 ### param
 
+
+
 ```php
 public param(mixed $index = null, mixed $default = null, mixed $source = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -613,13 +1134,25 @@ public param(mixed $index = null, mixed $default = null, mixed $source = null): 
 | `$default` | **mixed** |  |
 | `$source` | **mixed** |  |
 
+
+
+
 ***
 
 ### req_is
 
+
+
 ```php
 public req_is(mixed $type): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -627,21 +1160,45 @@ public req_is(mixed $type): mixed
 |-----------|------|-------------|
 | `$type` | **mixed** |  |
 
+
+
+
 ***
 
 ### getClientIp
+
+
 
 ```php
 public getClientIp(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getClientLang
 
+
+
 ```php
 public getClientLang(mixed $default = &quot;en&quot;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -649,13 +1206,25 @@ public getClientLang(mixed $default = &quot;en&quot;): mixed
 |-----------|------|-------------|
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### getSiteUrl
 
+
+
 ```php
 public getSiteUrl(mixed $withpath = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -663,13 +1232,25 @@ public getSiteUrl(mixed $withpath = false): mixed
 |-----------|------|-------------|
 | `$withpath` | **mixed** |  |
 
+
+
+
 ***
 
 ### hash
 
+
+
 ```php
 public hash(mixed $text, mixed $algo = PASSWORD_BCRYPT): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -678,13 +1259,25 @@ public hash(mixed $text, mixed $algo = PASSWORD_BCRYPT): mixed
 | `$text` | **mixed** |  |
 | `$algo` | **mixed** |  |
 
+
+
+
 ***
 
 ### decode
 
+
+
 ```php
 public decode(mixed $data, mixed $pwd): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -693,13 +1286,25 @@ public decode(mixed $data, mixed $pwd): mixed
 | `$data` | **mixed** |  |
 | `$pwd` | **mixed** |  |
 
+
+
+
 ***
 
 ### encode
 
+
+
 ```php
 public encode(mixed $data, mixed $pwd, mixed $base64encoded = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -709,13 +1314,25 @@ public encode(mixed $data, mixed $pwd, mixed $base64encoded = false): mixed
 | `$pwd` | **mixed** |  |
 | `$base64encoded` | **mixed** |  |
 
+
+
+
 ***
 
 ### module
 
+
+
 ```php
 public module(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -723,13 +1340,25 @@ public module(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### loadModules
 
+
+
 ```php
 public loadModules(mixed $dirs, mixed $autoload = true, mixed $prefix = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -739,13 +1368,25 @@ public loadModules(mixed $dirs, mixed $autoload = true, mixed $prefix = false): 
 | `$autoload` | **mixed** |  |
 | `$prefix` | **mixed** |  |
 
+
+
+
 ***
 
 ### registerModule
 
+
+
 ```php
 public registerModule(mixed $name, mixed $dir): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -754,13 +1395,25 @@ public registerModule(mixed $name, mixed $dir): mixed
 | `$name` | **mixed** |  |
 | `$dir` | **mixed** |  |
 
+
+
+
 ***
 
 ### bootModule
 
+
+
 ```php
 protected bootModule(mixed $module): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -768,13 +1421,25 @@ protected bootModule(mixed $module): mixed
 |-----------|------|-------------|
 | `$module` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -782,13 +1447,25 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### offsetSet
 
+
+
 ```php
 public offsetSet(mixed $key, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -797,41 +1474,77 @@ public offsetSet(mixed $key, mixed $value): mixed
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### offsetGet
+
+
 
 ```php
 public offsetGet(mixed $key): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### offsetExists
 
+
+
 ```php
 public offsetExists(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### offsetUnset
 
+
+
 ```php
 public offsetUnset(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -839,13 +1552,25 @@ public offsetUnset(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -853,8 +1578,11 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

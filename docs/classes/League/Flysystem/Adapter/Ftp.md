@@ -2,60 +2,110 @@
 
 # Ftp
 
+
+
+
+
 * Full name: `\League\Flysystem\Adapter\Ftp`
 * Parent class: [`\League\Flysystem\Adapter\AbstractFtpAdapter`](./AbstractFtpAdapter.md)
 
+
+
 ## Properties
 
+
 ### transferMode
+
+
 
 ```php
 protected int $transferMode
 ```
 
+
+
+
+
+
 ***
 
 ### ignorePassiveAddress
+
+
 
 ```php
 protected null|bool $ignorePassiveAddress
 ```
 
+
+
+
+
+
 ***
 
 ### recurseManually
+
+
 
 ```php
 protected bool $recurseManually
 ```
 
+
+
+
+
+
 ***
 
 ### utf8
+
+
 
 ```php
 protected bool $utf8
 ```
 
+
+
+
+
+
 ***
 
 ### configurable
+
+
 
 ```php
 protected array $configurable
 ```
 
+
+
+
+
+
 ***
 
 ### isPureFtpd
+
+
 
 ```php
 protected bool $isPureFtpd
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### setTransferMode
 
@@ -65,11 +115,21 @@ Set the transfer mode.
 public setTransferMode(int $mode): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$mode` | **int** |  |
+
+
+
 
 ***
 
@@ -81,11 +141,21 @@ Set if Ssl is enabled.
 public setSsl(bool $ssl): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$ssl` | **bool** |  |
+
+
+
 
 ***
 
@@ -97,19 +167,38 @@ Set if passive mode should be used.
 public setPassive(bool $passive = true): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$passive` | **bool** |  |
 
+
+
+
 ***
 
 ### setIgnorePassiveAddress
 
+
+
 ```php
 public setIgnorePassiveAddress(bool $ignorePassiveAddress): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -117,13 +206,25 @@ public setIgnorePassiveAddress(bool $ignorePassiveAddress): mixed
 |-----------|------|-------------|
 | `$ignorePassiveAddress` | **bool** |  |
 
+
+
+
 ***
 
 ### setRecurseManually
 
+
+
 ```php
 public setRecurseManually(bool $recurseManually): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -131,19 +232,34 @@ public setRecurseManually(bool $recurseManually): mixed
 |-----------|------|-------------|
 | `$recurseManually` | **bool** |  |
 
+
+
+
 ***
 
 ### setUtf8
 
+
+
 ```php
 public setUtf8(bool $utf8): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$utf8` | **bool** |  |
+
+
+
 
 ***
 
@@ -155,6 +271,16 @@ Connect to the FTP server.
 public connect(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setUtf8Mode
@@ -164,6 +290,16 @@ Set the connection to UTF-8 mode.
 ```php
 protected setUtf8Mode(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -175,6 +311,16 @@ Set the connections to passive mode.
 protected setConnectionPassiveMode(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setConnectionRoot
@@ -184,6 +330,16 @@ Set the connection root.
 ```php
 protected setConnectionRoot(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -195,6 +351,16 @@ Login.
 protected login(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### disconnect
@@ -205,14 +371,33 @@ Disconnect from the FTP server.
 public disconnect(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### write
+
+
 
 ```php
 public write(mixed $path, mixed $contents, \League\Flysystem\Config $config): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -220,14 +405,26 @@ public write(mixed $path, mixed $contents, \League\Flysystem\Config $config): mi
 | `$path` | **mixed** |  |
 | `$contents` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
+
+
+
 
 ***
 
 ### writeStream
 
+
+
 ```php
 public writeStream(mixed $path, mixed $resource, \League\Flysystem\Config $config): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -237,13 +434,25 @@ public writeStream(mixed $path, mixed $resource, \League\Flysystem\Config $confi
 | `$resource` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
+
+
+
 ***
 
 ### update
 
+
+
 ```php
 public update(mixed $path, mixed $contents, \League\Flysystem\Config $config): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -253,13 +462,25 @@ public update(mixed $path, mixed $contents, \League\Flysystem\Config $config): m
 | `$contents` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
+
+
+
 ***
 
 ### updateStream
 
+
+
 ```php
 public updateStream(mixed $path, mixed $resource, \League\Flysystem\Config $config): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -269,13 +490,25 @@ public updateStream(mixed $path, mixed $resource, \League\Flysystem\Config $conf
 | `$resource` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
+
+
+
 ***
 
 ### rename
 
+
+
 ```php
 public rename(mixed $path, mixed $newpath): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -284,13 +517,25 @@ public rename(mixed $path, mixed $newpath): mixed
 | `$path` | **mixed** |  |
 | `$newpath` | **mixed** |  |
 
+
+
+
 ***
 
 ### delete
 
+
+
 ```php
 public delete(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -298,13 +543,25 @@ public delete(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### deleteDir
 
+
+
 ```php
 public deleteDir(mixed $dirname): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -312,13 +569,25 @@ public deleteDir(mixed $dirname): mixed
 |-----------|------|-------------|
 | `$dirname` | **mixed** |  |
 
+
+
+
 ***
 
 ### createDir
 
+
+
 ```php
 public createDir(mixed $dirname, \League\Flysystem\Config $config): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -326,6 +595,9 @@ public createDir(mixed $dirname, \League\Flysystem\Config $config): mixed
 |-----------|------|-------------|
 | `$dirname` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
+
+
+
 
 ***
 
@@ -337,6 +609,13 @@ Create a directory.
 protected createActualDirectory(string $directory, resource $connection): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -344,69 +623,129 @@ protected createActualDirectory(string $directory, resource $connection): bool
 | `$directory` | **string** |  |
 | `$connection` | **resource** |  |
 
+
+
+
 ***
 
 ### getMetadata
+
+
 
 ```php
 public getMetadata(mixed $path): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getMimetype
 
+
+
 ```php
 public getMimetype(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getTimestamp
 
+
+
 ```php
 public getTimestamp(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### read
 
+
+
 ```php
 public read(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### readStream
 
+
+
 ```php
 public readStream(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -414,13 +753,25 @@ public readStream(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### setVisibility
 
+
+
 ```php
 public setVisibility(mixed $path, mixed $visibility): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -429,13 +780,25 @@ public setVisibility(mixed $path, mixed $visibility): mixed
 | `$path` | **mixed** |  |
 | `$visibility` | **mixed** |  |
 
+
+
+
 ***
 
 ### listDirectoryContents
 
+
+
 ```php
 protected listDirectoryContents(string $directory, mixed $recursive = true): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -444,19 +807,34 @@ protected listDirectoryContents(string $directory, mixed $recursive = true): mix
 | `$directory` | **string** |  |
 | `$recursive` | **mixed** |  |
 
+
+
+
 ***
 
 ### listDirectoryContentsRecursive
 
+
+
 ```php
 protected listDirectoryContentsRecursive(string $directory): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$directory` | **string** |  |
+
+
+
 
 ***
 
@@ -468,13 +846,35 @@ Check if the connection is open.
 public isConnected(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isPureFtpdServer
 
+
+
 ```php
 protected isPureFtpdServer(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -486,6 +886,13 @@ The ftp_rawlist function with optional escaping.
 protected ftpRawlist(string $options, string $path): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -493,13 +900,25 @@ protected ftpRawlist(string $options, string $path): array
 | `$options` | **string** |  |
 | `$path` | **string** |  |
 
+
+
+
 ***
 
 ### getRawExecResponseCode
 
+
+
 ```php
 private getRawExecResponseCode(mixed $command): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -507,17 +926,34 @@ private getRawExecResponseCode(mixed $command): mixed
 |-----------|------|-------------|
 | `$command` | **mixed** |  |
 
+
+
+
 ***
 
 ### hasFtpConnection
+
+
 
 ```php
 private hasFtpConnection(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
+
 ## Inherited methods
+
 
 ### copy
 
@@ -527,6 +963,13 @@ Copy a file.
 public copy(string $path, string $newpath): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -534,15 +977,25 @@ public copy(string $path, string $newpath): bool
 | `$path` | **string** |  |
 | `$newpath` | **string** |  |
 
+
+
+
 ***
 
 ### readStream
+
+
 
 ```php
 public readStream(string $path): resource
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
@@ -550,15 +1003,25 @@ public readStream(string $path): resource
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
+
+
+
 ***
 
 ### writeStream
+
+
 
 ```php
 public writeStream(string $path, resource $resource, \League\Flysystem\Config $config): resource
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
@@ -567,6 +1030,9 @@ public writeStream(string $path, resource $resource, \League\Flysystem\Config $c
 | `$path` | **string** |  |
 | `$resource` | **resource** |  |
 | `$config` | **\League\Flysystem\Config** |  |
+
+
+
 
 ***
 
@@ -578,11 +1044,21 @@ Constructor.
 public __construct(array $config): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
+
+
+
 
 ***
 
@@ -594,11 +1070,21 @@ Set the config.
 public setConfig(array $config): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$config` | **array** |  |
+
+
+
 
 ***
 
@@ -610,6 +1096,16 @@ Returns the host.
 public getHost(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setHost
@@ -620,11 +1116,21 @@ Set the host.
 public setHost(string $host): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$host` | **string** |  |
+
+
+
 
 ***
 
@@ -636,11 +1142,21 @@ Set the public permission value.
 public setPermPublic(int $permPublic): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$permPublic` | **int** |  |
+
+
+
 
 ***
 
@@ -652,11 +1168,21 @@ Set the private permission value.
 public setPermPrivate(int $permPrivate): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$permPrivate` | **int** |  |
+
+
+
 
 ***
 
@@ -668,6 +1194,16 @@ Returns the ftp port.
 public getPort(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getRoot
@@ -677,6 +1213,16 @@ Returns the root folder to work from.
 ```php
 public getRoot(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -688,11 +1234,21 @@ Set the ftp port.
 public setPort(int|string $port): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$port` | **int&#124;string** |  |
+
+
+
 
 ***
 
@@ -704,11 +1260,21 @@ Set the root folder to work from.
 public setRoot(string $root): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$root` | **string** |  |
+
+
+
 
 ***
 
@@ -719,6 +1285,14 @@ Returns the ftp username.
 ```php
 public getUsername(): string
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -736,11 +1310,21 @@ Set ftp username.
 public setUsername(string $username): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$username` | **string** |  |
+
+
+
 
 ***
 
@@ -751,6 +1335,14 @@ Returns the password.
 ```php
 public getPassword(): string
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -768,11 +1360,21 @@ Set the ftp password.
 public setPassword(string $password): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$password` | **string** |  |
+
+
+
 
 ***
 
@@ -784,6 +1386,16 @@ Returns the amount of seconds before the connection will timeout.
 public getTimeout(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setTimeout
@@ -794,11 +1406,21 @@ Set the amount of seconds before the connection should timeout.
 public setTimeout(int $timeout): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$timeout` | **int** |  |
+
+
+
 
 ***
 
@@ -810,6 +1432,16 @@ Return the FTP system type.
 public getSystemType(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### setSystemType
@@ -820,11 +1452,21 @@ Set the FTP system type (windows or unix).
 public setSystemType(string $systemType): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$systemType` | **string** |  |
+
+
+
 
 ***
 
@@ -836,36 +1478,65 @@ True to enable timestamps for FTP servers that return unix-style listings.
 public setEnableTimestampsOnUnixListings(bool $bool = false): $this
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$bool` | **bool** |  |
 
+
+
+
 ***
 
 ### listContents
+
+
 
 ```php
 public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$directory` | **mixed** |  |
 | `$recursive` | **mixed** |  |
+
+
+
 
 ***
 
 ### listDirectoryContents
 
+
+
 ```php
 protected listDirectoryContents(mixed $directory, mixed $recursive = false): mixed
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
@@ -873,6 +1544,9 @@ protected listDirectoryContents(mixed $directory, mixed $recursive = false): mix
 |-----------|------|-------------|
 | `$directory` | **mixed** |  |
 | `$recursive` | **mixed** |  |
+
+
+
 
 ***
 
@@ -884,12 +1558,20 @@ Normalize a directory listing.
 protected normalizeListing(array $listing, string $prefix = &#039;&#039;): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$listing` | **array** |  |
 | `$prefix` | **string** |  |
+
 
 **Return Value:**
 
@@ -907,11 +1589,19 @@ Sort a directory listing.
 protected sortListing(array $result): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$result` | **array** |  |
+
 
 **Return Value:**
 
@@ -929,12 +1619,20 @@ Normalize a file entry.
 protected normalizeObject(string $item, string $base): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$item` | **string** |  |
 | `$base` | **string** |  |
+
 
 **Return Value:**
 
@@ -953,16 +1651,21 @@ protected normalizeUnixObject(string $item, string $base): array
 ```
 
 Given $item contains:
-'-rw-r--r-- 1 ftp ftp 409 Aug 19 09:01 file1.txt'
+   '-rw-r--r--   1 ftp      ftp           409 Aug 19 09:01 file1.txt'
 
 This function will return:
 [
-'type' => 'file',
-'path' => 'file1.txt',
-'visibility' => 'public',
-'size' => 409,
-'timestamp' => 1566205260
+  'type' => 'file',
+  'path' => 'file1.txt',
+  'visibility' => 'public',
+  'size' => 409,
+  'timestamp' => 1566205260
 ]
+
+
+
+
+
 
 **Parameters:**
 
@@ -970,6 +1673,7 @@ This function will return:
 |-----------|------|-------------|
 | `$item` | **string** |  |
 | `$base` | **string** |  |
+
 
 **Return Value:**
 
@@ -989,7 +1693,13 @@ protected normalizeUnixTimestamp(string $month, string $day, string $timeOrYear)
 
 Inadequacies in timestamp accuracy are due to limitations of the FTP 'LIST' command
 
-Note: The 'MLSD' command is a machine-readable replacement for 'LIST' but many FTP servers do not support it :(
+Note: The 'MLSD' command is a machine-readable replacement for 'LIST'
+but many FTP servers do not support it :(
+
+
+
+
+
 
 **Parameters:**
 
@@ -998,6 +1708,9 @@ Note: The 'MLSD' command is a machine-readable replacement for 'LIST' but many F
 | `$month` | **string** | e.g. &#039;Aug&#039; |
 | `$day` | **string** | e.g. &#039;19&#039; |
 | `$timeOrYear` | **string** | e.g. &#039;09:01&#039; OR &#039;2015&#039; |
+
+
+
 
 ***
 
@@ -1009,12 +1722,20 @@ Normalize a Windows/DOS file entry.
 protected normalizeWindowsObject(string $item, string $base): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$item` | **string** |  |
 | `$base` | **string** |  |
+
 
 **Return Value:**
 
@@ -1032,11 +1753,19 @@ Get the system type from a listing item.
 protected detectSystemType(string $item): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$item` | **string** |  |
+
 
 **Return Value:**
 
@@ -1054,11 +1783,19 @@ Get the file type from the permissions.
 protected detectType(string $permissions): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$permissions` | **string** |  |
+
 
 **Return Value:**
 
@@ -1076,11 +1813,21 @@ Normalize a permissions string.
 protected normalizePermissions(string $permissions): int
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$permissions` | **string** |  |
+
+
+
 
 ***
 
@@ -1092,53 +1839,99 @@ Filter out dot-directories.
 public removeDotDirectories(array $list): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$list` | **array** |  |
 
+
+
+
 ***
 
 ### has
+
+
 
 ```php
 public has(mixed $path): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getSize
 
+
+
 ```php
 public getSize(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getVisibility
 
+
+
 ```php
 public getVisibility(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
@@ -1150,19 +1943,41 @@ Ensure a directory exists.
 public ensureDirectory(string $dirname): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$dirname` | **string** |  |
 
+
+
+
 ***
 
 ### getConnection
 
+
+
 ```php
 public getConnection(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -1174,6 +1989,16 @@ Get the public permission value.
 public getPermPublic(): int
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getPermPrivate
@@ -1183,6 +2008,16 @@ Get the private permission value.
 ```php
 public getPermPrivate(): int
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -1194,6 +2029,16 @@ Disconnect on destruction.
 public __destruct(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### connect
@@ -1204,7 +2049,15 @@ Establish a connection.
 public connect(): mixed
 ```
 
+
+
+
 * This method is **abstract**.
+
+
+
+
+
 
 ***
 
@@ -1216,7 +2069,15 @@ Close the connection.
 public disconnect(): mixed
 ```
 
+
+
+
 * This method is **abstract**.
+
+
+
+
+
 
 ***
 
@@ -1228,21 +2089,41 @@ Check if a connection is active.
 public isConnected(): bool
 ```
 
+
+
+
 * This method is **abstract**.
+
+
+
+
+
 
 ***
 
 ### escapePath
 
+
+
 ```php
 protected escapePath(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
@@ -1254,11 +2135,21 @@ Set the path prefix.
 public setPathPrefix(string $prefix): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
+
+
+
 
 ***
 
@@ -1269,6 +2160,14 @@ Get the path prefix.
 ```php
 public getPathPrefix(): string|null
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -1286,11 +2185,19 @@ Prefix a path.
 public applyPathPrefix(string $path): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
 
 **Return Value:**
 
@@ -1308,11 +2215,19 @@ Remove a path prefix.
 public removePathPrefix(string $path): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
 
 **Return Value:**
 
@@ -1324,4 +2239,4 @@ path without the prefix
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

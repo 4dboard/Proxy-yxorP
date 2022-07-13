@@ -4,41 +4,68 @@
 
 Operation for executing a database command.
 
+
+
 * Full name: `\MongoDB\Operation\DatabaseCommand`
 * This class implements:
-  [`\MongoDB\Operation\Executable`](./Executable.md)
+[`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Database::command() -
+* \MongoDB\Database::command() - 
+
+
 
 ## Properties
 
+
 ### databaseName
+
+
 
 ```php
 private string $databaseName
 ```
 
+
+
+
+
+
 ***
 
 ### command
+
+
 
 ```php
 private array|\MongoDB\Driver\Command|object $command
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 private array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -50,14 +77,21 @@ public __construct(string $databaseName, array|object $command, array $options =
 
 Supported options:
 
-* readPreference (MongoDB\Driver\ReadPreference): The read preference to use when executing the command. This may be
-  used when issuing the command to a replica set or mongos node to ensure that the driver sets the wire protocol
-  accordingly or adds the read preference to the command document, respectively.
+* readPreference (MongoDB\Driver\ReadPreference): The read preference to
+  use when executing the command. This may be used when issuing the
+  command to a replica set or mongos node to ensure that the driver sets
+  the wire protocol accordingly or adds the read preference to the
+  command document, respectively.
 
 * session (MongoDB\Driver\Session): Client session.
 
-* typeMap (array): Type map for BSON deserialization. This will be applied to the returned Cursor (it is not sent to the
-  server).
+* typeMap (array): Type map for BSON deserialization. This will be
+  applied to the returned Cursor (it is not sent to the server).
+
+
+
+
+
 
 **Parameters:**
 
@@ -66,6 +100,9 @@ Supported options:
 | `$databaseName` | **string** | Database name |
 | `$command` | **array&#124;object** | Command document |
 | `$options` | **array** | Options for command execution |
+
+
+
 
 ***
 
@@ -77,15 +114,24 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): \MongoDB\Driver\Cursor
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() -
+* \MongoDB\Operation\Executable::execute() - 
 
 ***
 
@@ -97,12 +143,21 @@ Create options for executing the command.
 private createOptions(): array
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executecommand.php -
+* http://php.net/manual/en/mongodb-driver-server.executecommand.php - 
 
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

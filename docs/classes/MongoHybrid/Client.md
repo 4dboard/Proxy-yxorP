@@ -2,33 +2,64 @@
 
 # Client
 
+
+
+
+
 * Full name: `\MongoHybrid\Client`
+
+
 
 ## Properties
 
+
 ### type
+
+
 
 ```php
 public $type
 ```
 
+
+
+
+
+
 ***
 
 ### driver
+
+
 
 ```php
 protected $driver
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -38,13 +69,25 @@ public __construct(mixed $server, mixed $options = [], mixed $driverOptions = []
 | `$options` | **mixed** |  |
 | `$driverOptions` | **mixed** |  |
 
+
+
+
 ***
 
 ### dropCollection
 
+
+
 ```php
 public dropCollection(mixed $name, mixed $db = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -53,13 +96,25 @@ public dropCollection(mixed $name, mixed $db = null): mixed
 | `$name` | **mixed** |  |
 | `$db` | **mixed** |  |
 
+
+
+
 ***
 
 ### renameCollection
 
+
+
 ```php
 public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -69,13 +124,25 @@ public renameCollection(mixed $name, mixed $newname, mixed $db = null): mixed
 | `$newname` | **mixed** |  |
 | `$db` | **mixed** |  |
 
+
+
+
 ***
 
 ### save
 
+
+
 ```php
 public save(mixed $collection, mixed& $data): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -84,13 +151,25 @@ public save(mixed $collection, mixed& $data): mixed
 | `$collection` | **mixed** |  |
 | `$data` | **mixed** |  |
 
+
+
+
 ***
 
 ### insert
 
+
+
 ```php
 public insert(mixed $collection, mixed& $doc): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -99,28 +178,52 @@ public insert(mixed $collection, mixed& $doc): mixed
 | `$collection` | **mixed** |  |
 | `$doc` | **mixed** |  |
 
+
+
+
 ***
 
 ### removeKey
+
+
 
 ```php
 public removeKey(mixed $collection, mixed $key): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### keyExists
 
+
+
 ```php
 public keyExists(mixed $collection, mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -128,14 +231,26 @@ public keyExists(mixed $collection, mixed $key): mixed
 |-----------|------|-------------|
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### incrKey
 
+
+
 ```php
 public incrKey(mixed $collection, mixed $key, mixed $by = 1): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -144,14 +259,26 @@ public incrKey(mixed $collection, mixed $key, mixed $by = 1): mixed
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
 | `$by` | **mixed** |  |
+
+
+
 
 ***
 
 ### getKey
 
+
+
 ```php
 public getKey(mixed $collection, mixed $key, mixed $default = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -160,14 +287,26 @@ public getKey(mixed $collection, mixed $key, mixed $default = null): mixed
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
+
+
+
 
 ***
 
 ### setKey
 
+
+
 ```php
 public setKey(mixed $collection, mixed $key, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -176,14 +315,26 @@ public setKey(mixed $collection, mixed $key, mixed $value): mixed
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
 ### decrKey
 
+
+
 ```php
 public decrKey(mixed $collection, mixed $key, mixed $by = 1): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -192,14 +343,26 @@ public decrKey(mixed $collection, mixed $key, mixed $by = 1): mixed
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
 | `$by` | **mixed** |  |
+
+
+
 
 ***
 
 ### rpush
 
+
+
 ```php
 public rpush(mixed $collection, mixed $key, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -208,14 +371,26 @@ public rpush(mixed $collection, mixed $key, mixed $value): mixed
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
 ### lpush
 
+
+
 ```php
 public lpush(mixed $collection, mixed $key, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -224,14 +399,26 @@ public lpush(mixed $collection, mixed $key, mixed $value): mixed
 | `$collection` | **mixed** |  |
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
+
+
+
 
 ***
 
 ### lset
 
+
+
 ```php
 public lset(mixed $collection, mixed $key, mixed $index, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -242,13 +429,25 @@ public lset(mixed $collection, mixed $key, mixed $index, mixed $value): mixed
 | `$index` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### lindex
 
+
+
 ```php
 public lindex(mixed $collection, mixed $key, mixed $index): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -258,13 +457,25 @@ public lindex(mixed $collection, mixed $key, mixed $index): mixed
 | `$key` | **mixed** |  |
 | `$index` | **mixed** |  |
 
+
+
+
 ***
 
 ### hgetall
 
+
+
 ```php
 public hgetall(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -272,13 +483,25 @@ public hgetall(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### hexists
 
+
+
 ```php
 public hexists(mixed $collection, mixed $key, mixed $field): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -288,55 +511,103 @@ public hexists(mixed $collection, mixed $key, mixed $field): mixed
 | `$key` | **mixed** |  |
 | `$field` | **mixed** |  |
 
+
+
+
 ***
 
 ### hvals
+
+
 
 ```php
 public hvals(mixed $key): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### hlen
 
+
+
 ```php
 public hlen(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### hkeys
 
+
+
 ```php
 public hkeys(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### hdel
 
+
+
 ```php
 public hdel(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -344,13 +615,25 @@ public hdel(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### hincrby
 
+
+
 ```php
 public hincrby(mixed $collection, mixed $key, mixed $field, mixed $by = 1): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -361,13 +644,25 @@ public hincrby(mixed $collection, mixed $key, mixed $field, mixed $by = 1): mixe
 | `$field` | **mixed** |  |
 | `$by` | **mixed** |  |
 
+
+
+
 ***
 
 ### hget
 
+
+
 ```php
 public hget(mixed $collection, mixed $key, mixed $field, mixed $default = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -378,13 +673,25 @@ public hget(mixed $collection, mixed $key, mixed $field, mixed $default = null):
 | `$field` | **mixed** |  |
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### hset
 
+
+
 ```php
 public hset(mixed $collection, mixed $key, mixed $field, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -395,27 +702,51 @@ public hset(mixed $collection, mixed $key, mixed $field, mixed $value): mixed
 | `$field` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### hmget
+
+
 
 ```php
 public hmget(mixed $key): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
+
+
+
 
 ***
 
 ### hmset
 
+
+
 ```php
 public hmset(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -423,13 +754,25 @@ public hmset(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $method, mixed $args): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -438,8 +781,11 @@ public __call(mixed $method, mixed $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

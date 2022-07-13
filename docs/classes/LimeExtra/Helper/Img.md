@@ -2,25 +2,49 @@
 
 # Img
 
+
+
+
+
 * Full name: `\LimeExtra\Helper\Img`
+
+
 
 ## Properties
 
+
 ### image
+
+
 
 ```php
 protected $image
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $img): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -28,44 +52,92 @@ public __construct(mixed $img): mixed
 |-----------|------|-------------|
 | `$img` | **mixed** |  |
 
+
+
+
 ***
 
 ### negative
+
+
 
 ```php
 public negative(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### grayscale
+
+
 
 ```php
 public grayscale(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### base64data
+
+
 
 ```php
 public base64data(mixed $format = null, mixed $quality = 100): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$format` | **mixed** |  |
 | `$quality` | **mixed** |  |
+
+
+
 
 ***
 
 ### show
 
+
+
 ```php
 public show(mixed $format = null, mixed $quality = 100): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -74,13 +146,25 @@ public show(mixed $format = null, mixed $quality = 100): mixed
 | `$format` | **mixed** |  |
 | `$quality` | **mixed** |  |
 
+
+
+
 ***
 
 ### blur
 
+
+
 ```php
 public blur(mixed $passes = 1, mixed $type = &#039;gaussian&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -89,13 +173,25 @@ public blur(mixed $passes = 1, mixed $type = &#039;gaussian&#039;): mixed
 | `$passes` | **mixed** |  |
 | `$type` | **mixed** |  |
 
+
+
+
 ***
 
 ### thumbnail
 
+
+
 ```php
 public thumbnail(mixed $width, mixed $height, mixed $anchor = &#039;center&#039;): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -105,13 +201,25 @@ public thumbnail(mixed $width, mixed $height, mixed $anchor = &#039;center&#039;
 | `$height` | **mixed** |  |
 | `$anchor` | **mixed** |  |
 
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $method, mixed $args): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -120,8 +228,11 @@ public __call(mixed $method, mixed $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

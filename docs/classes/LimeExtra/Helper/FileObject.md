@@ -4,33 +4,62 @@
 
 Use custom FileObject to prevent "too many files open" error
 
+
+
 * Full name: `\LimeExtra\Helper\FileObject`
+
+
 
 ## Properties
 
+
 ### path
+
+
 
 ```php
 protected $path
 ```
 
+
+
+
+
+
 ***
 
 ### fileObject
+
+
 
 ```php
 protected $fileObject
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -38,37 +67,85 @@ public __construct(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### getFilename
+
+
 
 ```php
 public getFilename(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getPathName
+
+
 
 ```php
 public getPathName(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getRealPath
+
+
 
 ```php
 public getRealPath(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getBasename
 
+
+
 ```php
 public getBasename(mixed $suffix = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -76,21 +153,45 @@ public getBasename(mixed $suffix = null): mixed
 |-----------|------|-------------|
 | `$suffix` | **mixed** |  |
 
+
+
+
 ***
 
 ### getSize
+
+
 
 ```php
 public getSize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $method, mixed $args): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -99,8 +200,11 @@ public __call(mixed $method, mixed $args): mixed
 | `$method` | **mixed** |  |
 | `$args` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

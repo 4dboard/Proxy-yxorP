@@ -4,10 +4,16 @@
 
 Assets class.
 
+
+
 * Full name: `\LimeExtra\Helper\Assets`
 * Parent class: [`\Lime\Helper`](../../Lime/Helper.md)
 
+
+
+
 ## Methods
+
 
 ### style_and_script
 
@@ -16,6 +22,13 @@ Echo tags for scripts and styles
 ```php
 public style_and_script(array $assets, string $name, string $path = &quot;&quot;, float $cache, bool $version = false): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -26,6 +39,9 @@ public style_and_script(array $assets, string $name, string $path = &quot;&quot;
 | `$path` | **string** |  |
 | `$cache` | **float** |  |
 | `$version` | **bool** |  |
+
+
+
 
 ***
 
@@ -37,6 +53,13 @@ Compile scripts and return in a script tag
 public script(array $assets, string $name, string $path = &quot;&quot;, float $cache, bool $version = false): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -46,6 +69,9 @@ public script(array $assets, string $name, string $path = &quot;&quot;, float $c
 | `$path` | **string** |  |
 | `$cache` | **float** |  |
 | `$version` | **bool** |  |
+
+
+
 
 ***
 
@@ -57,12 +83,22 @@ Compile assets into one file
 public compile(array $assets, string $type): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$assets` | **array** |  |
 | `$type` | **string** | js or css |
+
+
+
 
 ***
 
@@ -74,6 +110,13 @@ Compile styles and return in a link tag
 public style(array $assets, string $name, string $path = &quot;&quot;, float $cache, bool $version = false): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -84,15 +127,29 @@ public style(array $assets, string $name, string $path = &quot;&quot;, float $ca
 | `$cache` | **float** |  |
 | `$version` | **bool** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $app): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -100,21 +157,45 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 public initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -123,13 +204,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -137,13 +230,25 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -151,8 +256,11 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

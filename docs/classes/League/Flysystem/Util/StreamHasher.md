@@ -2,19 +2,34 @@
 
 # StreamHasher
 
+
+
+
+
 * Full name: `\League\Flysystem\Util\StreamHasher`
+
+
 
 ## Properties
 
+
 ### algo
+
+
 
 ```php
 private string $algo
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -24,19 +39,38 @@ StreamHasher constructor.
 public __construct(string $algo): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$algo` | **string** |  |
 
+
+
+
 ***
 
 ### hash
 
+
+
 ```php
 public hash(resource $resource): string
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -44,8 +78,11 @@ public hash(resource $resource): string
 |-----------|------|-------------|
 | `$resource` | **resource** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

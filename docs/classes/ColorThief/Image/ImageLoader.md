@@ -2,21 +2,41 @@
 
 # ImageLoader
 
+
+
+
+
 * Full name: `\ColorThief\Image\ImageLoader`
+
+
+
 
 ## Methods
 
+
 ### load
+
+
 
 ```php
 public load(mixed $source): \ColorThief\Image\Adapter\ImageAdapter
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$source` | **mixed** | Path/URL to the image, GD resource, Imagick instance, or image as binary string |
+
+
+
 
 ***
 
@@ -28,6 +48,16 @@ Checks if Imagick extension is loaded.
 public isImagickLoaded(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isGmagickLoaded
@@ -38,13 +68,32 @@ Checks if Gmagick extension is loaded.
 public isGmagickLoaded(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getAdapter
 
+
+
 ```php
 public getAdapter(string $adapterType): \ColorThief\Image\Adapter\ImageAdapter
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -52,8 +101,11 @@ public getAdapter(string $adapterType): \ColorThief\Image\Adapter\ImageAdapter
 |-----------|------|-------------|
 | `$adapterType` | **string** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

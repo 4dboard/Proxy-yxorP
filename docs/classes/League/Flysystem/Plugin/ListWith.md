@@ -2,10 +2,18 @@
 
 # ListWith
 
+
+
+
+
 * Full name: `\League\Flysystem\Plugin\ListWith`
 * Parent class: [`\League\Flysystem\Plugin\AbstractPlugin`](./AbstractPlugin.md)
 
+
+
+
 ## Methods
+
 
 ### getMethod
 
@@ -14,6 +22,16 @@ Get the method name.
 ```php
 public getMethod(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -25,6 +43,13 @@ List contents with metadata.
 public handle(string[] $keys = [], string $directory = &#039;&#039;, bool $recursive = false): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -32,6 +57,7 @@ public handle(string[] $keys = [], string $directory = &#039;&#039;, bool $recur
 | `$keys` | **string[]** |  |
 | `$directory` | **string** |  |
 | `$recursive` | **bool** |  |
+
 
 **Return Value:**
 
@@ -49,6 +75,13 @@ Get a meta-data value by key name.
 protected getMetadataByName(array $object, string $key): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -56,9 +89,14 @@ protected getMetadataByName(array $object, string $key): array
 | `$object` | **array** |  |
 | `$key` | **string** |  |
 
+
+
+
 ***
 
+
 ## Inherited methods
+
 
 ### setFilesystem
 
@@ -68,14 +106,24 @@ Set the Filesystem object.
 public setFilesystem(\League\Flysystem\FilesystemInterface $filesystem): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

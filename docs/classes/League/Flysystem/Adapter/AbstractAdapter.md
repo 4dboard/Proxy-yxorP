@@ -2,30 +2,52 @@
 
 # AbstractAdapter
 
+
+
+
+
 * Full name: `\League\Flysystem\Adapter\AbstractAdapter`
 * This class implements:
-  [`\League\Flysystem\AdapterInterface`](../AdapterInterface.md)
+[`\League\Flysystem\AdapterInterface`](../AdapterInterface.md)
 * This class is an **Abstract class**
+
+
 
 ## Properties
 
+
 ### pathPrefix
+
+
 
 ```php
 protected string|null $pathPrefix
 ```
 
+
+
+
+
+
 ***
 
 ### pathSeparator
+
+
 
 ```php
 protected string $pathSeparator
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### setPathPrefix
 
@@ -35,11 +57,21 @@ Set the path prefix.
 public setPathPrefix(string $prefix): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
+
+
+
 
 ***
 
@@ -50,6 +82,14 @@ Get the path prefix.
 ```php
 public getPathPrefix(): string|null
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -67,11 +107,19 @@ Prefix a path.
 public applyPathPrefix(string $path): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
 
 **Return Value:**
 
@@ -89,11 +137,19 @@ Remove a path prefix.
 public removePathPrefix(string $path): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
 
 **Return Value:**
 
@@ -105,4 +161,4 @@ path without the prefix
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

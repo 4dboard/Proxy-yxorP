@@ -2,10 +2,18 @@
 
 # ListFiles
 
+
+
+
+
 * Full name: `\League\Flysystem\Plugin\ListFiles`
 * Parent class: [`\League\Flysystem\Plugin\AbstractPlugin`](./AbstractPlugin.md)
 
+
+
+
 ## Methods
+
 
 ### getMethod
 
@@ -14,6 +22,16 @@ Get the method name.
 ```php
 public getMethod(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -25,6 +43,13 @@ List all files in the directory.
 public handle(string $directory = &#039;&#039;, bool $recursive = false): array
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -32,9 +57,14 @@ public handle(string $directory = &#039;&#039;, bool $recursive = false): array
 | `$directory` | **string** |  |
 | `$recursive` | **bool** |  |
 
+
+
+
 ***
 
+
 ## Inherited methods
+
 
 ### setFilesystem
 
@@ -44,14 +74,24 @@ Set the Filesystem object.
 public setFilesystem(\League\Flysystem\FilesystemInterface $filesystem): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$filesystem` | **\League\Flysystem\FilesystemInterface** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

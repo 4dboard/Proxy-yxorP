@@ -11,9 +11,13 @@ PHP version 5
 
 **See Also:**
 
-* https://github.com/firebase/php-jwt -
+* https://github.com/firebase/php-jwt - 
+
+
+
 
 ## Methods
+
 
 ### parseKeySet
 
@@ -23,13 +27,19 @@ Parse a set of JWK keys
 public static parseKeySet(array $jwks): array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$jwks` | **array** | The JSON Web Key Set as an associative array |
+
 
 **Return Value:**
 
@@ -47,13 +57,19 @@ Parse a JWK key
 public static parseKey(array $jwk): resource|array
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$jwk` | **array** | An individual JWK |
+
 
 **Return Value:**
 
@@ -71,7 +87,12 @@ Create a public key represented in PEM format from RSA modulus and exponent info
 private static createPemFromModulusAndExponent(string $n, string $e): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -79,6 +100,7 @@ private static createPemFromModulusAndExponent(string $n, string $e): string
 |-----------|------|-------------|
 | `$n` | **string** | The RSA modulus encoded in Base64 |
 | `$e` | **string** | The RSA exponent encoded in Base64 |
+
 
 **Return Value:**
 
@@ -96,10 +118,13 @@ DER-encode the length
 private static encodeLength(int $length): string
 ```
 
-DER supports lengths up to (2**8)**127, however, we'll only support lengths up to (2**8)**4. See {@link X.690 paragraph
-8.1.3} for more information.
+DER supports lengths up to (2**8)**127, however, we'll only support lengths up to (2**8)**4.  See
+{@link X.690 paragraph 8.1.3} for more information.
 
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -107,8 +132,11 @@ DER supports lengths up to (2**8)**127, however, we'll only support lengths up t
 |-----------|------|-------------|
 | `$length` | **int** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

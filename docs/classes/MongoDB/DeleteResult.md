@@ -4,39 +4,71 @@
 
 Result class for a delete operation.
 
+
+
 * Full name: `\MongoDB\DeleteResult`
+
+
 
 ## Properties
 
+
 ### writeResult
+
+
 
 ```php
 private \MongoDB\Driver\WriteResult $writeResult
 ```
 
+
+
+
+
+
 ***
 
 ### isAcknowledged
+
+
 
 ```php
 private bool $isAcknowledged
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(\MongoDB\Driver\WriteResult $writeResult): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$writeResult` | **\MongoDB\Driver\WriteResult** |  |
+
+
+
 
 ***
 
@@ -50,9 +82,16 @@ public getDeletedCount(): int
 
 This method should only be called if the write was acknowledged.
 
+
+
+
+
+
+
+
 **See Also:**
 
-* \MongoDB\DeleteResult::isAcknowledged() -
+* \MongoDB\DeleteResult::isAcknowledged() - 
 
 ***
 
@@ -79,4 +118,4 @@ If the delete was not acknowledged, other fields from the WriteResult
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

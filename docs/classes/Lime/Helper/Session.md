@@ -2,34 +2,65 @@
 
 # Session
 
+
+
+
+
 * Full name: `\Lime\Helper\Session`
 * Parent class: [`\Lime\Helper`](../Helper.md)
 
+
+
 ## Properties
 
+
 ### name
+
+
 
 ```php
 public $name
 ```
 
+
+
+
+
+
 ***
 
 ### initialized
+
+
 
 ```php
 protected $initialized
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### init
+
+
 
 ```php
 public init(mixed $sessionname = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -37,13 +68,25 @@ public init(mixed $sessionname = null): mixed
 |-----------|------|-------------|
 | `$sessionname` | **mixed** |  |
 
+
+
+
 ***
 
 ### write
 
+
+
 ```php
 public write(mixed $key, mixed $value): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -52,13 +95,25 @@ public write(mixed $key, mixed $value): mixed
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### read
 
+
+
 ```php
 public read(mixed $key, mixed $default = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -67,13 +122,25 @@ public read(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### delete
 
+
+
 ```php
 public delete(mixed $key): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -81,23 +148,49 @@ public delete(mixed $key): mixed
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
+
 ***
 
 ### destroy
+
+
 
 ```php
 public destroy(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $app): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -105,21 +198,45 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 public initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -128,13 +245,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -142,13 +271,25 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -156,8 +297,11 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

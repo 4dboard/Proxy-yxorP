@@ -2,10 +2,18 @@
 
 # NullAdapter
 
+
+
+
+
 * Full name: `\League\Flysystem\Adapter\NullAdapter`
 * Parent class: [`\League\Flysystem\Adapter\AbstractAdapter`](./AbstractAdapter.md)
 
+
+
+
 ## Methods
+
 
 ### has
 
@@ -15,20 +23,39 @@ Check whether a file is present.
 public has(string $path): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
+
+
+
 ***
 
 ### write
+
+
 
 ```php
 public write(mixed $path, mixed $contents, \League\Flysystem\Config $config): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -36,14 +63,26 @@ public write(mixed $path, mixed $contents, \League\Flysystem\Config $config): mi
 | `$path` | **mixed** |  |
 | `$contents` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
+
+
+
 
 ***
 
 ### update
 
+
+
 ```php
 public update(mixed $path, mixed $contents, \League\Flysystem\Config $config): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -53,13 +92,25 @@ public update(mixed $path, mixed $contents, \League\Flysystem\Config $config): m
 | `$contents` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
+
+
+
 ***
 
 ### read
 
+
+
 ```php
 public read(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -67,13 +118,25 @@ public read(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### rename
 
+
+
 ```php
 public rename(mixed $path, mixed $newpath): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -82,13 +145,25 @@ public rename(mixed $path, mixed $newpath): mixed
 | `$path` | **mixed** |  |
 | `$newpath` | **mixed** |  |
 
+
+
+
 ***
 
 ### delete
 
+
+
 ```php
 public delete(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -96,13 +171,25 @@ public delete(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### listContents
 
+
+
 ```php
 public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -111,69 +198,129 @@ public listContents(mixed $directory = &#039;&#039;, mixed $recursive = false): 
 | `$directory` | **mixed** |  |
 | `$recursive` | **mixed** |  |
 
+
+
+
 ***
 
 ### getMetadata
+
+
 
 ```php
 public getMetadata(mixed $path): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getSize
 
+
+
 ```php
 public getSize(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getMimetype
 
+
+
 ```php
 public getMimetype(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getTimestamp
 
+
+
 ```php
 public getTimestamp(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
+
+
+
 
 ***
 
 ### getVisibility
 
+
+
 ```php
 public getVisibility(mixed $path): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -181,13 +328,25 @@ public getVisibility(mixed $path): mixed
 |-----------|------|-------------|
 | `$path` | **mixed** |  |
 
+
+
+
 ***
 
 ### setVisibility
 
+
+
 ```php
 public setVisibility(mixed $path, mixed $visibility): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -196,13 +355,25 @@ public setVisibility(mixed $path, mixed $visibility): mixed
 | `$path` | **mixed** |  |
 | `$visibility` | **mixed** |  |
 
+
+
+
 ***
 
 ### createDir
 
+
+
 ```php
 public createDir(mixed $dirname, \League\Flysystem\Config $config): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -211,13 +382,25 @@ public createDir(mixed $dirname, \League\Flysystem\Config $config): mixed
 | `$dirname` | **mixed** |  |
 | `$config` | **\League\Flysystem\Config** |  |
 
+
+
+
 ***
 
 ### deleteDir
 
+
+
 ```php
 public deleteDir(mixed $dirname): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -225,9 +408,14 @@ public deleteDir(mixed $dirname): mixed
 |-----------|------|-------------|
 | `$dirname` | **mixed** |  |
 
+
+
+
 ***
 
+
 ## Inherited methods
+
 
 ### copy
 
@@ -237,6 +425,13 @@ Copy a file.
 public copy(string $path, string $newpath): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -244,15 +439,25 @@ public copy(string $path, string $newpath): bool
 | `$path` | **string** |  |
 | `$newpath` | **string** |  |
 
+
+
+
 ***
 
 ### readStream
+
+
 
 ```php
 public readStream(string $path): resource
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
@@ -260,15 +465,25 @@ public readStream(string $path): resource
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
+
+
+
 ***
 
 ### writeStream
+
+
 
 ```php
 public writeStream(string $path, resource $resource, \League\Flysystem\Config $config): resource
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
@@ -277,6 +492,9 @@ public writeStream(string $path, resource $resource, \League\Flysystem\Config $c
 | `$path` | **string** |  |
 | `$resource` | **resource** |  |
 | `$config` | **\League\Flysystem\Config** |  |
+
+
+
 
 ***
 
@@ -288,11 +506,21 @@ Set the path prefix.
 public setPathPrefix(string $prefix): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$prefix` | **string** |  |
+
+
+
 
 ***
 
@@ -303,6 +531,14 @@ Get the path prefix.
 ```php
 public getPathPrefix(): string|null
 ```
+
+
+
+
+
+
+
+
 
 **Return Value:**
 
@@ -320,11 +556,19 @@ Prefix a path.
 public applyPathPrefix(string $path): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
 
 **Return Value:**
 
@@ -342,11 +586,19 @@ Remove a path prefix.
 public removePathPrefix(string $path): string
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
+
 
 **Return Value:**
 
@@ -358,4 +610,4 @@ path without the prefix
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

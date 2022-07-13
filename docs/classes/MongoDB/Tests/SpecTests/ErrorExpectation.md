@@ -4,107 +4,188 @@
 
 Spec test operation error expectation.
 
+
+
 * Full name: `\MongoDB\Tests\SpecTests\ErrorExpectation`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
+
+
 ## Properties
 
+
 ### codeNameMap
+
+
 
 ```php
 private static array $codeNameMap
 ```
 
+
+
 * This property is **static**.
 
 **See Also:**
 
-* https://github.com/mongodb/mongo/blob/master/src/mongo/base/error_codes.err -
+* https://github.com/mongodb/mongo/blob/master/src/mongo/base/error_codes.err - 
 
 ***
 
 ### code
 
+
+
 ```php
 private int $code
 ```
+
+
+
+
+
 
 ***
 
 ### codeName
 
+
+
 ```php
 private string $codeName
 ```
+
+
+
+
+
 
 ***
 
 ### isExpected
 
+
+
 ```php
 private bool $isExpected
 ```
+
+
+
+
+
 
 ***
 
 ### excludedLabels
 
+
+
 ```php
 private string[] $excludedLabels
 ```
+
+
+
+
+
 
 ***
 
 ### includedLabels
 
+
+
 ```php
 private string[] $includedLabels
 ```
+
+
+
+
+
 
 ***
 
 ### messageContains
 
+
+
 ```php
 private string $messageContains
 ```
+
+
+
+
+
 
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 private __construct(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### fromChangeStreams
+
+
 
 ```php
 public static fromChangeStreams(\stdClass $result): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$result` | **\stdClass** |  |
+
+
+
 
 ***
 
 ### fromClientSideEncryption
 
+
+
 ```php
 public static fromClientSideEncryption(\stdClass $operation): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -112,15 +193,25 @@ public static fromClientSideEncryption(\stdClass $operation): mixed
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 
+
+
+
 ***
 
 ### fromCrud
+
+
 
 ```php
 public static fromCrud(\stdClass $result): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -128,31 +219,51 @@ public static fromCrud(\stdClass $result): mixed
 |-----------|------|-------------|
 | `$result` | **\stdClass** |  |
 
+
+
+
 ***
 
 ### fromReadWriteConcern
+
+
 
 ```php
 public static fromReadWriteConcern(\stdClass $operation): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
+
+
+
 
 ***
 
 ### fromRetryableReads
 
+
+
 ```php
 public static fromRetryableReads(\stdClass $operation): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -160,15 +271,25 @@ public static fromRetryableReads(\stdClass $operation): mixed
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 
+
+
+
 ***
 
 ### fromRetryableWrites
+
+
 
 ```php
 public static fromRetryableWrites(\stdClass $outcome): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -176,15 +297,25 @@ public static fromRetryableWrites(\stdClass $outcome): mixed
 |-----------|------|-------------|
 | `$outcome` | **\stdClass** |  |
 
+
+
+
 ***
 
 ### fromTransactions
+
+
 
 ```php
 public static fromTransactions(\stdClass $operation): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -192,15 +323,28 @@ public static fromTransactions(\stdClass $operation): mixed
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 
+
+
+
 ***
 
 ### noError
+
+
 
 ```php
 public static noError(): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
+
+
+
 
 ***
 
@@ -212,6 +356,13 @@ Assert that the error expectation matches the actual outcome.
 public assert(\MongoDB\Tests\TestCase $test, \Exception|null $actual = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -219,13 +370,28 @@ public assert(\MongoDB\Tests\TestCase $test, \Exception|null $actual = null): vo
 | `$test` | **\MongoDB\Tests\TestCase** | Test instance for performing assertions |
 | `$actual` | **\Exception&#124;null** | Exception (if any) from the actual outcome |
 
+
+
+
 ***
 
 ### isExpected
 
+
+
 ```php
 public isExpected(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -237,6 +403,13 @@ Assert that the error code name expectation matches the actual outcome.
 private assertCodeName(\MongoDB\Tests\TestCase $test, \Exception|null $actual = null): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -244,15 +417,25 @@ private assertCodeName(\MongoDB\Tests\TestCase $test, \Exception|null $actual = 
 | `$test` | **\MongoDB\Tests\TestCase** | Test instance for performing assertions |
 | `$actual` | **\Exception&#124;null** | Exception (if any) from the actual outcome |
 
+
+
+
 ***
 
 ### fromGenericOperation
+
+
 
 ```php
 private static fromGenericOperation(\stdClass $operation): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -260,15 +443,25 @@ private static fromGenericOperation(\stdClass $operation): mixed
 |-----------|------|-------------|
 | `$operation` | **\stdClass** |  |
 
+
+
+
 ***
 
 ### isArrayOfStrings
+
+
 
 ```php
 private static isArrayOfStrings(mixed $array): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -276,8 +469,11 @@ private static isArrayOfStrings(mixed $array): mixed
 |-----------|------|-------------|
 | `$array` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

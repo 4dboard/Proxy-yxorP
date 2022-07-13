@@ -4,14 +4,17 @@
 
 Operation for the explain command.
 
+
+
 * Full name: `\MongoDB\Operation\Explain`
 * This class implements:
-  [`\MongoDB\Operation\Executable`](./Executable.md)
+[`\MongoDB\Operation\Executable`](./Executable.md)
 
 **See Also:**
 
-* \MongoDB\Collection::explain() -
-* http://docs.mongodb.org/manual/reference/command/explain/ -
+* \MongoDB\Collection::explain() - 
+* http://docs.mongodb.org/manual/reference/command/explain/ - 
+
 
 ## Constants
 
@@ -23,41 +26,69 @@ Operation for the explain command.
 
 ## Properties
 
+
 ### wireVersionForAggregate
+
+
 
 ```php
 private static int $wireVersionForAggregate
 ```
 
+
+
 * This property is **static**.
+
 
 ***
 
 ### databaseName
 
+
+
 ```php
 private string $databaseName
 ```
+
+
+
+
+
 
 ***
 
 ### explainable
 
+
+
 ```php
 private \MongoDB\Operation\Explainable $explainable
 ```
+
+
+
+
+
 
 ***
 
 ### options
 
+
+
 ```php
 private array $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
+
 
 ### __construct
 
@@ -73,9 +104,15 @@ Supported options:
 
 * session (MongoDB\Driver\Session): Client session.
 
-* typeMap (array): Type map for BSON deserialization. This will be used used for the returned command result document.
+* typeMap (array): Type map for BSON deserialization. This will be used
+  used for the returned command result document.
 
 * verbosity (string): The mode in which the explain command will be run.
+
+
+
+
+
 
 **Parameters:**
 
@@ -84,6 +121,9 @@ Supported options:
 | `$databaseName` | **string** | Database name |
 | `$explainable` | **\MongoDB\Operation\Explainable** | Operation to explain |
 | `$options` | **array** | Command options |
+
+
+
 
 ***
 
@@ -95,15 +135,24 @@ Execute the operation.
 public execute(\MongoDB\Driver\Server $server): array|object
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$server` | **\MongoDB\Driver\Server** |  |
 
+
+
 **See Also:**
 
-* \MongoDB\Operation\Executable::execute() -
+* \MongoDB\Operation\Executable::execute() - 
 
 ***
 
@@ -115,17 +164,35 @@ Create options for executing the command.
 private createOptions(): array
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/manual/en/mongodb-driver-server.executecommand.php -
+* http://php.net/manual/en/mongodb-driver-server.executecommand.php - 
 
 ***
 
 ### isFindAndModify
 
+
+
 ```php
 private isFindAndModify(\MongoDB\Operation\Explainable $explainable): bool
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -133,8 +200,11 @@ private isFindAndModify(\MongoDB\Operation\Explainable $explainable): bool
 |-----------|------|-------------|
 | `$explainable` | **\MongoDB\Operation\Explainable** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

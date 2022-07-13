@@ -2,33 +2,64 @@
 
 # Key
 
+
+
+
+
 * Full name: `\Firebase\JWT\Key`
+
+
 
 ## Properties
 
+
 ### algorithm
+
+
 
 ```php
 private string $algorithm
 ```
 
+
+
+
+
+
 ***
 
 ### keyMaterial
+
+
 
 ```php
 private string|resource|\OpenSSLAsymmetricKey $keyMaterial
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string|resource|\OpenSSLAsymmetricKey $keyMaterial, string $algorithm): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -36,6 +67,9 @@ public __construct(string|resource|\OpenSSLAsymmetricKey $keyMaterial, string $a
 |-----------|------|-------------|
 | `$keyMaterial` | **string&#124;resource&#124;\OpenSSLAsymmetricKey** |  |
 | `$algorithm` | **string** |  |
+
+
+
 
 ***
 
@@ -47,16 +81,38 @@ Return the algorithm valid for this key
 public getAlgorithm(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getKeyMaterial
+
+
 
 ```php
 public getKeyMaterial(): string|resource|\OpenSSLAsymmetricKey
 ```
 
-***
+
+
+
+
+
+
+
+
 
 
 ***
 
+
+***
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

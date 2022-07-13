@@ -2,41 +2,79 @@
 
 # Client
 
+
+
+
+
 * Full name: `\MongoLite\Client`
+
+
 
 ## Properties
 
+
 ### databases
+
+
 
 ```php
 protected $databases
 ```
 
+
+
+
+
+
 ***
 
 ### path
+
+
 
 ```php
 protected $path
 ```
 
+
+
+
+
+
 ***
 
 ### options
+
+
 
 ```php
 protected $options
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $path, mixed $options = []): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -45,21 +83,45 @@ public __construct(mixed $path, mixed $options = []): mixed
 | `$path` | **mixed** |  |
 | `$options` | **mixed** |  |
 
+
+
+
 ***
 
 ### listDBs
+
+
 
 ```php
 public listDBs(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### selectCollection
 
+
+
 ```php
 public selectCollection(mixed $database, mixed $collection): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -68,13 +130,25 @@ public selectCollection(mixed $database, mixed $collection): mixed
 | `$database` | **mixed** |  |
 | `$collection` | **mixed** |  |
 
+
+
+
 ***
 
 ### selectDB
 
+
+
 ```php
 public selectDB(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -82,13 +156,25 @@ public selectDB(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $database): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -96,8 +182,11 @@ public __get(mixed $database): mixed
 |-----------|------|-------------|
 | `$database` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

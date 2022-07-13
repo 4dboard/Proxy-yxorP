@@ -4,42 +4,65 @@
 
 Collection information model class.
 
-This class models the collection information returned by the listCollections command or, for legacy servers, queries on
-the "system.namespaces"
+This class models the collection information returned by the listCollections
+command or, for legacy servers, queries on the "system.namespaces"
 collection. It provides methods to access options for the collection.
 
 * Full name: `\MongoDB\Model\CollectionInfo`
 * This class implements:
-  [`\ArrayAccess`](../../ArrayAccess.md)
+[`\ArrayAccess`](../../ArrayAccess.md)
 
 **See Also:**
 
-* \MongoDB\Database::listCollections() -
-* https://github.com/mongodb/specifications/blob/master/source/enumerate-collections.rst -
+* \MongoDB\Database::listCollections() - 
+* https://github.com/mongodb/specifications/blob/master/source/enumerate-collections.rst - 
+
+
 
 ## Properties
 
+
 ### info
+
+
 
 ```php
 private array $info
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(array $info): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$info` | **array** | Collection info |
+
+
+
 
 ***
 
@@ -51,9 +74,18 @@ Return the collection info as an array.
 public __debugInfo(): array
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* http://php.net/oop5.magic#language.oop5.magic.debuginfo -
+* http://php.net/oop5.magic#language.oop5.magic.debuginfo - 
 
 ***
 
@@ -65,7 +97,17 @@ Return the maximum number of documents to keep in the capped collection.
 public getCappedMax(): int|null
 ```
 
+
+
+
+
+
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
 
 ***
 
@@ -77,7 +119,17 @@ Return the maximum size (in bytes) of the capped collection.
 public getCappedSize(): int|null
 ```
 
+
+
+
+
+
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
 
 ***
 
@@ -89,6 +141,16 @@ Return information about the _id index for the collection.
 public getIdIndex(): array
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getInfo
@@ -99,9 +161,18 @@ Return the "info" property of the server response.
 public getInfo(): array
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* https://docs.mongodb.com/manual/reference/command/listCollections/#output -
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
 
 ***
 
@@ -113,9 +184,18 @@ Return the collection name.
 public getName(): string
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* https://docs.mongodb.com/manual/reference/command/listCollections/#output -
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
 
 ***
 
@@ -127,9 +207,18 @@ Return the collection options.
 public getOptions(): array
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* https://docs.mongodb.com/manual/reference/command/listCollections/#output -
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
 
 ***
 
@@ -141,9 +230,18 @@ Return the collection type.
 public getType(): string
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* https://docs.mongodb.com/manual/reference/command/listCollections/#output -
+* https://docs.mongodb.com/manual/reference/command/listCollections/#output - 
 
 ***
 
@@ -155,7 +253,17 @@ Return whether the collection is a capped collection.
 public isCapped(): bool
 ```
 
+
+
+
+
+
 * **Warning:** this method is **deprecated**. This means that this method will likely be removed in a future version.
+
+
+
+
+
 
 ***
 
@@ -167,15 +275,24 @@ Check whether a field exists in the collection information.
 public offsetExists(mixed $key): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
 **See Also:**
 
-* http://php.net/arrayaccess.offsetexists -
+* http://php.net/arrayaccess.offsetexists - 
 
 ***
 
@@ -187,15 +304,24 @@ Return the field's value from the collection information.
 public offsetGet(mixed $key): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
 **See Also:**
 
-* http://php.net/arrayaccess.offsetget -
+* http://php.net/arrayaccess.offsetget - 
 
 ***
 
@@ -207,6 +333,13 @@ Not supported.
 public offsetSet(mixed $key, mixed $value): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -214,9 +347,11 @@ public offsetSet(mixed $key, mixed $value): void
 | `$key` | **mixed** |  |
 | `$value` | **mixed** |  |
 
+
+
 **See Also:**
 
-* http://php.net/arrayaccess.offsetset -
+* http://php.net/arrayaccess.offsetset - 
 
 ***
 
@@ -228,18 +363,27 @@ Not supported.
 public offsetUnset(mixed $key): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$key` | **mixed** |  |
 
+
+
 **See Also:**
 
-* http://php.net/arrayaccess.offsetunset -
+* http://php.net/arrayaccess.offsetunset - 
 
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

@@ -4,10 +4,16 @@
 
 Base adapter implementation to handle image manipulation.
 
+
+
 * Full name: `\ColorThief\Image\Adapter\ImagickImageAdapter`
 * Parent class: [`\ColorThief\Image\Adapter\ImageAdapter`](./ImageAdapter.md)
 
+
+
+
 ## Methods
+
 
 ### load
 
@@ -17,11 +23,21 @@ Loads an image resource.
 public load(mixed $resource): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** |  |
+
+
+
 
 ***
 
@@ -33,11 +49,21 @@ public load(mixed $resource): mixed
 public loadBinaryString(mixed $data): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$data` | **mixed** |  |
+
+
+
 
 ***
 
@@ -49,11 +75,21 @@ public loadBinaryString(mixed $data): mixed
 public loadFile(mixed $file): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$file` | **mixed** |  |
+
+
+
 
 ***
 
@@ -64,6 +100,16 @@ Destroys the image.
 ```php
 public destroy(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -75,6 +121,16 @@ public destroy(): mixed
 public getHeight(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getWidth
@@ -84,6 +140,16 @@ public getHeight(): mixed
 ```php
 public getWidth(): mixed
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -95,6 +161,13 @@ public getWidth(): mixed
 public getPixelColor(mixed $x, mixed $y): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -102,9 +175,14 @@ public getPixelColor(mixed $x, mixed $y): mixed
 | `$x` | **mixed** |  |
 | `$y` | **mixed** |  |
 
+
+
+
 ***
 
+
 ## Inherited methods
+
 
 ### load
 
@@ -114,11 +192,21 @@ Loads an image resource.
 public load(mixed $resource): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$resource` | **mixed** |  |
+
+
+
 
 ***
 
@@ -130,6 +218,16 @@ Destroys the image.
 public destroy(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getResource
@@ -140,8 +238,18 @@ Get the raw resource.
 public getResource(): resource
 ```
 
-***
+
+
+
+
+
+
+
+
 
 
 ***
 
+
+***
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
