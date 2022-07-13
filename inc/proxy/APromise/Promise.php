@@ -151,7 +151,7 @@ class Promise implements PromiseInterface
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    ): FulfilledPromise|PromiseInterface|Promise|RejectedPromise
+    ): mixed
     {
         if ($this->state === self::PENDING) {
             $p = new Promise(null, [$this, 'cancel']);
