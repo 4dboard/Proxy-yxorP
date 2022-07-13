@@ -29,12 +29,6 @@
         return $this->setItems(array_reverse($this->items));
     }
 
-    protected function setItems($items)
-    {
-        $collection = new static($items, $this);
-        return $collection;
-    }
-
     public function limit($number)
     {
         $items = array_slice($this->items, 0, $number);
@@ -150,5 +144,11 @@
     public function valid()
     {
         return isset($this->items[$this->position]);
+    }
+
+    protected function setItems($items)
+    {
+        $collection = new static($items, $this);
+        return $collection;
     }
 }
