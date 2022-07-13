@@ -515,6 +515,54 @@ class Admin extends AuthController
         return compact('entries', 'count', 'pages', 'page');
     }
 
+    public function revisions($collection, $id)
+    {
+
+        if (!$this->module('collections')->hasaccess($collection, 'entries_edit')) {
+            return $this->helper('admin')->denyRequest();
+        }
+
+        $collection = $this->module('collections')->collection($collection);
+
+        if (!$collection) {
+            return false;
+        }
+
+        $entry = $this->module('collections')->findOne($collection['name'], ['_id' => $id]);
+
+        if (!$entry) {
+            return false;
+        }
+
+        $user = $this->app->module('yxorp')->getUser();
+        $languages = $this->app->retrieve('config/languages', []);
+
+        $allowedFields = [];
+
+        foreach ($collection['fields'] as $field) {
+
+            if (isset($field['acl']) && is_array($field['acl']) && count($field['acl'])) {
+
+                if (!(in_array($user['group'], $field['acl']) || in_array($user['_id'], $field['acl']))) {
+                    continue;
+                }
+            }
+
+            $allowedFields[] = $field['name'];
+
+            if (isset($field['localize']) && $field['localize']) {
+                foreach ($languages as $key => $val) {
+                    if (is_numeric($key)) $key = $val;
+                    $allowedFields[] = "{$field['name']}_{$key}";
+                }
+            }
+        }
+
+        $revisions = $this->app->helper('revisions')->getList($id);
+
+        return $this->render('collections:views/revisions.php', compact('collection', 'entry', 'revisions', 'allowedFields'));
+    }
+
     protected function _filter($filter, $collection, $lang = null): ?array
     {
 
@@ -578,53 +626,5 @@ class Admin extends AuthController
         }
 
         return $_filter;
-    }
-
-    public function revisions($collection, $id)
-    {
-
-        if (!$this->module('collections')->hasaccess($collection, 'entries_edit')) {
-            return $this->helper('admin')->denyRequest();
-        }
-
-        $collection = $this->module('collections')->collection($collection);
-
-        if (!$collection) {
-            return false;
-        }
-
-        $entry = $this->module('collections')->findOne($collection['name'], ['_id' => $id]);
-
-        if (!$entry) {
-            return false;
-        }
-
-        $user = $this->app->module('yxorp')->getUser();
-        $languages = $this->app->retrieve('config/languages', []);
-
-        $allowedFields = [];
-
-        foreach ($collection['fields'] as $field) {
-
-            if (isset($field['acl']) && is_array($field['acl']) && count($field['acl'])) {
-
-                if (!(in_array($user['group'], $field['acl']) || in_array($user['_id'], $field['acl']))) {
-                    continue;
-                }
-            }
-
-            $allowedFields[] = $field['name'];
-
-            if (isset($field['localize']) && $field['localize']) {
-                foreach ($languages as $key => $val) {
-                    if (is_numeric($key)) $key = $val;
-                    $allowedFields[] = "{$field['name']}_{$key}";
-                }
-            }
-        }
-
-        $revisions = $this->app->helper('revisions')->getList($id);
-
-        return $this->render('collections:views/revisions.php', compact('collection', 'entry', 'revisions', 'allowedFields'));
     }
 }

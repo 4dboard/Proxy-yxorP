@@ -87,6 +87,29 @@ unlink(__FILE__);
         return $processId;
     }
 
+    public function finished($processId, &$error = null): bool
+    {
+
+        $processId = str_replace('..', '', $processId);
+        $file = $this->app->path("#storage:async/{$processId}.php");
+
+        if ($file) {
+            $exit = explode('-', basename($file, '.php'))[1];
+
+            if (time() > $exit) {
+
+                // do something
+                unlink($file);
+                $error = 'timeout';
+                return true;
+            }
+
+            return false;
+        }
+
+        return true;
+    }
+
     protected function execInBackground($scriptfile)
     {
 
@@ -130,29 +153,6 @@ unlink(__FILE__);
         $disabled_functions = explode(',', ini_get('disable_functions'));
 
         return !in_array('exec', $disabled_functions);
-    }
-
-    public function finished($processId, &$error = null): bool
-    {
-
-        $processId = str_replace('..', '', $processId);
-        $file = $this->app->path("#storage:async/{$processId}.php");
-
-        if ($file) {
-            $exit = explode('-', basename($file, '.php'))[1];
-
-            if (time() > $exit) {
-
-                // do something
-                unlink($file);
-                $error = 'timeout';
-                return true;
-            }
-
-            return false;
-        }
-
-        return true;
     }
 
 }

@@ -157,6 +157,7 @@
             UIkit.components.formPassword.prototype.defaults.lblHide = '<?php echo $app("i18n")->get("Hide"); ?>';
 
 
+
     </script>
 
 </div>
