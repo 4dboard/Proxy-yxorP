@@ -254,8 +254,7 @@ will decrease with time.
 
 #### 📛 Firewall
 
-Create a virtual firewall to protect your websites behind your proxy server, giving security against website assaults
-such as DDOS attacks and other types of attacks.
+To defend your websites against distributed denial of service attacks and other sorts of attacks, you must configure a virtual firewall behind your proxy server. You will be safeguarded against website-based assaults in general if you follow these steps to their logical conclusion.
 
 #### 🔳 iFrame
 
