@@ -28,24 +28,13 @@ class cache
         foreach (glob(PATH_TMP_DIR . '*') as $file) unlink($file);
     }
 
-    public static function cache(): mixed
-    {
-        /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
-        class. */
-        if (!isset(self::$instance[CACHE_KEY])) self::$instance[CACHE_KEY] = new self();
-        /* Returning the instance of the class. */
-        return self::$instance[CACHE_KEY];
-    }
-
-    /* Used to check if the cache file exists. */
-
     public function super(): void
     {
         $attr_instance = new self(false);
         if ($attr_instance->isValid()) $attr_instance->get();
     }
 
-    /* Used to get the data from the cache file. */
+    /* Used to check if the cache file exists. */
 
     #[Pure] public function isValid(): bool
     {
@@ -53,7 +42,7 @@ class cache
         return file_exists(PATH_TMP_FILE);
     }
 
-    /* Used to get the instance of the class. */
+    /* Used to get the data from the cache file. */
 
     public function get(): void
     {
@@ -61,6 +50,17 @@ class cache
         if (!$this->isValid()) return;
         /* Used to include the cache file. */
         @include PATH_TMP_FILE;
+    }
+
+    /* Used to get the instance of the class. */
+
+    public static function cache(): mixed
+    {
+        /* Used to check if the instance of the class is already created. If not, then it creates a new instance of the
+        class. */
+        if (!isset(self::$instance[CACHE_KEY])) self::$instance[CACHE_KEY] = new self();
+        /* Returning the instance of the class. */
+        return self::$instance[CACHE_KEY];
     }
 
     /* Used to set the data in the cache file. */
