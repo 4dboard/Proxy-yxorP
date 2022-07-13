@@ -7,7 +7,8 @@
                 @lang('Singletons')
 
                 @hasaccess?('singletons', 'create')
-                <a href="@route('/singletons/singleton')" class="uk-icon-plus uk-margin-small-left" title="@lang('Create Singleton')" data-uk-tooltip></a>
+                <a href="@route('/singletons/singleton')" class="uk-icon-plus uk-margin-small-left"
+                   title="@lang('Create Singleton')" data-uk-tooltip></a>
                 @end
             </strong>
 
@@ -18,40 +19,43 @@
 
         @if(count($singletons))
 
-            <div class="uk-margin">
+        <div class="uk-margin">
 
-                <ul class="uk-list uk-list-space uk-margin-top">
-                    @foreach(array_slice($singletons, 0, count($singletons) > 5 ? 5: count($singletons)) as $singleton)
-                    <li class="uk-text-truncate">
-                        <a class="uk-link-muted" href="@route('/singletons/form/'.$singleton['name'])">
+            <ul class="uk-list uk-list-space uk-margin-top">
+                @foreach(array_slice($singletons, 0, count($singletons) > 5 ? 5: count($singletons)) as $singleton)
+                <li class="uk-text-truncate">
+                    <a class="uk-link-muted" href="@route('/singletons/form/'.$singleton['name'])">
 
-                            <img class="uk-margin-small-right uk-svg-adjust" src="@url(isset($singleton['icon']) && $singleton['icon'] ? 'assets:app/media/icons/'.$singleton['icon']:'singletons:icon.svg')" width="18px" alt="icon" data-uk-svg>
+                        <img class="uk-margin-small-right uk-svg-adjust"
+                             src="@url(isset($singleton['icon']) && $singleton['icon'] ? 'assets:app/media/icons/'.$singleton['icon']:'singletons:icon.svg')"
+                             width="18px" alt="icon" data-uk-svg>
 
-                            {{ htmlspecialchars(@$singleton['label'] ? $singleton['label'] : $singleton['name'], ENT_QUOTES, 'UTF-8') }}
-                        </a>
-                    </li>
-                    @endforeach
-                </ul>
+                        {{ htmlspecialchars(@$singleton['label'] ? $singleton['label'] : $singleton['name'], ENT_QUOTES,
+                        'UTF-8') }}
+                    </a>
+                </li>
+                @endforeach
+            </ul>
 
-            </div>
+        </div>
 
-            @if(count($singletons) > 5)
-            <div class="uk-panel-box-footer uk-text-center">
-                <a class="uk-button uk-button-small uk-button-link" href="@route('/singletons')">@lang('Show all')</a>
-            </div>
-            @endif
+        @if(count($singletons) > 5)
+        <div class="uk-panel-box-footer uk-text-center">
+            <a class="uk-button uk-button-small uk-button-link" href="@route('/singletons')">@lang('Show all')</a>
+        </div>
+        @endif
 
         @else
 
-            <div class="uk-margin uk-text-center uk-text-muted">
+        <div class="uk-margin uk-text-center uk-text-muted">
 
-                <p>
-                    <img src="@url('singletons:icon.svg')" width="30" height="30" alt="Singletons" data-uk-svg />
-                </p>
+            <p>
+                <img src="@url('singletons:icon.svg')" width="30" height="30" alt="Singletons" data-uk-svg/>
+            </p>
 
-                @lang('No singletons')
+            @lang('No singletons')
 
-            </div>
+        </div>
 
         @endif
 

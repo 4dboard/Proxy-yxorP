@@ -105,6 +105,23 @@ class Media extends \yxorP\AuthController
         return $data;
     }
 
+    protected function _getPathParameter()
+    {
+
+        $path = $this->param('path', false);
+
+        if ($path) {
+
+            $path = trim($path);
+
+            if (strpos($path, '../') !== false) {
+                $path = false;
+            }
+        }
+
+        return $path;
+    }
+
     protected function upload()
     {
 
@@ -149,6 +166,24 @@ class Media extends \yxorP\AuthController
         $this->app->trigger('yxorp.media.upload', [$_uploaded, $_failed]);
 
         return json_encode(['uploaded' => $uploaded, 'failed' => $failed]);
+    }
+
+    protected function _isFileTypeAllowed($file)
+    {
+
+        $allowed = trim($this->module('yxorp')->getGroupVar('finder.allowed_uploads', $this->app->retrieve('allowed_uploads', '*')));
+
+        if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) == 'php' && !$this->module('yxorp')->isSuperAdmin()) {
+            return false;
+        }
+
+        if ($allowed == '*') {
+            return true;
+        }
+
+        $allowed = str_replace([' ', ','], ['', '|'], preg_quote(is_array($allowed) ? implode(',', $allowed) : $allowed));
+
+        return preg_match("/\.({$allowed})$/i", $file);
     }
 
     protected function uploadfolder()
@@ -476,41 +511,6 @@ class Media extends \yxorP\AuthController
         }
 
         return json_encode($list);
-    }
-
-    protected function _getPathParameter()
-    {
-
-        $path = $this->param('path', false);
-
-        if ($path) {
-
-            $path = trim($path);
-
-            if (strpos($path, '../') !== false) {
-                $path = false;
-            }
-        }
-
-        return $path;
-    }
-
-    protected function _isFileTypeAllowed($file)
-    {
-
-        $allowed = trim($this->module('yxorp')->getGroupVar('finder.allowed_uploads', $this->app->retrieve('allowed_uploads', '*')));
-
-        if (strtolower(pathinfo($file, PATHINFO_EXTENSION)) == 'php' && !$this->module('yxorp')->isSuperAdmin()) {
-            return false;
-        }
-
-        if ($allowed == '*') {
-            return true;
-        }
-
-        $allowed = str_replace([' ', ','], ['', '|'], preg_quote(is_array($allowed) ? implode(',', $allowed) : $allowed));
-
-        return preg_match("/\.({$allowed})$/i", $file);
     }
 
 }

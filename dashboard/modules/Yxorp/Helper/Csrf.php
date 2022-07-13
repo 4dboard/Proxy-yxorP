@@ -22,6 +22,18 @@ class Csrf extends \Lime\Helper
 
     }
 
+    public function token($key, $generate = false, $expire = null)
+    {
+
+        $token = $this->app->helper('session')->read("yxorp.csrf.token.{$key}", null);
+
+        if (!$token || $generate) {
+            $token = $this->generateToken($key, $expire);
+        }
+
+        return $token;
+    }
+
     public function generateToken($key, $expire = null)
     {
 
@@ -34,18 +46,6 @@ class Csrf extends \Lime\Helper
         $token = JWT::encode($payload, $this->app['sec-key']);
 
         $this->app->helper('session')->write("yxorp.csrf.token.{$key}", $token);
-
-        return $token;
-    }
-
-    public function token($key, $generate = false, $expire = null)
-    {
-
-        $token = $this->app->helper('session')->read("yxorp.csrf.token.{$key}", null);
-
-        if (!$token || $generate) {
-            $token = $this->generateToken($key, $expire);
-        }
 
         return $token;
     }

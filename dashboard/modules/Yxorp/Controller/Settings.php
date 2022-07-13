@@ -46,6 +46,19 @@ class Settings extends \yxorP\AuthController
         return $this->render('yxorp:views/settings/info.php', compact('info', 'update'));
     }
 
+    protected function getUptdateInfo()
+    {
+
+        $update = new \ArrayObject(array_merge([
+            'package.json' => 'https://raw.githubusercontent.com/agentejo/yxorp/master/package.json',
+            'zipfile' => 'https://github.com/agentejo/yxorp/archive/master.zip',
+            'target' => YXORP_DIR,
+            'options' => ['zipRoot' => 'yxorp-master']
+        ], $this->app->retrieve('config/update', [])));
+
+        return $update;
+    }
+
     public function edit($createconfig = false)
     {
 
@@ -79,18 +92,5 @@ class Settings extends \yxorP\AuthController
         $this->app->trigger('yxorp.update.after', [$update]);
 
         return $ret;
-    }
-
-    protected function getUptdateInfo()
-    {
-
-        $update = new \ArrayObject(array_merge([
-            'package.json' => 'https://raw.githubusercontent.com/agentejo/yxorp/master/package.json',
-            'zipfile' => 'https://github.com/agentejo/yxorp/archive/master.zip',
-            'target' => YXORP_DIR,
-            'options' => ['zipRoot' => 'yxorp-master']
-        ], $this->app->retrieve('config/update', [])));
-
-        return $update;
     }
 }

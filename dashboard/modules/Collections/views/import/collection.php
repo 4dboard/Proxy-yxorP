@@ -1,4 +1,3 @@
-
 {{ $app->assets(['collections:assets/import/parser.js', 'collections:assets/import/filter.js'], $app['yxorp/version']) }}
 
 <div>
@@ -6,7 +5,9 @@
         <li><a href="@route('/collections')">@lang('Collections')</a></li>
         <li data-uk-dropdown="mode:'hover, delay:300'">
 
-            <a href="@route('/collections/entries/'.$collection['name'])"><i class="uk-icon-bars"></i> {{ htmlspecialchars(@$collection['label'] ? $collection['label']:$collection['name'], ENT_QUOTES, 'UTF-8') }}</a>
+            <a href="@route('/collections/entries/'.$collection['name'])"><i class="uk-icon-bars"></i> {{
+                htmlspecialchars(@$collection['label'] ? $collection['label']:$collection['name'], ENT_QUOTES, 'UTF-8')
+                }}</a>
 
             <div class="uk-dropdown">
                 <ul class="uk-nav uk-nav-dropdown">
@@ -17,7 +18,9 @@
                     <li><a href="@route('/collections/trash/collection/'.$collection['name'])">@lang('Trash')</a></li>
                     @endif
                     <li class="uk-nav-divider"></li>
-                    <li class="uk-text-truncate"><a href="@route('/collections/export/'.$collection['name'])" download="{{ $collection['name'] }}.collection.json">@lang('Export entries')</a></li>
+                    <li class="uk-text-truncate"><a href="@route('/collections/export/'.$collection['name'])"
+                                                    download="{{ $collection['name'] }}.collection.json">@lang('Export
+                            entries')</a></li>
                 </ul>
             </div>
 
@@ -30,21 +33,25 @@
 
 <div class="uk-margin-top" riot-view>
 
-    <div class="uk-viewport-height-1-3 uk-flex uk-flex-center uk-flex-middle" ref="parse" data-step="parse" show="{step=='parse'}">
+    <div class="uk-viewport-height-1-3 uk-flex uk-flex-center uk-flex-middle" ref="parse" data-step="parse"
+         show="{step=='parse'}">
         <div class="uk-text-center">
             <i class="uk-h1 uk-icon-spinner uk-icon-spin"></i>
             <p class="uk-text-muted uk-text-large">@lang('Parsing file...')</p>
         </div>
     </div>
 
-    <div class="uk-viewport-height-1-3 uk-flex uk-flex-center uk-flex-middle" ref="process" data-step="process" show="{step=='process'}">
+    <div class="uk-viewport-height-1-3 uk-flex uk-flex-center uk-flex-middle" ref="process" data-step="process"
+         show="{step=='process'}">
         <div class="uk-text-center">
             <i class="uk-h1 uk-icon-spinner uk-icon-spin"></i>
             <p class="uk-text-muted uk-text-large"><span ref="progress"></span></p>
         </div>
     </div>
 
-    <div ref="step1" class="uk-pabel uk-panel-box uk-panel-card uk-text-center uk-viewport-height-1-3 uk-flex uk-flex-center uk-flex-middle" data-step="1" show="{step==1}">
+    <div ref="step1"
+         class="uk-pabel uk-panel-box uk-panel-card uk-text-center uk-viewport-height-1-3 uk-flex uk-flex-center uk-flex-middle"
+         data-step="1" show="{step==1}">
         <div>
 
             <p>
@@ -64,46 +71,51 @@
 
         <table class="uk-table uk-table-border uk-table-striped uk-margin-top">
             <thead>
-                <tr>
-                    <th width="10"></th>
-                    <th class="uk-text-small">@lang('Collection Field')</th>
-                    <th width="30%" class="uk-text-small">@lang('Map Field')</th>
-                    <th width="10" class="uk-text-small">@lang('Filter')</th>
-                </tr>
+            <tr>
+                <th width="10"></th>
+                <th class="uk-text-small">@lang('Collection Field')</th>
+                <th width="30%" class="uk-text-small">@lang('Map Field')</th>
+                <th width="10" class="uk-text-small">@lang('Filter')</th>
+            </tr>
             </thead>
             <tbody class="uk-form">
-                <tr each="{field,idx in fields}">
-                    <td><span class="uk-badge uk-badge-danger" if="{field.required}" title="@lang('Required')">R</span></td>
-                    <td>
-                        <span if="{ field._lang }" class="uk-margin-left uk-margin-small-right uk-icon-globe uk-text-muted" title="@lang('Localized field')" data-uk-tooltip="pos:'left'"></span>
-                        <span class="{field._lang && 'uk-text-muted'}">{ field.name }</span>
-                    </td>
-                    <td>
+            <tr each="{field,idx in fields}">
+                <td><span class="uk-badge uk-badge-danger" if="{field.required}" title="@lang('Required')">R</span></td>
+                <td>
+                    <span if="{ field._lang }" class="uk-margin-left uk-margin-small-right uk-icon-globe uk-text-muted"
+                          title="@lang('Localized field')" data-uk-tooltip="pos:'left'"></span>
+                    <span class="{field._lang && 'uk-text-muted'}">{ field.name }</span>
+                </td>
+                <td>
+                    <div class="uk-form-select">
+                        <a class="{ parent.mapping[field.name] ? 'uk-link-muted':''}"><i class="uk-icon-exchange"
+                                                                                         show="{mapping[field.name]}"></i>
+                            { parent.mapping[field.name] || 'Select...'}</a>
+                        <select class="uk-width-1-1" onchange="{ setMapping(field.name) }">
+                            <option></option>
+                            <option each="{h,hidx in data.headers}" value="{h}">{h}</option>
+                        </select>
+                    </div>
+                    <div class="uk-margin-small-top uk-text-small uk-text-muted"
+                         if="{field.type == 'collectionlink' && parent.mapping[field.name] && parent.filter[field.name]}">
+                        <hr>
+                        @lang('Match against:')
                         <div class="uk-form-select">
-                            <a class="{ parent.mapping[field.name] ? 'uk-link-muted':''}"><i class="uk-icon-exchange" show="{mapping[field.name]}"></i> { parent.mapping[field.name] || 'Select...'}</a>
-                            <select class="uk-width-1-1" onchange="{ setMapping(field.name) }">
-                                <option></option>
-                                <option each="{h,hidx in data.headers}" value="{h}">{h}</option>
+                            {field.options.link}.<a>{parent.filterData[field.name] || '(Select field...)'}</a>
+                            <select onchange="{ setFilterData(field.name) }">
+                                <option value=""></option>
+                                <option value="{f.name}" each="{f in _COL_[field.options.link].fields}">{f.name}
+                                </option>
                             </select>
                         </div>
-                        <div class="uk-margin-small-top uk-text-small uk-text-muted" if="{field.type == 'collectionlink' && parent.mapping[field.name] && parent.filter[field.name]}">
-                            <hr>
-                            @lang('Match against:')
-                            <div class="uk-form-select">
-                                {field.options.link}.<a>{parent.filterData[field.name] || '(Select field...)'}</a>
-                                <select onchange="{ setFilterData(field.name) }">
-                                    <option value=""></option>
-                                    <option value="{f.name}" each="{f in _COL_[field.options.link].fields}">{f.name}</option>
-                                </select>
-                            </div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="uk-text-center">
-                            <input class="uk-checkbox" type="checkbox" onchange="{ setFilter(field.name) }" />
-                        </div>
-                    </td>
-                </tr>
+                    </div>
+                </td>
+                <td>
+                    <div class="uk-text-center">
+                        <input class="uk-checkbox" type="checkbox" onchange="{ setFilter(field.name) }"/>
+                    </div>
+                </td>
+            </tr>
             </tbody>
         </table>
 
@@ -402,6 +414,7 @@
 
             return chunks;
         }
+
 
     </script>
 

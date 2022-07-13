@@ -63,6 +63,23 @@ class Accounts extends \yxorP\AuthController
         return $this->render('yxorp:views/accounts/account.php', compact('account', 'uid', 'languages', 'groups', 'fields'));
     }
 
+    protected function getLanguages()
+    {
+
+        $languages = [['i18n' => 'en', 'language' => 'English']];
+
+        foreach ($this->app->helper('fs')->ls('*.php', '#config:yxorp/i18n') as $file) {
+
+            $lang = include($file->getRealPath());
+            $i18n = $file->getBasename('.php');
+            $language = $lang['@meta']['language'] ?? $i18n;
+
+            $languages[] = ['i18n' => $i18n, 'language' => $language];
+        }
+
+        return $languages;
+    }
+
     public function create()
     {
 
@@ -265,23 +282,6 @@ class Accounts extends \yxorP\AuthController
         }
 
         return compact('accounts', 'count', 'pages', 'page');
-    }
-
-    protected function getLanguages()
-    {
-
-        $languages = [['i18n' => 'en', 'language' => 'English']];
-
-        foreach ($this->app->helper('fs')->ls('*.php', '#config:yxorp/i18n') as $file) {
-
-            $lang = include($file->getRealPath());
-            $i18n = $file->getBasename('.php');
-            $language = $lang['@meta']['language'] ?? $i18n;
-
-            $languages[] = ['i18n' => $i18n, 'language' => $language];
-        }
-
-        return $languages;
     }
 
 }
