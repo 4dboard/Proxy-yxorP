@@ -18,7 +18,7 @@
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177683866-3d1b3a43-1b5b-4653-a3b4-469a3ac24585.png) ![image](https://user-images.githubusercontent.com/6468571/177668426-3548dbf3-03ff-4ea0-a1be-08436a3751bd.png)
+![image](https://user-images.githubusercontent.com/6468571/177668426-3548dbf3-03ff-4ea0-a1be-08436a3751bd.png)
 
 > ⛔️[ GITHUB  : ](https://github.com/donspablo) Without more people getting behind this, it won't go very far. Please click the "star" button to show your support for this endeavour if you think it interesting. Assuming there is at least some enthusiasm for the idea, development will proceed.
 
@@ -66,7 +66,7 @@ both rapid and scalable.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177684166-899d37ee-1433-473b-8744-44a5e96d3031.png) ![image](https://user-images.githubusercontent.com/6468571/177686281-5c726469-125c-4075-a14d-8dfc086d1b54.png)
+![image](https://user-images.githubusercontent.com/6468571/177686281-5c726469-125c-4075-a14d-8dfc086d1b54.png)
 
 PHP, unlike other programming languages, does not have its own state. Each and every query is unique. In this way, the
 protocol is relatively similar to the HyperText Transfer Protocol's roots (HTTP). On top of that, state may be
@@ -122,7 +122,7 @@ php ./server.php
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
-![image](https://user-images.githubusercontent.com/6468571/177684393-7f2589c1-e512-4540-96f4-835bf0f60386.png) ![image](https://user-images.githubusercontent.com/6468571/177686387-dc457561-f3ad-404b-97c4-1b73b7f37e4d.png)
+![image](https://user-images.githubusercontent.com/6468571/177686387-dc457561-f3ad-404b-97c4-1b73b7f37e4d.png)
 
 Docker Compose is a tool that simplifies the design and distribution of multi-container applications. With Compose, we
 can specify our services in a YAML file and then deploy, scale, and destruct our infrastructure with a single command.
