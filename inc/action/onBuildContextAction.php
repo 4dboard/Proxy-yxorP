@@ -14,6 +14,9 @@ class onBuildContextAction extends wrapper
     /* This function is used to build the request and response objects. */
     public function onBuildContext(): void
     {
+        echo YXORP_REQUEST_URI;
+        echo '123';
+        echo $x;
         /* Setting the response object to the key RESPONSE. */
         constants::set(VAR_RESPONSE, new Response());
         /* Setting the request object to the key REQUEST. */
