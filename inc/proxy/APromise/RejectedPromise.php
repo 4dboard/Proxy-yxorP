@@ -32,7 +32,7 @@ class RejectedPromise implements PromiseInterface
     public function then(
         callable $onFulfilled = null,
         callable $onRejected = null
-    ): Promise|PromiseInterface|static
+    ): mixed
     {
         // If there's no onRejected callback then just return self.
         if (!$onRejected) {
