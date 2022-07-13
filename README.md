@@ -283,6 +283,13 @@ behavior in question, although being plausible and "not suggested but attainable
 
 #### 🔱 Load-balancing
 
+TCP Proxy Load Balancing is a method that allows users from many regions of the world to share a single IP address. The
+TCP proxy load balancer is accountable for automatically routing traffic to the geographically nearest backends. TCP
+Proxy Load Balancing may operate as a global load balancing service when the Premium Tier is applied. Either a load
+balancer or a Web proxy server is required when implementing in-memory replication of client session information. Both
+options cannot be used together. This is done so that all domain-based applications may be accessed through a single URL
+for external clients.
+
 The installation of cloned copies of your website on several additional servers, each of which is connected to a
 load-balancing system, is one method for achieving this objective. There are several other approaches that might
 possibly be used in this operation. Using a cluster of servers is a potential alternative method that might be utilized
