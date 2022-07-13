@@ -12,14 +12,4 @@ f1() {
 }
 
 
-f1 './snag'
-f1 './proxy'
-f1 './psr'
-
-f1 './snag'
-f1 './proxy'
-f1 './psr'
-
-f1 './snag'
-f1 './proxy'
-f1 './psr'
+f1 './dashboard'
