@@ -121,8 +121,8 @@ php ./server.php
 
 ![image](https://user-images.githubusercontent.com/6468571/177686387-dc457561-f3ad-404b-97c4-1b73b7f37e4d.png)
 
-Docker Compose is a tool that simplifies the design and distribution of multi-container applications. With Compose, we
-can specify our services in a YAML file and then deploy, scale, and destruct our infrastructure with a single command.
+Docker Compose is a tool for constructing and deploying multi-container-based applications. Compose enables us to design
+our services inside a YAML file and deploy, grow, and delete our infrastructure with a single command.
 
 ``` 
 
