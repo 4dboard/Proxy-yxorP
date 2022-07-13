@@ -34,26 +34,40 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/177683962-8426f6e0-9626-4484-a1a0-1c03c952e8e4.png) ![image](https://user-images.githubusercontent.com/6468571/177686029-28027b8e-fadd-4aed-973b-d79bbe8edfdc.png)
 
-yxorP is a plug-and-play, flat-file application that *does not need Composer, PHP CURL, or databases*. yxorP is meant to
-work as a proxy that may modify or change the content of several websites and is managed through a simple Cockpit
-backend (GUI).
+Flat files are used to hold the information created by the plug-and-play application yxorP. Composer, PHP CURL, and
+databases are optional for this software's operation, since they are not necessary. yxorP was created to serve as a
+proxy and is capable of altering the contents of several websites. This was the original aim behind its creation. The
+Cockpit, the system's principal backend, controls this component (GUI).
 
-It is well-known that yxorP is one of the web proxy systems that offers the most customization compared to other web
-proxy systems now available on the market. This is because of its event-driven architecture and emphasis on its
-plugin-based design, as opposed to its built-in features, which are the most important and distinguishing components
-that permit customization and extension of its capabilities. In addition to its Back-end administration CMS and
-graphical user interface, yxorP has a variety of additional distinguishing features.
+It is common knowledge that yxorP is one of the web proxy systems that, compared to other web proxy systems now
+available on the market, enables users to tailor their surfing experience in the most ways. yxorP is one of the web
+proxy systems that provides the most freedom while browsing. Furthermore, yxorP is one of the earliest web proxy systems
+ever created. This is owing to its event-driven architecture and emphasis on its plugin-based design, rather than its
+built-in features, which are the most essential and distinctive elements that enable customization and extension of its
+capabilities. This is due to its adaptive and expandable qualities. Because they provide customization and expansion of
+the product's capabilities, the built-in features are the most defining and significant aspects. This is owing to the
+fact that its capabilities are modifiable and expandable, which has led to the current situation. This is because the
+built-in features are the most essential and distinctive components, allowing for modification and expansion of its
+capabilities. This is the reason behind the present situation. In addition to a graphical user interface (GUI) and a
+back-end content management system (CMS), yxorP has a number of distinctive features that set it apart from its
+competitors. These qualities include a number of additional characteristics that separate it in a variety of ways from
+its competitors. These characteristics include a number of additional characteristics that distinguish it from its
+rivals in a variety of ways, such as its quality.
 
-To get site-specific requirements from the backend, the hostname of the incoming request is used. These specifications
-are then used to get and alter the requested webpage. In addition, website material may optionally be spun using the
-application's already-integrated *article spinning engine*. Five hundred times slower than flat-file cache solutions are
-memory-based cache systems like Memcache and Redis. This is accomplished by reducing serialization and deserialization
-procedures, which results in a cache that is much faster.
+Currently, the hostname of the request being processed is utilized to search the backend for website-specific
+requirements. Then, these criteria are used to identify the most suitable website and make any required modifications.
+Using the program's already-integrated article-spinning engine, the user may spin the website's content. The user has
+access to this option. This activity is undertaken according to the user's preferences. Memory-based caching systems
+like Memcache and Redis are about 500 times slower than flat-file-based caching solutions. This is accomplished by
+decreasing the total number of serialization and deserialization operations, resulting in a cache that operates at a
+much faster rate.
 
-The Snag error reporting and warning system now supports yxorP in its most complete version after an upgrade. This
-operation was carried out to confirm Snag's compatibility with the change. Modifications to the *default logging* system
-may be implemented in as little as two minutes due to the program's compatibility with the overwhelming majority of *
-industry-standard error tracking systems*.
+The most thorough version of yxorP may now be processed by the Snag error reporting and warning system due to a recent
+update. Recent changes have been implemented. This method was designed to assess whether or not Snag is acceptable for
+the already delivered update. Due to the program's interoperability with the great majority of industry-standard error
+tracking systems, modifying the default logging system might take as little as two minutes. This is the situation due to
+the interoperability capabilities of the bulk of these systems. This result was attainable due to the software's
+capacity to monitor the system and report any vulnerabilities it identifies.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
