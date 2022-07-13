@@ -359,12 +359,16 @@ available through the route /workspace/your-workspace-name, and "workspace" refe
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/177672382-fc29dfac-1dab-4192-b042-ced6a6c051e9.png)
 
-Two of the most powerful PHP reverse proxies now accessible on the internet have been merged to create a single web
-proxy that outperforms the two when their combined performance is considered. Please keep in mind that this is a
-brand-new project that may undergo changes in the future. With the php-proxy library, a component of the PHP programming
-language that is available for free download, you may quickly and easily configure a web proxy application for your web
-server. If you are able to contribute to or support this project, it would be much appreciated as it would enable me to
-devote more development time to it, therefore expediting its progress.
+The performance of a single web proxy surpasses that of the two original web proxies combined. Due to the combination of
+two of the most powerful PHP reverse proxies presently available on the Internet, this is now feasible. Combining two
+PHP reverse proxies resulted in the creation of this web proxy. Due to the fact that this is a brand-new project, it may
+be modified in the future. Your cooperation and understanding are much appreciated in this subject. You just cannot
+ignore this part of the issue. Using the PHP-Proxy library, which is a component of the PHP programming language and can
+be downloaded for free from the PHP website, you may quickly and easily configure a web proxy application for your web
+server. Visit their website if you are interested in learning more about PHP. Thus, you may avoid manually setting the
+web proxy application you use. If you are able to help financially or in any other way to the success of this project,
+please know that you will be shown a great degree of gratitude and will not be acting alone. I could devote more time to
+the growth and development of the project, therefore accelerating its overall advancement.
 
 ![image](https://user-images.githubusercontent.com/6468571/153799459-4c352a2d-2bc0-413d-9048-7f94bdd7a1a5.png) ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/157206067-a7263dc6-09e4-4350-8ad2-3bd51fc349b0.png) ![image](https://user-images.githubusercontent.com/6468571/157188795-5034fd0f-d40e-4a58-9e8e-286e713fb397.png)
 
