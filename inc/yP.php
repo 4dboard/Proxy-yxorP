@@ -293,9 +293,9 @@ class yP
         foreach (file(DIR_ROOT . EXT_ENV) as $line) self::env($line);
         /* It's checking if the `http` and `minify` directories exist in the plugin directory, and if they don't, it
         creates them. */
-
+        self::init();
         /* It's looping through all the events in the `init()` function and dispatching them to the `yxorP()` function */
-        foreach (self::init($yxorp_root) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
+        foreach (constants::get(YXORP_EVENT_LIST) as $event) self::yxorP($request ?: $_SERVER)->dispatch($event);
     }
 
     /**
