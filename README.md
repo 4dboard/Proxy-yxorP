@@ -254,7 +254,9 @@ will decrease with time.
 
 #### 📛 Firewall
 
-To defend your websites against distributed denial of service attacks and other sorts of attacks, you must configure a virtual firewall behind your proxy server. You will be safeguarded against website-based assaults in general if you follow these steps to their logical conclusion.
+To defend your websites against distributed denial of service attacks and other sorts of attacks, you must configure a
+virtual firewall behind your proxy server. You will be safeguarded against website-based assaults in general if you
+follow these steps to their logical conclusion.
 
 #### 🔳 iFrame
 
