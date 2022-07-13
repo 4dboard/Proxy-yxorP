@@ -149,6 +149,7 @@ class yP
         constants::set(YXORP_TARGET_PLUGINS, $siteDetails[VAR_PLUGINS]);
         /* Setting the `TARGET_URL` variable to the value of the `target` key in the `TARGET` array. */
         define('YXORP_TARGET_URL', ($siteDetails)[DASHBOARD_TARGET]);
+        define('YXORP_TARGET_URL', "localjost");
 
         // TARGET DOMAIN DETAILS
 
