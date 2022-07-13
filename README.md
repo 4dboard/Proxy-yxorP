@@ -34,41 +34,40 @@
 
 ![image](https://user-images.githubusercontent.com/6468571/177683962-8426f6e0-9626-4484-a1a0-1c03c952e8e4.png) ![image](https://user-images.githubusercontent.com/6468571/177686029-28027b8e-fadd-4aed-973b-d79bbe8edfdc.png)
 
-Flat files are used to hold the information created by the plug-and-play application yxorP. Composer, PHP CURL, and
-databases are optional for this software's operation, since they are not necessary. yxorP was created to serve as a
-proxy and is capable of altering the contents of several websites. This was the original aim behind its creation. The
-Cockpit, the system's principal backend, controls this component (GUI).
+Flat files are used to hold the information created by the plug-and-play application yxorP. Since they are not
+necessary, Composer, PHP CURL, and databases are optional for the execution of this application. yxorP was created to
+function as a proxy and is capable of altering the contents of several websites. This was the original aim behind its
+creation. The Cockpit, the system's principal backend, controls this component (GUI).
 
 It is common knowledge that yxorP is one of the web proxy systems that, compared to other web proxy systems now
-available on the market, enables users to tailor their surfing experience in the most ways. yxorP is one of the web
-proxy systems that provides the most freedom while browsing. Furthermore, yxorP is one of the earliest web proxy systems
-ever created. This is owing to its event-driven architecture and emphasis on its plugin-based design, rather than its
-built-in features, which are the most essential and distinctive elements that enable customization and extension of its
-capabilities. This is due to its adaptive and expandable qualities.
+available on the market, enables users to tailor their surfing experience in the most ways. yxorP is among the most
+flexible web proxy solutions in terms of browsing capabilities. Moreover, yxorP is one of the first web proxy systems
+ever created. This is due to its event-driven architecture and emphasis on its plugin-based design, rather than its
+built-in features, which are the most essential and defining components that enable customization and extension of its
+capabilities. Due to its versatility and scalability, this is the case.
 
-Because they provide customization and expansion of the product's capabilities, the built-in features are the most
-defining and significant aspects. This is owing to the fact that its capabilities are modifiable and expandable, which
-has led to the current situation. This is because the built-in features are the most essential and distinctive
-components, allowing for modification and expansion of its capabilities. This is the reason behind the present
+Because they provide customization and expansion of a product's capabilities, the built-in features are the most
+distinguishing and significant aspects. This is due to its adaptable and expandable qualities, which has led to the
+current circumstance. This is due to the fact that the inherent characteristics are the most fundamental and distinctive
+characteristics, allowing for the change and expansion of its capabilities. This is the reason behind the present
 situation. In addition to a graphical user interface (GUI) and a back-end content management system (CMS), yxorP has a
-number of distinctive features that set it apart from its competitors. These qualities include a number of additional
-characteristics that separate it in a variety of ways from its competitors. These characteristics include a number of
-additional characteristics that distinguish it from its rivals in a variety of ways, such as its quality.
+number of additional distinguishing features. These qualities include a number of additional characteristics that
+separate it in a variety of ways from its competitors. These distinctive characteristics, such as the product's quality,
+set it apart from its rivals.
 
 Currently, the hostname of the request being processed is utilized to search the backend for website-specific
-requirements. Then, these criteria are used to identify the most suitable website and make any required modifications.
-Using the program's already-integrated article-spinning engine, the user may spin the website's content. The user has
-access to this option. This activity is undertaken according to the user's preferences. Memory-based caching systems
-like Memcache and Redis are about 500 times slower than flat-file-based caching solutions. This is accomplished by
-decreasing the total number of serialization and deserialization operations, resulting in a cache that operates at a
-much faster rate.
+requirements. Then, using these criteria, the best website is selected and any required revisions are made. The user may
+spin the website's content using the pre-integrated article-spinning engine of the application. The user has access to
+this option. This activity is undertaken in accordance with the user's preferences. Flat-file caching solutions are
+about 500 times faster than memory-based caching systems such as Memcache or Redis. This is accomplished by reducing the
+overall number of serialization and deserialization operations, which results in a cache that operates much faster.
 
-The most thorough version of yxorP may now be processed by the Snag error reporting and warning system due to a recent
-update. Recent changes have been implemented. This method was designed to assess whether or not Snag is acceptable for
-the already delivered update. Due to the program's interoperability with the great majority of industry-standard error
-tracking systems, modifying the default logging system might take as little as two minutes. This is the situation due to
-the interoperability capabilities of the bulk of these systems. This result was attainable due to the software's
-capacity to monitor the system and report any vulnerabilities it identifies.
+Due to a recent update, the most thorough version of yxorP may now be examined by the BugSnag error reporting and
+warning system. Recent adjustments have been made. This function was designed to determine whether Snag is compatible
+with a previously issued update. Changing the default logging system might take as little as two minutes due to the
+program's interoperability with the great majority of industry-standard error tracking solutions. This is the situation
+due to the interoperability capabilities of the bulk of these systems. This conclusion was attainable due to the
+software's capacity to monitor the system and report any vulnerabilities it detects.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
