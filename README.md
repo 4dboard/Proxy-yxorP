@@ -390,17 +390,16 @@ will be the case. This is done to guarantee that your privacy and safety are alw
 
 ![image](https://user-images.githubusercontent.com/6468571/177675825-3e76629b-33f3-45fb-8358-b5a7a0eea0db.png)
 
-Liberating Dev Tool For All Your Projects LAMP recipe, which may be purchased from the link
-
-above, are required in order to complete the Lando - A Liberating Dev Tool For All Your Projects project. You may use
-the Lando - A Liberating Dev Tool For All Your Projects project for all of your projects since it enables you to
-either "plug and play" on PHP-compatible PCs or create in a LAMP environment. If you need any further information
-regarding this project, please visit the section under "Frequently Asked Questions." Worldwide, professional developers
-use local development and DevOps technologies on a daily basis, with the United States having the highest concentration
-of such technologies. In spite of the fact that there are insufficient instruments to assist in the development process,
-it is possible to transcend the conceptual limitations imposed by this situation. Concentrating your attention on the
-most important activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on
-the most important tasks may help to alleviate some of the stress.
+Liberating Dev Tool For All Your Projects LAMP recipe, which may be purchased from the link above, are required in order
+to complete the Lando - A Liberating Dev Tool For All Your Projects project. You may use the Lando - A Liberating Dev
+Tool For All Your Projects project for all of your projects since it enables you to either "plug and play" on
+PHP-compatible PCs or create in a LAMP environment. If you need any further information regarding this project, please
+visit the section under "Frequently Asked Questions." Worldwide, professional developers use local development and
+DevOps technologies on a daily basis, with the United States having the highest concentration of such technologies. In
+spite of the fact that there are insufficient instruments to assist in the development process, it is possible to
+transcend the conceptual limitations imposed by this situation. Concentrating your attention on the most important
+activities will allow you to save time, money, and frustration in the long run. Focusing your efforts on the most
+important tasks may help to alleviate some of the stress.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181888-0b505d28-41c9-4d17-bf4d-9cb3b3411e67.png) ![image](https://user-images.githubusercontent.com/6468571/152177774-25482b2a-f8cd-4f19-a221-97dc29212a2d.png)
 
