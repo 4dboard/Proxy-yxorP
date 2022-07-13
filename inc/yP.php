@@ -269,10 +269,6 @@ class yP
      */
     public static function proxy(string $yxorp_root, array|null $request = null): void
     {
-        require __DIR__ . '/constants.php';
-        /* Loading the required files. */
-        require __DIR__ . '/generalHelper.php';
-
         /* It's checking if the `tmp` directory exists, and if it doesn't, it creates it. */
         constants::create($yxorp_root);
 
