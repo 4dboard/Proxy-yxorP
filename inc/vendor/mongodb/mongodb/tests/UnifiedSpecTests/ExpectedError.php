@@ -10,7 +10,6 @@ use MongoDB\Driver\Exception\ServerException;
 use PHPUnit\Framework\Assert;
 use stdClass;
 use Throwable;
-use Webmozart\Assert\Assert;
 use function get_class;
 use function PHPUnit\Framework\assertArrayHasKey;
 use function PHPUnit\Framework\assertContainsOnly;

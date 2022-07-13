@@ -27,7 +27,7 @@ trait AAAAAMessageTrait
         return $this->protocol;
     }
 
-    public function withProtocolVersion(string $version): AAAARequest|Response|static
+    public function withProtocolVersion(string $version): static
     {
         if ($this->protocol === $version) {
             return $this;
@@ -53,7 +53,7 @@ trait AAAAAMessageTrait
         return implode(', ', $this->getHeader($name));
     }
 
-    public function getHeader(string $name)
+    public function getHeader(string $name): array
     {
         $name = strtolower($name);
 
@@ -66,7 +66,7 @@ trait AAAAAMessageTrait
         return $this->headers[$name];
     }
 
-    public function withHeader(string $name, array|string $value): AAAARequest|Response
+    public function withHeader(string $name, array|string $value): Response
     {
         $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
@@ -137,7 +137,7 @@ trait AAAAAMessageTrait
         }, $values);
     }
 
-    public function withAddedHeader(string $name, array|string $value): AAAARequest|Response
+    public function withAddedHeader(string $name, array|string $value): static
     {
         $this->assertHeader($name);
         $value = $this->normalizeHeaderValue($value);
@@ -155,7 +155,7 @@ trait AAAAAMessageTrait
         return $new;
     }
 
-    public function withoutHeader(string $name): AAAARequest|Response|static
+    public function withoutHeader(string $name): static
     {
         $normalized = strtolower($name);
 
@@ -171,7 +171,7 @@ trait AAAAAMessageTrait
         return $new;
     }
 
-    public function getBody(): AAStream|PumpStream|StreamInterface
+    public function getBody(): StreamInterface
     {
         if (!$this->stream) {
             $this->stream = stream_for();
@@ -180,7 +180,7 @@ trait AAAAAMessageTrait
         return $this->stream;
     }
 
-    public function withBody(StreamInterface $body): AAAARequest|Response|static
+    public function withBody(StreamInterface $body): static
     {
         if ($body === $this->stream) {
             return $this;

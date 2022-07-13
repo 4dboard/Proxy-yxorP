@@ -114,22 +114,22 @@ class FnStream implements StreamInterface
         return call_user_func($this->_fn_detach);
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return call_user_func($this->_fn_getSize);
     }
 
-    public function tell()
+    public function tell(): int
     {
         return call_user_func($this->_fn_tell);
     }
 
-    public function eof()
+    public function eof(): bool
     {
         return call_user_func($this->_fn_eof);
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return call_user_func($this->_fn_isSeekable);
     }
@@ -144,32 +144,32 @@ class FnStream implements StreamInterface
         call_user_func($this->_fn_seek, $offset, $whence);
     }
 
-    public function isWritable()
+    public function isWritable(): bool
     {
         return call_user_func($this->_fn_isWritable);
     }
 
-    public function write(string $string)
+    public function write(string $string): int
     {
         return call_user_func($this->_fn_write, $string);
     }
 
-    public function isReadable()
+    public function isReadable(): bool
     {
         return call_user_func($this->_fn_isReadable);
     }
 
-    public function read(int $length)
+    public function read(int $length): string
     {
         return call_user_func($this->_fn_read, $length);
     }
 
-    public function getContents()
+    public function getContents(): string
     {
         return call_user_func($this->_fn_getContents);
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(string $key = null): mixed
     {
         return call_user_func($this->_fn_getMetadata, $key);
     }

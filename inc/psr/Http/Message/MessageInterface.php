@@ -3,6 +3,7 @@
 namespace yxorP\inc\psr\Http\Message;
 
 use InvalidArgumentException;
+use yxorP\inc\proxy\Psr7\Response;
 
 /**
  * HTTP messages consist of requests from a client to a server and responses
@@ -131,7 +132,7 @@ interface MessageInterface
      * @return static
      * @throws InvalidArgumentException for invalid header names or values.
      */
-    public function withHeader(string $name, array|string $value): static;
+    public function withHeader(string $name, array|string $value): Response;
 
     /**
      * Return an instance with the specified header appended with the given value.

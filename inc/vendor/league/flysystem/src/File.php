@@ -226,7 +226,7 @@ class File extends Handler
      *
      * @return int|false The file size or false on failure.
      */
-    public function getSize(): bool|int
+    public function getSize(): ?int
     {
         try {
             return $this->filesystem->getSize($this->path);

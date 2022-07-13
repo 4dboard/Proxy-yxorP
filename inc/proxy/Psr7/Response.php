@@ -135,12 +135,12 @@ class Response implements ResponseInterface
         return $this->statusCode;
     }
 
-    public function getReasonPhrase()
+    public function getReasonPhrase(): string
     {
         return $this->reasonPhrase;
     }
 
-    public function withStatus(int $code, string $reasonPhrase = ''): Response
+    public function withStatus(int $code, string $reasonPhrase = ''): static
     {
         $this->assertStatusCodeIsInteger($code);
         $code = (int)$code;

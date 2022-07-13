@@ -169,7 +169,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withUploadedFiles(array $uploadedFiles): ServerRequest|ServerRequestInterface
+    public function withUploadedFiles(array $uploadedFiles): static
     {
         $new = clone $this;
         $new->uploadedFiles = $uploadedFiles;
@@ -180,7 +180,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withParsedBody(object|array|null $data): ServerRequest|ServerRequestInterface
+    public function withParsedBody(object|array|null $data): static
     {
         $new = clone $this;
         $new->parsedBody = $data;
@@ -191,7 +191,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withQueryParams(array $query): ServerRequest|ServerRequestInterface
+    public function withQueryParams(array $query): static
     {
         $new = clone $this;
         $new->queryParams = $query;
@@ -202,7 +202,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withCookieParams(array $cookies): ServerRequest|ServerRequestInterface
+    public function withCookieParams(array $cookies): static
     {
         $new = clone $this;
         $new->cookieParams = $cookies;
@@ -338,7 +338,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function getAttribute(string $name, mixed $default = null)
+    public function getAttribute(string $name, mixed $default = null): mixed
     {
         if (false === array_key_exists($name, $this->attributes)) {
             return $default;
@@ -350,7 +350,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withAttribute(string $name, mixed $value): ServerRequest|ServerRequestInterface
+    public function withAttribute(string $name, mixed $value): static
     {
         $new = clone $this;
         $new->attributes[$name] = $value;
@@ -361,7 +361,7 @@ class ServerRequest extends AAAARequest implements ServerRequestInterface
     /**
      * {@inheritdoc}
      */
-    public function withoutAttribute(string $name): ServerRequest|ServerRequestInterface|static
+    public function withoutAttribute(string $name): static
     {
         if (false === array_key_exists($name, $this->attributes)) {
             return $this;

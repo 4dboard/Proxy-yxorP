@@ -9,7 +9,6 @@ use MongoDB\Driver\Server;
 use MongoDB\Model\BSONArray;
 use MongoDB\Operation\DatabaseCommand;
 use MongoDB\Tests\FunctionalTestCase;
-use mysql_xdevapi\Warning;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\IncompleteTest;
 use PHPUnit\Framework\SkippedTest;

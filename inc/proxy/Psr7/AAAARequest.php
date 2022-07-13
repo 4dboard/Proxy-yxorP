@@ -87,7 +87,7 @@ class AAAARequest implements RequestInterface
         $this->headers = [$header => [$host]] + $this->headers;
     }
 
-    public function getRequestTarget(): ?string
+    public function getRequestTarget(): mixed
     {
         if ($this->requestTarget !== null) {
             return $this->requestTarget;
@@ -104,7 +104,7 @@ class AAAARequest implements RequestInterface
         return $target;
     }
 
-    public function withRequestTarget(mixed $requestTarget): AAAARequest
+    public function withRequestTarget(mixed $requestTarget): mixed
     {
         if (preg_match('#\s#', $requestTarget)) {
             throw new InvalidArgumentException(
@@ -122,7 +122,7 @@ class AAAARequest implements RequestInterface
         return $this->method;
     }
 
-    public function withMethod(string $method): AAAARequest
+    public function withMethod(string $method): mixed
     {
         $this->assertMethod($method);
         $new = clone $this;
@@ -130,12 +130,12 @@ class AAAARequest implements RequestInterface
         return $new;
     }
 
-    public function getUri(): Uri|string|UriInterface
+    public function getUri(): UriInterface
     {
         return $this->uri;
     }
 
-    public function withUri(UriInterface $uri, bool $preserveHost = false): AAAARequest|static
+    public function withUri(UriInterface $uri, bool $preserveHost = false): static
     {
         if ($uri === $this->uri) {
             return $this;

@@ -2,7 +2,6 @@
 
 namespace MongoDB\Tests\UnifiedSpecTests\Constraint;
 
-use HumbugBox380\Composer\Semver\Constraint\Constraint;
 use LogicException;
 use MongoDB\BSON\BinaryInterface;
 use MongoDB\BSON\DBPointer;
@@ -21,7 +20,6 @@ use MongoDB\BSON\Undefined;
 use MongoDB\BSON\UTCDateTimeInterface;
 use MongoDB\Model\BSONArray;
 use MongoDB\Model\BSONDocument;
-use PhpParser\Node\Expr\BinaryOp\LogicalOr;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\LogicalOr;
 use RuntimeException;

@@ -67,7 +67,7 @@ class AAStream implements StreamInterface
         $this->uri = $this->getMetadata('uri');
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(string $key = null): ?array
     {
         if (!isset($this->stream)) {
             return $key ? null : [];
@@ -155,7 +155,7 @@ class AAStream implements StreamInterface
         return $contents;
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         if ($this->size !== null) {
             return $this->size;
@@ -189,7 +189,7 @@ class AAStream implements StreamInterface
         return $this->writable;
     }
 
-    public function isSeekable()
+    public function isSeekable(): bool
     {
         return $this->seekable;
     }

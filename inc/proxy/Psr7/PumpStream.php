@@ -71,7 +71,7 @@ class PumpStream implements StreamInterface
         $this->source = null;
     }
 
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->size;
     }
@@ -157,7 +157,7 @@ class PumpStream implements StreamInterface
         }
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(string $key = null): ?array
     {
         if (!$key) {
             return $this->metadata;

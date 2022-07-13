@@ -141,13 +141,13 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         }
     }
 
-    private function validateDomain($domain): domainNameInterface
+    private function validateDomain($domain): aaDomainNameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof domainNameInterface) {
-            $domain = domain::fromIDNA2008($domain);
+        if (!$domain instanceof aaDomainNameInterface) {
+            $domain = aaDomain::fromIDNA2008($domain);
         }
         $label = $domain->label(0);
         if (in_array($label, [null, ''], true)) {
@@ -156,7 +156,7 @@ final class topLevelDomains implements topInterfaceLevelDomainListInterface
         return $domain;
     }
 
-    private function containsTopLevelDomain(domainNameInterface $domain): bool
+    private function containsTopLevelDomain(aaDomainNameInterface $domain): bool
     {
         return isset($this->records[$domain->toAscii()->label(0)]);
     }

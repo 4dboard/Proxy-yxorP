@@ -461,7 +461,7 @@ class Uri implements UriInterface
         });
     }
 
-    public function withQuery(string $query): Uri|static
+    public function withQuery(string $query): static
     {
         $query = $this->filterQueryAndFragment($query);
 
@@ -661,7 +661,7 @@ class Uri implements UriInterface
         return $this->fragment;
     }
 
-    public function withScheme(string $scheme): Uri|static
+    public function withScheme(string $scheme): static
     {
         $scheme = $this->filterScheme($scheme);
 
@@ -677,7 +677,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withUserInfo(string $user, string $password = null): Uri|static
+    public function withUserInfo(string $user, string $password = null): static
     {
         $info = $this->filterUserInfoComponent($user);
         if ($password !== null) {
@@ -695,7 +695,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withHost(string $host): Uri|static
+    public function withHost(string $host): static
     {
         $host = $this->filterHost($host);
 
@@ -710,7 +710,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPort(?int $port): Uri|static
+    public function withPort(?int $port): static
     {
         $port = $this->filterPort($port);
 
@@ -726,7 +726,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withPath(string $path): Uri|static
+    public function withPath(string $path): static
     {
         $path = $this->filterPath($path);
 
@@ -741,7 +741,7 @@ class Uri implements UriInterface
         return $new;
     }
 
-    public function withFragment(string $fragment): Uri|static
+    public function withFragment(string $fragment): static
     {
         $fragment = $this->filterQueryAndFragment($fragment);
 

@@ -101,7 +101,7 @@ final class rules implements publicSuffixListInterface
         } catch (unableToResolveDomain $exception) {
             return resolvedDomain::fromUnknown($exception->domain());
         } catch (syntaxError $exception) {
-            return resolvedDomain::fromUnknown(domain::fromIDNA2008(null));
+            return resolvedDomain::fromUnknown(aaDomain::fromIDNA2008(null));
         }
     }
 
@@ -118,13 +118,13 @@ final class rules implements publicSuffixListInterface
         return resolvedDomain::fromUnknown($domain, $suffixLength);
     }
 
-    private function validateDomain($domain): domainNameInterface
+    private function validateDomain($domain): aaDomainNameInterface
     {
         if ($domain instanceof domainNameProviderInterface) {
             $domain = $domain->domain();
         }
-        if (!$domain instanceof domainNameInterface) {
-            $domain = domain::fromIDNA2008($domain);
+        if (!$domain instanceof aaDomainNameInterface) {
+            $domain = aaDomain::fromIDNA2008($domain);
         }
         if ('' === $domain->label(0)) {
             throw unableToResolveDomain::dueToUnresolvableDomain($domain);
@@ -132,7 +132,7 @@ final class rules implements publicSuffixListInterface
         return $domain;
     }
 
-    private function resolveSuffix(domainNameInterface $domain, string $section): array
+    private function resolveSuffix(aaDomainNameInterface $domain, string $section): array
     {
         $icannSuffixLength = $this->getPublicSuffixLengthFromSection($domain, self::ICANN_DOMAINS);
         if (1 > $icannSuffixLength) {
@@ -148,7 +148,7 @@ final class rules implements publicSuffixListInterface
         return [$icannSuffixLength, self::ICANN_DOMAINS];
     }
 
-    private function getPublicSuffixLengthFromSection(domainNameInterface $domain, string $section): int
+    private function getPublicSuffixLengthFromSection(aaDomainNameInterface $domain, string $section): int
     {
         $rules = $this->rules[$section];
         $labelCount = 0;

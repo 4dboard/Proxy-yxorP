@@ -9,7 +9,7 @@ class BasicResolver implements ResolverInterface
      *
      * @return RequestInterface
      */
-    public function resolve(): PhpRequest|ConsoleRequest|NullRequest|RequestInterface
+    public function resolve(): RequestInterface
     {
         if (isset($_SERVER['REQUEST_METHOD'])) {
             if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {

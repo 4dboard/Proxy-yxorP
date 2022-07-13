@@ -277,6 +277,54 @@ class MountManager implements FilesystemInterface
     }
 
     /**
+     * @param string $from
+     * @param string $to
+     * @param array $config
+     *
+     * @return bool
+     * @throws FileExistsException
+     */
+    public function copy($from, $to, array $config = []): bool
+    {
+        list($prefixFrom, $from) = $this->getPrefixAndPath($from);
+
+        try {
+            $buffer = $this->getFilesystem($prefixFrom)->readStream($from);
+        } catch (FileNotFoundException $e) {
+        }
+
+        if ($buffer === false) {
+            return false;
+        }
+
+        list($prefixTo, $to) = $this->getPrefixAndPath($to);
+
+        $result = $this->getFilesystem($prefixTo)->writeStream($to, $buffer, $config);
+
+        if (is_resource($buffer)) {
+            fclose($buffer);
+        }
+
+        return $result;
+    }
+
+    /**
+     * Delete a file.
+     *
+     * @param string $path
+     *
+     * @return bool True on success, false on failure.
+     * @throws FileNotFoundException
+     *
+     */
+    public function delete($path): bool
+    {
+        list($prefix, $path) = $this->getPrefixAndPath($path);
+
+        return $this->getFilesystem($prefix)->delete($path);
+    }
+
+    /**
      * Rename a file.
      *
      * @param string $path Path to the existing file.
@@ -312,38 +360,6 @@ class MountManager implements FilesystemInterface
     }
 
     /**
-     * @param string $from
-     * @param string $to
-     * @param array $config
-     *
-     * @return bool
-     * @throws FileExistsException
-     */
-    public function copy($from, $to, array $config = []): bool
-    {
-        list($prefixFrom, $from) = $this->getPrefixAndPath($from);
-
-        try {
-            $buffer = $this->getFilesystem($prefixFrom)->readStream($from);
-        } catch (FileNotFoundException $e) {
-        }
-
-        if ($buffer === false) {
-            return false;
-        }
-
-        list($prefixTo, $to) = $this->getPrefixAndPath($to);
-
-        $result = $this->getFilesystem($prefixTo)->writeStream($to, $buffer, $config);
-
-        if (is_resource($buffer)) {
-            fclose($buffer);
-        }
-
-        return $result;
-    }
-
-    /**
      * Retrieves a read-stream for a path.
      *
      * @param string $path The path to the file.
@@ -376,22 +392,6 @@ class MountManager implements FilesystemInterface
         list($prefix, $path) = $this->getPrefixAndPath($path);
 
         return $this->getFilesystem($prefix)->writeStream($path, $resource, $config);
-    }
-
-    /**
-     * Delete a file.
-     *
-     * @param string $path
-     *
-     * @return bool True on success, false on failure.
-     * @throws FileNotFoundException
-     *
-     */
-    public function delete($path): bool
-    {
-        list($prefix, $path) = $this->getPrefixAndPath($path);
-
-        return $this->getFilesystem($prefix)->delete($path);
     }
 
     /**

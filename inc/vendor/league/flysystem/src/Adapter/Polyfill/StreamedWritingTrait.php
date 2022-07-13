@@ -22,6 +22,26 @@ trait StreamedWritingTrait
     }
 
     /**
+     * Update a file using a stream.
+     *
+     * @param string $path
+     * @param resource $resource
+     * @param Config $config Config object or visibility setting
+     *
+     * @return mixed false of file metadata
+     */
+    public function updateStream($path, $resource, Config $config): mixed
+    {
+        return $this->stream($path, $resource, $config, 'update');
+    }
+
+    abstract public function write($pash, $contents, Config $config);
+
+    // Required abstract methods
+
+    abstract public function update($pash, $contents, Config $config);
+
+    /**
      * Stream fallback delegator.
      *
      * @param string $path
@@ -39,23 +59,4 @@ trait StreamedWritingTrait
 
         return call_user_func($fallbackCall, $path, $contents, $config);
     }
-
-    /**
-     * Update a file using a stream.
-     *
-     * @param string $path
-     * @param resource $resource
-     * @param Config $config Config object or visibility setting
-     *
-     * @return mixed false of file metadata
-     */
-    public function updateStream($path, $resource, Config $config): mixed
-    {
-        return $this->stream($path, $resource, $config, 'update');
-    }
-
-    // Required abstract methods
-    abstract public function write($pash, $contents, Config $config);
-
-    abstract public function update($pash, $contents, Config $config);
 }

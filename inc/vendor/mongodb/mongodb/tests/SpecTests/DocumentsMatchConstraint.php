@@ -19,8 +19,6 @@ use MongoDB\BSON\Undefined;
 use MongoDB\BSON\UTCDateTime;
 use MongoDB\Model\BSONArray;
 use MongoDB\Model\BSONDocument;
-use phpDocumentor\Transformer\Template\Factory;
-use PhpParser\Node\Expr\BinaryOp\LogicalOr;
 use PHPUnit\Framework\Constraint\Constraint;
 use PHPUnit\Framework\Constraint\IsInstanceOf;
 use PHPUnit\Framework\Constraint\IsNull;

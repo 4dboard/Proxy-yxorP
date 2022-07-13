@@ -3,7 +3,6 @@
 namespace MongoDB\Tests\UnifiedSpecTests;
 
 use ArrayAccess;
-use HumbugBox380\Composer\Semver\Constraint\Constraint;
 use MongoDB\ChangeStream;
 use MongoDB\Client;
 use MongoDB\Collection;

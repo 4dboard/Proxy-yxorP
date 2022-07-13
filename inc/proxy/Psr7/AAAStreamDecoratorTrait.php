@@ -101,7 +101,7 @@ trait AAAStreamDecoratorTrait
         $this->stream->close();
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(string $key = null): mixed
     {
         return $this->stream->getMetadata($key);
     }

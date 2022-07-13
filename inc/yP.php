@@ -71,7 +71,7 @@ try {
 
 use cacheHelper;
 use RuntimeException;
-use yxorP\inc\parser\domain;
+use yxorP\inc\parser\aaDomain;
 use yxorP\inc\parser\RulesParser;
 
 /* Importing the RuntimeException class from the PHP namespace. */
@@ -210,7 +210,7 @@ class yP
     {
 
         $publicSuffixList = parser\rules::fromPath(PATH_PUBLIC_SUFFIX_LIST);
-        $domain = domain::fromIDNA2008($domain);
+        $domain = aaDomain::fromIDNA2008($domain);
 
 
         return $publicSuffixList->resolve($domain);

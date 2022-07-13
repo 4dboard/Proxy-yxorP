@@ -265,7 +265,7 @@ class UploadedFile implements UploadedFileInterface
      * {@inheritdoc}
      * @throws RuntimeException if the upload was not successful.
      */
-    public function getStream(): LazyOpenStream|StreamInterface|null
+    public function getStream(): LazyOpenStream|StreamInterface
     {
         $this->validateActive();
 

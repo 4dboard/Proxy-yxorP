@@ -116,7 +116,7 @@ class BufferStream implements StreamInterface
     /**
      * Writes data to the buffer.
      */
-    public function write(string $string): bool|int
+    public function write(string $string): int
     {
         $this->buffer .= $string;
 
@@ -128,7 +128,7 @@ class BufferStream implements StreamInterface
         return strlen($string);
     }
 
-    public function getMetadata(string $key = null)
+    public function getMetadata(string $key = null): ?array
     {
         if ($key == 'hwm') {
             return $this->hwm;
