@@ -455,10 +455,14 @@ this is a valid {@inlinetag} also \* @standardtag \*/ class at the global level.
 
 #### /plugins/
 
-Users are encouraged to create their own unique plugins in this subdirectory, which will then be loaded automatically
-from the main directory. The proxy, which comes with a number of built-in plugins, is not without its limitations, and
-users are urged to create their own custom plugins in order to broaden the range of options available. Think of a simple
-example like the file /plugins/TestPlugin.php in the plugins directory as an illustration.
+Users are strongly encouraged to create their own plugins in this subdirectory, which may be loaded automatically from
+the root directory. This subfolder is located inside the root directory, which contains all other subfolders. In
+addition, these plugins may be manually installed on the system. The proxy, which includes a number of built-in plugins,
+has some limits, and users are strongly encouraged to create their own plugins to maximize the number of available
+customization choices. This is due to the proxy's incorporation of several plugins. This is because the proxy has
+already installed several plugins. This is because the proxy's design already contains several plugins. Multiple plugins
+have been preconfigured on the proxy server for your convenience. Consider a simple example, such as the "
+/plugins/TestPlugin.php" text file. This file may be located in the plugins directory and is positioned inside it.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181962-33e4e658-5fbc-4b2d-9366-7147e9fabe65.png) ![image](https://user-images.githubusercontent.com/6468571/152181058-6446dd76-3012-4e9f-b05a-7d86ca5d0872.png) ![image](https://user-images.githubusercontent.com/6468571/157206427-04af776e-d516-4fc3-b0ca-2c2cbc0f44cc.png)
 
