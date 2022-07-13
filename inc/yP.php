@@ -103,8 +103,6 @@ class yP
      */
     public function __construct(array $request)
     {
-
-
         /* It's setting the constants that are used in the plugin. */
         self::localise($request);
 
