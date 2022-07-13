@@ -154,7 +154,7 @@ docker run
 
 > ⚠️Requires: Minimum requirement is PHP version 8.0 +
 
-Create a copy of the 'example.env' file and name it '.env'.
+Create a duplicate of the  "example.env" file and save it as ".env"
 
 ```
 
