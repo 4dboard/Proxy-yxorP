@@ -158,9 +158,11 @@ docker-composer up -d
 
 ![image](https://user-images.githubusercontent.com/6468571/177684476-58524026-dacc-426a-ac26-5597836683b9.png) ![image](https://user-images.githubusercontent.com/6468571/177686426-5ba11476-7007-45e2-82ae-82a4879176e0.png)
 
-Docker enables its users to manage containers in a manner analogous to managing very lightweight and modular virtual
-machines. This streamlines a variety of procedures, including the design and building of containers as well as the
-transport of pictures.
+Docker gives its customers the capacity to manage containers in a way that is comparable to managing virtual machines.
+This is due to the fact that containerized computers are comparable to virtual machines in that they are comparatively
+lightweight and modular. This makes it feasible to simplify a range of processes, including the design and construction
+of containers as well as the transportation of images. One example of this is the shipping of photographs. Voici a few
+illustrations of some of these:
 
 ```
 
