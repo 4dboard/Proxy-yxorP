@@ -200,10 +200,11 @@ them so it can feed them content.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
 
-Introduction Cockpit is a headless CMS with an API-first approach that puts content first. It is designed to simplify
-the process of publication by separating content management from content consumption on the client side. Cockpit is
-focusing just on the back-end work to manage content. Rather than worry about delivery of content through pages, its
-goal is to provide structured content across different channels via a simpleAPI.
+The headless dashboard is displayed with an API-first layout that prioritizes and hierarchically arranges data. This
+separation between client-side consumption and management of information and server-side administration of material
+should simplify the publishing process. The dashboard is limited to the tasks required to maintain back-end content. Its
+fundamental objective is to distribute structured content across several media via a simple application programming
+interface, as opposed to depending on the transmission of data through individual web pages.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488463-767e2f7a-8409-445b-b7e8-ed45d0965a89.png)
 
