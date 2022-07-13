@@ -183,7 +183,7 @@ GUI) (GUI). By leveraging a custom-built content spinning engine, the system all
 spun") with little performance degradation (10,000+ thesaurus/dictionary entries) while maintaining high quality.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/Idna.png)
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://user-images.githubusercontent.com/6468571/177671798-1d8a9fc9-64d4-43d8-82e1-3d2a056ada90.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
+![image](https://user-images.githubusercontent.com/6468571/177671798-1d8a9fc9-64d4-43d8-82e1-3d2a056ada90.png) ![image](https://user-images.githubusercontent.com/6468571/157188599-5fdfd399-b340-434e-b80b-ca356f8ad8ab.png)
 
 ### Cockpit Back-End Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to
 
@@ -250,7 +250,7 @@ version of the website during upgrades or down-time.
 
 There are several additional uses that may be explored, and these are only a few of the more common ones.
 
-![image](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png) ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png)
+![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png)
 
 Snag provides a solution for error monitoring and application stability management that is easy to use and implement.
 The ability to make data-driven decisions about whether to develop software or address problems is contingent on the
