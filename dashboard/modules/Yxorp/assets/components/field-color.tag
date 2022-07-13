@@ -25,8 +25,8 @@
         this.on('mount', function(){
 
             App.assets.require([
-                '/assets/lib/spectrum/spectrum.js',
-                '/assets/lib/spectrum/spectrum.css'
+                '/assets/../inc/spectrum/spectrum.js',
+                '/assets/../inc/spectrum/spectrum.css'
             ], function(){
 
                 $this.refs.input.value = $this.root.$value || '';

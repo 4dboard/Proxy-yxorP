@@ -44,7 +44,7 @@
 
         diff(oldtxt, newtxt) {
             
-            App.assets.require(['/assets/lib/diff.js'], function() {
+            App.assets.require(['/assets/../inc/diff.js'], function() {
                 
                 if (typeof(oldtxt) !== 'string') oldtxt = JSON.stringify(oldtxt, null, 2);
                 if (typeof(newtxt) !== 'string') newtxt = JSON.stringify(newtxt, null, 2);

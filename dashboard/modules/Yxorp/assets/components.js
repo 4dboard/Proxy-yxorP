@@ -38,7 +38,7 @@ riot.tag2('codemirror', '', '', '', function (opts) {
             }
 
             if (opts.theme) {
-                App.assets.require(['/assets/lib/codemirror/theme/' + opts.theme + '.css'], function () {
+                App.assets.require(['/assets/../inc/codemirror/theme/' + opts.theme + '.css'], function () {
                     editor.setOption("theme", opts.theme);
                 });
             }
@@ -137,8 +137,8 @@ riot.tag2('cp-assets', '<div ref="list" show="{mode === \'list\'}"> <div ref="up
         this.listAssets(1);
 
         App.assets.require([
-            '/assets/lib/uikit/js/components/upload.js',
-            '/assets/lib/uppie.js'
+            '/assets/../inc/uikit/js/components/upload.js',
+            '/assets/../inc/uppie.js'
         ], function () {
 
             var uploadSettings = {
@@ -561,7 +561,7 @@ riot.tag2('cp-asset', '<div class="uk-text-center uk-margin-large-top" show="{!a
             }
 
             App.assets.require([
-                '/assets/lib/uikit/js/components/upload.js'
+                '/assets/../inc/uikit/js/components/upload.js'
             ], function () {
 
                 var uploadSettings = {
@@ -805,7 +805,7 @@ riot.tag2('cp-diff', '<div class="uk-overflow-container"> <div><pre ref="canvas"
 
     this.diff = function (oldtxt, newtxt) {
 
-        App.assets.require(['/assets/lib/diff.js'], function () {
+        App.assets.require(['/assets/../inc/diff.js'], function () {
 
             if (typeof (oldtxt) !== 'string') oldtxt = JSON.stringify(oldtxt, null, 2);
             if (typeof (newtxt) !== 'string') newtxt = JSON.stringify(newtxt, null, 2);
@@ -1030,8 +1030,8 @@ riot.tag2('cp-finder', '<div show="{App.Utils.count(data)}"> <div class="uk-clea
         this.loadPath()
 
         App.assets.require([
-            '/assets/lib/uikit/js/components/upload.js',
-            '/assets/lib/uppie.js'
+            '/assets/../inc/uikit/js/components/upload.js',
+            '/assets/../inc/uppie.js'
         ], function () {
 
             var uploadSettings = {
@@ -2016,7 +2016,7 @@ riot.tag2('field-asset', '<div ref="uploadprogress" class="uk-margin uk-hidden">
 
     this.on('mount', function () {
 
-        App.assets.require(['/assets/lib/uikit/js/components/upload.js'], function () {
+        App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function () {
 
             UIkit.uploadDrop($this.root, {
 
@@ -2237,8 +2237,8 @@ riot.tag2('field-color', '<input ref="input" class="uk-width-1-1" type="text">',
     this.on('mount', function () {
 
         App.assets.require([
-            '/assets/lib/spectrum/spectrum.js',
-            '/assets/lib/spectrum/spectrum.css'
+            '/assets/../inc/spectrum/spectrum.js',
+            '/assets/../inc/spectrum/spectrum.css'
         ], function () {
 
             $this.refs.input.value = $this.root.$value || '';
@@ -2310,7 +2310,7 @@ riot.tag2('field-date', '<input ref="input" class="uk-width-1-1" bind="{opts.bin
 
     this.on('mount', function () {
 
-        App.assets.require(['/assets/lib/uikit/js/components/datepicker.js', '/assets/lib/uikit/js/components/form-select.js'], function () {
+        App.assets.require(['/assets/../inc/uikit/js/components/datepicker.js', '/assets/../inc/uikit/js/components/form-select.js'], function () {
 
             UIkit.datepicker(this.refs.input, opts).element.on('change', function () {
                 $this.refs.input.$setValue($this.refs.input.value);
@@ -2334,7 +2334,7 @@ riot.tag2('field-file', '<div class="uk-panel uk-panel-box uk-panel-card "> <div
             App.$(this.refs.picker).addClass(opts.cls);
         }
 
-        App.assets.require(['/assets/lib/uikit/js/components/upload.js'], function () {
+        App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function () {
 
             UIkit.uploadDrop($this.root, {
 
@@ -2461,7 +2461,7 @@ riot.tag2('field-gallery', '<div ref="uploadprogress" class="uk-margin uk-hidden
 
         var _uploads = [];
 
-        App.assets.require(['/assets/lib/uikit/js/components/upload.js'], function () {
+        App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function () {
 
             UIkit.uploadDrop($this.root, {
 
@@ -2659,8 +2659,8 @@ riot.tag2('field-html', '<textarea ref="input" class="uk-visibility-hidden" hidd
         codemirror().then(function () {
 
             App.assets.require([
-                '/assets/lib/marked.js',
-                '/assets/lib/uikit/js/components/htmleditor.js'
+                '/assets/../inc/marked.js',
+                '/assets/../inc/uikit/js/components/htmleditor.js'
             ], function () {
 
                 $this.refs.input.value = $this.value || '';
@@ -2758,7 +2758,7 @@ riot.tag2('field-image', '<div ref="uploadprogress" class="uk-margin uk-hidden">
             }
         });
 
-        App.assets.require(['/assets/lib/uikit/js/components/upload.js'], function () {
+        App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function () {
 
             UIkit.uploadDrop($this.root, {
 
@@ -3713,8 +3713,8 @@ riot.tag2('field-object', '<div ref="input" riot-style="height: {opts.height || 
         }
         App.assets.require([
 
-            '/assets/lib/jsoneditor/jsoneditor.min.css',
-            '/assets/lib/jsoneditor/jsoneditor.min.js'
+            '/assets/../inc/jsoneditor/jsoneditor.min.css',
+            '/assets/../inc/jsoneditor/jsoneditor.min.js'
 
         ], function () {
 
@@ -3764,7 +3764,7 @@ riot.tag2('field-password', '<div class="uk-form-password uk-width-1-1"> <input 
             App.$(this.refs.input).addClass(opts.cls);
         }
 
-        App.assets.require(['/assets/lib/uikit/js/components/form-password.js'], function () {
+        App.assets.require(['/assets/../inc/uikit/js/components/form-password.js'], function () {
 
             UIkit.init(this.root);
 
@@ -4465,7 +4465,7 @@ riot.tag2('field-time', '<input ref="input" class="uk-width-1-1" bind="{opts.bin
             this.refs.input.setAttribute('required', 'required');
         }
 
-        App.assets.require(['/assets/lib/uikit/js/components/timepicker.js'], function () {
+        App.assets.require(['/assets/../inc/uikit/js/components/timepicker.js'], function () {
 
             UIkit.timepicker(this.refs.input, opts).element.on('change', function () {
                 $this.refs.input.$setValue($this.refs.input.value);
@@ -4521,7 +4521,7 @@ riot.tag2('field-wysiwyg', '<textarea ref="input" class="uk-width-1-1" rows="5" 
         }
 
         var assets = [
-            '/assets/lib/tinymce/tinymce.min.js'
+            '/assets/../inc/tinymce/tinymce.min.js'
         ];
 
         var plugins = [];

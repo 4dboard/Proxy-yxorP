@@ -1,4 +1,4 @@
-{{ $app->assets(['assets:lib/uikit/js/components/form-password.min.js']) }}
+{{ $app->assets(['assets:../inc/uikit/js/components/form-password.min.js']) }}
 
 <div>
     <ul class="uk-breadcrumb">

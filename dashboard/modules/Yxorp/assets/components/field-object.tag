@@ -19,8 +19,8 @@
             }
             App.assets.require([
 
-                '/assets/lib/jsoneditor/jsoneditor.min.css',
-                '/assets/lib/jsoneditor/jsoneditor.min.js'
+                '/assets/../inc/jsoneditor/jsoneditor.min.css',
+                '/assets/../inc/jsoneditor/jsoneditor.min.js'
 
             ], function() {
 

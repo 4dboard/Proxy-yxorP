@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     {{ $app->assets($app['app.assets.base'], $app['yxorp/version']) }}
-    {{ $app->assets(['assets:lib/uikit/js/components/form-password.min.js'], $app['yxorp/version']) }}
+    {{ $app->assets(['assets:../inc/uikit/js/components/form-password.min.js'], $app['yxorp/version']) }}
 
     <style>
 

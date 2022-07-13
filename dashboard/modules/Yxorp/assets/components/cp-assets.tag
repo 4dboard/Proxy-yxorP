@@ -308,8 +308,8 @@
 
             // handle uploads
             App.assets.require([
-                '/assets/lib/uikit/js/components/upload.js',
-                '/assets/lib/uppie.js'
+                '/assets/../inc/uikit/js/components/upload.js',
+                '/assets/../inc/uppie.js'
             ], function() {
 
                 var uploadSettings = {
@@ -851,7 +851,7 @@
 
         // handle uploads
         App.assets.require([
-            '/assets/lib/uikit/js/components/upload.js'
+            '/assets/../inc/uikit/js/components/upload.js'
         ], function() {
 
             var uploadSettings = {

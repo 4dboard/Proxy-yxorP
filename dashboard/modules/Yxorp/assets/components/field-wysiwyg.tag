@@ -48,7 +48,7 @@
             }
 
             var assets = [
-                '/assets/lib/tinymce/tinymce.min.js'
+                '/assets/../inc/tinymce/tinymce.min.js'
             ];
 
             var plugins = [];

@@ -35,8 +35,8 @@
             codemirror().then(function() {
 
                 App.assets.require([
-                    '/assets/lib/marked.js',
-                    '/assets/lib/uikit/js/components/htmleditor.js'
+                    '/assets/../inc/marked.js',
+                    '/assets/../inc/uikit/js/components/htmleditor.js'
                 ], function() {
 
                     $this.refs.input.value = $this.value || '';

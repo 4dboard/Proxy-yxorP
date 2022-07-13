@@ -28,7 +28,7 @@
 
         this.on('mount', function() {
 
-            App.assets.require(['/assets/lib/uikit/js/components/nestable.js']).then(function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/nestable.js']).then(function() {
 
                 var listSrc;
 

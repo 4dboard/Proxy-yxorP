@@ -153,7 +153,7 @@
 
             var _uploads = [];
 
-            App.assets.require(['/assets/lib/uikit/js/components/upload.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/upload.js'], function() {
 
                 UIkit.uploadDrop($this.root, {
 

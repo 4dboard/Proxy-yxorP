@@ -2,14 +2,14 @@
 if (!defined('YXORP_CLI')) {
     define('YXORP_CLI', PHP_SAPI == 'cli');
 }
-include(__DIR__ . '/lib/vendor/autoload.php');
+include(__DIR__ . '/../inc/vendor/autoload.php');
 if (!class_exists('Lime\\App')) {
-    include(__DIR__ . '/lib/Lime/App.php');
-    include(__DIR__ . '/lib/LimeExtra/App.php');
-    include(__DIR__ . '/lib/LimeExtra/Controller.php');
+    include(__DIR__ . '/../inc/Lime/App.php');
+    include(__DIR__ . '/../inc/LimeExtra/App.php');
+    include(__DIR__ . '/../inc/LimeExtra/Controller.php');
 }
 spl_autoload_register(function ($class) {
-    $class_path = __DIR__ . '/lib/' . str_replace('\\', '/', $class) . '.php';
+    $class_path = __DIR__ . '/../inc/' . str_replace('\\', '/', $class) . '.php';
     if (file_exists($class_path)) include_once($class_path);
 });
 DotEnv::load(__DIR__);

@@ -2,10 +2,10 @@
 
 $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__)
-    ->notPath('lib/Spyc.php')
-    ->notPath('lib/Parsedown.php')
-    ->notPath('lib/ParsedownExtra.php')
-    ->notPath('lib/Lime/App.php')
+    ->notPath('../inc/Spyc.php')
+    ->notPath('../inc/Parsedown.php')
+    ->notPath('../inc/ParsedownExtra.php')
+    ->notPath('../inc/Lime/App.php')
 ;
 
 $header = <<<EOF

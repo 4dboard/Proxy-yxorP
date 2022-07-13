@@ -35,7 +35,7 @@
         "  mercurial \\",
         "  subversion \\",
         "  && apt-get clean \\",
-        "  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*");
+        "  && rm -rf /var/../inc/apt/lists/* /tmp/* /var/tmp/*");
 
     MT("from_comment",
         "  [keyword FROM] debian:stretch # I tend to use stable as that is more stable",

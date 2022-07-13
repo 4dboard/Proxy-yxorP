@@ -71,8 +71,8 @@ class Admin extends \Lime\Helper
             'assets' => new ArrayObject(array_merge($this->app['app.assets.base'], [
 
                 // uikit components
-                'assets:lib/uikit/js/components/autocomplete.min.js',
-                'assets:lib/uikit/js/components/tooltip.min.js',
+                'assets:../inc/uikit/js/components/autocomplete.min.js',
+                'assets:../inc/uikit/js/components/tooltip.min.js',
 
                 // app related
                 'assets:app/js/bootstrap.js'

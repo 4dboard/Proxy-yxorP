@@ -4,8 +4,8 @@
     <meta charset="utf-8"/>
     <link href="../../doc/docs.css" rel=stylesheet>
 
-    <link href="../../lib/codemirror.css" rel="stylesheet">
-    <script src="../../lib/codemirror.js"></script>
+    <link href="../../../inc/codemirror.css" rel="stylesheet">
+    <script src="../../../inc/codemirror.js"></script>
     <script src="nginx.js"></script>
     <style>.CodeMirror {
         background: #f8f8f8;
@@ -70,7 +70,7 @@ server {
   ## These locations would be hidden by .htaccess normally
   location /app/                { deny all; }
   location /includes/           { deny all; }
-  location /lib/                { deny all; }
+  location /../inc/                { deny all; }
   location /media/downloadable/ { deny all; }
   location /pkginfo/            { deny all; }
   location /report/config.xml   { deny all; }
@@ -136,7 +136,7 @@ server {
   ## These locations would be hidden by .htaccess normally
   location /app/                { deny all; }
   location /includes/           { deny all; }
-  location /lib/                { deny all; }
+  location /../inc/                { deny all; }
   location /media/downloadable/ { deny all; }
   location /pkginfo/            { deny all; }
   location /report/config.xml   { deny all; }

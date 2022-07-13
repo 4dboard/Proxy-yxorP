@@ -40,7 +40,7 @@
                 }
 
                 if (opts.theme) {
-                    App.assets.require(['/assets/lib/codemirror/theme/'+opts.theme+'.css'], function() {
+                    App.assets.require(['/assets/../inc/codemirror/theme/'+opts.theme+'.css'], function() {
                         editor.setOption("theme", opts.theme);
                     });
                 }

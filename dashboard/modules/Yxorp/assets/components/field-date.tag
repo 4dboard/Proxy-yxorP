@@ -16,7 +16,7 @@
 
         this.on('mount', function(){
 
-            App.assets.require(['/assets/lib/uikit/js/components/datepicker.js', '/assets/lib/uikit/js/components/form-select.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/datepicker.js', '/assets/../inc/uikit/js/components/form-select.js'], function() {
 
                 UIkit.datepicker(this.refs.input, opts).element.on('change', function() {
                     $this.refs.input.$setValue($this.refs.input.value);

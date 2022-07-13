@@ -13,7 +13,7 @@
                 App.$(this.refs.input).addClass(opts.cls);
             }
 
-            App.assets.require(['/assets/lib/uikit/js/components/form-password.js'], function() {
+            App.assets.require(['/assets/../inc/uikit/js/components/form-password.js'], function() {
 
                 UIkit.init(this.root);
 

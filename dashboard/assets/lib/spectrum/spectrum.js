@@ -1749,7 +1749,7 @@
         // Modification Functions
         // ----------------------
         // Thanks to less.js for some of the basics here
-        // <https://github.com/cloudhead/less.js/blob/master/lib/less/functions.js>
+        // <https://github.com/cloudhead/less.js/blob/master/../inc/less/functions.js>
 
         function desaturate(color, amount) {
             amount = (amount === 0) ? 0 : (amount || 10);

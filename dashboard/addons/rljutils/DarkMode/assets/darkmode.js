@@ -12,7 +12,7 @@ App.$(document).on('init-wysiwyg-editor', function (e, editor) {
 
 });
 
-App.assets.require('/assets/lib/codemirror/theme/ayu-dark.css').then(function () {
+App.assets.require('/assets/../inc/codemirror/theme/ayu-dark.css').then(function () {
 
 });
 

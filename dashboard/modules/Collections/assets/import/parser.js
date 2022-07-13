@@ -21,7 +21,7 @@
         csv: function (content, resolve, reject) {
 
             // require parsing lib
-            App.assets.require('/assets/lib/papaparse.js').then(function () {
+            App.assets.require('/assets/../inc/papaparse.js').then(function () {
 
                 Papa.parse(content, {
                     header: true,
