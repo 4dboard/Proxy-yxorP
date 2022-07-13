@@ -225,11 +225,11 @@ class generalHelper
         if (is_dir($loc)) return self::fileCheck($loc, $inc);
         if ($inc) require_once($loc);
 
-        echo YXORP_REQUEST_URI;
+        echo $_SERVER['REQUEST_URI'];
         echo '123';
         echo $x;
 
-        if (!$inc && str_contains(YXORP_REQUEST_URI, $x)) {
+        if (!$inc && str_contains($_SERVER['REQUEST_URI'], $x)) {
             echo file_get_contents($loc);
             exit;
         }
