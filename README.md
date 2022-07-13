@@ -83,10 +83,12 @@ non-blocking I/O." This is evident from the description.
 
 ![image](https://user-images.githubusercontent.com/6468571/177686281-5c726469-125c-4075-a14d-8dfc086d1b54.png)
 
-PHP, unlike other programming languages, does not have its own state. Individual single inquiry is unique. The protocol
-mirrors the beginnings of the HyperText Transfer Protocol in this sense (HTTP). In addition, state may be implemented
-via sessions, databases, shared memory, files, or any other technology capable of storing state in some way. There may
-be more options, such as shared memory.
+PHP, in contrast to a significant number of other programming languages, does not come packaged with its own independent
+version of the operating system. Individual single question is unique. This aspect of the protocol is reminiscent of the
+first stages of the HyperText Transfer Protocol (HTTP) (HTTP). In addition, the state might be implemented using
+sessions, databases, shared memory, files, or any other technology that is capable of keeping state in some capacity in
+some form or another. This could be done in a variety of ways. There is a possibility that other choices are there to be
+selected from, such as the use of shared memory.
 
 ``` 
 
