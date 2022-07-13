@@ -27721,6 +27721,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-Controller-Accounts.html#method_account"
         },                {
+            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
+            "name": "getLanguages",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Accounts.html#method_getLanguages"
+        },                {
             "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "",
@@ -27740,11 +27745,6 @@ Search.appendIndex(
             "name": "find",
             "summary": "",
             "url": "classes/yxorP-Controller-Accounts.html#method_find"
-        },                {
-            "fqsen": "\\yxorP\\Controller\\Accounts\u003A\u003AgetLanguages\u0028\u0029",
-            "name": "getLanguages",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Accounts.html#method_getLanguages"
         },                {
             "fqsen": "\\yxorP\\Controller\\Auth",
             "name": "Auth",
@@ -27836,10 +27836,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-Controller-Media.html#method_ls"
         },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
+            "name": "_getPathParameter",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method__getPathParameter"
+        },                {
             "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Aupload\u0028\u0029",
             "name": "upload",
             "summary": "",
             "url": "classes/yxorP-Controller-Media.html#method_upload"
+        },                {
+            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
+            "name": "_isFileTypeAllowed",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Media.html#method__isFileTypeAllowed"
         },                {
             "fqsen": "\\yxorP\\Controller\\Media\u003A\u003Auploadfolder\u0028\u0029",
             "name": "uploadfolder",
@@ -27900,16 +27910,6 @@ Search.appendIndex(
             "name": "getfilelist",
             "summary": "",
             "url": "classes/yxorP-Controller-Media.html#method_getfilelist"
-        },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_getPathParameter\u0028\u0029",
-            "name": "_getPathParameter",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method__getPathParameter"
-        },                {
-            "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A_isFileTypeAllowed\u0028\u0029",
-            "name": "_isFileTypeAllowed",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Media.html#method__isFileTypeAllowed"
         },                {
             "fqsen": "\\yxorP\\Controller\\Media\u003A\u003A\u0024root",
             "name": "root",
@@ -28011,6 +28011,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-Controller-Settings.html#method_info"
         },                {
+            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
+            "name": "getUptdateInfo",
+            "summary": "",
+            "url": "classes/yxorP-Controller-Settings.html#method_getUptdateInfo"
+        },                {
             "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003Aedit\u0028\u0029",
             "name": "edit",
             "summary": "",
@@ -28020,11 +28025,6 @@ Search.appendIndex(
             "name": "update",
             "summary": "",
             "url": "classes/yxorP-Controller-Settings.html#method_update"
-        },                {
-            "fqsen": "\\yxorP\\Controller\\Settings\u003A\u003AgetUptdateInfo\u0028\u0029",
-            "name": "getUptdateInfo",
-            "summary": "",
-            "url": "classes/yxorP-Controller-Settings.html#method_getUptdateInfo"
         },                {
             "fqsen": "\\yxorP\\Controller\\Utils",
             "name": "Utils",
@@ -28176,15 +28176,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-Helper-Admin.html#method_setUserOption"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
-            "name": "isResourceLocked",
-            "summary": "",
-            "url": "classes/yxorP-Helper-Admin.html#method_isResourceLocked"
-        },                {
             "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AisResourceEditableByCurrentUser\u0028\u0029",
             "name": "isResourceEditableByCurrentUser",
             "summary": "",
             "url": "classes/yxorP-Helper-Admin.html#method_isResourceEditableByCurrentUser"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AisResourceLocked\u0028\u0029",
+            "name": "isResourceLocked",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Admin.html#method_isResourceLocked"
         },                {
             "fqsen": "\\yxorP\\Helper\\Admin\u003A\u003AlockResourceId\u0028\u0029",
             "name": "lockResourceId",
@@ -28226,11 +28226,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-Helper-Async.html#method_exec"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
-            "name": "finished",
-            "summary": "",
-            "url": "classes/yxorP-Helper-Async.html#method_finished"
-        },                {
             "fqsen": "\\yxorP\\Helper\\Async\u003A\u003AexecInBackground\u0028\u0029",
             "name": "execInBackground",
             "summary": "",
@@ -28240,6 +28235,11 @@ Search.appendIndex(
             "name": "isExecAvailable",
             "summary": "",
             "url": "classes/yxorP-Helper-Async.html#method_isExecAvailable"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Async\u003A\u003Afinished\u0028\u0029",
+            "name": "finished",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Async.html#method_finished"
         },                {
             "fqsen": "\\yxorP\\Helper\\Async\u003A\u003A\u0024phpPath",
             "name": "phpPath",
@@ -28256,15 +28256,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-Helper-Csrf.html#method_initialize"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
-            "name": "generateToken",
-            "summary": "",
-            "url": "classes/yxorP-Helper-Csrf.html#method_generateToken"
-        },                {
             "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003Atoken\u0028\u0029",
             "name": "token",
             "summary": "",
             "url": "classes/yxorP-Helper-Csrf.html#method_token"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003AgenerateToken\u0028\u0029",
+            "name": "generateToken",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Csrf.html#method_generateToken"
         },                {
             "fqsen": "\\yxorP\\Helper\\Csrf\u003A\u003AisValid\u0028\u0029",
             "name": "isValid",
@@ -28281,30 +28281,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/yxorP-Helper-Jobs.html#method_initialize"
         },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
-            "name": "getJob",
-            "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_getJob"
-        },                {
             "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aadd\u0028\u0029",
             "name": "add",
             "summary": "",
             "url": "classes/yxorP-Helper-Jobs.html#method_add"
-        },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
-            "name": "remove",
-            "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_remove"
-        },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
-            "name": "work",
-            "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_work"
-        },                {
-            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
-            "name": "execute",
-            "summary": "",
-            "url": "classes/yxorP-Helper-Jobs.html#method_execute"
         },                {
             "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AisRunnerActive\u0028\u0029",
             "name": "isRunnerActive",
@@ -28325,6 +28305,26 @@ Search.appendIndex(
             "name": "run",
             "summary": "",
             "url": "classes/yxorP-Helper-Jobs.html#method_run"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Awork\u0028\u0029",
+            "name": "work",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_work"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003AgetJob\u0028\u0029",
+            "name": "getJob",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_getJob"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aexecute\u0028\u0029",
+            "name": "execute",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_execute"
+        },                {
+            "fqsen": "\\yxorP\\Helper\\Jobs\u003A\u003Aremove\u0028\u0029",
+            "name": "remove",
+            "summary": "",
+            "url": "classes/yxorP-Helper-Jobs.html#method_remove"
         },                {
             "fqsen": "\\yxorP\\Helper\\Revisions",
             "name": "Revisions",
