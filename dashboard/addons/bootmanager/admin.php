@@ -1,6 +1,6 @@
 <?php
 
-$this->on('admin.init', function() {
+$this->on('admin.init', function () {
 
     if ($this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
 

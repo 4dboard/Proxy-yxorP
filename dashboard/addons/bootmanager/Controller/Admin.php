@@ -46,44 +46,6 @@ class Admin extends \yxorP\AuthController
 
     }
 
-    public function saveConfig($redirect = false)
-    {
-
-        if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
-            return $this('admin')->denyRequest();
-        }
-
-        $config = $this->param('config', false);
-
-        if ($config) {
-            $this->app->storage->setKey('yxorp/options', 'bootmanager', $config);
-        }
-
-        // redirect to get the current state of loaded addons and also
-        // update nested addons in bundles
-        if ($redirect) {
-            $this->app->reroute('/bootmanager/getUpdatedValues');
-        }
-
-        return $config;
-
-    }
-
-    public function getUpdatedValues()
-    {
-
-        if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
-            return $this('admin')->denyRequest();
-        }
-
-        $config = $this->getConfig();
-
-        $modules = $this->listModules();
-
-        return compact('config', 'modules');
-
-    }
-
     public function listModules()
     {
 
@@ -146,6 +108,44 @@ class Admin extends \yxorP\AuthController
         }
 
         return $modules;
+
+    }
+
+    public function saveConfig($redirect = false)
+    {
+
+        if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
+            return $this('admin')->denyRequest();
+        }
+
+        $config = $this->param('config', false);
+
+        if ($config) {
+            $this->app->storage->setKey('yxorp/options', 'bootmanager', $config);
+        }
+
+        // redirect to get the current state of loaded addons and also
+        // update nested addons in bundles
+        if ($redirect) {
+            $this->app->reroute('/bootmanager/getUpdatedValues');
+        }
+
+        return $config;
+
+    }
+
+    public function getUpdatedValues()
+    {
+
+        if (!$this->module('yxorp')->hasaccess('bootmanager', 'manage')) {
+            return $this('admin')->denyRequest();
+        }
+
+        $config = $this->getConfig();
+
+        $modules = $this->listModules();
+
+        return compact('config', 'modules');
 
     }
 

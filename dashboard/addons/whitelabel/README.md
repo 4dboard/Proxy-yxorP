@@ -1,6 +1,6 @@
 # WhiteLabel
 
-Custom logo and custom colours for [Yxorp CMS][1]. Maybe I'll add some more options in the future. 
+Custom logo and custom colours for [Yxorp CMS][1]. Maybe I'll add some more options in the future.
 
 ## Installation
 
@@ -48,16 +48,16 @@ I didn't write a user interface, because normally you do this task once and forg
 The logo url can be in the following formats
 
 * internal paths (my favourite, because it works on local and production host without changes)
-  * `#uploads:2019/11/08/5dc548b41c0cdlogo.png`
-  * `assets:app/media/icons/code.svg`
+    * `#uploads:2019/11/08/5dc548b41c0cdlogo.png`
+    * `assets:app/media/icons/code.svg`
 * full url
-  * `https://example.com/storage/uploads/2019/11/08/5dc548b41c0cdlogo.png`
-  * `https://example.com/logo.png`
+    * `https://example.com/storage/uploads/2019/11/08/5dc548b41c0cdlogo.png`
+    * `https://example.com/logo.png`
 * relative path to site url
-  * `/logo.png`
+    * `/logo.png`
 * full path
-  * `/var/www/virtual/username/html/storage/uploads/2019/11/08/5dc548b41c0cdlogo.png`
-  * `/var/www/virtual/username/html/logo.png`
+    * `/var/www/virtual/username/html/storage/uploads/2019/11/08/5dc548b41c0cdlogo.png`
+    * `/var/www/virtual/username/html/logo.png`
 
 The colors are used for the custom color picker in the settings of collections, forms and singletons.
 
