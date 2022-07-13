@@ -261,7 +261,7 @@ API).
 
 - The basic minimal amount of knowledge and experience that is necessary to be considered qualified for the position
 
-You should get started on this as soon as humanly feasible, since it is of the highest significance that you do so.
+- You should get started on this as soon as humanly feasible, since it is of the highest significance that you do so.
 
 - Incorporations that are not just fast, but they are also simple and straightforward to comprehend
 
