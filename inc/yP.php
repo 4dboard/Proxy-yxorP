@@ -115,9 +115,6 @@ class yP
 
         constants::set(VAR_PROXY, new proxy\Client([VAR_ALLOW_REDIRECTS => true, VAR_HTTP_ERRORS => true, VAR_DECODE_CONTENT => true, VAR_VERIFY => false, VAR_COOKIES => true, VAR_IDN_CONVERSION => true]));
 
-        // EVENTS
-        constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
-
         /* It's checking if the request URI contains the cockpit directory, and if it does, it requires the cockpit index
         file. */
         foreach ([DIR_INC . DIR_ACTION => scandir(DIR_ROOT . DIR_INC . DIR_ACTION), DIR_PLUGIN => constants::get(YXORP_TARGET_PLUGINS) ?: []] as $key => $value) foreach ($value as $action) $this->subscribe($key, $action);
@@ -288,6 +285,11 @@ class yP
 
         /* It's setting the `YXORP_DASHBOARD_APP` constant to the `cockpit()` function. */
         constants::set(YXORP_DASHBOARD_APP, yxorp());
+
+
+        // EVENTS
+        constants::set(YXORP_EVENT_LIST, [EVENT_BUILD_CACHE, EVENT_BUILD_CONTEXT, EVENT_BUILD_INCLUDES, EVENT_BUILD_HEADERS, EVENT_BUILD_REQUEST, EVENT_BEFORE_SEND, EVENT_SEND, EVENT_SENT, EVENT_WRITE, EVENT_COMPLETE, EVENT_FINAL]);
+
 
         // ENV
         /* Reading the file and then calling the env function on each line. */
