@@ -19,53 +19,10 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
         $this->validateState();
     }
 
-    private function validateState(): void
-    {
-        $suffixValue = $this->suffix->value();
-        if (null === $suffixValue) {
-            $nullDomain = $this->domain->clear();
-            $this->registrableDomain = $nullDomain;
-            $this->secondLevelDomain = $nullDomain;
-            $this->subDomain = $nullDomain;
-            return;
-        }
-        if (2 > count($this->domain)) {
-            throw unableToResolveDomain::dueToUnresolvableDomain($this->domain);
-        }
-        if ($this->domain->value() === $suffixValue) {
-            throw unableToResolveDomain::dueToIdenticalValue($this->domain);
-        }
-        $length = count($this->suffix);
-        $this->registrableDomain = $this->domain->slice(0, $length + 1);
-        $this->secondLevelDomain = $this->domain->slice($length, 1);
-        $this->subDomain = $this->domain->slice($length + 1);
-    }
-
-    public function value(): ?string
-    {
-        return $this->domain->value();
-    }
-
     public static function fromICANN($domain, int $suffixLength): self
     {
         $domain = self::setDomainName($domain);
         return new self($domain, suffix::fromICANN($domain->slice(0, $suffixLength)));
-    }
-
-    private static function setDomainName($domain): domainNameInterface
-    {
-        if ($domain instanceof domainNameProviderInterface) {
-            return $domain->domain();
-        }
-        if ($domain instanceof domainNameInterface) {
-            return $domain;
-        }
-        return domain::fromIDNA2008($domain);
-    }
-
-    public function domain(): domainNameInterface
-    {
-        return $this->domain;
     }
 
     public static function fromPrivate($domain, int $suffixLength): self
@@ -89,6 +46,27 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
     public static function __set_state(array $properties): self
     {
         return new self($properties['domain'], $properties['suffix']);
+    }
+
+    private static function setDomainName($domain): domainNameInterface
+    {
+        if ($domain instanceof domainNameProviderInterface) {
+            return $domain->domain();
+        }
+        if ($domain instanceof domainNameInterface) {
+            return $domain;
+        }
+        return domain::fromIDNA2008($domain);
+    }
+
+    public function value(): ?string
+    {
+        return $this->domain->value();
+    }
+
+    public function domain(): domainNameInterface
+    {
+        return $this->domain;
     }
 
     public function count(): int
@@ -170,5 +148,27 @@ final class resolvedDomain implements resolvedInterfaceDomainNameInterface
             return $this;
         }
         return new self($newRegistrableDomain->prepend($this->subDomain), $this->suffix);
+    }
+
+    private function validateState(): void
+    {
+        $suffixValue = $this->suffix->value();
+        if (null === $suffixValue) {
+            $nullDomain = $this->domain->clear();
+            $this->registrableDomain = $nullDomain;
+            $this->secondLevelDomain = $nullDomain;
+            $this->subDomain = $nullDomain;
+            return;
+        }
+        if (2 > count($this->domain)) {
+            throw unableToResolveDomain::dueToUnresolvableDomain($this->domain);
+        }
+        if ($this->domain->value() === $suffixValue) {
+            throw unableToResolveDomain::dueToIdenticalValue($this->domain);
+        }
+        $length = count($this->suffix);
+        $this->registrableDomain = $this->domain->slice(0, $length + 1);
+        $this->secondLevelDomain = $this->domain->slice($length, 1);
+        $this->subDomain = $this->domain->slice($length + 1);
     }
 }

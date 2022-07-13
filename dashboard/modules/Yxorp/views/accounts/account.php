@@ -1,4 +1,4 @@
-{{ $app->assets(['assets:../inc/uikit/js/components/form-password.min.js']) }}
+{{ $app->assets(['assets:lib/uikit/js/components/form-password.min.js']) }}
 
 <div>
     <ul class="uk-breadcrumb">
@@ -310,6 +310,7 @@
         // i18n for uikit-formPassword
         UIkit.components.formPassword.prototype.defaults.lblShow = '@lang("Show")';
         UIkit.components.formPassword.prototype.defaults.lblHide = '@lang("Hide")';
+
 
 
 

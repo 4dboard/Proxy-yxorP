@@ -66,6 +66,25 @@ class YAML extends \Lime\Helper
 
     /**
      * @param $file
+     * @param $array
+     * @return int
+     */
+    public function toFile($file, $array)
+    {
+        return \file_put_contents($file, $this->toYAML($array));
+    }
+
+    /**
+     * @param $array
+     * @return string
+     */
+    public function toYAML($array)
+    {
+        return Spyc::YAMLDump((array)$array, false, false, true);
+    }
+
+    /**
+     * @param $file
      * @return bool|string
      */
     protected function get_cached_file($file)
@@ -112,25 +131,6 @@ class YAML extends \Lime\Helper
         }
 
         return false;
-    }
-
-    /**
-     * @param $file
-     * @param $array
-     * @return int
-     */
-    public function toFile($file, $array)
-    {
-        return \file_put_contents($file, $this->toYAML($array));
-    }
-
-    /**
-     * @param $array
-     * @return string
-     */
-    public function toYAML($array)
-    {
-        return Spyc::YAMLDump((array)$array, false, false, true);
     }
 
 }
