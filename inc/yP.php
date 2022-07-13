@@ -271,11 +271,13 @@ class yP
         /* Loading the required files. */
         require __DIR__ . '/generalHelper.php';
 
+        /* It's checking if the `tmp` directory exists, and if it doesn't, it creates it. */
+        constants::create($yxorp_root);
+
+
         /* Checking if the files exist in the directory. */
         foreach (array(DIR_PSR, DIR_PROXY, DIR_SNAG, DIR_HTTP, DIR_MINIFY, DIR_PARSER) as $_asset) generalHelper::fileCheck(DIR_ROOT . DIR_INC . $_asset, true);        // Reporting
 
-        /* It's checking if the `tmp` directory exists, and if it doesn't, it creates it. */
-        constants::create($yxorp_root);
 
         // REQUIRED
 
