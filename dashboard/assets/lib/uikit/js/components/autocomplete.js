@@ -1,5 +1,5 @@
 /*! UIkit 2.27.5 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function (addon) {
+(function(addon) {
 
     var component;
 
@@ -8,12 +8,12 @@
     }
 
     if (typeof define == 'function' && define.amd) {
-        define('uikit-autocomplete', ['uikit'], function () {
+        define('uikit-autocomplete', ['uikit'], function(){
             return component || addon(UIkit2);
         });
     }
 
-})(function (UI) {
+})(function(UI){
 
     "use strict";
 
@@ -38,14 +38,14 @@
             template: '<ul class="uk-nav uk-nav-autocomplete uk-autocomplete-results">{{~items}}<li data-value="{{$item.value}}"><a>{{$item.value}}</a></li>{{/items}}</ul>'
         },
 
-        visible: false,
-        value: null,
-        selected: null,
+        visible  : false,
+        value    : null,
+        selected : null,
 
-        boot: function () {
+        boot: function() {
 
             // init code
-            UI.$html.on('focus.autocomplete.uikit', '[data-uk-autocomplete]', function (e) {
+            UI.$html.on('focus.autocomplete.uikit', '[data-uk-autocomplete]', function(e) {
 
                 var ele = UI.$(this);
 
@@ -55,16 +55,16 @@
             });
 
             // register outer click for autocompletes
-            UI.$html.on('click.autocomplete.uikit', function (e) {
-                if (active && e.target != active.input[0]) active.hide();
+            UI.$html.on('click.autocomplete.uikit', function(e) {
+                if (active && e.target!=active.input[0]) active.hide();
             });
         },
 
-        init: function () {
+        init: function() {
 
-            var $this = this,
-                select = false,
-                trigger = UI.Utils.debounce(function (e) {
+            var $this   = this,
+                select  = false,
+                trigger = UI.Utils.debounce(function(e) {
 
                     if (select) {
                         return (select = false);
@@ -77,10 +77,10 @@
             this.dropdown = this.find('.uk-dropdown');
             this.template = this.find('script[type="text/autocomplete"]').html();
             this.template = UI.Utils.template(this.template || this.options.template);
-            this.input = this.find("input:first").attr("autocomplete", "off");
+            this.input    = this.find("input:first").attr("autocomplete", "off");
 
             if (!this.dropdown.length) {
-                this.dropdown = UI.$('<div class="uk-dropdown"></div>').appendTo(this.element);
+               this.dropdown = UI.$('<div class="uk-dropdown"></div>').appendTo(this.element);
             }
 
             if (this.options.flipDropdown) {
@@ -91,7 +91,7 @@
 
             this.input.on({
 
-                keydown: function (e) {
+                keydown: function(e) {
 
                     if (e && e.which && !e.shiftKey && $this.visible) {
 
@@ -126,18 +126,18 @@
                 keyup: trigger
             });
 
-            this.dropdown.on('click', '.uk-autocomplete-results > *', function () {
+            this.dropdown.on('click', '.uk-autocomplete-results > *', function(){
                 $this.select();
             });
 
-            this.dropdown.on('mouseover', '.uk-autocomplete-results > *', function () {
+            this.dropdown.on('mouseover', '.uk-autocomplete-results > *', function(){
                 $this.pick(UI.$(this));
             });
 
             this.triggercomplete = trigger;
         },
 
-        handle: function () {
+        handle: function() {
 
             var $this = this, old = this.value;
 
@@ -152,10 +152,10 @@
             return this;
         },
 
-        pick: function (item, scrollinview) {
+        pick: function(item, scrollinview) {
 
-            var $this = this,
-                items = UI.$(this.dropdown.find('.uk-autocomplete-results').children(':not(.' + this.options.skipClass + ')')),
+            var $this    = this,
+                items    = UI.$(this.dropdown.find('.uk-autocomplete-results').children(':not(.'+this.options.skipClass+')')),
                 selected = false;
 
             if (typeof item !== "string" && !item.hasClass(this.options.skipClass)) {
@@ -186,20 +186,20 @@
                 // jump to selected if not in view
                 if (scrollinview) {
 
-                    var top = selected.position().top,
+                    var top       = selected.position().top,
                         scrollTop = $this.dropdown.scrollTop(),
-                        dpheight = $this.dropdown.height();
+                        dpheight  = $this.dropdown.height();
 
-                    if (top > dpheight || top < 0) {
+                    if (top > dpheight ||  top < 0) {
                         $this.dropdown.scrollTop(scrollTop + top);
                     }
                 }
             }
         },
 
-        select: function () {
+        select: function() {
 
-            if (!this.selected) return;
+            if(!this.selected) return;
 
             var data = this.selected.data();
 
@@ -212,14 +212,14 @@
             this.hide();
         },
 
-        show: function () {
+        show: function() {
 
             if (this.visible) return;
 
             this.visible = true;
             this.element.addClass('uk-open');
 
-            if (active && active !== this) {
+            if (active && active!==this) {
                 active.hide();
             }
 
@@ -231,7 +231,7 @@
             return this;
         },
 
-        hide: function () {
+        hide: function() {
             if (!this.visible) return;
             this.visible = false;
             this.element.removeClass('uk-open');
@@ -246,12 +246,12 @@
             return this;
         },
 
-        request: function () {
+        request: function() {
 
-            var $this = this,
-                release = function (data) {
+            var $this   = this,
+                release = function(data) {
 
-                    if (data) {
+                    if(data) {
                         $this.render(data);
                     }
 
@@ -264,7 +264,7 @@
 
                 var source = this.options.source;
 
-                switch (typeof (this.options.source)) {
+                switch(typeof(this.options.source)) {
                     case 'function':
 
                         this.options.source.apply(this, [release]);
@@ -273,12 +273,12 @@
 
                     case 'object':
 
-                        if (source.length) {
+                        if(source.length) {
 
                             var items = [];
 
-                            source.forEach(function (item) {
-                                if (item.value && item.value.toLowerCase().indexOf($this.value.toLowerCase()) != -1) {
+                            source.forEach(function(item){
+                                if(item.value && item.value.toLowerCase().indexOf($this.value.toLowerCase())!=-1) {
                                     items.push(item);
                                 }
                             });
@@ -290,7 +290,7 @@
 
                     case 'string':
 
-                        var params = {};
+                        var params ={};
 
                         params[this.options.param] = this.value;
 
@@ -299,7 +299,7 @@
                             data: params,
                             type: this.options.method,
                             dataType: 'json'
-                        }).done(function (json) {
+                        }).done(function(json) {
                             release(json || []);
                         });
 
@@ -314,7 +314,7 @@
             }
         },
 
-        render: function (data) {
+        render: function(data) {
 
             this.dropdown.empty();
 
@@ -324,9 +324,9 @@
 
                 this.options.renderer.apply(this, [data]);
 
-            } else if (data && data.length) {
+            } else if(data && data.length) {
 
-                this.dropdown.append(this.template({items: data}));
+                this.dropdown.append(this.template({items:data}));
                 this.show();
 
                 this.trigger('show.uk.autocomplete');

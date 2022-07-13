@@ -17,16 +17,12 @@
 
                 <div class="uk-form-row">
                     <label class="uk-text-small">@lang('Name')</label>
-                    <label>
-                        <input class="uk-width-1-1 uk-form-large" type="text" bind="webhook.name" required>
-                    </label>
+                    <input class="uk-width-1-1 uk-form-large" type="text" bind="webhook.name" required>
                 </div>
 
                 <div class="uk-form-row">
                     <label class="uk-text-small">@lang('Url')</label>
-                    <label>
-                        <input class="uk-width-1-1 uk-form-large" type="url" bind="webhook.url" required>
-                    </label>
+                    <input class="uk-width-1-1 uk-form-large" type="url" bind="webhook.url" required>
                 </div>
 
                 <div class="uk-form-row uk-panel uk-panel-box uk-panel-card" show="{advanced}">
@@ -40,19 +36,13 @@
                             <div>
                                 <div class="uk-form-icon uk-width-1-1 uk-display-block">
                                     <i class="uk-icon-user"></i>
-                                    <label>
-                                        <input class="uk-form-large uk-width-1-1" type="text" bind="webhook.auth.user"
-                                               placeholder="@lang('User')">
-                                    </label>
+                                    <input class="uk-form-large uk-width-1-1" type="text" bind="webhook.auth.user" placeholder="@lang('User')">
                                 </div>
                             </div>
                             <div>
                                 <div class="uk-form-icon uk-width-1-1 uk-display-block">
                                     <i class="uk-icon-key"></i>
-                                    <label>
-                                        <input class="uk-form-large uk-width-1-1" type="password"
-                                               bind="webhook.auth.pass" placeholder="@lang('Password')">
-                                    </label>
+                                    <input class="uk-form-large uk-width-1-1" type="password" bind="webhook.auth.pass" placeholder="@lang('Password')">
                                 </div>
                             </div>
                         </div>
@@ -65,23 +55,14 @@
                         <div class="uk-margin uk-panel uk-form">
 
                             <div class="uk-grid uk-grid-small uk-flex-middle" each="{h,idx in webhook.headers}">
-                                <div class="uk-flex-item-1"><label>
-                                        <input class="uk-width-1-1" type="text" placeholder="Key"
-                                               bind="webhook.headers[{idx}].k">
-                                    </label></div>
+                                <div class="uk-flex-item-1"><input class="uk-width-1-1" type="text" placeholder="Key" bind="webhook.headers[{idx}].k"></div>
                                 <div>:</div>
-                                <div class="uk-flex-item-1"><label>
-                                        <input class="uk-width-1-1" type="text" placeholder="Value"
-                                               bind="webhook.headers[{idx}].v">
-                                    </label></div>
-                                <div><a onclick="{ this.parent.removeHeader}"><i
-                                                class="uk-text-danger uk-icon-trash"></i></a></div>
+                                <div class="uk-flex-item-1"><input class="uk-width-1-1" type="text" placeholder="Value" bind="webhook.headers[{idx}].v"></div>
+                                <div><a onclick="{ this.parent.removeHeader}"><i class="uk-text-danger uk-icon-trash"></i></a></div>
                             </div>
 
                             <div class="uk-margin uk-text-center {!webhook.headers.length && 'uk-placeholder'}">
-                                <a class="uk-button uk-button-success" onclick="{ addHeader }"><i
-                                            class="uk-icon-plus-circle"></i><span class="uk-margin-small-left"
-                                                                                  show="{!webhook.headers.length}">@lang('Add custom header')</span></a>
+                                <a class="uk-button uk-button-success" onclick="{ addHeader }"><i class="uk-icon-plus-circle"></i><span class="uk-margin-small-left" show="{!webhook.headers.length}">@lang('Add custom header')</span></a>
                             </div>
 
                         </div>
@@ -90,10 +71,8 @@
                 </div>
 
                 <div class="uk-form-row">
-                    <a class="uk-button uk-button-small" onclick="{ toggleAdvance.bind(this, true) }"
-                       show="{!advanced}"><i class="uk-icon-cog"></i> @lang('Advanced Options')</a>
-                    <a class="uk-button uk-button-small" onclick="{ toggleAdvance.bind(this, false) }"
-                       show="{advanced}"><i class="uk-icon-cog"></i> @lang('Hide')</a>
+                    <a class="uk-button uk-button-small" onclick="{ toggleAdvance.bind(this, true) }" show="{!advanced}"><i class="uk-icon-cog"></i> @lang('Advanced Options')</a>
+                    <a class="uk-button uk-button-small" onclick="{ toggleAdvance.bind(this, false) }" show="{advanced}"><i class="uk-icon-cog"></i> @lang('Hide')</a>
                 </div>
 
                 <div class="uk-form-row">
@@ -105,40 +84,33 @@
 
                     <table class="uk-table uk-table-tabbed uk-table-striped" show="{webhook.events.length}">
                         <thead>
-                        <tr>
-                            <th>@lang('Event')</th>
-                            <th width="20"></th>
-                        </tr>
+                            <tr>
+                                <th>@lang('Event')</th>
+                                <th width="20"></th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr each="{event,idx in webhook.events}">
-                            <td>
-                                <div class="uk-flex uk-flex-middle">
-                                    <div class="uk-margin-small-right">
-                                        <i class="uk-icon-bolt uk-text-primary"></i>
+                            <tr each="{event,idx in webhook.events}">
+                                <td>
+                                    <div class="uk-flex uk-flex-middle">
+                                        <div class="uk-margin-small-right">
+                                            <i class="uk-icon-bolt uk-text-primary"></i>
+                                        </div>
+                                        <div class="uk-flex-item-1">
+                                            <input class="uk-width-1-1 uk-form-blank" type="text" bind="webhook.events[{idx}]">
+                                        </div>
                                     </div>
-                                    <div class="uk-flex-item-1">
-                                        <label>
-                                            <input class="uk-width-1-1 uk-form-blank" type="text"
-                                                   bind="webhook.events[{idx}]">
-                                        </label>
-                                    </div>
-                                </div>
 
-                            </td>
-                            <td><a class="uk-text-danger" onclick="{ removeEvent }"><i class="uk-icon-trash"></i></a>
-                            </td>
-                        </tr>
+                                 </td>
+                                <td><a class="uk-text-danger" onclick="{ removeEvent }"><i class="uk-icon-trash"></i></a></td>
+                            </tr>
                         </tbody>
                     </table>
 
                     <div class="uk-form">
                         <div class="uk-form-icon uk-autocomplete uk-width-1-1 uk-display-block" ref="eventAutocomplete">
                             <i class="uk-icon-bolt"></i>
-                            <label>
-                                <input class="uk-width-1-1 uk-form-large" type="text" ref="event"
-                                       placeholder="@lang('Add event...')">
-                            </label>
+                            <input class="uk-width-1-1 uk-form-large" type="text" ref="event" placeholder="@lang('Add event...')">
                             <div class="uk-dropdown uk-dropdown-scrollable uk-width-1-1" aria-expanded="true"></div>
                         </div>
                     </div>
@@ -148,8 +120,7 @@
                 <cp-actionbar>
                     <div class="uk-container uk-container-center">
                         <button class="uk-button uk-button-large uk-button-primary">@lang('Save')</button>
-                        <a class="uk-button uk-button-large uk-button-link"
-                           href="@route('/webhooks')">@lang('Cancel')</a>
+                        <a class="uk-button uk-button-large uk-button-link" href="@route('/webhooks')">@lang('Cancel')</a>
                     </div>
                 </cp-actionbar>
 
@@ -168,10 +139,7 @@
 
                     <div class="uk-margin" if="{webhook._id}">
                         <label class="uk-text-small">@lang('Last Modified')</label>
-                        <div class="uk-margin-small-top uk-text-muted"><i
-                                    class="uk-icon-calendar uk-margin-small-right"></i> { App.Utils.dateformat( new
-                            Date( 1000 * webhook._modified )) }
-                        </div>
+                        <div class="uk-margin-small-top uk-text-muted"><i class="uk-icon-calendar uk-margin-small-right"></i> {  App.Utils.dateformat( new Date( 1000 * webhook._modified )) }</div>
                     </div>
 
                 </div>
@@ -267,9 +235,6 @@
         toggleAdvance(status) {
             this.advanced = status;
         }
-
-
-
 
 
     </script>

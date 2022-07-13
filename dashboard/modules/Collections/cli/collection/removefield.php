@@ -10,8 +10,8 @@
 
 if (!YXORP_CLI) return;
 
-$collection = $app->param('collection');
-$field = $app->param('field');
+$collection = $app->param('collection', null);
+$field = $app->param('field', null);
 
 if (!$collection) {
     CLI::writeln('Collection parameter missing', false);

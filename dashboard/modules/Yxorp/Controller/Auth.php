@@ -10,27 +10,22 @@
 
 namespace yxorP\Controller;
 
-use Exception;
-use JetBrains\PhpStorm\ArrayShape;
-use LimeExtra\Controller;
-use function is_string;
-
-class Auth extends Controller
+class Auth extends \LimeExtra\Controller
 {
 
 
-    public function check(): bool|array
+    public function check()
     {
 
         if ($auth = $this->param('auth')) {
 
-            if (!isset($auth['user'], $auth['password']) || !is_string($auth['user']) || !is_string($auth['password'])) {
+            if (!isset($auth['user'], $auth['password']) || !\is_string($auth['user']) || !\is_string($auth['password'])) {
                 return ['success' => false, 'error' => 'Pre-condition failed'];
             }
 
             $auth = ['user' => $auth['user'], 'password' => $auth['password']];
 
-            if ($this->app->helper('utils')->isEmail($auth['user'])) {
+            if (isset($auth['user']) && $this->app->helper('utils')->isEmail($auth['user'])) {
                 $auth['email'] = $auth['user'];
                 $auth['user'] = '';
             }
@@ -74,14 +69,14 @@ class Auth extends Controller
 
         $redirectTo = '/';
 
-        if ($this->param('to') && str_starts_with($this->param('to'), '/')) {
+        if ($this->param('to') && \substr($this->param('to'), 0, 1) == '/') {
             $redirectTo = $this->param('to');
         }
 
         return $this->render('yxorp:views/layouts/login.php', compact('redirectTo'));
     }
 
-    #[ArrayShape(['logout' => "bool"])] public function logout()
+    public function logout()
     {
 
         $this->module('yxorp')->logout();
@@ -119,10 +114,7 @@ class Auth extends Controller
                 return ['message' => $this('i18n')->get('Recovery email sent if user exists')];
             }
 
-            try {
-                $token = uniqid('rp-' . bin2hex(random_bytes(16)));
-            } catch (Exception $e) {
-            }
+            $token = uniqid('rp-' . bin2hex(random_bytes(16)));
             $target = $this->app->param('', $this->app->getSiteUrl(true) . '/auth/newpassword');
             $data = ['_id' => $user['_id'], '_reset_token' => $token];
 
@@ -135,7 +127,7 @@ class Auth extends Controller
                     $this->param('subject', $this->app->getSiteUrl() . ' - ' . $this('i18n')->get('Password Recovery')),
                     $message
                 );
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $response = $e->getMessage();
             }
 
@@ -154,7 +146,7 @@ class Auth extends Controller
 
         if ($token = $this->param('token')) {
 
-            if (!is_string($token)) {
+            if (!\is_string($token)) {
                 return false;
             }
 
@@ -182,7 +174,7 @@ class Auth extends Controller
 
         if ($token = $this->param('token')) {
 
-            if (!is_string($token)) {
+            if (!\is_string($token)) {
                 return false;
             }
 

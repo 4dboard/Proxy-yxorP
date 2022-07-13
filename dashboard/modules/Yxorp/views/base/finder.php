@@ -5,6 +5,5 @@
 </div>
 
 <div riot-view>
-    <cp-finder root="{{ $app->module(" yxorp
-    ")->getGroupVar("media.path", '/') }}"></cp-finder>
+    <cp-finder root="{{ $app->module("yxorp")->getGroupVar("media.path", '/') }}"></cp-finder>
 </div>

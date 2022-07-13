@@ -2,11 +2,11 @@
 
 if (!YXORP_CLI) return;
 
-$url = $app->param('url');
-$name = $app->param('name');
+$url  = $app->param('url', null);
+$name = $app->param('name', null);
 
 if (!$name) {
-    return CLI::writeln('No addon name defined', false);
+    return CLI::writeln('No addon name defined', false);;
 }
 
 $name = str_replace(['.', '/', ' '], '', $name);
@@ -15,9 +15,9 @@ if (!$url) {
     $url = "https://github.com/agentejo/{$name}/archive/master.zip";
 }
 
-$fs = $app->helper('fs');
-$tmppath = $app->path('#tmp:') . '/' . $name;
-$error = false;
+$fs      = $app->helper('fs');
+$tmppath = $app->path('#tmp:').'/'.$name;
+$error   = false;
 $zipname = null;
 
 if (!is_writable($app->path('#addons:'))) {
@@ -43,7 +43,7 @@ if ($error) {
 }
 
 $fs->mkdir("{$tmppath}/extract-{$zipname}");
-$zip = new ZipArchive;
+$zip = new \ZipArchive;
 
 if ($zip->open("{$tmppath}/{$zipname}") === true) {
 
@@ -62,8 +62,8 @@ if ($error) {
 $addonRoot = null;
 
 // find addon root
-foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator("{$tmppath}/extract-{$zipname}")) as $file) {
-
+foreach (new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator("{$tmppath}/extract-{$zipname}")) as $file) {
+    
     if ($file->getFilename() == 'bootstrap.php') {
         $addonRoot = dirname($file->getRealPath());
         break;

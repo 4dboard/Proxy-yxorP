@@ -8,8 +8,6 @@
  * file that was distributed with this source code.
  */
 
-use ColorThief\ColorThief;
-
 $this->module('yxorp')->extend([
 
     'listAssets' => function ($options = []) {
@@ -39,7 +37,7 @@ $this->module('yxorp')->extend([
             // clean filename
             $filename = pathinfo($file, PATHINFO_FILENAME);
             $ext = pathinfo($file, PATHINFO_EXTENSION);
-            $cleanFilename = preg_replace('/[^a-zA-Z0-9-_.]/', '', str_replace(' ', '-', $filename));
+            $cleanFilename = preg_replace('/[^a-zA-Z0-9-_\.]/', '', str_replace(' ', '-', $filename));
             $clean = $cleanFilename . uniqid("_uid_") . '.' . $ext;
             $path = '/' . date('Y/m/d') . '/' . $clean;
 
@@ -82,8 +80,8 @@ $this->module('yxorp')->extend([
                 if ($asset['width'] && $asset['height']) {
 
                     try {
-                        $asset['colors'] = ColorThief::getPalette($file, 5, ceil(($asset['width'] * $asset['height']) / 10000));
-                    } catch (Exception $e) {
+                        $asset['colors'] = \ColorThief\ColorThief::getPalette($file, 5, ceil(($asset['width'] * $asset['height']) / 10000));
+                    } catch (\Exception $e) {
                         $asset['colors'] = [];
                     }
 
@@ -167,8 +165,8 @@ $this->module('yxorp')->extend([
                     $_files[] = $_file;
                     $uploaded[] = $files['name'][$i];
 
-                    if (preg_match('/\.(svg|xml)$/i', $_file)) {
-                        file_put_contents($_file, SVGSanitizer::clean(file_get_contents($_file)));
+                    if (\preg_match('/\.(svg|xml)$/i', $_file)) {
+                        file_put_contents($_file, \SVGSanitizer::clean(\file_get_contents($_file)));
                     }
 
                 } else {
@@ -207,8 +205,8 @@ $this->module('yxorp')->extend([
 
         if (!$file['error'] && $_isAllowed && $_sizeAllowed && move_uploaded_file($file['tmp_name'], $_file)) {
 
-            if (preg_match('/\.(svg|xml)$/i', $_file)) {
-                file_put_contents($_file, SVGSanitizer::clean(file_get_contents($_file)));
+            if (\preg_match('/\.(svg|xml)$/i', $_file)) {
+                file_put_contents($_file, \SVGSanitizer::clean(\file_get_contents($_file)));
             }
 
             $_asset = $this->saveAssets([$_file], [

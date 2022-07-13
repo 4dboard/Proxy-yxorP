@@ -1,7 +1,7 @@
 (function ($) {
 
 
-    const Yxorp = {
+    var Yxorp = {
 
         Utils: {},
 
@@ -9,7 +9,7 @@
 
             if (module.indexOf(':') !== -1) {
 
-                const parts = module.split(':');
+                var parts = module.split(':');
 
                 acl = args;
                 args = method;
@@ -23,7 +23,7 @@
 
             if (!Array.isArray(args)) args = [args];
 
-            const req = App.request('/yxorp/call/' + module + '/' + method, {args: args, acl: acl});
+            var req = App.request('/yxorp/call/' + module + '/' + method, { args: args, acl: acl });
 
             // catch any error
             req.catch(function () {
@@ -39,8 +39,7 @@
 
                 if (!App.$data.acl.finder) return;
 
-                callback = callback || function () {
-                };
+                callback = callback || function () { };
 
                 options = App.$.extend({
                     previewfiles: false,
@@ -50,8 +49,7 @@
                     selected: []
                 }, options);
 
-                let selected = [];
-                const dialog = UIkit.modal.dialog([
+                var selected = [], dialog = UIkit.modal.dialog([
                     '<div>',
                     '<div class="uk-modal-header uk-text-large">' + App.i18n.get('Select file') + '</div>',
                     '<cp-finder path="' + (options.path || '') + '" typefilter="' + (options.typefilter || '') + '" modal="true"></cp-finder>',
@@ -60,11 +58,11 @@
                     '<a class="uk-button uk-button-large uk-button-link uk-modal-close">' + App.i18n.get('Close') + '</a>',
                     '</div>',
                     '</div>'
-                ].join(''), {modal: false});
+                ].join(''), { modal: false });
 
                 dialog.dialog.addClass('uk-modal-dialog-large');
 
-                const selectbtn = dialog.dialog.find('.js-select-button'),
+                var selectbtn = dialog.dialog.find('.js-select-button'),
                     selectcount = selectbtn.find('span');
 
                 riot.mount(dialog.element[0], '*', options);
@@ -106,8 +104,8 @@
                     single: false
                 }, options);
 
-                let selected = [];
-                const dialog = UIkit.modal.dialog([
+                var selected = [];
+                var dialog = UIkit.modal.dialog([
                     '<div>',
                     '<div class="uk-modal-header uk-text-large">' + App.i18n.get('Select asset') + '</div>',
                     '<cp-assets path="' + (options.path || '') + '" typefilter="' + (options.typefilter || '') + '" single="' + options.single + '" modal="true"></cp-assets>',
@@ -116,13 +114,13 @@
                     '<a class="uk-button uk-button-large uk-button-link uk-modal-close">' + App.i18n.get('Close') + '</a>',
                     '</div>',
                     '</div>'
-                ].join(''), {modal: false});
+                ].join(''), { modal: false });
 
                 dialog.dialog.addClass('uk-modal-dialog-large');
 
-                const selectbtn = dialog.dialog.find('.js-select-button');
-                const selectcount = selectbtn.find('.selectcount');
-                const count = selectcount.find('span');
+                var selectbtn = dialog.dialog.find('.js-select-button');
+                var selectcount = selectbtn.find('.selectcount');
+                var count = selectcount.find('span');
 
                 selectcount.hide(options.single);
 
@@ -159,7 +157,7 @@
                 App.ui.notify('This resource is locked!', 'danger');
             };
 
-            const idle = setInterval(function () {
+            var idle = setInterval(function () {
                 App.request('/yxorp/utils/lockResourceId/' + resourceId, {}).catch(catchCallback);
             }, 60000);
 
@@ -177,12 +175,12 @@
         }
     };
 
-    const _accounts = {}; // cache
+    var _accounts = {}; // cache
 
     Yxorp.account = function (id) {
         if (!_accounts[id]) {
             _accounts[id] = new Promise(function (resolve, reject) {
-                App.request('/accounts/find', {options: {filter: {_id: id}}}).then(function (response) {
+                App.request('/accounts/find', { options: { filter: { _id: id } } }).then(function (response) {
                     resolve(response && Array.isArray(response.accounts) && response.accounts[0] ? response.accounts[0] : null);
                 });
             });

@@ -24,7 +24,7 @@ class Csrf extends Helper
 
     }
 
-    public function token($key, $generate = false, $expire = null): string
+    public function token($key, $generate = false, $expire = null)
     {
 
         $token = $this->app->helper('session')->read("yxorp.csrf.token.{$key}", null);
@@ -36,7 +36,7 @@ class Csrf extends Helper
         return $token;
     }
 
-    public function generateToken($key, $expire = null): string
+    public function generateToken($key, $expire = null)
     {
 
         $payload = ['csrf' => $key];
@@ -52,7 +52,7 @@ class Csrf extends Helper
         return $token;
     }
 
-    public function isValid($key, $token, $checkpayload = false): bool
+    public function isValid($key, $token, $checkpayload = false)
     {
 
         if (!$token) {

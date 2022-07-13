@@ -1,3 +1,4 @@
+
 <div>
     <ul class="uk-breadcrumb">
         <li><a href="@route('/settings')">@lang('Settings')</a></li>
@@ -21,10 +22,10 @@
 
                     <table class="uk-table uk-table-striped">
                         <tbody>
-                        <tr>
-                            <td width="30%">@lang('Version')</td>
-                            <td>{{ $info['app']['version'] }}</td>
-                        </tr>
+                            <tr>
+                                <td width="30%">@lang('Version')</td>
+                                <td>{{ $info['app']['version'] }}</td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -37,9 +38,7 @@
                     <div class="uk-margin" if="{cacheSize!==null}">
 
                         <div class="uk-panel uk-panel-box" if="{ !cleaning && cacheSize }">
-                            { cacheSize } <a class="uk-margin-small-left" title="@lang('Clear cache')"
-                                             data-uk-tooltip="pos:'right'" onclick="{cleanUpCache}"><i
-                                        class="uk-icon-button uk-icon-trash-o"></i></a>
+                            { cacheSize } <a class="uk-margin-small-left" title="@lang('Clear cache')" data-uk-tooltip="pos:'right'" onclick="{cleanUpCache}"><i class="uk-icon-button uk-icon-trash-o"></i></a>
                         </div>
 
                         <div class="uk-alert" if="{ cleaning }">
@@ -55,32 +54,26 @@
 
                     <table class="uk-table uk-table-striped">
                         <tbody>
-                        <tr>
-                            <td width="30%" class="uk-text-small uk-text-bold">@lang('Runner active')</td>
-                            <td class="uk-text-small uk-flex">
-                                <div class="uk-flex-item-1 uk-flex-middle uk-margin-right">
-                                    <span class="uk-badge uk-badge-outline uk-text-{ jobsQueue.running ? 'success':'danger' }">{ jobsQueue.running ? 'Yes':'No' }</span>
-                                </div>
-                                <div>
-                                    <i class="uk-icon-spinner uk-icon-spin" show="{JobsRunnerLoading}"></i>
-                                    <div class="uk-button-group" show="{!JobsRunnerLoading}">
-                                        <button type="button" class="uk-button uk-button-small"
-                                                if="{!jobsQueue.running}" onclick="{startJobsRunner}"><i
-                                                    class="uk-icon-play"></i></button>
-                                        <button type="button" class="uk-button uk-button-small" if="{jobsQueue.running}"
-                                                onclick="{restartJobsRunner}"><i class="uk-icon-refresh"></i></button>
-                                        <button type="button" class="uk-button uk-button-small" if="{jobsQueue.running}"
-                                                onclick="{stopJobsRunner}"><i class="uk-icon-stop"></i></button>
+                            <tr>
+                                <td width="30%" class="uk-text-small uk-text-bold">@lang('Runner active')</td>
+                                <td class="uk-text-small uk-flex">
+                                    <div class="uk-flex-item-1 uk-flex-middle uk-margin-right">
+                                        <span class="uk-badge uk-badge-outline uk-text-{ jobsQueue.running ? 'success':'danger' }">{ jobsQueue.running ? 'Yes':'No' }</span>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td width="30%" class="uk-text-small uk-text-bold">@lang('Jobs in queue')</td>
-                            <td class="uk-text-small"><span
-                                        class="uk-text-{{ !$info['jobs_queue']['cntjobs'] ? 'muted':'' }}">{{ $info['jobs_queue']['cntjobs'] }}</span>
-                            </td>
-                        </tr>
+                                    <div>
+                                        <i class="uk-icon-spinner uk-icon-spin" show="{JobsRunnerLoading}"></i>
+                                        <div class="uk-button-group" show="{!JobsRunnerLoading}">
+                                            <button type="button" class="uk-button uk-button-small" if="{!jobsQueue.running}" onclick="{startJobsRunner}"><i class="uk-icon-play"></i></button>
+                                            <button type="button" class="uk-button uk-button-small" if="{jobsQueue.running}" onclick="{restartJobsRunner}"><i class="uk-icon-refresh"></i></button>
+                                            <button type="button" class="uk-button uk-button-small" if="{jobsQueue.running}" onclick="{stopJobsRunner}"><i class="uk-icon-stop"></i></button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="30%" class="uk-text-small uk-text-bold">@lang('Jobs in queue')</td>
+                                <td class="uk-text-small"><span class="uk-text-{{ !$info['jobs_queue']['cntjobs'] ? 'muted':'' }}">{{ $info['jobs_queue']['cntjobs'] }}</span></td>
+                            </tr>
                         </tbody>
                     </table>
 
@@ -90,12 +83,12 @@
 
                     <table class="uk-table uk-table-striped">
                         <tbody>
-                        @foreach(getenv() as $key => $value)
-                        <tr>
-                            <td width="30%" class="uk-text-small uk-text-bold">{{ $key }}</td>
-                            <td class="uk-text-small">{{ $value }}</td>
-                        </tr>
-                        @endforeach
+                            @foreach(getenv() as $key => $value)
+                            <tr>
+                                <td width="30%" class="uk-text-small uk-text-bold">{{ $key }}</td>
+                                <td class="uk-text-small">{{ $value }}</td>
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
 
@@ -109,48 +102,47 @@
                     </p>
                     <table class="uk-table uk-table-striped">
                         <tbody>
-                        <tr>
-                            <td width="30%">Version</td>
-                            <td>{{ $info['phpversion'] }}</td>
-                        </tr>
-                        <tr>
-                            <td width="30%">PHP SAPI</td>
-                            <td>{{ $info['sapi_name'] }}</td>
-                        </tr>
-                        <tr>
-                            <td width="30%">System</td>
-                            <td>{{ $info['system'] }}</td>
-                        </tr>
-                        <tr>
-                            <td width="30%">Loaded Extensions</td>
-                            <td>{{ implode(", ", $info['extensions']) }}</td>
-                        </tr>
-                        <tr>
-                            <td width="30%">Max. execution time</td>
-                            <td>{{ ini_get("max_execution_time") }} sec.</td>
-                        </tr>
-                        <tr>
-                            <td width="30%">OPCache enabled</td>
-                            <td><span class="uk-badge uk-badge-outline uk-text-{{ ini_get(" opcache.enable") ?
-                                'success':'danger' }}">{{ ini_get("opcache.enable") ? 'Yes':'No' }}</span></td>
-                        </tr>
-                        <tr>
-                            <td width="30%">Memory limit</td>
-                            <td>{{ ini_get("memory_limit") }}</td>
-                        </tr>
-                        <tr>
-                            <td width="30%">Upload file size limit</td>
-                            <td>{{ ini_get("upload_max_filesize") }}</td>
-                        </tr>
-                        <tr>
-                            <td width="30%">Realpath Cache</td>
-                            <td>{{ ini_get("realpath_cache_size") }} / {{ ini_get("realpath_cache_ttl") }} (ttl)</td>
-                        </tr>
+                            <tr>
+                                <td width="30%">Version</td>
+                                <td>{{ $info['phpversion'] }}</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">PHP SAPI</td>
+                                <td>{{ $info['sapi_name'] }}</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">System</td>
+                                <td>{{ $info['system'] }}</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Loaded Extensions</td>
+                                <td>{{ implode(", ", $info['extensions']) }}</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Max. execution time</td>
+                                <td>{{ ini_get("max_execution_time") }} sec.</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">OPCache enabled</td>
+                                <td><span class="uk-badge uk-badge-outline uk-text-{{ ini_get("opcache.enable") ? 'success':'danger' }}">{{ ini_get("opcache.enable") ? 'Yes':'No' }}</span></td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Memory limit</td>
+                                <td>{{ ini_get("memory_limit") }}</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Upload file size limit</td>
+                                <td>{{ ini_get("upload_max_filesize") }}</td>
+                            </tr>
+                            <tr>
+                                <td width="30%">Realpath Cache</td>
+                                <td>{{ ini_get("realpath_cache_size") }} / {{ ini_get("realpath_cache_ttl") }} (ttl)</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
 
-                @trigger("yxorp.settings.infopage.main.menu")
+            @trigger("yxorp.settings.infopage.main.menu")
             </div>
 
 
@@ -316,8 +308,6 @@
                   return null
               }
             }
-
-
 
         </script>
 

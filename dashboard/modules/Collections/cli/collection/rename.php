@@ -2,8 +2,8 @@
 
 if (!YXORP_CLI) return;
 
-$name = $app->param('name');
-$to = $app->param('to');
+$name = $app->param('name', null);
+$to = $app->param('to', null);
 
 if (!$name) {
     return CLI::writeln("--name parameter is missing", false);

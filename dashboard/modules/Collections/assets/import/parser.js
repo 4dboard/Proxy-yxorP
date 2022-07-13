@@ -1,15 +1,15 @@
-(function (g) {
+(function(g){
 
-    const Parser = {
+    var Parser = {
 
-        parse: function (file) {
+        parse: function(file) {
 
-            const p = new Promise(function (resolve, reject) {
+            var p = new Promise(function(resolve, reject) {
 
-                const reader = new FileReader();
+                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    Parser[(file.type === 'application/json' || file._type === 'application/json') ? 'json' : 'csv'](e.target.result, resolve, reject);
+                reader.onload = function(e) {
+                    Parser[(file.type=='application/json' || file._type=='application/json') ? 'json':'csv'](e.target.result, resolve, reject);
                 };
 
                 reader.readAsText(file);
@@ -18,17 +18,16 @@
             return p;
         },
 
-        csv: function (content, resolve, reject) {
+        csv: function(content, resolve, reject) {
 
             // require parsing lib
-            App.assets.require('/assets/lib/papaparse.js').then(function () {
+            App.assets.require('/assets/lib/papaparse.js').then(function() {
 
                 Papa.parse(content, {
                     header: true,
-                    complete: function (result) {
+                    complete: function(result) {
 
-                        let data;
-                        const headers = [];
+                        var data, headers = [];
 
                         data = result.data;
 
@@ -36,9 +35,9 @@
                             return reject('List is empty!');
                         }
 
-                        Object.keys(data[0]).forEach(function (key) {
+                        Object.keys(data[0]).forEach(function(key) {
 
-                            if (['_created', '_modified'].indexOf(key) !== -1) return;
+                            if (['_created', '_modified'].indexOf(key) != -1) return;
 
                             headers.push(key);
                         });
@@ -49,26 +48,24 @@
                         });
 
                     },
-                    error: function () {
+                    error: function() {
                         reject('Error parsing CSV file');
                     }
                 });
             });
         },
 
-        json: function (content, resolve, reject) {
+        json: function(content, resolve, reject) {
 
             var data;
 
             try {
                 var data = JSON.parse(content);
-            } catch (e) {
-                return reject(e.message)
-            }
+            } catch(e) { return reject(e.message) }
 
             if (!Array.isArray(data)) {
                 if (_.isPlainObject(data)) {
-                    data = _.transform(_.keys(data).sort(), function (result, val) {
+                    data = _.transform(_.keys(data).sort(), function(result, val){
                         result.push(data[val]);
                     }, []);
                 } else {
@@ -80,7 +77,7 @@
                 return reject('List is empty!');
             }
 
-            const headers = _.reduce(data, function (result, item) {
+            var headers = _.reduce(data, function(result, item){
                 return _.difference(_.union(_.keys(item), result), ['_uid', '_created', '_modified']);
             }, []);
 

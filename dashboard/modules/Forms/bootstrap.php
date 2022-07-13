@@ -323,7 +323,7 @@ $this->module('forms')->extend([
 
                 try {
                     $response = $this->app->mailer->mail($frm['email_forward'], $options['subject'] ?? "New form data for: {$formname}", $body, $options);
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     $response = $e->getMessage();
                 }
             }

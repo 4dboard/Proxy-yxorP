@@ -1,48 +1,15 @@
 @if(isset($collection['color']) && $collection['color'])
 <style>
-    .app-header {
-
-    border-top:
-
-    8
-    px {
-
-    {
-        $ collection ['color']
-    }
-    }
-    solid
-
-    ;
-    }
-    .revisions-box {
-        height: auto;
-        max-height: 45vh;
-    }
+    .app-header { border-top: 8px {{ $collection['color'] }} solid; }
+    .revisions-box { height: auto; max-height: 45vh; }
 </style>
 @endif
 
 <script>
-    window.__allowedFields = {
-    {
-        json_encode($allowedFields)
-    }
-    }
-    window.__revisions = {
-    {
-        json_encode($revisions)
-    }
-    }
-    window.__singleton = {
-    {
-        json_encode($singleton)
-    }
-    }
-    window.__singletonData = {
-    {
-        json_encode($data)
-    }
-    }
+  window.__allowedFields = {{ json_encode($allowedFields) }};
+  window.__revisions = {{ json_encode($revisions) }};
+  window.__singleton = {{ json_encode($singleton) }};
+  window.__singletonData = {{ json_encode($data) }};
 
 </script>
 
@@ -50,8 +17,7 @@
     <ul class="uk-breadcrumb">
         <li><a href="@route('/singletons')">@lang('Singletons')</a></li>
         <li data-uk-dropdown="mode:'hover', delay:300">
-            <a href="@route('/singletons/form/'.$singleton['name'])"><i class="uk-icon-bars"></i> {{
-                htmlspecialchars(@$singleton['label'] ? $singleton['label']:$singleton['name'], ENT_QUOTES, 'UTF-8') }}</a>
+            <a href="@route('/singletons/form/'.$singleton['name'])"><i class="uk-icon-bars"></i> {{ htmlspecialchars(@$singleton['label'] ? $singleton['label']:$singleton['name'], ENT_QUOTES, 'UTF-8') }}</a>
 
             @if($app->module('singletons')->hasaccess($singleton['name'], 'edit'))
             <div class="uk-dropdown">
@@ -69,15 +35,12 @@
 
 <div class="uk-margin-top-large" riot-view>
 
-    <div class="uk-width-medium-1-3 uk-viewport-height-1-2 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle"
-         if="{!revisions.length}">
+    <div class="uk-width-medium-1-3 uk-viewport-height-1-2 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle" if="{!revisions.length}">
         <div class="uk-text-muted uk-width-1-1">
-            <img class="uk-svg-adjust" src="@url('assets:app/media/icons/revisions.svg')" width="150" alt="icon"
-                 data-uk-svg>
+            <img class="uk-svg-adjust" src="@url('assets:app/media/icons/revisions.svg')" width="150" alt="icon" data-uk-svg>
             <div class="uk-h2 uk-margin">@lang('No revisions available')</div>
             <div class="uk-margin-large">
-                <a class="uk-button uk-button-large uk-button-link" href="@route("/singletons/form/{$singleton['name']}")">@lang('Back
-                to singleton')</a>
+                <a class="uk-button uk-button-large uk-button-link" href="@route("/singletons/form/{$singleton['name']}")">@lang('Back to singleton')</a>
             </div>
         </div>
     </div>
@@ -86,11 +49,9 @@
 
         <div class="uk-width-4-5">
 
-            <div class="uk-text-muted uk-width-medium-1-3 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle"
-                 if="{!active}">
+            <div class="uk-text-muted uk-width-medium-1-3 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle" if="{!active}">
                 <div>
-                    <img class="uk-svg-adjust" src="@url('assets:app/media/icons/revisions.svg')" width="150" alt="icon"
-                         data-uk-svg>
+                    <img class="uk-svg-adjust" src="@url('assets:app/media/icons/revisions.svg')" width="150" alt="icon" data-uk-svg>
                     <div class="uk-h2 uk-margin uk-text-center">@lang('Please select a revision')</div>
                 </div>
             </div>
@@ -101,30 +62,24 @@
                     <div class="uk-flex uk-flex-middle">
                         <div class="uk-flex-item-1 uk-text-small">
                             <strong>{ App.Utils.dateformat(active._created*1000, 'MMMM Do YYYY @ hh:mm:ss a') }</strong>
-                            <div class="uk-margin-small-top">
-                                <cp-account account="{active._creator}"></cp-account>
-                            </div>
+                            <div class="uk-margin-small-top"><cp-account account="{active._creator}"></cp-account></div>
                         </div>
                         <div>
-                            <button onclick="{ restoreActive }" class="uk-button uk-button-large uk-button-danger"
-                                    show="{ hasDiffs() }">
+                            <button onclick="{ restoreActive }" class="uk-button uk-button-large uk-button-danger" show="{ hasDiffs() }">
                                 @lang('Restore to this version')
                             </button>
 
-                            <a class="uk-margin-left uk-button uk-button-large uk-button-link" href="@route("/singletons/form/{$singleton['name']}")">@lang('Back
-                            to singleton')</a>
+                            <a class="uk-margin-left uk-button uk-button-large uk-button-link" href="@route("/singletons/form/{$singleton['name']}")">@lang('Back to singleton')</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="uk-margin-large">
 
-                    <div class="uk-text-muted uk-width-medium-1-3 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle"
-                         show="{ !hasDiffs() }">
+                    <div class="uk-text-muted uk-width-medium-1-3 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-center uk-flex-middle" show="{ !hasDiffs() }">
 
                         <div>
-                            <img class="uk-svg-adjust" src="@url('assets:app/media/icons/revisions.svg')" width="150"
-                                 alt="icon" data-uk-svg>
+                            <img class="uk-svg-adjust" src="@url('assets:app/media/icons/revisions.svg')" width="150" alt="icon" data-uk-svg>
                             <div class="uk-h2 uk-margin uk-text-center">@lang('No changes')</div>
                         </div>
                     </div>
@@ -134,27 +89,21 @@
                         <div class="uk-margin uk-flex uk-flex-middle">
                             <div class="uk-h3 uk-flex-item-1">@lang('Changes')</div>
                             <div class="uk-margin-left">
-                                <field-boolean bind="showOnlyChanged"
-                                               label="@lang('Show only changed fields')"></field-boolean>
+                                <field-boolean bind="showOnlyChanged" label="@lang('Show only changed fields')"></field-boolean>
                             </div>
                         </div>
 
-                        <div class="uk-panel uk-margin" each="{value,key in active.data}"
-                             if="{['_id','_modified','_created','_by'].indexOf(key) < 0 && allowedFields.indexOf(key) > -1 && (showOnlyChanged ? JSON.stringify(value) !== JSON.stringify(current[key]) : true)}">
+                        <div class="uk-panel uk-margin" each="{value,key in active.data}" if="{['_id','_modified','_created','_by'].indexOf(key) < 0 && allowedFields.indexOf(key) > -1 && (showOnlyChanged ? JSON.stringify(value) !== JSON.stringify(current[key]) : true)}">
 
                             <div class="uk-margin uk-panel uk-panel-box uk-panel-card">
 
                                 <div class="uk-margin uk-grid uk-flex-middle">
-                                    <div class="uk-flex-item-1"><span
-                                                class="uk-badge uk-badge-outline uk-badge-primary">{ key }</span></div>
-                                    <div show="{JSON.stringify(value) !== JSON.stringify(current[key])}"><a
-                                                onclick="{restoreValue}" title="@lang('Restore value')" data-uk-tooltip><i
-                                                    class="uk-icon-refresh"></i></a></div>
+                                    <div class="uk-flex-item-1"><span class="uk-badge uk-badge-outline uk-badge-primary">{ key }</span></div>
+                                    <div show="{JSON.stringify(value) !== JSON.stringify(current[key])}"><a onclick="{restoreValue}" title="@lang('Restore value')" data-uk-tooltip><i class="uk-icon-refresh"></i></a></div>
                                 </div>
 
                                 <div>
-                                    <cp-diff class="uk-display-block" oldtxt="{ value }"
-                                             newtxt="{ parent.current[key] || '' }"></cp-diff>
+                                    <cp-diff class="uk-display-block" oldtxt="{ value }" newtxt="{ parent.current[key] || '' }"></cp-diff>
                                 </div>
                             </div>
                         </div>
@@ -174,17 +123,14 @@
 
             <div class="uk-margin revisions-box { revisions.length > 10 && 'uk-scrollable-box'}">
                 <ul class="uk-nav">
-                    <li class="uk-margin-small-bottom {rev == active && 'uk-active uk-text-large'}"
-                        each="{rev,idx in revisions}">
+                    <li class="uk-margin-small-bottom {rev == active && 'uk-active uk-text-large'}" each="{rev,idx in revisions}">
                         <hr show="{rev==active}">
                         <div class="uk-flex">
-                            <a class="uk-flex-item-1 uk-margin-small-right {rev !== active && 'uk-text-muted'}"
-                               onclick="{ parent.selectRevision }">
+                            <a class="uk-flex-item-1 uk-margin-small-right {rev !== active && 'uk-text-muted'}" onclick="{ parent.selectRevision }">
                                 { App.Utils.dateformat(rev._created*1000, 'MMMM Do YYYY') }<br>
                                 <span class="uk-text-small">{ App.Utils.dateformat(rev._created*1000, 'hh:mm:ss a') }</span>
                             </a>
-                            <a show="{rev==active}" onclick="{remove}"><i
-                                        class="uk-icon-button uk-icon-button-danger uk-icon-trash-o"></i></a>
+                            <a show="{rev==active}" onclick="{remove}"><i class="uk-icon-button uk-icon-button-danger uk-icon-trash-o"></i></a>
                         </div>
                         <hr show="{rev==active}">
                     </li>
@@ -295,9 +241,6 @@
                 App.ui.notify(res && res.message ? res.message : "Restoring failed.", "danger");
             });
         }
-
-
-
 
     </script>
 

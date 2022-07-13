@@ -10,18 +10,7 @@
 
 namespace yxorP\Controller;
 
-use LimeExtra\Controller;
-use function array_merge;
-use function bin2hex;
-use function gd_info;
-use function is_string;
-use function json_encode;
-use function random_bytes;
-use function strip_tags;
-use function trim;
-use function uniqid;
-
-class RestApi extends Controller
+class RestApi extends \LimeExtra\Controller
 {
 
     public function authUser()
@@ -44,10 +33,7 @@ class RestApi extends Controller
         $this->app->trigger('yxorp.authentication.success', [&$user]);
 
         if ($generateApiKey) {
-            try {
-                $user['api_key'] = 'account-' . uniqid(bin2hex(random_bytes(16)));
-            } catch (\Exception $e) {
-            }
+            $user['api_key'] = 'account-' . \uniqid(\bin2hex(\random_bytes(16)));
             $this->app->storage->save('yxorp/accounts', $user);
         }
 
@@ -69,10 +55,7 @@ class RestApi extends Controller
             return $this->stop(['error' => 'User not found'], 404);
         }
 
-        try {
-            $user['api_key'] = 'account-' . uniqid(bin2hex(random_bytes(16)));
-        } catch (\Exception $e) {
-        }
+        $user['api_key'] = 'account-' . \uniqid(\bin2hex(\random_bytes(16)));
         $this->app->storage->save('yxorp/accounts', $user);
 
         return ['success' => true];
@@ -120,7 +103,7 @@ class RestApi extends Controller
                 return $this->stop(['error' => 'Username required'], 412);
             }
 
-            $data = array_merge($account = [
+            $data = \array_merge($account = [
                 'user' => 'admin',
                 'name' => '',
                 'email' => '',
@@ -130,10 +113,7 @@ class RestApi extends Controller
             ], $data);
 
             if (isset($data['api_key'])) {
-                try {
-                    $data['api_key'] = 'account-' . uniqid(bin2hex(random_bytes(16)));
-                } catch (\Exception $e) {
-                }
+                $data['api_key'] = 'account-' . \uniqid(\bin2hex(\random_bytes(16)));
             }
 
             $data['_created'] = $data['_modified'];
@@ -152,12 +132,12 @@ class RestApi extends Controller
             return $this->stop(['error' => 'Valid email required'], 412);
         }
 
-        if (isset($data['user']) && !trim($data['user'])) {
+        if (isset($data['user']) && !\trim($data['user'])) {
             return $this->stop(['error' => 'Username cannot be empty!'], 412);
         }
 
         foreach (['name', 'user', 'email'] as $key) {
-            if (isset($data[$key])) $data[$key] = strip_tags(trim($data[$key]));
+            if (isset($data[$key])) $data[$key] = \strip_tags(\trim($data[$key]));
         }
 
         // unique check
@@ -188,7 +168,7 @@ class RestApi extends Controller
             unset($data['password']);
         }
 
-        return json_encode($data);
+        return \json_encode($data);
     }
 
     public function listUsers()
@@ -196,7 +176,7 @@ class RestApi extends Controller
 
         $user = $this->module('yxorp')->getUser();
         $isAdmin = false;
-        $options = array_merge(['sort' => ['user' => 1]], $this->param('options', []));
+        $options = \array_merge(['sort' => ['user' => 1]], $this->param('options', []));
 
         if ($user) {
 
@@ -211,7 +191,7 @@ class RestApi extends Controller
 
             $options['filter'] = $filter;
 
-            if (is_string($filter)) {
+            if (\is_string($filter)) {
 
                 $options['filter'] = [
                     '$or' => [
@@ -236,13 +216,13 @@ class RestApi extends Controller
     public function image()
     {
 
-        $width = $this->param('w');
-        $height = $this->param('h');
+        $width = $this->param('w', null);
+        $height = $this->param('h', null);
 
-        $mime = $this->param('mime');
+        $mime = $this->param('mime', null);
 
-        if ($mime == 'auto' && str_contains($this->app->request->headers['Accept'] ?? '', 'image/webp')) {
-            $gdinfo = gd_info();
+        if ($mime == 'auto' && strpos($this->app->request->headers['Accept'] ?? '', 'image/webp') !== false) {
+            $gdinfo = \gd_info();
             $mime = isset($gdinfo['WebP Support']) && $gdinfo['WebP Support'] ? 'image/webp' : 'auto';
         }
 
@@ -250,7 +230,7 @@ class RestApi extends Controller
             'src' => $this->param('src', false),
             'mode' => $this->param('m', 'thumbnail'),
             'mime' => $mime,
-            'fp' => $this->param('fp'),
+            'fp' => $this->param('fp', null),
             'filters' => (array)$this->param('f', []),
             'width' => $width == 'original' ? 'original' : intval($width),
             'height' => $height == 'original' ? 'original' : intval($height),
@@ -282,11 +262,11 @@ class RestApi extends Controller
             'sort' => ['created' => -1]
         ];
 
-        if ($filter = $this->param('filter')) $options['filter'] = $filter;
-        if ($fields = $this->param('fields')) $options['fields'] = $fields;
-        if ($limit = $this->param('limit')) $options['limit'] = $limit;
-        if ($sort = $this->param('sort')) $options['sort'] = $sort;
-        if ($skip = $this->param('skip')) $options['skip'] = $skip;
+        if ($filter = $this->param('filter', null)) $options['filter'] = $filter;
+        if ($fields = $this->param('fields', null)) $options['fields'] = $fields;
+        if ($limit = $this->param('limit', null)) $options['limit'] = $limit;
+        if ($sort = $this->param('sort', null)) $options['sort'] = $sort;
+        if ($skip = $this->param('skip', null)) $options['skip'] = $skip;
 
         return $this->module('yxorp')->listAssets($options);
     }
@@ -302,8 +282,8 @@ class RestApi extends Controller
             'filter' => ['_id' => $id]
         ];
 
-        if ($filter = $this->param('filter')) $options['filter'] = $filter;
-        if ($fields = $this->param('fields')) $options['fields'] = $fields;
+        if ($filter = $this->param('filter', null)) $options['filter'] = $filter;
+        if ($fields = $this->param('fields', null)) $options['fields'] = $fields;
 
         $assets = $this->module('yxorp')->listAssets($options);
 
@@ -315,7 +295,7 @@ class RestApi extends Controller
         return $this->module('yxorp')->uploadAssets('files', $this->param('meta', []));
     }
 
-    public function updateAssets(): bool
+    public function updateAssets()
     {
 
         if ($asset = $this->param('asset', false)) {
@@ -325,7 +305,7 @@ class RestApi extends Controller
         return false;
     }
 
-    public function removeAssets(): bool
+    public function removeAssets()
     {
 
         if ($assets = $this->param('assets', false)) {

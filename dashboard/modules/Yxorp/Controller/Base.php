@@ -10,13 +10,7 @@
 
 namespace yxorP\Controller;
 
-use ArrayObject;
-use SplPriorityQueue;
-use yxorP\AuthController;
-use function Lime\fetch_from_array;
-use function session_write_close;
-
-class Base extends AuthController
+class Base extends \yxorP\AuthController
 {
 
     public function dashboard()
@@ -24,23 +18,23 @@ class Base extends AuthController
 
         $settings = $this->app->storage->getKey('yxorp/options', 'dashboard.widgets.' . $this->user["_id"], []);
 
-        $widgets = new ArrayObject([]);
+        $widgets = new \ArrayObject([]);
 
         $this->app->trigger('admin.dashboard.widgets', [$widgets]);
 
         $areas = [
-            'main' => new SplPriorityQueue(),
-            'aside-left' => new SplPriorityQueue(),
-            'aside-right' => new SplPriorityQueue()
+            'main' => new \SplPriorityQueue(),
+            'aside-left' => new \SplPriorityQueue(),
+            'aside-right' => new \SplPriorityQueue()
         ];
 
-        foreach ($widgets as $widget) {
+        foreach ($widgets as &$widget) {
 
             $name = $widget['name'];
             $area = isset($widget['area']) && in_array($widget['area'], ['main', 'aside-left', 'aside-right']) ? $widget['area'] : 'main';
 
-            $area = fetch_from_array($settings, "{$name}/area", $area);
-            $prio = fetch_from_array($settings, "{$name}/prio", 0);
+            $area = \Lime\fetch_from_array($settings, "{$name}/area", $area);
+            $prio = \Lime\fetch_from_array($settings, "{$name}/prio", 0);
 
             $areas[$area]->insert($widget, -1 * $prio);
         }
@@ -58,13 +52,13 @@ class Base extends AuthController
         return $widgets;
     }
 
-    public function search(): bool|string
+    public function search()
     {
 
-        session_write_close();
+        \session_write_close();
 
         $query = $this->app->param('search', false);
-        $list = new ArrayObject([]);
+        $list = new \ArrayObject([]);
 
         if ($query) {
             $this->app->trigger('yxorp.search', [$query, $list]);
@@ -73,11 +67,11 @@ class Base extends AuthController
         return json_encode($list->getArrayCopy());
     }
 
-    public function call($module, $method): bool|string
+    public function call($module, $method)
     {
 
         $args = (array)$this->param('args', []);
-        $acl = $this->param('acl');
+        $acl = $this->param('acl', null);
 
         if (!$acl) {
             return false;

@@ -2,37 +2,34 @@
 
 <title>CodeMirror: yacas mode</title>
 <meta charset="utf-8"/>
-<link href="../../doc/docs.css" rel=stylesheet>
+<link rel=stylesheet href="../../doc/docs.css">
 
-<link href=../../lib/codemirror.css rel=stylesheet>
+<link rel=stylesheet href=../../lib/codemirror.css>
 <script src=../../lib/codemirror.js></script>
 <script src=../../addon/edit/matchbrackets.js></script>
 <script src=yacas.js></script>
 <style type=text/css>
-    .CodeMirror {
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-    }
+  .CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}
 </style>
 <div id=nav>
-    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
+  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
 
-    <ul>
-        <li><a href="../../index.html">Home</a>
-        <li><a href="../../doc/manual.html">Manual</a>
-        <li><a href="https://github.com/codemirror/codemirror">Code</a>
-    </ul>
-    <ul>
-        <li><a href="../index.html">Language modes</a>
-        <li><a class=active href="#">yacas</a>
-    </ul>
+  <ul>
+    <li><a href="../../index.html">Home</a>
+    <li><a href="../../doc/manual.html">Manual</a>
+    <li><a href="https://github.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.html">Language modes</a>
+    <li><a class=active href="#">yacas</a>
+  </ul>
 </div>
 
 <article>
-    <h2>yacas mode</h2>
+<h2>yacas mode</h2>
 
 
-    <label for="yacasCode"></label><textarea id="yacasCode">
+<textarea id="yacasCode">
 // example yacas code
 Graph(edges_IsList) <-- [
     Local(v, e, f, t);
@@ -78,13 +75,13 @@ AdjacencyList(g_IsGraph) <-- [
 ];
 </textarea>
 
-    <script>
-        const yacasEditor = CodeMirror.fromTextArea(document.getElementById('yacasCode'), {
-            mode: 'text/x-yacas',
-            lineNumbers: true,
-            matchBrackets: true
-        });
-    </script>
+<script>
+  var yacasEditor = CodeMirror.fromTextArea(document.getElementById('yacasCode'), {
+    mode: 'text/x-yacas',
+    lineNumbers: true,
+    matchBrackets: true
+  });
+</script>
 
-    <p><strong>MIME types defined:</strong> <code>text/x-yacas</code> (yacas).</p>
+<p><strong>MIME types defined:</strong> <code>text/x-yacas</code> (yacas).</p>
 </article>

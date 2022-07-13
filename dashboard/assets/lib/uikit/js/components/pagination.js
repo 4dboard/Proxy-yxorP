@@ -2,7 +2,7 @@
 /*
  * Based on simplePagination - Copyright (c) 2012 Flavius Matis - http://flaviusmatis.github.com/simplePagination.js/ (MIT)
  */
-(function (addon) {
+(function(addon) {
 
     var component;
 
@@ -11,36 +11,35 @@
     }
 
     if (typeof define == 'function' && define.amd) {
-        define('uikit-pagination', ['uikit'], function () {
+        define('uikit-pagination', ['uikit'], function(){
             return component || addon(UIkit2);
         });
     }
 
-})(function (UI) {
+})(function(UI){
 
     "use strict";
 
     UI.component('pagination', {
 
         defaults: {
-            items: 1,
-            itemsOnPage: 1,
-            pages: 0,
-            displayedPages: 7,
-            edges: 1,
-            currentPage: 0,
-            lblPrev: false,
-            lblNext: false,
-            onSelectPage: function () {
-            }
+            items          : 1,
+            itemsOnPage    : 1,
+            pages          : 0,
+            displayedPages : 7,
+            edges          : 1,
+            currentPage    : 0,
+            lblPrev        : false,
+            lblNext        : false,
+            onSelectPage   : function() {}
         },
 
-        boot: function () {
+        boot: function() {
 
             // init code
-            UI.ready(function (context) {
+            UI.ready(function(context) {
 
-                UI.$('[data-uk-pagination]', context).each(function () {
+                UI.$('[data-uk-pagination]', context).each(function(){
                     var ele = UI.$(this);
 
                     if (!ele.data('pagination')) {
@@ -50,15 +49,15 @@
             });
         },
 
-        init: function () {
+        init: function() {
 
             var $this = this;
 
-            this.pages = this.options.pages ? this.options.pages : Math.ceil(this.options.items / this.options.itemsOnPage) ? Math.ceil(this.options.items / this.options.itemsOnPage) : 1;
-            this.currentPage = this.options.currentPage;
+            this.pages         = this.options.pages ?  this.options.pages : Math.ceil(this.options.items / this.options.itemsOnPage) ? Math.ceil(this.options.items / this.options.itemsOnPage) : 1;
+            this.currentPage   = this.options.currentPage;
             this.halfDisplayed = this.options.displayedPages / 2;
 
-            this.on('click', 'a[data-page]', function (e) {
+            this.on('click', 'a[data-page]', function(e){
                 e.preventDefault();
                 $this.selectPage(UI.$(this).data('page'));
             });
@@ -66,20 +65,20 @@
             this._render();
         },
 
-        _getInterval: function () {
+        _getInterval: function() {
 
             return {
                 start: Math.ceil(this.currentPage > this.halfDisplayed ? Math.max(Math.min(this.currentPage - this.halfDisplayed, (this.pages - this.options.displayedPages)), 0) : 0),
-                end: Math.ceil(this.currentPage > this.halfDisplayed ? Math.min(this.currentPage + this.halfDisplayed, this.pages) : Math.min(this.options.displayedPages, this.pages))
+                end  : Math.ceil(this.currentPage > this.halfDisplayed ? Math.min(this.currentPage + this.halfDisplayed, this.pages) : Math.min(this.options.displayedPages, this.pages))
             };
         },
 
-        render: function (pages) {
+        render: function(pages) {
             this.pages = pages ? pages : this.pages;
             this._render();
         },
 
-        selectPage: function (pageIndex, pages) {
+        selectPage: function(pageIndex, pages) {
             this.currentPage = pageIndex;
             this.render(pages);
 
@@ -87,7 +86,7 @@
             this.trigger('select.uk.pagination', [pageIndex, this]);
         },
 
-        _render: function () {
+        _render: function() {
 
             var o = this.options, interval = this._getInterval(), i;
 
@@ -131,14 +130,14 @@
             if (o.lblNext) this._append(this.currentPage + 1, {text: o.lblNext});
         },
 
-        _append: function (pageIndex, opts) {
+        _append: function(pageIndex, opts) {
 
             var item, options;
 
             pageIndex = pageIndex < 0 ? 0 : (pageIndex < this.pages ? pageIndex : this.pages - 1);
-            options = UI.$.extend({text: pageIndex + 1}, opts);
+            options   = UI.$.extend({ text: pageIndex + 1 }, opts);
 
-            item = (pageIndex == this.currentPage) ? '<li class="uk-active"><span>' + (options.text) + '</span></li>' : '<li><a href="#page-' + (pageIndex + 1) + '" data-page="' + pageIndex + '">' + options.text + '</a></li>';
+            item = (pageIndex == this.currentPage) ? '<li class="uk-active"><span>' + (options.text) + '</span></li>' : '<li><a href="#page-'+(pageIndex+1)+'" data-page="'+pageIndex+'">'+options.text+'</a></li>';
 
             this.element.append(item);
         }

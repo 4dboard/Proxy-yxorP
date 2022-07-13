@@ -2,33 +2,30 @@
 
 <title>CodeMirror: Elm mode</title>
 <meta charset="utf-8"/>
-<link href="../../doc/docs.css" rel=stylesheet>
+<link rel=stylesheet href="../../doc/docs.css">
 
-<link href="../../lib/codemirror.css" rel="stylesheet">
+<link rel="stylesheet" href="../../lib/codemirror.css">
 <script src="../../lib/codemirror.js"></script>
 <script src="elm.js"></script>
-<style>.CodeMirror {
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-}</style>
+<style>.CodeMirror {border-top: 1px solid black; border-bottom: 1px solid black;}</style>
 <div id=nav>
-    <a href="https://codemirror.net"><h1>CodeMirror</h1><img alt="" id=logo src="../../doc/logo.png"></a>
+  <a href="https://codemirror.net"><h1>CodeMirror</h1><img id=logo src="../../doc/logo.png" alt=""></a>
 
-    <ul>
-        <li><a href="../../index.html">Home</a>
-        <li><a href="../../doc/manual.html">Manual</a>
-        <li><a href="https://github.com/codemirror/codemirror">Code</a>
-    </ul>
-    <ul>
-        <li><a href="../index.html">Language modes</a>
-        <li><a class=active href="#">Elm</a>
-    </ul>
+  <ul>
+    <li><a href="../../index.html">Home</a>
+    <li><a href="../../doc/manual.html">Manual</a>
+    <li><a href="https://github.com/codemirror/codemirror">Code</a>
+  </ul>
+  <ul>
+    <li><a href="../index.html">Language modes</a>
+    <li><a class=active href="#">Elm</a>
+  </ul>
 </div>
 
 <article>
-    <h2>Elm mode</h2>
+<h2>Elm mode</h2>
 
-    <div><label for="code"></label><textarea id="code" name="code">
+<div><textarea id="code" name="code">
 import Color exposing (..)
 import Graphics.Collage exposing (..)
 import Graphics.Element exposing (..)
@@ -54,11 +51,11 @@ hand clr len time =
 </textarea></div>
 
     <script>
-        const editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-            lineNumbers: true,
-            mode: "text/x-elm"
-        });
+      var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        lineNumbers: true,
+        mode: "text/x-elm"
+      });
     </script>
 
     <p><strong>MIME types defined:</strong> <code>text/x-elm</code>.</p>
-</article>
+  </article>

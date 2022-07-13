@@ -1,37 +1,33 @@
-(function (w, d) {
+(function(w, d){
 
-    const Yxorp = {
-        token: '{{ $token }}',
-        apiurl: '{{ $apiurl }}',
-        pathToUrl: function (path) {
+    var Yxorp = {
+        token  : '{{ $token }}',
+        apiurl : '{{ $apiurl }}',
+        pathToUrl: function(path) {
             return String(path).replace('site:', '{{ $app->pathToUrl("site:") }}')
-                .replace('#root:', '{{ $app->pathToUrl("#root:") }}')
-                .replace('#uploads:', '{{ $app->pathToUrl("#uploads:") }}')
+                               .replace('#root:', '{{ $app->pathToUrl("#root:") }}')
+                               .replace('#uploads:', '{{ $app->pathToUrl("#uploads:") }}')
         },
-        request: function (route, params, type) {
+        request: function(route, params, type) {
 
-            type = type || 'auto';
+            type   = type || 'auto';
             params = params || {};
 
-            const promise = new Promise(function (resolve, reject) {
+            var promise = new Promise(function(resolve, reject) {
 
-                const xhr = new XMLHttpRequest();
+                 var xhr = new XMLHttpRequest();
 
-                xhr.onloadend = function () {
+                 xhr.onloadend = function() {
 
-                    let data = xhr.responseText;
+                    var data  = xhr.responseText;
 
-                    if (this.status === 200) {
-                        if (type === 'auto' && String(data).match(/^({(.*)}|\[(.*)])$/g)) {
+                    if (this.status == 200) {
+                        if (type=='auto' && String(data).match(/^(\{(.*)\}|\[(.*)\])$/g)) {
                             type = 'json';
                         }
 
-                        if (type === 'json') {
-                            try {
-                                data = JSON.parse(data);
-                            } catch (e) {
-                                data = null;
-                            }
+                        if (type == 'json') {
+                            try { data = JSON.parse(data); } catch(e){ data = null; }
                         }
 
                         resolve(data, xhr);
@@ -41,16 +37,16 @@
                     }
                 };
 
-                xhr.open('POST', [Yxorp.apiurl, route, '?token=' + Yxorp.token].join(''), true);
+                xhr.open('POST', [Yxorp.apiurl, route, '?token='+Yxorp.token].join(''), true);
 
-                if (typeof (params) === 'object' && params instanceof HTMLFormElement) {
+                if (typeof(params) === 'object' && params instanceof HTMLFormElement) {
                     params = new FormData(params);
-                } else if (typeof (params) === 'object' && params instanceof FormData) {
+                } else if (typeof(params) === 'object' && params instanceof FormData) {
                     // do nothing
-                } else if (typeof (params) === 'object') {
+                } else if (typeof(params) === 'object') {
                     xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
                     params = JSON.stringify(params || {});
-                } else if (typeof (params) === 'string') {
+                } else if (typeof(params) === 'string') {
                     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 }
 
@@ -61,15 +57,11 @@
         }
     };
 
-    <?php
-    $app->trigger('yxorp.api.js') ?
->
+    <?php $app->trigger('yxorp.api.js') ?>
 
     // AMD support
     if (typeof define === 'function' && define.amd) {
-        define(function () {
-            return Yxorp;
-        });
+        define(function() { return Yxorp; });
     }
 
     w.Yxorp = Yxorp;

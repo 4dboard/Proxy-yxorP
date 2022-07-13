@@ -10,10 +10,7 @@
 
 namespace yxorP\Controller;
 
-use ArrayObject;
-use yxorP\AuthController;
-
-class Webhooks extends AuthController
+class Webhooks extends \yxorP\AuthController
 {
 
     public function __construct($app)
@@ -57,7 +54,7 @@ class Webhooks extends AuthController
             }
         }
 
-        $triggers = new ArrayObject([
+        $triggers = new \ArrayObject([
             'admin.init',
             'app.{$controller}.init',
             'yxorp.account.login',
@@ -88,7 +85,7 @@ class Webhooks extends AuthController
         return $this->render('yxorp:views/webhooks/webhook.php', compact('webhook', 'triggers'));
     }
 
-    public function save(): bool|string
+    public function save()
     {
 
         if ($data = $this->param('webhook', false)) {
@@ -113,7 +110,7 @@ class Webhooks extends AuthController
 
     }
 
-    public function remove(): bool
+    public function remove()
     {
 
         if ($data = $this->param('webhook', false)) {

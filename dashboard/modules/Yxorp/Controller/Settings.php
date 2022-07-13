@@ -10,9 +10,7 @@
 
 namespace yxorP\Controller;
 
-use yxorP\AuthController;
-
-class Settings extends AuthController
+class Settings extends \yxorP\AuthController
 {
 
 
@@ -67,7 +65,7 @@ class Settings extends AuthController
         return $this->render('yxorp:views/settings/edit.php', compact('configexists'));
     }
 
-    public function update(): bool
+    public function update()
     {
 
         if (!$this->module('yxorp')->isSuperAdmin()) {
@@ -83,14 +81,16 @@ class Settings extends AuthController
         return $ret;
     }
 
-    protected function getUptdateInfo(): \ArrayObject
+    protected function getUptdateInfo()
     {
 
-        return new \ArrayObject(array_merge([
+        $update = new \ArrayObject(array_merge([
             'package.json' => 'https://raw.githubusercontent.com/agentejo/yxorp/master/package.json',
             'zipfile' => 'https://github.com/agentejo/yxorp/archive/master.zip',
             'target' => YXORP_DIR,
             'options' => ['zipRoot' => 'yxorp-master']
         ], $this->app->retrieve('config/update', [])));
+
+        return $update;
     }
 }

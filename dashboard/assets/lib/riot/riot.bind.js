@@ -1,3 +1,4 @@
+
 /**
  * simple two way data-binding for riot
  */
@@ -96,8 +97,7 @@
             })();
 
 
-            ele.$updateValue = function (value) {
-            };
+            ele.$updateValue = function (value) { };
 
             var nodeType = ele.nodeName.toLowerCase(),
                 defaultEvt = ('oninput' in ele) && nodeType == 'input' ? 'input' : 'change';
@@ -115,11 +115,11 @@
                         if (isCheckbox) {
                             ele.$setValue(ele.checked);
                         } else if (isMultipleSelect) {
-
+                            
                             var values = [];
 
-                            Array.from(ele.selectedOptions).forEach(function (o, i, a) {
-                                values.push(o.value);
+                            Array.from(ele.selectedOptions).forEach(function(o,i,a) { 
+                                values.push(o.value); 
                             });
 
                             ele.$setValue(values || []);
@@ -127,8 +127,7 @@
                             ele.$setValue(isNumeric ? Number(ele.value || 0) : ele.value);
                         }
 
-                    } catch (e) {
-                    }
+                    } catch (e) { }
 
                 }, 200), false);
 
@@ -153,12 +152,10 @@
 
                         if (nodeType == 'select' && ele.multiple) {
                             try {
-                                Array.from(ele.options).forEach(function (option) {
+                                Array.from(ele.options).forEach(function(option) {
                                     option.selected = (Array.isArray(value) ? value : []).indexOf(option.value) > -1
                                 })
-                            } catch (e) {
-                            }
-                            ;
+                            } catch (e) { };
                             return;
                         }
 
@@ -193,18 +190,10 @@
         }
 
         // init values
-        tag.on('mount', function () {
-            update();
-        });
-        tag.on('updated', function () {
-            update();
-        });
-        tag.on('bind', function () {
-            update();
-        });
-        tag.$bindUpdate = function () {
-            update();
-        };
+        tag.on('mount', function () { update(); });
+        tag.on('updated', function () { update(); });
+        tag.on('bind', function () { update(); });
+        tag.$bindUpdate = function () { update(); };
 
     };
 

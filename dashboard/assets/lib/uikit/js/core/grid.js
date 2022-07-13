@@ -1,5 +1,5 @@
 /*! UIkit 2.27.5 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function (UI) {
+(function(UI) {
 
     "use strict";
 
@@ -8,18 +8,18 @@
     UI.component('gridMatchHeight', {
 
         defaults: {
-            target: false,
-            row: true,
-            ignorestacked: false,
-            observe: false
+            target        : false,
+            row           : true,
+            ignorestacked : false,
+            observe       : false
         },
 
-        boot: function () {
+        boot: function() {
 
             // init code
-            UI.ready(function (context) {
+            UI.ready(function(context) {
 
-                UI.$('[data-uk-grid-match]', context).each(function () {
+                UI.$('[data-uk-grid-match]', context).each(function() {
                     var grid = UI.$(this), obj;
 
                     if (!grid.data('gridMatchHeight')) {
@@ -29,43 +29,41 @@
             });
         },
 
-        init: function () {
+        init: function() {
 
             var $this = this;
 
-            this.columns = this.element.children();
+            this.columns  = this.element.children();
             this.elements = this.options.target ? this.find(this.options.target) : this.columns;
 
             if (!this.columns.length) return;
 
-            UI.$win.on('load resize orientationchange', (function () {
+            UI.$win.on('load resize orientationchange', (function() {
 
-                var fn = function () {
+                var fn = function() {
                     if ($this.element.is(':visible')) $this.match();
                 };
 
-                UI.$(function () {
-                    fn();
-                });
+                UI.$(function() { fn(); });
 
                 return UI.Utils.debounce(fn, 50);
             })());
 
             if (this.options.observe) {
 
-                UI.domObserve(this.element, function (e) {
+                UI.domObserve(this.element, function(e) {
                     if ($this.element.is(':visible')) $this.match();
                 });
             }
 
-            this.on('display.uk.check', function (e) {
-                if (this.element.is(':visible')) this.match();
+            this.on('display.uk.check', function(e) {
+                if(this.element.is(':visible')) this.match();
             }.bind(this));
 
             grids.push(this);
         },
 
-        match: function () {
+        match: function() {
 
             var firstvisible = this.columns.filter(':visible:first');
 
@@ -82,7 +80,7 @@
             return this;
         },
 
-        revert: function () {
+        revert: function() {
             this.elements.css('min-height', '');
             return this;
         }
@@ -91,16 +89,16 @@
     UI.component('gridMargin', {
 
         defaults: {
-            cls: 'uk-grid-margin',
-            rowfirst: 'uk-row-first'
+            cls      : 'uk-grid-margin',
+            rowfirst : 'uk-row-first'
         },
 
-        boot: function () {
+        boot: function() {
 
             // init code
-            UI.ready(function (context) {
+            UI.ready(function(context) {
 
-                UI.$('[data-uk-grid-margin]', context).each(function () {
+                UI.$('[data-uk-grid-margin]', context).each(function() {
                     var grid = UI.$(this), obj;
 
                     if (!grid.data('gridMargin')) {
@@ -110,7 +108,7 @@
             });
         },
 
-        init: function () {
+        init: function() {
 
             var stackMargin = UI.stackMargin(this.element, this.options);
         }

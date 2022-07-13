@@ -9,7 +9,7 @@
     @if($app['user']['group']=='admin')
     <div>
         <div class="uk-panel uk-panel-space uk-panel-box uk-panel-card uk-panel-card-hover">
-            <img src="@url('assets:app/media/icons/settings.svg')" width="50" height="50" alt="@lang('Settings')"/>
+            <img src="@url('assets:app/media/icons/settings.svg')" width="50" height="50" alt="@lang('Settings')" />
 
             <div class="uk-text-truncate uk-margin">
                 @lang('Settings')
@@ -23,7 +23,7 @@
     <div>
         <div class="uk-panel uk-panel-space uk-panel-box uk-panel-card uk-panel-card-hover">
 
-            <img src="@url('assets:app/media/icons/api.svg')" width="50" height="50" alt="@lang('API Access')"/>
+            <img src="@url('assets:app/media/icons/api.svg')" width="50" height="50" alt="@lang('API Access')" />
 
             <div class="uk-text-truncate uk-margin">
                 @lang('API Access')
@@ -37,7 +37,7 @@
     <div>
         <div class="uk-panel uk-panel-space uk-panel-box uk-panel-card uk-panel-card-hover">
 
-            <img src="@url('assets:app/media/icons/webhooks.svg')" width="50" height="50" alt="@lang('Webhooks')"/>
+            <img src="@url('assets:app/media/icons/webhooks.svg')" width="50" height="50" alt="@lang('Webhooks')" />
 
             <div class="uk-text-truncate uk-margin">
                 @lang('Webhooks')
@@ -51,7 +51,7 @@
     <div>
         <div class="uk-panel uk-panel-space uk-panel-box uk-panel-card uk-panel-card-hover">
 
-            <img src="@url('assets:app/media/icons/info.svg')" width="50" height="50" alt="@lang('System')"/>
+            <img src="@url('assets:app/media/icons/info.svg')" width="50" height="50" alt="@lang('System')" />
 
             <div class="uk-text-truncate uk-margin">
                 @lang('System')

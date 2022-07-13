@@ -1,26 +1,24 @@
 @if(!empty($options['include_js']))
 <script>
 
-    setTimeout(function () {
+    setTimeout(function(){
 
         if (!window.FormData) return;
 
-        const form = document.getElementById("{{ $options['id'] }}"),
-            msgsuccess = form.getElementsByClassName("form-message-success").item(0),
-            msgfail = form.getElementsByClassName("form-message-fail").item(0),
-            disableForm = function (status) {
-                let i = 0;
-                const max = form.elements.length;
-                for (; i < max; i++) form.elements[i].disabled = status;
+        var form        = document.getElementById("{{ $options['id'] }}"),
+            msgsuccess  = form.getElementsByClassName("form-message-success").item(0),
+            msgfail     = form.getElementsByClassName("form-message-fail").item(0),
+            disableForm = function(status) {
+                for(var i=0, max=form.elements.length;i<max;i++) form.elements[i].disabled = status;
             },
-            success = function () {
+            success     = function(){
                 if (msgsuccess) {
                     msgsuccess.style.display = 'block';
                 } else {
                     alert("@lang('Form submission was successful.')");
                 }
             },
-            fail = function () {
+            fail        = function(){
                 if (msgfail) {
                     msgfail.style.display = 'block';
                 } else {
@@ -29,21 +27,21 @@
             };
 
         if (msgsuccess) msgsuccess.style.display = "none";
-        if (msgfail) msgfail.style.display = "none";
+        if (msgfail)    msgfail.style.display = "none";
 
-        const submit = function (_success, _fail) {
+        var submit = function(_success, _fail) {
 
             _success = _success || success;
-            _fail = _fail || fail;
+            _fail    = _fail || fail;
 
             if (msgsuccess) msgsuccess.style.display = "none";
-            if (msgfail) msgfail.style.display = "none";
+            if (msgfail)    msgfail.style.display = "none";
 
-            const xhr = new XMLHttpRequest(), data = new FormData(form);
+            var xhr = new XMLHttpRequest(), data = new FormData(form);
 
-            xhr.onload = function () {
+            xhr.onload = function(){
 
-                if (this.status === 200 && this.responseText !== 'false') {
+                if (this.status == 200 && this.responseText!='false') {
                     _success();
                     form.reset();
                 } else {
@@ -59,13 +57,13 @@
             xhr.send(data);
         };
 
-        form.addEventListener("submit", function (e) {
+        form.addEventListener("submit", function(e) {
 
             e.preventDefault();
 
-            const callback = window['beforeSubmit{{ $name }}'] || function (submit) {
+            var callback = window['beforeSubmit{{ $name }}'] || function(submit) {
                 submit();
-            };
+            }
 
             callback(submit);
 
@@ -76,9 +74,7 @@
 </script>
 @endif
 
-<form id="{{ $options['id'] }}" name="{{ $name }}" class="{{ $options['class'] }}" action="{{ $options['action'] }}"
-      method="{{ $options['method'] }}" enctype="{{ $options['enctype'] }}" {{
-      (!empty($options['include_js']) ? ' onsubmit="return false;"' : '') }}>
+<form id="{{ $options['id'] }}" name="{{ $name }}" class="{{ $options['class'] }}" action="{{ $options['action'] }}" method="{{ $options['method'] }}" enctype="{{ $options['enctype'] }}"{{ (!empty($options['include_js']) ? ' onsubmit="return false;"' : '') }}>
 <input type="hidden" name="__csrf" value="{{ $options['csrf'] }}">
 @if(!empty($options["mailsubject"]))
 <input type="hidden" name="__mailsubject" value="{{ $options['mailsubject'] }}">

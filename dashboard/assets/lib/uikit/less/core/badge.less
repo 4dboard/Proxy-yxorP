@@ -13,21 +13,21 @@
 // Variables
 // ========================================================================
 
-@badge-background: #00a8e6;
-@badge-padding-horizontal: 5px;
-@badge-font-size: 10px;
-@badge-font-weight: bold;
-@badge-line-height: 14px;
-@badge-color: #fff;
-@badge-text-transform: none;
-@badge-hover-color: #fff;
+@badge-background:                              #00a8e6;
+@badge-padding-horizontal:                      5px;
+@badge-font-size:                               10px;
+@badge-font-weight:                             bold;
+@badge-line-height:                             14px;
+@badge-color:                                   #fff;
+@badge-text-transform:                          none;
+@badge-hover-color:                             #fff;
 
-@badge-notification-font-size: 12px;
-@badge-notification-line-height: 18px;
+@badge-notification-font-size:                  12px;
+@badge-notification-line-height:                18px;
 
-@badge-success-background: #8cc14c;
-@badge-warning-background: #faa732;
-@badge-danger-background: #da314b;
+@badge-success-background:                      #8cc14c;
+@badge-warning-background:                      #faa732;
+@badge-danger-background:                       #da314b;
 
 
 /* ========================================================================
@@ -35,37 +35,35 @@
  ========================================================================== */
 
 .uk-badge {
-  display: inline-block;
-  padding: 0 @badge-padding-horizontal;
-  background: @badge-background;
-  font-size: @badge-font-size;
-  font-weight: @badge-font-weight;
-  line-height: @badge-line-height;
-  color: @badge-color;
-  text-align: center;
-  vertical-align: middle;
-  text-transform: @badge-text-transform;
-  .hook-badge;
+    display: inline-block;
+    padding: 0 @badge-padding-horizontal;
+    background: @badge-background;
+    font-size: @badge-font-size;
+    font-weight: @badge-font-weight;
+    line-height: @badge-line-height;
+    color: @badge-color;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: @badge-text-transform;
+    .hook-badge;
 }
 
 /*
  * Keep color when badge is a link
  */
 
-a.uk-badge:hover {
-  color: @badge-hover-color;
-}
+a.uk-badge:hover { color: @badge-hover-color; }
 
 
 /* Modifier: `uk-badge-notification`;
  ========================================================================== */
 
 .uk-badge-notification {
-  box-sizing: border-box;
-  min-width: @badge-notification-line-height;
-  border-radius: 500px;
-  font-size: @badge-notification-font-size;
-  line-height: @badge-notification-line-height;
+    box-sizing: border-box;
+    min-width: @badge-notification-line-height;
+    border-radius: 500px;
+    font-size: @badge-notification-font-size;
+    line-height: @badge-notification-line-height;
 }
 
 
@@ -77,8 +75,8 @@ a.uk-badge:hover {
  */
 
 .uk-badge-success {
-  background-color: @badge-success-background;
-  .hook-badge-success;
+    background-color: @badge-success-background;
+    .hook-badge-success;
 }
 
 /*
@@ -86,8 +84,8 @@ a.uk-badge:hover {
  */
 
 .uk-badge-warning {
-  background-color: @badge-warning-background;
-  .hook-badge-warning;
+    background-color: @badge-warning-background;
+    .hook-badge-warning;
 }
 
 /*
@@ -95,8 +93,8 @@ a.uk-badge:hover {
  */
 
 .uk-badge-danger {
-  background-color: @badge-danger-background;
-  .hook-badge-danger;
+    background-color: @badge-danger-background;
+    .hook-badge-danger;
 }
 
 
@@ -105,17 +103,8 @@ a.uk-badge:hover {
 
 .hook-badge-misc;
 
-.hook-badge() {
-}
-
-.hook-badge-success() {
-}
-
-.hook-badge-warning() {
-}
-
-.hook-badge-danger() {
-}
-
-.hook-badge-misc() {
-}
+.hook-badge() {}
+.hook-badge-success() {}
+.hook-badge-warning() {}
+.hook-badge-danger() {}
+.hook-badge-misc() {}

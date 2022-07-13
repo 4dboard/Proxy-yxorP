@@ -10,16 +10,11 @@
 
 namespace yxorP;
 
-use LimeExtra\Controller;
-use function get_class;
-use function str_replace;
-use function strtolower;
-
-class AuthController extends Controller
+class AuthController extends \LimeExtra\Controller
 {
 
     protected $layout = 'yxorp:views/layouts/app.php';
-    protected mixed $user;
+    protected $user;
 
     public function __construct($app)
     {
@@ -36,7 +31,7 @@ class AuthController extends Controller
         $this->user = $user;
         $app['user'] = $user;
 
-        $controller = strtolower(str_replace('\\', '.', get_class($this)));
+        $controller = \strtolower(\str_replace('\\', '.', \get_class($this)));
 
         $app->trigger("app.{$controller}.init", [$this]);
 

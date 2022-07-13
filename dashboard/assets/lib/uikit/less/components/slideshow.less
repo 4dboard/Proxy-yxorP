@@ -44,20 +44,20 @@
  */
 
 .uk-slideshow {
-  /* 1 */
-  position: relative;
-  /* 2 */
-  z-index: 0;
-  /* 3 */
-  width: 100%;
-  /* 4 */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  /* 5 */
-  overflow: hidden;
-  /* 6 */
-  touch-action: pan-y;
+    /* 1 */
+    position: relative;
+    /* 2 */
+    z-index: 0;
+    /* 3 */
+    width: 100%;
+    /* 4 */
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    /* 5 */
+    overflow: hidden;
+    /* 6 */
+    touch-action: pan-y;
 }
 
 /*
@@ -68,14 +68,14 @@
  */
 
 .uk-slideshow > li {
-  /* 1 */
-  position: absolute;
-  top: 0;
-  left: 0;
-  /* 2 */
-  width: 100%;
-  /* 3 */
-  opacity: 0;
+    /* 1 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* 2 */
+    width: 100%;
+    /* 3 */
+    opacity: 0;
 }
 
 /*
@@ -85,36 +85,30 @@
  */
 
 .uk-slideshow > .uk-active {
-  /* 1 */
-  z-index: 10;
-  /* 2 */
-  opacity: 1;
+    /* 1 */
+    z-index: 10;
+    /* 2 */
+    opacity: 1;
 }
 
 /*
  * Hide default images which is only relevant to keep existing proportions
  */
 
-.uk-slideshow > li > img {
-  visibility: hidden;
-}
+.uk-slideshow > li > img { visibility: hidden; }
 
 /*
  * Pointer for controls
  */
 
-[data-uk-slideshow-slide] {
-  cursor: pointer;
-}
+[data-uk-slideshow-slide] { cursor: pointer; }
 
 
 /* Modifier: `uk-slideshow-fullscreen`
  ========================================================================== */
 
 .uk-slideshow-fullscreen,
-.uk-slideshow-fullscreen > li {
-  height: 100vh;
-}
+.uk-slideshow-fullscreen > li { height: 100vh; }
 
 
 /* Animations
@@ -124,14 +118,14 @@
  * Fade
  */
 
-.uk-slideshow-fade-in {
-  -webkit-animation: uk-fade 0.5s linear;
-  animation: uk-fade 0.5s linear;
-}
+ .uk-slideshow-fade-in {
+     -webkit-animation: uk-fade 0.5s linear;
+     animation: uk-fade 0.5s linear;
+ }
 
 .uk-slideshow-fade-out {
-  -webkit-animation: uk-fade 0.5s linear reverse;
-  animation: uk-fade 0.5s linear reverse;
+    -webkit-animation: uk-fade 0.5s linear reverse;
+    animation: uk-fade 0.5s linear reverse;
 }
 
 /*
@@ -139,23 +133,23 @@
  */
 
 .uk-slideshow-scroll-forward-in {
-  -webkit-animation: uk-slide-right 0.5s ease-in-out;
-  animation: uk-slide-right 0.5s ease-in-out;
+    -webkit-animation: uk-slide-right 0.5s ease-in-out;
+    animation: uk-slide-right 0.5s ease-in-out;
 }
 
 .uk-slideshow-scroll-forward-out {
-  -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
-  animation: uk-slide-left 0.5s ease-in-out reverse;
+    -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
+    animation: uk-slide-left 0.5s ease-in-out reverse;
 }
 
 .uk-slideshow-scroll-backward-in {
-  -webkit-animation: uk-slide-left 0.5s ease-in-out;
-  animation: uk-slide-left 0.5s ease-in-out;
+    -webkit-animation: uk-slide-left 0.5s ease-in-out;
+    animation: uk-slide-left 0.5s ease-in-out;
 }
 
 .uk-slideshow-scroll-backward-out {
-  -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
-  animation: uk-slide-right 0.5s ease-in-out reverse;
+    -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
+    animation: uk-slide-right 0.5s ease-in-out reverse;
 }
 
 /*
@@ -163,8 +157,8 @@
  */
 
 .uk-slideshow-scale-out {
-  -webkit-animation: uk-fade-scale-15 0.5s ease-in-out reverse;
-  animation: uk-fade-scale-15 0.5s ease-in-out reverse;
+    -webkit-animation: uk-fade-scale-15 0.5s ease-in-out reverse;
+    animation: uk-fade-scale-15 0.5s ease-in-out reverse;
 }
 
 /*
@@ -172,37 +166,37 @@
  */
 
 .uk-slideshow-swipe-forward-in {
-  -webkit-animation: uk-slide-left-33 0.5s ease-in-out;
-  animation: uk-slide-left-33 0.5s ease-in-out;
+    -webkit-animation: uk-slide-left-33 0.5s ease-in-out;
+    animation: uk-slide-left-33 0.5s ease-in-out;
 }
 
 .uk-slideshow-swipe-forward-out {
-  -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
-  animation: uk-slide-left 0.5s ease-in-out reverse;
+    -webkit-animation: uk-slide-left 0.5s ease-in-out reverse;
+    animation: uk-slide-left 0.5s ease-in-out reverse;
 }
 
 .uk-slideshow-swipe-backward-in {
-  -webkit-animation: uk-slide-right-33 0.5s ease-in-out;
-  animation: uk-slide-right-33 0.5s ease-in-out;
+    -webkit-animation: uk-slide-right-33 0.5s ease-in-out;
+    animation: uk-slide-right-33 0.5s ease-in-out;
 }
 
 .uk-slideshow-swipe-backward-out {
-  -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
-  animation: uk-slide-right 0.5s ease-in-out reverse;
+    -webkit-animation: uk-slide-right 0.5s ease-in-out reverse;
+    animation: uk-slide-right 0.5s ease-in-out reverse;
 }
 
 .uk-slideshow-swipe-forward-in:before,
 .uk-slideshow-swipe-backward-in:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  background: rgba(0, 0, 0, 0.6);
-  -webkit-animation: uk-fade 0.5s ease-in-out reverse;
-  animation: uk-fade 0.5s ease-in-out reverse;
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: rgba(0,0,0,0.6);
+    -webkit-animation: uk-fade 0.5s ease-in-out reverse;
+    animation: uk-fade 0.5s ease-in-out reverse;
 }
 
 
@@ -211,5 +205,4 @@
 
 .hook-slideshow-misc;
 
-.hook-slideshow-misc() {
-}
+.hook-slideshow-misc() {}

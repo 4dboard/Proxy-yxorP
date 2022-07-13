@@ -10,12 +10,7 @@
 
 namespace yxorP\Controller;
 
-use Exception;
-use yxorP\AuthController;
-use function preg_match;
-use function session_write_close;
-
-class Accounts extends AuthController
+class Accounts extends \yxorP\AuthController
 {
 
     public function index()
@@ -53,7 +48,7 @@ class Accounts extends AuthController
 
         unset($account["password"]);
 
-        $fields = $this->app->retrieve('config/account/fields');
+        $fields = $this->app->retrieve('config/account/fields', null);
         $languages = $this->getLanguages();
         $groups = $this->module('yxorp')->getGroups();
 
@@ -84,7 +79,7 @@ class Accounts extends AuthController
             'i18n' => $this->app->helper('i18n')->locale
         ];
 
-        $fields = $this->app->retrieve('config/account/fields');
+        $fields = $this->app->retrieve('config/account/fields', null);
         $languages = $this->getLanguages();
         $groups = $this->module('yxorp')->getGroups();
 
@@ -200,7 +195,7 @@ class Accounts extends AuthController
 
     }
 
-    public function remove(): bool|string
+    public function remove()
     {
 
         if (!$this->module('yxorp')->hasaccess('yxorp', 'accounts')) {
@@ -221,10 +216,10 @@ class Accounts extends AuthController
         return false;
     }
 
-    public function find(): array
+    public function find()
     {
 
-        session_write_close();
+        \session_write_close();
 
         $options = array_merge([
             'sort' => ['user' => 1]
@@ -234,11 +229,11 @@ class Accounts extends AuthController
 
             $filter = null;
 
-            if (preg_match('/^{(.*)}$/', $options['filter'])) {
+            if (\preg_match('/^\{(.*)\}$/', $options['filter'])) {
 
                 try {
                     $filter = json5_decode($options['filter'], true);
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                 }
             }
 
@@ -256,7 +251,7 @@ class Accounts extends AuthController
         }
 
         $accounts = $this->app->storage->find('yxorp/accounts', $options)->toArray();
-        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($accounts) : $this->app->storage->count('yxorp/accounts', $options['filter'] ?? []);
+        $count = (!isset($options['skip']) && !isset($options['limit'])) ? count($accounts) : $this->app->storage->count('yxorp/accounts', isset($options['filter']) ? $options['filter'] : []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
         $page = 1;
 
@@ -272,7 +267,7 @@ class Accounts extends AuthController
         return compact('accounts', 'count', 'pages', 'page');
     }
 
-    protected function getLanguages(): array
+    protected function getLanguages()
     {
 
         $languages = [['i18n' => 'en', 'language' => 'English']];

@@ -10,12 +10,10 @@
 
 namespace Forms\Controller;
 
-use LimeExtra\Controller;
-
-class RestApi extends Controller
+class RestApi extends \LimeExtra\Controller
 {
 
-    public function submit($form): bool
+    public function submit($form)
     {
 
         $frm = $this->module('forms')->form($form);
@@ -38,7 +36,7 @@ class RestApi extends Controller
         return false;
     }
 
-    public function export($form): bool
+    public function export($form)
     {
 
         $user = $this->module('yxorp')->getUser();

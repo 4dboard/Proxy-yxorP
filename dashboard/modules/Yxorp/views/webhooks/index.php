@@ -17,16 +17,12 @@
 
         <span class="uk-form-icon">
             <i class="uk-icon-filter"></i>
-            <label>
-<input type="text" class="uk-form-large uk-form-blank" placeholder="@lang('Filter by name...')"
-       onkeyup="{ updatefilter }">
-</label>
+            <input type="text" class="uk-form-large uk-form-blank" placeholder="@lang('Filter by name...')" onkeyup="{ updatefilter }">
         </span>
 
         <div class="uk-float-right">
 
-            <a class="uk-button uk-button-large uk-button-danger uk-animation-fade" onclick="{ removeselected }"
-               if="{ selected.length }">
+            <a class="uk-button uk-button-large uk-button-danger uk-animation-fade" onclick="{ removeselected }" if="{ selected.length }">
                 @lang('Delete') <span class="uk-badge uk-badge-contrast uk-margin-small-left">{ selected.length }</span>
             </a>
 
@@ -37,14 +33,12 @@
 
     </div>
 
-    <div class="uk-margin-large-top uk-width-medium-1-1 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-middle uk-flex-center"
-         if="{ !App.Utils.count(webhooks) }">
+    <div class="uk-margin-large-top uk-width-medium-1-1 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-middle uk-flex-center" if="{ !App.Utils.count(webhooks) }">
 
         <div class="uk-width-medium-1-3 uk-animation-scale">
 
             <p>
-                <img src="@url('assets:app/media/icons/webhooks.svg')" width="80" height="80" alt="Webhooks"
-                     data-uk-svg/>
+                <img src="@url('assets:app/media/icons/webhooks.svg')" width="80" height="80" alt="Webhooks" data-uk-svg />
             </p>
             <hr>
             <span class="uk-text-large uk-text-muted">@lang('No Webhooks'). <a href="@route('/webhooks/webhook')">@lang('Create a webhook').</a></span>
@@ -55,33 +49,27 @@
 
     <table class="uk-table uk-table-tabbed uk-table-striped uk-margin-top" if="{ webhooks.length }">
         <thead>
-        <tr>
-            <th class="uk-text-small" width="20"><label>
-                    <input class="uk-checkbox" type="checkbox" data-check="all">
-                </label></th>
-            <th width="20"></th>
-            <th class="uk-text-small">@lang('Name')</th>
-            <th class="uk-text-small">@lang('Url')</th>
-            <th class="uk-text-small">@lang('Events')</th>
-            <th class="uk-text-small">@lang('Modified')</th>
-            <th width="20"></th>
-        </tr>
+            <tr>
+                <th class="uk-text-small" width="20"><input class="uk-checkbox" type="checkbox" data-check="all"></th>
+                <th width="20"></th>
+                <th class="uk-text-small">@lang('Name')</th>
+                <th class="uk-text-small">@lang('Url')</th>
+                <th class="uk-text-small">@lang('Events')</th>
+                <th class="uk-text-small">@lang('Modified')</th>
+                <th width="20"></th>
+            </tr>
         </thead>
         <tbody>
-        <tr each="{webhook,idx in webhooks}" show="{infilter(webhook)}">
-            <td class="uk-text-small"><label>
-                    <input class="uk-checkbox" type="checkbox" data-check data-id="{ webhook._id }">
-                </label></td>
-            <td class="uk-text-center">
-                <a onclick="{ toggleStatus }" title="@lang('Toggle status')" data-uk-tooltip="pos:'left'"><i
-                            class="uk-icon-circle{webhook.active ? '':'-thin'} uk-text-{webhook.active ? 'success':'danger'}"></i></a>
-            </td>
-            <td><a href="@route('/webhooks/webhook')/{ webhook._id }">{ webhook.name }</a></td>
-            <td><a class="uk-text-muted uk-text-truncate" href="@route('/webhooks/webhook')/{ webhook._id }">{
-                    webhook.url }</a></td>
-            <td><span class="uk-badge {!webhook.events.length && 'uk-badge-danger'}">{webhook.events.length}</span></td>
-            <td>{App.Utils.dateformat( new Date( 1000 * webhook._modified ))}</td>
-            <td>
+            <tr each="{webhook,idx in webhooks}" show="{infilter(webhook)}">
+                <td class="uk-text-small"><input class="uk-checkbox" type="checkbox" data-check data-id="{ webhook._id }"></td>
+                <td class="uk-text-center">
+                    <a onclick="{ toggleStatus }" title="@lang('Toggle status')" data-uk-tooltip="pos:'left'"><i class="uk-icon-circle{webhook.active ? '':'-thin'} uk-text-{webhook.active ? 'success':'danger'}"></i></a>
+                </td>
+                <td><a href="@route('/webhooks/webhook')/{ webhook._id }">{ webhook.name }</a></td>
+                <td><a class="uk-text-muted uk-text-truncate" href="@route('/webhooks/webhook')/{ webhook._id }">{ webhook.url }</a></td>
+                <td><span class="uk-badge {!webhook.events.length && 'uk-badge-danger'}">{webhook.events.length}</span></td>
+                <td>{App.Utils.dateformat( new Date( 1000 * webhook._modified ))}</td>
+                <td>
                     <span data-uk-dropdown="mode:'click'">
 
                         <a class="uk-icon-bars"></a>
@@ -94,8 +82,8 @@
                             </ul>
                         </div>
                     </span>
-            </td>
-        </tr>
+                </td>
+            </tr>
         </tbody>
     </table>
 
@@ -212,9 +200,6 @@
                 this.update();
             }
         }
-
-
-
 
     </script>
 </div>

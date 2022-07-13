@@ -1,10 +1,9 @@
-(function (g) {
+(function(g){
 
-    const Filter = {
+    var Filter = {
 
-        filter: function (field, value, extra) {
-            let _resolve, _reject;
-            const p = new Promise(function (resolve, reject) {
+        filter: function(field, value, extra){
+            var _resolve, _reject, p = new Promise(function(resolve, reject) {
                 _resolve = resolve;
                 _reject = reject;
             });
@@ -22,21 +21,21 @@
             return p;
         },
 
-        text: function (value) {
+        text: function(value) {
             this.resolve(value.toString());
         },
 
-        boolean: function (value) {
+        boolean: function(value) {
 
-            if (value === 'true' || value === '1') value = true;
-            if (value === 'false' || value === '0') value = false;
+            if (value == 'true' || value == '1') value = true;
+            if (value == 'false' || value == '0') value = false;
 
             this.resolve(!!value);
         },
 
-        date: function (value) {
+        date: function(value) {
 
-            const date = new Date(value);
+            var date = new Date(value);
 
             if (isNaN(date.getTime()) || !date.toISOString().match(/(.+)\T/)[1]) {
                 value = null;
@@ -45,28 +44,26 @@
             this.resolve(value);
         },
 
-        tags: function (value) {
+        tags: function(value) {
 
-            if (typeof (value) == 'string') {
-                value = value.split(',').map(function (tag) {
-                    return tag.trim()
-                });
+            if (typeof(value) == 'string') {
+                value = value.split(',').map(function(tag) { return tag.trim()});
             }
 
             this.resolve(Array.isArray(value) ? value : []);
         },
 
-        collectionlink: function (value, field, extra) {
+        collectionlink: function(value, field, extra) {
 
             if (field.options && field.options.link && extra && value) {
 
-                const $this = this;
+                var $this = this;
 
                 if (Array.isArray(value)) {
 
-                    const options = {};
+                    var options = {};
 
-                    var value = _.map(value, function (item) {
+                    var value = _.map(value, function(item){
 
                         if (!_.isPlainObject(item)) {
                             return item;
@@ -85,22 +82,19 @@
 
                     options.filter = {};
 
-                    options.filter.$or = _.map(value, function (item) {
-                        const filter = {};
+                    options.filter.$or = _.map(value, function(item){
+                        var filter = {};
                         filter[extra] = item;
                         return filter;
                     });
 
-                    App.request('/collections/_find', {
-                        collection: field.options.link,
-                        options: options
-                    }).then(function (data) {
+                    App.request('/collections/_find', {collection:field.options.link, options:options}).then(function(data) {
 
                         if (data && data.length) {
 
                             if (field.options.multiple) {
 
-                                const entries = _.map(data, function (item) {
+                                var entries = _.map(data, function(item){
                                     return {
                                         _id: item._id,
                                         display: item[field.options.display] || item[Filter.collections[field.options.link].fields[0].name] || 'n/a'
@@ -111,15 +105,15 @@
 
                             } else {
 
-                                const entry = {
-                                    _id: data.result[0]._id,
+                                var entry = {
+                                    _id:data.result[0]._id,
                                     display: data[0][field.options.display] || data[0][Filter.collections[field.options.link].fields[0].name] || 'n/a'
                                 };
 
                                 $this.resolve(entry);
                             }
                         } else {
-                            console.log("Couldn't find a collection reference for " + value.join(", "));
+                            console.log("Couldn't find a collection reference for "+value.join(", "));
                             $this.resolve(null);
                         }
                     });
@@ -134,25 +128,22 @@
 
                     filter[extra] = value;
 
-                    App.callmodule('collections:findOne', [field.options.link, filter]).then(function (data) {
+                    App.callmodule('collections:findOne', [field.options.link, filter]).then(function(data) {
 
                         if (data.result && data.result._id) {
                             //TODO add support for multiple imports
-                            const entry = {
-                                _id: data.result._id,
-                                display: data.result[field.options.display] || data.result[Filter.collections[field.options.link].fields[0].name] || 'n/a'
-                            };
-                            $this.resolve(field.options.multiple ? [entry] : entry);
+                            var entry = {_id:data.result._id, display: data.result[field.options.display] || data.result[Filter.collections[field.options.link].fields[0].name] || 'n/a'};
+                            $this.resolve(field.options.multiple ? [entry]:entry);
 
                         } else {
-                            console.log("Couldn't find a collection reference for " + value);
+                            console.log("Couldn't find a collection reference for "+value);
                             $this.resolve(null);
                         }
                     })
-                        .catch(() => {
-                            console.log("Couldn't find a collection reference for " + value);
-                            $this.resolve(null);
-                        });
+                    .catch(() => {
+                        console.log("Couldn't find a collection reference for "+value);
+                        $this.resolve(null);
+                    });
 
                 }
             } else {
@@ -164,15 +155,15 @@
 
     // Utils
 
-    Filter._getCollections = new Promise(function (resolve) {
+    Filter._getCollections = new Promise(function(resolve){
 
-        App.request('/collections/_collections', {nc: Math.random()}).then(function (collections) {
+        App.request('/collections/_collections', {nc: Math.random()}).then(function(collections) {
             var collections = _.keyBy(collections, 'name');
             resolve(collections);
         });
     });
 
-    Filter._getCollections.then(function (collections) {
+    Filter._getCollections.then(function(collections) {
         Filter.collections = collections;
     })
 

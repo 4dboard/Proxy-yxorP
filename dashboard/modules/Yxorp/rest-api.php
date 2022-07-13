@@ -10,7 +10,7 @@
 
 $this->on('before', function () {
 
-    $routes = new ArrayObject([]);
+    $routes = new \ArrayObject([]);
 
     /*
         $routes['{:resource}'] = string (classname) | callable
@@ -32,7 +32,7 @@ $this->on('before', function () {
         $allowed = false;
 
         // is account token?
-        if ($token && str_contains($token, 'account-')) {
+        if ($token && preg_match('/account-/', $token)) {
 
             $account = $this->storage->findOne('yxorp/accounts', ['api_key' => $token]);
 
@@ -56,7 +56,7 @@ $this->on('before', function () {
 
             if (!$allowed && count($apikeys['special'])) {
 
-                foreach ($apikeys['special'] as $apikey) {
+                foreach ($apikeys['special'] as &$apikey) {
 
                     if ($apikey['token'] == $token) {
 
@@ -114,7 +114,7 @@ $this->on('before', function () {
         $output = false;
         $user = $this->module('yxorp')->getUser();
 
-        if (str_contains($path, '../')) {
+        if (strpos($path, '../') !== false) {
             // normalize path
             $path = implode('/', array_filter(explode('/', $path), function ($s) {
                 return trim($s, '.');

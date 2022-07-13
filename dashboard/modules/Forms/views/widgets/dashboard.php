@@ -7,8 +7,7 @@
                 @lang('Forms')
 
                 @hasaccess?('forms', 'create')
-                <a href="@route('/forms/form')" class="uk-icon-plus uk-margin-small-left" title="@lang('Create Form')"
-                   data-uk-tooltip></a>
+                <a href="@route('/forms/form')" class="uk-icon-plus uk-margin-small-left" title="@lang('Create Form')" data-uk-tooltip></a>
                 @end
             </strong>
 
@@ -19,42 +18,40 @@
 
         @if(count($forms))
 
-        <div class="uk-margin">
+            <div class="uk-margin">
 
-            <ul class="uk-list uk-list-space uk-margin-top">
-                @foreach(array_slice($forms, 0, count($forms) > 5 ? 5: count($forms)) as $form)
-                <li class="uk-text-truncate">
-                    <a class="uk-link-muted" href="@route('/forms/entries/'.$form['name'])">
+                <ul class="uk-list uk-list-space uk-margin-top">
+                    @foreach(array_slice($forms, 0, count($forms) > 5 ? 5: count($forms)) as $form)
+                    <li class="uk-text-truncate">
+                        <a class="uk-link-muted" href="@route('/forms/entries/'.$form['name'])">
 
-                        <img class="uk-margin-small-right uk-svg-adjust"
-                             src="@url(isset($form['icon']) && $form['icon'] ? 'assets:app/media/icons/'.$form['icon']:'forms:icon.svg')"
-                             width="18px" alt="icon" data-uk-svg>
+                            <img class="uk-margin-small-right uk-svg-adjust" src="@url(isset($form['icon']) && $form['icon'] ? 'assets:app/media/icons/'.$form['icon']:'forms:icon.svg')" width="18px" alt="icon" data-uk-svg>
 
-                        {{ htmlspecialchars(@$form['label'] ? $form['label'] : $form['name'], ENT_QUOTES, 'UTF-8') }}
-                    </a>
-                </li>
-                @endforeach
-            </ul>
+                            {{ htmlspecialchars(@$form['label'] ? $form['label'] : $form['name'], ENT_QUOTES, 'UTF-8') }}
+                        </a>
+                    </li>
+                    @endforeach
+                </ul>
 
-        </div>
+            </div>
 
-        @if(count($forms) > 5)
-        <div class="uk-panel-box-footer uk-text-center">
-            <a class="uk-button uk-button-small uk-button-link" href="@route('/forms')">@lang('Show all')</a>
-        </div>
-        @endif
+            @if(count($forms) > 5)
+            <div class="uk-panel-box-footer uk-text-center">
+                <a class="uk-button uk-button-small uk-button-link" href="@route('/forms')">@lang('Show all')</a>
+            </div>
+            @endif
 
         @else
 
-        <div class="uk-margin uk-text-center uk-text-muted">
+            <div class="uk-margin uk-text-center uk-text-muted">
 
-            <p>
-                <img src="@url('forms:icon.svg')" width="30" height="30" alt="Forms" data-uk-svg/>
-            </p>
+                <p>
+                    <img src="@url('forms:icon.svg')" width="30" height="30" alt="Forms" data-uk-svg />
+                </p>
 
-            @lang('No forms')
+                @lang('No forms')
 
-        </div>
+            </div>
 
         @endif
 

@@ -165,13 +165,11 @@
                 <div class="uk-form-select uk-display-block">
                     <a class="uk-text-upper uk-text-small uk-text-bold uk-text-muted">{ _.result(_.find(languages, {
                         'i18n': account.i18n }), 'language') || account.i18n }</a>
-                    <label>
-                        <select class="uk-width-1-1 uk-form-large" ref="i18n" bind="account.i18n">
-                            @foreach($languages as $lang)
-                            <option value="{{ $lang['i18n'] }}">{{ $lang['language'] }}</option>
-                            @endforeach
-                        </select>
-                    </label>
+                    <select class="uk-width-1-1 uk-form-large" ref="i18n" bind="account.i18n">
+                        @foreach($languages as $lang)
+                        <option value="{{ $lang['i18n'] }}">{{ $lang['language'] }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
@@ -183,13 +181,11 @@
             <div class="uk-form-controls uk-margin-small-top">
                 <div class="uk-display-block uk-form-select">
                     <a class="uk-text-upper uk-text-small uk-text-bold uk-text-primary">{ account.group }</a>
-                    <label>
-                        <select class="uk-width-1-1 uk-form-large" ref="group" bind="account.group">
-                            @foreach($groups as $group)
-                            <option value="{{ $group }}">{{ $group }}</option>
-                            @endforeach
-                        </select>
-                    </label>
+                    <select class="uk-width-1-1 uk-form-large" ref="group" bind="account.group">
+                        @foreach($groups as $group)
+                        <option value="{{ $group }}">{{ $group }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
@@ -314,9 +310,6 @@
         // i18n for uikit-formPassword
         UIkit.components.formPassword.prototype.defaults.lblShow = '@lang("Show")';
         UIkit.components.formPassword.prototype.defaults.lblHide = '@lang("Hide")';
-
-
-
 
 
     </script>

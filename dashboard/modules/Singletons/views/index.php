@@ -1,9 +1,5 @@
 <script>
-    window.__singletons = {
-    {
-        json_encode($singletons)
-    }
-    }
+    window.__singletons = {{ json_encode($singletons) }};
 </script>
 
 <div>
@@ -21,16 +17,13 @@
             <div class="uk-form-icon uk-form uk-text-muted">
 
                 <i class="uk-icon-filter"></i>
-                <input class="uk-form-large uk-form-blank" type="text" ref="txtfilter"
-                       placeholder="@lang('Filter singleton...')" aria-label="@lang('Filter singleton...')"
-                       onkeyup="{ updatefilter }">
+                <input class="uk-form-large uk-form-blank" type="text" ref="txtfilter" placeholder="@lang('Filter singleton...')" aria-label="@lang('Filter singleton...')" onkeyup="{ updatefilter }">
 
             </div>
 
             @hasaccess?('singletons', 'create')
             <div class="uk-float-right">
-                <a class="uk-button uk-button-large uk-button-primary uk-width-1-1"
-                   href="@route('/singletons/singleton')">@lang('Add Singleton')</a>
+                <a class="uk-button uk-button-large uk-button-primary uk-width-1-1" href="@route('/singletons/singleton')">@lang('Add Singleton')</a>
             </div>
             @endif
 
@@ -39,22 +32,17 @@
         <div class="uk-margin" if="{groups.length}">
 
             <ul class="uk-tab uk-tab-noborder uk-flex uk-flex-center uk-noselect">
-                <li class="{ !group && 'uk-active'}"><a class="uk-text-capitalize { group && 'uk-text-muted'}"
-                                                        onclick="{ toggleGroup }">{ App.i18n.get('All') }</a></li>
-                <li class="{ group==parent.group && 'uk-active'}" each="{group in groups}"><a
-                            class="uk-text-capitalize { group!=parent.group && 'uk-text-muted'}"
-                            onclick="{ toggleGroup }">{ App.i18n.get(group) }</a></li>
+                <li class="{ !group && 'uk-active'}"><a class="uk-text-capitalize { group && 'uk-text-muted'}" onclick="{ toggleGroup }">{ App.i18n.get('All') }</a></li>
+                <li class="{ group==parent.group && 'uk-active'}" each="{group in groups}"><a class="uk-text-capitalize { group!=parent.group && 'uk-text-muted'}" onclick="{ toggleGroup }">{ App.i18n.get(group) }</a></li>
             </ul>
         </div>
 
-        <div class="uk-width-medium-1-1 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-middle uk-flex-center"
-             if="{ !App.Utils.count(singletons) }">
+        <div class="uk-width-medium-1-1 uk-viewport-height-1-3 uk-container-center uk-text-center uk-flex uk-flex-middle uk-flex-center" if="{ !App.Utils.count(singletons) }">
 
             <div class="uk-animation-scale">
 
                 <p>
-                    <img class="uk-svg-adjust uk-text-muted" src="@url('singletons:icon.svg')" width="80" height="80"
-                         alt="Singleton" data-uk-svg/>
+                    <img class="uk-svg-adjust uk-text-muted" src="@url('singletons:icon.svg')" width="80" height="80" alt="Singleton" data-uk-svg />
                 </p>
                 <hr>
                 <span class="uk-text-large"><strong>@lang('No singletons').</strong>
@@ -76,11 +64,9 @@
 
                     <div class="uk-panel-teaser uk-position-relative">
                         <canvas width="600" height="350"></canvas>
-                        <a aria-label="{ singleton.label }" href="@route('/singletons/form')/{ singleton.name }"
-                           class="uk-position-cover uk-flex uk-flex-middle uk-flex-center">
+                        <a aria-label="{ singleton.label }" href="@route('/singletons/form')/{ singleton.name }" class="uk-position-cover uk-flex uk-flex-middle uk-flex-center">
                             <div class="uk-width-1-4 uk-svg-adjust" style="color:{ (singleton.meta.color) }">
-                                <img riot-src="{ singleton.meta.icon ? '@url('assets:app/media/icons/')'+singleton.meta.icon : '@url('singletons:icon.svg')'}"
-                                     alt="icon" data-uk-svg>
+                                <img riot-src="{ singleton.meta.icon ? '@url('assets:app/media/icons/')'+singleton.meta.icon : '@url('singletons:icon.svg')'}" alt="icon" data-uk-svg>
                             </div>
                         </a>
                     </div>
@@ -96,20 +82,15 @@
                                     <li class="uk-nav-header">@lang('Actions')</li>
                                     <li><a href="@route('/singletons/form')/{ singleton.name }">@lang('Form')</a></li>
                                     <li if="{ singleton.meta.allowed.singleton_edit }" class="uk-nav-divider"></li>
-                                    <li if="{ singleton.meta.allowed.singleton_edit }"><a
-                                                href="@route('/singletons/singleton')/{ singleton.name }">@lang('Edit')</a>
-                                    </li>
+                                    <li if="{ singleton.meta.allowed.singleton_edit }"><a href="@route('/singletons/singleton')/{ singleton.name }">@lang('Edit')</a></li>
                                     @hasaccess?('singletons', 'delete')
-                                    <li class="uk-nav-item-danger"><a class="uk-dropdown-close"
-                                                                      onclick="{ this.parent.remove }">@lang('Delete')</a>
-                                    </li>
+                                    <li class="uk-nav-item-danger"><a class="uk-dropdown-close" onclick="{ this.parent.remove }">@lang('Delete')</a></li>
                                     @end
                                 </ul>
                             </div>
                         </div>
                         <div class="uk-flex-item-1 uk-text-center uk-text-truncate">
-                            <a class="uk-text-bold uk-link-muted" href="@route('/singletons/form')/{singleton.name}"
-                               title="{ singleton.label }">{ singleton.label }</a>
+                            <a class="uk-text-bold uk-link-muted" href="@route('/singletons/form')/{singleton.name}" title="{ singleton.label }">{ singleton.label }</a>
                         </div>
                         <div>&nbsp;</div>
 
@@ -193,9 +174,6 @@
 
             return name.indexOf(value) !== -1;
         }
-
-
-
 
     </script>
 

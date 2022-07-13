@@ -11,15 +11,18 @@
 
 namespace yxorP\Helper;
 
-use CLI;
-use Lime\Helper;
-
-class Jobs extends Helper
+class Jobs extends \Lime\Helper
 {
 
     public function initialize()
     {
 
+    }
+
+    public function getJob()
+    {
+        $job = $this->app->storage->findOne('yxorp/jobs_queue', ['time' => ['$lt' => time()]]);
+        return $job;
     }
 
     public function add($handle, $payload = null, $time = 0)
@@ -37,46 +40,10 @@ class Jobs extends Helper
         return $job['_id'];
     }
 
-    public function isRunnerActive(): bool
+    public function remove($id)
     {
 
-        foreach ((array)$this->app->storage->getKey('yxorp', 'jobs_queue_runners') as $pid) {
-            if ($pid && posix_getsid($pid) !== false) return true;
-        }
-
-        return false;
-    }
-
-    public function stopRunner()
-    {
-
-        foreach ((array)$this->app->storage->getKey('yxorp', 'jobs_queue_runners') as $pid) {
-
-            if ($pid && posix_getsid($pid) !== false && !posix_kill($pid, /* SIGTERM */ 15)) {
-
-                if (YXORP_CLI) {
-                    CLI::writeln("Failed to kill process: {$pid} (" . posix_strerror(posix_get_last_error()) . ')', false);
-                }
-            }
-        }
-
-        $this->app->storage->setKey('yxorp', 'jobs_queue_runners', []);
-    }
-
-    public function countJobs()
-    {
-        return $this->app->storage->count('yxorp/jobs_queue');
-    }
-
-    public function run($runnerIdle = 2)
-    {
-
-        $this->app->storage->rpush('yxorp', 'jobs_queue_runners', getmypid());
-
-        while (true) {
-            $this->work();
-            sleep($runnerIdle);
-        }
+        return $this->app->storage->remove('yxorp/jobs_queue', ['_id' => $id]);
     }
 
     public function work()
@@ -85,11 +52,6 @@ class Jobs extends Helper
         while ($job = $this->getJob()) {
             $this->execute($job);
         }
-    }
-
-    public function getJob()
-    {
-        return $this->app->storage->findOne('yxorp/jobs_queue', ['time' => ['$lt' => time()]]);
     }
 
     public function execute($job)
@@ -111,10 +73,46 @@ class Jobs extends Helper
         $this->remove($job['_id']);
     }
 
-    public function remove($id)
+    public function isRunnerActive()
     {
 
-        return $this->app->storage->remove('yxorp/jobs_queue', ['_id' => $id]);
+        foreach ((array)$this->app->storage->getKey('yxorp', 'jobs_queue_runners') as $pid) {
+            if ($pid && posix_getsid($pid) !== false) return true;
+        }
+
+        return false;
+    }
+
+    public function stopRunner()
+    {
+
+        foreach ((array)$this->app->storage->getKey('yxorp', 'jobs_queue_runners') as $pid) {
+
+            if ($pid && posix_getsid($pid) !== false && !posix_kill($pid, /* SIGTERM */ 15)) {
+
+                if (YXORP_CLI) {
+                    \CLI::writeln("Failed to kill process: {$pid} (" . posix_strerror(posix_get_last_error()) . ')', false);
+                }
+            }
+        }
+
+        $this->app->storage->setKey('yxorp', 'jobs_queue_runners', []);
+    }
+
+    public function countJobs()
+    {
+        return $this->app->storage->count('yxorp/jobs_queue');
+    }
+
+    public function run($runnerIdle = 2)
+    {
+
+        $this->app->storage->rpush('yxorp', 'jobs_queue_runners', getmypid());
+
+        while (true) {
+            $this->work();
+            sleep($runnerIdle);
+        }
     }
 
 }

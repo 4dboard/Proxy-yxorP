@@ -24,18 +24,12 @@
 
             <div class="uk-margin-top">
                 <label class="uk-text-small uk-text-bold uk-text-upper uk-margin-small-bottom">@lang('Username')</label>
-                <label>
-                    <input ref="user" class="uk-form-large uk-form-blank uk-width-1-1" type="text" placeholder="..."
-                           required>
-                </label>
+                <input ref="user" class="uk-form-large uk-form-blank uk-width-1-1" type="text" placeholder="..." required>
             </div>
 
             <div>
                 <label class="uk-text-small uk-text-bold uk-text-upper uk-margin-small-bottom">@lang('Password')</label>
-                <label>
-                    <input ref="password" class="uk-form-large uk-form-blank uk-width-1-1" type="password"
-                           placeholder="..." required>
-                </label>
+                <input ref="password" class="uk-form-large uk-form-blank uk-width-1-1" type="password" placeholder="..." required>
             </div>
 
             <div class="uk-margin-top">
@@ -112,9 +106,6 @@
 
             return false;
         }
-
-
-
 
     </script>
 

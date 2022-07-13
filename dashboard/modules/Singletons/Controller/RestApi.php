@@ -10,10 +10,7 @@
 
 namespace Singletons\Controller;
 
-use LimeExtra\Controller;
-use function array_keys;
-
-class RestApi extends Controller
+class RestApi extends \LimeExtra\Controller
 {
 
     public function get($name = null, $field = null)
@@ -64,7 +61,7 @@ class RestApi extends Controller
         return $singletons[$name];
     }
 
-    public function listSingletons($extended = false): array
+    public function listSingletons($extended = false)
     {
 
         $user = $this->module('yxorp')->getUser();
@@ -75,6 +72,6 @@ class RestApi extends Controller
             $singletons = $this->module('singletons')->singletons();
         }
 
-        return $extended ? $singletons : array_keys($singletons);
+        return $extended ? $singletons : \array_keys($singletons);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-const YXORP_INSTALL = true;
+define('YXORP_INSTALL', true);
 
 $sqlitesupport = false;
 
@@ -12,19 +12,17 @@ try {
         $sqlitesupport = true;
     }
 
-} catch (Exception $e) {
-}
+} catch (Exception $e) { }
 
-require(__DIR__ . '/../bootstrap.php');
+require(__DIR__.'/../bootstrap.php');
 
-function ensure_writable($path): bool
-{
+function ensure_writable($path) {
     try {
-        $dir = YXORP_STORAGE_FOLDER . $path;
+        $dir = YXORP_STORAGE_FOLDER.$path;
         if (!file_exists($dir)) {
             mkdir($dir, 0700, true);
             if ($path === '/data') {
-                if (file_put_contents($dir . '/.htaccess', 'deny from all') === false) {
+                if (file_put_contents($dir.'/.htaccess', 'deny from all') === false) {
                     return false;
                 }
             }
@@ -38,15 +36,15 @@ function ensure_writable($path): bool
 
 // misc checks
 $checks = array(
-    'Php version >= 7.3.0' => (version_compare(PHP_VERSION, '7.3.0') >= 0),
-    'Missing PDO extension with Sqlite support' => $sqlitesupport,
-    'GD extension not available' => extension_loaded('gd'),
-    'MBString extension not available' => extension_loaded('mbstring'),
-    'Data folder is not writable: /storage/data' => ensure_writable('/data'),
-    'Cache folder is not writable: /storage/cache' => ensure_writable('/cache'),
-    'Temp folder is not writable: /storage/tmp' => ensure_writable('/tmp'),
-    'Thumbs folder is not writable: /storage/thumbs' => ensure_writable('/thumbs'),
-    'Uploads folder is not writable: /storage/uploads' => ensure_writable('/uploads'),
+    'Php version >= 7.3.0'                              => (version_compare(PHP_VERSION, '7.3.0') >= 0),
+    'Missing PDO extension with Sqlite support'         => $sqlitesupport,
+    'GD extension not available'                        => extension_loaded('gd'),
+    'MBString extension not available'                  => extension_loaded('mbstring'),
+    'Data folder is not writable: /storage/data'        => ensure_writable('/data'),
+    'Cache folder is not writable: /storage/cache'      => ensure_writable('/cache'),
+    'Temp folder is not writable: /storage/tmp'         => ensure_writable('/tmp'),
+    'Thumbs folder is not writable: /storage/thumbs'    => ensure_writable('/thumbs'),
+    'Uploads folder is not writable: /storage/uploads'  => ensure_writable('/uploads'),
 );
 
 $failed = [];
@@ -66,25 +64,24 @@ if (!count($failed)) {
     try {
 
         if ($app->storage->getCollection('yxorp/accounts')->count()) {
-            header('Location: ' . $app->baseUrl('/'));
+            header('Location: '.$app->baseUrl('/'));
             exit;
         }
 
-    } catch (Exception $e) {
-    }
+    } catch(Exception $e) { }
 
     $created = time();
 
     $account = [
-        'user' => 'admin',
-        'name' => 'Admin',
-        'email' => 'admin@yourdomain.de',
-        'active' => true,
-        'group' => 'admin',
+        'user'     => 'admin',
+        'name'     => 'Admin',
+        'email'    => 'admin@yourdomain.de',
+        'active'   => true,
+        'group'    => 'admin',
         'password' => $app->hash('admin'),
-        'i18n' => $app->helper('i18n')->locale,
+        'i18n'     => $app->helper('i18n')->locale,
         '_created' => $created,
-        '_modified' => $created,
+        '_modified'=> $created,
     ];
 
     $app->storage->insert("yxorp/accounts", $account);
@@ -112,60 +109,57 @@ if (!count($failed)) {
 <body class="uk-height-viewport uk-flex uk-flex-middle">
 
 
-<div class="info-container uk-container-center uk-text-center uk-animation-slide-fade">
+    <div class="info-container uk-container-center uk-text-center uk-animation-slide-fade">
 
-    <div class="install-dialog uk-panel uk-panel-box uk-panel-space uk-animation-scale">
+        <div class="install-dialog uk-panel uk-panel-box uk-panel-space uk-animation-scale">
 
-        <img src="../assets/app/media/logo.svg" width="80" height="80" alt="logo">
+            <img src="../assets/app/media/logo.svg" width="80" height="80" alt="logo">
 
-        <?php if (count($failed)): ?>
+            <?php if (count($failed)): ?>
 
-            <h1 class="uk-text-bold">Installation failed</h1>
+                <h1 class="uk-text-bold">Installation failed</h1>
 
-            <img src="../assets/app/media/icons/emoticon-sad.svg" width="100" alt="sad">
+                <img src="../assets/app/media/icons/emoticon-sad.svg" width="100" alt="sad">
 
-            <div class="uk-margin">
+                <div class="uk-margin">
 
-                <?php foreach ($failed as $info): ?>
+                    <?php foreach ($failed as &$info): ?>
                     <div class="uk-alert uk-alert-danger">
-                        <?php echo @$info; ?>
+                        <?php echo @$info;?>
                     </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-            </div>
+                </div>
 
-            <div>
-                <a href="?<?php echo time(); ?>"
-                   class="uk-button uk-button-large uk-button-outline uk-button-primary uk-width-1-1">Retry
-                    installation</a>
-            </div>
+                <div>
+                    <a href="?<?php echo time();?>" class="uk-button uk-button-large uk-button-outline uk-button-primary uk-width-1-1">Retry installation</a>
+                </div>
 
 
-        <?php else: ?>
+            <?php else: ?>
 
-            <h1 class="uk-text-bold">Installation completed</h1>
+                <h1 class="uk-text-bold">Installation completed</h1>
 
-            <img src="../assets/app/media/icons/party.svg" width="100" alt="success">
+                <img src="../assets/app/media/icons/party.svg" width="100" alt="success">
 
-            <div class="uk-margin-large">
-                <span class="uk-badge uk-badge-outline uk-text-muted">Login Credentials</span>
-                <p>admin / admin</p>
-            </div>
+                <div class="uk-margin-large">
+                    <span class="uk-badge uk-badge-outline uk-text-muted">Login Credentials</span>
+                    <p>admin / admin</p>
+                </div>
 
-            <div class="uk-alert uk-alert-warning">
-                Please change the login information after your first login into the system for obvious security reasons.
-            </div>
+                <div class="uk-alert uk-alert-warning">
+                    Please change the login information after your first login into the system for obvious security reasons.
+                </div>
 
-            <div class="uk-margin-top">
-                <a href="../" class="uk-button uk-button-large uk-button-primary uk-button-outline uk-width-1-1">Login
-                    now</a>
-            </div>
+                <div class="uk-margin-top">
+                    <a href="../" class="uk-button uk-button-large uk-button-primary uk-button-outline uk-width-1-1">Login now</a>
+                </div>
 
-        <?php endif; ?>
+            <?php endif; ?>
+
+        </div>
 
     </div>
-
-</div>
 
 </body>
 </html>

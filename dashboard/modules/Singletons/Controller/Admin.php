@@ -11,9 +11,7 @@
 namespace Singletons\Controller;
 
 
-use yxorP\AuthController;
-
-class Admin extends AuthController
+class Admin extends \yxorP\AuthController
 {
 
     public function index()
@@ -128,7 +126,7 @@ class Admin extends AuthController
 
     }
 
-    public function remove_singleton($singleton): array|bool
+    public function remove_singleton($singleton)
     {
 
         $singleton = $this->module('singletons')->singleton($singleton);
@@ -146,7 +144,7 @@ class Admin extends AuthController
         return ['success' => true];
     }
 
-    public function update_data($singleton): bool|array
+    public function update_data($singleton)
     {
 
         $singleton = $this->module('singletons')->singleton($singleton);

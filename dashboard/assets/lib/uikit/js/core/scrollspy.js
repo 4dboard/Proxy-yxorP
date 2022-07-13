@@ -1,13 +1,13 @@
 /*! UIkit 2.27.5 | http://www.getuikit.com | (c) 2014 YOOtheme | MIT License */
-(function (UI) {
+(function(UI) {
 
     "use strict";
 
-    var $win = UI.$win,
-        $doc = UI.$doc,
-        scrollspies = [],
-        checkScrollSpy = function () {
-            for (var i = 0; i < scrollspies.length; i++) {
+    var $win           = UI.$win,
+        $doc           = UI.$doc,
+        scrollspies    = [],
+        checkScrollSpy = function() {
+            for(var i=0; i < scrollspies.length; i++) {
                 window.requestAnimationFrame.apply(window, [scrollspies[i].check]);
             }
         };
@@ -15,25 +15,25 @@
     UI.component('scrollspy', {
 
         defaults: {
-            target: false,
-            cls: 'uk-scrollspy-inview',
-            initcls: 'uk-scrollspy-init-inview',
-            topoffset: 0,
-            leftoffset: 0,
-            repeat: false,
-            delay: 0
+            target     : false,
+            cls        : 'uk-scrollspy-inview',
+            initcls    : 'uk-scrollspy-init-inview',
+            topoffset  : 0,
+            leftoffset : 0,
+            repeat     : false,
+            delay      : 0
         },
 
-        boot: function () {
+        boot: function() {
 
             // listen to scroll and resize
             $doc.on('scrolling.uk.document', checkScrollSpy);
             $win.on('load resize orientationchange', UI.Utils.debounce(checkScrollSpy, 50));
 
             // init code
-            UI.ready(function (context) {
+            UI.ready(function(context) {
 
-                UI.$('[data-uk-scrollspy]', context).each(function () {
+                UI.$('[data-uk-scrollspy]', context).each(function() {
 
                     var element = UI.$(this);
 
@@ -44,20 +44,20 @@
             });
         },
 
-        init: function () {
+        init: function() {
 
-            var $this = this, inviewstate, initinview, togglecls = this.options.cls.split(/,/), fn = function () {
+            var $this = this, inviewstate, initinview, togglecls = this.options.cls.split(/,/), fn = function(){
 
-                var elements = $this.options.target ? $this.element.find($this.options.target) : $this.element,
-                    delayIdx = elements.length === 1 ? 1 : 0,
+                var elements     = $this.options.target ? $this.element.find($this.options.target) : $this.element,
+                    delayIdx     = elements.length === 1 ? 1 : 0,
                     toggleclsIdx = 0;
 
-                elements.each(function (idx) {
+                elements.each(function(idx){
 
-                    var element = UI.$(this),
+                    var element     = UI.$(this),
                         inviewstate = element.data('inviewstate'),
-                        inview = UI.Utils.isInView(element, $this.options),
-                        toggle = element.attr('data-uk-scrollspy-cls') || togglecls[toggleclsIdx].trim();
+                        inview      = UI.Utils.isInView(element, $this.options),
+                        toggle      = element.attr('data-uk-scrollspy-cls') || togglecls[toggleclsIdx].trim();
 
                     if (inview && !inviewstate && !element.data('scrollspy-idle')) {
 
@@ -69,7 +69,7 @@
                             element.trigger('init.uk.scrollspy');
                         }
 
-                        element.data('scrollspy-idle', setTimeout(function () {
+                        element.data('scrollspy-idle', setTimeout(function(){
 
                             element.addClass('uk-scrollspy-inview').toggleClass(toggle).width();
                             element.trigger('inview.uk.scrollspy');
@@ -110,8 +110,8 @@
 
 
     var scrollspynavs = [],
-        checkScrollSpyNavs = function () {
-            for (var i = 0; i < scrollspynavs.length; i++) {
+        checkScrollSpyNavs = function() {
+            for(var i=0; i < scrollspynavs.length; i++) {
                 window.requestAnimationFrame.apply(window, [scrollspynavs[i].check]);
             }
         };
@@ -119,23 +119,23 @@
     UI.component('scrollspynav', {
 
         defaults: {
-            cls: 'uk-active',
-            closest: false,
-            topoffset: 0,
-            leftoffset: 0,
-            smoothscroll: false
+            cls          : 'uk-active',
+            closest      : false,
+            topoffset    : 0,
+            leftoffset   : 0,
+            smoothscroll : false
         },
 
-        boot: function () {
+        boot: function() {
 
             // listen to scroll and resize
             $doc.on('scrolling.uk.document', checkScrollSpyNavs);
             $win.on('resize orientationchange', UI.Utils.debounce(checkScrollSpyNavs, 50));
 
             // init code
-            UI.ready(function (context) {
+            UI.ready(function(context) {
 
-                UI.$('[data-uk-scrollspy-nav]', context).each(function () {
+                UI.$('[data-uk-scrollspy-nav]', context).each(function() {
 
                     var element = UI.$(this);
 
@@ -146,22 +146,20 @@
             });
         },
 
-        init: function () {
+        init: function() {
 
-            var ids = [],
-                links = this.find("a[href^='#']").each(function () {
-                    if (this.getAttribute('href').trim() !== '#') ids.push(this.getAttribute('href'));
-                }),
+            var ids     = [],
+                links   = this.find("a[href^='#']").each(function(){ if(this.getAttribute('href').trim()!=='#') ids.push(this.getAttribute('href')); }),
                 targets = UI.$(ids.join(",")),
 
-                clsActive = this.options.cls,
+                clsActive  = this.options.cls,
                 clsClosest = this.options.closest || this.options.closest;
 
-            var $this = this, inviews, fn = function () {
+            var $this = this, inviews, fn = function(){
 
                 inviews = [];
 
-                for (var i = 0; i < targets.length; i++) {
+                for (var i=0 ; i < targets.length ; i++) {
                     if (UI.Utils.isInView(targets.eq(i), $this.options)) {
                         inviews.push(targets.eq(i));
                     }
@@ -171,9 +169,9 @@
 
                     var navitems,
                         scrollTop = $win.scrollTop(),
-                        target = (function () {
-                            for (var i = 0; i < inviews.length; i++) {
-                                if (inviews[i].offset().top - $this.options.topoffset >= scrollTop) {
+                        target = (function(){
+                            for(var i=0; i< inviews.length;i++){
+                                if (inviews[i].offset().top - $this.options.topoffset >= scrollTop){
                                     return inviews[i];
                                 }
                             }
@@ -183,9 +181,9 @@
 
                     if ($this.options.closest) {
                         links.blur().closest(clsClosest).removeClass(clsActive);
-                        navitems = links.filter("a[href='#" + target.attr('id') + "']").closest(clsClosest).addClass(clsActive);
+                        navitems = links.filter("a[href='#"+target.attr('id')+"']").closest(clsClosest).addClass(clsActive);
                     } else {
-                        navitems = links.removeClass(clsActive).filter("a[href='#" + target.attr("id") + "']").addClass(clsActive);
+                        navitems = links.removeClass(clsActive).filter("a[href='#"+target.attr("id")+"']").addClass(clsActive);
                     }
 
                     $this.element.trigger('inview.uk.scrollspynav', [target, navitems]);
@@ -193,7 +191,7 @@
             };
 
             if (this.options.smoothscroll && UI.smoothScroll) {
-                links.each(function () {
+                links.each(function(){
                     UI.smoothScroll(this, $this.options.smoothscroll);
                 });
             }

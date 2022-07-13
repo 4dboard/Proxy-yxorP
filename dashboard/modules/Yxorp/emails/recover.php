@@ -1,18 +1,15 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head>
+    <head>
 
-    <title></title></head>
-<body>
-<div class="container">
+    </head>   
+    <body>
+        <div class="container">
 
-    <h1>
-        <div style="text-align: center;">{{ $app['app.name'] }}</div>
-    </h1>
+            <h1><center>{{ $app['app.name'] }}</center></h1>
 
-    <div style="text-align: center;"><a href="{{ $target }}?token={{ $token }}">@lang('Reset Password')</a></div>
+            <center><a href="{{ $target }}?token={{ $token }}">@lang('Reset Password')</a></center>
 
-</div>
-</body>
+        </div>
+    </body>
 </html>

@@ -10,9 +10,7 @@
 
 namespace yxorP\Controller;
 
-use yxorP\AuthController;
-
-class RestAdmin extends AuthController
+class RestAdmin extends \yxorP\AuthController
 {
 
     public function __construct($app)
@@ -35,7 +33,7 @@ class RestAdmin extends AuthController
     }
 
 
-    public function save(): bool|array
+    public function save()
     {
 
         $data = $this->param('data', false);

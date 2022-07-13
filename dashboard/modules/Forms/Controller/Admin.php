@@ -10,9 +10,7 @@
 
 namespace Forms\Controller;
 
-use yxorP\AuthController;
-
-class Admin extends AuthController
+class Admin extends \yxorP\AuthController
 {
 
     public function index()
@@ -87,7 +85,7 @@ class Admin extends AuthController
         return $this->render($view, compact('form', 'count'));
     }
 
-    public function find(): bool|array
+    public function find()
     {
 
         $form = $this->app->param('form');
@@ -96,7 +94,7 @@ class Admin extends AuthController
         if (!$form) return false;
 
         $entries = $this->app->module('forms')->find($form, $options);
-        $count = $this->app->module('forms')->count($form, $options['filter'] ?? []);
+        $count = $this->app->module('forms')->count($form, isset($options['filter']) ? $options['filter'] : []);
         $pages = isset($options['limit']) ? ceil($count / $options['limit']) : 1;
         $page = 1;
 
@@ -107,7 +105,7 @@ class Admin extends AuthController
         return compact('entries', 'count', 'pages', 'page');
     }
 
-    public function export($form): bool|string
+    public function export($form)
     {
 
         if (!$this->app->module('yxorp')->hasaccess('forms', 'manage')) {

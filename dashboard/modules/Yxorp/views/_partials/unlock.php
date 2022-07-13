@@ -4,19 +4,17 @@
     <hr>
 
     <div>
-        <button class="uk-button uk-button-large uk-button-danger" onclick="btnUnlockResource()"><i
-                    class="uk-icon-unlock"></i> @lang('Unlock')
-        </button>
+        <button class="uk-button uk-button-large uk-button-danger" onclick="btnUnlockResource()"><i class="uk-icon-unlock"></i> @lang('Unlock')</button>
     </div>
 
     <script>
 
-        window.btnUnlockResource = function () {
+        window.btnUnlockResource = function() {
 
-            const resourceId = '{{ $resourceId }}';
+            var resourceId = '{{ $resourceId }}';
 
-            App.request('/yxorp/utils/unlockResourceId/' + resourceId, {}).then(function (data) {
-
+            App.request('/yxorp/utils/unlockResourceId/'+resourceId, {}).then(function(data) {
+                
                 if (data && data.success) {
                     location.reload();
                 } else {

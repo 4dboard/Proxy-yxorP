@@ -15,17 +15,17 @@
 // Variables
 // ========================================================================
 
-@block-padding-vertical: 20px;
-@block-padding-vertical-large: 50px;
+@block-padding-vertical:                        20px;
+@block-padding-vertical-large:                  50px;
 
-@block-large-padding-vertical: @block-padding-vertical;
-@block-large-padding-vertical-medium: @block-padding-vertical-large;
-@block-large-padding-vertical-large: 100px;
+@block-large-padding-vertical:                  @block-padding-vertical;
+@block-large-padding-vertical-medium:           @block-padding-vertical-large;
+@block-large-padding-vertical-large:            100px;
 
-@block-default-background: #fff;
-@block-muted-background: #f9f9f9;
-@block-primary-background: #00a8e6;
-@block-secondary-background: #222;
+@block-default-background:                      #fff;
+@block-muted-background:                        #f9f9f9;
+@block-primary-background:                      #00a8e6;
+@block-secondary-background:                    #222;
 
 
 /* ========================================================================
@@ -33,20 +33,20 @@
  ========================================================================== */
 
 .uk-block {
-  position: relative;
-  box-sizing: border-box;
-  padding-top: @block-padding-vertical;
-  padding-bottom: @block-padding-vertical;
-  .hook-block;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: @block-padding-vertical;
+    padding-bottom: @block-padding-vertical;
+    .hook-block;
 }
 
 /* Phone landscape and bigger */
 @media (min-width: @breakpoint-medium) {
 
-  .uk-block {
-    padding-top: @block-padding-vertical-large;
-    padding-bottom: @block-padding-vertical-large;
-  }
+    .uk-block {
+        padding-top: @block-padding-vertical-large;
+        padding-bottom: @block-padding-vertical-large;
+    }
 
 }
 
@@ -56,21 +56,17 @@
 
 .uk-block:before,
 .uk-block:after {
-  content: "";
-  display: table;
+    content: "";
+    display: table;
 }
 
-.uk-block:after {
-  clear: both;
-}
+.uk-block:after { clear: both; }
 
 /*
  * Remove margin from the last-child
  */
 
-.uk-block > :last-child {
-  margin-bottom: 0;
-}
+.uk-block > :last-child { margin-bottom: 0; }
 
 
 /* Padding Modifier
@@ -81,27 +77,27 @@
  */
 
 .uk-block-large {
-  padding-top: @block-large-padding-vertical;
-  padding-bottom: @block-large-padding-vertical;
+    padding-top: @block-large-padding-vertical;
+    padding-bottom: @block-large-padding-vertical;
 }
 
 /* Tablets and bigger */
 @media (min-width: @breakpoint-medium) {
 
-  .uk-block-large {
-    padding-top: @block-large-padding-vertical-medium;
-    padding-bottom: @block-large-padding-vertical-medium;
-  }
+    .uk-block-large {
+        padding-top: @block-large-padding-vertical-medium;
+        padding-bottom: @block-large-padding-vertical-medium;
+    }
 
 }
 
 /* Desktop and bigger */
 @media (min-width: @breakpoint-large) {
 
-  .uk-block-large {
-    padding-top: @block-large-padding-vertical-large;
-    padding-bottom: @block-large-padding-vertical-large;
-  }
+    .uk-block-large {
+        padding-top: @block-large-padding-vertical-large;
+        padding-bottom: @block-large-padding-vertical-large;
+    }
 
 }
 
@@ -114,8 +110,8 @@
  */
 
 .uk-block-default {
-  background: @block-default-background;
-  .hook-block-default;
+    background: @block-default-background;
+    .hook-block-default;
 }
 
 /*
@@ -123,8 +119,8 @@
  */
 
 .uk-block-muted {
-  background: @block-muted-background;
-  .hook-block-muted;
+    background: @block-muted-background;
+    .hook-block-muted;
 }
 
 /*
@@ -132,8 +128,8 @@
  */
 
 .uk-block-primary {
-  background: @block-primary-background;
-  .hook-block-primary;
+    background: @block-primary-background;
+    .hook-block-primary;
 }
 
 /*
@@ -141,8 +137,8 @@
  */
 
 .uk-block-secondary {
-  background: @block-secondary-background;
-  .hook-block-secondary;
+    background: @block-secondary-background;
+    .hook-block-secondary;
 }
 
 
@@ -151,20 +147,9 @@
 
 .hook-block-misc;
 
-.hook-block() {
-}
-
-.hook-block-default() {
-}
-
-.hook-block-muted() {
-}
-
-.hook-block-secondary() {
-}
-
-.hook-block-primary() {
-}
-
-.hook-block-misc() {
-}
+.hook-block() {}
+.hook-block-default() {}
+.hook-block-muted() {}
+.hook-block-secondary() {}
+.hook-block-primary() {}
+.hook-block-misc() {}

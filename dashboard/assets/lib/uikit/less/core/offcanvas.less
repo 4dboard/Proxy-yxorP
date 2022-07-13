@@ -27,17 +27,17 @@
 // Variables
 // ========================================================================
 
-@offcanvas-z-index: 1000;
-@offcanvas-background: rgba(0, 0, 0, 0.1);
+@offcanvas-z-index:                             1000;
+@offcanvas-background:                          rgba(0,0,0,0.1);
 
-@offcanvas-bar-width: 270px;
-@offcanvas-bar-background: #333;
+@offcanvas-bar-width:                           270px;
+@offcanvas-bar-background:                      #333;
 
-@offcanvas-panel-margin: 20px 15px;
-@offcanvas-panel-color: #777;
-@offcanvas-panel-link-color: #ccc;
-@offcanvas-panel-link-hover-color: #fff;
-@offcanvas-panel-title-color: @offcanvas-panel-link-color;
+@offcanvas-panel-margin:                        20px 15px;
+@offcanvas-panel-color:                         #777;
+@offcanvas-panel-link-color:                    #ccc;
+@offcanvas-panel-link-hover-color:              #fff;
+@offcanvas-panel-title-color:                   @offcanvas-panel-link-color;
 
 
 /* ========================================================================
@@ -53,25 +53,23 @@
  */
 
 .uk-offcanvas {
-  /* 1 */
-  display: none;
-  /* 2 */
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: @offcanvas-z-index;
-  /* 3 */
-  touch-action: none;
-  /* 4 */
-  background: @offcanvas-background;
-  .hook-offcanvas;
+    /* 1 */
+    display: none;
+    /* 2 */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: @offcanvas-z-index;
+    /* 3 */
+    touch-action: none;
+    /* 4 */
+    background: @offcanvas-background;
+    .hook-offcanvas;
 }
 
-.uk-offcanvas.uk-active {
-  display: block;
-}
+.uk-offcanvas.uk-active { display: block; }
 
 
 /* Sub-object `uk-offcanvas-page`
@@ -85,13 +83,13 @@
  */
 
 .uk-offcanvas-page {
-  /* 1 */
-  position: fixed;
-  /* 2 */
-  -webkit-transition: margin-left 0.3s ease-in-out;
-  transition: margin-left 0.3s ease-in-out;
-  /* 3 */
-  margin-left: 0;
+    /* 1 */
+    position: fixed;
+    /* 2 */
+    -webkit-transition: margin-left 0.3s ease-in-out;
+    transition: margin-left 0.3s ease-in-out;
+    /* 3 */
+    margin-left: 0;
 }
 
 
@@ -108,97 +106,90 @@
  */
 
 .uk-offcanvas-bar {
-  /* 1 */
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  z-index: @offcanvas-z-index + 1;
-  /* 2 */
-  width: @offcanvas-bar-width;
-  max-width: 100%;
-  background: @offcanvas-bar-background;
-  /* 3 */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  /* 4 */
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-  /* 5 */
-  -ms-scroll-chaining: none;
-  .hook-offcanvas-bar;
+    /* 1 */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    z-index: @offcanvas-z-index + 1;
+    /* 2 */
+    width: @offcanvas-bar-width;
+    max-width: 100%;
+    background: @offcanvas-bar-background;
+    /* 3 */
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    /* 4 */
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+    /* 5 */
+    -ms-scroll-chaining: none;
+    .hook-offcanvas-bar;
 }
 
 .uk-offcanvas.uk-active .uk-offcanvas-bar.uk-offcanvas-bar-show {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
 }
 
 /* Modifier `uk-offcanvas-bar-flip`
  ========================================================================== */
 
 .uk-offcanvas-bar-flip {
-  left: auto;
-  right: 0;
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
+    left: auto;
+    right: 0;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
 }
 
 /* Offcanvase modes
  ========================================================================== */
 .uk-offcanvas-bar[mode='none'] {
-  -webkit-transition: none;
-  transition: none;
+    -webkit-transition: none;
+    transition: none;
 }
 
-.uk-offcanvas-bar[mode='reveal'] {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
-  clip: rect(0, 0, 100vh, 0);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out, clip 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out, clip 0.3s ease-in-out;
+.uk-offcanvas-bar[mode='reveal']{
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    clip: rect(0, 0, 100vh, 0);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out, clip 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, clip 0.3s ease-in-out;
 }
 
-.uk-offcanvas-bar-flip[mode='reveal'] {
-  clip: none;
-  -webkit-transform: translateX(100%);
-  transform: translateX(100%);
+.uk-offcanvas-bar-flip[mode='reveal']{
+    clip: none;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
 }
 
 .uk-offcanvas-bar-flip[mode='reveal'] > * {
-  -webkit-transform: translateX(-100%);
-  transform: translateX(-100%);
-  -webkit-transition: -webkit-transform 0.3s ease-in-out;
-  transition: transform 0.3s ease-in-out;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: -webkit-transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
 }
 
 .uk-offcanvas.uk-active .uk-offcanvas-bar-flip[mode='reveal'].uk-offcanvas-bar-show > * {
-  -webkit-transform: translateX(0%);
-  transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
 }
 
 /* Panel in offcanvas
  ========================================================================== */
 
 .uk-offcanvas .uk-panel {
-  margin: @offcanvas-panel-margin;
-  color: @offcanvas-panel-color;
-  .hook-offcanvas-panel;
+    margin: @offcanvas-panel-margin;
+    color: @offcanvas-panel-color;
+    .hook-offcanvas-panel;
 }
 
-.uk-offcanvas .uk-panel-title {
-  color: @offcanvas-panel-title-color;
-}
+.uk-offcanvas .uk-panel-title { color: @offcanvas-panel-title-color; }
 
-.uk-offcanvas .uk-panel a:not([class]) {
-  color: @offcanvas-panel-link-color;
-}
-
-.uk-offcanvas .uk-panel a:not([class]):hover {
-  color: @offcanvas-panel-link-hover-color;
-}
+.uk-offcanvas .uk-panel a:not([class]) { color: @offcanvas-panel-link-color; }
+.uk-offcanvas .uk-panel a:not([class]):hover { color: @offcanvas-panel-link-hover-color; }
 
 
 // Hooks
@@ -206,14 +197,7 @@
 
 .hook-offcanvas-misc;
 
-.hook-offcanvas() {
-}
-
-.hook-offcanvas-bar() {
-}
-
-.hook-offcanvas-panel() {
-}
-
-.hook-offcanvas-misc() {
-}
+.hook-offcanvas() {}
+.hook-offcanvas-bar() {}
+.hook-offcanvas-panel() {}
+.hook-offcanvas-misc() {}
