@@ -2,9 +2,14 @@
 
 # Attribute
 
+
+
+
+
 * Full name: `\Attribute`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
+
 
 ## Constants
 
@@ -21,21 +26,39 @@
 
 ## Properties
 
+
 ### flags
+
+
 
 ```php
 public int $flags
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(int $flags = self::TARGET_ALL): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -43,8 +66,11 @@ public __construct(int $flags = self::TARGET_ALL): mixed
 |-----------|------|-------------|
 | `$flags` | **int** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

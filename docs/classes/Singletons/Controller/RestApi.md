@@ -2,16 +2,33 @@
 
 # RestApi
 
+
+
+
+
 * Full name: `\Singletons\Controller\RestApi`
 * Parent class: [`\LimeExtra\Controller`](../../LimeExtra/Controller.md)
 
+
+
+
 ## Methods
 
+
 ### get
+
+
 
 ```php
 public get(mixed $name = null, mixed $field = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -20,13 +37,25 @@ public get(mixed $name = null, mixed $field = null): mixed
 | `$name` | **mixed** |  |
 | `$field` | **mixed** |  |
 
+
+
+
 ***
 
 ### singleton
 
+
+
 ```php
 public singleton(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -34,13 +63,25 @@ public singleton(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### listSingletons
 
+
+
 ```php
 public listSingletons(mixed $extended = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -48,15 +89,29 @@ public listSingletons(mixed $extended = false): mixed
 |-----------|------|-------------|
 | `$extended` | **mixed** |  |
 
+
+
+
 ***
+
 
 ## Inherited methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $app): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -64,29 +119,65 @@ public __construct(mixed $app): mixed
 |-----------|------|-------------|
 | `$app` | **mixed** |  |
 
+
+
+
 ***
 
 ### before
+
+
 
 ```php
 protected before(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### index
+
+
 
 ```php
 public index(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### render
 
+
+
 ```php
 protected render(mixed $view, mixed $params = array()): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -95,13 +186,25 @@ protected render(mixed $view, mixed $params = array()): mixed
 | `$view` | **mixed** |  |
 | `$params` | **mixed** |  |
 
+
+
+
 ***
 
 ### param
 
+
+
 ```php
 protected param(mixed $key, mixed $default = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -110,13 +213,25 @@ protected param(mixed $key, mixed $default = null): mixed
 | `$key` | **mixed** |  |
 | `$default` | **mixed** |  |
 
+
+
+
 ***
 
 ### module
 
+
+
 ```php
 protected module(mixed $module): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -124,13 +239,25 @@ protected module(mixed $module): mixed
 |-----------|------|-------------|
 | `$module` | **mixed** |  |
 
+
+
+
 ***
 
 ### helper
 
+
+
 ```php
 protected helper(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -138,13 +265,25 @@ protected helper(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 ### stop
 
+
+
 ```php
 protected stop(mixed $data = false, mixed $status = null): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -153,21 +292,45 @@ protected stop(mixed $data = false, mixed $status = null): mixed
 | `$data` | **mixed** |  |
 | `$status` | **mixed** |  |
 
+
+
+
 ***
 
 ### initialize
+
+
 
 ```php
 public initialize(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### __call
 
+
+
 ```php
 public __call(mixed $name, mixed $arguments): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -176,13 +339,25 @@ public __call(mixed $name, mixed $arguments): mixed
 | `$name` | **mixed** |  |
 | `$arguments` | **mixed** |  |
 
+
+
+
 ***
 
 ### __invoke
 
+
+
 ```php
 public __invoke(mixed $helper): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -190,13 +365,25 @@ public __invoke(mixed $helper): mixed
 |-----------|------|-------------|
 | `$helper` | **mixed** |  |
 
+
+
+
 ***
 
 ### __get
 
+
+
 ```php
 public __get(mixed $name): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -204,8 +391,11 @@ public __get(mixed $name): mixed
 |-----------|------|-------------|
 | `$name` | **mixed** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

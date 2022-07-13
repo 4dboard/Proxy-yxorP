@@ -4,13 +4,16 @@
 
 Unified test runner.
 
+
+
 * Full name: `\MongoDB\Tests\UnifiedSpecTests\UnifiedTestRunner`
 * This class is marked as **final** and can't be subclassed
 * This class is a **Final class**
 
 **See Also:**
 
-* https://github.com/mongodb/specifications/blob/master/source/unified-test-format/unified-test-format.rst -
+* https://github.com/mongodb/specifications/blob/master/source/unified-test-format/unified-test-format.rst - 
+
 
 ## Constants
 
@@ -24,61 +27,114 @@ Unified test runner.
 
 ## Properties
 
+
 ### internalClient
+
+
 
 ```php
 private \MongoDB\Tests\UnifiedSpecTests\MongoDB\Client $internalClient
 ```
 
+
+
+
+
+
 ***
 
 ### internalClientUri
+
+
 
 ```php
 private string $internalClientUri
 ```
 
+
+
+
+
+
 ***
 
 ### allowKillAllSessions
+
+
 
 ```php
 private bool $allowKillAllSessions
 ```
 
+
+
+
+
+
 ***
 
 ### entityMap
+
+
 
 ```php
 private \MongoDB\Tests\UnifiedSpecTests\EntityMap $entityMap
 ```
 
+
+
+
+
+
 ***
 
 ### entityMapObserver
+
+
 
 ```php
 private $entityMapObserver
 ```
 
+
+
+
+
+
 ***
 
 ### failPointObserver
+
+
 
 ```php
 private \MongoDB\Tests\UnifiedSpecTests\FailPointObserver $failPointObserver
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(string $internalClientUri): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -86,19 +142,34 @@ public __construct(string $internalClientUri): mixed
 |-----------|------|-------------|
 | `$internalClientUri` | **string** |  |
 
+
+
+
 ***
 
 ### run
 
+
+
 ```php
 public run(\MongoDB\Tests\UnifiedSpecTests\UnifiedTestCase $test): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$test` | **\MongoDB\Tests\UnifiedSpecTests\UnifiedTestCase** |  |
+
+
+
 
 ***
 
@@ -112,27 +183,56 @@ public setEntityMapObserver(callable $entityMapObserver): void
 
 This function is primarily used by the Atlas testing workload executor.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$entityMapObserver` | **callable** |  |
 
+
+
+
 ***
 
 ### doSetUp
+
+
 
 ```php
 private doSetUp(): void
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### doTearDown
 
+
+
 ```php
 private doTearDown(bool $hasFailed): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -140,13 +240,25 @@ private doTearDown(bool $hasFailed): void
 |-----------|------|-------------|
 | `$hasFailed` | **bool** |  |
 
+
+
+
 ***
 
 ### doTestCase
 
+
+
 ```php
 private doTestCase(\stdClass $test, string $schemaVersion, ?array $runOnRequirements = null, ?array $createEntities = null, ?array $initialData = null): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -157,6 +269,9 @@ private doTestCase(\stdClass $test, string $schemaVersion, ?array $runOnRequirem
 | `$runOnRequirements` | **?array** |  |
 | `$createEntities` | **?array** |  |
 | `$initialData` | **?array** |  |
+
+
+
 
 ***
 
@@ -170,35 +285,79 @@ private checkRunOnRequirements(array $runOnRequirements): void
 
 Arguments for RunOnRequirement::isSatisfied() will be cached internally.
 
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$runOnRequirements` | **array** |  |
 
+
+
+
 ***
 
 ### getPrimaryServer
+
+
 
 ```php
 private getPrimaryServer(): \MongoDB\Driver\Server
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getServerParameters
+
+
 
 ```php
 private getServerParameters(): \stdClass
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### getServerVersion
 
+
+
 ```php
 private getServerVersion(): string
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -210,6 +369,16 @@ Return the topology type.
 private getTopology(): string
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isAuthenticated
@@ -220,8 +389,9 @@ Return whether the connection is authenticated.
 private isAuthenticated(): bool
 ```
 
-Note: if the connectionStatus command is not portable for serverless, it may be necessary to rewrite this to instead
-inspect the connection string or consult an environment variable, as is done in libmongoc.
+Note: if the connectionStatus command is not portable for serverless, it
+may be necessary to rewrite this to instead inspect the connection string
+or consult an environment variable, as is done in libmongoc.
 
 
 
@@ -241,6 +411,16 @@ Return whether serverless (i.e. proxy as mongos) is being utilized.
 private isServerless(): bool
 ```
 
+
+
+
+
+
+
+
+
+
+
 ***
 
 ### isSchemaVersionSupported
@@ -251,19 +431,41 @@ Checks is a test format schema version is supported.
 private isSchemaVersionSupported(string $schemaVersion): bool
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$schemaVersion` | **string** |  |
 
+
+
+
 ***
 
 ### isShardedClusterUsingReplicasets
 
+
+
 ```php
 private isShardedClusterUsingReplicasets(): bool
 ```
+
+
+
+
+
+
+
+
+
+
 
 ***
 
@@ -275,8 +477,9 @@ Kill all sessions on the cluster.
 private killAllSessions(): void
 ```
 
-This will clean up any open transactions that may remain from a previously failed test. For sharded clusters, this
-command will be run on all mongos nodes.
+This will clean up any open transactions that may remain from a
+previously failed test. For sharded clusters, this command will be run
+on all mongos nodes.
 
 This method is a NOP if allowKillAllSessions is false.
 
@@ -292,9 +495,18 @@ This method is a NOP if allowKillAllSessions is false.
 
 ### assertOutcome
 
+
+
 ```php
 private assertOutcome(array $outcome): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -302,19 +514,34 @@ private assertOutcome(array $outcome): void
 |-----------|------|-------------|
 | `$outcome` | **array** |  |
 
+
+
+
 ***
 
 ### prepareInitialData
 
+
+
 ```php
 private prepareInitialData(array $initialData): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$initialData` | **array** |  |
+
+
+
 
 ***
 
@@ -326,6 +553,13 @@ Work around potential error executing distinct on sharded clusters.
 private preventStaleDbVersionError(array $operations, \MongoDB\Tests\UnifiedSpecTests\Context $context): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -333,13 +567,14 @@ private preventStaleDbVersionError(array $operations, \MongoDB\Tests\UnifiedSpec
 | `$operations` | **array** |  |
 | `$context` | **\MongoDB\Tests\UnifiedSpecTests\Context** |  |
 
+
+
 **See Also:**
 
-* https://github.com/mongodb/specifications/blob/master/source/transactions/tests/README.rst#why-do-tests-that-run-distinct-sometimes-fail-with-staledbversion
-  -
+* https://github.com/mongodb/specifications/blob/master/source/transactions/tests/README.rst#why-do-tests-that-run-distinct-sometimes-fail-with-staledbversion - 
 
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

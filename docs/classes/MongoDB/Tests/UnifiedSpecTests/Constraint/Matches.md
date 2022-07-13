@@ -4,61 +4,110 @@
 
 Constraint that checks if one value matches another.
 
-The expected value is passed in the constructor. An EntityMap may be supplied for resolving operators (e.g.
-$$matchesEntity). Behavior for allowing extra keys in root documents and processing operators is also configurable.
+The expected value is passed in the constructor. An EntityMap may be supplied
+for resolving operators (e.g. $$matchesEntity). Behavior for allowing extra
+keys in root documents and processing operators is also configurable.
 
 * Full name: `\MongoDB\Tests\UnifiedSpecTests\Constraint\Matches`
 * Parent class: [`Constraint`](../../../../PHPUnit/Framework/Constraint/Constraint.md)
 
+
+
 ## Properties
 
+
 ### entityMap
+
+
 
 ```php
 private \MongoDB\Tests\UnifiedSpecTests\EntityMap $entityMap
 ```
 
+
+
+
+
+
 ***
 
 ### value
+
+
 
 ```php
 private mixed $value
 ```
 
+
+
+
+
+
 ***
 
 ### allowExtraRootKeys
+
+
 
 ```php
 private bool $allowExtraRootKeys
 ```
 
+
+
+
+
+
 ***
 
 ### allowOperators
+
+
 
 ```php
 private bool $allowOperators
 ```
 
+
+
+
+
+
 ***
 
 ### lastFailure
+
+
 
 ```php
 private \SebastianBergmann\Comparator\ComparisonFailure|null $lastFailure
 ```
 
+
+
+
+
+
 ***
 
 ## Methods
 
+
 ### __construct
+
+
 
 ```php
 public __construct(mixed $value, ?\MongoDB\Tests\UnifiedSpecTests\EntityMap $entityMap = null, mixed $allowExtraRootKeys = true, mixed $allowOperators = true): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -69,13 +118,25 @@ public __construct(mixed $value, ?\MongoDB\Tests\UnifiedSpecTests\EntityMap $ent
 | `$allowExtraRootKeys` | **mixed** |  |
 | `$allowOperators` | **mixed** |  |
 
+
+
+
 ***
 
 ### doEvaluate
 
+
+
 ```php
 private doEvaluate(mixed $other, mixed $description = &#039;&#039;, mixed $returnResult = false): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -85,14 +146,26 @@ private doEvaluate(mixed $other, mixed $description = &#039;&#039;, mixed $retur
 | `$description` | **mixed** |  |
 | `$returnResult` | **mixed** |  |
 
+
+
+
 ***
 
 ### assertEquals
+
+
 
 ```php
 private assertEquals(mixed $expected, mixed $actual, string $keyPath): void
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
@@ -100,14 +173,26 @@ private assertEquals(mixed $expected, mixed $actual, string $keyPath): void
 | `$expected` | **mixed** |  |
 | `$actual` | **mixed** |  |
 | `$keyPath` | **string** |  |
+
+
+
 
 ***
 
 ### assertMatches
 
+
+
 ```php
 private assertMatches(mixed $expected, mixed $actual, string $keyPath = &#039;&#039;): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -117,13 +202,25 @@ private assertMatches(mixed $expected, mixed $actual, string $keyPath = &#039;&#
 | `$actual` | **mixed** |  |
 | `$keyPath` | **string** |  |
 
+
+
+
 ***
 
 ### assertMatchesArray
 
+
+
 ```php
 private assertMatchesArray(\MongoDB\Model\BSONArray $expected, mixed $actual, string $keyPath): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -133,13 +230,25 @@ private assertMatchesArray(\MongoDB\Model\BSONArray $expected, mixed $actual, st
 | `$actual` | **mixed** |  |
 | `$keyPath` | **string** |  |
 
+
+
+
 ***
 
 ### assertMatchesDocument
 
+
+
 ```php
 private assertMatchesDocument(\MongoDB\Model\BSONDocument $expected, mixed $actual, string $keyPath): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -149,13 +258,25 @@ private assertMatchesDocument(\MongoDB\Model\BSONDocument $expected, mixed $actu
 | `$actual` | **mixed** |  |
 | `$keyPath` | **string** |  |
 
+
+
+
 ***
 
 ### assertMatchesOperator
 
+
+
 ```php
 private assertMatchesOperator(\MongoDB\Model\BSONDocument $operator, mixed $actual, string $keyPath): void
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -165,31 +286,54 @@ private assertMatchesOperator(\MongoDB\Model\BSONDocument $operator, mixed $actu
 | `$actual` | **mixed** |  |
 | `$keyPath` | **string** |  |
 
+
+
+
 ***
 
 ### doAdditionalFailureDescription
+
+
 
 ```php
 private doAdditionalFailureDescription(mixed $other): mixed
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$other` | **mixed** |  |
 
+
+
 **See Also:**
 
-* \Symfony\Bridge\PhpUnit\ConstraintTrait -
+* \Symfony\Bridge\PhpUnit\ConstraintTrait - 
 
 ***
 
 ### doFailureDescription
 
+
+
 ```php
 private doFailureDescription(mixed $other): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -197,17 +341,28 @@ private doFailureDescription(mixed $other): mixed
 |-----------|------|-------------|
 | `$other` | **mixed** |  |
 
+
+
 **See Also:**
 
-* \Symfony\Bridge\PhpUnit\ConstraintTrait -
+* \Symfony\Bridge\PhpUnit\ConstraintTrait - 
 
 ***
 
 ### doMatches
 
+
+
 ```php
 private doMatches(mixed $other): mixed
 ```
+
+
+
+
+
+
+
 
 **Parameters:**
 
@@ -215,31 +370,51 @@ private doMatches(mixed $other): mixed
 |-----------|------|-------------|
 | `$other` | **mixed** |  |
 
+
+
 **See Also:**
 
-* \Symfony\Bridge\PhpUnit\ConstraintTrait -
+* \Symfony\Bridge\PhpUnit\ConstraintTrait - 
 
 ***
 
 ### doToString
 
+
+
 ```php
 private doToString(): mixed
 ```
 
+
+
+
+
+
+
+
+
+
 **See Also:**
 
-* \Symfony\Bridge\PhpUnit\ConstraintTrait -
+* \Symfony\Bridge\PhpUnit\ConstraintTrait - 
 
 ***
 
 ### failAt
 
+
+
 ```php
 private static failAt(string $message, string $keyPath): void
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -248,15 +423,25 @@ private static failAt(string $message, string $keyPath): void
 | `$message` | **string** |  |
 | `$keyPath` | **string** |  |
 
+
+
+
 ***
 
 ### getOperatorName
+
+
 
 ```php
 private static getOperatorName(\MongoDB\Model\BSONDocument $document): string
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -264,15 +449,25 @@ private static getOperatorName(\MongoDB\Model\BSONDocument $document): string
 |-----------|------|-------------|
 | `$document` | **\MongoDB\Model\BSONDocument** |  |
 
+
+
+
 ***
 
 ### isNumeric
+
+
 
 ```php
 private static isNumeric(mixed $value): mixed
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -280,21 +475,34 @@ private static isNumeric(mixed $value): mixed
 |-----------|------|-------------|
 | `$value` | **mixed** |  |
 
+
+
+
 ***
 
 ### isOperator
+
+
 
 ```php
 private static isOperator(\MongoDB\Model\BSONDocument $document): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$document` | **\MongoDB\Model\BSONDocument** |  |
+
+
+
 
 ***
 
@@ -306,11 +514,16 @@ Prepare a value for comparison.
 private static prepare(mixed $bson): mixed
 ```
 
-If the value is an array or object, it will be converted to a BSONArray or BSONDocument. If $value is an array and
-$isRoot is true, it will be converted to a BSONDocument; otherwise, it will be converted to a BSONArray or BSONDocument
-based on its keys. Each value within an array or document will then be prepared recursively.
+If the value is an array or object, it will be converted to a BSONArray
+or BSONDocument. If $value is an array and $isRoot is true, it will be
+converted to a BSONDocument; otherwise, it will be converted to a
+BSONArray or BSONDocument based on its keys. Each value within an array
+or document will then be prepared recursively.
 
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -318,15 +531,25 @@ based on its keys. Each value within an array or document will then be prepared 
 |-----------|------|-------------|
 | `$bson` | **mixed** |  |
 
+
+
+
 ***
 
 ### isArrayEmptyOrIndexed
+
+
 
 ```php
 private static isArrayEmptyOrIndexed(array $a): bool
 ```
 
+
+
 * This method is **static**.
+
+
+
 
 **Parameters:**
 
@@ -334,8 +557,11 @@ private static isArrayEmptyOrIndexed(array $a): bool
 |-----------|------|-------------|
 | `$a` | **array** |  |
 
+
+
+
 ***
 
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)

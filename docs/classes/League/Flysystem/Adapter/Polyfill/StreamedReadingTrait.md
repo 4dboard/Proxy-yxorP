@@ -4,9 +4,15 @@
 
 A helper for adapters that only handle strings to provide read streams.
 
+
+
 * Full name: `\League\Flysystem\Adapter\Polyfill\StreamedReadingTrait`
 
+
+
+
 ## Methods
+
 
 ### readStream
 
@@ -16,15 +22,24 @@ Reads a file as a stream.
 public readStream(string $path): array|false
 ```
 
+
+
+
+
+
+
+
 **Parameters:**
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
+
+
 **See Also:**
 
-* \League\Flysystem\Adapter\Polyfill\League\Flysystem\ReadInterface::readStream() -
+* \League\Flysystem\Adapter\Polyfill\League\Flysystem\ReadInterface::readStream() - 
 
 ***
 
@@ -36,7 +51,12 @@ Reads a file.
 public read(string $path): array|false
 ```
 
+
+
+
 * This method is **abstract**.
+
+
 
 **Parameters:**
 
@@ -44,12 +64,14 @@ public read(string $path): array|false
 |-----------|------|-------------|
 | `$path` | **string** |  |
 
+
+
 **See Also:**
 
-* \League\Flysystem\Adapter\Polyfill\League\Flysystem\ReadInterface::read() -
+* \League\Flysystem\Adapter\Polyfill\League\Flysystem\ReadInterface::read() - 
 
 ***
 
 ***
-
+> Automatically generated from source code comments on 2022-07-13 using [phpDocumentor](http://www.phpdoc.org/) and [saggre/phpdocumentor-markdown](https://github.com/Saggre/phpDocumentor-markdown)
 
