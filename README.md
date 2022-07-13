@@ -71,7 +71,13 @@ capacity to monitor the system and report any vulnerabilities it identifies.
 
 ![image](https://user-images.githubusercontent.com/6468571/174922574-d5a246b5-c30e-4a63-bc22-4957184feef9.png)
 
-yxorP was developed from the ground up with compatibility with both stateless and stateful servers, such as Apache (like IIS). It is compatible with TCP, UDP, Unix socket, HTTP, and Websocket and facilitates the development of concurrent services that are both rapid and scalable (* Parallel *). It is also compatible with each of these protocols. In addition, it is compatible with each of these protocols without issue. (Swoole). The term "high-performance" is used to describe both of these servers, which are networking frameworks. These two servers are under the category of networking frameworks. According to the description, each of these servers is designed with "event-driven, asynchronous, and non-blocking I/O." This is evident from the description.
+yxorP was developed from the ground up with compatibility with both stateless and stateful servers, such as Apache (like
+IIS). It is compatible with TCP, UDP, Unix socket, HTTP, and Websocket and facilitates the development of concurrent
+services that are both rapid and scalable (* Parallel *). It is also compatible with each of these protocols. In
+addition, it is compatible with each of these protocols without issue. (Swoole). The term "high-performance" is used to
+describe both of these servers, which are networking frameworks. These two servers are under the category of networking
+frameworks. According to the description, each of these servers is designed with "event-driven, asynchronous, and
+non-blocking I/O." This is evident from the description.
 
 ![img.png](https://user-images.githubusercontent.com/6468571/157201823-d408f32b-44e7-4cd5-bd5f-6e14ac741b93.png)
 
