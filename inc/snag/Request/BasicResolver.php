@@ -5,36 +5,6 @@ namespace yxorP\inc\snag\Request;
 class BasicResolver implements ResolverInterface
 {
     /**
-     * Resolve the current request.
-     *
-     * @return RequestInterface
-     */
-    public function resolve()
-    {
-        if (isset($_SERVER['REQUEST_METHOD'])) {
-            if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {
-                $params = static::getInputParams($_SERVER, $_GET, false);
-            } else {
-                $params = static::getInputParams($_SERVER, $_POST, true);
-            }
-
-            return new PhpRequest(
-                $_SERVER,
-                empty($_SESSION) ? [] : $_SESSION,
-                empty($_COOKIE) ? [] : $_COOKIE,
-                static::getRequestHeaders($_SERVER),
-                $params
-            );
-        }
-
-        if (PHP_SAPI === 'cli' && isset($_SERVER['argv'])) {
-            return new ConsoleRequest($_SERVER['argv']);
-        }
-
-        return new NullRequest();
-    }
-
-    /**
      * Get the input params.
      *
      * Note how we're caching this result for ever, across all instances.
@@ -144,5 +114,35 @@ class BasicResolver implements ResolverInterface
         }
 
         return $headers;
+    }
+
+    /**
+     * Resolve the current request.
+     *
+     * @return RequestInterface
+     */
+    public function resolve()
+    {
+        if (isset($_SERVER['REQUEST_METHOD'])) {
+            if (strtoupper($_SERVER['REQUEST_METHOD']) === 'GET') {
+                $params = static::getInputParams($_SERVER, $_GET, false);
+            } else {
+                $params = static::getInputParams($_SERVER, $_POST, true);
+            }
+
+            return new PhpRequest(
+                $_SERVER,
+                empty($_SESSION) ? [] : $_SESSION,
+                empty($_COOKIE) ? [] : $_COOKIE,
+                static::getRequestHeaders($_SERVER),
+                $params
+            );
+        }
+
+        if (PHP_SAPI === 'cli' && isset($_SERVER['argv'])) {
+            return new ConsoleRequest($_SERVER['argv']);
+        }
+
+        return new NullRequest();
     }
 }

@@ -39,17 +39,6 @@ trait AAAStreamDecoratorTrait
         throw new UnexpectedValueException("$name not found on class");
     }
 
-    /**
-     * Implement in subclasses to dynamically create streams when requested.
-     *
-     * @return StreamInterface
-     * @throws BadMethodCallException
-     */
-    protected function createStream()
-    {
-        throw new BadMethodCallException('Not implemented');
-    }
-
     public function __toString()
     {
         try {
@@ -149,5 +138,16 @@ trait AAAStreamDecoratorTrait
     public function write($string)
     {
         return $this->stream->write($string);
+    }
+
+    /**
+     * Implement in subclasses to dynamically create streams when requested.
+     *
+     * @return StreamInterface
+     * @throws BadMethodCallException
+     */
+    protected function createStream()
+    {
+        throw new BadMethodCallException('Not implemented');
     }
 }

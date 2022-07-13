@@ -132,20 +132,6 @@ class MockHandler implements Countable
         );
     }
 
-    private function invokeStats(
-        RequestInterface  $request,
-        array             $options,
-        ResponseInterface $response = null,
-                          $reason = null
-    )
-    {
-        if (isset($options['on_stats'])) {
-            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
-            $stats = new TransferStats($request, $response, $transferTime, $reason);
-            call_user_func($options['on_stats'], $stats);
-        }
-    }
-
     /**
      * Adds one or more variadic requests, exceptions, callables, or promises
      * to the queue.
@@ -199,5 +185,19 @@ class MockHandler implements Countable
     public function reset()
     {
         $this->queue = [];
+    }
+
+    private function invokeStats(
+        RequestInterface  $request,
+        array             $options,
+        ResponseInterface $response = null,
+                          $reason = null
+    )
+    {
+        if (isset($options['on_stats'])) {
+            $transferTime = isset($options['transfer_time']) ? $options['transfer_time'] : 0;
+            $stats = new TransferStats($request, $response, $transferTime, $reason);
+            call_user_func($options['on_stats'], $stats);
+        }
     }
 }

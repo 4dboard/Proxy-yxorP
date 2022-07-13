@@ -120,6 +120,30 @@ class PhpRequest implements RequestInterface
     }
 
     /**
+     * Get the request context.
+     *
+     * @return string|null
+     */
+    public function getContext()
+    {
+        if (isset($this->server['REQUEST_METHOD']) && isset($this->server['REQUEST_URI'])) {
+            return $this->server['REQUEST_METHOD'] . ' ' . strtok($this->server['REQUEST_URI'], '?');
+        }
+
+        return null;
+    }
+
+    /**
+     * Get the request user id.
+     *
+     * @return string|null
+     */
+    public function getUserId()
+    {
+        return $this->getRequestIp();
+    }
+
+    /**
      * Get the request url.
      *
      * @return string
@@ -149,29 +173,5 @@ class PhpRequest implements RequestInterface
         }
 
         return null;
-    }
-
-    /**
-     * Get the request context.
-     *
-     * @return string|null
-     */
-    public function getContext()
-    {
-        if (isset($this->server['REQUEST_METHOD']) && isset($this->server['REQUEST_URI'])) {
-            return $this->server['REQUEST_METHOD'] . ' ' . strtok($this->server['REQUEST_URI'], '?');
-        }
-
-        return null;
-    }
-
-    /**
-     * Get the request user id.
-     *
-     * @return string|null
-     */
-    public function getUserId()
-    {
-        return $this->getRequestIp();
     }
 }

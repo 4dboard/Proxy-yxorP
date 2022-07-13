@@ -55,42 +55,6 @@ class Client
         return new \yxorP\inc\proxy\Client($options);
     }
 
-    private static function resolveproxyOptions($base, array $options)
-    {
-        $key = proxyCompat::getBaseUriOptionName();
-        $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
-        $path = static::getCaBundlePath();
-        if ($path) {
-            $options['verify'] = $path;
-        }
-        return proxyCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
-    }
-
-    protected static function getCaBundlePath()
-    {
-        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
-            return false;
-        }
-        return realpath(CaBundle::getSystemCaRootBundlePath());
-    }
-
-    private function syncNotifyEndpointWithproxyBaseUri(Configuration $configuration, ClientInterface $proxy)
-    {
-        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
-            return;
-        }
-        $base = proxyCompat::getBaseUri($proxy);
-        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
-            $configuration->setNotifyEndpoint((string)$base);
-        }
-    }
-
-    public function registerMiddleware(callable $middleware)
-    {
-        $this->pipeline->pipe($middleware);
-        return $this;
-    }
-
     public static function make($apiKey = null, $notifyEndpoint = null, $defaults = true)
     {
 
@@ -102,6 +66,31 @@ class Client
             $client->registerDefaultCallbacks();
         }
         return $client;
+    }
+
+    protected static function getCaBundlePath()
+    {
+        if (version_compare(PHP_VERSION, '5.6.0') >= 0 || !class_exists(CaBundle::class)) {
+            return false;
+        }
+        return realpath(CaBundle::getSystemCaRootBundlePath());
+    }
+
+    private static function resolveproxyOptions($base, array $options)
+    {
+        $key = proxyCompat::getBaseUriOptionName();
+        $options[$key] = $base ?: Configuration::NOTIFY_ENDPOINT;
+        $path = static::getCaBundlePath();
+        if ($path) {
+            $options['verify'] = $path;
+        }
+        return proxyCompat::applyRequestOptions($options, ['timeout' => self::DEFAULT_TIMEOUT_S, 'connect_timeout' => self::DEFAULT_TIMEOUT_S,]);
+    }
+
+    public function registerMiddleware(callable $middleware)
+    {
+        $this->pipeline->pipe($middleware);
+        return $this;
     }
 
     public function registerDefaultCallbacks()
@@ -441,5 +430,16 @@ class Client
     public function getRedactedKeys()
     {
         return $this->config->getRedactedKeys();
+    }
+
+    private function syncNotifyEndpointWithproxyBaseUri(Configuration $configuration, ClientInterface $proxy)
+    {
+        if ($configuration->getNotifyEndpoint() !== Configuration::NOTIFY_ENDPOINT) {
+            return;
+        }
+        $base = proxyCompat::getBaseUri($proxy);
+        if (is_string($base) || (is_object($base) && method_exists($base, '__toString'))) {
+            $configuration->setNotifyEndpoint((string)$base);
+        }
     }
 }
