@@ -111,6 +111,21 @@ class LiteDBQuery
         return $this;
     }
 
+    public function where($conditions)
+    {
+
+        if (is_string($conditions)) {
+            $this->conditions[] = $conditions;
+        } else {
+
+            foreach ($conditions as $arg) {
+                $this->conditions[] = $arg;
+            }
+        }
+
+        return $this;
+    }
+
     public function join($type, $join)
     {
         $this->joins .= strtoupper($type) . " JOIN {$join} ";
@@ -157,121 +172,6 @@ class LiteDBQuery
         }
 
         return $this->connection->fetchAll($this->buildSelect());
-    }
-
-    public function where($conditions)
-    {
-
-        if (is_string($conditions)) {
-            $this->conditions[] = $conditions;
-        } else {
-
-            foreach ($conditions as $arg) {
-                $this->conditions[] = $arg;
-            }
-        }
-
-        return $this;
-    }
-
-    public function buildSelect()
-    {
-
-        $fields = $this->fields;
-        $table = $this->table;
-        $joins = $this->joins;
-        $conditions = $this->conditions;
-        $group = $this->group;
-        $having = $this->having;
-        $order = $this->order;
-        $limit = $this->limit;
-        $offset = $this->offset;
-
-        if (is_array($fields)) $fields = implode(', ', $fields);
-        if (is_array($table)) $table = implode(', ', $table);
-        if (is_array($group)) $group = implode(', ', $group);
-        if (is_array($order)) $order = implode(', ', $order);
-
-        $conditions = $this->buildConditions($conditions);
-        $having = $this->buildConditions($having);
-
-        if ($limit) {
-
-            $rt = '';
-
-            if (!strpos(strtolower($limit), 'limit') || strpos(strtolower($limit), 'limit') === 0) {
-                $rt = ' LIMIT';
-            }
-
-            $rt .= ' ' . $limit;
-
-            if ($offset) {
-                $rt .= ' OFFSET ' . $offset;
-            }
-
-            $limit = $rt;
-        }
-
-        if (strlen(trim($conditions)) > 0) $conditions = "WHERE " . $conditions;
-        if (strlen(trim($group)) > 0) $group = "GROUP BY " . $group;
-        if (strlen(trim($having)) > 0) $having = "HAVING " . $conditions;
-        if (strlen(trim($fields)) == 0) $fields = "*";
-        if (strlen(trim($order)) > 0) {
-
-            $driver = strtolower($this->connection->getAttribute(\PDO::ATTR_DRIVER_NAME));
-
-            if ($driver == 'mysql') {
-                $order = str_replace(['RANDOM()'], ['RAND()'], $order);
-            } elseif ($driver == 'sqlite') {
-                $order = str_replace(['RAND()'], ['RANDOM()'], $order);
-            }
-
-            $order = "ORDER BY " . $order;
-        }
-
-        $sql = trim("SELECT {$fields} FROM `{$table}` {$joins} {$conditions} {$group} {$having} {$order} {$limit}");
-
-        return $sql;
-
-    }
-
-    protected function buildConditions($conditions)
-    {
-
-        if (is_string($conditions)) $conditions = array($conditions);
-
-        if (!is_array($conditions) || !count($conditions)) {
-            return '';
-        }
-
-        $_conditions = [];
-
-        foreach ($conditions as $c) {
-
-            $sql = '';
-
-            if (is_string($c)) {
-                $sql = $c;
-            } elseif (is_array($c) && isset($c[0], $c[1])) {
-                $sql = $c[0];
-
-                foreach ($c[1] as $key => $value) {
-                    $sql = str_replace(':' . $key, $this->connection->quote($value), $sql);
-                }
-
-            }
-
-            if (count($_conditions) > 0 && strtoupper(substr($sql, 0, 4)) != 'AND ' && strtoupper(substr($sql, 0, 3)) != 'OR ') {
-                $sql = 'AND ' . $sql;
-            }
-
-            $_conditions[] = $sql;
-        }
-
-
-        $conditions = implode(' ', $_conditions);
-
-        return $conditions;
     }
 
     public function one($conditions = null)
@@ -438,5 +338,106 @@ class LiteDBQuery
     public function drop()
     {
         $this->connection->exec("DROP TABLE `{$this->table}`");
+    }
+
+
+    public function buildSelect()
+    {
+
+        $fields = $this->fields;
+        $table = $this->table;
+        $joins = $this->joins;
+        $conditions = $this->conditions;
+        $group = $this->group;
+        $having = $this->having;
+        $order = $this->order;
+        $limit = $this->limit;
+        $offset = $this->offset;
+
+        if (is_array($fields)) $fields = implode(', ', $fields);
+        if (is_array($table)) $table = implode(', ', $table);
+        if (is_array($group)) $group = implode(', ', $group);
+        if (is_array($order)) $order = implode(', ', $order);
+
+        $conditions = $this->buildConditions($conditions);
+        $having = $this->buildConditions($having);
+
+        if ($limit) {
+
+            $rt = '';
+
+            if (!strpos(strtolower($limit), 'limit') || strpos(strtolower($limit), 'limit') === 0) {
+                $rt = ' LIMIT';
+            }
+
+            $rt .= ' ' . $limit;
+
+            if ($offset) {
+                $rt .= ' OFFSET ' . $offset;
+            }
+
+            $limit = $rt;
+        }
+
+        if (strlen(trim($conditions)) > 0) $conditions = "WHERE " . $conditions;
+        if (strlen(trim($group)) > 0) $group = "GROUP BY " . $group;
+        if (strlen(trim($having)) > 0) $having = "HAVING " . $conditions;
+        if (strlen(trim($fields)) == 0) $fields = "*";
+        if (strlen(trim($order)) > 0) {
+
+            $driver = strtolower($this->connection->getAttribute(\PDO::ATTR_DRIVER_NAME));
+
+            if ($driver == 'mysql') {
+                $order = str_replace(['RANDOM()'], ['RAND()'], $order);
+            } elseif ($driver == 'sqlite') {
+                $order = str_replace(['RAND()'], ['RANDOM()'], $order);
+            }
+
+            $order = "ORDER BY " . $order;
+        }
+
+        $sql = trim("SELECT {$fields} FROM `{$table}` {$joins} {$conditions} {$group} {$having} {$order} {$limit}");
+
+        return $sql;
+
+    }
+
+    protected function buildConditions($conditions)
+    {
+
+        if (is_string($conditions)) $conditions = array($conditions);
+
+        if (!is_array($conditions) || !count($conditions)) {
+            return '';
+        }
+
+        $_conditions = [];
+
+        foreach ($conditions as $c) {
+
+            $sql = '';
+
+            if (is_string($c)) {
+                $sql = $c;
+            } elseif (is_array($c) && isset($c[0], $c[1])) {
+                $sql = $c[0];
+
+                foreach ($c[1] as $key => $value) {
+                    $sql = str_replace(':' . $key, $this->connection->quote($value), $sql);
+                }
+
+            }
+
+            if (count($_conditions) > 0 && strtoupper(substr($sql, 0, 4)) != 'AND ' && strtoupper(substr($sql, 0, 3)) != 'OR ') {
+                $sql = 'AND ' . $sql;
+            }
+
+            $_conditions[] = $sql;
+        }
+
+
+        $conditions = implode(' ', $_conditions);
+
+        return $conditions;
     }
 }
