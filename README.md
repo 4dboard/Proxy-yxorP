@@ -468,16 +468,18 @@ have been preconfigured on the proxy server for your convenience. Consider a sim
 
 ![image](https://user-images.githubusercontent.com/6468571/177675573-c9df68a1-75e6-445a-9432-c0627b0e98a5.png)
 
-Navigate to the root of the project with your browser, register an account and then login. yxorP is database, PHP CURL,
-and Composer compatible. As proxy, yxorP has permission to edit. Cockpit manages a PHAR (
-PHP archive) binary version of proxy that is used by a number of websites. The yxorP customizable web proxy.
-Market-ready proxy systems Not built-in functionality, but event-driven architecture and plugin-based design are
-crucial. Expandable, configurable. YxorP's graphical back-end CMS interface is unique. The hostname of the request
-fetches site-specific information from the backend. modified. Web page content may be rewritten by custom-built engines.
-Any page modifications are preserved. 500 instances quicker than flat-file memory-based cache Memcache and Redis are
-caches. Lack of serialization accelerates cache processing. Snag will support yxorP after a software update. This
-problem has been made compatible with mods. Changing *default logging* in Due to the interoperability of the application
-with error tracking
+Utilize your web browser to go to the root directory of the project. The next step is account registration, followed by
+login. yxorP is Composer-compatible and supports databases, PHP, and CURL. Given that yxorP is operating as their proxy,
+alterations are permissible. Cockpit controls the PHAR (PHP archive) binary version of proxies, which is used by many
+websites. The yxorP web proxy, which permits user experience customisation, is commercially available and deployable.
+However, a plugin-based architecture and event-driven design are required. Expandable, customisable. YxorP offers the
+industry's most potent graphical back-end content management system interface. When a request is made, the hostname will
+be utilized to get site-specific information from the system's backend. modified. Occasionally, specialized engines are
+used to recreate website content. Any adjustments you make to the page are automatically saved. The memory-based cache
+is about 500 times more efficient than the flat-file cache. Memcache and Redis are both caching technologies. Avoiding
+serialization may increase the efficiency of cache processing. After receiving a software upgrade, Snag will soon be
+able to handle yxorP. This problem has been resolved, therefore the upgrading may continue without incident. Due to the
+application's interoperability with other systems and error tracking, the logging must be adjusted.
 
 ![image](https://user-images.githubusercontent.com/6468571/152181949-99b9aaa6-586e-4f64-826d-ec7616535d1c.png) ![image](https://user-images.githubusercontent.com/6468571/157189005-b1eb3398-be00-47a3-825d-c13a90258fc2.png)
 
