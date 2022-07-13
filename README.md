@@ -192,8 +192,11 @@ thesaurus/dictionary items) and without sacrificing quality.
 
 ### Cockpit Back-End Cockpit is awesome if you need a flexible content structure but don't want to be limited in how to
 
-use the content. Cockpit is a perfect match if you want to support multiple devices or need a content management UI for
-static site builders. Build unique applications and let Cockpit feed them with content.
+Implementation is the most efficient approach to use the offered information. Cockpit is a good option to investigate if
+you need to manage a large number of devices or require a content management interface for static site builders. Both of
+these scenarios need cautious cockpit operation. If any of these apply to your situation, you should give them special
+consideration. Each of these occurrences happens sometimes. Construct whole new apps, then provide Cockpit access to
+them so it can feed them content.
 
 ![image](https://user-images.githubusercontent.com/6468571/174488292-66e75484-d57b-472f-8921-661d09387727.png)
 
