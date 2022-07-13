@@ -311,7 +311,8 @@ your consumers always have access to your online resources.
 
 ##### + many more..
 
-There are several additional uses that may be explored, and these are only a few of the more common ones.
+The applications outlined in this page are only a sampling of the many ways in which this proxy may be implemented;
+further information is accessible in our discussion forum.
 
 ![image](https://raw.githubusercontent.com/4dboard/proxy-yxorp/main/asset/logosnag.png)
 
